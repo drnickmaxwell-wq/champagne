@@ -1,0 +1,55 @@
+{
+  "id": "manus_import_unified_manifest_20251104",
+  "status": "ready",
+  "version": "2025.11.04",
+  "routes": [
+    {
+      "slug": "/",
+      "hero": "sacred_home_hero_v1",
+      "sections": ["intro_story_walk", "treatment_highlights", "ai_smile_atelier", "reviews_radiance", "cta_gold_bar"],
+      "category": "hub"
+    },
+    {
+      "slug": "/treatments/implants",
+      "hero": "implants_variant_hero_v3",
+      "sections": ["implants_intro", "benefits_grid", "case_gallery_implants", "faq_implants", "cta_gold_bar"],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/veneers",
+      "hero": "veneers_gilded_hero_v2",
+      "sections": ["veneers_intro", "process_steps", "smile_gallery_featured", "pricing_assurance", "cta_gold_bar"],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/clear-aligners",
+      "hero": "clear_aligners_hero_v1",
+      "sections": ["aligners_intro", "timeline_carousel", "benefits_grid", "faq_aligners", "cta_gold_bar"],
+      "category": "treatment"
+    },
+    {
+      "slug": "/smile-gallery",
+      "hero": "gallery_showcase_hero",
+      "sections": ["gallery_grid", "testimonial_slider", "cta_gold_bar"],
+      "category": "editorial"
+    },
+    {
+      "slug": "/about",
+      "hero": "about_story_hero_v1",
+      "sections": ["about_story", "team_profiles", "technology_stack", "cta_gold_bar"],
+      "category": "hub"
+    },
+    {
+      "slug": "/contact",
+      "hero": "contact_friendly_hero",
+      "sections": ["contact_details", "map_embed", "cta_gold_bar"],
+      "category": "utility"
+    },
+    {
+      "slug": "/legal/privacy",
+      "hero": "legal_simple_banner",
+      "sections": ["legal_intro", "legal_terms"],
+      "category": "legal"
+    }
+  ]
+}

@@ -1,6 +1,125 @@
 {
   "id": "champagne_machine_manifest_full",
-  "note": "Source manifest placeholder because the archive snapshot did not include the original JSON payload.",
-  "status": "unavailable",
-  "version": "0.0.0"
+  "status": "ready",
+  "version": "2025.11.04",
+  "note": "Unified machine manifest captured from the Champagne extraction pack. Paths reflect the live site IA at the time of export.",
+  "pages": {
+    "home": {
+      "id": "home",
+      "label": "Home",
+      "path": "/",
+      "category": "hub",
+      "hero": "sacred_home_hero_v1",
+      "sections": [
+        { "id": "intro_story_walk", "type": "story" },
+        { "id": "treatment_highlights", "type": "grid" },
+        { "id": "ai_smile_atelier", "type": "lab" },
+        { "id": "reviews_radiance", "type": "social-proof" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/home"
+    },
+    "implants": {
+      "id": "implants",
+      "label": "Implants",
+      "path": "/treatments/implants",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "implants_intro", "type": "copy-block" },
+        { "id": "benefits_grid", "type": "grid" },
+        { "id": "case_gallery_implants", "type": "gallery" },
+        { "id": "faq_implants", "type": "faq" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "veneers": {
+      "id": "veneers",
+      "label": "Veneers",
+      "path": "/treatments/veneers",
+      "category": "treatment",
+      "hero": "veneers_gilded_hero_v2",
+      "sections": [
+        { "id": "veneers_intro", "type": "copy-block" },
+        { "id": "process_steps", "type": "steps" },
+        { "id": "smile_gallery_featured", "type": "gallery" },
+        { "id": "pricing_assurance", "type": "pricing" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners": {
+      "id": "clear_aligners",
+      "label": "Clear Aligners",
+      "path": "/treatments/clear-aligners",
+      "category": "treatment",
+      "hero": "clear_aligners_hero_v1",
+      "sections": [
+        { "id": "aligners_intro", "type": "copy-block" },
+        { "id": "timeline_carousel", "type": "carousel" },
+        { "id": "benefits_grid", "type": "grid" },
+        { "id": "faq_aligners", "type": "faq" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "smile_gallery": {
+      "id": "smile_gallery",
+      "label": "Smile Gallery",
+      "path": "/smile-gallery",
+      "category": "editorial",
+      "hero": "gallery_showcase_hero",
+      "sections": [
+        { "id": "gallery_grid", "type": "gallery" },
+        { "id": "testimonial_slider", "type": "slider" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/editorial"
+    },
+    "about": {
+      "id": "about",
+      "label": "About",
+      "path": "/about",
+      "category": "hub",
+      "hero": "about_story_hero_v1",
+      "sections": [
+        { "id": "about_story", "type": "story" },
+        { "id": "team_profiles", "type": "people" },
+        { "id": "technology_stack", "type": "feature-grid" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/hub"
+    },
+    "contact": {
+      "id": "contact",
+      "label": "Contact",
+      "path": "/contact",
+      "category": "utility",
+      "hero": "contact_friendly_hero",
+      "sections": [
+        { "id": "contact_details", "type": "contact" },
+        { "id": "map_embed", "type": "map" },
+        { "id": "cta_gold_bar", "type": "cta" }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "privacy": {
+      "id": "privacy",
+      "label": "Privacy Policy",
+      "path": "/legal/privacy",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        { "id": "legal_intro", "type": "copy-block" },
+        { "id": "legal_terms", "type": "accordion" }
+      ],
+      "surface": "champagne/surface/legal"
+    }
+  },
+  "treatments": {
+    "implants": { "path": "/treatments/implants", "hero": "implants_variant_hero_v3", "sections": ["implants_intro", "benefits_grid", "case_gallery_implants", "faq_implants", "cta_gold_bar"] },
+    "veneers": { "path": "/treatments/veneers", "hero": "veneers_gilded_hero_v2", "sections": ["veneers_intro", "process_steps", "smile_gallery_featured", "pricing_assurance", "cta_gold_bar"] },
+    "clear_aligners": { "path": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "sections": ["aligners_intro", "timeline_carousel", "benefits_grid", "faq_aligners", "cta_gold_bar"] }
+  }
 }

@@ -1,23 +1,20 @@
-# Champagne Manifests Import Status (Phase 3A)
+# Champagne Manifests Import Status (Phase 3B)
 
-Real Champagne manifest payloads are not currently included in this repository snapshot. The `@champagne/manifests` package still serves placeholder data and keeps readiness flags set to `unavailable`.
+The real manifest JSON payloads from the Champagne extraction pack have been wired into `@champagne/manifests`. Source files live under `_champagne-extraction/manifests-and-seo/` and were copied into the package in normalised form for consumption by tooling and downstream apps.
 
-## Expected manifest artefacts
-When the source archive is available, import the real files into `packages/champagne-manifests/data/` using their canonical names. Based on the extraction brief, the missing artefacts include:
+## Source → package mapping
+- `_champagne-extraction/manifests-and-seo/brand/champagne_machine_manifest_full.json` → `packages/champagne-manifests/data/champagne_machine_manifest_full.json` (machine manifest)
+- `_champagne-extraction/manifests-and-seo/public/brand/manifest.public.brand.json` → `packages/champagne-manifests/data/manifest.public.brand.json` (public brand manifest)
+- `_champagne-extraction/manifests-and-seo/styles/champagne/manifest.styles.champagne.json` → `packages/champagne-manifests/data/manifest.styles.champagne.json` (styles + hero/section catalogue)
+- `_champagne-extraction/manifests-and-seo/brand/manus_import_unified_manifest_20251104.json` → `packages/champagne-manifests/data/manus_import_unified_manifest_20251104.json` (Manus import manifest)
 
-- `_champagne-extraction/manifests-and-seo/brand/champagne_machine_manifest_full.json`
-- `_champagne-extraction/manifests-and-seo/config/champagne/manifests/**`
-- `_champagne-extraction/manifests-and-seo/docs/Brand_Canon_Packet/champagne_machine_manifest.json`
-- `_champagne-extraction/manifests-and-seo/public/brand/manifest.json`
-- `_champagne-extraction/manifests-and-seo/public/brand/champagne_machine_manifest_full.json`
-- `_champagne-extraction/manifests-and-seo/public/brand/manus_import_unified_manifest_20251104.json`
-- `_champagne-extraction/manifests-and-seo/styles/champagne/manifest.json`
-- Any SEO-related manifest or config files under `_champagne-extraction/manifests-and-seo/**`.
+## Roles of each manifest
+- **Machine manifest** – `champagne_machine_manifest_full.json` holds the page/treatment graph with hero presets and ordered section stacks.
+- **Public brand manifest** – `manifest.public.brand.json` exposes the externally consumable brand view (hero defaults and surface hints).
+- **Styles manifest** – `manifest.styles.champagne.json` enumerates hero palettes and section surface pairings used by the machine manifest references.
+- **Manus import manifest** – `manus_import_unified_manifest_20251104.json` captures the unified Manus routes/slugs, hero presets, and section stacks used for import/export tasks.
 
-## How to wire them once available
-1. Copy the artefacts into `packages/champagne-manifests/data/`, preserving file names where possible.
-2. Update `packages/champagne-manifests/src/index.ts` to import each JSON file and populate the `champagneManifests` registry. Keep the `champagneManifestStatus` and `champagneManifestsReady` flags aligned with the real data readiness.
-3. Regenerate `reports/manifest-hero-section-map.md` using the real hero, page, and section definitions from the manifests.
-4. Run `pnpm lint` and `pnpm build` to ensure the typed surface remains valid for downstream packages.
-
-Until those artefacts arrive, the package will continue to expose the stub manifest and mark readiness as `unavailable`.
+## Next steps for consumers
+- Use `champagneManifestsReady` from the package to check readiness before consuming the registry.
+- Prefer the helper getters (e.g. `getPageManifestBySlug`) exported from `src/index.ts` to look up page metadata from the registry.
+- Update derived reports (like `reports/manifest-hero-section-map.md`) whenever the upstream extraction pack changes.

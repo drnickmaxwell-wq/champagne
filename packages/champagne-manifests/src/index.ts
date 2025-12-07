@@ -1,4 +1,7 @@
-import manifest from "../data/champagne_machine_manifest_full.json";
+import machineManifestData from "../data/champagne_machine_manifest_full.json";
+import publicBrandManifest from "../data/manifest.public.brand.json";
+import stylesManifest from "../data/manifest.styles.champagne.json";
+import manusImportManifest from "../data/manus_import_unified_manifest_20251104.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -12,8 +15,10 @@ export interface ChampagnePageSection {
 export interface ChampagnePageManifest {
   path?: string;
   hero?: string | Record<string, unknown>;
-  sections?: ChampagnePageSection[];
+  sections?: ChampagnePageSection[] | string[];
   surface?: string;
+  category?: string;
+  label?: string;
   [key: string]: unknown;
 }
 
@@ -34,17 +39,55 @@ export interface ChampagneManifestRegistry {
   manusImport?: unknown;
 }
 
-export const champagneMachineManifest: ChampagneMachineManifest = manifest;
+const champagneMachineManifest: ChampagneMachineManifest = machineManifestData;
 
-export const champagneManifestStatus: ChampagneManifestStatus =
-  manifest.status === "ready"
-    ? "ready"
-    : manifest.status === "stub"
-      ? "stub"
-      : "unavailable";
+const registry: ChampagneManifestRegistry = {
+  core: champagneMachineManifest,
+  public: publicBrandManifest,
+  styles: stylesManifest,
+  manusImport: manusImportManifest,
+};
+
+type StatusCarrier = { status?: ChampagneManifestStatus | string };
+
+const manifestStatuses = [
+  champagneMachineManifest.status,
+  (registry.public as StatusCarrier | undefined)?.status,
+  (registry.styles as StatusCarrier | undefined)?.status,
+  (registry.manusImport as StatusCarrier | undefined)?.status,
+];
+
+const allReady = manifestStatuses.every((status) => status === "ready");
+
+export const champagneManifestStatus: ChampagneManifestStatus = allReady
+  ? "ready"
+  : champagneMachineManifest.status === "ready"
+    ? "stub"
+    : "unavailable";
 
 export const champagneManifestsReady = champagneManifestStatus === "ready";
 
-export const champagneManifests: ChampagneManifestRegistry = {
-  core: champagneMachineManifest,
-};
+export const champagneManifestRegistry: ChampagneManifestRegistry = registry;
+
+const pageCollections = [
+  champagneMachineManifest.pages ?? {},
+  champagneMachineManifest.treatments ?? {},
+];
+
+export function getPageManifestBySlug(slug: string): ChampagnePageManifest | undefined {
+  for (const collection of pageCollections) {
+    const match = Object.values(collection).find((entry) => entry.path === slug);
+    if (match) return match;
+  }
+  return undefined;
+}
+
+export function getHeroPresetForPage(slug: string): string | Record<string, unknown> | undefined {
+  return getPageManifestBySlug(slug)?.hero;
+}
+
+export function getSectionStackForPage(slug: string): (ChampagnePageSection | string)[] | undefined {
+  return getPageManifestBySlug(slug)?.sections;
+}
+
+export { champagneMachineManifest };
