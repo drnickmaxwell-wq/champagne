@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@champagne/tokens/styles/champagne/theme.css";
+@import "../../../packages/champagne-tokens/styles/champagne/theme.css";
 
 html,
 body {
