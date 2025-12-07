@@ -1,0 +1,81 @@
+:root {
+  /* ===== Manus Lux — Canonical Hues ===== */
+  --brand-magenta: #C2185B;
+  --brand-teal:    #40C4B4;
+  --brand-gold:    #D4AF37;     /* deep gold for visuals */
+  --brand-gold-keyline: #F9E8C3;/* soft keyline gold for keylines/accents */
+
+  /* ===== Canonical Gradient (LAW) ===== */
+  --smh-gradient: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-teal) 60%, var(--brand-gold) 100%);
+
+  /* Legacy (diagnostics/rollback only — do not use in new UI) */
+  --smh-gradient-legacy: linear-gradient(135deg,#D94BC6 0%,#00C2C7 100%);
+
+  /* Support gradients derived from canon (avoid raw hex outside tokens) */
+  --iridescent-gradient: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--brand-teal) 70%, white) 0%,
+    color-mix(in oklab, var(--brand-magenta) 70%, white) 100%
+  );
+
+  /* Neutrals and text */
+  --ink:  #0B0D0F;
+  --text: #1A1A1A;
+  --bg:   #FFFFFF;
+
+  /* Legacy token aliases (kept for compatibility) */
+  --smh-ink: var(--ink);
+  --smh-text: var(--text);
+  --smh-primary-ink: var(--ink);
+  --smh-white: #FFFFFF;
+  --smh-gray-200: #E5E7EB;
+  --smh-primary-magenta: var(--brand-magenta);
+  --smh-primary-teal: var(--brand-teal);
+  --smh-accent-gold: var(--brand-gold);
+  --smh-gold: var(--brand-gold);
+  --champagne-keyline-gold: var(--brand-gold-keyline);
+
+  /* Surface sizing */
+  --smh-surface-bg-size: 165% 165%;
+  --smh-surface-bg-position: 18% 38%;
+
+  /* Glass background must be LIGHTER than current */
+  --champagne-glass-bg: color-mix(in oklab, var(--ink) 22%, transparent 78%);
+
+  /* Overlays */
+  --smh-grain-alpha: .04;
+  --smh-vignette-alpha: .06;
+  --smh-particles-alpha: .06;
+  --champagne-grain-alpha: var(--smh-grain-alpha);
+  --champagne-vignette-alpha: var(--smh-vignette-alpha);
+  --champagne-sheen-alpha: .22;
+
+  /* Particles (keep low so they don't mute hue) */
+  --champagne-particles-opacity-d: var(--smh-particles-alpha);
+  --champagne-particles-opacity-m: var(--smh-particles-alpha);
+
+  /* Warm-lift control (0 | 1). Leave default off for safety. */
+  --smh-warm-lift: 0;
+
+  /* Intensity knobs tuned for Manus hue balance. */
+  --smh-warm-lift-magenta-alpha: 0.08;
+  --smh-warm-lift-gold-alpha:    0.03;
+
+  /* Perceptual warm hues (fallbacks only) — keep as tokens. */
+  --smh-warm-magenta: var(--brand-magenta);
+  --smh-warm-rose:    #E24DAA; /* used only inside overlay gradient as var fallback */
+  --smh-warm-gold:    var(--brand-gold);
+
+  /* Manus hero gradient geometry */
+  --smh-grad-angle: 135deg;
+  --smh-grad-stop1: var(--brand-magenta);
+  --smh-grad-stop2: var(--brand-teal);
+  --smh-grad-stop3: var(--brand-gold);
+  --smh-gold-shoulder: color-mix(in oklab, var(--brand-gold) 65%, white 35%);
+  --smh-bg-size: 165% 165%;
+  --smh-bg-pos: 18% 38%;
+}
+
+/* Motion & a11y */
+@media (prefers-reduced-motion: reduce) { :root { --parallax-max: 0px; } }
+@media (prefers-reduced-motion: no-preference) { :root { --parallax-max: 6px; } }

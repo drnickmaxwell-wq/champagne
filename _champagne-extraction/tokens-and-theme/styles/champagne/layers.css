@@ -1,0 +1,15 @@
+.layer-wave {
+  mask-image: url('/assets/manus/waves/wave-mask-desktop.png');
+  mask-size: cover;
+}
+
+.layer-particles {
+  background-image: url('/assets/manus/particles/home-hero-particles.webp');
+  opacity: var(--particles-opacity);
+}
+
+.layer-grain {
+  background-image: url('/assets/manus/textures/home-hero-film-grain.webp');
+  opacity: var(--grain-opacity);
+  mix-blend-mode: soft-light;
+}

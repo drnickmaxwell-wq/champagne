@@ -1,0 +1,375 @@
+/* Champagne Hero Styles - St Mary's House Design System v2.0 */
+/* Includes static + motion layers with prefers-reduced-motion support */
+
+:root {
+  /* Brand Colors */
+  --brand-magenta: #C2185B;
+  --brand-turquoise: #2CBFAE;
+  --brand-turquoise-alt: #40C4B4;
+  --brand-gold: #D4AF37;
+  --paper: #FFFFFF;
+  --ink: #0E1420;
+  
+  /* Gradients */
+  --gradient-champagne: linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%);
+  --gradient-cta: linear-gradient(135deg, #C2185B 0%, #2CBFAE 55%, #D4AF37 100%);
+  
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Radii */
+  --radius-pill: 999px;
+  --radius-lg: 18px;
+  
+  /* Shadows */
+  --shadow-glow: 0 0 1px rgba(255, 255, 255, 0.6), 0 10px 40px rgba(194, 24, 91, 0.25);
+  --shadow-gold-glow: 0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2);
+}
+
+/* Hero Container */
+.champagne-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 96px;
+  min-height: 70vh;
+  overflow: hidden;
+  --champagne-hero-gradient: var(--smh-gradient, var(--gradient-champagne));
+  --champagne-hero-wave-mask-desktop: url('/assets/champagne/waves/wave-mask-desktop.webp');
+  --champagne-hero-wave-mask-mobile: url('/assets/champagne/waves/wave-mask-mobile.webp');
+  --champagne-hero-particles-static: url('/assets/champagne/particles/home-hero-particles.webp');
+  --champagne-hero-film-grain: url('/assets/champagne/textures/home-hero-film-grain.webp');
+  --champagne-hero-brightness: 1;
+  --champagne-hero-contrast: 1;
+  --champagne-hero-vignette: 1;
+  --champagne-hero-caustics-opacity: 0.1;
+  --champagne-hero-glass-opacity: 0.12;
+  --champagne-hero-particles-drift-opacity: 0.06;
+  --champagne-hero-dust-opacity: 0.08;
+  --champagne-hero-static-particles-opacity: 0.08;
+  --champagne-hero-grain-opacity: 0.07;
+}
+
+@media (max-width: 768px) {
+  .champagne-hero {
+    min-height: 68vh;
+    padding-top: 80px;
+  }
+}
+
+/* Layer 1: Gradient Base (z-index: 1) */
+.hero-gradient-base {
+  position: absolute;
+  inset: 0;
+  background: var(--champagne-hero-gradient);
+  z-index: 1;
+  filter: brightness(var(--champagne-hero-brightness)) contrast(var(--champagne-hero-contrast));
+}
+
+.hero-gradient-base::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 80% at 50% 6%,
+    transparent 0%,
+    color-mix(in srgb, var(--ink) 44%, transparent) 86%
+  );
+  opacity: calc(0.12 * var(--champagne-hero-vignette));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Layer 2: Wave Caustics Motion (z-index: 2) */
+.hero-wave-caustics {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: var(--champagne-hero-caustics-opacity);
+  mix-blend-mode: screen;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero-wave-caustics video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 3: Wave Mask Static (z-index: 3) */
+.hero-wave-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background-image: var(--champagne-hero-wave-mask-desktop);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .hero-wave-mask {
+    background-image: var(--champagne-hero-wave-mask-mobile);
+  }
+}
+
+/* Layer 4: Glass Shimmer Motion (z-index: 4) */
+.hero-glass-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  opacity: var(--champagne-hero-glass-opacity);
+  mix-blend-mode: screen;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero-glass-shimmer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 5: Particles Static (z-index: 5) */
+.hero-particles-static {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background-image: var(--champagne-hero-particles-static);
+  background-size: 1024px 1024px;
+  background-repeat: repeat;
+  opacity: var(--champagne-hero-static-particles-opacity);
+  mix-blend-mode: screen;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 6: Particles Drift Motion (z-index: 6) */
+.hero-particles-drift {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  opacity: var(--champagne-hero-particles-drift-opacity);
+  mix-blend-mode: screen;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero-particles-drift video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 7: Gold Dust Drift Motion (z-index: 7) */
+.hero-gold-dust-drift {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  opacity: var(--champagne-hero-dust-opacity);
+  mix-blend-mode: screen;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.hero-gold-dust-drift video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 8: Film Grain (z-index: 8) */
+.hero-film-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  background-image: var(--champagne-hero-film-grain);
+  background-size: 512px 512px;
+  background-repeat: repeat;
+  opacity: var(--champagne-hero-grain-opacity);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Layer 9: Content (z-index: 9) */
+.hero-content {
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  color: var(--paper);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content-wrapper {
+  max-width: 800px;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .hero-content-wrapper {
+    padding: 1.5rem 0;
+  }
+}
+
+.hero-title {
+  color: var(--paper);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+}
+
+.hero-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  font-family: var(--font-body);
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta-primary {
+  background: var(--gradient-cta);
+  color: var(--paper);
+  border: none;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-glow);
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 180px;
+  min-height: 44px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hero-cta-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hero-cta-primary:hover::before {
+  opacity: 1;
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow), 0 12px 32px rgba(194, 24, 91, 0.3);
+}
+
+.hero-cta-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--brand-gold), var(--shadow-gold-glow);
+}
+
+.hero-cta-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--paper);
+  border: 1px solid var(--brand-gold);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  min-width: 180px;
+  min-height: 44px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--brand-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+}
+
+.hero-cta-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--brand-gold), var(--shadow-gold-glow);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced Motion - Hide all motion layers */
+@media (prefers-reduced-motion: reduce) {
+  /* Hide all motion video layers */
+  .hero-wave-caustics,
+  .hero-glass-shimmer,
+  .hero-particles-drift,
+  .hero-gold-dust-drift {
+    display: none !important;
+  }
+  
+  /* Disable parallax transforms */
+  .hero-wave-mask,
+  .hero-particles-static {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Disable content animations */
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta-group {
+    animation: none !important;
+  }
+  
+  /* Disable button hover transforms */
+  .hero-cta-primary:hover,
+  .hero-cta-secondary:hover {
+    transform: none;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Video Element Defaults */
+video {
+  display: block;
+}
+
+/* Hardware Acceleration */
+.hero-wave-caustics,
+.hero-glass-shimmer,
+.hero-particles-drift,
+.hero-gold-dust-drift,
+.hero-wave-mask,
+.hero-particles-static {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

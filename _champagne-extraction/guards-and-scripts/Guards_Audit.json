@@ -1,0 +1,42 @@
+{
+  "present": [
+    "scripts/brand-audit.cjs",
+    "scripts/brand-guard-structure.cjs",
+    "scripts/brand-guard.cjs",
+    "scripts/brand-guard.smoke.mjs",
+    "scripts/brand-lock-guard.cjs",
+    "scripts/brand-report.cjs",
+    "scripts/brand-structure-guard.cjs",
+    "scripts/capture-gradient.cjs",
+    "scripts/compare-manus-to-champagne.mjs",
+    "scripts/freeze-update-filmgrain.mjs",
+    "scripts/generate-champagne-canon.mjs",
+    "scripts/generate-film-grain.mjs",
+    "scripts/guard-hero-freeze.mjs",
+    "scripts/hash-media.mjs",
+    "scripts/hero-smooth-loop.mjs",
+    "scripts/lock-gradient.cjs",
+    "scripts/qa-loop-report.mjs",
+    "scripts/verify-brand-tokens.ts",
+    "scripts/verify-hue.cjs",
+    "tests/brand-lock.spec.ts"
+  ],
+  "created": [
+    "scripts/guard-rogue-hex.mjs",
+    "scripts/guard-preview-only.mjs",
+    "scripts/guard-asset-size.mjs",
+    "scripts/guard-manifest-sync.mjs",
+    "scripts/guard-sacred-routes.mjs",
+    ".github/workflows/brand-freeze.yml",
+    ".github/workflows/guards.yml"
+  ],
+  "workflows": [
+    ".github/workflows/brand-freeze.yml",
+    ".github/workflows/brand-guard-smoke.yml",
+    ".github/workflows/brand-guard.yml",
+    ".github/workflows/brand-nightly.yml",
+    ".github/workflows/guards.yml",
+    ".github/workflows/hero-freeze-check.yml",
+    ".github/workflows/hero-freeze.yml"
+  ]
+}

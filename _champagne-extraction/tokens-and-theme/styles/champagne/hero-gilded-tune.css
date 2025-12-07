@@ -1,0 +1,12 @@
+.champagne-hero[data-tune="gilded"] .hero-gold-dust-drift {
+  mix-blend-mode: var(--gold-dust-blend, screen);
+  opacity: var(--gold-dust-opacity, .12);
+}
+
+.champagne-hero[data-tune="gilded"] .hero-glass-shimmer {
+  opacity: var(--glass-shimmer-opacity, .18);
+}
+
+.champagne-hero[data-tune="gilded"] .hero-particles-drift {
+  opacity: var(--particles-drift-opacity, .08);
+}
