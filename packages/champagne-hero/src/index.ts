@@ -1,7 +1,15 @@
-// Placeholder export for the @champagne/hero package.
-// Hero composition logic and helpers will live here.
+export { BaseChampagneSurface } from "./BaseChampagneSurface";
+export { ChampagneHeroFrame } from "./ChampagneHeroFrame";
+export { HeroPreviewDebug } from "./HeroPreviewDebug";
+export {
+  getAllHeroes,
+  getHeroBySlug,
+  resolveHeroVariant,
+  type HeroRegistryEntry,
+} from "./HeroRegistry";
+
 export const placeholder = {
   package: "@champagne/hero",
   version: "0.0.1",
-  note: "Hero composition logic and helpers will live here."
+  note: "Hero composition logic and helpers will live here.",
 };
