@@ -1,7 +1,8 @@
-// Placeholder export for the @champagne/tokens package.
-// Champagne token system will be defined here later.
-export const placeholder = {
-  package: "@champagne/tokens",
-  version: "0.0.1",
-  note: "Champagne token system will be defined here later."
-};
+import "../styles/champagne/theme.css";
+
+export const champagneTokensVersion = "v1";
+
+/**
+ * Public CSS entry point for consumers who prefer direct stylesheet imports.
+ */
+export const champagneThemeStylesheet = "@champagne/tokens/styles/champagne/theme.css";

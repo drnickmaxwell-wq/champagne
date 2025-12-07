@@ -1,0 +1,50 @@
+:root {
+  /* Canonical surface assets (paths stable; binaries uploaded separately) */
+  --grain-desktop: url("/assets/champagne/film-grain-desktop.webp");
+  --grain-mobile:  url("/assets/champagne/film-grain-mobile.webp");
+  --particles:     url("/assets/champagne/home-hero-particles.webp");
+  --wave-mask:     url("/assets/champagne/wave-mask-desktop.webp");
+}
+
+@media (max-width: 640px) {
+  :root { --wave-mask: url("/assets/champagne/wave-mask-mobile.webp"); }
+}
+
+/* Layer order: gradient → wave mask → particles → grain → glass → content */
+.champagne-surface,
+.champagne-surface-lux {
+  background-image: var(--smh-gradient);
+  position: relative;
+  isolation: isolate;
+}
+
+.champagne-surface::before,
+.champagne-surface-lux::before { /* wave mask */
+  content: "";
+  position: absolute; inset: 0;
+  mask-image: var(--wave-mask);
+  -webkit-mask-image: var(--wave-mask);
+  mask-size: cover; -webkit-mask-size: cover;
+  background: currentColor;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.champagne-surface::after,
+.champagne-surface-lux::after { /* particles + grain */
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--particles), var(--grain-desktop);
+  background-repeat: no-repeat, repeat;
+  background-size: cover, cover;
+  mix-blend-mode: soft-light;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .champagne-surface::after,
+  .champagne-surface-lux::after {
+    background-image: var(--particles), var(--grain-mobile);
+  }
+}

@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../../../packages/champagne-tokens/styles/champagne/theme.css";
+
 html,
 body {
-  @apply bg-neutral-950 text-neutral-100 min-h-screen;
+  @apply min-h-screen;
+  background: var(--bg-ink);
+  color: var(--text-high);
 }
 
 body {

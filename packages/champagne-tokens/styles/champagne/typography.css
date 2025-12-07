@@ -1,0 +1,31 @@
+.text-hero {
+  font-family: 'Playfair Display';
+  font-size: clamp(2.6rem, 4vw, 4rem);
+  font-weight: 600;
+}
+
+.text-title {
+  font-family: 'Playfair Display';
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.text-lead {
+  font-family: Inter;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.text-body {
+  font-family: Inter;
+  font-size: 0.98rem;
+  opacity: 0.95;
+}
+
+.text-eyebrow {
+  font-family: Inter;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
