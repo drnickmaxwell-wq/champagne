@@ -1,17 +1,24 @@
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
+import { Footer } from "./_components/Footer";
+import { Header } from "./_components/Header";
 
-export const metadata: Metadata = {
-  title: "SMH Dental – Web App Placeholder",
-  description: "Placeholder shell for the web app in the champagne-core monorepo.",
+export const metadata = {
+  title: "St Mary’s House Dental – Champagne Core",
+  description: "Neutral skeleton for the Champagne Ecosystem marketing site.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // NOTE: This marketing-only shell; do not handle or store PHI here.
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
-        {children}
+      <body className="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1 px-6 py-10">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
