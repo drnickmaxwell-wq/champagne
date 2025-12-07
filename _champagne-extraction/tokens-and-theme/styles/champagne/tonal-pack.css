@@ -1,0 +1,61 @@
+@import "./tokens.css";
+
+.tonal-dusk {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 140% at 18% 8%, color-mix(in srgb, var(--brand-gold) 12%, transparent), transparent 56%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-ink) 80%, transparent) 0%,
+      color-mix(in srgb, var(--bg-ink) 90%, transparent) 100%
+    );
+  border-radius: clamp(18px, 3vw, 26px);
+  outline: 1px solid color-mix(in srgb, var(--champagne-keyline-gold) 82%, transparent 12%);
+  box-shadow:
+    0 22px 62px color-mix(in srgb, var(--bg-ink) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--brand-white) 8%, transparent);
+  --cpv-card-bg: color-mix(in srgb, var(--bg-ink) 78%, var(--brand-white) 22%);
+  --cpv-gold-keyline: color-mix(in srgb, var(--champagne-keyline-gold) 86%, transparent 8%);
+  --cpv-chip-bg: color-mix(in srgb, var(--bg-ink) 70%, transparent);
+  color: color-mix(in srgb, var(--brand-white) 92%, var(--bg-ink) 8%);
+}
+
+.tonal-ink {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-ink) 88%, transparent) 0%,
+    color-mix(in srgb, var(--bg-ink) 96%, transparent) 100%
+  );
+  border-radius: clamp(18px, 3vw, 26px);
+  outline: 1px solid color-mix(in srgb, var(--champagne-keyline-gold) 80%, transparent 14%);
+  box-shadow:
+    0 24px 66px color-mix(in srgb, var(--bg-ink) 22%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--brand-white) 6%, transparent);
+  --cpv-card-bg: color-mix(in srgb, var(--bg-ink) 86%, var(--brand-white) 14%);
+  --cpv-gold-keyline: color-mix(in srgb, var(--champagne-keyline-gold) 82%, transparent 10%);
+  --cpv-chip-bg: color-mix(in srgb, var(--bg-ink) 76%, transparent);
+  color: color-mix(in srgb, var(--brand-white) 90%, var(--bg-ink) 10%);
+}
+
+.tonal-dusk-to-ink {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(140% 120% at 14% 10%, color-mix(in srgb, var(--brand-gold) 12%, transparent), transparent 62%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--bg-ink) 82%, transparent) 0%,
+      color-mix(in srgb, var(--bg-ink) 94%, transparent) 100%
+    );
+  border-radius: clamp(18px, 3vw, 26px);
+  outline: 1px solid color-mix(in srgb, var(--champagne-keyline-gold) 86%, transparent 8%);
+  box-shadow:
+    0 26px 72px color-mix(in srgb, var(--bg-ink) 24%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--brand-white) 8%, transparent);
+  --cpv-card-bg: color-mix(in srgb, var(--bg-ink) 86%, var(--brand-white) 14%);
+  --cpv-gold-keyline: color-mix(in srgb, var(--champagne-keyline-gold) 88%, transparent 8%);
+  color: color-mix(in srgb, var(--brand-white) 92%, var(--bg-ink) 8%);
+}

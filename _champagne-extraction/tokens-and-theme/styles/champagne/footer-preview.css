@@ -1,0 +1,70 @@
+.footer-luxe-preview {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 3.5rem) clamp(5rem, 8vw, 6.5rem);
+  background: color-mix(in srgb, var(--smh-ink) 94%, var(--smh-ink-soft) 6%);
+  color: color-mix(in srgb, var(--smh-white) 92%, var(--smh-ink) 8%);
+  overflow: hidden;
+}
+
+.footer-luxe-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-magenta) 16%, transparent) 0%, color-mix(in srgb, var(--brand-teal) 14%, transparent) 65%, color-mix(in srgb, var(--brand-gold) 10%, transparent) 98%);
+  background-image: var(--footer-preview-wave, none);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  mask-image: var(--footer-preview-wave-mask, var(--wave-mask));
+  -webkit-mask-image: var(--footer-preview-wave-mask, var(--wave-mask));
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  pointer-events: none;
+}
+
+.footer-luxe-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--footer-preview-texture, var(--grain-desktop)),
+    var(--footer-preview-grain, var(--grain-desktop));
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  mix-blend-mode: soft-light;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.footer-luxe-preview > * {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-luxe-preview a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--brand-magenta) 70%, var(--brand-teal));
+}
+
+.footer-luxe-preview a:hover {
+  color: color-mix(in srgb, var(--brand-magenta) 70%, var(--brand-teal));
+  text-decoration-color: color-mix(in srgb, var(--brand-magenta) 60%, var(--brand-teal) 40%);
+}
+
+.footer-luxe[data-preview="true"] {
+  width: 100%;
+  max-width: min(1180px, 94vw);
+  margin-inline: auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--smh-accent-gold) 36%, transparent);
+}
+
+@media (max-width: 720px) {
+  .footer-luxe[data-preview="true"] {
+    border-radius: 20px;
+  }
+}

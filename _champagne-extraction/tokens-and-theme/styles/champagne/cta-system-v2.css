@@ -1,0 +1,34 @@
+@import "./tokens.css";
+
+.cta-primary-ink-light {
+  --cta-primary-bg-ink: color-mix(in srgb, var(--ink) 88%, var(--brand-white) 12%);
+  --cta-text-on-ink: color-mix(in srgb, var(--brand-white) 96%, var(--bg-ink) 4%);
+  --cta-border-gold: color-mix(in srgb, var(--champagne-keyline-gold) 88%, transparent 8%);
+  --cta-primary-hover-bg: color-mix(in srgb, var(--ink) 92%, var(--brand-white) 8%);
+  --cta-primary-hover-border: color-mix(in srgb, var(--champagne-keyline-gold) 96%, transparent 4%);
+  --cta-primary-hover-shadow: 0 28px 70px color-mix(in srgb, var(--ink) 38%, transparent);
+  --cta-hover-lift: -2px;
+}
+
+.cta-secondary-glass-gold {
+  --cta-border-gold: color-mix(in srgb, var(--champagne-keyline-gold) 88%, transparent 12%);
+  --cta-secondary-hover-bg: color-mix(in srgb, var(--champagne-glass-bg) 82%, var(--brand-gold) 12%);
+  --cta-secondary-hover-border: color-mix(in srgb, var(--champagne-keyline-gold) 96%, transparent 4%);
+  --cta-secondary-hover-shadow: 0 24px 64px color-mix(in srgb, var(--ink) 32%, transparent);
+  --cta-hover-lift: -2px;
+  color: color-mix(in srgb, var(--brand-white) 94%, var(--bg-ink) 6%);
+}
+
+.cta-plate-glass-dusk {
+  background: color-mix(
+    in srgb,
+    var(--champagne-glass-bg) 70%,
+    color-mix(in srgb, var(--bg-ink) 18%, transparent)
+  );
+  border: 1.5px solid color-mix(in srgb, var(--champagne-keyline-gold) 82%, transparent 10%);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--champagne-keyline-gold) 10%, transparent),
+    0 28px 74px color-mix(in srgb, var(--ink) 24%, transparent);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
