@@ -1,0 +1,27 @@
+{
+  "id": "champagne_public_brand_manifest",
+  "status": "ready",
+  "version": "2025.11.04",
+  "brand": {
+    "name": "Champagne",
+    "tagline": "Radiant smiles, precision engineering",
+    "defaultSurface": "champagne/surface/base"
+  },
+  "pages": [
+    { "slug": "/", "hero": "sacred_home_hero_v1", "category": "hub" },
+    { "slug": "/treatments/implants", "hero": "implants_variant_hero_v3", "category": "treatment" },
+    { "slug": "/treatments/veneers", "hero": "veneers_gilded_hero_v2", "category": "treatment" },
+    { "slug": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "category": "treatment" },
+    { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
+    { "slug": "/about", "hero": "about_story_hero_v1", "category": "hub" },
+    { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },
+    { "slug": "/legal/privacy", "hero": "legal_simple_banner", "category": "legal" }
+  ],
+  "surfaces": {
+    "hub": "champagne/surface/hub",
+    "treatment": "champagne/surface/treatment",
+    "editorial": "champagne/surface/editorial",
+    "utility": "champagne/surface/utility",
+    "legal": "champagne/surface/legal"
+  }
+}
