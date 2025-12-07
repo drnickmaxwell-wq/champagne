@@ -1,5 +1,5 @@
 {
-  "name": "@champagne/hero",
+  "name": "@champagne/sections",
   "private": true,
   "version": "0.0.1",
   "main": "src/index.ts",
