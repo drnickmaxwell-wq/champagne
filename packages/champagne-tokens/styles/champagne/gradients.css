@@ -1,0 +1,8 @@
+.champagne-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--brand-magenta) 0%,
+    var(--brand-teal) 60%,
+    var(--brand-soft-gold) 100%
+  );
+}

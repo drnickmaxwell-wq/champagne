@@ -6,7 +6,8 @@
     "strict": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*",
+    "tools/**/*.json"
   ],
   "exclude": [
     "node_modules",

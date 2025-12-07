@@ -4,6 +4,15 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "scripts",
+    "tests",
+    "tools",
+    "Guards_Audit.json",
+    "Guards_Audit_Report.md",
+    "Guards_Baseline_Report.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint ."

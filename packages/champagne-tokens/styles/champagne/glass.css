@@ -1,0 +1,19 @@
+.glass-soft {
+  backdrop-filter: blur(22px);
+  background: var(--surface-glass);
+  border: 1px solid color-mix(in srgb, var(--brand-soft-gold) 40%, transparent);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg);
+}
+
+.glass-card {
+  backdrop-filter: blur(18px);
+  background: var(--surface-glass-deep);
+  border: 1px solid color-mix(in srgb, var(--smh-white) 10%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.glass-soft,
+.glass-card {
+  color: var(--text-high);
+}

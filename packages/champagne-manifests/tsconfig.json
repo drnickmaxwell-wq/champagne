@@ -6,7 +6,8 @@
     "strict": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*",
+    "data/**/*.json"
   ],
   "exclude": [
     "node_modules",
