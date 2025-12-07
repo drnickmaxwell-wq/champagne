@@ -1,6 +1,0 @@
-node_modules
-dist
-.next
-.turbo
-.cache
-pnpm-lock.yaml

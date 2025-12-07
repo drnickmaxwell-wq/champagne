@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Patient Portal – Placeholder",
-  description: "Placeholder shell for the Champagne-core application: portal.",
+  description: "Placeholder shell for the portal app in the champagne-core monorepo.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Patient portal UI shell: all sensitive operations go through the engine service.
+  // NOTE: This patient UI shell; all sensitive operations must go through the engine service.
   return (
     <html lang="en">
       <body className="min-h-screen">

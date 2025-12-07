@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "SMH Dental – Web App Placeholder",
-  description: "Placeholder shell for the Champagne-core application: web.",
+  description: "Placeholder shell for the web app in the champagne-core monorepo.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Marketing-only shell: do not store PHI or clinical data here.
+  // NOTE: This marketing-only shell; do not handle or store PHI here.
   return (
     <html lang="en">
       <body className="min-h-screen">

@@ -1,56 +1,43 @@
-// Root ESLint flat config for champagne-core monorepo
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import globals from "globals";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import nextPlugin from "eslint-plugin-next";
-import globals from "globals";
 
 export default [
   {
     ignores: [
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/.next/**",
-      "**/.turbo/**",
-      "**/.cache/**",
-      "pnpm-lock.yaml",
-      "**/logs/**",
-    ],
+      "node_modules/**",
+      "dist/**",
+      ".next/**",
+      ".turbo/**"
+    ]
   },
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
   {
-    files: ["**/*.{ts,tsx,js,jsx}"],
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
-      parser: tseslint.parser,
-      ecmaVersion: 2022,
-      sourceType: "module",
+      parser: tsParser,
+      parserOptions: {
+        sourceType: "module",
+        ecmaVersion: "latest"
+      },
       globals: {
         ...globals.browser,
-        ...globals.node,
-      },
+        ...globals.node
+      }
     },
     plugins: {
-      "@typescript-eslint": tseslint.plugin,
+      "@typescript-eslint": tsPlugin,
       react: reactPlugin,
-      "react-hooks": reactHooksPlugin,
-      next: nextPlugin,
+      "react-hooks": reactHooksPlugin
     },
     rules: {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
-      ],
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "@typescript-eslint/consistent-type-imports": "warn",
+      "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn"
-    },
-    settings: {
-      react: {
-        version: "detect"
-      }
     }
   }
 ];

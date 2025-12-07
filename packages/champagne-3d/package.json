@@ -1,5 +1,5 @@
 {
-  "name": "@champagne/three-d",
+  "name": "@champagne/3d",
   "private": true,
   "version": "0.0.1",
   "main": "dist/index.js",
