@@ -12,7 +12,12 @@
     "dev:engine": "npm run dev --workspace engine",
     "dev:all": "npm run dev:web",
     "build": "npm run build --workspaces",
-    "lint": "npm run lint --workspaces"
+    "lint": "npm run lint --workspaces",
+    "guard:rogue-hex": "node packages/champagne-guards/scripts/guard-rogue-hex.mjs",
+    "guard:hero-freeze": "node packages/champagne-guards/scripts/guard-hero-freeze.mjs",
+    "guard:manifests": "node packages/champagne-guards/scripts/guard-manifest-sync.mjs",
+    "guard:brand-structure": "node packages/champagne-guards/scripts/brand-structure-guard.cjs",
+    "guard:all": "pnpm guard:rogue-hex && pnpm guard:hero-freeze && pnpm guard:manifests && pnpm guard:brand-structure"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
