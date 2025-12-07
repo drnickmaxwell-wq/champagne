@@ -1,12 +1,5 @@
-import { ChampagneHeroFrame, getHeroBySlug } from "@champagne/hero";
-import { ChampagneSectionRenderer } from "@champagne/sections";
+import ChampagnePageBuilder from "../../_builder/ChampagnePageBuilder";
 
 export default function Page() {
-  const hero = getHeroBySlug("/treatments/implants");
-  return (
-    <main className="space-y-8">
-      <ChampagneHeroFrame heroId={hero.id} headline={hero.label ?? "Implants surface"} />
-      <ChampagneSectionRenderer pageSlug="/treatments/implants" />
-    </main>
-  );
+  return <ChampagnePageBuilder slug="implants" />;
 }
