@@ -1,0 +1,35 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@champagne/tokens": [
+        "../../packages/champagne-tokens/src"
+      ],
+      "@champagne/guards": [
+        "../../packages/champagne-guards/src"
+      ],
+      "@champagne/manifests": [
+        "../../packages/champagne-manifests/src"
+      ],
+      "@champagne/hero": [
+        "../../packages/champagne-hero/src"
+      ],
+      "@champagne/three-d": [
+        "../../packages/champagne-3d/src"
+      ],
+      "@champagne/ai": [
+        "../../packages/champagne-ai/src"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
