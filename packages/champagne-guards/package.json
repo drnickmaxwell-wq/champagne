@@ -15,6 +15,11 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "guard:rogue-hex": "node scripts/guard-rogue-hex.mjs",
+    "guard:hero-freeze": "node scripts/guard-hero-freeze.mjs",
+    "guard:manifests": "node scripts/guard-manifest-sync.mjs",
+    "guard:brand-structure": "node scripts/brand-structure-guard.cjs",
+    "guard:all": "pnpm guard:rogue-hex && pnpm guard:hero-freeze && pnpm guard:manifests && pnpm guard:brand-structure"
   }
 }
