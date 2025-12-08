@@ -1,5 +1,94 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "motionProfiles": [
+    {
+      "id": "motion.softBreath",
+      "maxScale": 1.03,
+      "maxLiftPx": 4,
+      "maxParallaxPxDesktop": 6,
+      "maxParallaxPxMobile": 3,
+      "durationRangeMs": [6000, 12000],
+      "curveToken": "motion-curve-softEaseInOut",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.deepBreath",
+      "maxScale": 1.035,
+      "maxLiftPx": 6,
+      "maxParallaxPxDesktop": 8,
+      "maxParallaxPxMobile": 4,
+      "durationRangeMs": [8000, 14000],
+      "curveToken": "motion-curve-softEaseInOut",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.inkfallDrift",
+      "maxScale": 1.0,
+      "maxLiftPx": 0,
+      "maxParallaxPxDesktop": 4,
+      "maxParallaxPxMobile": 2,
+      "durationRangeMs": [10000, 16000],
+      "curveToken": "motion-curve-slowDrift",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.confidenceShimmer",
+      "maxScale": 1.02,
+      "maxLiftPx": 2,
+      "maxParallaxPxDesktop": 0,
+      "maxParallaxPxMobile": 0,
+      "durationRangeMs": [900, 1400],
+      "curveToken": "motion-curve-rapidEase",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.pulseCalm",
+      "maxScale": 1.02,
+      "maxLiftPx": 2,
+      "maxParallaxPxDesktop": 0,
+      "maxParallaxPxMobile": 0,
+      "durationRangeMs": [2600, 3400],
+      "curveToken": "motion-curve-softPulse",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.parallaxGentle",
+      "maxScale": 1.0,
+      "maxLiftPx": 0,
+      "maxParallaxPxDesktop": 6,
+      "maxParallaxPxMobile": 3,
+      "durationRangeMs": [0, 0],
+      "curveToken": "motion-curve-linear",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.cardLiftSoft",
+      "maxScale": 1.03,
+      "maxLiftPx": 8,
+      "maxParallaxPxDesktop": 0,
+      "maxParallaxPxMobile": 0,
+      "durationRangeMs": [180, 260],
+      "curveToken": "motion-curve-snappyButSoft",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.prmFadeOnly",
+      "maxScale": 1.0,
+      "maxLiftPx": 0,
+      "maxParallaxPxDesktop": 0,
+      "maxParallaxPxMobile": 0,
+      "durationRangeMs": [160, 260],
+      "curveToken": "motion-curve-softEaseOut",
+      "shouldRespectPRM": true
+    },
+    {
+      "id": "motion.staticStill",
+      "maxScale": 1.0,
+      "maxLiftPx": 0,
+      "maxParallaxPxDesktop": 0,
+      "maxParallaxPxMobile": 0,
+      "durationRangeMs": [0, 0],
+      "curveToken": "motion-curve-none",
+      "shouldRespectPRM": true
+    }
+  ]
 }

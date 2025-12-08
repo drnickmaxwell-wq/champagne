@@ -1,5 +1,212 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "fxPresets": [
+    {
+      "id": "fx.water.surfaceRipple_soft",
+      "layer": "weather",
+      "tokens": {
+        "intensity": "fx-intensity-low",
+        "speed": "fx-speed-slow",
+        "distortion": "fx-distortion-subtle",
+        "texture": "fx-texture-waterRipple_soft"
+      },
+      "motionProfile": "motion.softBreath",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "speed": "fx-speed-none",
+          "distortion": "fx-distortion-none"
+        },
+        "motionProfile": "motion.prmFadeOnly"
+      }
+    },
+    {
+      "id": "fx.water.depthCaustics_subtle",
+      "layer": "backgroundGradient",
+      "tokens": {
+        "intensity": "fx-intensity-low",
+        "speed": "fx-speed-verySlow",
+        "distortion": "fx-distortion-soft",
+        "texture": "fx-texture-waterCaustics_soft"
+      },
+      "motionProfile": "motion.softBreath",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "speed": "fx-speed-none",
+          "distortion": "fx-distortion-none"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    },
+    {
+      "id": "fx.particles.champagneMicroBubbles_hero",
+      "layer": "particleField",
+      "tokens": {
+        "intensity": "fx-intensity-veryLow",
+        "speed": "fx-speed-verySlow",
+        "direction": "fx-direction-upwards",
+        "density": "fx-density-sparse",
+        "size": "fx-size-micro",
+        "material": "fx-material-glassSpark",
+        "color": "accentGold_soft"
+      },
+      "motionProfile": "motion.pulseCalm",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "speed": "fx-speed-none",
+          "density": "fx-density-none"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    },
+    {
+      "id": "fx.glass.parallaxSheen_soft",
+      "layer": "glassOverlays",
+      "tokens": {
+        "intensity": "fx-intensity-low",
+        "speed": "fx-speed-slow",
+        "sheen": "fx-sheen-soft",
+        "direction": "fx-direction-diagonal135",
+        "material": "inkGlass_soft"
+      },
+      "motionProfile": "motion.parallaxGentle",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-veryLow",
+          "speed": "fx-speed-none",
+          "sheen": "fx-sheen-static"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    },
+    {
+      "id": "fx.grain.filmSoft_static",
+      "layer": "filmGrain",
+      "tokens": {
+        "intensity": "fx-intensity-veryLow",
+        "texture": "fx-texture-filmGrain_soft"
+      },
+      "motionProfile": "motion.staticStill",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    },
+    {
+      "id": "fx.ink.inkfallDrift_bg",
+      "layer": "backgroundGradient",
+      "tokens": {
+        "intensity": "fx-intensity-low",
+        "speed": "fx-speed-verySlow",
+        "direction": "fx-direction-downwards",
+        "texture": "fx-texture-inkfall_soft",
+        "blendMode": "fx-blend-softOverlay"
+      },
+      "motionProfile": "motion.inkfallDrift",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "speed": "fx-speed-none"
+        },
+        "motionProfile": "motion.prmFadeOnly"
+      }
+    },
+    {
+      "id": "fx.wave.gradientWaveMask_primary",
+      "layer": "backgroundGradient",
+      "tokens": {
+        "intensity": "fx-intensity-low",
+        "speed": "fx-speed-verySlow",
+        "amplitude": "fx-amplitude-subtle",
+        "frequency": "fx-frequency-low",
+        "gradient": "champagneGradient135"
+      },
+      "motionProfile": "motion.softBreath",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "speed": "fx-speed-none",
+          "amplitude": "fx-amplitude-none"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    },
+    {
+      "id": "fx.component.cardHover_liftShadow",
+      "layer": "component",
+      "tokens": {
+        "intensity": "fx-intensity-medium",
+        "shadow": "fx-shadow-softLift",
+        "border": "fx-border-glassSoft",
+        "scale": "fx-scale-subtle"
+      },
+      "motionProfile": "motion.cardLiftSoft",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-low",
+          "shadow": "fx-shadow-softLift",
+          "scale": "fx-scale-none"
+        },
+        "motionProfile": "motion.prmFadeOnly"
+      }
+    },
+    {
+      "id": "fx.component.buttonHover_confidenceShimmer",
+      "layer": "component",
+      "tokens": {
+        "intensity": "fx-intensity-low",
+        "sheen": "fx-sheen-narrow",
+        "direction": "fx-direction-diagonal135",
+        "gradient": "champagneGradient135"
+      },
+      "motionProfile": "motion.confidenceShimmer",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "sheen": "fx-sheen-static"
+        },
+        "motionProfile": "motion.prmFadeOnly"
+      }
+    },
+    {
+      "id": "fx.mist.breathHalo_soft",
+      "layer": "weather",
+      "tokens": {
+        "intensity": "fx-intensity-veryLow",
+        "speed": "fx-speed-verySlow",
+        "texture": "fx-texture-subtleMist",
+        "spread": "fx-spread-localHero"
+      },
+      "motionProfile": "motion.softBreath",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-zero",
+          "speed": "fx-speed-none"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    },
+    {
+      "id": "fx.viewer.techGrid_soft",
+      "layer": "backgroundGradient",
+      "tokens": {
+        "intensity": "fx-intensity-veryLow",
+        "pattern": "fx-pattern-isometricGrid_soft",
+        "speed": "fx-speed-verySlow",
+        "parallax": "fx-parallax-subtle"
+      },
+      "motionProfile": "motion.parallaxGentle",
+      "prmSafeAlternative": {
+        "tokens": {
+          "intensity": "fx-intensity-veryLow",
+          "speed": "fx-speed-none",
+          "parallax": "fx-parallax-none"
+        },
+        "motionProfile": "motion.staticStill"
+      }
+    }
+  ]
 }
