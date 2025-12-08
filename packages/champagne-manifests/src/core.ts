@@ -9,6 +9,22 @@ export interface ChampagnePageSection {
   id?: string;
   type?: string;
   label?: string;
+  ctas?: (ChampagneCTA | string)[];
+  [key: string]: unknown;
+}
+
+export interface ChampagneCTA {
+  id?: string;
+  label?: string;
+  href?: string;
+  preset?: string;
+  [key: string]: unknown;
+}
+
+export interface ChampagnePageCTAConfig {
+  heroCTAs?: (ChampagneCTA | string)[];
+  midPageCTAs?: (ChampagneCTA | string)[];
+  footerCTAs?: (ChampagneCTA | string)[];
   [key: string]: unknown;
 }
 
@@ -20,6 +36,7 @@ export interface ChampagnePageManifest {
   surface?: string;
   category?: string;
   label?: string;
+  ctas?: ChampagnePageCTAConfig;
   [key: string]: unknown;
 }
 

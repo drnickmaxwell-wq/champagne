@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@champagne/cta": "0.0.1",
     "@champagne/hero": "0.0.1",
     "@champagne/manifests": "0.0.1",
     "@champagne/sections": "0.0.1",
