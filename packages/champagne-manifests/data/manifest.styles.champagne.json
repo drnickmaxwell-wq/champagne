@@ -3,39 +3,190 @@
   "status": "ready",
   "version": "2025.11.04",
   "heroes": {
-    "sacred_home_hero_v1": { "palette": "auric", "motion": "calm", "cta": "book_home_eval" },
-    "implants_variant_hero_v3": { "palette": "platinum", "motion": "precision", "cta": "book_implants" },
-    "veneers_gilded_hero_v2": { "palette": "gilded", "motion": "sweep", "cta": "book_veneers" },
-    "clear_aligners_hero_v1": { "palette": "glass", "motion": "float", "cta": "book_aligners" },
-    "gallery_showcase_hero": { "palette": "noir", "motion": "steady", "cta": "view_gallery" },
-    "about_story_hero_v1": { "palette": "champagne", "motion": "calm", "cta": "meet_team" },
-    "contact_friendly_hero": { "palette": "fresh", "motion": "float", "cta": "contact_us" },
-    "legal_simple_banner": { "palette": "linen", "motion": "static", "cta": "scroll" }
+    "sacred_home_hero_v1": {
+      "palette": "auric",
+      "motion": "calm",
+      "cta": "book_home_eval"
+    },
+    "implants_variant_hero_v3": {
+      "palette": "platinum",
+      "motion": "precision",
+      "cta": "book_implants"
+    },
+    "veneers_gilded_hero_v2": {
+      "palette": "gilded",
+      "motion": "sweep",
+      "cta": "book_veneers"
+    },
+    "clear_aligners_hero_v1": {
+      "palette": "glass",
+      "motion": "float",
+      "cta": "book_aligners"
+    },
+    "gallery_showcase_hero": {
+      "palette": "noir",
+      "motion": "steady",
+      "cta": "view_gallery"
+    },
+    "about_story_hero_v1": {
+      "palette": "champagne",
+      "motion": "calm",
+      "cta": "meet_team"
+    },
+    "contact_friendly_hero": {
+      "palette": "fresh",
+      "motion": "float",
+      "cta": "contact_us"
+    },
+    "legal_simple_banner": {
+      "palette": "linen",
+      "motion": "static",
+      "cta": "scroll"
+    },
+    "treatment_neutral_hero_v1": {
+      "palette": "champagne",
+      "motion": "steady",
+      "cta": "book-consultation"
+    },
+    "treatment_tech_focus_hero_v1": {
+      "palette": "platinum",
+      "motion": "precision",
+      "cta": "tour-technology"
+    },
+    "orthodontics_balanced_hero_v1": {
+      "palette": "glass",
+      "motion": "steady",
+      "cta": "start-orthodontics"
+    },
+    "whitening_bright_hero_v1": {
+      "palette": "fresh",
+      "motion": "float",
+      "cta": "book-whitening"
+    },
+    "smile_makeover_hero_v1": {
+      "palette": "gilded",
+      "motion": "sweep",
+      "cta": "plan-smile"
+    },
+    "emergency_support_hero_v1": {
+      "palette": "noir",
+      "motion": "steady",
+      "cta": "call-office"
+    },
+    "periodontal_health_hero_v1": {
+      "palette": "platinum",
+      "motion": "calm",
+      "cta": "book-consultation"
+    }
   },
   "sections": {
-    "intro_story_walk": { "type": "story", "surface": "champagne/surface/home" },
-    "treatment_highlights": { "type": "grid", "surface": "champagne/surface/home" },
-    "ai_smile_atelier": { "type": "lab", "surface": "champagne/surface/home" },
-    "reviews_radiance": { "type": "social-proof", "surface": "champagne/surface/home" },
-    "cta_gold_bar": { "type": "cta", "surface": "champagne/surface/base" },
-    "benefits_grid": { "type": "grid", "surface": "champagne/surface/treatment" },
-    "case_gallery_implants": { "type": "gallery", "surface": "champagne/surface/treatment" },
-    "faq_implants": { "type": "faq", "surface": "champagne/surface/treatment" },
-    "veneers_intro": { "type": "copy-block", "surface": "champagne/surface/treatment" },
-    "process_steps": { "type": "steps", "surface": "champagne/surface/treatment" },
-    "smile_gallery_featured": { "type": "gallery", "surface": "champagne/surface/treatment" },
-    "pricing_assurance": { "type": "pricing", "surface": "champagne/surface/treatment" },
-    "aligners_intro": { "type": "copy-block", "surface": "champagne/surface/treatment" },
-    "timeline_carousel": { "type": "carousel", "surface": "champagne/surface/treatment" },
-    "faq_aligners": { "type": "faq", "surface": "champagne/surface/treatment" },
-    "gallery_grid": { "type": "gallery", "surface": "champagne/surface/editorial" },
-    "testimonial_slider": { "type": "slider", "surface": "champagne/surface/editorial" },
-    "about_story": { "type": "story", "surface": "champagne/surface/hub" },
-    "team_profiles": { "type": "people", "surface": "champagne/surface/hub" },
-    "technology_stack": { "type": "feature-grid", "surface": "champagne/surface/hub" },
-    "contact_details": { "type": "contact", "surface": "champagne/surface/utility" },
-    "map_embed": { "type": "map", "surface": "champagne/surface/utility" },
-    "legal_intro": { "type": "copy-block", "surface": "champagne/surface/legal" },
-    "legal_terms": { "type": "accordion", "surface": "champagne/surface/legal" }
+    "intro_story_walk": {
+      "type": "story",
+      "surface": "champagne/surface/home"
+    },
+    "treatment_highlights": {
+      "type": "grid",
+      "surface": "champagne/surface/home"
+    },
+    "ai_smile_atelier": {
+      "type": "lab",
+      "surface": "champagne/surface/home"
+    },
+    "reviews_radiance": {
+      "type": "social-proof",
+      "surface": "champagne/surface/home"
+    },
+    "cta_gold_bar": {
+      "type": "cta",
+      "surface": "champagne/surface/base"
+    },
+    "benefits_grid": {
+      "type": "grid",
+      "surface": "champagne/surface/treatment"
+    },
+    "case_gallery_implants": {
+      "type": "gallery",
+      "surface": "champagne/surface/treatment"
+    },
+    "faq_implants": {
+      "type": "faq",
+      "surface": "champagne/surface/treatment"
+    },
+    "veneers_intro": {
+      "type": "copy-block",
+      "surface": "champagne/surface/treatment"
+    },
+    "process_steps": {
+      "type": "steps",
+      "surface": "champagne/surface/treatment"
+    },
+    "smile_gallery_featured": {
+      "type": "gallery",
+      "surface": "champagne/surface/treatment"
+    },
+    "pricing_assurance": {
+      "type": "pricing",
+      "surface": "champagne/surface/treatment"
+    },
+    "aligners_intro": {
+      "type": "copy-block",
+      "surface": "champagne/surface/treatment"
+    },
+    "timeline_carousel": {
+      "type": "carousel",
+      "surface": "champagne/surface/treatment"
+    },
+    "faq_aligners": {
+      "type": "faq",
+      "surface": "champagne/surface/treatment"
+    },
+    "gallery_grid": {
+      "type": "gallery",
+      "surface": "champagne/surface/editorial"
+    },
+    "testimonial_slider": {
+      "type": "slider",
+      "surface": "champagne/surface/editorial"
+    },
+    "about_story": {
+      "type": "story",
+      "surface": "champagne/surface/hub"
+    },
+    "team_profiles": {
+      "type": "people",
+      "surface": "champagne/surface/hub"
+    },
+    "technology_stack": {
+      "type": "feature-grid",
+      "surface": "champagne/surface/hub"
+    },
+    "contact_details": {
+      "type": "contact",
+      "surface": "champagne/surface/utility"
+    },
+    "map_embed": {
+      "type": "map",
+      "surface": "champagne/surface/utility"
+    },
+    "legal_intro": {
+      "type": "copy-block",
+      "surface": "champagne/surface/legal"
+    },
+    "legal_terms": {
+      "type": "accordion",
+      "surface": "champagne/surface/legal"
+    },
+    "treatment_overview_copy": {
+      "type": "copy-block",
+      "surface": "champagne/surface/treatment"
+    },
+    "treatment_media_highlight": {
+      "type": "media",
+      "surface": "champagne/surface/treatment"
+    },
+    "treatment_feature_list": {
+      "type": "feature-list",
+      "surface": "champagne/surface/treatment"
+    }
   }
 }

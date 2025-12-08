@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const treatments = [
   { slug: "dental-implants", name: "Dental Implants" },
-  { slug: "invisalign-orthodontics", name: "Invisalign & Orthodontics" },
+  { slug: "clear-aligners", name: "Clear aligner orthodontics (Spark and other systems)" },
   { slug: "smile-makeovers", name: "Smile Makeovers" },
   { slug: "teeth-whitening", name: "Teeth Whitening" },
   { slug: "3d-dentistry-scanning", name: "3D Dentistry & Scanning" },

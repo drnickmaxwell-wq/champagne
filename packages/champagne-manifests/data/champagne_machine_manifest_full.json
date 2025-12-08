@@ -11,26 +11,56 @@
       "category": "hub",
       "hero": "sacred_home_hero_v1",
       "sections": [
-        { "id": "intro_story_walk", "type": "story" },
-        { "id": "treatment_highlights", "type": "grid" },
-        { "id": "ai_smile_atelier", "type": "lab" },
-        { "id": "reviews_radiance", "type": "social-proof" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "intro_story_walk",
+          "type": "story"
+        },
+        {
+          "id": "treatment_highlights",
+          "type": "grid"
+        },
+        {
+          "id": "ai_smile_atelier",
+          "type": "lab"
+        },
+        {
+          "id": "reviews_radiance",
+          "type": "social-proof"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/home"
     },
     "implants": {
       "id": "implants",
-      "label": "Implants",
+      "label": "Implant dentistry",
       "path": "/treatments/implants",
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "implants_intro", "type": "copy-block" },
-        { "id": "benefits_grid", "type": "grid" },
-        { "id": "case_gallery_implants", "type": "gallery" },
-        { "id": "faq_implants", "type": "faq" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "implants_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "benefits_grid",
+          "type": "grid"
+        },
+        {
+          "id": "case_gallery_implants",
+          "type": "gallery"
+        },
+        {
+          "id": "faq_implants",
+          "type": "faq"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -41,26 +71,56 @@
       "category": "treatment",
       "hero": "veneers_gilded_hero_v2",
       "sections": [
-        { "id": "veneers_intro", "type": "copy-block" },
-        { "id": "process_steps", "type": "steps" },
-        { "id": "smile_gallery_featured", "type": "gallery" },
-        { "id": "pricing_assurance", "type": "pricing" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "veneers_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "process_steps",
+          "type": "steps"
+        },
+        {
+          "id": "smile_gallery_featured",
+          "type": "gallery"
+        },
+        {
+          "id": "pricing_assurance",
+          "type": "pricing"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
     "clear_aligners": {
       "id": "clear_aligners",
-      "label": "Clear Aligners",
+      "label": "Clear aligner orthodontics (Spark and other systems)",
       "path": "/treatments/clear-aligners",
       "category": "treatment",
       "hero": "clear_aligners_hero_v1",
       "sections": [
-        { "id": "aligners_intro", "type": "copy-block" },
-        { "id": "timeline_carousel", "type": "carousel" },
-        { "id": "benefits_grid", "type": "grid" },
-        { "id": "faq_aligners", "type": "faq" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "aligners_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "timeline_carousel",
+          "type": "carousel"
+        },
+        {
+          "id": "benefits_grid",
+          "type": "grid"
+        },
+        {
+          "id": "faq_aligners",
+          "type": "faq"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -71,9 +131,18 @@
       "category": "editorial",
       "hero": "gallery_showcase_hero",
       "sections": [
-        { "id": "gallery_grid", "type": "gallery" },
-        { "id": "testimonial_slider", "type": "slider" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "gallery_grid",
+          "type": "gallery"
+        },
+        {
+          "id": "testimonial_slider",
+          "type": "slider"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/editorial"
     },
@@ -84,10 +153,22 @@
       "category": "hub",
       "hero": "about_story_hero_v1",
       "sections": [
-        { "id": "about_story", "type": "story" },
-        { "id": "team_profiles", "type": "people" },
-        { "id": "technology_stack", "type": "feature-grid" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "about_story",
+          "type": "story"
+        },
+        {
+          "id": "team_profiles",
+          "type": "people"
+        },
+        {
+          "id": "technology_stack",
+          "type": "feature-grid"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/hub"
     },
@@ -98,9 +179,18 @@
       "category": "utility",
       "hero": "contact_friendly_hero",
       "sections": [
-        { "id": "contact_details", "type": "contact" },
-        { "id": "map_embed", "type": "map" },
-        { "id": "cta_gold_bar", "type": "cta" }
+        {
+          "id": "contact_details",
+          "type": "contact"
+        },
+        {
+          "id": "map_embed",
+          "type": "map"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
       ],
       "surface": "champagne/surface/utility"
     },
@@ -111,15 +201,363 @@
       "category": "legal",
       "hero": "legal_simple_banner",
       "sections": [
-        { "id": "legal_intro", "type": "copy-block" },
-        { "id": "legal_terms", "type": "accordion" }
+        {
+          "id": "legal_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion"
+        }
       ],
       "surface": "champagne/surface/legal"
+    },
+    "implants_single_tooth": {
+      "id": "implants_single_tooth",
+      "label": "Single tooth implant solutions",
+      "path": "/treatments/implants-single-tooth",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "implants_multiple_teeth": {
+      "id": "implants_multiple_teeth",
+      "label": "Multiple teeth implant options",
+      "path": "/treatments/implants-multiple-teeth",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "implants_full_arch": {
+      "id": "implants_full_arch",
+      "label": "Full arch implant rehabilitation",
+      "path": "/treatments/implants-full-arch",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "3d_implant_restorations": {
+      "id": "3d_implant_restorations",
+      "label": "3D implant restorations (IBEX high-tech)",
+      "path": "/treatments/3d-implant-restorations",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "3d_printed_veneers": {
+      "id": "3d_printed_veneers",
+      "label": "3D printed veneers (IBEX high-tech)",
+      "path": "/treatments/3d-printed-veneers",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_bonding": {
+      "id": "composite_bonding",
+      "label": "Composite bonding",
+      "path": "/treatments/composite-bonding",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "crowns_bridges_restorative": {
+      "id": "crowns_bridges_restorative",
+      "label": "Crowns, bridges & restorative dentistry",
+      "path": "/treatments/crowns-bridges-restorative",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening": {
+      "id": "whitening",
+      "label": "Teeth whitening",
+      "path": "/treatments/whitening",
+      "category": "treatment",
+      "hero": "whitening_bright_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery": {
+      "id": "whitening_in_surgery",
+      "label": "In-surgery whitening",
+      "path": "/treatments/whitening-in-surgery",
+      "category": "treatment",
+      "hero": "whitening_bright_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home": {
+      "id": "whitening_at_home",
+      "label": "Whitening at home",
+      "path": "/treatments/whitening-at-home",
+      "category": "treatment",
+      "hero": "whitening_bright_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "orthodontics": {
+      "id": "orthodontics",
+      "label": "Orthodontics",
+      "path": "/treatments/orthodontics",
+      "category": "treatment",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover": {
+      "id": "full_smile_makeover",
+      "label": "Full smile makeover",
+      "path": "/treatments/full-smile-makeover",
+      "category": "treatment",
+      "hero": "smile_makeover_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_dentistry": {
+      "id": "emergency_dentistry",
+      "label": "Emergency dentistry",
+      "path": "/treatments/emergency-dentistry",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "3d_dentistry_and_technology": {
+      "id": "3d_dentistry_and_technology",
+      "label": "3D dentistry & technology",
+      "path": "/treatments/3d-dentistry-and-technology",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "cbct_3d_scanning": {
+      "id": "cbct_3d_scanning",
+      "label": "CBCT & 3D scanning",
+      "path": "/treatments/cbct-3d-scanning",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "digital_smile_design": {
+      "id": "digital_smile_design",
+      "label": "Digital smile design",
+      "path": "/treatments/digital-smile-design",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "3d_printing_lab": {
+      "id": "3d_printing_lab",
+      "label": "3D printing lab",
+      "path": "/treatments/3d-printing-lab",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "preventative_and_general_dentistry": {
+      "id": "preventative_and_general_dentistry",
+      "label": "Preventative & general dentistry",
+      "path": "/treatments/preventative-and-general-dentistry",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "childrens_dentistry": {
+      "id": "childrens_dentistry",
+      "label": "Children’s dentistry",
+      "path": "/treatments/childrens-dentistry",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "periodontal_gum_care": {
+      "id": "periodontal_gum_care",
+      "label": "Periodontal & gum care",
+      "path": "/treatments/periodontal-gum-care",
+      "category": "treatment",
+      "hero": "periodontal_health_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "endodontics_root_canal": {
+      "id": "endodontics_root_canal",
+      "label": "Endodontics & root canal care",
+      "path": "/treatments/endodontics-root-canal",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "extractions_and_oral_surgery": {
+      "id": "extractions_and_oral_surgery",
+      "label": "Extractions & oral surgery",
+      "path": "/treatments/extractions-and-oral-surgery",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "senior_mature_smile_care": {
+      "id": "senior_mature_smile_care",
+      "label": "Senior & mature smile care",
+      "path": "/treatments/senior-mature-smile-care",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "tmj_jaw_comfort": {
+      "id": "tmj_jaw_comfort",
+      "label": "TMJ & jaw comfort",
+      "path": "/treatments/tmj-jaw-comfort",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
     }
   },
   "treatments": {
-    "implants": { "path": "/treatments/implants", "hero": "implants_variant_hero_v3", "sections": ["implants_intro", "benefits_grid", "case_gallery_implants", "faq_implants", "cta_gold_bar"] },
-    "veneers": { "path": "/treatments/veneers", "hero": "veneers_gilded_hero_v2", "sections": ["veneers_intro", "process_steps", "smile_gallery_featured", "pricing_assurance", "cta_gold_bar"] },
-    "clear_aligners": { "path": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "sections": ["aligners_intro", "timeline_carousel", "benefits_grid", "faq_aligners", "cta_gold_bar"] }
+    "implants": {
+      "path": "/treatments/implants",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "implants_intro",
+        "benefits_grid",
+        "case_gallery_implants",
+        "faq_implants",
+        "cta_gold_bar"
+      ]
+    },
+    "veneers": {
+      "path": "/treatments/veneers",
+      "hero": "veneers_gilded_hero_v2",
+      "sections": [
+        "veneers_intro",
+        "process_steps",
+        "smile_gallery_featured",
+        "pricing_assurance",
+        "cta_gold_bar"
+      ]
+    },
+    "clear_aligners": {
+      "path": "/treatments/clear-aligners",
+      "hero": "clear_aligners_hero_v1",
+      "sections": [
+        "aligners_intro",
+        "timeline_carousel",
+        "benefits_grid",
+        "faq_aligners",
+        "cta_gold_bar"
+      ]
+    }
   }
 }

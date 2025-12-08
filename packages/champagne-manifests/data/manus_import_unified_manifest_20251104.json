@@ -6,50 +6,375 @@
     {
       "slug": "/",
       "hero": "sacred_home_hero_v1",
-      "sections": ["intro_story_walk", "treatment_highlights", "ai_smile_atelier", "reviews_radiance", "cta_gold_bar"],
+      "sections": [
+        "intro_story_walk",
+        "treatment_highlights",
+        "ai_smile_atelier",
+        "reviews_radiance",
+        "cta_gold_bar"
+      ],
       "category": "hub"
     },
     {
       "slug": "/treatments/implants",
       "hero": "implants_variant_hero_v3",
-      "sections": ["implants_intro", "benefits_grid", "case_gallery_implants", "faq_implants", "cta_gold_bar"],
+      "sections": [
+        {
+          "id": "implants_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "benefits_grid",
+          "type": "grid"
+        },
+        {
+          "id": "case_gallery_implants",
+          "type": "gallery"
+        },
+        {
+          "id": "faq_implants",
+          "type": "faq"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
+      ],
       "category": "treatment"
     },
     {
       "slug": "/treatments/veneers",
       "hero": "veneers_gilded_hero_v2",
-      "sections": ["veneers_intro", "process_steps", "smile_gallery_featured", "pricing_assurance", "cta_gold_bar"],
+      "sections": [
+        {
+          "id": "veneers_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "process_steps",
+          "type": "steps"
+        },
+        {
+          "id": "smile_gallery_featured",
+          "type": "gallery"
+        },
+        {
+          "id": "pricing_assurance",
+          "type": "pricing"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
+      ],
       "category": "treatment"
     },
     {
       "slug": "/treatments/clear-aligners",
       "hero": "clear_aligners_hero_v1",
-      "sections": ["aligners_intro", "timeline_carousel", "benefits_grid", "faq_aligners", "cta_gold_bar"],
+      "sections": [
+        {
+          "id": "aligners_intro",
+          "type": "copy-block"
+        },
+        {
+          "id": "timeline_carousel",
+          "type": "carousel"
+        },
+        {
+          "id": "benefits_grid",
+          "type": "grid"
+        },
+        {
+          "id": "faq_aligners",
+          "type": "faq"
+        },
+        {
+          "id": "cta_gold_bar",
+          "type": "cta"
+        }
+      ],
       "category": "treatment"
     },
     {
       "slug": "/smile-gallery",
       "hero": "gallery_showcase_hero",
-      "sections": ["gallery_grid", "testimonial_slider", "cta_gold_bar"],
+      "sections": [
+        "gallery_grid",
+        "testimonial_slider",
+        "cta_gold_bar"
+      ],
       "category": "editorial"
     },
     {
       "slug": "/about",
       "hero": "about_story_hero_v1",
-      "sections": ["about_story", "team_profiles", "technology_stack", "cta_gold_bar"],
+      "sections": [
+        "about_story",
+        "team_profiles",
+        "technology_stack",
+        "cta_gold_bar"
+      ],
       "category": "hub"
     },
     {
       "slug": "/contact",
       "hero": "contact_friendly_hero",
-      "sections": ["contact_details", "map_embed", "cta_gold_bar"],
+      "sections": [
+        "contact_details",
+        "map_embed",
+        "cta_gold_bar"
+      ],
       "category": "utility"
     },
     {
       "slug": "/legal/privacy",
       "hero": "legal_simple_banner",
-      "sections": ["legal_intro", "legal_terms"],
+      "sections": [
+        "legal_intro",
+        "legal_terms"
+      ],
       "category": "legal"
+    },
+    {
+      "slug": "/treatments/implants-single-tooth",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/implants-multiple-teeth",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/implants-full-arch",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/3d-implant-restorations",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/3d-printed-veneers",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/composite-bonding",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/crowns-bridges-restorative",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/whitening",
+      "hero": "whitening_bright_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/whitening-in-surgery",
+      "hero": "whitening_bright_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/whitening-at-home",
+      "hero": "whitening_bright_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/orthodontics",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/full-smile-makeover",
+      "hero": "smile_makeover_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/emergency-dentistry",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/3d-dentistry-and-technology",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/cbct-3d-scanning",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/digital-smile-design",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/3d-printing-lab",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/preventative-and-general-dentistry",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/childrens-dentistry",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/periodontal-gum-care",
+      "hero": "periodontal_health_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/endodontics-root-canal",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/extractions-and-oral-surgery",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/senior-mature-smile-care",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/tmj-jaw-comfort",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "category": "treatment"
     }
   ]
 }
