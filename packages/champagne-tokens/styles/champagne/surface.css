@@ -1,16 +1,36 @@
 :root {
-  /* Canonical surface assets (paths stable; binaries uploaded separately) */
-  --grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop .webp");
-  --grain-mobile:  url("/assets/champagne/film-grain/film-grain-mobile .webp");
-  --particles:     url("/assets/champagne/particles/home-hero-particles.webp");
-  --wave-mask:     url("/assets/champagne/waves/wave-mask-desktop.webp");
+  --champagne-wave-mask-desktop: url("/assets/champagne/waves/wave-mask-desktop.webp");
+  --champagne-wave-mask-mobile: url("/assets/champagne/waves/wave-mask-mobile.webp");
+  --champagne-wave-bg-desktop: url("/assets/champagne/waves/waves-bg-1920.webp");
+  --champagne-wave-bg-mobile: url("/assets/champagne/waves/waves-bg-768.webp");
+  --champagne-overlay-dots: url("/assets/champagne/waves/wave-dots.svg");
+  --champagne-overlay-field: url("/assets/champagne/waves/wave-field.svg");
+  --champagne-particles-primary: url("/assets/champagne/particles/home-hero-particles.webp");
+  --champagne-grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop .webp");
+  --champagne-grain-mobile: url("/assets/champagne/film-grain/film-grain-mobile .webp");
+}
+
+:root {
+  --hero-wave-background-desktop: var(--champagne-wave-bg-desktop);
+  --hero-wave-background-mobile: var(--champagne-wave-bg-mobile);
+  --hero-wave-mask-desktop: var(--champagne-wave-mask-desktop);
+  --hero-wave-mask-mobile: var(--champagne-wave-mask-mobile);
+  --hero-overlay-dots: var(--champagne-overlay-dots);
+  --hero-overlay-field: var(--champagne-overlay-field);
+  --hero-particles: var(--champagne-particles-primary);
+  --hero-grain-desktop: var(--champagne-grain-desktop);
+  --hero-grain-mobile: var(--champagne-grain-mobile);
+  --hero-film-grain-opacity: 0.32;
 }
 
 @media (max-width: 640px) {
-  :root { --wave-mask: url("/assets/champagne/waves/wave-mask-mobile.webp"); }
+  :root {
+    --hero-wave-mask-desktop: var(--champagne-wave-mask-mobile);
+    --hero-wave-background-desktop: var(--champagne-wave-bg-mobile);
+  }
 }
 
-/* Layer order: gradient → wave mask → particles → grain → glass → content */
+/* Layer order: gradient → wave field → overlays → particles → grain → content */
 .champagne-surface,
 .champagne-surface-lux {
   background-image: var(--smh-gradient);
@@ -19,22 +39,25 @@
 }
 
 .champagne-surface::before,
-.champagne-surface-lux::before { /* wave mask */
+.champagne-surface-lux::before {
   content: "";
-  position: absolute; inset: 0;
-  mask-image: var(--wave-mask);
-  -webkit-mask-image: var(--wave-mask);
-  mask-size: cover; -webkit-mask-size: cover;
+  position: absolute;
+  inset: 0;
+  mask-image: var(--hero-wave-mask-desktop);
+  -webkit-mask-image: var(--hero-wave-mask-desktop);
+  mask-size: cover;
+  -webkit-mask-size: cover;
   background: currentColor;
   opacity: 1;
   pointer-events: none;
 }
 
 .champagne-surface::after,
-.champagne-surface-lux::after { /* particles + grain */
+.champagne-surface-lux::after {
   content: "";
-  position: absolute; inset: 0;
-  background-image: var(--particles), var(--grain-desktop);
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-particles), var(--hero-grain-desktop);
   background-repeat: no-repeat, repeat;
   background-size: cover, cover;
   mix-blend-mode: soft-light;
@@ -45,6 +68,6 @@
 @media (max-width: 640px) {
   .champagne-surface::after,
   .champagne-surface-lux::after {
-    background-image: var(--particles), var(--grain-mobile);
+    background-image: var(--hero-particles), var(--hero-grain-mobile);
   }
 }

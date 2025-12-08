@@ -2,6 +2,27 @@ import type { HeroAssetEntry } from "../HeroAssetRegistry";
 
 export type HeroTimeOfDay = "day" | "evening" | "night";
 
+export interface HeroSurfaceLayerDefinition {
+  asset?: string | HeroAssetEntry;
+  blendMode?: string;
+  opacity?: number;
+  prmSafe?: boolean;
+  className?: string;
+}
+
+export interface HeroSurfaceLayer extends HeroSurfaceLayerDefinition {
+  id?: string;
+  path?: string;
+}
+
+export interface HeroSurfaceLayerResolved extends HeroSurfaceLayerDefinition {
+  id?: string;
+  asset?: HeroAssetEntry;
+  path?: string;
+}
+
+export type HeroSurfaceLayerRef = string | HeroSurfaceLayerDefinition;
+
 export interface HeroCTAConfig {
   label: string;
   href: string;
@@ -48,71 +69,71 @@ export interface HeroLayoutConfig {
 
 export interface HeroSurfaceTokenConfig {
   waveMask?: {
-    desktop?: string;
-    mobile?: string;
+    desktop?: HeroSurfaceLayerRef;
+    mobile?: HeroSurfaceLayerRef;
   };
   background?: {
-    desktop?: string;
-    mobile?: string;
+    desktop?: HeroSurfaceLayerRef;
+    mobile?: HeroSurfaceLayerRef;
   };
   gradient?: string;
   overlays?: {
-    dots?: string;
-    field?: string;
+    dots?: HeroSurfaceLayerRef;
+    field?: HeroSurfaceLayerRef;
   };
-  particles?: string;
+  particles?: HeroSurfaceLayerRef;
   grain?: {
-    desktop?: string;
-    mobile?: string;
+    desktop?: HeroSurfaceLayerRef;
+    mobile?: HeroSurfaceLayerRef;
   };
-  motion?: string[];
-  video?: string;
+  motion?: HeroSurfaceLayerRef[];
+  video?: HeroSurfaceLayerRef;
 }
 
 export interface HeroSurfaceConfig {
   waveMask?: {
-    desktop?: string;
-    mobile?: string;
+    desktop?: HeroSurfaceLayer;
+    mobile?: HeroSurfaceLayer;
   };
   background?: {
-    desktop?: string;
-    mobile?: string;
+    desktop?: HeroSurfaceLayer;
+    mobile?: HeroSurfaceLayer;
   };
   gradient?: string;
   overlays?: {
-    dots?: string;
-    field?: string;
+    dots?: HeroSurfaceLayer;
+    field?: HeroSurfaceLayer;
   };
-  particles?: string;
+  particles?: HeroSurfaceLayer;
   grain?: {
-    desktop?: string;
-    mobile?: string;
+    desktop?: HeroSurfaceLayer;
+    mobile?: HeroSurfaceLayer;
   };
-  motion?: string[];
-  video?: string;
+  motion?: HeroSurfaceLayer[];
+  video?: HeroSurfaceLayer;
 }
 
 export interface ResolvedHeroSurfaceConfig {
   waveMask?: {
-    desktop?: HeroAssetEntry;
-    mobile?: HeroAssetEntry;
+    desktop?: HeroSurfaceLayerResolved;
+    mobile?: HeroSurfaceLayerResolved;
   };
   background?: {
-    desktop?: HeroAssetEntry;
-    mobile?: HeroAssetEntry;
+    desktop?: HeroSurfaceLayerResolved;
+    mobile?: HeroSurfaceLayerResolved;
   };
   gradient?: string;
   overlays?: {
-    dots?: HeroAssetEntry;
-    field?: HeroAssetEntry;
+    dots?: HeroSurfaceLayerResolved;
+    field?: HeroSurfaceLayerResolved;
   };
-  particles?: HeroAssetEntry;
+  particles?: HeroSurfaceLayerResolved;
   grain?: {
-    desktop?: HeroAssetEntry;
-    mobile?: HeroAssetEntry;
+    desktop?: HeroSurfaceLayerResolved;
+    mobile?: HeroSurfaceLayerResolved;
   };
-  motion?: HeroAssetEntry[];
-  video?: HeroAssetEntry;
+  motion?: HeroSurfaceLayerResolved[];
+  video?: HeroSurfaceLayerResolved;
 }
 
 export interface HeroBaseConfig {

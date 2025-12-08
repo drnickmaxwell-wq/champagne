@@ -176,8 +176,8 @@ function applyPrm(surface: HeroSurfaceConfig, prm?: boolean): HeroSurfaceConfig 
   if (!prm) return surface;
   return {
     ...surface,
-    motion: [],
-    video: undefined,
+    motion: surface.motion?.filter((entry) => entry?.prmSafe),
+    video: surface.video?.prmSafe ? surface.video : undefined,
   };
 }
 

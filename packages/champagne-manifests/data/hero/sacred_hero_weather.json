@@ -2,22 +2,22 @@
   "day": {
     "tone": "day",
     "surfaces": {
-      "particles": "teal",
-      "motion": ["glass"]
+      "particles": "fx.particlesTeal",
+      "motion": ["fx.glass"]
     }
   },
   "evening": {
     "tone": "evening",
     "surfaces": {
-      "particles": "gold",
-      "motion": ["dust"]
+      "particles": "fx.particlesGold",
+      "motion": ["fx.goldDust"]
     }
   },
   "night": {
     "tone": "night",
     "surfaces": {
-      "particles": "base",
-      "motion": ["wave"]
+      "particles": "fx.particlesPrimary",
+      "motion": ["fx.caustics"]
     }
   }
 }
