@@ -11,6 +11,8 @@ export interface ChampagneHeroFrameProps {
   preset?: string | Record<string, unknown>;
   headline?: string;
   subheadline?: string;
+  eyebrow?: string;
+  strapline?: string;
   cta?: { label: string; href: string };
 }
 
@@ -49,7 +51,7 @@ function resolveSubtitle(preset?: HeroPreset, fallback?: string) {
   return fallback;
 }
 
-export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, cta }: ChampagneHeroFrameProps) {
+export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, eyebrow, strapline, cta }: ChampagneHeroFrameProps) {
   const [showDebug, setShowDebug] = useState(false);
   const [resolvedHero, setResolvedHero] = useState<HeroRegistryEntry>(() => resolveHeroVariant(heroId));
 
@@ -71,7 +73,10 @@ export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, cta 
   const heroType = deriveHeroType(heroId, mergedPreset);
   const layers = extractLayerTokens(mergedPreset);
   const resolvedHeadline = resolveTitle(mergedPreset, headline ?? resolvedHero.label ?? "Champagne hero");
-  const resolvedSubheadline = resolveSubtitle(mergedPreset, subheadline);
+  const resolvedSubheadline = resolveSubtitle(mergedPreset, strapline ?? subheadline);
+  const resolvedEyebrow = eyebrow ?? (mergedPreset && typeof mergedPreset === "object" && typeof mergedPreset.palette === "string"
+    ? `${mergedPreset.palette} treatment`
+    : "Champagne treatment");
 
   const heroBackground = layers.background
     ?? (heroType === "gilded"
@@ -98,21 +103,23 @@ export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, cta 
       <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, background: vignetteLayer, mixBlendMode: "multiply" }} />
       <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0, background: waveLayer, opacity: 0.8 }} />
 
-      <div style={{ display: "grid", gap: "1.15rem" }}>
-        <div style={{ display: "grid", gap: "0.6rem", maxWidth: "720px" }}>
-          <span style={{
-            fontSize: "0.92rem",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "var(--text-medium, rgba(255,255,255,0.7))",
-          }}>
-            {heroType} hero
-          </span>
-          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 800, lineHeight: 1.18 }}>
+      <div style={{ display: "grid", gap: "1.15rem", maxWidth: "960px" }}>
+        <div style={{ display: "grid", gap: "0.55rem", maxWidth: "780px" }}>
+          {resolvedEyebrow && (
+            <span style={{
+              fontSize: "0.92rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--text-medium, rgba(255,255,255,0.7))",
+            }}>
+              {resolvedEyebrow}
+            </span>
+          )}
+          <h1 style={{ fontSize: "clamp(1.9rem, 3.1vw, 2.8rem)", fontWeight: 800, lineHeight: 1.15 }}>
             {resolvedHeadline ?? "Placeholder hero headline"}
           </h1>
           {resolvedSubheadline && (
-            <p style={{ fontSize: "1.05rem", color: "var(--text-medium, rgba(255,255,255,0.78))", lineHeight: 1.6 }}>
+            <p style={{ fontSize: "1.08rem", color: "var(--text-medium, rgba(255,255,255,0.82))", lineHeight: 1.65 }}>
               {resolvedSubheadline}
             </p>
           )}

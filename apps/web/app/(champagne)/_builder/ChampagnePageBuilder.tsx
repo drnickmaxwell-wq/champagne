@@ -23,6 +23,30 @@ function resolveManifest(slug: string) {
   );
 }
 
+function titleCase(input: string) {
+  return input
+    .replace(/[-_]/g, " ")
+    .split(" ")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function deriveHeroContent(manifest?: unknown, fallbackSlug?: string) {
+  const data = (manifest as Record<string, unknown>) ?? {};
+  const label = (data.label as string | undefined)
+    ?? (fallbackSlug ? titleCase(fallbackSlug.replace("/treatments/", "")) : undefined);
+  const eyebrow = (data.eyebrow as string | undefined)
+    ?? (data.overline as string | undefined)
+    ?? (data.category ? titleCase(String(data.category)) : "Treatment");
+  const strapline = (data.strapline as string | undefined)
+    ?? (data.intro as string | undefined)
+    ?? (data.summary as string | undefined)
+    ?? (label ? `What to expect from ${label.toLowerCase()}.` : undefined);
+
+  return { label, eyebrow, strapline };
+}
+
 const surfaceStyle: CSSProperties = {
   padding: "clamp(1.25rem, 3vw, 2.5rem)",
   border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.28))",
@@ -114,6 +138,7 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const heroManifest = getHeroManifest(pagePath) ?? getHeroManifest(slug);
   const heroId = heroManifest?.id ?? (typeof manifest?.hero === "string" ? manifest.hero : manifest?.id ?? pagePath);
   const heroPreset = heroManifest?.preset ?? manifest?.hero;
+  const heroContent = deriveHeroContent(manifest, pagePath);
   const ctaSlots = getCTASlotsForPage(pagePath);
   const heroCTAs = resolveCTAList(ctaSlots.heroCTAs, "primary");
   const midPageCTAs = resolveCTAList(ctaSlots.midPageCTAs, "secondary");
@@ -129,7 +154,9 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
           <ChampagneHeroFrame
             heroId={heroId ?? pagePath}
             preset={heroPreset}
-            headline={manifest?.label as string | undefined}
+            headline={heroContent.label}
+            eyebrow={heroContent.eyebrow}
+            strapline={heroContent.strapline}
             cta={heroCTAs[0] ? { label: heroCTAs[0].label, href: heroCTAs[0].href } : undefined}
           />
           {heroCTAs.length > 0 && (
