@@ -16,6 +16,36 @@ export interface HeroContentConfig {
   secondaryCta?: HeroCTAConfig;
 }
 
+export type HeroMode = "home" | "treatment";
+
+export type HeroEnergyMode = "calm" | "balanced" | "dynamic";
+
+export interface HeroFilmGrainSettings {
+  enabled?: boolean;
+  opacity?: number;
+}
+
+export interface HeroParticleBehavior {
+  density?: number;
+  speed?: number;
+  curve?: "calm" | "sway" | "dynamic";
+}
+
+export interface HeroMotionTuning {
+  parallaxDepth?: number;
+  shimmerIntensity?: number;
+  particleDrift?: number;
+  energyMode?: HeroEnergyMode;
+  particles?: HeroParticleBehavior;
+}
+
+export interface HeroLayoutConfig {
+  contentAlign?: "start" | "center";
+  maxWidth?: number;
+  verticalOffset?: string;
+  padding?: string;
+}
+
 export interface HeroSurfaceTokenConfig {
   waveMask?: {
     desktop?: string;
@@ -25,6 +55,7 @@ export interface HeroSurfaceTokenConfig {
     desktop?: string;
     mobile?: string;
   };
+  gradient?: string;
   overlays?: {
     dots?: string;
     field?: string;
@@ -47,6 +78,7 @@ export interface HeroSurfaceConfig {
     desktop?: string;
     mobile?: string;
   };
+  gradient?: string;
   overlays?: {
     dots?: string;
     field?: string;
@@ -69,6 +101,7 @@ export interface ResolvedHeroSurfaceConfig {
     desktop?: HeroAssetEntry;
     mobile?: HeroAssetEntry;
   };
+  gradient?: string;
   overlays?: {
     dots?: HeroAssetEntry;
     field?: HeroAssetEntry;
@@ -87,6 +120,9 @@ export interface HeroBaseConfig {
   tone?: string;
   content: HeroContentConfig;
   defaultSurfaces: HeroSurfaceTokenConfig;
+  layout?: HeroLayoutConfig;
+  motion?: HeroMotionTuning;
+  filmGrain?: HeroFilmGrainSettings;
 }
 
 export interface HeroVariantConfig {
@@ -95,8 +131,12 @@ export interface HeroVariantConfig {
   tone?: string;
   treatmentSlug?: string;
   timeOfDay?: HeroTimeOfDay;
+  energyMode?: HeroEnergyMode;
   content?: Partial<HeroContentConfig>;
   surfaces?: HeroSurfaceTokenConfig;
+  layout?: HeroLayoutConfig;
+  motion?: HeroMotionTuning;
+  filmGrain?: HeroFilmGrainSettings;
 }
 
 export interface HeroRuntimeConfig {
@@ -104,9 +144,14 @@ export interface HeroRuntimeConfig {
   tone?: string;
   content: HeroContentConfig;
   surfaces: ResolvedHeroSurfaceConfig;
+  layout: HeroLayoutConfig;
+  motion: HeroMotionTuning;
+  filmGrain: HeroFilmGrainSettings;
+  energyMode?: HeroEnergyMode;
   variant?: HeroVariantConfig;
   flags: {
     prm: boolean;
+    mode: HeroMode;
     timeOfDay?: HeroTimeOfDay;
     treatmentSlug?: string;
   };

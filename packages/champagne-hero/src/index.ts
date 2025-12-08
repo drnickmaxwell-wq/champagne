@@ -12,6 +12,7 @@ export {
   type HeroRuntimeConfig,
   type HeroSurfaceConfig,
   type HeroSurfaceTokenConfig,
+  type HeroMode,
   type HeroTimeOfDay,
 } from "./hero-engine";
 

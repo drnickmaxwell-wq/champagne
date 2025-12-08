@@ -8,6 +8,9 @@
   "waveBackgrounds": {
     "primary": { "desktop": "sacred.wave.background.desktop", "mobile": "sacred.wave.background.mobile" }
   },
+  "gradients": {
+    "sacred": "var(--smh-gradient)"
+  },
   "overlays": {
     "dots": "sacred.wave.overlay.dots",
     "field": "sacred.wave.overlay.field"

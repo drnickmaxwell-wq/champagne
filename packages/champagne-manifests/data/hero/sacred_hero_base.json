@@ -10,6 +10,7 @@
   "defaults": {
     "tone": "night",
     "surfaces": {
+      "gradient": "sacred",
       "waveMask": { "desktop": "primary", "mobile": "mobile" },
       "background": { "desktop": "primary", "mobile": "primary" },
       "overlays": { "dots": "dots", "field": "field" },
@@ -17,6 +18,20 @@
       "grain": { "desktop": "desktop", "mobile": "mobile" },
       "motion": ["wave", "glass"],
       "video": "heroVideo"
-    }
+    },
+    "layout": {
+      "contentAlign": "start",
+      "maxWidth": 960,
+      "verticalOffset": "0px",
+      "padding": "clamp(2rem, 4vw, 3.5rem)"
+    },
+    "motion": {
+      "parallaxDepth": 18,
+      "shimmerIntensity": 1,
+      "particleDrift": 1,
+      "energyMode": "balanced",
+      "particles": { "density": 1, "speed": 1, "curve": "sway" }
+    },
+    "filmGrain": { "enabled": true, "opacity": 0.32 }
   }
 }

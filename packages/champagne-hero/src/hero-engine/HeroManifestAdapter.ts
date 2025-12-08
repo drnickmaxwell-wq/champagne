@@ -5,6 +5,9 @@ import weatherManifest from "../../../champagne-manifests/data/hero/sacred_hero_
 import type {
   HeroBaseConfig,
   HeroContentConfig,
+  HeroFilmGrainSettings,
+  HeroLayoutConfig,
+  HeroMotionTuning,
   HeroSurfaceTokenConfig,
   HeroTimeOfDay,
   HeroVariantConfig,
@@ -18,6 +21,8 @@ interface SacredHeroBaseManifest {
   defaults?: {
     tone?: string;
     surfaces?: HeroSurfaceTokenConfig;
+    layout?: HeroLayoutConfig;
+    filmGrain?: HeroFilmGrainSettings;
   };
 }
 
@@ -25,7 +30,12 @@ interface SacredHeroVariantsManifest {
   variants?: HeroVariantConfig[];
 }
 
-type SacredHeroWeatherManifest = Partial<Record<HeroTimeOfDay, { tone?: string; surfaces?: HeroSurfaceTokenConfig }>>;
+type SacredHeroWeatherManifest = Partial<
+  Record<
+    HeroTimeOfDay,
+    { tone?: string; surfaces?: HeroSurfaceTokenConfig; layout?: HeroLayoutConfig; motion?: HeroMotionTuning; filmGrain?: HeroFilmGrainSettings }
+  >
+>;
 
 export interface SacredHeroManifests {
   base: HeroBaseConfig;
@@ -47,6 +57,8 @@ function normalizeBaseManifest(manifest: SacredHeroBaseManifest): HeroBaseConfig
     tone: manifest.defaults?.tone,
     content,
     defaultSurfaces: defaults,
+    layout: manifest.defaults?.layout,
+    filmGrain: manifest.defaults?.filmGrain,
   };
 }
 
@@ -60,8 +72,12 @@ function normalizeVariants(manifest: SacredHeroVariantsManifest): HeroVariantCon
       tone: (variant as HeroVariantConfig).tone,
       treatmentSlug: (variant as HeroVariantConfig).treatmentSlug,
       timeOfDay: (variant as HeroVariantConfig).timeOfDay,
+      energyMode: (variant as HeroVariantConfig).energyMode,
       content: (variant as HeroVariantConfig).content,
       surfaces: (variant as HeroVariantConfig).surfaces,
+      layout: (variant as HeroVariantConfig).layout,
+      motion: (variant as HeroVariantConfig).motion,
+      filmGrain: (variant as HeroVariantConfig).filmGrain,
     }));
 }
 
