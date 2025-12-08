@@ -11,7 +11,9 @@
       "@champagne/manifests": ["packages/champagne-manifests/src"],
       "@champagne/hero": ["packages/champagne-hero/src"],
       "@champagne/sections": ["packages/champagne-sections/src"],
-      "@champagne/cta": ["packages/champagne-cta/src"]
+      "@champagne/cta": ["packages/champagne-cta/src"],
+      "@champagne/canon": ["packages/champagne-canon/src"],
+      "@champagne/3d": ["packages/champagne-3d/src"]
     },
     "strict": true,
     "esModuleInterop": true,
