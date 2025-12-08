@@ -1,0 +1,44 @@
+[
+  {
+    "variantName": "Regal Glass–Gold primary (ink pill)",
+    "classes": ["cta-primary-ink-light"],
+    "tokens": ["--cta-primary-bg-ink", "--cta-text-on-ink", "--cta-border-gold", "--cta-primary-hover-shadow"],
+    "usageFiles": [
+      "lib/champagne/hero-presets.ts",
+      "components/champagne/hero/HeroCTABar.tsx",
+      "components/preview/shared/preview-cta.module.css",
+      "styles/champagne/cta-system-v2.css"
+    ]
+  },
+  {
+    "variantName": "Regal Glass–Gold secondary (glass outline pill)",
+    "classes": ["cta-secondary-glass-gold"],
+    "tokens": ["--champagne-glass-bg", "--cta-border-gold", "--cta-secondary-hover-border"],
+    "usageFiles": [
+      "lib/champagne/hero-presets.ts",
+      "components/champagne/hero/HeroCTABar.tsx",
+      "components/preview/shared/preview-cta.module.css",
+      "styles/champagne/cta-system-v2.css"
+    ]
+  },
+  {
+    "variantName": "Hero CTA plate (glass dusk shell)",
+    "classes": ["hero-cta-plate", "cta-plate-glass-dusk"],
+    "tokens": ["--champagne-glass-bg", "--champagne-keyline-gold"],
+    "usageFiles": [
+      "components/champagne/hero/HeroCTABar.tsx",
+      "styles/champagne/hero-engine.css",
+      "styles/champagne/cta-system-v2.css"
+    ]
+  },
+  {
+    "variantName": "Preview CTA module (base + primary/secondary)",
+    "classes": ["ctaBase", "primary", "secondary", "primaryHero", "secondaryHero", "heroCTAGroup"],
+    "tokens": ["--cta-primary-bg-ink", "--cta-border-gold", "--champagne-keyline-gold", "--cta-secondary-hover-bg"],
+    "usageFiles": [
+      "components/preview/shared/PreviewChampagneCTA.tsx",
+      "components/preview/shared/preview-cta.module.css",
+      "components/champagne/hero/HeroCTABar.tsx"
+    ]
+  }
+]
