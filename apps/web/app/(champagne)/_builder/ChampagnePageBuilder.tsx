@@ -163,21 +163,17 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
             <ChampagneCTAGroup
               ctas={heroCTAs}
               label="Hero CTAs"
-              defaultPreset="primary"
+              defaultVariant="primary"
               showDebug={previewMode}
             />
           )}
         </div>
-        <ChampagneSectionRenderer pageSlug={pagePath} midPageCTAs={midPageCTAs} previewMode={previewMode} />
-        {footerCTAs.length > 0 && (
-          <ChampagneCTAGroup
-            ctas={footerCTAs}
-            label="Footer CTAs"
-            direction="row"
-            defaultPreset="ghost"
-            showDebug={previewMode}
-          />
-        )}
+        <ChampagneSectionRenderer
+          pageSlug={pagePath}
+          midPageCTAs={midPageCTAs}
+          footerCTAs={footerCTAs}
+          previewMode={previewMode}
+        />
         {previewMode && (
           <DebugPanel
             path={pagePath}

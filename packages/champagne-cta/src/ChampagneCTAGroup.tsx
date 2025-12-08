@@ -1,30 +1,27 @@
-import { Fragment } from "react";
-import type { ChampagneCTAConfig, CTAReference, CTAStylePreset } from "./types";
+import type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "./types";
 import { ChampagneCTAButton } from "./ChampagneCTAButton";
 import { resolveCTAList } from "./CTARegistry";
 
 export interface ChampagneCTAGroupProps {
-  ctas?: (ChampagneCTAConfig | CTAReference)[];
+  ctas?: (ChampagneCTAConfig | ChampagneCTAInput)[];
   align?: "start" | "center" | "end";
   direction?: "row" | "column";
   gap?: string;
   showDebug?: boolean;
   label?: string;
-  defaultPreset?: CTAStylePreset;
+  defaultVariant?: ChampagneCTAVariant;
 }
 
-function normalizeCTAs(
-  ctas: (ChampagneCTAConfig | CTAReference)[] = [],
-  defaultPreset: CTAStylePreset = "ghost",
-): ChampagneCTAConfig[] {
-  const resolved = ctas.map((cta) => {
-    if (typeof cta === "string") return cta;
-    if ((cta as ChampagneCTAConfig).href && (cta as ChampagneCTAConfig).label) return cta as ChampagneCTAConfig;
-    return cta;
-  });
+const directionClasses: Record<NonNullable<ChampagneCTAGroupProps["direction"]>, string> = {
+  row: "flex-row flex-wrap",
+  column: "flex-col",
+};
 
-  return resolveCTAList(resolved, defaultPreset);
-}
+const alignClasses: Record<NonNullable<ChampagneCTAGroupProps["align"]>, string> = {
+  start: "items-start",
+  center: "items-center",
+  end: "items-end",
+};
 
 export function ChampagneCTAGroup({
   ctas,
@@ -33,61 +30,34 @@ export function ChampagneCTAGroup({
   gap = "0.75rem",
   showDebug = false,
   label,
-  defaultPreset = "ghost",
+  defaultVariant = "ghost",
 }: ChampagneCTAGroupProps) {
-  const resolved = normalizeCTAs(ctas, defaultPreset);
+  const resolved = resolveCTAList(ctas ?? [], defaultVariant);
   if (resolved.length === 0) return null;
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "0.4rem",
-        padding: "0.2rem",
-      }}
-    >
+    <div className="grid gap-2">
       {label && (
-        <div style={{
-          textTransform: "uppercase",
-          letterSpacing: "0.08em",
-          fontSize: "0.78rem",
-          color: "var(--text-medium, rgba(255,255,255,0.7))",
-        }}>
+        <div className="text-[0.78rem] uppercase tracking-[0.08em] text-[var(--text-medium)]">
           {label}
         </div>
       )}
       <div
-        style={{
-          display: "flex",
-          flexDirection: direction,
-          gap,
-          flexWrap: direction === "row" ? "wrap" : undefined,
-          alignItems: align === "center" ? "center" : align === "end" ? "flex-end" : "flex-start",
-        }}
+        className={`flex ${directionClasses[direction]} ${alignClasses[align]} justify-start`}
+        style={{ gap }}
       >
         {resolved.map((cta) => (
           <ChampagneCTAButton key={cta.id} cta={cta} align={align} />
         ))}
       </div>
       {showDebug && (
-        <div
-          style={{
-            fontSize: "0.82rem",
-            color: "var(--text-medium, rgba(255,255,255,0.74))",
-            border: "1px dashed color-mix(in srgb, var(--champagne-keyline-gold, #f9e8c3) 45%, transparent)",
-            borderRadius: "var(--radius-sm)",
-            padding: "0.5rem 0.6rem",
-            background: "color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 45%, transparent)",
-          }}
-        >
-          <div style={{ opacity: 0.85 }}>CTA slot debug ({resolved.length})</div>
-          <ul style={{ margin: "0.25rem 0 0", paddingLeft: "1.05rem", display: "grid", gap: "0.15rem" }}>
+        <div className="grid gap-1 rounded-md border border-dashed border-[color-mix(in_srgb,var(--champagne-keyline-gold)_45%,transparent)] bg-[color-mix(in_srgb,var(--bg-ink-soft)_35%,transparent)] p-2 text-[0.85rem] text-[var(--text-medium)]">
+          <div className="opacity-80">CTA slot debug ({resolved.length})</div>
+          <ul className="m-0 list-disc space-y-1 pl-4">
             {resolved.map((cta) => (
-              <Fragment key={`${cta.id}-${cta.href}`}>
-                <li>
-                  <strong>{cta.label}</strong> → {cta.href} ({cta.preset ?? "ghost"})
-                </li>
-              </Fragment>
+              <li key={`${cta.id}-${cta.href}`} className="leading-snug">
+                <strong>{cta.label}</strong> → {cta.href} ({cta.variant ?? "ghost"})
+              </li>
             ))}
           </ul>
         </div>

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import "@champagne/tokens";
-import { ChampagneCTAGroup } from "@champagne/cta";
+import { ChampagneCTAGroup, resolveCTAList } from "@champagne/cta";
+import type { ChampagneCTAConfig, ChampagneCTAInput } from "@champagne/cta";
 import { BaseChampagneSurface } from "@champagne/hero";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 
@@ -15,6 +16,7 @@ import type { SectionRegistryEntry } from "./SectionRegistry";
 
 export interface SectionTreatmentClosingCTAProps {
   section?: SectionRegistryEntry;
+  ctas?: ChampagneCTAConfig[];
 }
 
 const wrapperStyle: CSSProperties = {
@@ -24,14 +26,38 @@ const wrapperStyle: CSSProperties = {
   gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
 };
 
-export function Section_TreatmentClosingCTA({ section }: SectionTreatmentClosingCTAProps = {}) {
+function mapSectionCTAs(section?: SectionRegistryEntry): ChampagneCTAInput[] {
+  const asVariant = (value?: string) => {
+    if (value === "primary" || value === "secondary" || value === "ghost") return value;
+    return undefined;
+  };
+
+  return (
+    section?.ctas?.map((cta, index) => ({
+      id: cta.id ?? (section?.id ? `${section.id}-cta-${index + 1}` : `cta-${index + 1}`),
+      label: cta.label,
+      href: cta.href,
+      variant: asVariant(cta.variant ?? (cta as { preset?: string }).preset),
+    })) ?? []
+  );
+}
+
+export function Section_TreatmentClosingCTA({ section, ctas }: SectionTreatmentClosingCTAProps = {}) {
   const title = section?.title ?? "Ready for a seamless smile refresh?";
   const strapline = section?.strapline
     ?? "Book a consultation or preview your smile with AI-guided mock-ups.";
-  const ctas = section?.ctas ?? [
-    { label: "Book a consultation", href: "/contact", preset: "primary" },
-    { label: "Try an AI smile preview", href: "/treatments/digital-smile-design", preset: "secondary" },
+  const fallbackCTAs: ChampagneCTAConfig[] = [
+    { id: "book-consultation", label: "Book a consultation", href: "/contact", variant: "primary" },
+    {
+      id: "ai-smile-preview",
+      label: "Preview your smile with AI",
+      href: "/treatments/digital-smile-design",
+      variant: "secondary",
+    },
   ];
+  const resolvedCTAs = resolveCTAList(ctas ?? mapSectionCTAs(section) ?? fallbackCTAs, "primary");
+
+  const renderedCTAs = resolvedCTAs.length > 0 ? resolvedCTAs : fallbackCTAs;
 
   return (
     <BaseChampagneSurface
@@ -48,7 +74,7 @@ export function Section_TreatmentClosingCTA({ section }: SectionTreatmentClosing
           <h3 style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.65rem)", fontWeight: 700, lineHeight: 1.35 }}>{title}</h3>
           <p style={{ margin: 0, color: "var(--text-medium, rgba(235,235,235,0.82))", lineHeight: 1.6 }}>{strapline}</p>
         </div>
-        <ChampagneCTAGroup ctas={ctas} label="Closing CTA" direction="row" defaultPreset="primary" />
+        <ChampagneCTAGroup ctas={renderedCTAs} label="Closing CTA" direction="row" defaultVariant="primary" />
       </div>
     </BaseChampagneSurface>
   );
