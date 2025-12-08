@@ -1,5 +1,52 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "emotionalLightingPresets": [
+    {
+      "id": "emotionalLighting.assurance",
+      "lightRigId": "lightRig.beauty_softFront",
+      "weatherLayerId": "weatherLayer.subsurfaceRipple_soft",
+      "timeOfDayToken": "timeOfDay.goldenHour",
+      "surfaceMaterialToken": "material.glass.soft-ink",
+      "notes": "Warm, gentle, supportive; establishes safety and trust."
+    },
+    {
+      "id": "emotionalLighting.precision",
+      "lightRigId": "lightRig.neutral_rimBalanced",
+      "weatherLayerId": "weatherLayer.microMist_clear",
+      "timeOfDayToken": "timeOfDay.studioNeutral",
+      "surfaceMaterialToken": "material.surface.inkGlass_sharp",
+      "notes": "Technical clarity, micro-contrast, crisp curvature definition."
+    },
+    {
+      "id": "emotionalLighting.calm",
+      "lightRigId": "lightRig.diffuse_softDome",
+      "weatherLayerId": "weatherLayer.mist_slow",
+      "timeOfDayToken": "timeOfDay.blueHour",
+      "surfaceMaterialToken": "material.glass.deepSoft",
+      "notes": "Spa-like quietness with minimal directional cues."
+    },
+    {
+      "id": "emotionalLighting.luxuryEmotion",
+      "lightRigId": "lightRig.cinematic_softRim",
+      "weatherLayerId": "weatherLayer.bokeh_drift_low",
+      "timeOfDayToken": "timeOfDay.goldenHour_soft",
+      "surfaceMaterialToken": "material.glassWine_softGold",
+      "notes": "Cinematic glow; softGold ≤ 4%; emotional elevation."
+    },
+    {
+      "id": "emotionalLighting.relief",
+      "lightRigId": "lightRig.softBackBloom",
+      "weatherLayerId": "weatherLayer.clear_air",
+      "timeOfDayToken": "timeOfDay.morningFresh",
+      "surfaceMaterialToken": "material.surface.inkGlass_clean",
+      "notes": "Optimistic clarity; slight bloom behind focal object."
+    },
+    {
+      "id": "emotionalLighting.celebration",
+      "lightRigId": "lightRig.cinematic_dualSoft",
+      "weatherLayerId": "weatherLayer.bokehSpark_softGold",
+      "timeOfDayToken": "timeOfDay.duskWarm",
+      "surfaceMaterialToken": "material.glass.softGoldEdge",
+      "notes": "Quiet champagne shimmer, subtle triumph, elegant elevation."
+    }
+  ]
 }
