@@ -18,8 +18,9 @@
     "lint": "eslint .",
     "guard:rogue-hex": "node scripts/guard-rogue-hex.mjs",
     "guard:hero-freeze": "node scripts/guard-hero-freeze.mjs",
-    "guard:manifests": "node scripts/guard-manifest-sync.mjs",
+    "guard:manifest": "node scripts/guard-manifest-sync.mjs",
+    "guard:manifests": "npm run guard:manifest",
     "guard:brand-structure": "node scripts/brand-structure-guard.cjs",
-    "guard:all": "pnpm guard:rogue-hex && pnpm guard:hero-freeze && pnpm guard:manifests && pnpm guard:brand-structure"
+    "guard:all": "npm run guard:rogue-hex && npm run guard:hero-freeze && npm run guard:manifest && npm run guard:brand-structure"
   }
 }
