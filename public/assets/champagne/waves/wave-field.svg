@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arcGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.32" />
+      <stop offset="45%" stop-color="#F7F1FF" stop-opacity="0.24" />
+      <stop offset="100%" stop-color="#E2FDFB" stop-opacity="0.12" />
+    </linearGradient>
+    <linearGradient id="arcGradientSoft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="55%" stop-color="#F5EAFF" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#DFFAF6" stop-opacity="0.08" />
+    </linearGradient>
+  </defs>
+  <g opacity="0.95">
+    <path d="M-180 760C180 420 680 290 1180 370C1480 420 1760 600 1900 880" stroke="url(#arcGradient)" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M-120 660C240 330 760 210 1240 280C1580 330 1900 520 2050 820" stroke="url(#arcGradientSoft)" stroke-width="3" stroke-linecap="round" />
+    <path d="M-60 560C320 250 820 140 1320 210C1680 260 2010 460 2180 780" stroke="url(#arcGradient)" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M0 460C400 170 880 80 1400 150C1780 200 2140 400 2340 740" stroke="url(#arcGradientSoft)" stroke-width="2" stroke-linecap="round" />
+    <path d="M80 360C500 90 980 20 1500 80C1900 130 2280 350 2520 720" stroke="url(#arcGradient)" stroke-width="1.6" stroke-linecap="round" />
+  </g>
+</svg>
