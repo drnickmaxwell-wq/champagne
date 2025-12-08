@@ -1,4 +1,5 @@
 import machineManifestData from "../data/champagne_machine_manifest_full.json";
+import navManifestData from "../data/manifest.nav.main.json";
 import publicBrandManifest from "../data/manifest.public.brand.json";
 import stylesManifest from "../data/manifest.styles.champagne.json";
 import manusImportManifest from "../data/manus_import_unified_manifest_20251104.json";
@@ -63,8 +64,28 @@ export interface ChampagneStylesManifest {
   [key: string]: unknown;
 }
 
+export interface NavItem {
+  id: string;
+  label: string;
+  href: string;
+  priority?: number;
+  status?: "live" | "stub";
+}
+
+export interface ChampagneNavigationManifest {
+  items?: NavItem[];
+  [key: string]: unknown;
+}
+
 const champagneMachineManifest: ChampagneMachineManifest = machineManifestData;
 const champagneStylesManifest: ChampagneStylesManifest = stylesManifest;
+const champagneNavigationManifest: ChampagneNavigationManifest = {
+  ...navManifestData,
+  items: (navManifestData.items ?? []).map((item) => ({
+    ...item,
+    status: item.status === "stub" ? "stub" : item.status === "live" ? "live" : undefined,
+  })),
+};
 
 const registry: ChampagneManifestRegistry = {
   core: champagneMachineManifest,
@@ -99,6 +120,16 @@ const pageCollections = [
   champagneMachineManifest.pages ?? {},
   champagneMachineManifest.treatments ?? {},
 ];
+
+export function getMainNavItems(): NavItem[] {
+  const items = champagneNavigationManifest.items ?? [];
+  return [...items].sort((a, b) => {
+    const priorityA = a.priority ?? Number.MAX_SAFE_INTEGER;
+    const priorityB = b.priority ?? Number.MAX_SAFE_INTEGER;
+    if (priorityA !== priorityB) return priorityA - priorityB;
+    return a.label.localeCompare(b.label);
+  });
+}
 
 export function getPageManifestBySlug(slug: string): ChampagnePageManifest | undefined {
   for (const collection of pageCollections) {
