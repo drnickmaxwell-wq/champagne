@@ -1,5 +1,154 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "tenants": [
+    {
+      "tenantId": "smh",
+      "name": "St Mary's House Dental",
+      "slug": "st-marys-house-dental",
+      "bundleId": "bundle.full",
+      "region": "uk",
+      "defaultLocale": "en-GB",
+      "timeZone": "Europe/London",
+      "domains": [
+        "stmaryshousedental.co.uk",
+        "champagne.stmaryshousedental.co.uk"
+      ],
+      "brandTokenSetId": "tokens.smh-champagne",
+      "canonProfileId": "canon.profile.smh",
+      "aiPersonaProfileId": "ai.persona.matrix.smh",
+      "manifestsRoot": "manifests/tenants/smh",
+      "enabledModules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.portal.core",
+        "module.portal.consent",
+        "module.portal.finance",
+        "module.treatments.3dViewer",
+        "module.treatments.smileSimulator",
+        "module.treatments.shadeMapping",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.ai.content",
+        "module.ai.conversational",
+        "module.analytics.kpi",
+        "module.integrations.phoneEmail",
+        "module.integrations.calendar"
+      ],
+      "featureFlags": {
+        "beta.emotionalLighting": true,
+        "beta.behaviouralPrediction": true,
+        "beta.moodMemory": true,
+        "beta.microMotionHarmonisation": true,
+        "beta.smileSimulatorOs": true
+      },
+      "status": "active",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "notes": "Primary Champagne flagship clinic tenant."
+    },
+    {
+      "tenantId": "demo.cosmetic-uk",
+      "name": "Demo Cosmetic Smiles UK",
+      "slug": "demo-cosmetic-smiles-uk",
+      "bundleId": "bundle.3d",
+      "region": "uk",
+      "defaultLocale": "en-GB",
+      "timeZone": "Europe/London",
+      "domains": [
+        "demo-cosmetic-smiles.uk"
+      ],
+      "brandTokenSetId": "tokens.default-champagne",
+      "canonProfileId": "canon.profile.cosmetic-default",
+      "aiPersonaProfileId": "ai.persona.matrix.default",
+      "manifestsRoot": "manifests/tenants/demo.cosmetic-uk",
+      "enabledModules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.treatments.3dViewer",
+        "module.treatments.smileSimulator",
+        "module.treatments.shadeMapping",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.analytics.kpi"
+      ],
+      "featureFlags": {
+        "beta.emotionalLighting": true,
+        "beta.microMotionHarmonisation": true
+      },
+      "status": "sandbox",
+      "createdAt": "2025-01-15T00:00:00.000Z",
+      "notes": "Reference cosmetic clinic with 3D stack enabled."
+    },
+    {
+      "tenantId": "demo.implant-centre-eu",
+      "name": "Demo Implant Centre EU",
+      "slug": "demo-implant-centre-eu",
+      "bundleId": "bundle.full",
+      "region": "eu",
+      "defaultLocale": "en",
+      "timeZone": "Europe/Berlin",
+      "domains": [
+        "demo-implant-centre.eu"
+      ],
+      "brandTokenSetId": "tokens.implant-eu-champagne",
+      "canonProfileId": "canon.profile.implant-centre",
+      "aiPersonaProfileId": "ai.persona.matrix.implant-focus",
+      "manifestsRoot": "manifests/tenants/demo.implant-centre-eu",
+      "enabledModules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.portal.core",
+        "module.portal.consent",
+        "module.portal.finance",
+        "module.treatments.3dViewer",
+        "module.treatments.smileSimulator",
+        "module.treatments.shadeMapping",
+        "module.treatments.implantPlannerView",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.ai.content",
+        "module.ai.conversational",
+        "module.analytics.kpi",
+        "module.analytics.implantFunnel",
+        "module.integrations.phoneEmail",
+        "module.integrations.calendar"
+      ],
+      "featureFlags": {
+        "beta.emotionalLighting": true,
+        "beta.behaviouralPrediction": true,
+        "beta.moodMemory": true
+      },
+      "status": "active",
+      "createdAt": "2025-02-01T00:00:00.000Z",
+      "notes": "Example multi-country implant centre with full stack features."
+    },
+    {
+      "tenantId": "demo.nhs-mixed-uk",
+      "name": "Demo NHS-Mixed Family Dental",
+      "slug": "demo-nhs-mixed-uk",
+      "bundleId": "bundle.basic",
+      "region": "uk",
+      "defaultLocale": "en-GB",
+      "timeZone": "Europe/London",
+      "domains": [
+        "demo-nhs-mixed.uk"
+      ],
+      "brandTokenSetId": "tokens.default-soft-champagne",
+      "canonProfileId": "canon.profile.family-soft",
+      "aiPersonaProfileId": "ai.persona.matrix.family-care",
+      "manifestsRoot": "manifests/tenants/demo.nhs-mixed-uk",
+      "enabledModules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.analytics.kpi"
+      ],
+      "featureFlags": {
+        "beta.emotionalLighting": false,
+        "beta.microMotionHarmonisation": false
+      },
+      "status": "active",
+      "createdAt": "2025-02-10T00:00:00.000Z",
+      "notes": "Example NHS-mixed tenant on a lighter bundle without 3D stack."
+    }
+  ]
 }
