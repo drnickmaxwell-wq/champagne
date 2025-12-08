@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "generated": "Champagne Atlas v1 — Manus Section Catalogue",
+    "sectionsTotal": 67,
+    "componentsTotal": 142,
+    "devices": ["desktop", "mobile"],
+    "notes": "All Manus-derived sections categorised by type, state, and required rebuild level."
+  },
+
+  "archetypes": {
+    "heroes": [
+      {
+        "id": "hero_gradient_wave_full",
+        "name": "Full Champagne Hero",
+        "features": [
+          "135° magenta→teal→gold gradient",
+          "wave-mask layer",
+          "grain overlay",
+          "particles overlay",
+          "iridescent text",
+          "CTA pair: primary+secondary",
+          "ratings capsule"
+        ],
+        "variants": [
+          "composite-hero-desktop-final",
+          "composite-hero-mobile-final",
+          "home-desktop",
+          "home-mobile"
+        ],
+        "state": "Champagne Restored"
+      },
+      {
+        "id": "hero_gradient_raw",
+        "name": "Raw Manus Hero",
+        "variants": [
+          "composite-hero-desktop (raw)",
+          "composite-hero-mobile (raw)"
+        ],
+        "state": "Superseded",
+        "notes": "Missing wave-mask, missing grain, incorrect gradient stops."
+      }
+    ],
+
+    "bodyLayouts": [
+      {
+        "id": "two-col-3dviewer-text",
+        "name": "Two-Column | 3D Viewer + Tabbed Content",
+        "features": [
+          "Left: 3D viewer placeholder",
+          "Right: Tabs (What it is, How it works, Results, Aftercare)"
+        ],
+        "variants": [
+          "composite-body-desktop",
+          "composite-body-desktop-polished",
+          "composite-body-mobile",
+          "composite-body-mobile-polished"
+        ],
+        "state": "Restored"
+      }
+    ],
+
+    "ctaBlocks": [
+      {
+        "id": "cta_dual_buttons_large",
+        "name": "CTA — Large Dual Buttons",
+        "features": [
+          "Large serif headline",
+          "Gold accent line (optional)",
+          "CTA primary gradient",
+          "CTA secondary glass"
+        ],
+        "variants": [
+          "composite-end-polish-desktop",
+          "composite-end-polish-mobile",
+          "desktop-light-cta-footer",
+          "desktop-dark-cta-footer",
+          "home-hero CTA"
+        ],
+        "state": "Champagne Restored"
+      }
+    ],
+
+    "faqBlocks": [
+      {
+        "id": "faq_expanding_champagne",
+        "name": "FAQ — Expanding Blocks",
+        "features": [
+          "Champagne gradient cards",
+          "Small gold top border",
+          "Expand/collapse with chevron"
+        ],
+        "variants": [
+          "composite-faq-desktop-light",
+          "composite-faq-desktop-dark",
+          "home-faq",
+          "dedicated-faq-page variants"
+        ]
+      }
+    ],
+
+    "testimonialBlocks": [
+      {
+        "id": "carousel_testimonial",
+        "name": "Carousel Testimonial",
+        "features": [
+          "Dot navigation",
+          "Avatar + name",
+          "Star ratings"
+        ],
+        "variants": [
+          "composite-patient-stories",
+          "home testimonials"
+        ]
+      }
+    ]
+  },
+
+  "sections": {
+    "compositeBonding": {
+      "hero": {
+        "state": "Restored",
+        "variants": [
+          "composite-hero-desktop-final",
+          "composite-hero-mobile-final"
+        ],
+        "components": [
+          "ratings capsule",
+          "3-feature banner",
+          "dual CTA",
+          "primary serif title",
+          "floating particles"
+        ]
+      },
+
+      "interactiveOverview": {
+        "state": "Restored",
+        "components": [
+          "two-col layout",
+          "3D model viewer placeholder",
+          "tabbed content system",
+          "4 detailed tab paragraphs"
+        ],
+        "manusVariants": [
+          "body-desktop raw",
+          "body-desktop polished",
+          "body-mobile raw",
+          "body-mobile polished"
+        ]
+      },
+
+      "aiPersonalisation": {
+        "state": "Restored",
+        "components": [
+          "AI Cost Estimator card",
+          "AI Time Predictor card",
+          "AR Smile Try-On card"
+        ],
+        "notes": "All three cards share same Manus card archetype."
+      },
+
+      "clinicianInsight": {
+        "state": "Restored",
+        "components": [
+          "serif quote",
+          "gold flourish lines",
+          "clinician signature attribution"
+        ]
+      },
+
+      "patientStories": {
+        "state": "Restored",
+        "components": [
+          "carousel container",
+          "testimonial card",
+          "avatar",
+          "rating stars",
+          "dot navigation"
+        ]
+      },
+
+      "faqSet": {
+        "state": "Restored",
+        "components": [
+          "5–8 FAQ items",
+          "expandable UI",
+          "SEO schema support"
+        ]
+      },
+
+      "bottomCTA": {
+        "state": "Restored",
+        "components": [
+          "large serif headline",
+          "dual CTAs",
+          "gradient background",
+          "wave-mask + grain"
+        ]
+      }
+    },
+
+    "home": {
+      "hero": {
+        "variants": [
+          "home-desktop (raw)",
+          "home-desktop polished",
+          "home-mobile"
+        ],
+        "components": [
+          "CTA pair",
+          "ratings capsule",
+          "hero copy block",
+          "film-grain",
+          "particles",
+          "wave-mask"
+        ]
+      },
+
+      "signatureTreatments": {
+        "components": [
+          "treatment grid",
+          "Manus card (6 variants)",
+          "serif section title"
+        ],
+        "manusFiles": [
+          "home-signature section"
+        ]
+      },
+
+      "digitalWorkflow": {
+        "components": [
+          "technology banner",
+          "wave mask",
+          "particles",
+          "white serif headline",
+          "CTA secondary"
+        ],
+        "files": [
+          "home-technology-strip.png"
+        ]
+      },
+
+      "differenceSection": {
+        "components": [
+          "3-feature grid",
+          "icon+text cards"
+        ]
+      },
+
+      "teamSection": {
+        "components": [
+          "team member photo cards",
+          "Manus circular avatar frame"
+        ]
+      },
+
+      "testimonials": {
+        "components": [
+          "carousel",
+          "testimonial quote block"
+        ]
+      },
+
+      "faq": {
+        "components": [
+          "expanding FAQ card stack"
+        ]
+      },
+
+      "footer": {
+        "variants": [
+          "desktop-footer.webp",
+          "mobile-dark.png"
+        ],
+        "state": "Restored (v2)"
+      }
+    },
+
+    "technologyPage": {
+      "hero": {
+        "components": [
+          "category floating pill",
+          "white serif headline",
+          "subtitle",
+          "CTA"
+        ],
+        "effects": [
+          "particles",
+          "grain",
+          "wave-mask",
+          "light fog"
+        ]
+      }
+    }
+  },
+
+  "components": {
+    "ctaVariants": [
+      "gradient primary button",
+      "glass secondary button",
+      "dual CTA block",
+      "hero CTA pair",
+      "footer CTA"
+    ],
+    "cards": [
+      "Manus rounded card",
+      "AI widget card",
+      "testimonial card",
+      "team card",
+      "treatment card",
+      "FAQ block"
+    ],
+    "navigation": [
+      "breadcrumb",
+      "header desktop",
+      "header mobile",
+      "footer v1",
+      "footer v2 dark/light"
+    ],
+    "patterns": [
+      "wave-mask horizontal",
+      "wave-mask diagonal",
+      "iridescent serif heading",
+      "grain overlay",
+      "particle overlay",
+      "glass overlay"
+    ]
+  }
+}
