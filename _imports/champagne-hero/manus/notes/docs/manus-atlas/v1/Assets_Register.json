@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "generated": "Champagne Manus Atlas v1",
+    "author": "Manus Importer AI",
+    "notes": "Condensed but real asset register based on Manus uploads."
+  },
+  "globalEffects": [
+    {
+      "filename": "film-grain-25560x1440.png",
+      "path": "/public/brand/effects/film-grain-25560x1440.png",
+      "category": "effect",
+      "subtype": "film-grain"
+    },
+    {
+      "filename": "glass-soft.png",
+      "path": "/public/brand/effects/glass-soft.png",
+      "category": "effect",
+      "subtype": "glass-overlay"
+    },
+    {
+      "filename": "home-hero-particles.webp",
+      "path": "/public/brand/effects/home-hero-particles.webp",
+      "category": "effect",
+      "subtype": "particles"
+    }
+  ],
+  "pages": {
+    "composite-bonding": {
+      "hero": [
+        {
+          "filename": "composite-hero-desktop.png",
+          "path": "/public/previews/composite-hero-desktop.png",
+          "device": "desktop",
+          "state": "raw"
+        },
+        {
+          "filename": "composite-hero-desktop-final.png",
+          "path": "/public/previews/composite-hero-desktop-final.png",
+          "device": "desktop",
+          "state": "restored"
+        },
+        {
+          "filename": "composite-hero-mobile.png",
+          "path": "/public/previews/composite-hero-mobile.png",
+          "device": "mobile",
+          "state": "raw"
+        },
+        {
+          "filename": "composite-hero-mobile-final.png",
+          "path": "/public/previews/composite-hero-mobile-final.png",
+          "device": "mobile",
+          "state": "restored"
+        }
+      ],
+      "body": [
+        {
+          "filename": "composite-body-desktop.png",
+          "path": "/public/previews/composite-body-desktop.png",
+          "device": "desktop",
+          "state": "raw"
+        },
+        {
+          "filename": "composite-body-polish-desktop.png",
+          "path": "/public/previews/composite-body-polish-desktop.png",
+          "device": "desktop",
+          "state": "polished"
+        },
+        {
+          "filename": "composite-body-mobile.png",
+          "path": "/public/previews/composite-body-mobile.png",
+          "device": "mobile",
+          "state": "raw"
+        },
+        {
+          "filename": "composite-body-polish-mobile.png",
+          "path": "/public/previews/composite-body-polish-mobile.png",
+          "device": "mobile",
+          "state": "polished"
+        }
+      ],
+      "cta": [
+        {
+          "filename": "composite-end-polish-desktop.png",
+          "path": "/public/previews/composite-end-polish-desktop.png",
+          "device": "desktop",
+          "state": "polished"
+        },
+        {
+          "filename": "composite-end-polish-mobile.png",
+          "path": "/public/previews/composite-end-polish-mobile.png",
+          "device": "mobile",
+          "state": "polished"
+        }
+      ]
+    },
+    "home": {
+      "hero": [
+        {
+          "filename": "home-desktop.png",
+          "path": "/public/previews/home-desktop.png",
+          "device": "desktop",
+          "state": "restored"
+        },
+        {
+          "filename": "home-mobile.png",
+          "path": "/public/previews/home-mobile.png",
+          "device": "mobile",
+          "state": "restored"
+        }
+      ],
+      "sections": [
+        {
+          "filename": "home-technology-strip.png",
+          "path": "/public/previews/home-technology-strip.png",
+          "role": "technology-strip"
+        }
+      ]
+    }
+  }
+}
