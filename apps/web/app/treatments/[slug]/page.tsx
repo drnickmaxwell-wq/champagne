@@ -7,7 +7,7 @@ type PageProps = {
 
 const allowedTreatments: Record<string, string> = {
   "dental-implants": "Dental Implants",
-  "invisalign-orthodontics": "Invisalign & Orthodontics",
+  "clear-aligners": "Clear aligner orthodontics (Spark and other systems)",
   "smile-makeovers": "Smile Makeovers",
   "teeth-whitening": "Teeth Whitening",
   "3d-dentistry-scanning": "3D Dentistry & Scanning",

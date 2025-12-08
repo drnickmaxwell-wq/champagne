@@ -1,5 +1,5 @@
 import ChampagnePageBuilder from "../../_builder/ChampagnePageBuilder";
 
 export default function Page() {
-  return <ChampagnePageBuilder slug="veneers" />;
+  return <ChampagnePageBuilder slug="/treatments/veneers" />;
 }
