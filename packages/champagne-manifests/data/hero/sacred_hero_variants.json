@@ -22,6 +22,111 @@
         "headline": "Daylight smile confidence.",
         "subheadline": "Bright, precise dentistry with a calm studio feel."
       }
+    },
+    {
+      "id": "hero_whitening",
+      "label": "Treatment: whitening",
+      "treatmentSlug": "teeth-whitening",
+      "energyMode": "dynamic",
+      "content": {
+        "eyebrow": "Teeth whitening",
+        "headline": "A brighter smile, tuned to your enamel.",
+        "subheadline": "Gentle in-studio whitening plans supported by digital shade matching and calming studio light.",
+        "cta": { "label": "Plan whitening", "href": "/treatments/teeth-whitening" },
+        "secondaryCta": { "label": "Compare options", "href": "/treatments" }
+      },
+      "surfaces": {
+        "particles": "magenta",
+        "motion": ["glass"]
+      },
+      "motion": {
+        "energyMode": "dynamic",
+        "particles": { "density": 1.05, "speed": 1.1, "curve": "dynamic" }
+      }
+    },
+    {
+      "id": "hero_implants",
+      "label": "Treatment: implants",
+      "treatmentSlug": "dental-implants",
+      "energyMode": "calm",
+      "content": {
+        "eyebrow": "Dental implants",
+        "headline": "Precision-guided implant planning.",
+        "subheadline": "Surgical guides, restorative artistry, and considerate follow-up for stable, confident smiles.",
+        "cta": { "label": "Book implant consult", "href": "/treatments/dental-implants" },
+        "secondaryCta": { "label": "See pricing", "href": "/contact" }
+      },
+      "surfaces": {
+        "particles": "gold",
+        "motion": ["wave"]
+      },
+      "motion": {
+        "energyMode": "calm",
+        "particles": { "density": 0.7, "speed": 0.8, "curve": "calm" }
+      }
+    },
+    {
+      "id": "hero_aligners",
+      "label": "Treatment: aligners",
+      "treatmentSlug": "spark-aligners",
+      "energyMode": "balanced",
+      "content": {
+        "eyebrow": "Spark aligners",
+        "headline": "Discreet aligner plans with precise tracking.",
+        "subheadline": "Crystal-clear aligners with digital check-ins, ensuring smooth progress with minimal clinic time.",
+        "cta": { "label": "Start aligner assessment", "href": "/treatments/spark-aligners" },
+        "secondaryCta": { "label": "How aligners work", "href": "/treatments" }
+      },
+      "surfaces": {
+        "particles": "teal",
+        "motion": ["glass"]
+      },
+      "motion": {
+        "energyMode": "balanced",
+        "particles": { "density": 0.95, "speed": 0.95, "curve": "sway" }
+      }
+    },
+    {
+      "id": "hero_veneers",
+      "label": "Treatment: veneers",
+      "treatmentSlug": "porcelain-veneers",
+      "energyMode": "balanced",
+      "content": {
+        "eyebrow": "Porcelain veneers",
+        "headline": "Layered ceramics with natural light play.",
+        "subheadline": "Mockups, wax-ups, and handcrafted ceramics designed to move with studio lighting and daily life.",
+        "cta": { "label": "Design my smile", "href": "/treatments/porcelain-veneers" },
+        "secondaryCta": { "label": "Preview cases", "href": "/smile-gallery" }
+      },
+      "surfaces": {
+        "particles": "gold",
+        "motion": ["glass", "wave"]
+      },
+      "motion": {
+        "energyMode": "balanced",
+        "particles": { "density": 0.9, "speed": 0.85, "curve": "sway" }
+      }
+    },
+    {
+      "id": "hero_technology",
+      "label": "Treatment: technology",
+      "treatmentSlug": "dental-technology",
+      "energyMode": "dynamic",
+      "content": {
+        "eyebrow": "Digital technology",
+        "headline": "Calm technology powering every visit.",
+        "subheadline": "Intraoral scanning, guided planning, and immersive visuals to keep every treatment transparent.",
+        "cta": { "label": "Explore our tech", "href": "/treatments/dental-technology" },
+        "secondaryCta": { "label": "See the studio", "href": "/about" }
+      },
+      "surfaces": {
+        "particles": "magenta",
+        "motion": ["glass", "dust"]
+      },
+      "motion": {
+        "energyMode": "dynamic",
+        "particles": { "density": 1.2, "speed": 1.15, "curve": "dynamic" }
+      }
     }
   ]
 }

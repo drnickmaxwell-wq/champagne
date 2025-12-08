@@ -8,6 +8,7 @@ import type {
 export interface HeroSurfaceDefinitionMap {
   waveMasks?: Record<string, string>;
   waveBackgrounds?: Record<string, { desktop?: string; mobile?: string }>;
+  gradients?: Record<string, string>;
   overlays?: Record<string, string>;
   particles?: Record<string, string>;
   grain?: Record<string, string>;
@@ -46,6 +47,7 @@ export function buildSurfaceDefinitionMap(manifest: unknown): HeroSurfaceDefinit
         {},
       );
     })(),
+    gradients: normalizeRecord((manifest as Record<string, unknown>).gradients),
     overlays: normalizeRecord((manifest as Record<string, unknown>).overlays),
     particles: normalizeRecord((manifest as Record<string, unknown>).particles),
     grain: normalizeRecord((manifest as Record<string, unknown>).grain),
@@ -117,6 +119,7 @@ export function mapSurfaceTokensToAssets(
           ?? fallbackBackground?.desktop,
       };
     })(),
+    gradient: surfaceTokens.gradient ? resolveToken(surfaceTokens.gradient, surfaceMap.gradients ?? {}) : undefined,
     overlays: {
       dots: resolveToken(surfaceTokens.overlays?.dots, surfaceMap.overlays ?? {}),
       field: resolveToken(surfaceTokens.overlays?.field, surfaceMap.overlays ?? {}),
@@ -145,6 +148,7 @@ export function resolveHeroSurfaceAssets(surfaceConfig: HeroSurfaceConfig): Reso
       desktop: resolveHeroAsset(surfaceConfig.background?.desktop),
       mobile: resolveHeroAsset(surfaceConfig.background?.mobile ?? surfaceConfig.background?.desktop),
     },
+    gradient: surfaceConfig.gradient,
     overlays: {
       dots: resolveHeroAsset(surfaceConfig.overlays?.dots),
       field: resolveHeroAsset(surfaceConfig.overlays?.field),
@@ -172,6 +176,7 @@ export function ensureSurfacePaths(surfaceConfig: HeroSurfaceConfig): HeroSurfac
       desktop: ensureHeroAssetPath(surfaceConfig.background?.desktop),
       mobile: ensureHeroAssetPath(surfaceConfig.background?.mobile ?? surfaceConfig.background?.desktop),
     },
+    gradient: surfaceConfig.gradient,
     overlays: {
       dots: ensureHeroAssetPath(surfaceConfig.overlays?.dots),
       field: ensureHeroAssetPath(surfaceConfig.overlays?.field),
