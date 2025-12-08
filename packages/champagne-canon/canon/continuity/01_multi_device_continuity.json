@@ -1,0 +1,13 @@
+{
+  "multiDeviceContinuity": {
+    "carryForward": [
+      "lightingMode",
+      "narrativeChapter",
+      "smileSimulatorState",
+      "cognitiveLoadState",
+      "aiToneState"
+    ],
+    "transitionRitual": "fadeFromPrevious",
+    "resumeBehaviour": "autoResume"
+  }
+}
