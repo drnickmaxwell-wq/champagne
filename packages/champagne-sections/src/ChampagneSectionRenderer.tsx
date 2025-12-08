@@ -25,7 +25,8 @@ const typeMap: Record<string, SectionComponent> = {
 };
 
 function renderSection(section: SectionRegistryEntry) {
-  const component = section.type ? typeMap[section.type] : undefined;
+  const key = section.kind ?? section.type;
+  const component = key ? typeMap[key] : undefined;
   if (component) return component({ section });
 
   if (["copy-block", "story", "faq", "accordion"].includes(section.type ?? "")) {
@@ -47,29 +48,39 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, previewMode }:
   const midInsertIndex = hasMidPageCTAs ? Math.max(1, Math.ceil(sections.length / 2)) : -1;
 
   return (
-    <div style={{ display: "grid", gap: "clamp(1rem, 2vw, 1.75rem)", marginTop: "0.5rem" }}>
-      {sections.map((section, index) => (
-        <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
-          <div>{renderSection(section)}</div>
-          {hasMidPageCTAs && index === midInsertIndex - 1 && (
-            <ChampagneCTAGroup
-              ctas={midPageCTAs}
-              label="Mid-page CTAs"
-              showDebug={previewMode}
-              defaultPreset="secondary"
-            />
-          )}
-        </Fragment>
-      ))}
-      {sections.length === 0 && <Section_TextBlock />}
-      {sections.length === 0 && hasMidPageCTAs && (
-        <ChampagneCTAGroup
-          ctas={midPageCTAs}
-          label="Mid-page CTAs"
-          showDebug={previewMode}
-          defaultPreset="secondary"
-        />
-      )}
+    <div style={{ display: "grid", gap: "clamp(1.2rem, 2.4vw, 2rem)", marginTop: "0.5rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gap: "clamp(1rem, 2vw, 1.75rem)",
+          maxWidth: "1080px",
+          margin: "0 auto",
+          width: "100%",
+        }}
+      >
+        {sections.map((section, index) => (
+          <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
+            <div>{renderSection(section)}</div>
+            {hasMidPageCTAs && index === midInsertIndex - 1 && (
+              <ChampagneCTAGroup
+                ctas={midPageCTAs}
+                label="Mid-page CTAs"
+                showDebug={previewMode}
+                defaultPreset="secondary"
+              />
+            )}
+          </Fragment>
+        ))}
+        {sections.length === 0 && <Section_TextBlock />}
+        {sections.length === 0 && hasMidPageCTAs && (
+          <ChampagneCTAGroup
+            ctas={midPageCTAs}
+            label="Mid-page CTAs"
+            showDebug={previewMode}
+            defaultPreset="secondary"
+          />
+        )}
+      </div>
     </div>
   );
 }

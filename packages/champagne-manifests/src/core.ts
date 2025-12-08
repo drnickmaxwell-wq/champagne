@@ -57,7 +57,14 @@ export interface ChampagneManifestRegistry {
   manusImport?: unknown;
 }
 
+export interface ChampagneStylesManifest {
+  heroes?: Record<string, unknown>;
+  sections?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
 const champagneMachineManifest: ChampagneMachineManifest = machineManifestData;
+const champagneStylesManifest: ChampagneStylesManifest = stylesManifest;
 
 const registry: ChampagneManifestRegistry = {
   core: champagneMachineManifest,
@@ -86,6 +93,7 @@ export const champagneManifestStatus: ChampagneManifestStatus = allReady
 export const champagneManifestsReady = champagneManifestStatus === "ready";
 
 export const champagneManifestRegistry: ChampagneManifestRegistry = registry;
+export { champagneStylesManifest };
 
 const pageCollections = [
   champagneMachineManifest.pages ?? {},

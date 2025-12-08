@@ -52,13 +52,16 @@ const bodyStyle: CSSProperties = {
 
 export function Section_TextBlock({ section }: SectionComponentProps = {}) {
   const definition = (section?.definition as Record<string, unknown> | undefined) ?? {};
-  const heading = (definition.title as string | undefined)
+  const heading = section?.title
+    ?? (definition.title as string | undefined)
     ?? (definition.headline as string | undefined)
     ?? "Precision-crafted smiles built on gentle engineering.";
-  const eyebrow = (definition.label as string | undefined)
+  const eyebrow = section?.eyebrow
+    ?? (definition.label as string | undefined)
     ?? (definition.eyebrow as string | undefined)
     ?? "Champagne narrative";
-  const copy = (definition.copy as string | undefined)
+  const copy = section?.body
+    ?? (definition.copy as string | undefined)
     ?? (definition.body as string | undefined)
     ?? "Every surface is tuned with Champagne tokens to keep contrast crisp, spacing breathable, and details soft-gold without overwhelming the eye.";
 

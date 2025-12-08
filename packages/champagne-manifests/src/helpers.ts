@@ -3,9 +3,11 @@ import type {
   ChampagnePageCTAConfig,
   ChampagnePageManifest,
   ChampagnePageSection,
+  ChampagneStylesManifest,
 } from "./core";
 import {
   champagneMachineManifest,
+  champagneStylesManifest,
   getPageManifestBySlug,
 } from "./core";
 
@@ -92,6 +94,13 @@ export interface ChampagneHeroManifest {
   preset?: string | Record<string, unknown>;
 }
 
+function getHeroPresetFromStyles(heroId: string): Record<string, unknown> | undefined {
+  const styles = champagneStylesManifest as ChampagneStylesManifest;
+  const preset = styles.heroes?.[heroId];
+  if (!preset || typeof preset !== "object") return undefined;
+  return { id: heroId, ...preset } as Record<string, unknown>;
+}
+
 export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest | undefined {
   const pageManifest = getPageManifestBySlug(heroIdOrPageSlug);
   if (pageManifest?.hero) {
@@ -108,6 +117,11 @@ export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest
     return normalizeHeroManifest(fromHeroId.hero, fromHeroId.path);
   }
 
+  const stylesPreset = getHeroPresetFromStyles(heroIdOrPageSlug);
+  if (stylesPreset) {
+    return normalizeHeroManifest({ id: heroIdOrPageSlug, ...stylesPreset });
+  }
+
   return undefined;
 }
 
@@ -116,10 +130,11 @@ function normalizeHeroManifest(
   path?: string,
 ): ChampagneHeroManifest {
   const heroId = typeof hero === "string" ? hero : (hero.id as string | undefined) ?? "";
+  const styledPreset = typeof hero === "string" ? getHeroPresetFromStyles(hero) : hero;
   return {
     id: heroId || path || "",
     sourcePagePath: path,
-    preset: hero,
+    preset: styledPreset,
   };
 }
 
@@ -151,6 +166,24 @@ export function getSectionManifest(sectionId: string): ChampagneSectionManifest 
   }
 
   return undefined;
+}
+
+export interface ChampagneSectionStyle {
+  id: string;
+  type?: string;
+  surface?: string;
+}
+
+export function getSectionStyle(sectionId: string): ChampagneSectionStyle | undefined {
+  const styles = (champagneStylesManifest as ChampagneStylesManifest).sections ?? {};
+  const entry = styles[sectionId];
+  if (!entry) return undefined;
+  if (typeof entry !== "object") return { id: sectionId };
+  return {
+    id: sectionId,
+    type: (entry as Record<string, unknown>).type as string | undefined,
+    surface: (entry as Record<string, unknown>).surface as string | undefined,
+  };
 }
 
 export function getSectionCTAReferences(sectionId: string): (ChampagneCTA | string)[] {

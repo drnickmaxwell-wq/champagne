@@ -62,10 +62,14 @@ const eyebrowStyle: CSSProperties = {
 
 export function Section_MediaBlock({ section }: SectionMediaBlockProps = {}) {
   const definition = (section?.definition as Record<string, unknown> | undefined) ?? {};
-  const headline = (definition.title as string | undefined)
+  const headline = section?.title
+    ?? (definition.title as string | undefined)
     ?? "Visual proof with Champagne clarity";
-  const eyebrow = (definition.label as string | undefined) ?? "Treatment media";
-  const caption = (definition.copy as string | undefined)
+  const eyebrow = section?.eyebrow
+    ?? (definition.label as string | undefined)
+    ?? "Treatment media";
+  const caption = section?.body
+    ?? (definition.copy as string | undefined)
     ?? "Media panels use ink/glass layering with soft-gold edges to keep imagery vivid without sacrificing contrast.";
 
   return (

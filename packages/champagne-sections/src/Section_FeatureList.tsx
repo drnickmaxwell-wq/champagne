@@ -62,13 +62,19 @@ const subtextStyle: CSSProperties = {
 
 export function Section_FeatureList({ section }: SectionFeatureListProps = {}) {
   const definition = (section?.definition as Record<string, unknown> | undefined) ?? {};
-  const features = (definition.items as string[] | undefined) ?? [
-    "Clinically precise planning with Champagne variable system",
-    "Soft-focus overlays to keep eyes on the smile story",
-    "Comfort-first spacing and rhythm across every breakpoint",
-  ];
-  const heading = (definition.title as string | undefined) ?? "Hallmarks of Champagne care";
-  const eyebrow = (definition.label as string | undefined) ?? "Treatment signatures";
+  const features = section?.items
+    ?? (definition.items as string[] | undefined)
+    ?? [
+      "Clinically precise planning with Champagne variable system",
+      "Soft-focus overlays to keep eyes on the smile story",
+      "Comfort-first spacing and rhythm across every breakpoint",
+    ];
+  const heading = section?.title
+    ?? (definition.title as string | undefined)
+    ?? "Hallmarks of Champagne care";
+  const eyebrow = section?.eyebrow
+    ?? (definition.label as string | undefined)
+    ?? "Treatment signatures";
 
   return (
     <section style={wrapperStyle}>

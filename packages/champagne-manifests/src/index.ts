@@ -3,6 +3,7 @@ export {
   champagneManifestRegistry,
   champagneManifestStatus,
   champagneManifestsReady,
+  champagneStylesManifest,
   getPageManifestBySlug,
   getHeroPresetForPage,
   getSectionStackForPage,
@@ -13,6 +14,7 @@ export {
   type ChampagneManifestStatus,
   type ChampagnePageManifest,
   type ChampagnePageSection,
+  type ChampagneStylesManifest,
 } from "./core";
 
 export {
@@ -22,6 +24,7 @@ export {
   getPageManifest,
   getSectionManifest,
   getSectionCTAReferences,
+  getSectionStyle,
   getTreatmentManifest,
   getTreatmentPages,
   type ChampagneHeroManifest,

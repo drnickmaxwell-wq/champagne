@@ -35,6 +35,8 @@ Snapshot of treatment routes in the Champagne manifests. Hero and section indica
 ## Phase 5 wiring
 
 - /treatments index now renders directly from the manifest canon (no hard-coded lists).
+- Hero presets now resolve IDs through `manifest.styles.champagne.json` so treatment heroes render with a palette/motion preset even when only an ID is present in the page manifest.
+- Section stacks flow through the adapter in `@champagne/sections`, which fills neutral copy for sparse manifest entries while keeping the canon order intact.
 - Treatment slugs routed through the Champagne builder:
   - 3d-dentistry-and-technology
   - 3d-implant-restorations
