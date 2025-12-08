@@ -28,7 +28,7 @@ export interface SectionRegistryEntry {
   attribution?: string;
   role?: string;
   strapline?: string;
-  ctas?: { label: string; href?: string; preset?: string }[];
+  ctas?: { id?: string; label?: string; href?: string; preset?: string; variant?: string }[];
   definition?: ChampagnePageSection | string;
 }
 
@@ -132,9 +132,11 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
       }))
     : undefined;
   const ctas = Array.isArray((definition as Record<string, unknown>).ctas)
-    ? ((definition as Record<string, unknown>).ctas as Record<string, unknown>[]).map((cta) => ({
+    ? ((definition as Record<string, unknown>).ctas as Record<string, unknown>[]).map((cta, ctaIndex) => ({
+        id: (cta.id as string | undefined) ?? `${sectionId}-cta-${ctaIndex + 1}`,
         label: (cta.label as string | undefined) ?? (cta.title as string | undefined) ?? "Continue",
         href: (cta.href as string | undefined) ?? (cta.link as string | undefined),
+        variant: (cta.variant as string | undefined) ?? (cta.preset as string | undefined) ?? (cta.tone as string | undefined),
         preset: (cta.preset as string | undefined) ?? (cta.tone as string | undefined),
       }))
     : undefined;

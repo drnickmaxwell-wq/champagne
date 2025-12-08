@@ -18,10 +18,15 @@ import type { SectionRegistryEntry } from "./SectionRegistry";
 export interface ChampagneSectionRendererProps {
   pageSlug: string;
   midPageCTAs?: ChampagneCTAConfig[];
+  footerCTAs?: ChampagneCTAConfig[];
   previewMode?: boolean;
 }
 
-type SectionComponent = (props: { section: SectionRegistryEntry }) => ReactNode;
+type SectionComponent = (props: {
+  section: SectionRegistryEntry;
+  ctas?: ChampagneCTAConfig[];
+  footerCTAs?: ChampagneCTAConfig[];
+}) => ReactNode;
 
 const typeMap: Record<string, SectionComponent> = {
   text: (props) => <Section_TextBlock {...props} />,
@@ -38,10 +43,15 @@ const typeMap: Record<string, SectionComponent> = {
   treatment_closing_cta: (props) => <Section_TreatmentClosingCTA {...props} />,
 };
 
-function renderSection(section: SectionRegistryEntry) {
+function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[]) {
   const key = section.kind ?? section.type;
   const component = key ? typeMap[key] : undefined;
-  if (component) return component({ section });
+  if (component) {
+    const props = key === "treatment_closing_cta"
+      ? { section, ctas: footerCTAs, footerCTAs }
+      : { section, footerCTAs };
+    return component(props);
+  }
 
   if (["copy-block", "story", "faq", "accordion"].includes(section.type ?? "")) {
     return <Section_TextBlock section={section} />;
@@ -56,10 +66,11 @@ function renderSection(section: SectionRegistryEntry) {
   return <Section_TextBlock section={section} />;
 }
 
-export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, previewMode }: ChampagneSectionRendererProps) {
+export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, previewMode }: ChampagneSectionRendererProps) {
   const sections = getSectionStack(pageSlug);
   const hasMidPageCTAs = (midPageCTAs?.length ?? 0) > 0;
   const midInsertIndex = hasMidPageCTAs ? Math.max(1, Math.ceil(sections.length / 2)) : -1;
+  const hasClosingCTASection = sections.some((section) => section.kind === "treatment_closing_cta");
 
   return (
     <div style={{ display: "grid", gap: "clamp(1.2rem, 2.4vw, 2rem)", marginTop: "0.5rem" }}>
@@ -74,13 +85,13 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, previewMode }:
       >
         {sections.map((section, index) => (
           <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
-            <div>{renderSection(section)}</div>
+            <div>{renderSection(section, footerCTAs)}</div>
             {hasMidPageCTAs && index === midInsertIndex - 1 && (
               <ChampagneCTAGroup
                 ctas={midPageCTAs}
                 label="Mid-page CTAs"
                 showDebug={previewMode}
-                defaultPreset="secondary"
+                defaultVariant="secondary"
               />
             )}
           </Fragment>
@@ -91,7 +102,16 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, previewMode }:
             ctas={midPageCTAs}
             label="Mid-page CTAs"
             showDebug={previewMode}
-            defaultPreset="secondary"
+            defaultVariant="secondary"
+          />
+        )}
+        {footerCTAs && footerCTAs.length > 0 && !hasClosingCTASection && (
+          <ChampagneCTAGroup
+            ctas={footerCTAs}
+            label="Footer CTAs"
+            direction="row"
+            defaultVariant="ghost"
+            showDebug={previewMode}
           />
         )}
       </div>

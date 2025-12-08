@@ -5,7 +5,5 @@ export {
   registerCTA,
   resolveCTA,
   resolveCTAList,
-  type CTAStylePreset,
-  type ChampagneCTAConfig,
-  type CTAReference,
 } from "./CTARegistry";
+export type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "./types";

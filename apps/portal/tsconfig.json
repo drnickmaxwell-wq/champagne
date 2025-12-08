@@ -10,6 +10,14 @@
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
+    "paths": {
+      "@champagne/tokens": ["../../packages/champagne-tokens/src"],
+      "@champagne/guards": ["../../packages/champagne-guards/src"],
+      "@champagne/manifests": ["../../packages/champagne-manifests/src"],
+      "@champagne/hero": ["../../packages/champagne-hero/src"],
+      "@champagne/sections": ["../../packages/champagne-sections/src"],
+      "@champagne/cta": ["../../packages/champagne-cta/src"]
+    },
     "plugins": [
       {
         "name": "next"

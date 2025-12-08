@@ -1,92 +1,88 @@
-import type { ChampagneCTAConfig, CTAReference, CTAStylePreset } from "./types";
+import type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "./types";
 
-const ctaRegistry: Record<string, ChampagneCTAConfig> = {
+const registry: Record<string, ChampagneCTAConfig> = {
   "book-consultation": {
     id: "book-consultation",
     label: "Book a consultation",
     href: "/contact",
-    preset: "primary",
-    description: "Default booking CTA for clinical flows.",
+    variant: "primary",
+  },
+  "ai-smile-preview": {
+    id: "ai-smile-preview",
+    label: "AI smile preview",
+    href: "/treatments/digital-smile-design",
+    variant: "secondary",
   },
   "view-treatments": {
     id: "view-treatments",
     label: "Explore treatments",
     href: "/treatments",
-    preset: "secondary",
-    description: "Navigates to the treatments hub.",
-  },
-  "view-smile-gallery": {
-    id: "view-smile-gallery",
-    label: "View smile gallery",
-    href: "/smile-gallery",
-    preset: "luxury-gold",
-  },
-  "call-office": {
-    id: "call-office",
-    label: "Call the office",
-    href: "tel:+14157727409",
-    preset: "ghost",
+    variant: "secondary",
   },
 };
 
-function startCase(value: string) {
-  return value
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (char) => char.toUpperCase())
-    .replace(/\s+/g, " ");
+function normalizeVariant(value: string | undefined, fallback: ChampagneCTAVariant): ChampagneCTAVariant {
+  if (value === "primary" || value === "secondary" || value === "ghost") return value;
+  return fallback;
+}
+
+function deriveId(input: ChampagneCTAInput, index: number) {
+  if (typeof input === "string") return input || `cta-${index + 1}`;
+  return input.id ?? `cta-${index + 1}`;
+}
+
+function deriveLabel(input: ChampagneCTAInput, fallbackId: string) {
+  if (typeof input === "string") return input.replace(/[-_]/g, " ").trim() || fallbackId;
+  const fallbackLabel = fallbackId.replace(/[-_]/g, " ").trim() || "Call to action";
+  return input.label ?? fallbackLabel;
+}
+
+function deriveHref(input: ChampagneCTAInput) {
+  if (typeof input === "string") return input.startsWith("/") ? input : "#";
+  const hrefFromId = typeof input.id === "string" && input.id.startsWith("/") ? (input.id as string) : "#";
+  return input.href ?? hrefFromId;
 }
 
 export function registerCTA(entry: ChampagneCTAConfig) {
-  ctaRegistry[entry.id] = entry;
+  registry[entry.id] = entry;
 }
 
 export function getCTAFromRegistry(id: string): ChampagneCTAConfig | undefined {
-  return ctaRegistry[id];
-}
-
-function resolveFromRegistry(reference: CTAReference): ChampagneCTAConfig | undefined {
-  if (typeof reference === "string") return ctaRegistry[reference];
-  if (reference.id) return ctaRegistry[reference.id];
-  return undefined;
+  return registry[id];
 }
 
 export function resolveCTA(
-  reference: CTAReference,
+  reference: ChampagneCTAInput,
   index = 0,
-  defaultPreset: CTAStylePreset = "ghost",
+  defaultVariant: ChampagneCTAVariant = "ghost",
 ): ChampagneCTAConfig {
-  const fromRegistry = resolveFromRegistry(reference);
-  const fallbackLabel = typeof reference === "string" ? startCase(reference) || "Call to action" : "Call to action";
-  const fallbackHref = typeof reference === "string" && reference.startsWith("/") ? reference : "#";
+  const fallbackId = deriveId(reference, index);
+  const registryMatch = typeof reference === "string"
+    ? registry[reference]
+    : reference.id
+      ? registry[reference.id]
+      : undefined;
 
-  if (typeof reference === "string") {
-    return fromRegistry ?? {
-      id: reference || `cta-${index + 1}`,
-      label: fallbackLabel,
-      href: fallbackHref,
-      preset: defaultPreset,
-    };
-  }
+  const variant = normalizeVariant(
+    typeof reference === "object" ? (reference.variant as string | undefined) ?? (reference as { preset?: string }).preset : undefined,
+    registryMatch?.variant ?? defaultVariant,
+  );
 
   return {
-    id: reference.id ?? fromRegistry?.id ?? `cta-${index + 1}`,
-    label: reference.label ?? fromRegistry?.label ?? fallbackLabel,
-    href: reference.href ?? fromRegistry?.href ?? fallbackHref,
-    preset: (reference.preset as CTAStylePreset | undefined) ?? fromRegistry?.preset ?? defaultPreset,
-    description: reference.description ?? fromRegistry?.description,
-  };
+    id: fallbackId,
+    label: registryMatch?.label ?? deriveLabel(reference, fallbackId),
+    href: registryMatch?.href ?? deriveHref(reference),
+    variant,
+  } satisfies ChampagneCTAConfig;
 }
 
 export function resolveCTAList(
-  references: CTAReference[] = [],
-  defaultPreset: CTAStylePreset = "ghost",
+  references: ChampagneCTAInput[] = [],
+  defaultVariant: ChampagneCTAVariant = "ghost",
 ): ChampagneCTAConfig[] {
   return references
-    .map((reference, index) => resolveCTA(reference, index, defaultPreset))
+    .map((reference, index) => resolveCTA(reference, index, defaultVariant))
     .filter((cta) => Boolean(cta.label && cta.href));
 }
 
-export type { CTAStylePreset } from "./types";
-export type { ChampagneCTAConfig, CTAReference } from "./types";
+export type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "./types";
