@@ -7,10 +7,11 @@ const FAMILY_LABELS: Record<string, string> = {
   whitening: "Whitening",
   "3d-tech": "3D & tech",
   aligners: "Orthodontics & aligners",
+  comfort: "Comfort & anxiety care",
   other: "More care options",
 };
 
-const FAMILY_ORDER = ["implants", "whitening", "3d-tech", "aligners", "other"];
+const FAMILY_ORDER = ["implants", "whitening", "3d-tech", "aligners", "comfort", "other"];
 
 function inferFamily(slug: string) {
   if (slug.startsWith("implants")) return "implants";
@@ -19,6 +20,7 @@ function inferFamily(slug: string) {
   if (slug.startsWith("3d-") || slug.includes("3d-")) return "3d-tech";
   if (slug.startsWith("cbct")) return "3d-tech";
   if (slug === "digital-smile-design") return "3d-tech";
+  if (slug.includes("painless-numbing")) return "comfort";
   return "other";
 }
 

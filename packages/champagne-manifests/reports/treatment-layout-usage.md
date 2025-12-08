@@ -37,3 +37,8 @@ This note traces how treatment slugs now flow through the builder into the hero 
 - Patient stories rail
 - FAQ block
 - Closing CTA band
+
+## Phase 7 upgrades
+
+- Rich layout now powers composite bonding plus: 3D implant restorations, 3D printed veneers, clear aligners, whitening in surgery, whitening at home, full smile makeover, and the new comfort route for painless numbing with The Wand.
+- The Wand sits in the canon as a comfort-first option under /treatments/painless-numbing-the-wand with a concise rich stack (overview, media feature, tools trio, FAQ, closing CTA).
