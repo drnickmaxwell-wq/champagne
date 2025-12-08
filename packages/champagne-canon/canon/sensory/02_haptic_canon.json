@@ -1,0 +1,8 @@
+{
+  "haptics": {
+    "tap": "haptic.microTap",
+    "confirm": "haptic.pressureSoft",
+    "dismiss": "haptic.exhale",
+    "ceremonial": "haptic.pulseBloom"
+  }
+}

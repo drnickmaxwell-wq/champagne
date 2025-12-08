@@ -1,0 +1,20 @@
+{
+  "stackGuard": {
+    "order": [
+      "layer.base",
+      "layer.gradient135",
+      "layer.weather",
+      "layer.material",
+      "layer.fx",
+      "layer.content",
+      "layer.ritual"
+    ],
+    "rules": {
+      "noGoldInWeather": true,
+      "gradientAngleMustBe135": true,
+      "contentMustRemainSharp": true,
+      "fxCannotUnderMaterial": true,
+      "ritualLayerTimeoutMs": 2400
+    }
+  }
+}

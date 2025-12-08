@@ -1,0 +1,16 @@
+{
+  "behaviouralPrediction": {
+    "states": ["absorb", "drift", "saturation", "escape"],
+    "signals": [
+      "microHesitation",
+      "looping",
+      "precisionScan",
+      "exitFriction"
+    ],
+    "responses": {
+      "drift": "simplifyVisuals",
+      "saturation": "chunkContent",
+      "escape": "offerSaveAndExit"
+    }
+  }
+}
