@@ -1,3 +1,27 @@
 {
-  "//": "TODO: add sacred hero variants"
+  "variants": [
+    {
+      "id": "default",
+      "label": "Sacred night base",
+      "tone": "night",
+      "surfaces": {
+        "particles": "base",
+        "motion": ["wave", "glass"]
+      }
+    },
+    {
+      "id": "day",
+      "label": "Daylight shimmer",
+      "timeOfDay": "day",
+      "tone": "day",
+      "surfaces": {
+        "particles": "teal",
+        "motion": ["glass"]
+      },
+      "content": {
+        "headline": "Daylight smile confidence.",
+        "subheadline": "Bright, precise dentistry with a calm studio feel."
+      }
+    }
+  ]
 }

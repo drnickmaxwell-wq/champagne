@@ -1,13 +1,13 @@
 :root {
   /* Canonical surface assets (paths stable; binaries uploaded separately) */
-  --grain-desktop: url("/assets/champagne/film-grain-desktop.webp");
-  --grain-mobile:  url("/assets/champagne/film-grain-mobile.webp");
-  --particles:     url("/assets/champagne/home-hero-particles.webp");
-  --wave-mask:     url("/assets/champagne/wave-mask-desktop.webp");
+  --grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop .webp");
+  --grain-mobile:  url("/assets/champagne/film-grain/film-grain-mobile .webp");
+  --particles:     url("/assets/champagne/particles/home-hero-particles.webp");
+  --wave-mask:     url("/assets/champagne/waves/wave-mask-desktop.webp");
 }
 
 @media (max-width: 640px) {
-  :root { --wave-mask: url("/assets/champagne/wave-mask-mobile.webp"); }
+  :root { --wave-mask: url("/assets/champagne/waves/wave-mask-mobile.webp"); }
 }
 
 /* Layer order: gradient → wave mask → particles → grain → glass → content */

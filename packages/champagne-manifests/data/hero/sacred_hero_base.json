@@ -1,3 +1,22 @@
 {
-  "//": "TODO: add sacred hero base manifest"
+  "id": "sacred-home-hero",
+  "content": {
+    "eyebrow": "Champagne Dentistry",
+    "headline": "Advanced cosmetic dentistry crafted with calm precision.",
+    "subheadline": "Digital workflows, gentle clinicians, and beautifully layered studio light for confident smiles.",
+    "cta": { "label": "Book a consultation", "href": "/book" },
+    "secondaryCta": { "label": "Explore treatments", "href": "/treatments" }
+  },
+  "defaults": {
+    "tone": "night",
+    "surfaces": {
+      "waveMask": { "desktop": "primary", "mobile": "mobile" },
+      "background": { "desktop": "primary", "mobile": "primary" },
+      "overlays": { "dots": "dots", "field": "field" },
+      "particles": "base",
+      "grain": { "desktop": "desktop", "mobile": "mobile" },
+      "motion": ["wave", "glass"],
+      "video": "heroVideo"
+    }
+  }
 }

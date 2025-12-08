@@ -1,3 +1,34 @@
 {
-  "//": "TODO: add sacred hero surfaces"
+  "waveMasks": {
+    "primary": "sacred.wave.mask.desktop",
+    "mobile": "sacred.wave.mask.mobile",
+    "header": "sacred.wave.mask.header",
+    "smh": "sacred.wave.mask.smh"
+  },
+  "waveBackgrounds": {
+    "primary": { "desktop": "sacred.wave.background.desktop", "mobile": "sacred.wave.background.mobile" }
+  },
+  "overlays": {
+    "dots": "sacred.wave.overlay.dots",
+    "field": "sacred.wave.overlay.field"
+  },
+  "particles": {
+    "base": "sacred.particles.home",
+    "gold": "sacred.particles.gold",
+    "magenta": "sacred.particles.magenta",
+    "teal": "sacred.particles.teal"
+  },
+  "grain": {
+    "desktop": "sacred.grain.desktop",
+    "mobile": "sacred.grain.mobile"
+  },
+  "motion": {
+    "wave": "sacred.motion.waveCaustics",
+    "glass": "sacred.motion.glassShimmer",
+    "dust": "sacred.motion.goldDust",
+    "drift": "sacred.motion.particleDrift"
+  },
+  "video": {
+    "heroVideo": "sacred.motion.heroVideo"
+  }
 }
