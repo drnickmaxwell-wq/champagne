@@ -1,0 +1,23 @@
+name: Hero Freeze Guard
+
+on:
+  pull_request:
+    paths:
+      - "public/assets/champagne/**"
+      - "public/brand/**"
+      - "public/assets/champagne/manifest.json"
+      - "scripts/hero-freeze.hashes.json"
+      - "scripts/guard-hero-freeze.mjs"
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/generate-film-grain.mjs --seed champagne-v1 --width 2560 --height 1440 --intensity 0.015
+      - run: node scripts/guard-hero-freeze.mjs
