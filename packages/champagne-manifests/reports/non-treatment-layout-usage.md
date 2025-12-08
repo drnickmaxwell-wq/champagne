@@ -6,8 +6,18 @@ Summary of canon-aligned non-treatment pages now running through the Champagne m
 
 ### Home (`/`)
 - Hero preset: `home_neutral_hero_v1`
-- Sections: `home_intro_positioning` → `home_care_highlights` → `home_get_started_band`
-- Notes: kept deliberately minimal; sacred hero and richer storytelling will arrive in a later phase.
+- Sections: `home_intro_positioning` → `home_treatment_hub` → `home_care_pathway` → `home_finance_options` → `home_technology_showcase` → `home_patient_stories` → `home_faq` → `home_closing_cta`
+- Notes: rich neutral layout for hub journeys; copy remains placeholder-safe while preserving calm pacing.
+
+#### Home – Rich Layout Plan
+1. `home_intro_positioning` → `Section_TextBlock` — calm welcome, manifesto tone.
+2. `home_treatment_hub` → `Section_FeatureList` — hub for priority treatments.
+3. `home_care_pathway` → `Section_FeatureList` (steps) — simple flow of visits.
+4. `home_finance_options` → `Section_FeatureList` — transparent finance points.
+5. `home_technology_showcase` → `Section_MediaBlock` — tech and planning preview placeholder.
+6. `home_patient_stories` → `Section_PatientStoriesRail` — rail of anonymised journeys.
+7. `home_faq` → `Section_FAQ` — practice questions, neutral answers.
+8. `home_closing_cta` → `Section_TreatmentClosingCTA` — book or explore CTA pair.
 
 ### Team (`/team`)
 - Hero preset: `team_preview_hero_v1`

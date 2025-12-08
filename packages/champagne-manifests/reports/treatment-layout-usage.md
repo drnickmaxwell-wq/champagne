@@ -28,6 +28,8 @@ This note traces how treatment slugs now flow through the builder into the hero 
 - Many treatment sections only ship IDs/types today; the adapter supplies neutral, accessible placeholder copy to keep layouts complete until full text arrives.
 - Hero presets from the styles manifest currently provide palette/motion metadata. If a hero-specific title/subtitle is ever authored there, `ChampagneHeroFrame` will display it automatically.
 
+The richer Home stack now mirrors the priority treatment structure (overview, pathway, tools/tech, stories, FAQ, closing CTA) to keep journeys consistent between hub and treatment routes.
+
 ## Composite bonding — rich layout stack
 
 - Overview rich (eyebrow, headline, key bullets)
