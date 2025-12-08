@@ -22,7 +22,10 @@ export {
   getPageManifest,
   getSectionManifest,
   getSectionCTAReferences,
+  getTreatmentManifest,
+  getTreatmentPages,
   type ChampagneHeroManifest,
   type ChampagneCTASlots,
   type ChampagneSectionManifest,
+  type ChampagneTreatmentPage,
 } from "./helpers";

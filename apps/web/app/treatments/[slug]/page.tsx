@@ -1,48 +1,40 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTreatmentManifest } from "@champagne/manifests";
 
-type PageProps = {
-  params: Promise<{ slug: string }>;
-};
+import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
 
-const allowedTreatments: Record<string, string> = {
-  "dental-implants": "Dental Implants",
-  "clear-aligners": "Clear aligner orthodontics (Spark and other systems)",
-  "smile-makeovers": "Smile Makeovers",
-  "teeth-whitening": "Teeth Whitening",
-  "3d-dentistry-scanning": "3D Dentistry & Scanning",
-};
+type PageParams = Promise<{ slug: string }>;
 
-export default async function TreatmentPage({ params }: PageProps) {
-  const { slug } = await params;
-  const title = allowedTreatments[slug];
+async function resolveTreatment(params: PageParams) {
+  const resolved = await params;
+  const manifest = getTreatmentManifest(resolved.slug);
+  const pageSlug = manifest?.path ?? `/treatments/${resolved.slug}`;
 
-  if (!title) {
+  return { manifest, slug: resolved.slug, pageSlug };
+}
+
+export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
+  const { manifest } = await resolveTreatment(params);
+
+  if (!manifest) {
+    return { title: "Treatment not found" };
+  }
+
+  const fallbackDescription = "Explore this treatment option.";
+
+  return {
+    title: manifest.label ?? "Treatment",
+    description: (manifest as { description?: string }).description ?? fallbackDescription,
+  };
+}
+
+export default async function TreatmentPage({ params }: { params: PageParams }) {
+  const { manifest, pageSlug } = await resolveTreatment(params);
+
+  if (!manifest) {
     return notFound();
   }
 
-  return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-6">
-      <div className="space-y-2">
-        <p className="text-sm uppercase tracking-[0.2em] text-neutral-400">Treatment</p>
-        <h1 className="text-3xl font-semibold text-neutral-50">{title}</h1>
-        <p className="text-neutral-300">
-          This page is a placeholder for the full details about {title.toLowerCase()}. The complete experience will
-          include clinical information, patient guidance, and how it integrates with the Champagne Ecosystem.
-        </p>
-      </div>
-
-      <div className="rounded-lg border border-neutral-800 bg-neutral-900/40 p-4 text-sm text-neutral-300">
-        <p className="font-semibold text-neutral-100">Routing info</p>
-        <p>Slug: {slug}</p>
-      </div>
-
-      <Link
-        href="/treatments"
-        className="w-fit rounded-md border border-neutral-800 px-4 py-2 text-sm font-medium text-neutral-100 transition hover:border-neutral-700 hover:bg-neutral-900"
-      >
-        ← Back to treatments
-      </Link>
-    </div>
-  );
+  return <ChampagnePageBuilder slug={pageSlug} />;
 }

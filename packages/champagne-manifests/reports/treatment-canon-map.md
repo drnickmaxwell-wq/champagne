@@ -31,3 +31,35 @@ Snapshot of treatment routes in the Champagne manifests. Hero and section indica
 | whitening | Teeth whitening | ✅ | ✅ |
 | whitening-at-home | Whitening at home | ✅ | ✅ |
 | whitening-in-surgery | In-surgery whitening | ✅ | ✅ |
+
+## Phase 5 wiring
+
+- /treatments index now renders directly from the manifest canon (no hard-coded lists).
+- Treatment slugs routed through the Champagne builder:
+  - 3d-dentistry-and-technology
+  - 3d-implant-restorations
+  - 3d-printed-veneers
+  - 3d-printing-lab
+  - cbct-3d-scanning
+  - childrens-dentistry
+  - clear-aligners
+  - composite-bonding
+  - crowns-bridges-restorative
+  - digital-smile-design
+  - emergency-dentistry
+  - endodontics-root-canal
+  - extractions-and-oral-surgery
+  - full-smile-makeover
+  - implants
+  - implants-full-arch
+  - implants-multiple-teeth
+  - implants-single-tooth
+  - orthodontics
+  - periodontal-gum-care
+  - preventative-and-general-dentistry
+  - senior-mature-smile-care
+  - tmj-jaw-comfort
+  - veneers
+  - whitening
+  - whitening-at-home
+  - whitening-in-surgery

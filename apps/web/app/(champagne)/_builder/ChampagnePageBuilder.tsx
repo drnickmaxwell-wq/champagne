@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { BaseChampagneSurface, ChampagneHeroFrame } from "@champagne/hero";
 import {
@@ -33,6 +34,32 @@ const gridStyle: CSSProperties = {
   display: "grid",
   gap: "clamp(1.25rem, 3vw, 2.5rem)",
 };
+
+function TreatmentBreadcrumb({ label, href }: { label?: string; href: string }) {
+  return (
+    <nav
+      aria-label="Breadcrumb"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "0.65rem",
+        fontSize: "0.95rem",
+        color: "var(--text-medium, rgba(230,230,230,0.82))",
+        letterSpacing: "0.02em",
+      }}
+    >
+      <Link href="/" className="hover:underline">
+        Home
+      </Link>
+      <span aria-hidden>/</span>
+      <Link href="/treatments" className="hover:underline">
+        Treatments
+      </Link>
+      <span aria-hidden>/</span>
+      <span>{label ?? href.replace("/treatments/", "").replace(/-/g, " ")}</span>
+    </nav>
+  );
+}
 
 function DebugPanel({
   path,
@@ -92,10 +119,12 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const midPageCTAs = resolveCTAList(ctaSlots.midPageCTAs, "secondary");
   const footerCTAs = resolveCTAList(ctaSlots.footerCTAs, "ghost");
   const sections = getSectionStack(pagePath);
+  const isTreatmentPage = pagePath.startsWith("/treatments/");
 
   return (
     <BaseChampagneSurface variant="inkGlass" style={surfaceStyle}>
       <div style={gridStyle}>
+        {isTreatmentPage && <TreatmentBreadcrumb label={manifest?.label as string | undefined} href={pagePath} />}
         <div style={{ display: "grid", gap: "0.8rem" }}>
           <ChampagneHeroFrame
             heroId={heroId ?? pagePath}
