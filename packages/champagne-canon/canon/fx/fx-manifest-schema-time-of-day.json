@@ -1,0 +1,30 @@
+{
+  "themeModes": ["light", "dark"],
+  "temporalStates": ["dawn", "midday", "goldenHour", "inkfall"],
+  "lighting": {
+    "dawn": {
+      "surfaceMaterialId": "material.glass.rose-fog",
+      "backgroundFxIds": ["fx.caustics.day-soft"],
+      "accentFxIds": ["fx.sparkles.gold.day"]
+    },
+    "midday": {
+      "surfaceMaterialId": "material.glass.porcelain-clear",
+      "backgroundFxIds": ["fx.none"],
+      "accentFxIds": ["fx.shimmer.edge.porcelain"]
+    },
+    "goldenHour": {
+      "surfaceMaterialId": "material.glass.porcelain-clear",
+      "backgroundFxIds": ["fx.caustics.day-soft"],
+      "accentFxIds": ["fx.sparkles.gold.day"]
+    },
+    "inkfall": {
+      "surfaceMaterialId": "material.ink.pool",
+      "backgroundFxIds": ["fx.caustics.slow", "fx.bubbles.subtle"],
+      "accentFxIds": ["fx.shimmer.edge.cool"]
+    }
+  },
+  "meta": {
+    "version": "champagne-light-and-time-schema-v1",
+    "notes": "Time-of-day modes remain optional and must be applied safely via Director AI and Stack Guard."
+  }
+}

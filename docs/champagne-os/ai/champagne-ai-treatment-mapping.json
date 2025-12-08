@@ -1,5 +1,34 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "treatmentMapping": [
+    {
+      "treatmentSlug": "veneers",
+      "persona": "persona.luxuryHost",
+      "toneMode": "tone.luxury",
+      "defaultChapter": "chapter.discovery"
+    },
+    {
+      "treatmentSlug": "implants",
+      "persona": "persona.clinicalSage",
+      "toneMode": "tone.clarity",
+      "defaultChapter": "chapter.discovery"
+    },
+    {
+      "treatmentSlug": "spark-aligners",
+      "persona": "persona.companionGuide",
+      "toneMode": "tone.guidance",
+      "defaultChapter": "chapter.invitation"
+    },
+    {
+      "treatmentSlug": "emergency",
+      "persona": "persona.quietReassurer",
+      "toneMode": "tone.assurance",
+      "defaultChapter": "chapter.assurance"
+    },
+    {
+      "treatmentSlug": "general-dentistry",
+      "persona": "persona.clinicalSage",
+      "toneMode": "tone.clarity",
+      "defaultChapter": "chapter.discovery"
+    }
+  ]
 }

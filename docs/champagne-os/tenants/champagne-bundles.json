@@ -1,5 +1,167 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "modules": [
+    {
+      "id": "module.core.marketingSite",
+      "label": "Core Marketing Site",
+      "description": "Static and semi-dynamic marketing pages driven by manifests and Champagne Canon.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.concierge.chat",
+      "label": "Champagne Concierge Chat",
+      "description": "Multi-persona, AI-assisted concierge chat UI (non-diagnostic, no PHI stored by default).",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.portal.core",
+      "label": "Patient Portal Core",
+      "description": "Secure login shell and generic UI shell for portal features (PHI-handling backend required).",
+      "requiresPHI": true
+    },
+    {
+      "id": "module.portal.consent",
+      "label": "Digital Consent",
+      "description": "Consent pages, signature flows, and consent audit trails in the portal layer.",
+      "requiresPHI": true
+    },
+    {
+      "id": "module.portal.finance",
+      "label": "Finance & Plans",
+      "description": "Plan summaries, finance calculators, and payment schedule views.",
+      "requiresPHI": true
+    },
+    {
+      "id": "module.treatments.3dViewer",
+      "label": "3D Treatment Viewer",
+      "description": "Generic 3D viewers for veneers, implants, aligners and other assets.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.treatments.smileSimulator",
+      "label": "Smile Simulator",
+      "description": "Non-diagnostic cinematic smile visualisations using anonymised or synthetic 3D assets.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.treatments.shadeMapping",
+      "label": "Shade Mapping OS",
+      "description": "3D shade detection & visualisation OS (no raw PHI, only abstracted shade data).",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.treatments.implantPlannerView",
+      "label": "Implant Planner Visuals",
+      "description": "High-level, non-diagnostic implant planning visuals with generic components.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.visual.emotionalLighting",
+      "label": "Emotional Lighting Layer",
+      "description": "Visual presets mapped from emotional states to lighting rigs and overlays.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.motion.micro",
+      "label": "Micro-Motion Engine",
+      "description": "Global micro-motion rules and harmonisation based on Champagne Motion Canon.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.ai.content",
+      "label": "AI Content Assistant",
+      "description": "Non-PHI content drafting (blogs, FAQs, web copy) aligned with Canon and guard rails.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.ai.conversational",
+      "label": "AI Behaviour Engine",
+      "description": "Behavioural prediction, mood memory and cognitive load management (no PHI).",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.analytics.kpi",
+      "label": "KPI & Experience Analytics",
+      "description": "Aggregated KPIs and UX analytics (no per-patient PHI stored in this layer).",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.analytics.implantFunnel",
+      "label": "Implant Funnel Analytics",
+      "description": "Aggregate analytics around implant journeys (non-identifiable).",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.integrations.phoneEmail",
+      "label": "Phone & Email Integration",
+      "description": "Lightweight integration for contact links and off-platform communications.",
+      "requiresPHI": false
+    },
+    {
+      "id": "module.integrations.calendar",
+      "label": "Calendar Integration Shell",
+      "description": "Abstraction for connecting to practice management calendars (PHI behind engine).",
+      "requiresPHI": true
+    }
+  ],
+  "bundles": [
+    {
+      "id": "bundle.basic",
+      "label": "Champagne Basic",
+      "description": "Core marketing experience with emotional lighting and micro-motion.",
+      "modules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.analytics.kpi"
+      ]
+    },
+    {
+      "id": "bundle.3d",
+      "label": "Champagne 3D",
+      "description": "Basic bundle plus the 3D treatment library and smile visualisation stack.",
+      "extends": "bundle.basic",
+      "modules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.analytics.kpi",
+        "module.treatments.3dViewer",
+        "module.treatments.smileSimulator",
+        "module.treatments.shadeMapping"
+      ]
+    },
+    {
+      "id": "bundle.full",
+      "label": "Champagne Full Stack",
+      "description": "End-to-end Champagne OS including portal and AI behaviour engines.",
+      "extends": "bundle.3d",
+      "modules": [
+        "module.core.marketingSite",
+        "module.concierge.chat",
+        "module.visual.emotionalLighting",
+        "module.motion.micro",
+        "module.analytics.kpi",
+        "module.treatments.3dViewer",
+        "module.treatments.smileSimulator",
+        "module.treatments.shadeMapping",
+        "module.treatments.implantPlannerView",
+        "module.portal.core",
+        "module.portal.consent",
+        "module.portal.finance",
+        "module.ai.content",
+        "module.ai.conversational",
+        "module.analytics.implantFunnel",
+        "module.integrations.phoneEmail",
+        "module.integrations.calendar"
+      ]
+    }
+  ],
+  "defaults": {
+    "bundleForNewTenant": "bundle.basic",
+    "brandTokenSetForNewTenant": "tokens.default-champagne",
+    "canonProfileForNewTenant": "canon.profile.default",
+    "aiPersonaProfileForNewTenant": "ai.persona.matrix.default"
+  }
 }

@@ -1,5 +1,44 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "treatmentEmotionalDefaults": [
+    {
+      "treatmentSlug": "veneers-3d-printed",
+      "emotionalLightingPresetId": "emotionalLighting.luxuryEmotion"
+    },
+    {
+      "treatmentSlug": "implants-single-tooth",
+      "emotionalLightingPresetId": "emotionalLighting.assurance"
+    },
+    {
+      "treatmentSlug": "implants-full-arch",
+      "emotionalLightingPresetId": "emotionalLighting.assurance"
+    },
+    {
+      "treatmentSlug": "spark-aligners",
+      "emotionalLightingPresetId": "emotionalLighting.precision"
+    },
+    {
+      "treatmentSlug": "orthodontics",
+      "emotionalLightingPresetId": "emotionalLighting.calm"
+    },
+    {
+      "treatmentSlug": "emergency-dentistry",
+      "emotionalLightingPresetId": "emotionalLighting.assurance"
+    },
+    {
+      "treatmentSlug": "emergency-dentistry-resolution",
+      "emotionalLightingPresetId": "emotionalLighting.relief"
+    },
+    {
+      "treatmentSlug": "smile-design",
+      "emotionalLightingPresetId": "emotionalLighting.luxuryEmotion"
+    },
+    {
+      "treatmentSlug": "hygiene",
+      "emotionalLightingPresetId": "emotionalLighting.calm"
+    },
+    {
+      "treatmentSlug": "cbct-3d-scanning",
+      "emotionalLightingPresetId": "emotionalLighting.precision"
+    }
+  ]
 }

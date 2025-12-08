@@ -1,0 +1,103 @@
+{
+  "champagneCanonIndex": {
+    "version": "champagne-canon-registry-v1",
+    "domains": {
+      "fx": {
+        "path": "/canon/fx/",
+        "files": [
+          "champagne-fx-canon.md",
+          "champagne-fx-presets.json",
+          "champagne-motion-profiles.json"
+        ]
+      },
+      "lighting": {
+        "path": "/canon/lighting/",
+        "files": [
+          "champagne-light-mode-temporal.md",
+          "champagne-materials-and-fx-light.json",
+          "lighting-and-shimmer-recipes-light.md",
+          "fx-manifest-schema-time-of-day.json",
+          "hdr-lighting-lab.md",
+          "hdr-lighting-lab.json"
+        ]
+      },
+      "motion": {
+        "path": "/canon/motion/",
+        "files": [
+          "champagne-temporal-animation-law.md",
+          "champagne-temporal.json",
+          "micro-motion-engine.md",
+          "micro-motion-engine.json",
+          "ritual-motion-law.md",
+          "spatial-interaction-canon.md",
+          "spatial-interaction.json"
+        ]
+      },
+      "sensory": {
+        "path": "/canon/sensory/",
+        "files": [
+          "sound-design-canon.md",
+          "sound-profile.json",
+          "haptic-interaction-law.md",
+          "haptics-profile.json"
+        ]
+      },
+      "environment": {
+        "path": "/canon/environment/",
+        "files": [
+          "champagne-weather-system.md",
+          "champagne-particle-physics.md",
+          "particle-physics.json"
+        ]
+      },
+      "dental": {
+        "path": "/canon/dental/",
+        "files": [
+          "champagne-dental-materials.md",
+          "champagne-dental-materials.json",
+          "shade-mapping-os.md",
+          "shade-mapping-os.json",
+          "prosthetic-anatomy-engine.md",
+          "prosthetic-anatomy-engine.json",
+          "smile-simulator-os.md",
+          "smile-simulator-os.json"
+        ]
+      },
+      "behaviour": {
+        "path": "/canon/behaviour/",
+        "files": [
+          "cognitive-load-engine.md",
+          "cognitive-load-engine.json",
+          "behavioural-prediction-engine.md",
+          "mood-memory-engine.md",
+          "mood-memory-engine.json"
+        ]
+      },
+      "ai": {
+        "path": "/canon/ai/",
+        "files": [
+          "champagne-ai-tone-engine.md",
+          "persona-matrix.json"
+        ]
+      },
+      "narrative": {
+        "path": "/canon/narrative/",
+        "files": [
+          "narrative-flow-engine.md",
+          "narrative-flow-engine.json"
+        ]
+      },
+      "system": {
+        "path": "/canon/system/",
+        "files": [
+          "champagne-stack-guard.md",
+          "champagne-stack-guard.json",
+          "champagne-os-root-spec.md",
+          "champagne-os-root-schema.json",
+          "champagne-canon-index.json",
+          "multi-device-continuity.json"
+        ]
+      }
+    }
+  }
+}

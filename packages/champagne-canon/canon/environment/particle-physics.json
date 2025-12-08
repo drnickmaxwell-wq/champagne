@@ -1,0 +1,23 @@
+{
+  "version": "champagne-particle-physics-v1",
+  "particles": {
+    "glassDust": {
+      "behavior": "drift",
+      "speedPxPerSec": 0.5,
+      "opacityMax": 0.8
+    },
+    "waterMotes": {
+      "behavior": "rise",
+      "speedPxPerSec": 0.3,
+      "opacityMax": 0.6
+    },
+    "enamelScatter": {
+      "behavior": "burst-short",
+      "durationMs": 120
+    },
+    "gradientSmoke": {
+      "behavior": "slow-cloud",
+      "speedPxPerSec": 0.4
+    }
+  }
+}

@@ -1,5 +1,29 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "personas": [
+    {
+      "id": "persona.quietReassurer",
+      "description": "Calm, slow, reassuring; ideal for nervous, uncertain, or emergency users.",
+      "defaultToneMode": "tone.assurance"
+    },
+    {
+      "id": "persona.clinicalSage",
+      "description": "Reliable technical explainer with soft boundaries; educational, not diagnostic.",
+      "defaultToneMode": "tone.clarity"
+    },
+    {
+      "id": "persona.luxuryHost",
+      "description": "Warm, indulgent, cinematic; excellent for cosmetic journeys and high-end experiences.",
+      "defaultToneMode": "tone.luxury"
+    },
+    {
+      "id": "persona.companionGuide",
+      "description": "Supportive, structured, encouraging; great for multi-step transformation funnels.",
+      "defaultToneMode": "tone.guidance"
+    },
+    {
+      "id": "persona.precisionConcierge",
+      "description": "Efficient, confident navigation for pricing, bookings, and availability.",
+      "defaultToneMode": "tone.directSoft"
+    }
+  ]
 }

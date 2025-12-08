@@ -1,5 +1,213 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "retentionPolicies": [
+    {
+      "id": "retention.marketing.default",
+      "description": "Default retention for marketing leads.",
+      "maxDuration": "P18M",
+      "reviewInterval": "P12M",
+      "autoAnonymiseAfter": "P12M",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.analytics.default",
+      "description": "Retention for anonymous or pseudonymous analytics data.",
+      "maxDuration": "P26M",
+      "reviewInterval": "P12M",
+      "autoAnonymiseAfter": "P0D",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.portalAccount.default",
+      "description": "Retention for patient portal accounts.",
+      "maxDuration": "UNTIL_ACCOUNT_CLOSURE",
+      "reviewInterval": "P12M",
+      "autoAnonymiseAfter": "P12M_AFTER_CLOSURE",
+      "allowExtensionWithDocumentedReason": false
+    },
+    {
+      "id": "retention.appointments.default",
+      "description": "Retention for appointment bookings.",
+      "maxDuration": "P8Y",
+      "reviewInterval": "P24M",
+      "autoAnonymiseAfter": "P8Y",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.treatmentPlan.default",
+      "description": "Retention for treatment plans.",
+      "maxDuration": "P8Y",
+      "reviewInterval": "P24M",
+      "autoAnonymiseAfter": "P8Y",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.clinicalRecord.default",
+      "description": "Retention for clinical notes and core records, tuned with local legal requirements.",
+      "maxDuration": "P10Y",
+      "reviewInterval": "P24M",
+      "autoAnonymiseAfter": "P10Y",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.imaging.default",
+      "description": "Retention for imaging data and derived 3D assets.",
+      "maxDuration": "P10Y",
+      "reviewInterval": "P24M",
+      "autoAnonymiseAfter": "P10Y",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.chat.phi",
+      "description": "Retention for PHI-containing chatbot transcripts (e.g. triage).",
+      "maxDuration": "P2Y",
+      "reviewInterval": "P12M",
+      "autoAnonymiseAfter": "P2Y",
+      "allowExtensionWithDocumentedReason": false
+    },
+    {
+      "id": "retention.chat.nonPhi",
+      "description": "Retention for non-PHI chatbot transcripts used for UX and quality.",
+      "maxDuration": "P24M",
+      "reviewInterval": "P12M",
+      "autoAnonymiseAfter": "P24M",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.billing.default",
+      "description": "Retention for billing and financial data.",
+      "maxDuration": "P7Y",
+      "reviewInterval": "P24M",
+      "autoAnonymiseAfter": "P7Y",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.auditLog.default",
+      "description": "Retention for security and access audit logs.",
+      "maxDuration": "P7Y",
+      "reviewInterval": "P24M",
+      "autoAnonymiseAfter": "P7Y",
+      "allowExtensionWithDocumentedReason": true
+    },
+    {
+      "id": "retention.metrics.default",
+      "description": "Retention for technical metrics and non-identifying logs.",
+      "maxDuration": "P24M",
+      "reviewInterval": "P12M",
+      "autoAnonymiseAfter": "P24M",
+      "allowExtensionWithDocumentedReason": true
+    }
+  ],
+  "roles": [
+    {
+      "id": "role.clinician",
+      "description": "Registered clinician providing care.",
+      "permissions": {
+        "read": [
+          "portalAccount",
+          "appointmentBooking",
+          "treatmentPlan",
+          "clinicalRecord",
+          "imagingAsset",
+          "billingRecord",
+          "chatTranscriptPHI",
+          "chatTranscriptNonPHI"
+        ],
+        "write": [
+          "treatmentPlan",
+          "clinicalRecord",
+          "imagingAsset",
+          "appointmentBooking",
+          "billingRecord"
+        ],
+        "restricted": [
+          "auditLogEntry"
+        ]
+      }
+    },
+    {
+      "id": "role.receptionist",
+      "description": "Front-of-house and scheduling staff.",
+      "permissions": {
+        "read": [
+          "portalAccount",
+          "appointmentBooking",
+          "billingRecord",
+          "marketingLead"
+        ],
+        "write": [
+          "appointmentBooking",
+          "marketingLead"
+        ],
+        "restricted": [
+          "clinicalRecord",
+          "imagingAsset"
+        ]
+      }
+    },
+    {
+      "id": "role.patient",
+      "description": "Authenticated patient using portal.",
+      "permissions": {
+        "read": [
+          "portalAccount",
+          "appointmentBooking",
+          "treatmentPlan",
+          "billingRecord",
+          "imagingAsset"
+        ],
+        "write": [
+          "limitedProfileFields",
+          "consentPreferences"
+        ],
+        "restricted": [
+          "clinicalRecord",
+          "auditLogEntry"
+        ]
+      }
+    },
+    {
+      "id": "role.admin",
+      "description": "Clinic or tenant administrator.",
+      "permissions": {
+        "read": [
+          "marketingLead",
+          "websiteAnalyticsEvent",
+          "portalAccount",
+          "appointmentBooking",
+          "treatmentPlan",
+          "clinicalRecord",
+          "imagingAsset",
+          "billingRecord",
+          "auditLogEntry",
+          "systemMetric"
+        ],
+        "write": [
+          "portalAccount",
+          "appointmentBooking",
+          "billingRecord"
+        ],
+        "restricted": [
+          "directEditOfClinicalRecordWithoutClinicianWorkflow"
+        ]
+      }
+    },
+    {
+      "id": "role.externalContractor",
+      "description": "External vendors and consultants (e.g. marketing agency).",
+      "permissions": {
+        "read": [
+          "marketingLead",
+          "websiteAnalyticsEvent",
+          "systemMetric"
+        ],
+        "write": [],
+        "restricted": [
+          "clinicalRecord",
+          "imagingAsset",
+          "treatmentPlan",
+          "billingRecord"
+        ]
+      }
+    }
+  ]
 }

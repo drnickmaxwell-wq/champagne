@@ -1,0 +1,16 @@
+{
+  "version": "champagne-sensory-profiles-v1",
+  "sound": {
+    "tap": "sound.glass.soft-ting",
+    "confirm": "sound.water.drop-soft",
+    "dismiss": "sound.air.whoosh-light",
+    "precision": "sound.enamel.tick",
+    "ceremonial": "sound.gold.shimmer-warm"
+  },
+  "haptics": {
+    "tap": "haptic.microTap",
+    "confirm": "haptic.pressureSoft",
+    "dismiss": "haptic.exhale",
+    "ceremonial": "haptic.pulseBloom"
+  }
+}
