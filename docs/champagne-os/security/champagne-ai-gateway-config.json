@@ -1,5 +1,116 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "version": "1.0.0",
+  "defaultRegion": "region.uk",
+  "providers": [
+    {
+      "id": "provider.primaryLLM",
+      "description": "Primary external LLM provider for conversational and summarisation tasks.",
+      "baseUrl": "https://api.primary-llm.example",
+      "allowedPurposes": [
+        "purpose.chat.marketing.general",
+        "purpose.chat.triage.assist",
+        "purpose.summary.treatmentPlan",
+        "purpose.summary.clinicalRecord.internal"
+      ]
+    }
+  ],
+  "purposes": [
+    {
+      "id": "purpose.chat.marketing.general",
+      "description": "General marketing and informational chatbot conversations.",
+      "allowedDataClasses": [
+        "chatTranscriptNonPHI"
+      ],
+      "whitelistedFields": [
+        "chatMessage.text",
+        "conversationContext.highLevelTopic"
+      ],
+      "maxCharacters": 4000,
+      "storeSanitisedTranscript": true,
+      "retentionPolicyId": "retention.chat.nonPhi"
+    },
+    {
+      "id": "purpose.chat.triage.assist",
+      "description": "Triage-style chat assistance with potential PHI.",
+      "allowedDataClasses": [
+        "chatTranscriptPHI"
+      ],
+      "whitelistedFields": [
+        "chatMessage.text",
+        "conversationContext.symptomSummary",
+        "conversationContext.highLevelHistory"
+      ],
+      "maxCharacters": 4000,
+      "storeSanitisedTranscript": true,
+      "retentionPolicyId": "retention.chat.phi"
+    },
+    {
+      "id": "purpose.summary.treatmentPlan",
+      "description": "Generate human-readable explanations of treatment plans.",
+      "allowedDataClasses": [
+        "treatmentPlan"
+      ],
+      "whitelistedFields": [
+        "treatmentPlan.title",
+        "treatmentPlan.items[].summaryText",
+        "treatmentPlan.totalVisits",
+        "treatmentPlan.estimatedDuration"
+      ],
+      "maxCharacters": 6000,
+      "storeSanitisedTranscript": false,
+      "retentionPolicyId": "retention.treatmentPlan.default"
+    },
+    {
+      "id": "purpose.summary.clinicalRecord.internal",
+      "description": "Internal clinical summaries for clinician use only.",
+      "allowedDataClasses": [
+        "clinicalRecord"
+      ],
+      "whitelistedFields": [
+        "clinicalRecord.problemList",
+        "clinicalRecord.relevantHistory",
+        "clinicalRecord.treatmentSummary"
+      ],
+      "maxCharacters": 6000,
+      "storeSanitisedTranscript": false,
+      "retentionPolicyId": "retention.clinicalRecord.default"
+    }
+  ],
+  "redaction": {
+    "fieldBlacklist": [
+      "directIdentifier",
+      "contactDetails",
+      "locationDetails",
+      "billingDetails",
+      "authCredentials"
+    ],
+    "patternRules": [
+      {
+        "id": "pattern.identifier.generic",
+        "description": "Generic identifier-like patterns.",
+        "match": "(?i)(id:?[0-9]{6,})",
+        "replacement": "[identifier_removed]"
+      },
+      {
+        "id": "pattern.contact.generic",
+        "description": "Generic contact-like patterns.",
+        "match": "(?i)(phone|email)[^\\s]*",
+        "replacement": "[contact_removed]"
+      }
+    ]
+  },
+  "audit": {
+    "logAllCalls": true,
+    "logFields": [
+      "timestamp",
+      "tenantId",
+      "clinicId",
+      "initiatorType",
+      "purposeId",
+      "dataClassIds",
+      "anonymisedSessionId",
+      "providerId",
+      "status"
+    ]
+  }
 }
