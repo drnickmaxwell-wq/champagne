@@ -1,0 +1,16 @@
+{
+  "materials": {
+    "inkSurface": "deep cool ink, 135° gradient allowed",
+    "glassSoft": "frosted diffused glass overlay",
+    "accentGold": "≤4% soft gold micro-reflection",
+    "porcelainBase": "soft neutral porcelain-like background",
+    "dental": {
+      "enamelNatural": "material.dental.enamel.natural",
+      "ceramicLithiumDisilicate": "material.dental.ceramic.lithiumDisilicate",
+      "zirconiaMono": "material.dental.zirconia.mono",
+      "zirconiaMulti": "material.dental.zirconia.multi",
+      "compositeUniversal": "material.dental.composite.universal",
+      "titaniumGrade5": "material.dental.metal.titaniumGrade5"
+    }
+  }
+}
