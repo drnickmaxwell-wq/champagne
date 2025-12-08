@@ -1,0 +1,43 @@
+{
+  "version": "champagne-micro-motion-engine-v1",
+  "profiles": {
+    "silent": {
+      "description": "Almost no movement; only static grain and minimal colour drift.",
+      "parallaxMaxPx": 0,
+      "edgeShimmerIntervalSec": 0,
+      "bubbleSpeedPxPerSec": 0,
+      "enabledFx": ["fx.grain.filmSoft_static"]
+    },
+    "softBreath": {
+      "description": "Default Champagne ambience – slow, breathing micro-motion.",
+      "parallaxMaxPx": 4,
+      "edgeShimmerIntervalSec": 10,
+      "bubbleSpeedPxPerSec": 0.3,
+      "enabledFx": [
+        "fx.water.surfaceRipple_soft",
+        "fx.ink.inkfallDrift_soft",
+        "fx.grain.filmSoft_light"
+      ]
+    },
+    "cinematic": {
+      "description": "Slightly more pronounced caustics and particles for hero/smile moments.",
+      "parallaxMaxPx": 6,
+      "edgeShimmerIntervalSec": 8,
+      "bubbleSpeedPxPerSec": 0.6,
+      "enabledFx": [
+        "fx.water.depthCaustics_soft",
+        "fx.particles.champagneMicroBubbles_sparse",
+        "fx.grain.filmSoft_light"
+      ]
+    }
+  },
+  "limits": {
+    "hoverScaleMax": 1.03,
+    "hoverLiftPx": 3,
+    "ambientTempoHzRange": [0.08, 0.12]
+  },
+  "accessibility": {
+    "respectPrefersReducedMotion": true,
+    "fallbackProfile": "silent"
+  }
+}
