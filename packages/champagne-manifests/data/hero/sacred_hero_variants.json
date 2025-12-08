@@ -1,8 +1,8 @@
 {
   "variants": [
     {
-      "id": "default",
-      "label": "Sacred night base",
+      "id": "base_sacred_hero",
+      "label": "Sacred hero base",
       "tone": "night",
       "surfaces": {
         "particles": "base",
@@ -10,17 +10,43 @@
       }
     },
     {
-      "id": "day",
-      "label": "Daylight shimmer",
-      "timeOfDay": "day",
-      "tone": "day",
+      "id": "veneers_calm_precision",
+      "label": "Veneers calm precision",
+      "treatmentSlug": "veneers",
+      "tone": "evening",
       "surfaces": {
         "particles": "teal",
         "motion": ["glass"]
-      },
-      "content": {
-        "headline": "Daylight smile confidence.",
-        "subheadline": "Bright, precise dentistry with a calm studio feel."
+      }
+    },
+    {
+      "id": "implants_tech_precision",
+      "label": "Implants technical precision",
+      "treatmentSlug": "dental-implants",
+      "tone": "night",
+      "surfaces": {
+        "particles": "gold",
+        "motion": ["glass", "drift"]
+      }
+    },
+    {
+      "id": "whitening_bright_pop",
+      "label": "Whitening bright pop",
+      "treatmentSlug": "teeth-whitening",
+      "tone": "day",
+      "surfaces": {
+        "particles": "magenta",
+        "motion": ["glass"]
+      }
+    },
+    {
+      "id": "ortho_progression",
+      "label": "Ortho progression",
+      "treatmentSlug": "spark-clear-aligners",
+      "tone": "night",
+      "surfaces": {
+        "particles": "base",
+        "motion": ["wave"]
       }
     }
   ]

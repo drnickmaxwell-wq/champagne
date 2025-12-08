@@ -9,9 +9,11 @@ export {
 } from "./HeroRegistry";
 export {
   getHeroRuntime,
+  getTreatmentHeroConfig,
   type HeroRuntimeConfig,
   type HeroSurfaceConfig,
   type HeroSurfaceTokenConfig,
+  type HeroRuntimeOptions,
   type HeroTimeOfDay,
 } from "./hero-engine";
 

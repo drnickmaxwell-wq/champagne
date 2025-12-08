@@ -1,7 +1,14 @@
 import type { CSSProperties } from "react";
-import { BaseChampagneSurface, getHeroRuntime, type HeroTimeOfDay } from "@champagne/hero";
+import {
+  BaseChampagneSurface,
+  getHeroRuntime,
+  type HeroRuntimeOptions,
+  type HeroTimeOfDay,
+} from "@champagne/hero";
 
 export interface HeroRendererProps {
+  heroId?: HeroRuntimeOptions["heroId"];
+  variantId?: HeroRuntimeOptions["variantId"];
   treatmentSlug?: string;
   prm?: boolean;
   timeOfDay?: HeroTimeOfDay;
@@ -34,11 +41,11 @@ function HeroFallback() {
   );
 }
 
-export async function HeroRenderer({ treatmentSlug, prm, timeOfDay }: HeroRendererProps) {
+export async function HeroRenderer({ heroId, variantId, treatmentSlug, prm, timeOfDay }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
 
   try {
-    runtime = await getHeroRuntime({ treatmentSlug, prm, timeOfDay });
+    runtime = await getHeroRuntime({ heroId, variantId, treatmentSlug, prm, timeOfDay });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
       console.error("Hero runtime failed", error);

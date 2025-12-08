@@ -107,6 +107,8 @@ export interface HeroRuntimeConfig {
   variant?: HeroVariantConfig;
   flags: {
     prm: boolean;
+    heroId?: string;
+    variantId?: string;
     timeOfDay?: HeroTimeOfDay;
     treatmentSlug?: string;
   };

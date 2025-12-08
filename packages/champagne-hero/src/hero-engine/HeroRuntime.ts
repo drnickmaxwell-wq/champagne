@@ -13,14 +13,20 @@ import {
   resolveHeroSurfaceAssets,
 } from "./HeroSurfaceMap";
 
-interface RuntimeOptions {
+export interface HeroRuntimeOptions {
+  heroId?: string;
+  variantId?: string;
   treatmentSlug?: string;
   prm?: boolean;
   timeOfDay?: HeroTimeOfDay;
 }
 
-function pickVariant(variants: HeroVariantConfig[], options: RuntimeOptions): HeroVariantConfig | undefined {
+function pickVariant(variants: HeroVariantConfig[], options: HeroRuntimeOptions): HeroVariantConfig | undefined {
   if (!variants.length) return undefined;
+  if (options.variantId) {
+    const explicit = variants.find((variant) => variant.id === options.variantId);
+    if (explicit) return explicit;
+  }
   if (options.treatmentSlug) {
     const treatmentMatch = variants.find((variant) => variant.treatmentSlug === options.treatmentSlug);
     if (treatmentMatch) return treatmentMatch;
@@ -31,7 +37,11 @@ function pickVariant(variants: HeroVariantConfig[], options: RuntimeOptions): He
     if (timeMatch) return timeMatch;
   }
 
-  return variants.find((variant) => variant.id === "default") ?? variants[0];
+  return (
+    variants.find((variant) => variant.id === "base_sacred_hero") ??
+    variants.find((variant) => variant.id === "default") ??
+    variants[0]
+  );
 }
 
 function mergeContent(base: HeroContentConfig, variant?: Partial<HeroContentConfig>): HeroContentConfig {
@@ -60,7 +70,7 @@ function applyPrm(surface: HeroSurfaceConfig, prm?: boolean): HeroSurfaceConfig 
   };
 }
 
-export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<HeroRuntimeConfig> {
+export async function getHeroRuntime(options: HeroRuntimeOptions = {}): Promise<HeroRuntimeConfig> {
   const manifests = loadSacredHeroManifests();
   const selectedVariant = pickVariant(manifests.variants, options);
   const weatherConfig = options.timeOfDay ? manifests.weather[options.timeOfDay] : undefined;
@@ -76,16 +86,38 @@ export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<Hero
   const tone = selectedVariant?.tone ?? weatherConfig?.tone ?? manifests.base.tone;
   const content = mergeContent(manifests.base.content, selectedVariant?.content);
 
+  const heroId = options.heroId ?? manifests.base.id;
+  const variantId = selectedVariant?.id ?? options.variantId;
+
   return {
-    id: manifests.base.id,
+    id: heroId,
     tone,
     content,
     surfaces: resolvedSurfaces,
     variant: selectedVariant,
     flags: {
       prm: Boolean(options.prm),
+      heroId,
+      variantId,
       timeOfDay: options.timeOfDay,
       treatmentSlug: options.treatmentSlug,
     },
   };
+}
+
+const treatmentVariantMap: Record<string, string> = {
+  veneers: "veneers_calm_precision",
+  "dental-implants": "implants_tech_precision",
+  "teeth-whitening": "whitening_bright_pop",
+  "spark-clear-aligners": "ortho_progression",
+};
+
+export async function getTreatmentHeroConfig(
+  treatmentSlug: string,
+  options: Omit<HeroRuntimeOptions, "treatmentSlug"> = {},
+): Promise<HeroRuntimeConfig> {
+  const normalizedSlug = treatmentSlug?.toLowerCase().trim();
+  const variantId = treatmentVariantMap[normalizedSlug] ?? options.variantId;
+
+  return getHeroRuntime({ ...options, treatmentSlug: normalizedSlug, variantId });
 }
