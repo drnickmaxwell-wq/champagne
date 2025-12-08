@@ -19,6 +19,51 @@ export function getPageManifest(pageSlug: string): ChampagnePageManifest | undef
   return getPageManifestBySlug(pageSlug);
 }
 
+export interface ChampagneTreatmentPage extends ChampagnePageManifest {
+  path: string;
+  slug: string;
+}
+
+function normalizeTreatmentPage(manifest: ChampagnePageManifest): ChampagneTreatmentPage | undefined {
+  const path = manifest.path;
+  if (!path || !path.startsWith("/treatments/")) return undefined;
+
+  return {
+    ...manifest,
+    path,
+    slug: path.replace("/treatments/", ""),
+  };
+}
+
+function collectTreatmentEntries(): ChampagneTreatmentPage[] {
+  const collections = [champagneMachineManifest.pages ?? {}, champagneMachineManifest.treatments ?? {}];
+  const byPath = new Map<string, ChampagneTreatmentPage>();
+
+  for (const collection of collections) {
+    Object.values(collection).forEach((entry) => {
+      const normalized = normalizeTreatmentPage(entry);
+      if (!normalized) return;
+      if (!byPath.has(normalized.path)) {
+        byPath.set(normalized.path, normalized);
+      }
+    });
+  }
+
+  return Array.from(byPath.values());
+}
+
+export function getTreatmentPages(): ChampagneTreatmentPage[] {
+  return collectTreatmentEntries();
+}
+
+export function getTreatmentManifest(slugOrPath: string): ChampagneTreatmentPage | undefined {
+  const normalizedPath = slugOrPath.startsWith("/treatments/")
+    ? slugOrPath
+    : `/treatments/${slugOrPath.replace(/^\//, "")}`;
+
+  return collectTreatmentEntries().find((entry) => entry.path === normalizedPath);
+}
+
 export interface ChampagneCTASlots {
   heroCTAs: (ChampagneCTA | string)[];
   midPageCTAs: (ChampagneCTA | string)[];
