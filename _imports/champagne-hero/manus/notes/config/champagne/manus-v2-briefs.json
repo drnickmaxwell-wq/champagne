@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedBy": "Director AI",
+    "description": "Registry of missing Champagne components that require Manus v2 design briefs."
+  },
+
+  "briefs": [
+    {
+      "id": "PORTAL_HOME_DASHBOARD_V1",
+      "routeContext": "/portal",
+      "componentKind": "dashboard-hero+cards",
+      "referenceAtlasSection": "gaps.portal-dashboard",
+      "mustObeyCanon": true,
+      "notes": "Patient portal home with cards for treatment plans, documents, payments, messages. Use Champagne hero logic but lighter, app-feel glass.",
+      "constraints": [
+        "No marketing offers; purely logged-in product UI.",
+        "Gradient law and layer stack must still apply.",
+        "Design separate mobile and desktop states."
+      ]
+    },
+    {
+      "id": "FINANCE_EXPLAINER_V1",
+      "routeContext": "/fees-finance",
+      "componentKind": "explainer+calculator-band",
+      "referenceAtlasSection": "gaps.finance-explainer",
+      "mustObeyCanon": true,
+      "notes": "Visual section explaining 0% finance, Tabeo integration, high-value implant/ortho finance.",
+      "constraints": [
+        "Include 3-column financing options grid.",
+        "Include subtle calculator graphic or input metaphor.",
+        "Tie visually to treatment CTAs that use applyFinance."
+      ]
+    },
+    {
+      "id": "CHATBOT_PANEL_CHAMPAGNE_V1",
+      "routeContext": "/ai/concierge",
+      "componentKind": "chatbot-shell",
+      "referenceAtlasSection": "gaps.chatbot-panel",
+      "mustObeyCanon": true,
+      "notes": "Champagne-branded chatbot panel for future AI Concierge. Dockable in bottom-right; can expand to full-height panel on mobile.",
+      "constraints": [
+        "Include avatar zone, message stream, input bar.",
+        "Allow for quick action chips (implants, veneers, anxiety).",
+        "Must work on top of existing gradient hero surfaces without clashing."
+      ]
+    },
+    {
+      "id": "SMILE_QUIZ_RESULTS_V1",
+      "routeContext": "/ai-smile-quiz/results",
+      "componentKind": "results-layout",
+      "referenceAtlasSection": "gaps.smile-quiz-results",
+      "mustObeyCanon": true,
+      "notes": "Layout for AI Smile Quiz results: primary recommendation + 2–3 secondary options.",
+      "constraints": [
+        "Card layout mapping to Treatment Registry slugs.",
+        "Space for before/after thumbnail or iconography.",
+        "Strong CTA linking back into booking / finance flows."
+      ]
+    },
+    {
+      "id": "TEAM_HERO_V1",
+      "routeContext": "/team",
+      "componentKind": "section-hero",
+      "referenceAtlasSection": "gaps.team-hero",
+      "mustObeyCanon": true,
+      "notes": "Dedicated team hero that matches Champagne style but is clearly not the homepage hero.",
+      "constraints": [
+        "No reuse of sacred home hero composition.",
+        "Include subtle portrait silhouettes / clinic motif.",
+        "Blend serif heading with short, calm subheading."
+      ]
+    },
+    {
+      "id": "STORIES_HERO_V1",
+      "routeContext": "/patient-stories",
+      "componentKind": "section-hero",
+      "referenceAtlasSection": "gaps.stories-hero",
+      "mustObeyCanon": true,
+      "notes": "Patient Stories hero introducing real transformations and filters.",
+      "constraints": [
+        "Space for filter chips (veneers, implants, aligners, 3D dentistry).",
+        "Soft gradient, gentle motion.",
+        "Include pathway to AI Smile Quiz and key treatments."
+      ]
+    },
+    {
+      "id": "TECH_PAGE_3D_VIEWER_FULL_V1",
+      "routeContext": "/treatments/technology",
+      "componentKind": "3d-viewer-section",
+      "referenceAtlasSection": "gaps.tech-3d-viewer",
+      "mustObeyCanon": true,
+      "notes": "Full-width 3D viewer section for CBCT, 3D printing, and digital scans.",
+      "constraints": [
+        "Left: large 3D viewer frame; Right: text copy + bullet list.",
+        "Must be compatible with actual 3D embedding later.",
+        "Re-use spacing from composite two-column body archetype."
+      ]
+    },
+    {
+      "id": "ANXIETY_DENTISTRY_HERO_V1",
+      "routeContext": "/anxiety-dentistry",
+      "componentKind": "section-hero",
+      "referenceAtlasSection": "gaps.anxiety-hero",
+      "mustObeyCanon": true,
+      "notes": "Calm, soft hero for nervous patients, cross-linking sedation and The Wand.",
+      "constraints": [
+        "Use softer dusk tones; avoid aggressive contrast.",
+        "Must allow 2–3 reassurance bullet points.",
+        "Include trust markers (years of experience, gentle dentistry)."
+      ]
+    },
+    {
+      "id": "3D_PRINTED_VENEERS_HERO_V1",
+      "routeContext": "/treatments/3d-dentistry/3d-printed-veneers",
+      "componentKind": "treatment-hero",
+      "referenceAtlasSection": "treatments.3d-printed-veneers",
+      "mustObeyCanon": true,
+      "notes": "Hero explicitly for 3D printed veneers; permanent but more affordable vs porcelain.",
+      "constraints": [
+        "Re-use CB_HERO_FINAL spacing.",
+        "Include price-positioning copy zone (eg. ‘More accessible than porcelain veneers’).",
+        "Visually nod to 3D printing tech without overshadowing the smile."
+      ]
+    }
+  ]
+}

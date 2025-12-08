@@ -1,0 +1,78 @@
+{
+  "sections": [
+    {
+      "id": "compositeBondingHero",
+      "label": "Composite Bonding Hero Surface",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "app/preview/treatments/composite-bonding/_sections/CompositeBondingHeroSection.tsx"
+      ]
+    },
+    {
+      "id": "compositeBondingHighlights",
+      "label": "Composite Bonding Highlights",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "app/preview/treatments/composite-bonding/_sections/CompositeBondingHighlightsSection.tsx"
+      ]
+    },
+    {
+      "id": "compositeBondingResults",
+      "label": "Composite Bonding Results",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "app/preview/treatments/composite-bonding/_sections/CompositeBondingResultsSection.tsx"
+      ]
+    },
+    {
+      "id": "compositeBondingFaq",
+      "label": "Composite Bonding FAQ",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "app/preview/treatments/composite-bonding/_sections/CompositeBondingFaqSection.tsx"
+      ]
+    },
+    {
+      "id": "compositeBondingPlanSession",
+      "label": "Composite Bonding Plan Session",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "app/preview/treatments/composite-bonding/_sections/CompositeBondingPlanSessionSection.tsx"
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "id": "treatmentConsultationCta",
+      "label": "Treatment Consultation CTA",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "components/preview/cta/TreatmentConsultationCta.tsx"
+      ]
+    },
+    {
+      "id": "treatmentFaqList",
+      "label": "Treatment FAQ List",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "components/preview/faq/CompositeBondingFaqList.tsx"
+      ]
+    },
+    {
+      "id": "treatmentBreadcrumb",
+      "label": "Treatment Breadcrumb Navigation",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "components/preview/nav/TreatmentBreadcrumb.tsx"
+      ]
+    },
+    {
+      "id": "champagneTreatmentSurface",
+      "label": "Champagne Treatment Surface Wrapper",
+      "stage": "preview",
+      "recommendedRepoTargets": [
+        "components/preview/theme/ChampagneTreatmentSurface.tsx"
+      ]
+    }
+  ]
+}
