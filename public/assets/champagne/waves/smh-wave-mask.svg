@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 160" preserveAspectRatio="none">
+  <path fill="url(#waveGradient)" d="
+    M0,96
+    C320,48 640,0 960,80
+    C1280,160 1600,80 1920,96
+    L1920,160
+    L0,160
+    Z" />
+  <defs>
+    <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="var(--smh-primary-magenta)"/>
+      <stop offset="50%" stop-color="var(--smh-primary-teal)"/>
+      <stop offset="100%" stop-color="var(--smh-accent-gold)"/>
+    </linearGradient>
+  </defs>
+</svg>
