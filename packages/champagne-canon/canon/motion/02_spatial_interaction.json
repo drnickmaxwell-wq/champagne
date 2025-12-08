@@ -1,0 +1,13 @@
+{
+  "spatial": {
+    "microOrbit": { "rotationMaxDeg": 12, "dampingMs": 350 },
+    "controlledTilt": { "tiltRangeDeg": 10, "dampingMs": 320 },
+    "precisionPinch": { "zoomMax": 1.3, "curve": "softEase" },
+    "pathReveal": { "stages": ["outer", "inner", "core"], "duration": "0.6-1.2s" },
+    "ar": {
+      "placement": "driftAlign",
+      "hoverShadow": "softGlass",
+      "proximityGlow": "edgeShimmerSoft"
+    }
+  }
+}
