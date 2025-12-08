@@ -4,7 +4,14 @@ import type { ChampagneCTAConfig } from "@champagne/cta";
 import { ChampagneCTAGroup } from "@champagne/cta";
 import { Section_FeatureList } from "./Section_FeatureList";
 import { Section_MediaBlock } from "./Section_MediaBlock";
+import { Section_FAQ } from "./Section_FAQ";
+import { Section_ClinicianInsight } from "./Section_ClinicianInsight";
+import { Section_PatientStoriesRail } from "./Section_PatientStoriesRail";
 import { Section_TextBlock } from "./Section_TextBlock";
+import { Section_TreatmentClosingCTA } from "./Section_TreatmentClosingCTA";
+import { Section_TreatmentMediaFeature } from "./Section_TreatmentMediaFeature";
+import { Section_TreatmentOverviewRich } from "./Section_TreatmentOverviewRich";
+import { Section_TreatmentToolsTrio } from "./Section_TreatmentToolsTrio";
 import { getSectionStack } from "./SectionRegistry";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 
@@ -22,6 +29,13 @@ const typeMap: Record<string, SectionComponent> = {
   media: (props) => <Section_MediaBlock {...props} />,
   gallery: (props) => <Section_MediaBlock {...props} />,
   features: (props) => <Section_FeatureList {...props} />,
+  treatment_overview_rich: (props) => <Section_TreatmentOverviewRich {...props} />,
+  treatment_media_feature: (props) => <Section_TreatmentMediaFeature {...props} />,
+  treatment_tools_trio: (props) => <Section_TreatmentToolsTrio {...props} />,
+  clinician_insight: (props) => <Section_ClinicianInsight {...props} />,
+  patient_stories_rail: (props) => <Section_PatientStoriesRail {...props} />,
+  treatment_faq_block: (props) => <Section_FAQ {...props} />,
+  treatment_closing_cta: (props) => <Section_TreatmentClosingCTA {...props} />,
 };
 
 function renderSection(section: SectionRegistryEntry) {

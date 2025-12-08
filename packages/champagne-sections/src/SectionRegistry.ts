@@ -4,12 +4,31 @@ import { getSectionStackForPage, getSectionStyle } from "@champagne/manifests";
 export interface SectionRegistryEntry {
   id: string;
   type?: string;
-  kind?: "text" | "media" | "features";
+  kind?:
+    | "text"
+    | "media"
+    | "features"
+    | "treatment_overview_rich"
+    | "treatment_media_feature"
+    | "treatment_tools_trio"
+    | "clinician_insight"
+    | "patient_stories_rail"
+    | "treatment_faq_block"
+    | "treatment_closing_cta";
   title?: string;
   body?: string;
   eyebrow?: string;
   items?: string[];
   mediaHint?: string;
+  bullets?: string[];
+  tools?: { title: string; description?: string }[];
+  stories?: { title?: string; summary?: string; name?: string; role?: string }[];
+  faqs?: { question: string; answer: string }[];
+  quote?: string;
+  attribution?: string;
+  role?: string;
+  strapline?: string;
+  ctas?: { label: string; href?: string; preset?: string }[];
   definition?: ChampagnePageSection | string;
 }
 
@@ -23,8 +42,19 @@ function sentenceCase(input?: string) {
     .join(" ");
 }
 
+const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
+  treatment_overview_rich: "treatment_overview_rich",
+  treatment_media_feature: "treatment_media_feature",
+  treatment_tools_trio: "treatment_tools_trio",
+  clinician_insight: "clinician_insight",
+  patient_stories_rail: "patient_stories_rail",
+  treatment_faq_block: "treatment_faq_block",
+  treatment_closing_cta: "treatment_closing_cta",
+};
+
 function deriveKind(type?: string): SectionRegistryEntry["kind"] {
   if (!type) return "text";
+  if (specializedKinds[type]) return specializedKinds[type];
   if (["text", "copy", "copy-block", "story", "faq", "accordion"].includes(type)) return "text";
   if (["media", "gallery", "carousel", "map", "slider", "lab"].includes(type)) return "media";
   if (["feature-grid", "steps", "features", "feature-list", "pricing"].includes(type)) return "features";
@@ -48,15 +78,66 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
   const eyebrow = (definition.label as string | undefined)
     ?? (definition.eyebrow as string | undefined)
     ?? (kind === "features" ? "What to know" : "Treatment detail");
-  const items = Array.isArray(definition.items)
-    ? definition.items.map(String)
-    : kind === "features"
+  const rawItems = Array.isArray(definition.items) ? definition.items : undefined;
+  const itemObjects = rawItems?.filter((item) => item && typeof item === "object") as
+    | Record<string, unknown>[]
+    | undefined;
+  const tools = itemObjects?.length
+    ? itemObjects.map((item, itemIndex) => ({
+        title:
+          (item.title as string | undefined)
+          ?? (item.label as string | undefined)
+          ?? (item.name as string | undefined)
+          ?? `Feature ${itemIndex + 1}`,
+        description:
+          (item.description as string | undefined)
+          ?? (item.copy as string | undefined)
+          ?? (item.body as string | undefined),
+      }))
+    : undefined;
+  const items = rawItems && !itemObjects?.length
+    ? rawItems.map(String)
+    : kind === "features" && !tools
       ? [
           "Comfort-first planning and diagnostics",
           "Technology-backed visual previews",
           "Clear next steps and aftercare",
         ]
       : undefined;
+  const bullets = Array.isArray((definition as Record<string, unknown>).bullets)
+    ? ((definition as Record<string, unknown>).bullets as unknown[]).map(String)
+    : undefined;
+  const faqs = Array.isArray((definition as Record<string, unknown>).faqs)
+    ? ((definition as Record<string, unknown>).faqs as Record<string, unknown>[]).map((faq, faqIndex) => ({
+        question:
+          (faq.question as string | undefined)
+          ?? (faq.q as string | undefined)
+          ?? `Question ${faqIndex + 1}`,
+        answer:
+          (faq.answer as string | undefined)
+          ?? (faq.a as string | undefined)
+          ?? "Detailed guidance arrives here soon.",
+      }))
+    : undefined;
+  const stories = Array.isArray((definition as Record<string, unknown>).stories)
+    ? ((definition as Record<string, unknown>).stories as Record<string, unknown>[]).map((story) => ({
+        title: (story.title as string | undefined) ?? (story.headline as string | undefined),
+        summary:
+          (story.summary as string | undefined)
+          ?? (story.copy as string | undefined)
+          ?? (story.body as string | undefined)
+          ?? "This patient story will be authored with more detail.",
+        name: (story.name as string | undefined) ?? (story.author as string | undefined),
+        role: (story.role as string | undefined) ?? (story.context as string | undefined),
+      }))
+    : undefined;
+  const ctas = Array.isArray((definition as Record<string, unknown>).ctas)
+    ? ((definition as Record<string, unknown>).ctas as Record<string, unknown>[]).map((cta) => ({
+        label: (cta.label as string | undefined) ?? (cta.title as string | undefined) ?? "Continue",
+        href: (cta.href as string | undefined) ?? (cta.link as string | undefined),
+        preset: (cta.preset as string | undefined) ?? (cta.tone as string | undefined),
+      }))
+    : undefined;
 
   return {
     id: sectionId,
@@ -66,6 +147,15 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
     body,
     eyebrow,
     items,
+    tools,
+    bullets,
+    faqs,
+    stories,
+    quote: (definition.quote as string | undefined) ?? (definition.body as string | undefined),
+    strapline: (definition.strapline as string | undefined) ?? (definition.subtitle as string | undefined),
+    attribution: (definition.attribution as string | undefined) ?? (definition.clinician as string | undefined),
+    role: (definition.role as string | undefined) ?? (definition.context as string | undefined),
+    ctas,
     mediaHint: (definition.mediaHint as string | undefined) ?? sentenceCase(style?.surface),
     definition: {
       ...definition,
@@ -75,6 +165,11 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
       copy: body,
       label: eyebrow,
       items,
+      tools,
+      bullets,
+      faqs,
+      stories,
+      ctas,
     },
   } satisfies SectionRegistryEntry;
 }
