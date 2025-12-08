@@ -71,27 +71,96 @@
     },
     {
       "slug": "/treatments/clear-aligners",
-      "hero": "clear_aligners_hero_v1",
+      "hero": "clear_aligners_rich_hero_v1",
       "sections": [
         {
-          "id": "aligners_intro",
-          "type": "copy-block"
+          "id": "clear_aligners_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "Clear aligners with mapped movement",
+          "copy": "Digital planning keeps aligner stages predictable while keeping comfort in focus.",
+          "bullets": [
+            "Plan built from detailed scans",
+            "Staged movement with check-ins",
+            "Attachments and refinements kept tidy"
+          ]
         },
         {
-          "id": "timeline_carousel",
-          "type": "carousel"
+          "id": "clear_aligners_media_feature",
+          "type": "treatment_media_feature",
+          "label": "Aligner plan viewer",
+          "title": "See the sequence before you start",
+          "copy": "A visual plan shows tooth movements, attachments, and timelines before trays are issued.",
+          "mediaHint": "Aligner plan viewer"
         },
         {
-          "id": "benefits_grid",
-          "type": "grid"
+          "id": "clear_aligners_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "Planning tools",
+          "title": "Tools that keep aligner therapy clear",
+          "copy": "Each tool keeps the plan transparent and manageable.",
+          "items": [
+            {
+              "title": "3D movement map",
+              "description": "Shows staged shifts and attachment points."
+            },
+            {
+              "title": "Progress check cadence",
+              "description": "Scheduled reviews keep tracking aligned to the plan."
+            },
+            {
+              "title": "Refinement ready",
+              "description": "Adjustments are mapped digitally before issuing new trays."
+            }
+          ]
         },
         {
-          "id": "faq_aligners",
-          "type": "faq"
+          "id": "clear_aligners_clinician_insight",
+          "type": "clinician_insight",
+          "label": "Clinician insight",
+          "quote": "When the movement map is transparent, it’s easier to stay comfortable and on-track with each tray set.",
+          "attribution": "Clinical team",
+          "role": "Orthodontics"
         },
         {
-          "id": "cta_gold_bar",
-          "type": "cta"
+          "id": "clear_aligners_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Aligner journeys",
+          "stories": [
+            { "summary": "Tracked progress against the digital plan at each visit.", "name": "Case M" },
+            { "summary": "Refinements mapped quickly after mid-course photos.", "name": "Case N" },
+            { "summary": "Kept attachments discreet while following the schedule.", "name": "Case O" }
+          ]
+        },
+        {
+          "id": "clear_aligners_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Clear aligner questions",
+          "faqs": [
+            {
+              "question": "How is the plan created?",
+              "answer": "We scan, map movements digitally, and review the stages together before ordering trays."
+            },
+            {
+              "question": "How often are check-ins?",
+              "answer": "We set a cadence that matches your plan and can adjust if movement needs more time."
+            },
+            {
+              "question": "What about refinements?",
+              "answer": "If we need tweaks, we rescan and update the plan before issuing new trays."
+            }
+          ]
+        },
+        {
+          "id": "clear_aligners_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Start a clear aligner plan",
+          "strapline": "Book a scan or request a preview of your movement map.",
+          "ctas": [
+            { "label": "Book a scan", "href": "/contact", "preset": "primary" },
+            { "label": "Preview the plan", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+          ]
         }
       ],
       "category": "treatment"
@@ -168,21 +237,193 @@
     },
     {
       "slug": "/treatments/3d-implant-restorations",
-      "hero": "treatment_tech_focus_hero_v1",
+      "hero": "implant_restorations_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "implant_restorations_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "Digital precision for implant restorations",
+          "copy": "Scans, design, and milling stay connected so implant crowns and bridges land with a comfortable fit.",
+          "bullets": [
+            "3D planning keeps emergence profiles and bite contacts aligned",
+            "Chairside adjustments guided by live occlusion data",
+            "Surfaces finished to match surrounding enamel"
+          ]
+        },
+        {
+          "id": "implant_restorations_media_feature",
+          "type": "treatment_media_feature",
+          "label": "Restoration preview",
+          "title": "Visualise the restoration before it’s seated",
+          "copy": "A digital mock-up shows contours and bite points so you can sign off on the shape ahead of fitting.",
+          "mediaHint": "3D restoration canvas"
+        },
+        {
+          "id": "implant_restorations_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "Tech stack",
+          "title": "Tools that keep fit and finish consistent",
+          "copy": "Each stage uses guided workflows to keep the implant restoration precise and comfortable.",
+          "items": [
+            {
+              "title": "Intraoral scanning",
+              "description": "Captures soft tissue contours so the restoration blends with the gumline."
+            },
+            {
+              "title": "Digital occlusion check",
+              "description": "Maps contact points to balance force before the final seat."
+            },
+            {
+              "title": "High-accuracy milling",
+              "description": "Produces smooth margins and polish-ready surfaces for a natural finish."
+            }
+          ]
+        },
+        {
+          "id": "implant_restorations_clinician_insight",
+          "type": "clinician_insight",
+          "label": "Clinician insight",
+          "quote": "A clean digital chain from scan to seat means fewer chairside tweaks and a restoration that feels settled quickly.",
+          "attribution": "Clinical team",
+          "role": "Implant restorative"
+        },
+        {
+          "id": "implant_restorations_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Comfort-first implant restorations",
+          "stories": [
+            { "summary": "Previewed a bridge design digitally before fitting.", "name": "Case A" },
+            { "summary": "Balanced bite contacts on-screen to reduce adjustments.", "name": "Case B" },
+            { "summary": "Matched crown texture to neighbouring enamel for a blended finish.", "name": "Case C" }
+          ]
+        },
+        {
+          "id": "implant_restorations_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Implant restoration questions",
+          "faqs": [
+            {
+              "question": "How is the restoration planned?",
+              "answer": "We align scans, implant position, and bite data to shape the crown or bridge before milling."
+            },
+            {
+              "question": "Can I review the design?",
+              "answer": "Yes, we share a visual preview so contours and contacts are clear before the appointment."
+            },
+            {
+              "question": "What happens on fit day?",
+              "answer": "We check comfort, polish margins, and confirm the bite using the digital map."
+            }
+          ]
+        },
+        {
+          "id": "implant_restorations_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Ready to plan your restoration?",
+          "strapline": "Book a visit or request a digital preview of your implant restoration.",
+          "ctas": [
+            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
+            { "label": "See a digital preview", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+          ]
+        }
       ],
       "category": "treatment"
     },
     {
       "slug": "/treatments/3d-printed-veneers",
-      "hero": "treatment_tech_focus_hero_v1",
+      "hero": "printed_veneers_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "printed_veneers_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "3D printed veneers with digital fit",
+          "copy": "Layered prints and guided finishing help veneers sit comfortably while staying true to your smile line.",
+          "bullets": [
+            "Scans inform veneer thickness and edge curves",
+            "Trial fit visuals before we finalise gloss",
+            "Finish passes mapped to keep a natural sheen"
+          ]
+        },
+        {
+          "id": "printed_veneers_media_feature",
+          "type": "treatment_media_feature",
+          "label": "3D smile preview",
+          "title": "Preview veneer contours on-screen",
+          "copy": "See edge symmetry, translucency, and length on the Champagne canvas before we print the final set.",
+          "mediaHint": "3D smile preview surface"
+        },
+        {
+          "id": "printed_veneers_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "Fabrication tools",
+          "title": "Tech that keeps veneers precise",
+          "copy": "From scan to polish, each step is mapped to preserve detail and comfort.",
+          "items": [
+            {
+              "title": "High-resolution scanning",
+              "description": "Captures enamel texture so veneer edges land softly."
+            },
+            {
+              "title": "Printed mock-ups",
+              "description": "Allows a test fit to confirm length and contour before final glaze."
+            },
+            {
+              "title": "Guided finishing",
+              "description": "Polishing maps keep the surface uniform and natural."
+            }
+          ]
+        },
+        {
+          "id": "printed_veneers_clinician_insight",
+          "type": "clinician_insight",
+          "label": "Clinician insight",
+          "quote": "Printed veneers let us iterate digitally, so by the time we seat them the fit and finish feel intentional.",
+          "attribution": "Clinical team",
+          "role": "Cosmetic dentistry"
+        },
+        {
+          "id": "printed_veneers_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Veneer journeys",
+          "stories": [
+            { "summary": "Test-fit a printed set to align edge heights before finalising.", "name": "Case D" },
+            { "summary": "Adjusted translucency after reviewing the digital mock-up.", "name": "Case E" },
+            { "summary": "Matched incisal curves to a scanned reference for a soft finish.", "name": "Case F" }
+          ]
+        },
+        {
+          "id": "printed_veneers_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "3D printed veneer questions",
+          "faqs": [
+            {
+              "question": "How are the veneers planned?",
+              "answer": "We build them from scans and adjust contour, texture, and brightness before printing."
+            },
+            {
+              "question": "Can I see the design before printing?",
+              "answer": "Yes, we share a 3D preview and can print a mock set for review."
+            },
+            {
+              "question": "What is the finish like?",
+              "answer": "Guided polishing keeps the surface smooth while respecting natural translucency."
+            }
+          ]
+        },
+        {
+          "id": "printed_veneers_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Explore 3D printed veneers",
+          "strapline": "Schedule a consult or request a digital preview of your veneer plan.",
+          "ctas": [
+            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
+            { "label": "Preview a mock-up", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+          ]
+        }
       ],
       "category": "treatment"
     },
@@ -313,21 +554,193 @@
     },
     {
       "slug": "/treatments/whitening-in-surgery",
-      "hero": "whitening_bright_hero_v1",
+      "hero": "whitening_in_surgery_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "whitening_in_surgery_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "In-surgery whitening with mapped shade control",
+          "copy": "Guided shade targets and cooling support keep treatment comfortable while brightening in the chair.",
+          "bullets": [
+            "Shade targets set before we begin",
+            "Comfort measures layered throughout the session",
+            "Finishing polish to smooth the surface"
+          ]
+        },
+        {
+          "id": "whitening_in_surgery_media_feature",
+          "type": "treatment_media_feature",
+          "label": "Shade map",
+          "title": "Track progress on a shade map",
+          "copy": "A visual shade chart shows where we start and where we aim, with updates during the visit.",
+          "mediaHint": "Whitening shade map"
+        },
+        {
+          "id": "whitening_in_surgery_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "Comfort tools",
+          "title": "Supportive tech for chairside whitening",
+          "copy": "Tools focus on steady results and a calm appointment.",
+          "items": [
+            {
+              "title": "Shade planning",
+              "description": "We set a target range to keep results even and predictable."
+            },
+            {
+              "title": "Cooling aids",
+              "description": "Comfort steps help reduce heat and sensitivity during the session."
+            },
+            {
+              "title": "Post-treatment polish",
+              "description": "A gentle gloss pass smooths the surface for an even finish."
+            }
+          ]
+        },
+        {
+          "id": "whitening_in_surgery_clinician_insight",
+          "type": "clinician_insight",
+          "label": "Clinician insight",
+          "quote": "Planning the shade and pacing the session keeps the experience calm while achieving a brighter finish.",
+          "attribution": "Clinical team",
+          "role": "Whitening care"
+        },
+        {
+          "id": "whitening_in_surgery_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Chairside whitening journeys",
+          "stories": [
+            { "summary": "Mapped a shade goal and checked comfort throughout.", "name": "Case G" },
+            { "summary": "Used cooling breaks to keep sensitivity low.", "name": "Case H" },
+            { "summary": "Finished with a smooth polish for an even look.", "name": "Case I" }
+          ]
+        },
+        {
+          "id": "whitening_in_surgery_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "In-surgery whitening questions",
+          "faqs": [
+            {
+              "question": "How is the shade target set?",
+              "answer": "We use a chart and agree on a range that suits your smile before starting."
+            },
+            {
+              "question": "What comfort steps are included?",
+              "answer": "Cooling aids and pacing breaks are built in to keep the session comfortable."
+            },
+            {
+              "question": "What happens after the visit?",
+              "answer": "We share simple care steps to help maintain the new shade."
+            }
+          ]
+        },
+        {
+          "id": "whitening_in_surgery_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Plan an in-surgery whitening session",
+          "strapline": "Book a chairside visit or ask for a shade planning preview.",
+          "ctas": [
+            { "label": "Book whitening", "href": "/contact", "preset": "primary" },
+            { "label": "See shade planning", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+          ]
+        }
       ],
       "category": "treatment"
     },
     {
       "slug": "/treatments/whitening-at-home",
-      "hero": "whitening_bright_hero_v1",
+      "hero": "whitening_at_home_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "whitening_at_home_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "At-home whitening with guided check-ins",
+          "copy": "Custom trays and a paced plan keep shade changes steady while you whiten comfortably at home.",
+          "bullets": [
+            "Custom-fit trays from your scans",
+            "Paced plan with check-in points",
+            "Tips to keep sensitivity low"
+          ]
+        },
+        {
+          "id": "whitening_at_home_media_feature",
+          "type": "treatment_media_feature",
+          "label": "Shade tracker",
+          "title": "Follow progress with a shade tracker",
+          "copy": "Simple visuals show your starting point and expected change across the plan.",
+          "mediaHint": "Whitening shade tracker"
+        },
+        {
+          "id": "whitening_at_home_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "At-home kit",
+          "title": "Tools to keep home whitening predictable",
+          "copy": "Each element supports comfort and consistency between visits.",
+          "items": [
+            {
+              "title": "Custom trays",
+              "description": "Snug fit helps gel distribute evenly."
+            },
+            {
+              "title": "Planned schedule",
+              "description": "A guided cadence keeps shade changes gradual and balanced."
+            },
+            {
+              "title": "Check-in support",
+              "description": "We review progress and adjust pacing if needed."
+            }
+          ]
+        },
+        {
+          "id": "whitening_at_home_clinician_insight",
+          "type": "clinician_insight",
+          "label": "Clinician insight",
+          "quote": "Custom trays and a paced plan mean you can whiten at home without guessing about timing or comfort.",
+          "attribution": "Clinical team",
+          "role": "Whitening care"
+        },
+        {
+          "id": "whitening_at_home_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "At-home whitening journeys",
+          "stories": [
+            { "summary": "Followed the schedule with minimal sensitivity.", "name": "Case J" },
+            { "summary": "Adjusted pacing after a mid-plan review.", "name": "Case K" },
+            { "summary": "Tracked shade changes with simple check-ins.", "name": "Case L" }
+          ]
+        },
+        {
+          "id": "whitening_at_home_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "At-home whitening questions",
+          "faqs": [
+            {
+              "question": "How are the trays made?",
+              "answer": "We scan your teeth and create trays that fit closely to guide gel placement."
+            },
+            {
+              "question": "How long does the plan take?",
+              "answer": "Most plans run over several weeks with set check-in points to review progress."
+            },
+            {
+              "question": "What if I feel sensitivity?",
+              "answer": "Let us know and we can adjust pacing or share comfort tips."
+            }
+          ]
+        },
+        {
+          "id": "whitening_at_home_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Set up your at-home whitening plan",
+          "strapline": "Book a visit to scan for trays or request a pacing guide.",
+          "ctas": [
+            { "label": "Book a scan", "href": "/contact", "preset": "primary" },
+            { "label": "Request pacing guide", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+          ]
+        }
       ],
       "category": "treatment"
     },
@@ -343,11 +756,97 @@
     },
     {
       "slug": "/treatments/full-smile-makeover",
-      "hero": "smile_makeover_hero_v1",
+      "hero": "full_smile_makeover_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "full_smile_makeover_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "Smile makeovers guided by a shared plan",
+          "copy": "We map veneers, whitening, aligners, or restorations into one coordinated plan with clear checkpoints.",
+          "bullets": [
+            "Plan designed from scans and photos",
+            "Sequence options reviewed together",
+            "Checkpoints keep outcomes aligned"
+          ]
+        },
+        {
+          "id": "full_smile_makeover_media_feature",
+          "type": "treatment_media_feature",
+          "label": "Plan canvas",
+          "title": "Preview the makeover path",
+          "copy": "A visual map shows phases, materials, and timing so you know what happens when.",
+          "mediaHint": "Smile plan canvas"
+        },
+        {
+          "id": "full_smile_makeover_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "Planning tools",
+          "title": "Tools that keep complex plans clear",
+          "copy": "Each tool keeps the makeover coordinated and transparent.",
+          "items": [
+            {
+              "title": "Digital smile design",
+              "description": "Aligns proportions and material choices before we start."
+            },
+            {
+              "title": "Phase timeline",
+              "description": "Lays out aligner, veneer, or whitening steps with review points."
+            },
+            {
+              "title": "Photo and scan tracking",
+              "description": "We log progress to keep adjustments on-plan."
+            }
+          ]
+        },
+        {
+          "id": "full_smile_makeover_clinician_insight",
+          "type": "clinician_insight",
+          "label": "Clinician insight",
+          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
+          "attribution": "Clinical team",
+          "role": "Smile design"
+        },
+        {
+          "id": "full_smile_makeover_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Makeover journeys",
+          "stories": [
+            { "summary": "Combined aligners and whitening with clear checkpoints.", "name": "Case P" },
+            { "summary": "Reviewed veneer mock-ups before printing finals.", "name": "Case Q" },
+            { "summary": "Tracked each phase with photos to stay aligned to the plan.", "name": "Case R" }
+          ]
+        },
+        {
+          "id": "full_smile_makeover_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Smile makeover questions",
+          "faqs": [
+            {
+              "question": "How is the plan built?",
+              "answer": "We combine scans, photos, and goals to set phases for alignment, whitening, and restorations."
+            },
+            {
+              "question": "Can we adjust along the way?",
+              "answer": "Checkpoints let us refine timing or materials while staying on-plan."
+            },
+            {
+              "question": "How do I follow the phases?",
+              "answer": "A shared roadmap outlines what happens next and when review visits are scheduled."
+            }
+          ]
+        },
+        {
+          "id": "full_smile_makeover_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Plan a full smile makeover",
+          "strapline": "Book a planning session or preview a digital roadmap.",
+          "ctas": [
+            { "label": "Book a planning session", "href": "/contact", "preset": "primary" },
+            { "label": "Preview the roadmap", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+          ]
+        }
       ],
       "category": "treatment"
     },
@@ -458,6 +957,83 @@
         "treatment_overview_copy",
         "treatment_media_highlight",
         "treatment_feature_list"
+      ],
+      "category": "treatment"
+    },
+    {
+      "slug": "/treatments/painless-numbing-the-wand",
+      "hero": "painless_wand_hero_v1",
+      "sections": [
+        {
+          "id": "painless_wand_overview_rich",
+          "type": "treatment_overview_rich",
+          "title": "Comfort-first numbing with The Wand",
+          "copy": "Computer-assisted delivery keeps numbing steady and precise for a calmer appointment.",
+          "bullets": [
+            "Gentle delivery with fine control",
+            "Numbing mapped to the treatment area",
+            "Designed to keep pressure and surprise low"
+          ]
+        },
+        {
+          "id": "painless_wand_media_feature",
+          "type": "treatment_media_feature",
+          "label": "Comfort visual",
+          "title": "See how The Wand guides numbing",
+          "copy": "A simple visual shows the handheld device and how it controls flow during treatment.",
+          "mediaHint": "Comfort-first numbing visual"
+        },
+        {
+          "id": "painless_wand_tools_trio",
+          "type": "treatment_tools_trio",
+          "label": "Comfort tools",
+          "title": "Tech that keeps numbing gentle",
+          "copy": "Each feature is designed to soften the experience without slowing care.",
+          "items": [
+            {
+              "title": "Computer-controlled flow",
+              "description": "Delivers numbing at a steady, precise pace."
+            },
+            {
+              "title": "Targeted delivery tips",
+              "description": "Focuses numbing where it’s needed with minimal pressure."
+            },
+            {
+              "title": "Calm start routine",
+              "description": "We stage the process so you know what’s happening at each step."
+            }
+          ]
+        },
+        {
+          "id": "painless_wand_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Comfort numbing questions",
+          "faqs": [
+            {
+              "question": "What is The Wand?",
+              "answer": "It’s a computer-assisted numbing system that controls flow for gentle delivery."
+            },
+            {
+              "question": "Does it change the appointment length?",
+              "answer": "It’s designed to fit into normal scheduling while keeping the start of treatment comfortable."
+            },
+            {
+              "question": "Where is it used?",
+              "answer": "We use it for treatments that benefit from precise, calm numbing around the area of care."
+            }
+          ]
+        },
+        {
+          "id": "painless_wand_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Experience comfort-led numbing",
+          "strapline": "Ask about The Wand for your next visit or book a comfort consult.",
+          "ctas": [
+            { "label": "Book a comfort consult", "href": "/contact", "preset": "primary" },
+            { "label": "See how it works", "href": "/treatments/3d-dentistry-and-technology", "preset": "secondary" }
+          ]
+        }
       ],
       "category": "treatment"
     },

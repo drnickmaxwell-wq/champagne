@@ -68,6 +68,41 @@
       "motion": "sweep",
       "cta": "plan-smile"
     },
+    "clear_aligners_rich_hero_v1": {
+      "palette": "glass",
+      "motion": "float",
+      "cta": "book_aligners"
+    },
+    "implant_restorations_hero_v1": {
+      "palette": "platinum",
+      "motion": "precision",
+      "cta": "tour-technology"
+    },
+    "printed_veneers_hero_v1": {
+      "palette": "glass",
+      "motion": "precision",
+      "cta": "book_veneers"
+    },
+    "whitening_in_surgery_hero_v1": {
+      "palette": "fresh",
+      "motion": "float",
+      "cta": "book-whitening"
+    },
+    "whitening_at_home_hero_v1": {
+      "palette": "fresh",
+      "motion": "calm",
+      "cta": "book-whitening"
+    },
+    "full_smile_makeover_hero_v1": {
+      "palette": "gilded",
+      "motion": "sweep",
+      "cta": "plan-smile"
+    },
+    "painless_wand_hero_v1": {
+      "palette": "champagne",
+      "motion": "steady",
+      "cta": "book-consultation"
+    },
     "emergency_support_hero_v1": {
       "palette": "noir",
       "motion": "steady",
@@ -213,6 +248,194 @@
       "surface": "champagne/surface/treatment"
     },
     "composite_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "implant_restorations_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_veneers_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_in_surgery_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_at_home_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "clear_aligners_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "full_smile_makeover_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
+    "painless_wand_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "painless_wand_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "painless_wand_tools_trio": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "painless_wand_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "painless_wand_closing_cta": {
       "type": "treatment_closing_cta",
       "surface": "champagne/surface/treatment"
     }

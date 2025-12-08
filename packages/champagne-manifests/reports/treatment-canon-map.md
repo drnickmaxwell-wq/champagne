@@ -2,35 +2,36 @@
 
 Snapshot of treatment routes in the Champagne manifests. Hero and section indicators show whether a preset and section stack are defined for the slug.
 
-| Slug | Title | Hero | Sections |
-| --- | --- | --- | --- |
-| 3d-dentistry-and-technology | 3D dentistry & technology | ✅ | ✅ |
-| 3d-implant-restorations | 3D implant restorations (IBEX high-tech) | ✅ | ✅ |
-| 3d-printed-veneers | 3D printed veneers (IBEX high-tech) | ✅ | ✅ |
-| 3d-printing-lab | 3D printing lab | ✅ | ✅ |
-| cbct-3d-scanning | CBCT & 3D scanning | ✅ | ✅ |
-| childrens-dentistry | Children’s dentistry | ✅ | ✅ |
-| clear-aligners | Clear aligner orthodontics (Spark and other systems) | ✅ | ✅ |
-| composite-bonding | Composite bonding | ✅ | ✅ |
-| crowns-bridges-restorative | Crowns, bridges & restorative dentistry | ✅ | ✅ |
-| digital-smile-design | Digital smile design | ✅ | ✅ |
-| emergency-dentistry | Emergency dentistry | ✅ | ✅ |
-| endodontics-root-canal | Endodontics & root canal care | ✅ | ✅ |
-| extractions-and-oral-surgery | Extractions & oral surgery | ✅ | ✅ |
-| full-smile-makeover | Full smile makeover | ✅ | ✅ |
-| implants | Implant dentistry | ✅ | ✅ |
-| implants-full-arch | Full arch implant rehabilitation | ✅ | ✅ |
-| implants-multiple-teeth | Multiple teeth implant options | ✅ | ✅ |
-| implants-single-tooth | Single tooth implant solutions | ✅ | ✅ |
-| orthodontics | Orthodontics | ✅ | ✅ |
-| periodontal-gum-care | Periodontal & gum care | ✅ | ✅ |
-| preventative-and-general-dentistry | Preventative & general dentistry | ✅ | ✅ |
-| senior-mature-smile-care | Senior & mature smile care | ✅ | ✅ |
-| tmj-jaw-comfort | TMJ & jaw comfort | ✅ | ✅ |
-| veneers | Veneers | ✅ | ✅ |
-| whitening | Teeth whitening | ✅ | ✅ |
-| whitening-at-home | Whitening at home | ✅ | ✅ |
-| whitening-in-surgery | In-surgery whitening | ✅ | ✅ |
+| Slug | Title | Hero | Sections | Layout |
+| --- | --- | --- | --- | --- |
+| 3d-dentistry-and-technology | 3D dentistry & technology | ✅ | ✅ | Simple |
+| 3d-implant-restorations | 3D implant restorations (IBEX high-tech) | ✅ | ✅ | Rich |
+| 3d-printed-veneers | 3D printed veneers (IBEX high-tech) | ✅ | ✅ | Rich |
+| 3d-printing-lab | 3D printing lab | ✅ | ✅ | Simple |
+| cbct-3d-scanning | CBCT & 3D scanning | ✅ | ✅ | Simple |
+| childrens-dentistry | Children’s dentistry | ✅ | ✅ | Simple |
+| clear-aligners | Clear aligner orthodontics (Spark and other systems) | ✅ | ✅ | Rich |
+| composite-bonding | Composite bonding | ✅ | ✅ | Rich |
+| crowns-bridges-restorative | Crowns, bridges & restorative dentistry | ✅ | ✅ | Simple |
+| digital-smile-design | Digital smile design | ✅ | ✅ | Simple |
+| emergency-dentistry | Emergency dentistry | ✅ | ✅ | Simple |
+| endodontics-root-canal | Endodontics & root canal care | ✅ | ✅ | Simple |
+| extractions-and-oral-surgery | Extractions & oral surgery | ✅ | ✅ | Simple |
+| full-smile-makeover | Full smile makeover | ✅ | ✅ | Rich |
+| implants | Implant dentistry | ✅ | ✅ | Simple |
+| implants-full-arch | Full arch implant rehabilitation | ✅ | ✅ | Simple |
+| implants-multiple-teeth | Multiple teeth implant options | ✅ | ✅ | Simple |
+| implants-single-tooth | Single tooth implant solutions | ✅ | ✅ | Simple |
+| orthodontics | Orthodontics | ✅ | ✅ | Simple |
+| painless-numbing-the-wand | Painless numbing with The Wand | ✅ | ✅ | Rich |
+| periodontal-gum-care | Periodontal & gum care | ✅ | ✅ | Simple |
+| preventative-and-general-dentistry | Preventative & general dentistry | ✅ | ✅ | Simple |
+| senior-mature-smile-care | Senior & mature smile care | ✅ | ✅ | Simple |
+| tmj-jaw-comfort | TMJ & jaw comfort | ✅ | ✅ | Simple |
+| veneers | Veneers | ✅ | ✅ | Simple |
+| whitening | Teeth whitening | ✅ | ✅ | Simple |
+| whitening-at-home | Whitening at home | ✅ | ✅ | Rich |
+| whitening-in-surgery | In-surgery whitening | ✅ | ✅ | Rich |
 
 ## Phase 5 wiring
 
@@ -65,3 +66,14 @@ Snapshot of treatment routes in the Champagne manifests. Hero and section indica
   - whitening
   - whitening-at-home
   - whitening-in-surgery
+  - painless-numbing-the-wand
+
+Rich layout stack (overview rich, media feature, tools trio, clinician insight / stories as applicable, FAQ, closing CTA):
+- composite-bonding
+- 3d-printed-veneers
+- 3d-implant-restorations
+- whitening-in-surgery
+- whitening-at-home
+- clear-aligners
+- full-smile-makeover
+- painless-numbing-the-wand
