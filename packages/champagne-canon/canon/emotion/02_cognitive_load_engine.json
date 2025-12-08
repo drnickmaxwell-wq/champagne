@@ -1,0 +1,16 @@
+{
+  "cognitiveLoadEngine": {
+    "triggers": {
+      "pauseMs": 3500,
+      "repeatedScroll": true,
+      "backAndForth": true,
+      "erraticTapPattern": true
+    },
+    "responses": {
+      "visualSimplify": "activate",
+      "textSimplify": "adaptive",
+      "motionDampen": "reduceTo40Percent",
+      "navigationAssist": "breadcrumbReveal"
+    }
+  }
+}
