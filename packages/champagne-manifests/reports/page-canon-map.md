@@ -2,7 +2,7 @@
 
 | Slug | Title | Hero preset? | Section stack? | Route status |
 | --- | --- | --- | --- | --- |
-| / | Home | `home_neutral_hero_v1` | `home_intro_positioning`, `home_care_highlights`, `home_get_started_band` | Manifest-driven via `/page.tsx` |
+| / | Home | `home_neutral_hero_v1` | `home_intro_positioning`, `home_treatment_hub`, `home_care_pathway`, `home_finance_options`, `home_technology_showcase`, `home_patient_stories`, `home_faq`, `home_closing_cta` | Manifest-driven via `/page.tsx` |
 | /team | Team | `team_preview_hero_v1` | `team_intro_copy`, `team_grid_placeholder`, `team_connection_cta` | Manifest-driven via `/team/page.tsx` |
 | /contact | Contact | `contact_calm_hero_v1` | `contact_intro_copy`, `contact_details_simple`, `contact_followup_cta` | Manifest-driven via `/contact/page.tsx` |
 | /smile-gallery | Smile gallery | `smile_gallery_placeholder_hero` | `smile_gallery_intro_copy`, `smile_gallery_cases_overview`, `smile_gallery_case_categories` | Manifest-driven via `(champagne)/smile-gallery` |
@@ -13,4 +13,4 @@
 
 ## Notes
 - All non-treatment nav destinations now map to manifest entries, style presets, and live routes.
-- Home remains intentionally minimal while the sacred hero evolves; other pages use neutral placeholder copy only.
+- Home now follows the richer Champagne stack (hub → pathway → finance → tech → stories → FAQ → closing CTA) while keeping neutral placeholder copy.

@@ -157,6 +157,34 @@
       "type": "cta",
       "surface": "champagne/surface/base"
     },
+    "home_treatment_hub": {
+      "type": "feature-list",
+      "surface": "champagne/surface/home"
+    },
+    "home_care_pathway": {
+      "type": "steps",
+      "surface": "champagne/surface/home"
+    },
+    "home_finance_options": {
+      "type": "feature-list",
+      "surface": "champagne/surface/home"
+    },
+    "home_technology_showcase": {
+      "type": "media",
+      "surface": "champagne/surface/home"
+    },
+    "home_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/home"
+    },
+    "home_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/base"
+    },
+    "home_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/base"
+    },
     "cta_gold_bar": {
       "type": "cta",
       "surface": "champagne/surface/base"
