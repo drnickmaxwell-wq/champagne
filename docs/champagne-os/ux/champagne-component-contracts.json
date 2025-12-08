@@ -1,5 +1,44 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "components": [
+    {
+      "id": "treatment_benefits_capsules",
+      "requiredInputs": ["title", "items"],
+      "optionalInputs": ["icon"],
+      "tokens": ["inkGlass_soft", "softGold"],
+      "surface": ["glass-layer"],
+      "placement": "early"
+    },
+    {
+      "id": "faqAccordion",
+      "requiredInputs": ["items"],
+      "optionalInputs": ["title"],
+      "tokens": ["inkSurface"],
+      "surface": ["ink-layer"],
+      "placement": "mid"
+    },
+    {
+      "id": "beforeAfterGallery",
+      "requiredInputs": ["cases"],
+      "optionalInputs": ["title", "description"],
+      "tokens": ["inkGlass_soft"],
+      "surface": ["glass-layer"],
+      "placement": "mid-late"
+    },
+    {
+      "id": "financeComparison",
+      "requiredInputs": ["options"],
+      "optionalInputs": ["title"],
+      "tokens": ["inkSurface", "softGold"],
+      "surface": ["ink-layer"],
+      "placement": "late"
+    },
+    {
+      "id": "3dViewerPanel",
+      "requiredInputs": ["assetId"],
+      "optionalInputs": ["lighting", "labels"],
+      "tokens": ["glassSoft", "accentGold"],
+      "surface": ["glass-layer"],
+      "placement": "mid"
+    }
+  ]
 }
