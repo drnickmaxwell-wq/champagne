@@ -1,4 +1,6 @@
 import type {
+  ChampagneCTA,
+  ChampagnePageCTAConfig,
   ChampagnePageManifest,
   ChampagnePageSection,
 } from "./core";
@@ -15,6 +17,28 @@ export function getAllPages(): ChampagnePageManifest[] {
 
 export function getPageManifest(pageSlug: string): ChampagnePageManifest | undefined {
   return getPageManifestBySlug(pageSlug);
+}
+
+export interface ChampagneCTASlots {
+  heroCTAs: (ChampagneCTA | string)[];
+  midPageCTAs: (ChampagneCTA | string)[];
+  footerCTAs: (ChampagneCTA | string)[];
+}
+
+function normalizeCTAGroup(entry?: (ChampagneCTA | string)[]) {
+  if (!entry) return [] as (ChampagneCTA | string)[];
+  return entry.filter(Boolean) as (ChampagneCTA | string)[];
+}
+
+export function getCTASlotsForPage(pageSlug: string): ChampagneCTASlots {
+  const manifest = getPageManifestBySlug(pageSlug);
+  const ctas: ChampagnePageCTAConfig | undefined = manifest?.ctas;
+
+  return {
+    heroCTAs: normalizeCTAGroup(ctas?.heroCTAs),
+    midPageCTAs: normalizeCTAGroup(ctas?.midPageCTAs),
+    footerCTAs: normalizeCTAGroup(ctas?.footerCTAs),
+  };
 }
 
 export interface ChampagneHeroManifest {
@@ -82,4 +106,10 @@ export function getSectionManifest(sectionId: string): ChampagneSectionManifest 
   }
 
   return undefined;
+}
+
+export function getSectionCTAReferences(sectionId: string): (ChampagneCTA | string)[] {
+  const manifest = getSectionManifest(sectionId);
+  if (!manifest?.definition || typeof manifest.definition === "string") return [];
+  return normalizeCTAGroup(manifest.definition.ctas);
 }

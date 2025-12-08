@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: [
+    "@champagne/cta",
     "@champagne/hero",
     "@champagne/sections",
     "@champagne/manifests",

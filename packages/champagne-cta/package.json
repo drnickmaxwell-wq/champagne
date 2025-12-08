@@ -1,5 +1,5 @@
 {
-  "name": "@champagne/sections",
+  "name": "@champagne/cta",
   "private": true,
   "version": "0.0.1",
   "main": "src/index.ts",
@@ -9,8 +9,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@champagne/cta": "0.0.1",
-    "@champagne/manifests": "0.0.1",
     "@champagne/tokens": "0.0.1"
+  },
+  "peerDependencies": {
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
   }
 }

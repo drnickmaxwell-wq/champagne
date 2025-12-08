@@ -6,6 +6,8 @@ export {
   getPageManifestBySlug,
   getHeroPresetForPage,
   getSectionStackForPage,
+  type ChampagneCTA,
+  type ChampagnePageCTAConfig,
   type ChampagneMachineManifest,
   type ChampagneManifestRegistry,
   type ChampagneManifestStatus,
@@ -15,9 +17,12 @@ export {
 
 export {
   getAllPages,
+  getCTASlotsForPage,
   getHeroManifest,
   getPageManifest,
   getSectionManifest,
+  getSectionCTAReferences,
   type ChampagneHeroManifest,
+  type ChampagneCTASlots,
   type ChampagneSectionManifest,
 } from "./helpers";
