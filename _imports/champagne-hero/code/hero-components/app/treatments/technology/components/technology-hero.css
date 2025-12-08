@@ -1,0 +1,557 @@
+:root {
+  --magenta: var(--smh-primary-magenta);
+  --turquoise: var(--smh-primary-teal);
+  --gold: var(--smh-accent-gold);
+  --warm-mist: var(--smh-warm-mist);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+.technology-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.6s ease-out;
+}
+
+/* Gradient Background - 135° Magenta → Turquoise → Gold */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-cta);
+  z-index: 1;
+}
+
+/* Film Grain Overlay - Phase 3 */
+.hero-film-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/film-grain.png');
+  background-size: 200px 200px;
+  opacity: var(--noise-opacity, 0.01);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Wave Underplate */
+.hero-wave-underplate {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 2;
+  animation: waveDrift 30s ease-in-out infinite;
+}
+
+@keyframes waveDrift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1%); }
+}
+
+/* Parallax Triptych - Three wave planes at different speeds */
+.hero-wave-slow {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 2;
+  animation: waveParallaxSlow 30s ease-in-out infinite;
+}
+
+@keyframes waveParallaxSlow {
+  0%, 100% { transform: translateY(0) scale(1.05); }
+  50% { transform: translateY(2%) scale(1.05); }
+}
+
+.hero-wave-medium {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.04;
+  z-index: 2;
+  animation: waveParallaxMedium 20s ease-in-out infinite;
+}
+
+@keyframes waveParallaxMedium {
+  0%, 100% { transform: translateY(0) scale(1.1); }
+  50% { transform: translateY(-1.5%) scale(1.1); }
+}
+
+.hero-wave-reverse {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.03;
+  z-index: 2;
+  animation: waveParallaxReverse 40s ease-in-out infinite reverse;
+}
+
+@keyframes waveParallaxReverse {
+  0%, 100% { transform: translateY(0) scale(1.08); }
+  50% { transform: translateY(1%) scale(1.08); }
+}
+
+/* Wave Light Overlay */
+.hero-wave-light {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/wave-light-overlay.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 3;
+  animation: waveLight 40s linear infinite;
+}
+
+@keyframes waveLight {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Gold Whisper Line - 20s loop */
+.gold-whisper-line {
+  position: absolute;
+  top: 45%;
+  left: -100%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+  opacity: 0.25;
+  z-index: 4;
+  animation: goldWhisper 20s linear infinite;
+}
+
+@keyframes goldWhisper {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Film Grain Overlay - 1% opacity */
+.hero-film-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/film-grain.png');
+  background-size: 200px 200px;
+  opacity: 0.01;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Lens Flare Reflection Layer - 0.5% opacity, 20s drift, cursor-responsive */
+.hero-lens-flare {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.005) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+  animation: lensFlareDrift 20s ease-in-out infinite;
+  transition: transform 0.3s ease-out;
+}
+
+@keyframes lensFlareDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(100px, -50px); }
+}
+
+/* Gold Dust Overlay */
+.hero-gold-dust {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/wave-gold-dust.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.03;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Dark Overlay for Text Contrast */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 6;
+}
+
+/* Video Placeholder */
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-placeholder {
+  width: 60%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+  border-radius: 1.5rem;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+}
+
+.video-placeholder-text {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: heroTitleFade 600ms ease-in-out 400ms forwards;
+}
+
+@keyframes heroTitleFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-subtitle {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: heroSubtitleFade 600ms ease-in-out 550ms forwards;
+}
+
+@keyframes heroSubtitleFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: heroCTAFade 600ms ease-in-out 700ms forwards;
+}
+
+@keyframes heroCTAFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cta-primary {
+  padding: 1.25rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  color: var(--magenta);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  /* Champagne Lock: Gold rim increased by 10% brightness */
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.33), 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode: Gold rim increased by 10% brightness */
+[data-theme="dark"] .cta-primary {
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.44), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  /* Champagne Lock: Enhanced gold rim on hover with 10% brightness increase */
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.55), 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .cta-primary:hover {
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.66), 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Specular Bloom - Gold reflection pulse on button hover */
+/* Champagne Lock: Increased gold brightness by 10% (0.3 → 0.4) */
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  pointer-events: none;
+}
+
+.cta-primary:hover::before {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  animation: specularBloom 300ms ease-out;
+}
+
+@keyframes specularBloom {
+  0% { width: 0; height: 0; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { width: 200px; height: 200px; opacity: 1; }
+}
+
+/* Animated Underline */
+.cta-underline {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--magenta), var(--turquoise), var(--gold), var(--magenta));
+  background-size: 200% 100%;
+  border-radius: 9999px;
+  animation: underlineShimmer 1.8s linear infinite;
+}
+
+@keyframes underlineShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .technology-hero {
+    transform: none !important;
+  }
+  
+  .hero-wave-underplate,
+  .hero-wave-light,
+  .hero-wave-slow,
+  .hero-wave-medium,
+  .hero-wave-reverse,
+  .hero-lens-flare,
+  .gold-whisper-line,
+  .cta-underline {
+    animation: none !important;
+  }
+  
+  .hero-title,
+  .hero-subtitle,
+  .hero-ctas {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .technology-hero {
+    min-height: 80vh;
+  }
+
+  .video-placeholder {
+    width: 80%;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+  }
+
+  .cta-primary {
+    width: 100%;
+  }
+}
+
+
+/* Champagne hero overlay (idempotent) */
+.tech-hero {
+  position: relative;
+}
+
+.tech-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/brand-polish/wave-light-overlay.webp"), url("/brand-polish/glass-reflect.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, 1200px;
+  background-position: center, 80% 20%;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-hero::before {
+    opacity: 0.12;
+  }
+}
+
+/* Champagne Phase-1A Enhancements */
+.iridescent-heading {
+  position: relative;
+  background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0.85) 0deg, rgba(64, 196, 180, 0.85) 120deg, rgba(194, 24, 91, 0.85) 240deg, rgba(212, 175, 55, 0.85) 360deg);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+  animation: iridescentSpectral 60s linear infinite;
+}
+
+@keyframes iridescentSpectral {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.wave-layer {
+  position: absolute;
+  inset: -10% -15% -5%;
+  background-repeat: no-repeat;
+  background-size: 140% 120%;
+  background-position: center bottom;
+  opacity: 0.2;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.wave-back {
+  animation: waveBackDrift 60s linear infinite;
+  filter: blur(12px);
+  opacity: 0.18;
+}
+
+.wave-mid {
+  animation: waveMidDrift 40s linear infinite;
+  opacity: 0.24;
+}
+
+.wave-front {
+  animation: waveFrontDrift 26s linear infinite;
+  opacity: 0.32;
+}
+
+@keyframes waveBackDrift {
+  0% {
+    transform: translate3d(-4%, 0%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(4%, -2%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4%, 0%, 0) scale(1.05);
+  }
+}
+
+@keyframes waveMidDrift {
+  0% {
+    transform: translate3d(6%, 1%, 0) scale(1.12);
+  }
+  50% {
+    transform: translate3d(-6%, -1%, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(6%, 1%, 0) scale(1.12);
+  }
+}
+
+@keyframes waveFrontDrift {
+  0% {
+    transform: translate3d(2%, -2%, 0) scale(1.18);
+  }
+  50% {
+    transform: translate3d(-2%, 2%, 0) scale(1.2);
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.18);
+  }
+}
+
+.cta-primary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(249, 232, 195, 0.92) 45%, rgba(212, 175, 55, 0.95) 100%);
+  color: #2f1a12;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5), 0 12px 30px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.35);
+}
+
+.cta-primary:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.6), 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+.cta-primary:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.8);
+  outline-offset: 4px;
+}
+
+.cta-primary::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 0%, rgba(212, 175, 55, 0) 70%);
+}
+
+.tech-hero::before {
+  inset: -5% -5% 0;
+  background:
+    radial-gradient(80% 70% at 15% 10%, rgba(255, 255, 255, 0.18) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 45%, rgba(64, 196, 180, 0.08) 100%);
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iridescent-heading,
+  .wave-back,
+  .wave-mid,
+  .wave-front {
+    animation: none !important;
+    transform: none !important;
+  }
+}
