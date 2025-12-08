@@ -1,0 +1,205 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--smh-navy-900) 96%, transparent),
+    color-mix(in oklab, var(--smh-navy-800) 92%, transparent)
+  );
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 94%, transparent);
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/wave-light-overlay.webp');
+  background-size: cover;
+  opacity: 0.24;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/film-grain-desktop.webp');
+  background-size: cover;
+  opacity: 0.04;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+}
+
+.header {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+}
+
+.header span {
+  font-size: 0.78rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 76%, transparent);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 5vw, 3.75rem);
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 96%, transparent);
+}
+
+.header p {
+  margin: 0 auto;
+  max-width: 38rem;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 78%, transparent);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.card {
+  position: relative;
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(1.8rem, 4vw, 2.4rem);
+  border-radius: clamp(1.75rem, 4vw, 2.5rem);
+  background: rgba(14, 26, 32, 0.55);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  transition: transform 240ms cubic-bezier(.22, .61, .36, 1),
+    box-shadow 240ms cubic-bezier(.22, .61, .36, 1),
+    border-color 240ms cubic-bezier(.22, .61, .36, 1);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 240ms cubic-bezier(.22, .61, .36, 1);
+  pointer-events: none;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 48px rgba(0, 0, 0, 0.28);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.card:hover::after,
+.card:focus-within::after {
+  opacity: 1;
+}
+
+.cardEyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 68%, transparent);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.4rem;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 96%, transparent);
+  position: relative;
+}
+
+.cardTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 80%, transparent);
+  transition: width 220ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.card:hover .cardTitle::after,
+.card:focus-within .cardTitle::after {
+  width: 3.25rem;
+}
+
+.cardCopy {
+  margin: 0;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 78%, transparent);
+  line-height: 1.7;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 72%, transparent);
+  text-decoration: none;
+  transition: color 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    transform 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.cardLink span[aria-hidden='true'] {
+  display: inline-block;
+  transition: transform 200ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.cardLink:hover,
+.cardLink:focus-visible {
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 95%, transparent);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.cardLink:hover span[aria-hidden='true'],
+.cardLink:focus-visible span[aria-hidden='true'] {
+  transform: translateX(4px);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .header {
+    text-align: left;
+  }
+
+  .header p {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardLink,
+  .cardLink span[aria-hidden='true'],
+  .cardTitle::after {
+    transition: none !important;
+  }
+}

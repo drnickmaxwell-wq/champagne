@@ -1,0 +1,253 @@
+.equipment-gallery-section {
+  padding: 8rem 2rem;
+  background: var(--warm-mist);
+  position: relative;
+}
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.equipment-card {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.6s ease-out;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Staggered Fade-In on Scroll - 100ms delay per card */
+.equipment-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.equipment-card:nth-child(1) { transition-delay: 0ms; }
+.equipment-card:nth-child(2) { transition-delay: 100ms; }
+.equipment-card:nth-child(3) { transition-delay: 200ms; }
+.equipment-card:nth-child(4) { transition-delay: 300ms; }
+.equipment-card:nth-child(5) { transition-delay: 400ms; }
+.equipment-card:nth-child(6) { transition-delay: 500ms; }
+
+.equipment-card:hover {
+  transform: translateY(-8px);
+  /* Champagne Lock: Added 1px soft inner glow matching footer button rim */
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.33), 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dark mode: Enhanced inner glow */
+[data-theme="dark"] .equipment-card:hover {
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.44), 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Internal Glow (turquoise→gold) + 1px Inner Reflection on Hover */
+.equipment-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(64, 196, 180, 0.2) 0%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.equipment-card:hover::before {
+  opacity: 1;
+}
+
+/* Glass Reflection using SVG */
+.equipment-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/brand-polish/glass-reflect.svg');
+  background-size: cover;
+  background-position: top right;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+.equipment-card:hover::after {
+  opacity: 0.15;
+}
+
+/* Gold Halo on Active Focus (Keyboard Nav) */
+.equipment-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4), 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient Fallback Poster */
+.equipment-poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.poster-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--magenta) 0%, var(--turquoise) 100%);
+  opacity: 0.8;
+  transition: opacity 0.6s ease-out;
+}
+
+.equipment-card:hover .poster-gradient {
+  opacity: 1;
+}
+
+.poster-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  transition: all 0.6s ease-out;
+}
+
+.equipment-card:hover .poster-icon {
+  opacity: 0.6;
+  transform: scale(1.1);
+}
+
+/* Card Content */
+.equipment-content {
+  padding: 2rem;
+}
+
+.equipment-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--magenta);
+  margin-bottom: 0.5rem;
+}
+
+.equipment-category {
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hover Tooltip */
+.equipment-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+  z-index: 10;
+}
+
+.equipment-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.equipment-card:hover .equipment-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+/* Glass Reflect Edge - from polish kit */
+.glass-reflect-edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.equipment-card:hover .glass-reflect-edge {
+  opacity: 1;
+}
+
+/* Edge Highlight on Hover */
+.equipment-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, var(--gold), transparent) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.equipment-card:hover::after {
+  opacity: 0.3;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .equipment-card,
+  .poster-gradient,
+  .poster-icon,
+  .equipment-tooltip,
+  .glass-reflect-edge {
+    transition: none !important;
+  }
+  
+  .equipment-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .equipment-gallery-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .equipment-tooltip {
+    display: none;
+  }
+}
+

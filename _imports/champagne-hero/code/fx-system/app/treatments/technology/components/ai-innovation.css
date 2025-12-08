@@ -1,0 +1,250 @@
+.ai-innovation-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: white;
+  overflow: hidden;
+}
+
+/* Transparent Wave Background */
+.ai-wave-background {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+/* Slow Gold Drift Overlay */
+.gold-drift-overlay {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: goldDrift 45s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes goldDrift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(200px, 100px, 0); }
+}
+
+.ai-container {
+  position: relative;
+  z-index: 3;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ai-content {
+  padding-right: 2rem;
+}
+
+.ai-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--magenta), var(--turquoise));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-text {
+  color: #333;
+  line-height: 1.9;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.ai-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* AI Highlight with Gold Text-Mask Pulse - 8s cycle, opacity .3→.5 */
+.ai-highlight {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--gold), var(--turquoise), var(--gold));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldTextPulse 8s ease-in-out infinite;
+}
+
+@keyframes goldTextPulse {
+  0%, 100% { 
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+  50% { 
+    background-position: 100% 50%;
+    opacity: 0.5;
+  }
+}
+
+.ai-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(64, 196, 180, 0.05);
+  border-radius: 0.75rem;
+  border-left: 3px solid var(--turquoise);
+  transition: all 0.3s ease-out;
+}
+
+.feature-item:hover {
+  background: rgba(64, 196, 180, 0.1);
+  transform: translateX(8px);
+}
+
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--turquoise);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.feature-item span {
+  color: #555;
+  font-weight: 500;
+}
+
+/* 3D Viewer Placeholder */
+.ai-viewer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(194, 24, 91, 0.05), rgba(64, 196, 180, 0.05));
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ambient Orbit-Light Animation - 20s loop */
+.ai-viewer::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: orbitLight 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes orbitLight {
+  0% { transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+/* Magenta-to-Turquoise Glow Pulse (30s loop) */
+.viewer-glow-pulse {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle, var(--magenta), var(--turquoise));
+  opacity: 0;
+  filter: blur(80px);
+  animation: glowPulse 30s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 0.15;
+    transform: scale(1.2);
+  }
+}
+
+.viewer-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #666;
+}
+
+.viewer-content svg {
+  margin-bottom: 1.5rem;
+  opacity: 0.4;
+  animation: rotate3D 20s linear infinite;
+}
+
+@keyframes rotate3D {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.viewer-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .gold-drift-overlay,
+  .ai-highlight,
+  .viewer-glow-pulse,
+  .viewer-content svg {
+    animation: none !important;
+  }
+  
+  .feature-item:hover {
+    transform: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .ai-innovation-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .ai-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ai-content {
+    padding-right: 0;
+  }
+
+  .viewer-placeholder {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+

@@ -1,0 +1,125 @@
+{
+  "components": [
+    {
+      "id": "CHAMPAGNE_LIGHT_DOME_HERO",
+      "name": "Champagne Light-Dome Hero",
+      "category": "hero",
+      "phase": "V2",
+      "complexity": "high",
+      "intendedRoutes": ["/", "/treatments", "/smile-makeovers"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "Architectural hero variant; must respect hero-freeze rules and remain in preview until approved."
+    },
+    {
+      "id": "CHAMPAGNE_STORY_WALK",
+      "name": "Champagne Story Walk (Cinematic Editorial Section)",
+      "category": "section",
+      "phase": "V2",
+      "complexity": "high",
+      "intendedRoutes": ["/stories/*", "/preview/lux/*", "/treatments/*"],
+      "atlasDependency": "manus-inspired",
+      "status": "concept-only",
+      "notes": "Cinematic scrollytelling ribbon with parallax frames and dusk gradients."
+    },
+    {
+      "id": "AI_SMILE_ATELIER",
+      "name": "AI Smile Atelier",
+      "category": "ai-tool",
+      "phase": "V1.5",
+      "complexity": "high",
+      "intendedRoutes": ["/ai/smile-atelier", "/preview/labs/*"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "AI-guided smile planning UI with reflective chrome; gated to labs and preview."
+    },
+    {
+      "id": "CHAMPAGNE_PARALLAX_CORRIDOR",
+      "name": "Champagne Parallax Corridor",
+      "category": "section",
+      "phase": "V1.5",
+      "complexity": "medium",
+      "intendedRoutes": ["/treatments/*", "/preview/lux/*", "/facility"],
+      "atlasDependency": "atlas-treatment-template",
+      "status": "concept-only",
+      "notes": "Layered parallax bands to showcase facility or treatment phases; requires synchronized captions."
+    },
+    {
+      "id": "GOLD_REFRACT_CTA_BAR",
+      "name": "Gold Refract CTA Bar",
+      "category": "CTA",
+      "phase": "V1",
+      "complexity": "medium",
+      "intendedRoutes": ["/", "/treatments/*", "/consultations", "/preview/lux/*"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "Premium CTA bar with restrained gold refraction (<4%); anchors booking and consult actions."
+    },
+    {
+      "id": "CHAMPAGNE_TREATMENT_TIMELINE",
+      "name": "Champagne Timeline (Treatment Journey Ribbon)",
+      "category": "section",
+      "phase": "V1.5",
+      "complexity": "medium",
+      "intendedRoutes": ["/treatments/*", "/journeys/*", "/onboarding"],
+      "atlasDependency": "atlas-treatment-template",
+      "status": "concept-only",
+      "notes": "Milestone ribbon for treatment journeys with PRM-safe micro-interactions."
+    },
+    {
+      "id": "FLOATING_SIGNATURE_CARDS",
+      "name": "Floating Signature Cards",
+      "category": "section",
+      "phase": "V1",
+      "complexity": "low",
+      "intendedRoutes": ["/team", "/stories/*", "/preview/lux/*"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "Portrait-forward cards with cursive signature overlays and soft elevation."
+    },
+    {
+      "id": "CHAMPAGNE_DUSK_DIVIDER",
+      "name": "Champagne Dusk Divider",
+      "category": "section",
+      "phase": "V1",
+      "complexity": "low",
+      "intendedRoutes": ["/stories/*", "/treatments/*", "/preview/lux/*"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "Gradient divider that segments long-form content while maintaining contrast and calm pacing."
+    },
+    {
+      "id": "SCULPTED_3D_DENTAL_ARTEFACTS",
+      "name": "Sculpted 3D Dental Artefacts",
+      "category": "gallery",
+      "phase": "V2",
+      "complexity": "high",
+      "intendedRoutes": ["/treatments/*", "/tech/*", "/preview/lux/*"],
+      "atlasDependency": "manus-inspired",
+      "status": "concept-only",
+      "notes": "3D gallery with controlled orbit and depth-of-field; requires WebGL-safe fallback."
+    },
+    {
+      "id": "CHAMPAGNE_WHISPER_INTERACTION_LAYER",
+      "name": "Champagne Whisper Interaction Layer",
+      "category": "interaction",
+      "phase": "V2",
+      "complexity": "high",
+      "intendedRoutes": ["/preview/lux/*", "/preview/heroes/*"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "Micro-interaction envelope for whisper trails, hover blooms, and ambient particles tuned for PRM safety."
+    },
+    {
+      "id": "PORTAL_LUX_MODE",
+      "name": "Portal \"Lux Mode\" Aesthetic",
+      "category": "portal",
+      "phase": "V1.5",
+      "complexity": "medium",
+      "intendedRoutes": ["/preview/*", "/portal/lux"],
+      "atlasDependency": "none",
+      "status": "concept-only",
+      "notes": "Preview-only global skin applying Champagne Lux typography, gold discipline, and motion motifs."
+    }
+  ]
+}

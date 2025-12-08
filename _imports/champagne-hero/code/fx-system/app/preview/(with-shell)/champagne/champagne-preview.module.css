@@ -1,0 +1,203 @@
+.preview {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  background: color-mix(in srgb, var(--smh-sand) 86%, transparent);
+  color: var(--smh-text);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 24%, transparent);
+  background: color-mix(in srgb, var(--smh-sand) 78%, transparent);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--smh-text) 12%, transparent);
+}
+
+.controlsTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--brand-gold) 40%, var(--smh-text));
+}
+
+.controlsNotice {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--smh-text-muted) 78%, transparent);
+  max-width: 32rem;
+}
+
+.controlGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.control {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 140px;
+}
+
+.control label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--smh-text) 82%, var(--brand-gold) 18%);
+}
+
+.toggle {
+  width: 2.5rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  appearance: none;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 48%, transparent);
+  background: color-mix(in srgb, var(--brand-teal) 24%, transparent);
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  width: 1.2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--smh-sand) 92%, transparent);
+  transform: translateX(0);
+  transition: transform 200ms ease;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--smh-text) 18%, transparent);
+}
+
+.toggle:checked {
+  background: color-mix(in srgb, var(--brand-teal) 55%, var(--brand-magenta) 45%);
+  border-color: color-mix(in srgb, var(--brand-gold) 45%, var(--brand-teal));
+}
+
+.toggle:checked::after {
+  transform: translateX(1rem);
+}
+
+.range {
+  width: 180px;
+  accent-color: color-mix(in srgb, var(--brand-teal) 60%, var(--brand-magenta) 40%);
+}
+
+.output {
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--smh-text-muted) 82%, transparent);
+}
+
+.heroFrame {
+  position: relative;
+  border-radius: 26px;
+}
+
+.heroFrame > :global(.brand-hero-shell) {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  padding: clamp(3rem, 6vw, 4.75rem) clamp(1.5rem, 4vw, 4rem) clamp(3.5rem, 6vw, 5rem);
+  display: grid;
+  gap: 2rem;
+  background: var(--champagne-grad);
+  color: color-mix(in srgb, var(--smh-sand) 94%, transparent);
+  isolation: isolate;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/film-grain-desktop.webp');
+  background-size: cover;
+  opacity: var(--champagne-grain, 0.14);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.2rem;
+  max-width: 42rem;
+}
+
+.heroEyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--smh-sand) 78%, transparent);
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.heroDescription {
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  line-height: 1.6;
+  margin: 0;
+  color: color-mix(in srgb, var(--smh-sand) 84%, transparent);
+}
+
+.heroNote {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--smh-text-muted) 82%, transparent);
+  max-width: 48rem;
+}
+
+.goldRim {
+  position: absolute;
+  inset: clamp(0.4rem, 1vw, 0.85rem);
+  border-radius: calc(26px - clamp(0.4rem, 1vw, 0.85rem));
+  pointer-events: none;
+  border: 1px solid transparent;
+  box-shadow: none;
+  opacity: 0;
+  transition: opacity 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.goldRim[data-enabled='true'] {
+  border-color: color-mix(in srgb, var(--brand-gold) 82%, transparent);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--brand-gold) 45%, transparent);
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .controlGroup {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .control {
+    min-width: 0;
+    flex: 1 1 40%;
+  }
+
+  .range {
+    width: 100%;
+  }
+}
