@@ -1,0 +1,50 @@
+:root {
+  --gold-boost: 1.0;         /* live preview multiplier */
+  --gold-opacity-base: 0.22; /* subtle lift */
+  --glass-shimmer-opacity: 0.28;
+  --caustics-opacity: 0.18;
+  --seam-smooth: 0.85;       /* 0..1 */
+}
+
+/* Apply only in the gilded preview variant */
+.champagne-hero.champagne-hero--gilded {
+  /* nothing here: we don't touch backgrounds or waves */
+}
+
+/* Gold layer: boost opacity gently via CSS var (no size change) */
+.champagne-hero.champagne-hero--gilded .hero-gold-dust-drift {
+  opacity: calc(var(--gold-opacity-base) * var(--gold-boost));
+  mix-blend-mode: color-dodge;
+  filter: saturate(1.12) hue-rotate(-6deg);
+  animation-timing-function: cubic-bezier(0.3, 0.0, 0.2, 1);
+}
+
+/* Motion layers: ease loop edges to hide “pop” */
+.champagne-hero.champagne-hero--gilded .hero-wave-caustics,
+.champagne-hero.champagne-hero--gilded .hero-glass-shimmer,
+.champagne-hero.champagne-hero--gilded .hero-particles-drift,
+.champagne-hero.champagne-hero--gilded .hero-gold-dust-drift {
+  animation-timing-function: cubic-bezier(0.3, 0.0, 0.2, 1);
+}
+
+/* Crossfade around loop boundaries (CSS-only, no extra elements) */
+@keyframes gold-seam-smooth {
+  0% {
+    opacity: calc(var(--gold-opacity-base) * 0.75 * var(--gold-boost));
+  }
+  2% {
+    opacity: calc(var(--gold-opacity-base) * var(--gold-boost));
+  }
+  98% {
+    opacity: calc(var(--gold-opacity-base) * var(--gold-boost));
+  }
+  100% {
+    opacity: calc(var(--gold-opacity-base) * 0.75 * var(--gold-boost));
+  }
+}
+.champagne-hero.champagne-hero--gilded .hero-gold-dust-drift {
+  animation-name: gold-seam-smooth;
+  animation-duration: 8s;         /* matches loop */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

@@ -1,0 +1,45 @@
+{
+  "repo": "drnickmaxwell-wq/please-work",
+  "brand_tokens": {
+    "magenta": "#C2185B",
+    "teal": "#40C4B4",
+    "gold": "#D4AF37",
+    "soft_gold": "#F9E8C3",
+    "ink": "#0B0D0F",
+    "text": "#1A1A1A"
+  },
+  "gradient": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)",
+  "guards": {
+    "brand_guard": "pnpm run brand:guard",
+    "hero_freeze": "pnpm run guard:hero"
+  },
+  "rules": {
+    "no_binaries_in_codex_pr": true,
+    "never_touch": ["components/home/ChampagneHero.tsx"],
+    "tokens_only": true,
+    "waves_intact": true
+  },
+  "manifests": {
+    "champagne": "/public/assets/champagne/manifest.json",
+    "brand": "/public/brand/manifest.json",
+    "champagne_machine": "/public/brand/champagne_machine_manifest_full.json",
+    "manus_import": "/public/brand/manus_import_unified_manifest_20251104.json"
+  },
+  "preview_routes": [
+    "/preview/hero-gilded",
+    "/preview/chat",
+    "/preview/footer-luxe"
+  ],
+  "phases": [
+    "homepage_cinematic_polish",
+    "treatments_hub_tokenize",
+    "top6_leaves_branding",
+    "technology_page",
+    "stories_grid",
+    "blog_newsletter",
+    "telemedicine",
+    "ai_smile_quiz",
+    "chatbot_ui",
+    "header_footer_hardening"
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedBy": "Director AI",
+    "notes": "Maps canonical hero IDs to routes, templates, and Manus Atlas references."
+  },
+
+  "heroes": [
+    {
+      "id": "HOME_HERO_CHAMPAGNE_V1",
+      "kind": "home",
+      "manusRef": "HOME_HERO_CHAMPAGNE_V1 (Atlas)",
+      "component": "ChampagneHero",
+      "status": "sacred",
+      "appliesToRoutes": ["/", "/preview/home", "/champagne/hero"],
+      "layoutConstraints": {
+        "gradientLaw": "135deg",
+        "goldMaxPercent": 4,
+        "allowExperiments": false
+      }
+    },
+    {
+      "id": "CB_HERO_FINAL",
+      "kind": "treatment",
+      "manusRef": "composite-hero-desktop-final/composite-hero-mobile-final",
+      "component": "ChampagneHero",
+      "status": "canonical-treatment-hero",
+      "appliesToRoutes": [
+        "/treatments/cosmetic/composite-bonding",
+        "/treatments/cosmetic/veneers",
+        "/treatments/cosmetic/teeth-whitening",
+        "/treatments/orthodontics/spark-aligners",
+        "/treatments/orthodontics/fixed-braces",
+        "/treatments/3d-dentistry/3d-printed-veneers",
+        "/treatments/3d-dentistry/3d-same-day-dentures",
+        "/treatments/implants/all-on-4-6-same-day",
+        "/treatments/implants/same-day-implants",
+        "/treatments/implants/3d-printed-restorations",
+        "/treatments/implants/3d-surgically-guided-implants",
+        "/preview/treatments/veneers",
+        "/preview/treatments/composite-bonding",
+        "/preview/treatments/whitening",
+        "/preview/treatments/implants",
+        "/preview/treatments/orthodontics",
+        "/preview/treatments/orthodontics/spark-aligners",
+        "/preview/treatments/3d-dentistry",
+        "/preview/treatments/cosmetic",
+        "/preview-v2/treatments/whitening",
+        "/preview-v2/treatments/veneers",
+        "/preview-v2/treatments/implants",
+        "/preview-v2/treatments/orthodontics",
+        "/preview-v2/treatments/composite-bonding"
+      ],
+      "layoutConstraints": {
+        "allowARSlot": true,
+        "allow3DViewerSlot": true
+      }
+    },
+    {
+      "id": "TECH_HERO_BASE",
+      "kind": "technology",
+      "manusRef": "TECH_HERO_BASE (Atlas)",
+      "component": "ChampagneHero",
+      "status": "needs-reskin",
+      "appliesToRoutes": [
+        "/treatments/technology",
+        "/treatments/technology/soft-tissue-laser",
+        "/treatments/technology/3d-scanning-and-printing",
+        "/treatments/technology/the-wand-painless-numbing",
+        "/preview/technology",
+        "/preview/treatments/technology",
+        "/preview/lux/technology"
+      ],
+      "layoutConstraints": {
+        "waveMaskRequired": true,
+        "grainRequired": true
+      }
+    },
+    {
+      "id": "TREATMENT_HUB_HERO",
+      "kind": "treatment-hub",
+      "manusRef": "Derived from CB_HERO_FINAL spacing",
+      "component": "ChampagneHero",
+      "status": "to-implement",
+      "appliesToRoutes": [
+        "/treatments",
+        "/treatments/general",
+        "/treatments/cosmetic",
+        "/treatments/orthodontics",
+        "/treatments/3d-dentistry",
+        "/treatments/implants"
+      ]
+    },
+    {
+      "id": "TREATMENT_HUB_HERO_GENERAL",
+      "kind": "treatment-hub",
+      "extends": "TREATMENT_HUB_HERO",
+      "appliesToRoutes": ["/treatments/general"]
+    },
+    {
+      "id": "TREATMENT_HUB_HERO_COSMETIC",
+      "kind": "treatment-hub",
+      "extends": "TREATMENT_HUB_HERO",
+      "appliesToRoutes": ["/treatments/cosmetic"]
+    },
+    {
+      "id": "TREATMENT_HUB_HERO_ORTHO",
+      "kind": "treatment-hub",
+      "extends": "TREATMENT_HUB_HERO",
+      "appliesToRoutes": ["/treatments/orthodontics"]
+    },
+    {
+      "id": "TREATMENT_HUB_HERO_3D",
+      "kind": "treatment-hub",
+      "extends": "TREATMENT_HUB_HERO",
+      "appliesToRoutes": ["/treatments/3d-dentistry"]
+    },
+    {
+      "id": "TREATMENT_HUB_HERO_IMPLANTS",
+      "kind": "treatment-hub",
+      "extends": "TREATMENT_HUB_HERO",
+      "appliesToRoutes": ["/treatments/implants"]
+    },
+    {
+      "id": "TEAM_HERO_V1",
+      "kind": "team",
+      "manusRef": "LUX team previews",
+      "component": "ChampagneHero",
+      "status": "brief-needed",
+      "appliesToRoutes": ["/team", "/preview/lux/team"]
+    },
+    {
+      "id": "STORIES_HERO_V1",
+      "kind": "stories",
+      "manusRef": "LUX patient stories previews",
+      "component": "ChampagneHero",
+      "status": "brief-needed",
+      "appliesToRoutes": ["/patient-stories", "/stories", "/preview/lux/patient-stories"]
+    },
+    {
+      "id": "AI_SMILE_QUIZ_HERO",
+      "kind": "ai-experience",
+      "manusRef": "LUX smile-ai preview",
+      "component": "ChampagneHero",
+      "status": "brief-needed",
+      "appliesToRoutes": ["/ai-smile-quiz", "/preview/lux/smile-ai"]
+    },
+    {
+      "id": "SERVICE_HERO_ANXIETY_SOFT",
+      "kind": "service",
+      "component": "ChampagneHero",
+      "status": "brief-needed",
+      "appliesToRoutes": ["/anxiety-dentistry"]
+    },
+    {
+      "id": "SERVICE_HERO_VIDEO_CONSULT",
+      "kind": "service",
+      "component": "ChampagneHero",
+      "status": "brief-needed",
+      "appliesToRoutes": ["/video-consultation"]
+    },
+    {
+      "id": "SERVICE_HERO_EMERGENCY",
+      "kind": "service",
+      "component": "ChampagneHero",
+      "status": "brief-needed",
+      "appliesToRoutes": ["/emergency-dentist"]
+    }
+  ]
+}

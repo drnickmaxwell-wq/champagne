@@ -1,0 +1,636 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "file": "app/page.tsx",
+      "component": "HomePage",
+      "stage": "home shell with gated hero"
+    },
+    {
+      "path": "/ai-smile-quiz",
+      "file": "app/ai-smile-quiz/page.tsx",
+      "component": "AISmileQuizPage"
+    },
+    {
+      "path": "/anxiety-dentistry",
+      "file": "app/anxiety-dentistry/page.tsx",
+      "component": "AnxietyDentistryPage"
+    },
+    {
+      "path": "/api/appointments",
+      "file": "app/api/appointments/route.ts",
+      "handler": "route handler"
+    },
+    {
+      "path": "/api/brand-manifest/:name",
+      "file": "app/api/brand-manifest/[name]/route.ts",
+      "handler": "route handler"
+    },
+    {
+      "path": "/api/chat",
+      "file": "app/api/chat/route.ts",
+      "handler": "route handler"
+    },
+    {
+      "path": "/api/integrations/email",
+      "file": "app/api/integrations/email/route.ts",
+      "handler": "route handler"
+    },
+    {
+      "path": "/api/integrations/stripe",
+      "file": "app/api/integrations/stripe/route.ts",
+      "handler": "route handler"
+    },
+    {
+      "path": "/api/integrations/stripe/webhook",
+      "file": "app/api/integrations/stripe/webhook/route.ts",
+      "handler": "route handler"
+    },
+    {
+      "path": "/blog",
+      "file": "app/blog/page.tsx",
+      "component": "BlogPage"
+    },
+    {
+      "path": "/champagne-preview",
+      "file": "app/champagne-preview/page.tsx",
+      "component": "ChampagneHeroPreviewPage",
+      "stage": "champagne hero preview"
+    },
+    {
+      "path": "/champagne/hero",
+      "file": "app/champagne/hero/page.tsx",
+      "component": "Page",
+      "stage": "champagne hero preview"
+    },
+    {
+      "path": "/emergency-dentist",
+      "file": "app/emergency-dentist/page.tsx",
+      "component": "EmergencyDentistPage"
+    },
+    {
+      "path": "/patient-education",
+      "file": "app/patient-education/page.tsx",
+      "component": "PatientEducationPage"
+    },
+    {
+      "path": "/patient-stories",
+      "file": "app/patient-stories/page.tsx",
+      "component": "default export"
+    },
+    {
+      "path": "/preview/ai24-home",
+      "file": "app/preview/ai24-home/page.tsx",
+      "component": "PreviewAi24Home",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/brand-live",
+      "file": "app/preview/brand-live/page.tsx",
+      "component": "BrandLivePreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/brand-lock",
+      "file": "app/preview/brand-lock/page.tsx",
+      "component": "BrandLock",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/champagne",
+      "file": "app/preview/champagne/page.tsx",
+      "component": "default export",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/champagne-phase2",
+      "file": "app/preview/champagne-phase2/page.tsx",
+      "component": "ChampagnePhaseTwoPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/chat",
+      "file": "app/preview/chat/page.tsx",
+      "component": "ChatPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/footer-luxe",
+      "file": "app/preview/footer-luxe/page.tsx",
+      "component": "FooterLuxePreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/hero-gilded",
+      "file": "app/preview/hero-gilded/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux",
+      "file": "app/preview/lux/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/gallery",
+      "file": "app/preview/lux/gallery/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/legal",
+      "file": "app/preview/lux/legal/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/legal/cookies",
+      "file": "app/preview/lux/legal/cookies/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/legal/privacy",
+      "file": "app/preview/lux/legal/privacy/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/legal/terms",
+      "file": "app/preview/lux/legal/terms/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/locations/brighton",
+      "file": "app/preview/lux/locations/brighton/page.tsx",
+      "component": "BrightonPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/locations/hove",
+      "file": "app/preview/lux/locations/hove/page.tsx",
+      "component": "HovePreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/locations/lancing",
+      "file": "app/preview/lux/locations/lancing/page.tsx",
+      "component": "LancingPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/locations/shoreham-by-sea",
+      "file": "app/preview/lux/locations/shoreham-by-sea/page.tsx",
+      "component": "ShorehamBySeaPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/locations/steyning",
+      "file": "app/preview/lux/locations/steyning/page.tsx",
+      "component": "SteyningPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/locations/worthing",
+      "file": "app/preview/lux/locations/worthing/page.tsx",
+      "component": "WorthingPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/patient-stories",
+      "file": "app/preview/lux/patient-stories/page.tsx",
+      "component": "Stories",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/referrals",
+      "file": "app/preview/lux/referrals/page.tsx",
+      "component": "Page",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/smile-ai",
+      "file": "app/preview/lux/smile-ai/page.tsx",
+      "component": "SmileAiPreview",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/team",
+      "file": "app/preview/lux/team/page.tsx",
+      "component": "TeamPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/team/:slug",
+      "file": "app/preview/lux/team/[slug]/page.tsx",
+      "component": "TeamMember",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/lux/technology",
+      "file": "app/preview/lux/technology/page.tsx",
+      "component": "Technology",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/manus-audit",
+      "file": "app/preview/manus-audit/page.tsx",
+      "component": "default export",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/manus-manifest",
+      "file": "app/preview/manus-manifest/page.tsx",
+      "component": "default export",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments",
+      "file": "app/preview/treatments/page.tsx",
+      "component": "TreatmentsPreviewIndex",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/3d-dentistry",
+      "file": "app/preview/treatments/3d-dentistry/page.tsx",
+      "component": "ThreeDDentistryPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/composite-bonding",
+      "file": "app/preview/treatments/composite-bonding/page.tsx",
+      "component": "CompositeBondingPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/cosmetic",
+      "file": "app/preview/treatments/cosmetic/page.tsx",
+      "component": "CosmeticPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/dental-implants",
+      "file": "app/preview/treatments/dental-implants/page.tsx",
+      "component": "DentalImplantsPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/general",
+      "file": "app/preview/treatments/general/page.tsx",
+      "component": "GeneralDentistryPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/implants",
+      "file": "app/preview/treatments/implants/page.tsx",
+      "component": "default export",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/orthodontics",
+      "file": "app/preview/treatments/orthodontics/page.tsx",
+      "component": "OrthodonticsPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/technology",
+      "file": "app/preview/treatments/technology/page.tsx",
+      "component": "TechnologyPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/veneers",
+      "file": "app/preview/treatments/veneers/page.tsx",
+      "component": "VeneersPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/treatments/whitening",
+      "file": "app/preview/treatments/whitening/page.tsx",
+      "component": "WhiteningPreviewPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/preview/why-hero-grey",
+      "file": "app/preview/why-hero-grey/page.tsx",
+      "component": "WhyHeroGreyPage",
+      "stage": "preview sandbox"
+    },
+    {
+      "path": "/stories",
+      "file": "app/stories/page.tsx",
+      "component": "StoriesPage"
+    },
+    {
+      "path": "/team",
+      "file": "app/team/page.tsx",
+      "component": "TeamPage"
+    },
+    {
+      "path": "/team/dr-sarah-mitchell",
+      "file": "app/team/dr-sarah-mitchell/page.tsx",
+      "component": "DrSarahMitchellPage"
+    },
+    {
+      "path": "/treatments",
+      "file": "app/treatments/page.tsx",
+      "component": "TreatmentsPage",
+      "stage": "kept (mirror)"
+    },
+    {
+      "path": "/treatments/3d-dentistry",
+      "file": "app/treatments/3d-dentistry/page.tsx",
+      "component": "ThreeDDentistryPage",
+      "stage": "kept (mirror)"
+    },
+    {
+      "path": "/treatments/3d-dentistry/3d-implants-overview",
+      "file": "app/treatments/3d-dentistry/3d-implants-overview/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/3d-dentistry/3d-printed-veneers",
+      "file": "app/treatments/3d-dentistry/3d-printed-veneers/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/3d-dentistry/3d-restorative-dentistry",
+      "file": "app/treatments/3d-dentistry/3d-restorative-dentistry/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/3d-dentistry/3d-same-day-dentures",
+      "file": "app/treatments/3d-dentistry/3d-same-day-dentures/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/composite-bonding",
+      "file": "app/treatments/composite-bonding/page.tsx",
+      "component": "CompositeBondingPage"
+    },
+    {
+      "path": "/treatments/cosmetic",
+      "file": "app/treatments/cosmetic/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/cosmetic/composite-bonding",
+      "file": "app/treatments/cosmetic/composite-bonding/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/cosmetic/teeth-whitening",
+      "file": "app/treatments/cosmetic/teeth-whitening/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/cosmetic/veneers",
+      "file": "app/treatments/cosmetic/veneers/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/dental-implants",
+      "file": "app/treatments/dental-implants/page.tsx",
+      "component": "DentalImplantsPage"
+    },
+    {
+      "path": "/treatments/general",
+      "file": "app/treatments/general/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/check-ups",
+      "file": "app/treatments/general/check-ups/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/childrens-dentistry",
+      "file": "app/treatments/general/childrens-dentistry/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/crowns-and-bridges",
+      "file": "app/treatments/general/crowns-and-bridges/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/emergency-dentistry",
+      "file": "app/treatments/general/emergency-dentistry/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/extractions",
+      "file": "app/treatments/general/extractions/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/root-canal-treatment",
+      "file": "app/treatments/general/root-canal-treatment/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/sedation",
+      "file": "app/treatments/general/sedation/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/general/tooth-coloured-fillings",
+      "file": "app/treatments/general/tooth-coloured-fillings/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/implants",
+      "file": "app/treatments/implants/page.tsx",
+      "component": "default export",
+      "stage": "kept (mirror)"
+    },
+    {
+      "path": "/treatments/implants/3d-printed-restorations",
+      "file": "app/treatments/implants/3d-printed-restorations/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/implants/3d-surgically-guided-implants",
+      "file": "app/treatments/implants/3d-surgically-guided-implants/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/implants/all-on-4-6-same-day",
+      "file": "app/treatments/implants/all-on-4-6-same-day/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/implants/same-day-implants",
+      "file": "app/treatments/implants/same-day-implants/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/orthodontics",
+      "file": "app/treatments/orthodontics/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/orthodontics/fixed-braces",
+      "file": "app/treatments/orthodontics/fixed-braces/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/orthodontics/spark-aligners",
+      "file": "app/treatments/orthodontics/spark-aligners/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/technology",
+      "file": "app/treatments/technology/page.tsx",
+      "component": "TechnologyPage",
+      "stage": "champagne lock complete"
+    },
+    {
+      "path": "/treatments/technology/3d-scanning-and-printing",
+      "file": "app/treatments/technology/3d-scanning-and-printing/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/technology/soft-tissue-laser",
+      "file": "app/treatments/technology/soft-tissue-laser/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/technology/the-wand-painless-numbing",
+      "file": "app/treatments/technology/the-wand-painless-numbing/page.tsx",
+      "component": "Page",
+      "stage": "created (mirror)"
+    },
+    {
+      "path": "/treatments/veneers",
+      "file": "app/treatments/veneers/page.tsx",
+      "component": "VeneersPage"
+    },
+    {
+      "path": "/treatments/whitening",
+      "file": "app/treatments/whitening/page.tsx",
+      "component": "WhiteningPage"
+    },
+    {
+      "path": "/video-consultation",
+      "file": "app/video-consultation/page.tsx",
+      "component": "VideoConsultationPage"
+    }
+  ],
+  "components": {
+    "frozen": [
+      {
+        "name": "ChampagneHero",
+        "file": "components/home/ChampagneHero.tsx"
+      }
+    ],
+    "previews": [
+      "components/preview/HeroGilded.tsx",
+      "app/champagne/hero/page.tsx",
+      "app/champagne-preview/page.tsx",
+      "app/preview/manus-audit/page.tsx",
+      "app/preview/manus-manifest/page.tsx"
+    ],
+    "manusReferences": [
+      "MANUS_LUX_APPLY_REPORT.md",
+      "UPLOAD_ASSETS_TODO.md",
+      "app/champagne/hero/page.tsx",
+      "app/preview/manus-audit/page.tsx",
+      "app/preview/manus-manifest/page.tsx",
+      "app/preview/manus/README.md",
+      "app/treatments/technology/assets/README.md",
+      "champagne-hero-pack/README.md",
+      "components/hero/4k-hero-video.tsx",
+      "components/home/ChampagneHero.tsx",
+      "components/home/ChampagneHeroGilded.tsx",
+      "components/home/HeroLuxury.tsx",
+      "components/preview/HeroGilded.tsx",
+      "components/sections/SmileJourney.tsx",
+      "docs/audit-and-tokens.md",
+      "docs/audit/Manus_LuxuryHero_Report.md",
+      "public/assets/champagne/README.md",
+      "public/assets/champagne/manifest.json",
+      "public/assets/manus/README.md",
+      "reports/TECHNOLOGY_IMPORT_AUDIT.md",
+      "reports/TECHNOLOGY_IMPORT_PLAN.md",
+      "reports/loop-seams.md",
+      "scripts/reports/compare-manus-to-champagne.json",
+      "styles/champagne/manifest.json",
+      "styles/tokens/smh-champagne-tokens.css",
+      "tests/brand-lock.spec.ts"
+    ]
+  },
+  "tokens": {
+    "files": [
+      "styles/tokens/smh-champagne-tokens.css",
+      "styles/champagne/manifest.json",
+      "public/brand/manifest.json"
+    ],
+    "guards": [
+      "brand-guard.cjs",
+      "scripts/brand-guard-structure.cjs",
+      "scripts/brand-guard.smoke.mjs",
+      "scripts/guard-hero-freeze.mjs",
+      "scripts/verify-hue.cjs",
+      "scripts/compare-manus-to-champagne.mjs"
+    ],
+    "imports": [
+      "app/champagne-preview/page.tsx",
+      "app/champagne/hero/page.tsx",
+      "app/globals.css",
+      "app/preview/hero-gilded/layout.tsx",
+      "app/preview/hero-gilded/page.tsx",
+      "styles/brand/home-hero.css"
+    ]
+  },
+  "issues": [
+    {
+      "id": "rogue-tailwind-hues",
+      "description": "Treatment and anxiety pages rely on Tailwind palette colors instead of Champagne tokens.",
+      "locations": [
+        "app/treatments/page.tsx",
+        "app/anxiety-dentistry/page.tsx"
+      ]
+    },
+    {
+      "id": "advanced-features-missing",
+      "description": "Blueprint audit lists missing parallax, sticky header, scroll animations, and other effects.",
+      "locations": [
+        "advanced-web-features-audit.md"
+      ]
+    }
+  ],
+  "actions": [
+    "Re-tokenize treatment and anxiety pages to use --brand-* variables and Champagne gradients.",
+    "Implement blueprint priorities: parallax system, sticky header, scroll-triggered animations.",
+    "Maintain frozen Champagne hero assets and update manifests only through guard workflows."
+  ]
+}

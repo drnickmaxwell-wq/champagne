@@ -1,0 +1,79 @@
+{
+  "files": [
+    {
+      "path": "components/champagne/hero/HeroEngine.tsx",
+      "exports": ["HeroEngine"],
+      "role": "entry/gatekeeper; validates schema and blocks non-preview requests",
+      "imports": ["next/headers", "./HeroFrame", "@/lib/champagne/hero-schema", "@/styles/champagne/hero-engine.css"]
+    },
+    {
+      "path": "components/champagne/hero/HeroFrame.tsx",
+      "exports": ["HeroFrame"],
+      "role": "hero shell/frame; applies tone+intensity classes, renders waves, shimmer, CTA plate and text stack",
+      "imports": ["./HeroCTABar", "./HeroShimmer", "./HeroWaveStack", "@/lib/champagne/hero-tone", "@/lib/champagne/hero-schema"]
+    },
+    {
+      "path": "components/champagne/hero/HeroCTABar.tsx",
+      "exports": ["HeroCTABar"],
+      "role": "CTA plate/band with primary + secondary buttons wired to PreviewChampagneCTA",
+      "imports": ["@/components/preview/shared/PreviewChampagneCTA", "@/lib/champagne/hero-schema"]
+    },
+    {
+      "path": "components/champagne/hero/HeroShimmer.tsx",
+      "exports": ["HeroShimmer"],
+      "role": "shimmer/particle layer chooser based on tone and density",
+      "imports": ["@/lib/champagne/hero-schema"]
+    },
+    {
+      "path": "components/champagne/hero/HeroWaveStack.tsx",
+      "exports": ["HeroWaveStack"],
+      "role": "wave mask layering and blend mode control",
+      "imports": ["@/lib/champagne/hero-schema"]
+    },
+    {
+      "path": "lib/champagne/hero-schema.ts",
+      "exports": ["HeroSchema", "HeroTone", "HeroToneProfile", "HeroWaveMask", "HeroWaveStrength", "HeroShimmerDensity", "HeroIntensity", "validateHeroSchema"],
+      "role": "schema + validator; tone/time-of-day enums, default CTA + wave/shimmer settings",
+      "imports": []
+    },
+    {
+      "path": "lib/champagne/hero-tone.ts",
+      "exports": ["HeroToneClasses", "getHeroToneClasses"],
+      "role": "tone/time-of-day mapper for wrapper/wave/shimmer/CTA tone classes",
+      "imports": ["./hero-schema"]
+    },
+    {
+      "path": "lib/champagne/hero-presets.ts",
+      "exports": ["whitening_hero", "composite_bonding_hero", "implants_hero", "veneers_hero", "ortho_hero", "HERO_PRESETS"],
+      "role": "preset library for treatment heroes, including CTA class assignments",
+      "imports": ["./hero-schema"]
+    }
+  ],
+  "usage": [
+    {
+      "component": "HeroEngine",
+      "usedInFiles": [
+        "components/preview/treatments/whitening/WhiteningHero.tsx",
+        "components/preview/treatments/composite-bonding/CompositeBondingHero.tsx"
+      ]
+    },
+    {
+      "component": "HeroFrame/HeroCTABar/HeroWaveStack/HeroShimmer",
+      "usedInFiles": ["components/champagne/hero/HeroEngine.tsx"]
+    }
+  ],
+  "toneProfiles": {
+    "tones": ["dusk", "teal-lux", "noir", "dawn", "whitening", "custom", "whitening_dawn", "bonding_dusk", "implants_dusk", "veneers_dusk", "ortho_dusk"],
+    "timeOfDay": ["dawn", "day", "dusk", "night"],
+    "moods": ["whitening_calm", "bonding_sculpted", "implants_confident", "veneers_polished", "ortho_precise"],
+    "intensity": ["soft", "standard", "lux", "medium", "bold"]
+  },
+  "presets": [
+    {"name": "whitening_hero", "file": "lib/champagne/hero-presets.ts"},
+    {"name": "composite_bonding_hero", "file": "lib/champagne/hero-presets.ts"},
+    {"name": "implants_hero", "file": "lib/champagne/hero-presets.ts"},
+    {"name": "veneers_hero", "file": "lib/champagne/hero-presets.ts"},
+    {"name": "ortho_hero", "file": "lib/champagne/hero-presets.ts"},
+    {"name": "HERO_PRESETS", "file": "lib/champagne/hero-presets.ts"}
+  ]
+}

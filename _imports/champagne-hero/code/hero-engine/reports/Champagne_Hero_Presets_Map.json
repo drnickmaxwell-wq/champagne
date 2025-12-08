@@ -1,0 +1,87 @@
+[
+  {
+    "key": "whitening_hero",
+    "toneProfile": {"tone": "whitening", "timeOfDay": "dawn", "mood": "whitening_calm", "depth": "soft", "contrast": "standard"},
+    "layout": "left",
+    "cta": {
+      "primaryClass": "cta-primary-ink-light",
+      "secondaryClass": "cta-secondary-glass-gold",
+      "primaryLabel": "Book whitening",
+      "secondaryLabel": "Explore treatment options",
+      "primaryHref": "/contact",
+      "secondaryHref": "/treatments"
+    },
+    "waves": {"mask": "wave-02", "opacity": 0.34, "blendMode": "soft-light", "strength": "strong"},
+    "shimmer": {"enabled": true, "density": "med", "style": "dust"},
+    "intensity": "soft",
+    "route": "preview/treatments/whitening"
+  },
+  {
+    "key": "composite_bonding_hero",
+    "toneProfile": {"tone": "dusk", "timeOfDay": "dusk", "mood": "bonding_sculpted", "depth": "deep", "contrast": "high"},
+    "layout": "left",
+    "cta": {
+      "primaryClass": "cta-primary-ink-light",
+      "secondaryClass": "cta-secondary-glass-gold",
+      "primaryLabel": "Book a consultation",
+      "secondaryLabel": "AI smile preview",
+      "primaryHref": "/contact",
+      "secondaryHref": "/ai-smile-quiz"
+    },
+    "waves": {"mask": "wave-03", "opacity": 0.38, "blendMode": "overlay", "strength": "strong"},
+    "shimmer": {"enabled": true, "density": "med", "style": "dust"},
+    "intensity": "lux",
+    "route": "preview/treatments/composite-bonding"
+  },
+  {
+    "key": "implants_hero",
+    "toneProfile": {"tone": "noir", "timeOfDay": "day", "mood": "implants_confident", "depth": "standard", "contrast": "standard"},
+    "layout": "left",
+    "cta": {
+      "primaryClass": "cta-primary-ink-light",
+      "secondaryClass": "cta-secondary-glass-gold",
+      "primaryLabel": "Book implant consult",
+      "secondaryLabel": "View all treatments",
+      "primaryHref": "/contact",
+      "secondaryHref": "/treatments"
+    },
+    "waves": {"mask": "wave-01", "opacity": 0.26, "blendMode": "soft-light", "strength": "medium"},
+    "shimmer": {"enabled": true, "density": "low", "style": "dust"},
+    "intensity": "standard",
+    "route": "preview/treatments/dental-implants"
+  },
+  {
+    "key": "veneers_hero",
+    "toneProfile": {"tone": "dawn", "timeOfDay": "day", "mood": "veneers_polished", "depth": "standard", "contrast": "standard"},
+    "layout": "center",
+    "cta": {
+      "primaryClass": "cta-primary-ink-light",
+      "secondaryClass": "cta-secondary-glass-gold",
+      "primaryLabel": "Book veneer consult",
+      "secondaryLabel": "View all treatments",
+      "primaryHref": "/contact",
+      "secondaryHref": "/treatments"
+    },
+    "waves": {"mask": "wave-02", "opacity": 0.28, "blendMode": "soft-light", "strength": "medium"},
+    "shimmer": {"enabled": true, "density": "med", "style": "dust"},
+    "intensity": "standard",
+    "route": "preview/treatments/veneers"
+  },
+  {
+    "key": "ortho_hero",
+    "toneProfile": {"tone": "teal-lux", "timeOfDay": "day", "mood": "ortho_precise", "depth": "soft", "contrast": "standard"},
+    "layout": "left",
+    "cta": {
+      "primaryClass": "cta-primary-ink-light",
+      "secondaryClass": "cta-secondary-glass-gold",
+      "primaryLabel": "Book ortho consult",
+      "secondaryLabel": "View all treatments",
+      "primaryHref": "/contact",
+      "secondaryHref": "/treatments"
+    },
+    "waves": {"mask": "wave-03", "opacity": 0.24, "blendMode": "overlay", "strength": "soft"},
+    "shimmer": {"enabled": true, "density": "low", "style": "dust"},
+    "intensity": "soft",
+    "route": "preview/treatments/orthodontics"
+  }
+]
