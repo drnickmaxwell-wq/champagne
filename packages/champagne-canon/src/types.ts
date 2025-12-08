@@ -107,3 +107,12 @@ export interface Champagne3dLightingPreset {
 export interface Champagne3dLightingPresetsManifest {
   lightingPresets: Champagne3dLightingPreset[];
 }
+
+export interface ChampagneExperience {
+  hero?: {
+    sceneId?: string;
+    variantId?: string;
+    surfaceToken?: string;
+  };
+  [key: string]: unknown;
+}

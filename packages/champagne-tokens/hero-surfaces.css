@@ -1,0 +1,11 @@
+/* HERO SURFACE TOKENS — PLACEHOLDER ONLY  
+   DO NOT ASSIGN COLORS.  
+   ONLY declare custom property names tied to canon tokens. */
+
+:root {
+  --hero-surface-ink: initial;
+  --hero-surface-glass: initial;
+  --hero-surface-gradient-135: initial;
+  --hero-surface-weather: initial;
+  --hero-surface-particles: initial;
+}
