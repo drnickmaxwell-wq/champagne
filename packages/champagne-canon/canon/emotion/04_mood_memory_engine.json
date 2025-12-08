@@ -1,0 +1,19 @@
+{
+  "moodMemory": {
+    "states": [
+      "warmSeeker",
+      "precisionThinker",
+      "motionSensitive",
+      "deepImmersive",
+      "reassurance"
+    ],
+    "remembers": [
+      "lighting",
+      "motion",
+      "aiTone",
+      "layoutDensity",
+      "simulatorLighting"
+    ],
+    "behaviour": "adaptive"
+  }
+}
