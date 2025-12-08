@@ -1,5 +1,128 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "viewerModes": [
+    {
+      "id": "mode_turntable",
+      "description": "Continuous slow rotation around the primary object, easing in/out; PRM-aware with fade-only variant.",
+      "defaultRotationSpeed": "slow",
+      "supportsInteraction": true,
+      "interaction": {
+        "allowOrbit": true,
+        "allowZoom": true,
+        "allowPan": false
+      },
+      "prmFallback": "mode_static_hero"
+    },
+    {
+      "id": "mode_static_hero",
+      "description": "No motion; subtle filmic drift in lighting only, or full freeze for strict PRM.",
+      "defaultRotationSpeed": "none",
+      "supportsInteraction": true,
+      "interaction": {
+        "allowOrbit": true,
+        "allowZoom": true,
+        "allowPan": false
+      },
+      "prmFallback": "mode_static_hero"
+    },
+    {
+      "id": "mode_exploded",
+      "description": "Exploded anatomical view showing relationships between components (e.g. implant, abutment, crown, bone).",
+      "supportsInteraction": true,
+      "explosionPreset": "anatomy.implant_single",
+      "interaction": {
+        "allowOrbit": true,
+        "allowZoom": true,
+        "allowPan": true
+      },
+      "prmFallback": "mode_exploded_static_step"
+    },
+    {
+      "id": "mode_exploded_static_step",
+      "description": "Keyframe-only exploded views stepped via UI controls instead of auto-animation.",
+      "supportsInteraction": true,
+      "interaction": {
+        "allowOrbit": true,
+        "allowZoom": true,
+        "allowPan": false
+      }
+    },
+    {
+      "id": "mode_compare_before_after",
+      "description": "Side-by-side or scrubber-based comparison between before and after states.",
+      "supportsInteraction": true,
+      "comparisonStyle": [
+        "split-horizontal",
+        "split-vertical",
+        "scrubber"
+      ],
+      "prmFallback": "mode_compare_step"
+    },
+    {
+      "id": "mode_compare_step",
+      "description": "Step-through comparison: discrete before/after toggle, no animated scrub.",
+      "supportsInteraction": true
+    },
+    {
+      "id": "mode_layered_overlay",
+      "description": "Overlay lines, guides, or mockups on top of base geometry or imported photo (DSD, surgical guides).",
+      "supportsInteraction": true,
+      "overlayChannels": [
+        "guides",
+        "measurement",
+        "treatmentPlan"
+      ]
+    },
+    {
+      "id": "mode_focus_tooth",
+      "description": "Macro zoom into a single tooth or implant site with guided camera framing.",
+      "supportsInteraction": true,
+      "focusType": "single-site"
+    },
+    {
+      "id": "mode_focus_arch",
+      "description": "Frames entire arch for aligners, braces, and full-arch implant restorations.",
+      "supportsInteraction": true,
+      "focusType": "full-arch"
+    },
+    {
+      "id": "mode_focus_smile_band",
+      "description": "Frames lips-to-teeth band for smile design and veneer reveal shots.",
+      "supportsInteraction": true,
+      "focusType": "smile-band"
+    },
+    {
+      "id": "mode_cbct_slice",
+      "description": "Interactive CBCT slice mode with axial/coronal/sagittal controls and implant overlays.",
+      "supportsInteraction": true,
+      "sliceControls": [
+        "axial",
+        "coronal",
+        "sagittal"
+      ],
+      "prmFallback": "mode_cbct_keyframes"
+    },
+    {
+      "id": "mode_cbct_keyframes",
+      "description": "Non-animated sequence of pre-defined CBCT slice views with next/previous buttons.",
+      "supportsInteraction": true
+    },
+    {
+      "id": "mode_volume_rotate",
+      "description": "Slow orbit of a semi-transparent volume rendering (jaw segments, CBCT). PRM-aware.",
+      "supportsInteraction": true,
+      "defaultRotationSpeed": "very-slow",
+      "prmFallback": "mode_static_hero"
+    },
+    {
+      "id": "mode_step_sequence",
+      "description": "Step-through sequence of treatment stages (e.g. aligner steps).",
+      "supportsInteraction": true,
+      "sequenceStyle": "discrete-steps"
+    },
+    {
+      "id": "mode_lab_context",
+      "description": "Lab-bench framing with small contextual objects (instruments, trays) kept static around hero.",
+      "supportsInteraction": true
+    }
+  ]
 }
