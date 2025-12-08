@@ -1,0 +1,37 @@
+[
+  {
+    "path": "public/assets/champagne/manifest.json",
+    "type": "champagne hero asset manifest",
+    "keys": ["component", "version", "description", "tokens", "layers", "parallax", "motion", "accessibility", "responsive", "assets"]
+  },
+  {
+    "path": "public/manifest.json",
+    "type": "PWA/site manifest",
+    "keys": ["name", "short_name", "description", "start_url", "display", "theme_color", "icons", "categories"]
+  },
+  {
+    "path": "public/brand/manifest.json",
+    "type": "brand/style manifest",
+    "keys": ["name", "version", "tokens", "gradient", "gold", "typography", "waves", "textures", "particles", "motion"]
+  },
+  {
+    "path": "public/brand/champagne_machine_manifest_full.json",
+    "type": "component asset manifest",
+    "keys": ["package", "version", "components"]
+  },
+  {
+    "path": "public/brand/manus_import_unified_manifest_20251104.json",
+    "type": "import/package manifest",
+    "keys": ["package", "source_zips"]
+  },
+  {
+    "path": "docs/Brand_Canon_Packet/manifest.styles.champagne.json",
+    "type": "champagne hero style manifest (doc copy)",
+    "keys": ["component", "version", "description", "designSystem", "tokens", "layers", "parallax", "motion", "responsive", "assets"]
+  },
+  {
+    "path": "docs/Brand_Canon_Packet/manifest.public.brand.json",
+    "type": "brand/style manifest (doc copy)",
+    "keys": ["name", "version", "tokens", "gradientVar", "goldVar", "gradient", "gold", "typography", "waves", "textures", "particles", "motion"]
+  }
+]

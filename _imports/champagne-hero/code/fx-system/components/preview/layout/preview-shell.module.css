@@ -1,0 +1,61 @@
+.cpvShell {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--smh-ink) 94%, transparent) 0%,
+    color-mix(in srgb, var(--brand-teal) 20%, var(--smh-ink)) 40%,
+    color-mix(in srgb, var(--brand-magenta) 18%, var(--smh-ink)) 100%
+  );
+  color: var(--smh-text);
+}
+
+.cpvShell:has(.cpv-page--treatments),
+.cpvShell:has([data-preview-scope="treatments"]) {
+  background: transparent;
+  color: inherit;
+}
+
+.cpvShell:has(.cpv-page--treatments) .cpvBackdrop,
+.cpvShell:has(.cpv-page--treatments) .cpvParticles,
+.cpvShell:has([data-preview-scope="treatments"]) .cpvBackdrop,
+.cpvShell:has([data-preview-scope="treatments"]) .cpvParticles {
+  display: none;
+}
+
+.cpvShell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid color-mix(in srgb, var(--brand-gold-keyline) 70%, transparent);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--smh-white) 10%, transparent);
+  pointer-events: none;
+}
+
+.cpvBackdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 140% at 20% 10%, color-mix(in srgb, var(--brand-teal) 18%, transparent) 0%, transparent 55%),
+    radial-gradient(120% 120% at 80% 0%, color-mix(in srgb, var(--brand-magenta) 16%, transparent) 0%, transparent 60%);
+  opacity: 0.6;
+  filter: saturate(1.05);
+  pointer-events: none;
+}
+
+.cpvParticles {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/manus/particles/home-hero-particles.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: var(--champagne-particles-opacity-d);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.cpvInner {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}

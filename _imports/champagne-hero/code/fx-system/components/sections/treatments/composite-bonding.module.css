@@ -1,0 +1,181 @@
+.section {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.panel {
+  position: relative;
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  padding: clamp(2.25rem, 6vw, 3.75rem);
+  border-radius: clamp(2.5rem, 6vw, 3.75rem);
+  border: 1px solid color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 24%, transparent);
+  background: color-mix(in oklab, var(--smh-navy-900) 78%, transparent);
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 94%, transparent);
+  -webkit-backdrop-filter: blur(28px) saturate(1.08);
+  backdrop-filter: blur(28px) saturate(1.08);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--smh-panel-radiance);
+  mix-blend-mode: soft-light;
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/film-grain-desktop.webp');
+  background-size: cover;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 76%, transparent);
+}
+
+.title {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1.12;
+  margin: 0;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 96%, transparent);
+}
+
+.copy {
+  margin: 0;
+  max-width: 40rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.2rem);
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 78%, transparent);
+}
+
+.benefits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.benefitItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.25rem;
+  border-radius: 1.5rem;
+  border: 1px solid color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 24%, transparent);
+  background: color-mix(in oklab, var(--smh-navy-900) 58%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 18%, transparent);
+}
+
+.benefitIcon {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 30%, transparent);
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 92%, transparent);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.benefitTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 92%, transparent);
+}
+
+.benefitDescription {
+  margin: 0.25rem 0 0;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 74%, transparent);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.secondaryLink {
+  font-weight: 500;
+  text-decoration: none;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 78%, transparent);
+  transition: color 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.secondaryLink:hover,
+.secondaryLink:focus-visible {
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 94%, transparent);
+  outline: none;
+}
+
+.media {
+  position: relative;
+  z-index: 1;
+  border-radius: clamp(1.75rem, 4vw, 2.5rem);
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 24%, transparent);
+  background: var(--smh-media-depth);
+  min-height: clamp(12rem, 30vw, 16rem);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.mediaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mediaFallback {
+  text-align: center;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 68%, transparent);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 18rem;
+}
+
+@media (min-width: 960px) {
+  .panel {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .media {
+    min-height: clamp(16rem, 32vw, 20rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .benefitItem,
+  .secondaryLink {
+    transition: none !important;
+  }
+}

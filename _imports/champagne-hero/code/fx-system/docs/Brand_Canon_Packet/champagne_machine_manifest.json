@@ -1,0 +1,631 @@
+page_guess,section,keep_kill,reasons,brand_fit_notes,risks,seo_notes,ai_notes,asset_refs,motion,palette
+home,hero,refine,strong visual hierarchy but lacks gradient/waves,add champagne gradient and grain overlay; keep layout,contrast on white copy over bright bg,missing H1; single CTA,entity: "boutique dentistry",["localhost_2025-09-07_16-11-12.webp"],subtle,white–aqua–rose
+home,features-grid,keep,clean 3-col summary adaptable to tokens,use glass cards + gold keylines,none,H2s present; good for internal linking,entities: "same-day crowns","CBCT",["localhost_2025-09-07_16-15-19.webp"],none,#fafafa with magenta accents
+home,cta-band,refine,strong CTA but bland background,replace solid teal with gradient+grain,contrast minor,CTA ok; add schema "Action",intent: "book consultation",["localhost_2025-09-07_16-18-25.webp"],subtle,#40C4B4 solid
+treatments/dental-implants,hero,keep,good imagery and depth for hero,wave-mask overlay fits naturally,perf ok,missing alt text; one H1 ok,entities: "dental implant","osseointegration",["localhost_2025-09-07_16-30-34.webp"],subtle,steel-blue + white
+treatments/dental-implants,process,refine,nice 4-step layout but hard edges,round with glassmorphism tokens,none,H2 each step; add HowTo schema,entity:"implant process",["localhost_2025-09-07_16-34-08.webp"],none,#e0e0e0 bg
+treatments/spark-aligners,hero,keep,strong portrait imagery and CTA,magenta–teal gradient overlay works perfectly,none,H1 ok; two CTAs,entity:"Spark aligners",["localhost_2025-09-07_16-39-30.webp"],subtle,#C2185B → #40C4B4
+treatments/spark-aligners,faq,refine,copy good but visual dense,add accordion gold dividers,too tight spacing,FAQ schema candidate,entity:"aligner aftercare",["localhost_2025-09-07_16-48-25.webp"],none,#fff text on light bg
+technology,features-grid,keep,good tech cards showing scanners,replace blue accent with teal token,none,H2 labels per tech item,entities:"CBCT","3D printer",["localhost_2025-09-07_17-20-15.webp"],none,#2196f3 → adjust to #40C4B4
+technology,3d-viewer,keep,shows model viewer window,retain but mask edges; use glass surface,perf heavy on mobile,needs alt captions; Product schema,entities:"3D viewer","tooth model",["localhost_2025-09-07_17-20-41.webp"],heavy,#fff bg
+about-us,team-gallery,refine,layout fine but dull palette,apply gold keylines and subtle grain,contrast low,H2 each staff name; add Person schema,entities:"Dr Nick Maxwell","team",["localhost_2025-09-07_16-23-41.webp"],none,#ddd neutral
+contact,cta-band,keep,clean map + form split,swap accent color to magenta token,none,H1 ok; Contact schema,entity:"contact clinic","map",["localhost_2025-09-07_16-27-36.webp"],none,#40C4B4 teal
+footer,footer,drop,old flat grey theme not reusable,use new luxe footer pack,contrast poor,low SEO value,none,["localhost_2025-09-07_17-20-53.webp"],none,#444 grey
+[
+  {
+    "page_guess": "home",
+    "sections": [
+      {
+        "type": "hero",
+        "evidence_images": ["localhost_2025-09-07_16-11-12.webp"],
+        "keep_kill": "refine",
+        "brand_fit": {
+          "surface": "gradient",
+          "waves": true,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--smh-gradient", "--smh-grain", "--smh-wave-mask"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 1,
+          "faq": false,
+          "schema_candidates": ["WebPage"],
+          "internal_links": 1,
+          "cta_count": 1
+        },
+        "ai_index": {
+          "entities": ["boutique dentistry"],
+          "patient_tasks": ["discover clinic"]
+        },
+        "risks": ["contrast"],
+        "notes": "Re-skin hero video with wave and grain overlay."
+      },
+      {
+        "type": "features-grid",
+        "evidence_images": ["localhost_2025-09-07_16-15-19.webp"],
+        "keep_kill": "keep",
+        "brand_fit": {
+          "surface": "glass",
+          "waves": false,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--champagne-keyline", "--glass-surface"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 3,
+          "faq": false,
+          "schema_candidates": ["Service"],
+          "internal_links": 3,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": ["same-day crowns", "CBCT scanner"],
+          "patient_tasks": ["compare services"]
+        },
+        "risks": [],
+        "notes": "Add subtle glass blur and gradient edge."
+      },
+      {
+        "type": "cta-band",
+        "evidence_images": ["localhost_2025-09-07_16-18-25.webp"],
+        "keep_kill": "refine",
+        "brand_fit": {
+          "surface": "gradient",
+          "waves": false,
+          "gold_accents": "rich",
+          "tokens_needed": ["--smh-gradient", "--smh-accent-gold"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 0,
+          "faq": false,
+          "schema_candidates": ["Action"],
+          "internal_links": 0,
+          "cta_count": 1
+        },
+        "ai_index": {
+          "entities": ["appointment booking"],
+          "patient_tasks": ["book consultation"]
+        },
+        "risks": ["contrast"],
+        "notes": "Add gold hover shimmer and gradient film-grain background."
+      }
+    ]
+  },
+  {
+    "page_guess": "treatments/dental-implants",
+    "sections": [
+      {
+        "type": "hero",
+        "evidence_images": ["localhost_2025-09-07_16-30-34.webp"],
+        "keep_kill": "keep",
+        "brand_fit": {
+          "surface": "champagne-surface",
+          "waves": true,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--smh-primary-teal", "--smh-primary-magenta"]
+        },
+        "seo": {
+          "h1_present": true,
+          "h2s": 1,
+          "faq": false,
+          "schema_candidates": ["Service"],
+          "internal_links": 2,
+          "cta_count": 1
+        },
+        "ai_index": {
+          "entities": ["dental implant", "osseointegration"],
+          "patient_tasks": ["learn implant process"]
+        },
+        "risks": [],
+        "notes": "Strong hero imagery—add wave-mask and gradient shimmer."
+      },
+      {
+        "type": "process",
+        "evidence_images": ["localhost_2025-09-07_16-34-08.webp"],
+        "keep_kill": "refine",
+        "brand_fit": {
+          "surface": "glass",
+          "waves": false,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--glass-layer", "--smh-keyline"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 4,
+          "faq": false,
+          "schema_candidates": ["HowTo"],
+          "internal_links": 2,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": ["implant steps"],
+          "patient_tasks": ["understand procedure"]
+        },
+        "risks": [],
+        "notes": "Round cards and apply translucent glass style."
+      }
+    ]
+  },
+  {
+    "page_guess": "treatments/spark-aligners",
+    "sections": [
+      {
+        "type": "hero",
+        "evidence_images": ["localhost_2025-09-07_16-39-30.webp"],
+        "keep_kill": "keep",
+        "brand_fit": {
+          "surface": "gradient",
+          "waves": true,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--smh-gradient", "--smh-grain"]
+        },
+        "seo": {
+          "h1_present": true,
+          "h2s": 2,
+          "faq": false,
+          "schema_candidates": ["Product"],
+          "internal_links": 1,
+          "cta_count": 2
+        },
+        "ai_index": {
+          "entities": ["Spark aligners"],
+          "patient_tasks": ["start aligner consultation"]
+        },
+        "risks": [],
+        "notes": "Hero image fits gradient overlay perfectly."
+      },
+      {
+        "type": "faq",
+        "evidence_images": ["localhost_2025-09-07_16-48-25.webp"],
+        "keep_kill": "refine",
+        "brand_fit": {
+          "surface": "champagne-surface",
+          "waves": false,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--champagne-keyline"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 4,
+          "faq": true,
+          "schema_candidates": ["FAQPage"],
+          "internal_links": 2,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": ["aligner aftercare", "treatment duration"],
+          "patient_tasks": ["self-serve questions"]
+        },
+        "risks": ["dense text"],
+        "notes": "Convert to collapsible accordions with gold dividers."
+      }
+    ]
+  },
+  {
+    "page_guess": "technology",
+    "sections": [
+      {
+        "type": "features-grid",
+        "evidence_images": ["localhost_2025-09-07_17-20-15.webp"],
+        "keep_kill": "keep",
+        "brand_fit": {
+          "surface": "glass",
+          "waves": false,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--smh-primary-teal"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 3,
+          "faq": false,
+          "schema_candidates": ["Product"],
+          "internal_links": 3,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": ["CBCT scanner", "3D printer"],
+          "patient_tasks": ["explore technology"]
+        },
+        "risks": [],
+        "notes": "Replace blue accent with teal token."
+      },
+      {
+        "type": "3d-viewer",
+        "evidence_images": ["localhost_2025-09-07_17-20-41.webp"],
+        "keep_kill": "keep",
+        "brand_fit": {
+          "surface": "glass",
+          "waves": false,
+          "gold_accents": "none",
+          "tokens_needed": ["--glass-surface"]
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 0,
+          "faq": false,
+          "schema_candidates": ["Product"],
+          "internal_links": 1,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": ["3D viewer", "tooth model"],
+          "patient_tasks": ["interact with 3D model"]
+        },
+        "risks": ["performance"],
+        "notes": "Needs lazy-loading and ARIA labels."
+      }
+    ]
+  },
+  {
+    "page_guess": "about-us",
+    "sections": [
+      {
+        "type": "team-gallery",
+        "evidence_images": ["localhost_2025-09-07_16-23-41.webp"],
+        "keep_kill": "refine",
+        "brand_fit": {
+          "surface": "champagne-surface",
+          "waves": false,
+          "gold_accents": "subtle",
+          "tokens_needed": ["--champagne-keyline"]
+        },
+        "seo": {
+          "h1_present": true,
+          "h2s": 4,
+          "faq": false,
+          "schema_candidates": ["Person"],
+          "internal_links": 0,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": ["Dr Nick Maxwell", "team"],
+          "patient_tasks": ["meet team"]
+        },
+        "risks": ["low contrast"],
+        "notes": "Add subtle gold outlines around portraits."
+      }
+    ]
+  },
+  {
+    "page_guess": "contact",
+    "sections": [
+      {
+        "type": "cta-band",
+        "evidence_images": ["localhost_2025-09-07_16-27-36.webp"],
+        "keep_kill": "keep",
+        "brand_fit": {
+          "surface": "gradient",
+          "waves": false,
+          "gold_accents": "rich",
+          "tokens_needed": ["--smh-accent-gold", "--smh-gradient"]
+        },
+        "seo": {
+          "h1_present": true,
+          "h2s": 1,
+          "faq": false,
+          "schema_candidates": ["ContactPage"],
+          "internal_links": 0,
+          "cta_count": 1
+        },
+        "ai_index": {
+          "entities": ["contact form", "map"],
+          "patient_tasks": ["reach clinic"]
+        },
+        "risks": [],
+        "notes": "Map section clean; recolour button magenta."
+      }
+    ]
+  },
+  {
+    "page_guess": "footer",
+    "sections": [
+      {
+        "type": "footer",
+        "evidence_images": ["localhost_2025-09-07_17-20-53.webp"],
+        "keep_kill": "drop",
+        "brand_fit": {
+          "surface": "flat",
+          "waves": false,
+          "gold_accents": "none",
+          "tokens_needed": []
+        },
+        "seo": {
+          "h1_present": false,
+          "h2s": 0,
+          "faq": false,
+          "schema_candidates": [],
+          "internal_links": 5,
+          "cta_count": 0
+        },
+        "ai_index": {
+          "entities": [],
+          "patient_tasks": []
+        },
+        "risks": ["poor contrast", "dated style"],
+        "notes": "Replace entirely with new Luxe Footer Pack."
+      }
+    ]
+  }
+]
+{
+  "spec_version": "1.0",
+  "project": "St Mary’s House Dental – Champagne v4.2 Reskin",
+  "brand": {
+    "tokens": {
+      "--smh-primary-magenta": "#C2185B",
+      "--smh-primary-teal": "#40C4B4",
+      "--smh-accent-gold": "#D4AF37",
+      "--smh-gradient": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)",
+      "--smh-text": "#1A1A1A",
+      "--smh-bg": "#FFFFFF"
+    },
+    "typography": {
+      "headings": "Playfair Display",
+      "body": "Inter"
+    },
+    "visual_stack": ["gradient", "wave-mask", "particles<=10%", "film-grain<=8%", "content"]
+  },
+  "assets": {
+    "waves": "waves-background-set.zip",
+    "grain": "textures/film-grain-2560x1440.webp",
+    "particles": "particles/particles-soft.webm"
+  },
+  "defaults": {
+    "framework": "Next.js",
+    "tech": ["React 19", "TypeScript", "Tailwind v4"],
+    "a11y": {
+      "contrast": "WCAG AA",
+      "prefers_reduced_motion": true,
+      "aria_landmarks": true,
+      "focus_styles": true
+    },
+    "performance": {
+      "lazy_load_media": true,
+      "image_formats": ["webp", "avif"],
+      "video": { "webm": true, "poster_required": true },
+      "3d": { "defer": true, "mobile_fallback": true }
+    },
+    "seo": {
+      "require_h1": true,
+      "meta_description": true,
+      "schema_candidates": ["WebPage", "Service", "FAQPage", "HowTo", "Product", "ContactPage"]
+    },
+    "output_paths": {
+      "components_dir": "app/(sections)/",
+      "styles_dir": "styles/champagne/",
+      "public_assets": "public/assets/"
+    }
+  },
+  "jobs": [
+    {
+      "page": "home",
+      "section": "hero",
+      "action": "refine",
+      "evidence_images": ["localhost_2025-09-07_16-11-12.webp"],
+      "brand_fit": {
+        "surface": "gradient",
+        "waves": true,
+        "gold_accents": "subtle",
+        "tokens_needed": ["--smh-gradient", "--smh-accent-gold"]
+      },
+      "motion": "subtle",
+      "requirements": {
+        "layers": ["gradient", "wave-mask", "film-grain"],
+        "cta_style": "gold-shimmer",
+        "headline_lockup": "H1 + supporting line"
+      },
+      "seo": { "schema": ["WebPage"], "internal_links_min": 1, "cta_count": 1 },
+      "ai_index": { "entities": ["boutique dentistry"], "patient_tasks": ["discover clinic"] },
+      "output": {
+        "component": "app/(sections)/home/HomeHero.tsx",
+        "style": "styles/champagne/home-hero.css"
+      },
+      "acceptance": [
+        "H1 present and visible",
+        "Wave mask and grain render behind content",
+        "CTA uses gold accent token with accessible contrast"
+      ]
+    },
+    {
+      "page": "home",
+      "section": "features-grid",
+      "action": "keep-skin",
+      "evidence_images": ["localhost_2025-09-07_16-15-19.webp"],
+      "brand_fit": {
+        "surface": "glass",
+        "waves": false,
+        "gold_accents": "subtle",
+        "tokens_needed": ["--smh-primary-magenta", "--smh-primary-teal"]
+      },
+      "motion": "none",
+      "requirements": {
+        "cards": "3 or 6",
+        "glassmorphism": true,
+        "keylines": "gold 1px"
+      },
+      "seo": { "schema": ["Service"], "h2_count_min": 3, "internal_links_min": 3 },
+      "ai_index": { "entities": ["same-day crowns", "CBCT scanner"], "patient_tasks": ["compare services"] },
+      "output": {
+        "component": "app/(sections)/home/HomeFeatures.tsx",
+        "style": "styles/champagne/cards-glass.css"
+      },
+      "acceptance": [
+        "Card contrast AA",
+        "No hard-coded hex; tokens only",
+        "Cards link to treatments pages"
+      ]
+    },
+    {
+      "page": "home",
+      "section": "cta-band",
+      "action": "refine",
+      "evidence_images": ["localhost_2025-09-07_16-18-25.webp"],
+      "brand_fit": { "surface": "gradient", "waves": false, "gold_accents": "rich", "tokens_needed": ["--smh-accent-gold"] },
+      "motion": "subtle",
+      "requirements": { "background": "gradient+grain", "button": "gold-primary", "secondary_cta": false },
+      "seo": { "schema": ["Action"], "cta_count": 1 },
+      "ai_index": { "entities": ["appointment booking"], "patient_tasks": ["book consultation"] },
+      "output": {
+        "component": "app/(sections)/home/HomeCTABand.tsx",
+        "style": "styles/champagne/cta-band.css"
+      },
+      "acceptance": ["Button min contrast 4.5:1", "Single clear CTA", "No layout shift on load"]
+    },
+    {
+      "page": "treatments/dental-implants",
+      "section": "hero",
+      "action": "keep-skin",
+      "evidence_images": ["localhost_2025-09-07_16-30-34.webp"],
+      "brand_fit": { "surface": "champagne-surface", "waves": true, "gold_accents": "subtle" },
+      "motion": "subtle",
+      "requirements": { "wave_mask": true, "gradient_shimmer": true, "image_alt": true },
+      "seo": { "schema": ["Service"], "h1_required": true, "cta_count": 1 },
+      "ai_index": { "entities": ["dental implant", "osseointegration"], "patient_tasks": ["learn implant process"] },
+      "output": {
+        "component": "app/(sections)/treatments/implants/ImplantsHero.tsx",
+        "style": "styles/champagne/treatments-hero.css"
+      },
+      "acceptance": ["H1 present", "Wave mask applied", "CTA visible on mobile"]
+    },
+    {
+      "page": "treatments/dental-implants",
+      "section": "process",
+      "action": "refine",
+      "evidence_images": ["localhost_2025-09-07_16-34-08.webp"],
+      "brand_fit": { "surface": "glass", "waves": false, "gold_accents": "subtle", "tokens_needed": ["--smh-accent-gold"] },
+      "motion": "none",
+      "requirements": { "steps": 4, "rounded": true, "keylines": "gold 1px" },
+      "seo": { "schema": ["HowTo"], "h2_count_min": 4 },
+      "ai_index": { "entities": ["implant steps"], "patient_tasks": ["understand procedure"] },
+      "output": {
+        "component": "app/(sections)/treatments/implants/ImplantsProcess.tsx",
+        "style": "styles/champagne/process-steps.css"
+      },
+      "acceptance": ["Each step is a semantic section with H3", "Mobile stacked layout", "Tokens only"]
+    },
+    {
+      "page": "treatments/spark-aligners",
+      "section": "hero",
+      "action": "keep-skin",
+      "evidence_images": ["localhost_2025-09-07_16-39-30.webp"],
+      "brand_fit": { "surface": "gradient", "waves": true, "gold_accents": "subtle", "tokens_needed": ["--smh-gradient"] },
+      "motion": "subtle",
+      "requirements": { "dual_cta": true, "grain_overlay": true },
+      "seo": { "schema": ["Product"], "h1_required": true, "cta_count": 2 },
+      "ai_index": { "entities": ["Spark aligners"], "patient_tasks": ["start aligner consultation"] },
+      "output": {
+        "component": "app/(sections)/treatments/aligners/AlignersHero.tsx",
+        "style": "styles/champagne/treatments-hero.css"
+      },
+      "acceptance": ["Two CTAs visible on desktop", "AA contrast", "Wave mask renders"]
+    },
+    {
+      "page": "treatments/spark-aligners",
+      "section": "faq",
+      "action": "refine",
+      "evidence_images": ["localhost_2025-09-07_16-48-25.webp"],
+      "brand_fit": { "surface": "champagne-surface", "waves": false, "gold_accents": "subtle", "tokens_needed": ["--smh-accent-gold"] },
+      "motion": "none",
+      "requirements": { "accordion": true, "dividers": "gold 1px", "max_width": "70ch" },
+      "seo": { "schema": ["FAQPage"], "faq": true, "internal_links_min": 2 },
+      "ai_index": { "entities": ["aligner aftercare", "treatment duration"], "patient_tasks": ["self-serve questions"] },
+      "output": {
+        "component": "app/(sections)/treatments/aligners/AlignersFAQ.tsx",
+        "style": "styles/champagne/faq.css"
+      },
+      "acceptance": ["Accordion is keyboard-accessible", "ARIA roles present", "Copy not truncated on mobile"]
+    },
+    {
+      "page": "technology",
+      "section": "features-grid",
+      "action": "keep-skin",
+      "evidence_images": ["localhost_2025-09-07_17-20-15.webp"],
+      "brand_fit": { "surface": "glass", "waves": false, "gold_accents": "subtle", "tokens_needed": ["--smh-primary-teal"] },
+      "motion": "none",
+      "requirements": { "replace_blue_with_teal": true, "icons_treatment": "monochrome" },
+      "seo": { "schema": ["Product"], "h2_count_min": 3 },
+      "ai_index": { "entities": ["CBCT scanner", "3D printer"], "patient_tasks": ["explore technology"] },
+      "output": {
+        "component": "app/(sections)/technology/TechGrid.tsx",
+        "style": "styles/champagne/cards-glass.css"
+      },
+      "acceptance": ["No raw #2196F3", "Tokens only", "AA contrast"]
+    },
+    {
+      "page": "technology",
+      "section": "3d-viewer",
+      "action": "keep-skin",
+      "evidence_images": ["localhost_2025-09-07_17-20-41.webp"],
+      "brand_fit": { "surface": "glass", "waves": false, "gold_accents": "none" },
+      "motion": "heavy",
+      "requirements": { "lazy_load": true, "aria_labels": true, "mobile_fallback": "poster image" },
+      "seo": { "schema": ["Product"], "cta_count": 0 },
+      "ai_index": { "entities": ["3D viewer", "tooth model"], "patient_tasks": ["interact with 3D model"] },
+      "output": {
+        "component": "app/(sections)/technology/ModelViewer.tsx",
+        "style": "styles/champagne/viewer.css"
+      },
+      "acceptance": ["Viewer defers offscreen", "Keyboard controls documented", "Poster required"]
+    },
+    {
+      "page": "about-us",
+      "section": "team-gallery",
+      "action": "refine",
+      "evidence_images": ["localhost_2025-09-07_16-23-41.webp"],
+      "brand_fit": { "surface": "champagne-surface", "waves": false, "gold_accents": "subtle" },
+      "motion": "none",
+      "requirements": { "portrait_keylines": "gold", "hover_lift": "1–2px", "copy_max_width": "70ch" },
+      "seo": { "schema": ["Person"], "h1_required": true },
+      "ai_index": { "entities": ["Dr Nick Maxwell", "team"], "patient_tasks": ["meet team"] },
+      "output": {
+        "component": "app/(sections)/about/TeamGallery.tsx",
+        "style": "styles/champagne/team.css"
+      },
+      "acceptance": ["AA contrast", "Alt text per portrait", "Semantics <figure>/<figcaption>"]
+    },
+    {
+      "page": "contact",
+      "section": "cta-band",
+      "action": "keep-skin",
+      "evidence_images": ["localhost_2025-09-07_16-27-36.webp"],
+      "brand_fit": { "surface": "gradient", "waves": false, "gold_accents": "rich", "tokens_needed": ["--smh-accent-gold"] },
+      "motion": "none",
+      "requirements": { "map_form_split": true, "primary_cta_magenta": true },
+      "seo": { "schema": ["ContactPage"], "h1_required": true, "cta_count": 1 },
+      "ai_index": { "entities": ["contact form", "map"], "patient_tasks": ["reach clinic"] },
+      "output": {
+        "component": "app/(sections)/contact/ContactBand.tsx",
+        "style": "styles/champagne/contact.css"
+      },
+      "acceptance": ["Map is lazy-loaded", "Form labels are explicit", "Button uses magenta token"]
+    },
+    {
+      "page": "footer",
+      "section": "footer",
+      "action": "replace",
+      "evidence_images": ["localhost_2025-09-07_17-20-53.webp"],
+      "brand_fit": { "surface": "gradient|glass", "waves": true, "gold_accents": "subtle" },
+      "motion": "none",
+      "requirements": {
+        "manifest": "footer-pack/manifest.json",
+        "columns": ["brand", "nav", "treatments", "contact", "legal"],
+        "badges": ["GDC", "Denplan optional"],
+        "copyright": true
+      },
+      "seo": { "schema": ["Organization", "LocalBusiness", "BreadcrumbList"], "internal_links_min": 10 },
+      "ai_index": { "entities": ["opening hours", "address", "phone"], "patient_tasks": ["find details"] },
+      "output": {
+        "component": "app/(sections)/global/Footer.tsx",
+        "style": "styles/champagne/footer.css",
+        "assets_zip": "footer-pack.zip"
+      },
+      "acceptance": [
+        "AA contrast on all links",
+        "No flat grey surfaces",
+        "Wave background + grain present",
+        "All links keyboard reachable"
+      ]
+    }
+  ]
+}

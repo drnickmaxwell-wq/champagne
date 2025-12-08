@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "name": "SMH Champagne Canon",
+    "version": "1.0.0",
+    "sources": {
+      "cssTokens": "smh-champagne-tokens.css",
+      "stylesManifest": "manifest.styles.champagne.json",
+      "publicManifest": "manifest.public.brand.json"
+    }
+  },
+  "palette": [
+    {
+      "token": "--brand-magenta",
+      "value": "#C2185B",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--brand-teal",
+      "value": "#40C4B4",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--brand-gold",
+      "value": "#D4AF37",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--brand-gold-keyline",
+      "value": "#F9E8C3",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--ink",
+      "value": "#0B0D0F",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--text",
+      "value": "#1A1A1A",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--bg",
+      "value": "#FFFFFF",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--smh-white",
+      "value": "#FFFFFF",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--smh-gray-200",
+      "value": "#E5E7EB",
+      "source": "smh-champagne-tokens.css"
+    },
+    {
+      "token": "--smh-warm-rose",
+      "value": "#E24DAA",
+      "source": "smh-champagne-tokens.css"
+    }
+  ],
+  "gradients": {
+    "css": [
+      {
+        "token": "--smh-gradient",
+        "value": "linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-teal) 60%, var(--brand-gold) 100%)"
+      },
+      {
+        "token": "--smh-gradient-legacy",
+        "value": "linear-gradient(135deg,#D94BC6 0%,#00C2C7 100%)"
+      },
+      {
+        "token": "--iridescent-gradient",
+        "value": "linear-gradient(\n    180deg,\n    color-mix(in oklab, var(--brand-teal) 70%, white) 0%,\n    color-mix(in oklab, var(--brand-magenta) 70%, white) 100%\n  )"
+      }
+    ],
+    "manifests": [
+      {
+        "source": "manifest.styles.champagne.json",
+        "path": "manifest.styles.tokens.gradients.champagne",
+        "value": "linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%)"
+      },
+      {
+        "source": "manifest.styles.champagne.json",
+        "path": "manifest.styles.tokens.gradients.cta",
+        "value": "linear-gradient(135deg, #C2185B 0%, #2CBFAE 55%, #D4AF37 100%)"
+      },
+      {
+        "source": "manifest.public.brand.json",
+        "path": "manifest.public.gradient.css",
+        "value": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)"
+      }
+    ],
+    "angle135": {
+      "angle": 135,
+      "stops": [
+        {
+          "color": "#C2185B",
+          "pos": 0
+        },
+        {
+          "color": "#40C4B4",
+          "pos": 60
+        },
+        {
+          "color": "#D4AF37",
+          "pos": 100
+        }
+      ],
+      "css": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)"
+    }
+  },
+  "gold": {
+    "token": "--brand-gold",
+    "hex": "#D4AF37",
+    "usage": "keylines, accents only",
+    "keylineVariant": "--brand-gold-keyline",
+    "cssComment": "deep gold for visuals; keyline gold for keylines/accents"
+  },
+  "motionAccessibility": {
+    "css": {
+      "parallaxVar": "--parallax-max",
+      "prefersReducedMotion": "0px",
+      "prefersNoPreference": "6px"
+    },
+    "compliance": {
+      "layerOrder": "strict",
+      "parallaxCap": "6px",
+      "particleDensity": "0.6-0.9%",
+      "grainStrength": "6-8%",
+      "gradientAccuracy": "95%+",
+      "brandTokens": "CSS variables only",
+      "motionDisable": "prefers-reduced-motion: reduce"
+    },
+    "reducedMotionBehavior": null
+  },
+  "duplicates": [
+    {
+      "normalized": "brandmagenta",
+      "entries": [
+        {
+          "source": "smh-champagne-tokens.css",
+          "token": "--brand-magenta",
+          "name": "brand-magenta",
+          "value": "#C2185B",
+          "path": "--brand-magenta"
+        },
+        {
+          "source": "manifest.styles.champagne.json",
+          "path": "manifest.styles.tokens.colors.brandMagenta",
+          "name": "brandMagenta",
+          "value": "#C2185B"
+        }
+      ]
+    },
+    {
+      "normalized": "brandgold",
+      "entries": [
+        {
+          "source": "smh-champagne-tokens.css",
+          "token": "--brand-gold",
+          "name": "brand-gold",
+          "value": "#D4AF37",
+          "path": "--brand-gold"
+        },
+        {
+          "source": "manifest.styles.champagne.json",
+          "path": "manifest.styles.tokens.colors.brandGold",
+          "name": "brandGold",
+          "value": "#D4AF37"
+        }
+      ]
+    },
+    {
+      "normalized": "ink",
+      "entries": [
+        {
+          "source": "smh-champagne-tokens.css",
+          "token": "--ink",
+          "name": "ink",
+          "value": "#0B0D0F",
+          "path": "--ink"
+        },
+        {
+          "source": "manifest.styles.champagne.json",
+          "path": "manifest.styles.tokens.colors.ink",
+          "name": "ink",
+          "value": "#0E1420"
+        }
+      ]
+    },
+    {
+      "normalized": "parallaxmax",
+      "entries": [
+        {
+          "source": "smh-champagne-tokens.css",
+          "token": "--parallax-max",
+          "name": "parallax-max",
+          "value": "0px",
+          "path": "--parallax-max"
+        },
+        {
+          "source": "smh-champagne-tokens.css",
+          "token": "--parallax-max",
+          "name": "parallax-max",
+          "value": "6px",
+          "path": "--parallax-max"
+        }
+      ],
+      "note": "CSS variable declared multiple times"
+    },
+    {
+      "normalized": "body",
+      "entries": [
+        {
+          "source": "manifest.styles.champagne.json",
+          "path": "manifest.styles.tokens.typography.body",
+          "name": "body",
+          "value": "Inter"
+        },
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.typography.body",
+          "name": "body",
+          "value": "Inter"
+        }
+      ]
+    },
+    {
+      "normalized": "mask",
+      "entries": [
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.waves.mask",
+          "name": "mask",
+          "value": "/assets/champagne/waves/wave-mask-desktop.webp"
+        },
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.static.waves.mask",
+          "name": "mask",
+          "value": "/brand/waves/wave-mask.svg"
+        }
+      ]
+    },
+    {
+      "normalized": "background",
+      "entries": [
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.waves.background",
+          "name": "background",
+          "value": "/assets/champagne/waves/wave-bg.webp"
+        },
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.static.waves.background",
+          "name": "background",
+          "value": "/brand/waves/wave-bg.webp"
+        }
+      ]
+    },
+    {
+      "normalized": "filmgrain",
+      "entries": [
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.textures.filmGrain",
+          "name": "filmGrain",
+          "value": "/assets/champagne/textures/home-hero-film-grain.webp"
+        },
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.static.textures.filmGrain",
+          "name": "filmGrain",
+          "value": "/brand/textures/film-grain-2560x1440.webp"
+        }
+      ]
+    },
+    {
+      "normalized": "glasssoft",
+      "entries": [
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.textures.glassSoft",
+          "name": "glassSoft",
+          "value": "/assets/champagne/textures/glass-soft.webp"
+        },
+        {
+          "source": "manifest.public.brand.json",
+          "path": "manifest.public.static.textures.glassSoft",
+          "name": "glassSoft",
+          "value": "/brand/textures/glass-soft.webp"
+        }
+      ]
+    }
+  ]
+}

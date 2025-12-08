@@ -1,0 +1,103 @@
+.shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  background: color-mix(in oklab, var(--smh-bg, white) 68%, transparent);
+  color: var(--champagne-ink, var(--smh-text));
+  font-family: var(--champagne-shell-body, var(--font-inter, 'Inter', sans-serif));
+  --champagne-shell-heading: var(--font-heading, var(--font-playfair, 'Playfair Display, Georgia, serif'));
+  --champagne-shell-body: var(--font-body, var(--font-inter, 'Inter', sans-serif));
+  --smh-accent-gold-soft: var(--smh-accent-gold-soft, color-mix(in oklab, var(--smh-accent-gold) 70%, var(--smh-white, white)));
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+}
+
+.shell :global(h1),
+.shell :global(h2) {
+  font-family: var(--champagne-shell-heading);
+  letter-spacing: -0.01em;
+}
+
+.shell :global(p),
+.shell :global(li),
+.shell :global(span),
+.shell :global(a) {
+  font-family: var(--champagne-shell-body);
+}
+
+.goldGlow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--smh-accent-gold);
+  background: var(--smh-accent-gold-soft);
+  color: color-mix(in oklab, var(--ink) 85%, var(--smh-white, white));
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--ink) 18%, transparent);
+  transition: transform 300ms ease, background 300ms ease, box-shadow 300ms ease;
+}
+
+.goldGlow:hover,
+.goldGlow:focus-visible {
+  background: var(--smh-accent-gold);
+  color: color-mix(in oklab, var(--ink) 88%, var(--smh-white, white));
+  transform: translateY(-2px);
+  box-shadow: 0 20px 48px color-mix(in srgb, var(--ink) 22%, transparent);
+}
+
+.goldGlow:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--champagne-keyline-gold) 75%, transparent);
+  outline-offset: 4px;
+}
+
+.goldGlow:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.parallax {
+  position: relative;
+  will-change: transform;
+  --parallax-depth: min(var(--parallax-max, 6px), 6px);
+}
+
+.parallax[data-depth='cta'] {
+  --parallax-depth: calc(min(var(--parallax-max, 6px), 6px) * 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax {
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .parallax {
+    animation: champagne-parallax 16s ease-in-out infinite alternate;
+  }
+
+  .parallax[data-direction='reverse'] {
+    animation-direction: alternate-reverse;
+  }
+}
+
+@keyframes champagne-parallax {
+  from {
+    transform: translate3d(0, calc(var(--parallax-depth) * -0.5), 0);
+  }
+  to {
+    transform: translate3d(0, calc(var(--parallax-depth) * 0.5), 0);
+  }
+}
