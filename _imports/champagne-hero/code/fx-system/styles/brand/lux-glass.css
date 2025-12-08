@@ -1,0 +1,37 @@
+/* styles/brand/lux-glass.css
+   Shared luxury glass treatment used across hero + FAQ surfaces. */
+
+.lux-glass {
+  --lux-gold-rail: var(--gold-rail, color-mix(in srgb, var(--brand-gold, var(--smh-accent-gold)) 68%, transparent));
+  --lux-glass-blur: 24px;
+  --lux-glass-saturation: 1.1;
+  background: color-mix(in srgb, rgba(18, 22, 28, 0.45) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lux-gold-rail) 30%, transparent);
+  border-radius: var(--lux-glass-radius, 20px);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+  -webkit-backdrop-filter: blur(var(--lux-glass-blur)) saturate(var(--lux-glass-saturation));
+  backdrop-filter: blur(var(--lux-glass-blur)) saturate(var(--lux-glass-saturation));
+  transition:
+    -webkit-backdrop-filter 240ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    backdrop-filter 240ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    box-shadow 240ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    border-color 240ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+:root[data-theme="dark"] .lux-glass {
+  background: color-mix(in srgb, rgba(250, 252, 255, 0.28) 88%, transparent);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+}
+
+.lux-glass[data-state="active"],
+.lux-glass:hover,
+.lux-glass:focus-visible {
+  --lux-glass-blur: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lux-glass {
+    transition: none;
+  }
+}

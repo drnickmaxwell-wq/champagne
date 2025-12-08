@@ -1,0 +1,245 @@
+/* ===== SUBSURFACE ILLUMINATION ===== */
+/* Back-lighting behind all glass panels (white→gold, 2% opacity, blend mode soft-light) */
+
+.subsurface-glow {
+  position: relative;
+}
+
+.subsurface-glow::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: var(--subsurface-glow-light);
+  mix-blend-mode: soft-light;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Dark mode - Enhanced subsurface glow */
+:root[data-theme="dark"] .subsurface-glow::before {
+  background: var(--subsurface-glow-dark);
+  filter: blur(8px);
+}
+
+/* ===== TYPOGRAPHIC IRIDESCENCE ===== */
+/* Titles & section headings use gradient-text mask (magenta→turquoise→gold, 60s loop) */
+/* Champagne Lock: Slowed from 45s → 60s for more contemplative drift */
+
+.iridescent-text {
+  background: var(--iridescent-gradient);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: iridescenceShift 60s ease-in-out infinite;
+}
+
+@keyframes iridescenceShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Dark mode - More pronounced iridescence */
+:root[data-theme="dark"] .iridescent-text {
+  filter: brightness(1.2);
+}
+
+/* ===== DEPTH BLOOM ON HERO TEXT ===== */
+/* Subtle 3px blur + brighten pulse every 10s (loop) */
+
+.depth-bloom {
+  animation: depthBloomPulse 10s ease-in-out infinite;
+}
+
+@keyframes depthBloomPulse {
+  0%, 100% {
+    filter: blur(0px) brightness(1);
+    text-shadow: none;
+  }
+  50% {
+    filter: blur(3px) brightness(1.1);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Dark mode - Enhanced bloom */
+:root[data-theme="dark"] .depth-bloom {
+  animation: depthBloomPulseDark 10s ease-in-out infinite;
+}
+
+@keyframes depthBloomPulseDark {
+  0%, 100% {
+    filter: blur(0px) brightness(1);
+    text-shadow: none;
+  }
+  50% {
+    filter: blur(3px) brightness(1.15);
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  }
+}
+
+/* ===== CARD REFLECTIONS ===== */
+/* Each equipment card receives ambient reflection slide (gold line moving L→R, 30s loop) */
+
+.card-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-reflection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--card-reflection-gradient);
+  animation: reflectionSlide 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes reflectionSlide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Dark mode - More visible reflection */
+:root[data-theme="dark"] .card-reflection::after {
+  background: var(--card-reflection-gradient-dark);
+}
+
+/* ===== FLOATING PARTICLE SHIMMER ===== */
+/* Tied to Digital Workflow section (8–10 particles, opacity 0.1, random path 25s) */
+
+.particle-shimmer-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shimmer-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: particleFloat 25s ease-in-out infinite;
+}
+
+/* Randomized particle positions and delays */
+.shimmer-particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 23s; }
+.shimmer-particle:nth-child(2) { left: 25%; top: 40%; animation-delay: 2s; animation-duration: 27s; }
+.shimmer-particle:nth-child(3) { left: 40%; top: 15%; animation-delay: 4s; animation-duration: 25s; }
+.shimmer-particle:nth-child(4) { left: 55%; top: 60%; animation-delay: 6s; animation-duration: 24s; }
+.shimmer-particle:nth-child(5) { left: 70%; top: 30%; animation-delay: 8s; animation-duration: 26s; }
+.shimmer-particle:nth-child(6) { left: 85%; top: 50%; animation-delay: 10s; animation-duration: 28s; }
+.shimmer-particle:nth-child(7) { left: 15%; top: 70%; animation-delay: 12s; animation-duration: 22s; }
+.shimmer-particle:nth-child(8) { left: 60%; top: 80%; animation-delay: 14s; animation-duration: 29s; }
+.shimmer-particle:nth-child(9) { left: 35%; top: 55%; animation-delay: 16s; animation-duration: 24s; }
+.shimmer-particle:nth-child(10) { left: 80%; top: 25%; animation-delay: 18s; animation-duration: 26s; }
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(var(--drift-x, 30px), var(--drift-y, -50px)) scale(1.2);
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(var(--drift-x, 60px), var(--drift-y, -100px)) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Dark mode - More visible particles */
+:root[data-theme="dark"] .shimmer-particle {
+  opacity: 0.15;
+}
+
+/* ===== Z-AXIS DEPTH TILT ===== */
+/* In AI & 3-D Innovation block, cards tilt max 2° on scroll for parallax realism */
+
+.depth-tilt {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.6s ease-out;
+}
+
+.depth-tilt.tilt-active {
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+/* ===== CTA HOVER LIFT ===== */
+/* Footer buttons translateY 3px on hover with white-glass rim persisting */
+
+.cta-hover-lift {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.cta-hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Dark mode - Enhanced lift shadow */
+:root[data-theme="dark"] .cta-hover-lift:hover {
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* ===== FILM GRAIN LAYER ===== */
+/* Apply global grain texture (1% opacity) over all gradient sections to remove digital flatness */
+
+.film-grain-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/film-grain.png');
+  background-size: 200px 200px;
+  opacity: var(--noise-opacity, 0.01);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Dark mode - Slightly less grain */
+:root[data-theme="dark"] .film-grain-overlay {
+  opacity: 0.015;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .iridescent-text,
+  .depth-bloom,
+  .card-reflection::after,
+  .shimmer-particle {
+    animation: none;
+  }
+  
+  .depth-tilt {
+    transform: none !important;
+  }
+  
+  .cta-hover-lift:hover {
+    transform: none;
+  }
+}
+

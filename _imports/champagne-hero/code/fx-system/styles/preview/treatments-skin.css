@@ -1,0 +1,155 @@
+@import '../tokens/smh-champagne-tokens.css';
+
+.champagne-preview-skin {
+  --smh-accent-gold-soft: color-mix(in oklab, var(--smh-accent-gold) 32%, var(--smh-white, white) 68%);
+  --champagne-preview-wave-mask: var(
+    --wave-mask,
+    radial-gradient(
+      130% 140% at 50% 32%,
+      color-mix(in oklab, var(--smh-primary-teal) 12%, transparent) 0%,
+      color-mix(in oklab, var(--smh-primary-magenta) 10%, transparent) 40%,
+      transparent 72%
+    )
+  );
+  --gold-alpha-max: 0.12;
+  --champagne-shell-heading: 'Montserrat', var(--font-heading, 'Montserrat', sans-serif);
+  --champagne-shell-body: 'Lora', var(--font-body, 'Lora', serif);
+  --champagne-shell-ui: 'Inter', var(--font-ui, 'Inter', sans-serif);
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--smh-primary-magenta) 0%,
+    color-mix(in oklab, var(--smh-primary-teal) 85%, var(--smh-white, white) 15%) 60%,
+    var(--smh-accent-gold-soft) 100%
+  );
+  color: var(--smh-text);
+  overflow: hidden;
+}
+
+.champagne-preview-skin::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--smh-accent-gold) 6%, transparent) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      120% 120% at 12% 18%,
+      color-mix(in oklab, var(--smh-primary-magenta) 16%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      120% 120% at 88% 12%,
+      color-mix(in oklab, var(--smh-primary-teal) 18%, transparent) 0%,
+      transparent 70%
+    );
+  background-blend-mode: soft-light, screen, soft-light;
+  mix-blend-mode: soft-light;
+  opacity: var(--gold-alpha-max);
+  pointer-events: none;
+  -webkit-mask-image: var(--champagne-preview-wave-mask);
+  mask-image: var(--champagne-preview-wave-mask);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.champagne-preview-skin::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      180% 140% at 18% 30%,
+      color-mix(in oklab, var(--smh-primary-magenta) 10%, transparent) 0%,
+      transparent 68%
+    ),
+    radial-gradient(
+      160% 140% at 78% 20%,
+      color-mix(in oklab, var(--smh-primary-teal) 12%, transparent) 0%,
+      transparent 70%
+    ),
+    url('/assets/champagne/film-grain-desktop.webp');
+  background-size: 140% 120%, 160% 140%, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light, soft-light, multiply;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.champagne-preview-skin__inner {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.champagne-preview-skin :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--champagne-shell-heading);
+  letter-spacing: -0.01em;
+}
+
+.champagne-preview-skin :is(p, li, span, blockquote) {
+  font-family: var(--champagne-shell-body);
+}
+
+.champagne-preview-skin :is(button, input, select, .tl-hud) {
+  font-family: var(--champagne-shell-ui);
+}
+
+.champagne-preview-skin .tl-hud {
+  color: var(--smh-text);
+  border-color: color-mix(in oklab, var(--smh-accent-gold) 20%, transparent);
+  outline: 1px solid color-mix(in oklab, var(--smh-accent-gold) 18%, transparent);
+  background: color-mix(in oklab, var(--smh-primary-teal) 10%, var(--smh-white, white));
+  box-shadow: 0 26px 52px color-mix(in srgb, var(--smh-primary-magenta) 14%, transparent);
+}
+
+.champagne-preview-skin .tl-hud__title,
+.champagne-preview-skin .tl-hud__grid dd {
+  color: var(--smh-text);
+}
+
+.champagne-preview-skin .tl-hud__grid dt,
+.champagne-preview-skin .tl-hud__hint {
+  color: color-mix(in oklab, var(--smh-text) 72%, transparent);
+}
+
+.champagne-preview-skin .tl-hud :is(button, a, input, textarea):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--smh-accent-gold) 28%, transparent);
+}
+
+.champagne-preview-skin[data-section='veneers'] {
+  filter: hue-rotate(-6deg) saturate(1.02);
+}
+
+.champagne-preview-skin[data-section='implants'] {
+  filter: hue-rotate(10deg) saturate(1.02);
+}
+
+.champagne-preview-skin[data-section='spark-aligners'] {
+  filter: saturate(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .champagne-preview-skin {
+    background-attachment: scroll;
+  }
+
+  .champagne-preview-skin::before,
+  .champagne-preview-skin::after {
+    animation: none;
+    background-position: center;
+  }
+}

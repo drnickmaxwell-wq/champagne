@@ -1,0 +1,62 @@
+/* styles/brand/brand-textures.css
+   Shared pseudo overlays for film grain + particle layers. */
+
+.film-grain,
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.film-grain::after,
+.particles::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.film-grain::after {
+  background-image: image-set(url("/textures/film-grain-desktop.webp") 1x);
+  background-size: cover;
+  background-repeat: repeat;
+  opacity: var(--grainOpacity, 0.15);
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 640px) {
+  .film-grain::after {
+    background-image: image-set(url("/textures/film-grain-mobile.webp") 1x);
+  }
+}
+
+.particles::after {
+  background-image: url("/particles/particles-gold.webp");
+  background-size: 280px 280px;
+  background-repeat: repeat;
+  opacity: var(--particlesOpacity, 0.18);
+  mix-blend-mode: screen;
+  filter: saturate(1.05);
+}
+
+.particles[data-variant="teal"]::after {
+  background-image: url("/particles/particles-teal.webp");
+}
+
+.particles[data-variant="magenta"]::after {
+  background-image: url("/particles/particles-magenta.webp");
+}
+
+.particles[data-variant="none"]::after {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particles::after,
+  .film-grain::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

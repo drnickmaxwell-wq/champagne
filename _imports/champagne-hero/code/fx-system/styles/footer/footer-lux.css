@@ -1,0 +1,110 @@
+.footer--lux {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(140deg, var(--brand-magenta) 0%, var(--brand-teal) 50%, var(--brand-gold) 100%);
+  overflow: hidden;
+}
+
+.footer--lux::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/film-grain-desktop.webp');
+  background-size: cover;
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  z-index: 0;
+}
+
+.footer-keyline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(249, 232, 195, 0.22);
+  box-shadow: 0 1px 8px rgba(249, 232, 195, 0.22);
+  z-index: 2;
+}
+
+.footer-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: saturate(120%) brightness(0.95);
+  mix-blend-mode: multiply;
+  animation: footer-hue-shift 60s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.footer-blooms .rounded-full {
+  filter: blur(0.2px);
+  box-shadow: 0 0 12px rgba(249, 232, 195, 0.18);
+}
+
+.footer-content-panel {
+  position: relative;
+  z-index: 3;
+  backdrop-filter: brightness(0.96);
+}
+
+.footer-link {
+  color: inherit;
+  transition: color 200ms ease, background-position 400ms ease;
+  background-image: linear-gradient(140deg, var(--brand-magenta), var(--brand-teal), var(--brand-gold));
+  background-size: 200%;
+}
+
+.footer-link:hover {
+  color: var(--smh-accent-gold);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position: 100%;
+}
+
+.footer-social-icon {
+  position: relative;
+  z-index: 3;
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+.footer-social-icon:hover {
+  filter: drop-shadow(0 0 6px rgba(249, 232, 195, 0.5));
+  transform: scale(1.04);
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.footer-tile {
+  border-color: rgba(255, 255, 255, 0.18);
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+
+.footer-tile:hover {
+  border-color: rgba(249, 232, 195, 0.55);
+}
+
+.footer-alert {
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.25);
+}
+
+@keyframes footer-hue-shift {
+  0% {
+    filter: hue-rotate(-2deg);
+  }
+  50% {
+    filter: hue-rotate(2deg);
+  }
+  100% {
+    filter: hue-rotate(-2deg);
+  }
+}
+
+.footer--lux > *:not(.footer-keyline) {
+  position: relative;
+  z-index: 2;
+}
