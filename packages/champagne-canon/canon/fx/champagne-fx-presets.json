@@ -1,0 +1,54 @@
+[
+  {
+    "id": "fxPreset.hero.veneers.cinematic",
+    "description": "Cinematic veneers hero – inkfall + water caustics + champagne micro-bubbles.",
+    "layers": {
+      "backgroundGradient": ["fx.water.depthCaustics_soft"],
+      "weather": ["fx.water.surfaceRipple_soft"],
+      "particleField": ["fx.particles.champagneMicroBubbles_sparse"],
+      "filmGrain": ["fx.grain.filmSoft_light"],
+      "glassOverlays": ["fx.glass.parallaxSheen_soft"]
+    },
+    "motionProfile": "motionProfile.softBreath",
+    "prmSafeAlternative": "fxPreset.hero.veneers.static"
+  },
+  {
+    "id": "fxPreset.hero.aligners.clean",
+    "description": "Clean, clinical-clear aligner hero with soft glass, minimal particles.",
+    "layers": {
+      "backgroundGradient": ["fx.water.depthCaustics_minimal"],
+      "weather": [],
+      "particleField": [],
+      "filmGrain": ["fx.grain.filmSoft_static"],
+      "glassOverlays": ["fx.glass.parallaxSheen_tiny"]
+    },
+    "motionProfile": "motionProfile.parallaxGentle",
+    "prmSafeAlternative": "fxPreset.hero.aligners.static"
+  },
+  {
+    "id": "fxPreset.section.pricing.clarity",
+    "description": "High clarity, low FX preset for pricing and finance sections.",
+    "layers": {
+      "backgroundGradient": [],
+      "weather": [],
+      "particleField": [],
+      "filmGrain": ["fx.grain.filmSoft_static"],
+      "glassOverlays": ["fx.glass.parallaxSheen_micro"]
+    },
+    "motionProfile": "motionProfile.silent",
+    "prmSafeAlternative": "fxPreset.section.pricing.clarity"
+  },
+  {
+    "id": "fxPreset.portal.dashboard.softInk",
+    "description": "Soft ink dashboard with calm particles and subtle glass.",
+    "layers": {
+      "backgroundGradient": ["fx.ink.inkfallDrift_soft"],
+      "weather": [],
+      "particleField": ["fx.particles.champagneMicroBubbles_ultraSparse"],
+      "filmGrain": ["fx.grain.filmSoft_light"],
+      "glassOverlays": ["fx.glass.parallaxSheen_soft"]
+    },
+    "motionProfile": "motionProfile.softBreath",
+    "prmSafeAlternative": "fxPreset.portal.dashboard.static"
+  }
+]
