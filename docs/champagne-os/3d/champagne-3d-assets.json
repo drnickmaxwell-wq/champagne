@@ -1,5 +1,486 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "treatment3dConfigs": [
+    {
+      "treatmentSlug": "3d-printed-veneers",
+      "tenantId": "smh",
+      "assets": [
+        {
+          "id": "veneer_ultra_thin_single_tooth_turntable_v1",
+          "type": "3d-model",
+          "family": "veneers",
+          "file": "/tenants/smh/3d/veneers/veneer_ultra_thin_single_tooth_turntable_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_focus_tooth"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source",
+            "ar-preview"
+          ],
+          "materialTokens": [
+            "material.dental.ceramic.lithiumDisilicate.ultraThin",
+            "material.dental.enamel.overlay",
+            "material.brand.glass.champagneSoft"
+          ],
+          "lightingPreset": "light.beauty_front_soft",
+          "cameraPreset": "camera.macro_dental_single_tooth",
+          "tags": [
+            "hero",
+            "veneers",
+            "thin",
+            "luxury",
+            "patient-facing"
+          ],
+          "metadata": {
+            "workflowStage": "final-restoration",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "exportPriority": "hero"
+          }
+        },
+        {
+          "id": "veneer_ultra_thin_row_before_after_overlay_v1",
+          "type": "3d-scene",
+          "family": "veneers",
+          "file": "/tenants/smh/3d/veneers/veneer_ultra_thin_row_before_after_overlay_v1.glb",
+          "lod": "medium",
+          "viewerModes": [
+            "mode_compare_before_after",
+            "mode_layered_overlay"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.dental.ceramic.lithiumDisilicate.standard",
+            "material.dental.enamel.overlay",
+            "material.dental.gingiva.softTranslucent"
+          ],
+          "lightingPreset": "light.clinical_neutral_softTop",
+          "cameraPreset": "camera.frontal_smile_crop",
+          "tags": [
+            "before-after",
+            "veneers",
+            "education",
+            "case-simulation"
+          ],
+          "metadata": {
+            "workflowStage": "planning-mockup",
+            "modality": "cbct-plus-scan-merge",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "supportsAnnotation": true
+          }
+        },
+        {
+          "id": "veneer_mockup_on_model_lab_scene_v1",
+          "type": "3d-scene",
+          "family": "veneers",
+          "file": "/tenants/smh/3d/veneers/veneer_mockup_on_model_lab_scene_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_lab_context"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source",
+            "still-render"
+          ],
+          "materialTokens": [
+            "material.dental.gypsum.modelStone",
+            "material.dental.ceramic.prototype",
+            "material.lab.metal.instrumentSoftBrush"
+          ],
+          "lightingPreset": "light.lab_side_softShadow",
+          "cameraPreset": "camera.angled_lab_macro",
+          "tags": [
+            "lab",
+            "workflow",
+            "veneers",
+            "story"
+          ],
+          "metadata": {
+            "workflowStage": "lab-fabrication",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "supportsCallouts": true
+          }
+        }
+      ]
+    },
+    {
+      "treatmentSlug": "implants",
+      "tenantId": "smh",
+      "assets": [
+        {
+          "id": "implant_single_crown_exploded_v1",
+          "type": "3d-scene",
+          "family": "implants",
+          "file": "/tenants/smh/3d/implants/implant_single_crown_exploded_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_exploded",
+            "mode_focus_tooth"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.implant.titanium.surface",
+            "material.dental.ceramic.zirconia.crown",
+            "material.dental.bone.cancellousGeneric"
+          ],
+          "lightingPreset": "light.clinical_directional",
+          "cameraPreset": "camera.implant_site_close",
+          "tags": [
+            "implants",
+            "single",
+            "education",
+            "anatomy"
+          ],
+          "metadata": {
+            "workflowStage": "treatment-explanation",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "supportsAnnotation": true
+          }
+        },
+        {
+          "id": "implant_full_arch_on_bar_turntable_v1",
+          "type": "3d-model",
+          "family": "implants",
+          "file": "/tenants/smh/3d/implants/implant_full_arch_on_bar_turntable_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_focus_arch"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source",
+            "ar-preview"
+          ],
+          "materialTokens": [
+            "material.implant.titanium.barPolished",
+            "material.dental.acrylic.gingivaTinted",
+            "material.dental.acrylic.teethHighGloss"
+          ],
+          "lightingPreset": "light.beauty_three_quarter",
+          "cameraPreset": "camera.arch_three_quarter",
+          "tags": [
+            "implants",
+            "full-arch",
+            "hero",
+            "wow-factor"
+          ],
+          "metadata": {
+            "workflowStage": "final-restoration",
+            "modality": "scan-based",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "exportPriority": "hero"
+          }
+        },
+        {
+          "id": "implant_surgical_guide_on_model_v1",
+          "type": "3d-scene",
+          "family": "implants",
+          "file": "/tenants/smh/3d/implants/implant_surgical_guide_on_model_v1.glb",
+          "lod": "medium",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_layered_overlay"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.dental.acrylic.clearGuide",
+            "material.dental.gypsum.modelStone",
+            "material.implant.sleeve.metallic"
+          ],
+          "lightingPreset": "light.clinical_neutral_softTop",
+          "cameraPreset": "camera.lab_table_top",
+          "tags": [
+            "implants",
+            "surgical-guide",
+            "workflow",
+            "planning"
+          ],
+          "metadata": {
+            "workflowStage": "pre-surgical",
+            "modality": "scan-based",
+            "anonymisationLevel": "high",
+            "demoOnly": true
+          }
+        }
+      ]
+    },
+    {
+      "treatmentSlug": "spark-clear-aligners",
+      "tenantId": "smh",
+      "assets": [
+        {
+          "id": "spark_aligner_single_arch_turntable_v1",
+          "type": "3d-model",
+          "family": "aligners",
+          "file": "/tenants/smh/3d/aligners/spark_aligner_single_arch_turntable_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_focus_arch"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source",
+            "ar-preview"
+          ],
+          "materialTokens": [
+            "material.aligner.thermoplastic.sparkSignature",
+            "material.dental.tooth.genericArch"
+          ],
+          "lightingPreset": "light.beauty_front_soft",
+          "cameraPreset": "camera.arch_three_quarter",
+          "tags": [
+            "aligners",
+            "spark",
+            "hero",
+            "transparent"
+          ],
+          "metadata": {
+            "workflowStage": "final-appliance",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "exportPriority": "hero"
+          }
+        },
+        {
+          "id": "aligner_treatment_progress_steps_v1",
+          "type": "3d-sequence",
+          "family": "aligners",
+          "file": "/tenants/smh/3d/aligners/aligner_treatment_progress_steps_v1.glb",
+          "lod": "medium",
+          "viewerModes": [
+            "mode_step_sequence",
+            "mode_compare_before_after"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.aligner.thermoplastic.generic",
+            "material.dental.tooth.genericArch"
+          ],
+          "lightingPreset": "light.clinical_neutral_softTop",
+          "cameraPreset": "camera.frontal_teeth_row",
+          "tags": [
+            "aligners",
+            "progress",
+            "education",
+            "simulation"
+          ],
+          "metadata": {
+            "workflowStage": "treatment-planning",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "supportsAnnotation": true
+          }
+        },
+        {
+          "id": "orthodontic_brackets_on_arch_v1",
+          "type": "3d-model",
+          "family": "orthodontics",
+          "file": "/tenants/smh/3d/aligners/orthodontic_brackets_on_arch_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_focus_tooth"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.orthodontic.bracket.metal",
+            "material.orthodontic.wire.archWire",
+            "material.dental.tooth.genericArch"
+          ],
+          "lightingPreset": "light.clinical_directional",
+          "cameraPreset": "camera.frontal_teeth_row",
+          "tags": [
+            "braces",
+            "orthodontics",
+            "education"
+          ],
+          "metadata": {
+            "workflowStage": "treatment-explanation",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true
+          }
+        }
+      ]
+    },
+    {
+      "treatmentSlug": "cbct-3d-scanning",
+      "tenantId": "smh",
+      "assets": [
+        {
+          "id": "cbct_jaw_segment_volume_v1",
+          "type": "3d-volume",
+          "family": "cbct",
+          "file": "/tenants/smh/3d/cbct/cbct_jaw_segment_volume_v1.glb",
+          "lod": "medium",
+          "viewerModes": [
+            "mode_cbct_slice",
+            "mode_volume_rotate"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.cbct.volume.boneWindow",
+            "material.cbct.volume.softTissueWindow"
+          ],
+          "lightingPreset": "light.cbct_virtual",
+          "cameraPreset": "camera.cbct_isometric",
+          "tags": [
+            "cbct",
+            "diagnostics",
+            "jaw-segment",
+            "education"
+          ],
+          "metadata": {
+            "workflowStage": "diagnosis",
+            "modality": "cbct-volume",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "supportsSliceNavigation": true
+          }
+        },
+        {
+          "id": "cbct_implant_planning_overlay_v1",
+          "type": "3d-scene",
+          "family": "cbct",
+          "file": "/tenants/smh/3d/cbct/cbct_implant_planning_overlay_v1.glb",
+          "lod": "medium",
+          "viewerModes": [
+            "mode_cbct_slice",
+            "mode_layered_overlay"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.cbct.volume.boneWindow",
+            "material.implant.titanium.surface",
+            "material.cbct.planning.pathOverlay"
+          ],
+          "lightingPreset": "light.cbct_virtual",
+          "cameraPreset": "camera.cbct_isometric",
+          "tags": [
+            "cbct",
+            "implants",
+            "planning",
+            "overlay"
+          ],
+          "metadata": {
+            "workflowStage": "planning",
+            "modality": "cbct-plus-plan",
+            "anonymisationLevel": "high",
+            "demoOnly": true
+          }
+        }
+      ]
+    },
+    {
+      "treatmentSlug": "digital-smile-design",
+      "tenantId": "smh",
+      "assets": [
+        {
+          "id": "dsd_smile_frame_overlay_v1",
+          "type": "2d-3d-hybrid",
+          "family": "digital-smile-design",
+          "file": "/tenants/smh/3d/dsd/dsd_smile_frame_overlay_v1.glb",
+          "lod": "medium",
+          "viewerModes": [
+            "mode_layered_overlay",
+            "mode_compare_before_after"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source",
+            "still-render"
+          ],
+          "materialTokens": [
+            "material.dsd.frame.lineworkSoft",
+            "material.dsd.mask.teethOverlay"
+          ],
+          "lightingPreset": "light.photo_import_preserve",
+          "cameraPreset": "camera.photo_locked_import",
+          "tags": [
+            "smile-design",
+            "overlay",
+            "planning",
+            "education"
+          ],
+          "metadata": {
+            "workflowStage": "smile-design",
+            "modality": "photo-plus-overlay",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "supportsPhotoImport": true
+          }
+        },
+        {
+          "id": "dsd_3d_mockup_smile_turntable_v1",
+          "type": "3d-scene",
+          "family": "digital-smile-design",
+          "file": "/tenants/smh/3d/dsd/dsd_3d_mockup_smile_turntable_v1.glb",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_focus_smile_band"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source"
+          ],
+          "materialTokens": [
+            "material.dental.ceramic.lithiumDisilicate.standard",
+            "material.dental.gingiva.softTranslucent",
+            "material.skin.neutral_lowContrast"
+          ],
+          "lightingPreset": "light.beauty_three_quarter_face",
+          "cameraPreset": "camera.smile_macro_band",
+          "tags": [
+            "smile-design",
+            "hero",
+            "simulation"
+          ],
+          "metadata": {
+            "workflowStage": "presentation",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "exportPriority": "hero"
+          }
+        }
+      ]
+    }
+  ]
 }
