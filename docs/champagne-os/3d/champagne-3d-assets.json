@@ -1,5 +1,263 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "lightingPresets": [
+    {
+      "id": "light.beauty_front_soft",
+      "label": "Beauty – front soft",
+      "description": "Soft, frontal key light with gentle fill, mimicking studio beauty lighting for teeth and veneers.",
+      "tone": "cinematic-soft",
+      "intendedUses": [
+        "veneers-hero",
+        "aligners-hero",
+        "smile-design"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": true,
+        "gradientToken": "gradient.champagne.135.primary",
+        "glassToken": "surface.glass.inkSoft"
+      }
+    },
+    {
+      "id": "light.beauty_three_quarter",
+      "label": "Beauty – three-quarter",
+      "description": "Three-quarter key with subtle shadow to reveal form of arches and full-arch prosthetics.",
+      "tone": "cinematic-sculpting",
+      "intendedUses": [
+        "implants-full-arch",
+        "veneers-3d-mockup"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": true,
+        "gradientToken": "gradient.champagne.135.soft",
+        "glassToken": "surface.glass.inkDeep"
+      }
+    },
+    {
+      "id": "light.beauty_three_quarter_face",
+      "label": "Beauty – three-quarter face",
+      "description": "Portrait-style beauty light tuned for smile band with low-contrast skin tones.",
+      "tone": "portrait-soft",
+      "intendedUses": [
+        "digital-smile-design",
+        "smile-reveal"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": true,
+        "gradientToken": "gradient.champagne.135.face",
+        "glassToken": "surface.glass.skinBand"
+      }
+    },
+    {
+      "id": "light.clinical_neutral_softTop",
+      "label": "Clinical – neutral soft top",
+      "description": "Neutral white clinical light with soft top-down emphasis for educational visuals.",
+      "tone": "clinical-neutral",
+      "intendedUses": [
+        "before-after",
+        "aligner-steps",
+        "surgical-guides"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": false
+      }
+    },
+    {
+      "id": "light.clinical_directional",
+      "label": "Clinical – directional anatomy",
+      "description": "More directional light emphasising anatomical detail (bone, implants, brackets).",
+      "tone": "clinical-detail",
+      "intendedUses": [
+        "implants-anatomy",
+        "brackets"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": false
+      }
+    },
+    {
+      "id": "light.lab_side_softShadow",
+      "label": "Lab – side soft shadow",
+      "description": "Side-key lab bench style light with soft but visible shadow falloff.",
+      "tone": "lab-context",
+      "intendedUses": [
+        "lab-scenes",
+        "mockups-on-model"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": true,
+        "gradientToken": "gradient.champagne.135.subtle",
+        "glassToken": "surface.glass.labPlate"
+      }
+    },
+    {
+      "id": "light.cbct_virtual",
+      "label": "CBCT – virtual volume",
+      "description": "Monochrome-friendly virtual light tuned for CBCT volume display.",
+      "tone": "diagnostic",
+      "intendedUses": [
+        "cbct-volume",
+        "cbct-planning"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": false
+      }
+    },
+    {
+      "id": "light.photo_import_preserve",
+      "label": "Photo import – preserve source",
+      "description": "Minimal adjustment light to respect imported photograph exposure/colour.",
+      "tone": "photo-preserve",
+      "intendedUses": [
+        "digital-smile-design-overlays"
+      ],
+      "brandLayering": {
+        "supportsGradientOverlay": true,
+        "gradientToken": "gradient.champagne.135.overlaySoft",
+        "glassToken": "surface.glass.overlayBand"
+      }
+    }
+  ],
+  "cameraPresets": [
+    {
+      "id": "camera.macro_dental_single_tooth",
+      "label": "Macro – single tooth",
+      "description": "Tight macro framing for single veneer or implant site; minimal distortion.",
+      "framing": "single-tooth",
+      "movementStyle": "micro-orbit",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.frontal_teeth_row",
+      "label": "Frontal – teeth row",
+      "description": "Frontal crop of upper or lower arch for aligner/braces education.",
+      "framing": "arch-frontal",
+      "movementStyle": "micro-parallax",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.arch_three_quarter",
+      "label": "Arch – three-quarter",
+      "description": "Three-quarter arch view for full-arch implants and aligners.",
+      "framing": "arch-three-quarter",
+      "movementStyle": "slow-orbit",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.implant_site_close",
+      "label": "Implant site – close",
+      "description": "Close-up of implant region with room for exploded anatomy.",
+      "framing": "single-site",
+      "movementStyle": "micro-dolly",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.lab_table_top",
+      "label": "Lab – table top",
+      "description": "Top-down or slightly oblique lab bench frame for models and guides.",
+      "framing": "table-top",
+      "movementStyle": "static-orbit",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.cbct_isometric",
+      "label": "CBCT – isometric",
+      "description": "Isometric framing of jaw segment with space for UI overlays.",
+      "framing": "volume-isometric",
+      "movementStyle": "slow-orbit",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.smile_macro_band",
+      "label": "Smile – macro band",
+      "description": "Frames lips and teeth band for smile design hero assets.",
+      "framing": "smile-band",
+      "movementStyle": "micro-parallax",
+      "prmFallback": "static"
+    },
+    {
+      "id": "camera.photo_locked_import",
+      "label": "Photo – locked import",
+      "description": "Camera locked to imported 2D photo plane for DSD overlays.",
+      "framing": "photo-plane",
+      "movementStyle": "none",
+      "prmFallback": "static"
+    }
+  ],
+  "treatmentDefaults": [
+    {
+      "treatmentSlug": "3d-printed-veneers",
+      "defaultLighting": "light.beauty_front_soft",
+      "defaultCamera": "camera.macro_dental_single_tooth",
+      "viewerModeDefaults": [
+        "mode_turntable",
+        "mode_focus_tooth"
+      ],
+      "altPresets": {
+        "beforeAfter": {
+          "lighting": "light.clinical_neutral_softTop",
+          "camera": "camera.frontal_teeth_row",
+          "viewerMode": "mode_compare_before_after"
+        },
+        "labScene": {
+          "lighting": "light.lab_side_softShadow",
+          "camera": "camera.lab_table_top",
+          "viewerMode": "mode_lab_context"
+        }
+      }
+    },
+    {
+      "treatmentSlug": "implants",
+      "defaultLighting": "light.clinical_directional",
+      "defaultCamera": "camera.implant_site_close",
+      "viewerModeDefaults": [
+        "mode_exploded",
+        "mode_focus_tooth"
+      ],
+      "altPresets": {
+        "fullArchHero": {
+          "lighting": "light.beauty_three_quarter",
+          "camera": "camera.arch_three_quarter",
+          "viewerMode": "mode_turntable"
+        }
+      }
+    },
+    {
+      "treatmentSlug": "spark-clear-aligners",
+      "defaultLighting": "light.beauty_front_soft",
+      "defaultCamera": "camera.arch_three_quarter",
+      "viewerModeDefaults": [
+        "mode_turntable"
+      ],
+      "altPresets": {
+        "progressSteps": {
+          "lighting": "light.clinical_neutral_softTop",
+          "camera": "camera.frontal_teeth_row",
+          "viewerMode": "mode_step_sequence"
+        }
+      }
+    },
+    {
+      "treatmentSlug": "cbct-3d-scanning",
+      "defaultLighting": "light.cbct_virtual",
+      "defaultCamera": "camera.cbct_isometric",
+      "viewerModeDefaults": [
+        "mode_cbct_slice",
+        "mode_volume_rotate"
+      ]
+    },
+    {
+      "treatmentSlug": "digital-smile-design",
+      "defaultLighting": "light.beauty_three_quarter_face",
+      "defaultCamera": "camera.smile_macro_band",
+      "viewerModeDefaults": [
+        "mode_focus_smile_band"
+      ],
+      "altPresets": {
+        "photoOverlay": {
+          "lighting": "light.photo_import_preserve",
+          "camera": "camera.photo_locked_import",
+          "viewerMode": "mode_layered_overlay"
+        }
+      }
+    }
+  ]
 }

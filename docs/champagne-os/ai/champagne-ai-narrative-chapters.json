@@ -1,5 +1,24 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "narrativeChapters": [
+    {
+      "id": "chapter.invitation",
+      "description": "Warm entry point. Low pressure. Establish comfort and safety."
+    },
+    {
+      "id": "chapter.discovery",
+      "description": "Exploration mode. Clarify goals, preferences, and concerns."
+    },
+    {
+      "id": "chapter.transformation",
+      "description": "Introduce possibilities. Show outcomes and what’s achievable."
+    },
+    {
+      "id": "chapter.commitment",
+      "description": "Help the user feel ready to take the next step, without pressure."
+    },
+    {
+      "id": "chapter.assurance",
+      "description": "Final confirmation of safety, clarity, expectations."
+    }
+  ]
 }

@@ -1,5 +1,39 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "toneModes": [
+    {
+      "id": "tone.assurance",
+      "sentenceLength": "short",
+      "warmth": "high",
+      "technicality": "low",
+      "directness": "gentle"
+    },
+    {
+      "id": "tone.clarity",
+      "sentenceLength": "medium",
+      "warmth": "medium",
+      "technicality": "medium",
+      "directness": "clear"
+    },
+    {
+      "id": "tone.luxury",
+      "sentenceLength": "medium",
+      "warmth": "high",
+      "technicality": "low",
+      "directness": "soft"
+    },
+    {
+      "id": "tone.guidance",
+      "sentenceLength": "short",
+      "warmth": "medium-high",
+      "technicality": "low",
+      "directness": "supportive"
+    },
+    {
+      "id": "tone.directSoft",
+      "sentenceLength": "short",
+      "warmth": "medium",
+      "technicality": "low",
+      "directness": "efficient"
+    }
+  ]
 }

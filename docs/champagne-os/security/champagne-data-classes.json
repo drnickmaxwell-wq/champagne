@@ -1,5 +1,88 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "dataClasses": [
+    {
+      "id": "marketingLead",
+      "description": "Contact details and high-level enquiry reason from public marketing forms.",
+      "containsPHI": false,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.marketing.default"
+    },
+    {
+      "id": "websiteAnalyticsEvent",
+      "description": "Pseudonymous events used for UX and performance analytics.",
+      "containsPHI": false,
+      "storageLocation": "region.eu",
+      "retentionPolicyId": "retention.analytics.default"
+    },
+    {
+      "id": "portalAccount",
+      "description": "Account and identity mapping for authenticated portal users.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.portalAccount.default"
+    },
+    {
+      "id": "appointmentBooking",
+      "description": "Booked appointments and scheduling data linked to patientRecordId.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.appointments.default"
+    },
+    {
+      "id": "treatmentPlan",
+      "description": "Structured treatment plans and costed proposals associated with a patientRecordId.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.treatmentPlan.default"
+    },
+    {
+      "id": "clinicalRecord",
+      "description": "Core clinical notes and structured clinical data.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.clinicalRecord.default"
+    },
+    {
+      "id": "imagingAsset",
+      "description": "Clinical images, scans and derived imagery or 3D assets linked to a patientRecordId.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.imaging.default"
+    },
+    {
+      "id": "chatTranscriptPHI",
+      "description": "Chat transcript segments that include clinical context and are linked to a patientRecordId.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.chat.phi"
+    },
+    {
+      "id": "chatTranscriptNonPHI",
+      "description": "Sanitised chatbot transcripts used for UX optimisation and model improvement.",
+      "containsPHI": false,
+      "storageLocation": "region.eu",
+      "retentionPolicyId": "retention.chat.nonPhi"
+    },
+    {
+      "id": "billingRecord",
+      "description": "Invoices, payments, and financial records for treatments.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.billing.default"
+    },
+    {
+      "id": "auditLogEntry",
+      "description": "Security and access logs referencing anonymisedSessionId and patientRecordId only.",
+      "containsPHI": true,
+      "storageLocation": "region.uk",
+      "retentionPolicyId": "retention.auditLog.default"
+    },
+    {
+      "id": "systemMetric",
+      "description": "Non-identifying operational metrics and error logs.",
+      "containsPHI": false,
+      "storageLocation": "region.eu",
+      "retentionPolicyId": "retention.metrics.default"
+    }
+  ]
 }
