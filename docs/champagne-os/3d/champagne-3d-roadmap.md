@@ -1,5 +1,3 @@
-# Placeholder: Champagne 3D Roadmap
-
 
 # Champagne 3D Roadmap – Veneers, Implants, Aligners, CBCT & DSD
 
