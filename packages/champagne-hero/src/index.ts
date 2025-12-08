@@ -7,6 +7,13 @@ export {
   resolveHeroVariant,
   type HeroRegistryEntry,
 } from "./HeroRegistry";
+export {
+  getHeroRuntime,
+  type HeroRuntimeConfig,
+  type HeroSurfaceConfig,
+  type HeroSurfaceTokenConfig,
+  type HeroTimeOfDay,
+} from "./hero-engine";
 
 export const placeholder = {
   package: "@champagne/hero",
