@@ -52,8 +52,13 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
   if (!runtime) return <HeroFallback />;
 
   const { content, surfaces, layout, motion, filmGrain: filmGrainSettings } = runtime;
+  const gradient = surfaces.gradient ?? "var(--smh-gradient)";
+  const motionEntries = surfaces.motion ?? [];
+  const videoEntry = surfaces.video;
+  const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
+  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
   const surfaceVars: CSSProperties = {
-    ["--hero-gradient" as string]: surfaces.gradient ?? "var(--smh-gradient)",
+    ["--hero-gradient" as string]: gradient,
     ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
       ? `url(${surfaces.background.desktop.path})`
       : undefined,
@@ -66,30 +71,17 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
     ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
       ? `url(${surfaces.waveMask.mobile.path})`
       : undefined,
-    ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
-      ? `url(${surfaces.overlays.dots.path})`
-      : undefined,
-    ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
-      ? `url(${surfaces.overlays.field.path})`
-      : undefined,
-    ["--hero-particles" as string]: surfaces.particles?.path
-      ? `url(${surfaces.particles.path})`
-      : undefined,
-    ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
-      ? `url(${surfaces.grain.desktop.path})`
-      : undefined,
-    ["--hero-grain-mobile" as string]: surfaces.grain?.mobile?.path
-      ? `url(${surfaces.grain.mobile.path})`
-      : undefined,
-    ["--hero-film-grain-opacity" as string]: filmGrainSettings.opacity ?? 0.28,
-    ["--hero-particle-opacity" as string]: (motion.particles?.density ?? 1) * 0.35,
-    ["--hero-motion-opacity" as string]: (motion.shimmerIntensity ?? 1) * 0.85,
   };
 
-  const motionEntries = surfaces.motion ?? [];
-  const videoEntry = surfaces.video;
-  const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
-  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
+  const overlayDefaults: CSSProperties = {
+    mixBlendMode: "screen",
+    opacity: 0.7,
+  };
+
+  const resolveBlendMode = (value?: string) => value as CSSProperties["mixBlendMode"] | undefined;
+
+  const grainOpacity = (filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1);
+  const particleOpacity = (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35;
 
   return (
     <BaseChampagneSurface
@@ -117,14 +109,6 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
               inset: 0;
               z-index: 0;
             }
-            .hero-renderer .hero-layer.field {
-              background-image: var(--hero-overlay-field);
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-              opacity: 0.75;
-              mix-blend-mode: soft-light;
-            }
             .hero-renderer .hero-layer.wave {
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
@@ -134,44 +118,30 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
               mask-size: cover;
               -webkit-mask-size: cover;
               background-position: center;
-              opacity: 0.9;
+              opacity: 0.92;
               pointer-events: none;
             }
             .hero-renderer .hero-layer.overlay {
-              mix-blend-mode: screen;
-              opacity: 0.65;
               background-repeat: no-repeat;
               background-size: cover;
-              pointer-events: none;
-            }
-            .hero-renderer .hero-layer.overlay.field {
-              background-image: var(--hero-overlay-field);
-            }
-            .hero-renderer .hero-layer.overlay.dots {
-              background-image: var(--hero-overlay-dots);
-            }
-            .hero-renderer .hero-layer.grain {
-              background-image: var(--hero-grain-desktop);
-              background-repeat: repeat;
-              background-size: cover;
-              mix-blend-mode: soft-light;
-              opacity: var(--hero-film-grain-opacity, 0.28);
+              background-position: center;
               pointer-events: none;
             }
             .hero-renderer .hero-layer.particles {
-              background-image: var(--hero-particles);
               background-repeat: no-repeat;
               background-size: cover;
-              mix-blend-mode: screen;
-              opacity: var(--hero-particle-opacity, 0.32);
+              background-position: center;
+              pointer-events: none;
+            }
+            .hero-renderer .hero-layer.grain {
+              background-repeat: repeat;
+              background-size: cover;
               pointer-events: none;
             }
             .hero-renderer .hero-layer.motion {
               object-fit: cover;
               width: 100%;
               height: 100%;
-              mix-blend-mode: screen;
-              opacity: var(--hero-motion-opacity, 0.85);
               pointer-events: none;
             }
             .hero-renderer .hero-content {
@@ -192,8 +162,6 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
                 -webkit-mask-image: var(--hero-wave-mask-mobile, var(--hero-wave-mask-desktop));
                 background-image: var(--hero-wave-background-mobile, var(--hero-wave-background-desktop));
               }
-              .hero-renderer .hero-layer.grain { background-image: var(--hero-grain-mobile, var(--hero-grain-desktop)); }
-              .hero-renderer .hero-layer.particles { background-image: var(--hero-particles); }
             }
             @media (prefers-reduced-motion: reduce) {
               .hero-renderer .hero-layer.motion { display: none; }
@@ -203,10 +171,46 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
         }}
       />
 
-      {surfaces.overlays?.field?.path && <div aria-hidden className="hero-layer field" />}
-      <div aria-hidden className="hero-layer wave" />
-      {surfaces.overlays?.dots?.path && <div aria-hidden className="hero-layer overlay dots" />}
-      {shouldShowParticles && <div aria-hidden className="hero-layer particles" />}
+      <div
+        aria-hidden
+        className="hero-layer wave"
+      />
+
+      {surfaces.overlays?.field?.path && (
+        <div
+          aria-hidden
+          className="hero-layer overlay field"
+          style={{
+            ...overlayDefaults,
+            backgroundImage: `url(${surfaces.overlays.field.path})`,
+            mixBlendMode: resolveBlendMode(surfaces.overlays.field.blendMode) ?? overlayDefaults.mixBlendMode,
+            opacity: surfaces.overlays.field.opacity ?? overlayDefaults.opacity,
+          }}
+        />
+      )}
+      {surfaces.overlays?.dots?.path && (
+        <div
+          aria-hidden
+          className="hero-layer overlay dots"
+          style={{
+            ...overlayDefaults,
+            backgroundImage: `url(${surfaces.overlays.dots.path})`,
+            mixBlendMode: resolveBlendMode(surfaces.overlays.dots.blendMode) ?? overlayDefaults.mixBlendMode,
+            opacity: surfaces.overlays.dots.opacity ?? 0.6,
+          }}
+        />
+      )}
+      {shouldShowParticles && surfaces.particles?.path && (
+        <div
+          aria-hidden
+          className="hero-layer particles"
+          style={{
+            backgroundImage: `url(${surfaces.particles.path})`,
+            mixBlendMode: resolveBlendMode(surfaces.particles.blendMode) ?? "screen",
+            opacity: particleOpacity,
+          }}
+        />
+      )}
 
       {videoEntry?.path && (
         <video
@@ -217,6 +221,10 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
           muted
           preload="metadata"
           poster={surfaces.background?.desktop?.path}
+          style={{
+            mixBlendMode: resolveBlendMode(videoEntry.blendMode) ?? "screen",
+            opacity: videoEntry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
+          }}
         >
           <source src={videoEntry.path} />
         </video>
@@ -225,18 +233,36 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
       {motionEntries.map((entry) => (
         <video
           key={entry.id}
-          className="hero-layer motion"
+          className={`hero-layer motion${entry.className ? ` ${entry.className}` : ""}`}
           autoPlay
           playsInline
           loop
           muted
           preload="metadata"
+          style={{
+            mixBlendMode: resolveBlendMode(entry.blendMode) ?? "screen",
+            opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
+          }}
         >
           <source src={entry.path} />
         </video>
       ))}
 
-      {shouldShowGrain && <div aria-hidden className="hero-layer grain" />}
+      {shouldShowGrain && (
+        <div
+          aria-hidden
+          className="hero-layer grain"
+          style={{
+            backgroundImage: surfaces.grain?.mobile?.path
+              ? `url(${surfaces.grain.mobile.path})`
+              : surfaces.grain?.desktop?.path
+                ? `url(${surfaces.grain.desktop.path})`
+                : undefined,
+            mixBlendMode: resolveBlendMode(surfaces.grain?.desktop?.blendMode) ?? "soft-light",
+            opacity: grainOpacity,
+          }}
+        />
+      )}
 
       <div
         className="hero-content"

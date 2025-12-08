@@ -5,8 +5,8 @@
       "label": "Sacred night base",
       "tone": "night",
       "surfaces": {
-        "particles": "base",
-        "motion": ["wave", "glass"]
+        "particles": "fx.particlesPrimary",
+        "motion": ["fx.caustics", "fx.glass", "fx.goldDust"]
       }
     },
     {
@@ -15,8 +15,8 @@
       "timeOfDay": "day",
       "tone": "day",
       "surfaces": {
-        "particles": "teal",
-        "motion": ["glass"]
+        "particles": "fx.particlesTeal",
+        "motion": ["fx.glass"]
       },
       "content": {
         "headline": "Daylight smile confidence.",
@@ -36,8 +36,8 @@
         "secondaryCta": { "label": "Compare options", "href": "/treatments" }
       },
       "surfaces": {
-        "particles": "magenta",
-        "motion": ["glass"]
+        "particles": "fx.particlesMagenta",
+        "motion": ["fx.glass"]
       },
       "motion": {
         "energyMode": "dynamic",
@@ -57,8 +57,8 @@
         "secondaryCta": { "label": "See pricing", "href": "/contact" }
       },
       "surfaces": {
-        "particles": "gold",
-        "motion": ["wave"]
+        "particles": "fx.particlesGold",
+        "motion": ["fx.caustics"]
       },
       "motion": {
         "energyMode": "calm",
@@ -78,8 +78,8 @@
         "secondaryCta": { "label": "How aligners work", "href": "/treatments" }
       },
       "surfaces": {
-        "particles": "teal",
-        "motion": ["glass"]
+        "particles": "fx.particlesTeal",
+        "motion": ["fx.glass"]
       },
       "motion": {
         "energyMode": "balanced",
@@ -99,8 +99,8 @@
         "secondaryCta": { "label": "Preview cases", "href": "/smile-gallery" }
       },
       "surfaces": {
-        "particles": "gold",
-        "motion": ["glass", "wave"]
+        "particles": "fx.particlesGold",
+        "motion": ["fx.glass", "fx.caustics"]
       },
       "motion": {
         "energyMode": "balanced",
@@ -120,8 +120,8 @@
         "secondaryCta": { "label": "See the studio", "href": "/about" }
       },
       "surfaces": {
-        "particles": "magenta",
-        "motion": ["glass", "dust"]
+        "particles": "fx.particlesMagenta",
+        "motion": ["fx.glass", "fx.goldDust"]
       },
       "motion": {
         "energyMode": "dynamic",
