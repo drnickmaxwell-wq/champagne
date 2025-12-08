@@ -5,13 +5,11 @@
   "routes": [
     {
       "slug": "/",
-      "hero": "sacred_home_hero_v1",
+      "hero": "home_neutral_hero_v1",
       "sections": [
-        "intro_story_walk",
-        "treatment_highlights",
-        "ai_smile_atelier",
-        "reviews_radiance",
-        "cta_gold_bar"
+        "home_intro_positioning",
+        "home_care_highlights",
+        "home_get_started_band"
       ],
       "category": "hub"
     },
@@ -167,11 +165,11 @@
     },
     {
       "slug": "/smile-gallery",
-      "hero": "gallery_showcase_hero",
+      "hero": "smile_gallery_placeholder_hero",
       "sections": [
-        "gallery_grid",
-        "testimonial_slider",
-        "cta_gold_bar"
+        "smile_gallery_intro_copy",
+        "smile_gallery_cases_overview",
+        "smile_gallery_case_categories"
       ],
       "category": "editorial"
     },
@@ -188,11 +186,40 @@
     },
     {
       "slug": "/contact",
-      "hero": "contact_friendly_hero",
+      "hero": "contact_calm_hero_v1",
       "sections": [
-        "contact_details",
-        "map_embed",
-        "cta_gold_bar"
+        "contact_intro_copy",
+        "contact_details_simple",
+        "contact_followup_cta"
+      ],
+      "category": "utility"
+    },
+    {
+      "slug": "/team",
+      "hero": "team_preview_hero_v1",
+      "sections": [
+        "team_intro_copy",
+        "team_grid_placeholder",
+        "team_connection_cta"
+      ],
+      "category": "hub"
+    },
+    {
+      "slug": "/blog",
+      "hero": "blog_intro_hero_v1",
+      "sections": [
+        "blog_intro_copy",
+        "blog_placeholder_features"
+      ],
+      "category": "editorial"
+    },
+    {
+      "slug": "/patient-portal",
+      "hero": "patient_portal_placeholder_hero",
+      "sections": [
+        "patient_portal_intro_copy",
+        "patient_portal_features",
+        "patient_portal_cta_band"
       ],
       "category": "utility"
     },

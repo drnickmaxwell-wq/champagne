@@ -8,6 +8,11 @@
       "motion": "calm",
       "cta": "book_home_eval"
     },
+    "home_neutral_hero_v1": {
+      "palette": "champagne",
+      "motion": "calm",
+      "cta": "explore-site"
+    },
     "implants_variant_hero_v3": {
       "palette": "platinum",
       "motion": "precision",
@@ -28,20 +33,45 @@
       "motion": "steady",
       "cta": "view_gallery"
     },
+    "smile_gallery_placeholder_hero": {
+      "palette": "glass",
+      "motion": "calm",
+      "cta": "view-gallery"
+    },
     "about_story_hero_v1": {
       "palette": "champagne",
       "motion": "calm",
       "cta": "meet_team"
+    },
+    "team_preview_hero_v1": {
+      "palette": "champagne",
+      "motion": "steady",
+      "cta": "meet-team"
     },
     "contact_friendly_hero": {
       "palette": "fresh",
       "motion": "float",
       "cta": "contact_us"
     },
+    "contact_calm_hero_v1": {
+      "palette": "platinum",
+      "motion": "calm",
+      "cta": "plan-visit"
+    },
     "legal_simple_banner": {
       "palette": "linen",
       "motion": "static",
       "cta": "scroll"
+    },
+    "blog_intro_hero_v1": {
+      "palette": "champagne",
+      "motion": "steady",
+      "cta": "read-more"
+    },
+    "patient_portal_placeholder_hero": {
+      "palette": "glass",
+      "motion": "calm",
+      "cta": "portal-status"
     },
     "treatment_neutral_hero_v1": {
       "palette": "champagne",
@@ -115,21 +145,17 @@
     }
   },
   "sections": {
-    "intro_story_walk": {
-      "type": "story",
+    "home_intro_positioning": {
+      "type": "copy-block",
       "surface": "champagne/surface/home"
     },
-    "treatment_highlights": {
-      "type": "grid",
+    "home_care_highlights": {
+      "type": "feature-list",
       "surface": "champagne/surface/home"
     },
-    "ai_smile_atelier": {
-      "type": "lab",
-      "surface": "champagne/surface/home"
-    },
-    "reviews_radiance": {
-      "type": "social-proof",
-      "surface": "champagne/surface/home"
+    "home_get_started_band": {
+      "type": "cta",
+      "surface": "champagne/surface/base"
     },
     "cta_gold_bar": {
       "type": "cta",
@@ -175,12 +201,16 @@
       "type": "faq",
       "surface": "champagne/surface/treatment"
     },
-    "gallery_grid": {
-      "type": "gallery",
+    "smile_gallery_intro_copy": {
+      "type": "copy-block",
       "surface": "champagne/surface/editorial"
     },
-    "testimonial_slider": {
-      "type": "slider",
+    "smile_gallery_cases_overview": {
+      "type": "copy-block",
+      "surface": "champagne/surface/editorial"
+    },
+    "smile_gallery_case_categories": {
+      "type": "feature-list",
       "surface": "champagne/surface/editorial"
     },
     "about_story": {
@@ -195,12 +225,28 @@
       "type": "feature-grid",
       "surface": "champagne/surface/hub"
     },
-    "contact_details": {
-      "type": "contact",
+    "team_intro_copy": {
+      "type": "copy-block",
+      "surface": "champagne/surface/hub"
+    },
+    "team_grid_placeholder": {
+      "type": "feature-grid",
+      "surface": "champagne/surface/hub"
+    },
+    "team_connection_cta": {
+      "type": "cta",
+      "surface": "champagne/surface/hub"
+    },
+    "contact_intro_copy": {
+      "type": "copy-block",
       "surface": "champagne/surface/utility"
     },
-    "map_embed": {
-      "type": "map",
+    "contact_details_simple": {
+      "type": "feature-list",
+      "surface": "champagne/surface/utility"
+    },
+    "contact_followup_cta": {
+      "type": "cta",
       "surface": "champagne/surface/utility"
     },
     "legal_intro": {
@@ -210,6 +256,26 @@
     "legal_terms": {
       "type": "accordion",
       "surface": "champagne/surface/legal"
+    },
+    "blog_intro_copy": {
+      "type": "copy-block",
+      "surface": "champagne/surface/editorial"
+    },
+    "blog_placeholder_features": {
+      "type": "feature-list",
+      "surface": "champagne/surface/editorial"
+    },
+    "patient_portal_intro_copy": {
+      "type": "copy-block",
+      "surface": "champagne/surface/utility"
+    },
+    "patient_portal_features": {
+      "type": "feature-list",
+      "surface": "champagne/surface/utility"
+    },
+    "patient_portal_cta_band": {
+      "type": "cta",
+      "surface": "champagne/surface/utility"
     },
     "treatment_overview_copy": {
       "type": "copy-block",
