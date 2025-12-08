@@ -1,0 +1,260 @@
+{
+  "package": {
+    "name": "manus-import-unified-20251104-1100",
+    "source_zips": [
+      "webpagescreenshotsai24.zip",
+      "ai24-ai24-manus-ai-homepage.zip",
+      "ai24-ai24-manus-ai-treatmentpage.zip",
+      "ai24-ai24-manus-technologypage.zip",
+      "ai24-ai24_polish_kit.zip",
+      "manus-homepage-champagne-finish.zip",
+      "smh-champagne-tokens-pack.zip",
+      "excellentMANUS.zip",
+      "MANUSCOMPONENTS.zip",
+      "Generate Champagne Hero ZIP for St Mary’s House Dental.zip",
+      "services-grid-v2-assets.zip",
+      "Signature Services Grid Design for St Mary’s Dental (1).zip",
+      "Champagne_Visual_Vault_v2025_4_IMAGES_ONLY (1).zip",
+      "components-effects-pack-v2.zip",
+      "smh-luxury-components-deliverables.zip",
+      "smh-team-grid-luxe.zip",
+      "ai-engine-railway.zip",
+      "BLOG_INDEX_LUX.zip",
+      "BLOG_POST_LUX.zip",
+      "chatbot-backend-railway.zip",
+      "chatbot-luxury-ui-pack.zip",
+      "compliance-seo-pack.zip",
+      "domain-pages-pack-v2.zip",
+      "effects-utilities-pack.zip",
+      "EMERGENCY_LUX.zip",
+      "domain-pages-pack-v1.zip",
+      "FINANCE_LUX.zip",
+      "GALLERY_LUX.zip",
+      "manus files.zip",
+      "manusfiles.zip",
+      "manusALLscreenshots.zip",
+      "manusnicescreenshots.zip",
+      "manusshotsorignail.zip",
+      "lux-appointments-artifact.zip",
+      "lux-blog-index-artifact.zip",
+      "lux-blog-post-artifact.zip",
+      "lux-careers-template.zip",
+      "lux-contact-artifact.zip",
+      "lux-finance-artifact.zip",
+      "lux-gallery-artifact.zip",
+      "lux-legal-pack-template.zip",
+      "lux-pages-diff.zip",
+      "lux-pages-diff (1).zip",
+      "lux-patient-stories-artifact.zip",
+      "lux-emergency-artifact.zip",
+      "lux-fees-finance-template.zip",
+      "lux-treatment-detail-template.zip",
+      "lux-treatments-artifact.zip",
+      "lux-treatment-detail-artifact.zip",
+      "lux-team-member-detail-template.zip",
+      "patient-stories-polished-pack.zip",
+      "please-work-getting-lux-pages.zip",
+      "possible-lux-adding-zips.zip",
+      "smh-smile-ai.zip",
+      "smh-smile-journey.zip",
+      "smh-telephone-ai.zip",
+      "telephone-ai-receptionist-blueprint.zip",
+      "smile-ai-preview-pack.zip",
+      "footer-pack (generated)",
+      "header-pack (generated)"
+    ]
+  },
+  "components": [
+    {
+      "id": "fx-waves",
+      "kind": "effect",
+      "entry": "styles/champagne/effects/waves.css",
+      "preview_route": "/preview/fx-waves",
+      "css": ["styles/champagne/effects/waves.css"],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path": "public/brand/waves/wave-mask.svg", "type": "svg", "freeze": true},
+        {"path": "public/brand/waves/wave-bg.webp", "type": "image", "freeze": true}
+      ],
+      "manifest_patch": {
+        "waves": { "mask": "brand/waves/wave-mask.svg", "background": "brand/waves/wave-bg.webp", "blend": "overlay", "opacity": 0.30 }
+      },
+      "playwright_checks": ["gradient-canonical","mask-applied"]
+    },
+    {
+      "id": "fx-grain",
+      "kind": "effect",
+      "entry": "styles/champagne/effects/grain.css",
+      "preview_route": "/preview/fx-grain",
+      "css": ["styles/champagne/effects/grain.css"],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path": "public/brand/textures/film-grain-2560x1440.webp", "type": "image", "freeze": true}
+      ],
+      "manifest_patch": {
+        "textures": { "filmGrain": "brand/textures/film-grain-2560x1440.webp" }
+      },
+      "playwright_checks": ["gradient-canonical"]
+    },
+    {
+      "id": "fx-particles-soft",
+      "kind": "effect",
+      "entry": "styles/champagne/effects/particles.css",
+      "preview_route": "/preview/fx-particles-soft",
+      "css": ["styles/champagne/effects/particles.css"],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path": "public/brand/motion/particles-soft.webm", "type": "video", "alpha": false, "duration": 4.0, "poster": "public/brand/motion/posters/particles-soft.jpg", "freeze": true}
+      ],
+      "manifest_patch": {
+        "motion": { "particlesSoft": "brand/motion/particles-soft.webm" },
+        "posters": { "particlesSoft": "brand/motion/posters/particles-soft.jpg" }
+      },
+      "playwright_checks": ["prefers-reduced-motion-static"]
+    },
+    {
+      "id": "fx-caustics",
+      "kind": "effect",
+      "entry": "styles/champagne/effects/caustics.css",
+      "preview_route": "/preview/fx-caustics",
+      "css": ["styles/champagne/effects/caustics.css"],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path": "public/brand/motion/caustics.webm", "type": "video", "alpha": false, "duration": 8.0, "poster": "public/brand/motion/posters/caustics.jpg", "freeze": true}
+      ],
+      "manifest_patch": {
+        "motion": { "caustics": "brand/motion/caustics.webm" },
+        "posters": { "caustics": "brand/motion/posters/caustics.jpg" }
+      },
+      "playwright_checks": ["prefers-reduced-motion-static","gradient-canonical"]
+    },
+    {
+      "id": "header-champagne",
+      "kind": "react",
+      "entry": "components/imports/header-champagne/Header.tsx",
+      "preview_route": "/preview/header-champagne",
+      "css": ["styles/champagne/header.css"],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path": "public/brand/waves/header-wave-mask.svg", "type": "svg", "freeze": true},
+        {"path": "public/brand/textures/film-grain-2560x1440.webp", "type": "image", "freeze": true}
+      ],
+      "manifest_patch": {
+        "waves": { "headerMask": "brand/waves/header-wave-mask.svg" }
+      },
+      "playwright_checks": ["gradient-canonical","gold-keyline-present","prefers-reduced-motion-static"]
+    },
+    {
+      "id": "footer-champagne",
+      "kind": "react",
+      "entry": "components/imports/footer-champagne/Footer.tsx",
+      "preview_route": "/preview/footer-champagne",
+      "css": ["styles/champagne/footer.css"],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path": "public/brand/waves/footer-wave-mask.svg", "type": "svg", "freeze": true},
+        {"path": "public/brand/waves/wave-bg.webp", "type": "image", "freeze": true},
+        {"path": "public/brand/textures/film-grain-2560x1440.webp", "type": "image", "freeze": true},
+        {"path": "public/brand/motion/particles-soft.webm", "type": "video", "alpha": false, "duration": 4.0, "poster": "public/brand/motion/posters/particles-soft.jpg", "freeze": true}
+      ],
+      "manifest_patch": {
+        "waves": { "footerMask": "brand/waves/footer-wave-mask.svg" }
+      },
+      "playwright_checks": ["gradient-canonical","gold-keyline-present","prefers-reduced-motion-static"]
+    },
+    {
+      "id": "hero-champagne-v2",
+      "kind": "react",
+      "entry": "components/imports/hero-champagne-v2/Hero.tsx",
+      "preview_route": "/preview/hero-champagne-v2",
+      "css": [
+        "styles/champagne/hero-v2.css",
+        "styles/champagne/effects/waves.css",
+        "styles/champagne/effects/grain.css",
+        "styles/champagne/effects/particles.css"
+      ],
+      "tokens_ok": true,
+      "hard_hex": [],
+      "external_deps": [],
+      "assets": [
+        {"path":"public/brand/waves/wave-mask.svg","type":"svg","freeze":true},
+        {"path":"public/brand/waves/wave-bg.webp","type":"image","freeze":true},
+        {"path":"public/brand/textures/film-grain-2560x1440.webp","type":"image","freeze":true},
+        {"path":"public/brand/motion/particles-soft.webm","type":"video","alpha":false,"duration":4.0,"poster":"public/brand/motion/posters/particles-soft.jpg","freeze":true}
+      ],
+      "manifest_patch": {},
+      "playwright_checks": ["gradient-canonical","mask-applied","prefers-reduced-motion-static"]
+    }
+  ],
+  "assets_summary": {
+    "videos": [
+      {"file":"brand/motion/particles-soft.webm","dims":"2560x1440","duration":4.0,"alpha":false,"seamRisk":"low"},
+      {"file":"brand/motion/caustics.webm","dims":"2560x1440","duration":8.0,"alpha":false,"seamRisk":"medium"},
+      {"file":"brand/motion/gold-dust.webm","dims":"2560x1440","duration":8.0,"alpha":false,"seamRisk":"medium"}
+    ],
+    "images": [
+      {"file":"brand/textures/film-grain-2560x1440.webp","dims":"2560x1440","alpha":false},
+      {"file":"brand/waves/wave-bg.webp","dims":"2560x1440","alpha":false}
+    ],
+    "svgs": [
+      {"file":"brand/waves/header-wave-mask.svg","maskReady":true},
+      {"file":"brand/waves/footer-wave-mask.svg","maskReady":true},
+      {"file":"brand/waves/wave-mask.svg","maskReady":true},
+      {"file":"brand/icons/gold-divider.svg","maskReady":false}
+    ]
+  },
+  "guards": {
+    "freeze": [
+      "public/brand/waves/header-wave-mask.svg",
+      "public/brand/waves/footer-wave-mask.svg",
+      "public/brand/waves/wave-mask.svg",
+      "public/brand/waves/wave-bg.webp",
+      "public/brand/textures/film-grain-2560x1440.webp",
+      "public/brand/motion/particles-soft.webm",
+      "public/brand/motion/caustics.webm",
+      "public/brand/motion/gold-dust.webm",
+      "public/brand/motion/posters/particles-soft.jpg",
+      "public/brand/motion/posters/caustics.jpg",
+      "public/brand/motion/posters/gold-dust.jpg"
+    ],
+    "brand_lock_assertions": [
+      "no-rogue-hex",
+      "gradient-135-magenta-to-teal",
+      "gold-keyline-present",
+      "motion-respects-prm",
+      "mask-applied"
+    ]
+  },
+  "issues": [
+    {"severity":"warn","where":"components/imports/gallery-lux","note":"Lightbox overlay uses a dark veil in older variants; change to champagne translucency and add keyboard navigation."},
+    {"severity":"warn","where":"components/imports/blog-index-lux","note":"Legacy tag hover color not tokenized; replace with brand token."},
+    {"severity":"warn","where":"components/imports/blog-post-lux","note":"Legacy link hover color not tokenized; replace with brand token."},
+    {"severity":"warn","where":"components/imports/booking-calendar","note":"Selected-day color may use hard hex; tokenize and add aria-selected + keyboard support."},
+    {"severity":"warn","where":"components/imports/emergency-lux","note":"Alert red should be swapped for Champagne-compliant coral token; add aria-live=assertive."},
+    {"severity":"info","where":"brand/motion/caustics.webm","note":"Keep overlay ≤0.12–0.16 to avoid flattening gradient and gold keylines."},
+    {"severity":"info","where":"brand/motion/particles-soft.webm","note":"Ensure poster is set to avoid first-frame flash; PRM should collapse to poster."}
+  ],
+  "actions_suggested": [
+    "replace-hard-hex-with-tokens",
+    "patch-brand-manifest",
+    "add-prefers-reduced-motion-fallback",
+    "encode-webm-posters",
+    "add-freeze-hashes",
+    "write-playwright-tests",
+    "lightbox-keyboard-navigation",
+    "table-sr-summaries",
+    "aria-live-polite-and-assertive-where-applicable"
+  ]
+}
