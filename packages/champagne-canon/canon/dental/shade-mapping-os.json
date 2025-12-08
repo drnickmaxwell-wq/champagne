@@ -1,0 +1,25 @@
+{
+  "shadeMappingOS": {
+    "inputs": {
+      "imageCapture": true,
+      "referenceElement": ["shadeTab", "contralateralTooth", "greyCard"],
+      "lightingProfile": ["studio", "beauty", "clinical"],
+      "regionOfInterest": ["incisal", "middle", "cervical", "wholeTooth"]
+    },
+    "model": {
+      "dimensions": ["baseChroma", "value", "translucencyGradient", "warmthBias"]
+    },
+    "views": {
+      "patient": {
+        "lighting": "hdr.beauty",
+        "background": "material.ink.porcelain",
+        "languageMode": "simple"
+      },
+      "clinical": {
+        "lighting": "hdr.studio",
+        "background": "material.ink.pool",
+        "languageMode": "technical"
+      }
+    }
+  }
+}
