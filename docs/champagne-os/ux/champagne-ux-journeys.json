@@ -1,5 +1,26 @@
 {
-  "status": "placeholder",
-  "description": "This config will be populated with real Champagne data later.",
-  "items": []
+  "journeys": [
+    {
+      "id": "journey.veneers.makeover",
+      "treatmentSlug": "veneers",
+      "steps": [
+        { "id": "step.invite", "label": "Explore your options" },
+        { "id": "step.discovery", "label": "See if veneers suit you" },
+        { "id": "step.smileDesign", "label": "Preview your smile" },
+        { "id": "step.transform", "label": "Imagine the transformation" },
+        { "id": "step.commit", "label": "Take your next step" }
+        ]
+    },
+    {
+      "id": "journey.implants.standard",
+      "treatmentSlug": "implants",
+      "steps": [
+        { "id": "step.invite", "label": "Learn about implant options" },
+        { "id": "step.discovery", "label": "Understand suitability" },
+        { "id": "step.pathways", "label": "Choose your path" },
+        { "id": "step.transform", "label": "See how it looks in 3D" },
+        { "id": "step.commit", "label": "Plan with confidence" }
+      ]
+    }
+  ]
 }
