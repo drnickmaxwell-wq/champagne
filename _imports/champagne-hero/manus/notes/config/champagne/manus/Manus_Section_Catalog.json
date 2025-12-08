@@ -1,0 +1,1775 @@
+{
+  "label": "Champagne Ecosystem \u2014 Manus Section Catalog (Guard-Safe)",
+  "version": "2025-11-11",
+  "sections": [
+    {
+      "id": "/:hero",
+      "route": "/",
+      "section": "hero",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [
+        "02_HERO_FX/src/components/hero/HeroContent.tsx",
+        "02_HERO_FX/src/components/hero/HeroVideo.tsx",
+        "EXTRAMANUS/COMPLETE-HERO-VARIATIONS-DOCUMENTATION.md.docx",
+        "EXTRAMANUS/hero-design-variations.tsx",
+        "EXTRAMANUS/luxury-video-hero.tsx",
+        "LUXURY_EFFECTS_PACKAGE/components/hero/HeroVideoSection.tsx",
+        "MANUSCOMPONENTS/COMPLETE-HERO-VARIATIONS-DOCUMENTATION.md.docx",
+        "MANUSCOMPONENTS/cinematic-hero-video.tsx",
+        "MANUSCOMPONENTS/components/hero/4k-hero-video.tsx",
+        "MANUSCOMPONENTS/components/hero/cinematic-hero-video.tsx",
+        "MANUSCOMPONENTS/components/hero/original-hero-section.tsx",
+        "MANUSCOMPONENTS/components/video/cinematic-hero-video.tsx",
+        "MANUSCOMPONENTS/hero-design-variations.tsx",
+        "MANUSCOMPONENTS/hero-section.tsx",
+        "MANUSCOMPONENTS/hero-video-component.tsx",
+        "MANUSCOMPONENTS/luxury-video-hero.tsx",
+        "MANUSCOMPONENTS/original-hero-section.tsx",
+        "excellentMANUS/smh-luxury-home-hero.zip"
+      ],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "ready"
+    },
+    {
+      "id": "/:value-trio",
+      "route": "/",
+      "section": "value-trio",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:patient-stories",
+      "route": "/",
+      "section": "patient-stories",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "cardImageKB": 120,
+        "thumbKB": 40,
+        "videoPosterKB": 60
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:priority-treatments",
+      "route": "/",
+      "section": "priority-treatments",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:3d-ar",
+      "route": "/",
+      "section": "3d-ar",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [
+        "MANUSCOMPONENTS/\ud83c\udf1f Luxury 3D Dentistry Enhancement Plan.md",
+        "mega-OMG/components/manus/effects/webgpu/LuxuryParticleShader.tsx",
+        "mega-OMG/components/manus/effects/webgpu/LuxuryWaveDistortion.tsx"
+      ],
+      "accessibilityNotes": "Poster image, controls, captions; avoid autoplay with sound; respect PRM.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "ready"
+    },
+    {
+      "id": "/:ai-concierge",
+      "route": "/",
+      "section": "ai-concierge",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [
+        "EXTRAMANUS/luxury-chatbot-engine.ts",
+        "EXTRAMANUS/luxury-chatbot-widget.tsx",
+        "MANUSCOMPONENTS/AI-CHATBOT-IMPLEMENTATION-GUIDE.md",
+        "MANUSCOMPONENTS/components/ai/luxury-chatbot.tsx",
+        "MANUSCOMPONENTS/luxury-chatbot-engine.ts",
+        "MANUSCOMPONENTS/luxury-chatbot-widget.tsx",
+        "MANUSCOMPONENTS/luxury-chatbot.tsx"
+      ],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "ready"
+    },
+    {
+      "id": "/:teleconsult",
+      "route": "/",
+      "section": "teleconsult",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:finance",
+      "route": "/",
+      "section": "finance",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:faq",
+      "route": "/",
+      "section": "faq",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Use semantic accordion with keyboard support; headings structure; large tap targets.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:local-proof",
+      "route": "/",
+      "section": "local-proof",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/:footer",
+      "route": "/",
+      "section": "footer",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [
+        "EXTRAMANUS/luxury-footer.tsx",
+        "MANUSCOMPONENTS/luxury-footer.tsx"
+      ],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "ready"
+    },
+    {
+      "id": "/treatments/[slug]:hero",
+      "route": "/treatments/[slug]",
+      "section": "hero",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:symptoms-benefits",
+      "route": "/treatments/[slug]",
+      "section": "symptoms-benefits",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:how-it-works",
+      "route": "/treatments/[slug]",
+      "section": "how-it-works",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:eligibility",
+      "route": "/treatments/[slug]",
+      "section": "eligibility",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:results",
+      "route": "/treatments/[slug]",
+      "section": "results",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:gallery",
+      "route": "/treatments/[slug]",
+      "section": "gallery",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "cardImageKB": 120,
+        "thumbKB": 40,
+        "videoPosterKB": 60
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:pricing",
+      "route": "/treatments/[slug]",
+      "section": "pricing",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:3d-ar",
+      "route": "/treatments/[slug]",
+      "section": "3d-ar",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Poster image, controls, captions; avoid autoplay with sound; respect PRM.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:experts",
+      "route": "/treatments/[slug]",
+      "section": "experts",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:faqs",
+      "route": "/treatments/[slug]",
+      "section": "faqs",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Use semantic accordion with keyboard support; headings structure; large tap targets.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/treatments/[slug]:cta",
+      "route": "/treatments/[slug]",
+      "section": "cta",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/technology:hero",
+      "route": "/technology",
+      "section": "hero",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/technology:tech-grid",
+      "route": "/technology",
+      "section": "tech-grid",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/technology:demo",
+      "route": "/technology",
+      "section": "demo",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Poster image, controls, captions; avoid autoplay with sound; respect PRM.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/technology:cases",
+      "route": "/technology",
+      "section": "cases",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/technology:faq",
+      "route": "/technology",
+      "section": "faq",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Use semantic accordion with keyboard support; headings structure; large tap targets.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/technology:cta",
+      "route": "/technology",
+      "section": "cta",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:hero",
+      "route": "/about",
+      "section": "hero",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "lcpBudgetKB": 120,
+        "secondaryKB": 400,
+        "decorativeKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:team",
+      "route": "/about",
+      "section": "team",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:tour",
+      "route": "/about",
+      "section": "tour",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:values",
+      "route": "/about",
+      "section": "values",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:safety",
+      "route": "/about",
+      "section": "safety",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:press",
+      "route": "/about",
+      "section": "press",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:faq",
+      "route": "/about",
+      "section": "faq",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Use semantic accordion with keyboard support; headings structure; large tap targets.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/about:cta",
+      "route": "/about",
+      "section": "cta",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/patient-stories:filters",
+      "route": "/patient-stories",
+      "section": "filters",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/patient-stories:grid",
+      "route": "/patient-stories",
+      "section": "grid",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "cardImageKB": 120,
+        "thumbKB": 40,
+        "videoPosterKB": 60
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/patient-stories:pagination",
+      "route": "/patient-stories",
+      "section": "pagination",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/ai-smile-quiz:intro",
+      "route": "/ai-smile-quiz",
+      "section": "intro",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/ai-smile-quiz:steps",
+      "route": "/ai-smile-quiz",
+      "section": "steps",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/ai-smile-quiz:results",
+      "route": "/ai-smile-quiz",
+      "section": "results",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/portal:overview",
+      "route": "/portal",
+      "section": "overview",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/portal:cta",
+      "route": "/portal",
+      "section": "cta",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "AA contrast over gradients; aria-labels for primary CTAs; clear focus rings.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/contact:smart-contact",
+      "route": "/contact",
+      "section": "smart-contact",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/contact:map-hours",
+      "route": "/contact",
+      "section": "map-hours",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/contact:faq",
+      "route": "/contact",
+      "section": "faq",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "Use semantic accordion with keyboard support; headings structure; large tap targets.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/blog:hubs",
+      "route": "/blog",
+      "section": "hubs",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    },
+    {
+      "id": "/blog:posts",
+      "route": "/blog",
+      "section": "posts",
+      "visualStyle": "champagne-quiet-luxury",
+      "tokensUsed": [
+        "var(--smh-primary-magenta)",
+        "var(--smh-primary-teal)",
+        "var(--smh-accent-gold)",
+        "var(--smh-accent-gold-soft)",
+        "var(--smh-ink)",
+        "var(--smh-text)",
+        "var(--smh-gradient)"
+      ],
+      "layerStack": [
+        "gradient",
+        "wave",
+        "particles",
+        "grain",
+        "glass",
+        "content"
+      ],
+      "motionParams": {
+        "parallaxMaxPx": 6,
+        "hoverScaleMax": 1.03,
+        "easing": "cubic-bezier(0.645,0.045,0.355,1)",
+        "respectPRM": true
+      },
+      "assetRefs": [],
+      "accessibilityNotes": "H1/H2 order; alt text for images; visible focus; link purpose clear.",
+      "performanceBudget": {
+        "genericKB": 100
+      },
+      "status": "missing"
+    }
+  ]
+}
