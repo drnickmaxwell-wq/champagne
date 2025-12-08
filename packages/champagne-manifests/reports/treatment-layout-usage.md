@@ -27,3 +27,13 @@ This note traces how treatment slugs now flow through the builder into the hero 
 
 - Many treatment sections only ship IDs/types today; the adapter supplies neutral, accessible placeholder copy to keep layouts complete until full text arrives.
 - Hero presets from the styles manifest currently provide palette/motion metadata. If a hero-specific title/subtitle is ever authored there, `ChampagneHeroFrame` will display it automatically.
+
+## Composite bonding — rich layout stack
+
+- Overview rich (eyebrow, headline, key bullets)
+- Media feature with Champagne canvas placeholder
+- AI tools trio grid
+- Clinician insight quote
+- Patient stories rail
+- FAQ block
+- Closing CTA band

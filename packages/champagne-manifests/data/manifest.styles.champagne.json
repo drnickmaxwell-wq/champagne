@@ -187,6 +187,34 @@
     "treatment_feature_list": {
       "type": "feature-list",
       "surface": "champagne/surface/treatment"
+    },
+    "composite_overview_rich": {
+      "type": "treatment_overview_rich",
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_media_feature": {
+      "type": "treatment_media_feature",
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_ai_tools": {
+      "type": "treatment_tools_trio",
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_clinician_insight": {
+      "type": "clinician_insight",
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_patient_stories": {
+      "type": "patient_stories_rail",
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/treatment"
+    },
+    "composite_closing_cta": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
     }
   }
 }
