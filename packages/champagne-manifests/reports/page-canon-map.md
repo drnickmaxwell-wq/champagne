@@ -2,11 +2,15 @@
 
 | Slug | Title | Hero preset? | Section stack? | Route status |
 | --- | --- | --- | --- | --- |
-| / | Home | Yes | Yes | Present via `/page.tsx` |
-| /smile-gallery | Smile Gallery | Yes | Yes | Present via `(champagne)/smile-gallery` |
-| /about | About | Yes | Yes | Present via `(champagne)/about` |
-| /contact | Contact | Yes | Yes | Present via `/contact/page.tsx` |
-| /legal/privacy | Privacy Policy | Yes | Yes | Present via `(champagne)/legal/privacy` |
+| / | Home | `home_neutral_hero_v1` | `home_intro_positioning`, `home_care_highlights`, `home_get_started_band` | Manifest-driven via `/page.tsx` |
+| /team | Team | `team_preview_hero_v1` | `team_intro_copy`, `team_grid_placeholder`, `team_connection_cta` | Manifest-driven via `/team/page.tsx` |
+| /contact | Contact | `contact_calm_hero_v1` | `contact_intro_copy`, `contact_details_simple`, `contact_followup_cta` | Manifest-driven via `/contact/page.tsx` |
+| /smile-gallery | Smile gallery | `smile_gallery_placeholder_hero` | `smile_gallery_intro_copy`, `smile_gallery_cases_overview`, `smile_gallery_case_categories` | Manifest-driven via `(champagne)/smile-gallery` |
+| /blog | Blog | `blog_intro_hero_v1` | `blog_intro_copy`, `blog_placeholder_features` | Manifest-driven via `/blog/page.tsx` |
+| /patient-portal | Patient portal | `patient_portal_placeholder_hero` | `patient_portal_intro_copy`, `patient_portal_features`, `patient_portal_cta_band` | Manifest-driven via `/patient-portal/page.tsx` |
+| /about | About | `about_story_hero_v1` | `about_story`, `team_profiles`, `technology_stack`, `cta_gold_bar` | Present via `(champagne)/about` |
+| /legal/privacy | Privacy Policy | `legal_simple_banner` | `legal_intro`, `legal_terms` | Present via `(champagne)/legal/privacy` |
 
 ## Notes
-- No additional non-treatment manifest entries are currently missing routes. TODO list remains empty.
+- All non-treatment nav destinations now map to manifest entries, style presets, and live routes.
+- Home remains intentionally minimal while the sacred hero evolves; other pages use neutral placeholder copy only.

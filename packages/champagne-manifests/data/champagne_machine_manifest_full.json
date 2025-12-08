@@ -9,27 +9,35 @@
       "label": "Home",
       "path": "/",
       "category": "hub",
-      "hero": "sacred_home_hero_v1",
+      "hero": "home_neutral_hero_v1",
       "sections": [
         {
-          "id": "intro_story_walk",
-          "type": "story"
+          "id": "home_intro_positioning",
+          "type": "copy-block",
+          "title": "Calm, modern care with Champagne surfaces",
+          "copy": "A neutral welcome while the full Champagne experience is prepared. Every section here is a placeholder scaffold for the future home layout.",
+          "label": "Welcome"
         },
         {
-          "id": "treatment_highlights",
-          "type": "grid"
+          "id": "home_care_highlights",
+          "type": "feature-list",
+          "title": "Key care highlights",
+          "items": [
+            "Comfort-led visits and clear explanations",
+            "Modern diagnostics with balanced aesthetics",
+            "Transparent next steps for every patient"
+          ],
+          "label": "Highlights"
         },
         {
-          "id": "ai_smile_atelier",
-          "type": "lab"
-        },
-        {
-          "id": "reviews_radiance",
-          "type": "social-proof"
-        },
-        {
-          "id": "cta_gold_bar",
-          "type": "cta"
+          "id": "home_get_started_band",
+          "type": "cta",
+          "title": "Ways to get started",
+          "ctas": [
+            { "label": "Explore treatments", "href": "/treatments", "preset": "primary" },
+            { "label": "Plan a visit", "href": "/contact", "preset": "secondary" }
+          ],
+          "label": "Get started"
         }
       ],
       "surface": "champagne/surface/home"
@@ -195,22 +203,36 @@
     },
     "smile_gallery": {
       "id": "smile_gallery",
-      "label": "Smile Gallery",
+      "label": "Smile gallery",
       "path": "/smile-gallery",
       "category": "editorial",
-      "hero": "gallery_showcase_hero",
+      "hero": "smile_gallery_placeholder_hero",
       "sections": [
         {
-          "id": "gallery_grid",
-          "type": "gallery"
+          "id": "smile_gallery_intro_copy",
+          "type": "copy-block",
+          "title": "Smile transformations, simplified",
+          "copy": "This gallery will showcase restorative and cosmetic journeys once assets are ready. For now, it outlines the structure for future case stories.",
+          "label": "Overview"
         },
         {
-          "id": "testimonial_slider",
-          "type": "slider"
+          "id": "smile_gallery_cases_overview",
+          "type": "copy-block",
+          "title": "Cases overview",
+          "copy": "Each case will pair concise context with before-and-after frames. Categories below preview how the gallery will be organized.",
+          "label": "Cases"
         },
         {
-          "id": "cta_gold_bar",
-          "type": "cta"
+          "id": "smile_gallery_case_categories",
+          "type": "feature-list",
+          "title": "Case categories",
+          "items": [
+            "Everyday smile refresh",
+            "Full smile rehabilitation",
+            "Implant-supported transformations",
+            "Aligner-guided straightening"
+          ],
+          "label": "Categories"
         }
       ],
       "surface": "champagne/surface/editorial"
@@ -241,24 +263,78 @@
       ],
       "surface": "champagne/surface/hub"
     },
+    "team": {
+      "id": "team",
+      "label": "Team",
+      "path": "/team",
+      "category": "hub",
+      "hero": "team_preview_hero_v1",
+      "sections": [
+        {
+          "id": "team_intro_copy",
+          "type": "copy-block",
+          "title": "Meet the clinical team",
+          "copy": "Profiles and credentials will sit here soon. This placeholder keeps space for a welcoming introduction and future team spotlights.",
+          "label": "Team"
+        },
+        {
+          "id": "team_grid_placeholder",
+          "type": "feature-grid",
+          "title": "Team members",
+          "items": [
+            "Clinical leads — bios in progress",
+            "Hygiene and therapy — caring guides",
+            "Support staff — coordinating each visit"
+          ],
+          "label": "Team grid"
+        },
+        {
+          "id": "team_connection_cta",
+          "type": "cta",
+          "title": "Connect with the team",
+          "ctas": [
+            { "label": "Plan a visit", "href": "/contact", "preset": "primary" },
+            { "label": "Patient portal", "href": "/patient-portal", "preset": "secondary" }
+          ],
+          "label": "Connection"
+        }
+      ],
+      "surface": "champagne/surface/hub"
+    },
     "contact": {
       "id": "contact",
       "label": "Contact",
       "path": "/contact",
       "category": "utility",
-      "hero": "contact_friendly_hero",
+      "hero": "contact_calm_hero_v1",
       "sections": [
         {
-          "id": "contact_details",
-          "type": "contact"
+          "id": "contact_intro_copy",
+          "type": "copy-block",
+          "title": "How to reach us",
+          "copy": "We are setting up the refreshed contact channels. Use these placeholders as a guide until the live communication tools are connected.",
+          "label": "Contact"
         },
         {
-          "id": "map_embed",
-          "type": "map"
+          "id": "contact_details_simple",
+          "type": "feature-list",
+          "title": "Practice details",
+          "items": [
+            "Direct phone and email links will be published here",
+            "Location, parking, and access notes stay front and center",
+            "Secure messaging will route through the portal"
+          ],
+          "label": "Details"
         },
         {
-          "id": "cta_gold_bar",
-          "type": "cta"
+          "id": "contact_followup_cta",
+          "type": "cta",
+          "title": "Plan a visit",
+          "ctas": [
+            { "label": "Request a call back", "href": "/patient-portal", "preset": "primary" },
+            { "label": "Message the team", "href": "/contact", "preset": "secondary" }
+          ],
+          "label": "Next steps"
         }
       ],
       "surface": "champagne/surface/utility"
@@ -280,6 +356,72 @@
         }
       ],
       "surface": "champagne/surface/legal"
+    },
+    "blog": {
+      "id": "blog",
+      "label": "Blog",
+      "path": "/blog",
+      "category": "editorial",
+      "hero": "blog_intro_hero_v1",
+      "sections": [
+        {
+          "id": "blog_intro_copy",
+          "type": "copy-block",
+          "title": "Practice insights",
+          "copy": "Stories and updates will publish here once the content calendar is live. This space holds the layout for future articles.",
+          "label": "Insights"
+        },
+        {
+          "id": "blog_placeholder_features",
+          "type": "feature-list",
+          "title": "Latest insights (coming soon)",
+          "items": [
+            "Clinical updates and technology notes",
+            "Preventive tips from the team",
+            "Practice news and patient experience stories"
+          ],
+          "label": "Coming soon"
+        }
+      ],
+      "surface": "champagne/surface/editorial"
+    },
+    "patient_portal": {
+      "id": "patient_portal",
+      "label": "Patient portal",
+      "path": "/patient-portal",
+      "category": "utility",
+      "hero": "patient_portal_placeholder_hero",
+      "sections": [
+        {
+          "id": "patient_portal_intro_copy",
+          "type": "copy-block",
+          "title": "Secure access for patients",
+          "copy": "The portal will bring together appointments, forms, and updates. Until it is live, this placeholder outlines the planned experience.",
+          "label": "Portal"
+        },
+        {
+          "id": "patient_portal_features",
+          "type": "feature-list",
+          "title": "What to expect",
+          "items": [
+            "Encrypted access to appointments and records",
+            "Secure document sharing and forms",
+            "Progress updates and follow-up reminders"
+          ],
+          "label": "Features"
+        },
+        {
+          "id": "patient_portal_cta_band",
+          "type": "cta",
+          "title": "Check back soon",
+          "ctas": [
+            { "label": "Portal status", "href": "/patient-portal", "preset": "primary" },
+            { "label": "Contact the team", "href": "/contact", "preset": "secondary" }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/utility"
     },
     "implants_single_tooth": {
       "id": "implants_single_tooth",
