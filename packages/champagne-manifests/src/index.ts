@@ -7,6 +7,7 @@ export {
   getPageManifestBySlug,
   getHeroPresetForPage,
   getSectionStackForPage,
+  getMainNavItems,
   type ChampagneCTA,
   type ChampagnePageCTAConfig,
   type ChampagneMachineManifest,
@@ -15,6 +16,7 @@ export {
   type ChampagnePageManifest,
   type ChampagnePageSection,
   type ChampagneStylesManifest,
+  type NavItem,
 } from "./core";
 
 export {
