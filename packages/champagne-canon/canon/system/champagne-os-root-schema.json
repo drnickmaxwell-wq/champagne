@@ -1,0 +1,149 @@
+
+---
+
+## 3️⃣ Root Schema (Machine-Readable)
+
+### `/canon/system/champagne-os-root-schema.json`
+
+```json
+{
+  "champagneOS": {
+    "version": "champagne-os-v1",
+    "schema": {
+      "type": "object",
+      "required": ["meta", "visual", "motion", "sensory", "dental", "emotion", "ai", "continuity", "stackGuard"],
+      "properties": {
+        "meta": {
+          "type": "object",
+          "required": ["version", "context"],
+          "properties": {
+            "version": { "type": "string" },
+            "context": { "type": "string" },
+            "journeyId": { "type": "string" }
+          }
+        },
+        "visual": {
+          "type": "object",
+          "properties": {
+            "themeMode": {
+              "type": "string",
+              "enum": ["light", "dark", "dawn", "midday", "goldenHour", "inkfall", "night", "ceremonial"]
+            },
+            "surfaceMaterialId": { "type": "string" },
+            "hdrMode": {
+              "type": "string",
+              "enum": ["studio", "beauty", "inkfall", "clinical"]
+            },
+            "weatherId": { "type": "string" }
+          }
+        },
+        "motion": {
+          "type": "object",
+          "properties": {
+            "microMotionProfile": {
+              "type": "string",
+              "enum": ["silent", "softBreath", "cinematic"]
+            },
+            "temporalState": {
+              "type": "string",
+              "enum": ["dawn", "midday", "goldenHour", "inkfall", "night", "ceremonial"]
+            },
+            "rituals": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "spatialProfile": { "type": "string" }
+          }
+        },
+        "sensory": {
+          "type": "object",
+          "properties": {
+            "soundProfile": { "type": "object" },
+            "hapticsProfile": { "type": "object" }
+          }
+        },
+        "dental": {
+          "type": "object",
+          "properties": {
+            "materials": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "shadeMapping": {
+              "type": "object",
+              "properties": {
+                "mode": { "type": "string", "enum": ["patient", "clinical"] },
+                "lightingProfile": {
+                  "type": "string",
+                  "enum": ["beauty", "studio", "clinical"]
+                }
+              }
+            },
+            "anatomyProfile": { "type": "string" },
+            "smileSimulator": { "type": "object" }
+          }
+        },
+        "emotion": {
+          "type": "object",
+          "properties": {
+            "emotionalLightingState": {
+              "type": "string",
+              "enum": ["assurance", "luxuryEmotion", "precision", "gratitude"]
+            },
+            "cognitiveLoadConfig": {
+              "type": "string",
+              "enum": ["auto", "off", "strict"]
+            },
+            "behaviourPrediction": {
+              "type": "string",
+              "enum": ["enabled", "disabled"]
+            },
+            "useMoodMemory": { "type": "boolean" }
+          }
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "persona": {
+              "type": "string",
+              "enum": ["reassurer", "clinicalSage", "luxuryHost", "companionGuide"]
+            },
+            "toneMode": {
+              "type": "string",
+              "enum": ["assurance", "precision", "inspiration", "ceremony"]
+            },
+            "narrativeChapter": {
+              "type": "string",
+              "enum": ["invitation", "discovery", "transformation", "commitment", "assurance"]
+            }
+          }
+        },
+        "continuity": {
+          "type": "object",
+          "properties": {
+            "multiDevice": {
+              "type": "string",
+              "enum": ["enabled", "disabled"]
+            },
+            "carryForward": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "resumeBehaviour": {
+              "type": "string",
+              "enum": ["autoResume", "askUser"]
+            }
+          }
+        },
+        "stackGuard": {
+          "type": "object",
+          "properties": {
+            "enforce": { "type": "boolean" },
+            "strictMode": { "type": "boolean" },
+            "logViolations": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}

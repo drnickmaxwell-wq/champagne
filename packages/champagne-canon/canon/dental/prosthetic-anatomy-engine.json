@@ -1,0 +1,29 @@
+{
+  "prostheticAnatomyEngine": {
+    "dimensions": ["macroForm", "mesoForm", "microForm"],
+    "veneerStyles": {
+      "naturalEnhanced": {
+        "id": "anatomy.veneer.naturalEnhanced",
+        "edgeRegularity": "medium",
+        "texture": "subtle",
+        "valueShift": "+0.5"
+      },
+      "subtleGlam": {
+        "id": "anatomy.veneer.subtleGlam",
+        "edgeRegularity": "medium-high",
+        "texture": "soft",
+        "valueShift": "+1.0"
+      },
+      "ultraRefined": {
+        "id": "anatomy.veneer.ultraRefined",
+        "edgeRegularity": "high",
+        "texture": "minimal",
+        "valueShift": "+0.8"
+      }
+    },
+    "crownProfiles": {
+      "posterior": "anatomy.crown.posterior.functionalSoft",
+      "anterior": "anatomy.crown.anterior.enamelMimic"
+    }
+  }
+}

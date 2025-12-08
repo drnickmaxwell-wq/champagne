@@ -1,0 +1,49 @@
+{
+  "version": "champagne-temporal-law-v1",
+  "temporalStates": [
+    "dawn",
+    "midday",
+    "goldenHour",
+    "inkfall",
+    "night",
+    "ceremonial"
+  ],
+  "transitions": [
+    {
+      "from": "dawn",
+      "to": "midday",
+      "durationRangeSec": [2.0, 2.4],
+      "curve": "champagneDrift",
+      "layers": ["surface.temperature", "fx.temperature", "edge.temperature"],
+      "fxAdjustments": ["reduce.gold", "increase.teal.edge"]
+    },
+    {
+      "from": "midday",
+      "to": "goldenHour",
+      "durationRangeSec": [2.4, 3.2],
+      "curve": "champagneDrift",
+      "layers": ["surface.temperature", "fx.temperature", "shadows"],
+      "fxAdjustments": ["add.soft.caustics", "activate.microgold"]
+    },
+    {
+      "from": "goldenHour",
+      "to": "inkfall",
+      "durationRangeSec": [3.2, 4.2],
+      "curve": "champagneDrift",
+      "layers": ["surface.depth", "fx.bubbles", "gradient.135"],
+      "fxAdjustments": ["reduce.gold", "cool.shimmer"]
+    },
+    {
+      "from": "inkfall",
+      "to": "night",
+      "durationRangeSec": [1.8, 2.2],
+      "curve": "champagneDrift",
+      "layers": ["surface.depth", "fx.grain", "glass.liquid"],
+      "fxAdjustments": ["increase.liquid", "cool.edges"]
+    }
+  ],
+  "curves": {
+    "champagneDrift": "cubic-bezier(0.33, 0.0, 0.15, 1.0)",
+    "edgeGlint": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+  }
+}

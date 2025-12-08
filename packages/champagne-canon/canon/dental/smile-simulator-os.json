@@ -1,0 +1,11 @@
+{
+  "smileSimulatorOS": {
+    "interactionModes": ["microOrbit", "guidedTransform", "layerPeel"],
+    "lightingModes": ["studio", "goldenHour", "inkfall"],
+    "materials": [
+      "material.dental.enamel.natural",
+      "material.dental.ceramic.lithiumDisilicate",
+      "material.dental.zirconia.multi"
+    ]
+  }
+}

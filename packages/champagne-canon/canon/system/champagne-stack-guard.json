@@ -1,0 +1,30 @@
+{
+  "stackGuard": {
+    "version": "champagne-stack-guard-v1",
+    "order": [
+      "layer.base",
+      "layer.gradient135",
+      "layer.weather",
+      "layer.material",
+      "layer.fx",
+      "layer.content",
+      "layer.ritual"
+    ],
+    "rules": {
+      "noGoldInWeather": true,
+      "gradientAngleMustBe135": true,
+      "gradientRequiredOnChampagneScenes": true,
+      "contentMustRemainSharp": true,
+      "fxCannotUnderMaterial": true,
+      "grainCannotAboveContent": true,
+      "ritualLayerTimeoutMs": 2400,
+      "enforceWCAGContrast": true,
+      "respectPrefersReducedMotion": true
+    },
+    "violations": {
+      "onViolation": "error",
+      "logChannel": "champagne.canon.stackGuard",
+      "failBuildOnSevere": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "personaMatrix": {
+    "personas": {
+      "reassurer": {
+        "tone": "warm",
+        "pacing": "slow",
+        "vocabulary": "soft"
+      },
+      "clinicalSage": {
+        "tone": "neutral",
+        "pacing": "steady",
+        "vocabulary": "precise"
+      },
+      "luxuryHost": {
+        "tone": "warm-gold",
+        "pacing": "fluid",
+        "vocabulary": "inviting"
+      },
+      "companionGuide": {
+        "tone": "neutral-warm",
+        "pacing": "structured",
+        "vocabulary": "directive"
+      }
+    },
+    "transitionLogic": "state-driven",
+    "inputs": ["cognitiveLoad", "lighting", "moodMemory", "journeyContext"]
+  }
+}

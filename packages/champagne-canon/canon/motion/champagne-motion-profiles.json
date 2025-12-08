@@ -1,0 +1,56 @@
+{
+  "version": "champagne-motion-profiles-v1",
+  "profiles": {
+    "motion.softBreath": {
+      "description": "Very slow, breathing movement for water, mist, and waves.",
+      "durationRangeMs": [6000, 12000],
+      "easing": "cubic-bezier(0.33, 0.0, 0.15, 1.0)",
+      "maxOffsetPx": 4
+    },
+    "motion.deepBreath": {
+      "description": "Stronger variant of softBreath for major hero transitions.",
+      "durationRangeMs": [4000, 8000],
+      "easing": "cubic-bezier(0.33, 0.0, 0.15, 1.0)",
+      "maxOffsetPx": 6
+    },
+    "motion.inkfallDrift": {
+      "description": "Slow vertical drift for ink textures.",
+      "durationRangeMs": [8000, 16000],
+      "easing": "cubic-bezier(0.33, 0.0, 0.15, 1.0)",
+      "maxOffsetPx": 6
+    },
+    "motion.confidenceShimmer": {
+      "description": "Short shimmer sweep for key CTAs and focus states.",
+      "durationRangeMs": [450, 750],
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
+      "maxOffsetPx": 2
+    },
+    "motion.pulseCalm": {
+      "description": "Soft scaling “heartbeat” for particles and micro glows.",
+      "durationRangeMs": [1200, 2200],
+      "scaleRange": [1.0, 1.03],
+      "easing": "cubic-bezier(0.33, 0.0, 0.15, 1.0)"
+    },
+    "motion.parallaxGentle": {
+      "description": "Ultra-low parallax for 3D-ish layers and glass sheens.",
+      "durationRangeMs": [800, 1600],
+      "maxOffsetPxDesktop": 6,
+      "maxOffsetPxMobile": 3
+    },
+    "motion.cardLiftSoft": {
+      "description": "Hover lift for cards.",
+      "durationRangeMs": [180, 260],
+      "scaleRange": [1.0, 1.03],
+      "liftPx": 8
+    },
+    "motion.prmFadeOnly": {
+      "description": "PRM-friendly alpha transitions only.",
+      "durationRangeMs": [160, 240],
+      "allowedProperties": ["opacity"]
+    },
+    "motion.staticStill": {
+      "description": "No motion.",
+      "durationRangeMs": [0, 0]
+    }
+  }
+}

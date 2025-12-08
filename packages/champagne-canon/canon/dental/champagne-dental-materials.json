@@ -1,0 +1,39 @@
+{
+  "dentalMaterials": {
+    "enamel": {
+      "id": "material.dental.enamel.natural",
+      "translucency": "high",
+      "highlight": "softRibbon",
+      "scatter": "warm-depth"
+    },
+    "lithiumDisilicate": {
+      "id": "material.dental.ceramic.lithiumDisilicate",
+      "translucency": "medium",
+      "highlight": "crisp",
+      "edges": "microShimmer"
+    },
+    "zirconiaMono": {
+      "id": "material.dental.zirconia.mono",
+      "opacity": "high",
+      "highlight": "thinBand",
+      "tone": "cool"
+    },
+    "zirconiaMulti": {
+      "id": "material.dental.zirconia.multi",
+      "opacity": "medium",
+      "gradient": "warmToCool",
+      "highlight": "thinBand"
+    },
+    "compositeUniversal": {
+      "id": "material.dental.composite.universal",
+      "translucency": "low",
+      "highlight": "soft",
+      "texture": "microFillers"
+    },
+    "titanium": {
+      "id": "material.dental.metal.titaniumGrade5",
+      "finish": "brushed",
+      "highlight": "coolLinear"
+    }
+  }
+}
