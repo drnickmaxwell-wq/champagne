@@ -1,0 +1,9 @@
+{
+  "narrativeChapters": {
+    "invitation": { "lighting": "dawn", "weather": "softHaze", "motion": "fade-warm" },
+    "discovery": { "lighting": "midday", "weather": "clearStudio", "motion": "fade-neutral" },
+    "transformation": { "lighting": "goldenHour", "weather": "subsurfaceRipple", "motion": "fade-cinematic" },
+    "commitment": { "lighting": "ceremonial", "weather": "clearStudio", "motion": "bloom-gold" },
+    "assurance": { "lighting": "inkfall", "weather": "deepInk", "motion": "fade-cool" }
+  }
+}
