@@ -1,30 +1,16 @@
 {
   "version": 1,
-  "generatedAt": "2025-11-07T11:53:37.009Z",
+  "generatedAt": "2025-12-08T06:21:15Z",
   "files": {
-    "public/assets/champagne/motion/wave-caustics.webm": "sha256:0593b391db915ed435d3d94974449854e92d05c45c74c5c76ed7668076395146",
-    "public/assets/champagne/waves/wave-mask-desktop.webp": "sha256:d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930",
-    "public/assets/champagne/waves/wave-mask-mobile.webp": "sha256:69db4a90235a8c879c2449fe318ce45c81256462fe703815c9cc1b8ac8ac0baf",
-    "public/assets/champagne/motion/glass-shimmer.webm": "sha256:fe9ce17cc9fcc7d1183e27c42396093ff7ae653ebd6d7c556b75165c018ca2eb",
-    "public/assets/champagne/particles/home-hero-particles.webp": "sha256:76346f1deebed171b950adb9fe9341293a7cad9af377d52aad27f3964da06447",
-    "public/assets/champagne/motion/particles-drift.webm": "sha256:cfb0307f9245ed0ad0dd88ca4355e139db412aee24fee98ed717166d56ba7aa1",
-    "public/assets/champagne/particles/gold-dust-drift.webm": "sha256:112c3194f85cb131d53c1e1fdbe9b39cdbbbd9cc85324abdf60167a03caa5f9b",
-    "public/assets/champagne/textures/home-hero-film-grain.webp": "sha256:1b6d3793f0f4c70a1d9aea9f060eeda36cae8d27de41bd1ff0730f1797b7e6fa",
-    "public/brand/textures/film-grain-2560x1440.webp": {
-      "derived": true,
-      "generator": "scripts/generate-film-grain.mjs",
-      "args": [
-        "--seed",
-        "champagne-v1",
-        "--width",
-        "2560",
-        "--height",
-        "1440",
-        "--intensity",
-        "0.015"
-      ],
-      "expectedPixelSha": "e016252e74ce1540556b8a7bd0062304bf3a52b5c198a076903aecca55f6bb46"
-    },
-    "public/brand/waves/header-wave-mask.svg": "sha256:69feb30a37749d26ecdb679e52ab5808f5dd79e19d369f8ee619e7f29b43cb1a"
+    "public/assets/champagne/motion/wave-caustics.webm": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/waves/wave-mask-desktop.webp": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/waves/wave-mask-mobile.webp": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/motion/glass-shimmer.webm": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/particles/home-hero-particles.webp": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/motion/particles-drift.webm": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/particles/gold-dust-drift.webm": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/assets/champagne/textures/home-hero-film-grain.webp": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/brand/textures/film-grain-2560x1440.webp": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public/brand/waves/header-wave-mask.svg": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
 }
