@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedBy": "Director AI",
+    "description": "Safety and scope constraints for Codex edits in the Champagne repo."
+  },
+
+  "readOnlyGlobs": [
+    "docs/manus-atlas/v1/**",
+    "config/champagne/champagne-canon.lock.json",
+    "config/champagne/page-architecture.json",
+    "config/champagne/hero-registry.json",
+    "config/champagne/page-registry.json",
+    "config/champagne/preview-promotion-map.json",
+    "public/brand/waves/**",
+    "public/brand/effects/**",
+    "app/champagne/hero/**",
+    "app/preview/(with-shell)/hero-gilded/**"
+  ],
+
+  "allowedEditGlobs": [
+    "app/treatments/**",
+    "app/anxiety-dentistry/**",
+    "app/emergency-dentist/**",
+    "app/video-consultation/**",
+    "app/patient-stories/**",
+    "app/patient-education/**",
+    "app/ai-smile-quiz/**",
+    "app/blog/**",
+    "app/team/**",
+    "app/preview/**",
+    "app/preview-v2/**",
+    "components/**",
+    "styles/**",
+    "config/champagne/*.json",
+    "!config/champagne/champagne-canon.lock.json"
+  ],
+
+  "forbiddenOperations": [
+    "write-raw-hex-colours",
+    "create-new-layout-outside-layout-template-map",
+    "modify-sacred-hero-layer-stack",
+    "change-gradient-angle-away-from-135deg",
+    "add-new-gold-colour-tokens",
+    "delete-or-rename-canon-docs"
+  ],
+
+  "lintRules": {
+    "noRawHex": {
+      "pattern": "#[0-9a-fA-F]{3,6}",
+      "severity": "error",
+      "message": "Raw hex colours are forbidden. Use Champagne tokens only."
+    },
+    "noInlineLinearGradient": {
+      "pattern": "linear-gradient\\(",
+      "severity": "warning",
+      "message": "Inline gradients discouraged. Use tokenised utilities and gradient law."
+    }
+  },
+
+  "routeProtection": {
+    "/": {
+      "lockLevel": "SACRED",
+      "allowCopyChanges": true,
+      "allowStructureChanges": false,
+      "notes": "Codex may only update text/content props; may not reorder sections or structurally alter hero."
+    },
+    "/champagne/hero": {
+      "lockLevel": "REFERENCE_ONLY",
+      "allowCopyChanges": false,
+      "allowStructureChanges": false,
+      "notes": "QA surface only; no code edits."
+    }
+  },
+
+  "heroEditPolicy": {
+    "component": "/components/hero/ChampagneHero.tsx",
+    "allowNewVariants": true,
+    "requireRegistrationInHeroRegistry": true,
+    "forbidOverrideOfLockedIds": ["HOME_HERO_CHAMPAGNE_V1", "CB_HERO_FINAL"]
+  },
+
+  "promotionGuards": {
+    "configFile": "config/champagne/preview-promotion-map.json",
+    "requireCleanGitDiffForLockedFiles": true,
+    "notes": "Before promoting any /preview route, Codex must check preview-promotion-map and refuse promotion for routes with status != 'ready'."
+  }
+}

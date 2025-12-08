@@ -1,0 +1,128 @@
+@layer preview-champagne.utilities {
+  .lux-wave {
+    background:
+      radial-gradient(1200px 600px at 70% 10%, color-mix(in srgb, var(--brand-teal) 18%, transparent), transparent 62%),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--brand-magenta) 78%, var(--smh-ink) 22%) 0%,
+        color-mix(in srgb, var(--brand-teal) 78%, var(--smh-ink) 22%) 64%,
+        color-mix(in srgb, var(--brand-gold) 38%, var(--smh-ink-soft) 62%) 100%
+      ),
+      url('/waves/smh-wave-mask.svg');
+    background-blend-mode: soft-light, overlay, normal;
+    background-size: cover, cover, 1600px auto;
+    background-position: center, center, 50% 30%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    filter: saturate(0.88) contrast(1.01);
+  }
+
+  .hero-layer-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .lux-grain {
+    --lux-grain-opacity-base: 0.08;
+  }
+
+  .hero-layer-media--grain {
+    opacity: var(--lux-grain-opacity, var(--lux-grain-opacity-base));
+    mix-blend-mode: soft-light;
+    filter: saturate(0.92);
+    transition: opacity 280ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lux-grain {
+      --lux-grain-opacity-base: 0.05;
+    }
+  }
+
+  .lux-particles {
+    --lux-particles-opacity-base: 0.12;
+    filter: saturate(0.92) contrast(1.02);
+  }
+
+  .hero-layer-media--particles {
+    opacity: var(--lux-particles-opacity, var(--lux-particles-opacity-base));
+    mix-blend-mode: screen;
+    transition: opacity 320ms ease;
+    animation: particleDrift 28s ease-in-out infinite;
+  }
+
+  .lux-particles .hero-layer-media--particles:nth-of-type(2) {
+    animation-duration: 32s;
+    animation-direction: reverse;
+    transform-origin: 60% 40%;
+  }
+
+  .lux-particles .hero-layer-media--particles:nth-of-type(3) {
+    animation-duration: 36s;
+    transform-origin: 40% 60%;
+  }
+
+  @keyframes particleDrift {
+    0% {
+      transform: translate3d(-4%, -3%, 0) scale(1.02);
+    }
+
+    50% {
+      transform: translate3d(3%, 4%, 0) scale(1.05);
+    }
+
+    100% {
+      transform: translate3d(-4%, -3%, 0) scale(1.02);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-layer-media--particles {
+      animation: none;
+      transform: none;
+    }
+  }
+
+  .lux-gold-rim {
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--brand-gold) 65%, transparent);
+  }
+
+  .lux-glass {
+    --cta-contrast-boost: 0%;
+    --lux-glass-lightness: calc(28% + var(--cta-contrast-boost));
+    background: color-mix(
+      in srgb,
+      var(--smh-ink-soft) calc(46% - var(--cta-contrast-boost)),
+      var(--cpv-card-bg, var(--surface-0)) var(--lux-glass-lightness)
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    color: var(--cpv-page-text, color-mix(in srgb, var(--smh-white) 86%, var(--smh-ink) 14%));
+    border: 1px solid color-mix(in srgb, var(--cpv-gold-keyline, var(--brand-gold)) 70%, transparent 42%);
+  }
+
+  .lux-glass :where(p, h3, span) {
+    color: inherit;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .lux-glass {
+      background: color-mix(
+        in srgb,
+        var(--smh-ink) calc(68% - var(--cta-contrast-boost)),
+        var(--cpv-card-bg, var(--surface-0)) calc(32% + var(--cta-contrast-boost))
+      );
+      color: color-mix(
+        in srgb,
+        var(--smh-white) calc(88% + var(--cta-contrast-boost)),
+        color-mix(in srgb, var(--smh-ink) 16%, transparent) calc(12% - var(--cta-contrast-boost))
+      );
+      border-color: color-mix(in oklab, var(--brand-gold) 34%, transparent);
+    }
+  }
+}

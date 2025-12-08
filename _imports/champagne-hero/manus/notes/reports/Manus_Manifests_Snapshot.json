@@ -1,0 +1,3024 @@
+{
+  "generatedAt": "2025-11-09T18:40:23.124053+00:00",
+  "files": [
+    {
+      "path": "public/brand/manifest.json",
+      "type": "brand_surface",
+      "label": "Brand Surface Manifest",
+      "status": "found",
+      "sha256": "c3a2753a927b0389c9755eafb8c9129195982f0dea8833e4f424255c7f037926",
+      "parsed": {
+        "name": "SMH Champagne Canon",
+        "version": "1.0.0",
+        "tokens": "/styles/tokens/smh-champagne-tokens.css",
+        "gradientVar": "--smh-gradient",
+        "goldVar": "--smh-accent-gold",
+        "gradient": {
+          "angle": 135,
+          "stops": [
+            {
+              "color": "#C2185B",
+              "pos": 0
+            },
+            {
+              "color": "#40C4B4",
+              "pos": 60
+            },
+            {
+              "color": "#D4AF37",
+              "pos": 100
+            }
+          ],
+          "css": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)"
+        },
+        "gold": {
+          "hex": "#D4AF37",
+          "usage": "keylines, accents only"
+        },
+        "typography": {
+          "headings": "Playfair Display",
+          "body": "Inter"
+        },
+        "waves": {
+          "mask": "/assets/champagne/waves/wave-mask-desktop.webp",
+          "background": "/assets/champagne/waves/wave-bg.webp"
+        },
+        "textures": {
+          "filmGrain": "/assets/champagne/textures/home-hero-film-grain.webp",
+          "glass": "/assets/champagne/textures/glass-soft.webp",
+          "glassSoft": "/assets/champagne/textures/glass-soft.webp"
+        },
+        "particles": {
+          "soft": "/assets/champagne/particles/home-hero-particles.webp"
+        },
+        "motion": {
+          "waveCaustics": "/assets/champagne/motion/wave-caustics.webm",
+          "glassShimmer": "/assets/champagne/motion/glass-shimmer.webm",
+          "particlesDrift": "/assets/champagne/motion/particles-drift.webm",
+          "goldDust": "/assets/champagne/motion/gold-dust-drift.webm"
+        },
+        "static": {
+          "textures": {
+            "filmGrain": "/brand/textures/film-grain-2560x1440.webp",
+            "glassSoft": "/brand/textures/glass-soft.webp"
+          },
+          "waves": {
+            "background": "/brand/waves/wave-bg.webp",
+            "mask": "/brand/waves/wave-mask.svg"
+          }
+        },
+        "dynamic": {
+          "particles": [
+            {
+              "id": "particles-soft",
+              "src": "/brand/particles/particles-soft.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "subtle"
+            },
+            {
+              "id": "shimmer-waves",
+              "src": "/brand/particles/shimmer-waves.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "subtle"
+            },
+            {
+              "id": "iridescent-glow",
+              "src": "/brand/particles/iridescent-glow.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "subtle"
+            },
+            {
+              "id": "grain-motion",
+              "src": "/brand/particles/grain-motion.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "ultra-subtle"
+            }
+          ]
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--smh-accent-gold",
+          "--smh-gradient"
+        ],
+        "assetPaths": [
+          "/assets/champagne/motion/glass-shimmer.webm",
+          "/assets/champagne/motion/gold-dust-drift.webm",
+          "/assets/champagne/motion/particles-drift.webm",
+          "/assets/champagne/motion/wave-caustics.webm",
+          "/assets/champagne/particles/home-hero-particles.webp",
+          "/assets/champagne/textures/glass-soft.webp",
+          "/assets/champagne/textures/home-hero-film-grain.webp",
+          "/assets/champagne/waves/wave-bg.webp",
+          "/assets/champagne/waves/wave-mask-desktop.webp",
+          "/brand/particles/grain-motion.webm",
+          "/brand/particles/iridescent-glow.webm",
+          "/brand/particles/particles-soft.webm",
+          "/brand/particles/shimmer-waves.webm",
+          "/brand/textures/film-grain-2560x1440.webp",
+          "/brand/textures/glass-soft.webp",
+          "/brand/waves/wave-bg.webp",
+          "/brand/waves/wave-mask.svg"
+        ],
+        "previewRoutes": [],
+        "hardHexValues": [
+          "#40C4B4",
+          "#C2185B",
+          "#D4AF37"
+        ]
+      }
+    },
+    {
+      "path": "public/assets/champagne/manifest.json",
+      "type": "hero_stack",
+      "label": "Champagne Assets Manifest",
+      "status": "found",
+      "sha256": "42ba31ecb2eb10f906280d6b3ebf01c6a66d385181275be297b855e956009927",
+      "parsed": {
+        "component": "ChampagneHero",
+        "version": "2.0.0",
+        "description": "Premium hero section with wave-masked gradient, particles, film grain, motion videos, and parallax for St Mary's House Dental",
+        "designSystem": "St Mary's House Champagne Design System",
+        "lastUpdated": "2025-11-01",
+        "author": "Manus AI",
+        "tokens": {
+          "colors": {
+            "brandMagenta": "#C2185B",
+            "brandTurquoise": "#2CBFAE",
+            "brandTurquoiseAlt": "#40C4B4",
+            "brandGold": "#D4AF37",
+            "paper": "#FFFFFF",
+            "ink": "#0E1420"
+          },
+          "gradients": {
+            "champagne": "linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%)",
+            "cta": "linear-gradient(135deg, #C2185B 0%, #2CBFAE 55%, #D4AF37 100%)"
+          },
+          "typography": {
+            "display": "Playfair Display",
+            "body": "Inter"
+          },
+          "radii": {
+            "pill": "999px",
+            "lg": "18px"
+          },
+          "shadows": {
+            "glow": "0 0 1px rgba(255, 255, 255, 0.6), 0 10px 40px rgba(194, 24, 91, 0.25)",
+            "goldGlow": "0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2)"
+          }
+        },
+        "layers": [
+          {
+            "id": 1,
+            "name": "gradient-base",
+            "type": "static",
+            "description": "Base champagne gradient background",
+            "src": null,
+            "cssBackground": "var(--gradient-champagne)",
+            "opacity": 1.0,
+            "blendMode": "normal",
+            "parallaxMaxPx": 0,
+            "zIndex": 1
+          },
+          {
+            "id": 2,
+            "name": "wave-caustics",
+            "type": "motion",
+            "description": "Subtle underwater light caustics with gradient colors",
+            "src": "/assets/champagne/motion/wave-caustics.webm",
+            "opacity": 0.1,
+            "blendMode": "screen",
+            "parallaxMaxPx": 2,
+            "zIndex": 2
+          },
+          {
+            "id": 3,
+            "name": "wave-mask",
+            "type": "static",
+            "description": "Wave pattern mask overlay",
+            "src": "/assets/champagne/waves/wave-mask-desktop.webp",
+            "srcMobile": "/assets/champagne/waves/wave-mask-mobile.webp",
+            "opacity": 0.4,
+            "blendMode": "overlay",
+            "parallaxMaxPx": 4,
+            "zIndex": 3
+          },
+          {
+            "id": 4,
+            "name": "glass-shimmer",
+            "type": "motion",
+            "description": "Elegant glass shimmer with gold highlights",
+            "src": "/assets/champagne/motion/glass-shimmer.webm",
+            "opacity": 0.12,
+            "blendMode": "screen",
+            "parallaxMaxPx": 1,
+            "zIndex": 4
+          },
+          {
+            "id": 5,
+            "name": "particles-static",
+            "type": "static",
+            "description": "Static particle texture (tileable)",
+            "src": "/assets/champagne/particles/home-hero-particles.webp",
+            "opacity": 0.08,
+            "blendMode": "screen",
+            "parallaxMaxPx": 3,
+            "zIndex": 5,
+            "tileable": true,
+            "tileSize": "1024px 1024px"
+          },
+          {
+            "id": 6,
+            "name": "particles-drift",
+            "type": "motion",
+            "description": "Animated particles drifting slowly",
+            "src": "/assets/champagne/motion/particles-drift.webm",
+            "opacity": 0.06,
+            "blendMode": "screen",
+            "parallaxMaxPx": 3,
+            "zIndex": 6
+          },
+          {
+            "id": 7,
+            "name": "gold-dust-drift",
+            "type": "motion",
+            "description": "Sparse gold dust particles for luxury accent",
+            "src": "/assets/champagne/particles/gold-dust-drift.webm",
+            "opacity": 0.08,
+            "blendMode": "screen",
+            "parallaxMaxPx": 2,
+            "zIndex": 7
+          },
+          {
+            "id": 8,
+            "name": "film-grain",
+            "type": "static",
+            "description": "Fine film grain texture (tileable)",
+            "src": "/assets/champagne/textures/home-hero-film-grain.webp",
+            "opacity": 0.07,
+            "blendMode": "overlay",
+            "parallaxMaxPx": 0,
+            "zIndex": 8,
+            "tileable": true,
+            "tileSize": "512px 512px"
+          },
+          {
+            "id": 9,
+            "name": "content",
+            "type": "content",
+            "description": "Hero text content and CTAs",
+            "src": null,
+            "opacity": 1.0,
+            "blendMode": "normal",
+            "parallaxMaxPx": 0,
+            "zIndex": 9
+          }
+        ],
+        "parallax": {
+          "maxTotal": 6,
+          "unit": "px",
+          "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+        },
+        "motion": {
+          "videoFormat": "webm",
+          "codec": "vp9",
+          "alphaChannel": true,
+          "maxFileSize": "4MB",
+          "fps": 24,
+          "loop": true,
+          "autoplay": true,
+          "muted": true,
+          "playsInline": true
+        },
+        "accessibility": {
+          "contrast": "AA",
+          "focusRing": "#D4AF37 1px glow",
+          "minHitTarget": "44x44px",
+          "semanticHTML": true,
+          "keyboardNav": true,
+          "reducedMotion": true,
+          "reducedMotionBehavior": "Hide all motion layers, show static gradient and wave mask only",
+          "ariaLabels": {
+            "section": "aria-labelledby=\"home-hero-title\"",
+            "primaryCTA": "Book a consultation",
+            "secondaryCTA": "Explore treatments"
+          }
+        },
+        "responsive": {
+          "desktop": {
+            "minHeight": "70vh",
+            "safePadding": "96px",
+            "containerMaxWidth": "1200px"
+          },
+          "mobile": {
+            "minHeight": "68vh",
+            "safePadding": "80px",
+            "ctaLayout": "stacked"
+          }
+        },
+        "assets": [
+          {
+            "path": "public/assets/champagne/waves/wave-mask-desktop.webp",
+            "width": 2560,
+            "height": 1440,
+            "format": "webp",
+            "purpose": "Wave mask for desktop viewport"
+          },
+          {
+            "path": "public/assets/champagne/waves/wave-mask-mobile.webp",
+            "width": 1170,
+            "height": 2532,
+            "format": "webp",
+            "purpose": "Wave mask for mobile viewport"
+          },
+          {
+            "path": "public/assets/champagne/particles/home-hero-particles.webp",
+            "width": 1024,
+            "height": 1024,
+            "format": "webp",
+            "purpose": "Seamless particle texture",
+            "tileable": true
+          },
+          {
+            "path": "public/assets/champagne/textures/home-hero-film-grain.webp",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "purpose": "Seamless film grain texture",
+            "tileable": true
+          },
+          {
+            "path": "public/assets/champagne/motion/wave-caustics.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "458KB",
+            "purpose": "Animated wave caustics effect"
+          },
+          {
+            "path": "public/assets/champagne/motion/glass-shimmer.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "457KB",
+            "purpose": "Glass shimmer animation"
+          },
+          {
+            "path": "public/assets/champagne/motion/particles-drift.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "412KB",
+            "purpose": "Drifting particles animation"
+          },
+          {
+            "path": "public/assets/champagne/particles/gold-dust-drift.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "384KB",
+            "purpose": "Gold dust drift animation"
+          }
+        ],
+        "performance": {
+          "willChange": [
+            "transform"
+          ],
+          "hardwareAcceleration": true,
+          "lazyLoading": true,
+          "assetCaching": true,
+          "videoPreload": "auto"
+        },
+        "browserSupport": {
+          "chrome": "90+",
+          "firefox": "88+",
+          "safari": "14+",
+          "edge": "90+"
+        },
+        "compliance": {
+          "layerOrder": "strict",
+          "parallaxCap": "6px",
+          "particleDensity": "0.6-0.9%",
+          "grainStrength": "6-8%",
+          "gradientAccuracy": "95%+",
+          "brandTokens": "CSS variables only",
+          "motionDisable": "prefers-reduced-motion: reduce"
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--gradient-champagne"
+        ],
+        "assetPaths": [
+          "/assets/champagne/motion/glass-shimmer.webm",
+          "/assets/champagne/motion/particles-drift.webm",
+          "/assets/champagne/motion/wave-caustics.webm",
+          "/assets/champagne/particles/gold-dust-drift.webm",
+          "/assets/champagne/particles/home-hero-particles.webp",
+          "/assets/champagne/textures/home-hero-film-grain.webp",
+          "/assets/champagne/waves/wave-mask-desktop.webp",
+          "/assets/champagne/waves/wave-mask-mobile.webp",
+          "public/assets/champagne/motion/glass-shimmer.webm",
+          "public/assets/champagne/motion/particles-drift.webm",
+          "public/assets/champagne/motion/wave-caustics.webm",
+          "public/assets/champagne/particles/gold-dust-drift.webm",
+          "public/assets/champagne/particles/home-hero-particles.webp",
+          "public/assets/champagne/textures/home-hero-film-grain.webp",
+          "public/assets/champagne/waves/wave-mask-desktop.webp",
+          "public/assets/champagne/waves/wave-mask-mobile.webp"
+        ],
+        "previewRoutes": [],
+        "hardHexValues": [
+          "#0E1420",
+          "#2CBFAE",
+          "#40C4B4",
+          "#C2185B",
+          "#D4AF37",
+          "#FFFFFF"
+        ]
+      }
+    },
+    {
+      "path": "public/brand/champagne_machine_manifest_full.json",
+      "type": "machine_manifest",
+      "label": "Champagne Machine Manifest",
+      "status": "found",
+      "sha256": "142458ffaa2a0eca47b6814b31d7c0322d20f881aedce907e0774311b79bac03",
+      "parsed": {
+        "package": "champagne-canon",
+        "version": "1.0.0",
+        "components": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "assets": {
+              "waves": {
+                "mask": "/assets/champagne/waves/wave-mask-desktop.webp",
+                "background": "/assets/champagne/waves/waves-bg-2560.webp"
+              },
+              "motion": {
+                "waveCaustics": "/assets/champagne/motion/wave-caustics.webm",
+                "glassShimmer": "/assets/champagne/motion/glass-shimmer.webm",
+                "goldDust": "/assets/champagne/motion/gold-dust-drift.webm",
+                "particles": "/assets/champagne/motion/particles-drift.webm",
+                "filmGrain": "/assets/champagne/textures/home-hero-film-grain.webp"
+              },
+              "particlesStatic": "/assets/champagne/particles/home-hero-particles.webp"
+            },
+            "hints": {
+              "gradientId": "champagne-core-135",
+              "blend": {
+                "caustics": "screen",
+                "glass": "soft-light",
+                "particles": "overlay",
+                "gold": "color-dodge",
+                "grain": "multiply"
+              },
+              "opacity": {
+                "caustics": 0.35,
+                "glass": 0.28,
+                "particles": 0.2,
+                "gold": 0.26,
+                "grain": 0.16
+              }
+            }
+          }
+        ],
+        "guards": {
+          "freeze": [
+            "/public/assets/champagne/waves/wave-mask-desktop.webp",
+            "/public/assets/champagne/waves/waves-bg-2560.webp",
+            "/public/assets/champagne/motion/wave-caustics.webm",
+            "/public/assets/champagne/motion/glass-shimmer.webm",
+            "/public/assets/champagne/motion/gold-dust-drift.webm",
+            "/public/assets/champagne/motion/particles-drift.webm",
+            "/public/assets/champagne/particles/home-hero-particles.webp",
+            "/public/assets/champagne/textures/home-hero-film-grain.webp"
+          ],
+          "brand_lock_assertions": [
+            "no-rogue-hex",
+            "gradient-135-magenta-to-teal",
+            "mask-applied",
+            "motion-respects-prm"
+          ]
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [],
+        "assetPaths": [
+          "/assets/champagne/motion/glass-shimmer.webm",
+          "/assets/champagne/motion/gold-dust-drift.webm",
+          "/assets/champagne/motion/particles-drift.webm",
+          "/assets/champagne/motion/wave-caustics.webm",
+          "/assets/champagne/particles/home-hero-particles.webp",
+          "/assets/champagne/textures/home-hero-film-grain.webp",
+          "/assets/champagne/waves/wave-mask-desktop.webp",
+          "/assets/champagne/waves/waves-bg-2560.webp",
+          "public/assets/champagne/motion/glass-shimmer.webm",
+          "public/assets/champagne/motion/gold-dust-drift.webm",
+          "public/assets/champagne/motion/particles-drift.webm",
+          "public/assets/champagne/motion/wave-caustics.webm",
+          "public/assets/champagne/particles/home-hero-particles.webp",
+          "public/assets/champagne/textures/home-hero-film-grain.webp",
+          "public/assets/champagne/waves/wave-mask-desktop.webp",
+          "public/assets/champagne/waves/waves-bg-2560.webp"
+        ],
+        "previewRoutes": [],
+        "hardHexValues": []
+      }
+    },
+    {
+      "path": "public/brand/manus_import_unified_manifest_20251104.json",
+      "type": "unified_import",
+      "label": "Unified Import Manifest",
+      "status": "found",
+      "sha256": "d9425fd87b902928ae188669db43d42d63ca4cece1c2d33ec9584726a634c736",
+      "parsed": {
+        "package": {
+          "name": "manus-import-unified-20251104-1100",
+          "source_zips": [
+            "webpagescreenshotsai24.zip",
+            "ai24-ai24-manus-ai-homepage.zip",
+            "ai24-ai24-manus-ai-treatmentpage.zip",
+            "ai24-ai24-manus-technologypage.zip",
+            "ai24-ai24_polish_kit.zip",
+            "manus-homepage-champagne-finish.zip",
+            "smh-champagne-tokens-pack.zip",
+            "excellentMANUS.zip",
+            "MANUSCOMPONENTS.zip",
+            "Generate Champagne Hero ZIP for St Mary’s House Dental.zip",
+            "services-grid-v2-assets.zip",
+            "Signature Services Grid Design for St Mary’s Dental (1).zip",
+            "Champagne_Visual_Vault_v2025_4_IMAGES_ONLY (1).zip",
+            "components-effects-pack-v2.zip",
+            "smh-luxury-components-deliverables.zip",
+            "smh-team-grid-luxe.zip",
+            "ai-engine-railway.zip",
+            "BLOG_INDEX_LUX.zip",
+            "BLOG_POST_LUX.zip",
+            "chatbot-backend-railway.zip",
+            "chatbot-luxury-ui-pack.zip",
+            "compliance-seo-pack.zip",
+            "domain-pages-pack-v2.zip",
+            "effects-utilities-pack.zip",
+            "EMERGENCY_LUX.zip",
+            "domain-pages-pack-v1.zip",
+            "FINANCE_LUX.zip",
+            "GALLERY_LUX.zip",
+            "manus files.zip",
+            "manusfiles.zip",
+            "manusALLscreenshots.zip",
+            "manusnicescreenshots.zip",
+            "manusshotsorignail.zip",
+            "lux-appointments-artifact.zip",
+            "lux-blog-index-artifact.zip",
+            "lux-blog-post-artifact.zip",
+            "lux-careers-template.zip",
+            "lux-contact-artifact.zip",
+            "lux-finance-artifact.zip",
+            "lux-gallery-artifact.zip",
+            "lux-legal-pack-template.zip",
+            "lux-pages-diff.zip",
+            "lux-pages-diff (1).zip",
+            "lux-patient-stories-artifact.zip",
+            "lux-emergency-artifact.zip",
+            "lux-fees-finance-template.zip",
+            "lux-treatment-detail-template.zip",
+            "lux-treatments-artifact.zip",
+            "lux-treatment-detail-artifact.zip",
+            "lux-team-member-detail-template.zip",
+            "patient-stories-polished-pack.zip",
+            "please-work-getting-lux-pages.zip",
+            "possible-lux-adding-zips.zip",
+            "smh-smile-ai.zip",
+            "smh-smile-journey.zip",
+            "smh-telephone-ai.zip",
+            "telephone-ai-receptionist-blueprint.zip",
+            "smile-ai-preview-pack.zip",
+            "footer-pack (generated)",
+            "header-pack (generated)"
+          ]
+        },
+        "components": [
+          {
+            "id": "fx-waves",
+            "kind": "effect",
+            "entry": "styles/champagne/effects/waves.css",
+            "preview_route": "/preview/fx-waves",
+            "css": [
+              "styles/champagne/effects/waves.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/waves/wave-mask.svg",
+                "type": "svg",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/waves/wave-bg.webp",
+                "type": "image",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {
+              "waves": {
+                "mask": "brand/waves/wave-mask.svg",
+                "background": "brand/waves/wave-bg.webp",
+                "blend": "overlay",
+                "opacity": 0.3
+              }
+            },
+            "playwright_checks": [
+              "gradient-canonical",
+              "mask-applied"
+            ]
+          },
+          {
+            "id": "fx-grain",
+            "kind": "effect",
+            "entry": "styles/champagne/effects/grain.css",
+            "preview_route": "/preview/fx-grain",
+            "css": [
+              "styles/champagne/effects/grain.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/textures/film-grain-2560x1440.webp",
+                "type": "image",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {
+              "textures": {
+                "filmGrain": "brand/textures/film-grain-2560x1440.webp"
+              }
+            },
+            "playwright_checks": [
+              "gradient-canonical"
+            ]
+          },
+          {
+            "id": "fx-particles-soft",
+            "kind": "effect",
+            "entry": "styles/champagne/effects/particles.css",
+            "preview_route": "/preview/fx-particles-soft",
+            "css": [
+              "styles/champagne/effects/particles.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/motion/particles-soft.webm",
+                "type": "video",
+                "alpha": false,
+                "duration": 4.0,
+                "poster": "public/brand/motion/posters/particles-soft.jpg",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {
+              "motion": {
+                "particlesSoft": "brand/motion/particles-soft.webm"
+              },
+              "posters": {
+                "particlesSoft": "brand/motion/posters/particles-soft.jpg"
+              }
+            },
+            "playwright_checks": [
+              "prefers-reduced-motion-static"
+            ]
+          },
+          {
+            "id": "fx-caustics",
+            "kind": "effect",
+            "entry": "styles/champagne/effects/caustics.css",
+            "preview_route": "/preview/fx-caustics",
+            "css": [
+              "styles/champagne/effects/caustics.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/motion/caustics.webm",
+                "type": "video",
+                "alpha": false,
+                "duration": 8.0,
+                "poster": "public/brand/motion/posters/caustics.jpg",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {
+              "motion": {
+                "caustics": "brand/motion/caustics.webm"
+              },
+              "posters": {
+                "caustics": "brand/motion/posters/caustics.jpg"
+              }
+            },
+            "playwright_checks": [
+              "prefers-reduced-motion-static",
+              "gradient-canonical"
+            ]
+          },
+          {
+            "id": "header-champagne",
+            "kind": "react",
+            "entry": "components/imports/header-champagne/Header.tsx",
+            "preview_route": "/preview/header-champagne",
+            "css": [
+              "styles/champagne/header.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/waves/header-wave-mask.svg",
+                "type": "svg",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/textures/film-grain-2560x1440.webp",
+                "type": "image",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {
+              "waves": {
+                "headerMask": "brand/waves/header-wave-mask.svg"
+              }
+            },
+            "playwright_checks": [
+              "gradient-canonical",
+              "gold-keyline-present",
+              "prefers-reduced-motion-static"
+            ]
+          },
+          {
+            "id": "footer-champagne",
+            "kind": "react",
+            "entry": "components/imports/footer-champagne/Footer.tsx",
+            "preview_route": "/preview/footer-champagne",
+            "css": [
+              "styles/champagne/footer.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/waves/footer-wave-mask.svg",
+                "type": "svg",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/waves/wave-bg.webp",
+                "type": "image",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/textures/film-grain-2560x1440.webp",
+                "type": "image",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/motion/particles-soft.webm",
+                "type": "video",
+                "alpha": false,
+                "duration": 4.0,
+                "poster": "public/brand/motion/posters/particles-soft.jpg",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {
+              "waves": {
+                "footerMask": "brand/waves/footer-wave-mask.svg"
+              }
+            },
+            "playwright_checks": [
+              "gradient-canonical",
+              "gold-keyline-present",
+              "prefers-reduced-motion-static"
+            ]
+          },
+          {
+            "id": "hero-champagne-v2",
+            "kind": "react",
+            "entry": "components/imports/hero-champagne-v2/Hero.tsx",
+            "preview_route": "/preview/hero-champagne-v2",
+            "css": [
+              "styles/champagne/hero-v2.css",
+              "styles/champagne/effects/waves.css",
+              "styles/champagne/effects/grain.css",
+              "styles/champagne/effects/particles.css"
+            ],
+            "tokens_ok": true,
+            "hard_hex": [],
+            "external_deps": [],
+            "assets": [
+              {
+                "path": "public/brand/waves/wave-mask.svg",
+                "type": "svg",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/waves/wave-bg.webp",
+                "type": "image",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/textures/film-grain-2560x1440.webp",
+                "type": "image",
+                "freeze": true
+              },
+              {
+                "path": "public/brand/motion/particles-soft.webm",
+                "type": "video",
+                "alpha": false,
+                "duration": 4.0,
+                "poster": "public/brand/motion/posters/particles-soft.jpg",
+                "freeze": true
+              }
+            ],
+            "manifest_patch": {},
+            "playwright_checks": [
+              "gradient-canonical",
+              "mask-applied",
+              "prefers-reduced-motion-static"
+            ]
+          }
+        ],
+        "assets_summary": {
+          "videos": [
+            {
+              "file": "brand/motion/particles-soft.webm",
+              "dims": "2560x1440",
+              "duration": 4.0,
+              "alpha": false,
+              "seamRisk": "low"
+            },
+            {
+              "file": "brand/motion/caustics.webm",
+              "dims": "2560x1440",
+              "duration": 8.0,
+              "alpha": false,
+              "seamRisk": "medium"
+            },
+            {
+              "file": "brand/motion/gold-dust.webm",
+              "dims": "2560x1440",
+              "duration": 8.0,
+              "alpha": false,
+              "seamRisk": "medium"
+            }
+          ],
+          "images": [
+            {
+              "file": "brand/textures/film-grain-2560x1440.webp",
+              "dims": "2560x1440",
+              "alpha": false
+            },
+            {
+              "file": "brand/waves/wave-bg.webp",
+              "dims": "2560x1440",
+              "alpha": false
+            }
+          ],
+          "svgs": [
+            {
+              "file": "brand/waves/header-wave-mask.svg",
+              "maskReady": true
+            },
+            {
+              "file": "brand/waves/footer-wave-mask.svg",
+              "maskReady": true
+            },
+            {
+              "file": "brand/waves/wave-mask.svg",
+              "maskReady": true
+            },
+            {
+              "file": "brand/icons/gold-divider.svg",
+              "maskReady": false
+            }
+          ]
+        },
+        "guards": {
+          "freeze": [
+            "public/brand/waves/header-wave-mask.svg",
+            "public/brand/waves/footer-wave-mask.svg",
+            "public/brand/waves/wave-mask.svg",
+            "public/brand/waves/wave-bg.webp",
+            "public/brand/textures/film-grain-2560x1440.webp",
+            "public/brand/motion/particles-soft.webm",
+            "public/brand/motion/caustics.webm",
+            "public/brand/motion/gold-dust.webm",
+            "public/brand/motion/posters/particles-soft.jpg",
+            "public/brand/motion/posters/caustics.jpg",
+            "public/brand/motion/posters/gold-dust.jpg"
+          ],
+          "brand_lock_assertions": [
+            "no-rogue-hex",
+            "gradient-135-magenta-to-teal",
+            "gold-keyline-present",
+            "motion-respects-prm",
+            "mask-applied"
+          ]
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "where": "components/imports/gallery-lux",
+            "note": "Lightbox overlay uses a dark veil in older variants; change to champagne translucency and add keyboard navigation."
+          },
+          {
+            "severity": "warn",
+            "where": "components/imports/blog-index-lux",
+            "note": "Legacy tag hover color not tokenized; replace with brand token."
+          },
+          {
+            "severity": "warn",
+            "where": "components/imports/blog-post-lux",
+            "note": "Legacy link hover color not tokenized; replace with brand token."
+          },
+          {
+            "severity": "warn",
+            "where": "components/imports/booking-calendar",
+            "note": "Selected-day color may use hard hex; tokenize and add aria-selected + keyboard support."
+          },
+          {
+            "severity": "warn",
+            "where": "components/imports/emergency-lux",
+            "note": "Alert red should be swapped for Champagne-compliant coral token; add aria-live=assertive."
+          },
+          {
+            "severity": "info",
+            "where": "brand/motion/caustics.webm",
+            "note": "Keep overlay ≤0.12–0.16 to avoid flattening gradient and gold keylines."
+          },
+          {
+            "severity": "info",
+            "where": "brand/motion/particles-soft.webm",
+            "note": "Ensure poster is set to avoid first-frame flash; PRM should collapse to poster."
+          }
+        ],
+        "actions_suggested": [
+          "replace-hard-hex-with-tokens",
+          "patch-brand-manifest",
+          "add-prefers-reduced-motion-fallback",
+          "encode-webm-posters",
+          "add-freeze-hashes",
+          "write-playwright-tests",
+          "lightbox-keyboard-navigation",
+          "table-sr-summaries",
+          "aria-live-polite-and-assertive-where-applicable"
+        ]
+      },
+      "crossLinks": {
+        "tokensReferenced": [],
+        "assetPaths": [
+          "/brand/motion/caustics.webm",
+          "/brand/motion/gold-dust.webm",
+          "/brand/motion/particles-soft.webm",
+          "/brand/motion/posters/caustics.jpg",
+          "/brand/motion/posters/gold-dust.jpg",
+          "/brand/motion/posters/particles-soft.jpg",
+          "/brand/textures/film-grain-2560x1440.webp",
+          "/brand/waves/footer-wave-mask.svg",
+          "/brand/waves/header-wave-mask.svg",
+          "/brand/waves/wave-bg.webp",
+          "/brand/waves/wave-mask.svg",
+          "/preview/footer-champagne",
+          "/preview/fx-caustics",
+          "/preview/fx-grain",
+          "/preview/fx-particles-soft",
+          "/preview/fx-waves",
+          "/preview/header-champagne",
+          "/preview/hero-champagne-v2",
+          "public/brand/motion/caustics.webm",
+          "public/brand/motion/gold-dust.webm",
+          "public/brand/motion/particles-soft.webm",
+          "public/brand/motion/posters/caustics.jpg",
+          "public/brand/motion/posters/gold-dust.jpg",
+          "public/brand/motion/posters/particles-soft.jpg",
+          "public/brand/textures/film-grain-2560x1440.webp",
+          "public/brand/waves/footer-wave-mask.svg",
+          "public/brand/waves/header-wave-mask.svg",
+          "public/brand/waves/wave-bg.webp",
+          "public/brand/waves/wave-mask.svg"
+        ],
+        "previewRoutes": [
+          "/preview/footer-champagne",
+          "/preview/fx-caustics",
+          "/preview/fx-grain",
+          "/preview/fx-particles-soft",
+          "/preview/fx-waves",
+          "/preview/header-champagne",
+          "/preview/hero-champagne-v2"
+        ],
+        "hardHexValues": [],
+        "sourceZips": [
+          "webpagescreenshotsai24.zip",
+          "ai24-ai24-manus-ai-homepage.zip",
+          "ai24-ai24-manus-ai-treatmentpage.zip",
+          "ai24-ai24-manus-technologypage.zip",
+          "ai24-ai24_polish_kit.zip",
+          "manus-homepage-champagne-finish.zip",
+          "smh-champagne-tokens-pack.zip",
+          "excellentMANUS.zip",
+          "MANUSCOMPONENTS.zip",
+          "Generate Champagne Hero ZIP for St Mary’s House Dental.zip",
+          "services-grid-v2-assets.zip",
+          "Signature Services Grid Design for St Mary’s Dental (1).zip",
+          "Champagne_Visual_Vault_v2025_4_IMAGES_ONLY (1).zip",
+          "components-effects-pack-v2.zip",
+          "smh-luxury-components-deliverables.zip",
+          "smh-team-grid-luxe.zip",
+          "ai-engine-railway.zip",
+          "BLOG_INDEX_LUX.zip",
+          "BLOG_POST_LUX.zip",
+          "chatbot-backend-railway.zip",
+          "chatbot-luxury-ui-pack.zip",
+          "compliance-seo-pack.zip",
+          "domain-pages-pack-v2.zip",
+          "effects-utilities-pack.zip",
+          "EMERGENCY_LUX.zip",
+          "domain-pages-pack-v1.zip",
+          "FINANCE_LUX.zip",
+          "GALLERY_LUX.zip",
+          "manus files.zip",
+          "manusfiles.zip",
+          "manusALLscreenshots.zip",
+          "manusnicescreenshots.zip",
+          "manusshotsorignail.zip",
+          "lux-appointments-artifact.zip",
+          "lux-blog-index-artifact.zip",
+          "lux-blog-post-artifact.zip",
+          "lux-careers-template.zip",
+          "lux-contact-artifact.zip",
+          "lux-finance-artifact.zip",
+          "lux-gallery-artifact.zip",
+          "lux-legal-pack-template.zip",
+          "lux-pages-diff.zip",
+          "lux-pages-diff (1).zip",
+          "lux-patient-stories-artifact.zip",
+          "lux-emergency-artifact.zip",
+          "lux-fees-finance-template.zip",
+          "lux-treatment-detail-template.zip",
+          "lux-treatments-artifact.zip",
+          "lux-treatment-detail-artifact.zip",
+          "lux-team-member-detail-template.zip",
+          "patient-stories-polished-pack.zip",
+          "please-work-getting-lux-pages.zip",
+          "possible-lux-adding-zips.zip",
+          "smh-smile-ai.zip",
+          "smh-smile-journey.zip",
+          "smh-telephone-ai.zip",
+          "telephone-ai-receptionist-blueprint.zip",
+          "smile-ai-preview-pack.zip",
+          "footer-pack (generated)",
+          "header-pack (generated)"
+        ]
+      }
+    },
+    {
+      "path": "public/brand/chat-ui.json",
+      "type": "chat_ui",
+      "label": "Chat UI Manifest",
+      "status": "found",
+      "sha256": "e60a72acc3dddfe598593d7adf717434fbf7c072619991d39b3581fa8bce3426",
+      "parsed": {
+        "version": 1,
+        "panel": {
+          "bg": "var(--smh-bg)",
+          "glass": "var(--champagne-glass-bg, color-mix(in oklab, var(--smh-bg) 65%, black 35%))",
+          "border": "var(--smh-accent-gold)"
+        },
+        "accent": {
+          "color": "var(--smh-accent-gold)",
+          "ring": "oklab(from var(--smh-accent-gold) 0.8 0 0 / 0.4)"
+        },
+        "gradient": {
+          "css": "linear-gradient(135deg, var(--smh-primary-magenta) 0%, var(--smh-primary-teal) 60%, var(--smh-accent-gold) 100%)"
+        },
+        "motion": {
+          "particles": {
+            "enabled": false
+          },
+          "glassShimmer": {
+            "enabled": false
+          }
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--champagne-glass-bg",
+          "--smh-accent-gold",
+          "--smh-bg",
+          "--smh-primary-magenta",
+          "--smh-primary-teal"
+        ],
+        "assetPaths": [],
+        "previewRoutes": [],
+        "hardHexValues": []
+      }
+    },
+    {
+      "path": "styles/champagne/manifest.json",
+      "type": "hero_stack",
+      "label": "Styles Champagne Manifest",
+      "status": "found",
+      "sha256": "42ba31ecb2eb10f906280d6b3ebf01c6a66d385181275be297b855e956009927",
+      "parsed": {
+        "component": "ChampagneHero",
+        "version": "2.0.0",
+        "description": "Premium hero section with wave-masked gradient, particles, film grain, motion videos, and parallax for St Mary's House Dental",
+        "designSystem": "St Mary's House Champagne Design System",
+        "lastUpdated": "2025-11-01",
+        "author": "Manus AI",
+        "tokens": {
+          "colors": {
+            "brandMagenta": "#C2185B",
+            "brandTurquoise": "#2CBFAE",
+            "brandTurquoiseAlt": "#40C4B4",
+            "brandGold": "#D4AF37",
+            "paper": "#FFFFFF",
+            "ink": "#0E1420"
+          },
+          "gradients": {
+            "champagne": "linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%)",
+            "cta": "linear-gradient(135deg, #C2185B 0%, #2CBFAE 55%, #D4AF37 100%)"
+          },
+          "typography": {
+            "display": "Playfair Display",
+            "body": "Inter"
+          },
+          "radii": {
+            "pill": "999px",
+            "lg": "18px"
+          },
+          "shadows": {
+            "glow": "0 0 1px rgba(255, 255, 255, 0.6), 0 10px 40px rgba(194, 24, 91, 0.25)",
+            "goldGlow": "0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2)"
+          }
+        },
+        "layers": [
+          {
+            "id": 1,
+            "name": "gradient-base",
+            "type": "static",
+            "description": "Base champagne gradient background",
+            "src": null,
+            "cssBackground": "var(--gradient-champagne)",
+            "opacity": 1.0,
+            "blendMode": "normal",
+            "parallaxMaxPx": 0,
+            "zIndex": 1
+          },
+          {
+            "id": 2,
+            "name": "wave-caustics",
+            "type": "motion",
+            "description": "Subtle underwater light caustics with gradient colors",
+            "src": "/assets/champagne/motion/wave-caustics.webm",
+            "opacity": 0.1,
+            "blendMode": "screen",
+            "parallaxMaxPx": 2,
+            "zIndex": 2
+          },
+          {
+            "id": 3,
+            "name": "wave-mask",
+            "type": "static",
+            "description": "Wave pattern mask overlay",
+            "src": "/assets/champagne/waves/wave-mask-desktop.webp",
+            "srcMobile": "/assets/champagne/waves/wave-mask-mobile.webp",
+            "opacity": 0.4,
+            "blendMode": "overlay",
+            "parallaxMaxPx": 4,
+            "zIndex": 3
+          },
+          {
+            "id": 4,
+            "name": "glass-shimmer",
+            "type": "motion",
+            "description": "Elegant glass shimmer with gold highlights",
+            "src": "/assets/champagne/motion/glass-shimmer.webm",
+            "opacity": 0.12,
+            "blendMode": "screen",
+            "parallaxMaxPx": 1,
+            "zIndex": 4
+          },
+          {
+            "id": 5,
+            "name": "particles-static",
+            "type": "static",
+            "description": "Static particle texture (tileable)",
+            "src": "/assets/champagne/particles/home-hero-particles.webp",
+            "opacity": 0.08,
+            "blendMode": "screen",
+            "parallaxMaxPx": 3,
+            "zIndex": 5,
+            "tileable": true,
+            "tileSize": "1024px 1024px"
+          },
+          {
+            "id": 6,
+            "name": "particles-drift",
+            "type": "motion",
+            "description": "Animated particles drifting slowly",
+            "src": "/assets/champagne/motion/particles-drift.webm",
+            "opacity": 0.06,
+            "blendMode": "screen",
+            "parallaxMaxPx": 3,
+            "zIndex": 6
+          },
+          {
+            "id": 7,
+            "name": "gold-dust-drift",
+            "type": "motion",
+            "description": "Sparse gold dust particles for luxury accent",
+            "src": "/assets/champagne/particles/gold-dust-drift.webm",
+            "opacity": 0.08,
+            "blendMode": "screen",
+            "parallaxMaxPx": 2,
+            "zIndex": 7
+          },
+          {
+            "id": 8,
+            "name": "film-grain",
+            "type": "static",
+            "description": "Fine film grain texture (tileable)",
+            "src": "/assets/champagne/textures/home-hero-film-grain.webp",
+            "opacity": 0.07,
+            "blendMode": "overlay",
+            "parallaxMaxPx": 0,
+            "zIndex": 8,
+            "tileable": true,
+            "tileSize": "512px 512px"
+          },
+          {
+            "id": 9,
+            "name": "content",
+            "type": "content",
+            "description": "Hero text content and CTAs",
+            "src": null,
+            "opacity": 1.0,
+            "blendMode": "normal",
+            "parallaxMaxPx": 0,
+            "zIndex": 9
+          }
+        ],
+        "parallax": {
+          "maxTotal": 6,
+          "unit": "px",
+          "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+        },
+        "motion": {
+          "videoFormat": "webm",
+          "codec": "vp9",
+          "alphaChannel": true,
+          "maxFileSize": "4MB",
+          "fps": 24,
+          "loop": true,
+          "autoplay": true,
+          "muted": true,
+          "playsInline": true
+        },
+        "accessibility": {
+          "contrast": "AA",
+          "focusRing": "#D4AF37 1px glow",
+          "minHitTarget": "44x44px",
+          "semanticHTML": true,
+          "keyboardNav": true,
+          "reducedMotion": true,
+          "reducedMotionBehavior": "Hide all motion layers, show static gradient and wave mask only",
+          "ariaLabels": {
+            "section": "aria-labelledby=\"home-hero-title\"",
+            "primaryCTA": "Book a consultation",
+            "secondaryCTA": "Explore treatments"
+          }
+        },
+        "responsive": {
+          "desktop": {
+            "minHeight": "70vh",
+            "safePadding": "96px",
+            "containerMaxWidth": "1200px"
+          },
+          "mobile": {
+            "minHeight": "68vh",
+            "safePadding": "80px",
+            "ctaLayout": "stacked"
+          }
+        },
+        "assets": [
+          {
+            "path": "public/assets/champagne/waves/wave-mask-desktop.webp",
+            "width": 2560,
+            "height": 1440,
+            "format": "webp",
+            "purpose": "Wave mask for desktop viewport"
+          },
+          {
+            "path": "public/assets/champagne/waves/wave-mask-mobile.webp",
+            "width": 1170,
+            "height": 2532,
+            "format": "webp",
+            "purpose": "Wave mask for mobile viewport"
+          },
+          {
+            "path": "public/assets/champagne/particles/home-hero-particles.webp",
+            "width": 1024,
+            "height": 1024,
+            "format": "webp",
+            "purpose": "Seamless particle texture",
+            "tileable": true
+          },
+          {
+            "path": "public/assets/champagne/textures/home-hero-film-grain.webp",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "purpose": "Seamless film grain texture",
+            "tileable": true
+          },
+          {
+            "path": "public/assets/champagne/motion/wave-caustics.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "458KB",
+            "purpose": "Animated wave caustics effect"
+          },
+          {
+            "path": "public/assets/champagne/motion/glass-shimmer.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "457KB",
+            "purpose": "Glass shimmer animation"
+          },
+          {
+            "path": "public/assets/champagne/motion/particles-drift.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "412KB",
+            "purpose": "Drifting particles animation"
+          },
+          {
+            "path": "public/assets/champagne/particles/gold-dust-drift.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "384KB",
+            "purpose": "Gold dust drift animation"
+          }
+        ],
+        "performance": {
+          "willChange": [
+            "transform"
+          ],
+          "hardwareAcceleration": true,
+          "lazyLoading": true,
+          "assetCaching": true,
+          "videoPreload": "auto"
+        },
+        "browserSupport": {
+          "chrome": "90+",
+          "firefox": "88+",
+          "safari": "14+",
+          "edge": "90+"
+        },
+        "compliance": {
+          "layerOrder": "strict",
+          "parallaxCap": "6px",
+          "particleDensity": "0.6-0.9%",
+          "grainStrength": "6-8%",
+          "gradientAccuracy": "95%+",
+          "brandTokens": "CSS variables only",
+          "motionDisable": "prefers-reduced-motion: reduce"
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--gradient-champagne"
+        ],
+        "assetPaths": [
+          "/assets/champagne/motion/glass-shimmer.webm",
+          "/assets/champagne/motion/particles-drift.webm",
+          "/assets/champagne/motion/wave-caustics.webm",
+          "/assets/champagne/particles/gold-dust-drift.webm",
+          "/assets/champagne/particles/home-hero-particles.webp",
+          "/assets/champagne/textures/home-hero-film-grain.webp",
+          "/assets/champagne/waves/wave-mask-desktop.webp",
+          "/assets/champagne/waves/wave-mask-mobile.webp",
+          "public/assets/champagne/motion/glass-shimmer.webm",
+          "public/assets/champagne/motion/particles-drift.webm",
+          "public/assets/champagne/motion/wave-caustics.webm",
+          "public/assets/champagne/particles/gold-dust-drift.webm",
+          "public/assets/champagne/particles/home-hero-particles.webp",
+          "public/assets/champagne/textures/home-hero-film-grain.webp",
+          "public/assets/champagne/waves/wave-mask-desktop.webp",
+          "public/assets/champagne/waves/wave-mask-mobile.webp"
+        ],
+        "previewRoutes": [],
+        "hardHexValues": [
+          "#0E1420",
+          "#2CBFAE",
+          "#40C4B4",
+          "#C2185B",
+          "#D4AF37",
+          "#FFFFFF"
+        ]
+      }
+    },
+    {
+      "path": "docs/Brand_Canon_Packet/smh-champagne-tokens.css",
+      "type": "token_css",
+      "label": "Champagne Tokens",
+      "status": "found",
+      "sha256": "5f8a71ebf646bb5bb2524375fb7f24cedcceceebacb3756f61a77ee5b90d4118",
+      "rawText": ":root {\n  /* ===== Manus Lux — Canonical Hues ===== */\n  --brand-magenta: #C2185B;\n  --brand-teal:    #40C4B4;\n  --brand-gold:    #D4AF37;     /* deep gold for visuals */\n  --brand-gold-keyline: #F9E8C3;/* soft keyline gold for keylines/accents */\n\n  /* ===== Canonical Gradient (LAW) ===== */\n  --smh-gradient: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-teal) 60%, var(--brand-gold) 100%);\n\n  /* Legacy (diagnostics/rollback only — do not use in new UI) */\n  --smh-gradient-legacy: linear-gradient(135deg,#D94BC6 0%,#00C2C7 100%);\n\n  /* Support gradients derived from canon (avoid raw hex outside tokens) */\n  --iridescent-gradient: linear-gradient(\n    180deg,\n    color-mix(in oklab, var(--brand-teal) 70%, white) 0%,\n    color-mix(in oklab, var(--brand-magenta) 70%, white) 100%\n  );\n\n  /* Neutrals and text */\n  --ink:  #0B0D0F;\n  --text: #1A1A1A;\n  --bg:   #FFFFFF;\n\n  /* Legacy token aliases (kept for compatibility) */\n  --smh-ink: var(--ink);\n  --smh-text: var(--text);\n  --smh-primary-ink: var(--ink);\n  --smh-white: #FFFFFF;\n  --smh-gray-200: #E5E7EB;\n  --smh-primary-magenta: var(--brand-magenta);\n  --smh-primary-teal: var(--brand-teal);\n  --smh-accent-gold: var(--brand-gold);\n  --smh-gold: var(--brand-gold);\n  --champagne-keyline-gold: var(--brand-gold-keyline);\n\n  /* Surface sizing */\n  --smh-surface-bg-size: 165% 165%;\n  --smh-surface-bg-position: 18% 38%;\n\n  /* Glass background must be LIGHTER than current */\n  --champagne-glass-bg: color-mix(in oklab, var(--ink) 22%, transparent 78%);\n\n  /* Overlays */\n  --smh-grain-alpha: .04;\n  --smh-vignette-alpha: .06;\n  --smh-particles-alpha: .06;\n  --champagne-grain-alpha: var(--smh-grain-alpha);\n  --champagne-vignette-alpha: var(--smh-vignette-alpha);\n  --champagne-sheen-alpha: .22;\n\n  /* Particles (keep low so they don't mute hue) */\n  --champagne-particles-opacity-d: var(--smh-particles-alpha);\n  --champagne-particles-opacity-m: var(--smh-particles-alpha);\n\n  /* Warm-lift control (0 | 1). Leave default off for safety. */\n  --smh-warm-lift: 0;\n\n  /* Intensity knobs tuned for Manus hue balance. */\n  --smh-warm-lift-magenta-alpha: 0.08;\n  --smh-warm-lift-gold-alpha:    0.03;\n\n  /* Perceptual warm hues (fallbacks only) — keep as tokens. */\n  --smh-warm-magenta: var(--brand-magenta);\n  --smh-warm-rose:    #E24DAA; /* used only inside overlay gradient as var fallback */\n  --smh-warm-gold:    var(--brand-gold);\n\n  /* Manus hero gradient geometry */\n  --smh-grad-angle: 135deg;\n  --smh-grad-stop1: var(--brand-magenta);\n  --smh-grad-stop2: var(--brand-teal);\n  --smh-grad-stop3: var(--brand-gold);\n  --smh-gold-shoulder: color-mix(in oklab, var(--brand-gold) 65%, white 35%);\n  --smh-bg-size: 165% 165%;\n  --smh-bg-pos: 18% 38%;\n}\n\n/* Motion & a11y */\n@media (prefers-reduced-motion: reduce) { :root { --parallax-max: 0px; } }\n@media (prefers-reduced-motion: no-preference) { :root { --parallax-max: 6px; } }\n",
+      "crossLinks": {
+        "tokensReferenced": [
+          "--bg",
+          "--brand-gold",
+          "--brand-gold-keyline",
+          "--brand-magenta",
+          "--brand-teal",
+          "--champagne-glass-bg",
+          "--champagne-grain-alpha",
+          "--champagne-keyline-gold",
+          "--champagne-particles-opacity-d",
+          "--champagne-particles-opacity-m",
+          "--champagne-sheen-alpha",
+          "--champagne-vignette-alpha",
+          "--ink",
+          "--iridescent-gradient",
+          "--parallax-max",
+          "--smh-accent-gold",
+          "--smh-bg-pos",
+          "--smh-bg-size",
+          "--smh-gold",
+          "--smh-gold-shoulder",
+          "--smh-grad-angle",
+          "--smh-grad-stop1",
+          "--smh-grad-stop2",
+          "--smh-grad-stop3",
+          "--smh-gradient",
+          "--smh-gradient-legacy",
+          "--smh-grain-alpha",
+          "--smh-gray-200",
+          "--smh-ink",
+          "--smh-particles-alpha",
+          "--smh-primary-ink",
+          "--smh-primary-magenta",
+          "--smh-primary-teal",
+          "--smh-surface-bg-position",
+          "--smh-surface-bg-size",
+          "--smh-text",
+          "--smh-vignette-alpha",
+          "--smh-warm-gold",
+          "--smh-warm-lift",
+          "--smh-warm-lift-gold-alpha",
+          "--smh-warm-lift-magenta-alpha",
+          "--smh-warm-magenta",
+          "--smh-warm-rose",
+          "--smh-white",
+          "--text"
+        ],
+        "assetPaths": [],
+        "previewRoutes": [],
+        "hardHexValues": [
+          "#00C2C7",
+          "#0B0D0F",
+          "#1A1A1A",
+          "#40C4B4",
+          "#C2185B",
+          "#D4AF37",
+          "#D94BC6",
+          "#E24DAA",
+          "#E5E7EB",
+          "#F9E8C3",
+          "#FFFFFF"
+        ]
+      }
+    },
+    {
+      "path": "docs/Brand_Canon_Packet/manifest.styles.champagne.json",
+      "type": "doc_hero_manifest",
+      "label": "Doc Styles Manifest",
+      "status": "found",
+      "sha256": "42ba31ecb2eb10f906280d6b3ebf01c6a66d385181275be297b855e956009927",
+      "parsed": {
+        "component": "ChampagneHero",
+        "version": "2.0.0",
+        "description": "Premium hero section with wave-masked gradient, particles, film grain, motion videos, and parallax for St Mary's House Dental",
+        "designSystem": "St Mary's House Champagne Design System",
+        "lastUpdated": "2025-11-01",
+        "author": "Manus AI",
+        "tokens": {
+          "colors": {
+            "brandMagenta": "#C2185B",
+            "brandTurquoise": "#2CBFAE",
+            "brandTurquoiseAlt": "#40C4B4",
+            "brandGold": "#D4AF37",
+            "paper": "#FFFFFF",
+            "ink": "#0E1420"
+          },
+          "gradients": {
+            "champagne": "linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%)",
+            "cta": "linear-gradient(135deg, #C2185B 0%, #2CBFAE 55%, #D4AF37 100%)"
+          },
+          "typography": {
+            "display": "Playfair Display",
+            "body": "Inter"
+          },
+          "radii": {
+            "pill": "999px",
+            "lg": "18px"
+          },
+          "shadows": {
+            "glow": "0 0 1px rgba(255, 255, 255, 0.6), 0 10px 40px rgba(194, 24, 91, 0.25)",
+            "goldGlow": "0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2)"
+          }
+        },
+        "layers": [
+          {
+            "id": 1,
+            "name": "gradient-base",
+            "type": "static",
+            "description": "Base champagne gradient background",
+            "src": null,
+            "cssBackground": "var(--gradient-champagne)",
+            "opacity": 1.0,
+            "blendMode": "normal",
+            "parallaxMaxPx": 0,
+            "zIndex": 1
+          },
+          {
+            "id": 2,
+            "name": "wave-caustics",
+            "type": "motion",
+            "description": "Subtle underwater light caustics with gradient colors",
+            "src": "/assets/champagne/motion/wave-caustics.webm",
+            "opacity": 0.1,
+            "blendMode": "screen",
+            "parallaxMaxPx": 2,
+            "zIndex": 2
+          },
+          {
+            "id": 3,
+            "name": "wave-mask",
+            "type": "static",
+            "description": "Wave pattern mask overlay",
+            "src": "/assets/champagne/waves/wave-mask-desktop.webp",
+            "srcMobile": "/assets/champagne/waves/wave-mask-mobile.webp",
+            "opacity": 0.4,
+            "blendMode": "overlay",
+            "parallaxMaxPx": 4,
+            "zIndex": 3
+          },
+          {
+            "id": 4,
+            "name": "glass-shimmer",
+            "type": "motion",
+            "description": "Elegant glass shimmer with gold highlights",
+            "src": "/assets/champagne/motion/glass-shimmer.webm",
+            "opacity": 0.12,
+            "blendMode": "screen",
+            "parallaxMaxPx": 1,
+            "zIndex": 4
+          },
+          {
+            "id": 5,
+            "name": "particles-static",
+            "type": "static",
+            "description": "Static particle texture (tileable)",
+            "src": "/assets/champagne/particles/home-hero-particles.webp",
+            "opacity": 0.08,
+            "blendMode": "screen",
+            "parallaxMaxPx": 3,
+            "zIndex": 5,
+            "tileable": true,
+            "tileSize": "1024px 1024px"
+          },
+          {
+            "id": 6,
+            "name": "particles-drift",
+            "type": "motion",
+            "description": "Animated particles drifting slowly",
+            "src": "/assets/champagne/motion/particles-drift.webm",
+            "opacity": 0.06,
+            "blendMode": "screen",
+            "parallaxMaxPx": 3,
+            "zIndex": 6
+          },
+          {
+            "id": 7,
+            "name": "gold-dust-drift",
+            "type": "motion",
+            "description": "Sparse gold dust particles for luxury accent",
+            "src": "/assets/champagne/particles/gold-dust-drift.webm",
+            "opacity": 0.08,
+            "blendMode": "screen",
+            "parallaxMaxPx": 2,
+            "zIndex": 7
+          },
+          {
+            "id": 8,
+            "name": "film-grain",
+            "type": "static",
+            "description": "Fine film grain texture (tileable)",
+            "src": "/assets/champagne/textures/home-hero-film-grain.webp",
+            "opacity": 0.07,
+            "blendMode": "overlay",
+            "parallaxMaxPx": 0,
+            "zIndex": 8,
+            "tileable": true,
+            "tileSize": "512px 512px"
+          },
+          {
+            "id": 9,
+            "name": "content",
+            "type": "content",
+            "description": "Hero text content and CTAs",
+            "src": null,
+            "opacity": 1.0,
+            "blendMode": "normal",
+            "parallaxMaxPx": 0,
+            "zIndex": 9
+          }
+        ],
+        "parallax": {
+          "maxTotal": 6,
+          "unit": "px",
+          "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+        },
+        "motion": {
+          "videoFormat": "webm",
+          "codec": "vp9",
+          "alphaChannel": true,
+          "maxFileSize": "4MB",
+          "fps": 24,
+          "loop": true,
+          "autoplay": true,
+          "muted": true,
+          "playsInline": true
+        },
+        "accessibility": {
+          "contrast": "AA",
+          "focusRing": "#D4AF37 1px glow",
+          "minHitTarget": "44x44px",
+          "semanticHTML": true,
+          "keyboardNav": true,
+          "reducedMotion": true,
+          "reducedMotionBehavior": "Hide all motion layers, show static gradient and wave mask only",
+          "ariaLabels": {
+            "section": "aria-labelledby=\"home-hero-title\"",
+            "primaryCTA": "Book a consultation",
+            "secondaryCTA": "Explore treatments"
+          }
+        },
+        "responsive": {
+          "desktop": {
+            "minHeight": "70vh",
+            "safePadding": "96px",
+            "containerMaxWidth": "1200px"
+          },
+          "mobile": {
+            "minHeight": "68vh",
+            "safePadding": "80px",
+            "ctaLayout": "stacked"
+          }
+        },
+        "assets": [
+          {
+            "path": "public/assets/champagne/waves/wave-mask-desktop.webp",
+            "width": 2560,
+            "height": 1440,
+            "format": "webp",
+            "purpose": "Wave mask for desktop viewport"
+          },
+          {
+            "path": "public/assets/champagne/waves/wave-mask-mobile.webp",
+            "width": 1170,
+            "height": 2532,
+            "format": "webp",
+            "purpose": "Wave mask for mobile viewport"
+          },
+          {
+            "path": "public/assets/champagne/particles/home-hero-particles.webp",
+            "width": 1024,
+            "height": 1024,
+            "format": "webp",
+            "purpose": "Seamless particle texture",
+            "tileable": true
+          },
+          {
+            "path": "public/assets/champagne/textures/home-hero-film-grain.webp",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "purpose": "Seamless film grain texture",
+            "tileable": true
+          },
+          {
+            "path": "public/assets/champagne/motion/wave-caustics.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "458KB",
+            "purpose": "Animated wave caustics effect"
+          },
+          {
+            "path": "public/assets/champagne/motion/glass-shimmer.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "457KB",
+            "purpose": "Glass shimmer animation"
+          },
+          {
+            "path": "public/assets/champagne/motion/particles-drift.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "412KB",
+            "purpose": "Drifting particles animation"
+          },
+          {
+            "path": "public/assets/champagne/particles/gold-dust-drift.webm",
+            "width": 1280,
+            "height": 720,
+            "format": "webm",
+            "codec": "vp9",
+            "duration": "5s",
+            "fileSize": "384KB",
+            "purpose": "Gold dust drift animation"
+          }
+        ],
+        "performance": {
+          "willChange": [
+            "transform"
+          ],
+          "hardwareAcceleration": true,
+          "lazyLoading": true,
+          "assetCaching": true,
+          "videoPreload": "auto"
+        },
+        "browserSupport": {
+          "chrome": "90+",
+          "firefox": "88+",
+          "safari": "14+",
+          "edge": "90+"
+        },
+        "compliance": {
+          "layerOrder": "strict",
+          "parallaxCap": "6px",
+          "particleDensity": "0.6-0.9%",
+          "grainStrength": "6-8%",
+          "gradientAccuracy": "95%+",
+          "brandTokens": "CSS variables only",
+          "motionDisable": "prefers-reduced-motion: reduce"
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--gradient-champagne"
+        ],
+        "assetPaths": [
+          "/assets/champagne/motion/glass-shimmer.webm",
+          "/assets/champagne/motion/particles-drift.webm",
+          "/assets/champagne/motion/wave-caustics.webm",
+          "/assets/champagne/particles/gold-dust-drift.webm",
+          "/assets/champagne/particles/home-hero-particles.webp",
+          "/assets/champagne/textures/home-hero-film-grain.webp",
+          "/assets/champagne/waves/wave-mask-desktop.webp",
+          "/assets/champagne/waves/wave-mask-mobile.webp",
+          "public/assets/champagne/motion/glass-shimmer.webm",
+          "public/assets/champagne/motion/particles-drift.webm",
+          "public/assets/champagne/motion/wave-caustics.webm",
+          "public/assets/champagne/particles/gold-dust-drift.webm",
+          "public/assets/champagne/particles/home-hero-particles.webp",
+          "public/assets/champagne/textures/home-hero-film-grain.webp",
+          "public/assets/champagne/waves/wave-mask-desktop.webp",
+          "public/assets/champagne/waves/wave-mask-mobile.webp"
+        ],
+        "previewRoutes": [],
+        "hardHexValues": [
+          "#0E1420",
+          "#2CBFAE",
+          "#40C4B4",
+          "#C2185B",
+          "#D4AF37",
+          "#FFFFFF"
+        ]
+      }
+    },
+    {
+      "path": "docs/Brand_Canon_Packet/manifest.public.brand.json",
+      "type": "doc_brand_manifest",
+      "label": "Doc Brand Manifest",
+      "status": "found",
+      "sha256": "c3a2753a927b0389c9755eafb8c9129195982f0dea8833e4f424255c7f037926",
+      "parsed": {
+        "name": "SMH Champagne Canon",
+        "version": "1.0.0",
+        "tokens": "/styles/tokens/smh-champagne-tokens.css",
+        "gradientVar": "--smh-gradient",
+        "goldVar": "--smh-accent-gold",
+        "gradient": {
+          "angle": 135,
+          "stops": [
+            {
+              "color": "#C2185B",
+              "pos": 0
+            },
+            {
+              "color": "#40C4B4",
+              "pos": 60
+            },
+            {
+              "color": "#D4AF37",
+              "pos": 100
+            }
+          ],
+          "css": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)"
+        },
+        "gold": {
+          "hex": "#D4AF37",
+          "usage": "keylines, accents only"
+        },
+        "typography": {
+          "headings": "Playfair Display",
+          "body": "Inter"
+        },
+        "waves": {
+          "mask": "/assets/champagne/waves/wave-mask-desktop.webp",
+          "background": "/assets/champagne/waves/wave-bg.webp"
+        },
+        "textures": {
+          "filmGrain": "/assets/champagne/textures/home-hero-film-grain.webp",
+          "glass": "/assets/champagne/textures/glass-soft.webp",
+          "glassSoft": "/assets/champagne/textures/glass-soft.webp"
+        },
+        "particles": {
+          "soft": "/assets/champagne/particles/home-hero-particles.webp"
+        },
+        "motion": {
+          "waveCaustics": "/assets/champagne/motion/wave-caustics.webm",
+          "glassShimmer": "/assets/champagne/motion/glass-shimmer.webm",
+          "particlesDrift": "/assets/champagne/motion/particles-drift.webm",
+          "goldDust": "/assets/champagne/motion/gold-dust-drift.webm"
+        },
+        "static": {
+          "textures": {
+            "filmGrain": "/brand/textures/film-grain-2560x1440.webp",
+            "glassSoft": "/brand/textures/glass-soft.webp"
+          },
+          "waves": {
+            "background": "/brand/waves/wave-bg.webp",
+            "mask": "/brand/waves/wave-mask.svg"
+          }
+        },
+        "dynamic": {
+          "particles": [
+            {
+              "id": "particles-soft",
+              "src": "/brand/particles/particles-soft.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "subtle"
+            },
+            {
+              "id": "shimmer-waves",
+              "src": "/brand/particles/shimmer-waves.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "subtle"
+            },
+            {
+              "id": "iridescent-glow",
+              "src": "/brand/particles/iridescent-glow.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "subtle"
+            },
+            {
+              "id": "grain-motion",
+              "src": "/brand/particles/grain-motion.webm",
+              "codec": "vp9-alpha",
+              "duration": 8,
+              "fps": 24,
+              "loop": true,
+              "intensity": "ultra-subtle"
+            }
+          ]
+        }
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--smh-accent-gold",
+          "--smh-gradient"
+        ],
+        "assetPaths": [
+          "/assets/champagne/motion/glass-shimmer.webm",
+          "/assets/champagne/motion/gold-dust-drift.webm",
+          "/assets/champagne/motion/particles-drift.webm",
+          "/assets/champagne/motion/wave-caustics.webm",
+          "/assets/champagne/particles/home-hero-particles.webp",
+          "/assets/champagne/textures/glass-soft.webp",
+          "/assets/champagne/textures/home-hero-film-grain.webp",
+          "/assets/champagne/waves/wave-bg.webp",
+          "/assets/champagne/waves/wave-mask-desktop.webp",
+          "/brand/particles/grain-motion.webm",
+          "/brand/particles/iridescent-glow.webm",
+          "/brand/particles/particles-soft.webm",
+          "/brand/particles/shimmer-waves.webm",
+          "/brand/textures/film-grain-2560x1440.webp",
+          "/brand/textures/glass-soft.webp",
+          "/brand/waves/wave-bg.webp",
+          "/brand/waves/wave-mask.svg"
+        ],
+        "previewRoutes": [],
+        "hardHexValues": [
+          "#40C4B4",
+          "#C2185B",
+          "#D4AF37"
+        ]
+      }
+    },
+    {
+      "path": "reports/Repo_Audit.json",
+      "type": "repo_audit",
+      "label": "Repo Audit",
+      "status": "found",
+      "sha256": "85e184102f6627943087ec5f8b14e2a0381ba2290a04c16b2f6da213f4ce9923",
+      "parsed": {
+        "routes": [
+          {
+            "path": "/",
+            "file": "app/page.tsx",
+            "component": "HomePage",
+            "stage": "production"
+          },
+          {
+            "path": "/ai-smile-quiz",
+            "file": "app/ai-smile-quiz/page.tsx",
+            "component": "AISmileQuizPage",
+            "stage": "production"
+          },
+          {
+            "path": "/anxiety-dentistry",
+            "file": "app/anxiety-dentistry/page.tsx",
+            "component": "AnxietyDentistryPage",
+            "stage": "production"
+          },
+          {
+            "path": "/api/appointments",
+            "file": "app/api/appointments/route.ts",
+            "component": "route handler",
+            "stage": "production"
+          },
+          {
+            "path": "/api/brand-manifest/:name",
+            "file": "app/api/brand-manifest/[name]/route.ts",
+            "component": "route handler",
+            "stage": "production"
+          },
+          {
+            "path": "/api/chat",
+            "file": "app/api/chat/route.ts",
+            "component": "route handler",
+            "stage": "production"
+          },
+          {
+            "path": "/api/integrations/email",
+            "file": "app/api/integrations/email/route.ts",
+            "component": "route handler",
+            "stage": "production"
+          },
+          {
+            "path": "/api/integrations/stripe",
+            "file": "app/api/integrations/stripe/route.ts",
+            "component": "route handler",
+            "stage": "production"
+          },
+          {
+            "path": "/api/integrations/stripe/webhook",
+            "file": "app/api/integrations/stripe/webhook/route.ts",
+            "component": "route handler",
+            "stage": "production"
+          },
+          {
+            "path": "/blog",
+            "file": "app/blog/page.tsx",
+            "component": "BlogPage",
+            "stage": "production"
+          },
+          {
+            "path": "/champagne-preview",
+            "file": "app/champagne-preview/page.tsx",
+            "component": "ChampagneHeroPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/champagne/hero",
+            "file": "app/champagne/hero/page.tsx",
+            "component": "Page",
+            "stage": "frozen"
+          },
+          {
+            "path": "/emergency-dentist",
+            "file": "app/emergency-dentist/page.tsx",
+            "component": "EmergencyDentistPage",
+            "stage": "production"
+          },
+          {
+            "path": "/patient-education",
+            "file": "app/patient-education/page.tsx",
+            "component": "PatientEducationPage",
+            "stage": "production"
+          },
+          {
+            "path": "/patient-stories",
+            "file": "app/patient-stories/page.tsx",
+            "component": "default export",
+            "stage": "production"
+          },
+          {
+            "path": "/preview/ai24-home",
+            "file": "app/preview/ai24-home/page.tsx",
+            "component": "PreviewAi24Home",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/brand-live",
+            "file": "app/preview/brand-live/page.tsx",
+            "component": "BrandLivePreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/brand-lock",
+            "file": "app/preview/brand-lock/page.tsx",
+            "component": "BrandLock",
+            "stage": "locked"
+          },
+          {
+            "path": "/preview/champagne",
+            "file": "app/preview/champagne/page.tsx",
+            "component": "ChampagnePreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/champagne-phase2",
+            "file": "app/preview/champagne-phase2/page.tsx",
+            "component": "ChampagnePhaseTwoPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/chat",
+            "file": "app/preview/chat/page.tsx",
+            "component": "ChatPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/footer-luxe",
+            "file": "app/preview/footer-luxe/page.tsx",
+            "component": "FooterLuxePreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/hero-gilded",
+            "file": "app/preview/hero-gilded/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux",
+            "file": "app/preview/lux/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/gallery",
+            "file": "app/preview/lux/gallery/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/legal",
+            "file": "app/preview/lux/legal/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/legal/cookies",
+            "file": "app/preview/lux/legal/cookies/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/legal/privacy",
+            "file": "app/preview/lux/legal/privacy/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/legal/terms",
+            "file": "app/preview/lux/legal/terms/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/locations/brighton",
+            "file": "app/preview/lux/locations/brighton/page.tsx",
+            "component": "BrightonPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/locations/hove",
+            "file": "app/preview/lux/locations/hove/page.tsx",
+            "component": "HovePreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/locations/lancing",
+            "file": "app/preview/lux/locations/lancing/page.tsx",
+            "component": "LancingPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/locations/shoreham-by-sea",
+            "file": "app/preview/lux/locations/shoreham-by-sea/page.tsx",
+            "component": "ShorehamBySeaPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/locations/steyning",
+            "file": "app/preview/lux/locations/steyning/page.tsx",
+            "component": "SteyningPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/locations/worthing",
+            "file": "app/preview/lux/locations/worthing/page.tsx",
+            "component": "WorthingPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/patient-stories",
+            "file": "app/preview/lux/patient-stories/page.tsx",
+            "component": "Stories",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/referrals",
+            "file": "app/preview/lux/referrals/page.tsx",
+            "component": "Page",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/smile-ai",
+            "file": "app/preview/lux/smile-ai/page.tsx",
+            "component": "SmileAiPreview",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/team",
+            "file": "app/preview/lux/team/page.tsx",
+            "component": "TeamPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/team/:slug",
+            "file": "app/preview/lux/team/[slug]/page.tsx",
+            "component": "TeamMember",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/lux/technology",
+            "file": "app/preview/lux/technology/page.tsx",
+            "component": "Technology",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/manus-audit",
+            "file": "app/preview/manus-audit/page.tsx",
+            "component": "ManusAuditPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/manus-manifest",
+            "file": "app/preview/manus-manifest/page.tsx",
+            "component": "ManusManifestExplorerPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments",
+            "file": "app/preview/treatments/page.tsx",
+            "component": "TreatmentsPreviewIndex",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/3d-dentistry",
+            "file": "app/preview/treatments/3d-dentistry/page.tsx",
+            "component": "ThreeDDentistryPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/composite-bonding",
+            "file": "app/preview/treatments/composite-bonding/page.tsx",
+            "component": "CompositeBondingPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/cosmetic",
+            "file": "app/preview/treatments/cosmetic/page.tsx",
+            "component": "CosmeticPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/dental-implants",
+            "file": "app/preview/treatments/dental-implants/page.tsx",
+            "component": "DentalImplantsPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/general",
+            "file": "app/preview/treatments/general/page.tsx",
+            "component": "GeneralDentistryPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/implants",
+            "file": "app/preview/treatments/implants/page.tsx",
+            "component": "default export",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/orthodontics",
+            "file": "app/preview/treatments/orthodontics/page.tsx",
+            "component": "OrthodonticsPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/technology",
+            "file": "app/preview/treatments/technology/page.tsx",
+            "component": "TechnologyPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/veneers",
+            "file": "app/preview/treatments/veneers/page.tsx",
+            "component": "VeneersPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/treatments/whitening",
+            "file": "app/preview/treatments/whitening/page.tsx",
+            "component": "WhiteningPreviewPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/preview/why-hero-grey",
+            "file": "app/preview/why-hero-grey/page.tsx",
+            "component": "WhyHeroGreyPage",
+            "stage": "preview"
+          },
+          {
+            "path": "/stories",
+            "file": "app/stories/page.tsx",
+            "component": "StoriesPage",
+            "stage": "production"
+          },
+          {
+            "path": "/team",
+            "file": "app/team/page.tsx",
+            "component": "TeamPage",
+            "stage": "production"
+          },
+          {
+            "path": "/team/dr-sarah-mitchell",
+            "file": "app/team/dr-sarah-mitchell/page.tsx",
+            "component": "DrSarahMitchellPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments",
+            "file": "app/treatments/page.tsx",
+            "component": "TreatmentsPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/3d-dentistry",
+            "file": "app/treatments/3d-dentistry/page.tsx",
+            "component": "ThreeDDentistryPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/3d-dentistry/3d-implants-overview",
+            "file": "app/treatments/3d-dentistry/3d-implants-overview/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/3d-dentistry/3d-printed-veneers",
+            "file": "app/treatments/3d-dentistry/3d-printed-veneers/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/3d-dentistry/3d-restorative-dentistry",
+            "file": "app/treatments/3d-dentistry/3d-restorative-dentistry/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/3d-dentistry/3d-same-day-dentures",
+            "file": "app/treatments/3d-dentistry/3d-same-day-dentures/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/composite-bonding",
+            "file": "app/treatments/composite-bonding/page.tsx",
+            "component": "CompositeBondingPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/cosmetic",
+            "file": "app/treatments/cosmetic/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/cosmetic/composite-bonding",
+            "file": "app/treatments/cosmetic/composite-bonding/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/cosmetic/teeth-whitening",
+            "file": "app/treatments/cosmetic/teeth-whitening/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/cosmetic/veneers",
+            "file": "app/treatments/cosmetic/veneers/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/dental-implants",
+            "file": "app/treatments/dental-implants/page.tsx",
+            "component": "DentalImplantsPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general",
+            "file": "app/treatments/general/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/check-ups",
+            "file": "app/treatments/general/check-ups/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/childrens-dentistry",
+            "file": "app/treatments/general/childrens-dentistry/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/crowns-and-bridges",
+            "file": "app/treatments/general/crowns-and-bridges/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/emergency-dentistry",
+            "file": "app/treatments/general/emergency-dentistry/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/extractions",
+            "file": "app/treatments/general/extractions/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/root-canal-treatment",
+            "file": "app/treatments/general/root-canal-treatment/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/sedation",
+            "file": "app/treatments/general/sedation/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/general/tooth-coloured-fillings",
+            "file": "app/treatments/general/tooth-coloured-fillings/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/implants",
+            "file": "app/treatments/implants/page.tsx",
+            "component": "default export",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/implants/3d-printed-restorations",
+            "file": "app/treatments/implants/3d-printed-restorations/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/implants/3d-surgically-guided-implants",
+            "file": "app/treatments/implants/3d-surgically-guided-implants/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/implants/all-on-4-6-same-day",
+            "file": "app/treatments/implants/all-on-4-6-same-day/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/implants/same-day-implants",
+            "file": "app/treatments/implants/same-day-implants/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/orthodontics",
+            "file": "app/treatments/orthodontics/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/orthodontics/fixed-braces",
+            "file": "app/treatments/orthodontics/fixed-braces/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/orthodontics/spark-aligners",
+            "file": "app/treatments/orthodontics/spark-aligners/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/technology",
+            "file": "app/treatments/technology/page.tsx",
+            "component": "TechnologyPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/technology/3d-scanning-and-printing",
+            "file": "app/treatments/technology/3d-scanning-and-printing/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/technology/soft-tissue-laser",
+            "file": "app/treatments/technology/soft-tissue-laser/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/technology/the-wand-painless-numbing",
+            "file": "app/treatments/technology/the-wand-painless-numbing/page.tsx",
+            "component": "Page",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/veneers",
+            "file": "app/treatments/veneers/page.tsx",
+            "component": "VeneersPage",
+            "stage": "production"
+          },
+          {
+            "path": "/treatments/whitening",
+            "file": "app/treatments/whitening/page.tsx",
+            "component": "WhiteningPage",
+            "stage": "production"
+          },
+          {
+            "path": "/video-consultation",
+            "file": "app/video-consultation/page.tsx",
+            "component": "VideoConsultationPage",
+            "stage": "production"
+          }
+        ],
+        "components": {
+          "frozen": [
+            {
+              "file": "components/brand/BrandHeroGradient.tsx",
+              "export": "BrandHeroGradient"
+            },
+            {
+              "file": "components/footer-luxe.module.css",
+              "export": "default export"
+            },
+            {
+              "file": "components/footer-luxe.tsx",
+              "export": "FooterLuxe"
+            },
+            {
+              "file": "components/hero/4k-hero-video.tsx",
+              "export": "Hero4KVideo"
+            },
+            {
+              "file": "components/hero/cinematic-hero-video.tsx",
+              "export": "CinematicHeroVideo"
+            },
+            {
+              "file": "components/hero/original-hero-section.tsx",
+              "export": "OriginalHeroSection"
+            },
+            {
+              "file": "components/home/ChampagneHero.tsx",
+              "export": "ChampagneHero"
+            },
+            {
+              "file": "components/home/ChampagneHeroGilded.tsx",
+              "export": "ChampagneHeroGilded"
+            },
+            {
+              "file": "components/home/HeroLuxury.tsx",
+              "export": "HeroLuxury"
+            },
+            {
+              "file": "components/layout/FooterLuxe.tsx",
+              "export": "FooterLuxe"
+            },
+            {
+              "file": "components/layout/sections/HeroBand.tsx",
+              "export": "HeroBand"
+            },
+            {
+              "file": "components/preview/FooterLuxePreview.tsx",
+              "export": "FooterLuxePreview"
+            },
+            {
+              "file": "components/preview/HeroGilded.tsx",
+              "export": "PreviewHeroGilded"
+            },
+            {
+              "file": "components/sections/HeroLuxury.tsx",
+              "export": "HeroLuxury"
+            },
+            {
+              "file": "components/sections/home/Hero_Ai24.tsx",
+              "export": "Hero_Ai24"
+            },
+            {
+              "file": "components/video/cinematic-hero-video.tsx",
+              "export": "CinematicHeroVideo"
+            }
+          ],
+          "previews": [
+            {
+              "file": "components/layout/sections/BlogPreviewExact.tsx",
+              "export": "BlogPreviewExact"
+            },
+            {
+              "file": "components/preview/FooterLuxePreview.tsx",
+              "export": "FooterLuxePreview"
+            },
+            {
+              "file": "components/preview/HeroGilded.tsx",
+              "export": "PreviewHeroGilded"
+            },
+            {
+              "file": "components/preview/TreatmentBanner.tsx",
+              "export": "TreatmentBanner"
+            }
+          ],
+          "manusReferences": [
+            {
+              "file": "components/hero/4k-hero-video.tsx",
+              "export": "Hero4KVideo"
+            },
+            {
+              "file": "components/home/ChampagneHero.tsx",
+              "export": "ChampagneHero"
+            },
+            {
+              "file": "components/home/ChampagneHeroGilded.tsx",
+              "export": "ChampagneHeroGilded"
+            },
+            {
+              "file": "components/home/HeroLuxury.tsx",
+              "export": "HeroLuxury"
+            },
+            {
+              "file": "components/preview/FooterLuxePreview.tsx",
+              "export": "FooterLuxePreview"
+            },
+            {
+              "file": "components/preview/HeroGilded.tsx",
+              "export": "PreviewHeroGilded"
+            },
+            {
+              "file": "components/preview/TreatmentBanner.tsx",
+              "export": "TreatmentBanner"
+            },
+            {
+              "file": "components/sections/SmileJourney.tsx",
+              "export": "SmileJourney"
+            },
+            {
+              "file": "public/assets/champagne/manifest.json",
+              "export": "manifest"
+            },
+            {
+              "file": "public/brand/manifest.json",
+              "export": "manifest"
+            },
+            {
+              "file": "styles/champagne/manifest.json",
+              "export": "manifest"
+            }
+          ]
+        },
+        "tokens": {
+          "styleTokens": [
+            "styles/tokens/smh-champagne-tokens.css"
+          ],
+          "manifests": [
+            "styles/champagne/manifest.json",
+            "public/brand/manifest.json"
+          ],
+          "guards": {
+            "scripts": [
+              "scripts/brand-guard-structure.cjs",
+              "scripts/brand-guard.cjs",
+              "scripts/brand-guard.smoke.mjs",
+              "scripts/brand-lock-guard.cjs",
+              "scripts/brand-structure-guard.cjs",
+              "scripts/guard-hero-freeze.mjs",
+              "scripts/verify-brand-tokens.ts",
+              "scripts/verify-hue.cjs"
+            ],
+            "packageScripts": {
+              "guard:hero": "node scripts/guard-hero-freeze.mjs",
+              "guard:hero:baseline": "node scripts/guard-hero-freeze.mjs --write-baseline",
+              "freeze:update-filmgrain": "node scripts/freeze-update-filmgrain.mjs",
+              "brand:guard": "node scripts/brand-guard.cjs",
+              "test:guard": "node scripts/brand-guard.smoke.mjs",
+              "brand:guard:structure": "node scripts/brand-guard-structure.cjs",
+              "verify:hue": "node scripts/verify-hue.cjs",
+              "verify:brand": "pnpm exec playwright test tests/brand-lock.spec.ts",
+              "verify:visual": "pnpm exec playwright test preview/brand-live.spec.ts",
+              "hue:capture": "node scripts/capture-gradient.cjs",
+              "hue:lock": "node scripts/lock-gradient.cjs",
+              "prepush": "pnpm run brand:guard && pnpm run verify:hue && pnpm test:brand"
+            }
+          }
+        },
+        "issues": [
+          {
+            "id": "rogue-tailwind-hues",
+            "severity": "medium",
+            "files": [
+              "app/api/integrations/email/route.ts",
+              "app/globals/hero-polish.css",
+              "app/treatments/composite-bonding/composite-bonding.module.css",
+              "app/treatments/technology/components/technology-hero.css",
+              "app/treatments/technology/technology.module.css",
+              "components/ai/luxury-chatbot.tsx",
+              "components/effects/luxury-text-effects.tsx",
+              "components/navigation/breadcrumbs.module.css",
+              "styles/ai/chat-preview.css",
+              "styles/champagne/hero.css",
+              "styles/champagne/manifest.json",
+              "styles/preview/champagne/footer.css",
+              "styles/preview/champagne/layers.css",
+              "styles/preview/champagne/page.css"
+            ],
+            "summary": "Hardcoded hex colours detected outside token directories; align with token usage or justify exceptions."
+          },
+          {
+            "id": "blueprint-gaps",
+            "severity": "high",
+            "summary": "No dedicated parallax/sticky/scroll animation framework detected in dependencies; blueprint parity incomplete."
+          }
+        ],
+        "actions": [
+          {
+            "action": "Normalize colour usage to token variables or document intentional exceptions in guard configs.",
+            "relatedIssue": "rogue-tailwind-hues"
+          },
+          {
+            "action": "Introduce a scroll/parallax framework (e.g., Lenis or GSAP ScrollTrigger) and wire core hero/treatment sections.",
+            "relatedIssue": "blueprint-gaps"
+          }
+        ]
+      },
+      "crossLinks": {
+        "tokensReferenced": [
+          "--write-baseline"
+        ],
+        "assetPaths": [
+          "/assets/champagne/manifest.json",
+          "/brand-guard-structure.cjs",
+          "/brand-guard.cjs",
+          "/brand-guard.smoke.mjs",
+          "/brand-live.spec.ts",
+          "/brand-lock-guard.cjs",
+          "/brand-lock.spec.ts",
+          "/brand-manifest/",
+          "/brand-structure-guard.cjs",
+          "/brand/BrandHeroGradient.tsx",
+          "/brand/manifest.json",
+          "/preview/FooterLuxePreview.tsx",
+          "/preview/HeroGilded.tsx",
+          "/preview/TreatmentBanner.tsx",
+          "/preview/ai24-home",
+          "/preview/ai24-home/page.tsx",
+          "/preview/brand-live",
+          "/preview/brand-live/page.tsx",
+          "/preview/brand-lock",
+          "/preview/brand-lock/page.tsx",
+          "/preview/champagne",
+          "/preview/champagne-phase2",
+          "/preview/champagne-phase2/page.tsx",
+          "/preview/champagne/footer.css",
+          "/preview/champagne/layers.css",
+          "/preview/champagne/page.css",
+          "/preview/champagne/page.tsx",
+          "/preview/chat",
+          "/preview/chat/page.tsx",
+          "/preview/footer-luxe",
+          "/preview/footer-luxe/page.tsx",
+          "/preview/hero-gilded",
+          "/preview/hero-gilded/page.tsx",
+          "/preview/lux",
+          "/preview/lux/gallery",
+          "/preview/lux/gallery/page.tsx",
+          "/preview/lux/legal",
+          "/preview/lux/legal/cookies",
+          "/preview/lux/legal/cookies/page.tsx",
+          "/preview/lux/legal/page.tsx",
+          "/preview/lux/legal/privacy",
+          "/preview/lux/legal/privacy/page.tsx",
+          "/preview/lux/legal/terms",
+          "/preview/lux/legal/terms/page.tsx",
+          "/preview/lux/locations/brighton",
+          "/preview/lux/locations/brighton/page.tsx",
+          "/preview/lux/locations/hove",
+          "/preview/lux/locations/hove/page.tsx",
+          "/preview/lux/locations/lancing",
+          "/preview/lux/locations/lancing/page.tsx",
+          "/preview/lux/locations/shoreham-by-sea",
+          "/preview/lux/locations/shoreham-by-sea/page.tsx",
+          "/preview/lux/locations/steyning",
+          "/preview/lux/locations/steyning/page.tsx",
+          "/preview/lux/locations/worthing",
+          "/preview/lux/locations/worthing/page.tsx",
+          "/preview/lux/page.tsx",
+          "/preview/lux/patient-stories",
+          "/preview/lux/patient-stories/page.tsx",
+          "/preview/lux/referrals",
+          "/preview/lux/referrals/page.tsx",
+          "/preview/lux/smile-ai",
+          "/preview/lux/smile-ai/page.tsx",
+          "/preview/lux/team",
+          "/preview/lux/team/",
+          "/preview/lux/team/page.tsx",
+          "/preview/lux/technology",
+          "/preview/lux/technology/page.tsx",
+          "/preview/manus-audit",
+          "/preview/manus-audit/page.tsx",
+          "/preview/manus-manifest",
+          "/preview/manus-manifest/page.tsx",
+          "/preview/treatments",
+          "/preview/treatments/3d-dentistry",
+          "/preview/treatments/3d-dentistry/page.tsx",
+          "/preview/treatments/composite-bonding",
+          "/preview/treatments/composite-bonding/page.tsx",
+          "/preview/treatments/cosmetic",
+          "/preview/treatments/cosmetic/page.tsx",
+          "/preview/treatments/dental-implants",
+          "/preview/treatments/dental-implants/page.tsx",
+          "/preview/treatments/general",
+          "/preview/treatments/general/page.tsx",
+          "/preview/treatments/implants",
+          "/preview/treatments/implants/page.tsx",
+          "/preview/treatments/orthodontics",
+          "/preview/treatments/orthodontics/page.tsx",
+          "/preview/treatments/page.tsx",
+          "/preview/treatments/technology",
+          "/preview/treatments/technology/page.tsx",
+          "/preview/treatments/veneers",
+          "/preview/treatments/veneers/page.tsx",
+          "/preview/treatments/whitening",
+          "/preview/treatments/whitening/page.tsx",
+          "/preview/why-hero-grey",
+          "/preview/why-hero-grey/page.tsx",
+          "public/assets/champagne/manifest.json",
+          "public/brand/manifest.json"
+        ],
+        "previewRoutes": [
+          "/preview/FooterLuxePreview",
+          "/preview/HeroGilded",
+          "/preview/TreatmentBanner",
+          "/preview/ai24-home",
+          "/preview/ai24-home/page",
+          "/preview/brand-live",
+          "/preview/brand-live/page",
+          "/preview/brand-lock",
+          "/preview/brand-lock/page",
+          "/preview/champagne",
+          "/preview/champagne-phase2",
+          "/preview/champagne-phase2/page",
+          "/preview/champagne/footer",
+          "/preview/champagne/layers",
+          "/preview/champagne/page",
+          "/preview/chat",
+          "/preview/chat/page",
+          "/preview/footer-luxe",
+          "/preview/footer-luxe/page",
+          "/preview/hero-gilded",
+          "/preview/hero-gilded/page",
+          "/preview/lux",
+          "/preview/lux/gallery",
+          "/preview/lux/gallery/page",
+          "/preview/lux/legal",
+          "/preview/lux/legal/cookies",
+          "/preview/lux/legal/cookies/page",
+          "/preview/lux/legal/page",
+          "/preview/lux/legal/privacy",
+          "/preview/lux/legal/privacy/page",
+          "/preview/lux/legal/terms",
+          "/preview/lux/legal/terms/page",
+          "/preview/lux/locations/brighton",
+          "/preview/lux/locations/brighton/page",
+          "/preview/lux/locations/hove",
+          "/preview/lux/locations/hove/page",
+          "/preview/lux/locations/lancing",
+          "/preview/lux/locations/lancing/page",
+          "/preview/lux/locations/shoreham-by-sea",
+          "/preview/lux/locations/shoreham-by-sea/page",
+          "/preview/lux/locations/steyning",
+          "/preview/lux/locations/steyning/page",
+          "/preview/lux/locations/worthing",
+          "/preview/lux/locations/worthing/page",
+          "/preview/lux/page",
+          "/preview/lux/patient-stories",
+          "/preview/lux/patient-stories/page",
+          "/preview/lux/referrals",
+          "/preview/lux/referrals/page",
+          "/preview/lux/smile-ai",
+          "/preview/lux/smile-ai/page",
+          "/preview/lux/team",
+          "/preview/lux/team/",
+          "/preview/lux/team/page",
+          "/preview/lux/technology",
+          "/preview/lux/technology/page",
+          "/preview/manus-audit",
+          "/preview/manus-audit/page",
+          "/preview/manus-manifest",
+          "/preview/manus-manifest/page",
+          "/preview/treatments",
+          "/preview/treatments/3d-dentistry",
+          "/preview/treatments/3d-dentistry/page",
+          "/preview/treatments/composite-bonding",
+          "/preview/treatments/composite-bonding/page",
+          "/preview/treatments/cosmetic",
+          "/preview/treatments/cosmetic/page",
+          "/preview/treatments/dental-implants",
+          "/preview/treatments/dental-implants/page",
+          "/preview/treatments/general",
+          "/preview/treatments/general/page",
+          "/preview/treatments/implants",
+          "/preview/treatments/implants/page",
+          "/preview/treatments/orthodontics",
+          "/preview/treatments/orthodontics/page",
+          "/preview/treatments/page",
+          "/preview/treatments/technology",
+          "/preview/treatments/technology/page",
+          "/preview/treatments/veneers",
+          "/preview/treatments/veneers/page",
+          "/preview/treatments/whitening",
+          "/preview/treatments/whitening/page",
+          "/preview/why-hero-grey",
+          "/preview/why-hero-grey/page"
+        ],
+        "hardHexValues": []
+      }
+    }
+  ],
+  "notFound": [],
+  "tokenInventory": [
+    "--bg",
+    "--brand-gold",
+    "--brand-gold-keyline",
+    "--brand-magenta",
+    "--brand-teal",
+    "--champagne-glass-bg",
+    "--champagne-grain-alpha",
+    "--champagne-keyline-gold",
+    "--champagne-particles-opacity-d",
+    "--champagne-particles-opacity-m",
+    "--champagne-sheen-alpha",
+    "--champagne-vignette-alpha",
+    "--ink",
+    "--iridescent-gradient",
+    "--parallax-max",
+    "--smh-accent-gold",
+    "--smh-bg-pos",
+    "--smh-bg-size",
+    "--smh-gold",
+    "--smh-gold-shoulder",
+    "--smh-grad-angle",
+    "--smh-grad-stop1",
+    "--smh-grad-stop2",
+    "--smh-grad-stop3",
+    "--smh-gradient",
+    "--smh-gradient-legacy",
+    "--smh-grain-alpha",
+    "--smh-gray-200",
+    "--smh-ink",
+    "--smh-particles-alpha",
+    "--smh-primary-ink",
+    "--smh-primary-magenta",
+    "--smh-primary-teal",
+    "--smh-surface-bg-position",
+    "--smh-surface-bg-size",
+    "--smh-text",
+    "--smh-vignette-alpha",
+    "--smh-warm-gold",
+    "--smh-warm-lift",
+    "--smh-warm-lift-gold-alpha",
+    "--smh-warm-lift-magenta-alpha",
+    "--smh-warm-magenta",
+    "--smh-warm-rose",
+    "--smh-white",
+    "--text"
+  ]
+}

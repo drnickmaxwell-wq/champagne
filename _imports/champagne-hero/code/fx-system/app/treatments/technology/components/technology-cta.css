@@ -1,0 +1,282 @@
+.technology-cta-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 2rem;
+}
+
+/* Film Grain + Parallax Wave Mirror */
+.cta-film-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/film-grain.png');
+  background-size: 200px 200px;
+  opacity: 0.01;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cta-parallax-wave {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 1;
+  transform: scaleY(-1); /* Mirror effect */
+  animation: parallaxWaveDrift 35s ease-in-out infinite;
+}
+
+@keyframes parallaxWaveDrift {
+  0%, 100% { transform: scaleY(-1) translateY(0); }
+  50% { transform: scaleY(-1) translateY(-2%); }
+}
+
+/* Wave Rise Animation */
+.cta-wave-rise {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 1;
+  animation: waveRise 2s ease-out forwards;
+}
+
+@keyframes waveRise {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 0.12;
+  }
+}
+
+/* Gradient Mirror - 135° Magenta → Turquoise → Gold */
+.cta-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--magenta) 0%, var(--turquoise) 50%, var(--gold) 100%);
+  z-index: 2;
+}
+
+/* Reversed Wave Reflection Shimmer - 10s loop */
+.cta-wave-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%);
+  z-index: 3;
+  animation: waveShimmer 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes waveShimmer {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* Gold Dust Overlay */
+.cta-gold-dust {
+  position: absolute;
+  inset: 0;
+  background-image: url('/brand-polish/wave-gold-dust.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.03;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Dark Overlay for Text Contrast */
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 4;
+}
+
+/* CTA Content */
+.cta-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  opacity: 0;
+  animation: ctaFadeIn 800ms ease-out 300ms forwards;
+}
+
+@keyframes ctaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.cta-subtitle {
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 1.5rem 3rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1px White-Glass Rim */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Subtle Gold Flare on Hover */
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.4s ease-out;
+  pointer-events: none;
+}
+
+.cta-button:hover::after {
+  width: 250px;
+  height: 250px;
+  opacity: 1;
+}
+
+.cta-btn-primary {
+  background: white;
+  color: var(--magenta);
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-btn-secondary:hover {
+  background: white;
+  color: var(--magenta);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Animated Underline for Primary Button */
+.btn-underline {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--magenta), var(--turquoise), var(--gold), var(--magenta));
+  background-size: 200% 100%;
+  border-radius: 9999px;
+  animation: underlineShimmer 1.8s linear infinite;
+}
+
+@keyframes underlineShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .cta-wave-rise,
+  .cta-content {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .btn-underline {
+    animation: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .technology-cta-section {
+    min-height: 60vh;
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+
+  .cta-wave-rise {
+    height: 100px;
+  }
+}
+

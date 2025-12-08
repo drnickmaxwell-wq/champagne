@@ -1,0 +1,287 @@
+{
+  "component": "ChampagneHero",
+  "version": "2.0.0",
+  "description": "Premium hero section with wave-masked gradient, particles, film grain, motion videos, and parallax for St Mary's House Dental",
+  "designSystem": "St Mary's House Champagne Design System",
+  "lastUpdated": "2025-11-01",
+  "author": "Manus AI",
+  
+  "tokens": {
+    "colors": {
+      "brandMagenta": "#C2185B",
+      "brandTurquoise": "#2CBFAE",
+      "brandTurquoiseAlt": "#40C4B4",
+      "brandGold": "#D4AF37",
+      "paper": "#FFFFFF",
+      "ink": "#0E1420"
+    },
+    "gradients": {
+      "champagne": "linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%)",
+      "cta": "linear-gradient(135deg, #C2185B 0%, #2CBFAE 55%, #D4AF37 100%)"
+    },
+    "typography": {
+      "display": "Playfair Display",
+      "body": "Inter"
+    },
+    "radii": {
+      "pill": "999px",
+      "lg": "18px"
+    },
+    "shadows": {
+      "glow": "0 0 1px rgba(255, 255, 255, 0.6), 0 10px 40px rgba(194, 24, 91, 0.25)",
+      "goldGlow": "0 0 12px rgba(212, 175, 55, 0.4), 0 0 24px rgba(212, 175, 55, 0.2)"
+    }
+  },
+  
+  "layers": [
+    {
+      "id": 1,
+      "name": "gradient-base",
+      "type": "static",
+      "description": "Base champagne gradient background",
+      "src": null,
+      "cssBackground": "var(--gradient-champagne)",
+      "opacity": 1.0,
+      "blendMode": "normal",
+      "parallaxMaxPx": 0,
+      "zIndex": 1
+    },
+    {
+      "id": 2,
+      "name": "wave-caustics",
+      "type": "motion",
+      "description": "Subtle underwater light caustics with gradient colors",
+      "src": "/assets/champagne/motion/wave-caustics.webm",
+      "opacity": 0.10,
+      "blendMode": "screen",
+      "parallaxMaxPx": 2,
+      "zIndex": 2
+    },
+    {
+      "id": 3,
+      "name": "wave-mask",
+      "type": "static",
+      "description": "Wave pattern mask overlay",
+      "src": "/assets/champagne/waves/wave-mask-desktop.webp",
+      "srcMobile": "/assets/champagne/waves/wave-mask-mobile.webp",
+      "opacity": 0.4,
+      "blendMode": "overlay",
+      "parallaxMaxPx": 4,
+      "zIndex": 3
+    },
+    {
+      "id": 4,
+      "name": "glass-shimmer",
+      "type": "motion",
+      "description": "Elegant glass shimmer with gold highlights",
+      "src": "/assets/champagne/motion/glass-shimmer.webm",
+      "opacity": 0.12,
+      "blendMode": "screen",
+      "parallaxMaxPx": 1,
+      "zIndex": 4
+    },
+    {
+      "id": 5,
+      "name": "particles-static",
+      "type": "static",
+      "description": "Static particle texture (tileable)",
+      "src": "/assets/champagne/particles/home-hero-particles.webp",
+      "opacity": 0.08,
+      "blendMode": "screen",
+      "parallaxMaxPx": 3,
+      "zIndex": 5,
+      "tileable": true,
+      "tileSize": "1024px 1024px"
+    },
+    {
+      "id": 6,
+      "name": "particles-drift",
+      "type": "motion",
+      "description": "Animated particles drifting slowly",
+      "src": "/assets/champagne/motion/particles-drift.webm",
+      "opacity": 0.06,
+      "blendMode": "screen",
+      "parallaxMaxPx": 3,
+      "zIndex": 6
+    },
+    {
+      "id": 7,
+      "name": "gold-dust-drift",
+      "type": "motion",
+      "description": "Sparse gold dust particles for luxury accent",
+      "src": "/assets/champagne/particles/gold-dust-drift.webm",
+      "opacity": 0.08,
+      "blendMode": "screen",
+      "parallaxMaxPx": 2,
+      "zIndex": 7
+    },
+    {
+      "id": 8,
+      "name": "film-grain",
+      "type": "static",
+      "description": "Fine film grain texture (tileable)",
+      "src": "/assets/champagne/textures/home-hero-film-grain.webp",
+      "opacity": 0.07,
+      "blendMode": "overlay",
+      "parallaxMaxPx": 0,
+      "zIndex": 8,
+      "tileable": true,
+      "tileSize": "512px 512px"
+    },
+    {
+      "id": 9,
+      "name": "content",
+      "type": "content",
+      "description": "Hero text content and CTAs",
+      "src": null,
+      "opacity": 1.0,
+      "blendMode": "normal",
+      "parallaxMaxPx": 0,
+      "zIndex": 9
+    }
+  ],
+  
+  "parallax": {
+    "maxTotal": 6,
+    "unit": "px",
+    "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+  },
+  
+  "motion": {
+    "videoFormat": "webm",
+    "codec": "vp9",
+    "alphaChannel": true,
+    "maxFileSize": "4MB",
+    "fps": 24,
+    "loop": true,
+    "autoplay": true,
+    "muted": true,
+    "playsInline": true
+  },
+  
+  "accessibility": {
+    "contrast": "AA",
+    "focusRing": "#D4AF37 1px glow",
+    "minHitTarget": "44x44px",
+    "semanticHTML": true,
+    "keyboardNav": true,
+    "reducedMotion": true,
+    "reducedMotionBehavior": "Hide all motion layers, show static gradient and wave mask only",
+    "ariaLabels": {
+      "section": "aria-labelledby=\"home-hero-title\"",
+      "primaryCTA": "Book a consultation",
+      "secondaryCTA": "Explore treatments"
+    }
+  },
+  
+  "responsive": {
+    "desktop": {
+      "minHeight": "70vh",
+      "safePadding": "96px",
+      "containerMaxWidth": "1200px"
+    },
+    "mobile": {
+      "minHeight": "68vh",
+      "safePadding": "80px",
+      "ctaLayout": "stacked"
+    }
+  },
+  
+  "assets": [
+    {
+      "path": "public/assets/champagne/waves/wave-mask-desktop.webp",
+      "width": 2560,
+      "height": 1440,
+      "format": "webp",
+      "purpose": "Wave mask for desktop viewport"
+    },
+    {
+      "path": "public/assets/champagne/waves/wave-mask-mobile.webp",
+      "width": 1170,
+      "height": 2532,
+      "format": "webp",
+      "purpose": "Wave mask for mobile viewport"
+    },
+    {
+      "path": "public/assets/champagne/particles/home-hero-particles.webp",
+      "width": 1024,
+      "height": 1024,
+      "format": "webp",
+      "purpose": "Seamless particle texture",
+      "tileable": true
+    },
+    {
+      "path": "public/assets/champagne/textures/home-hero-film-grain.webp",
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "purpose": "Seamless film grain texture",
+      "tileable": true
+    },
+    {
+      "path": "public/assets/champagne/motion/wave-caustics.webm",
+      "width": 1280,
+      "height": 720,
+      "format": "webm",
+      "codec": "vp9",
+      "duration": "5s",
+      "fileSize": "458KB",
+      "purpose": "Animated wave caustics effect"
+    },
+    {
+      "path": "public/assets/champagne/motion/glass-shimmer.webm",
+      "width": 1280,
+      "height": 720,
+      "format": "webm",
+      "codec": "vp9",
+      "duration": "5s",
+      "fileSize": "457KB",
+      "purpose": "Glass shimmer animation"
+    },
+    {
+      "path": "public/assets/champagne/motion/particles-drift.webm",
+      "width": 1280,
+      "height": 720,
+      "format": "webm",
+      "codec": "vp9",
+      "duration": "5s",
+      "fileSize": "412KB",
+      "purpose": "Drifting particles animation"
+    },
+    {
+      "path": "public/assets/champagne/particles/gold-dust-drift.webm",
+      "width": 1280,
+      "height": 720,
+      "format": "webm",
+      "codec": "vp9",
+      "duration": "5s",
+      "fileSize": "384KB",
+      "purpose": "Gold dust drift animation"
+    }
+  ],
+  
+  "performance": {
+    "willChange": ["transform"],
+    "hardwareAcceleration": true,
+    "lazyLoading": true,
+    "assetCaching": true,
+    "videoPreload": "auto"
+  },
+  
+  "browserSupport": {
+    "chrome": "90+",
+    "firefox": "88+",
+    "safari": "14+",
+    "edge": "90+"
+  },
+  
+  "compliance": {
+    "layerOrder": "strict",
+    "parallaxCap": "6px",
+    "particleDensity": "0.6-0.9%",
+    "grainStrength": "6-8%",
+    "gradientAccuracy": "95%+",
+    "brandTokens": "CSS variables only",
+    "motionDisable": "prefers-reduced-motion: reduce"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "package": "champagne-canon",
+  "version": "1.0.0",
+  "components": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "assets": {
+        "waves": {
+          "mask": "/assets/champagne/waves/wave-mask-desktop.webp",
+          "background": "/assets/champagne/waves/waves-bg-2560.webp"
+        },
+        "motion": {
+          "waveCaustics": "/assets/champagne/motion/wave-caustics.webm",
+          "glassShimmer": "/assets/champagne/motion/glass-shimmer.webm",
+          "goldDust": "/assets/champagne/motion/gold-dust-drift.webm",
+          "particles": "/assets/champagne/motion/particles-drift.webm",
+          "filmGrain": "/assets/champagne/textures/home-hero-film-grain.webp"
+        },
+        "particlesStatic": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "hints": {
+        "gradientId": "champagne-core-135",
+        "blend": {
+          "caustics": "screen",
+          "glass": "soft-light",
+          "particles": "overlay",
+          "gold": "color-dodge",
+          "grain": "multiply"
+        },
+        "opacity": {
+          "caustics": 0.35,
+          "glass": 0.28,
+          "particles": 0.2,
+          "gold": 0.26,
+          "grain": 0.16
+        }
+      }
+    }
+  ],
+  "guards": {
+    "freeze": [
+      "/public/assets/champagne/waves/wave-mask-desktop.webp",
+      "/public/assets/champagne/waves/waves-bg-2560.webp",
+      "/public/assets/champagne/motion/wave-caustics.webm",
+      "/public/assets/champagne/motion/glass-shimmer.webm",
+      "/public/assets/champagne/motion/gold-dust-drift.webm",
+      "/public/assets/champagne/motion/particles-drift.webm",
+      "/public/assets/champagne/particles/home-hero-particles.webp",
+      "/public/assets/champagne/textures/home-hero-film-grain.webp"
+    ],
+    "brand_lock_assertions": [
+      "no-rogue-hex",
+      "gradient-135-magenta-to-teal",
+      "mask-applied",
+      "motion-respects-prm"
+    ]
+  }
+}

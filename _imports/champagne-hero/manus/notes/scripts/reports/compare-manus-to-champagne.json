@@ -1,0 +1,126 @@
+{
+  "summary": {
+    "aligned": 0,
+    "needs_attention": 0,
+    "missing": 13
+  },
+  "by_id": {
+    "about-us::team-gallery": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for team-gallery from about-us."
+    },
+    "contact::cta-band": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for cta-band from contact."
+    },
+    "footer::footer": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for footer from footer."
+    },
+    "home::cta-band": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for cta-band from home."
+    },
+    "home::features-grid": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for features-grid from home."
+    },
+    "home::hero": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for hero from home."
+    },
+    "technology::3d-viewer": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for 3d-viewer from technology."
+    },
+    "technology::features-grid": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for features-grid from technology."
+    },
+    "treatments/dental-implants::hero": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for hero from treatments/dental-implants."
+    },
+    "treatments/dental-implants::process": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for process from treatments/dental-implants."
+    },
+    "treatments/spark-aligners::faq": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for faq from treatments/spark-aligners."
+    },
+    "treatments/spark-aligners::hero": {
+      "status": "missing",
+      "diff": {
+        "manus_component": null
+      },
+      "notes": "No Manus entry for hero from treatments/spark-aligners."
+    },
+    "brand::tokens": {
+      "status": "missing",
+      "diff": {
+        "tokens": "not imported"
+      },
+      "notes": "Champagne brand tokens absent from Manus package."
+    }
+  },
+  "assets": {
+    "missing": {
+      "video": [
+        "particles/particles-soft.webm"
+      ],
+      "image": [
+        "localhost_2025-09-07_16-11-12.webp",
+        "localhost_2025-09-07_16-15-19.webp",
+        "localhost_2025-09-07_16-18-25.webp",
+        "localhost_2025-09-07_16-23-41.webp",
+        "localhost_2025-09-07_16-27-36.webp",
+        "localhost_2025-09-07_16-30-34.webp",
+        "localhost_2025-09-07_16-34-08.webp",
+        "localhost_2025-09-07_16-39-30.webp",
+        "localhost_2025-09-07_16-48-25.webp",
+        "localhost_2025-09-07_17-20-15.webp",
+        "localhost_2025-09-07_17-20-41.webp",
+        "localhost_2025-09-07_17-20-53.webp",
+        "textures/film-grain-2560x1440.webp"
+      ],
+      "svg": [
+        "waves-background-set.zip"
+      ]
+    },
+    "present_but_different": []
+  }
+}

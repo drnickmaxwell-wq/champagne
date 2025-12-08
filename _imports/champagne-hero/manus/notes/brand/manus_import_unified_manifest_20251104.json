@@ -1,0 +1,11 @@
+{
+  "package": {
+    "name": "manus-import-unified-20251104-1100",
+    "source_zips": ["... all uploaded ZIPs ..."]
+  },
+  "components": ["... full component data from previous message ..."],
+  "assets_summary": {"videos": [], "images": [], "svgs": []},
+  "guards": {"freeze": [], "brand_lock_assertions": []},
+  "issues": [],
+  "actions_suggested": []
+}

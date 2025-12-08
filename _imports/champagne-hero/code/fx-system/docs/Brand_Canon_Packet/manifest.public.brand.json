@@ -1,0 +1,92 @@
+{
+  "name": "SMH Champagne Canon",
+  "version": "1.0.0",
+  "tokens": "/styles/tokens/smh-champagne-tokens.css",
+  "gradientVar": "--smh-gradient",
+  "goldVar": "--smh-accent-gold",
+  "gradient": {
+    "angle": 135,
+    "stops": [
+      { "color": "#C2185B", "pos": 0 },
+      { "color": "#40C4B4", "pos": 60 },
+      { "color": "#D4AF37", "pos": 100 }
+    ],
+    "css": "linear-gradient(135deg,#C2185B 0%,#40C4B4 60%,#D4AF37 100%)"
+  },
+  "gold": {
+    "hex": "#D4AF37",
+    "usage": "keylines, accents only"
+  },
+  "typography": {
+    "headings": "Playfair Display",
+    "body": "Inter"
+  },
+  "waves": {
+    "mask": "/assets/champagne/waves/wave-mask-desktop.webp",
+    "background": "/assets/champagne/waves/wave-bg.webp"
+  },
+  "textures": {
+    "filmGrain": "/assets/champagne/textures/home-hero-film-grain.webp",
+    "glass": "/assets/champagne/textures/glass-soft.webp",
+    "glassSoft": "/assets/champagne/textures/glass-soft.webp"
+  },
+  "particles": {
+    "soft": "/assets/champagne/particles/home-hero-particles.webp"
+  },
+  "motion": {
+    "waveCaustics": "/assets/champagne/motion/wave-caustics.webm",
+    "glassShimmer": "/assets/champagne/motion/glass-shimmer.webm",
+    "particlesDrift": "/assets/champagne/motion/particles-drift.webm",
+    "goldDust": "/assets/champagne/motion/gold-dust-drift.webm"
+  },
+  "static": {
+    "textures": {
+      "filmGrain": "/brand/textures/film-grain-2560x1440.webp",
+      "glassSoft": "/brand/textures/glass-soft.webp"
+    },
+    "waves": {
+      "background": "/brand/waves/wave-bg.webp",
+      "mask": "/brand/waves/wave-mask.svg"
+    }
+  },
+  "dynamic": {
+    "particles": [
+      {
+        "id": "particles-soft",
+        "src": "/brand/particles/particles-soft.webm",
+        "codec": "vp9-alpha",
+        "duration": 8,
+        "fps": 24,
+        "loop": true,
+        "intensity": "subtle"
+      },
+      {
+        "id": "shimmer-waves",
+        "src": "/brand/particles/shimmer-waves.webm",
+        "codec": "vp9-alpha",
+        "duration": 8,
+        "fps": 24,
+        "loop": true,
+        "intensity": "subtle"
+      },
+      {
+        "id": "iridescent-glow",
+        "src": "/brand/particles/iridescent-glow.webm",
+        "codec": "vp9-alpha",
+        "duration": 8,
+        "fps": 24,
+        "loop": true,
+        "intensity": "subtle"
+      },
+      {
+        "id": "grain-motion",
+        "src": "/brand/particles/grain-motion.webm",
+        "codec": "vp9-alpha",
+        "duration": 8,
+        "fps": 24,
+        "loop": true,
+        "intensity": "ultra-subtle"
+      }
+    ]
+  }
+}

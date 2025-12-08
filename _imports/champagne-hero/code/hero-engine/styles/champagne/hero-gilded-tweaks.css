@@ -1,0 +1,124 @@
+.preview-hero-gilded .hero-wave-mask {
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  /* keep existing blend/mix rules from hero.css */
+}
+
+.preview-hero-gilded .loop-pair {
+  position: absolute;
+  inset: 0;
+}
+
+.preview-hero-gilded .loop-pair video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 280ms ease-in-out;
+}
+
+.preview-hero-gilded .loop-top {
+  opacity: 0;
+}
+
+.preview-hero-gilded .loop-top.is-active {
+  opacity: 1;
+}
+
+/* Gold shimmer polish without changing particle size */
+.preview-hero-gilded .hero-gold-dust-drift {
+  mix-blend-mode: screen; /* keep light, not chalky */
+  filter: saturate(1.08) brightness(1.06);
+  opacity: 0.18; /* make it visible but not gaudy */
+}
+
+/* Slight overall chroma lift for the preview */
+.preview-hero-gilded .champagne-hero {
+  filter: saturate(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-hero-gilded .loop-pair video {
+    transition: none;
+  }
+}
+
+.preview-hero-gilded .hero-gold-dust-drift{
+  opacity:0.18;
+  filter:saturate(1.1) brightness(1.08) hue-rotate(2deg);
+  mix-blend-mode:screen;
+}
+.preview-hero-gilded .hero-particles-static::after{
+  content:'';
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle at 20% 30%,rgba(255,255,200,0.08)1px,transparent 2px),
+                   radial-gradient(circle at 80% 70%,rgba(255,215,150,0.07)1px,transparent 3px);
+  background-size:3px 3px;
+  animation:champagneSparkle 6s infinite ease-in-out alternate;
+  pointer-events:none;
+}
+@keyframes champagneSparkle{
+  0%{opacity:0.05;filter:brightness(1);}
+  50%{opacity:0.15;filter:brightness(1.2);}
+  100%{opacity:0.05;filter:brightness(1);}
+}
+.preview-hero-gilded .champagne-hero{
+  filter:saturate(1.04) brightness(1.03);
+}
+.preview-hero-gilded .hero-film-grain::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(circle at center,rgba(255,255,240,0.03)0%,transparent 70%);
+  mix-blend-mode:color-dodge;
+}
+@media (prefers-reduced-motion: reduce){
+  .preview-hero-gilded .hero-particles-static::after,
+  .preview-hero-gilded video.fade-mirror{display:none;}
+}
+video.fade-mirror{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  opacity:0;transition:opacity 280ms ease-in-out;
+}
+@keyframes heroDrift {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.008) translateY(-1%); }
+  100% { transform: scale(1) translateY(0); }
+}
+.preview-hero-gilded .champagne-hero {
+  animation: heroDrift 14s ease-in-out infinite;
+  transform-origin: center;
+}
+.preview-hero-gilded .hero-caustic-reflection {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.preview-hero-gilded .hero-caustic-reflection::after {
+  content:'';
+  position:absolute;inset:0;
+  background-image:url('/assets/champagne/motion/wave-caustics.webm');
+  background-size:cover;
+  mix-blend-mode:color-dodge;
+  opacity:0.08;
+  pointer-events:none;
+}
+.preview-hero-gilded .champagne-hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(255,255,255,0.03) 0%,
+    transparent 60%,
+    rgba(0,0,0,0.05) 100%);
+  mix-blend-mode:soft-light;
+  pointer-events:none;
+  opacity:var(--scroll-fade,0);
+  transition:opacity 0.3s ease-out;
+}
+video.fade-clone{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:0;
+  transition:opacity 250ms ease-in-out;
+}

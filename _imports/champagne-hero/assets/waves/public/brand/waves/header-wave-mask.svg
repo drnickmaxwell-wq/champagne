@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2560" height="360" viewBox="0 0 2560 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fade-down" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.95"/>
+      <stop offset="65%" stop-color="white" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fade-up" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="0.85"/>
+      <stop offset="80%" stop-color="white" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soften" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="2560" height="360" fill="url(#fade-down)"/>
+  <path d="M0 126 C 512 72, 896 198, 1280 144 C 1664 90, 2048 216, 2560 162 L 2560 360 L 0 360 Z" fill="url(#fade-up)" filter="url(#soften)"/>
+  <path d="M0 72 C 460 29, 819 144, 1229 101 C 1741 43, 2150 146, 2560 115 L 2560 360 L 0 360 Z" fill="white" fill-opacity="0.35" filter="url(#soften)"/>
+  <path d="M0 209 C 563 162, 921 270, 1331 223 C 1792 180, 2195 289, 2560 230 L 2560 360 L 0 360 Z" fill="white" fill-opacity="0.22" filter="url(#soften)"/>
+</svg>

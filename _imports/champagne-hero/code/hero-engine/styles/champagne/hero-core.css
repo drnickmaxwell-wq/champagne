@@ -1,0 +1,113 @@
+.heroRoot {
+  position: relative;
+  isolation: isolate;
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  background: var(--smh-gradient);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .heroRoot {
+    min-height: 88vh;
+  }
+}
+
+.heroWaveMask {
+  position: absolute;
+  inset: 0;
+  background: var(--smh-gradient);
+  -webkit-mask-image: var(
+    --wave-mask-url,
+    url("/brand/waves/wave-mask.svg")
+  );
+  mask-image: var(--wave-mask-url, url("/brand/waves/wave-mask.svg"));
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: bottom center;
+  pointer-events: none;
+}
+
+.heroGlass {
+  position: absolute;
+  inset: 0;
+  background-image: var(
+    --hero-glass-url,
+    url("/brand/textures/glass-soft.webp")
+  );
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: soft-light;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.heroGrain {
+  position: absolute;
+  inset: 0;
+  background-image: var(
+    --hero-grain-url,
+    url("/brand/textures/film-grain-2560x1440.webp")
+  );
+  background-size: cover;
+  background-position: center;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  width: min(92vw, 1024px);
+  margin-inline: auto;
+  text-align: center;
+  color: var(--smh-text);
+}
+
+.heroContent .card {
+  backdrop-filter: saturate(1.1) blur(12px);
+  background: color-mix(in oklab, var(--smh-white, white) 78%, transparent);
+  border: 1px solid var(--smh-accent-gold);
+  border-radius: 20px;
+  padding: clamp(16px, 4vw, 28px);
+  box-shadow: 0 12px 32px
+    color-mix(in oklab, var(--smh-ink) 10%, transparent);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--smh-accent-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btnPrimary {
+  background: color-mix(in oklab, var(--smh-white, white) 92%, transparent);
+}
+
+.btnGhost {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroRoot,
+  .heroWaveMask,
+  .heroGlass,
+  .heroGrain {
+    animation: none !important;
+  }
+}

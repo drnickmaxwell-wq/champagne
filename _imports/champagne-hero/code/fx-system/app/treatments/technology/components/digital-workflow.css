@@ -1,0 +1,272 @@
+.digital-workflow-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: white;
+  overflow: hidden;
+  transition: background-color 2s ease-out;
+}
+
+/* Scroll-Sync Wave Morphing Background */
+.workflow-wave-morph {
+  position: absolute;
+  inset: 0;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.03;
+  z-index: 0;
+  transition: filter 2s ease-out, opacity 2s ease-out;
+  filter: hue-rotate(0deg);
+}
+
+/* Hue shift states based on scroll position */
+.workflow-wave-morph[data-phase="scan"] {
+  filter: hue-rotate(-15deg); /* Magenta bias */
+  opacity: 0.04;
+}
+
+.workflow-wave-morph[data-phase="design"] {
+  filter: hue-rotate(0deg); /* Turquoise */
+  opacity: 0.05;
+}
+
+.workflow-wave-morph[data-phase="make"] {
+  filter: hue-rotate(30deg); /* Gold bias */
+  opacity: 0.04;
+}
+
+/* Wave Dividers */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background-image: url('/waves/waves-bg-1920.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.wave-divider-top {
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.wave-divider-bottom {
+  bottom: 0;
+}
+
+.workflow-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--magenta), var(--turquoise));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 4rem;
+  font-size: 1.2rem;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+.workflow-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.workflow-card {
+  position: relative;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 1.5rem;
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(white, white),
+    linear-gradient(135deg, rgba(194, 24, 91, 0.15), transparent);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.6s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.workflow-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.workflow-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.workflow-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.workflow-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Micro-parallax effect */
+.workflow-card::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(135deg, rgba(64, 196, 180, 0.05), transparent);
+  border-radius: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.workflow-card:hover::before {
+  opacity: 1;
+}
+
+.card-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(194, 24, 91, 0.05), rgba(64, 196, 180, 0.05));
+  border-radius: 50%;
+  transition: all 0.6s ease-out;
+  position: relative;
+}
+
+/* Ambient Light Bloom - turquoise → gold, 15s loop */
+.card-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(64, 196, 180, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: ambientBloom 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ambientBloom {
+  0%, 100% { 
+    opacity: 0;
+    background: radial-gradient(circle, rgba(64, 196, 180, 0.15) 0%, transparent 70%);
+  }
+  50% { 
+    opacity: 1;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  }
+}
+
+/* Icon Inner Glow on Hover - 1s */
+.card-icon-wrapper:hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(64, 196, 180, 0.3) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: innerGlow 1s ease-out;
+  pointer-events: none;
+}
+
+@keyframes innerGlow {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.2); }
+}
+
+.workflow-card:hover .card-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(194, 24, 91, 0.1), rgba(64, 196, 180, 0.1));
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--magenta);
+}
+
+.card-description {
+  text-align: center;
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* Gold Baseline - reveals on scroll */
+.gold-baseline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transition: width 0.8s ease-out 0.3s;
+}
+
+.workflow-card.visible .gold-baseline {
+  width: 80%;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .workflow-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .gold-baseline {
+    width: 80% !important;
+    transition: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .digital-workflow-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .workflow-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .wave-divider {
+    height: 80px;
+  }
+}
+

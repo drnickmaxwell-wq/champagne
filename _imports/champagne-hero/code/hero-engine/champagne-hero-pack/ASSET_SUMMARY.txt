@@ -1,0 +1,96 @@
+CHAMPAGNE HERO PACK v2.0 - ASSET SUMMARY
+=========================================
+
+STATIC ASSETS (WEBP)
+--------------------
+Waves (10 files, 1.4MB total):
+  ✓ wave-mask-desktop.webp (2560×1440, 213KB)
+  ✓ wave-mask-mobile.webp (1170×2532, 153KB)
+  ✓ waves-bg-2560.webp (213KB)
+  ✓ waves-bg-1920.webp (213KB)
+  ✓ waves-bg-1600.webp (213KB)
+  ✓ waves-bg-1280.webp (153KB)
+  ✓ waves-bg-1024.webp (104KB)
+  ✓ waves-bg-768.webp (60KB)
+  ✓ waves-bg-480.webp (24KB)
+  ✓ waves-bg-320.webp (9.5KB)
+
+Particles (1 file, 326KB):
+  ✓ home-hero-particles.webp (1024×1024, tileable)
+
+Textures (1 file, 2.7MB):
+  ✓ home-hero-film-grain.webp (512×512, tileable)
+
+MOTION ASSETS (WEBM VP9)
+-------------------------
+Motion Videos (4 files, 1.7MB total):
+  ✓ wave-caustics.webm (458KB, 1280×720, 24fps, 5s loop)
+  ✓ glass-shimmer.webm (457KB, 1280×720, 24fps, 5s loop)
+  ✓ particles-drift.webm (412KB, 1280×720, 24fps, 5s loop)
+  ✓ gold-dust-drift.webm (384KB, 1280×720, 24fps, 5s loop)
+
+All motion files: VP9 codec, alpha channel, seamless loops
+
+STYLES
+------
+  ✓ hero.css (7.3KB) - 9-layer system with reduced-motion support
+  ✓ manifest.json (7.5KB) - Complete specification
+
+DOCUMENTATION
+-------------
+  ✓ README.md (7.4KB) - Installation guide and usage
+
+TOTAL PACKAGE SIZE
+------------------
+  Uncompressed: ~6.6MB
+  ZIP Archive: 6.3MB
+
+LAYER SYSTEM
+------------
+Layer 1: Gradient Base (CSS gradient)
+Layer 2: Wave Caustics (motion, 0.10 opacity, screen blend)
+Layer 3: Wave Mask (static, 0.40 opacity, overlay blend)
+Layer 4: Glass Shimmer (motion, 0.12 opacity, screen blend)
+Layer 5: Particles Static (static, 0.08 opacity, screen blend)
+Layer 6: Particles Drift (motion, 0.06 opacity, screen blend)
+Layer 7: Gold Dust Drift (motion, 0.08 opacity, screen blend)
+Layer 8: Film Grain (static, 0.07 opacity, overlay blend)
+Layer 9: Content (HTML content)
+
+GRADIENT
+--------
+linear-gradient(135deg, #C2185B 0%, #40C4B4 60%, #D4AF37 100%)
+Magenta → Turquoise → Gold
+
+ACCESSIBILITY
+-------------
+✓ prefers-reduced-motion support (hides all motion layers)
+✓ Keyboard navigation (focus states)
+✓ ARIA labels
+✓ AA contrast compliance
+✓ 44×44px minimum hit targets
+
+BROWSER SUPPORT
+---------------
+Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+Requires WebM VP9 codec support
+
+INSTALLATION
+------------
+1. Extract ZIP to repo root
+2. Copy public/assets/champagne/ to your public directory
+3. Copy styles/champagne/ to your styles directory
+4. Import hero.css in your main stylesheet
+5. Follow HTML structure in README.md
+
+NOTES
+-----
+- All assets are local (no CDN dependencies)
+- Motion disables automatically with prefers-reduced-motion
+- CSS uses variables only (no hard-coded hex values)
+- Parallax ready (implement via JavaScript)
+- Optimized for web performance
+
+Created: 2025-11-01
+Version: 2.0.0
+Design System: St Mary's House Champagne

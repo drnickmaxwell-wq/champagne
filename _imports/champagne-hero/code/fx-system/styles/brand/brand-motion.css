@@ -1,0 +1,50 @@
+/* styles/brand/brand-motion.css
+   Micro-interactions shared across brand CTAs. */
+
+.sparkle-hover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sparkle-hover::after {
+  content: "";
+  position: absolute;
+  inset: -30% -50%;
+  background: var(--sparkle-highlight);
+  transform: translateX(-120%);
+  opacity: 0;
+  transition:
+    transform 900ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    opacity 360ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.sparkle-hover:hover::after,
+.sparkle-hover:focus-visible::after {
+  transform: translateX(120%);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-hover::after {
+    transition: none;
+    transform: none;
+    opacity: 0;
+  }
+}
+
+.glass-btn {
+  border: 1px solid var(--brand-gold-keyline);
+  background: color-mix(in oklab, white 70%, var(--brand-gold));
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  backdrop-filter: blur(12px) saturate(120%);
+  padding: 0.75rem 1rem; border-radius: 9999px;
+  transition: transform .25s ease, background-image .25s ease, color .25s ease;
+}
+.glass-btn:hover {
+  background-image: var(--smh-gradient);
+  color: white;
+  transform: translateY(-1px);
+}

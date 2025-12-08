@@ -1,0 +1,210 @@
+.sustainability-section {
+  position: relative;
+  padding: 8rem 2rem;
+  background: var(--warm-mist);
+  overflow: hidden;
+}
+
+/* Turquoise-Gold Gradient Shift Background - 15s loop */
+.sustainability-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(64, 196, 180, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Gold Spark Particles Container */
+.gold-particles-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gold-particle {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp 30s linear infinite;
+  filter: blur(0.5px);
+}
+
+/* Randomized paths for 5-8 particles */
+.gold-particle:nth-child(1) { left: 15%; animation-delay: 0s; animation-duration: 28s; }
+.gold-particle:nth-child(2) { left: 35%; animation-delay: 3s; animation-duration: 32s; }
+.gold-particle:nth-child(3) { left: 55%; animation-delay: 6s; animation-duration: 30s; }
+.gold-particle:nth-child(4) { left: 75%; animation-delay: 9s; animation-duration: 29s; }
+.gold-particle:nth-child(5) { left: 25%; animation-delay: 12s; animation-duration: 31s; }
+.gold-particle:nth-child(6) { left: 45%; animation-delay: 15s; animation-duration: 33s; }
+.gold-particle:nth-child(7) { left: 65%; animation-delay: 18s; animation-duration: 27s; }
+.gold-particle:nth-child(8) { left: 85%; animation-delay: 21s; animation-duration: 34s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.005;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(calc(var(--drift-x, 0px))) scale(1.2);
+    opacity: 0.005;
+  }
+  95% {
+    opacity: 0.005;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(calc(var(--drift-x, 0px) * 2)) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.sustainability-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Content Panel - White Glass */
+.content-panel {
+  padding: 3.5rem;
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.sustainability-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--magenta), var(--turquoise));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sustainability-text {
+  color: #333;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin-bottom: 3rem;
+}
+
+.sustainability-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* Stats Grid */
+.sustainability-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(194, 24, 91, 0.1);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--magenta);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Image Fade Placeholder */
+.sustainability-image {
+  position: relative;
+}
+
+.image-fade-placeholder {
+  aspect-ratio: 4/5;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(64, 196, 180, 0.15), rgba(194, 24, 91, 0.15));
+  animation: gradientFade 8s ease-in-out infinite alternate;
+}
+
+@keyframes gradientFade {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.image-fade-placeholder svg {
+  position: relative;
+  z-index: 2;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .gold-particle,
+  .image-gradient {
+    animation: none !important;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .sustainability-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .sustainability-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .content-panel {
+    padding: 2.5rem;
+  }
+
+  .sustainability-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .image-fade-placeholder {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+

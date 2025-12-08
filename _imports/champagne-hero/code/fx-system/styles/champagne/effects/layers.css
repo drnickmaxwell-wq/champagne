@@ -1,0 +1,121 @@
+.fx-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fx-layer--gradient {
+  background-image: var(--smh-gradient);
+  background-size: var(--smh-surface-bg-size, 165% 165%);
+  background-position: var(--smh-surface-bg-position, 18% 38%);
+  opacity: 0.92;
+}
+
+.fx-layer--waves {
+  background-image: image-set(
+    url('/assets/champagne/waves/waves-bg-1920.webp') 1x,
+    url('/assets/champagne/waves/waves-bg-2560.webp') 2x
+  );
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  mask-image: url('/assets/champagne/waves/wave-mask-desktop.webp');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.fx-layer--glass {
+  background: radial-gradient(
+    circle at 20% 20%,
+    color-mix(in oklab, var(--champagne-glass-bg) 65%, transparent) 0%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  filter: saturate(105%);
+}
+
+.fx-layer--gold-dust {
+  background-image: url('/assets/champagne/particles/home-hero-particles.webp');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0.04;
+}
+
+.fx-layer--grain {
+  background-image: image-set(
+    url('/assets/champagne/textures/home-hero-film-grain.webp') 1x,
+    url('/brand/textures/film-grain-2560x1440.webp') 2x
+  );
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: overlay;
+  opacity: var(--champagne-grain-alpha, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-layer--waves,
+  .fx-layer--glass,
+  .fx-layer--gold-dust {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .fx-layer--gradient {
+    opacity: 1;
+  }
+
+  .fx-layer--grain {
+    opacity: var(--champagne-grain-alpha, 0.12);
+  }
+}
+
+.fx-waves {
+  position: relative;
+  height: clamp(3rem, 8vw, 6rem);
+  margin-inline: auto;
+  width: min(100%, 960px);
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--champagne-keyline-gold) 60%, transparent);
+  background: color-mix(in oklab, var(--brand-teal) 12%, transparent);
+}
+
+.fx-waves::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background-image: image-set(
+    url('/assets/champagne/waves/waves-bg-1920.webp') 1x,
+    url('/assets/champagne/waves/waves-bg-2560.webp') 2x
+  );
+  background-size: cover;
+  background-position: center;
+  mask-image: url('/assets/champagne/waves/wave-mask-desktop.webp');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  opacity: 0.28;
+  mix-blend-mode: screen;
+  animation: fx-wave-float 18s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-waves::before {
+    animation: none;
+    opacity: 0.22;
+  }
+}
+
+@keyframes fx-wave-float {
+  from {
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    transform: translate3d(0, 6px, 0);
+  }
+}

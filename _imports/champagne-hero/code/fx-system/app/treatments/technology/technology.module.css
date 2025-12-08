@@ -1,0 +1,259 @@
+.hero {
+  position: relative;
+  padding: clamp(3.5rem, 7vw, 5.75rem) clamp(1.75rem, 5vw, 4.5rem) clamp(4.25rem, 7vw, 6.5rem);
+  display: grid;
+  gap: clamp(1.75rem, 4.5vw, 2.75rem);
+  color: #fdfbff;
+  text-align: center;
+  background: var(--smh-gradient);
+  border-radius: clamp(2rem, 5vw, 3.25rem);
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+    0 32px 68px rgba(6, 18, 32, 0.25);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(1.6rem, 4.5vw, 2.75rem);
+  max-width: 54rem;
+  margin-inline: auto;
+}
+
+.heroEyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  line-height: 1.08;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.heroCopy {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem clamp(5rem, 9vw, 7rem);
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 72rem;
+  display: grid;
+  gap: clamp(3rem, 7vw, 5rem);
+}
+
+.waveSection {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 3.75rem);
+  border-radius: clamp(2.5rem, 6vw, 3.75rem);
+  border: 1px solid color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 26%, transparent);
+  background: color-mix(in oklab, var(--smh-navy-900) 72%, transparent);
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 94%, transparent);
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-backdrop-filter: blur(28px) saturate(1.06);
+  backdrop-filter: blur(28px) saturate(1.06);
+}
+
+.waveSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      160deg,
+      color-mix(in oklab, var(--smh-primary-teal, var(--brand-teal)) 12%, transparent) 0%,
+      transparent 55%,
+      color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 18%, transparent) 100%
+    );
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.waveSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/film-grain-desktop.webp');
+  background-size: cover;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.sectionHeader p {
+  margin: 0;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 80%, transparent);
+  max-width: 36rem;
+}
+
+.workflowGrid,
+.equipmentGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.workflowCard,
+.equipmentCard {
+  position: relative;
+  padding: clamp(1.6rem, 4vw, 2.2rem);
+  border-radius: clamp(1.75rem, 4vw, 2.5rem);
+  border: 1px solid color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 22%, transparent);
+  background: color-mix(in oklab, var(--smh-navy-900) 60%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 16%, transparent);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.workflowCard h3,
+.equipmentCard h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 94%, transparent);
+}
+
+.workflowCard p,
+.equipmentCard p {
+  margin: 0;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 76%, transparent);
+  line-height: 1.65;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 28%, transparent);
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 95%, transparent);
+}
+
+.cardIcon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 72%, transparent);
+}
+
+.timeline li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.timeline span {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 88%, transparent);
+}
+
+.equipmentCard footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 70%, transparent);
+}
+
+.faqSection {
+  background: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 94%, transparent);
+  border-radius: clamp(2.5rem, 6vw, 3.75rem);
+  border: 1px solid color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 20%, transparent);
+  padding: clamp(2.5rem, 6vw, 3.5rem);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--smh-navy-900) 18%, transparent);
+}
+
+.faqSection h2 {
+  margin: 0 0 clamp(1.5rem, 4vw, 2.25rem);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    text-align: left;
+  }
+
+  .heroContent {
+    margin-inline: unset;
+  }
+
+  .heroActions {
+    justify-content: flex-start;
+  }
+
+  .workflowGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .equipmentGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-inline: clamp(3rem, 8vw, 6rem);
+  }
+
+  .equipmentGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waveSection,
+  .workflowCard,
+  .equipmentCard,
+  .secondaryLink {
+    transition: none !important;
+  }
+}

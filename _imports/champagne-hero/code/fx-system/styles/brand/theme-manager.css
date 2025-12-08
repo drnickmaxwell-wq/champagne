@@ -1,0 +1,155 @@
+/* Theme Transition Overlay - 1s gold fade */
+.theme-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  z-index: 9999;
+  pointer-events: none;
+  animation: goldFade 1s ease-in-out forwards;
+}
+
+@keyframes goldFade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Light Mode (Day Theme) - Default */
+:root[data-theme="light"] {
+  --magenta: var(--smh-primary-magenta);
+  --turquoise: var(--smh-primary-teal);
+  --gold: var(--smh-accent-gold);
+  --warm-mist: var(--smh-warm-mist);
+  --foreground: var(--smh-day-foreground);
+  --background: var(--smh-warm-mist);
+  
+  /* Gradient */
+  --gradient-angle: 135deg;
+  --gradient-start: var(--smh-primary-magenta);
+  --gradient-mid: var(--smh-primary-teal);
+  --gradient-end: var(--smh-accent-gold);
+  
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
+  
+  /* Noise overlay */
+  --noise-opacity: 0.02;
+  
+  /* Typography */
+  --heading-color: var(--smh-day-heading);
+  --body-color: var(--smh-day-foreground);
+  --muted-color: var(--smh-day-muted);
+}
+
+/* Dark Mode (Evening Theme) */
+:root[data-theme="dark"] {
+  --magenta: var(--smh-magenta-deep);
+  --turquoise: var(--smh-teal-deep);
+  --gold: var(--smh-gold-deep);
+  --warm-mist: var(--smh-ink-night);
+  --foreground: var(--smh-night-foreground);
+  --background: var(--smh-ink-night);
+  
+  /* Gradient - Darker tones */
+  --gradient-angle: 135deg;
+  --gradient-start: var(--smh-magenta-deep);
+  --gradient-mid: var(--smh-teal-deep);
+  --gradient-end: var(--smh-gold-deep);
+  
+  /* Glass - More transparent with inner glow */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-inner-glow: rgba(255, 255, 255, 0.15);
+  
+  /* Shadows - Deeper */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+  
+  /* Noise overlay */
+  --noise-opacity: 0.015;
+  
+  /* Typography - Lighter with subsurface edge */
+  --heading-color: var(--smh-night-heading);
+  --body-color: var(--smh-night-foreground);
+  --muted-color: var(--smh-night-muted);
+}
+
+/* Global Theme Transition - 1s fade */
+:root {
+  transition: 
+    --magenta 1s ease-in-out,
+    --turquoise 1s ease-in-out,
+    --gold 1s ease-in-out,
+    --warm-mist 1s ease-in-out,
+    --foreground 1s ease-in-out,
+    --background 1s ease-in-out,
+    --glass-bg 1s ease-in-out,
+    --glass-border 1s ease-in-out,
+    --glass-shadow 1s ease-in-out,
+    --heading-color 1s ease-in-out,
+    --body-color 1s ease-in-out,
+    --muted-color 1s ease-in-out;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+/* Dark Mode Wave Adjustments - Slower (50%) + Soft Bloom Halo */
+:root[data-theme="dark"] .hero-wave-slow {
+  animation-duration: 60s; /* 30s * 2 = 60s (50% slower) */
+}
+
+:root[data-theme="dark"] .hero-wave-medium {
+  animation-duration: 40s; /* 20s * 2 = 40s (50% slower) */
+}
+
+:root[data-theme="dark"] .hero-wave-reverse {
+  animation-duration: 80s; /* 40s * 2 = 80s (50% slower) */
+}
+
+:root[data-theme="dark"] .hero-wave-slow::after,
+:root[data-theme="dark"] .hero-wave-medium::after,
+:root[data-theme="dark"] .hero-wave-reverse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+  pointer-events: none;
+  transition: box-shadow 1s ease-out;
+}
+
+/* Champagne Lock: Dark-mode wave bloom fade on idle (0.3 → 0.15) */
+:root[data-theme="dark"].idle-mode .hero-wave-slow::after,
+:root[data-theme="dark"].idle-mode .hero-wave-medium::after,
+:root[data-theme="dark"].idle-mode .hero-wave-reverse::after {
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition-overlay {
+    animation: none;
+    opacity: 0;
+  }
+  
+  :root {
+    transition: none;
+  }
+  
+  body {
+    transition: none;
+  }
+}
+

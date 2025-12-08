@@ -1,0 +1,187 @@
+.previewCanvas :global(.cpv-main) {
+  width: min(1180px, 100%);
+  gap: clamp(4.8rem, 6vw, 6.8rem);
+}
+
+.previewCanvas :global(.cpv-breadcrumbs) {
+  width: min(1180px, 100%);
+}
+
+.previewCanvas :global(.cpv-card) {
+  background: color-mix(in srgb, var(--cpv-card-surface) 78%, var(--smh-ink-soft) 22%);
+  border-color: var(--cpv-card-border);
+  box-shadow:
+    var(--cpv-card-shadow-ambient),
+    inset 0 1px 0 color-mix(in srgb, var(--smh-white) 12%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--cpv-gold-keyline) 32%, transparent 40%);
+}
+
+.previewCanvas :global(.cpv-card__inner--stack),
+.previewCanvas :global(.cpv-card__inner--finance) {
+  padding: clamp(2.65rem, 4.2vw, 3.9rem);
+  gap: clamp(1.85rem, 2.6vw, 2.95rem);
+}
+
+.previewCanvas :global(.cpv-card__header) {
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
+  padding-bottom: clamp(1rem, 1.3vw, 1.35rem);
+  margin-bottom: clamp(1.1rem, 1.6vw, 1.6rem);
+  border-bottom: 1px solid color-mix(in srgb, var(--cpv-gold-keyline) 76%, transparent 6%);
+}
+
+.previewCanvas :global(.cpv-card__heading) {
+  gap: clamp(0.45rem, 0.8vw, 0.75rem);
+}
+
+.previewCanvas :global(.cpv-card__lead) {
+  margin: 0;
+  max-width: 900px;
+}
+
+.previewCanvas :global(.cpv-card__eyebrow) {
+  margin: 0;
+}
+
+.previewCanvas :global(.treatment-rail) {
+  gap: clamp(1rem, 1.6vw, 1.6rem);
+  padding: clamp(0.75rem, 1vw, 1rem);
+}
+
+.previewCanvas :global(.treatment-rail__card) {
+  min-height: 220px;
+  background: color-mix(in srgb, var(--cpv-card-surface-soft) 82%, var(--smh-ink-soft) 18%);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 78%, transparent 14%);
+  box-shadow:
+    var(--cpv-card-shadow-ambient),
+    inset 0 1px 0 color-mix(in srgb, var(--smh-white) 10%, transparent);
+}
+
+.previewCanvas :global(.treatment-deck) {
+  gap: clamp(1.05rem, 1.4vw, 1.45rem);
+}
+
+.previewCanvas :global(.treatment-deck__card) {
+  gap: clamp(0.7rem, 1vw, 1rem);
+  background: color-mix(in srgb, var(--cpv-card-surface) 82%, var(--smh-ink-soft) 18%);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 80%, transparent 12%);
+}
+
+.previewCanvas :global(.howto-grid) {
+  gap: clamp(1rem, 1.4vw, 1.5rem);
+}
+
+.previewCanvas :global(.howto-grid__item) {
+  gap: clamp(0.75rem, 1vw, 1rem);
+  padding: clamp(1.35rem, 1vw + 1rem, 1.7rem);
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--cpv-card-surface-soft) 82%, var(--smh-ink-soft) 18%);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 78%, transparent 14%);
+}
+
+.previewCanvas :global(.howto-grid__copy h3) {
+  margin-bottom: 0.2rem;
+}
+
+.previewCanvas :global(.howto-grid__copy) {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.previewCanvas :global(.finance-band) {
+  gap: clamp(1.25rem, 1.6vw, 1.85rem);
+  padding: clamp(1.5rem, 2vw, 2.1rem);
+  background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-magenta) 38%, transparent) 0%,
+      color-mix(in srgb, var(--brand-teal) 34%, transparent) 60%,
+      color-mix(in srgb, var(--brand-gold) 26%, transparent) 96%
+    ),
+    color-mix(in srgb, var(--cpv-card-surface-bright) 80%, var(--smh-ink-soft) 20%);
+}
+
+.previewCanvas :global(.finance-band__tiers) {
+  gap: clamp(0.75rem, 1vw, 1rem);
+}
+
+.previewCanvas :global(.finance-band__list) {
+  gap: clamp(0.65rem, 1vw, 0.9rem);
+}
+
+.previewCanvas :global(.finance-band__ctas) {
+  gap: clamp(0.85rem, 1vw, 1.1rem);
+}
+
+.previewCanvas :global(.tech-grid) {
+  gap: clamp(1rem, 1.35vw, 1.4rem);
+}
+
+.previewCanvas :global(.stories-grid) {
+  gap: clamp(1rem, 1.35vw, 1.35rem);
+}
+
+.previewCanvas :global(.stories-grid__card) {
+  gap: clamp(0.55rem, 0.8vw, 0.85rem);
+  padding: clamp(1.2rem, 1vw + 1rem, 1.5rem);
+  background: color-mix(in srgb, var(--cpv-card-surface) 84%, var(--smh-ink-soft) 16%);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 78%, transparent 12%);
+}
+
+.previewCanvas :global(.faq-rail) {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(0.9rem, 1vw, 1.2rem);
+}
+
+.previewCanvas :global(.faq-rail__item) {
+  padding: clamp(1.05rem, 1vw + 0.85rem, 1.45rem);
+  background: color-mix(in srgb, var(--cpv-card-surface-soft) 82%, var(--smh-ink-soft) 18%);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 78%, transparent 12%);
+}
+
+.previewCanvas :global(.faq-rail__item summary) {
+  margin-bottom: 0.2rem;
+}
+
+.previewCanvas :global(.faq-rail__item p) {
+  margin-top: 0.4rem;
+}
+
+.previewCanvas :global(.cpv-btn-solid) {
+  background-image: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-teal) 60%, color-mix(in srgb, var(--brand-gold) 50%, transparent) 100%);
+  color: var(--smh-white);
+  box-shadow:
+    0 20px 44px color-mix(in srgb, var(--smh-ink) 22%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--smh-white) 16%, transparent);
+}
+
+.previewCanvas :global(.cpv-btn-outline) {
+  background: color-mix(in srgb, var(--smh-ink-soft) 70%, transparent);
+  color: var(--cpv-page-text);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 76%, transparent 12%);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--brand-teal) 22%, transparent),
+    0 14px 32px color-mix(in srgb, var(--smh-ink) 20%, transparent);
+}
+
+.previewCanvas :global(.cpv-slot--viewer) {
+  border: 1px solid color-mix(in srgb, var(--cpv-gold-keyline) 78%, transparent 4%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--smh-white) 18%, transparent),
+    0 16px 38px color-mix(in srgb, var(--smh-ink) 16%, transparent);
+}
+
+.previewCanvas :global(.cpv-slot__inner) {
+  color: color-mix(in srgb, var(--smh-white) 90%, var(--smh-ink) 10%);
+  text-align: center;
+}
+
+.previewCanvas :global(.cpv-card--bright) {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-magenta) 20%, transparent) 0%, color-mix(in srgb, var(--brand-teal) 18%, transparent) 72%, color-mix(in srgb, var(--brand-gold) 12%, transparent) 100%),
+    color-mix(in srgb, var(--cpv-card-surface-bright) 82%, var(--smh-ink-soft) 18%);
+  border-color: color-mix(in srgb, var(--cpv-gold-keyline) 80%, transparent 12%);
+  box-shadow:
+    var(--cpv-card-shadow-ambient),
+    inset 0 1px 0 color-mix(in srgb, var(--smh-white) 18%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--smh-accent-gold-soft) 22%, transparent);
+}

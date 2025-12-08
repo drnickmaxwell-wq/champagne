@@ -1,0 +1,281 @@
+.tl-main {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  padding: 4rem 0;
+  font-family: var(--font-sans, 'Inter', system-ui);
+}
+
+.tl-shell {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 2.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.tl-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--brand-gold-keyline);
+  padding-bottom: 1.5rem;
+}
+
+.tl-header__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  align-items: start;
+}
+
+.tl-heading {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
+}
+
+.tl-lede {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.tl-inline-code {
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--brand-gold-keyline);
+  background: color-mix(in oklab, var(--brand-gold-keyline) 30%, var(--bg));
+  color: var(--ink);
+}
+
+.tl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-self: center;
+}
+
+.tl-chip {
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--brand-gold-keyline);
+  background: color-mix(in oklab, var(--brand-gold-keyline) 35%, var(--bg));
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.tl-prm-label {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--brand-gold-keyline);
+  background: color-mix(in oklab, var(--brand-teal) 20%, var(--bg));
+  color: var(--ink);
+  width: fit-content;
+}
+
+.tl-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.tl-card {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid var(--brand-gold-keyline);
+  background: color-mix(in oklab, var(--bg) 92%, var(--brand-gold-keyline));
+  box-shadow: 0 1.5rem 3.5rem -2rem color-mix(in oklab, var(--ink) 24%, transparent);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tl-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tl-card__title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+
+.tl-card__summary {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.tl-card__schema {
+  margin: 0;
+  font-family: var(--font-mono, 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco);
+  font-size: 0.8rem;
+  color: color-mix(in oklab, var(--ink) 80%, var(--bg));
+}
+
+.tl-stub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.tl-stub {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: color-mix(in oklab, var(--brand-teal) 18%, var(--bg));
+  border: 1px solid color-mix(in oklab, var(--brand-teal) 35%, var(--brand-gold-keyline));
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.tl-stub::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in oklab, var(--brand-magenta) 12%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tl-stub__title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.tl-stub__copy {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.tl-card__footer {
+  border-top: 1px dashed color-mix(in oklab, var(--brand-magenta) 40%, var(--brand-gold-keyline));
+  padding-top: 1rem;
+}
+
+.tl-card__footer-copy {
+  margin: 0;
+  font-size: 0.85rem;
+  color: color-mix(in oklab, var(--ink) 70%, var(--bg));
+}
+
+.tl-hud {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  min-width: 16rem;
+  border-radius: 1rem;
+  border: 1px solid var(--brand-gold-keyline);
+  background: color-mix(in oklab, var(--bg) 80%, var(--brand-magenta));
+  color: var(--ink);
+  padding: 1.25rem;
+  box-shadow: 0 1.25rem 2.75rem -1.5rem color-mix(in oklab, var(--ink) 30%, transparent);
+}
+
+.tl-hud__title {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tl-hud__grid {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.tl-hud__grid dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: color-mix(in oklab, var(--ink) 65%, var(--bg));
+}
+
+.tl-hud__grid dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tl-hud__hint {
+  margin: 1rem 0 0;
+  font-size: 0.75rem;
+  color: color-mix(in oklab, var(--ink) 60%, var(--bg));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tl-stub {
+    animation: tlStubGlow 16s ease-in-out infinite;
+  }
+
+  .tl-stub::after {
+    animation: tlStubOverlay 12s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-stub,
+  .tl-stub::after {
+    animation: none !important;
+  }
+
+  .tl-prm-label {
+    display: inline-flex;
+  }
+}
+
+@keyframes tlStubGlow {
+  0%,
+  100% {
+    background: color-mix(in oklab, var(--brand-teal) 18%, var(--bg));
+  }
+
+  50% {
+    background: color-mix(in oklab, var(--brand-gold) 20%, var(--bg));
+  }
+}
+
+@keyframes tlStubOverlay {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.35;
+  }
+
+  60% {
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 40rem) {
+  .tl-main {
+    padding: 3rem 0;
+  }
+
+  .tl-shell {
+    padding: 0 1.25rem 4rem;
+  }
+
+  .tl-card {
+    padding: 1.5rem;
+  }
+}

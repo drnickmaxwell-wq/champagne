@@ -1,0 +1,2 @@
+:root { --particles-enabled: 0; }
+.particles-on { --particles-enabled: 1; }

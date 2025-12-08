@@ -1,0 +1,148 @@
+.cpvFooter {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--smh-ink) 96%, transparent) 0%,
+    color-mix(in srgb, var(--brand-teal) 20%, var(--smh-ink)) 45%,
+    color-mix(in srgb, var(--brand-magenta) 18%, var(--smh-ink)) 100%
+  );
+  color: var(--smh-white);
+  overflow: hidden;
+}
+
+.cpvFooter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 140% at 20% 0%, color-mix(in srgb, var(--brand-teal) 16%, transparent) 0%, transparent 55%),
+    radial-gradient(100% 120% at 80% 10%, color-mix(in srgb, var(--brand-magenta) 16%, transparent) 0%, transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cpvFooter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/manus/particles/home-hero-particles.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: var(--champagne-particles-opacity-d);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2.5rem, 5vw, 3.8rem) clamp(1rem, 4vw, 2.8rem);
+  display: grid;
+  gap: clamp(2rem, 3vw, 3rem);
+}
+
+.columns {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.columnTitle {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.8rem;
+}
+
+.linkList {
+  display: grid;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--smh-white) 88%, transparent);
+}
+
+.linkList a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.linkList a:hover,
+.linkList a:focus-visible {
+  color: var(--smh-white);
+  text-decoration: underline;
+}
+
+.newsletterForm {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 360px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--smh-ink) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-gold-keyline) 70%, transparent);
+  color: var(--smh-white);
+}
+
+.subscribeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--brand-gold) 70%, var(--smh-ink));
+  color: var(--smh-ink);
+  font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--brand-gold-keyline) 80%, transparent);
+  box-shadow:
+    0 10px 26px color-mix(in srgb, var(--smh-ink) 48%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--smh-white) 30%, transparent);
+}
+
+.bottomBar {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0  clamp(1rem, 4vw, 2.8rem) clamp(1.6rem, 3vw, 2.4rem);
+  border-top: 1px solid color-mix(in srgb, var(--brand-gold-keyline) 70%, transparent);
+  color: color-mix(in srgb, var(--smh-white) 82%, transparent);
+}
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.socials {
+  display: inline-flex;
+  gap: 0.6rem;
+}
+
+.socialBadge {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--smh-ink) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-gold-keyline) 70%, transparent);
+  color: var(--smh-white);
+}
+
+.brandIntro {
+  display: grid;
+  gap: 0.6rem;
+  color: color-mix(in srgb, var(--smh-white) 90%, transparent);
+}
+
+@media (min-width: 960px) {
+  .bottomBar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

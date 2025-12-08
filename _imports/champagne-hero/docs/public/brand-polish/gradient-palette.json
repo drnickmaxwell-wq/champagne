@@ -1,0 +1,21 @@
+{
+  "angle_degrees": 135,
+  "gradient": "var(--smh-gradient)",
+  "stops": [
+    {
+      "token": "--smh-primary-magenta",
+      "position": 0.0,
+      "name": "magenta"
+    },
+    {
+      "token": "--smh-primary-teal",
+      "position": 0.6,
+      "name": "turquoise"
+    },
+    {
+      "token": "--smh-accent-gold",
+      "position": 1.0,
+      "name": "gold"
+    }
+  ]
+}

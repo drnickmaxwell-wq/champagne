@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedBy": "Director AI",
+    "description": "Immutable Champagne Design Canon rules and references.",
+    "docs": [
+      "docs/manus-atlas/v1/Manus_Design_Atlas_v1.md",
+      "docs/manus-atlas/v1/Manus_Audit_Report.md",
+      "docs/manus-atlas/v1/Integration_Roadmap.md",
+      "config/champagne/page-architecture.json",
+      "config/champagne/hero-registry.json",
+      "config/champagne/page-registry.json"
+    ]
+  },
+
+  "gradientLaw": {
+    "angleDegrees": 135,
+    "direction": "magenta->teal->soft-gold",
+    "maxGoldCoveragePercent": 4,
+    "implementation": {
+      "tokensOnly": true,
+      "forbidden": ["raw-hex-values-in-components", "inline-css-gradients"],
+      "tokenSources": [
+        "/styles/tokens/smh-champagne-tokens.css"
+      ]
+    }
+  },
+
+  "layerStack": {
+    "order": [
+      "gradient",
+      "waveMask",
+      "particles",
+      "filmGrain",
+      "glassOverlay",
+      "content"
+    ],
+    "notes": "All heroes and Champagne sections must obey this stack. No component may reorder layers without a canon bump."
+  },
+
+  "typography": {
+    "headingSerif": "Playfair Display",
+    "bodySans": "Inter",
+    "deprecated": ["Montserrat", "Lora", "system-serif-headings"],
+    "rules": {
+      "allowCustomScales": false,
+      "sourceOfTruth": "Tailwind tokens / typography scale",
+      "minBodySizeRem": 1.0
+    }
+  },
+
+  "motion": {
+    "maxParallaxPx": 6,
+    "maxHoverScale": 1.03,
+    "respectPrefersReducedMotion": true,
+    "forbidden": ["infinite-spins", "flashing", "strobe"],
+    "notes": "PRM mode must disable parallax drift and reduce animation timings to ≤ 120ms where possible."
+  },
+
+  "effects": {
+    "waveMasks": {
+      "files": [
+        "/public/brand/waves/home-wave-desktop.svg",
+        "/public/brand/waves/home-wave-mobile.svg",
+        "/public/brand/waves/composite-wave.svg"
+      ],
+      "rule": "Only these (or future canon-approved masks) may be used. No ad-hoc waves."
+    },
+    "particles": {
+      "files": [
+        "/public/brand/effects/home-hero-particles.webp"
+      ],
+      "maxOpacity": 0.08
+    },
+    "filmGrain": {
+      "files": [
+        "/public/brand/effects/film-grain-25560x1440.png",
+        "/public/brand/effects/home-grain.webp"
+      ],
+      "maxOpacity": 0.06
+    },
+    "glassOverlays": {
+      "files": [
+        "/public/brand/effects/glass-soft.png"
+      ],
+      "notes": "All glass cards and overlays must derive from these assets or tokenised equivalents."
+    }
+  },
+
+  "heroes": {
+    "locked": [
+      {
+        "id": "HOME_HERO_CHAMPAGNE_V1",
+        "route": "/",
+        "previewRoutes": ["/preview/home", "/champagne/hero"],
+        "lockLevel": "SACRED",
+        "rules": [
+          "No repositioning of content zones.",
+          "No changes to gradient stops.",
+          "No layer reorder.",
+          "No extra CTAs beyond Hero Registry."
+        ]
+      },
+      {
+        "id": "CB_HERO_FINAL",
+        "routes": [
+          "/treatments/cosmetic/composite-bonding",
+          "/treatments/cosmetic/veneers",
+          "/treatments/cosmetic/teeth-whitening",
+          "/treatments/3d-dentistry/*",
+          "/treatments/implants/*",
+          "/treatments/orthodontics/*"
+        ],
+        "lockLevel": "BLUEPRINT",
+        "rules": [
+          "Spacing and hierarchy remain identical.",
+          "Copy and iconography can change per treatment.",
+          "Layer stack and gradient law immutable."
+        ]
+      }
+    ],
+    "implementationComponent": "/components/hero/ChampagneHero.tsx"
+  },
+
+  "tokens": {
+    "colourTokenFiles": [
+      "/styles/tokens/smh-champagne-tokens.css"
+    ],
+    "guards": {
+      "rogueHexScript": "scripts/guard-rogue-hex.mjs",
+      "brandGuardScript": "pnpm brand:guard",
+      "hueVerifyScript": "pnpm hue:verify"
+    },
+    "rules": {
+      "forbidInlineHex": true,
+      "forbidNewGoldTokens": true,
+      "allowedNamespaces": [
+        "--smh-",
+        "--champagne-"
+      ]
+    }
+  },
+
+  "previewAndPromotion": {
+    "immutablePreviewRoutes": [
+      "/champagne/hero"
+    ],
+    "mustPassGuardsBeforePromote": [
+      "pnpm test",
+      "pnpm brand:guard",
+      "pnpm hue:verify",
+      "node scripts/guard-rogue-hex.mjs",
+      "node scripts/guard-manifest-sync.mjs"
+    ],
+    "promotionMapFile": "config/champagne/preview-promotion-map.json"
+  },
+
+  "contentStructure": {
+    "treatmentBlueprintOrder": [
+      "hero",
+      "benefits",
+      "how-it-works",
+      "who-its-for",
+      "3d-viewer",
+      "pricing-finance",
+      "stories-gallery",
+      "faqs",
+      "cta"
+    ],
+    "blueprintSource": "docs/manus-atlas/v1/Manus_Design_Atlas_v1.md#composite-bonding-page"
+  },
+
+  "safety": {
+    "allowDarkModeExperimentation": true,
+    "forbidHeroExperimentsOnRoot": true,
+    "forbidStructuralChangesToLockedHeroes": true,
+    "notes": "Any attempt to modify SACRED or BLUEPRINT hero components should be rejected by Codex unless champagne-canon.lock.json version is increased and manually approved."
+  }
+}

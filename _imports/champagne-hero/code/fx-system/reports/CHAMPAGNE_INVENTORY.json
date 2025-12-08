@@ -1,0 +1,119 @@
+{
+  "summary": {
+    "repo": "please-work",
+    "timestamp": "2025-10-25T15:38:38.313Z"
+  },
+  "files": [
+    {
+      "path": "public/waves/smh-wave-mask.svg",
+      "exists": true,
+      "bytes": 504
+    },
+    {
+      "path": "public/textures/film-grain-mobile.webp",
+      "exists": true,
+      "bytes": 518504
+    },
+    {
+      "path": "public/textures/film-grain-desktop.webp",
+      "exists": true,
+      "bytes": 809876
+    },
+    {
+      "path": "public/particles/particles-gold.webp",
+      "exists": false
+    },
+    {
+      "path": "public/particles/particles-teal.webp",
+      "exists": false
+    },
+    {
+      "path": "public/particles/particles-magenta.webp",
+      "exists": false
+    },
+    {
+      "path": "styles/tokens/smh-champagne-tokens.css",
+      "exists": true,
+      "bytes": 4390
+    },
+    {
+      "path": "styles/brand/brand-gradient.css",
+      "exists": true,
+      "bytes": 1998
+    },
+    {
+      "path": "components/brand/BrandHeroGradient.tsx",
+      "exists": true,
+      "bytes": 2182
+    }
+  ],
+  "tokens": {
+    "present": true,
+    "vars": {
+      "--brand-magenta": false,
+      "--brand-teal": false,
+      "--brand-gold": false,
+      "--surface-0": false,
+      "--radius": false,
+      "--shadow-soft": false
+    },
+    "notes": []
+  },
+  "wiring": {
+    "imports": [
+      {
+        "file": "app/layout.tsx",
+        "line": 5,
+        "snippet": "\"./globals.css\"; import \"@/styles/brand/brand-gradient.css\"; import PerformanceOptimizedLayout from '@/components/layout"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 1,
+        "snippet": "// components/brand/BrandHeroGradient.tsx \"use client\"; import React from \"react\"; import { asset } "
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 18,
+        "snippet": " \"wave-top\" | \"wave-bottom\"; };  /**  * BrandHeroGradient renders the Champagne gradient + wave + particles + film grain"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 22,
+        "snippet": "ia asset().  */ export default function BrandHeroGradient({   intensity = \"standard\",   waveOpacity = 0.18,   goldDensit"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 36,
+        "snippet": "/>        {/* Wave mask (provide /public/waves/smh-wave-mask.svg in repo or via CDN) */}       <div         className=\"b"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 41,
+        "snippet": "         backgroundImage: `url(${asset(\"/waves/smh-wave-mask.svg\")})`,         }}       />        {/* Tri-palette partic"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 63,
+        "snippet": "set(             url(${asset(\"/textures/film-grain-desktop.webp\")}) 1x           )`,         }}       />     </div>   );"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 51,
+        "snippet": "e: `             url(${asset(\"/textures/particles-gold.webp\")}),             url(${asset(\"/textures/particles-teal.webp\""
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 52,
+        "snippet": ")}),             url(${asset(\"/textures/particles-teal.webp\")}),             url(${asset(\"/textures/particles-magenta.we"
+      },
+      {
+        "file": "components/brand/BrandHeroGradient.tsx",
+        "line": 53,
+        "snippet": ")}),             url(${asset(\"/textures/particles-magenta.webp\")})           `,         }}       />        {/* Film grai"
+      }
+    ]
+  },
+  "pagesChecked": [
+    "app/page.tsx"
+  ]
+}

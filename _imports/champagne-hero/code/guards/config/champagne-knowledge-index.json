@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "schemaMap": "config/seo/schema-map.json",
+    "validationChecklist": "config/seo/SEO_Validation_Checklist.md",
+    "aiSynergyChecklist": "config/seo/SEO_AI_Synergy_Checklist.md",
+    "zeroClickStrategy": "config/seo/Zero_Click_Strategy.md",
+    "treatmentsSchemaPack": "config/seo/Treatments_Schema_Pack.json"
+  },
+  "treatments": {
+    "schemaPack": "config/seo/schema/Treatments_Schema_Pack.json",
+    "schemaPackV2": "config/seo/schema/Treatments_Schema_Pack_v2.json",
+    "schemaPackV3": "config/seo/schema/Treatments_Schema_Pack_v3.json",
+    "breadcrumbs": "config/seo/schema/Treatments_Breadcrumbs.json",
+    "answerFirstCopy": "config/seo/Treatments_AnswerFirst_Copy.md"
+  },
+  "manus": {
+    "sectionCatalog": "config/champagne/Manus_Section_Catalog.json",
+    "sectionCatalogGuardSafe": "config/champagne/manus/Manus_Section_Catalog.json",
+    "auditReport": "reports/manus/Manus_Audit_Report.md"
+  },
+  "champagne": {
+    "strategy": "reports/Champagne_Page_Strategy_Report.md",
+    "manifestPublic": "config/champagne/manifests/public/champagne_machine_manifest_full.json",
+    "manifestCsv": "config/champagne/manifests/brand/champagne_machine_manifest_full.json",
+    "audits": [
+      "reports/CHAMPAGNE_AUDIT.md",
+      "reports/CHAMPAGNE_INVENTORY.json",
+      "reports/Champagne_Palette_Audit_Treatments_Preview.md",
+      "reports/Champagne_Treatments_Architecture.md",
+      "reports/Champagne_Preview_MoodMap_v1.md",
+      "reports/Champagne_Preview_Fix_Audit.md",
+      "reports/Champagne_Preview_Fix_Audit_v2.md",
+      "reports/Champagne_Preview_Fix_Audit_v3.md",
+      "reports/Champagne_Preview_Fix_Audit_v4.md",
+      "reports/Champagne_Preview_Fix_Audit_v5.md",
+      "reports/Champagne_Preview_Fix_Audit_v6.md",
+      "reports/Champagne_Preview_Fix_Audit_v7.md",
+      "reports/Champagne_Preview_Fix_Audit_v8.md"
+    ]
+  }
+}
