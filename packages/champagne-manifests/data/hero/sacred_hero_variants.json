@@ -5,8 +5,8 @@
       "label": "Sacred night base",
       "tone": "night",
       "surfaces": {
-        "particles": "fx.particlesPrimary",
-        "motion": ["fx.caustics", "fx.glass", "fx.goldDust"]
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDust"]
       }
     },
     {
@@ -15,8 +15,8 @@
       "timeOfDay": "day",
       "tone": "day",
       "surfaces": {
-        "particles": "fx.particlesTeal",
-        "motion": ["fx.glass"]
+        "particles": "overlay.particlesTeal",
+        "motion": ["overlay.glassShimmer"]
       },
       "content": {
         "headline": "Daylight smile confidence.",
@@ -36,8 +36,8 @@
         "secondaryCta": { "label": "Compare options", "href": "/treatments" }
       },
       "surfaces": {
-        "particles": "fx.particlesMagenta",
-        "motion": ["fx.glass"]
+        "particles": "overlay.particlesMagenta",
+        "motion": ["overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "dynamic",
@@ -57,8 +57,8 @@
         "secondaryCta": { "label": "See pricing", "href": "/contact" }
       },
       "surfaces": {
-        "particles": "fx.particlesGold",
-        "motion": ["fx.caustics"]
+        "particles": "overlay.particlesGold",
+        "motion": ["overlay.caustics"]
       },
       "motion": {
         "energyMode": "calm",
@@ -78,8 +78,8 @@
         "secondaryCta": { "label": "How aligners work", "href": "/treatments" }
       },
       "surfaces": {
-        "particles": "fx.particlesTeal",
-        "motion": ["fx.glass"]
+        "particles": "overlay.particlesTeal",
+        "motion": ["overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "balanced",
@@ -99,8 +99,8 @@
         "secondaryCta": { "label": "Preview cases", "href": "/smile-gallery" }
       },
       "surfaces": {
-        "particles": "fx.particlesGold",
-        "motion": ["fx.glass", "fx.caustics"]
+        "particles": "overlay.particlesGold",
+        "motion": ["overlay.glassShimmer", "overlay.caustics"]
       },
       "motion": {
         "energyMode": "balanced",
@@ -120,8 +120,8 @@
         "secondaryCta": { "label": "See the studio", "href": "/about" }
       },
       "surfaces": {
-        "particles": "fx.particlesMagenta",
-        "motion": ["fx.glass", "fx.goldDust"]
+        "particles": "overlay.particlesMagenta",
+        "motion": ["overlay.glassShimmer", "overlay.goldDust"]
       },
       "motion": {
         "energyMode": "dynamic",

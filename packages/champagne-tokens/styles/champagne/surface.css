@@ -1,7 +1,7 @@
 :root {
   --champagne-wave-mask-desktop: url("/assets/champagne/waves/wave-mask-desktop.webp");
   --champagne-wave-mask-mobile: url("/assets/champagne/waves/wave-mask-mobile.webp");
-  --champagne-wave-bg-desktop: url("/assets/champagne/waves/waves-bg-2560.webp");
+  --champagne-wave-bg-desktop: url("/assets/champagne/waves/waves-bg-1920.webp");
   --champagne-wave-bg-mobile: url("/assets/champagne/waves/waves-bg-768.webp");
   --champagne-overlay-dots: url("/assets/champagne/waves/wave-dots.svg");
   --champagne-overlay-field: url("/assets/champagne/waves/wave-field.svg");
@@ -23,6 +23,7 @@
   --hero-grain-mobile: var(--champagne-grain-mobile);
   --hero-film-grain-opacity: 0.32;
   --hero-caustics-overlay: var(--champagne-caustics-overlay);
+  --hero-particles-opacity: 0.4;
 }
 
 @media (max-width: 640px) {
@@ -53,22 +54,29 @@
   opacity: 0.92;
 }
 
-.hero-surface-layer.hero-surface--dot-field {
-  background-image: var(--hero-overlay-field), var(--hero-overlay-dots);
+.hero-surface-layer.hero-surface--wave-field {
+  background-image: var(--hero-overlay-field);
   mix-blend-mode: soft-light;
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+.hero-surface-layer.hero-surface--dot-field {
+  background-image: var(--hero-overlay-dots);
+  mix-blend-mode: screen;
+  opacity: 0.58;
 }
 
 .hero-surface-layer.hero-surface--particles {
   background-image: var(--hero-particles);
   mix-blend-mode: screen;
-  opacity: 0.4;
+  opacity: var(--hero-particles-opacity, 0.4);
 }
 
 .hero-surface-layer.hero-surface--film-grain {
   background-image: var(--hero-grain-desktop);
   background-repeat: repeat;
-  mix-blend-mode: soft-light;
+  mix-blend-mode: var(--hero-film-grain-blend, soft-light);
+  opacity: var(--hero-film-grain-opacity, 0.32);
 }
 
 .hero-surface-layer.hero-surface--caustics {
@@ -82,6 +90,10 @@
     background-image: var(--hero-wave-background-mobile);
     mask-image: var(--hero-wave-mask-mobile);
     -webkit-mask-image: var(--hero-wave-mask-mobile);
+  }
+
+  .hero-surface-layer.hero-surface--wave-field {
+    background-image: var(--hero-overlay-field);
   }
 
   .hero-surface-layer.hero-surface--film-grain {

@@ -63,29 +63,36 @@ export const HERO_ASSET_REGISTRY: Record<string, HeroAssetEntry> = {
   "sacred.particles.gold": {
     id: "sacred.particles.gold",
     type: "image",
-    path: `${HERO_ASSET_BASE}/particles/particles-gold .webp`,
+    path: `${HERO_ASSET_BASE}/particles/particles-gold%20.webp`,
   },
   "sacred.particles.magenta": {
     id: "sacred.particles.magenta",
     type: "image",
-    path: `${HERO_ASSET_BASE}/particles/particles-magenta .webp`,
+    path: `${HERO_ASSET_BASE}/particles/particles-magenta%20.webp`,
   },
   "sacred.particles.teal": {
     id: "sacred.particles.teal",
     type: "image",
-    path: `${HERO_ASSET_BASE}/particles/particles-teal .webp`,
+    path: `${HERO_ASSET_BASE}/particles/particles-teal%20.webp`,
   },
 
   // Grain
   "sacred.grain.desktop": {
     id: "sacred.grain.desktop",
     type: "image",
-    path: `${HERO_ASSET_BASE}/film-grain/film-grain-desktop .webp`,
+    path: `${HERO_ASSET_BASE}/film-grain/film-grain-desktop%20.webp`,
   },
   "sacred.grain.mobile": {
     id: "sacred.grain.mobile",
     type: "image",
-    path: `${HERO_ASSET_BASE}/film-grain/film-grain-mobile .webp`,
+    path: `${HERO_ASSET_BASE}/film-grain/film-grain-mobile%20.webp`,
+  },
+
+  // Textures
+  "sacred.texture.causticsOverlay": {
+    id: "sacred.texture.causticsOverlay",
+    type: "image",
+    path: `${HERO_ASSET_BASE}/textures/wave-light-overlay.webp`,
   },
 
   // Motion
