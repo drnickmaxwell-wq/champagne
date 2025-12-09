@@ -55,38 +55,39 @@ export const HERO_ASSET_REGISTRY: Record<string, HeroAssetEntry> = {
     path: assetPath("waves/wave-field.svg"),
   },
 
-  // Particles
+  // Particles (static)
   "sacred.particles.home": {
     id: "sacred.particles.home",
     type: "image",
     path: assetPath("particles/home-hero-particles.webp"),
+    description: "Primary Sacred home hero particle texture",
   },
   "sacred.particles.gold": {
     id: "sacred.particles.gold",
     type: "image",
-    path: assetPath("particles/particles-gold .webp"),
+    path: assetPath("particles/particles-gold.webp"),
   },
   "sacred.particles.magenta": {
     id: "sacred.particles.magenta",
     type: "image",
-    path: assetPath("particles/particles-magenta .webp"),
+    path: assetPath("particles/particles-magenta.webp"),
   },
   "sacred.particles.teal": {
     id: "sacred.particles.teal",
     type: "image",
-    path: assetPath("particles/particles-teal .webp"),
+    path: assetPath("particles/particles-teal.webp"),
   },
 
   // Grain
   "sacred.grain.desktop": {
     id: "sacred.grain.desktop",
     type: "image",
-    path: assetPath("film-grain/film-grain-desktop .webp"),
+    path: assetPath("film-grain/film-grain-desktop.webp"),
   },
   "sacred.grain.mobile": {
     id: "sacred.grain.mobile",
     type: "image",
-    path: assetPath("film-grain/film-grain-mobile .webp"),
+    path: assetPath("film-grain/film-grain-mobile.webp"),
   },
 
   // Textures

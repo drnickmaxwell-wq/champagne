@@ -1,4 +1,5 @@
 :root {
+  /* Raw Champagne asset URLs */
   --champagne-wave-mask-desktop: url("/assets/champagne/waves/wave-mask-desktop.webp");
   --champagne-wave-mask-mobile: url("/assets/champagne/waves/wave-mask-mobile.webp");
   --champagne-wave-bg-desktop: url("/assets/champagne/waves/waves-bg-1920.webp");
@@ -6,11 +7,11 @@
   --champagne-overlay-dots: url("/assets/champagne/waves/wave-dots.svg");
   --champagne-overlay-field: url("/assets/champagne/waves/wave-field.svg");
   --champagne-particles-primary: url("/assets/champagne/particles/home-hero-particles.webp");
-  --champagne-particles-gold: url("/assets/champagne/particles/particles-gold%20.webp");
-  --champagne-particles-magenta: url("/assets/champagne/particles/particles-magenta%20.webp");
-  --champagne-particles-teal: url("/assets/champagne/particles/particles-teal%20.webp");
-  --champagne-grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop%20.webp");
-  --champagne-grain-mobile: url("/assets/champagne/film-grain/film-grain-mobile%20.webp");
+  --champagne-particles-gold: url("/assets/champagne/particles/particles-gold.webp");
+  --champagne-particles-magenta: url("/assets/champagne/particles/particles-magenta.webp");
+  --champagne-particles-teal: url("/assets/champagne/particles/particles-teal.webp");
+  --champagne-grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop.webp");
+  --champagne-grain-mobile: url("/assets/champagne/film-grain/film-grain-mobile.webp");
   --champagne-caustics-overlay: url("/assets/champagne/textures/wave-light-overlay.webp");
   --champagne-texture-gold-dust: url("/assets/champagne/textures/wave-gold-dust.png");
   --champagne-particles-drift: url("/assets/champagne/motion/particles-drift.webm");
@@ -19,6 +20,7 @@
 }
 
 :root {
+  /* Hero-facing vars */
   --hero-wave-background-desktop: var(--champagne-wave-bg-desktop);
   --hero-wave-background-mobile: var(--champagne-wave-bg-mobile);
   --hero-wave-mask-desktop: var(--champagne-wave-mask-desktop);
@@ -40,18 +42,21 @@
 }
 
 :root {
+  /* Canonical surface opacities / blend modes / z-index */
   --surface-opacity-gradient: 1;
+  --surface-opacity-waveBackdrop: 0.7;
   --surface-opacity-waveMask: 1;
   --surface-opacity-waveField: 1;
   --surface-opacity-dotField: 1;
-  --surface-opacity-caustics: 1;
-  --surface-opacity-glassShimmer: 1;
-  --surface-opacity-particlesDrift: 1;
-  --surface-opacity-particles: var(--hero-particles-opacity, 1);
+  --surface-opacity-caustics: 0.7;
+  --surface-opacity-glassShimmer: 0.85;
+  --surface-opacity-particlesDrift: 0.6;
+  --surface-opacity-particles: var(--hero-particles-opacity, 0.4);
   --surface-opacity-filmGrain: var(--hero-film-grain-opacity, 0.55);
   --surface-opacity-lighting: 0.82;
 
   --surface-blend-gradient: normal;
+  --surface-blend-waveBackdrop: normal;
   --surface-blend-waveMask: normal;
   --surface-blend-waveField: normal;
   --surface-blend-dotField: normal;
@@ -63,6 +68,7 @@
   --surface-blend-lighting: soft-light;
 
   --surface-zindex-baseGradient: 1;
+  --surface-zindex-waveBackdrop: 1.5;
   --surface-zindex-waveMask: 2;
   --surface-zindex-waveField: 3;
   --surface-zindex-dotField: 4;
@@ -73,7 +79,6 @@
   --surface-zindex-filmGrain: 9;
   --surface-zindex-lighting: 10;
   --surface-zindex-contentFrame: 11;
-  --surface-zindex-waveBackdrop: 1.5;
 }
 
 @media (max-width: 640px) {
