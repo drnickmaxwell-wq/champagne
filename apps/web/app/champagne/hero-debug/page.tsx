@@ -1,5 +1,5 @@
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
-import { getHeroRuntime } from "@champagne/hero";
+import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 import type { CSSProperties } from "react";
 
 type HeroSurfaceStackLayer = NonNullable<
@@ -26,10 +26,25 @@ function resolveSurfaceAsset(
   if (!token) return { assetId: stackLayer.id ?? "unknown" };
   if (token === "gradient.base") return { assetId: "gradient.base (CSS)", path: surfaces.gradient };
   if (token === "field.waveBackdrop")
-    return { assetId: surfaces.background?.desktop?.id ?? "field.waveBackdrop", path: surfaces.background?.desktop?.path };
-  if (token === "mask.waveHeader") return { assetId: surfaces.waveMask?.desktop?.id ?? token, path: surfaces.waveMask?.desktop?.path };
-  if (token === "field.waveRings") return { assetId: surfaces.overlays?.field?.asset?.id ?? token, path: surfaces.overlays?.field?.path };
-  if (token === "field.dotGrid") return { assetId: surfaces.overlays?.dots?.asset?.id ?? token, path: surfaces.overlays?.dots?.path };
+    return {
+      assetId: surfaces.background?.desktop?.id ?? "field.waveBackdrop",
+      path: surfaces.background?.desktop?.path ?? ensureHeroAssetPath(surfaces.background?.desktop?.id),
+    };
+  if (token === "mask.waveHeader")
+    return {
+      assetId: surfaces.waveMask?.desktop?.id ?? token,
+      path: surfaces.waveMask?.desktop?.path ?? ensureHeroAssetPath(surfaces.waveMask?.desktop?.asset?.id),
+    };
+  if (token === "field.waveRings")
+    return {
+      assetId: surfaces.overlays?.field?.asset?.id ?? token,
+      path: surfaces.overlays?.field?.path ?? ensureHeroAssetPath(surfaces.overlays?.field?.asset?.id),
+    };
+  if (token === "field.dotGrid")
+    return {
+      assetId: surfaces.overlays?.dots?.asset?.id ?? token,
+      path: surfaces.overlays?.dots?.path ?? ensureHeroAssetPath(surfaces.overlays?.dots?.asset?.id),
+    };
   if (token === "overlay.caustics") {
     const causticsMotion = surfaces.motion?.find((entry) => entry.id === "overlay.caustics");
     return {
@@ -53,14 +68,14 @@ function resolveSurfaceAsset(
   if (token === "overlay.particles")
     return {
       assetId: surfaces.particles?.asset?.id ?? token,
-      path: surfaces.particles?.path,
+      path: surfaces.particles?.path ?? ensureHeroAssetPath(surfaces.particles?.asset?.id),
       disabled: !surfaces.particles,
       opacity: runtimeOpacity,
     };
   if (token === "overlay.filmGrain")
     return {
       assetId: surfaces.grain?.desktop?.asset?.id ?? token,
-      path: surfaces.grain?.desktop?.path,
+      path: surfaces.grain?.desktop?.path ?? ensureHeroAssetPath(surfaces.grain?.desktop?.asset?.id),
       disabled: !surfaces.grain?.desktop,
       opacity: runtimeOpacity,
     };
@@ -142,7 +157,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       ["--hero-gradient" as string]: gradient,
       ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
         ? `url(${surfaces.background.desktop.path})`
-        : undefined,
+        : surfaces.background?.desktop?.id
+          ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
+          : undefined,
       ["--surface-opacity-waveBackdrop" as string]: 1,
       ["--surface-blend-waveBackdrop" as string]: surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"],
     },
@@ -150,10 +167,14 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       ["--hero-gradient" as string]: gradient,
       ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
         ? `url(${surfaces.background.desktop.path})`
-        : undefined,
+        : surfaces.background?.desktop?.id
+          ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
+          : undefined,
       ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
         ? `url(${surfaces.waveMask.desktop.path})`
-        : undefined,
+        : surfaces.waveMask?.desktop?.asset?.id
+          ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
+          : undefined,
       ["--surface-opacity-waveMask" as string]: 1,
       ["--surface-blend-waveMask" as string]: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
     },
@@ -161,7 +182,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       ["--hero-gradient" as string]: gradient,
       ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
         ? `url(${surfaces.overlays.field.path})`
-        : undefined,
+        : surfaces.overlays?.field?.asset?.id
+          ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
+          : undefined,
       ["--surface-opacity-waveField" as string]: 1,
       ["--surface-blend-waveField" as string]: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
     },
@@ -169,13 +192,19 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       ["--hero-gradient" as string]: gradient,
       ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
         ? `url(${surfaces.overlays.dots.path})`
-        : undefined,
+        : surfaces.overlays?.dots?.asset?.id
+          ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
+          : undefined,
       ["--surface-opacity-dotField" as string]: 1,
       ["--surface-blend-dotField" as string]: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
     },
     "overlay.particles": {
       ["--hero-gradient" as string]: gradient,
-      ["--hero-particles" as string]: surfaces.particles?.path ? `url(${surfaces.particles.path})` : undefined,
+      ["--hero-particles" as string]: surfaces.particles?.path
+        ? `url(${surfaces.particles.path})`
+        : surfaces.particles?.asset?.id
+          ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
+          : undefined,
       ["--surface-opacity-particles" as string]: 1,
       ["--surface-blend-particles" as string]: surfaces.particles?.blendMode as CSSProperties["mixBlendMode"],
     },
@@ -183,7 +212,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       ["--hero-gradient" as string]: gradient,
       ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
         ? `url(${surfaces.grain.desktop.path})`
-        : undefined,
+        : surfaces.grain?.desktop?.asset?.id
+          ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
+          : undefined,
       ["--surface-opacity-filmGrain" as string]: 1,
       ["--surface-blend-filmGrain" as string]: surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"],
     },

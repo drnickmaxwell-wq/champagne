@@ -1,4 +1,4 @@
-import { getHeroRuntime } from "@champagne/hero";
+import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 
 function getAssetForToken(
   token: string,
@@ -11,7 +11,7 @@ function getAssetForToken(
   if (token === "field.waveBackdrop") {
     return {
       id: surfaces.background?.desktop?.id ?? token,
-      path: surfaces.background?.desktop?.path,
+      path: surfaces.background?.desktop?.path ?? ensureHeroAssetPath(surfaces.background?.desktop?.id),
       type: surfaces.background?.desktop?.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: surfaces.background?.desktop?.className,
     };
@@ -19,7 +19,7 @@ function getAssetForToken(
   if (token === "mask.waveHeader") {
     return {
       id: surfaces.waveMask?.desktop?.asset?.id ?? token,
-      path: surfaces.waveMask?.desktop?.path,
+      path: surfaces.waveMask?.desktop?.path ?? ensureHeroAssetPath(surfaces.waveMask?.desktop?.asset?.id),
       type: surfaces.waveMask?.desktop?.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: surfaces.waveMask?.desktop?.className,
     };
@@ -27,7 +27,7 @@ function getAssetForToken(
   if (token === "field.waveRings") {
     return {
       id: surfaces.overlays?.field?.asset?.id ?? token,
-      path: surfaces.overlays?.field?.path,
+      path: surfaces.overlays?.field?.path ?? ensureHeroAssetPath(surfaces.overlays?.field?.asset?.id),
       type: surfaces.overlays?.field?.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: surfaces.overlays?.field?.className,
     };
@@ -35,7 +35,7 @@ function getAssetForToken(
   if (token === "field.dotGrid") {
     return {
       id: surfaces.overlays?.dots?.asset?.id ?? token,
-      path: surfaces.overlays?.dots?.path,
+      path: surfaces.overlays?.dots?.path ?? ensureHeroAssetPath(surfaces.overlays?.dots?.asset?.id),
       type: surfaces.overlays?.dots?.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: surfaces.overlays?.dots?.className,
     };
@@ -43,7 +43,7 @@ function getAssetForToken(
   if (token === "overlay.particles") {
     return {
       id: surfaces.particles?.asset?.id ?? token,
-      path: surfaces.particles?.path,
+      path: surfaces.particles?.path ?? ensureHeroAssetPath(surfaces.particles?.asset?.id),
       type: surfaces.particles?.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: surfaces.particles?.className,
     };
@@ -51,7 +51,7 @@ function getAssetForToken(
   if (token === "overlay.filmGrain") {
     return {
       id: surfaces.grain?.desktop?.asset?.id ?? token,
-      path: surfaces.grain?.desktop?.path,
+      path: surfaces.grain?.desktop?.path ?? ensureHeroAssetPath(surfaces.grain?.desktop?.asset?.id),
       type: surfaces.grain?.desktop?.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: surfaces.grain?.desktop?.className,
     };
@@ -64,7 +64,7 @@ function getAssetForToken(
   if (motionEntry) {
     return {
       id: motionEntry.asset?.id ?? token,
-      path: motionEntry.path,
+      path: motionEntry.path ?? ensureHeroAssetPath(motionEntry.asset?.id),
       type: motionEntry.path?.match(/\.(webm|mp4)$/) ? "video" : "image",
       className: motionEntry.className,
     };
