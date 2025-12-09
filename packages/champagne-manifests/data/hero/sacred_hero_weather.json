@@ -2,22 +2,22 @@
   "day": {
     "tone": "day",
     "surfaces": {
-      "particles": "fx.particlesTeal",
-      "motion": ["fx.glass"]
+      "particles": "overlay.particlesTeal",
+      "motion": ["overlay.glassShimmer"]
     }
   },
   "evening": {
     "tone": "evening",
     "surfaces": {
-      "particles": "fx.particlesGold",
-      "motion": ["fx.goldDust"]
+      "particles": "overlay.particlesGold",
+      "motion": ["overlay.goldDust"]
     }
   },
   "night": {
     "tone": "night",
     "surfaces": {
-      "particles": "fx.particlesPrimary",
-      "motion": ["fx.caustics"]
+      "particles": "overlay.particlesPrimary",
+      "motion": ["overlay.caustics"]
     }
   }
 }

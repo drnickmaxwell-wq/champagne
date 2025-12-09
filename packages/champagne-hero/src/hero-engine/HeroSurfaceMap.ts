@@ -30,12 +30,13 @@ export interface HeroSurfaceDefinitionMap {
 }
 
 const SURFACE_TOKEN_CLASS_MAP: Record<string, string> = {
-  gradientField: "hero-surface-layer hero-surface--gradient-field",
-  waveMask: "hero-surface-layer hero-surface--wave-mask",
-  dotField: "hero-surface-layer hero-surface--dot-field",
-  filmGrain: "hero-surface-layer hero-surface--film-grain",
-  particles: "hero-surface-layer hero-surface--particles",
-  caustics: "hero-surface-layer hero-surface--caustics",
+  "gradient.base": "hero-surface-layer hero-surface--gradient-field",
+  "mask.waveHeader": "hero-surface-layer hero-surface--wave-mask",
+  "field.waveRings": "hero-surface-layer hero-surface--wave-field",
+  "field.dotGrid": "hero-surface-layer hero-surface--dot-field",
+  "overlay.filmGrain": "hero-surface-layer hero-surface--film-grain",
+  "overlay.particles": "hero-surface-layer hero-surface--particles",
+  "overlay.caustics": "hero-surface-layer hero-surface--caustics",
 };
 
 function normalizeLayer(entry: unknown): HeroSurfaceLayerDefinition | undefined {

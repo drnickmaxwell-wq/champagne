@@ -10,14 +10,14 @@
   "defaults": {
     "tone": "night",
     "surfaces": {
-      "gradient": "base.gradientField",
-      "waveMask": { "desktop": "base.waveMask", "mobile": "base.waveMask.mobile" },
-      "background": { "desktop": "base.waveField", "mobile": "base.waveField" },
-      "overlays": { "dots": "base.dotsTexture", "field": "base.waveFieldLines" },
-      "particles": "fx.particlesPrimary",
-      "grain": { "desktop": "overlay.filmGrain", "mobile": "overlay.filmGrain.mobile" },
-      "motion": ["fx.caustics", "fx.glass", "fx.goldDust", "fx.particleDrift"],
-      "video": "heroVideo"
+      "gradient": "gradient.base",
+      "waveMask": { "desktop": "mask.waveHeader", "mobile": "mask.waveHeader.mobile" },
+      "background": { "desktop": "field.waveBackdrop", "mobile": "field.waveBackdrop" },
+      "overlays": { "dots": "field.dotGrid", "field": "field.waveRings" },
+      "particles": "overlay.particlesPrimary",
+      "grain": { "desktop": "overlay.filmGrain.desktop", "mobile": "overlay.filmGrain.mobile" },
+      "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDust", "overlay.particlesDrift"],
+      "video": "hero.video"
     },
     "layout": {
       "contentAlign": "start",
