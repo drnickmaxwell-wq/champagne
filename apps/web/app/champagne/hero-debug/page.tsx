@@ -40,6 +40,16 @@ function resolveSurfaceAsset(
       opacity: runtimeOpacity,
     };
   }
+  if (token === "overlay.goldDust") {
+    const goldDust = surfaces.motion?.find((entry) => entry.id === "overlay.goldDust");
+    return {
+      assetId: goldDust?.asset?.id ?? token,
+      path: goldDust?.path,
+      disabled: !goldDust,
+      motion: true,
+      opacity: runtimeOpacity,
+    };
+  }
   if (token === "overlay.particles")
     return {
       assetId: surfaces.particles?.asset?.id ?? token,
@@ -185,6 +195,14 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       ["--surface-opacity-caustics" as string]: 1,
       ["--surface-blend-caustics" as string]: motionLookup.get("overlay.caustics")?.blendMode as CSSProperties["mixBlendMode"],
     },
+    "overlay.goldDust": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-gold-dust" as string]: motionLookup.get("overlay.goldDust")?.path
+        ? `url(${motionLookup.get("overlay.goldDust")?.path})`
+        : undefined,
+      ["--surface-opacity-particlesDrift" as string]: 1,
+      ["--surface-blend-particlesDrift" as string]: motionLookup.get("overlay.goldDust")?.blendMode as CSSProperties["mixBlendMode"],
+    },
     "overlay.glassShimmer": {
       ["--hero-gradient" as string]: gradient,
       ["--surface-opacity-glassShimmer" as string]: 1,
@@ -205,7 +223,12 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
   const renderSurfaceLayer = (layer: HeroSurfaceStackLayer) => {
     const token = layer.token ?? layer.id ?? "layer";
 
-    if (token === "overlay.caustics" || token === "overlay.glassShimmer" || token === "overlay.particlesDrift") {
+    if (
+      token === "overlay.caustics"
+      || token === "overlay.glassShimmer"
+      || token === "overlay.particlesDrift"
+      || token === "overlay.goldDust"
+    ) {
       const entry = motionLookup.get(token);
       if (entry?.path) {
         return (

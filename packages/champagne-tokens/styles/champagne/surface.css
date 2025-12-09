@@ -6,9 +6,15 @@
   --champagne-overlay-dots: url("/assets/champagne/waves/wave-dots.svg");
   --champagne-overlay-field: url("/assets/champagne/waves/wave-field.svg");
   --champagne-particles-primary: url("/assets/champagne/particles/home-hero-particles.webp");
+  --champagne-particles-gold: url("/assets/champagne/particles/particles-gold%20.webp");
+  --champagne-particles-magenta: url("/assets/champagne/particles/particles-magenta%20.webp");
+  --champagne-particles-teal: url("/assets/champagne/particles/particles-teal%20.webp");
   --champagne-grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop%20.webp");
   --champagne-grain-mobile: url("/assets/champagne/film-grain/film-grain-mobile%20.webp");
   --champagne-caustics-overlay: url("/assets/champagne/textures/wave-light-overlay.webp");
+  --champagne-particles-drift: url("/assets/champagne/motion/particles-drift.webm");
+  --champagne-gold-dust: url("/assets/champagne/motion/gold-dust-drift.webm");
+  --champagne-wave-caustics: url("/assets/champagne/motion/wave-caustics.webm");
 }
 
 :root {
@@ -19,10 +25,16 @@
   --hero-overlay-dots: var(--champagne-overlay-dots);
   --hero-overlay-field: var(--champagne-overlay-field);
   --hero-particles: var(--champagne-particles-primary);
+  --hero-particles-gold: var(--champagne-particles-gold);
+  --hero-particles-magenta: var(--champagne-particles-magenta);
+  --hero-particles-teal: var(--champagne-particles-teal);
   --hero-grain-desktop: var(--champagne-grain-desktop);
   --hero-grain-mobile: var(--champagne-grain-mobile);
   --hero-film-grain-opacity: 0.32;
   --hero-caustics-overlay: var(--champagne-caustics-overlay);
+  --hero-wave-caustics: var(--champagne-wave-caustics);
+  --hero-gold-dust: var(--champagne-gold-dust);
+  --hero-particles-drift: var(--champagne-particles-drift);
   --hero-particles-opacity: 0.4;
 }
 
@@ -60,6 +72,7 @@
   --surface-zindex-filmGrain: 9;
   --surface-zindex-lighting: 10;
   --surface-zindex-contentFrame: 11;
+  --surface-zindex-waveBackdrop: 1.5;
 }
 
 @media (max-width: 640px) {
@@ -85,8 +98,17 @@
   z-index: var(--surface-zindex-baseGradient, 1);
 }
 
+.hero-surface-layer.hero-surface--wave-backdrop {
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-wave-background-desktop);
+  background-size: cover, cover;
+  background-position: center;
+  mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
+  opacity: var(--surface-opacity-waveBackdrop, 0.7);
+  z-index: var(--surface-zindex-waveBackdrop, 2);
+}
+
 .hero-surface-layer.hero-surface--wave-mask {
-  background-image: var(--hero-wave-background-desktop);
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-wave-background-desktop);
   mask-image: var(--hero-wave-mask-desktop);
   -webkit-mask-image: var(--hero-wave-mask-desktop);
   mask-size: cover;
@@ -97,28 +119,28 @@
 }
 
 .hero-surface-layer.hero-surface--wave-field {
-  background-image: var(--hero-overlay-field);
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-overlay-field);
   mix-blend-mode: var(--surface-blend-waveField, overlay);
   opacity: var(--surface-opacity-waveField, 0.85);
   z-index: var(--surface-zindex-waveField, 3);
 }
 
 .hero-surface-layer.hero-surface--dot-field {
-  background-image: var(--hero-overlay-dots);
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-overlay-dots);
   mix-blend-mode: var(--surface-blend-dotField, soft-light);
   opacity: var(--surface-opacity-dotField, 0.58);
   z-index: var(--surface-zindex-dotField, 4);
 }
 
 .hero-surface-layer.hero-surface--particles {
-  background-image: var(--hero-particles);
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-particles);
   mix-blend-mode: var(--surface-blend-particles, screen);
   opacity: var(--surface-opacity-particles);
   z-index: var(--surface-zindex-particles, 8);
 }
 
 .hero-surface-layer.hero-surface--film-grain {
-  background-image: var(--hero-grain-desktop);
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-grain-desktop);
   background-repeat: repeat;
   mix-blend-mode: var(--surface-blend-filmGrain, var(--hero-film-grain-blend, multiply));
   opacity: var(--surface-opacity-filmGrain);
@@ -126,19 +148,28 @@
 }
 
 .hero-surface-layer.hero-surface--caustics {
-  background-image: var(--hero-caustics-overlay);
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-caustics-overlay);
   mix-blend-mode: var(--surface-blend-caustics, screen);
   opacity: var(--surface-opacity-caustics, 0.7);
   z-index: var(--surface-zindex-caustics, 5);
 }
 
 .hero-surface-layer.hero-surface--glass-shimmer {
+  background-image: var(--hero-gradient, var(--smh-gradient));
   mix-blend-mode: var(--surface-blend-glassShimmer, luminosity);
   opacity: var(--surface-opacity-glassShimmer, 0.85);
   z-index: var(--surface-zindex-glassShimmer, 6);
 }
 
 .hero-surface-layer.hero-surface--particles-drift {
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-particles-drift);
+  mix-blend-mode: var(--surface-blend-particlesDrift, screen);
+  opacity: var(--surface-opacity-particlesDrift, 0.6);
+  z-index: var(--surface-zindex-particlesDrift, 7);
+}
+
+.hero-surface-layer.hero-surface--gold-dust {
+  background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-gold-dust);
   mix-blend-mode: var(--surface-blend-particlesDrift, screen);
   opacity: var(--surface-opacity-particlesDrift, 0.6);
   z-index: var(--surface-zindex-particlesDrift, 7);
@@ -162,6 +193,10 @@
     background-image: var(--hero-wave-background-mobile);
     mask-image: var(--hero-wave-mask-mobile);
     -webkit-mask-image: var(--hero-wave-mask-mobile);
+  }
+
+  .hero-surface-layer.hero-surface--wave-backdrop {
+    background-image: var(--hero-gradient, var(--smh-gradient)), var(--hero-wave-background-mobile);
   }
 
   .hero-surface-layer.hero-surface--wave-field {
