@@ -20,7 +20,8 @@ function resolveSurfaceAsset(
   token: string | undefined,
   stackLayer: HeroSurfaceStackLayer,
   surfaces: Awaited<ReturnType<typeof getHeroRuntime>>["surfaces"],
-): { assetId: string; path?: string; disabled?: boolean } {
+  runtimeOpacity?: number,
+): { assetId: string; path?: string; disabled?: boolean; opacity?: number; motion?: boolean } {
   if (!token) return { assetId: stackLayer.id ?? "unknown" };
   if (token === "gradient.base") return { assetId: "gradient.base (CSS)", path: surfaces.gradient };
   if (token === "field.waveBackdrop")
@@ -30,12 +31,28 @@ function resolveSurfaceAsset(
   if (token === "field.dotGrid") return { assetId: surfaces.overlays?.dots?.asset?.id ?? token, path: surfaces.overlays?.dots?.path };
   if (token === "overlay.caustics") {
     const causticsMotion = surfaces.motion?.find((entry) => entry.id === "overlay.caustics");
-    return { assetId: causticsMotion?.asset?.id ?? token, path: causticsMotion?.path, disabled: !causticsMotion };
+    return {
+      assetId: causticsMotion?.asset?.id ?? token,
+      path: causticsMotion?.path,
+      disabled: !causticsMotion,
+      motion: true,
+      opacity: runtimeOpacity,
+    };
   }
   if (token === "overlay.particles")
-    return { assetId: surfaces.particles?.asset?.id ?? token, path: surfaces.particles?.path, disabled: !surfaces.particles };
+    return {
+      assetId: surfaces.particles?.asset?.id ?? token,
+      path: surfaces.particles?.path,
+      disabled: !surfaces.particles,
+      opacity: runtimeOpacity,
+    };
   if (token === "overlay.filmGrain")
-    return { assetId: surfaces.grain?.desktop?.asset?.id ?? token, path: surfaces.grain?.desktop?.path, disabled: !surfaces.grain?.desktop };
+    return {
+      assetId: surfaces.grain?.desktop?.asset?.id ?? token,
+      path: surfaces.grain?.desktop?.path,
+      disabled: !surfaces.grain?.desktop,
+      opacity: runtimeOpacity,
+    };
   return { assetId: stackLayer.id ?? token, path: undefined };
 }
 
@@ -43,24 +60,61 @@ type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
 export default async function HeroDebugPage({ searchParams }: { searchParams?: SearchParams }) {
   const resolved = (await searchParams) ?? {};
-  const prm = normalizeBoolean(resolved.prm, false);
+  const mockPrm = (() => {
+    const value = resolved.mockPrm;
+    if (Array.isArray(value)) return value.includes("on") ? true : value.includes("off") ? false : undefined;
+    if (typeof value === "string") return value === "on" ? true : value === "off" ? false : undefined;
+    return undefined;
+  })();
+  const prm = mockPrm ?? normalizeBoolean(resolved.prm, false);
   const particles = normalizeBoolean(resolved.particles, true);
   const filmGrain = normalizeBoolean(resolved.filmGrain, true);
   const strongDebug = isStrongDebug(resolved.debug);
+  const opacityBoost = strongDebug ? 1.6 : 1;
+  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
 
   const runtime = await getHeroRuntime({ mode: "home", prm, particles, filmGrain });
   const surfaces = runtime.surfaces;
   const surfaceStack = surfaces.surfaceStack ?? [];
+  const causticsOpacity = applyBoost(
+    surfaces.motion?.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
+  );
+  const filmGrainOpacity = applyBoost((runtime.filmGrain.opacity ?? 0.3) * (surfaces.grain?.desktop?.opacity ?? 1));
+  const particlesOpacity = applyBoost((runtime.motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
+  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
+  const waveRingsOpacity = applyBoost(surfaces.overlays?.field?.opacity ?? 1);
+  const dotGridOpacity = applyBoost(surfaces.overlays?.dots?.opacity ?? 1);
+  const prmSource = mockPrm !== undefined ? `mocked (${mockPrm ? "on" : "off"})` : "system";
 
   const surfaceDetails = surfaceStack.map((layer) => {
     const token = layer.token ?? layer.id;
-    const resolvedAsset = resolveSurfaceAsset(token, layer, surfaces);
+    const resolvedAsset = resolveSurfaceAsset(
+      token,
+      layer,
+      surfaces,
+      token === "overlay.caustics"
+        ? causticsOpacity
+        : token === "overlay.filmGrain"
+          ? filmGrainOpacity
+          : token === "overlay.particles"
+            ? particlesOpacity
+            : token === "field.waveBackdrop"
+              ? waveBackdropOpacity
+              : token === "field.waveRings"
+                ? waveRingsOpacity
+                : token === "field.dotGrid"
+                  ? dotGridOpacity
+                  : undefined,
+    );
     return {
       token,
       role: layer.role,
       assetId: resolvedAsset.assetId,
       path: resolvedAsset.path,
       prmSafe: layer.prmSafe,
+      motion: layer.motion ?? resolvedAsset.motion,
+      suppressed: layer.suppressed,
+      opacity: resolvedAsset.opacity,
       disabled: resolvedAsset.disabled,
     };
   });
@@ -113,18 +167,6 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
               color: var(--text-medium);
               font-size: 0.8rem;
             }
-            .hero-debug-page[data-debug-strong="true"] .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop,
-            .hero-debug-page[data-debug-strong="true"] .hero-renderer .hero-surface-layer.hero-surface--wave-field,
-            .hero-debug-page[data-debug-strong="true"] .hero-renderer .hero-surface-layer.hero-surface--dot-field {
-              opacity: 0.85 !important;
-              mix-blend-mode: screen !important;
-            }
-            .hero-debug-page[data-debug-strong="true"] .hero-renderer .hero-surface-layer.hero-surface--particles,
-            .hero-debug-page[data-debug-strong="true"] .hero-renderer .hero-surface-layer.hero-surface--caustics,
-            .hero-debug-page[data-debug-strong="true"] .hero-renderer .hero-surface-layer.hero-surface--film-grain {
-              opacity: 0.6 !important;
-              mix-blend-mode: screen !important;
-            }
           `,
         }}
       />
@@ -133,17 +175,27 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
         <p style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>Sacred hero debug</p>
         <h1 style={{ fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)" }}>Surface activation proof</h1>
         <p style={{ color: "var(--text-medium)", maxWidth: "880px", lineHeight: 1.55 }}>
-          This page renders the same Sacred Home hero as the landing page and lists each resolved surface with its asset URL. Add
+          This page renders the same Sacred Home hero variant used on the landing page and lists each resolved surface with its
+          asset URL. Add
           <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)" }}>
             ?debug=strong
           </code>
-          to boost visibility of non-content layers.
+          to multiply non-content layer opacity (×{opacityBoost.toFixed(1)}), or
+          <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)", marginLeft: "0.35rem" }}>
+            ?mockPrm=on
+          </code>
+          to simulate prefers-reduced-motion.
+        </p>
+        <p style={{ color: "var(--text-medium)", maxWidth: "880px", lineHeight: 1.45 }}>
+          Variant: <strong>{runtime.variant?.id ?? "default"}</strong> · PRM ({prmSource}):
+          <strong style={{ marginLeft: "0.35rem" }}>{runtime.flags.prm ? "on" : "off"}</strong>
+          {mockPrm !== undefined ? " (mocked for this view)" : ""}
         </p>
       </header>
 
       <div className="hero-debug-grid">
         <div className="hero-debug-hero-shell">
-          <HeroRenderer prm={prm} particles={particles} filmGrain={filmGrain} />
+          <HeroRenderer prm={prm} particles={particles} filmGrain={filmGrain} debugOpacityBoost={opacityBoost} />
         </div>
 
         <div className="hero-debug-panel">
@@ -153,7 +205,10 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                 <th>Layer</th>
                 <th>Asset</th>
                 <th>URL</th>
+                <th>Opacity</th>
+                <th>Motion</th>
                 <th>PRM Safe</th>
+                <th>Suppressed</th>
               </tr>
             </thead>
             <tbody>
@@ -167,7 +222,10 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                   <td style={{ color: "var(--text-medium)", fontSize: "0.9rem", wordBreak: "break-all" }}>
                     {detail.path ?? "—"}
                   </td>
+                  <td>{detail.opacity ? detail.opacity.toFixed(2) : "—"}{strongDebug ? " (boosted)" : ""}</td>
+                  <td>{detail.motion ? "Yes" : "No"}</td>
                   <td>{detail.prmSafe ? "Yes" : "No"}</td>
+                  <td>{detail.suppressed ? "Yes" : "No"}</td>
                 </tr>
               ))}
             </tbody>

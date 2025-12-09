@@ -128,13 +128,6 @@ function mergeMotion(
     merged.parallaxDepth = 0;
     merged.shimmerIntensity = (merged.shimmerIntensity ?? 1) * 0.35;
     merged.particleDrift = (merged.particleDrift ?? 1) * 0.4;
-    merged.particles = merged.particles
-      ? {
-          ...merged.particles,
-          density: 0,
-          speed: 0,
-        }
-      : merged.particles;
   }
 
   return merged;
@@ -175,11 +168,10 @@ function mergeSurfaceConfig(
 
 function applyPrm(surface: HeroSurfaceConfig, prm?: boolean): HeroSurfaceConfig {
   if (!prm) return surface;
-  const disabledMotion = new Set(["overlay.glassShimmer", "overlay.caustics", "overlay.particlesDrift"]);
+  const disabledMotion = new Set(["overlay.glassShimmer", "overlay.caustics", "overlay.particlesDrift", "overlay.goldDust"]);
   return {
     ...surface,
     motion: surface.motion?.filter((entry) => !disabledMotion.has(entry?.id ?? "")),
-    particles: undefined,
     video: surface.video?.prmSafe ? surface.video : undefined,
   };
 }

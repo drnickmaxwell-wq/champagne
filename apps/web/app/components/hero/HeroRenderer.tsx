@@ -8,6 +8,7 @@ export interface HeroRendererProps {
   timeOfDay?: HeroTimeOfDay;
   particles?: boolean;
   filmGrain?: boolean;
+  debugOpacityBoost?: number;
 }
 
 function HeroFallback() {
@@ -37,7 +38,15 @@ function HeroFallback() {
   );
 }
 
-export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDay, particles, filmGrain }: HeroRendererProps) {
+export async function HeroRenderer({
+  mode = "home",
+  treatmentSlug,
+  prm,
+  timeOfDay,
+  particles,
+  filmGrain,
+  debugOpacityBoost = 1,
+}: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
 
@@ -52,24 +61,28 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
   if (!runtime) return <HeroFallback />;
 
   const { content, surfaces, layout, motion, filmGrain: filmGrainSettings } = runtime;
+  const opacityBoost = Math.max(debugOpacityBoost, 0.01);
   const gradient = surfaces.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
   const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
   const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
-  const causticsOpacity =
-    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35;
-  const waveBackdropOpacity = surfaces.background?.desktop?.opacity ?? 0.55;
+  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
+  const causticsOpacity = applyBoost(
+    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
+  );
+  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
+    if (layer.suppressed) return false;
     if (token === "overlay.particles" && !shouldShowParticles) return false;
     if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
     return true;
   });
   const prmEnabled = runtime.flags.prm;
-  const grainOpacity = (filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1);
-  const particleOpacity = (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35;
+  const grainOpacity = applyBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1));
+  const particleOpacity = applyBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
 
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
@@ -116,15 +129,15 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
     },
     "mask.waveHeader": {
       mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: surfaces.waveMask?.desktop?.opacity,
+      opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: surfaces.overlays?.field?.opacity,
+      opacity: applyBoost(surfaces.overlays?.field?.opacity),
     },
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: surfaces.overlays?.dots?.opacity,
+      opacity: applyBoost(surfaces.overlays?.dots?.opacity),
     },
     "overlay.particles": {
       mixBlendMode: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
@@ -146,7 +159,7 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
     <BaseChampagneSurface
       variant="inkGlass"
       style={{
-        minHeight: "60vh",
+        minHeight: "72vh",
         display: "grid",
         alignItems: layout.contentAlign === "center" ? "center" : "stretch",
         overflow: "hidden",
@@ -209,6 +222,9 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
               }
               .hero-renderer .hero-content {
                 padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+              }
+              .hero-renderer {
+                min-height: 68vh;
               }
             }
             @media (prefers-reduced-motion: reduce) {

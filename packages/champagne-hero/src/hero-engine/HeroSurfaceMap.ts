@@ -59,16 +59,16 @@ const LAYER_DEFAULTS: Record<string, Partial<HeroSurfaceLayerDefinition>> = {
   "overlay.lighting": { blendMode: "soft-light", opacity: 0.82 },
 };
 
-const SURFACE_STACK_ORDER: { token: string; role: "background" | "fx"; prmSafe?: boolean }[] = [
+const SURFACE_STACK_ORDER: { token: string; role: "background" | "fx"; prmSafe?: boolean; motion?: boolean }[] = [
   { token: "gradient.base", role: "background", prmSafe: true },
   { token: "field.waveBackdrop", role: "background", prmSafe: true },
   { token: "field.waveRings", role: "background", prmSafe: true },
   { token: "mask.waveHeader", role: "background", prmSafe: true },
   { token: "field.dotGrid", role: "background", prmSafe: true },
-  { token: "overlay.caustics", role: "fx", prmSafe: true },
-  { token: "overlay.glassShimmer", role: "fx", prmSafe: false },
-  { token: "overlay.particlesDrift", role: "fx", prmSafe: false },
-  { token: "overlay.particles", role: "fx", prmSafe: false },
+  { token: "overlay.caustics", role: "fx", prmSafe: false, motion: true },
+  { token: "overlay.glassShimmer", role: "fx", prmSafe: false, motion: true },
+  { token: "overlay.particlesDrift", role: "fx", prmSafe: false, motion: true },
+  { token: "overlay.particles", role: "fx", prmSafe: true },
   { token: "overlay.filmGrain", role: "fx", prmSafe: true },
   { token: "overlay.lighting", role: "fx", prmSafe: true },
   { token: "hero.contentFrame", role: "background", prmSafe: true },
@@ -434,15 +434,18 @@ export function mapSurfaceStack(
   if (tokens.lighting || surfaceMap.overlays?.lighting) includedTokens.add("overlay.lighting");
   includedTokens.add("hero.contentFrame");
 
-  return SURFACE_STACK_ORDER.filter((entry) => includedTokens.has(entry.token))
-    .map((entry) => ({
+  return SURFACE_STACK_ORDER.filter((entry) => includedTokens.has(entry.token)).map((entry) => {
+    const suppressed = prm && entry.prmSafe === false;
+    return {
       id: entry.token,
       role: entry.role,
       token: entry.token,
       prmSafe: entry.prmSafe,
+      motion: entry.motion,
+      suppressed,
       className: SURFACE_TOKEN_CLASS_MAP[entry.token] ?? `hero-surface-layer hero-surface--${entry.token}`,
-    }))
-    .filter((entry) => !(prm && entry.prmSafe === false));
+    } satisfies HeroSurfaceStackLayer;
+  });
 }
 
 function resolveLayer(layer?: HeroSurfaceLayer): HeroSurfaceLayerResolved | undefined {
