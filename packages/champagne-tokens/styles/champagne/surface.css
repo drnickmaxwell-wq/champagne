@@ -41,24 +41,24 @@
 
 :root {
   --surface-opacity-gradient: 1;
-  --surface-opacity-waveMask: 0.92;
-  --surface-opacity-waveField: 0.85;
-  --surface-opacity-dotField: 0.58;
-  --surface-opacity-caustics: 0.7;
-  --surface-opacity-glassShimmer: 0.85;
-  --surface-opacity-particlesDrift: 0.6;
-  --surface-opacity-particles: var(--hero-particles-opacity, 0.4);
-  --surface-opacity-filmGrain: var(--hero-film-grain-opacity, 0.2);
+  --surface-opacity-waveMask: 1;
+  --surface-opacity-waveField: 1;
+  --surface-opacity-dotField: 1;
+  --surface-opacity-caustics: 1;
+  --surface-opacity-glassShimmer: 1;
+  --surface-opacity-particlesDrift: 1;
+  --surface-opacity-particles: var(--hero-particles-opacity, 1);
+  --surface-opacity-filmGrain: var(--hero-film-grain-opacity, 0.55);
   --surface-opacity-lighting: 0.82;
 
   --surface-blend-gradient: normal;
-  --surface-blend-waveMask: soft-light;
-  --surface-blend-waveField: overlay;
-  --surface-blend-dotField: soft-light;
+  --surface-blend-waveMask: normal;
+  --surface-blend-waveField: normal;
+  --surface-blend-dotField: normal;
   --surface-blend-caustics: screen;
   --surface-blend-glassShimmer: luminosity;
   --surface-blend-particlesDrift: screen;
-  --surface-blend-particles: screen;
+  --surface-blend-particles: normal;
   --surface-blend-filmGrain: multiply;
   --surface-blend-lighting: soft-light;
 
@@ -100,78 +100,78 @@
 }
 
 .hero-surface-layer.hero-surface--wave-backdrop {
-  background-image: var(--hero-wave-background-desktop), var(--hero-gradient, var(--smh-gradient));
-  background-size: cover, cover;
+  background-image: var(--hero-wave-background-desktop);
+  background-size: cover;
   background-position: center;
-  mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
+  mix-blend-mode: var(--surface-blend-waveBackdrop, normal);
   opacity: var(--surface-opacity-waveBackdrop, 0.7);
   z-index: var(--surface-zindex-waveBackdrop, 2);
 }
 
 .hero-surface-layer.hero-surface--wave-mask {
-  background-image: var(--hero-wave-background-desktop), var(--hero-gradient, var(--smh-gradient));
+  background-image: var(--hero-wave-background-desktop);
   mask-image: var(--hero-wave-mask-desktop);
   -webkit-mask-image: var(--hero-wave-mask-desktop);
   mask-size: cover;
   -webkit-mask-size: cover;
-  mix-blend-mode: var(--surface-blend-waveMask, soft-light);
-  opacity: var(--surface-opacity-waveMask, 0.92);
+  mix-blend-mode: var(--surface-blend-waveMask, normal);
+  opacity: var(--surface-opacity-waveMask, 1);
   z-index: var(--surface-zindex-waveMask, 2);
 }
 
 .hero-surface-layer.hero-surface--wave-field {
-  background-image: var(--hero-overlay-field), var(--hero-gradient, var(--smh-gradient));
-  mix-blend-mode: var(--surface-blend-waveField, overlay);
-  opacity: var(--surface-opacity-waveField, 0.85);
+  background-image: var(--hero-overlay-field);
+  mix-blend-mode: var(--surface-blend-waveField, normal);
+  opacity: var(--surface-opacity-waveField, 1);
   z-index: var(--surface-zindex-waveField, 3);
 }
 
 .hero-surface-layer.hero-surface--dot-field {
-  background-image: var(--hero-overlay-dots), var(--hero-gradient, var(--smh-gradient));
-  mix-blend-mode: var(--surface-blend-dotField, soft-light);
-  opacity: var(--surface-opacity-dotField, 0.58);
+  background-image: var(--hero-overlay-dots);
+  mix-blend-mode: var(--surface-blend-dotField, normal);
+  opacity: var(--surface-opacity-dotField, 1);
   z-index: var(--surface-zindex-dotField, 4);
 }
 
 .hero-surface-layer.hero-surface--particles {
-  background-image: var(--hero-particles), var(--hero-gradient, var(--smh-gradient));
-  mix-blend-mode: var(--surface-blend-particles, screen);
+  background-image: var(--hero-particles);
+  mix-blend-mode: var(--surface-blend-particles, normal);
   opacity: var(--surface-opacity-particles);
   z-index: var(--surface-zindex-particles, 8);
 }
 
 .hero-surface-layer.hero-surface--film-grain {
-  background-image: var(--hero-grain-desktop), var(--hero-gradient, var(--smh-gradient));
+  background-image: var(--hero-grain-desktop);
   background-repeat: repeat;
+  background-size: cover;
   mix-blend-mode: var(--surface-blend-filmGrain, var(--hero-film-grain-blend, multiply));
   opacity: var(--surface-opacity-filmGrain);
   z-index: var(--surface-zindex-filmGrain, 9);
 }
 
 .hero-surface-layer.hero-surface--caustics {
-  background-image: var(--hero-caustics-overlay), var(--hero-gradient, var(--smh-gradient));
+  background-image: var(--hero-caustics-overlay);
   mix-blend-mode: var(--surface-blend-caustics, screen);
   opacity: var(--surface-opacity-caustics, 0.7);
   z-index: var(--surface-zindex-caustics, 5);
 }
 
 .hero-surface-layer.hero-surface--glass-shimmer {
-  background-image: var(--hero-caustics-overlay), var(--hero-gradient, var(--smh-gradient));
+  background-image: var(--hero-caustics-overlay);
   mix-blend-mode: var(--surface-blend-glassShimmer, luminosity);
   opacity: var(--surface-opacity-glassShimmer, 0.85);
   z-index: var(--surface-zindex-glassShimmer, 6);
 }
 
 .hero-surface-layer.hero-surface--particles-drift {
-  background-image: var(--champagne-texture-gold-dust, var(--hero-gold-dust), var(--hero-particles-drift)),
-    var(--hero-gradient, var(--smh-gradient));
+  background-image: var(--champagne-texture-gold-dust, var(--hero-gold-dust), var(--hero-particles-drift));
   mix-blend-mode: var(--surface-blend-particlesDrift, screen);
   opacity: var(--surface-opacity-particlesDrift, 0.6);
   z-index: var(--surface-zindex-particlesDrift, 7);
 }
 
 .hero-surface-layer.hero-surface--gold-dust {
-  background-image: var(--champagne-texture-gold-dust, var(--hero-gold-dust)), var(--hero-gradient, var(--smh-gradient));
+  background-image: var(--champagne-texture-gold-dust, var(--hero-gold-dust));
   mix-blend-mode: var(--surface-blend-particlesDrift, screen);
   opacity: var(--surface-opacity-particlesDrift, 0.6);
   z-index: var(--surface-zindex-particlesDrift, 7);
@@ -198,7 +198,7 @@
   }
 
   .hero-surface-layer.hero-surface--wave-backdrop {
-    background-image: var(--hero-wave-background-mobile), var(--hero-gradient, var(--smh-gradient));
+    background-image: var(--hero-wave-background-mobile);
   }
 
   .hero-surface-layer.hero-surface--wave-field {

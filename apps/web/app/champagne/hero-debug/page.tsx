@@ -249,7 +249,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
 
     const className =
       token === "hero.contentFrame" ? "hero-surface-layer hero-surface--content-frame" : layer.className ?? "hero-surface-layer";
-    const customStyle: CSSProperties = { opacity: 1, mixBlendMode: layer.role === "fx" ? "screen" : undefined };
+    const customStyle: CSSProperties = { opacity: 1 };
     if (token === "hero.contentFrame") {
       customStyle.background = "var(--champagne-glass-bg, var(--surface-glass))";
       customStyle.backdropFilter = "blur(18px)";
@@ -298,15 +298,19 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
               border-radius: var(--radius-lg);
               overflow: hidden;
               border: 1px solid var(--ink-strong, var(--surface-ink-soft));
-              min-height: 220px;
-              background: var(--hero-gradient, var(--smh-gradient));
+              background: var(--surface-ink-soft);
+              min-height: 240px;
             }
-            .hero-debug-gallery .hero-surface-card .hero-surface-layer,
-            .hero-debug-gallery .hero-surface-card .hero-surface--motion {
+            .hero-debug-gallery .hero-surface-card .hero-surface-preview {
+              position: relative;
+              min-height: 200px;
+            }
+            .hero-debug-gallery .hero-surface-card .hero-surface-preview .hero-surface-layer,
+            .hero-debug-gallery .hero-surface-card .hero-surface-preview .hero-surface--motion {
               position: absolute;
               inset: 0;
             }
-            .hero-debug-gallery .hero-surface-card .hero-surface-layer.hero-surface--wave-backdrop {
+            .hero-debug-gallery .hero-surface-card .hero-surface-preview .hero-surface-layer.hero-surface--wave-backdrop {
               background-size: cover;
             }
             .hero-debug-gallery .hero-surface-card .hero-surface-label {
@@ -380,8 +384,10 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
             const cardVars = surfaceVars[token] ?? { ["--hero-gradient" as string]: gradient };
             const assetLabel = detail?.assetId ?? "unknown";
             return (
-              <div key={token} className="hero-surface-card" style={cardVars}>
-                {renderSurfaceLayer(layer)}
+              <div key={token} className="hero-surface-card">
+                <div className="hero-surface-preview" style={cardVars}>
+                  {renderSurfaceLayer(layer)}
+                </div>
                 <div className="hero-surface-label">
                   <strong style={{ letterSpacing: "0.05em", textTransform: "uppercase" }}>{token}</strong>
                   <span style={{ color: "var(--text-medium)" }}>
