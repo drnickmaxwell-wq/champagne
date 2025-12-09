@@ -10,6 +10,8 @@ import type {
   HeroSurfaceStackLayer,
 } from "./HeroConfig";
 
+type HeroSurfaceKey = string;
+
 interface HeroSurfaceStackDefinition {
   id?: string;
   role?: "background" | "fx";
@@ -228,34 +230,40 @@ const MOTION_PRIORITY: Record<string, number> = {
   "overlay.goldDust": 4,
 };
 
+function getLayerRefKey(entry?: HeroSurfaceLayerRef): HeroSurfaceKey | undefined {
+  if (!entry) return undefined;
+  if (typeof entry === "string") return entry;
+  const layerId = (entry as HeroSurfaceLayer)?.id;
+  if (typeof layerId === "string") return layerId;
+  const assetKey = (entry as HeroSurfaceLayerDefinition).asset;
+  return typeof assetKey === "string" ? assetKey : undefined;
+}
+
 function normalizeMotionTokens(tokens: HeroSurfaceTokenConfig): HeroSurfaceLayerRef[] {
   const stack: HeroSurfaceLayerRef[] = [];
-  const seen = new Set<string>();
+  const seen = new Set<HeroSurfaceKey>();
   const enqueue = (entry?: HeroSurfaceLayerRef) => {
-    if (!entry) return;
-    const key =
-      typeof entry === "string"
-        ? entry
-        : (entry as HeroSurfaceLayer)?.id ?? (entry as HeroSurfaceLayerDefinition).asset;
-    if (key && seen.has(key)) return;
-    if (key) seen.add(key);
-    stack.push(entry);
+    const key = getLayerRefKey(entry);
+    if (entry && key && !seen.has(key)) {
+      seen.add(key);
+      stack.push(entry);
+    }
   };
 
   enqueue(tokens.caustics);
   enqueue(tokens.shimmer);
   (tokens.motion ?? []).forEach((entry) => enqueue(entry));
 
-  return stack.length
-    ? stack.sort((a, b) => {
-        const aKey = typeof a === "string" ? a : (a as HeroSurfaceLayer)?.id;
-        const bKey = typeof b === "string" ? b : (b as HeroSurfaceLayer)?.id;
-        const aRank = (aKey && MOTION_PRIORITY[aKey]) ?? Number.POSITIVE_INFINITY;
-        const bRank = (bKey && MOTION_PRIORITY[bKey]) ?? Number.POSITIVE_INFINITY;
-        if (aRank === bRank) return 0;
-        return aRank - bRank;
-      })
-    : stack;
+    return stack.length
+      ? stack.sort((a, b) => {
+          const aKey = getLayerRefKey(a);
+          const bKey = getLayerRefKey(b);
+          const aRank: number = aKey ? MOTION_PRIORITY[aKey] ?? Number.POSITIVE_INFINITY : Number.POSITIVE_INFINITY;
+          const bRank: number = bKey ? MOTION_PRIORITY[bKey] ?? Number.POSITIVE_INFINITY : Number.POSITIVE_INFINITY;
+          if (aRank === bRank) return 0;
+          return aRank - bRank;
+        })
+      : stack;
 }
 
 function mergeSurfaceTokens(
@@ -393,14 +401,14 @@ export function mapSurfaceStack(
   options?: { prm?: boolean },
 ): HeroSurfaceStackLayer[] {
   const prm = Boolean(options?.prm);
-  const includedTokens = new Set<string>();
+  const includedTokens = new Set<HeroSurfaceKey>();
   const hasMotionToken = (token: string) =>
     (tokens.motion ?? []).some((entry) => {
       if (typeof entry === "string") return entry === token;
       if (typeof entry === "object") {
         const candidate = (entry as HeroSurfaceLayer).id;
         const assetCandidate = (entry as HeroSurfaceLayerDefinition).asset;
-        return candidate === token || assetCandidate === token;
+        return candidate === token || (typeof assetCandidate === "string" && assetCandidate === token);
       }
       return false;
     });
