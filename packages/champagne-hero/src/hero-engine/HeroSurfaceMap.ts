@@ -7,7 +7,15 @@ import type {
   HeroSurfaceLayerResolved,
   HeroSurfaceTokenConfig,
   ResolvedHeroSurfaceConfig,
+  HeroSurfaceStackLayer,
 } from "./HeroConfig";
+
+interface HeroSurfaceStackDefinition {
+  id?: string;
+  role?: "background" | "fx";
+  token?: string;
+  prmSafe?: boolean;
+}
 
 export interface HeroSurfaceDefinitionMap {
   waveMasks?: Record<string, HeroSurfaceLayerDefinition>;
@@ -18,7 +26,17 @@ export interface HeroSurfaceDefinitionMap {
   grain?: Record<string, HeroSurfaceLayerDefinition>;
   motion?: Record<string, HeroSurfaceLayerDefinition>;
   video?: Record<string, HeroSurfaceLayerDefinition>;
+  surfaceStack?: HeroSurfaceStackDefinition[];
 }
+
+const SURFACE_TOKEN_CLASS_MAP: Record<string, string> = {
+  gradientField: "hero-surface-layer hero-surface--gradient-field",
+  waveMask: "hero-surface-layer hero-surface--wave-mask",
+  dotField: "hero-surface-layer hero-surface--dot-field",
+  filmGrain: "hero-surface-layer hero-surface--film-grain",
+  particles: "hero-surface-layer hero-surface--particles",
+  caustics: "hero-surface-layer hero-surface--caustics",
+};
 
 function normalizeLayer(entry: unknown): HeroSurfaceLayerDefinition | undefined {
   if (!entry) return undefined;
@@ -86,6 +104,13 @@ export function buildSurfaceDefinitionMap(manifest: unknown): HeroSurfaceDefinit
     grain: normalizeRecord((manifest as Record<string, unknown>).grain),
     motion: normalizeRecord((manifest as Record<string, unknown>).motion),
     video: normalizeRecord((manifest as Record<string, unknown>).video),
+    surfaceStack: (() => {
+      const stack = (manifest as Record<string, unknown>).surfaceStack;
+      if (!Array.isArray(stack)) return [];
+      return stack
+        .map((entry) => (typeof entry === "object" ? (entry as HeroSurfaceStackDefinition) : undefined))
+        .filter(Boolean) as HeroSurfaceStackDefinition[];
+    })(),
   };
 }
 
@@ -160,6 +185,7 @@ export function combineSurfaceTokens(
 export function mapSurfaceTokensToAssets(
   surfaceTokens: HeroSurfaceTokenConfig,
   surfaceMap: HeroSurfaceDefinitionMap,
+  options?: { prm?: boolean },
 ): HeroSurfaceConfig {
   return {
     waveMask: {
@@ -211,7 +237,25 @@ export function mapSurfaceTokensToAssets(
       ?.map((entry) => resolveLayerRef(entry, surfaceMap.motion ?? {}))
       .filter(Boolean) as HeroSurfaceLayer[] | undefined,
     video: resolveLayerRef(surfaceTokens.video, surfaceMap.video ?? {}),
+    surfaceStack: mapSurfaceStack(surfaceMap, options),
   };
+}
+
+export function mapSurfaceStack(surfaceMap: HeroSurfaceDefinitionMap, options?: { prm?: boolean }): HeroSurfaceStackLayer[] {
+  const prm = Boolean(options?.prm);
+  return (surfaceMap.surfaceStack ?? [])
+    .map((entry) => {
+      const id = entry.id ?? entry.token ?? "surface";
+      const token = entry.token ?? id;
+      return {
+        id,
+        role: entry.role === "fx" ? "fx" : "background",
+        token,
+        prmSafe: entry.prmSafe,
+        className: SURFACE_TOKEN_CLASS_MAP[token] ?? `hero-surface-layer hero-surface--${token}`,
+      } satisfies HeroSurfaceStackLayer;
+    })
+    .filter((entry) => !(prm && entry.prmSafe === false));
 }
 
 function resolveLayer(layer?: HeroSurfaceLayer): HeroSurfaceLayerResolved | undefined {
@@ -253,6 +297,7 @@ export function resolveHeroSurfaceAssets(surfaceConfig: HeroSurfaceConfig): Reso
       .map((entry) => resolveLayer(entry))
       .filter(Boolean) as ResolvedHeroSurfaceConfig["motion"],
     video: resolveLayer(surfaceConfig.video),
+    surfaceStack: surfaceConfig.surfaceStack,
   };
 }
 
@@ -285,5 +330,6 @@ export function ensureSurfacePaths(surfaceConfig: HeroSurfaceConfig): HeroSurfac
     },
     motion: surfaceConfig.motion?.map((entry) => ensureLayerPath(entry)).filter(Boolean) as HeroSurfaceLayer[] | undefined,
     video: ensureLayerPath(surfaceConfig.video),
+    surfaceStack: surfaceConfig.surfaceStack,
   };
 }
