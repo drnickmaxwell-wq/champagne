@@ -7,6 +7,7 @@
   },
   "surfaceStack": [
     { "id": "gradient.base", "role": "background", "token": "gradient.base", "prmSafe": true },
+    { "id": "field.waveBackdrop", "role": "background", "token": "field.waveBackdrop", "prmSafe": true },
     { "id": "field.waveRings", "role": "background", "token": "field.waveRings", "prmSafe": true },
     { "id": "mask.waveHeader", "role": "background", "token": "mask.waveHeader", "prmSafe": true },
     { "id": "field.dotGrid", "role": "background", "token": "field.dotGrid", "prmSafe": true },
@@ -17,29 +18,29 @@
   ],
   "waveBackgrounds": {
     "field.waveBackdrop": {
-      "desktop": "sacred.wave.background.desktop",
-      "mobile": "sacred.wave.background.mobile"
+      "desktop": { "asset": "sacred.wave.background.desktop", "blendMode": "screen", "opacity": 0.55, "prmSafe": true },
+      "mobile": { "asset": "sacred.wave.background.mobile", "blendMode": "screen", "opacity": 0.55, "prmSafe": true }
     }
   },
   "gradients": {
     "gradient.base": "var(--smh-gradient)"
   },
   "overlays": {
-    "field.waveRings": { "asset": "sacred.wave.overlay.field", "blendMode": "soft-light", "opacity": 0.85, "prmSafe": true },
-    "field.dotGrid": { "asset": "sacred.wave.overlay.dots", "blendMode": "screen", "opacity": 0.58, "prmSafe": true }
+    "field.waveRings": { "asset": "sacred.wave.overlay.field", "blendMode": "soft-light", "opacity": 0.45, "prmSafe": true },
+    "field.dotGrid": { "asset": "sacred.wave.overlay.dots", "blendMode": "screen", "opacity": 0.45, "prmSafe": true }
   },
   "particles": {
-    "overlay.particlesPrimary": { "asset": "sacred.particles.home", "blendMode": "screen", "opacity": 0.48 },
-    "overlay.particlesGold": { "asset": "sacred.particles.gold", "blendMode": "screen", "opacity": 0.52 },
-    "overlay.particlesMagenta": { "asset": "sacred.particles.magenta", "blendMode": "screen", "opacity": 0.46 },
-    "overlay.particlesTeal": { "asset": "sacred.particles.teal", "blendMode": "screen", "opacity": 0.46 }
+    "overlay.particlesPrimary": { "asset": "sacred.particles.home", "blendMode": "screen", "opacity": 0.35 },
+    "overlay.particlesGold": { "asset": "sacred.particles.gold", "blendMode": "screen", "opacity": 0.35 },
+    "overlay.particlesMagenta": { "asset": "sacred.particles.magenta", "blendMode": "screen", "opacity": 0.35 },
+    "overlay.particlesTeal": { "asset": "sacred.particles.teal", "blendMode": "screen", "opacity": 0.35 }
   },
   "grain": {
-    "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "soft-light", "opacity": 0.32, "prmSafe": true },
-    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "soft-light", "opacity": 0.32, "prmSafe": true }
+    "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "soft-light", "opacity": 0.25, "prmSafe": true },
+    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "soft-light", "opacity": 0.25, "prmSafe": true }
   },
   "motion": {
-    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.9 },
+    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.35 },
     "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "screen", "opacity": 0.85 },
     "overlay.goldDust": { "asset": "sacred.motion.goldDust", "blendMode": "screen", "opacity": 0.7 },
     "overlay.particlesDrift": { "asset": "sacred.motion.particleDrift", "blendMode": "screen", "opacity": 0.6 }

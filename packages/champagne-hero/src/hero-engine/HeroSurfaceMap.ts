@@ -34,6 +34,7 @@ export interface HeroSurfaceDefinitionMap {
 const SURFACE_TOKEN_CLASS_MAP: Record<string, string> = {
   "gradient.base": "hero-surface-layer hero-surface--gradient-field",
   "mask.waveHeader": "hero-surface-layer hero-surface--wave-mask",
+  "field.waveBackdrop": "hero-surface-layer hero-surface--wave-backdrop",
   "field.waveRings": "hero-surface-layer hero-surface--wave-field",
   "field.dotGrid": "hero-surface-layer hero-surface--dot-field",
   "overlay.filmGrain": "hero-surface-layer hero-surface--film-grain",
@@ -47,18 +48,20 @@ const SURFACE_TOKEN_CLASS_MAP: Record<string, string> = {
 
 const LAYER_DEFAULTS: Record<string, Partial<HeroSurfaceLayerDefinition>> = {
   "mask.waveHeader": { blendMode: "soft-light", opacity: 0.92 },
-  "field.waveRings": { blendMode: "overlay", opacity: 0.85 },
-  "field.dotGrid": { blendMode: "soft-light", opacity: 0.58 },
+  "field.waveBackdrop": { blendMode: "screen", opacity: 0.55 },
+  "field.waveRings": { blendMode: "overlay", opacity: 0.45 },
+  "field.dotGrid": { blendMode: "soft-light", opacity: 0.45 },
   "overlay.caustics": { blendMode: "screen" },
   "overlay.glassShimmer": { blendMode: "luminosity", opacity: 0.85 },
   "overlay.particlesDrift": { blendMode: "screen" },
   "overlay.particles": { blendMode: "screen" },
-  "overlay.filmGrain": { blendMode: "multiply", opacity: 0.2 },
+  "overlay.filmGrain": { blendMode: "multiply", opacity: 0.25 },
   "overlay.lighting": { blendMode: "soft-light", opacity: 0.82 },
 };
 
 const SURFACE_STACK_ORDER: { token: string; role: "background" | "fx"; prmSafe?: boolean }[] = [
   { token: "gradient.base", role: "background", prmSafe: true },
+  { token: "field.waveBackdrop", role: "background", prmSafe: true },
   { token: "field.waveRings", role: "background", prmSafe: true },
   { token: "mask.waveHeader", role: "background", prmSafe: true },
   { token: "field.dotGrid", role: "background", prmSafe: true },
@@ -210,7 +213,7 @@ function withLayerDefaults(layer: HeroSurfaceLayer | undefined, token?: string):
   const blendedOpacity = layer?.opacity ?? defaults?.opacity;
   const opacity =
     token === "overlay.filmGrain" && typeof blendedOpacity === "number"
-      ? Math.min(blendedOpacity, 0.22)
+      ? Math.min(blendedOpacity, 0.35)
       : blendedOpacity;
   return {
     ...defaults,
@@ -413,6 +416,7 @@ export function mapSurfaceStack(
       return false;
     });
   if (tokens.gradient || surfaceMap.gradients) includedTokens.add("gradient.base");
+  if (tokens.background || surfaceMap.waveBackgrounds) includedTokens.add("field.waveBackdrop");
   if (tokens.mask || tokens.waveMask) includedTokens.add("mask.waveHeader");
   if (tokens.field || tokens.overlays?.field) includedTokens.add("field.waveRings");
   if (tokens.dots || tokens.overlays?.dots) includedTokens.add("field.dotGrid");
