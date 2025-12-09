@@ -125,6 +125,11 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
       opacity: grainOpacity,
     },
     "overlay.caustics": { mixBlendMode: "screen" },
+    "hero.contentFrame": {
+      background: "var(--champagne-glass-bg, var(--surface-glass))",
+      backdropFilter: "blur(18px)",
+      WebkitBackdropFilter: "blur(18px)",
+    },
   };
 
   return (

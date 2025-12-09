@@ -7,12 +7,13 @@
   },
   "surfaceStack": [
     { "id": "gradient.base", "role": "background", "token": "gradient.base", "prmSafe": true },
-    { "id": "mask.waveHeader", "role": "background", "token": "mask.waveHeader", "prmSafe": true },
     { "id": "field.waveRings", "role": "background", "token": "field.waveRings", "prmSafe": true },
+    { "id": "mask.waveHeader", "role": "background", "token": "mask.waveHeader", "prmSafe": true },
     { "id": "field.dotGrid", "role": "background", "token": "field.dotGrid", "prmSafe": true },
-    { "id": "overlay.filmGrain", "role": "fx", "token": "overlay.filmGrain", "prmSafe": true },
+    { "id": "overlay.caustics", "role": "fx", "token": "overlay.caustics", "prmSafe": false },
     { "id": "overlay.particles", "role": "fx", "token": "overlay.particles" },
-    { "id": "overlay.caustics", "role": "fx", "token": "overlay.caustics", "prmSafe": true }
+    { "id": "overlay.filmGrain", "role": "fx", "token": "overlay.filmGrain", "prmSafe": true },
+    { "id": "hero.contentFrame", "role": "background", "token": "hero.contentFrame", "prmSafe": true }
   ],
   "waveBackgrounds": {
     "field.waveBackdrop": {

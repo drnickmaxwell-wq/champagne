@@ -131,8 +131,8 @@ function mergeMotion(
     merged.particles = merged.particles
       ? {
           ...merged.particles,
-          density: (merged.particles.density ?? 1) * 0.35,
-          speed: (merged.particles.speed ?? 1) * 0.5,
+          density: 0,
+          speed: 0,
         }
       : merged.particles;
   }
@@ -158,8 +158,8 @@ function mergeFilmGrain(
   }
 
   if (resolvePrmFlag(options ?? {})) {
-    merged.opacity = (merged.opacity ?? DEFAULT_FILM_GRAIN.opacity) * 0.6;
-    merged.enabled = false;
+    merged.opacity = (merged.opacity ?? DEFAULT_FILM_GRAIN.opacity) * 0.65;
+    merged.enabled = true;
   }
 
   return merged;
@@ -179,7 +179,7 @@ function applyPrm(surface: HeroSurfaceConfig, prm?: boolean): HeroSurfaceConfig 
   return {
     ...surface,
     motion: surface.motion?.filter((entry) => !disabledMotion.has(entry?.id ?? "")),
-    grain: undefined,
+    particles: undefined,
     video: surface.video?.prmSafe ? surface.video : undefined,
   };
 }
