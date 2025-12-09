@@ -51,7 +51,15 @@ export async function HeroRenderer({
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
 
   try {
-    runtime = await getHeroRuntime({ mode, treatmentSlug, prm, timeOfDay, particles, filmGrain });
+    runtime = await getHeroRuntime({
+      mode,
+      treatmentSlug,
+      prm,
+      timeOfDay,
+      particles,
+      filmGrain,
+      variantId: mode === "home" ? "default" : undefined,
+    });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
       console.error("Hero runtime failed", error);

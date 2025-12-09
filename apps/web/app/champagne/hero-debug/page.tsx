@@ -1,5 +1,6 @@
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import { getHeroRuntime } from "@champagne/hero";
+import type { CSSProperties } from "react";
 
 type HeroSurfaceStackLayer = NonNullable<
   Awaited<ReturnType<typeof getHeroRuntime>>["surfaces"]["surfaceStack"]
@@ -73,7 +74,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
   const opacityBoost = strongDebug ? 1.6 : 1;
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
 
-  const runtime = await getHeroRuntime({ mode: "home", prm, particles, filmGrain });
+  const runtime = await getHeroRuntime({ mode: "home", prm, particles, filmGrain, variantId: "default" });
   const surfaces = runtime.surfaces;
   const surfaceStack = surfaces.surfaceStack ?? [];
   const causticsOpacity = applyBoost(
@@ -119,6 +120,121 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
     };
   });
 
+  const motionLookup = new Map((surfaces.motion ?? []).map((entry) => [entry.id, entry]));
+  const surfaceDetailLookup = new Map(surfaceDetails.map((entry) => [entry.token, entry]));
+  const gradient = surfaces.gradient ?? "var(--smh-gradient)";
+
+  const surfaceVars: Record<string, CSSProperties> = {
+    "gradient.base": {
+      ["--hero-gradient" as string]: gradient,
+    },
+    "field.waveBackdrop": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
+        ? `url(${surfaces.background.desktop.path})`
+        : undefined,
+      ["--surface-opacity-waveBackdrop" as string]: 1,
+      ["--surface-blend-waveBackdrop" as string]: surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "mask.waveHeader": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
+        ? `url(${surfaces.background.desktop.path})`
+        : undefined,
+      ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
+        ? `url(${surfaces.waveMask.desktop.path})`
+        : undefined,
+      ["--surface-opacity-waveMask" as string]: 1,
+      ["--surface-blend-waveMask" as string]: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "field.waveRings": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
+        ? `url(${surfaces.overlays.field.path})`
+        : undefined,
+      ["--surface-opacity-waveField" as string]: 1,
+      ["--surface-blend-waveField" as string]: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "field.dotGrid": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
+        ? `url(${surfaces.overlays.dots.path})`
+        : undefined,
+      ["--surface-opacity-dotField" as string]: 1,
+      ["--surface-blend-dotField" as string]: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "overlay.particles": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-particles" as string]: surfaces.particles?.path ? `url(${surfaces.particles.path})` : undefined,
+      ["--surface-opacity-particles" as string]: 1,
+      ["--surface-blend-particles" as string]: surfaces.particles?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "overlay.filmGrain": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
+        ? `url(${surfaces.grain.desktop.path})`
+        : undefined,
+      ["--surface-opacity-filmGrain" as string]: 1,
+      ["--surface-blend-filmGrain" as string]: surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "overlay.caustics": {
+      ["--hero-gradient" as string]: gradient,
+      ["--hero-caustics-overlay" as string]: motionLookup.get("overlay.caustics")?.path
+        ? `url(${motionLookup.get("overlay.caustics")?.path})`
+        : undefined,
+      ["--surface-opacity-caustics" as string]: 1,
+      ["--surface-blend-caustics" as string]: motionLookup.get("overlay.caustics")?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "overlay.glassShimmer": {
+      ["--hero-gradient" as string]: gradient,
+      ["--surface-opacity-glassShimmer" as string]: 1,
+      ["--surface-blend-glassShimmer" as string]: motionLookup.get("overlay.glassShimmer")?.blendMode as CSSProperties["mixBlendMode"],
+    },
+    "overlay.particlesDrift": {
+      ["--hero-gradient" as string]: gradient,
+      ["--surface-opacity-particles" as string]: 1,
+      ["--hero-particles" as string]: motionLookup.get("overlay.particlesDrift")?.path
+        ? `url(${motionLookup.get("overlay.particlesDrift")?.path})`
+        : undefined,
+    },
+    "hero.contentFrame": {
+      ["--hero-gradient" as string]: gradient,
+    },
+  };
+
+  const renderSurfaceLayer = (layer: HeroSurfaceStackLayer) => {
+    const token = layer.token ?? layer.id ?? "layer";
+
+    if (token === "overlay.caustics" || token === "overlay.glassShimmer" || token === "overlay.particlesDrift") {
+      const entry = motionLookup.get(token);
+      if (entry?.path) {
+        return (
+          <video
+            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            style={{ mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"], opacity: 1 }}
+          >
+            <source src={entry.path} />
+          </video>
+        );
+      }
+    }
+
+    const className =
+      token === "hero.contentFrame" ? "hero-surface-layer hero-surface--content-frame" : layer.className ?? "hero-surface-layer";
+    const customStyle: CSSProperties = { opacity: 1, mixBlendMode: layer.role === "fx" ? "screen" : undefined };
+    if (token === "hero.contentFrame") {
+      customStyle.background = "var(--champagne-glass-bg, var(--surface-glass))";
+      customStyle.backdropFilter = "blur(18px)";
+    }
+
+    return <div className={className} style={customStyle} />;
+  };
+
   return (
     <div
       data-debug-strong={strongDebug ? "true" : "false"}
@@ -149,6 +265,38 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
               background: color-mix(in srgb, var(--bg-ink) 70%, transparent);
               padding: 1rem 1.25rem;
               overflow: auto;
+            }
+            .hero-debug-gallery {
+              display: grid;
+              gap: 0.75rem;
+            }
+            .hero-debug-gallery .hero-surface-card {
+              position: relative;
+              border-radius: var(--radius-lg);
+              overflow: hidden;
+              border: 1px solid var(--ink-strong, var(--surface-ink-soft));
+              min-height: 220px;
+              background: var(--hero-gradient, var(--smh-gradient));
+            }
+            .hero-debug-gallery .hero-surface-card .hero-surface-layer,
+            .hero-debug-gallery .hero-surface-card .hero-surface--motion {
+              position: absolute;
+              inset: 0;
+            }
+            .hero-debug-gallery .hero-surface-card .hero-surface-layer.hero-surface--wave-backdrop {
+              background-size: cover;
+            }
+            .hero-debug-gallery .hero-surface-card .hero-surface-label {
+              position: absolute;
+              inset: auto 0 0 auto;
+              background: color-mix(in srgb, var(--surface-ink), transparent 35%);
+              color: var(--text-high);
+              padding: 0.5rem 0.75rem;
+              border-top-left-radius: var(--radius-md);
+              font-size: 0.9rem;
+              display: grid;
+              gap: 0.15rem;
+              text-align: right;
             }
             .hero-debug-panel table {
               width: 100%;
@@ -184,7 +332,11 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
           <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)", marginLeft: "0.35rem" }}>
             ?mockPrm=on
           </code>
-          to simulate prefers-reduced-motion.
+          to simulate prefers-reduced-motion, or
+          <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)", marginLeft: "0.35rem" }}>
+            ?mockPrm=off
+          </code>
+          to force motion layers on even if your system prefers reduced motion.
         </p>
         <p style={{ color: "var(--text-medium)", maxWidth: "880px", lineHeight: 1.45 }}>
           Variant: <strong>{runtime.variant?.id ?? "default"}</strong> · PRM ({prmSource}):
@@ -196,6 +348,27 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       <div className="hero-debug-grid">
         <div className="hero-debug-hero-shell">
           <HeroRenderer prm={prm} particles={particles} filmGrain={filmGrain} debugOpacityBoost={opacityBoost} />
+        </div>
+
+        <div className="hero-debug-gallery">
+          {surfaceStack.map((layer) => {
+            const token = layer.token ?? layer.id ?? "layer";
+            const detail = surfaceDetailLookup.get(token);
+            const cardVars = surfaceVars[token] ?? { ["--hero-gradient" as string]: gradient };
+            const assetLabel = detail?.assetId ?? "unknown";
+            return (
+              <div key={token} className="hero-surface-card" style={cardVars}>
+                {renderSurfaceLayer(layer)}
+                <div className="hero-surface-label">
+                  <strong style={{ letterSpacing: "0.05em", textTransform: "uppercase" }}>{token}</strong>
+                  <span style={{ color: "var(--text-medium)" }}>
+                    {assetLabel}
+                    {detail?.motion ? " · motion" : ""}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="hero-debug-panel">

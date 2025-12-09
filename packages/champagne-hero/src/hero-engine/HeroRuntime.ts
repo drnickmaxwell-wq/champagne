@@ -21,6 +21,7 @@ interface RuntimeOptions {
   mode?: HeroMode;
   treatmentSlug?: string;
   prm?: boolean;
+  variantId?: string;
   timeOfDay?: HeroTimeOfDay;
   particles?: boolean;
   filmGrain?: boolean;
@@ -60,6 +61,10 @@ function resolvePrmFlag(options: RuntimeOptions): boolean {
 
 function pickVariant(variants: HeroVariantConfig[], options: RuntimeOptions): HeroVariantConfig | undefined {
   if (!variants.length) return undefined;
+  if (options.variantId) {
+    const explicitMatch = variants.find((variant) => variant.id === options.variantId);
+    if (explicitMatch) return explicitMatch;
+  }
   if ((options.mode ?? "home") === "treatment" && options.treatmentSlug) {
     const treatmentMatch = variants.find((variant) => variant.treatmentSlug === options.treatmentSlug);
     if (treatmentMatch) return treatmentMatch;
