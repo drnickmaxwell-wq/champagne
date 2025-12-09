@@ -1,6 +1,15 @@
 import type { HeroAssetEntry } from "../HeroAssetRegistry";
 
 export type HeroTimeOfDay = "day" | "evening" | "night";
+export type HeroSurfaceRole = "background" | "fx";
+
+export interface HeroSurfaceStackLayer {
+  id: string;
+  role: HeroSurfaceRole;
+  token?: string;
+  className?: string;
+  prmSafe?: boolean;
+}
 
 export interface HeroSurfaceLayerDefinition {
   asset?: string | HeroAssetEntry;
@@ -111,6 +120,7 @@ export interface HeroSurfaceConfig {
   };
   motion?: HeroSurfaceLayer[];
   video?: HeroSurfaceLayer;
+  surfaceStack?: HeroSurfaceStackLayer[];
 }
 
 export interface ResolvedHeroSurfaceConfig {
@@ -134,6 +144,7 @@ export interface ResolvedHeroSurfaceConfig {
   };
   motion?: HeroSurfaceLayerResolved[];
   video?: HeroSurfaceLayerResolved;
+  surfaceStack?: HeroSurfaceStackLayer[];
 }
 
 export interface HeroBaseConfig {

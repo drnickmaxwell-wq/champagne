@@ -203,7 +203,7 @@ export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<Hero
     selectedVariant?.surfaces,
   );
 
-  const assetIds = mapSurfaceTokensToAssets(mergedSurfaceTokens, manifests.surfaces);
+  const assetIds = mapSurfaceTokensToAssets(mergedSurfaceTokens, manifests.surfaces, { prm: prmFlag });
   const resolvedSurfaces = resolveHeroSurfaceAssets(applyPrm(assetIds, prmFlag));
   const tone = selectedVariant?.tone ?? weatherConfig?.tone ?? manifests.base.tone;
   const content = mergeContent(manifests.base.content, selectedVariant?.content);

@@ -5,6 +5,14 @@
     "header": "sacred.wave.mask.header",
     "smh": "sacred.wave.mask.smh"
   },
+  "surfaceStack": [
+    { "id": "bg.gradientField", "role": "background", "token": "gradientField", "prmSafe": true },
+    { "id": "bg.waveMask", "role": "background", "token": "waveMask", "prmSafe": true },
+    { "id": "bg.dotField", "role": "background", "token": "dotField", "prmSafe": true },
+    { "id": "fx.filmGrain", "role": "fx", "token": "filmGrain", "prmSafe": true },
+    { "id": "fx.particles", "role": "fx", "token": "particles" },
+    { "id": "fx.caustics", "role": "fx", "token": "caustics" }
+  ],
   "waveBackgrounds": {
     "base.waveField": {
       "desktop": "sacred.wave.background.desktop",

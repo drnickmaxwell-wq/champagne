@@ -57,29 +57,12 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
   const videoEntry = surfaces.video;
   const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
   const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
-  const surfaceVars: CSSProperties = {
-    ["--hero-gradient" as string]: gradient,
-    ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
-      ? `url(${surfaces.background.desktop.path})`
-      : undefined,
-    ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
-      ? `url(${surfaces.background.mobile.path})`
-      : undefined,
-    ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
-      ? `url(${surfaces.waveMask.desktop.path})`
-      : undefined,
-    ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
-      ? `url(${surfaces.waveMask.mobile.path})`
-      : undefined,
-  };
-
-  const overlayDefaults: CSSProperties = {
-    mixBlendMode: "screen",
-    opacity: 0.7,
-  };
-
-  const resolveBlendMode = (value?: string) => value as CSSProperties["mixBlendMode"] | undefined;
-
+  const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
+    if (layer.id === "fx.particles" && !shouldShowParticles) return false;
+    if (layer.id === "fx.filmGrain" && !shouldShowGrain) return false;
+    return true;
+  });
+  const prmEnabled = runtime.flags.prm;
   const grainOpacity = (filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1);
   const particleOpacity = (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35;
 
@@ -91,8 +74,8 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
         display: "grid",
         alignItems: layout.contentAlign === "center" ? "center" : "stretch",
         overflow: "hidden",
-        background: "var(--hero-gradient)",
-        ...surfaceVars,
+        background: "var(--hero-gradient, var(--smh-gradient))",
+        ["--hero-gradient" as string]: gradient,
       }}
       className="hero-renderer"
     >
@@ -101,48 +84,37 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
           __html: `
             .hero-renderer {
               position: relative;
-              background: var(--hero-gradient, var(--smh-gradient));
               color: var(--text-high);
             }
-            .hero-renderer .hero-layer {
+            .hero-renderer .hero-surface-stack {
               position: absolute;
               inset: 0;
               z-index: 0;
             }
-            .hero-renderer .hero-layer.wave {
-              background-image: var(--hero-wave-background-desktop);
-              background-size: cover;
-              background-repeat: no-repeat;
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              background-position: center;
-              opacity: 0.92;
-              pointer-events: none;
+            .hero-renderer .hero-layer,
+            .hero-renderer .hero-surface-layer {
+              position: absolute;
+              inset: 0;
+              z-index: 0;
             }
-            .hero-renderer .hero-layer.overlay {
-              background-repeat: no-repeat;
-              background-size: cover;
-              background-position: center;
-              pointer-events: none;
-            }
-            .hero-renderer .hero-layer.particles {
-              background-repeat: no-repeat;
-              background-size: cover;
-              background-position: center;
-              pointer-events: none;
-            }
-            .hero-renderer .hero-layer.grain {
-              background-repeat: repeat;
-              background-size: cover;
-              pointer-events: none;
-            }
-            .hero-renderer .hero-layer.motion {
+            .hero-renderer .hero-layer.motion,
+            .hero-renderer .hero-surface-layer.hero-surface--motion {
               object-fit: cover;
               width: 100%;
               height: 100%;
               pointer-events: none;
+            }
+            .hero-surface-layer {
+              pointer-events: none;
+            }
+            .hero-surface-layer.hero-surface--film-grain {
+              opacity: ${grainOpacity};
+            }
+            .hero-surface-layer.hero-surface--particles {
+              opacity: ${particleOpacity};
+            }
+            .hero-renderer [data-surface-role="fx"] {
+              mix-blend-mode: screen;
             }
             .hero-renderer .hero-content {
               position: relative;
@@ -154,18 +126,14 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
               transform: translateY(${layout.verticalOffset ?? "0px"});
             }
             @media (max-width: 640px) {
-              .hero-renderer {
-                background: var(--hero-gradient, var(--smh-gradient));
-              }
-              .hero-renderer .hero-layer.wave {
-                mask-image: var(--hero-wave-mask-mobile, var(--hero-wave-mask-desktop));
-                -webkit-mask-image: var(--hero-wave-mask-mobile, var(--hero-wave-mask-desktop));
-                background-image: var(--hero-wave-background-mobile, var(--hero-wave-background-desktop));
+              .hero-renderer .hero-content {
+                padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
               }
             }
             @media (prefers-reduced-motion: reduce) {
-              .hero-renderer .hero-layer.motion { display: none; }
-              .hero-renderer .hero-layer.particles { opacity: 0.12; }
+              .hero-renderer .hero-layer.motion,
+              .hero-renderer .hero-surface--motion { display: none; }
+              .hero-surface-layer.hero-surface--particles { opacity: 0.12; }
             }
           `,
         }}
@@ -173,96 +141,79 @@ export async function HeroRenderer({ mode = "home", treatmentSlug, prm, timeOfDa
 
       <div
         aria-hidden
-        className="hero-layer wave"
-      />
+        className="hero-surface-stack"
+        data-prm={prmEnabled ? "true" : "false"}
+      >
+        {surfaceStack.map((layer) => (
+          <div
+            key={layer.id}
+            data-surface-id={layer.id}
+            data-surface-role={layer.role}
+            data-prm-safe={layer.prmSafe ? "true" : undefined}
+            className={layer.className ?? "hero-surface-layer"}
+          />
+        ))}
 
-      {surfaces.overlays?.field?.path && (
-        <div
-          aria-hidden
-          className="hero-layer overlay field"
-          style={{
-            ...overlayDefaults,
-            backgroundImage: `url(${surfaces.overlays.field.path})`,
-            mixBlendMode: resolveBlendMode(surfaces.overlays.field.blendMode) ?? overlayDefaults.mixBlendMode,
-            opacity: surfaces.overlays.field.opacity ?? overlayDefaults.opacity,
-          }}
-        />
-      )}
-      {surfaces.overlays?.dots?.path && (
-        <div
-          aria-hidden
-          className="hero-layer overlay dots"
-          style={{
-            ...overlayDefaults,
-            backgroundImage: `url(${surfaces.overlays.dots.path})`,
-            mixBlendMode: resolveBlendMode(surfaces.overlays.dots.blendMode) ?? overlayDefaults.mixBlendMode,
-            opacity: surfaces.overlays.dots.opacity ?? 0.6,
-          }}
-        />
-      )}
-      {shouldShowParticles && surfaces.particles?.path && (
-        <div
-          aria-hidden
-          className="hero-layer particles"
-          style={{
-            backgroundImage: `url(${surfaces.particles.path})`,
-            mixBlendMode: resolveBlendMode(surfaces.particles.blendMode) ?? "screen",
-            opacity: particleOpacity,
-          }}
-        />
-      )}
+        {shouldShowParticles && surfaces.particles?.path && (
+          <div
+            aria-hidden
+            data-surface-id="fx.particles"
+            className="hero-surface-layer hero-surface--particles"
+            style={{
+              mixBlendMode: (surfaces.particles.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
+            }}
+          />
+        )}
 
-      {videoEntry?.path && (
-        <video
-          className="hero-layer motion"
-          autoPlay
-          playsInline
-          loop
-          muted
-          preload="metadata"
-          poster={surfaces.background?.desktop?.path}
-          style={{
-            mixBlendMode: resolveBlendMode(videoEntry.blendMode) ?? "screen",
-            opacity: videoEntry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-          }}
-        >
-          <source src={videoEntry.path} />
-        </video>
-      )}
+        {videoEntry?.path && (
+          <video
+            className="hero-surface-layer hero-surface--motion"
+            autoPlay
+            playsInline
+            loop
+            muted
+            preload="metadata"
+            poster={surfaces.background?.desktop?.path}
+            data-surface-id="motion.heroVideo"
+            style={{
+              mixBlendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
+              opacity: videoEntry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
+            }}
+          >
+            <source src={videoEntry.path} />
+          </video>
+        )}
 
-      {motionEntries.map((entry) => (
-        <video
-          key={entry.id}
-          className={`hero-layer motion${entry.className ? ` ${entry.className}` : ""}`}
-          autoPlay
-          playsInline
-          loop
-          muted
-          preload="metadata"
-          style={{
-            mixBlendMode: resolveBlendMode(entry.blendMode) ?? "screen",
-            opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-          }}
-        >
-          <source src={entry.path} />
-        </video>
-      ))}
+        {motionEntries.map((entry) => (
+          <video
+            key={entry.id}
+            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
+            autoPlay
+            playsInline
+            loop
+            muted
+            preload="metadata"
+            data-surface-id={entry.id}
+            style={{
+              mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"],
+              opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
+            }}
+          >
+            <source src={entry.path} />
+          </video>
+        ))}
 
-      {shouldShowGrain && (
-        <div
-          aria-hidden
-          className="hero-layer grain"
-          style={{
-            backgroundImage: surfaces.grain?.mobile?.path
-              ? `url(${surfaces.grain.mobile.path})`
-              : surfaces.grain?.desktop?.path
-                ? `url(${surfaces.grain.desktop.path})`
-                : undefined,
-            mixBlendMode: resolveBlendMode(surfaces.grain?.desktop?.blendMode) ?? "soft-light",
-            opacity: grainOpacity,
-          }}
-        />
-      )}
+        {shouldShowGrain && (
+          <div
+            aria-hidden
+            data-surface-id="fx.filmGrain"
+            className="hero-surface-layer hero-surface--film-grain"
+            style={{
+              mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
+            }}
+          />
+        )}
+      </div>
 
       <div
         className="hero-content"
