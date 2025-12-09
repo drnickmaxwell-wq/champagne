@@ -9,6 +9,8 @@ export interface HeroSurfaceStackLayer {
   token?: string;
   className?: string;
   prmSafe?: boolean;
+   motion?: boolean;
+   suppressed?: boolean;
 }
 
 export interface HeroSurfaceLayerDefinition {
