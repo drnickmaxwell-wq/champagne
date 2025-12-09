@@ -15,6 +15,7 @@ export {
   type HeroMode,
   type HeroTimeOfDay,
 } from "./hero-engine";
+export { ensureHeroAssetPath, resolveHeroAsset } from "./HeroAssetRegistry";
 
 export const placeholder = {
   package: "@champagne/hero",

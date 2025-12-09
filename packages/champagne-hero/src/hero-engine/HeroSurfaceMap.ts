@@ -41,6 +41,7 @@ const SURFACE_TOKEN_CLASS_MAP: Record<string, string> = {
   "overlay.particles": "hero-surface-layer hero-surface--particles",
   "overlay.caustics": "hero-surface-layer hero-surface--caustics",
   "overlay.glassShimmer": "hero-surface-layer hero-surface--glass-shimmer",
+  "overlay.goldDust": "hero-surface-layer hero-surface--gold-dust",
   "overlay.particlesDrift": "hero-surface-layer hero-surface--particles-drift",
   "overlay.lighting": "hero-surface-layer hero-surface--lighting",
   "hero.contentFrame": "hero-surface-layer hero-surface--content-frame",
@@ -53,6 +54,7 @@ const LAYER_DEFAULTS: Record<string, Partial<HeroSurfaceLayerDefinition>> = {
   "field.dotGrid": { blendMode: "soft-light", opacity: 0.45 },
   "overlay.caustics": { blendMode: "screen" },
   "overlay.glassShimmer": { blendMode: "luminosity", opacity: 0.85 },
+  "overlay.goldDust": { blendMode: "screen", opacity: 0.7 },
   "overlay.particlesDrift": { blendMode: "screen" },
   "overlay.particles": { blendMode: "screen" },
   "overlay.filmGrain": { blendMode: "multiply", opacity: 0.25 },
@@ -67,6 +69,7 @@ const SURFACE_STACK_ORDER: { token: string; role: "background" | "fx"; prmSafe?:
   { token: "field.dotGrid", role: "background", prmSafe: true },
   { token: "overlay.caustics", role: "fx", prmSafe: false, motion: true },
   { token: "overlay.glassShimmer", role: "fx", prmSafe: false, motion: true },
+  { token: "overlay.goldDust", role: "fx", prmSafe: false, motion: true },
   { token: "overlay.particlesDrift", role: "fx", prmSafe: false, motion: true },
   { token: "overlay.particles", role: "fx", prmSafe: true },
   { token: "overlay.filmGrain", role: "fx", prmSafe: true },
@@ -425,6 +428,9 @@ export function mapSurfaceStack(
   }
   if (tokens.shimmer || hasMotionToken("overlay.glassShimmer")) {
     includedTokens.add("overlay.glassShimmer");
+  }
+  if (hasMotionToken("overlay.goldDust")) {
+    includedTokens.add("overlay.goldDust");
   }
   if (hasMotionToken("overlay.particlesDrift")) {
     includedTokens.add("overlay.particlesDrift");

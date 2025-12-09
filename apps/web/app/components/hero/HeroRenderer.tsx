@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 
 export interface HeroRendererProps {
   mode?: HeroMode;
@@ -51,7 +51,15 @@ export async function HeroRenderer({
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
 
   try {
-    runtime = await getHeroRuntime({ mode, treatmentSlug, prm, timeOfDay, particles, filmGrain });
+    runtime = await getHeroRuntime({
+      mode,
+      treatmentSlug,
+      prm,
+      timeOfDay,
+      particles,
+      filmGrain,
+      variantId: mode === "home" ? "default" : undefined,
+    });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
       console.error("Hero runtime failed", error);
@@ -88,31 +96,49 @@ export async function HeroRenderer({
     ["--hero-gradient" as string]: gradient,
     ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
       ? `url(${surfaces.waveMask.desktop.path})`
-      : undefined,
+      : surfaces.waveMask?.desktop?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
+        : undefined,
     ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
       ? `url(${surfaces.waveMask.mobile.path})`
-      : undefined,
+      : surfaces.waveMask?.mobile?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)})`
+        : undefined,
     ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
       ? `url(${surfaces.background.desktop.path})`
-      : undefined,
+      : surfaces.background?.desktop?.id
+        ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
+        : undefined,
     ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
       ? `url(${surfaces.background.mobile.path})`
-      : undefined,
+      : surfaces.background?.mobile?.id
+        ? `url(${ensureHeroAssetPath(surfaces.background.mobile.id)})`
+        : undefined,
     ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
       ? `url(${surfaces.overlays.field.path})`
-      : undefined,
+      : surfaces.overlays?.field?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
+        : undefined,
     ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
       ? `url(${surfaces.overlays.dots.path})`
-      : undefined,
+      : surfaces.overlays?.dots?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
+        : undefined,
     ["--hero-particles" as string]: shouldShowParticles && surfaces.particles?.path
       ? `url(${surfaces.particles.path})`
-      : undefined,
+      : shouldShowParticles && surfaces.particles?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
+        : undefined,
     ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
       ? `url(${surfaces.grain.desktop.path})`
-      : undefined,
+      : surfaces.grain?.desktop?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
+        : undefined,
     ["--hero-grain-mobile" as string]: surfaces.grain?.mobile?.path
       ? `url(${surfaces.grain.mobile.path})`
-      : undefined,
+      : surfaces.grain?.mobile?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)})`
+        : undefined,
     ["--hero-film-grain-opacity" as string]: grainOpacity,
     ["--hero-film-grain-blend" as string]: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
     ["--hero-particles-opacity" as string]: particleOpacity,
