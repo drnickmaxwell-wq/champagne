@@ -37,7 +37,37 @@ const SURFACE_TOKEN_CLASS_MAP: Record<string, string> = {
   "overlay.filmGrain": "hero-surface-layer hero-surface--film-grain",
   "overlay.particles": "hero-surface-layer hero-surface--particles",
   "overlay.caustics": "hero-surface-layer hero-surface--caustics",
+  "overlay.glassShimmer": "hero-surface-layer hero-surface--glass-shimmer",
+  "overlay.particlesDrift": "hero-surface-layer hero-surface--particles-drift",
+  "overlay.lighting": "hero-surface-layer hero-surface--lighting",
+  "hero.contentFrame": "hero-surface-layer hero-surface--content-frame",
 };
+
+const LAYER_DEFAULTS: Record<string, Partial<HeroSurfaceLayerDefinition>> = {
+  "mask.waveHeader": { blendMode: "soft-light", opacity: 0.92 },
+  "field.waveRings": { blendMode: "overlay", opacity: 0.85 },
+  "field.dotGrid": { blendMode: "soft-light", opacity: 0.58 },
+  "overlay.caustics": { blendMode: "screen" },
+  "overlay.glassShimmer": { blendMode: "luminosity", opacity: 0.85 },
+  "overlay.particlesDrift": { blendMode: "screen" },
+  "overlay.particles": { blendMode: "screen" },
+  "overlay.filmGrain": { blendMode: "multiply", opacity: 0.2 },
+  "overlay.lighting": { blendMode: "soft-light", opacity: 0.82 },
+};
+
+const SURFACE_STACK_ORDER: { token: string; role: "background" | "fx"; prmSafe?: boolean }[] = [
+  { token: "gradient.base", role: "background", prmSafe: true },
+  { token: "mask.waveHeader", role: "background", prmSafe: true },
+  { token: "field.waveRings", role: "background", prmSafe: true },
+  { token: "field.dotGrid", role: "background", prmSafe: true },
+  { token: "overlay.caustics", role: "fx", prmSafe: false },
+  { token: "overlay.glassShimmer", role: "fx", prmSafe: false },
+  { token: "overlay.particlesDrift", role: "fx", prmSafe: false },
+  { token: "overlay.particles", role: "fx", prmSafe: true },
+  { token: "overlay.filmGrain", role: "fx", prmSafe: false },
+  { token: "overlay.lighting", role: "fx", prmSafe: true },
+  { token: "hero.contentFrame", role: "background", prmSafe: true },
+];
 
 function normalizeLayer(entry: unknown): HeroSurfaceLayerDefinition | undefined {
   if (!entry) return undefined;
@@ -78,8 +108,29 @@ function normalizeGradients(entry: unknown): Record<string, string> {
 
 export function buildSurfaceDefinitionMap(manifest: unknown): HeroSurfaceDefinitionMap {
   if (!manifest || typeof manifest !== "object") return {};
+  const manifestRecord = manifest as Record<string, unknown>;
+  const mergedWaveMasks = {
+    ...(manifestRecord.waveMasks as Record<string, unknown>),
+    ...(manifestRecord.mask as Record<string, unknown>),
+  };
+  const mergedGradients = {
+    ...(manifestRecord.gradients as Record<string, unknown>),
+    ...(manifestRecord.gradient as Record<string, unknown>),
+  };
+  const mergedOverlays = {
+    ...(manifestRecord.overlays as Record<string, unknown>),
+    ...(manifestRecord.field ? { field: manifestRecord.field } : {}),
+    ...(manifestRecord.dots ? { dots: manifestRecord.dots } : {}),
+    ...(manifestRecord.lighting ? { lighting: manifestRecord.lighting } : {}),
+  };
+  const mergedMotion = {
+    ...(manifestRecord.motion as Record<string, unknown>),
+    ...(manifestRecord.caustics ? { caustics: manifestRecord.caustics } : {}),
+    ...(manifestRecord.shimmer ? { shimmer: manifestRecord.shimmer } : {}),
+    ...(manifestRecord.particlesDrift ? { particlesDrift: manifestRecord.particlesDrift } : {}),
+  };
   return {
-    waveMasks: normalizeRecord((manifest as Record<string, unknown>).waveMasks),
+    waveMasks: normalizeRecord(mergedWaveMasks),
     waveBackgrounds: (() => {
       const entry = (manifest as Record<string, unknown>).waveBackgrounds;
       if (!entry || typeof entry !== "object") return {};
@@ -99,11 +150,11 @@ export function buildSurfaceDefinitionMap(manifest: unknown): HeroSurfaceDefinit
         {},
       );
     })(),
-    gradients: normalizeGradients((manifest as Record<string, unknown>).gradients),
-    overlays: normalizeRecord((manifest as Record<string, unknown>).overlays),
+    gradients: normalizeGradients(mergedGradients),
+    overlays: normalizeRecord(mergedOverlays),
     particles: normalizeRecord((manifest as Record<string, unknown>).particles),
     grain: normalizeRecord((manifest as Record<string, unknown>).grain),
-    motion: normalizeRecord((manifest as Record<string, unknown>).motion),
+    motion: normalizeRecord(mergedMotion),
     video: normalizeRecord((manifest as Record<string, unknown>).video),
     surfaceStack: (() => {
       const stack = (manifest as Record<string, unknown>).surfaceStack;
@@ -149,12 +200,74 @@ function definitionToLayer(definition?: HeroSurfaceLayerDefinition, token?: stri
   };
 }
 
+function withLayerDefaults(layer: HeroSurfaceLayer | undefined, token?: string): HeroSurfaceLayer | undefined {
+  if (!token) return layer;
+  const defaults = LAYER_DEFAULTS[token];
+  const className = SURFACE_TOKEN_CLASS_MAP[token];
+  if (!defaults && !className) return layer;
+  const blendedOpacity = layer?.opacity ?? defaults?.opacity;
+  const opacity =
+    token === "overlay.filmGrain" && typeof blendedOpacity === "number"
+      ? Math.min(blendedOpacity, 0.22)
+      : blendedOpacity;
+  return {
+    ...defaults,
+    ...layer,
+    id: layer?.id ?? token,
+    blendMode: layer?.blendMode ?? defaults?.blendMode,
+    opacity,
+    className: layer?.className ?? className,
+    prmSafe: layer?.prmSafe ?? defaults?.prmSafe,
+  } satisfies HeroSurfaceLayer;
+}
+
+const MOTION_PRIORITY: Record<string, number> = {
+  "overlay.caustics": 1,
+  "overlay.glassShimmer": 2,
+  "overlay.particlesDrift": 3,
+  "overlay.goldDust": 4,
+};
+
+function normalizeMotionTokens(tokens: HeroSurfaceTokenConfig): HeroSurfaceLayerRef[] {
+  const stack: HeroSurfaceLayerRef[] = [];
+  const seen = new Set<string>();
+  const enqueue = (entry?: HeroSurfaceLayerRef) => {
+    if (!entry) return;
+    const key =
+      typeof entry === "string"
+        ? entry
+        : (entry as HeroSurfaceLayer)?.id ?? (entry as HeroSurfaceLayerDefinition).asset;
+    if (key && seen.has(key)) return;
+    if (key) seen.add(key);
+    stack.push(entry);
+  };
+
+  enqueue(tokens.caustics);
+  enqueue(tokens.shimmer);
+  (tokens.motion ?? []).forEach((entry) => enqueue(entry));
+
+  return stack.length
+    ? stack.sort((a, b) => {
+        const aKey = typeof a === "string" ? a : (a as HeroSurfaceLayer)?.id;
+        const bKey = typeof b === "string" ? b : (b as HeroSurfaceLayer)?.id;
+        const aRank = (aKey && MOTION_PRIORITY[aKey]) ?? Number.POSITIVE_INFINITY;
+        const bRank = (bKey && MOTION_PRIORITY[bKey]) ?? Number.POSITIVE_INFINITY;
+        if (aRank === bRank) return 0;
+        return aRank - bRank;
+      })
+    : stack;
+}
+
 function mergeSurfaceTokens(
   target: HeroSurfaceTokenConfig,
   source?: HeroSurfaceTokenConfig,
 ): HeroSurfaceTokenConfig {
   if (!source) return target;
   return {
+    mask: {
+      ...target.mask,
+      ...source.mask,
+    },
     waveMask: {
       ...target.waveMask,
       ...source.waveMask,
@@ -163,10 +276,16 @@ function mergeSurfaceTokens(
       ...target.background,
       ...source.background,
     },
+    gradient: source.gradient ?? target.gradient,
+    field: source.field ?? target.field,
+    dots: source.dots ?? target.dots,
     overlays: {
       ...target.overlays,
       ...source.overlays,
     },
+    caustics: source.caustics ?? target.caustics,
+    shimmer: source.shimmer ?? target.shimmer,
+    lighting: source.lighting ?? target.lighting,
     particles: source.particles ?? target.particles,
     grain: {
       ...target.grain,
@@ -188,10 +307,23 @@ export function mapSurfaceTokensToAssets(
   surfaceMap: HeroSurfaceDefinitionMap,
   options?: { prm?: boolean },
 ): HeroSurfaceConfig {
+  const waveMaskToken = surfaceTokens.mask ?? surfaceTokens.waveMask;
+  const overlayMap = surfaceMap.overlays ?? {};
+  const motionMap = surfaceMap.motion ?? {};
+  const motionTokens = normalizeMotionTokens(surfaceTokens);
   return {
     waveMask: {
-      desktop: resolveLayerRef(surfaceTokens.waveMask?.desktop, surfaceMap.waveMasks ?? {}),
-      mobile: resolveLayerRef(surfaceTokens.waveMask?.mobile ?? surfaceTokens.waveMask?.desktop, surfaceMap.waveMasks ?? {}),
+      desktop: withLayerDefaults(
+        resolveLayerRef(waveMaskToken?.desktop ?? surfaceTokens.waveMask?.desktop, surfaceMap.waveMasks ?? {}),
+        "mask.waveHeader",
+      ),
+      mobile: withLayerDefaults(
+        resolveLayerRef(
+          waveMaskToken?.mobile ?? surfaceTokens.waveMask?.mobile ?? surfaceTokens.waveMask?.desktop,
+          surfaceMap.waveMasks ?? {},
+        ),
+        "mask.waveHeader",
+      ),
     },
     background: (() => {
       const backgroundToken = surfaceTokens.background?.desktop ?? surfaceTokens.background?.mobile;
@@ -222,40 +354,82 @@ export function mapSurfaceTokensToAssets(
     })(),
     gradient: surfaceTokens.gradient ? surfaceMap.gradients?.[surfaceTokens.gradient] ?? surfaceTokens.gradient : undefined,
     overlays: {
-      dots: resolveLayerRef(surfaceTokens.overlays?.dots, surfaceMap.overlays ?? {}),
-      field: resolveLayerRef(surfaceTokens.overlays?.field, surfaceMap.overlays ?? {}),
+      dots: withLayerDefaults(resolveLayerRef(surfaceTokens.dots ?? surfaceTokens.overlays?.dots, overlayMap), "field.dotGrid"),
+      field: withLayerDefaults(
+        resolveLayerRef(surfaceTokens.field ?? surfaceTokens.overlays?.field, overlayMap),
+        "field.waveRings",
+      ),
     },
-    particles: resolveLayerRef(surfaceTokens.particles, surfaceMap.particles ?? {}),
+    particles: withLayerDefaults(resolveLayerRef(surfaceTokens.particles, surfaceMap.particles ?? {}), "overlay.particles"),
     grain: {
-      desktop: surfaceTokens.grain?.desktop
-        ? resolveLayerRef(surfaceTokens.grain.desktop, surfaceMap.grain ?? {})
-        : surfaceMap.grain?.desktop,
-      mobile: surfaceTokens.grain?.mobile
-        ? resolveLayerRef(surfaceTokens.grain.mobile, surfaceMap.grain ?? {})
-        : surfaceMap.grain?.mobile ?? surfaceMap.grain?.desktop,
+      desktop: withLayerDefaults(
+        surfaceTokens.grain?.desktop
+          ? resolveLayerRef(surfaceTokens.grain.desktop, surfaceMap.grain ?? {})
+          : surfaceMap.grain?.desktop,
+        "overlay.filmGrain",
+      ),
+      mobile: withLayerDefaults(
+        surfaceTokens.grain?.mobile
+          ? resolveLayerRef(surfaceTokens.grain.mobile, surfaceMap.grain ?? {})
+          : surfaceMap.grain?.mobile ?? surfaceMap.grain?.desktop,
+        "overlay.filmGrain",
+      ),
     },
-    motion: surfaceTokens.motion
-      ?.map((entry) => resolveLayerRef(entry, surfaceMap.motion ?? {}))
+    motion: motionTokens
+      .map((entry) => {
+        const resolved = resolveLayerRef(entry, motionMap);
+        const token = (typeof entry === "string" ? entry : resolved?.id) ?? undefined;
+        return withLayerDefaults(resolved, token);
+      })
       .filter(Boolean) as HeroSurfaceLayer[] | undefined,
     video: resolveLayerRef(surfaceTokens.video, surfaceMap.video ?? {}),
-    surfaceStack: mapSurfaceStack(surfaceMap, options),
+    surfaceStack: mapSurfaceStack(surfaceMap, surfaceTokens, options),
   };
 }
 
-export function mapSurfaceStack(surfaceMap: HeroSurfaceDefinitionMap, options?: { prm?: boolean }): HeroSurfaceStackLayer[] {
+export function mapSurfaceStack(
+  surfaceMap: HeroSurfaceDefinitionMap,
+  tokens: HeroSurfaceTokenConfig,
+  options?: { prm?: boolean },
+): HeroSurfaceStackLayer[] {
   const prm = Boolean(options?.prm);
-  return (surfaceMap.surfaceStack ?? [])
-    .map((entry) => {
-      const id = entry.id ?? entry.token ?? "surface";
-      const token = entry.token ?? id;
-      return {
-        id,
-        role: entry.role === "fx" ? "fx" : "background",
-        token,
-        prmSafe: entry.prmSafe,
-        className: SURFACE_TOKEN_CLASS_MAP[token] ?? `hero-surface-layer hero-surface--${token}`,
-      } satisfies HeroSurfaceStackLayer;
-    })
+  const includedTokens = new Set<string>();
+  const hasMotionToken = (token: string) =>
+    (tokens.motion ?? []).some((entry) => {
+      if (typeof entry === "string") return entry === token;
+      if (typeof entry === "object") {
+        const candidate = (entry as HeroSurfaceLayer).id;
+        const assetCandidate = (entry as HeroSurfaceLayerDefinition).asset;
+        return candidate === token || assetCandidate === token;
+      }
+      return false;
+    });
+  if (tokens.gradient || surfaceMap.gradients) includedTokens.add("gradient.base");
+  if (tokens.mask || tokens.waveMask) includedTokens.add("mask.waveHeader");
+  if (tokens.field || tokens.overlays?.field) includedTokens.add("field.waveRings");
+  if (tokens.dots || tokens.overlays?.dots) includedTokens.add("field.dotGrid");
+  if (tokens.caustics || hasMotionToken("overlay.caustics")) {
+    includedTokens.add("overlay.caustics");
+  }
+  if (tokens.shimmer || hasMotionToken("overlay.glassShimmer")) {
+    includedTokens.add("overlay.glassShimmer");
+  }
+  if (hasMotionToken("overlay.particlesDrift")) {
+    includedTokens.add("overlay.particlesDrift");
+  }
+  if (tokens.particles) includedTokens.add("overlay.particles");
+  if (tokens.grain?.desktop || tokens.grain?.mobile || surfaceMap.grain) includedTokens.add("overlay.filmGrain");
+  if (tokens.lighting || surfaceMap.overlays?.lighting) includedTokens.add("overlay.lighting");
+  includedTokens.add("hero.contentFrame");
+
+  return SURFACE_STACK_ORDER.filter((entry) => includedTokens.has(entry.token))
+    .map((entry) => ({
+      id: entry.token,
+      role: entry.role,
+      token: entry.token,
+      prmSafe: entry.prmSafe,
+      className: SURFACE_TOKEN_CLASS_MAP[entry.token] ?? `hero-surface-layer hero-surface--${entry.token}`,
+    }))
     .filter((entry) => !(prm && entry.prmSafe === false));
 }
 
