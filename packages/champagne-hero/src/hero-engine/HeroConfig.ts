@@ -77,10 +77,6 @@ export interface HeroLayoutConfig {
 }
 
 export interface HeroSurfaceTokenConfig {
-  mask?: {
-    desktop?: HeroSurfaceLayerRef;
-    mobile?: HeroSurfaceLayerRef;
-  };
   waveMask?: {
     desktop?: HeroSurfaceLayerRef;
     mobile?: HeroSurfaceLayerRef;
@@ -90,15 +86,10 @@ export interface HeroSurfaceTokenConfig {
     mobile?: HeroSurfaceLayerRef;
   };
   gradient?: string;
-  field?: HeroSurfaceLayerRef;
-  dots?: HeroSurfaceLayerRef;
   overlays?: {
     dots?: HeroSurfaceLayerRef;
     field?: HeroSurfaceLayerRef;
   };
-  caustics?: HeroSurfaceLayerRef;
-  shimmer?: HeroSurfaceLayerRef;
-  lighting?: HeroSurfaceLayerRef;
   particles?: HeroSurfaceLayerRef;
   grain?: {
     desktop?: HeroSurfaceLayerRef;

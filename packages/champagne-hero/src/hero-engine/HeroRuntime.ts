@@ -159,7 +159,6 @@ function mergeFilmGrain(
 
   if (resolvePrmFlag(options ?? {})) {
     merged.opacity = (merged.opacity ?? DEFAULT_FILM_GRAIN.opacity) * 0.6;
-    merged.enabled = false;
   }
 
   return merged;
@@ -175,11 +174,9 @@ function mergeSurfaceConfig(
 
 function applyPrm(surface: HeroSurfaceConfig, prm?: boolean): HeroSurfaceConfig {
   if (!prm) return surface;
-  const disabledMotion = new Set(["overlay.glassShimmer", "overlay.caustics", "overlay.particlesDrift"]);
   return {
     ...surface,
-    motion: surface.motion?.filter((entry) => !disabledMotion.has(entry?.id ?? "")),
-    grain: undefined,
+    motion: surface.motion?.filter((entry) => entry?.prmSafe),
     video: surface.video?.prmSafe ? surface.video : undefined,
   };
 }

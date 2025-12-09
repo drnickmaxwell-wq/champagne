@@ -26,42 +26,6 @@
   --hero-particles-opacity: 0.4;
 }
 
-:root {
-  --surface-opacity-gradient: 1;
-  --surface-opacity-waveMask: 0.92;
-  --surface-opacity-waveField: 0.85;
-  --surface-opacity-dotField: 0.58;
-  --surface-opacity-caustics: 0.7;
-  --surface-opacity-glassShimmer: 0.85;
-  --surface-opacity-particlesDrift: 0.6;
-  --surface-opacity-particles: var(--hero-particles-opacity, 0.4);
-  --surface-opacity-filmGrain: var(--hero-film-grain-opacity, 0.2);
-  --surface-opacity-lighting: 0.82;
-
-  --surface-blend-gradient: normal;
-  --surface-blend-waveMask: soft-light;
-  --surface-blend-waveField: overlay;
-  --surface-blend-dotField: soft-light;
-  --surface-blend-caustics: screen;
-  --surface-blend-glassShimmer: luminosity;
-  --surface-blend-particlesDrift: screen;
-  --surface-blend-particles: screen;
-  --surface-blend-filmGrain: multiply;
-  --surface-blend-lighting: soft-light;
-
-  --surface-zindex-baseGradient: 1;
-  --surface-zindex-waveMask: 2;
-  --surface-zindex-waveField: 3;
-  --surface-zindex-dotField: 4;
-  --surface-zindex-caustics: 5;
-  --surface-zindex-glassShimmer: 6;
-  --surface-zindex-particlesDrift: 7;
-  --surface-zindex-particles: 8;
-  --surface-zindex-filmGrain: 9;
-  --surface-zindex-lighting: 10;
-  --surface-zindex-contentFrame: 11;
-}
-
 @media (max-width: 640px) {
   :root {
     --hero-wave-mask-desktop: var(--champagne-wave-mask-mobile);
@@ -74,15 +38,11 @@
   background-position: center;
   background-size: cover;
   inset: 0;
-  z-index: 0;
 }
 
 .hero-surface-layer.hero-surface--gradient-field {
   background: var(--hero-gradient, var(--smh-gradient));
   background-size: cover;
-  mix-blend-mode: var(--surface-blend-gradient, normal);
-  opacity: var(--surface-opacity-gradient, 1);
-  z-index: var(--surface-zindex-baseGradient, 1);
 }
 
 .hero-surface-layer.hero-surface--wave-mask {
@@ -91,70 +51,38 @@
   -webkit-mask-image: var(--hero-wave-mask-desktop);
   mask-size: cover;
   -webkit-mask-size: cover;
-  mix-blend-mode: var(--surface-blend-waveMask, soft-light);
-  opacity: var(--surface-opacity-waveMask, 0.92);
-  z-index: var(--surface-zindex-waveMask, 2);
+  opacity: 0.92;
 }
 
 .hero-surface-layer.hero-surface--wave-field {
   background-image: var(--hero-overlay-field);
-  mix-blend-mode: var(--surface-blend-waveField, overlay);
-  opacity: var(--surface-opacity-waveField, 0.85);
-  z-index: var(--surface-zindex-waveField, 3);
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
 }
 
 .hero-surface-layer.hero-surface--dot-field {
   background-image: var(--hero-overlay-dots);
-  mix-blend-mode: var(--surface-blend-dotField, soft-light);
-  opacity: var(--surface-opacity-dotField, 0.58);
-  z-index: var(--surface-zindex-dotField, 4);
+  mix-blend-mode: screen;
+  opacity: 0.58;
 }
 
 .hero-surface-layer.hero-surface--particles {
   background-image: var(--hero-particles);
-  mix-blend-mode: var(--surface-blend-particles, screen);
-  opacity: var(--surface-opacity-particles);
-  z-index: var(--surface-zindex-particles, 8);
+  mix-blend-mode: screen;
+  opacity: var(--hero-particles-opacity, 0.4);
 }
 
 .hero-surface-layer.hero-surface--film-grain {
   background-image: var(--hero-grain-desktop);
   background-repeat: repeat;
-  mix-blend-mode: var(--surface-blend-filmGrain, var(--hero-film-grain-blend, multiply));
-  opacity: var(--surface-opacity-filmGrain);
-  z-index: var(--surface-zindex-filmGrain, 9);
+  mix-blend-mode: var(--hero-film-grain-blend, soft-light);
+  opacity: var(--hero-film-grain-opacity, 0.32);
 }
 
 .hero-surface-layer.hero-surface--caustics {
   background-image: var(--hero-caustics-overlay);
-  mix-blend-mode: var(--surface-blend-caustics, screen);
-  opacity: var(--surface-opacity-caustics, 0.7);
-  z-index: var(--surface-zindex-caustics, 5);
-}
-
-.hero-surface-layer.hero-surface--glass-shimmer {
-  mix-blend-mode: var(--surface-blend-glassShimmer, luminosity);
-  opacity: var(--surface-opacity-glassShimmer, 0.85);
-  z-index: var(--surface-zindex-glassShimmer, 6);
-}
-
-.hero-surface-layer.hero-surface--particles-drift {
-  mix-blend-mode: var(--surface-blend-particlesDrift, screen);
-  opacity: var(--surface-opacity-particlesDrift, 0.6);
-  z-index: var(--surface-zindex-particlesDrift, 7);
-}
-
-.hero-surface-layer.hero-surface--lighting {
-  background: radial-gradient(circle at 45% 18%, color-mix(in srgb, var(--smh-white) 14%, transparent), transparent 46%),
-    radial-gradient(circle at 70% 72%, color-mix(in srgb, var(--accent-gold, var(--text-high)) 18%, transparent), transparent 58%),
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-ink, currentColor) 70%, transparent), transparent 52%);
-  mix-blend-mode: var(--surface-blend-lighting, soft-light);
-  opacity: var(--surface-opacity-lighting, 0.82);
-  z-index: var(--surface-zindex-lighting, 10);
-}
-
-.hero-surface-layer.hero-surface--content-frame {
-  z-index: var(--surface-zindex-contentFrame, 11);
+  mix-blend-mode: screen;
+  opacity: 0.7;
 }
 
 @media (max-width: 640px) {
@@ -176,22 +104,4 @@
 .hero-surface-stack[data-prm="true"] .hero-surface--particles,
 .hero-surface-stack[data-prm="true"] .hero-surface--film-grain {
   opacity: 0.12;
-}
-
-.hero-surface--motion.hero-surface--caustics,
-.hero-surface-layer.hero-surface--caustics {
-  z-index: var(--surface-zindex-caustics, 5);
-  mix-blend-mode: var(--surface-blend-caustics, screen);
-}
-
-.hero-surface--motion.hero-surface--glass-shimmer,
-.hero-surface-layer.hero-surface--glass-shimmer {
-  z-index: var(--surface-zindex-glassShimmer, 6);
-  mix-blend-mode: var(--surface-blend-glassShimmer, luminosity);
-}
-
-.hero-surface--motion.hero-surface--particles-drift,
-.hero-surface-layer.hero-surface--particles-drift {
-  z-index: var(--surface-zindex-particlesDrift, 7);
-  mix-blend-mode: var(--surface-blend-particlesDrift, screen);
 }
