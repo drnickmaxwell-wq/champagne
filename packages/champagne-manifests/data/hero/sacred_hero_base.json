@@ -4,19 +4,42 @@
     "eyebrow": "Champagne Dentistry",
     "headline": "Advanced cosmetic dentistry crafted with calm precision.",
     "subheadline": "Digital workflows, gentle clinicians, and beautifully layered studio light for confident smiles.",
-    "cta": { "label": "Book a consultation", "href": "/book" },
-    "secondaryCta": { "label": "Explore treatments", "href": "/treatments" }
+    "cta": {
+      "label": "Book a consultation",
+      "href": "/book"
+    },
+    "secondaryCta": {
+      "label": "Explore treatments",
+      "href": "/treatments"
+    }
   },
   "defaults": {
     "tone": "night",
     "surfaces": {
       "gradient": "gradient.base",
-      "waveMask": { "desktop": "mask.waveHeader", "mobile": "mask.waveHeader.mobile" },
-      "background": { "desktop": "field.waveBackdrop", "mobile": "field.waveBackdrop" },
-      "overlays": { "dots": "field.dotGrid", "field": "field.waveRings" },
+      "waveMask": {
+        "desktop": "mask.waveHeader",
+        "mobile": "mask.waveHeader.mobile"
+      },
+      "background": {
+        "desktop": "field.waveBackdrop",
+        "mobile": "field.waveBackdrop"
+      },
+      "overlays": {
+        "dots": "field.dotGrid",
+        "field": "field.waveRings"
+      },
       "particles": "overlay.particlesPrimary",
-      "grain": { "desktop": "overlay.filmGrain.desktop", "mobile": "overlay.filmGrain.mobile" },
-      "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDust", "overlay.particlesDrift"],
+      "grain": {
+        "desktop": "overlay.filmGrain.desktop",
+        "mobile": "overlay.filmGrain.mobile"
+      },
+      "motion": [
+        "overlay.caustics",
+        "overlay.glassShimmer",
+        "overlay.goldDust",
+        "overlay.particlesDrift"
+      ],
       "video": "hero.video"
     },
     "layout": {
@@ -30,8 +53,15 @@
       "shimmerIntensity": 1,
       "particleDrift": 1,
       "energyMode": "balanced",
-      "particles": { "density": 1, "speed": 1, "curve": "sway" }
+      "particles": {
+        "density": 1,
+        "speed": 1,
+        "curve": "sway"
+      }
     },
-    "filmGrain": { "enabled": true, "opacity": 0.32 }
+    "filmGrain": {
+      "enabled": true,
+      "opacity": 0.32
+    }
   }
 }
