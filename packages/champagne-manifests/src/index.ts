@@ -62,3 +62,5 @@ export {
   type ChampagneSectionManifest,
   type ChampagneTreatmentPage,
 } from "./helpers";
+export { useValidatedManifest } from "./useValidatedManifest";
+export type { ChampagneManifest, ChampagneSectionEntry } from "./types";
