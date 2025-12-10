@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "pageDefaults": [
+    {
+      "pageType": "home",
+      "routeId": "home",
+      "tenantId": "smh-dental",
+      "sectionOrder": [
+        "hero_sacred_home",
+        "section_trust_ribbon",
+        "section_treatment_highlights",
+        "section_sparkle_features",
+        "section_clinic_story",
+        "section_testimonials",
+        "section_faq",
+        "section_contact_cta"
+      ]
+    },
+    {
+      "pageType": "treatment",
+      "routeId": "treatments.implants",
+      "tenantId": "smh-dental",
+      "sectionOrder": [
+        "hero_treatment_sacred",
+        "section_treatment_intro",
+        "section_before_after_grid",
+        "section_implant_steps",
+        "section_clinic_technology",
+        "section_finance_summary",
+        "section_faq",
+        "section_contact_cta"
+      ]
+    }
+  ]
+}

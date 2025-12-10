@@ -1,15 +1,33 @@
 import type {
   ChampagneCTA,
+  ChampagneJourneyManifest,
+  ChampagneMediaDeckManifest,
   ChampagnePageCTAConfig,
   ChampagnePageManifest,
   ChampagnePageSection,
+  ChampagnePageTypeDefaults,
+  ChampagneSectionLayout,
+  ChampagneSectionLayoutSection,
+  ChampagneSectionLibrary,
   ChampagneStylesManifest,
 } from "./core";
 import {
   champagneMachineManifest,
+  champagneMediaDeckManifests,
+  champagneJourneyManifests,
+  champagnePageTypeDefaults,
+  champagneSectionLayouts,
+  champagneSectionLibrary,
   champagneStylesManifest,
   getPageManifestBySlug,
+  getRouteIdFromSlug,
 } from "./core";
+import sectionManifestSchema from "../schema/section-manifest.schema.json";
+
+interface ValidationResult {
+  valid: boolean;
+  errors: string[];
+}
 
 export function getAllPages(): ChampagnePageManifest[] {
   const pages = champagneMachineManifest.pages ?? {};
@@ -190,4 +208,92 @@ export function getSectionCTAReferences(sectionId: string): (ChampagneCTA | stri
   const manifest = getSectionManifest(sectionId);
   if (!manifest?.definition || typeof manifest.definition === "string") return [];
   return normalizeCTAGroup(manifest.definition.ctas);
+}
+
+export function getSectionLibrary(): ChampagneSectionLibrary {
+  return champagneSectionLibrary as ChampagneSectionLibrary;
+}
+
+export function getSectionLayouts(): ChampagneSectionLayout[] {
+  return champagneSectionLayouts as ChampagneSectionLayout[];
+}
+
+export function getSectionManifestSchema() {
+  return sectionManifestSchema;
+}
+
+function isSectionLayoutSectionValid(entry: ChampagneSectionLayoutSection | undefined): boolean {
+  if (!entry) return false;
+  return Boolean(entry.instanceId && entry.componentId && typeof entry.order === "number");
+}
+
+export function validateSectionLayoutManifest(layout?: ChampagneSectionLayout): ValidationResult {
+  const errors: string[] = [];
+
+  if (!layout || typeof layout !== "object") {
+    return { valid: false, errors: ["Layout is missing or not an object"] };
+  }
+
+  if (!layout.tenantId) errors.push("tenantId is required");
+  if (!layout.routeId) errors.push("routeId is required");
+  if (!layout.pageType) errors.push("pageType is required");
+
+  const sections = Array.isArray(layout.sections) ? layout.sections : [];
+  if (sections.length === 0) errors.push("sections must be a non-empty array");
+
+  sections.forEach((section, index) => {
+    if (!isSectionLayoutSectionValid(section)) {
+      errors.push(`section[${index}] is missing required fields (instanceId, componentId, order)`);
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+}
+
+export function getSectionLayoutManifest(
+  routeIdOrSlug: string,
+  tenantId?: string,
+): ChampagneSectionLayout | undefined {
+  const routeId = getRouteIdFromSlug(routeIdOrSlug);
+  return champagneSectionLayouts.find(
+    (layout) => layout.routeId === routeId && (!tenantId || layout.tenantId === tenantId),
+  );
+}
+
+export function getSectionLayoutSections(
+  routeIdOrSlug: string,
+  tenantId?: string,
+): { layout?: ChampagneSectionLayout; sections: ChampagneSectionLayoutSection[]; validation: ValidationResult } {
+  const layout = getSectionLayoutManifest(routeIdOrSlug, tenantId);
+  const validation = validateSectionLayoutManifest(layout);
+
+  const sections = Array.isArray(layout?.sections)
+    ? [...layout.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    : [];
+
+  return { layout, sections, validation };
+}
+
+export function getPageTypeDefaults(): ChampagnePageTypeDefaults {
+  return champagnePageTypeDefaults as ChampagnePageTypeDefaults;
+}
+
+export function getJourneys(): ChampagneJourneyManifest[] {
+  return champagneJourneyManifests as ChampagneJourneyManifest[];
+}
+
+export function getJourneyManifest(journeyId: string): ChampagneJourneyManifest | undefined {
+  return (champagneJourneyManifests as ChampagneJourneyManifest[]).find(
+    (journey) => journey.journeyId === journeyId,
+  );
+}
+
+export function getMediaDecks(): ChampagneMediaDeckManifest[] {
+  return champagneMediaDeckManifests as ChampagneMediaDeckManifest[];
+}
+
+export function getMediaDeck(mediaDeckId: string): ChampagneMediaDeckManifest | undefined {
+  return (champagneMediaDeckManifests as ChampagneMediaDeckManifest[]).find(
+    (entry) => entry.mediaDeckId === mediaDeckId,
+  );
 }

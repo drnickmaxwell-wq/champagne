@@ -1,0 +1,70 @@
+{
+  "tenantId": "champagne-core",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "id": "hero_sacred_home",
+      "componentId": "Hero.SacredHome",
+      "importPath": "apps/web/app/components/hero/HeroRenderer",
+      "defaultVariantId": "sacred.home",
+      "pageTypes": ["home"],
+      "seoRole": "hero",
+      "layoutRole": "aboveFold",
+      "brandTier": ["exclusive"],
+      "tokens": {
+        "gradient": "gradient.champagne.135.primary",
+        "surface": "surface.section.hero",
+        "accent": "accentGold_soft"
+      }
+    },
+    {
+      "id": "hero_treatment_sacred",
+      "componentId": "Hero.TreatmentSacred",
+      "importPath": "apps/web/app/components/hero/TreatmentHeroRenderer",
+      "defaultVariantId": "sacred.treatment.generic",
+      "pageTypes": ["treatment"],
+      "seoRole": "hero",
+      "layoutRole": "aboveFold"
+    },
+    {
+      "id": "section_trust_ribbon",
+      "componentId": "Section.TrustRibbon",
+      "importPath": "apps/web/app/components/sections/TrustRibbon",
+      "pageTypes": ["home", "treatment", "fees"],
+      "seoRole": "supporting",
+      "layoutRole": "body"
+    },
+    {
+      "id": "section_treatment_intro",
+      "componentId": "Section.TreatmentIntro",
+      "importPath": "apps/web/app/components/sections/TreatmentIntro",
+      "pageTypes": ["treatment"],
+      "seoRole": "primaryContent",
+      "layoutRole": "body"
+    },
+    {
+      "id": "section_before_after_grid",
+      "componentId": "Section.BeforeAfterGrid",
+      "importPath": "apps/web/app/components/sections/BeforeAfterGrid",
+      "pageTypes": ["treatment"],
+      "seoRole": "primaryContent",
+      "layoutRole": "body"
+    },
+    {
+      "id": "section_faq",
+      "componentId": "Section.Faq",
+      "importPath": "apps/web/app/components/sections/Faq",
+      "pageTypes": ["home", "treatment"],
+      "seoRole": "faq",
+      "layoutRole": "body"
+    },
+    {
+      "id": "section_contact_cta",
+      "componentId": "Section.ContactCta",
+      "importPath": "apps/web/app/components/sections/ContactCta",
+      "pageTypes": ["home", "treatment", "fees", "team"],
+      "seoRole": "cta",
+      "layoutRole": "footer"
+    }
+  ]
+}

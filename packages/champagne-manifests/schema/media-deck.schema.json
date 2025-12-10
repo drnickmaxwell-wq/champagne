@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Champagne Media Deck Manifest",
+  "type": "object",
+  "properties": {
+    "mediaDeckId": { "type": "string" },
+    "tenantId": { "type": "string" },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "primaryRouteId": { "type": "string" },
+        "context": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "heroLoop": { "type": "string" },
+        "heroStill": { "type": "string" },
+        "backgroundLoops": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "broll": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "viewer3d": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "prmVariants": {
+      "type": "object",
+      "properties": {
+        "staticHero": { "type": "string" },
+        "staticBackgrounds": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "captions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "usageHint": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": ["mediaDeckId", "tenantId", "usage", "assets"]
+}

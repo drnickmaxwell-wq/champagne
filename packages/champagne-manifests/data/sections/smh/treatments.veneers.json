@@ -1,0 +1,59 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.veneers",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "veneers-hero",
+      "componentId": "hero_treatment_sacred",
+      "variantId": "sacred.treatment.veneers",
+      "order": 10,
+      "seoRole": "hero",
+      "slot": "aboveFold"
+    },
+    {
+      "instanceId": "veneers-intro",
+      "componentId": "section_treatment_intro",
+      "variantId": "veneers_overview",
+      "order": 20,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "veneers-before-after",
+      "componentId": "section_before_after_grid",
+      "variantId": "veneers_cases",
+      "order": 30,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "veneers-steps",
+      "componentId": "section_implant_steps",
+      "variantId": "veneers_path",
+      "order": 40,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "veneers-finance",
+      "componentId": "section_finance_summary",
+      "variantId": "veneers",
+      "order": 50,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "veneers-faq",
+      "componentId": "section_faq",
+      "variantId": "veneers",
+      "order": 60,
+      "seoRole": "faq"
+    },
+    {
+      "instanceId": "veneers-cta",
+      "componentId": "section_contact_cta",
+      "variantId": "veneers_priority",
+      "order": 70,
+      "seoRole": "cta",
+      "slot": "footer"
+    }
+  ]
+}

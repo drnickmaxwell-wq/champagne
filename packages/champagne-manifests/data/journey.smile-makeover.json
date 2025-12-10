@@ -1,0 +1,111 @@
+{
+  "journeyId": "smh.smile-makeover.discovery",
+  "tenantId": "smh-dental",
+  "label": "Smile Makeover Discovery",
+  "description": "Guides patients from curiosity to booking a consultation for veneers, bonding or aligners.",
+  "entryConditions": {
+    "routes": ["home", "treatments.veneers", "treatments.aligners"],
+    "tags": ["interest.smile-makeover"]
+  },
+  "states": [
+    {
+      "id": "intro",
+      "label": "Welcome & Overview",
+      "kind": "educational",
+      "steps": [
+        {
+          "id": "hero-intro",
+          "componentId": "Journey.SummaryCard",
+          "variantId": "smile-intro",
+          "order": 10,
+          "uiHints": {
+            "layout": "card",
+            "emotionalLightingPreset": "emotionalLighting.assurance",
+            "persona": "Quiet Reassurer"
+          },
+          "eventsOnComplete": ["journey.smile.intro.completed"]
+        }
+      ],
+      "transitions": [
+        {
+          "on": "next",
+          "targetStateId": "goals"
+        }
+      ]
+    },
+    {
+      "id": "goals",
+      "label": "Your Smile Goals",
+      "kind": "exploratory",
+      "steps": [
+        {
+          "id": "quiz-goals",
+          "componentId": "Journey.SmileQuiz",
+          "variantId": "goals-short",
+          "order": 10,
+          "uiHints": {
+            "layout": "full-screen",
+            "emotionalLightingPreset": "emotionalLighting.discovery_soft",
+            "persona": "Luxury Guide"
+          },
+          "eventsOnComplete": ["journey.smile.quiz.completed"]
+        }
+      ],
+      "transitions": [
+        {
+          "on": "next",
+          "targetStateId": "options",
+          "conditions": { "quizAnswersInclude": ["goal.whitening", "goal.straighter", "goal.shape"] }
+        }
+      ]
+    },
+    {
+      "id": "options",
+      "label": "Treatment Options",
+      "kind": "educational",
+      "steps": [
+        {
+          "id": "options-grid",
+          "componentId": "Journey.TreatmentOptionGrid",
+          "variantId": "smile-core",
+          "order": 10,
+          "uiHints": {
+            "layout": "grid",
+            "emotionalLightingPreset": "emotionalLighting.clarity",
+            "persona": "Clinical Sage"
+          },
+          "eventsOnComplete": ["journey.smile.options.viewed"]
+        }
+      ],
+      "transitions": [
+        {
+          "on": "cta.book",
+          "targetStateId": "booking"
+        }
+      ]
+    },
+    {
+      "id": "booking",
+      "label": "Book a Consultation",
+      "kind": "post-consult",
+      "steps": [
+        {
+          "id": "booking-cta",
+          "componentId": "Journey.BookingCTA",
+          "variantId": "smile-consult",
+          "order": 10,
+          "uiHints": {
+            "layout": "card",
+            "emotionalLightingPreset": "emotionalLighting.assurance",
+            "persona": "Quiet Reassurer"
+          },
+          "eventsOnComplete": ["journey.smile.booking.requested"]
+        }
+      ],
+      "transitions": []
+    }
+  ],
+  "exitConditions": {
+    "onCompletedStates": ["booking"]
+  }
+}
