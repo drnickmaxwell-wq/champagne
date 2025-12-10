@@ -1,23 +1,7 @@
 {
-  "day": {
-    "tone": "day",
-    "surfaces": {
-      "particles": "overlay.particlesTeal",
-      "motion": ["overlay.glassShimmer"]
-    }
+  "toneByTimeOfDay": {
+    "day": "day",
+    "night": "night"
   },
-  "evening": {
-    "tone": "evening",
-    "surfaces": {
-      "particles": "overlay.particlesGold",
-      "motion": ["overlay.goldDust"]
-    }
-  },
-  "night": {
-    "tone": "night",
-    "surfaces": {
-      "particles": "overlay.particlesPrimary",
-      "motion": ["overlay.caustics"]
-    }
-  }
+  "overrides": []
 }
