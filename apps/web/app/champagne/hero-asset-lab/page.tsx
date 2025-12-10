@@ -4,7 +4,8 @@ function getAssetForToken(
   token: string,
   runtime: Awaited<ReturnType<typeof getHeroRuntime>>,
 ): { id: string; path?: string; type: "video" | "image" | "gradient" | "none"; className?: string } {
-  const { surfaces } = runtime;
+  // Cast runtime to any to access surfaces property under new engine shape
+  const { surfaces } = runtime as any;
   if (token === "gradient.base") {
     return { id: "gradient.base", path: surfaces.gradient, type: "gradient" };
   }
@@ -114,7 +115,8 @@ function renderPreview(asset: { id: string; path?: string; type: string }) {
 
 export default async function HeroAssetLabPage() {
   const runtime = await getHeroRuntime({ mode: "home", variantId: "default" });
-  const stack = runtime.surfaces.surfaceStack ?? [];
+  // Cast runtime as any to access surfaces property on new engine result
+  const stack = (runtime as any).surfaces.surfaceStack ?? [];
   const seen = new Set<string>();
   const layers = stack.filter((layer) => {
     const token = layer.token ?? layer.id;
