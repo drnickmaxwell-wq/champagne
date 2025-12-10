@@ -1,232 +1,205 @@
 import type {
-  HeroContentConfig,
-  HeroFilmGrainSettings,
-  HeroLayoutConfig,
-  HeroMode,
-  HeroMotionTuning,
-  HeroRuntimeConfig,
-  HeroSurfaceConfig,
-  HeroSurfaceTokenConfig,
-  HeroTimeOfDay,
-  HeroVariantConfig,
+  HeroRuntimeOptions,
+  HeroRuntimeResult,
+  HeroLayer,
 } from "./HeroConfig";
-import { loadSacredHeroManifests } from "./HeroManifestAdapter";
-import {
-  combineSurfaceTokens,
-  mapSurfaceTokensToAssets,
-  resolveHeroSurfaceAssets,
-} from "./HeroSurfaceMap";
+import { sacredHeroBase, sacredHeroSurfaces } from "./HeroManifestAdapter";
+import { resolveHeroAsset } from "../HeroAssetRegistry";
+import { SURFACE_ROLE_MAP } from "./HeroSurfaceMap";
 
-interface RuntimeOptions {
-  mode?: HeroMode;
-  treatmentSlug?: string;
-  prm?: boolean;
-  variantId?: string;
-  timeOfDay?: HeroTimeOfDay;
-  particles?: boolean;
-  filmGrain?: boolean;
-}
+export function getHeroRuntime(options: HeroRuntimeOptions): HeroRuntimeResult {
+  const base = sacredHeroBase;
+  const surfaces = sacredHeroSurfaces;
 
-const DEFAULT_LAYOUT: HeroLayoutConfig = {
-  contentAlign: "start",
-  maxWidth: 960,
-  verticalOffset: "0px",
-  padding: "clamp(2rem, 4vw, 3.5rem)",
-};
+  const prm = Boolean(options.prm);
+  const content = base.content;
+  const layout = base.defaults.layout;
+  const motion = base.defaults.motion;
+  const filmGrain = base.defaults.filmGrain ?? { enabled: true, opacity: 0.32 };
 
-const DEFAULT_FILM_GRAIN: Required<HeroFilmGrainSettings> = {
-  enabled: true,
-  opacity: 0.3,
-};
+  const layers: HeroLayer[] = [];
 
-const DEFAULT_MOTION: Required<HeroMotionTuning> = {
-  parallaxDepth: 18,
-  shimmerIntensity: 1,
-  particleDrift: 1,
-  energyMode: "balanced",
-  particles: {
-    density: 1,
-    speed: 1,
-    curve: "sway",
-  },
-};
+  // Gradient base
+  layers.push({
+    id: "gradient.base",
+    type: "gradient",
+    role: "background",
+    opacity: 1,
+    blendMode: "normal",
+    zIndex: 1,
+  });
 
-function resolvePrmFlag(options: RuntimeOptions): boolean {
-  if (typeof options.prm === "boolean") return options.prm;
-  if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-  return false;
-}
+  // Surface stack from manifest
+  for (const entry of surfaces.surfaceStack) {
+    const token = entry.token ?? entry.id;
+    const role = SURFACE_ROLE_MAP[token] ?? "background";
 
-function pickVariant(variants: HeroVariantConfig[], options: RuntimeOptions): HeroVariantConfig | undefined {
-  if (!variants.length) return undefined;
-  if (options.variantId) {
-    const explicitMatch = variants.find((variant) => variant.id === options.variantId);
-    if (explicitMatch) return explicitMatch;
-  }
-  if ((options.mode ?? "home") === "treatment" && options.treatmentSlug) {
-    const treatmentMatch = variants.find((variant) => variant.treatmentSlug === options.treatmentSlug);
-    if (treatmentMatch) return treatmentMatch;
-  }
+    if (token === "field.waveBackdrop") {
+      const cfg = surfaces.waveBackgrounds["field.waveBackdrop"]?.desktop;
+      const url = resolveHeroAsset(cfg?.asset);
+      if (!url) continue;
+      layers.push({
+        id: token,
+        type: "image",
+        role: "background",
+        url,
+        opacity: cfg?.opacity ?? 0.7,
+        blendMode: cfg?.blendMode ?? "screen",
+        zIndex: 2,
+      });
+      continue;
+    }
 
-  if (options.timeOfDay) {
-    const timeMatch = variants.find((variant) => variant.timeOfDay === options.timeOfDay);
-    if (timeMatch) return timeMatch;
-  }
+    if (token === "field.waveRings") {
+      const cfg = surfaces.overlays["field.waveRings"];
+      const url = resolveHeroAsset(cfg?.asset);
+      if (!url) continue;
+      layers.push({
+        id: token,
+        type: "image",
+        role: "wave",
+        url,
+        opacity: cfg?.opacity ?? 0.6,
+        blendMode: cfg?.blendMode ?? "soft-light",
+        zIndex: 3,
+      });
+      continue;
+    }
 
-  return variants.find((variant) => variant.id === "default") ?? variants[0];
-}
+    if (token === "field.dotGrid") {
+      const cfg = surfaces.overlays["field.dotGrid"];
+      const url = resolveHeroAsset(cfg?.asset);
+      if (!url) continue;
+      layers.push({
+        id: token,
+        type: "image",
+        role: "dots",
+        url,
+        opacity: cfg?.opacity ?? 0.6,
+        blendMode: cfg?.blendMode ?? "screen",
+        zIndex: 4,
+      });
+      continue;
+    }
 
-function mergeContent(base: HeroContentConfig, variant?: Partial<HeroContentConfig>): HeroContentConfig {
-  return {
-    ...base,
-    ...variant,
-    cta: variant?.cta ?? base.cta,
-    secondaryCta: variant?.secondaryCta ?? base.secondaryCta,
-  };
-}
+    if (token === "overlay.particles") {
+      const cfg = surfaces.particles["overlay.particlesPrimary"];
+      const url = resolveHeroAsset(cfg?.asset);
+      if (!url) continue;
+      layers.push({
+        id: token,
+        type: "image",
+        role: "particles",
+        url,
+        opacity: cfg?.opacity ?? 0.45,
+        blendMode: cfg?.blendMode ?? "screen",
+        zIndex: 8,
+      });
+      continue;
+    }
 
-function mergeLayout(
-  base?: HeroLayoutConfig,
-  weather?: HeroLayoutConfig,
-  variant?: HeroLayoutConfig,
-): HeroLayoutConfig {
-  return {
-    ...DEFAULT_LAYOUT,
-    ...base,
-    ...weather,
-    ...variant,
-  };
-}
-
-function mergeMotion(
-  base?: HeroMotionTuning,
-  weather?: HeroMotionTuning,
-  variant?: HeroMotionTuning,
-  options?: RuntimeOptions,
-): HeroMotionTuning {
-  const merged: HeroMotionTuning = {
-    ...DEFAULT_MOTION,
-    ...base,
-    ...weather,
-    ...variant,
-    energyMode: variant?.energyMode ?? weather?.energyMode ?? base?.energyMode ?? DEFAULT_MOTION.energyMode,
-    particles: {
-      ...DEFAULT_MOTION.particles,
-      ...base?.particles,
-      ...weather?.particles,
-      ...variant?.particles,
-    },
-  };
-
-  if (options?.particles === false) {
-    merged.particles = {
-      ...merged.particles,
-      density: 0,
-      speed: 0,
-    };
+    if (token === "overlay.filmGrain") {
+      const cfg = surfaces.grain["overlay.filmGrain.desktop"];
+      const url = resolveHeroAsset(cfg?.asset);
+      if (!url) continue;
+      layers.push({
+        id: token,
+        type: "image",
+        role: "grain",
+        url,
+        opacity: filmGrain.enabled ? cfg?.opacity ?? filmGrain.opacity ?? 0.32 : 0,
+        blendMode: cfg?.blendMode ?? "soft-light",
+        zIndex: 9,
+      });
+      continue;
+    }
   }
 
-  const prm = resolvePrmFlag(options ?? {});
-  if (prm) {
-    merged.parallaxDepth = 0;
-    merged.shimmerIntensity = (merged.shimmerIntensity ?? 1) * 0.35;
-    merged.particleDrift = (merged.particleDrift ?? 1) * 0.4;
+  // Motion layers (only if not PRM)
+  if (!prm) {
+    const causticsCfg = surfaces.motion["overlay.caustics"];
+    const causticsUrl = resolveHeroAsset(causticsCfg?.asset);
+    if (causticsUrl) {
+      layers.push({
+        id: "overlay.caustics",
+        type: "video",
+        role: "fx",
+        url: causticsUrl,
+        opacity: causticsCfg?.opacity ?? 0.45,
+        blendMode: causticsCfg?.blendMode ?? "screen",
+        zIndex: 6,
+      });
+    }
+
+    const shimmerCfg = surfaces.motion["overlay.glassShimmer"];
+    const shimmerUrl = resolveHeroAsset(shimmerCfg?.asset);
+    if (shimmerUrl) {
+      layers.push({
+        id: "overlay.glassShimmer",
+        type: "video",
+        role: "fx",
+        url: shimmerUrl,
+        opacity: shimmerCfg?.opacity ?? 0.85,
+        blendMode: shimmerCfg?.blendMode ?? "screen",
+        zIndex: 7,
+      });
+    }
+
+    const goldCfg = surfaces.motion["overlay.goldDust"];
+    const goldUrl = resolveHeroAsset(goldCfg?.asset);
+    if (goldUrl) {
+      layers.push({
+        id: "overlay.goldDust",
+        type: "video",
+        role: "fx",
+        url: goldUrl,
+        opacity: goldCfg?.opacity ?? 0.7,
+        blendMode: goldCfg?.blendMode ?? "screen",
+        zIndex: 7,
+      });
+    }
+
+    const driftCfg = surfaces.motion["overlay.particlesDrift"];
+    const driftUrl = resolveHeroAsset(driftCfg?.asset);
+    if (driftUrl) {
+      layers.push({
+        id: "overlay.particlesDrift",
+        type: "video",
+        role: "fx",
+        url: driftUrl,
+        opacity: driftCfg?.opacity ?? 0.6,
+        blendMode: driftCfg?.blendMode ?? "screen",
+        zIndex: 8,
+      });
+    }
+
+    const heroVideoCfg = surfaces.video["hero.video"];
+    const heroVideoUrl = resolveHeroAsset(heroVideoCfg?.asset);
+    if (heroVideoUrl) {
+      layers.push({
+        id: "hero.video",
+        type: "video",
+        role: "video",
+        url: heroVideoUrl,
+        opacity: 0.85,
+        blendMode: heroVideoCfg?.blendMode ?? "screen",
+        zIndex: 5,
+      });
+    }
   }
 
-  return merged;
-}
-
-function mergeFilmGrain(
-  base?: HeroFilmGrainSettings,
-  weather?: HeroFilmGrainSettings,
-  variant?: HeroFilmGrainSettings,
-  options?: RuntimeOptions,
-): HeroFilmGrainSettings {
-  const merged: HeroFilmGrainSettings = {
-    ...DEFAULT_FILM_GRAIN,
-    ...base,
-    ...weather,
-    ...variant,
-  };
-
-  if (options?.filmGrain === false) {
-    merged.enabled = false;
-  }
-
-  if (resolvePrmFlag(options ?? {})) {
-    merged.opacity = (merged.opacity ?? DEFAULT_FILM_GRAIN.opacity) * 0.65;
-    merged.enabled = true;
-  }
-
-  return merged;
-}
-
-function mergeSurfaceConfig(
-  base: HeroSurfaceTokenConfig,
-  weather?: HeroSurfaceTokenConfig,
-  variant?: HeroSurfaceTokenConfig,
-): HeroSurfaceTokenConfig {
-  return combineSurfaceTokens(base, weather, variant);
-}
-
-function applyPrm(surface: HeroSurfaceConfig, prm?: boolean): HeroSurfaceConfig {
-  if (!prm) return surface;
-  const disabledMotion = new Set(["overlay.glassShimmer", "overlay.caustics", "overlay.particlesDrift", "overlay.goldDust"]);
-  return {
-    ...surface,
-    motion: surface.motion?.filter((entry) => !disabledMotion.has(entry?.id ?? "")),
-    video: surface.video?.prmSafe ? surface.video : undefined,
-  };
-}
-
-export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<HeroRuntimeConfig> {
-  const manifests = loadSacredHeroManifests();
-  const mode: HeroMode = options.mode ?? "home";
-  const prmFlag = resolvePrmFlag(options);
-  const variantCandidate = pickVariant(manifests.variants, options);
-  const weatherConfig = options.timeOfDay ? manifests.weather[options.timeOfDay] : undefined;
-  const shouldFallbackToBase =
-    mode === "treatment" && Boolean(options.treatmentSlug) && variantCandidate?.treatmentSlug !== options.treatmentSlug;
-  const selectedVariant = shouldFallbackToBase ? undefined : variantCandidate;
-
-  if (shouldFallbackToBase && process.env.NODE_ENV !== "production") {
-    console.warn(
-      `[hero] No sacred variant found for treatment slug "${options.treatmentSlug}". Falling back to home hero visuals.`,
-    );
-  }
-
-  const mergedSurfaceTokens = mergeSurfaceConfig(
-    manifests.base.defaultSurfaces,
-    weatherConfig?.surfaces,
-    selectedVariant?.surfaces,
-  );
-
-  const assetIds = mapSurfaceTokensToAssets(mergedSurfaceTokens, manifests.surfaces, { prm: prmFlag });
-  const resolvedSurfaces = resolveHeroSurfaceAssets(applyPrm(assetIds, prmFlag));
-  const tone = selectedVariant?.tone ?? weatherConfig?.tone ?? manifests.base.tone;
-  const content = mergeContent(manifests.base.content, selectedVariant?.content);
-  const layout = mergeLayout(manifests.base.layout, weatherConfig?.layout, selectedVariant?.layout);
-  const motion = mergeMotion(manifests.base.motion, weatherConfig?.motion, selectedVariant?.motion, options);
-  const filmGrain = mergeFilmGrain(manifests.base.filmGrain, weatherConfig?.filmGrain, selectedVariant?.filmGrain, options);
-  const energyMode = selectedVariant?.energyMode ?? motion.energyMode;
-
-  return {
-    id: manifests.base.id,
-    tone,
+  const result: HeroRuntimeResult = {
+    mode: options.mode,
+    variant: { id: options.variantId ?? "default", label: "Sacred Home Hero" },
     content,
-    surfaces: resolvedSurfaces,
     layout,
+    layers,
     motion,
     filmGrain,
-    energyMode,
-    variant: selectedVariant,
     flags: {
-      prm: prmFlag,
-      mode,
-      timeOfDay: options.timeOfDay,
-      treatmentSlug: options.treatmentSlug,
+      prm,
     },
   };
+
+  return result;
 }
