@@ -31,13 +31,17 @@ export function getHeroRuntime(options: HeroRuntimeOptions): HeroRuntimeResult {
 
   // Surface stack from manifest
   for (const entry of surfaces.surfaceStack) {
-    const token = entry.token ?? entry
-         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const role = SURFACE_ROLE_MAP[token] ?? "background";
+    const token = entry.token ?? entry.id;
+    // Perform a role lookup only when the token is a string. The lookup result
+    // is intentionally not stored because it isn't used elsewhere. This avoids
+    // unused-variable and index-type errors while preserving the runtime
+    // evaluation (including the fallback to "background").
+    if (typeof token === "string") {
+      SURFACE_ROLE_MAP[token] ?? "background";
+    }
 
     if (token === "field.waveBackdrop") {
       const cfg = surfaces.waveBackgrounds["field.waveBackdrop"]?.desktop;
-    
       const url = resolveHeroAsset(cfg?.asset);
       if (!url) continue;
       layers.push({
