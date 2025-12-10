@@ -1,5 +1,7 @@
-import type { CSSProperties } from "react";
-import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+"use client";
+
+import React from "react";
+import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 
 export interface HeroRendererProps {
   mode?: HeroMode;
@@ -8,50 +10,55 @@ export interface HeroRendererProps {
   timeOfDay?: HeroTimeOfDay;
   particles?: boolean;
   filmGrain?: boolean;
-  debugOpacityBoost?: number;
 }
 
 function HeroFallback() {
   return (
     <BaseChampagneSurface
       variant="inkGlass"
+      className="hero-renderer"
       style={{
-        background: "var(--smh-gradient)",
-        minHeight: "48vh",
+        minHeight: "72vh",
         display: "grid",
         alignItems: "center",
-        padding: "clamp(2rem, 5vw, 3.5rem)",
+        padding: "clamp(2rem, 4vw, 3.5rem)",
+        background: "var(--hero-gradient, var(--smh-gradient))",
       }}
     >
-      <div style={{ display: "grid", gap: "0.75rem", maxWidth: "960px" }}>
-        <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+      <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+        <span
+          style={{
+            display: "inline-block",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            fontSize: "0.78rem",
+            color: "var(--text-medium)",
+          }}
+        >
           Champagne Dentistry
         </span>
-        <h1 style={{ fontSize: "clamp(2rem, 3.6vw, 3rem)", lineHeight: 1.1 }}>
-          A calm, cinematic hero is loading.
+        <h1 style={{ fontSize: "clamp(2.4rem, 3.3vw, 3.2rem)", lineHeight: 1.05, marginTop: "0.5rem" }}>
+          Your Luxury Smile Awaits
         </h1>
-        <p style={{ color: "var(--text-medium)", maxWidth: "720px", lineHeight: 1.6 }}>
-          Sacred hero assets are unavailable. Showing a safe gradient surface until the manifest is ready.
+        <p style={{ color: "var(--text-medium)", fontSize: "1.05rem", lineHeight: 1.6, maxWidth: "760px", marginTop: "0.85rem" }}>
+          Private dental care with calm precision, comfort-first technology, and a signature Champagne finish.
         </p>
       </div>
     </BaseChampagneSurface>
   );
 }
 
-export async function HeroRenderer({
+export function HeroRenderer({
   mode = "home",
   treatmentSlug,
   prm,
   timeOfDay,
-  particles,
-  filmGrain,
-  debugOpacityBoost = 1,
+  particles = true,
+  filmGrain = true,
 }: HeroRendererProps) {
-  let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
-  // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
-
+  let runtime;
   try {
-    runtime = await getHeroRuntime({
+    runtime = getHeroRuntime({
       mode,
       treatmentSlug,
       prm,
@@ -62,312 +69,210 @@ export async function HeroRenderer({
     });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
+      // eslint-disable-next-line no-console
       console.error("Hero runtime failed", error);
     }
   }
 
   if (!runtime) return <HeroFallback />;
 
-  const { content, surfaces, layout, motion, filmGrain: filmGrainSettings } = runtime;
-  const opacityBoost = Math.max(debugOpacityBoost, 0.01);
-  const gradient = surfaces.gradient ?? "var(--smh-gradient)";
-  const motionEntries = surfaces.motion ?? [];
-  const videoEntry = surfaces.video;
-  const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
-  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
-  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
-  const causticsOpacity = applyBoost(
-    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
-  );
-  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
-  const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
-  const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
-    const token = layer.token ?? layer.id;
-    if (layer.suppressed) return false;
-    if (token === "overlay.particles" && !shouldShowParticles) return false;
-    if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
-    return true;
-  });
-  const prmEnabled = runtime.flags.prm;
-  const grainOpacity = applyBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1));
-  const particleOpacity = applyBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
-
-  const surfaceVars: CSSProperties = {
-    ["--hero-gradient" as string]: gradient,
-    ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
-      ? `url(${surfaces.waveMask.desktop.path})`
-      : surfaces.waveMask?.desktop?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
-        : undefined,
-    ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
-      ? `url(${surfaces.waveMask.mobile.path})`
-      : surfaces.waveMask?.mobile?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)})`
-        : undefined,
-    ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
-      ? `url(${surfaces.background.desktop.path})`
-      : surfaces.background?.desktop?.id
-        ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
-        : undefined,
-    ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
-      ? `url(${surfaces.background.mobile.path})`
-      : surfaces.background?.mobile?.id
-        ? `url(${ensureHeroAssetPath(surfaces.background.mobile.id)})`
-        : undefined,
-    ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
-      ? `url(${surfaces.overlays.field.path})`
-      : surfaces.overlays?.field?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
-        : undefined,
-    ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
-      ? `url(${surfaces.overlays.dots.path})`
-      : surfaces.overlays?.dots?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
-        : undefined,
-    ["--hero-particles" as string]: shouldShowParticles && surfaces.particles?.path
-      ? `url(${surfaces.particles.path})`
-      : shouldShowParticles && surfaces.particles?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
-        : undefined,
-    ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
-      ? `url(${surfaces.grain.desktop.path})`
-      : surfaces.grain?.desktop?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
-        : undefined,
-    ["--hero-grain-mobile" as string]: surfaces.grain?.mobile?.path
-      ? `url(${surfaces.grain.mobile.path})`
-      : surfaces.grain?.mobile?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)})`
-        : undefined,
-    ["--hero-film-grain-opacity" as string]: grainOpacity,
-    ["--hero-film-grain-blend" as string]: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
-    ["--hero-particles-opacity" as string]: particleOpacity,
-    ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
-    ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
-    ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
-  };
-
-  const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": {},
-    "field.waveBackdrop": {
-      mixBlendMode: waveBackdropBlend ?? "screen",
-      opacity: waveBackdropOpacity,
-    },
-    "mask.waveHeader": {
-      mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
-    },
-    "field.waveRings": {
-      mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.overlays?.field?.opacity),
-    },
-    "field.dotGrid": {
-      mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.overlays?.dots?.opacity),
-    },
-    "overlay.particles": {
-      mixBlendMode: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
-      opacity: particleOpacity,
-    },
-    "overlay.filmGrain": {
-      mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
-      opacity: grainOpacity,
-    },
-    "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
-    "hero.contentFrame": {
-      background: "var(--champagne-glass-bg, var(--surface-glass))",
-      backdropFilter: "blur(18px)",
-      WebkitBackdropFilter: "blur(18px)",
-    },
-  };
+  const { content, layout, layers, flags } = runtime;
 
   return (
     <BaseChampagneSurface
       variant="inkGlass"
+      className="hero-renderer"
       style={{
+        position: "relative",
         minHeight: "72vh",
         display: "grid",
-        alignItems: layout.contentAlign === "center" ? "center" : "stretch",
+        alignItems: layout?.contentAlign === "center" ? "center" : "stretch",
         overflow: "hidden",
         background: "var(--hero-gradient, var(--smh-gradient))",
-        ["--hero-gradient" as string]: gradient,
       }}
-      className="hero-renderer"
     >
       <style
         dangerouslySetInnerHTML={{
           __html: `
+          .hero-renderer {
+            color: var(--text-high);
+          }
+          .hero-renderer .hero-layer-stack {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+          }
+          .hero-renderer .hero-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+          }
+          .hero-renderer .hero-layer--image {
+            background-size: cover;
+            background-position: center;
+          }
+          .hero-renderer .hero-layer--video {
+            object-fit: cover;
+          }
+          .hero-renderer .hero-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            gap: 1rem;
+            max-width: ${layout?.maxWidth ? `${layout.maxWidth}px` : "960px"};
+            margin: 0 auto;
+            padding: ${layout?.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+            text-align: left;
+            justify-items: ${layout?.contentAlign === "center" ? "center" : "flex-start"};
+          }
+          @media (max-width: 768px) {
             .hero-renderer {
-              position: relative;
-              color: var(--text-high);
-            }
-            .hero-renderer .hero-surface-stack {
-              position: absolute;
-              inset: 0;
-              z-index: 0;
-            }
-            .hero-renderer .hero-layer,
-            .hero-renderer .hero-surface-layer {
-              position: absolute;
-              inset: 0;
-              z-index: 0;
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-              background-image: var(--hero-wave-background-desktop);
-              background-size: cover;
-              background-position: center;
-              mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
-              opacity: var(--surface-opacity-waveBackdrop, 0.55);
-              z-index: var(--surface-zindex-waveBackdrop, 2);
-            }
-            .hero-renderer .hero-layer.motion,
-            .hero-renderer .hero-surface-layer.hero-surface--motion {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
-              pointer-events: none;
-            }
-            .hero-surface-layer {
-              pointer-events: none;
-            }
-            .hero-renderer [data-surface-role="fx"] {
-              mix-blend-mode: screen;
+              min-height: 68vh;
             }
             .hero-renderer .hero-content {
-              position: relative;
-              z-index: 2;
-              display: grid;
-              gap: 1rem;
-              max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
-              padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
-              transform: translateY(${layout.verticalOffset ?? "0px"});
+              padding: ${layout?.padding ?? "clamp(2rem, 5vw, 3rem)"};
             }
-            @media (max-width: 640px) {
-              .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-                background-image: var(--hero-wave-background-mobile);
-              }
-              .hero-renderer .hero-content {
-                padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
-              }
-              .hero-renderer {
-                min-height: 68vh;
-              }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .hero-renderer .hero-layer--video {
+              display: none;
             }
-            @media (prefers-reduced-motion: reduce) {
-              .hero-renderer .hero-layer.motion,
-              .hero-renderer .hero-surface--motion { display: none; }
-              .hero-surface-layer.hero-surface--particles { opacity: 0.12; }
-            }
-          `,
+          }
+        `,
         }}
       />
 
-      <div
-        aria-hidden
-        className="hero-surface-stack"
-        data-prm={prmEnabled ? "true" : "false"}
-        style={surfaceVars}
-      >
-        {surfaceStack.map((layer) => (
-          <div
-            key={layer.id}
-            data-surface-id={layer.id}
-            data-surface-role={layer.role}
-            data-prm-safe={layer.prmSafe ? "true" : undefined}
-            className={layer.className ?? "hero-surface-layer"}
-            style={layer.token ? layerStyles[layer.token] : undefined}
-          />
-        ))}
+      <div className="hero-layer-stack" data-prm={flags.prm ? "true" : "false"}>
+        {layers.map((layer) => {
+          if (layer.type === "gradient") {
+            return (
+              <div
+                key={layer.id}
+                className="hero-layer hero-layer--gradient"
+                style={{
+                  zIndex: layer.zIndex,
+                  opacity: layer.opacity,
+                  mixBlendMode: layer.blendMode,
+                  background: "var(--hero-gradient, var(--smh-gradient))",
+                }}
+                aria-hidden
+              />
+            );
+          }
 
-        {videoEntry?.path && (
-          <video
-            className="hero-surface-layer hero-surface--motion"
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            poster={surfaces.background?.desktop?.path}
-            data-surface-id="motion.heroVideo"
-            style={{
-              mixBlendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: videoEntry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-            }}
-          >
-            <source src={videoEntry.path} />
-          </video>
-        )}
+          if (layer.type === "image") {
+            return (
+              <div
+                key={layer.id}
+                className={`hero-layer hero-layer--image hero-layer--${layer.role ?? "background"}`}
+                style={{
+                  zIndex: layer.zIndex,
+                  opacity: layer.opacity,
+                  mixBlendMode: layer.blendMode,
+                  backgroundImage: layer.url ? `url(${layer.url})` : undefined,
+                }}
+                aria-hidden
+              />
+            );
+          }
 
-        {motionEntries.map((entry) => (
-          <video
-            key={entry.id}
-            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            data-surface-id={entry.id}
-            style={{
-              mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-            }}
-          >
-            <source src={entry.path} />
-          </video>
-        ))}
+          if (layer.type === "video" && !flags.prm) {
+            return (
+              <video
+                key={layer.id}
+                className={`hero-layer hero-layer--video hero-layer--${layer.role ?? "fx"}`}
+                autoPlay
+                playsInline
+                muted
+                loop
+                preload="metadata"
+                style={{
+                  zIndex: layer.zIndex,
+                  opacity: layer.opacity,
+                  mixBlendMode: layer.blendMode,
+                }}
+              >
+                {layer.url && <source src={layer.url} />}
+              </video>
+            );
+          }
 
+          return null;
+        })}
       </div>
 
-      <div
-        className="hero-content"
-        style={{
-          justifyItems: layout.contentAlign === "center" ? "center" : "start",
-          textAlign: layout.contentAlign === "center" ? "center" : "start",
-        }}
-      >
+      <div className="hero-content">
         {content.eyebrow && (
-          <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+          <span
+            style={{
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              fontSize: "0.78rem",
+              color: "var(--text-medium)",
+            }}
+          >
             {content.eyebrow}
           </span>
         )}
+
         {content.headline && (
-          <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
+          <h1 style={{ fontSize: "clamp(2.4rem, 3.3vw, 3.2rem)", lineHeight: 1.05 }}>
             {content.headline}
           </h1>
         )}
+
         {content.subheadline && (
-          <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
+          <p style={{ color: "var(--text-medium)", fontSize: "1.05rem", lineHeight: 1.6, maxWidth: "760px" }}>
             {content.subheadline}
           </p>
         )}
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1rem",
+            marginTop: "1.5rem",
+          }}
+        >
           {content.cta && (
             <a
               href={content.cta.href}
               style={{
-                padding: "0.9rem 1.6rem",
-                borderRadius: "var(--radius-md)",
-                background: "var(--surface-gold-soft, rgba(255, 215, 137, 0.16))",
-                color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.45))",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0.9rem 1.9rem",
+                borderRadius: "999px",
+                background: "var(--button-primary-gradient, var(--smh-gradient))",
+                color: "var(--text-on-accent, #fff)",
+                fontWeight: 600,
                 textDecoration: "none",
-                boxShadow: "0 12px 32px rgba(0,0,0,0.3)",
+                boxShadow: "0 18px 38px rgba(0,0,0,0.28)",
+                gap: "0.5rem",
               }}
             >
               {content.cta.label}
             </a>
           )}
+
           {content.secondaryCta && (
             <a
               href={content.secondaryCta.href}
               style={{
-                padding: "0.9rem 1.2rem",
-                borderRadius: "var(--radius-md)",
-                background: "var(--surface-ink-soft, rgba(6,7,12,0.35))",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0.9rem 1.9rem",
+                borderRadius: "999px",
+                background: "color-mix(in srgb, var(--bg-ink) 40%, transparent)",
                 color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.3))",
+                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.4))",
                 textDecoration: "none",
+                gap: "0.5rem",
               }}
             >
               {content.secondaryCta.label}
