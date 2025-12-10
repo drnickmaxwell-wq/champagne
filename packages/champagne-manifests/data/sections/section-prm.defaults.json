@@ -1,0 +1,46 @@
+{
+  "id": "section-prm.defaults",
+  "description": "PRM (prefers-reduced-motion) behaviour per section type.",
+  "version": 1,
+  "prmRules": {
+    "overview-rich": {
+      "reduceParallaxTo": 0,
+      "disableShimmer": true,
+      "softFadeOnly": true
+    },
+    "feature-list": {
+      "reduceParallaxTo": 0,
+      "softFadeOnly": true
+    },
+    "media-block": {
+      "reduceParallaxTo": 0,
+      "disableShimmer": true,
+      "disableSpotlight": true,
+      "softFadeOnly": true
+    },
+    "tools-trio": {
+      "reduceParallaxTo": 0,
+      "softFadeOnly": true
+    },
+    "patient-stories": {
+      "reduceParallaxTo": 0,
+      "softFadeOnly": true
+    },
+    "faq": {
+      "reduceParallaxTo": 0,
+      "softFadeOnly": true
+    },
+    "closing-cta": {
+      "reduceParallaxTo": 0,
+      "disableShimmer": true,
+      "disableSpotlight": true,
+      "softFadeOnly": true
+    },
+    "treatment-media-feature": {
+      "reduceParallaxTo": 0,
+      "disableShimmer": true,
+      "disableSpotlight": true,
+      "softFadeOnly": true
+    }
+  }
+}

@@ -6,6 +6,8 @@ import manusImportManifest from "../data/manus_import_unified_manifest_20251104.
 import mediaDeckImplants from "../data/media-decks/media-deck.implants.json";
 import journeySmileMakeover from "../data/journey.smile-makeover.json";
 import sectionPageDefaults from "../data/sections/page-type.defaults.json";
+import sectionFxDefaults from "../data/sections/section-fx.defaults.json";
+import sectionPrmDefaults from "../data/sections/section-prm.defaults.json";
 import sectionLibraryData from "../data/sections/section-library.json";
 import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
@@ -193,6 +195,34 @@ export interface ChampagneNavigationManifest {
   [key: string]: unknown;
 }
 
+export interface ChampagneSectionFxDefaultsEntry {
+  parallax?: boolean | number;
+  fadeIn?: boolean;
+  spotlight?: boolean;
+  shimmer?: boolean;
+}
+
+export interface ChampagneSectionFxDefaultsManifest {
+  id: string;
+  description?: string;
+  version?: number;
+  fxDefaults?: Record<string, ChampagneSectionFxDefaultsEntry>;
+}
+
+export interface ChampagneSectionPrmDefaultsEntry {
+  reduceParallaxTo?: number;
+  disableShimmer?: boolean;
+  disableSpotlight?: boolean;
+  softFadeOnly?: boolean;
+}
+
+export interface ChampagneSectionPrmDefaultsManifest {
+  id: string;
+  description?: string;
+  version?: number;
+  prmRules?: Record<string, ChampagneSectionPrmDefaultsEntry>;
+}
+
 const champagneMachineManifest: ChampagneMachineManifest = machineManifestData;
 const champagneStylesManifest: ChampagneStylesManifest = stylesManifest;
 const champagneNavigationManifest: ChampagneNavigationManifest = {
@@ -217,6 +247,8 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutAligners as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
+export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
+export const champagneSectionPrmDefaults: ChampagneSectionPrmDefaultsManifest = sectionPrmDefaults;
 export const champagneJourneyManifests: ChampagneJourneyManifest[] = [
   journeySmileMakeover as ChampagneJourneyManifest,
 ];
