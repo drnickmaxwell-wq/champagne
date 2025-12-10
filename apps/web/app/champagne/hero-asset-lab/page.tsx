@@ -61,7 +61,8 @@ function getAssetForToken(
     return { id: token, type: "none" };
   }
 
-  const motionEntry = (surfaces.motion ?? []).find((entry) => entry.id === token);
+  // Annotate entry type to avoid implicit any
+  const motionEntry = (surfaces.motion ?? []).find((entry: any) => entry.id === token);
   if (motionEntry) {
     return {
       id: motionEntry.asset?.id ?? token,
@@ -118,7 +119,7 @@ export default async function HeroAssetLabPage() {
   // Cast runtime as any to access surfaces property on new engine result
   const stack = (runtime as any).surfaces.surfaceStack ?? [];
   const seen = new Set<string>();
-  const layers = stack.filter((layer) => {
+  const layers = stack.filter((layer: any) => {
     const token = layer.token ?? layer.id;
     if (!token) return false;
     if (seen.has(token)) return false;
@@ -153,7 +154,7 @@ export default async function HeroAssetLabPage() {
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
         }}
       >
-        {layers.map((layer) => {
+        {layers.map((layer: any) => {
           const token = layer.token ?? layer.id ?? "layer";
           const asset = getAssetForToken(token, runtime);
           const preview = renderPreview(asset);
