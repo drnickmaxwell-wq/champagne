@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Champagne Section Manifest",
+  "type": "object",
+  "properties": {
+    "tenantId": {
+      "type": "string",
+      "description": "Tenant/clinic ID, e.g. 'smh-dental'"
+    },
+    "routeId": {
+      "type": "string",
+      "description": "Internal route key, e.g. 'home', 'treatments.implants'"
+    },
+    "pageType": {
+      "type": "string",
+      "description": "Semantic page type, e.g. 'home', 'treatment', 'fees', 'team'"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version for migrations"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["instanceId", "componentId", "order"],
+        "properties": {
+          "instanceId": {
+            "type": "string",
+            "description": "Stable ID for this placement of a section"
+          },
+          "componentId": {
+            "type": "string",
+            "description": "Matches a key in section-library.json"
+          },
+          "variantId": {
+            "type": "string",
+            "description": "Variant within that component (e.g. 'hero_home_sacred', 'grid_dense')"
+          },
+          "order": {
+            "type": "number",
+            "description": "Numeric ordering, low to high"
+          },
+          "slot": {
+            "type": "string",
+            "description": "Optional slot within page (e.g. 'aboveFold', 'body', 'footer')"
+          },
+          "seoRole": {
+            "type": "string",
+            "description": "Used for audits: 'hero', 'primaryContent', 'supporting', 'faq', 'cta'"
+          },
+          "visibility": {
+            "type": "object",
+            "properties": {
+              "minBreakpoint": { "type": "string" },
+              "maxBreakpoint": { "type": "string" },
+              "featureFlags": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "propsRef": {
+            "type": "string",
+            "description": "Key into a separate props manifest for content"
+          },
+          "experiments": {
+            "type": "object",
+            "properties": {
+              "abTestId": { "type": "string" },
+              "variantKey": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["tenantId", "routeId", "pageType", "sections"]
+}

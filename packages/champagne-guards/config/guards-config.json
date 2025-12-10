@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "tenantId": "smh-dental",
+  "guards": [
+    {
+      "id": "gradient-law-guard",
+      "script": "guard-gradient-law.mjs",
+      "scope": ["packages/champagne-tokens", "apps/web/app/components"],
+      "severity": "error",
+      "description": "Enforce Champagne Gradient Law (135°, soft gold ≤ 4%, token-based only)."
+    },
+    {
+      "id": "rogue-hex-guard",
+      "script": "guard-rogue-hex.mjs",
+      "scope": ["apps", "packages"],
+      "severity": "error",
+      "description": "Block raw hex/rgba colours outside sanctioned tokens."
+    },
+    {
+      "id": "hero-freeze-guard",
+      "script": "guard-hero-freeze.mjs",
+      "scope": [
+        "packages/champagne-hero",
+        "public/assets/champagne/waves",
+        "public/assets/champagne/particles",
+        "public/assets/champagne/film-grain"
+      ],
+      "severity": "error",
+      "description": "Prevent unapproved Sacred Hero changes by hashing canonical assets and manifests."
+    },
+    {
+      "id": "asset-canon-guard",
+      "script": "guard-asset-canon.mjs",
+      "scope": ["public/assets/champagne"],
+      "severity": "warn",
+      "description": "Detect orphan/duplicate hero assets and enforce naming conventions."
+    },
+    {
+      "id": "treatment-schema-guard",
+      "script": "guard-treatment-schema.mjs",
+      "scope": ["packages/champagne-manifests/data/treatments"],
+      "severity": "error",
+      "description": "Ensure treatment manifests match schema and required SEO fields."
+    },
+    {
+      "id": "manus-structure-guard",
+      "script": "guard-manus-structure.mjs",
+      "scope": ["apps/web/app/components", "packages/champagne-sections"],
+      "severity": "warn",
+      "description": "Ensure layouts respect Manus canon: section boundaries, spacing, max width, typography."
+    }
+  ]
+}

@@ -1,14 +1,25 @@
 import type {
   ChampagneCTA,
+  ChampagneJourneyManifest,
+  ChampagneMediaDeckManifest,
   ChampagnePageCTAConfig,
   ChampagnePageManifest,
   ChampagnePageSection,
+  ChampagnePageTypeDefaults,
+  ChampagneSectionLayout,
+  ChampagneSectionLibrary,
   ChampagneStylesManifest,
 } from "./core";
 import {
   champagneMachineManifest,
+  champagneMediaDeckManifests,
+  champagneJourneyManifests,
+  champagnePageTypeDefaults,
+  champagneSectionLayouts,
+  champagneSectionLibrary,
   champagneStylesManifest,
   getPageManifestBySlug,
+  getRouteIdFromSlug,
 } from "./core";
 
 export function getAllPages(): ChampagnePageManifest[] {
@@ -190,4 +201,46 @@ export function getSectionCTAReferences(sectionId: string): (ChampagneCTA | stri
   const manifest = getSectionManifest(sectionId);
   if (!manifest?.definition || typeof manifest.definition === "string") return [];
   return normalizeCTAGroup(manifest.definition.ctas);
+}
+
+export function getSectionLibrary(): ChampagneSectionLibrary {
+  return champagneSectionLibrary as ChampagneSectionLibrary;
+}
+
+export function getSectionLayouts(): ChampagneSectionLayout[] {
+  return champagneSectionLayouts as ChampagneSectionLayout[];
+}
+
+export function getSectionLayoutManifest(
+  routeIdOrSlug: string,
+  tenantId?: string,
+): ChampagneSectionLayout | undefined {
+  const routeId = getRouteIdFromSlug(routeIdOrSlug);
+  return champagneSectionLayouts.find(
+    (layout) => layout.routeId === routeId && (!tenantId || layout.tenantId === tenantId),
+  );
+}
+
+export function getPageTypeDefaults(): ChampagnePageTypeDefaults {
+  return champagnePageTypeDefaults as ChampagnePageTypeDefaults;
+}
+
+export function getJourneys(): ChampagneJourneyManifest[] {
+  return champagneJourneyManifests as ChampagneJourneyManifest[];
+}
+
+export function getJourneyManifest(journeyId: string): ChampagneJourneyManifest | undefined {
+  return (champagneJourneyManifests as ChampagneJourneyManifest[]).find(
+    (journey) => journey.journeyId === journeyId,
+  );
+}
+
+export function getMediaDecks(): ChampagneMediaDeckManifest[] {
+  return champagneMediaDeckManifests as ChampagneMediaDeckManifest[];
+}
+
+export function getMediaDeck(mediaDeckId: string): ChampagneMediaDeckManifest | undefined {
+  return (champagneMediaDeckManifests as ChampagneMediaDeckManifest[]).find(
+    (entry) => entry.mediaDeckId === mediaDeckId,
+  );
 }

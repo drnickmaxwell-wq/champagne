@@ -1,0 +1,59 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.aligners",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "aligners-hero",
+      "componentId": "hero_treatment_sacred",
+      "variantId": "sacred.treatment.aligners",
+      "order": 10,
+      "seoRole": "hero",
+      "slot": "aboveFold"
+    },
+    {
+      "instanceId": "aligners-intro",
+      "componentId": "section_treatment_intro",
+      "variantId": "aligners_overview",
+      "order": 20,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "aligners-before-after",
+      "componentId": "section_before_after_grid",
+      "variantId": "aligners_cases",
+      "order": 30,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "aligners-steps",
+      "componentId": "section_implant_steps",
+      "variantId": "aligners_path",
+      "order": 40,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "aligners-finance",
+      "componentId": "section_finance_summary",
+      "variantId": "aligners",
+      "order": 50,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "aligners-faq",
+      "componentId": "section_faq",
+      "variantId": "aligners",
+      "order": 60,
+      "seoRole": "faq"
+    },
+    {
+      "instanceId": "aligners-cta",
+      "componentId": "section_contact_cta",
+      "variantId": "aligners_priority",
+      "order": 70,
+      "seoRole": "cta",
+      "slot": "footer"
+    }
+  ]
+}

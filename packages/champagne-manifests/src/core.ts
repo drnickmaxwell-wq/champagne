@@ -3,6 +3,13 @@ import navManifestData from "../data/manifest.nav.main.json";
 import publicBrandManifest from "../data/manifest.public.brand.json";
 import stylesManifest from "../data/manifest.styles.champagne.json";
 import manusImportManifest from "../data/manus_import_unified_manifest_20251104.json";
+import mediaDeckImplants from "../data/media-decks/media-deck.implants.json";
+import journeySmileMakeover from "../data/journey.smile-makeover.json";
+import sectionPageDefaults from "../data/sections/page-type.defaults.json";
+import sectionLibraryData from "../data/sections/section-library.json";
+import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
+import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
+import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -64,6 +71,115 @@ export interface ChampagneStylesManifest {
   [key: string]: unknown;
 }
 
+export interface ChampagneSectionLibraryEntry {
+  id: string;
+  componentId: string;
+  importPath?: string;
+  defaultVariantId?: string;
+  pageTypes?: string[];
+  seoRole?: string;
+  layoutRole?: string;
+  brandTier?: string[];
+  tokens?: Record<string, unknown>;
+}
+
+export interface ChampagneSectionLibrary {
+  tenantId: string;
+  version?: string;
+  sections: ChampagneSectionLibraryEntry[];
+}
+
+export interface ChampagneSectionLayoutVisibility {
+  minBreakpoint?: string;
+  maxBreakpoint?: string;
+  featureFlags?: string[];
+}
+
+export interface ChampagneSectionLayoutSection {
+  instanceId: string;
+  componentId: string;
+  variantId?: string;
+  order: number;
+  slot?: string;
+  seoRole?: string;
+  visibility?: ChampagneSectionLayoutVisibility;
+  propsRef?: string;
+  experiments?: { abTestId?: string; variantKey?: string };
+}
+
+export interface ChampagneSectionLayout {
+  tenantId: string;
+  routeId: string;
+  pageType: string;
+  version?: string;
+  sections: ChampagneSectionLayoutSection[];
+}
+
+export interface ChampagnePageTypeDefault {
+  pageType: string;
+  routeId: string;
+  tenantId: string;
+  sectionOrder: string[];
+}
+
+export interface ChampagnePageTypeDefaults {
+  version?: string;
+  pageDefaults?: ChampagnePageTypeDefault[];
+}
+
+export interface ChampagneJourneyStep {
+  id: string;
+  componentId: string;
+  variantId?: string;
+  order?: number;
+  uiHints?: { layout?: string; emotionalLightingPreset?: string; persona?: string };
+  eventsOnComplete?: string[];
+}
+
+export interface ChampagneJourneyTransitionConditions {
+  quizAnswersInclude?: string[];
+  tagsInclude?: string[];
+}
+
+export interface ChampagneJourneyTransition {
+  on: string;
+  targetStateId: string;
+  conditions?: ChampagneJourneyTransitionConditions;
+}
+
+export interface ChampagneJourneyState {
+  id: string;
+  label: string;
+  kind?: "educational" | "calming" | "exploratory" | "post-consult" | "finance";
+  steps: ChampagneJourneyStep[];
+  transitions?: ChampagneJourneyTransition[];
+}
+
+export interface ChampagneJourneyManifest {
+  journeyId: string;
+  tenantId: string;
+  label?: string;
+  description?: string;
+  entryConditions?: { routes?: string[]; tags?: string[] };
+  states: ChampagneJourneyState[];
+  exitConditions?: { onCompletedStates?: string[] };
+}
+
+export interface ChampagneMediaDeckManifest {
+  mediaDeckId: string;
+  tenantId: string;
+  usage: { primaryRouteId?: string; context?: string[] };
+  assets: {
+    heroLoop?: string;
+    heroStill?: string;
+    backgroundLoops?: string[];
+    broll?: string[];
+    viewer3d?: string[];
+  };
+  prmVariants?: { staticHero?: string; staticBackgrounds?: string[] };
+  captions?: { id: string; label: string; usageHint?: string }[];
+}
+
 export interface NavItem {
   id: string;
   label: string;
@@ -94,6 +210,20 @@ const registry: ChampagneManifestRegistry = {
   manusImport: manusImportManifest,
 };
 
+export const champagneSectionLibrary: ChampagneSectionLibrary = sectionLibraryData;
+export const champagneSectionLayouts: ChampagneSectionLayout[] = [
+  sectionLayoutImplants as ChampagneSectionLayout,
+  sectionLayoutVeneers as ChampagneSectionLayout,
+  sectionLayoutAligners as ChampagneSectionLayout,
+];
+export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
+export const champagneJourneyManifests: ChampagneJourneyManifest[] = [
+  journeySmileMakeover as ChampagneJourneyManifest,
+];
+export const champagneMediaDeckManifests: ChampagneMediaDeckManifest[] = [
+  mediaDeckImplants as ChampagneMediaDeckManifest,
+];
+
 type StatusCarrier = { status?: ChampagneManifestStatus | string };
 
 const manifestStatuses = [
@@ -121,6 +251,65 @@ const pageCollections = [
   champagneMachineManifest.treatments ?? {},
 ];
 
+function normalizeSlug(slug: string): string {
+  if (!slug) return "/";
+  return slug.startsWith("/") ? slug : `/${slug}`;
+}
+
+export function getRouteIdFromSlug(slug: string): string {
+  const normalized = normalizeSlug(slug).replace(/^\//, "").replace(/\/$/, "");
+  if (!normalized) return "home";
+  return normalized.replace(/\//g, ".");
+}
+
+const sectionComponentTypeMap: Record<string, string> = {
+  section_treatment_intro: "treatment_overview_rich",
+  section_before_after_grid: "gallery",
+  section_implant_steps: "features",
+  section_finance_summary: "features",
+  section_faq: "treatment_faq_block",
+  section_contact_cta: "treatment_closing_cta",
+};
+
+function buildSectionsFromLayout(manifest: ChampagneSectionLayout): ChampagnePageSection[] {
+  const sortedSections = [...(manifest.sections ?? [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+  return sortedSections
+    .filter((section) => !section.componentId?.startsWith("hero_"))
+    .map((section, index) => {
+      const type = sectionComponentTypeMap[section.componentId] ?? section.componentId;
+      return {
+        id: section.instanceId || `${manifest.routeId}-section-${index + 1}`,
+        type,
+        componentId: section.componentId,
+        variantId: section.variantId,
+        order: section.order,
+        slot: section.slot,
+        seoRole: section.seoRole,
+        visibility: section.visibility,
+        propsRef: section.propsRef,
+        experiments: section.experiments,
+      } satisfies ChampagnePageSection;
+    });
+}
+
+function getSectionLayoutByRoute(routeId: string): ChampagneSectionLayout | undefined {
+  return champagneSectionLayouts.find((entry) => entry.routeId === routeId);
+}
+
+function getPageTypeDefault(routeId: string): ChampagnePageTypeDefault | undefined {
+  return champagnePageTypeDefaults.pageDefaults?.find((entry) => entry.routeId === routeId);
+}
+
+function buildSectionsFromDefaults(pageDefault: ChampagnePageTypeDefault): ChampagnePageSection[] {
+  return (pageDefault.sectionOrder ?? []).map((componentId, index) => ({
+    id: `${pageDefault.routeId}-section-${index + 1}`,
+    type: componentId,
+    componentId,
+    order: (index + 1) * 10,
+  }));
+}
+
 export function getMainNavItems(): NavItem[] {
   const items = champagneNavigationManifest.items ?? [];
   return [...items].sort((a, b) => {
@@ -132,8 +321,10 @@ export function getMainNavItems(): NavItem[] {
 }
 
 export function getPageManifestBySlug(slug: string): ChampagnePageManifest | undefined {
+  const normalizedSlug = normalizeSlug(slug);
+
   for (const collection of pageCollections) {
-    const match = Object.values(collection).find((entry) => entry.path === slug);
+    const match = Object.values(collection).find((entry) => entry.path === normalizedSlug);
     if (match) return match;
   }
   return undefined;
@@ -144,7 +335,25 @@ export function getHeroPresetForPage(slug: string): string | Record<string, unkn
 }
 
 export function getSectionStackForPage(slug: string): (ChampagnePageSection | string)[] | undefined {
-  return getPageManifestBySlug(slug)?.sections;
+  const normalizedSlug = normalizeSlug(slug);
+  const routeId = getRouteIdFromSlug(normalizedSlug);
+
+  const sectionLayout = getSectionLayoutByRoute(routeId);
+  if (sectionLayout) {
+    return buildSectionsFromLayout(sectionLayout);
+  }
+
+  const pageManifest = getPageManifestBySlug(normalizedSlug);
+  if (pageManifest?.sections) {
+    return pageManifest.sections;
+  }
+
+  const defaultEntry = getPageTypeDefault(routeId);
+  if (defaultEntry) {
+    return buildSectionsFromDefaults(defaultEntry);
+  }
+
+  return undefined;
 }
 
 export { champagneMachineManifest };

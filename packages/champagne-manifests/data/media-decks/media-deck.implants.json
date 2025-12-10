@@ -1,0 +1,36 @@
+{
+  "mediaDeckId": "smh.implants.primary",
+  "tenantId": "smh-dental",
+  "usage": {
+    "primaryRouteId": "treatments.implants",
+    "context": ["hero", "sectionBackground", "explainer"]
+  },
+  "assets": {
+    "heroLoop": "media.implants.heroLoop",
+    "heroStill": "media.implants.heroStill",
+    "backgroundLoops": [
+      "media.implants.waveBackdropSlow",
+      "media.implants.labBenchSoft"
+    ],
+    "broll": [
+      "media.implants.cbctSpin",
+      "media.implants.labHands",
+      "media.implants.smileReveal"
+    ],
+    "viewer3d": [
+      "3d.implants.implant_single_crown_exploded_v1",
+      "3d.implants.implant_full_arch_on_bar_turntable_v1"
+    ]
+  },
+  "prmVariants": {
+    "staticHero": "media.implants.heroStill",
+    "staticBackgrounds": ["media.implants.heroStill"]
+  },
+  "captions": [
+    {
+      "id": "heroCaption",
+      "label": "A calm, cinematic look at how implants restore your bite.",
+      "usageHint": "Optional ALT-style description or voiceover script line."
+    }
+  ]
+}

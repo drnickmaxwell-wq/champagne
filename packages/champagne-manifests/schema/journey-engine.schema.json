@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Champagne Journey Engine",
+  "type": "object",
+  "properties": {
+    "journeyId": { "type": "string" },
+    "tenantId": { "type": "string" },
+    "label": { "type": "string" },
+    "description": { "type": "string" },
+    "entryConditions": {
+      "type": "object",
+      "properties": {
+        "routes": { "type": "array", "items": { "type": "string" } },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "steps"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "enum": ["educational", "calming", "exploratory", "post-consult", "finance"]
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "componentId"],
+              "properties": {
+                "id": { "type": "string" },
+                "componentId": { "type": "string" },
+                "variantId": { "type": "string" },
+                "order": { "type": "number" },
+                "uiHints": {
+                  "type": "object",
+                  "properties": {
+                    "layout": { "type": "string" },
+                    "emotionalLightingPreset": { "type": "string" },
+                    "persona": { "type": "string" }
+                  }
+                },
+                "eventsOnComplete": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              }
+            }
+          },
+          "transitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["on", "targetStateId"],
+              "properties": {
+                "on": { "type": "string" },
+                "targetStateId": { "type": "string" },
+                "conditions": {
+                  "type": "object",
+                  "properties": {
+                    "quizAnswersInclude": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "tagsInclude": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "exitConditions": {
+      "type": "object",
+      "properties": {
+        "onCompletedStates": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": ["journeyId", "tenantId", "states"]
+}

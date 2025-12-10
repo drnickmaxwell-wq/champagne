@@ -1,0 +1,59 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.implants",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "implants-hero",
+      "componentId": "hero_treatment_sacred",
+      "variantId": "sacred.treatment.implants",
+      "order": 10,
+      "seoRole": "hero",
+      "slot": "aboveFold"
+    },
+    {
+      "instanceId": "implants-intro",
+      "componentId": "section_treatment_intro",
+      "variantId": "implants_overview",
+      "order": 20,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "implants-before-after",
+      "componentId": "section_before_after_grid",
+      "variantId": "implants_cases",
+      "order": 30,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "implants-steps",
+      "componentId": "section_implant_steps",
+      "variantId": "standard_path",
+      "order": 40,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "implants-finance",
+      "componentId": "section_finance_summary",
+      "variantId": "implants",
+      "order": 50,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "implants-faq",
+      "componentId": "section_faq",
+      "variantId": "implants",
+      "order": 60,
+      "seoRole": "faq"
+    },
+    {
+      "instanceId": "implants-cta",
+      "componentId": "section_contact_cta",
+      "variantId": "implants_priority",
+      "order": 70,
+      "seoRole": "cta",
+      "slot": "footer"
+    }
+  ]
+}
