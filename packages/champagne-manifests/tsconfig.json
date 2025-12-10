@@ -8,5 +8,8 @@
     "src/**/*",
     "data/**/*.json",
     "schema/**/*.json"
+  ],
+  "exclude": [
+    "src/__tests__"
   ]
 }

@@ -1,0 +1,56 @@
+{
+  "$schema": "../schema/section-manifest.schema.json",
+  "id": "section-fx.defaults",
+  "description": "Default FX configuration per section type for Champagne Sections.",
+  "version": 1,
+  "fxDefaults": {
+    "overview-rich": {
+      "parallax": 0.25,
+      "fadeIn": true,
+      "spotlight": false,
+      "shimmer": false
+    },
+    "feature-list": {
+      "parallax": 0.15,
+      "fadeIn": true,
+      "spotlight": false,
+      "shimmer": false
+    },
+    "media-block": {
+      "parallax": 0.3,
+      "fadeIn": true,
+      "spotlight": true,
+      "shimmer": false
+    },
+    "tools-trio": {
+      "parallax": 0.2,
+      "fadeIn": true,
+      "spotlight": false,
+      "shimmer": false
+    },
+    "patient-stories": {
+      "parallax": 0.18,
+      "fadeIn": true,
+      "spotlight": false,
+      "shimmer": false
+    },
+    "faq": {
+      "parallax": false,
+      "fadeIn": true,
+      "spotlight": false,
+      "shimmer": false
+    },
+    "closing-cta": {
+      "parallax": 0.12,
+      "fadeIn": true,
+      "spotlight": true,
+      "shimmer": true
+    },
+    "treatment-media-feature": {
+      "parallax": 0.28,
+      "fadeIn": true,
+      "spotlight": true,
+      "shimmer": false
+    }
+  }
+}

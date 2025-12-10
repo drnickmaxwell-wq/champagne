@@ -9,6 +9,8 @@ import type {
   ChampagneSectionLayout,
   ChampagneSectionLayoutSection,
   ChampagneSectionLibrary,
+  ChampagneSectionFxDefaultsManifest,
+  ChampagneSectionPrmDefaultsManifest,
   ChampagneStylesManifest,
 } from "./core";
 import {
@@ -16,6 +18,8 @@ import {
   champagneMediaDeckManifests,
   champagneJourneyManifests,
   champagnePageTypeDefaults,
+  champagneSectionFxDefaults,
+  champagneSectionPrmDefaults,
   champagneSectionLayouts,
   champagneSectionLibrary,
   champagneStylesManifest,
@@ -276,6 +280,14 @@ export function getSectionLayoutSections(
 
 export function getPageTypeDefaults(): ChampagnePageTypeDefaults {
   return champagnePageTypeDefaults as ChampagnePageTypeDefaults;
+}
+
+export function getSectionFxDefaults(): ChampagneSectionFxDefaultsManifest {
+  return champagneSectionFxDefaults as ChampagneSectionFxDefaultsManifest;
+}
+
+export function getSectionPrmDefaults(): ChampagneSectionPrmDefaultsManifest {
+  return champagneSectionPrmDefaults as ChampagneSectionPrmDefaultsManifest;
 }
 
 export function getJourneys(): ChampagneJourneyManifest[] {
