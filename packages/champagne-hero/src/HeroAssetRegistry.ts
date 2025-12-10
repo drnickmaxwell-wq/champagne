@@ -26,3 +26,16 @@ export function resolveHeroAsset(id?: string | null): string | undefined {
   if (id.startsWith("/")) return id;
   return assetMap[id] ?? `/assets/champagne/${id}`;
 }
+
+/**
+ * Backwards-compatible helper for the old hero engine. In earlier versions, the
+ * helper to resolve an asset ID was named `ensureHeroAssetPath`.  The new
+ * Sacred Hero engine uses `resolveHeroAsset` instead.  This wrapper simply
+ * delegates to `resolveHeroAsset` so that existing imports continue to work.
+ *
+ * @param id The asset ID or path to resolve.
+ * @returns A relative URL path or undefined if no ID was provided.
+ */
+export function ensureHeroAssetPath(id?: string | null): string | undefined {
+  return resolveHeroAsset(id ?? undefined);
+}
