@@ -1,4 +1,4 @@
-import { HeroRenderer } from "../../components/hero/HeroRenderer";
+import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 import type { CSSProperties } from "react";
 
