@@ -79,6 +79,34 @@ function resolveUrl(entry: any): string | undefined {
   return undefined;
 }
 
+function mapRuntimeLayer(entry: any): RuntimeLayer {
+  const inferredType = entry?.type ?? entry?.mediaType;
+  const candidateUrl = entry?.url ?? entry?.path;
+  const isVideoPath = typeof candidateUrl === "string" && /\.(mp4|webm|mov)(\?.*)?$/i.test(candidateUrl);
+  const isGradient = typeof candidateUrl === "string" && candidateUrl.includes("gradient");
+  const resolvedType: RuntimeLayer["type"] = ["gradient", "image", "video"].includes(inferredType)
+    ? (inferredType as RuntimeLayer["type"])
+    : isVideoPath
+      ? "video"
+      : isGradient
+        ? "gradient"
+        : candidateUrl
+          ? "image"
+          : "unknown";
+
+  return {
+    id: entry?.id ?? entry?.token,
+    role: entry?.role,
+    type: resolvedType,
+    url: entry?.url ?? resolveUrl(entry),
+    opacity: entry?.opacity,
+    zIndex: entry?.zIndex,
+    blendMode: entry?.blendMode as CSSProperties["mixBlendMode"],
+    prmSafe: entry?.prmSafe,
+    className: entry?.className ?? "hero-layer",
+  } satisfies RuntimeLayer;
+}
+
 function buildLegacyLayers(
   surfaces: any,
   motion: any,
@@ -116,6 +144,18 @@ function buildLegacyLayers(
     (motion?.particles?.density ?? 1) * (surfaces?.particles?.opacity ?? 1) * 0.35,
   );
 
+  const tokenClassNames: Record<string, string> = {
+    "gradient.base": "hero-layer hero-layer--gradient",
+    "field.waveBackdrop": "hero-layer hero-layer--wave-backdrop",
+    "mask.waveHeader": "hero-layer hero-layer--wave-mask",
+    "field.waveRings": "hero-layer hero-layer--wave-rings",
+    "field.dotGrid": "hero-layer hero-layer--dot-grid",
+    "overlay.particles": "hero-layer hero-layer--particles",
+    "overlay.filmGrain": "hero-layer hero-layer--grain",
+    "overlay.caustics": "hero-layer hero-layer--caustics motion",
+    "hero.contentFrame": "hero-layer hero-layer--content",
+  };
+
   const layerStyles: Record<string, Partial<RuntimeLayer>> = {
     "gradient.base": { type: "gradient", url: gradient },
     "field.waveBackdrop": {
@@ -147,12 +187,14 @@ function buildLegacyLayers(
       url: shouldShowParticles ? resolveUrl(surfaces?.particles) : undefined,
       opacity: particleOpacity,
       blendMode: (surfaces?.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
+      prmSafe: surfaces?.particles?.prmSafe,
     },
     "overlay.filmGrain": {
       type: "image",
       url: shouldShowGrain ? resolveUrl(surfaces?.grain?.desktop) : undefined,
       opacity: grainOpacity,
       blendMode: (surfaces?.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
+      prmSafe: surfaces?.grain?.desktop?.prmSafe,
     },
     "overlay.caustics": { type: "video", opacity: causticsOpacity, blendMode: "screen" },
     "hero.contentFrame": { type: "unknown" },
@@ -166,7 +208,7 @@ function buildLegacyLayers(
     return {
       id: token,
       role: layer.role,
-      className: layer.className ?? "hero-layer",
+      className: layer.className ?? tokenClassNames[token] ?? "hero-layer",
       type: motionEntry ? "video" : baseStyle.type ?? "unknown",
       url: motionEntry?.path ?? urlFromStyle,
       opacity: motionEntry
@@ -176,7 +218,7 @@ function buildLegacyLayers(
         ? (motionEntry.blendMode as CSSProperties["mixBlendMode"])
         : baseStyle.blendMode,
       zIndex: layer.zIndex,
-      prmSafe: layer.prmSafe,
+      prmSafe: layer.prmSafe ?? baseStyle.prmSafe,
     } satisfies RuntimeLayer;
   });
 
@@ -188,7 +230,7 @@ function buildLegacyLayers(
       url: videoEntry.path,
       opacity: videoEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85,
       blendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
-      className: "hero-layer hero-layer--video",
+      className: "hero-layer hero-layer--video motion",
       prmSafe: videoEntry.prmSafe,
     });
   }
@@ -199,13 +241,24 @@ function buildLegacyLayers(
       id: entry.id,
       role: entry.role ?? "motion",
       type: "video",
-      url: entry.path,
+      url: entry.path ?? resolveUrl(entry),
       opacity: entry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85,
       blendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-      className: entry.className ?? "hero-layer hero-layer--motion",
+      className: entry.className ?? "hero-layer hero-layer--motion motion",
       prmSafe: entry.prmSafe,
     });
   });
+
+  if (!surfaceStack.some((layer: any) => (layer.token ?? layer.id) === "gradient.base")) {
+    layers.unshift({
+      id: "gradient.base",
+      type: "gradient",
+      url: gradient,
+      className: tokenClassNames["gradient.base"],
+      role: "background",
+      prmSafe: true,
+    });
+  }
 
   return layers;
 }
@@ -246,17 +299,23 @@ export function HeroRenderer({
   const motion = runtimeAny.motion ?? {};
   const filmGrainSettings = runtimeAny.filmGrain ?? {};
   const gradient = runtimeAny.gradient ?? surfaces.gradient ?? "var(--smh-gradient)";
-  const prmEnabled = Boolean(runtimeAny.flags?.prm);
+  const flags = runtimeAny.flags ?? { prm: false };
+  const prmEnabled = Boolean(flags.prm);
+  const runtimeLayers = Array.isArray(runtimeAny.layers)
+    ? (runtimeAny.layers as any[]).map((layer) => mapRuntimeLayer(layer))
+    : null;
 
   const resolvedLayers: RuntimeLayer[] = (
-    Array.isArray(runtimeAny.layers) && runtimeAny.layers.length > 0
-      ? (runtimeAny.layers as RuntimeLayer[])
+    runtimeLayers && runtimeLayers.length > 0
+      ? runtimeLayers
       : buildLegacyLayers(surfaces, motion, filmGrainSettings, opacityBoost)
   ).filter((layer) => {
     if (!layer) return false;
-    if (prmEnabled && layer.type === "video" && layer.prmSafe === false) return false;
+    if (prmEnabled && layer.prmSafe === false) return false;
+    if (prmEnabled && layer.type === "video" && layer.prmSafe !== true) return false;
     if (layer.role === "motion" && prmEnabled && layer.prmSafe === false) return false;
     if (layer.type === "video" && !layer.url) return false;
+    if (layer.type === "gradient" && !layer.url) return false;
     return true;
   });
 
@@ -292,6 +351,22 @@ export function HeroRenderer({
               background-size: cover;
               background-position: center;
               pointer-events: none;
+            }
+            .hero-renderer .hero-layer--gradient {
+              background-repeat: no-repeat;
+            }
+            .hero-renderer .hero-layer--wave-backdrop,
+            .hero-renderer .hero-layer--wave-mask,
+            .hero-renderer .hero-layer--wave-rings,
+            .hero-renderer .hero-layer--dot-grid,
+            .hero-renderer .hero-layer--particles,
+            .hero-renderer .hero-layer--grain,
+            .hero-renderer .hero-layer--caustics {
+              background-repeat: no-repeat;
+            }
+            .hero-renderer .hero-layer--wave-mask {
+              background-size: contain;
+              background-position: top center;
             }
             .hero-renderer .hero-layer.video,
             .hero-renderer .hero-layer.motion {
