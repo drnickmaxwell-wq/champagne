@@ -23,5 +23,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run verify
-        run: npm run verify
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run hero guard
+        run: npm run guard:hero
+
+      - name: Build web workspace
+        run: npm run build --workspace web
+
+      - name: Run remaining guards
+        run: npm run guard:all
