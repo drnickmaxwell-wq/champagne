@@ -68,117 +68,59 @@ export async function HeroRenderer({
 
   if (!runtime) return <HeroFallback />;
 
-  const { content, surfaces, layout, motion, filmGrain: filmGrainSettings } = runtime;
-  const opacityBoost = Math.max(debugOpacityBoost, 0.01);
+  const { content, surfaces, layout } = runtime;
   const gradient = surfaces.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
-  const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
-  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
-  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
-  const causticsOpacity = applyBoost(
-    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
-  );
-  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
-  const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
-  const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
-    const token = layer.token ?? layer.id;
-    if (layer.suppressed) return false;
-    if (token === "overlay.particles" && !shouldShowParticles) return false;
-    if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
-    return true;
-  });
   const prmEnabled = runtime.flags.prm;
-  const grainOpacity = applyBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1));
-  const particleOpacity = applyBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
+  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * Math.max(debugOpacityBoost, 0.01));
+  const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => !layer.suppressed);
 
-  const surfaceVars: CSSProperties = {
-    ["--hero-gradient" as string]: gradient,
-    ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
-      ? `url(${surfaces.waveMask.desktop.path})`
-      : surfaces.waveMask?.desktop?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
-        : undefined,
-    ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
-      ? `url(${surfaces.waveMask.mobile.path})`
-      : surfaces.waveMask?.mobile?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)})`
-        : undefined,
-    ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
-      ? `url(${surfaces.background.desktop.path})`
-      : surfaces.background?.desktop?.id
-        ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
-        : undefined,
-    ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
-      ? `url(${surfaces.background.mobile.path})`
-      : surfaces.background?.mobile?.id
-        ? `url(${ensureHeroAssetPath(surfaces.background.mobile.id)})`
-        : undefined,
-    ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
-      ? `url(${surfaces.overlays.field.path})`
-      : surfaces.overlays?.field?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
-        : undefined,
-    ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
-      ? `url(${surfaces.overlays.dots.path})`
-      : surfaces.overlays?.dots?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
-        : undefined,
-    ["--hero-particles" as string]: shouldShowParticles && surfaces.particles?.path
-      ? `url(${surfaces.particles.path})`
-      : shouldShowParticles && surfaces.particles?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
-        : undefined,
-    ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
-      ? `url(${surfaces.grain.desktop.path})`
-      : surfaces.grain?.desktop?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
-        : undefined,
-    ["--hero-grain-mobile" as string]: surfaces.grain?.mobile?.path
-      ? `url(${surfaces.grain.mobile.path})`
-      : surfaces.grain?.mobile?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)})`
-        : undefined,
-    ["--hero-film-grain-opacity" as string]: grainOpacity,
-    ["--hero-film-grain-blend" as string]: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
-    ["--hero-particles-opacity" as string]: particleOpacity,
-    ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
-    ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
-    ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
+  const resolveAssetUrl = (entry?: { path?: string; id?: string; asset?: { id?: string } }) => {
+    if (!entry) return undefined;
+    if (entry.path) return entry.path;
+    if (entry.asset?.id) return ensureHeroAssetPath(entry.asset.id);
+    if (entry.id) return ensureHeroAssetPath(entry.id);
+    return undefined;
   };
 
-  const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": {},
-    "field.waveBackdrop": {
-      mixBlendMode: waveBackdropBlend ?? "screen",
-      opacity: waveBackdropOpacity,
-    },
-    "mask.waveHeader": {
-      mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
-    },
-    "field.waveRings": {
-      mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.overlays?.field?.opacity),
-    },
-    "field.dotGrid": {
-      mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.overlays?.dots?.opacity),
-    },
-    "overlay.particles": {
-      mixBlendMode: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
-      opacity: particleOpacity,
-    },
-    "overlay.filmGrain": {
-      mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
-      opacity: grainOpacity,
-    },
-    "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
-    "hero.contentFrame": {
-      background: "var(--champagne-glass-bg, var(--surface-glass))",
-      backdropFilter: "blur(18px)",
-      WebkitBackdropFilter: "blur(18px)",
-    },
+  const layerSources: Record<string, string | undefined> = {
+    "gradient.base": gradient,
+    "field.waveBackdrop": resolveAssetUrl(surfaces.background?.desktop ?? surfaces.background),
+    "mask.waveHeader": undefined,
+    "field.waveRings": resolveAssetUrl(surfaces.overlays?.field),
+    "field.dotGrid": resolveAssetUrl(surfaces.overlays?.dots),
+    "overlay.particles": resolveAssetUrl(surfaces.particles),
+    "overlay.filmGrain": resolveAssetUrl(surfaces.grain?.desktop ?? surfaces.grain),
+    "overlay.caustics": "/assets/champagne/textures/wave-light-overlay.webp",
+  };
+
+  const fallbackPoster =
+    resolveAssetUrl(surfaces.video?.poster ?? surfaces.background?.desktop) ??
+    resolveAssetUrl(surfaces.background?.mobile);
+
+  const forcedStyleForLayer = (token?: string, override?: CSSProperties): CSSProperties => {
+    const source = token ? layerSources[token] : undefined;
+    const isGradient = token === "gradient.base";
+    const backgroundImage = !isGradient && source ? `url(${source})` : undefined;
+    return {
+      position: "absolute",
+      inset: 0,
+      background: isGradient ? gradient : undefined,
+      backgroundImage,
+      backgroundRepeat: isGradient ? undefined : "no-repeat",
+      backgroundSize: isGradient ? undefined : "cover",
+      backgroundPosition: isGradient ? undefined : "center",
+      opacity: isGradient ? 1 : applyBoost(0.8),
+      mixBlendMode: "normal",
+      pointerEvents: "none",
+      WebkitMaskImage: "none",
+      maskImage: "none",
+      clipPath: "none",
+      filter: "none",
+      transform: "none",
+      ...override,
+    };
   };
 
   return (
@@ -188,9 +130,13 @@ export async function HeroRenderer({
         minHeight: "72vh",
         display: "grid",
         alignItems: layout.contentAlign === "center" ? "center" : "stretch",
-        overflow: "hidden",
-        background: "var(--hero-gradient, var(--smh-gradient))",
-        ["--hero-gradient" as string]: gradient,
+        overflow: "visible",
+        background: gradient,
+        position: "relative",
+        isolation: "unset",
+        contain: "none",
+        transform: "none",
+        filter: "none",
       }}
       className="hero-renderer"
     >
@@ -200,38 +146,31 @@ export async function HeroRenderer({
             .hero-renderer {
               position: relative;
               color: var(--text-high);
+              overflow: visible;
+              isolation: unset;
+              contain: none;
+              transform: none;
+              filter: none;
             }
             .hero-renderer .hero-surface-stack {
               position: absolute;
               inset: 0;
               z-index: 0;
+              pointer-events: none;
             }
             .hero-renderer .hero-layer,
             .hero-renderer .hero-surface-layer {
               position: absolute;
               inset: 0;
               z-index: 0;
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-              background-image: var(--hero-wave-background-desktop);
-              background-size: cover;
               background-position: center;
-              mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
-              opacity: var(--surface-opacity-waveBackdrop, 0.55);
-              z-index: var(--surface-zindex-waveBackdrop, 2);
-            }
-            .hero-renderer .hero-layer.motion,
-            .hero-renderer .hero-surface-layer.hero-surface--motion {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
+              background-repeat: no-repeat;
+              background-size: cover;
+              mix-blend-mode: normal;
+              -webkit-mask-image: none;
+              mask-image: none;
+              clip-path: none;
               pointer-events: none;
-            }
-            .hero-surface-layer {
-              pointer-events: none;
-            }
-            .hero-renderer [data-surface-role="fx"] {
-              mix-blend-mode: screen;
             }
             .hero-renderer .hero-content {
               position: relative;
@@ -243,20 +182,12 @@ export async function HeroRenderer({
               transform: translateY(${layout.verticalOffset ?? "0px"});
             }
             @media (max-width: 640px) {
-              .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-                background-image: var(--hero-wave-background-mobile);
-              }
               .hero-renderer .hero-content {
                 padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
               }
               .hero-renderer {
                 min-height: 68vh;
               }
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .hero-renderer .hero-layer.motion,
-              .hero-renderer .hero-surface--motion { display: none; }
-              .hero-surface-layer.hero-surface--particles { opacity: 0.12; }
             }
           `,
         }}
@@ -266,7 +197,6 @@ export async function HeroRenderer({
         aria-hidden
         className="hero-surface-stack"
         data-prm={prmEnabled ? "true" : "false"}
-        style={surfaceVars}
       >
         {surfaceStack.map((layer) => (
           <div
@@ -275,46 +205,31 @@ export async function HeroRenderer({
             data-surface-role={layer.role}
             data-prm-safe={layer.prmSafe ? "true" : undefined}
             className={layer.className ?? "hero-surface-layer"}
-            style={layer.token ? layerStyles[layer.token] : undefined}
+            style={forcedStyleForLayer(layer.token ?? layer.id, { zIndex: layer.zIndex })}
           />
         ))}
 
         {videoEntry?.path && (
-          <video
+          <div
             className="hero-surface-layer hero-surface--motion"
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            poster={surfaces.background?.desktop?.path}
             data-surface-id="motion.heroVideo"
-            style={{
-              mixBlendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: videoEntry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-            }}
-          >
-            <source src={videoEntry.path} />
-          </video>
+            style={forcedStyleForLayer("motion.heroVideo", {
+              zIndex: videoEntry.zIndex ?? 1,
+              backgroundImage: fallbackPoster ? `url(${fallbackPoster})` : undefined,
+            })}
+          />
         )}
 
         {motionEntries.map((entry) => (
-          <video
+          <div
             key={entry.id}
             className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
             data-surface-id={entry.id}
-            style={{
-              mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-            }}
-          >
-            <source src={entry.path} />
-          </video>
+            style={forcedStyleForLayer(entry.id, {
+              zIndex: entry.zIndex,
+              backgroundImage: fallbackPoster ? `url(${fallbackPoster})` : undefined,
+            })}
+          />
         ))}
 
       </div>

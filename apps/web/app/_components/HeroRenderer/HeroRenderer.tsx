@@ -13,7 +13,7 @@
  */
 
 import React, { type CSSProperties, useEffect, useMemo, useState } from "react";
-import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import { buildLayerStack } from "./layerUtils";
 
 export interface HeroRendererProps {
@@ -134,7 +134,7 @@ export function HeroRenderer({
   if (!runtime) return <HeroFallback />;
 
   const { content, layout } = runtime;
-  const { resolvedLayers, gradient, surfaceVars } = buildLayerStack({
+  const { resolvedLayers, gradient } = buildLayerStack({
     runtime,
     mode,
     particles,
@@ -143,6 +143,54 @@ export function HeroRenderer({
     includeFallback: mode === "home",
   });
 
+  const resolveAssetUrl = (entry?: { path?: string; id?: string; asset?: { id?: string } }) => {
+    if (!entry) return undefined;
+    if ((entry as any).path) return (entry as any).path as string;
+    if ((entry as any).asset?.id) return ensureHeroAssetPath((entry as any).asset.id as string);
+    if ((entry as any).id) return ensureHeroAssetPath((entry as any).id as string);
+    return undefined;
+  };
+
+  const fallbackPoster =
+    resolveAssetUrl((runtime as any)?.surfaces?.video?.poster ?? (runtime as any)?.surfaces?.background?.desktop) ??
+    resolveAssetUrl((runtime as any)?.surfaces?.background?.mobile);
+
+  const forcedStyleForLayer = (layer?: any): CSSProperties => {
+    const isGradient = layer?.type === "gradient";
+    const layerUrl = layer?.url;
+    const boost = Math.max(debugOpacityBoost ?? 1, 0.01);
+    const backgroundImage = isGradient
+      ? undefined
+      : layer?.type === "video"
+        ? fallbackPoster
+          ? `url(${fallbackPoster})`
+          : layerUrl
+            ? `url(${layerUrl})`
+            : undefined
+        : layerUrl
+          ? `url(${layerUrl})`
+          : undefined;
+
+    return {
+      position: "absolute",
+      inset: 0,
+      background: isGradient ? layerUrl ?? gradient : undefined,
+      backgroundImage,
+      backgroundRepeat: isGradient ? undefined : "no-repeat",
+      backgroundSize: isGradient ? undefined : "cover",
+      backgroundPosition: isGradient ? undefined : "center",
+      opacity: isGradient ? layer?.opacity ?? 1 : Math.min(1, 0.8 * boost),
+      mixBlendMode: "normal",
+      pointerEvents: "none",
+      WebkitMaskImage: "none",
+      maskImage: "none",
+      clipPath: "none",
+      filter: "none",
+      transform: "none",
+      zIndex: layer?.zIndex,
+    };
+  };
+
   return (
     <BaseChampagneSurface
       variant="inkGlass"
@@ -150,10 +198,13 @@ export function HeroRenderer({
         minHeight: "72vh",
         display: "grid",
         alignItems: layout?.contentAlign === "center" ? "center" : "stretch",
-        overflow: "hidden",
-        background: "var(--hero-gradient, var(--smh-gradient))",
-        ...surfaceVars,
-        ["--hero-gradient" as string]: gradient,
+        overflow: "visible",
+        background: gradient,
+        position: "relative",
+        isolation: "unset",
+        contain: "none",
+        transform: "none",
+        filter: "none",
       }}
       className="hero-renderer"
     >
@@ -163,61 +214,31 @@ export function HeroRenderer({
             .hero-renderer {
               position: relative;
               color: var(--text-high);
+              overflow: visible;
+              isolation: unset;
+              contain: none;
+              transform: none;
+              filter: none;
             }
             .hero-renderer .hero-layer-stack {
               position: absolute;
               inset: 0;
               z-index: 0;
+              pointer-events: none;
             }
             .hero-renderer .hero-layer,
             .hero-renderer .hero-surface-layer {
               position: absolute;
               inset: 0;
               z-index: 0;
-              background-size: cover;
               background-position: center;
               background-repeat: no-repeat;
+              background-size: cover;
+              mix-blend-mode: normal;
+              -webkit-mask-image: none;
+              mask-image: none;
+              clip-path: none;
               pointer-events: none;
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--gradient-field {
-              background-image: var(--hero-gradient, var(--smh-gradient));
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-              background-image: var(--hero-wave-background-desktop);
-              mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
-              opacity: var(--surface-opacity-waveBackdrop, 1);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-mask {
-              background-image: var(--hero-wave-mask-desktop);
-              background-size: contain;
-              background-position: top center;
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-field {
-              background-image: var(--hero-overlay-field);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--dot-field {
-              background-image: var(--hero-overlay-dots);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--particles {
-              background-image: var(--hero-particles);
-              mix-blend-mode: var(--hero-particles-blend, screen);
-              opacity: var(--hero-particles-opacity, 1);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--film-grain {
-              background-image: var(--hero-grain-desktop);
-              mix-blend-mode: var(--hero-film-grain-blend, soft-light);
-              opacity: var(--hero-film-grain-opacity, 1);
-            }
-            .hero-renderer .hero-layer.video,
-            .hero-renderer .hero-layer.motion,
-            .hero-renderer .hero-surface-layer.video,
-            .hero-renderer .hero-surface-layer.motion {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
-            }
-            .hero-renderer [data-layer-role="fx"] {
-              mix-blend-mode: screen;
             }
             .hero-renderer .hero-content {
               position: relative;
@@ -232,14 +253,8 @@ export function HeroRenderer({
               .hero-renderer .hero-content {
                 padding: clamp(1.5rem, 6vw, 2.5rem);
               }
-              .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-                background-image: var(--hero-wave-background-mobile);
-              }
-              .hero-renderer .hero-surface-layer.hero-surface--wave-mask {
-                background-image: var(--hero-wave-mask-mobile);
-              }
-              .hero-renderer .hero-surface-layer.hero-surface--film-grain {
-                background-image: var(--hero-grain-mobile);
+              .hero-renderer {
+                min-height: 68vh;
               }
             }
           `,
@@ -248,35 +263,6 @@ export function HeroRenderer({
 
       <div className="hero-layer-stack">
         {resolvedLayers.map((layer) => {
-          const commonStyle: CSSProperties = {
-            mixBlendMode: layer.blendMode,
-            opacity: layer.opacity ?? 1,
-            zIndex: layer.zIndex,
-          };
-
-          if (layer.type === "video") {
-            const className = layer.className
-              ? `${layer.className} video motion`
-              : "hero-layer hero-surface-layer video motion";
-            return (
-              <video
-                key={layer.id}
-                className={className}
-                autoPlay
-                playsInline
-                loop
-                muted
-                preload="metadata"
-                data-layer-id={layer.id}
-                data-layer-role={layer.role}
-                style={commonStyle}
-              >
-                <source src={layer.url} />
-              </video>
-            );
-          }
-
-          const backgroundImage = layer.type === "gradient" ? layer.url : layer.url ? `url(${layer.url})` : undefined;
           const className = layer.className ?? "hero-layer hero-surface-layer";
 
           return (
@@ -285,7 +271,7 @@ export function HeroRenderer({
               className={className}
               data-layer-id={layer.id}
               data-layer-role={layer.role}
-              style={{ ...commonStyle, backgroundImage }}
+              style={forcedStyleForLayer(layer)}
             />
           );
         })}
