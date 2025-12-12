@@ -1,5 +1,5 @@
 import ChampagnePageBuilder from "./(champagne)/_builder/ChampagnePageBuilder";
-import { HeroRenderer } from "./components/hero/HeroRenderer";
+import { HeroRenderer } from "./_components/HeroRenderer/HeroRenderer";
 import { isBrandHeroEnabled } from "./featureFlags";
 
 export default function Page() {

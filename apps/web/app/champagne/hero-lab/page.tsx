@@ -1,4 +1,4 @@
-import { HeroRenderer } from "../../components/hero/HeroRenderer";
+import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
 import type { HeroMode, HeroTimeOfDay } from "@champagne/hero";
 
 const TREATMENT_SLUGS: { label: string; slug: string }[] = [

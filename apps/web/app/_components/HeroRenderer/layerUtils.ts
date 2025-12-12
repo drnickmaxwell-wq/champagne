@@ -48,12 +48,18 @@ function resolveUrl(entry: any): string | undefined {
   if (entry.path) return entry.path;
   if (entry.asset?.id) return ensureHeroAssetPath(entry.asset.id) ?? PLACEHOLDER_ASSET;
   if (entry.id) return ensureHeroAssetPath(entry.id) ?? PLACEHOLDER_ASSET;
+  if (entry.desktop || entry.mobile) {
+    const prioritized = entry.desktop ?? entry.mobile;
+    return resolveUrl(prioritized);
+  }
   return undefined;
 }
 
 function mapRuntimeLayer(entry: any): RuntimeLayer {
   const inferredType = entry?.type ?? entry?.mediaType;
-  const candidateUrl = entry?.url ?? entry?.path;
+  const explicitUrl = typeof entry?.url === "string" ? entry.url : undefined;
+  const resolvedUrl = explicitUrl ?? resolveUrl(entry?.url ?? entry);
+  const candidateUrl = resolvedUrl;
   const isVideoPath = typeof candidateUrl === "string" && /\.(mp4|webm|mov)(\?.*)?$/i.test(candidateUrl);
   const isGradient = typeof candidateUrl === "string" && candidateUrl.includes("gradient");
   const resolvedType: RuntimeLayer["type"] = ["gradient", "image", "video"].includes(inferredType)
@@ -70,7 +76,7 @@ function mapRuntimeLayer(entry: any): RuntimeLayer {
     id: entry?.id ?? entry?.token,
     role: entry?.role,
     type: resolvedType,
-    url: entry?.url ?? resolveUrl(entry),
+    url: resolvedUrl,
     opacity: entry?.opacity,
     zIndex: entry?.zIndex,
     blendMode: entry?.blendMode as CSSProperties["mixBlendMode"],

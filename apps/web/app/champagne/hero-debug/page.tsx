@@ -2,6 +2,24 @@ import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
 import { buildLayerStack, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 
+function resolveAssetUrl(entry?: {
+  path?: string;
+  id?: string;
+  asset?: { id?: string };
+  desktop?: unknown;
+  mobile?: unknown;
+}): string | undefined {
+  if (!entry) return undefined;
+  if ((entry as any).path) return (entry as any).path as string;
+  if ((entry as any).asset?.id) return ensureHeroAssetPath((entry as any).asset.id as string);
+  if ((entry as any).id) return ensureHeroAssetPath((entry as any).id as string);
+  if ((entry as any).desktop || (entry as any).mobile) {
+    const prioritized = (entry as any).desktop ?? (entry as any).mobile;
+    return resolveAssetUrl(prioritized);
+  }
+  return undefined;
+}
+
 function parseToggle(value: string | string[] | undefined, defaultValue: boolean): boolean {
   if (value === undefined) return defaultValue;
   if (Array.isArray(value)) value = value[0];
@@ -93,9 +111,13 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
     opacityBoost,
     includeFallback: true,
   });
-  const surfaceStack = runtime.surfaces.surfaceStack ?? [];
+  const runtimeSurfaces = (runtime as any)?.surfaces ?? {};
+  const surfaceStack = runtimeSurfaces.surfaceStack ?? [];
+  const fallbackPoster =
+    resolveAssetUrl(runtimeSurfaces?.video?.poster ?? runtimeSurfaces?.background?.desktop) ??
+    resolveAssetUrl(runtimeSurfaces?.background?.mobile);
   const layerDiagnostics = layerStack.layerDiagnostics ?? layerStack.resolvedLayers;
-  const surfaceSummaries = surfaceStack.map((entry) => {
+  const surfaceSummaries = surfaceStack.map((entry: any) => {
     const token = entry.token ?? entry.id ?? "layer";
     const surfaceAsset = surfacePathForToken(token, runtime);
     return {
@@ -162,13 +184,14 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
             {layerDiagnostics.map((layer) => {
               const detail = describeLayer(layer);
               const isVideo = detail.type === "video";
-              const backgroundImage = !isVideo
-                ? detail.type === "gradient"
-                  ? detail.url
-                  : detail.url
-                    ? `url(${detail.url})`
-                    : undefined
-                : undefined;
+              const previewBackgroundImage = (() => {
+                if (detail.type === "gradient") return detail.url;
+                if (detail.type === "video") {
+                  const posterUrl = fallbackPoster ?? detail.url;
+                  return posterUrl ? `url(${posterUrl})` : undefined;
+                }
+                return detail.url ? `url(${detail.url})` : undefined;
+              })();
               const suppressed = Boolean(detail.suppressedReason);
               return (
                 <div
@@ -191,7 +214,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                       overflow: "hidden",
                       height: "120px",
                       backgroundColor: "rgba(255,255,255,0.05)",
-                      backgroundImage,
+                      backgroundImage: previewBackgroundImage,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       filter: suppressed ? "grayscale(1) opacity(0.35)" : undefined,
@@ -303,7 +326,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
               </tr>
             </thead>
             <tbody>
-              {surfaceSummaries.map((detail) => (
+              {surfaceSummaries.map((detail: any) => (
                 <tr key={detail.token}>
                   <td>{detail.token}</td>
                   <td>{detail.role ?? "—"}</td>
