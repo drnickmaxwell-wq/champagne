@@ -31,6 +31,125 @@ type RuntimeLayer = {
   className?: string;
 };
 
+type HeroFlags = { prm?: boolean };
+
+function buildFallbackLayers(options: {
+  flags: HeroFlags;
+  particles?: boolean;
+  filmGrain?: boolean;
+  opacityBoost?: number;
+}): RuntimeLayer[] {
+  const { flags, particles = true, filmGrain = true, opacityBoost = 1 } = options;
+  const prmEnabled = Boolean(flags?.prm);
+  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
+  const baseGradient = "var(--hero-gradient, var(--smh-gradient))";
+
+  const layers: RuntimeLayer[] = [
+    {
+      id: "gradient.base",
+      type: "gradient",
+      role: "background",
+      url: baseGradient,
+      opacity: 1,
+      className: "hero-layer hero-layer--gradient",
+      prmSafe: true,
+    },
+    {
+      id: "field.waveBackdrop",
+      type: "image",
+      role: "background",
+      url: "/assets/champagne/waves/waves-bg-2560.webp",
+      opacity: applyBoost(0.72),
+      blendMode: "screen",
+      className: "hero-layer hero-layer--wave-backdrop",
+      prmSafe: true,
+    },
+    {
+      id: "mask.waveHeader",
+      type: "image",
+      role: "fx",
+      url: "/assets/champagne/waves/wave-mask-desktop.webp",
+      opacity: applyBoost(0.75),
+      blendMode: "soft-light",
+      className: "hero-layer hero-layer--wave-mask",
+      prmSafe: true,
+    },
+    {
+      id: "field.waveRings",
+      type: "image",
+      role: "fx",
+      url: "/assets/champagne/waves/wave-field.svg",
+      opacity: applyBoost(0.55),
+      blendMode: "screen",
+      className: "hero-layer hero-layer--wave-rings",
+      prmSafe: true,
+    },
+    {
+      id: "field.dotGrid",
+      type: "image",
+      role: "fx",
+      url: "/assets/champagne/waves/wave-dots.svg",
+      opacity: applyBoost(0.42),
+      blendMode: "soft-light",
+      className: "hero-layer hero-layer--dot-grid",
+      prmSafe: true,
+    },
+  ];
+
+  if (particles) {
+    layers.push({
+      id: "overlay.particles",
+      type: "image",
+      role: "fx",
+      url: "/assets/champagne/particles/home-hero-particles.webp",
+      opacity: applyBoost(0.35),
+      blendMode: "screen",
+      className: "hero-layer hero-layer--particles",
+      prmSafe: true,
+    });
+  }
+
+  if (filmGrain) {
+    layers.push({
+      id: "overlay.filmGrain",
+      type: "image",
+      role: "fx",
+      url: "/assets/champagne/film-grain/film-grain-desktop.webp",
+      opacity: applyBoost(0.32),
+      blendMode: "soft-light",
+      className: "hero-layer hero-layer--grain",
+      prmSafe: true,
+    });
+  }
+
+  if (!prmEnabled) {
+    layers.push(
+      {
+        id: "overlay.caustics",
+        type: "video",
+        role: "motion",
+        url: "/assets/champagne/motion/wave-caustics.webm",
+        opacity: applyBoost(0.82),
+        blendMode: "screen",
+        className: "hero-layer hero-layer--caustics motion",
+        prmSafe: false,
+      },
+      {
+        id: "motion.shimmer",
+        type: "video",
+        role: "motion",
+        url: "/assets/champagne/motion/glass-shimmer.webm",
+        opacity: applyBoost(0.55),
+        blendMode: "screen",
+        className: "hero-layer hero-layer--motion motion",
+        prmSafe: false,
+      },
+    );
+  }
+
+  return layers;
+}
+
 function HeroFallback() {
   return (
     <BaseChampagneSurface
@@ -299,16 +418,29 @@ export function HeroRenderer({
   const motion = runtimeAny.motion ?? {};
   const filmGrainSettings = runtimeAny.filmGrain ?? {};
   const gradient = runtimeAny.gradient ?? surfaces.gradient ?? "var(--smh-gradient)";
-  const flags = runtimeAny.flags ?? { prm: false };
+  const flags: HeroFlags = runtimeAny.flags ?? { prm: false };
   const prmEnabled = Boolean(flags.prm);
-  const runtimeLayers = Array.isArray(runtimeAny.layers)
+  let runtimeLayers = Array.isArray(runtimeAny.layers)
     ? (runtimeAny.layers as any[]).map((layer) => mapRuntimeLayer(layer))
     : null;
+
+  const fallbackLayers =
+    mode === "home"
+      ? buildFallbackLayers({
+          flags,
+          particles,
+          filmGrain,
+          opacityBoost,
+        })
+      : [];
+  const legacyLayers = buildLegacyLayers(surfaces, motion, filmGrainSettings, opacityBoost);
 
   const resolvedLayers: RuntimeLayer[] = (
     runtimeLayers && runtimeLayers.length > 0
       ? runtimeLayers
-      : buildLegacyLayers(surfaces, motion, filmGrainSettings, opacityBoost)
+      : fallbackLayers.length > 0
+        ? fallbackLayers
+        : legacyLayers
   ).filter((layer) => {
     if (!layer) return false;
     if (prmEnabled && layer.prmSafe === false) return false;
