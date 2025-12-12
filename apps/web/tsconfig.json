@@ -16,7 +16,9 @@
       "@champagne/manifests": ["../../packages/champagne-manifests/src"],
       "@champagne/hero": ["../../packages/champagne-hero/src"],
       "@champagne/sections": ["../../packages/champagne-sections/src"],
-      "@champagne/cta": ["../../packages/champagne-cta/src"]
+      "@champagne/cta": ["../../packages/champagne-cta/src"],
+      "next": ["./node_modules/next"],
+      "next/*": ["./node_modules/next/*"]
     },
     "plugins": [
       {
