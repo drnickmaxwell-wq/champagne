@@ -19,6 +19,42 @@ export type HeroFlags = { prm?: boolean };
 
 const PLACEHOLDER_ASSET = "/assets/champagne/waves/waves-bg-1920.webp";
 
+const MOTION_TOKEN_ALIASES: Record<string, string[]> = {
+  "overlay.caustics": ["sacred.motion.waveCaustics"],
+  "overlay.glassShimmer": ["sacred.motion.glassShimmer"],
+  "overlay.goldDust": ["sacred.motion.goldDust"],
+  "overlay.particlesDrift": ["sacred.motion.particleDrift"],
+  "hero.video": ["sacred.motion.heroVideo"],
+};
+
+function normalizeTokenSlug(token?: string): string {
+  if (!token) return "";
+  return token
+    .split(".")
+    .pop()
+    ?.replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/\./g, "-")
+    .toLowerCase()
+    ?? "";
+}
+
+function matchMotionEntry(token: string, motionEntries: any[]): any | undefined {
+  const tokenSlug = normalizeTokenSlug(token);
+  const aliases = MOTION_TOKEN_ALIASES[token] ?? [];
+  return motionEntries.find((entry: any) => {
+    const candidateIds = [entry?.id, entry?.token, entry?.asset?.id].filter(Boolean) as string[];
+    const className: string = entry?.className ?? "";
+    if (candidateIds.some((id) => id === token || aliases.includes(id))) return true;
+    if (aliases.some((alias) => candidateIds.some((id) => typeof id === "string" && id.includes(alias)))) return true;
+    if (tokenSlug && className.includes(tokenSlug)) return true;
+    return false;
+  });
+}
+
+export function resolveMotionEntry(token: string, motionEntries: any[]): any | undefined {
+  return matchMotionEntry(token, motionEntries);
+}
+
 function resolveUrl(entry: any): string | undefined {
   if (!entry) return undefined;
   if (entry.path) return entry.path;
@@ -169,7 +205,7 @@ function buildLegacyLayers(
   const layers: RuntimeLayer[] = surfaceStack.map((layer: any) => {
     const token = layer.token ?? layer.id ?? "layer";
     const baseStyle = layerStyles[token] ?? { type: "unknown" };
-    const motionEntry = motionEntries.find((entry: any) => entry.id === token);
+    const motionEntry = matchMotionEntry(token, motionEntries);
     const urlFromStyle = baseStyle.url ?? resolveUrl(motionEntry);
     const opacityFromMotion = motionEntry
       ? motionEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85
@@ -203,9 +239,11 @@ function buildLegacyLayers(
   }
 
   motionEntries.forEach((entry: any) => {
-    if (layers.some((layer) => layer.id === entry.id)) return;
+    const inferredToken = Object.entries(MOTION_TOKEN_ALIASES).find(([, ids]) => ids.includes(entry?.id))?.[0];
+    const layerId = entry.token ?? inferredToken ?? entry.id;
+    if (layers.some((layer) => layer.id === layerId)) return;
     layers.push({
-      id: entry.id,
+      id: layerId,
       role: entry.role ?? "motion",
       type: "video",
       url: entry.path ?? resolveUrl(entry),

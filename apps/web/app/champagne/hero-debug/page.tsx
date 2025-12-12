@@ -1,5 +1,5 @@
 import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
-import { buildLayerStack, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
+import { buildLayerStack, resolveMotionEntry, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 
 function parseToggle(value: string | string[] | undefined, defaultValue: boolean): boolean {
@@ -18,6 +18,7 @@ function surfacePathForToken(token: string, runtime: Awaited<ReturnType<typeof g
   assetId?: string;
   path?: string;
   motion?: boolean;
+  className?: string;
 } {
   const surfaces = runtime.surfaces;
   if (token === "gradient.base") return { assetId: "css", path: surfaces.gradient };
@@ -46,9 +47,14 @@ function surfacePathForToken(token: string, runtime: Awaited<ReturnType<typeof g
     return { assetId: grain?.asset?.id ?? grain?.id, path: grain?.path ?? ensureHeroAssetPath(grain?.id) };
   }
 
-  const motion = (surfaces.motion ?? []).find((entry) => entry.id === token);
+  const motion = resolveMotionEntry(token, surfaces.motion ?? []);
   if (motion) {
-    return { assetId: motion.asset?.id ?? motion.id, path: motion.path, motion: true };
+    return {
+      assetId: motion.asset?.id ?? motion.id,
+      path: motion.path ?? ensureHeroAssetPath(motion.asset?.id ?? motion.id),
+      motion: true,
+      className: motion.className,
+    };
   }
 
   return {};
@@ -167,6 +173,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                   ? `url(${detail.url})`
                   : undefined;
               const suppressed = Boolean(detail.suppressedReason);
+              const tokenSlug = detail.id?.split(".").pop();
               return (
                 <div
                   key={detail.id}
@@ -205,26 +212,34 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                       />
                     ) : null}
                   </div>
-                  <div style={{ display: "grid", gap: "0.25rem", fontSize: "0.95rem" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", gap: "0.35rem" }}>
-                      <strong>{detail.id}</strong>
-                      <span style={{ color: "var(--text-medium)", fontSize: "0.85rem" }}>{detail.role || "—"}</span>
-                    </div>
-                    <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
-                      Type: {detail.type} · Blend: {detail.blendMode ?? "—"}
-                    </div>
-                    <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
-                      Opacity: {detail.opacity !== undefined ? detail.opacity.toFixed(2) : "—"}
-                      {suppressed ? " (suppressed)" : ""}
-                    </div>
-                    <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
-                      Z: {detail.zIndex ?? "auto"} · PRM safe: {detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}
-                    </div>
-                    {suppressed ? (
-                      <div style={{ color: "var(--warning-amber, #f8d87c)", fontSize: "0.9rem" }}>
-                        {detail.suppressedReason}
+                    <div style={{ display: "grid", gap: "0.25rem", fontSize: "0.95rem" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", gap: "0.35rem" }}>
+                        <strong>{detail.id}</strong>
+                        <span style={{ color: "var(--text-medium)", fontSize: "0.85rem" }}>{detail.role || "—"}</span>
                       </div>
-                    ) : null}
+                      <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                        Type: {detail.type} · Blend: {detail.blendMode ?? "—"}
+                      </div>
+                      <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                        Opacity: {detail.opacity !== undefined ? detail.opacity.toFixed(2) : "—"}
+                        {suppressed ? " (suppressed)" : ""}
+                      </div>
+                      <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                        Z: {detail.zIndex ?? "auto"} · PRM safe: {detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}
+                      </div>
+                      <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                        URL: <span style={{ wordBreak: "break-all" }}>{detail.url ?? "—"}</span>
+                      </div>
+                      {tokenSlug ? (
+                        <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                          Token: <code style={{ background: "var(--surface-ink-soft)", padding: "0.15rem 0.35rem", borderRadius: "6px" }}>{tokenSlug}</code>
+                        </div>
+                      ) : null}
+                      {suppressed ? (
+                        <div style={{ color: "var(--warning-amber, #f8d87c)", fontSize: "0.9rem" }}>
+                          {detail.suppressedReason}
+                        </div>
+                      ) : null}
                   </div>
                 </div>
               );
@@ -295,7 +310,11 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                 <tr key={detail.token}>
                   <td>{detail.token}</td>
                   <td>{detail.role ?? "—"}</td>
-                  <td>{detail.assetId ?? "—"}{detail.motion ? " · motion" : ""}</td>
+                  <td>
+                    {detail.assetId ?? "—"}
+                    {detail.motion ? " · motion" : ""}
+                    {detail.className ? <div style={{ color: "var(--text-medium)", fontSize: "0.85rem" }}>{detail.className}</div> : null}
+                  </td>
                   <td style={{ color: "var(--text-medium)", fontSize: "0.9rem", wordBreak: "break-all" }}>{detail.path ?? "—"}</td>
                   <td>{detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}</td>
                   <td>{detail.suppressed ? "Yes" : "No"}</td>
