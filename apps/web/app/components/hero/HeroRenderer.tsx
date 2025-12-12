@@ -1,5 +1,12 @@
+
 import type { CSSProperties } from "react";
-import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import {
+  BaseChampagneSurface,
+  ensureHeroAssetPath,
+  getHeroRuntime,
+  type HeroMode,
+  type HeroTimeOfDay,
+} from "@champagne/hero";
 
 export interface HeroRendererProps {
   mode?: HeroMode;
@@ -48,7 +55,6 @@ export async function HeroRenderer({
   debugOpacityBoost = 1,
 }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
-  // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
 
   try {
     runtime = await getHeroRuntime({
@@ -62,6 +68,7 @@ export async function HeroRenderer({
     });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
+      // eslint-disable-next-line no-console
       console.error("Hero runtime failed", error);
     }
   }
@@ -73,14 +80,23 @@ export async function HeroRenderer({
   const gradient = surfaces.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
-  const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
-  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
-  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
-  const causticsOpacity = applyBoost(
-    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
+
+  const shouldShowGrain = Boolean(
+    filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile),
   );
+  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
+
+  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
+
+  const causticsOpacity = applyBoost(
+    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ??
+      surfaces.overlays?.field?.opacity ??
+      0.35,
+  );
+
   const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
+
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
@@ -88,92 +104,123 @@ export async function HeroRenderer({
     if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
     return true;
   });
+
   const prmEnabled = runtime.flags.prm;
+
   const grainOpacity = applyBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1));
-  const particleOpacity = applyBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
+  const particleOpacity = applyBoost(
+    (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35,
+  );
 
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
+
     ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
       ? `url(${surfaces.waveMask.desktop.path})`
       : surfaces.waveMask?.desktop?.asset?.id
         ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
         : undefined,
+
     ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
       ? `url(${surfaces.waveMask.mobile.path})`
       : surfaces.waveMask?.mobile?.asset?.id
         ? `url(${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)})`
         : undefined,
+
     ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
       ? `url(${surfaces.background.desktop.path})`
       : surfaces.background?.desktop?.id
         ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
         : undefined,
+
     ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
       ? `url(${surfaces.background.mobile.path})`
       : surfaces.background?.mobile?.id
         ? `url(${ensureHeroAssetPath(surfaces.background.mobile.id)})`
         : undefined,
+
     ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
       ? `url(${surfaces.overlays.field.path})`
       : surfaces.overlays?.field?.asset?.id
         ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
         : undefined,
+
     ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
       ? `url(${surfaces.overlays.dots.path})`
       : surfaces.overlays?.dots?.asset?.id
         ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
         : undefined,
-    ["--hero-particles" as string]: shouldShowParticles && surfaces.particles?.path
-      ? `url(${surfaces.particles.path})`
-      : shouldShowParticles && surfaces.particles?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
-        : undefined,
+
+    ["--hero-particles" as string]:
+      shouldShowParticles && surfaces.particles?.path
+        ? `url(${surfaces.particles.path})`
+        : shouldShowParticles && surfaces.particles?.asset?.id
+          ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
+          : undefined,
+
     ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
       ? `url(${surfaces.grain.desktop.path})`
       : surfaces.grain?.desktop?.asset?.id
         ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
         : undefined,
+
     ["--hero-grain-mobile" as string]: surfaces.grain?.mobile?.path
       ? `url(${surfaces.grain.mobile.path})`
       : surfaces.grain?.mobile?.asset?.id
         ? `url(${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)})`
         : undefined,
+
     ["--hero-film-grain-opacity" as string]: grainOpacity,
-    ["--hero-film-grain-blend" as string]: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
+    ["--hero-film-grain-blend" as string]:
+      (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
+
     ["--hero-particles-opacity" as string]: particleOpacity,
+
+    // NOTE: kept as-is (existing behaviour); now actually used by overlay.caustics paint layer
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
+
     ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
     ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
   };
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": {},
+
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
     },
+
     "mask.waveHeader": {
       mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
     },
+
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.overlays?.field?.opacity),
     },
+
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.overlays?.dots?.opacity),
     },
+
     "overlay.particles": {
       mixBlendMode: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
       opacity: particleOpacity,
     },
+
     "overlay.filmGrain": {
       mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
       opacity: grainOpacity,
     },
-    "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
+
+    "overlay.caustics": {
+      mixBlendMode: "screen",
+      opacity: causticsOpacity,
+    },
+
     "hero.contentFrame": {
       background: "var(--champagne-glass-bg, var(--surface-glass))",
       backdropFilter: "blur(18px)",
@@ -183,12 +230,14 @@ export async function HeroRenderer({
 
   const layerPaint: Record<string, CSSProperties> = {
     "gradient.base": {},
+
     "field.waveBackdrop": {
       backgroundImage: "var(--hero-wave-background-desktop)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
     },
+
     "mask.waveHeader": {
       background: "var(--hero-gradient, var(--smh-gradient))",
       WebkitMaskImage: "var(--hero-wave-mask-desktop)",
@@ -200,27 +249,32 @@ export async function HeroRenderer({
       WebkitMaskPosition: "top center",
       maskPosition: "top center",
     },
+
     "field.waveRings": {
       backgroundImage: "var(--hero-overlay-field)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
     },
+
     "field.dotGrid": {
       backgroundImage: "var(--hero-overlay-dots)",
       backgroundRepeat: "repeat",
       backgroundSize: "auto",
     },
+
     "overlay.particles": {
       backgroundImage: "var(--hero-particles)",
       backgroundRepeat: "repeat",
       backgroundSize: "auto",
     },
+
     "overlay.filmGrain": {
       backgroundImage: "var(--hero-grain-desktop)",
       backgroundRepeat: "repeat",
       backgroundSize: "auto",
     },
+
     "overlay.caustics": {
       backgroundImage: "var(--hero-caustics-overlay)",
       backgroundSize: "cover",
@@ -243,6 +297,7 @@ export async function HeroRenderer({
       className="hero-renderer"
     >
       <style
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `
             .hero-renderer {
@@ -317,12 +372,7 @@ export async function HeroRenderer({
         }}
       />
 
-      <div
-        aria-hidden
-        className="hero-surface-stack"
-        data-prm={prmEnabled ? "true" : "false"}
-        style={surfaceVars}
-      >
+      <div aria-hidden className="hero-surface-stack" data-prm={prmEnabled ? "true" : "false"} style={surfaceVars}>
         {surfaceStack.map((layer) => (
           <div
             key={layer.id}
@@ -375,7 +425,6 @@ export async function HeroRenderer({
             <source src={entry.path} />
           </video>
         ))}
-
       </div>
 
       <div
@@ -390,16 +439,17 @@ export async function HeroRenderer({
             {content.eyebrow}
           </span>
         )}
+
         {content.headline && (
-          <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
-            {content.headline}
-          </h1>
+          <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>{content.headline}</h1>
         )}
+
         {content.subheadline && (
           <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
             {content.subheadline}
           </p>
         )}
+
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           {content.cta && (
             <a
@@ -417,6 +467,7 @@ export async function HeroRenderer({
               {content.cta.label}
             </a>
           )}
+
           {content.secondaryCta && (
             <a
               href={content.secondaryCta.href}
