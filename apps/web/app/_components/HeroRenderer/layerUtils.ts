@@ -17,11 +17,13 @@ export type RuntimeLayer = {
 
 export type HeroFlags = { prm?: boolean };
 
+const PLACEHOLDER_ASSET = "/assets/champagne/waves/waves-bg-1920.webp";
+
 function resolveUrl(entry: any): string | undefined {
   if (!entry) return undefined;
   if (entry.path) return entry.path;
-  if (entry.asset?.id) return ensureHeroAssetPath(entry.asset.id);
-  if (entry.id) return ensureHeroAssetPath(entry.id);
+  if (entry.asset?.id) return ensureHeroAssetPath(entry.asset.id) ?? PLACEHOLDER_ASSET;
+  if (entry.id) return ensureHeroAssetPath(entry.id) ?? PLACEHOLDER_ASSET;
   return undefined;
 }
 
@@ -61,7 +63,13 @@ function buildLegacyLayers(
   options: { particles?: boolean; filmGrain?: boolean; flags: HeroFlags },
 ): RuntimeLayer[] {
   const gradient = surfaces?.gradient ?? "var(--smh-gradient)";
-  const motionEntries = surfaces?.motion ?? [];
+  const motionEntries = Array.isArray(surfaces?.motion)
+    ? surfaces.motion
+    : Array.isArray(motion?.entries)
+      ? motion.entries
+      : Array.isArray(motion)
+        ? motion
+        : [];
   const videoEntry = surfaces?.video;
   const particlesEnabled = options.particles ?? true;
   const filmGrainEnabled = options.filmGrain ?? true;
@@ -380,7 +388,7 @@ export function buildLayerStack(options: {
   const layerDiagnostics: RuntimeLayer[] = [];
   // PRM is treated as "unsafe motion" whenever the runtime marks a layer as prmSafe=false
   // or when the layer is a video without explicit prmSafe=true.
-  const resolvedLayers: RuntimeLayer[] = candidateLayers.filter((layer) => {
+  let resolvedLayers: RuntimeLayer[] = candidateLayers.filter((layer) => {
     if (!layer) return false;
     if (layer.id === "overlay.particles" && particles === false) {
       layerDiagnostics.push({ ...layer, suppressedReason: "Particles disabled" });
@@ -417,6 +425,11 @@ export function buildLayerStack(options: {
     layerDiagnostics.push({ ...layer, suppressedReason: undefined });
     return true;
   });
+
+  if (resolvedLayers.length === 0 && fallbackLayers.length > 0) {
+    resolvedLayers = fallbackLayers;
+    fallbackLayers.forEach((layer) => layerDiagnostics.push({ ...layer, suppressedReason: undefined }));
+  }
 
   return { resolvedLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers, layerDiagnostics } as const;
 }
