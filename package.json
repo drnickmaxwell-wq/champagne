@@ -12,19 +12,17 @@
     "dev:portal": "pnpm --filter portal dev",
     "dev:engine": "pnpm --filter engine dev",
     "dev:all": "pnpm run dev:web",
+
     "lint": "pnpm -r lint",
     "typecheck": "pnpm exec tsc --noEmit -p tsconfig.base.json",
     "build:web": "pnpm --filter web build",
+
     "guard:hero": "pnpm --filter @champagne/guards guard:hero",
     "guard:rogue-hex": "pnpm --filter @champagne/guards guard:rogue-hex",
     "guard:canon": "pnpm --filter @champagne/guards guard:canon",
-    "guard:hero-freeze": "pnpm --filter @champagne/guards guard:hero-freeze",
-    "guard:manifest": "pnpm --filter @champagne/guards guard:manifest",
-    "guard:manifests": "pnpm run guard:manifest",
-    "guard:brand-structure": "pnpm --filter @champagne/guards guard:brand-structure",
     "guard:all": "pnpm --filter @champagne/guards guard:all",
-    "guard": "pnpm run guard:hero",
-    "verify": "pnpm -w guard:all && pnpm -w lint && pnpm -w typecheck && CI=1 pnpm -w build:web"
+
+    "verify": "pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
