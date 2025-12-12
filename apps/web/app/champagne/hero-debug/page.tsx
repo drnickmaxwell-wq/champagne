@@ -2,10 +2,11 @@ import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
 import { buildLayerStack, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 
-function normalizeBoolean(value: string | string[] | undefined, defaultValue: boolean): boolean {
-  if (Array.isArray(value)) return value.includes("true") ? true : value.includes("false") ? false : defaultValue;
-  if (typeof value === "string") return value === "true";
-  return defaultValue;
+function parseToggle(value: string | string[] | undefined, defaultValue: boolean): boolean {
+  if (value === undefined) return defaultValue;
+  if (Array.isArray(value)) value = value[0];
+  const lowered = value.toLowerCase();
+  return lowered === "true" || lowered === "1" || lowered === "on";
 }
 
 function isStrongDebug(value: string | string[] | undefined): boolean {
@@ -76,9 +77,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
     if (typeof value === "string") return value === "on" ? true : value === "off" ? false : undefined;
     return undefined;
   })();
-  const prm = mockPrm ?? normalizeBoolean(resolved.prm, false);
-  const particles = normalizeBoolean(resolved.particles, true);
-  const filmGrain = normalizeBoolean(resolved.filmGrain, true);
+  const prm = mockPrm ?? parseToggle(resolved.prm, false);
+  const particles = parseToggle(resolved.particles, true);
+  const filmGrain = parseToggle(resolved.filmGrain, true);
   const strongDebug = isStrongDebug(resolved.debug);
   const opacityBoost = strongDebug ? 1.6 : 1;
 
