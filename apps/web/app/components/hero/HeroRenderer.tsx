@@ -333,7 +333,7 @@ export async function HeroRenderer({
             style={{
               ...(layerPaint[(layer.token ?? layer.id) as string] ?? {}),
               ...(layerStyles[(layer.token ?? layer.id) as string] ?? {}),
-              ...(((layer as { style?: CSSProperties }).style as CSSProperties | undefined) ?? {}),
+              ...((layer as { style?: CSSProperties }).style ?? {}),
             }}
           />
         ))}
