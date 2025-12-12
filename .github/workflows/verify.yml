@@ -18,22 +18,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Run hero guard
         run: |
           set -euxo pipefail
@@ -48,22 +42,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Run rogue hex guard
         run: |
           set -euxo pipefail
@@ -78,22 +66,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Run canon guard
         run: |
           set -euxo pipefail
@@ -108,22 +90,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Run lint
         run: |
           set -euxo pipefail
@@ -138,22 +114,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Run typecheck
         run: |
           set -euxo pipefail
@@ -168,22 +138,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Build web workspace
         run: |
           set -euxo pipefail
@@ -205,22 +169,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Resolve pnpm version
-        id: pnpm-version
-        run: |
-          set -euxo pipefail
-          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
       - name: Enable corepack and pnpm
         run: |
           set -euxo pipefail
           corepack enable
-          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
+          corepack prepare pnpm@9.15.4 --activate
+          pnpm --version
       - name: Install dependencies
         run: |
           set -euxo pipefail
-          pnpm install --frozen-lockfile
+          pnpm -w install --frozen-lockfile
       - name: Run verify
         run: |
           set -euxo pipefail

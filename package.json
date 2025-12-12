@@ -24,7 +24,7 @@
     "guard:brand-structure": "pnpm --filter @champagne/guards guard:brand-structure",
     "guard:all": "pnpm --filter @champagne/guards guard:all",
     "guard": "pnpm run guard:hero",
-    "verify": "pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web"
+    "verify": "pnpm -w guard:all && pnpm -w lint && pnpm -w typecheck && CI=1 pnpm -w build:web"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
