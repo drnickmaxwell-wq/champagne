@@ -85,7 +85,14 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
   const opacityBoost = strongDebug ? 1.6 : 1;
 
   const runtime = await getHeroRuntime({ mode: "home", prm, particles, filmGrain, variantId: "default" });
-  const layerStack = buildLayerStack({ runtime, mode: "home", particles, filmGrain, opacityBoost });
+  const layerStack = buildLayerStack({
+    runtime,
+    mode: "home",
+    particles,
+    filmGrain,
+    opacityBoost,
+    includeFallback: true,
+  });
   const surfaceStack = runtime.surfaces.surfaceStack ?? [];
   const layerDiagnostics = layerStack.layerDiagnostics ?? layerStack.resolvedLayers;
   const surfaceSummaries = surfaceStack.map((entry) => {
@@ -156,7 +163,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
               const detail = describeLayer(layer);
               const backgroundImage = detail.type === "gradient"
                 ? detail.url
-                : detail.url
+                : detail.url && detail.type !== "video"
                   ? `url(${detail.url})`
                   : undefined;
               const suppressed = Boolean(detail.suppressedReason);
@@ -186,7 +193,18 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                       backgroundPosition: "center",
                       filter: suppressed ? "grayscale(1) opacity(0.35)" : undefined,
                     }}
-                  />
+                  >
+                    {detail.type === "video" && detail.url ? (
+                      <video
+                        src={detail.url}
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : null}
+                  </div>
                   <div style={{ display: "grid", gap: "0.25rem", fontSize: "0.95rem" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", gap: "0.35rem" }}>
                       <strong>{detail.id}</strong>
