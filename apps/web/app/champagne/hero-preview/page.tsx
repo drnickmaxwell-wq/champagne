@@ -4,10 +4,11 @@ import { HeroPreviewControls } from "./controls";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-function normalizeBoolean(value: string | string[] | undefined, defaultValue: boolean): boolean {
-  if (Array.isArray(value)) return value.includes("true") ? true : value.includes("false") ? false : defaultValue;
-  if (typeof value === "string") return value === "true";
-  return defaultValue;
+function parseToggle(value: string | string[] | undefined, defaultValue: boolean): boolean {
+  if (value === undefined) return defaultValue;
+  if (Array.isArray(value)) value = value[0];
+  const lowered = value.toLowerCase();
+  return lowered === "true" || lowered === "1" || lowered === "on";
 }
 
 function mapThemeToTimeOfDay(theme: string | string[] | undefined): HeroTimeOfDay {
@@ -19,9 +20,9 @@ export default async function HeroPreviewPage({ searchParams }: { searchParams?:
   const resolved = (await searchParams) ?? {};
   const themeParam = typeof resolved.theme === "string" ? resolved.theme : "dark";
   const timeOfDay = mapThemeToTimeOfDay(themeParam);
-  const particles = normalizeBoolean(resolved.particles, true);
-  const filmGrain = normalizeBoolean(resolved.filmGrain, true);
-  const prm = normalizeBoolean(resolved.prm, false);
+  const particles = parseToggle(resolved.particles, true);
+  const filmGrain = parseToggle(resolved.filmGrain, true);
+  const prm = parseToggle(resolved.prm, false);
 
   return (
     <div
