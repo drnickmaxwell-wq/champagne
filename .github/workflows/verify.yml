@@ -5,6 +5,9 @@ on:
     branches:
       - "*"
 
+env:
+  NODE_VERSION: '20'
+
 jobs:
   guard-hero:
     name: guard-hero
@@ -14,14 +17,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Run hero guard
-        run: pnpm -w guard:hero
+        run: |
+          set -euxo pipefail
+          pnpm -w guard:hero
 
   guard-rogue-hex:
     name: guard-rogue-hex
@@ -31,14 +47,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Run rogue hex guard
-        run: pnpm -w guard:rogue-hex
+        run: |
+          set -euxo pipefail
+          pnpm -w guard:rogue-hex
 
   guard-canon:
     name: guard-canon
@@ -48,14 +77,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Run canon guard
-        run: pnpm -w guard:canon
+        run: |
+          set -euxo pipefail
+          pnpm -w guard:canon
 
   lint:
     name: lint
@@ -65,14 +107,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Run lint
-        run: pnpm -w lint
+        run: |
+          set -euxo pipefail
+          pnpm -w lint
 
   typecheck:
     name: typecheck
@@ -82,14 +137,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Run typecheck
-        run: pnpm -w typecheck
+        run: |
+          set -euxo pipefail
+          pnpm -w typecheck
 
   build-web:
     name: build-web
@@ -99,14 +167,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Build web workspace
-        run: pnpm -w build:web
+        run: |
+          set -euxo pipefail
+          pnpm -w build:web
 
   verify:
     name: verify
@@ -123,11 +204,24 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Resolve pnpm version
+        id: pnpm-version
+        run: |
+          set -euxo pipefail
+          node -p "require('./package.json').packageManager" | sed -E 's/^pnpm@(.+)/version=\1/' >> "$GITHUB_OUTPUT"
+      - name: Enable corepack and pnpm
+        run: |
+          set -euxo pipefail
+          corepack enable
+          corepack prepare "pnpm@${{ steps.pnpm-version.outputs.version }}" --activate
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -euxo pipefail
+          pnpm install --frozen-lockfile
       - name: Run verify
-        run: pnpm -w verify
+        run: |
+          set -euxo pipefail
+          pnpm -w verify
