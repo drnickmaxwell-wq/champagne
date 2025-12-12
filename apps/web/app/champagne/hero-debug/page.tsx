@@ -64,6 +64,7 @@ function describeLayer(layer: RuntimeLayer) {
     zIndex: layer.zIndex,
     prmSafe: layer.prmSafe,
     url: layer.url,
+    suppressedReason: layer.suppressedReason,
   };
 }
 
@@ -86,6 +87,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
   const runtime = await getHeroRuntime({ mode: "home", prm, particles, filmGrain, variantId: "default" });
   const layerStack = buildLayerStack({ runtime, mode: "home", particles, filmGrain, opacityBoost });
   const surfaceStack = runtime.surfaces.surfaceStack ?? [];
+  const layerDiagnostics = layerStack.layerDiagnostics ?? layerStack.resolvedLayers;
   const surfaceSummaries = surfaceStack.map((entry) => {
     const token = entry.token ?? entry.id ?? "layer";
     const surfaceAsset = surfacePathForToken(token, runtime);
@@ -139,6 +141,77 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
       <div className="hero-debug-grid">
         <div className="hero-debug-hero-shell">
           <HeroRenderer prm={prm} particles={particles} filmGrain={filmGrain} debugOpacityBoost={opacityBoost} />
+        </div>
+
+        <div className="hero-debug-panel">
+          <h2>Active surface layers</h2>
+          <div
+            style={{
+              display: "grid",
+              gap: "0.75rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            }}
+          >
+            {layerDiagnostics.map((layer) => {
+              const detail = describeLayer(layer);
+              const backgroundImage = detail.type === "gradient"
+                ? detail.url
+                : detail.url
+                  ? `url(${detail.url})`
+                  : undefined;
+              const suppressed = Boolean(detail.suppressedReason);
+              return (
+                <div
+                  key={detail.id}
+                  data-suppressed={suppressed ? "true" : "false"}
+                  style={{
+                    borderRadius: "var(--radius-md)",
+                    border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+                    padding: "0.75rem",
+                    background: "color-mix(in srgb, var(--surface-ink-soft) 55%, transparent)",
+                    display: "grid",
+                    gap: "0.5rem",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "relative",
+                      borderRadius: "var(--radius-sm)",
+                      overflow: "hidden",
+                      height: "120px",
+                      backgroundColor: "rgba(255,255,255,0.05)",
+                      backgroundImage,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      filter: suppressed ? "grayscale(1) opacity(0.35)" : undefined,
+                    }}
+                  />
+                  <div style={{ display: "grid", gap: "0.25rem", fontSize: "0.95rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", gap: "0.35rem" }}>
+                      <strong>{detail.id}</strong>
+                      <span style={{ color: "var(--text-medium)", fontSize: "0.85rem" }}>{detail.role || "—"}</span>
+                    </div>
+                    <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                      Type: {detail.type} · Blend: {detail.blendMode ?? "—"}
+                    </div>
+                    <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                      Opacity: {detail.opacity !== undefined ? detail.opacity.toFixed(2) : "—"}
+                      {suppressed ? " (suppressed)" : ""}
+                    </div>
+                    <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
+                      Z: {detail.zIndex ?? "auto"} · PRM safe: {detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}
+                    </div>
+                    {suppressed ? (
+                      <div style={{ color: "var(--warning-amber, #f8d87c)", fontSize: "0.9rem" }}>
+                        {detail.suppressedReason}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="hero-debug-panel">

@@ -1,5 +1,17 @@
 "use client";
 
+/**
+ * Marketing bridge for the Sacred hero runtime.
+ *
+ * This renderer consumes getHeroRuntime() from @champagne/hero and renders the surfaces
+ * described by the Sacred manifests located under packages/champagne-manifests/data/hero/*.
+ *
+ * The layer stack prefers runtime-provided surfaces (wave masks, overlays, particles,
+ * grain, motion, video) and only falls back to the legacy gradient stack when the runtime
+ * does not resolve any surfaces. The sacred core files listed in the task are treated as
+ * read-only; this component is the integration layer.
+ */
+
 import React, { type CSSProperties, useEffect, useMemo, useState } from "react";
 import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import { buildLayerStack } from "./layerUtils";
@@ -103,6 +115,21 @@ export function HeroRenderer({
       cancelled = true;
     };
   }, [runtimeParams, mode]);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") return;
+    if (!runtime) return;
+    // Surface logging for diagnostics on home + hero-debug routes.
+    // This is intentionally verbose in dev to verify we are consuming Sacred surfaces.
+    console.debug("[hero] runtime", {
+      mode,
+      treatmentSlug,
+      flags: runtime.flags,
+      surfaces: runtime.surfaces,
+      motion: runtime.motion,
+      filmGrain: runtime.filmGrain,
+    });
+  }, [mode, runtime, treatmentSlug]);
 
   if (!runtime) return <HeroFallback />;
 

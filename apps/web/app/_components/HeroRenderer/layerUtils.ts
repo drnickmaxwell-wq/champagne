@@ -12,6 +12,7 @@ export type RuntimeLayer = {
   blendMode?: CSSProperties["mixBlendMode"];
   prmSafe?: boolean;
   className?: string;
+  suppressedReason?: string;
 };
 
 export type HeroFlags = { prm?: boolean };
@@ -57,17 +58,18 @@ function buildLegacyLayers(
   motion: any,
   filmGrainSettings: any,
   opacityBoost: number,
+  options: { particles?: boolean; filmGrain?: boolean; flags: HeroFlags },
 ): RuntimeLayer[] {
   const gradient = surfaces?.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces?.motion ?? [];
   const videoEntry = surfaces?.video;
-  const shouldShowGrain = Boolean(
-    filmGrainSettings?.enabled && (surfaces?.grain?.desktop || surfaces?.grain?.mobile),
-  );
-  const shouldShowParticles = Boolean(
-    (motion?.particles?.density ?? 0) > 0 && surfaces?.particles?.path,
-  );
+  const particlesEnabled = options.particles ?? true;
+  const filmGrainEnabled = options.filmGrain ?? true;
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
+  const shouldShowGrain = Boolean(
+    filmGrainEnabled && filmGrainSettings?.enabled && (surfaces?.grain?.desktop || surfaces?.grain?.mobile),
+  );
+  const shouldShowParticles = Boolean(particlesEnabled && surfaces?.particles?.path);
   const causticsOpacity = applyBoost(
     motionEntries.find((entry: any) => entry.id === "overlay.caustics")?.opacity
       ?? surfaces?.overlays?.field?.opacity
@@ -98,51 +100,62 @@ function buildLegacyLayers(
     "overlay.particles": "hero-layer hero-layer--particles",
     "overlay.filmGrain": "hero-layer hero-layer--grain",
     "overlay.caustics": "hero-layer hero-layer--caustics motion",
+    "overlay.glassShimmer": "hero-layer hero-layer--motion motion",
+    "overlay.goldDust": "hero-layer hero-layer--motion motion",
+    "overlay.particlesDrift": "hero-layer hero-layer--motion motion",
+    "hero.video": "hero-layer hero-layer--video motion",
     "hero.contentFrame": "hero-layer hero-layer--content",
   };
 
   const layerStyles: Record<string, Partial<RuntimeLayer>> = {
-    "gradient.base": { type: "gradient", url: gradient },
+    "gradient.base": { type: "gradient", url: gradient, prmSafe: true },
     "field.waveBackdrop": {
       type: "image",
       url: resolveUrl(surfaces?.background?.desktop),
       opacity: waveBackdropOpacity,
       blendMode: waveBackdropBlend ?? "screen",
+      prmSafe: surfaces?.background?.desktop?.prmSafe,
     },
     "mask.waveHeader": {
       type: "image",
       url: resolveUrl(surfaces?.waveMask?.desktop),
       opacity: applyBoost(surfaces?.waveMask?.desktop?.opacity),
       blendMode: surfaces?.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
+      prmSafe: surfaces?.waveMask?.desktop?.prmSafe,
     },
     "field.waveRings": {
       type: "image",
       url: resolveUrl(surfaces?.overlays?.field),
       opacity: applyBoost(surfaces?.overlays?.field?.opacity),
       blendMode: surfaces?.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
+      prmSafe: surfaces?.overlays?.field?.prmSafe,
     },
     "field.dotGrid": {
       type: "image",
       url: resolveUrl(surfaces?.overlays?.dots),
       opacity: applyBoost(surfaces?.overlays?.dots?.opacity),
       blendMode: surfaces?.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
+      prmSafe: surfaces?.overlays?.dots?.prmSafe,
     },
     "overlay.particles": {
       type: "image",
       url: shouldShowParticles ? resolveUrl(surfaces?.particles) : undefined,
       opacity: particleOpacity,
       blendMode: (surfaces?.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
-      prmSafe: surfaces?.particles?.prmSafe,
+      prmSafe: surfaces?.particles?.prmSafe ?? true,
     },
     "overlay.filmGrain": {
       type: "image",
       url: shouldShowGrain ? resolveUrl(surfaces?.grain?.desktop) : undefined,
       opacity: grainOpacity,
       blendMode: (surfaces?.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
-      prmSafe: surfaces?.grain?.desktop?.prmSafe,
+      prmSafe: surfaces?.grain?.desktop?.prmSafe ?? true,
     },
-    "overlay.caustics": { type: "video", opacity: causticsOpacity, blendMode: "screen" },
-    "hero.contentFrame": { type: "unknown" },
+    "overlay.caustics": { type: "video", opacity: causticsOpacity, blendMode: "screen", prmSafe: false },
+    "overlay.glassShimmer": { type: "video", blendMode: "screen", prmSafe: false },
+    "overlay.goldDust": { type: "video", blendMode: "screen", prmSafe: false },
+    "overlay.particlesDrift": { type: "video", blendMode: "screen", prmSafe: false },
+    "hero.contentFrame": { type: "unknown", prmSafe: true },
   };
 
   const layers: RuntimeLayer[] = surfaceStack.map((layer: any) => {
@@ -150,15 +163,16 @@ function buildLegacyLayers(
     const baseStyle = layerStyles[token] ?? { type: "unknown" };
     const motionEntry = motionEntries.find((entry: any) => entry.id === token);
     const urlFromStyle = baseStyle.url ?? resolveUrl(motionEntry);
+    const opacityFromMotion = motionEntry
+      ? motionEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85
+      : baseStyle.opacity;
     return {
       id: token,
       role: layer.role,
       className: layer.className ?? tokenClassNames[token] ?? "hero-layer",
       type: motionEntry ? "video" : baseStyle.type ?? "unknown",
       url: motionEntry?.path ?? urlFromStyle,
-      opacity: motionEntry
-        ? motionEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85
-        : baseStyle.opacity,
+      opacity: motionEntry ? applyBoost(opacityFromMotion) : opacityFromMotion,
       blendMode: motionEntry
         ? (motionEntry.blendMode as CSSProperties["mixBlendMode"])
         : baseStyle.blendMode,
@@ -169,13 +183,13 @@ function buildLegacyLayers(
 
   if (videoEntry?.path) {
     layers.push({
-      id: "motion.heroVideo",
+      id: "hero.video",
       role: videoEntry.role ?? "motion",
       type: "video",
       url: videoEntry.path,
-      opacity: videoEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85,
+      opacity: applyBoost(videoEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85),
       blendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
-      className: "hero-layer hero-layer--video motion",
+      className: tokenClassNames["hero.video"] ?? "hero-layer hero-layer--video motion",
       prmSafe: videoEntry.prmSafe,
     });
   }
@@ -187,9 +201,9 @@ function buildLegacyLayers(
       role: entry.role ?? "motion",
       type: "video",
       url: entry.path ?? resolveUrl(entry),
-      opacity: entry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85,
+      opacity: applyBoost(entry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85),
       blendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-      className: entry.className ?? "hero-layer hero-layer--motion motion",
+      className: entry.className ?? tokenClassNames[entry.id] ?? "hero-layer hero-layer--motion motion",
       prmSafe: entry.prmSafe,
     });
   });
@@ -345,7 +359,9 @@ export function buildLayerStack(options: {
   const runtimeLayers = Array.isArray(runtimeAny?.layers)
     ? (runtimeAny.layers as any[]).map((layer) => mapRuntimeLayer(layer))
     : null;
-  const legacyLayers = runtime ? buildLegacyLayers(surfaces, motion, filmGrainSettings, opacityBoost) : [];
+  const legacyLayers = runtime
+    ? buildLegacyLayers(surfaces, motion, filmGrainSettings, opacityBoost, { particles, filmGrain, flags })
+    : [];
   const fallbackLayers = includeFallback
     ? buildFallbackLayers({
         flags,
@@ -355,20 +371,52 @@ export function buildLayerStack(options: {
       })
     : [];
 
-  const resolvedLayers: RuntimeLayer[] = (runtimeLayers && runtimeLayers.length > 0
+  const candidateLayers = runtimeLayers && runtimeLayers.length > 0
     ? runtimeLayers
     : legacyLayers.length > 0
       ? legacyLayers
-      : fallbackLayers
-  ).filter((layer) => {
+      : fallbackLayers;
+
+  const layerDiagnostics: RuntimeLayer[] = [];
+  // PRM is treated as "unsafe motion" whenever the runtime marks a layer as prmSafe=false
+  // or when the layer is a video without explicit prmSafe=true.
+  const resolvedLayers: RuntimeLayer[] = candidateLayers.filter((layer) => {
     if (!layer) return false;
-    if (prmEnabled && layer.prmSafe === false) return false;
-    if (prmEnabled && layer.type === "video" && layer.prmSafe !== true) return false;
-    if (layer.role === "motion" && prmEnabled && layer.prmSafe === false) return false;
-    if (layer.type === "video" && !layer.url) return false;
-    if (layer.type === "gradient" && !layer.url) return false;
+    if (layer.id === "overlay.particles" && particles === false) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Particles disabled" });
+      return false;
+    }
+    if (layer.id === "overlay.filmGrain" && filmGrain === false) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Film grain disabled" });
+      return false;
+    }
+    if (prmEnabled && layer.prmSafe === false) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Blocked by PRM (unsafe motion)" });
+      return false;
+    }
+    if (prmEnabled && layer.type === "video" && layer.prmSafe !== true) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Blocked by PRM (video)" });
+      return false;
+    }
+    if (layer.role === "motion" && prmEnabled && layer.prmSafe === false) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Blocked by PRM (motion role)" });
+      return false;
+    }
+    if (layer.type === "video" && !layer.url) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Missing video path" });
+      return false;
+    }
+    if (layer.type === "gradient" && !layer.url) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Missing gradient" });
+      return false;
+    }
+    if ((layer.opacity ?? 1) <= 0) {
+      layerDiagnostics.push({ ...layer, suppressedReason: "Zero opacity" });
+      return false;
+    }
+    layerDiagnostics.push({ ...layer, suppressedReason: undefined });
     return true;
   });
 
-  return { resolvedLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers } as const;
+  return { resolvedLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers, layerDiagnostics } as const;
 }
