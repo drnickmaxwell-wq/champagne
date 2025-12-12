@@ -1,10 +1,6 @@
 import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
+import { buildLayerStack, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
-import type { CSSProperties } from "react";
-
-type HeroSurfaceStackLayer = NonNullable<
-  Awaited<ReturnType<typeof getHeroRuntime>>["surfaces"]["surfaceStack"]
->[number];
 
 function normalizeBoolean(value: string | string[] | undefined, defaultValue: boolean): boolean {
   if (Array.isArray(value)) return value.includes("true") ? true : value.includes("false") ? false : defaultValue;
@@ -17,69 +13,57 @@ function isStrongDebug(value: string | string[] | undefined): boolean {
   return value === "strong";
 }
 
-function resolveSurfaceAsset(
-  token: string | undefined,
-  stackLayer: HeroSurfaceStackLayer,
-  surfaces: Awaited<ReturnType<typeof getHeroRuntime>>["surfaces"],
-  runtimeOpacity?: number,
-): { assetId: string; path?: string; disabled?: boolean; opacity?: number; motion?: boolean } {
-  if (!token) return { assetId: stackLayer.id ?? "unknown" };
-  if (token === "gradient.base") return { assetId: "gradient.base (CSS)", path: surfaces.gradient };
-  if (token === "field.waveBackdrop")
-    return {
-      assetId: surfaces.background?.desktop?.id ?? "field.waveBackdrop",
-      path: surfaces.background?.desktop?.path ?? ensureHeroAssetPath(surfaces.background?.desktop?.id),
-    };
-  if (token === "mask.waveHeader")
-    return {
-      assetId: surfaces.waveMask?.desktop?.id ?? token,
-      path: surfaces.waveMask?.desktop?.path ?? ensureHeroAssetPath(surfaces.waveMask?.desktop?.asset?.id),
-    };
-  if (token === "field.waveRings")
-    return {
-      assetId: surfaces.overlays?.field?.asset?.id ?? token,
-      path: surfaces.overlays?.field?.path ?? ensureHeroAssetPath(surfaces.overlays?.field?.asset?.id),
-    };
-  if (token === "field.dotGrid")
-    return {
-      assetId: surfaces.overlays?.dots?.asset?.id ?? token,
-      path: surfaces.overlays?.dots?.path ?? ensureHeroAssetPath(surfaces.overlays?.dots?.asset?.id),
-    };
-  if (token === "overlay.caustics") {
-    const causticsMotion = surfaces.motion?.find((entry) => entry.id === "overlay.caustics");
-    return {
-      assetId: causticsMotion?.asset?.id ?? token,
-      path: causticsMotion?.path,
-      disabled: !causticsMotion,
-      motion: true,
-      opacity: runtimeOpacity,
-    };
+function surfacePathForToken(token: string, runtime: Awaited<ReturnType<typeof getHeroRuntime>>): {
+  assetId?: string;
+  path?: string;
+  motion?: boolean;
+} {
+  const surfaces = runtime.surfaces;
+  if (token === "gradient.base") return { assetId: "css", path: surfaces.gradient };
+  if (token === "field.waveBackdrop") {
+    const background = surfaces.background?.desktop;
+    return { assetId: background?.asset?.id ?? background?.id, path: background?.path ?? ensureHeroAssetPath(background?.id) };
   }
-  if (token === "overlay.goldDust") {
-    const goldDust = surfaces.motion?.find((entry) => entry.id === "overlay.goldDust");
-    return {
-      assetId: goldDust?.asset?.id ?? token,
-      path: goldDust?.path,
-      disabled: !goldDust,
-      motion: true,
-      opacity: runtimeOpacity,
-    };
+  if (token === "mask.waveHeader") {
+    const mask = surfaces.waveMask?.desktop;
+    return { assetId: mask?.asset?.id ?? mask?.id, path: mask?.path ?? ensureHeroAssetPath(mask?.id) };
   }
-  if (token === "overlay.particles")
-    return {
-      assetId: surfaces.particles?.asset?.id ?? token,
-      path: surfaces.particles?.path ?? ensureHeroAssetPath(surfaces.particles?.asset?.id),
-      disabled: !surfaces.particles,
-      opacity: runtimeOpacity,
-    };
-  if (token === "overlay.filmGrain")
-    return {
-      assetId: surfaces.grain?.desktop?.asset?.id ?? token,
-      path: surfaces.grain?.desktop?.path ?? ensureHeroAssetPath(surfaces.grain?.desktop?.asset?.id),
-      disabled: !surfaces.grain?.desktop,
-      opacity: runtimeOpacity,
-    };
-  return { assetId: stackLayer.id ?? token, path: undefined };
+  if (token === "field.waveRings") {
+    const field = surfaces.overlays?.field;
+    return { assetId: field?.asset?.id ?? field?.id, path: field?.path ?? ensureHeroAssetPath(field?.id) };
+  }
+  if (token === "field.dotGrid") {
+    const dots = surfaces.overlays?.dots;
+    return { assetId: dots?.asset?.id ?? dots?.id, path: dots?.path ?? ensureHeroAssetPath(dots?.id) };
+  }
+  if (token === "overlay.particles") {
+    const particles = surfaces.particles;
+    return { assetId: particles?.asset?.id ?? particles?.id, path: particles?.path ?? ensureHeroAssetPath(particles?.id) };
+  }
+  if (token === "overlay.filmGrain") {
+    const grain = surfaces.grain?.desktop;
+    return { assetId: grain?.asset?.id ?? grain?.id, path: grain?.path ?? ensureHeroAssetPath(grain?.id) };
+  }
+
+  const motion = (surfaces.motion ?? []).find((entry) => entry.id === token);
+  if (motion) {
+    return { assetId: motion.asset?.id ?? motion.id, path: motion.path, motion: true };
+  }
+
+  return {};
+}
+
+function describeLayer(layer: RuntimeLayer) {
+  return {
+    id: layer.id ?? "unknown",
+    role: layer.role ?? "",
+    type: layer.type ?? "unknown",
+    opacity: layer.opacity,
+    blendMode: layer.blendMode,
+    zIndex: layer.zIndex,
+    prmSafe: layer.prmSafe,
+    url: layer.url,
+  };
 }
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
@@ -97,304 +81,52 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
   const filmGrain = normalizeBoolean(resolved.filmGrain, true);
   const strongDebug = isStrongDebug(resolved.debug);
   const opacityBoost = strongDebug ? 1.6 : 1;
-  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
 
   const runtime = await getHeroRuntime({ mode: "home", prm, particles, filmGrain, variantId: "default" });
-  const surfaces = runtime.surfaces;
-  const surfaceStack = surfaces.surfaceStack ?? [];
-  const causticsOpacity = applyBoost(
-    surfaces.motion?.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
-  );
-  const filmGrainOpacity = applyBoost((runtime.filmGrain.opacity ?? 0.3) * (surfaces.grain?.desktop?.opacity ?? 1));
-  const particlesOpacity = applyBoost((runtime.motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
-  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
-  const waveRingsOpacity = applyBoost(surfaces.overlays?.field?.opacity ?? 1);
-  const dotGridOpacity = applyBoost(surfaces.overlays?.dots?.opacity ?? 1);
-  const prmSource = mockPrm !== undefined ? `mocked (${mockPrm ? "on" : "off"})` : "system";
-
-  const surfaceDetails = surfaceStack.map((layer) => {
-    const token = layer.token ?? layer.id;
-    const resolvedAsset = resolveSurfaceAsset(
-      token,
-      layer,
-      surfaces,
-      token === "overlay.caustics"
-        ? causticsOpacity
-        : token === "overlay.filmGrain"
-          ? filmGrainOpacity
-          : token === "overlay.particles"
-            ? particlesOpacity
-            : token === "field.waveBackdrop"
-              ? waveBackdropOpacity
-              : token === "field.waveRings"
-                ? waveRingsOpacity
-                : token === "field.dotGrid"
-                  ? dotGridOpacity
-                  : undefined,
-    );
+  const layerStack = buildLayerStack({ runtime, mode: "home", particles, filmGrain, opacityBoost });
+  const surfaceStack = runtime.surfaces.surfaceStack ?? [];
+  const surfaceSummaries = surfaceStack.map((entry) => {
+    const token = entry.token ?? entry.id ?? "layer";
+    const surfaceAsset = surfacePathForToken(token, runtime);
     return {
       token,
-      role: layer.role,
-      assetId: resolvedAsset.assetId,
-      path: resolvedAsset.path,
-      prmSafe: layer.prmSafe,
-      motion: layer.motion ?? resolvedAsset.motion,
-      suppressed: layer.suppressed,
-      opacity: resolvedAsset.opacity,
-      disabled: resolvedAsset.disabled,
+      role: entry.role,
+      prmSafe: entry.prmSafe,
+      suppressed: entry.suppressed,
+      ...surfaceAsset,
     };
   });
 
-  const motionLookup = new Map((surfaces.motion ?? []).map((entry) => [entry.id, entry]));
-  const surfaceDetailLookup = new Map(surfaceDetails.map((entry) => [entry.token, entry]));
-  const gradient = surfaces.gradient ?? "var(--smh-gradient)";
-
-  const surfaceVars: Record<string, CSSProperties> = {
-    "gradient.base": {
-      ["--hero-gradient" as string]: gradient,
-    },
-    "field.waveBackdrop": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
-        ? `url(${surfaces.background.desktop.path})`
-        : surfaces.background?.desktop?.id
-          ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
-          : undefined,
-      ["--surface-opacity-waveBackdrop" as string]: 1,
-      ["--surface-blend-waveBackdrop" as string]: surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "mask.waveHeader": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
-        ? `url(${surfaces.background.desktop.path})`
-        : surfaces.background?.desktop?.id
-          ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
-          : undefined,
-      ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
-        ? `url(${surfaces.waveMask.desktop.path})`
-        : surfaces.waveMask?.desktop?.asset?.id
-          ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
-          : undefined,
-      ["--surface-opacity-waveMask" as string]: 1,
-      ["--surface-blend-waveMask" as string]: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "field.waveRings": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
-        ? `url(${surfaces.overlays.field.path})`
-        : surfaces.overlays?.field?.asset?.id
-          ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
-          : undefined,
-      ["--surface-opacity-waveField" as string]: 1,
-      ["--surface-blend-waveField" as string]: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "field.dotGrid": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
-        ? `url(${surfaces.overlays.dots.path})`
-        : surfaces.overlays?.dots?.asset?.id
-          ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
-          : undefined,
-      ["--surface-opacity-dotField" as string]: 1,
-      ["--surface-blend-dotField" as string]: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "overlay.particles": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-particles" as string]: surfaces.particles?.path
-        ? `url(${surfaces.particles.path})`
-        : surfaces.particles?.asset?.id
-          ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
-          : undefined,
-      ["--surface-opacity-particles" as string]: 1,
-      ["--surface-blend-particles" as string]: surfaces.particles?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "overlay.filmGrain": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
-        ? `url(${surfaces.grain.desktop.path})`
-        : surfaces.grain?.desktop?.asset?.id
-          ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
-          : undefined,
-      ["--surface-opacity-filmGrain" as string]: 1,
-      ["--surface-blend-filmGrain" as string]: surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "overlay.caustics": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-caustics-overlay" as string]: motionLookup.get("overlay.caustics")?.path
-        ? `url(${motionLookup.get("overlay.caustics")?.path})`
-        : undefined,
-      ["--surface-opacity-caustics" as string]: 1,
-      ["--surface-blend-caustics" as string]: motionLookup.get("overlay.caustics")?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "overlay.goldDust": {
-      ["--hero-gradient" as string]: gradient,
-      ["--hero-gold-dust" as string]: motionLookup.get("overlay.goldDust")?.path
-        ? `url(${motionLookup.get("overlay.goldDust")?.path})`
-        : undefined,
-      ["--surface-opacity-particlesDrift" as string]: 1,
-      ["--surface-blend-particlesDrift" as string]: motionLookup.get("overlay.goldDust")?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "overlay.glassShimmer": {
-      ["--hero-gradient" as string]: gradient,
-      ["--surface-opacity-glassShimmer" as string]: 1,
-      ["--surface-blend-glassShimmer" as string]: motionLookup.get("overlay.glassShimmer")?.blendMode as CSSProperties["mixBlendMode"],
-    },
-    "overlay.particlesDrift": {
-      ["--hero-gradient" as string]: gradient,
-      ["--surface-opacity-particles" as string]: 1,
-      ["--hero-particles" as string]: motionLookup.get("overlay.particlesDrift")?.path
-        ? `url(${motionLookup.get("overlay.particlesDrift")?.path})`
-        : undefined,
-    },
-    "hero.contentFrame": {
-      ["--hero-gradient" as string]: gradient,
-    },
-  };
-
-  const renderSurfaceLayer = (layer: HeroSurfaceStackLayer) => {
-    const token = layer.token ?? layer.id ?? "layer";
-
-    if (
-      token === "overlay.caustics"
-      || token === "overlay.glassShimmer"
-      || token === "overlay.particlesDrift"
-      || token === "overlay.goldDust"
-    ) {
-      const entry = motionLookup.get(token);
-      if (entry?.path) {
-        return (
-          <video
-            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            style={{ mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"], opacity: 1 }}
-          >
-            <source src={entry.path} />
-          </video>
-        );
-      }
-    }
-
-    const className =
-      token === "hero.contentFrame" ? "hero-surface-layer hero-surface--content-frame" : layer.className ?? "hero-surface-layer";
-    const customStyle: CSSProperties = { opacity: 1 };
-    if (token === "hero.contentFrame") {
-      customStyle.background = "var(--champagne-glass-bg, var(--surface-glass))";
-      customStyle.backdropFilter = "blur(18px)";
-    }
-
-    return <div className={className} style={customStyle} />;
-  };
+  const prmSource = mockPrm !== undefined ? `mocked (${mockPrm ? "on" : "off"})` : "system";
 
   return (
     <div
       data-debug-strong={strongDebug ? "true" : "false"}
       className="hero-debug-page"
-      style={{ display: "grid", gap: "1.25rem", padding: "clamp(1.5rem, 4vw, 2.5rem)", background: "var(--bg-ink)", color: "var(--text-high)" }}
+      style={{ display: "grid", gap: "1.5rem", padding: "clamp(1.5rem, 4vw, 2.5rem)", background: "var(--bg-ink)", color: "var(--text-high)" }}
     >
       <style
         dangerouslySetInnerHTML={{
           __html: `
-            .hero-debug-page {
-              min-height: 100vh;
-            }
-            .hero-debug-grid {
-              display: grid;
-              gap: 1rem;
-            }
-            .hero-debug-hero-shell {
-              position: relative;
-              min-height: 85vh;
-              border-radius: var(--radius-xl);
-              overflow: hidden;
-              border: 1px solid var(--champagne-keyline-gold, var(--surface-ink-soft));
-              background: color-mix(in srgb, var(--bg-ink) 80%, transparent);
-            }
-            .hero-debug-panel {
-              border-radius: var(--radius-lg);
-              border: 1px solid var(--champagne-keyline-gold, var(--surface-ink-soft));
-              background: color-mix(in srgb, var(--bg-ink) 70%, transparent);
-              padding: 1rem 1.25rem;
-              overflow: auto;
-            }
-            .hero-debug-gallery {
-              display: grid;
-              gap: 0.75rem;
-            }
-            .hero-debug-gallery .hero-surface-card {
-              position: relative;
-              border-radius: var(--radius-lg);
-              overflow: hidden;
-              border: 1px solid var(--ink-strong, var(--surface-ink-soft));
-              background: var(--surface-ink-soft);
-              min-height: 240px;
-            }
-            .hero-debug-gallery .hero-surface-card .hero-surface-preview {
-              position: relative;
-              min-height: 200px;
-            }
-            .hero-debug-gallery .hero-surface-card .hero-surface-preview .hero-surface-layer,
-            .hero-debug-gallery .hero-surface-card .hero-surface-preview .hero-surface--motion {
-              position: absolute;
-              inset: 0;
-            }
-            .hero-debug-gallery .hero-surface-card .hero-surface-preview .hero-surface-layer.hero-surface--wave-backdrop {
-              background-size: cover;
-            }
-            .hero-debug-gallery .hero-surface-card .hero-surface-label {
-              position: absolute;
-              inset: auto 0 0 auto;
-              background: color-mix(in srgb, var(--surface-ink), transparent 35%);
-              color: var(--text-high);
-              padding: 0.5rem 0.75rem;
-              border-top-left-radius: var(--radius-md);
-              font-size: 0.9rem;
-              display: grid;
-              gap: 0.15rem;
-              text-align: right;
-            }
-            .hero-debug-panel table {
-              width: 100%;
-              border-collapse: collapse;
-              font-size: 0.95rem;
-            }
-            .hero-debug-panel th,
-            .hero-debug-panel td {
-              text-align: left;
-              padding: 0.35rem 0.5rem;
-              border-bottom: 1px solid color-mix(in srgb, var(--champagne-keyline-gold, var(--surface-ink-soft)) 50%, transparent);
-            }
-            .hero-debug-panel th {
-              letter-spacing: 0.08em;
-              text-transform: uppercase;
-              color: var(--text-medium);
-              font-size: 0.8rem;
-            }
+            .hero-debug-page { min-height: 100vh; }
+            .hero-debug-grid { display: grid; gap: 1rem; }
+            .hero-debug-hero-shell { position: relative; min-height: 85vh; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--champagne-keyline-gold, var(--surface-ink-soft)); background: color-mix(in srgb, var(--bg-ink) 80%, transparent); }
+            .hero-debug-panel { border-radius: var(--radius-lg); border: 1px solid var(--champagne-keyline-gold, var(--surface-ink-soft)); background: color-mix(in srgb, var(--bg-ink) 70%, transparent); padding: 1rem 1.25rem; overflow: auto; display: grid; gap: 0.75rem; }
+            .hero-debug-panel h2 { margin: 0; font-size: 1.1rem; }
+            .hero-debug-panel table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+            .hero-debug-panel th, .hero-debug-panel td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid color-mix(in srgb, var(--champagne-keyline-gold, var(--surface-ink-soft)) 50%, transparent); }
+            .hero-debug-panel th { letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-medium); font-size: 0.8rem; }
           `,
         }}
       />
 
-      <header style={{ display: "grid", gap: "0.25rem" }}>
+      <header style={{ display: "grid", gap: "0.35rem" }}>
         <p style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>Sacred hero debug</p>
-        <h1 style={{ fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)" }}>Surface activation proof</h1>
+        <h1 style={{ fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)" }}>Runtime surface inspector</h1>
         <p style={{ color: "var(--text-medium)", maxWidth: "880px", lineHeight: 1.55 }}>
-          This page renders the same Sacred Home hero variant used on the landing page and lists each resolved surface with its
-          asset URL. Add
-          <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)" }}>
-            ?debug=strong
-          </code>
-          to multiply non-content layer opacity (×{opacityBoost.toFixed(1)}), or
-          <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)", marginLeft: "0.35rem" }}>
-            ?mockPrm=on
-          </code>
-          to simulate prefers-reduced-motion, or
-          <code style={{ padding: "0 0.4rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)", marginLeft: "0.35rem" }}>
-            ?mockPrm=off
-          </code>
-          to force motion layers on even if your system prefers reduced motion.
+          This page renders the Sacred Home hero variant used on the landing page and exposes the resolved layer stack and surface tokens.
+          Add <code style={{ padding: "0 0.35rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)" }}>?debug=strong</code> to multiply non-content opacity, or
+          <code style={{ padding: "0 0.35rem", borderRadius: "var(--radius-sm)", background: "var(--surface-ink-soft)", marginLeft: "0.35rem" }}>?mockPrm=on</code> to simulate prefers-reduced-motion.
         </p>
         <p style={{ color: "var(--text-medium)", maxWidth: "880px", lineHeight: 1.45 }}>
           Variant: <strong>{runtime.variant?.id ?? "default"}</strong> · PRM ({prmSource}):
@@ -408,56 +140,72 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
           <HeroRenderer prm={prm} particles={particles} filmGrain={filmGrain} debugOpacityBoost={opacityBoost} />
         </div>
 
-        <div className="hero-debug-gallery">
-          {surfaceStack.map((layer) => {
-            const token = layer.token ?? layer.id ?? "layer";
-            const detail = surfaceDetailLookup.get(token);
-            const cardVars = surfaceVars[token] ?? { ["--hero-gradient" as string]: gradient };
-            const assetLabel = detail?.assetId ?? "unknown";
-            return (
-              <div key={token} className="hero-surface-card">
-                <div className="hero-surface-preview" style={cardVars}>
-                  {renderSurfaceLayer(layer)}
-                </div>
-                <div className="hero-surface-label">
-                  <strong style={{ letterSpacing: "0.05em", textTransform: "uppercase" }}>{token}</strong>
-                  <span style={{ color: "var(--text-medium)" }}>
-                    {assetLabel}
-                    {detail?.motion ? " · motion" : ""}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+        <div className="hero-debug-panel">
+          <h2>Runtime flags</h2>
+          <ul style={{ margin: 0, paddingLeft: "1rem", display: "grid", gap: "0.25rem" }}>
+            <li>Mode: {runtime.flags.mode}</li>
+            <li>Time of day: {runtime.flags.timeOfDay ?? "default"}</li>
+            <li>Treatment slug: {runtime.flags.treatmentSlug ?? "—"}</li>
+            <li>Particles: {particles ? "enabled" : "disabled"}</li>
+            <li>Film grain: {filmGrain ? `enabled (opacity ${runtime.filmGrain.opacity ?? "—"})` : "disabled"}</li>
+            <li>PRM: {runtime.flags.prm ? "on" : "off"}</li>
+          </ul>
         </div>
 
         <div className="hero-debug-panel">
+          <h2>Resolved layer stack</h2>
           <table>
             <thead>
               <tr>
                 <th>Layer</th>
+                <th>Role</th>
+                <th>Type</th>
+                <th>Opacity</th>
+                <th>Blend</th>
+                <th>PRM safe</th>
+                <th>URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              {layerStack.resolvedLayers.map((layer) => {
+                const detail = describeLayer(layer);
+                return (
+                  <tr key={detail.id}>
+                    <td>{detail.id}</td>
+                    <td>{detail.role || "—"}</td>
+                    <td>{detail.type}</td>
+                    <td>{detail.opacity !== undefined ? detail.opacity.toFixed(2) : "—"}{strongDebug ? " (boosted)" : ""}</td>
+                    <td>{detail.blendMode ?? "—"}</td>
+                    <td>{detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}</td>
+                    <td style={{ color: "var(--text-medium)", fontSize: "0.9rem", wordBreak: "break-all" }}>{detail.url ?? "—"}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="hero-debug-panel">
+          <h2>Surface tokens</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Role</th>
                 <th>Asset</th>
                 <th>URL</th>
-                <th>Opacity</th>
-                <th>Motion</th>
-                <th>PRM Safe</th>
+                <th>PRM safe</th>
                 <th>Suppressed</th>
               </tr>
             </thead>
             <tbody>
-              {surfaceDetails.map((detail) => (
+              {surfaceSummaries.map((detail) => (
                 <tr key={detail.token}>
                   <td>{detail.token}</td>
-                  <td>
-                    {detail.assetId}
-                    {detail.disabled ? " (prm disabled)" : ""}
-                  </td>
-                  <td style={{ color: "var(--text-medium)", fontSize: "0.9rem", wordBreak: "break-all" }}>
-                    {detail.path ?? "—"}
-                  </td>
-                  <td>{detail.opacity ? detail.opacity.toFixed(2) : "—"}{strongDebug ? " (boosted)" : ""}</td>
-                  <td>{detail.motion ? "Yes" : "No"}</td>
-                  <td>{detail.prmSafe ? "Yes" : "No"}</td>
+                  <td>{detail.role ?? "—"}</td>
+                  <td>{detail.assetId ?? "—"}{detail.motion ? " · motion" : ""}</td>
+                  <td style={{ color: "var(--text-medium)", fontSize: "0.9rem", wordBreak: "break-all" }}>{detail.path ?? "—"}</td>
+                  <td>{detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}</td>
                   <td>{detail.suppressed ? "Yes" : "No"}</td>
                 </tr>
               ))}
