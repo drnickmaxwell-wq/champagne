@@ -161,11 +161,14 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
           >
             {layerDiagnostics.map((layer) => {
               const detail = describeLayer(layer);
-              const backgroundImage = detail.type === "gradient"
-                ? detail.url
-                : detail.url && detail.type !== "video"
-                  ? `url(${detail.url})`
-                  : undefined;
+              const isVideo = detail.type === "video";
+              const backgroundImage = !isVideo
+                ? detail.type === "gradient"
+                  ? detail.url
+                  : detail.url
+                    ? `url(${detail.url})`
+                    : undefined
+                : undefined;
               const suppressed = Boolean(detail.suppressedReason);
               return (
                 <div
@@ -194,15 +197,21 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                       filter: suppressed ? "grayscale(1) opacity(0.35)" : undefined,
                     }}
                   >
-                    {detail.type === "video" && detail.url ? (
-                      <video
-                        src={detail.url}
-                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                      />
+                    {isVideo ? (
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: "0",
+                          display: "grid",
+                          placeItems: "center",
+                          backdropFilter: "blur(2px)",
+                          background: "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.35))",
+                          color: "#f5d69d",
+                          fontWeight: 600,
+                        }}
+                      >
+                        🎥 video
+                      </div>
                     ) : null}
                   </div>
                   <div style={{ display: "grid", gap: "0.25rem", fontSize: "0.95rem" }}>
@@ -219,6 +228,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                     </div>
                     <div style={{ color: "var(--text-medium)", fontSize: "0.9rem" }}>
                       Z: {detail.zIndex ?? "auto"} · PRM safe: {detail.prmSafe === undefined ? "—" : detail.prmSafe ? "Yes" : "No"}
+                    </div>
+                    <div style={{ color: "var(--text-medium)", fontSize: "0.85rem", wordBreak: "break-all" }}>
+                      URL: {detail.url ?? "—"}
                     </div>
                     {suppressed ? (
                       <div style={{ color: "var(--warning-amber, #f8d87c)", fontSize: "0.9rem" }}>

@@ -19,6 +19,30 @@ export type HeroFlags = { prm?: boolean };
 
 const PLACEHOLDER_ASSET = "/assets/champagne/waves/waves-bg-1920.webp";
 
+const tokenClassNames: Record<string, string> = {
+  "gradient.base": "hero-layer hero-surface-layer hero-surface--gradient-field hero-layer--gradient",
+  "field.waveBackdrop": "hero-layer hero-surface-layer hero-surface--wave-backdrop hero-layer--wave-backdrop",
+  "mask.waveHeader": "hero-layer hero-surface-layer hero-surface--wave-mask hero-layer--wave-mask",
+  "field.waveRings": "hero-layer hero-surface-layer hero-surface--wave-field hero-layer--wave-rings",
+  "field.dotGrid": "hero-layer hero-surface-layer hero-surface--dot-field hero-layer--dot-grid",
+  "overlay.particles": "hero-layer hero-surface-layer hero-surface--particles hero-layer--particles",
+  "overlay.filmGrain": "hero-layer hero-surface-layer hero-surface--film-grain hero-layer--grain",
+  "overlay.caustics": "hero-layer hero-surface-layer hero-surface--caustics hero-layer--caustics motion",
+  "overlay.glassShimmer": "hero-layer hero-surface-layer hero-surface--glass-shimmer hero-layer--motion motion",
+  "overlay.goldDust": "hero-layer hero-surface-layer hero-surface--gold-dust hero-layer--motion motion",
+  "overlay.particlesDrift": "hero-layer hero-surface-layer hero-surface--particles-drift hero-layer--motion motion",
+  "hero.video": "hero-layer hero-surface-layer hero-surface--video hero-layer--video motion",
+  "hero.contentFrame": "hero-layer hero-surface-layer hero-surface--content-frame hero-layer--content",
+};
+
+const MOTION_ALIAS_MAP: Record<string, string> = {
+  "overlay.caustics": "overlay.caustics",
+  "overlay.glassShimmer": "overlay.glassShimmer",
+  "overlay.goldDust": "overlay.goldDust",
+  "overlay.particlesDrift": "overlay.particlesDrift",
+  "hero.video": "hero.video",
+};
+
 function resolveUrl(entry: any): string | undefined {
   if (!entry) return undefined;
   if (entry.path) return entry.path;
@@ -51,8 +75,83 @@ function mapRuntimeLayer(entry: any): RuntimeLayer {
     zIndex: entry?.zIndex,
     blendMode: entry?.blendMode as CSSProperties["mixBlendMode"],
     prmSafe: entry?.prmSafe,
-    className: entry?.className ?? "hero-layer",
+    className: entry?.className ?? "hero-layer hero-surface-layer",
   } satisfies RuntimeLayer;
+}
+
+function buildSurfaceVars(options: {
+  surfaces?: any;
+  motion?: any;
+  filmGrainSettings?: any;
+  particles?: boolean;
+  filmGrain?: boolean;
+  opacityBoost?: number;
+}): CSSProperties {
+  const { surfaces = {}, motion = {}, filmGrainSettings = {}, particles = true, filmGrain = true } = options;
+  const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * (options.opacityBoost ?? 1));
+  const gradient = surfaces.gradient ?? "var(--smh-gradient)";
+  const shouldShowGrain = Boolean(filmGrain && filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
+  const shouldShowParticles = Boolean(particles && (surfaces.particles?.path || surfaces.particles?.asset?.id));
+  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
+  const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
+  const grainOpacity = applyBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1));
+  const particleOpacity = applyBoost((motion?.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
+
+  return {
+    ["--hero-gradient" as string]: gradient,
+    ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
+      ? `url(${surfaces.waveMask.desktop.path})`
+      : surfaces.waveMask?.desktop?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
+        : undefined,
+    ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
+      ? `url(${surfaces.waveMask.mobile.path})`
+      : surfaces.waveMask?.mobile?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)})`
+        : undefined,
+    ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
+      ? `url(${surfaces.background.desktop.path})`
+      : surfaces.background?.desktop?.id
+        ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
+        : undefined,
+    ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
+      ? `url(${surfaces.background.mobile.path})`
+      : surfaces.background?.mobile?.id
+        ? `url(${ensureHeroAssetPath(surfaces.background.mobile.id)})`
+        : undefined,
+    ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
+      ? `url(${surfaces.overlays.field.path})`
+      : surfaces.overlays?.field?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
+        : undefined,
+    ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
+      ? `url(${surfaces.overlays.dots.path})`
+      : surfaces.overlays?.dots?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
+        : undefined,
+    ["--hero-particles" as string]: shouldShowParticles && surfaces.particles?.path
+      ? `url(${surfaces.particles.path})`
+      : shouldShowParticles && surfaces.particles?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
+        : undefined,
+    ["--hero-grain-desktop" as string]: shouldShowGrain && surfaces.grain?.desktop?.path
+      ? `url(${surfaces.grain.desktop.path})`
+      : shouldShowGrain && surfaces.grain?.desktop?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
+        : undefined,
+    ["--hero-grain-mobile" as string]: shouldShowGrain && surfaces.grain?.mobile?.path
+      ? `url(${surfaces.grain.mobile.path})`
+      : shouldShowGrain && surfaces.grain?.mobile?.asset?.id
+        ? `url(${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)})`
+        : undefined,
+    ["--hero-film-grain-opacity" as string]: grainOpacity,
+    ["--hero-film-grain-blend" as string]: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
+    ["--hero-particles-opacity" as string]: particleOpacity,
+    ["--hero-particles-blend" as string]: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
+    ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
+    ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
+    ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
+  };
 }
 
 function buildLegacyLayers(
@@ -69,15 +168,19 @@ function buildLegacyLayers(
       ? motion.entries
       : Array.isArray(motion)
         ? motion
-        : [];
-  const videoEntry = surfaces?.video;
+        : typeof surfaces?.motion === "object"
+          ? Object.values(surfaces.motion)
+          : [];
+  const videoEntry = surfaces?.video?.path ? surfaces.video : surfaces?.video?.hero?.video ?? surfaces?.video;
   const particlesEnabled = options.particles ?? true;
   const filmGrainEnabled = options.filmGrain ?? true;
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
   const shouldShowGrain = Boolean(
     filmGrainEnabled && filmGrainSettings?.enabled && (surfaces?.grain?.desktop || surfaces?.grain?.mobile),
   );
-  const shouldShowParticles = Boolean(particlesEnabled && surfaces?.particles?.path);
+  const shouldShowParticles = Boolean(
+    particlesEnabled && (surfaces?.particles?.path || surfaces?.particles?.asset?.id),
+  );
   const causticsOpacity = applyBoost(
     motionEntries.find((entry: any) => entry.id === "overlay.caustics")?.opacity
       ?? surfaces?.overlays?.field?.opacity
@@ -85,13 +188,7 @@ function buildLegacyLayers(
   );
   const waveBackdropOpacity = applyBoost(surfaces?.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces?.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
-  const surfaceStack = (surfaces?.surfaceStack ?? []).filter((layer: any) => {
-    const token = layer.token ?? layer.id;
-    if (layer.suppressed) return false;
-    if (token === "overlay.particles" && !shouldShowParticles) return false;
-    if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
-    return true;
-  });
+  const surfaceStack = (surfaces?.surfaceStack ?? []).filter((layer: any) => !(layer as any)?.suppressed);
   const grainOpacity = applyBoost(
     (filmGrainSettings?.opacity ?? 0.28) * (surfaces?.grain?.desktop?.opacity ?? 1),
   );
@@ -99,37 +196,21 @@ function buildLegacyLayers(
     (motion?.particles?.density ?? 1) * (surfaces?.particles?.opacity ?? 1) * 0.35,
   );
 
-  const tokenClassNames: Record<string, string> = {
-    "gradient.base": "hero-layer hero-layer--gradient",
-    "field.waveBackdrop": "hero-layer hero-layer--wave-backdrop",
-    "mask.waveHeader": "hero-layer hero-layer--wave-mask",
-    "field.waveRings": "hero-layer hero-layer--wave-rings",
-    "field.dotGrid": "hero-layer hero-layer--dot-grid",
-    "overlay.particles": "hero-layer hero-layer--particles",
-    "overlay.filmGrain": "hero-layer hero-layer--grain",
-    "overlay.caustics": "hero-layer hero-layer--caustics motion",
-    "overlay.glassShimmer": "hero-layer hero-layer--motion motion",
-    "overlay.goldDust": "hero-layer hero-layer--motion motion",
-    "overlay.particlesDrift": "hero-layer hero-layer--motion motion",
-    "hero.video": "hero-layer hero-layer--video motion",
-    "hero.contentFrame": "hero-layer hero-layer--content",
-  };
-
   const layerStyles: Record<string, Partial<RuntimeLayer>> = {
     "gradient.base": { type: "gradient", url: gradient, prmSafe: true },
     "field.waveBackdrop": {
       type: "image",
       url: resolveUrl(surfaces?.background?.desktop),
       opacity: waveBackdropOpacity,
-      blendMode: waveBackdropBlend ?? "screen",
-      prmSafe: surfaces?.background?.desktop?.prmSafe,
+      blendMode: waveBackdropBlend,
+      prmSafe: surfaces?.background?.desktop?.prmSafe ?? true,
     },
     "mask.waveHeader": {
       type: "image",
-      url: resolveUrl(surfaces?.waveMask?.desktop),
+      url: resolveUrl(surfaces?.waveMask?.desktop ?? surfaces?.waveMask),
       opacity: applyBoost(surfaces?.waveMask?.desktop?.opacity),
       blendMode: surfaces?.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-      prmSafe: surfaces?.waveMask?.desktop?.prmSafe,
+      prmSafe: surfaces?.waveMask?.desktop?.prmSafe ?? true,
     },
     "field.waveRings": {
       type: "image",
@@ -166,30 +247,46 @@ function buildLegacyLayers(
     "hero.contentFrame": { type: "unknown", prmSafe: true },
   };
 
+  const resolveMotionEntry = (token: string) => {
+    const alias = MOTION_ALIAS_MAP[token] ?? token;
+    const direct = motionEntries.find((entry: any) => entry?.id === token || entry?.id === alias || entry?.token === alias);
+    if (direct) return direct;
+    const aliasFromRuntime = motion?.aliases?.[alias];
+    if (aliasFromRuntime) return { id: alias, ...aliasFromRuntime };
+    const motionFromSurfaces = (surfaces?.motion as Record<string, any>)?.[alias];
+    if (motionFromSurfaces) return { id: alias, ...motionFromSurfaces };
+    const videoFromSurfaces = (surfaces?.video as Record<string, any>)?.[alias];
+    if (videoFromSurfaces) return { id: alias, ...videoFromSurfaces };
+    if (alias === "hero.video" && videoEntry) return { id: alias, ...videoEntry };
+    return undefined;
+  };
+
   const layers: RuntimeLayer[] = surfaceStack.map((layer: any) => {
     const token = layer.token ?? layer.id ?? "layer";
     const baseStyle = layerStyles[token] ?? { type: "unknown" };
-    const motionEntry = motionEntries.find((entry: any) => entry.id === token);
-    const urlFromStyle = baseStyle.url ?? resolveUrl(motionEntry);
+    const motionEntry = resolveMotionEntry(token);
+    const isMotionLayer = Boolean(layer.motion || MOTION_ALIAS_MAP[token] || motionEntry?.mediaType === "video");
+    const urlFromMotion = motionEntry ? resolveUrl(motionEntry) ?? motionEntry?.path ?? motionEntry?.url : undefined;
     const opacityFromMotion = motionEntry
       ? motionEntry.opacity ?? (motion?.shimmerIntensity ?? 1) * 0.85
       : baseStyle.opacity;
+
     return {
       id: token,
       role: layer.role,
-      className: layer.className ?? tokenClassNames[token] ?? "hero-layer",
-      type: motionEntry ? "video" : baseStyle.type ?? "unknown",
-      url: motionEntry?.path ?? urlFromStyle,
-      opacity: motionEntry ? applyBoost(opacityFromMotion) : opacityFromMotion,
+      className: layer.className ?? tokenClassNames[token] ?? "hero-layer hero-surface-layer",
+      type: isMotionLayer ? "video" : baseStyle.type ?? "unknown",
+      url: urlFromMotion ?? baseStyle.url,
+      opacity: isMotionLayer ? applyBoost(opacityFromMotion) : opacityFromMotion,
       blendMode: motionEntry
         ? (motionEntry.blendMode as CSSProperties["mixBlendMode"])
         : baseStyle.blendMode,
       zIndex: layer.zIndex,
-      prmSafe: layer.prmSafe ?? baseStyle.prmSafe,
+      prmSafe: layer.prmSafe ?? baseStyle.prmSafe ?? motionEntry?.prmSafe,
     } satisfies RuntimeLayer;
   });
 
-  if (videoEntry?.path) {
+  if (videoEntry?.path && !layers.some((layer) => layer.id === "hero.video")) {
     layers.push({
       id: "hero.video",
       role: videoEntry.role ?? "motion",
@@ -229,7 +326,6 @@ function buildLegacyLayers(
 
   return layers;
 }
-
 function buildFallbackLayers(options: {
   flags: HeroFlags;
   particles?: boolean;
@@ -248,7 +344,7 @@ function buildFallbackLayers(options: {
       role: "background",
       url: baseGradient,
       opacity: 1,
-      className: "hero-layer hero-layer--gradient",
+      className: tokenClassNames["gradient.base"],
       prmSafe: true,
     },
     {
@@ -258,7 +354,7 @@ function buildFallbackLayers(options: {
       url: "/assets/champagne/waves/waves-bg-2560.webp",
       opacity: applyBoost(0.72),
       blendMode: "screen",
-      className: "hero-layer hero-layer--wave-backdrop",
+      className: tokenClassNames["field.waveBackdrop"],
       prmSafe: true,
     },
     {
@@ -268,7 +364,7 @@ function buildFallbackLayers(options: {
       url: "/assets/champagne/waves/wave-mask-desktop.webp",
       opacity: applyBoost(0.75),
       blendMode: "soft-light",
-      className: "hero-layer hero-layer--wave-mask",
+      className: tokenClassNames["mask.waveHeader"],
       prmSafe: true,
     },
     {
@@ -278,7 +374,7 @@ function buildFallbackLayers(options: {
       url: "/assets/champagne/waves/wave-field.svg",
       opacity: applyBoost(0.55),
       blendMode: "screen",
-      className: "hero-layer hero-layer--wave-rings",
+      className: tokenClassNames["field.waveRings"],
       prmSafe: true,
     },
     {
@@ -288,7 +384,7 @@ function buildFallbackLayers(options: {
       url: "/assets/champagne/waves/wave-dots.svg",
       opacity: applyBoost(0.42),
       blendMode: "soft-light",
-      className: "hero-layer hero-layer--dot-grid",
+      className: tokenClassNames["field.dotGrid"],
       prmSafe: true,
     },
   ];
@@ -301,7 +397,7 @@ function buildFallbackLayers(options: {
       url: "/assets/champagne/particles/home-hero-particles.webp",
       opacity: applyBoost(0.35),
       blendMode: "screen",
-      className: "hero-layer hero-layer--particles",
+      className: tokenClassNames["overlay.particles"],
       prmSafe: true,
     });
   }
@@ -314,7 +410,7 @@ function buildFallbackLayers(options: {
       url: "/assets/champagne/film-grain/film-grain-desktop.webp",
       opacity: applyBoost(0.32),
       blendMode: "soft-light",
-      className: "hero-layer hero-layer--grain",
+      className: tokenClassNames["overlay.filmGrain"],
       prmSafe: true,
     });
   }
@@ -328,7 +424,7 @@ function buildFallbackLayers(options: {
         url: "/assets/champagne/motion/wave-caustics.webm",
         opacity: applyBoost(0.82),
         blendMode: "screen",
-        className: "hero-layer hero-layer--caustics motion",
+        className: tokenClassNames["overlay.caustics"],
         prmSafe: false,
       },
       {
@@ -338,7 +434,7 @@ function buildFallbackLayers(options: {
         url: "/assets/champagne/motion/glass-shimmer.webm",
         opacity: applyBoost(0.55),
         blendMode: "screen",
-        className: "hero-layer hero-layer--motion motion",
+        className: "hero-layer hero-surface-layer hero-surface--glass-shimmer hero-layer--motion motion",
         prmSafe: false,
       },
     );
@@ -364,6 +460,14 @@ export function buildLayerStack(options: {
   const gradient = runtimeAny?.gradient ?? surfaces.gradient ?? "var(--smh-gradient)";
   const flags: HeroFlags = runtimeAny?.flags ?? { prm: false };
   const prmEnabled = Boolean(flags.prm);
+  const surfaceVars = buildSurfaceVars({
+    surfaces,
+    motion,
+    filmGrainSettings,
+    particles,
+    filmGrain,
+    opacityBoost,
+  });
   const runtimeLayers = Array.isArray(runtimeAny?.layers)
     ? (runtimeAny.layers as any[]).map((layer) => mapRuntimeLayer(layer))
     : null;
@@ -431,5 +535,5 @@ export function buildLayerStack(options: {
     fallbackLayers.forEach((layer) => layerDiagnostics.push({ ...layer, suppressedReason: undefined }));
   }
 
-  return { resolvedLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers, layerDiagnostics } as const;
+  return { resolvedLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers, layerDiagnostics, surfaceVars } as const;
 }

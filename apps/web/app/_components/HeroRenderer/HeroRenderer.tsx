@@ -134,7 +134,7 @@ export function HeroRenderer({
   if (!runtime) return <HeroFallback />;
 
   const { content, layout } = runtime;
-  const { resolvedLayers, gradient } = buildLayerStack({
+  const { resolvedLayers, gradient, surfaceVars } = buildLayerStack({
     runtime,
     mode,
     particles,
@@ -152,6 +152,7 @@ export function HeroRenderer({
         alignItems: layout?.contentAlign === "center" ? "center" : "stretch",
         overflow: "hidden",
         background: "var(--hero-gradient, var(--smh-gradient))",
+        ...surfaceVars,
         ["--hero-gradient" as string]: gradient,
       }}
       className="hero-renderer"
@@ -168,32 +169,49 @@ export function HeroRenderer({
               inset: 0;
               z-index: 0;
             }
-            .hero-renderer .hero-layer {
+            .hero-renderer .hero-layer,
+            .hero-renderer .hero-surface-layer {
               position: absolute;
               inset: 0;
               z-index: 0;
               background-size: cover;
               background-position: center;
+              background-repeat: no-repeat;
               pointer-events: none;
             }
-            .hero-renderer .hero-layer--gradient {
-              background-repeat: no-repeat;
+            .hero-renderer .hero-surface-layer.hero-surface--gradient-field {
+              background-image: var(--hero-gradient, var(--smh-gradient));
             }
-            .hero-renderer .hero-layer--wave-backdrop,
-            .hero-renderer .hero-layer--wave-mask,
-            .hero-renderer .hero-layer--wave-rings,
-            .hero-renderer .hero-layer--dot-grid,
-            .hero-renderer .hero-layer--particles,
-            .hero-renderer .hero-layer--grain,
-            .hero-renderer .hero-layer--caustics {
-              background-repeat: no-repeat;
+            .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
+              background-image: var(--hero-wave-background-desktop);
+              mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
+              opacity: var(--surface-opacity-waveBackdrop, 1);
             }
-            .hero-renderer .hero-layer--wave-mask {
+            .hero-renderer .hero-surface-layer.hero-surface--wave-mask {
+              background-image: var(--hero-wave-mask-desktop);
               background-size: contain;
               background-position: top center;
             }
+            .hero-renderer .hero-surface-layer.hero-surface--wave-field {
+              background-image: var(--hero-overlay-field);
+            }
+            .hero-renderer .hero-surface-layer.hero-surface--dot-field {
+              background-image: var(--hero-overlay-dots);
+            }
+            .hero-renderer .hero-surface-layer.hero-surface--particles {
+              background-image: var(--hero-particles);
+              mix-blend-mode: var(--hero-particles-blend, screen);
+              opacity: var(--hero-particles-opacity, 1);
+            }
+            .hero-renderer .hero-surface-layer.hero-surface--film-grain {
+              background-image: var(--hero-grain-desktop);
+              mix-blend-mode: var(--hero-film-grain-blend, soft-light);
+              opacity: var(--hero-film-grain-opacity, 1);
+            }
             .hero-renderer .hero-layer.video,
-            .hero-renderer .hero-layer.motion {
+            .hero-renderer .hero-layer.motion,
+            .hero-renderer .hero-surface-layer.video,
+            .hero-renderer .hero-surface-layer.motion {
               object-fit: cover;
               width: 100%;
               height: 100%;
@@ -214,6 +232,15 @@ export function HeroRenderer({
               .hero-renderer .hero-content {
                 padding: clamp(1.5rem, 6vw, 2.5rem);
               }
+              .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
+                background-image: var(--hero-wave-background-mobile);
+              }
+              .hero-renderer .hero-surface-layer.hero-surface--wave-mask {
+                background-image: var(--hero-wave-mask-mobile);
+              }
+              .hero-renderer .hero-surface-layer.hero-surface--film-grain {
+                background-image: var(--hero-grain-mobile);
+              }
             }
           `,
         }}
@@ -229,8 +256,8 @@ export function HeroRenderer({
 
           if (layer.type === "video") {
             const className = layer.className
-              ? `hero-layer video motion ${layer.className}`
-              : "hero-layer video motion";
+              ? `${layer.className} video motion`
+              : "hero-layer hero-surface-layer video motion";
             return (
               <video
                 key={layer.id}
@@ -250,7 +277,7 @@ export function HeroRenderer({
           }
 
           const backgroundImage = layer.type === "gradient" ? layer.url : layer.url ? `url(${layer.url})` : undefined;
-          const className = layer.className ? `hero-layer ${layer.className}` : "hero-layer";
+          const className = layer.className ?? "hero-layer hero-surface-layer";
 
           return (
             <div
