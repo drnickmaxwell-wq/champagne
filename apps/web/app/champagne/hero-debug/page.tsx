@@ -1,6 +1,7 @@
 import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
 import { buildLayerStack, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
+import type { CSSProperties } from "react";
 
 function parseToggle(value: string | string[] | undefined, defaultValue: boolean): boolean {
   if (value === undefined) return defaultValue;
@@ -64,7 +65,27 @@ function describeLayer(layer: RuntimeLayer) {
     zIndex: layer.zIndex,
     prmSafe: layer.prmSafe,
     url: layer.url,
+    backgroundSize: layer.backgroundSize,
+    backgroundPosition: layer.backgroundPosition,
+    backgroundRepeat: layer.backgroundRepeat,
+    warning: layer.warning,
     suppressedReason: layer.suppressedReason,
+  };
+}
+
+const toCssUrl = (value?: string) => {
+  if (!value) return undefined;
+  return value.startsWith("url(") ? value : `url(${value})`;
+};
+
+function layerPreviewStyle(layer: RuntimeLayer): CSSProperties {
+  const backgroundImage = layer.type === "gradient" ? layer.url : layer.url ? toCssUrl(layer.url) : undefined;
+
+  return {
+    backgroundImage,
+    backgroundSize: layer.backgroundSize ?? "cover",
+    backgroundPosition: layer.backgroundPosition ?? "center",
+    backgroundRepeat: layer.backgroundRepeat ?? "no-repeat",
   };
 }
 
@@ -162,14 +183,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
             {layerDiagnostics.map((layer) => {
               const detail = describeLayer(layer);
               const isVideo = detail.type === "video";
-              const backgroundImage = !isVideo
-                ? detail.type === "gradient"
-                  ? detail.url
-                  : detail.url
-                    ? `url(${detail.url})`
-                    : undefined
-                : undefined;
+              const previewStyle = !isVideo ? layerPreviewStyle(layer) : {};
               const suppressed = Boolean(detail.suppressedReason);
+              const warning = !suppressed ? detail.warning : undefined;
               return (
                 <div
                   key={detail.id}
@@ -191,9 +207,7 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                       overflow: "hidden",
                       height: "120px",
                       backgroundColor: "rgba(255,255,255,0.05)",
-                      backgroundImage,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
+                      ...previewStyle,
                       filter: suppressed ? "grayscale(1) opacity(0.35)" : undefined,
                     }}
                   >
@@ -232,6 +246,9 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
                     <div style={{ color: "var(--text-medium)", fontSize: "0.85rem", wordBreak: "break-all" }}>
                       URL: {detail.url ?? "—"}
                     </div>
+                    {warning ? (
+                      <div style={{ color: "var(--warning-amber, #f8d87c)", fontSize: "0.9rem" }}>{warning}</div>
+                    ) : null}
                     {suppressed ? (
                       <div style={{ color: "var(--warning-amber, #f8d87c)", fontSize: "0.9rem" }}>
                         {detail.suppressedReason}

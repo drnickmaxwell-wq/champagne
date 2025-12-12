@@ -14,7 +14,7 @@
 
 import React, { type CSSProperties, useEffect, useMemo, useState } from "react";
 import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
-import { buildLayerStack } from "./layerUtils";
+import { buildLayerStack, type RuntimeLayer } from "./layerUtils";
 
 export interface HeroRendererProps {
   mode?: HeroMode;
@@ -143,6 +143,59 @@ export function HeroRenderer({
     includeFallback: mode === "home",
   });
 
+  const toCssUrl = (value?: string) => {
+    if (!value) return undefined;
+    return value.startsWith("url(") ? value : `url(${value})`;
+  };
+
+  const resolveBackgroundImage = (layer: RuntimeLayer) => {
+    if (layer.type === "gradient") return layer.url;
+    if (!layer.url) return undefined;
+    return toCssUrl(layer.url);
+  };
+
+  const buildStaticLayerStyle = (layer: RuntimeLayer): CSSProperties => {
+    const backgroundImage = resolveBackgroundImage(layer);
+    const maskSource = layer.maskImage ?? (layer.id?.startsWith("mask.") ? layer.url : undefined);
+    const maskImage = maskSource ? toCssUrl(maskSource) ?? backgroundImage : undefined;
+
+    const style: CSSProperties = {
+      position: "absolute",
+      inset: 0,
+      mixBlendMode: layer.blendMode,
+      opacity: layer.opacity ?? 1,
+      zIndex: layer.zIndex,
+      pointerEvents: "none",
+      backgroundImage,
+      backgroundSize: layer.backgroundSize ?? "cover",
+      backgroundPosition: layer.backgroundPosition ?? "center",
+      backgroundRepeat: layer.backgroundRepeat ?? "no-repeat",
+      backgroundColor: layer.backgroundColor,
+    };
+
+    if (maskImage) {
+      style.maskImage = maskImage;
+      style.WebkitMaskImage = maskImage;
+      style.maskRepeat = layer.maskRepeat ?? "no-repeat";
+      style.maskPosition = layer.maskPosition ?? "top center";
+      style.maskSize = layer.maskSize ?? "contain";
+    }
+
+    return style;
+  };
+
+  const buildVideoStyle = (layer: RuntimeLayer): CSSProperties => ({
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: layer.objectFit ?? "cover",
+    mixBlendMode: layer.blendMode,
+    opacity: layer.opacity ?? 1,
+    zIndex: layer.zIndex,
+    pointerEvents: "none",
+  });
+
   return (
     <BaseChampagneSurface
       variant="inkGlass"
@@ -168,45 +221,14 @@ export function HeroRenderer({
               position: absolute;
               inset: 0;
               z-index: 0;
+              pointer-events: none;
             }
             .hero-renderer .hero-layer,
             .hero-renderer .hero-surface-layer {
               position: absolute;
               inset: 0;
               z-index: 0;
-              background-size: cover;
-              background-position: center;
-              background-repeat: no-repeat;
               pointer-events: none;
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--gradient-field {
-              background-image: var(--hero-gradient, var(--smh-gradient));
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-              background-image: var(--hero-wave-background-desktop);
-              mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
-              opacity: var(--surface-opacity-waveBackdrop, 1);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-mask {
-              background-image: var(--hero-wave-mask-desktop);
-              background-size: contain;
-              background-position: top center;
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--wave-field {
-              background-image: var(--hero-overlay-field);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--dot-field {
-              background-image: var(--hero-overlay-dots);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--particles {
-              background-image: var(--hero-particles);
-              mix-blend-mode: var(--hero-particles-blend, screen);
-              opacity: var(--hero-particles-opacity, 1);
-            }
-            .hero-renderer .hero-surface-layer.hero-surface--film-grain {
-              background-image: var(--hero-grain-desktop);
-              mix-blend-mode: var(--hero-film-grain-blend, soft-light);
-              opacity: var(--hero-film-grain-opacity, 1);
             }
             .hero-renderer .hero-layer.video,
             .hero-renderer .hero-layer.motion,
@@ -215,6 +237,17 @@ export function HeroRenderer({
               object-fit: cover;
               width: 100%;
               height: 100%;
+            }
+            .hero-renderer .hero-layer.missing-video {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              font-weight: 700;
+              color: var(--warning-amber, #f5d69d);
+              background: color-mix(in srgb, rgba(0,0,0,0.45) 60%, rgba(24,24,24,0.6));
+              backdrop-filter: blur(2px);
             }
             .hero-renderer [data-layer-role="fx"] {
               mix-blend-mode: screen;
@@ -232,32 +265,33 @@ export function HeroRenderer({
               .hero-renderer .hero-content {
                 padding: clamp(1.5rem, 6vw, 2.5rem);
               }
-              .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
-                background-image: var(--hero-wave-background-mobile);
-              }
-              .hero-renderer .hero-surface-layer.hero-surface--wave-mask {
-                background-image: var(--hero-wave-mask-mobile);
-              }
-              .hero-renderer .hero-surface-layer.hero-surface--film-grain {
-                background-image: var(--hero-grain-mobile);
-              }
             }
           `,
         }}
       />
 
-      <div className="hero-layer-stack">
+      <div className="hero-layer-stack" aria-hidden="true">
         {resolvedLayers.map((layer) => {
-          const commonStyle: CSSProperties = {
-            mixBlendMode: layer.blendMode,
-            opacity: layer.opacity ?? 1,
-            zIndex: layer.zIndex,
-          };
-
           if (layer.type === "video") {
             const className = layer.className
               ? `${layer.className} video motion`
               : "hero-layer hero-surface-layer video motion";
+            const videoStyle = buildVideoStyle(layer);
+
+            if (!layer.url) {
+              return (
+                <div
+                  key={layer.id}
+                  className={`${className} missing-video`}
+                  data-layer-id={layer.id}
+                  data-layer-role={layer.role}
+                  style={videoStyle}
+                >
+                  {layer.warning ?? "Missing video path"}
+                </div>
+              );
+            }
+
             return (
               <video
                 key={layer.id}
@@ -269,15 +303,15 @@ export function HeroRenderer({
                 preload="metadata"
                 data-layer-id={layer.id}
                 data-layer-role={layer.role}
-                style={commonStyle}
+                style={videoStyle}
               >
                 <source src={layer.url} />
               </video>
             );
           }
 
-          const backgroundImage = layer.type === "gradient" ? layer.url : layer.url ? `url(${layer.url})` : undefined;
           const className = layer.className ?? "hero-layer hero-surface-layer";
+          const staticStyle = buildStaticLayerStyle(layer);
 
           return (
             <div
@@ -285,7 +319,7 @@ export function HeroRenderer({
               className={className}
               data-layer-id={layer.id}
               data-layer-role={layer.role}
-              style={{ ...commonStyle, backgroundImage }}
+              style={staticStyle}
             />
           );
         })}

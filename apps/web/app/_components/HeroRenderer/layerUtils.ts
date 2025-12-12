@@ -12,6 +12,16 @@ export type RuntimeLayer = {
   blendMode?: CSSProperties["mixBlendMode"];
   prmSafe?: boolean;
   className?: string;
+   backgroundSize?: CSSProperties["backgroundSize"];
+   backgroundPosition?: CSSProperties["backgroundPosition"];
+   backgroundRepeat?: CSSProperties["backgroundRepeat"];
+   backgroundColor?: CSSProperties["backgroundColor"];
+   maskImage?: CSSProperties["maskImage"];
+   maskSize?: CSSProperties["maskSize"];
+   maskPosition?: CSSProperties["maskPosition"];
+   maskRepeat?: CSSProperties["maskRepeat"];
+   objectFit?: CSSProperties["objectFit"];
+   warning?: string;
   suppressedReason?: string;
 };
 
@@ -76,6 +86,15 @@ function mapRuntimeLayer(entry: any): RuntimeLayer {
     blendMode: entry?.blendMode as CSSProperties["mixBlendMode"],
     prmSafe: entry?.prmSafe,
     className: entry?.className ?? "hero-layer hero-surface-layer",
+    backgroundSize: entry?.backgroundSize ?? entry?.size,
+    backgroundPosition: entry?.backgroundPosition ?? entry?.position,
+    backgroundRepeat: entry?.backgroundRepeat ?? entry?.repeat,
+    backgroundColor: entry?.backgroundColor,
+    maskImage: entry?.maskImage ?? entry?.mask ?? entry?.maskUrl,
+    maskSize: entry?.maskSize,
+    maskPosition: entry?.maskPosition,
+    maskRepeat: entry?.maskRepeat,
+    objectFit: entry?.objectFit,
   } satisfies RuntimeLayer;
 }
 
@@ -197,13 +216,23 @@ function buildLegacyLayers(
   );
 
   const layerStyles: Record<string, Partial<RuntimeLayer>> = {
-    "gradient.base": { type: "gradient", url: gradient, prmSafe: true },
+    "gradient.base": {
+      type: "gradient",
+      url: gradient,
+      prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    },
     "field.waveBackdrop": {
       type: "image",
       url: resolveUrl(surfaces?.background?.desktop),
       opacity: waveBackdropOpacity,
       blendMode: waveBackdropBlend,
       prmSafe: surfaces?.background?.desktop?.prmSafe ?? true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     "mask.waveHeader": {
       type: "image",
@@ -211,6 +240,14 @@ function buildLegacyLayers(
       opacity: applyBoost(surfaces?.waveMask?.desktop?.opacity),
       blendMode: surfaces?.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
       prmSafe: surfaces?.waveMask?.desktop?.prmSafe ?? true,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "top center",
+      backgroundSize: "contain",
+      maskImage: resolveUrl(surfaces?.waveMask?.desktop ?? surfaces?.waveMask),
+      maskRepeat: "no-repeat",
+      maskPosition: "top center",
+      maskSize: "contain",
+      backgroundColor: "var(--bg-ink, #06070c)",
     },
     "field.waveRings": {
       type: "image",
@@ -218,6 +255,9 @@ function buildLegacyLayers(
       opacity: applyBoost(surfaces?.overlays?.field?.opacity),
       blendMode: surfaces?.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
       prmSafe: surfaces?.overlays?.field?.prmSafe,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     "field.dotGrid": {
       type: "image",
@@ -225,6 +265,9 @@ function buildLegacyLayers(
       opacity: applyBoost(surfaces?.overlays?.dots?.opacity),
       blendMode: surfaces?.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
       prmSafe: surfaces?.overlays?.dots?.prmSafe,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     "overlay.particles": {
       type: "image",
@@ -232,6 +275,9 @@ function buildLegacyLayers(
       opacity: particleOpacity,
       blendMode: (surfaces?.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
       prmSafe: surfaces?.particles?.prmSafe ?? true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     "overlay.filmGrain": {
       type: "image",
@@ -239,6 +285,9 @@ function buildLegacyLayers(
       opacity: grainOpacity,
       blendMode: (surfaces?.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
       prmSafe: surfaces?.grain?.desktop?.prmSafe ?? true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     "overlay.caustics": { type: "video", opacity: causticsOpacity, blendMode: "screen", prmSafe: false },
     "overlay.glassShimmer": { type: "video", blendMode: "screen", prmSafe: false },
@@ -283,6 +332,15 @@ function buildLegacyLayers(
         : baseStyle.blendMode,
       zIndex: layer.zIndex,
       prmSafe: layer.prmSafe ?? baseStyle.prmSafe ?? motionEntry?.prmSafe,
+      backgroundSize: layer.backgroundSize ?? baseStyle.backgroundSize,
+      backgroundPosition: layer.backgroundPosition ?? baseStyle.backgroundPosition,
+      backgroundRepeat: layer.backgroundRepeat ?? baseStyle.backgroundRepeat,
+      backgroundColor: layer.backgroundColor ?? baseStyle.backgroundColor,
+      maskImage: layer.maskImage ?? baseStyle.maskImage,
+      maskRepeat: layer.maskRepeat ?? baseStyle.maskRepeat,
+      maskPosition: layer.maskPosition ?? baseStyle.maskPosition,
+      maskSize: layer.maskSize ?? baseStyle.maskSize,
+      objectFit: layer.objectFit ?? baseStyle.objectFit ?? (isMotionLayer ? "cover" : undefined),
     } satisfies RuntimeLayer;
   });
 
@@ -296,6 +354,7 @@ function buildLegacyLayers(
       blendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
       className: tokenClassNames["hero.video"] ?? "hero-layer hero-layer--video motion",
       prmSafe: videoEntry.prmSafe,
+      objectFit: videoEntry.objectFit ?? "cover",
     });
   }
 
@@ -310,6 +369,7 @@ function buildLegacyLayers(
       blendMode: entry.blendMode as CSSProperties["mixBlendMode"],
       className: entry.className ?? tokenClassNames[entry.id] ?? "hero-layer hero-layer--motion motion",
       prmSafe: entry.prmSafe,
+      objectFit: entry.objectFit ?? "cover",
     });
   });
 
@@ -346,6 +406,9 @@ function buildFallbackLayers(options: {
       opacity: 1,
       className: tokenClassNames["gradient.base"],
       prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     {
       id: "field.waveBackdrop",
@@ -356,6 +419,9 @@ function buildFallbackLayers(options: {
       blendMode: "screen",
       className: tokenClassNames["field.waveBackdrop"],
       prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     {
       id: "mask.waveHeader",
@@ -366,6 +432,14 @@ function buildFallbackLayers(options: {
       blendMode: "soft-light",
       className: tokenClassNames["mask.waveHeader"],
       prmSafe: true,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "top center",
+      backgroundSize: "contain",
+      maskImage: "/assets/champagne/waves/wave-mask-desktop.webp",
+      maskRepeat: "no-repeat",
+      maskPosition: "top center",
+      maskSize: "contain",
+      backgroundColor: "var(--bg-ink, #06070c)",
     },
     {
       id: "field.waveRings",
@@ -376,6 +450,9 @@ function buildFallbackLayers(options: {
       blendMode: "screen",
       className: tokenClassNames["field.waveRings"],
       prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
     {
       id: "field.dotGrid",
@@ -386,6 +463,9 @@ function buildFallbackLayers(options: {
       blendMode: "soft-light",
       className: tokenClassNames["field.dotGrid"],
       prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     },
   ];
 
@@ -399,6 +479,9 @@ function buildFallbackLayers(options: {
       blendMode: "screen",
       className: tokenClassNames["overlay.particles"],
       prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     });
   }
 
@@ -412,6 +495,9 @@ function buildFallbackLayers(options: {
       blendMode: "soft-light",
       className: tokenClassNames["overlay.filmGrain"],
       prmSafe: true,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
     });
   }
 
@@ -420,25 +506,27 @@ function buildFallbackLayers(options: {
       {
         id: "overlay.caustics",
         type: "video",
-        role: "motion",
-        url: "/assets/champagne/motion/wave-caustics.webm",
-        opacity: applyBoost(0.82),
-        blendMode: "screen",
-        className: tokenClassNames["overlay.caustics"],
-        prmSafe: false,
-      },
-      {
-        id: "motion.shimmer",
-        type: "video",
-        role: "motion",
-        url: "/assets/champagne/motion/glass-shimmer.webm",
-        opacity: applyBoost(0.55),
-        blendMode: "screen",
-        className: "hero-layer hero-surface-layer hero-surface--glass-shimmer hero-layer--motion motion",
-        prmSafe: false,
-      },
-    );
-  }
+      role: "motion",
+      url: "/assets/champagne/motion/wave-caustics.webm",
+      opacity: applyBoost(0.82),
+      blendMode: "screen",
+      className: tokenClassNames["overlay.caustics"],
+      prmSafe: false,
+      objectFit: "cover",
+    },
+    {
+      id: "motion.shimmer",
+      type: "video",
+      role: "motion",
+      url: "/assets/champagne/motion/glass-shimmer.webm",
+      opacity: applyBoost(0.55),
+      blendMode: "screen",
+      className: "hero-layer hero-surface-layer hero-surface--glass-shimmer hero-layer--motion motion",
+      prmSafe: false,
+      objectFit: "cover",
+    },
+  );
+}
 
   return layers;
 }
@@ -490,50 +578,51 @@ export function buildLayerStack(options: {
       : fallbackLayers;
 
   const layerDiagnostics: RuntimeLayer[] = [];
-  // PRM is treated as "unsafe motion" whenever the runtime marks a layer as prmSafe=false
-  // or when the layer is a video without explicit prmSafe=true.
-  let resolvedLayers: RuntimeLayer[] = candidateLayers.filter((layer) => {
-    if (!layer) return false;
+  const resolvedLayers: RuntimeLayer[] = [];
+
+  candidateLayers.forEach((layer) => {
+    if (!layer) return;
+    let suppressedReason: string | undefined;
+    let warning: string | undefined;
+
     if (layer.id === "overlay.particles" && particles === false) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Particles disabled" });
-      return false;
+      suppressedReason = "Particles disabled";
     }
     if (layer.id === "overlay.filmGrain" && filmGrain === false) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Film grain disabled" });
-      return false;
+      suppressedReason = "Film grain disabled";
     }
     if (prmEnabled && layer.prmSafe === false) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Blocked by PRM (unsafe motion)" });
-      return false;
+      suppressedReason = "Blocked by PRM (unsafe motion)";
     }
     if (prmEnabled && layer.type === "video" && layer.prmSafe !== true) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Blocked by PRM (video)" });
-      return false;
+      suppressedReason = "Blocked by PRM (video)";
     }
     if (layer.role === "motion" && prmEnabled && layer.prmSafe === false) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Blocked by PRM (motion role)" });
-      return false;
+      suppressedReason = "Blocked by PRM (motion role)";
     }
     if (layer.type === "video" && !layer.url) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Missing video path" });
-      return false;
+      warning = "Missing video path";
     }
     if (layer.type === "gradient" && !layer.url) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Missing gradient" });
-      return false;
+      suppressedReason = "Missing gradient";
     }
     if ((layer.opacity ?? 1) <= 0) {
-      layerDiagnostics.push({ ...layer, suppressedReason: "Zero opacity" });
-      return false;
+      suppressedReason = "Zero opacity";
     }
-    layerDiagnostics.push({ ...layer, suppressedReason: undefined });
-    return true;
+
+    const layerWithWarning = { ...layer, warning } as RuntimeLayer;
+
+    layerDiagnostics.push({ ...layerWithWarning, suppressedReason });
+    if (suppressedReason) return;
+
+    resolvedLayers.push(layerWithWarning);
   });
 
   if (resolvedLayers.length === 0 && fallbackLayers.length > 0) {
-    resolvedLayers = fallbackLayers;
     fallbackLayers.forEach((layer) => layerDiagnostics.push({ ...layer, suppressedReason: undefined }));
+    return { resolvedLayers: fallbackLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers, layerDiagnostics, surfaceVars } as const;
   }
 
   return { resolvedLayers, gradient, flags, runtimeLayers, legacyLayers, fallbackLayers, layerDiagnostics, surfaceVars } as const;
 }
+

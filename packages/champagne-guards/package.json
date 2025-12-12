@@ -23,5 +23,8 @@
     "guard:manifests": "npm run guard:manifest",
     "guard:brand-structure": "node scripts/brand-structure-guard.cjs",
     "guard:all": "npm run guard:hero && npm run guard:rogue-hex && npm run guard:hero-freeze && npm run guard:manifest && npm run guard:brand-structure"
+  },
+  "devDependencies": {
+    "micromatch": "^4.0.8"
   }
 }
