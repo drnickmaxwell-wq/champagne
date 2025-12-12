@@ -1,95 +1,176 @@
 #!/usr/bin/env node
-import { execSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
-import { dirname, extname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
-import micromatch from "micromatch";
+import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import micromatch from 'micromatch';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
+const repoRoot = path.resolve(__dirname, '../../..');
+process.chdir(repoRoot);
 
-const allowConfigPath = resolve(__dirname, "guard-rogue-hex.allow.json");
-const allowConfig = JSON.parse(readFileSync(allowConfigPath, "utf8"));
+const allowConfigPath = path.resolve(__dirname, 'guard-rogue-hex.allow.json');
+const allowConfig = JSON.parse(readFileSync(allowConfigPath, 'utf8'));
 const allowGlobs = allowConfig.allow ?? [];
 const allowExtensions = new Set(allowConfig.allowExtensions ?? []);
 const warnOnlyExtensions = new Set(allowConfig.warnOnlyExtensions ?? []);
-const enforcedFiles = [
-  "app/preview/layout.tsx",
-  "app/preview/treatments/layout.tsx",
-].filter((file) => existsSync(resolve(process.cwd(), file)));
 
-const targetBase = process.env.GITHUB_BASE_REF || "main";
-const base = (() => {
+const scanRoots = ['apps', 'packages', 'public'];
+const ignoreGlobs = [
+  '**/node_modules/**',
+  '**/.next/**',
+  '**/dist/**',
+  '**/build/**',
+  '**/.turbo/**',
+  '**/.cache/**',
+  '**/.git/**'
+];
+
+const textExtensions = new Set([
+  '.js',
+  '.jsx',
+  '.ts',
+  '.tsx',
+  '.mjs',
+  '.cjs',
+  '.json',
+  '.css',
+  '.scss',
+  '.sass',
+  '.less',
+  '.md',
+  '.mdx',
+  '.yml',
+  '.yaml',
+  '.html',
+  '.txt',
+  '.svg'
+]);
+
+const patterns = [
+  { label: 'hex', regex: /#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?(?:[0-9a-fA-F]{2})?\b/ },
+  { label: 'rgb()', regex: /\brgb[a]?\s*\(/i },
+  { label: 'hsl()', regex: /\bhsl[a]?\s*\(/i }
+];
+
+const violations = [];
+const warnings = [];
+
+function getBaseRevision() {
+  const targetBase = process.env.GITHUB_BASE_REF || 'main';
   const candidates = [`origin/${targetBase}`, targetBase];
   for (const candidate of candidates) {
     try {
-      return execSync(`git merge-base ${candidate} HEAD 2>/dev/null`)
+      return execSync(`git merge-base ${candidate} HEAD`, { stdio: 'pipe' })
         .toString()
         .trim();
     } catch (error) {
-      // try next candidate
+      // try next
     }
   }
+
   try {
-    return execSync("git rev-parse HEAD^ 2>/dev/null").toString().trim();
+    return execSync('git rev-parse HEAD^', { stdio: 'pipe' })
+      .toString()
+      .trim();
   } catch (error) {
-    // fall back to repository root commit
+    return execSync('git rev-list --max-parents=0 HEAD', { stdio: 'pipe' })
+      .toString()
+      .trim()
+      .split('\n')
+      .filter(Boolean)
+      .pop();
   }
-  const roots = execSync("git rev-list --max-parents=0 HEAD")
+}
+
+const baseRevision = getBaseRevision();
+
+function listTrackedFiles() {
+  const command = `git ls-files ${scanRoots.join(' ')}`;
+  return execSync(command)
     .toString()
-    .trim()
-    .split("\n")
+    .split('\n')
     .filter(Boolean);
-  return roots[roots.length - 1];
-})();
+}
 
-const filesOutput = execSync(
-  `git diff --name-only --diff-filter=AM ${base} HEAD`
-)
-  .toString()
-  .trim();
+function isIgnored(file) {
+  return micromatch.isMatch(file, ignoreGlobs);
+}
 
-const files = filesOutput ? filesOutput.split("\n").filter(Boolean) : [];
-const fileSet = new Set([...files, ...enforcedFiles]);
-const ignorePrefixes = ["reports/"];
-const hexRegex = /#[0-9a-fA-F]{3,8}\b/;
+function isAllowlisted(file) {
+  return micromatch.isMatch(file, allowGlobs);
+}
 
-let failed = false;
-for (const file of fileSet) {
-  if (ignorePrefixes.some((prefix) => file.startsWith(prefix))) {
-    console.log(`ALLOW generated artifact: ${file}`);
-    continue;
-  }
-  const extension = extname(file);
+function fileChangedSinceBase(file) {
+  const diff = execSync(`git diff --name-only ${baseRevision} HEAD -- "${file}"`)
+    .toString()
+    .trim();
+  return Boolean(diff);
+}
+
+function scanFile(file) {
+  const extension = path.extname(file);
   if (allowExtensions.has(extension)) {
     console.log(`ALLOW extension (${extension}): ${file}`);
-    continue;
+    return;
   }
 
-  const diff = files.includes(file)
-    ? execSync(`git diff ${base} HEAD -- "${file}"`).toString()
-    : readFileSync(file, "utf8");
-  const hasHex = hexRegex.test(diff);
-  if (!hasHex) {
-    continue;
-  }
-
-  const isAllowlisted = micromatch.isMatch(file, allowGlobs);
-  if (isAllowlisted) {
-    if (warnOnlyExtensions.has(extension)) {
-      console.warn(`WARN allowlisted manifest: ${file}`);
-    } else {
-      console.warn(`WARN allowlisted: ${file}`);
+  if (isAllowlisted(file)) {
+    if (fileChangedSinceBase(file)) {
+      warnings.push(`Allowlisted file changed: ${file}`);
     }
-    continue;
+    console.log(`ALLOW path: ${file}`);
+    return;
   }
 
-  console.error(`❌ Rogue HEX detected in ${file}. Use Champagne tokens instead.`);
-  failed = true;
+  if (extension && !textExtensions.has(extension)) {
+    return;
+  }
+
+  let content;
+  try {
+    content = readFileSync(path.join(repoRoot, file), 'utf8');
+  } catch (error) {
+    warnings.push(`Skipped unreadable file ${file}: ${error.message}`);
+    return;
+  }
+
+  const lines = content.split(/\r?\n/);
+  lines.forEach((line, index) => {
+    for (const pattern of patterns) {
+      if (pattern.regex.test(line)) {
+        const entry = `${file}:${index + 1} contains ${pattern.label}`;
+        if (warnOnlyExtensions.has(extension)) {
+          warnings.push(`WARN (${pattern.label}) ${entry}`);
+        } else {
+          violations.push(entry);
+        }
+      }
+    }
+  });
 }
 
-if (failed) {
-  process.exit(1);
+function run() {
+  const files = listTrackedFiles().filter((file) => !isIgnored(file));
+  files.forEach(scanFile);
+
+  if (warnings.length) {
+    console.warn('⚠️ Rogue hex guard warnings:');
+    for (const warning of warnings) {
+      console.warn(`- ${warning}`);
+    }
+  }
+
+  if (violations.length) {
+    console.error('❌ Rogue hex guard failed: disallowed colour literals found.');
+    for (const violation of violations) {
+      console.error(`- ${violation}`);
+    }
+    process.exit(1);
+  }
+
+  console.log('✅ No rogue hex, rgb(), or hsl() tokens detected.');
 }
 
-console.log("✅ No rogue HEX outside token files.");
+run();

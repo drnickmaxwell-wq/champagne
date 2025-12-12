@@ -8,10 +8,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@champagne/cta": "0.0.1",
-    "@champagne/hero": "0.0.1",
-    "@champagne/manifests": "0.0.1",
-    "@champagne/sections": "0.0.1",
+    "@champagne/cta": "workspace:0.0.1",
+    "@champagne/hero": "workspace:0.0.1",
+    "@champagne/manifests": "workspace:0.0.1",
+    "@champagne/sections": "workspace:0.0.1",
     "clsx": "^2.1.1",
     "next": "15.5.7",
     "react": "19.2.1",

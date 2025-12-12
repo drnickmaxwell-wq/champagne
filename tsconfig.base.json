@@ -13,7 +13,9 @@
       "@champagne/sections": ["packages/champagne-sections/src"],
       "@champagne/cta": ["packages/champagne-cta/src"],
       "@champagne/canon": ["packages/champagne-canon/src"],
-      "@champagne/3d": ["packages/champagne-3d/src"]
+      "@champagne/3d": ["packages/champagne-3d/src"],
+      "next": ["apps/web/node_modules/next"],
+      "next/*": ["apps/web/node_modules/next/*"]
     },
     "strict": true,
     "esModuleInterop": true,
@@ -29,6 +31,11 @@
   "exclude": [
     "node_modules",
     "dist",
-    ".next"
+    ".next",
+    "_imports",
+    "_champagne-extraction",
+    "**/__tests__/**",
+    "**/*.spec.ts",
+    "**/*.test.ts"
   ]
 }

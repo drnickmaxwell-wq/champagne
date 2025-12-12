@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@champagne/manifests": "0.0.1",
-    "@champagne/tokens": "0.0.1"
+    "@champagne/manifests": "workspace:0.0.1",
+    "@champagne/tokens": "workspace:0.0.1"
   }
 }
