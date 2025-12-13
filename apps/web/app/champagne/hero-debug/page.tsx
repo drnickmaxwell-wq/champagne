@@ -1,4 +1,4 @@
-import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
+import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import { buildLayerStack, type RuntimeLayer } from "../../_components/HeroRenderer/layerUtils";
 import { ensureHeroAssetPath, getHeroRuntime } from "@champagne/hero";
 
