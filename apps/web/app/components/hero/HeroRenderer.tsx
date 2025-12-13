@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, Ref } from "react";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 
 export interface HeroRendererProps {
@@ -10,6 +10,7 @@ export interface HeroRendererProps {
   filmGrain?: boolean;
   debugOpacityBoost?: number;
   diagnosticBoost?: boolean;
+  surfaceRef?: Ref<HTMLDivElement>;
 }
 
 function HeroFallback() {
@@ -48,6 +49,7 @@ export async function HeroRenderer({
   filmGrain,
   debugOpacityBoost = 1,
   diagnosticBoost = false,
+  surfaceRef,
 }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
@@ -79,8 +81,12 @@ export async function HeroRenderer({
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
   const filteredMotionEntries = motionEntries.filter((entry) => !isDeniedVideo(entry.path));
-  const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
-  const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
+  const shouldShowGrain = Boolean(
+    filmGrain !== false && filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile),
+  );
+  const shouldShowParticles = Boolean(
+    particles !== false && (motion.particles?.density ?? 0) > 0 && surfaces.particles?.path,
+  );
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
   const applyDiagnosticBoost = (value?: number) => {
     const boosted = applyBoost(value);
@@ -98,7 +104,7 @@ export async function HeroRenderer({
     if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
     return true;
   });
-  const prmEnabled = runtime.flags.prm;
+  const prmEnabled = prm ?? runtime.flags.prm;
   const grainOpacity = applyDiagnosticBoost(
     (filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1),
   );
@@ -329,6 +335,7 @@ export async function HeroRenderer({
       <div
         aria-hidden
         className="hero-surface-stack"
+        ref={surfaceRef}
         data-prm={prmEnabled ? "true" : "false"}
         style={surfaceVars}
       >
@@ -343,7 +350,7 @@ export async function HeroRenderer({
           />
         ))}
 
-        {videoEntry?.path && !isDeniedVideo(videoEntry.path) && (
+        {!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path) && (
           <video
             className="hero-surface-layer hero-surface--motion"
             autoPlay
@@ -362,7 +369,8 @@ export async function HeroRenderer({
           </video>
         )}
 
-        {filteredMotionEntries.map((entry) => (
+        {!prmEnabled &&
+          filteredMotionEntries.map((entry) => (
           <video
             key={entry.id}
             className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}

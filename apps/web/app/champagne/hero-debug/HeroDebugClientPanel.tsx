@@ -27,19 +27,30 @@ export function HeroDebugClientPanel() {
   const [filmGrain, setFilmGrain] = useState(true);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
 
-  const heroContainerRef = useRef<HTMLDivElement | null>(null);
+  const heroSurfaceRef = useRef<HTMLDivElement | null>(null);
   const [cssVars, setCssVars] = useState<CssVarMap>({});
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
 
   const resolvedTimeOfDay = useMemo(() => (timeOfDay === "auto" ? undefined : timeOfDay), [timeOfDay]);
+  const heroRenderKey = useMemo(
+    () =>
+      [
+        diagnosticBoost ? "boost" : "noboost",
+        mockPrm ? "prm" : "motion",
+        particles ? "fx" : "nofx",
+        filmGrain ? "grain" : "nograin",
+        resolvedTimeOfDay ?? "auto",
+      ].join("-"),
+    [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay],
+  );
 
   useEffect(() => {
-    const heroElement = heroContainerRef.current?.querySelector<HTMLElement>(".hero-renderer");
+    const heroElement = heroSurfaceRef.current;
 
     if (!heroElement) {
       setCssVars({});
       setSurfaceIds([]);
-      return;
+      return undefined;
     }
 
     const updateDiagnostics = () => {
@@ -59,9 +70,17 @@ export function HeroDebugClientPanel() {
       setSurfaceIds(surfaces);
     };
 
-    const frame = requestAnimationFrame(updateDiagnostics);
+    updateDiagnostics();
 
-    return () => cancelAnimationFrame(frame);
+    const observer = new MutationObserver(updateDiagnostics);
+    observer.observe(heroElement, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ["style", "class", "data-surface-id"],
+    });
+
+    return () => observer.disconnect();
   }, [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay]);
 
   return (
@@ -110,42 +129,36 @@ export function HeroDebugClientPanel() {
         </label>
       </div>
 
-      <div ref={heroContainerRef} style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+      <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
         <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
           <HeroRenderer
+            key={heroRenderKey}
             prm={mockPrm}
             particles={particles}
             filmGrain={filmGrain}
             timeOfDay={resolvedTimeOfDay}
             diagnosticBoost={diagnosticBoost}
+            surfaceRef={heroSurfaceRef}
           />
         </Suspense>
       </div>
 
       <div style={{ display: "grid", gap: "0.5rem" }}>
         <h3 style={{ margin: 0 }}>Computed CSS vars</h3>
-        <div
+        <pre
           style={{
-            display: "grid",
-            gap: "0.25rem",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            margin: 0,
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
           }}
         >
-          {trackedCssVars.map((key) => (
-            <div
-              key={key}
-              style={{
-                padding: "0.5rem 0.75rem",
-                borderRadius: "var(--radius-sm)",
-                border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
-                background: "var(--surface-ink-soft)",
-              }}
-            >
-              <div style={{ fontSize: "0.8rem", letterSpacing: "0.05em", color: "var(--text-medium)" }}>{key}</div>
-              <div style={{ fontFamily: "var(--font-mono)", wordBreak: "break-word" }}>{cssVars[key] ?? "(empty)"}</div>
-            </div>
-          ))}
-        </div>
+          {trackedCssVars.map((key) => `${key}: ${cssVars[key] ?? "(empty)"}`).join("\n")}
+        </pre>
       </div>
 
       <div style={{ display: "grid", gap: "0.5rem" }}>
