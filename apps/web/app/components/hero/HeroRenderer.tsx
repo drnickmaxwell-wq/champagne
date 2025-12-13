@@ -72,7 +72,6 @@ export async function HeroRenderer({
   const opacityBoost = Math.max(debugOpacityBoost, 0.01);
   const gradient = surfaces.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
-  const videoEntry = surfaces.video;
   const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
   const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
@@ -277,44 +276,6 @@ export async function HeroRenderer({
             className={layer.className ?? "hero-surface-layer"}
             style={layer.token ? layerStyles[layer.token] : undefined}
           />
-        ))}
-
-        {videoEntry?.path && (
-          <video
-            className="hero-surface-layer hero-surface--motion"
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            poster={surfaces.background?.desktop?.path}
-            data-surface-id="motion.heroVideo"
-            style={{
-              mixBlendMode: videoEntry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: videoEntry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-            }}
-          >
-            <source src={videoEntry.path} />
-          </video>
-        )}
-
-        {motionEntries.map((entry) => (
-          <video
-            key={entry.id}
-            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            data-surface-id={entry.id}
-            style={{
-              mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
-            }}
-          >
-            <source src={entry.path} />
-          </video>
         ))}
 
       </div>
