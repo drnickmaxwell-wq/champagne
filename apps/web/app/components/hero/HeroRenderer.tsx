@@ -210,7 +210,12 @@ export async function HeroRenderer({
   }
 
   const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": {},
+    "gradient.base": {
+      background: "var(--hero-gradient, var(--smh-gradient))",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      zIndex: 1,
+    },
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
@@ -299,9 +304,23 @@ export async function HeroRenderer({
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
               background-position: center;
+              mask-image: var(--hero-wave-mask-desktop);
+              -webkit-mask-image: var(--hero-wave-mask-desktop);
+              mask-repeat: no-repeat;
+              -webkit-mask-repeat: no-repeat;
+              mask-size: cover;
+              -webkit-mask-size: cover;
+              mask-position: center;
+              -webkit-mask-position: center;
               mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
               opacity: var(--surface-opacity-waveBackdrop, 0.55);
               z-index: var(--surface-zindex-waveBackdrop, 2);
+            }
+            .hero-renderer [data-surface-id="mask.waveHeader"] {
+              background-image: var(--hero-wave-mask-desktop);
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center;
             }
             .hero-renderer [data-surface-id="field.waveRings"],
             .hero-renderer [data-surface-id="field.dotGrid"] {
@@ -339,6 +358,11 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
+                mask-image: var(--hero-wave-mask-mobile);
+                -webkit-mask-image: var(--hero-wave-mask-mobile);
+              }
+              .hero-renderer [data-surface-id="mask.waveHeader"] {
+                background-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="field.waveRings"],
               .hero-renderer [data-surface-id="field.dotGrid"] {
