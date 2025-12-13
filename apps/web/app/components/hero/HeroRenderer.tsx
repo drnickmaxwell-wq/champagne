@@ -181,6 +181,54 @@ export async function HeroRenderer({
     },
   };
 
+  const layerPaint: Record<string, CSSProperties> = {
+    "gradient.base": {},
+    "field.waveBackdrop": {
+      backgroundImage: "var(--hero-wave-background-desktop)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    },
+    "mask.waveHeader": {
+      background: "var(--hero-gradient, var(--smh-gradient))",
+      WebkitMaskImage: "var(--hero-wave-mask-desktop)",
+      maskImage: "var(--hero-wave-mask-desktop)",
+      WebkitMaskSize: "cover",
+      maskSize: "cover",
+      WebkitMaskRepeat: "no-repeat",
+      maskRepeat: "no-repeat",
+      WebkitMaskPosition: "top center",
+      maskPosition: "top center",
+    },
+    "field.waveRings": {
+      backgroundImage: "var(--hero-overlay-field)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    },
+    "field.dotGrid": {
+      backgroundImage: "var(--hero-overlay-dots)",
+      backgroundRepeat: "repeat",
+      backgroundSize: "auto",
+    },
+    "overlay.particles": {
+      backgroundImage: "var(--hero-particles)",
+      backgroundRepeat: "repeat",
+      backgroundSize: "auto",
+    },
+    "overlay.filmGrain": {
+      backgroundImage: "var(--hero-grain-desktop)",
+      backgroundRepeat: "repeat",
+      backgroundSize: "auto",
+    },
+    "overlay.caustics": {
+      backgroundImage: "var(--hero-caustics-overlay)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    },
+  };
+
   return (
     <BaseChampagneSurface
       variant="inkGlass"
@@ -246,6 +294,13 @@ export async function HeroRenderer({
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
               }
+              .hero-renderer [data-surface-id="mask.waveHeader"] {
+                -webkit-mask-image: var(--hero-wave-mask-mobile);
+                mask-image: var(--hero-wave-mask-mobile);
+              }
+              .hero-renderer [data-surface-id="overlay.filmGrain"] {
+                background-image: var(--hero-grain-mobile);
+              }
               .hero-renderer .hero-content {
                 padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
               }
@@ -275,7 +330,11 @@ export async function HeroRenderer({
             data-surface-role={layer.role}
             data-prm-safe={layer.prmSafe ? "true" : undefined}
             className={layer.className ?? "hero-surface-layer"}
-            style={layer.token ? layerStyles[layer.token] : undefined}
+            style={{
+              ...(layerPaint[(layer.token ?? layer.id) as string] ?? {}),
+              ...(layerStyles[(layer.token ?? layer.id) as string] ?? {}),
+              ...(((layer as { style?: CSSProperties }).style as CSSProperties | undefined) ?? {}),
+            }}
           />
         ))}
 
