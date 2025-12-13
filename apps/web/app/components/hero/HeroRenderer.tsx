@@ -1,6 +1,23 @@
 import type { CSSProperties, Ref } from "react";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 
+function normalizeGradientCss(input?: string): string {
+  if (!input || !input.trim()) return "var(--smh-gradient)";
+  const trimmed = input.trim();
+  const lowered = trimmed.toLowerCase();
+
+  if (
+    trimmed.startsWith("var(") ||
+    lowered.includes("linear-gradient(") ||
+    lowered.includes("radial-gradient(") ||
+    lowered.includes("conic-gradient(")
+  ) {
+    return trimmed;
+  }
+
+  return "var(--smh-gradient)";
+}
+
 export interface HeroRendererProps {
   mode?: HeroMode;
   treatmentSlug?: string;
@@ -77,7 +94,7 @@ export async function HeroRenderer({
   const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const opacityBoost = Math.max(debugOpacityBoost, 0.01);
   const diagnosticOpacityBoost = diagnosticBoost ? 2.5 : 1;
-  const gradient = surfaces.gradient ?? "var(--smh-gradient)";
+  const gradient = normalizeGradientCss(surfaces.gradient);
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
   const filteredMotionEntries = motionEntries.filter((entry) => !isDeniedVideo(entry.path));
