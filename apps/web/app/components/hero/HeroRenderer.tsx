@@ -229,6 +229,33 @@ export async function HeroRenderer({
     },
   };
 
+  const surfaceVarValues = surfaceVars as Record<string, CSSProperties[keyof CSSProperties]>;
+
+  const debugDump = {
+    mode,
+    prmEnabled,
+    shouldShowParticles,
+    shouldShowGrain,
+    surfaceStack: surfaceStack.slice(0, 20).map((l) => ({
+      id: l.id,
+      token: l.token,
+      className: l.className,
+      role: l.role,
+      suppressed: l.suppressed,
+    })),
+    vars: {
+      waveBgDesktop: surfaceVarValues["--hero-wave-background-desktop"],
+      waveBgMobile: surfaceVarValues["--hero-wave-background-mobile"],
+      waveMaskDesktop: surfaceVarValues["--hero-wave-mask-desktop"],
+      waveMaskMobile: surfaceVarValues["--hero-wave-mask-mobile"],
+      overlayField: surfaceVarValues["--hero-overlay-field"],
+      overlayDots: surfaceVarValues["--hero-overlay-dots"],
+      particles: surfaceVarValues["--hero-particles"],
+      grainDesktop: surfaceVarValues["--hero-grain-desktop"],
+      grainMobile: surfaceVarValues["--hero-grain-mobile"],
+    },
+  };
+
   return (
     <BaseChampagneSurface
       variant="inkGlass"
@@ -434,6 +461,28 @@ export async function HeroRenderer({
           )}
         </div>
       </div>
+
+      <pre
+        style={{
+          position: "absolute",
+          left: 12,
+          bottom: 12,
+          zIndex: 9999,
+          maxWidth: "min(860px, 96vw)",
+          maxHeight: "46vh",
+          overflow: "auto",
+          padding: "0.75rem",
+          borderRadius: "12px",
+          background: "rgba(0,0,0,0.65)",
+          color: "white",
+          fontSize: "12px",
+          lineHeight: 1.35,
+          whiteSpace: "pre-wrap",
+          pointerEvents: "auto",
+        }}
+      >
+        {JSON.stringify(debugDump, null, 2)}
+      </pre>
     </BaseChampagneSurface>
   );
 }
