@@ -1,0 +1,284 @@
+{
+  "version": "1.0",
+  "generatedAt": "2025-12-13T13:12:18.359Z",
+  "manifests": [
+    {
+      "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "category": "sections",
+      "id": "champagne_machine_manifest_full",
+      "purpose": "Site-wide machine manifest listing page and treatment definitions with hero IDs, section stacks, and CTA slots.",
+      "consumedBy": [
+        "sections-engine",
+        "cta"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts",
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx"
+      ],
+      "notes": "Primary source for getPageManifestBySlug, getSectionStackForPage, and CTA slot resolution."
+    },
+    {
+      "path": "packages/champagne-manifests/data/manifest.nav.main.json",
+      "category": "navigation",
+      "id": "manifest.nav.main",
+      "purpose": "Main navigation links and ordering for the marketing site header.",
+      "consumedBy": [
+        "nav"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "apps/web/app/_components/Header.tsx"
+      ],
+      "notes": "Normalized by getMainNavItems for header rendering."
+    },
+    {
+      "path": "packages/champagne-manifests/data/manifest.public.brand.json",
+      "category": "other",
+      "id": "champagne_public_brand_manifest",
+      "purpose": "Brand canon information bundled into the manifest registry for completeness.",
+      "consumedBy": [
+        "unknown"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts"
+      ],
+      "notes": "Exported via champagneManifestRegistry; no direct runtime lookups observed."
+    },
+    {
+      "path": "packages/champagne-manifests/data/manifest.styles.champagne.json",
+      "category": "other",
+      "id": "champagne_styles_manifest",
+      "purpose": "Style tokens for heroes and sections, including hero presets keyed by ID and section surface hints.",
+      "consumedBy": [
+        "hero-runtime",
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "getHeroManifest merges hero presets from this file; getSectionStyle surfaces section type/surface mappings."
+    },
+    {
+      "path": "packages/champagne-manifests/data/manus_import_unified_manifest_20251104.json",
+      "category": "other",
+      "id": "manus_import_unified_manifest_20251104",
+      "purpose": "Archived Manus import manifest kept in registry for reference.",
+      "consumedBy": [
+        "unknown"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts"
+      ],
+      "notes": "Registered in champagneManifestRegistry but not read elsewhere."
+    },
+    {
+      "path": "packages/champagne-manifests/data/journey.smile-makeover.json",
+      "category": "other",
+      "id": "journey.smile-makeover",
+      "purpose": "State-machine style journey manifest for the smile makeover experience.",
+      "consumedBy": [
+        "other"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Available via getJourneys/getJourneyManifest; no in-app consumers detected."
+    },
+    {
+      "path": "packages/champagne-manifests/data/media-decks/media-deck.implants.json",
+      "category": "other",
+      "id": "media-deck.implants",
+      "purpose": "Media deck asset references for the implants route and contexts.",
+      "consumedBy": [
+        "other"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Exported via getMediaDecks/getMediaDeck; no direct page usage found."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/page-type.defaults.json",
+      "category": "sections",
+      "id": "sections.page-type.defaults",
+      "purpose": "Fallback section ordering by route/page type when no layout or explicit sections exist.",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts"
+      ],
+      "notes": "Used by getSectionStackForPage when no explicit layout or page manifest sections are present."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/section-fx.defaults.json",
+      "category": "sections",
+      "id": "sections.section-fx.defaults",
+      "purpose": "Default FX behaviors per section type (parallax, fades, shimmer flags).",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Exposed through getSectionFxDefaults and used in sections debug tooling."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/section-prm.defaults.json",
+      "category": "sections",
+      "id": "sections.section-prm.defaults",
+      "purpose": "Reduced-motion defaults for sections (parallax reduction, shimmer/spotlight toggles).",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Retrieved via getSectionPrmDefaults for diagnostics."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/section-library.json",
+      "category": "sections",
+      "id": "sections.section-library",
+      "purpose": "Registry of section components, import paths, and default variants keyed by ID.",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Available through getSectionLibrary; no direct renderer lookup observed yet."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.aligners.json",
+      "category": "sections",
+      "id": "sections.smh.treatments.aligners",
+      "purpose": "Section layout for the aligners treatment route with ordered component instances.",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Loaded into champagneSectionLayouts; routeId is treatments.aligners (not clear-aligners)."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+      "category": "sections",
+      "id": "sections.smh.treatments.implants",
+      "purpose": "Section layout manifest for the implants treatment route (ordered sections and variants).",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Used by getSectionStackForPage when the routeId is treatments.implants."
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.veneers.json",
+      "category": "sections",
+      "id": "sections.smh.treatments.veneers",
+      "purpose": "Section layout manifest for the veneers treatment route (ordered sections and variants).",
+      "consumedBy": [
+        "sections-engine"
+      ],
+      "referencedInCode": [
+        "packages/champagne-manifests/src/core.ts",
+        "packages/champagne-manifests/src/helpers.ts"
+      ],
+      "notes": "Used by getSectionStackForPage when the routeId is treatments.veneers."
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "category": "hero",
+      "id": "sacred_hero_base",
+      "purpose": "Base sacred hero defaults (content, tone, surfaces, layout).",
+      "consumedBy": [
+        "hero-runtime"
+      ],
+      "referencedInCode": [
+        "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts"
+      ],
+      "notes": "Merged into the runtime via loadSacredHeroManifests before HeroRuntime assembly."
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json",
+      "category": "hero",
+      "id": "sacred_hero_surfaces",
+      "purpose": "Sacred hero surface asset map used to resolve tokens to files.",
+      "consumedBy": [
+        "hero-runtime"
+      ],
+      "referencedInCode": [
+        "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts"
+      ],
+      "notes": "Converted to a HeroSurfaceDefinitionMap by buildSurfaceDefinitionMap."
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      "category": "hero",
+      "id": "sacred_hero_variants",
+      "purpose": "Sacred hero variant definitions keyed by variant IDs and treatment slugs.",
+      "consumedBy": [
+        "hero-runtime"
+      ],
+      "referencedInCode": [
+        "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts"
+      ],
+      "notes": "Normalized and used for variant selection in HeroRuntime."
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_weather.json",
+      "category": "hero",
+      "id": "sacred_hero_weather",
+      "purpose": "Time-of-day hero overrides for tone, surfaces, layout, motion, and film grain.",
+      "consumedBy": [
+        "hero-runtime"
+      ],
+      "referencedInCode": [
+        "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts"
+      ],
+      "notes": "Weather overrides merged into runtime when timeOfDay is provided."
+    }
+  ],
+  "duplicatesOrArchives": [
+    {
+      "path": "_imports/champagne-hero/docs/public/brand/champagne_machine_manifest_full.json",
+      "type": "_imports",
+      "looksCanonical": false,
+      "referencedByRuntime": false,
+      "notes": "Legacy copy of the machine manifest stored under _imports; no code imports reference the _imports namespace."
+    },
+    {
+      "path": "_imports/champagne-hero/docs/brand/champagne_machine_manifest_full.json",
+      "type": "_imports",
+      "looksCanonical": false,
+      "referencedByRuntime": false,
+      "notes": "Another archived machine manifest copy inside _imports documentation."
+    },
+    {
+      "path": "_imports/champagne-hero/manus/notes/public/brand/manus_import_unified_manifest_20251104.json",
+      "type": "_imports",
+      "looksCanonical": false,
+      "referencedByRuntime": false,
+      "notes": "Archived Manus import manifest; runtime uses packages/champagne-manifests/data/manus_import_unified_manifest_20251104.json instead."
+    },
+    {
+      "path": "_imports/champagne-hero/code/fx-system/docs/Brand_Canon_Packet/manifest.public.brand.json",
+      "type": "_imports",
+      "looksCanonical": false,
+      "referencedByRuntime": false,
+      "notes": "Brand manifest copy within imported documentation; active runtime imports packages/champagne-manifests/data/manifest.public.brand.json."
+    }
+  ]
+}

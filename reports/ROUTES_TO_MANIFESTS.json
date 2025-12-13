@@ -1,0 +1,652 @@
+{
+  "version": "1.0",
+  "routes": [
+    {
+      "route": "/champagne/sections-debug",
+      "pageFile": "apps/web/app/champagne/sections-debug/page.tsx",
+      "imports": [
+        "import Link from \"next/link\";",
+        "import { useMemo, useState } from \"react\";",
+        "import {",
+        "import PageBuilder from \"../../components/PageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json",
+        "packages/champagne-manifests/data/sections/section-fx.defaults.json",
+        "packages/champagne-manifests/data/sections/section-prm.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/champagne/hero-preview",
+      "pageFile": "apps/web/app/champagne/hero-preview/page.tsx",
+      "imports": [
+        "import { HeroRenderer } from \"../../_components/HeroRenderer/HeroRenderer\";",
+        "import type { HeroTimeOfDay } from \"@champagne/hero\";",
+        "import { HeroPreviewControls } from \"./controls\";"
+      ],
+      "usesHeroRenderer": true,
+      "usesSectionsEngine": false,
+      "sectionManifestsLikely": [],
+      "notes": ""
+    },
+    {
+      "route": "/champagne/hero-lab",
+      "pageFile": "apps/web/app/champagne/hero-lab/page.tsx",
+      "imports": [
+        "import { HeroRenderer } from \"../../components/hero/HeroRenderer\";",
+        "import type { HeroMode, HeroTimeOfDay } from \"@champagne/hero\";"
+      ],
+      "usesHeroRenderer": true,
+      "usesSectionsEngine": false,
+      "sectionManifestsLikely": [],
+      "notes": ""
+    },
+    {
+      "route": "/champagne/hero-debug",
+      "pageFile": "apps/web/app/champagne/hero-debug/page.tsx",
+      "imports": [
+        "import { HeroRenderer } from \"../../_components/HeroRenderer/HeroRenderer\";",
+        "import { buildLayerStack, type RuntimeLayer } from \"../../_components/HeroRenderer/layerUtils\";",
+        "import { ensureHeroAssetPath, getHeroRuntime } from \"@champagne/hero\";"
+      ],
+      "usesHeroRenderer": true,
+      "usesSectionsEngine": false,
+      "sectionManifestsLikely": [],
+      "notes": ""
+    },
+    {
+      "route": "/champagne/hero-asset-lab",
+      "pageFile": "apps/web/app/champagne/hero-asset-lab/page.tsx",
+      "imports": [
+        "import { ensureHeroAssetPath, getHeroRuntime } from \"@champagne/hero\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": false,
+      "sectionManifestsLikely": [],
+      "notes": ""
+    },
+    {
+      "route": "/treatments",
+      "pageFile": "apps/web/app/treatments/page.tsx",
+      "imports": [
+        "import Link from \"next/link\";",
+        "import { BaseChampagneSurface } from \"@champagne/hero\";",
+        "import { getTreatmentPages } from \"@champagne/manifests\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": false,
+      "sectionManifestsLikely": [],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/[slug]",
+      "pageFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "imports": [
+        "import type { Metadata } from \"next\";",
+        "import { notFound } from \"next/navigation\";",
+        "import { getTreatmentManifest } from \"@champagne/manifests\";",
+        "import ChampagnePageBuilder from \"../../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/legal/privacy",
+      "pageFile": "apps/web/app/(champagne)/legal/privacy/page.tsx",
+      "imports": [
+        "import { ChampagneHeroFrame, getHeroBySlug } from \"@champagne/hero\";",
+        "import { ChampagneSectionRenderer } from \"@champagne/sections\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/childrens-dentistry",
+      "pageFile": "apps/web/app/(champagne)/treatments/childrens-dentistry/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/senior-mature-smile-care",
+      "pageFile": "apps/web/app/(champagne)/treatments/senior-mature-smile-care/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/implants-multiple-teeth",
+      "pageFile": "apps/web/app/(champagne)/treatments/implants-multiple-teeth/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/full-smile-makeover",
+      "pageFile": "apps/web/app/(champagne)/treatments/full-smile-makeover/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/whitening-in-surgery",
+      "pageFile": "apps/web/app/(champagne)/treatments/whitening-in-surgery/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/orthodontics",
+      "pageFile": "apps/web/app/(champagne)/treatments/orthodontics/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/implants-single-tooth",
+      "pageFile": "apps/web/app/(champagne)/treatments/implants-single-tooth/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/cbct-3d-scanning",
+      "pageFile": "apps/web/app/(champagne)/treatments/cbct-3d-scanning/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/periodontal-gum-care",
+      "pageFile": "apps/web/app/(champagne)/treatments/periodontal-gum-care/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/3d-printed-veneers",
+      "pageFile": "apps/web/app/(champagne)/treatments/3d-printed-veneers/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/digital-smile-design",
+      "pageFile": "apps/web/app/(champagne)/treatments/digital-smile-design/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/3d-printing-lab",
+      "pageFile": "apps/web/app/(champagne)/treatments/3d-printing-lab/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/tmj-jaw-comfort",
+      "pageFile": "apps/web/app/(champagne)/treatments/tmj-jaw-comfort/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/whitening",
+      "pageFile": "apps/web/app/(champagne)/treatments/whitening/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/extractions-and-oral-surgery",
+      "pageFile": "apps/web/app/(champagne)/treatments/extractions-and-oral-surgery/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/endodontics-root-canal",
+      "pageFile": "apps/web/app/(champagne)/treatments/endodontics-root-canal/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/veneers",
+      "pageFile": "apps/web/app/(champagne)/treatments/veneers/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.veneers.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/painless-numbing-the-wand",
+      "pageFile": "apps/web/app/(champagne)/treatments/painless-numbing-the-wand/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "pageFile": "apps/web/app/(champagne)/treatments/preventative-and-general-dentistry/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/implants",
+      "pageFile": "apps/web/app/(champagne)/treatments/implants/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/composite-bonding",
+      "pageFile": "apps/web/app/(champagne)/treatments/composite-bonding/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/whitening-at-home",
+      "pageFile": "apps/web/app/(champagne)/treatments/whitening-at-home/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "pageFile": "apps/web/app/(champagne)/treatments/3d-dentistry-and-technology/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/3d-implant-restorations",
+      "pageFile": "apps/web/app/(champagne)/treatments/3d-implant-restorations/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/implants-full-arch",
+      "pageFile": "apps/web/app/(champagne)/treatments/implants-full-arch/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/clear-aligners",
+      "pageFile": "apps/web/app/(champagne)/treatments/clear-aligners/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/crowns-bridges-restorative",
+      "pageFile": "apps/web/app/(champagne)/treatments/crowns-bridges-restorative/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "pageFile": "apps/web/app/(champagne)/treatments/emergency-dentistry/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/smile-gallery",
+      "pageFile": "apps/web/app/(champagne)/smile-gallery/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/about",
+      "pageFile": "apps/web/app/(champagne)/about/page.tsx",
+      "imports": [
+        "import { ChampagneHeroFrame, getHeroBySlug } from \"@champagne/hero\";",
+        "import { ChampagneSectionRenderer } from \"@champagne/sections\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/team",
+      "pageFile": "apps/web/app/team/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/blog",
+      "pageFile": "apps/web/app/blog/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/[page]",
+      "pageFile": "apps/web/app/(site)/[page]/page.tsx",
+      "imports": [
+        "import PageBuilder from \"../../components/PageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": false,
+      "sectionManifestsLikely": [],
+      "notes": ""
+    },
+    {
+      "route": "/",
+      "pageFile": "apps/web/app/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"./(champagne)/_builder/ChampagnePageBuilder\";",
+        "import { HeroRenderer } from \"./components/hero/HeroRenderer\";",
+        "import { isBrandHeroEnabled } from \"./featureFlags\";"
+      ],
+      "usesHeroRenderer": true,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/preview/treatments/[slug]",
+      "pageFile": "apps/web/app/preview/treatments/[slug]/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/preview/[...slug]",
+      "pageFile": "apps/web/app/preview/(champagne)/[...slug]/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../../../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/contact",
+      "pageFile": "apps/web/app/contact/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    },
+    {
+      "route": "/patient-portal",
+      "pageFile": "apps/web/app/patient-portal/page.tsx",
+      "imports": [
+        "import ChampagnePageBuilder from \"../(champagne)/_builder/ChampagnePageBuilder\";"
+      ],
+      "usesHeroRenderer": false,
+      "usesSectionsEngine": true,
+      "sectionManifestsLikely": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/page-type.defaults.json"
+      ],
+      "notes": ""
+    }
+  ]
+}
