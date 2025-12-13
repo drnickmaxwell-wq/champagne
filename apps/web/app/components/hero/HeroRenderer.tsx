@@ -113,49 +113,49 @@ export async function HeroRenderer({
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
     ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
-      ? `url(${surfaces.waveMask.desktop.path})`
+      ? `url("${surfaces.waveMask.desktop.path}")`
       : surfaces.waveMask?.desktop?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)}")`
         : undefined,
     ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
-      ? `url(${surfaces.waveMask.mobile.path})`
+      ? `url("${surfaces.waveMask.mobile.path}")`
       : surfaces.waveMask?.mobile?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)}")`
         : undefined,
     ["--hero-wave-background-desktop" as string]: surfaces.background?.desktop?.path
-      ? `url(${surfaces.background.desktop.path})`
+      ? `url("${surfaces.background.desktop.path}")`
       : surfaces.background?.desktop?.id
-        ? `url(${ensureHeroAssetPath(surfaces.background.desktop.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.background.desktop.id)}")`
         : undefined,
     ["--hero-wave-background-mobile" as string]: surfaces.background?.mobile?.path
-      ? `url(${surfaces.background.mobile.path})`
+      ? `url("${surfaces.background.mobile.path}")`
       : surfaces.background?.mobile?.id
-        ? `url(${ensureHeroAssetPath(surfaces.background.mobile.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.background.mobile.id)}")`
         : undefined,
     ["--hero-overlay-field" as string]: surfaces.overlays?.field?.path
-      ? `url(${surfaces.overlays.field.path})`
+      ? `url("${surfaces.overlays.field.path}")`
       : surfaces.overlays?.field?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.overlays.field.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.overlays.field.asset.id)}")`
         : undefined,
     ["--hero-overlay-dots" as string]: surfaces.overlays?.dots?.path
-      ? `url(${surfaces.overlays.dots.path})`
+      ? `url("${surfaces.overlays.dots.path}")`
       : surfaces.overlays?.dots?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.overlays.dots.asset.id)}")`
         : undefined,
     ["--hero-particles" as string]: shouldShowParticles && surfaces.particles?.path
-      ? `url(${surfaces.particles.path})`
+      ? `url("${surfaces.particles.path}")`
       : shouldShowParticles && surfaces.particles?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.particles.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.particles.asset.id)}")`
         : undefined,
     ["--hero-grain-desktop" as string]: surfaces.grain?.desktop?.path
-      ? `url(${surfaces.grain.desktop.path})`
+      ? `url("${surfaces.grain.desktop.path}")`
       : surfaces.grain?.desktop?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.grain.desktop.asset.id)}")`
         : undefined,
     ["--hero-grain-mobile" as string]: surfaces.grain?.mobile?.path
-      ? `url(${surfaces.grain.mobile.path})`
+      ? `url("${surfaces.grain.mobile.path}")`
       : surfaces.grain?.mobile?.asset?.id
-        ? `url(${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)})`
+        ? `url("${ensureHeroAssetPath(surfaces.grain.mobile.asset.id)}")`
         : undefined,
     ["--hero-film-grain-opacity" as string]: grainOpacity,
     ["--hero-film-grain-blend" as string]: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined,
@@ -164,6 +164,23 @@ export async function HeroRenderer({
     ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
     ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
   };
+
+  if (process.env.NODE_ENV !== "production") {
+    const surfaceVarsRecord = surfaceVars as Record<string, unknown>;
+    const diagnosticSurfaceVars = {
+      waveBackgroundDesktop: surfaceVarsRecord["--hero-wave-background-desktop"],
+      waveBackgroundMobile: surfaceVarsRecord["--hero-wave-background-mobile"],
+      waveMaskDesktop: surfaceVarsRecord["--hero-wave-mask-desktop"],
+      waveMaskMobile: surfaceVarsRecord["--hero-wave-mask-mobile"],
+      overlayField: surfaceVarsRecord["--hero-overlay-field"],
+      overlayDots: surfaceVarsRecord["--hero-overlay-dots"],
+      particles: surfaceVarsRecord["--hero-particles"],
+      grainDesktop: surfaceVarsRecord["--hero-grain-desktop"],
+      grainMobile: surfaceVarsRecord["--hero-grain-mobile"],
+    };
+
+    console.debug("HeroRenderer surface vars", diagnosticSurfaceVars);
+  }
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": {},
