@@ -1,0 +1,106 @@
+{
+  "variantId": "default",
+  "timeOfDay": null,
+  "surfaceStack": [
+    {
+      "id": "gradient.base",
+      "token": "gradient.base",
+      "assets": [
+        "var(--smh-gradient)"
+      ],
+      "opacity": null,
+      "blendMode": null
+    },
+    {
+      "id": "field.waveBackdrop",
+      "token": "field.waveBackdrop",
+      "assets": [
+        "/assets/champagne/waves/waves-bg-1920.webp",
+        "/assets/champagne/waves/waves-bg-768.webp"
+      ],
+      "opacity": 0.7,
+      "blendMode": "screen"
+    },
+    {
+      "id": "field.waveRings",
+      "token": "field.waveRings",
+      "assets": [
+        "/assets/champagne/waves/wave-field.svg"
+      ],
+      "opacity": 0.6,
+      "blendMode": "soft-light"
+    },
+    {
+      "id": "mask.waveHeader",
+      "token": "mask.waveHeader",
+      "assets": [
+        "/assets/champagne/waves/wave-mask-desktop.webp",
+        "/assets/champagne/waves/wave-mask-mobile.webp"
+      ],
+      "opacity": 0.92,
+      "blendMode": "soft-light"
+    },
+    {
+      "id": "field.dotGrid",
+      "token": "field.dotGrid",
+      "assets": [
+        "/assets/champagne/waves/wave-dots.svg"
+      ],
+      "opacity": 0.6,
+      "blendMode": "screen"
+    },
+    {
+      "id": "overlay.caustics",
+      "token": "overlay.caustics",
+      "assets": [
+        "/assets/champagne/motion/wave-caustics.webm"
+      ],
+      "opacity": 0.45,
+      "blendMode": "screen"
+    },
+    {
+      "id": "overlay.glassShimmer",
+      "token": "overlay.glassShimmer",
+      "assets": [
+        "/assets/champagne/motion/glass-shimmer.webm"
+      ],
+      "opacity": 0.85,
+      "blendMode": "screen"
+    },
+    {
+      "id": "overlay.goldDust",
+      "token": "overlay.goldDust",
+      "assets": [
+        "/assets/champagne/motion/gold-dust-drift.webm"
+      ],
+      "opacity": 0.7,
+      "blendMode": "screen"
+    },
+    {
+      "id": "overlay.particles",
+      "token": "overlay.particles",
+      "assets": [
+        "/assets/champagne/particles/home-hero-particles.webp"
+      ],
+      "opacity": 0.45,
+      "blendMode": "screen"
+    },
+    {
+      "id": "overlay.filmGrain",
+      "token": "overlay.filmGrain",
+      "assets": [
+        "/assets/champagne/film-grain/film-grain-desktop.webp",
+        "/assets/champagne/film-grain/film-grain-mobile.webp"
+      ],
+      "opacity": 0.35,
+      "blendMode": "soft-light"
+    },
+    {
+      "id": "hero.contentFrame",
+      "token": "hero.contentFrame",
+      "assets": [],
+      "opacity": null,
+      "blendMode": null
+    }
+  ]
+}
