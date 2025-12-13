@@ -54,7 +54,13 @@ export default async function HeroPreviewPage({ searchParams }: { searchParams?:
       </header>
 
       <div style={{ borderRadius: "var(--radius-xl)", overflow: "hidden", position: "relative" }}>
-        <HeroRenderer timeOfDay={timeOfDay} particles={particles} filmGrain={filmGrain} prm={prm} />
+        <HeroRenderer
+          timeOfDay={timeOfDay}
+          particles={particles}
+          filmGrain={filmGrain}
+          prm={prm}
+          diagnosticBoost
+        />
       </div>
     </div>
   );

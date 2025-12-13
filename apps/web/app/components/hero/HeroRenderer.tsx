@@ -9,6 +9,7 @@ export interface HeroRendererProps {
   particles?: boolean;
   filmGrain?: boolean;
   debugOpacityBoost?: number;
+  diagnosticBoost?: boolean;
 }
 
 function HeroFallback() {
@@ -46,6 +47,7 @@ export async function HeroRenderer({
   particles,
   filmGrain,
   debugOpacityBoost = 1,
+  diagnosticBoost = false,
 }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
@@ -72,6 +74,7 @@ export async function HeroRenderer({
   const videoDenylist = ["dental-hero-4k.mp4"];
   const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const opacityBoost = Math.max(debugOpacityBoost, 0.01);
+  const diagnosticOpacityBoost = diagnosticBoost ? 2.5 : 1;
   const gradient = surfaces.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
@@ -79,10 +82,14 @@ export async function HeroRenderer({
   const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
   const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
+  const applyDiagnosticBoost = (value?: number) => {
+    const boosted = applyBoost(value);
+    return diagnosticBoost ? Math.min(1, boosted * diagnosticOpacityBoost) : boosted;
+  };
   const causticsOpacity = applyBoost(
     motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
   );
-  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
+  const waveBackdropOpacity = applyDiagnosticBoost(surfaces.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
@@ -92,8 +99,16 @@ export async function HeroRenderer({
     return true;
   });
   const prmEnabled = runtime.flags.prm;
-  const grainOpacity = applyBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1));
-  const particleOpacity = applyBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35);
+  const grainOpacity = applyDiagnosticBoost(
+    (filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1),
+  );
+  const particleOpacity = applyDiagnosticBoost(
+    (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35,
+  );
+  const staticLayerOpacity = (value?: number) => applyDiagnosticBoost(value);
+  const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
+    ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
+    : undefined;
 
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
@@ -170,7 +185,7 @@ export async function HeroRenderer({
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.overlays?.field?.opacity),
+      opacity: staticLayerOpacity(surfaces.overlays?.field?.opacity),
       backgroundImage: "var(--hero-overlay-field)",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
@@ -178,7 +193,7 @@ export async function HeroRenderer({
     },
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.overlays?.dots?.opacity),
+      opacity: staticLayerOpacity(surfaces.overlays?.dots?.opacity),
       backgroundImage: "var(--hero-overlay-dots)",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
@@ -307,7 +322,7 @@ export async function HeroRenderer({
             data-surface-role={layer.role}
             data-prm-safe={layer.prmSafe ? "true" : undefined}
             className={layer.className ?? "hero-surface-layer"}
-            style={layer.token ? layerStyles[layer.token] : undefined}
+            style={{ ...(layer.token ? layerStyles[layer.token] : undefined), ...diagnosticOutlineStyle }}
           />
         ))}
 

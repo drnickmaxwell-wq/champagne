@@ -147,7 +147,13 @@ export default async function HeroDebugPage({ searchParams }: { searchParams?: S
 
       <div className="hero-debug-grid">
         <div className="hero-debug-hero-shell">
-          <HeroRenderer prm={prm} particles={particles} filmGrain={filmGrain} debugOpacityBoost={opacityBoost} />
+          <HeroRenderer
+            prm={prm}
+            particles={particles}
+            filmGrain={filmGrain}
+            debugOpacityBoost={opacityBoost}
+            diagnosticBoost
+          />
         </div>
 
         <div className="hero-debug-panel">
