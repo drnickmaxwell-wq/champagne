@@ -69,10 +69,13 @@ export async function HeroRenderer({
   if (!runtime) return <HeroFallback />;
 
   const { content, surfaces, layout, motion, filmGrain: filmGrainSettings } = runtime;
+  const videoDenylist = ["dental-hero-4k.mp4"];
+  const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const opacityBoost = Math.max(debugOpacityBoost, 0.01);
   const gradient = surfaces.gradient ?? "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
+  const filteredMotionEntries = motionEntries.filter((entry) => !isDeniedVideo(entry.path));
   const shouldShowGrain = Boolean(filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile));
   const shouldShowParticles = Boolean((motion.particles?.density ?? 0) > 0 && surfaces.particles?.path);
   const applyBoost = (value?: number) => Math.min(1, (value ?? 1) * opacityBoost);
@@ -279,7 +282,7 @@ export async function HeroRenderer({
           />
         ))}
 
-        {videoEntry?.path && (
+        {videoEntry?.path && !isDeniedVideo(videoEntry.path) && (
           <video
             className="hero-surface-layer hero-surface--motion"
             autoPlay
@@ -298,7 +301,7 @@ export async function HeroRenderer({
           </video>
         )}
 
-        {motionEntries.map((entry) => (
+        {filteredMotionEntries.map((entry) => (
           <video
             key={entry.id}
             className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
