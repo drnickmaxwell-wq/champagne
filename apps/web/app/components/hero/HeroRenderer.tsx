@@ -155,10 +155,6 @@ export async function HeroRenderer({
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
-    },
-    "mask.waveHeader": {
-      mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
       maskImage: "var(--hero-wave-mask-desktop)",
       WebkitMaskImage: "var(--hero-wave-mask-desktop)",
       maskRepeat: "no-repeat",
@@ -167,6 +163,10 @@ export async function HeroRenderer({
       WebkitMaskSize: "cover",
       maskPosition: "center",
       WebkitMaskPosition: "center",
+    },
+    "mask.waveHeader": {
+      mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
+      opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
@@ -272,8 +272,6 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
-              }
-              .hero-renderer [data-surface-id="mask.waveHeader"] {
                 mask-image: var(--hero-wave-mask-mobile);
                 -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
