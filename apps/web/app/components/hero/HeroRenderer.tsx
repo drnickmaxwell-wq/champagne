@@ -197,14 +197,7 @@ export async function HeroRenderer({
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
-      maskImage: "var(--hero-wave-mask-desktop)",
-      WebkitMaskImage: "var(--hero-wave-mask-desktop)",
-      maskRepeat: "no-repeat",
-      WebkitMaskRepeat: "no-repeat",
-      maskSize: "cover",
-      WebkitMaskSize: "cover",
-      maskPosition: "center",
-      WebkitMaskPosition: "center",
+      zIndex: 2,
     },
     "mask.waveHeader": {
       mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
@@ -217,6 +210,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 3,
     },
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
@@ -225,6 +219,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 4,
     },
     "overlay.particles": {
       mixBlendMode: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
@@ -233,6 +228,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 5,
     },
     "overlay.filmGrain": {
       mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
@@ -241,6 +237,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 6,
     },
     "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
     "hero.contentFrame": {
@@ -289,6 +286,17 @@ export async function HeroRenderer({
               opacity: var(--surface-opacity-waveBackdrop, 0.55);
               z-index: var(--surface-zindex-waveBackdrop, 2);
             }
+            .hero-renderer [data-surface-id="field.waveRings"],
+            .hero-renderer [data-surface-id="field.dotGrid"] {
+              mask-image: var(--hero-wave-mask-desktop);
+              -webkit-mask-image: var(--hero-wave-mask-desktop);
+              mask-repeat: no-repeat;
+              -webkit-mask-repeat: no-repeat;
+              mask-size: cover;
+              -webkit-mask-size: cover;
+              mask-position: center;
+              -webkit-mask-position: center;
+            }
             .hero-renderer .hero-layer.motion,
             .hero-renderer .hero-surface-layer.hero-surface--motion {
               object-fit: cover;
@@ -314,6 +322,9 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
+              }
+              .hero-renderer [data-surface-id="field.waveRings"],
+              .hero-renderer [data-surface-id="field.dotGrid"] {
                 mask-image: var(--hero-wave-mask-mobile);
                 -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
