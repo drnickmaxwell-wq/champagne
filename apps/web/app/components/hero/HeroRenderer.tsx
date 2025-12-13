@@ -214,11 +214,23 @@ export async function HeroRenderer({
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
+      maskImage: "var(--hero-wave-mask-desktop)",
+      WebkitMaskImage: "var(--hero-wave-mask-desktop)",
+      maskRepeat: "no-repeat",
+      WebkitMaskRepeat: "no-repeat",
+      maskSize: "cover",
+      WebkitMaskSize: "cover",
+      maskPosition: "center",
+      WebkitMaskPosition: "center",
       zIndex: 2,
     },
     "mask.waveHeader": {
       mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
+      backgroundImage: "var(--hero-wave-mask-desktop)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
@@ -339,11 +351,16 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
+                mask-image: var(--hero-wave-mask-mobile);
+                -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="field.waveRings"],
               .hero-renderer [data-surface-id="field.dotGrid"] {
                 mask-image: var(--hero-wave-mask-mobile);
                 -webkit-mask-image: var(--hero-wave-mask-mobile);
+              }
+              .hero-renderer [data-surface-id="mask.waveHeader"] {
+                background-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="overlay.filmGrain"] {
                 background-image: var(--hero-grain-mobile);
