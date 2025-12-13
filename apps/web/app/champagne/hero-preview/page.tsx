@@ -1,4 +1,4 @@
-import { HeroRenderer } from "../../_components/HeroRenderer/HeroRenderer";
+import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import type { HeroTimeOfDay } from "@champagne/hero";
 import { HeroPreviewControls } from "./controls";
 
