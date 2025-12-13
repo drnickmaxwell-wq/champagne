@@ -159,22 +159,46 @@ export async function HeroRenderer({
     "mask.waveHeader": {
       mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
+      maskImage: "var(--hero-wave-mask-desktop)",
+      WebkitMaskImage: "var(--hero-wave-mask-desktop)",
+      maskRepeat: "no-repeat",
+      WebkitMaskRepeat: "no-repeat",
+      maskSize: "cover",
+      WebkitMaskSize: "cover",
+      maskPosition: "center",
+      WebkitMaskPosition: "center",
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.overlays?.field?.opacity),
+      backgroundImage: "var(--hero-overlay-field)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     },
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.overlays?.dots?.opacity),
+      backgroundImage: "var(--hero-overlay-dots)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     },
     "overlay.particles": {
       mixBlendMode: (surfaces.particles?.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
       opacity: particleOpacity,
+      backgroundImage: "var(--hero-particles)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     },
     "overlay.filmGrain": {
       mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
       opacity: grainOpacity,
+      backgroundImage: "var(--hero-grain-desktop)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
     },
     "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
     "hero.contentFrame": {
@@ -248,6 +272,13 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
+              }
+              .hero-renderer [data-surface-id="mask.waveHeader"] {
+                mask-image: var(--hero-wave-mask-mobile);
+                -webkit-mask-image: var(--hero-wave-mask-mobile);
+              }
+              .hero-renderer [data-surface-id="overlay.filmGrain"] {
+                background-image: var(--hero-grain-mobile);
               }
               .hero-renderer .hero-content {
                 padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
