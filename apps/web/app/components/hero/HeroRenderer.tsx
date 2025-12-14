@@ -28,6 +28,7 @@ export interface HeroRendererProps {
   debugOpacityBoost?: number;
   diagnosticBoost?: boolean;
   surfaceRef?: Ref<HTMLDivElement>;
+  searchParams?: Record<string, string | string[] | undefined>;
 }
 
 function HeroFallback() {
@@ -67,6 +68,7 @@ export async function HeroRenderer({
   debugOpacityBoost = 1,
   diagnosticBoost = false,
   surfaceRef,
+  searchParams,
 }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
@@ -133,6 +135,16 @@ export async function HeroRenderer({
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
 
+  const resolveHeroMilkParam = () => {
+    const heroMilk = searchParams?.heroMilk;
+    if (!heroMilk) return null;
+
+    return Array.isArray(heroMilk) ? heroMilk[0] : heroMilk;
+  };
+
+  const heroMilkParam = resolveHeroMilkParam();
+  const isMilkDisabled = heroMilkParam === "0";
+
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
     ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
@@ -192,6 +204,26 @@ export async function HeroRenderer({
     ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
   };
 
+  const milkOverrideStyles: CSSProperties | undefined = isMilkDisabled
+    ? {
+        ["--glass-opacity" as string]: 0,
+        ["--champagne-sheen-alpha" as string]: 0,
+        backgroundColor: "transparent",
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
+      }
+    : undefined;
+
+  const surfaceStyle: CSSProperties = {
+    minHeight: "72vh",
+    display: "grid",
+    alignItems: layout.contentAlign === "center" ? "center" : "stretch",
+    overflow: "hidden",
+    background: "var(--hero-gradient, var(--smh-gradient))",
+    ["--hero-gradient" as string]: gradient,
+    ...milkOverrideStyles,
+  };
+
   if (process.env.NODE_ENV !== "production") {
     const surfaceVarsRecord = surfaceVars as Record<string, unknown>;
     const diagnosticSurfaceVars = {
@@ -206,7 +238,16 @@ export async function HeroRenderer({
       grainMobile: surfaceVarsRecord["--hero-grain-mobile"],
     };
 
+    const surfaceStyleRecord = surfaceStyle as Record<string, unknown>;
+    const finalGlassOpacity = surfaceStyleRecord["--glass-opacity"];
+    const finalSheenAlpha = surfaceStyleRecord["--champagne-sheen-alpha"];
+
     console.debug("HeroRenderer surface vars", diagnosticSurfaceVars);
+    console.debug("HeroRenderer milk override", {
+      milkDisabled: isMilkDisabled,
+      glassOpacity: finalGlassOpacity,
+      champagneSheenAlpha: finalSheenAlpha,
+    });
   }
 
   const layerStyles: Record<string, CSSProperties> = {
@@ -267,14 +308,7 @@ export async function HeroRenderer({
   return (
     <BaseChampagneSurface
       variant="inkGlass"
-      style={{
-        minHeight: "72vh",
-        display: "grid",
-        alignItems: layout.contentAlign === "center" ? "center" : "stretch",
-        overflow: "hidden",
-        background: "var(--hero-gradient, var(--smh-gradient))",
-        ["--hero-gradient" as string]: gradient,
-      }}
+      style={surfaceStyle}
       className="hero-renderer"
     >
       <style
