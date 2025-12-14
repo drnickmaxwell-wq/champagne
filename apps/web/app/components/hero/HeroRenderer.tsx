@@ -112,7 +112,7 @@ export async function HeroRenderer({
   const causticsOpacity = applyBoost(
     motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
   );
-  const waveBackdropOpacity = applyDiagnosticBoost(surfaces.background?.desktop?.opacity ?? 0.55);
+  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
@@ -212,8 +212,8 @@ export async function HeroRenderer({
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": {},
     "field.waveBackdrop": {
-      mixBlendMode: waveBackdropBlend ?? "screen",
-      opacity: waveBackdropOpacity,
+      mixBlendMode: waveBackdropBlend ?? ("var(--surface-blend-waveBackdrop, screen)" as CSSProperties["mixBlendMode"]),
+      opacity: "var(--surface-opacity-waveBackdrop, 0.55)",
       zIndex: 2,
     },
     "mask.waveHeader": {
@@ -414,7 +414,10 @@ export async function HeroRenderer({
             data-surface-id={entry.id}
             style={{
               mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
+              opacity:
+                entry.id === "overlay.glassShimmer"
+                  ? Math.min(entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85, 0.25)
+                  : entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
             }}
           >
             <source src={entry.path} />
