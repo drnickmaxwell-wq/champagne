@@ -345,7 +345,7 @@ export async function HeroRenderer({
             }
             .hero-renderer .hero-content {
               position: relative;
-              z-index: 2;
+              z-index: 10;
               display: grid;
               gap: 1rem;
               max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
@@ -402,7 +402,7 @@ export async function HeroRenderer({
             data-surface-role={layer.role}
             data-prm-safe={layer.prmSafe ? "true" : undefined}
             className={layer.className ?? "hero-surface-layer"}
-            style={{ ...(layer.token ? layerStyles[layer.token] : undefined), ...diagnosticOutlineStyle }}
+            style={{ ...(layerStyles[layer.token ?? layer.id] ?? undefined), ...diagnosticOutlineStyle }}
           />
         ))}
 
