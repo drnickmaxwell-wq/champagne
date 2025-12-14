@@ -49,7 +49,7 @@
   --surface-opacity-waveField: 1;
   --surface-opacity-dotField: 1;
   --surface-opacity-caustics: 0.7;
-  --surface-opacity-glassShimmer: 0.85;
+  --surface-opacity-glassShimmer: 0.45;
   --surface-opacity-particlesDrift: 0.6;
   --surface-opacity-particles: var(--hero-particles-opacity, 0.4);
   --surface-opacity-filmGrain: var(--hero-film-grain-opacity, 0.55);
@@ -61,7 +61,7 @@
   --surface-blend-waveField: normal;
   --surface-blend-dotField: normal;
   --surface-blend-caustics: screen;
-  --surface-blend-glassShimmer: luminosity;
+  --surface-blend-glassShimmer: screen;
   --surface-blend-particlesDrift: screen;
   --surface-blend-particles: normal;
   --surface-blend-filmGrain: multiply;
@@ -114,11 +114,15 @@
 }
 
 .hero-surface-layer.hero-surface--wave-mask {
-  background-image: var(--hero-wave-background-desktop);
+  background-image: none;
   mask-image: var(--hero-wave-mask-desktop);
   -webkit-mask-image: var(--hero-wave-mask-desktop);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
   mask-size: cover;
   -webkit-mask-size: cover;
+  mask-position: center;
+  -webkit-mask-position: center;
   mix-blend-mode: var(--surface-blend-waveMask, normal);
   opacity: var(--surface-opacity-waveMask, 1);
   z-index: var(--surface-zindex-waveMask, 2);
@@ -163,8 +167,8 @@
 
 .hero-surface-layer.hero-surface--glass-shimmer {
   background-image: var(--hero-caustics-overlay);
-  mix-blend-mode: var(--surface-blend-glassShimmer, luminosity);
-  opacity: var(--surface-opacity-glassShimmer, 0.85);
+  mix-blend-mode: var(--surface-blend-glassShimmer, screen);
+  opacity: var(--surface-opacity-glassShimmer, 0.45);
   z-index: var(--surface-zindex-glassShimmer, 6);
 }
 
@@ -197,9 +201,13 @@
 
 @media (max-width: 640px) {
   .hero-surface-layer.hero-surface--wave-mask {
-    background-image: var(--hero-wave-background-mobile);
+    background-image: none;
     mask-image: var(--hero-wave-mask-mobile);
     -webkit-mask-image: var(--hero-wave-mask-mobile);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
   }
 
   .hero-surface-layer.hero-surface--wave-backdrop {
@@ -229,7 +237,7 @@
 .hero-surface--motion.hero-surface--glass-shimmer,
 .hero-surface-layer.hero-surface--glass-shimmer {
   z-index: var(--surface-zindex-glassShimmer, 6);
-  mix-blend-mode: var(--surface-blend-glassShimmer, luminosity);
+  mix-blend-mode: var(--surface-blend-glassShimmer, screen);
 }
 
 .hero-surface--motion.hero-surface--particles-drift,

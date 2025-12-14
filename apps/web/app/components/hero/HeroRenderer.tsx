@@ -98,6 +98,7 @@ export async function HeroRenderer({
   const motionEntries = surfaces.motion ?? [];
   const videoEntry = surfaces.video;
   const filteredMotionEntries = motionEntries.filter((entry) => !isDeniedVideo(entry.path));
+  const glassShimmerEntry = motionEntries.find((entry) => entry.id === "overlay.glassShimmer");
   const shouldShowGrain = Boolean(
     filmGrain !== false && filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile),
   );
@@ -112,6 +113,10 @@ export async function HeroRenderer({
   const causticsOpacity = applyBoost(
     motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
   );
+  const glassShimmerOpacity = applyDiagnosticBoost(
+    glassShimmerEntry?.opacity ?? (motion.shimmerIntensity ?? 1) * 0.45,
+  );
+  const glassShimmerBlend = glassShimmerEntry?.blendMode as CSSProperties["mixBlendMode"];
   const waveBackdropOpacity = applyDiagnosticBoost(surfaces.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
@@ -190,6 +195,8 @@ export async function HeroRenderer({
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
     ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
     ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
+    ["--surface-opacity-glassShimmer" as string]: glassShimmerOpacity,
+    ["--surface-blend-glassShimmer" as string]: glassShimmerBlend,
   };
 
   if (process.env.NODE_ENV !== "production") {
