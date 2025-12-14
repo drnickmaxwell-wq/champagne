@@ -90,6 +90,14 @@ export async function HeroRenderer({
   if (!runtime) return <HeroFallback />;
 
   const { content, surfaces, layout, motion, filmGrain: filmGrainSettings } = runtime;
+  const heroMilkParam = (() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("heroMilk");
+    }
+
+    return null;
+  })();
+  const milkDisabled = heroMilkParam === "0";
   const videoDenylist = ["dental-hero-4k.mp4"];
   const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const opacityBoost = Math.max(debugOpacityBoost, 0.01);
@@ -112,7 +120,7 @@ export async function HeroRenderer({
   const causticsOpacity = applyBoost(
     motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
   );
-  const waveBackdropOpacity = applyDiagnosticBoost(surfaces.background?.desktop?.opacity ?? 0.55);
+  const waveBackdropOpacity = applyBoost(surfaces.background?.desktop?.opacity ?? 0.55);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
@@ -131,6 +139,15 @@ export async function HeroRenderer({
   const staticLayerOpacity = (value?: number) => applyDiagnosticBoost(value);
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
+    : undefined;
+  const milkOverrides: CSSProperties | undefined = milkDisabled
+    ? {
+        ["--glass-opacity" as string]: 0,
+        ["--champagne-sheen-alpha" as string]: 0,
+        backgroundColor: "transparent",
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
+      }
     : undefined;
 
   const surfaceVars: CSSProperties = {
@@ -194,6 +211,7 @@ export async function HeroRenderer({
 
   if (process.env.NODE_ENV !== "production") {
     const surfaceVarsRecord = surfaceVars as Record<string, unknown>;
+    const milkOverridesRecord = milkOverrides as Record<string, unknown> | undefined;
     const diagnosticSurfaceVars = {
       waveBackgroundDesktop: surfaceVarsRecord["--hero-wave-background-desktop"],
       waveBackgroundMobile: surfaceVarsRecord["--hero-wave-background-mobile"],
@@ -207,13 +225,18 @@ export async function HeroRenderer({
     };
 
     console.debug("HeroRenderer surface vars", diagnosticSurfaceVars);
+    console.debug("HeroRenderer milk toggle", {
+      milkDisabled,
+      glassOpacity: milkOverridesRecord?.["--glass-opacity"],
+      champagneSheenAlpha: milkOverridesRecord?.["--champagne-sheen-alpha"],
+    });
   }
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": {},
     "field.waveBackdrop": {
-      mixBlendMode: waveBackdropBlend ?? "screen",
-      opacity: waveBackdropOpacity,
+      mixBlendMode: waveBackdropBlend ?? ("var(--surface-blend-waveBackdrop, normal)" as CSSProperties["mixBlendMode"]),
+      opacity: "var(--surface-opacity-waveBackdrop, 0.7)",
       zIndex: 2,
     },
     "mask.waveHeader": {
@@ -274,6 +297,7 @@ export async function HeroRenderer({
         overflow: "hidden",
         background: "var(--hero-gradient, var(--smh-gradient))",
         ["--hero-gradient" as string]: gradient,
+        ...milkOverrides,
       }}
       className="hero-renderer"
     >
@@ -414,7 +438,10 @@ export async function HeroRenderer({
             data-surface-id={entry.id}
             style={{
               mixBlendMode: entry.blendMode as CSSProperties["mixBlendMode"],
-              opacity: entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
+              opacity:
+                entry.id === "overlay.glassShimmer"
+                  ? Math.min(entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85, 0.25)
+                  : entry.opacity ?? (motion.shimmerIntensity ?? 1) * 0.85,
             }}
           >
             <source src={entry.path} />
