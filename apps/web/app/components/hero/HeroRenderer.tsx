@@ -218,14 +218,6 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      maskImage: "var(--hero-wave-mask-desktop)",
-      WebkitMaskImage: "var(--hero-wave-mask-desktop)",
-      maskRepeat: "no-repeat",
-      WebkitMaskRepeat: "no-repeat",
-      maskSize: "cover",
-      WebkitMaskSize: "cover",
-      maskPosition: "center",
-      WebkitMaskPosition: "center",
       zIndex: 2,
     },
     "mask.waveHeader": {
@@ -358,8 +350,6 @@ export async function HeroRenderer({
               }
               .hero-renderer [data-surface-id="field.waveBackdrop"] {
                 background-image: var(--hero-wave-background-mobile);
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="field.waveRings"],
               .hero-renderer [data-surface-id="field.dotGrid"] {
