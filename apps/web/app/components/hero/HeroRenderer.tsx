@@ -223,10 +223,15 @@ export async function HeroRenderer({
     "mask.waveHeader": {
       mixBlendMode: surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"],
       opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
-      backgroundImage: "var(--hero-wave-mask-desktop)",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+      backgroundImage: "none",
+      maskImage: "var(--hero-wave-mask-desktop)",
+      WebkitMaskImage: "var(--hero-wave-mask-desktop)",
+      maskRepeat: "no-repeat",
+      WebkitMaskRepeat: "no-repeat",
+      maskSize: "cover",
+      WebkitMaskSize: "cover",
+      maskPosition: "center",
+      WebkitMaskPosition: "center",
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
@@ -311,6 +316,18 @@ export async function HeroRenderer({
               opacity: var(--surface-opacity-waveBackdrop, 0.55);
               z-index: var(--surface-zindex-waveBackdrop, 2);
             }
+            .hero-renderer .hero-surface-layer.hero-surface--wave-mask,
+            .hero-renderer [data-surface-id="mask.waveHeader"] {
+              background-image: none;
+              mask-image: var(--hero-wave-mask-desktop);
+              -webkit-mask-image: var(--hero-wave-mask-desktop);
+              mask-repeat: no-repeat;
+              -webkit-mask-repeat: no-repeat;
+              mask-size: cover;
+              -webkit-mask-size: cover;
+              mask-position: center;
+              -webkit-mask-position: center;
+            }
             .hero-renderer [data-surface-id="field.waveRings"],
             .hero-renderer [data-surface-id="field.dotGrid"] {
               mask-image: var(--hero-wave-mask-desktop);
@@ -357,7 +374,9 @@ export async function HeroRenderer({
                 -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="mask.waveHeader"] {
-                background-image: var(--hero-wave-mask-mobile);
+                background-image: none;
+                mask-image: var(--hero-wave-mask-mobile);
+                -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="overlay.filmGrain"] {
                 background-image: var(--hero-grain-mobile);
