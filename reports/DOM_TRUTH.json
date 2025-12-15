@@ -1,0 +1,15 @@
+{
+  "preset": "sacred_home_hero_v1",
+  "domComputed": [
+    { "id": "gradient.base", "mixBlendMode": "normal", "opacity": "1", "zIndex": "1" },
+    { "id": "field.waveBackdrop", "mixBlendMode": "screen", "opacity": "0.35", "zIndex": "2" },
+    { "id": "field.waveRings", "mixBlendMode": "soft-light", "opacity": "0.45", "zIndex": "3" },
+    { "id": "field.dotGrid", "mixBlendMode": "screen", "opacity": "0.45", "zIndex": "4" },
+    { "id": "overlay.particles", "mixBlendMode": "screen", "opacity": "0.15", "zIndex": "5" },
+    { "id": "overlay.filmGrain", "mixBlendMode": "soft-light", "opacity": "0.12", "zIndex": "7" },
+    { "id": "overlay.caustics", "mixBlendMode": "screen", "opacity": "0.35", "zIndex": "" },
+    { "id": "overlay.glassShimmer", "mixBlendMode": "screen", "opacity": "0.4", "zIndex": "" },
+    { "id": "overlay.goldDust", "mixBlendMode": "screen", "opacity": "0.45", "zIndex": "" },
+    { "id": "motion.heroVideo", "mixBlendMode": "screen", "opacity": "1", "zIndex": "" }
+  ]
+}
