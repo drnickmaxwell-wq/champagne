@@ -130,6 +130,10 @@ export async function HeroRenderer({
   );
   const waveBackdropOpacity = surfaces.background?.desktop?.opacity;
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
+  const missingGovernedValues: { id: string; field: "opacity" | "blend"; kind: "surface" | "motion" }[] = [];
+  const noteMissing = (id: string, field: "opacity" | "blend", kind: "surface" | "motion") => {
+    missingGovernedValues.push({ id, field, kind });
+  };
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
@@ -148,17 +152,24 @@ export async function HeroRenderer({
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
 
-  const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }) => {
+  const resolveMotionStyle = (
+    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number },
+    id?: string,
+  ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
-    const resolvedOpacity = resolveMotionOpacity(entry.opacity ?? undefined);
 
-    if (resolvedOpacity !== undefined) {
-      style.opacity = resolvedOpacity;
+    if (entry.opacity !== undefined && entry.opacity !== null) {
+      style.opacity = resolveMotionOpacity(entry.opacity);
+    } else {
+      style.opacity = 0;
+      if (id) noteMissing(id, "opacity", "motion");
     }
 
     if (entry.blendMode) {
       style.mixBlendMode = entry.blendMode as CSSProperties["mixBlendMode"];
+    } else if (id) {
+      noteMissing(id, "blend", "motion");
     }
 
     if (typeof entry.zIndex === "number") {
@@ -225,8 +236,6 @@ export async function HeroRenderer({
       : undefined,
     ["--hero-particles-opacity" as string]: shouldShowParticles ? particleOpacity : undefined,
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
-    ["--surface-opacity-waveBackdrop" as string]: waveBackdropOpacity,
-    ["--surface-blend-waveBackdrop" as string]: waveBackdropBlend,
   };
 
   if (process.env.NODE_ENV !== "production") {
@@ -248,44 +257,80 @@ export async function HeroRenderer({
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": { zIndex: 1 },
-    "field.waveBackdrop": {
-      ...(waveBackdropBlend ? { mixBlendMode: waveBackdropBlend } : {}),
-      ...(waveBackdropOpacity !== undefined ? { opacity: waveBackdropOpacity } : {}),
-      zIndex: 2,
-    },
+    "field.waveBackdrop": (() => {
+      const style: CSSProperties = { zIndex: 2 };
+
+      if (waveBackdropBlend) {
+        style.mixBlendMode = waveBackdropBlend;
+      } else {
+        noteMissing("field.waveBackdrop", "blend", "surface");
+      }
+
+      if (waveBackdropOpacity !== undefined) {
+        style.opacity = waveBackdropOpacity;
+      } else {
+        style.opacity = 0;
+        noteMissing("field.waveBackdrop", "opacity", "surface");
+      }
+
+      return style;
+    })(),
     "mask.waveHeader": {
-      mixBlendMode:
-        (surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
+      ...(surfaces.waveMask?.desktop?.blendMode
+        ? { mixBlendMode: surfaces.waveMask.desktop.blendMode as CSSProperties["mixBlendMode"] }
+        : {}),
       ...(surfaces.waveMask?.desktop?.opacity !== undefined
         ? { opacity: surfaces.waveMask.desktop.opacity }
         : {}),
     },
-    "field.waveRings": {
-      ...(surfaces.overlays?.field?.blendMode
-        ? { mixBlendMode: surfaces.overlays.field.blendMode as CSSProperties["mixBlendMode"] }
-        : {}),
-      ...(surfaces.overlays?.field?.opacity !== undefined
-        ? { opacity: staticLayerOpacity(surfaces.overlays.field.opacity) }
-        : {}),
-      backgroundImage: "var(--hero-overlay-field)",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      zIndex: 3,
-    },
-    "field.dotGrid": {
-      ...(surfaces.overlays?.dots?.blendMode
-        ? { mixBlendMode: surfaces.overlays.dots.blendMode as CSSProperties["mixBlendMode"] }
-        : {}),
-      ...(surfaces.overlays?.dots?.opacity !== undefined
-        ? { opacity: staticLayerOpacity(surfaces.overlays.dots.opacity) }
-        : {}),
-      backgroundImage: "var(--hero-overlay-dots)",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      zIndex: 4,
-    },
+    "field.waveRings": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-overlay-field)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        zIndex: 3,
+      };
+
+      if (surfaces.overlays?.field?.blendMode) {
+        style.mixBlendMode = surfaces.overlays.field.blendMode as CSSProperties["mixBlendMode"];
+      } else {
+        noteMissing("field.waveRings", "blend", "surface");
+      }
+
+      if (surfaces.overlays?.field?.opacity !== undefined) {
+        style.opacity = staticLayerOpacity(surfaces.overlays.field.opacity);
+      } else {
+        style.opacity = 0;
+        noteMissing("field.waveRings", "opacity", "surface");
+      }
+
+      return style;
+    })(),
+    "field.dotGrid": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-overlay-dots)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        zIndex: 4,
+      };
+
+      if (surfaces.overlays?.dots?.blendMode) {
+        style.mixBlendMode = surfaces.overlays.dots.blendMode as CSSProperties["mixBlendMode"];
+      } else {
+        noteMissing("field.dotGrid", "blend", "surface");
+      }
+
+      if (surfaces.overlays?.dots?.opacity !== undefined) {
+        style.opacity = staticLayerOpacity(surfaces.overlays.dots.opacity);
+      } else {
+        style.opacity = 0;
+        noteMissing("field.dotGrid", "opacity", "surface");
+      }
+
+      return style;
+    })(),
     "overlay.particles": {
       ...(surfaces.particles?.blendMode
         ? { mixBlendMode: surfaces.particles.blendMode as CSSProperties["mixBlendMode"] }
@@ -334,7 +379,7 @@ export async function HeroRenderer({
     };
   });
 
-  const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined);
+  const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
   const heroVideoDebug = videoEntry
     ? [
         {
@@ -351,7 +396,7 @@ export async function HeroRenderer({
 
   const motionInlineStyles = new Map<string, CSSProperties>();
   const motionEntriesWithStyles = filteredMotionEntries.map((entry, index) => {
-    const style = resolveMotionStyle(entry);
+    const style = resolveMotionStyle(entry, entry.id ?? `motion-${index}`);
     motionInlineStyles.set(entry.id ?? `motion-${index}`, style);
     const motionEntryZIndex = (entry as { zIndex?: number }).zIndex ?? null;
 
@@ -433,7 +478,12 @@ export async function HeroRenderer({
     return { opacity: null, blendMode: null, zIndex };
   };
 
-  const manifestSources = ["packages/champagne-manifests/data/hero/sacred_hero_surfaces.json"];
+  const manifestSources = [
+    { type: "surfaces", path: "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json", present: true },
+    { type: "motion", path: "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json", present: true },
+    { type: "base", path: null, present: false },
+    { type: "variants", path: null, present: false },
+  ];
   const canonicalSurfaceIds = [
     "gradient.base",
     "field.waveBackdrop",
@@ -493,6 +543,7 @@ export async function HeroRenderer({
           surfaceIdsRendered,
           resolvedSurfaces,
           resolvedMotions,
+          missingGovernedValues,
         }
       : null;
 
@@ -605,6 +656,7 @@ export async function HeroRenderer({
                 domSurfaces,
                 domMotions,
                 assertions,
+                missingGovernedValues: payload.missingGovernedValues,
               };
 
               console.log('CHAMPAGNE_HERO_RECEIPTS_JSON=' + JSON.stringify(receipts));
@@ -668,8 +720,6 @@ export async function HeroRenderer({
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
               background-position: center;
-              mix-blend-mode: var(--surface-blend-waveBackdrop);
-              opacity: var(--surface-opacity-waveBackdrop);
               mask-image: var(--hero-wave-mask-desktop);
               -webkit-mask-image: var(--hero-wave-mask-desktop);
               mask-repeat: no-repeat;
