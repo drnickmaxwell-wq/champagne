@@ -296,9 +296,9 @@ export async function HeroRenderer({
     },
     "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity, zIndex: 5 },
     "hero.contentFrame": {
-      background: "var(--champagne-glass-bg, var(--surface-glass))",
-      backdropFilter: "blur(18px)",
-      WebkitBackdropFilter: "blur(18px)",
+      background: "transparent",
+      backdropFilter: "none",
+      WebkitBackdropFilter: "none",
     },
   };
 
@@ -312,8 +312,6 @@ export async function HeroRenderer({
         overflow: "hidden",
         background: "var(--hero-gradient, var(--smh-gradient))",
         ["--hero-gradient" as string]: gradient,
-        ["--glass-opacity" as any]: "0",
-        ["--champagne-sheen-alpha" as any]: "0",
       }}
       className="hero-renderer hero-optical-isolation"
     >

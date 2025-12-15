@@ -15,9 +15,8 @@ body {
   @apply antialiased;
 }
 
-.hero-optical-isolation {
-  --glass-opacity: 0 !important;
-  --champagne-sheen-alpha: 0 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+[data-surface-id="hero.contentFrame"] {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
 }
