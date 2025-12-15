@@ -274,8 +274,10 @@ export async function HeroRenderer({
         overflow: "hidden",
         background: "var(--hero-gradient, var(--smh-gradient))",
         ["--hero-gradient" as string]: gradient,
+        ["--glass-opacity" as any]: "0",
+        ["--champagne-sheen-alpha" as any]: "0",
       }}
-      className="hero-renderer"
+      className="hero-renderer hero-optical-isolation"
     >
       <style
         dangerouslySetInnerHTML={{
