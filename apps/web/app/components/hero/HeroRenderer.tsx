@@ -303,6 +303,48 @@ export async function HeroRenderer({
     },
   };
 
+  const devProofScript =
+    process.env.NODE_ENV !== "production" ? (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(() => {
+            try {
+              const hero = document.querySelector('.hero-renderer');
+              const motionVideos = hero ? hero.querySelectorAll('video.hero-surface--motion') : [];
+              const veilCandidates = hero
+                ? Array.from(hero.querySelectorAll(':scope > div[aria-hidden]')).filter((el) => {
+                    const style = getComputedStyle(el);
+                    const bg = (style.backgroundImage || '').toLowerCase();
+                    const blend = style.mixBlendMode || '';
+                    const hasVeilGradient = bg.includes('radial-gradient') || bg.includes('linear-gradient');
+                    const hasLightVeil = bg.includes('rgba(255, 255, 255') || bg.includes('rgba(255,255,255');
+                    const blendNonNormal = blend && blend !== 'normal';
+                    return hasVeilGradient && (hasLightVeil || blendNonNormal);
+                  })
+                : [];
+              const heroStyle = hero ? getComputedStyle(hero) : null;
+              const payload = {
+                heroCount: document.querySelectorAll('.hero-renderer').length,
+                motionCount: motionVideos.length,
+                veilCount: veilCandidates.length,
+                heroComputed: heroStyle
+                  ? {
+                      backdropFilter: heroStyle.backdropFilter,
+                      filter: heroStyle.filter,
+                      backgroundImage: heroStyle.backgroundImage,
+                      backgroundColor: heroStyle.backgroundColor,
+                    }
+                  : null,
+              };
+              console.log('CHAMPAGNE_HERO_PROOF_JSON=' + JSON.stringify(payload));
+            } catch (error) {
+              console.error('CHAMPAGNE_HERO_PROOF_JSON_ERROR', error);
+            }
+          })();`,
+        }}
+      />
+    ) : null;
+
   return (
     <BaseChampagneSurface
       variant="inkGlass"
@@ -328,6 +370,12 @@ export async function HeroRenderer({
               color: var(--text-high);
               backdrop-filter: none !important;
               -webkit-backdrop-filter: none !important;
+            }
+            .hero-renderer > div[aria-hidden][style*="radial-gradient"],
+            .hero-renderer > div[aria-hidden][style*="champagne-glass-bg"] {
+              background: none !important;
+              opacity: 0 !important;
+              mix-blend-mode: normal !important;
             }
             .hero-renderer .hero-surface-stack {
               position: absolute;
@@ -541,6 +589,7 @@ export async function HeroRenderer({
           )}
         </div>
       </div>
+      {devProofScript}
     </BaseChampagneSurface>
   );
 }
