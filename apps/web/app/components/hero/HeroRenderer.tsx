@@ -312,6 +312,8 @@ export async function HeroRenderer({
         overflow: "hidden",
         background: "var(--hero-gradient, var(--smh-gradient))",
         ["--hero-gradient" as string]: gradient,
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
       }}
       className="hero-renderer hero-optical-isolation"
     >
@@ -321,6 +323,8 @@ export async function HeroRenderer({
             .hero-renderer {
               position: relative;
               color: var(--text-high);
+              backdrop-filter: none !important;
+              -webkit-backdrop-filter: none !important;
             }
             .hero-renderer .hero-surface-stack {
               position: absolute;
@@ -364,6 +368,7 @@ export async function HeroRenderer({
               width: 100%;
               height: 100%;
               pointer-events: none;
+              z-index: 6;
             }
             .hero-surface-layer {
               pointer-events: none;
