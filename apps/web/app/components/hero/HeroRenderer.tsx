@@ -104,6 +104,15 @@ export async function HeroRenderer({
     if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
     return true;
   });
+  const motionCausticsActive = filteredMotionEntries.some((entry) =>
+    entry.className?.includes("hero-surface--caustics"),
+  );
+  const motionShimmerActive = filteredMotionEntries.some((entry) =>
+    entry.className?.includes("hero-surface--glass-shimmer"),
+  );
+  const motionGoldDustActive = filteredMotionEntries.some((entry) =>
+    entry.className?.includes("hero-surface--gold-dust"),
+  );
   const activeMotionIds = new Set(
     filteredMotionEntries.map((entry) => entry.id).filter((id): id is string => Boolean(id)),
   );
@@ -134,6 +143,9 @@ export async function HeroRenderer({
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
     if (token && activeMotionIds.has(token)) return false;
+    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
+    if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
+    if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
     if (token === "overlay.particles" && !shouldShowParticles) return false;
     if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
     return true;
