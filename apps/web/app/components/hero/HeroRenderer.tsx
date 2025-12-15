@@ -127,6 +127,7 @@ export async function HeroRenderer({
     const boosted = applyBoost(value);
     return diagnosticBoost ? Math.min(1, boosted * diagnosticOpacityBoost) : boosted;
   };
+  const clampOpacity = (value?: number) => Math.max(0, Math.min(1, value ?? 1));
   const causticsOpacity = applyBoost(
     motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity,
   );
@@ -151,12 +152,9 @@ export async function HeroRenderer({
     (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1),
   );
   const staticLayerOpacity = (value?: number) => applyDiagnosticBoost(value);
-  const resolveMotionOpacity = (entryId: string | undefined, value?: number) => {
-    const base = applyBoost(value ?? (motion.shimmerIntensity ?? 1) * 0.85);
-    if (entryId?.includes("caustics")) return applyBoost(base);
-    if (entryId?.includes("glass") || entryId?.includes("shimmer")) return applyBoost(base);
-    if (entryId?.includes("gold")) return applyBoost(base);
-    return base;
+  const resolveMotionOpacity = (_entryId: string | undefined, value?: number) => {
+    const base = clampOpacity(value ?? motion.shimmerIntensity ?? 1);
+    return diagnosticBoost ? applyDiagnosticBoost(base) : base;
   };
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
@@ -239,10 +237,11 @@ export async function HeroRenderer({
   }
 
   const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": { mixBlendMode: "normal", opacity: 1 },
+    "gradient.base": { mixBlendMode: "normal", opacity: 1, zIndex: 1 },
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
+      zIndex: 2,
     },
     "mask.waveHeader": {
       mixBlendMode:
@@ -256,6 +255,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 3,
     },
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
@@ -264,6 +264,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 4,
     },
     "overlay.particles": {
       mixBlendMode: "screen",
@@ -376,14 +377,6 @@ export async function HeroRenderer({
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
               background-position: center;
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
               mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
               opacity: var(--surface-opacity-waveBackdrop, 0.35);
             }
@@ -391,6 +384,10 @@ export async function HeroRenderer({
             .hero-renderer .hero-surface-layer.hero-surface--gradient-field {
               mix-blend-mode: normal;
               opacity: 1;
+            }
+            .hero-renderer [data-surface-id="field.waveBackdrop"] {
+              mask-image: none;
+              -webkit-mask-image: none;
             }
             .hero-renderer [data-surface-id="field.waveRings"],
             .hero-renderer [data-surface-id="field.dotGrid"] {
@@ -418,7 +415,7 @@ export async function HeroRenderer({
             }
             .hero-renderer .hero-content {
               position: relative;
-              z-index: 2;
+              z-index: 10;
               display: grid;
               gap: 1rem;
               max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
@@ -428,8 +425,8 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
+                mask-image: none;
+                -webkit-mask-image: none;
               }
               .hero-renderer [data-surface-id="field.waveRings"],
               .hero-renderer [data-surface-id="field.dotGrid"] {
@@ -486,6 +483,7 @@ export async function HeroRenderer({
             style={{
               mixBlendMode: (videoEntry.blendMode as CSSProperties["mixBlendMode"]) ?? "normal",
               opacity: resolveMotionOpacity("motion.heroVideo", videoEntry.opacity),
+              zIndex: 5,
             }}
           >
             <source src={videoEntry.path} />
@@ -506,6 +504,7 @@ export async function HeroRenderer({
             style={{
               mixBlendMode: "screen",
               opacity: resolveMotionOpacity(entry.id, entry.opacity),
+              zIndex: 5,
             }}
           >
             <source src={entry.path} />
