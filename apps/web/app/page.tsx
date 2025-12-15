@@ -7,7 +7,11 @@ export default function Page() {
 
   return (
     <>
-      {isHeroEnabled && <HeroRenderer />}
+      {isHeroEnabled && (
+        <div className="hero-optical-isolation">
+          <HeroRenderer />
+        </div>
+      )}
       <ChampagnePageBuilder slug="/" />
     </>
   );
