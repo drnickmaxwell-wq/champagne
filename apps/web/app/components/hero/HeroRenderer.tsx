@@ -152,7 +152,7 @@ export async function HeroRenderer({
   });
   const grainOpacity = clampOpacity(
     applyDiagnosticBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1)),
-    0.12,
+    0.08,
   );
   const particleOpacity = clampOpacity(
     applyDiagnosticBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35),
@@ -310,8 +310,10 @@ export async function HeroRenderer({
         display: "grid",
         alignItems: layout.contentAlign === "center" ? "center" : "stretch",
         overflow: "hidden",
-        background: "var(--hero-gradient, var(--smh-gradient))",
+        background: "transparent",
         ["--hero-gradient" as string]: gradient,
+        ["--glass-opacity" as string]: "0.06",
+        ["--champagne-sheen-alpha" as string]: "0.08",
         backdropFilter: "none",
         WebkitBackdropFilter: "none",
       }}
