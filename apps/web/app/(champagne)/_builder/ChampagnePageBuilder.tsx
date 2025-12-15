@@ -136,8 +136,12 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const manifest = resolveManifest(slug);
   const pagePath = manifest?.path ?? (slug.startsWith("/") ? slug : `/${slug}`);
   const heroManifest = getHeroManifest(pagePath) ?? getHeroManifest(slug);
-  const heroId = heroManifest?.id ?? (typeof manifest?.hero === "string" ? manifest.hero : manifest?.id ?? pagePath);
-  const heroPreset = heroManifest?.preset ?? manifest?.hero;
+  const sacredHomePresetId = "sacred_home_hero_v1";
+  const isHomePage = pagePath === "/";
+  const heroId =
+    (isHomePage ? sacredHomePresetId : heroManifest?.id)
+    ?? (typeof manifest?.hero === "string" ? manifest.hero : manifest?.id ?? pagePath);
+  const heroPreset = (isHomePage ? sacredHomePresetId : heroManifest?.preset) ?? manifest?.hero;
   const heroContent = deriveHeroContent(manifest, pagePath);
   const ctaSlots = getCTASlotsForPage(pagePath);
   const heroCTAs = resolveCTAList(ctaSlots.heroCTAs, "primary");

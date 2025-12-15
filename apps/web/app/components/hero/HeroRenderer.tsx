@@ -363,9 +363,26 @@ export async function HeroRenderer({
     };
   });
 
+  const surfaceIdsRendered = [
+    ...surfaceStack.map((layer) => layer.id),
+    ...(!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path) ? ["motion.heroVideo"] : []),
+    ...(!prmEnabled
+      ? motionEntriesWithStyles.map(({ entry }) => entry.id).filter((id): id is string => Boolean(id))
+      : []),
+  ];
+
   const resolveVsInlinePayload = process.env.NODE_ENV !== "production"
     ? [...surfaceDebug, ...heroVideoDebug, ...motionEntriesWithStyles.map(({ debug }) => debug)]
     : [];
+
+  const heroDebugMeta =
+    process.env.NODE_ENV !== "production"
+      ? {
+          selectedPresetId: runtime.id,
+          selectedManifestPathOrKey: "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+          surfaceIdsRendered,
+        }
+      : null;
 
   const devProofScript =
     process.env.NODE_ENV !== "production" ? (
@@ -418,6 +435,7 @@ export async function HeroRenderer({
             if (!window.location.search.includes('heroDebug=1')) return;
             try {
               const resolved = ${JSON.stringify(resolveVsInlinePayload)};
+              const meta = ${JSON.stringify(heroDebugMeta)};
               const hero = document.querySelector('.hero-renderer');
               const motionVideos = hero ? hero.querySelectorAll('video.hero-surface--motion') : [];
               const surfaces = hero ? Array.from(hero.querySelectorAll('[data-surface-id]')) : [];
@@ -442,6 +460,9 @@ export async function HeroRenderer({
               const payload = {
                 heroCount: document.querySelectorAll('.hero-renderer').length,
                 motionCount: motionVideos.length,
+                selectedPresetId: meta?.selectedPresetId ?? null,
+                selectedManifestPathOrKey: meta?.selectedManifestPathOrKey ?? null,
+                surfaceIdsRendered: meta?.surfaceIdsRendered ?? null,
                 surfaces: surfaceReport,
               };
 
