@@ -131,7 +131,7 @@ export async function HeroRenderer({
   const causticsOpacity = applyBoost(
     motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity,
   );
-  const waveBackdropOpacity = applyDiagnosticBoost(surfaces.background?.desktop?.opacity);
+  const waveBackdropOpacity = clampOpacity(surfaces.background?.desktop?.opacity);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
@@ -152,10 +152,8 @@ export async function HeroRenderer({
     (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1),
   );
   const staticLayerOpacity = (value?: number) => applyDiagnosticBoost(value);
-  const resolveMotionOpacity = (_entryId: string | undefined, value?: number) => {
-    const base = clampOpacity(value ?? motion.shimmerIntensity ?? 1);
-    return diagnosticBoost ? applyDiagnosticBoost(base) : base;
-  };
+  const resolveMotionOpacity = (_entryId: string | undefined, value?: number) =>
+    clampOpacity(value ?? motion.shimmerIntensity ?? 1);
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
@@ -273,6 +271,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 5,
     },
     "overlay.filmGrain": {
       mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
@@ -281,6 +280,7 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      zIndex: 7,
     },
     "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
     "hero.contentFrame": {
@@ -410,9 +410,6 @@ export async function HeroRenderer({
             .hero-surface-layer {
               pointer-events: none;
             }
-            .hero-renderer [data-surface-role="fx"] {
-              mix-blend-mode: screen;
-            }
             .hero-renderer .hero-content {
               position: relative;
               z-index: 10;
@@ -483,7 +480,7 @@ export async function HeroRenderer({
             style={{
               mixBlendMode: (videoEntry.blendMode as CSSProperties["mixBlendMode"]) ?? "normal",
               opacity: resolveMotionOpacity("motion.heroVideo", videoEntry.opacity),
-              zIndex: 5,
+              zIndex: 6,
             }}
           >
             <source src={videoEntry.path} />
@@ -502,9 +499,9 @@ export async function HeroRenderer({
             preload="metadata"
             data-surface-id={entry.id}
             style={{
-              mixBlendMode: "screen",
+              mixBlendMode: (entry.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
               opacity: resolveMotionOpacity(entry.id, entry.opacity),
-              zIndex: 5,
+              zIndex: 6,
             }}
           >
             <source src={entry.path} />
