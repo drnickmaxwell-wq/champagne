@@ -104,6 +104,9 @@ export async function HeroRenderer({
     if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
     return true;
   });
+  const activeMotionIds = new Set(
+    filteredMotionEntries.map((entry) => entry.id).filter((id): id is string => Boolean(id)),
+  );
   const shouldShowGrain = Boolean(
     filmGrain !== false && filmGrainSettings.enabled && (surfaces.grain?.desktop || surfaces.grain?.mobile),
   );
@@ -130,6 +133,7 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
+    if (token && activeMotionIds.has(token)) return false;
     if (token === "overlay.particles" && !shouldShowParticles) return false;
     if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
     return true;
