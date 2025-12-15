@@ -152,11 +152,31 @@ export async function HeroRenderer({
     (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1),
   );
   const staticLayerOpacity = (value?: number) => applyDiagnosticBoost(value);
-  const resolveMotionOpacity = (_entryId: string | undefined, value?: number) =>
-    clampOpacity(value ?? motion.shimmerIntensity ?? 1);
+  const resolveMotionOpacity = (value?: number) =>
+    value === undefined ? undefined : clampOpacity(value);
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
+
+  const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }) => {
+    if (!entry) return {};
+    const style: CSSProperties = {};
+    const resolvedOpacity = resolveMotionOpacity(entry.opacity ?? undefined);
+
+    if (resolvedOpacity !== undefined) {
+      style.opacity = resolvedOpacity;
+    }
+
+    if (entry.blendMode) {
+      style.mixBlendMode = entry.blendMode as CSSProperties["mixBlendMode"];
+    }
+
+    if (typeof entry.zIndex === "number") {
+      style.zIndex = entry.zIndex;
+    }
+
+    return style;
+  };
 
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
@@ -290,6 +310,63 @@ export async function HeroRenderer({
     },
   };
 
+  const surfaceInlineStyles = new Map<string, CSSProperties>();
+  const surfaceDebug = surfaceStack.map((layer, index) => {
+    const resolvedStyle = layer.token ? layerStyles[layer.token] : undefined;
+    const inlineStyle = { ...(resolvedStyle ?? {}), ...diagnosticOutlineStyle };
+
+    surfaceInlineStyles.set(layer.id, inlineStyle);
+
+    return {
+      id: layer.id,
+      role: layer.role,
+      order: index,
+      resolved: {
+        opacity: (resolvedStyle?.opacity as number | undefined) ?? null,
+        blendMode: (resolvedStyle?.mixBlendMode as string | undefined) ?? null,
+        zIndex: (resolvedStyle?.zIndex as number | undefined) ?? null,
+      },
+    };
+  });
+
+  const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined);
+  const heroVideoDebug = videoEntry
+    ? [
+        {
+          id: "motion.heroVideo",
+          order: surfaceStack.length,
+          resolved: {
+            opacity: resolveMotionOpacity(videoEntry.opacity ?? undefined) ?? null,
+            blendMode: videoEntry.blendMode ?? null,
+            zIndex: (videoEntry as { zIndex?: number }).zIndex ?? null,
+          },
+        },
+      ]
+    : [];
+
+  const motionEntriesWithStyles = filteredMotionEntries.map((entry, index) => {
+    const style = resolveMotionStyle(entry);
+    const motionEntryZIndex = (entry as { zIndex?: number }).zIndex ?? null;
+
+    return {
+      entry,
+      style,
+      debug: {
+        id: entry.id,
+        order: surfaceStack.length + heroVideoDebug.length + index,
+        resolved: {
+          opacity: resolveMotionOpacity(entry.opacity ?? undefined) ?? null,
+          blendMode: entry.blendMode ?? null,
+          zIndex: motionEntryZIndex,
+        },
+      },
+    };
+  });
+
+  const resolveVsInlinePayload = process.env.NODE_ENV !== "production"
+    ? [...surfaceDebug, ...heroVideoDebug, ...motionEntriesWithStyles.map(({ debug }) => debug)]
+    : [];
+
   const devProofScript =
     process.env.NODE_ENV !== "production" ? (
       <script
@@ -326,6 +403,51 @@ export async function HeroRenderer({
               console.log('CHAMPAGNE_HERO_PROOF_JSON=' + JSON.stringify(payload));
             } catch (error) {
               console.error('CHAMPAGNE_HERO_PROOF_JSON_ERROR', error);
+            }
+          })();`,
+        }}
+      />
+    ) : null;
+
+  const resolveVsInlineScript =
+    process.env.NODE_ENV !== "production" ? (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(() => {
+            if (typeof window === 'undefined') return;
+            if (!window.location.search.includes('heroDebug=1')) return;
+            try {
+              const resolved = ${JSON.stringify(resolveVsInlinePayload)};
+              const hero = document.querySelector('.hero-renderer');
+              const motionVideos = hero ? hero.querySelectorAll('video.hero-surface--motion') : [];
+              const surfaces = hero ? Array.from(hero.querySelectorAll('[data-surface-id]')) : [];
+              const surfaceReport = surfaces.map((el) => {
+                const id = el.getAttribute('data-surface-id');
+                const resolvedEntry = resolved.find((item) => item.id === id) || null;
+                const inline = { opacity: el.style.opacity || null, mixBlendMode: el.style.mixBlendMode || null, zIndex: el.style.zIndex || null };
+                const computed = window.getComputedStyle(el);
+
+                return {
+                  id,
+                  resolved: resolvedEntry,
+                  inline,
+                  computed: {
+                    opacity: computed.opacity,
+                    mixBlendMode: computed.mixBlendMode,
+                    zIndex: computed.zIndex,
+                  },
+                };
+              });
+
+              const payload = {
+                heroCount: document.querySelectorAll('.hero-renderer').length,
+                motionCount: motionVideos.length,
+                surfaces: surfaceReport,
+              };
+
+              console.log('CHAMPAGNE_HERO_RESOLVE_VS_INLINE_JSON=' + JSON.stringify(payload));
+            } catch (error) {
+              console.error('CHAMPAGNE_HERO_RESOLVE_VS_INLINE_JSON_ERROR', error);
             }
           })();`,
         }}
@@ -456,16 +578,20 @@ export async function HeroRenderer({
         data-prm={prmEnabled ? "true" : "false"}
         style={surfaceVars}
       >
-        {surfaceStack.map((layer) => (
-          <div
-            key={layer.id}
-            data-surface-id={layer.id}
-            data-surface-role={layer.role}
-            data-prm-safe={layer.prmSafe ? "true" : undefined}
-            className={layer.className ?? "hero-surface-layer"}
-            style={{ ...(layer.token ? layerStyles[layer.token] : undefined), ...diagnosticOutlineStyle }}
-          />
-        ))}
+        {surfaceStack.map((layer) => {
+          const inlineStyle = surfaceInlineStyles.get(layer.id);
+
+          return (
+            <div
+              key={layer.id}
+              data-surface-id={layer.id}
+              data-surface-role={layer.role}
+              data-prm-safe={layer.prmSafe ? "true" : undefined}
+              className={layer.className ?? "hero-surface-layer"}
+              style={inlineStyle}
+            />
+          );
+        })}
 
         {!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path) && (
           <video
@@ -477,36 +603,28 @@ export async function HeroRenderer({
             preload="metadata"
             poster={surfaces.background?.desktop?.path}
             data-surface-id="motion.heroVideo"
-            style={{
-              mixBlendMode: (videoEntry.blendMode as CSSProperties["mixBlendMode"]) ?? "normal",
-              opacity: resolveMotionOpacity("motion.heroVideo", videoEntry.opacity),
-              zIndex: 6,
-            }}
+            style={heroVideoStyle}
           >
             <source src={videoEntry.path} />
           </video>
         )}
 
         {!prmEnabled &&
-          filteredMotionEntries.map((entry) => (
-          <video
-            key={entry.id}
-            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            data-surface-id={entry.id}
-            style={{
-              mixBlendMode: (entry.blendMode as CSSProperties["mixBlendMode"]) ?? "screen",
-              opacity: resolveMotionOpacity(entry.id, entry.opacity),
-              zIndex: 6,
-            }}
-          >
-            <source src={entry.path} />
-          </video>
-        ))}
+          motionEntriesWithStyles.map(({ entry, style }) => (
+            <video
+              key={entry.id}
+              className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
+              autoPlay
+              playsInline
+              loop
+              muted
+              preload="metadata"
+              data-surface-id={entry.id}
+              style={style}
+            >
+              <source src={entry.path} />
+            </video>
+          ))}
 
       </div>
 
@@ -567,6 +685,7 @@ export async function HeroRenderer({
         </div>
       </div>
       {devProofScript}
+      {resolveVsInlineScript}
     </BaseChampagneSurface>
   );
 }
