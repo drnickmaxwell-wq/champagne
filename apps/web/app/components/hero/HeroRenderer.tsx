@@ -127,17 +127,10 @@ export async function HeroRenderer({
     const boosted = applyBoost(value);
     return diagnosticBoost ? Math.min(1, boosted * diagnosticOpacityBoost) : boosted;
   };
-  const clampOpacity = (value: number | undefined, cap: number) => Math.min(cap, value ?? cap);
-  const causticsOpacity = clampOpacity(
-    applyBoost(
-      motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity ?? 0.35,
-    ),
-    0.35,
+  const causticsOpacity = applyBoost(
+    motionEntries.find((entry) => entry.id === "overlay.caustics")?.opacity ?? surfaces.overlays?.field?.opacity,
   );
-  const waveBackdropOpacity = clampOpacity(
-    applyDiagnosticBoost(surfaces.background?.desktop?.opacity ?? 0.55),
-    0.35,
-  );
+  const waveBackdropOpacity = applyDiagnosticBoost(surfaces.background?.desktop?.opacity);
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
@@ -151,20 +144,18 @@ export async function HeroRenderer({
     if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
     return true;
   });
-  const grainOpacity = clampOpacity(
-    applyDiagnosticBoost((filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1)),
-    0.08,
+  const grainOpacity = applyDiagnosticBoost(
+    (filmGrainSettings.opacity ?? 0.28) * (surfaces.grain?.desktop?.opacity ?? 1),
   );
-  const particleOpacity = clampOpacity(
-    applyDiagnosticBoost((motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1) * 0.35),
-    0.15,
+  const particleOpacity = applyDiagnosticBoost(
+    (motion.particles?.density ?? 1) * (surfaces.particles?.opacity ?? 1),
   );
-  const staticLayerOpacity = (value?: number) => clampOpacity(applyDiagnosticBoost(value), 1);
+  const staticLayerOpacity = (value?: number) => applyDiagnosticBoost(value);
   const resolveMotionOpacity = (entryId: string | undefined, value?: number) => {
-    const base = clampOpacity(applyBoost(value ?? (motion.shimmerIntensity ?? 1) * 0.85), 1);
-    if (entryId?.includes("caustics")) return clampOpacity(base, 0.35);
-    if (entryId?.includes("glass") || entryId?.includes("shimmer")) return clampOpacity(base, 0.4);
-    if (entryId?.includes("gold")) return clampOpacity(base, 0.45);
+    const base = applyBoost(value ?? (motion.shimmerIntensity ?? 1) * 0.85);
+    if (entryId?.includes("caustics")) return applyBoost(base);
+    if (entryId?.includes("glass") || entryId?.includes("shimmer")) return applyBoost(base);
+    if (entryId?.includes("gold")) return applyBoost(base);
     return base;
   };
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
@@ -248,25 +239,23 @@ export async function HeroRenderer({
   }
 
   const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": { mixBlendMode: "normal", opacity: 1, zIndex: 1 },
+    "gradient.base": { mixBlendMode: "normal", opacity: 1 },
     "field.waveBackdrop": {
       mixBlendMode: waveBackdropBlend ?? "screen",
       opacity: waveBackdropOpacity,
-      zIndex: 2,
     },
     "mask.waveHeader": {
       mixBlendMode:
         (surfaces.waveMask?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
-      opacity: clampOpacity(applyBoost(surfaces.waveMask?.desktop?.opacity), 0.55),
+      opacity: applyBoost(surfaces.waveMask?.desktop?.opacity),
     },
     "field.waveRings": {
       mixBlendMode: surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"],
-      opacity: clampOpacity(staticLayerOpacity(surfaces.overlays?.field?.opacity), 0.45),
+      opacity: staticLayerOpacity(surfaces.overlays?.field?.opacity),
       backgroundImage: "var(--hero-overlay-field)",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      zIndex: 3,
     },
     "field.dotGrid": {
       mixBlendMode: surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"],
@@ -275,7 +264,6 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      zIndex: 4,
     },
     "overlay.particles": {
       mixBlendMode: "screen",
@@ -284,7 +272,6 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      zIndex: 5,
     },
     "overlay.filmGrain": {
       mixBlendMode: (surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? "soft-light",
@@ -293,9 +280,8 @@ export async function HeroRenderer({
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      zIndex: 8,
     },
-    "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity, zIndex: 5 },
+    "overlay.caustics": { mixBlendMode: "screen", opacity: causticsOpacity },
     "hero.contentFrame": {
       background: "transparent",
       backdropFilter: "none",
@@ -355,8 +341,6 @@ export async function HeroRenderer({
         overflow: "hidden",
         background: "transparent",
         ["--hero-gradient" as string]: gradient,
-        ["--glass-opacity" as string]: "0.03",
-        ["--champagne-sheen-alpha" as string]: "0.05",
         backdropFilter: "none",
         WebkitBackdropFilter: "none",
       }}
@@ -371,22 +355,22 @@ export async function HeroRenderer({
               backdrop-filter: none !important;
               -webkit-backdrop-filter: none !important;
             }
-            .hero-renderer > div[aria-hidden][style*="radial-gradient"],
-            .hero-renderer > div[aria-hidden][style*="champagne-glass-bg"] {
+            .hero-renderer.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
+            .hero-renderer.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
               background: none !important;
               opacity: 0 !important;
               mix-blend-mode: normal !important;
+              backdrop-filter: none !important;
+              -webkit-backdrop-filter: none !important;
             }
             .hero-renderer .hero-surface-stack {
               position: absolute;
               inset: 0;
-              z-index: 0;
             }
             .hero-renderer .hero-layer,
             .hero-renderer .hero-surface-layer {
               position: absolute;
               inset: 0;
-              z-index: 0;
             }
             .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
               background-image: var(--hero-wave-background-desktop);
@@ -402,13 +386,11 @@ export async function HeroRenderer({
               -webkit-mask-position: center;
               mix-blend-mode: var(--surface-blend-waveBackdrop, screen);
               opacity: var(--surface-opacity-waveBackdrop, 0.35);
-              z-index: var(--surface-zindex-waveBackdrop, 2);
             }
             .hero-renderer [data-surface-id="gradient.base"],
             .hero-renderer .hero-surface-layer.hero-surface--gradient-field {
               mix-blend-mode: normal;
               opacity: 1;
-              z-index: 1;
             }
             .hero-renderer [data-surface-id="field.waveRings"],
             .hero-renderer [data-surface-id="field.dotGrid"] {
@@ -427,7 +409,6 @@ export async function HeroRenderer({
               width: 100%;
               height: 100%;
               pointer-events: none;
-              z-index: 6;
             }
             .hero-surface-layer {
               pointer-events: none;
