@@ -62,6 +62,10 @@ export default async function TreatmentPage({
     return notFound();
   }
 
+  if (process.env.NODE_ENV === "development") {
+    console.info("[treatments/[slug]] canonical route", { slug, pageSlug });
+  }
+
   if (process.env.NODE_ENV === "development" && heroDebugEnabled) {
     console.info("[HeroRenderer] mounted", {
       pageKey: "treatment-leaf",
