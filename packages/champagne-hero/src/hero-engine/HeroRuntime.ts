@@ -34,11 +34,6 @@ const DEFAULT_LAYOUT: HeroLayoutConfig = {
   padding: "clamp(2rem, 4vw, 3.5rem)",
 };
 
-const DEFAULT_FILM_GRAIN: Required<HeroFilmGrainSettings> = {
-  enabled: true,
-  opacity: 0.3,
-};
-
 const DEFAULT_MOTION: Required<HeroMotionTuning> = {
   parallaxDepth: 18,
   shimmerIntensity: 1,
@@ -145,7 +140,6 @@ function mergeFilmGrain(
   options?: RuntimeOptions,
 ): HeroFilmGrainSettings {
   const merged: HeroFilmGrainSettings = {
-    ...DEFAULT_FILM_GRAIN,
     ...base,
     ...weather,
     ...variant,
@@ -155,9 +149,11 @@ function mergeFilmGrain(
     merged.enabled = false;
   }
 
-  if (resolvePrmFlag(options ?? {})) {
-    merged.opacity = (merged.opacity ?? DEFAULT_FILM_GRAIN.opacity) * 0.65;
-    merged.enabled = true;
+  if (resolvePrmFlag(options ?? {}) && typeof merged.opacity === "number") {
+    merged.opacity = merged.opacity * 0.65;
+    if (merged.enabled !== false) {
+      merged.enabled = merged.enabled ?? true;
+    }
   }
 
   return merged;

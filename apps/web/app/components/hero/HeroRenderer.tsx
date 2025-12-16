@@ -119,28 +119,43 @@ export async function HeroRenderer({
   const activeMotionIds = new Set(
     filteredMotionEntries.map((entry) => entry.id).filter((id): id is string => Boolean(id)),
   );
-  const missingGovernance: { id: string; field: "opacity" | "blend" | "zIndex"; kind: "surface" | "motion" }[] = [];
+  const missingGovernance = new Map<
+    string,
+    {
+      id: string;
+      kind: "surface" | "motion";
+      missingFields: Set<"opacity" | "blend" | "zIndex">;
+      reason: "missing manifest governance";
+      action: "disabled; not rendered";
+    }
+  >();
   const noteMissing = (id: string, field: "opacity" | "blend" | "zIndex", kind: "surface" | "motion") => {
-    missingGovernance.push({ id, field, kind });
+    const existing = missingGovernance.get(id);
+    if (existing) {
+      existing.missingFields.add(field);
+      return;
+    }
+
+    missingGovernance.set(id, {
+      id,
+      kind,
+      missingFields: new Set([field]),
+      reason: "missing manifest governance",
+      action: "disabled; not rendered",
+    });
   };
   const grainOpacity = filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
-  const grainOpacityAvailable = grainOpacity !== undefined;
+  const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
+  const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
   const shouldShowGrain = Boolean(
-    filmGrain !== false && (filmGrainSettings?.enabled ?? false) && grainAssetAvailable && grainOpacityAvailable,
+    !grainGovernanceMissing && filmGrain !== false && (filmGrainSettings?.enabled ?? false) && grainAssetAvailable,
   );
-  const shouldShowParticles = Boolean(
-    particles !== false && particlesAssetAvailable && particleOpacity !== undefined,
-  );
-  if (particles !== false && particlesAssetAvailable && particleOpacity === undefined) {
+  const shouldShowParticles = Boolean(!particlesGovernanceMissing && particles !== false && particlesAssetAvailable);
+  if (particlesGovernanceMissing) {
     noteMissing("overlay.particles", "opacity", "surface");
   }
-  if (
-    filmGrain !== false &&
-    (filmGrainSettings?.enabled ?? false) &&
-    grainAssetAvailable &&
-    !grainOpacityAvailable
-  ) {
+  if (grainGovernanceMissing) {
     noteMissing("overlay.filmGrain", "opacity", "surface");
   }
   const waveBackdropOpacity = surfaces.background?.desktop?.opacity;
@@ -153,8 +168,8 @@ export async function HeroRenderer({
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
-    if (token === "overlay.particles" && !shouldShowParticles) return false;
-    if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
+    if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
+    if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
   });
   const resolveMotionOpacity = (value?: number) => (value === undefined ? undefined : value);
@@ -538,6 +553,7 @@ export async function HeroRenderer({
     { type: "base", path: null, present: false },
     { type: "variants", path: null, present: false },
   ];
+  const structuralSurfaceIds = new Set(["gradient.base", "hero.contentFrame"]);
   const canonicalSurfaceIds = [
     "gradient.base",
     "field.waveBackdrop",
@@ -553,19 +569,29 @@ export async function HeroRenderer({
     const manifest = manifestLookup(id);
     const resolvedEntry = surfaceDebug.find((entry) => entry.id === id) ?? null;
     const inline = surfaceInlineStyles.get(id);
+    const disabled = !surfaceIdsRendered.includes(id);
+    const structural = structuralSurfaceIds.has(id);
+    const opacitySource = manifest.opacity !== null ? "manifest" : "none";
+    const blendSource = manifest.blendMode !== null ? "manifest" : "none";
+    const zIndexSource = manifest.zIndex !== null ? "manifest" : "none";
 
     return {
       id,
       manifestOpacity: manifest.opacity,
       manifestBlend: manifest.blendMode,
       manifestZ: manifest.zIndex,
-      resolvedOpacity: resolvedEntry?.resolved.opacity ?? null,
-      resolvedBlend: resolvedEntry?.resolved.blendMode ?? null,
+      opacitySource,
+      blendSource,
+      zIndexSource,
+      resolvedOpacity: disabled ? 0 : resolvedEntry?.resolved.opacity ?? null,
+      resolvedBlend: disabled ? null : resolvedEntry?.resolved.blendMode ?? null,
       resolvedZ: resolvedEntry?.resolved.zIndex ?? null,
       inlineOpacity: inline?.opacity ?? null,
       inlineBlend: inline?.mixBlendMode ?? null,
       inlineZ: inline?.zIndex ?? null,
       rendered: surfaceIdsRendered.includes(id),
+      disabled,
+      structural,
     };
   });
 
@@ -573,21 +599,38 @@ export async function HeroRenderer({
     const manifest = manifestLookup(id);
     const inline = motionInlineStyles.get(id);
     const debugEntry = motionEntriesWithStyles.find(({ entry }) => entry.id === id)?.debug ?? null;
+    const disabled = !surfaceIdsRendered.includes(id);
+    const opacitySource = manifest.opacity !== null ? "manifest" : "none";
+    const blendSource = manifest.blendMode !== null ? "manifest" : "none";
+    const zIndexSource = manifest.zIndex !== null ? "manifest" : "none";
 
     return {
       id,
       manifestOpacity: manifest.opacity,
       manifestBlend: manifest.blendMode,
       manifestZ: manifest.zIndex,
-      resolvedOpacity: debugEntry?.resolved.opacity ?? null,
-      resolvedBlend: debugEntry?.resolved.blendMode ?? null,
+      opacitySource,
+      blendSource,
+      zIndexSource,
+      resolvedOpacity: disabled ? 0 : debugEntry?.resolved.opacity ?? null,
+      resolvedBlend: disabled ? null : debugEntry?.resolved.blendMode ?? null,
       resolvedZ: debugEntry?.resolved.zIndex ?? null,
       inlineOpacity: inline?.opacity ?? null,
       inlineBlend: inline?.mixBlendMode ?? null,
       inlineZ: inline?.zIndex ?? null,
       rendered: surfaceIdsRendered.includes(id),
+      disabled,
+      structural: false,
     };
   });
+
+  const missingGovernanceReceipts = Array.from(missingGovernance.values()).map((entry) => ({
+    id: entry.id,
+    kind: entry.kind,
+    missingFields: Array.from(entry.missingFields),
+    reason: entry.reason,
+    action: entry.action,
+  }));
 
   const heroDebugPayload =
     process.env.NODE_ENV !== "production"
@@ -597,7 +640,7 @@ export async function HeroRenderer({
           surfaceIdsRendered,
           resolvedSurfaces,
           resolvedMotions,
-          missingGovernance,
+          missingGovernance: missingGovernanceReceipts,
         }
       : null;
 
@@ -645,6 +688,8 @@ export async function HeroRenderer({
               const assertions = [];
 
               const compareEntry = (entry, domEntry) => {
+                if (entry.structural || entry.disabled) return;
+
                 const manifestOpacity = normalizeNumber(entry.manifestOpacity);
                 const resolvedOpacity = normalizeNumber(entry.resolvedOpacity);
                 const inlineOpacity = normalizeNumber(domEntry.inline.opacity);
@@ -660,35 +705,50 @@ export async function HeroRenderer({
                 const inlineZ = normalizeNumber(domEntry.inline.zIndex);
                 const computedZ = normalizeNumber(domEntry.computed.zIndex);
 
-                assertions.push({
-                  id: entry.id,
-                  field: 'opacity',
-                  manifest: manifestOpacity,
-                  resolved: resolvedOpacity,
-                  inline: inlineOpacity,
-                  computed: computedOpacity,
-                  match: manifestOpacity === null ? computedOpacity === null : manifestOpacity === computedOpacity,
-                });
+                if (entry.opacitySource === 'manifest') {
+                  assertions.push({
+                    id: entry.id,
+                    field: 'opacity',
+                    source: entry.opacitySource,
+                    structural: entry.structural,
+                    disabled: entry.disabled,
+                    manifest: manifestOpacity,
+                    resolved: resolvedOpacity,
+                    inline: inlineOpacity,
+                    computed: computedOpacity,
+                    match: manifestOpacity === null ? computedOpacity === null : manifestOpacity === computedOpacity,
+                  });
+                }
 
-                assertions.push({
-                  id: entry.id,
-                  field: 'blend',
-                  manifest: manifestBlend,
-                  resolved: resolvedBlend,
-                  inline: inlineBlend,
-                  computed: computedBlend,
-                  match: manifestBlend === null ? computedBlend === null : manifestBlend === computedBlend,
-                });
+                if (entry.blendSource === 'manifest') {
+                  assertions.push({
+                    id: entry.id,
+                    field: 'blend',
+                    source: entry.blendSource,
+                    structural: entry.structural,
+                    disabled: entry.disabled,
+                    manifest: manifestBlend,
+                    resolved: resolvedBlend,
+                    inline: inlineBlend,
+                    computed: computedBlend,
+                    match: manifestBlend === null ? computedBlend === null : manifestBlend === computedBlend,
+                  });
+                }
 
-                assertions.push({
-                  id: entry.id,
-                  field: 'zIndex',
-                  manifest: manifestZ,
-                  resolved: resolvedZ,
-                  inline: inlineZ,
-                  computed: computedZ,
-                  match: manifestZ === null ? computedZ === null : manifestZ === computedZ,
-                });
+                if (entry.zIndexSource === 'manifest') {
+                  assertions.push({
+                    id: entry.id,
+                    field: 'zIndex',
+                    source: entry.zIndexSource,
+                    structural: entry.structural,
+                    disabled: entry.disabled,
+                    manifest: manifestZ,
+                    resolved: resolvedZ,
+                    inline: inlineZ,
+                    computed: computedZ,
+                    match: manifestZ === null ? computedZ === null : manifestZ === computedZ,
+                  });
+                }
               };
 
               payload.resolvedSurfaces.forEach((entry) => {
@@ -703,7 +763,17 @@ export async function HeroRenderer({
 
               const diffs = assertions
                 .filter((a) => !a.match)
-                .map((a) => ({ id: a.id, field: a.field, manifest: a.manifest, resolved: a.resolved, inline: a.inline, computed: a.computed }));
+                .map((a) => ({
+                  id: a.id,
+                  field: a.field,
+                  source: a.source,
+                  structural: a.structural,
+                  disabled: a.disabled,
+                  manifest: a.manifest,
+                  resolved: a.resolved,
+                  inline: a.inline,
+                  computed: a.computed,
+                }));
 
               const receipts = {
                 heroId: payload.heroId,
@@ -720,7 +790,18 @@ export async function HeroRenderer({
               window.__CHAMPAGNE_HERO_DEBUG__ = receipts;
 
               console.log('CHAMPAGNE_HERO_RECEIPTS_JSON=' + JSON.stringify(receipts));
-              console.table(assertions.map((a) => ({ id: a.id, field: a.field, manifest: a.manifest, computed: a.computed, match: a.match })));
+              console.table(
+                assertions.map((a) => ({
+                  id: a.id,
+                  field: a.field,
+                  source: a.source,
+                  structural: a.structural,
+                  disabled: a.disabled,
+                  manifest: a.manifest,
+                  computed: a.computed,
+                  match: a.match,
+                })),
+              );
             } catch (error) {
               window.__CHAMPAGNE_HERO_DEBUG__ = { heroId: payload.heroId, error: String(error) };
               console.error('CHAMPAGNE_HERO_RECEIPTS_ERROR', error);
