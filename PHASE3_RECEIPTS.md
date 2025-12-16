@@ -3,6 +3,8 @@
 ## heroDebug routes exercised
 - `/` with `?heroDebug=1`
 - `/treatments/implants?heroDebug=1`
+- `/treatments/whitening?heroDebug=1`
+- `/treatments/veneers?heroDebug=1`
 - `/smile-gallery?heroDebug=1`
 - `/contact?heroDebug=1`
 - `/brand?heroDebug=1` (marketing catch-all)
@@ -31,12 +33,12 @@
 - `pnpm run verify` (includes guards, lint, typecheck, build)
 
 ## Debug wiring updates
-- Ensured `/treatments/[slug]` reads `searchParams` directly in `apps/web/app/treatments/[slug]/page.tsx` so `heroDebug=1` bypasses the brand flag at render time and mounts the canonical server renderer.
-- Dev trace logs `[HeroRenderer] mounted` only when heroDebug is enabled for the leaf route, confirming mount context during development.
-- Verified via `/treatments/implants?heroDebug=1`: `window.__CHAMPAGNE_HERO_DEBUG__` defined and `[data-surface-id]/[data-motion-id]` nodes present after hard refresh.
+- Added `createTreatmentPage` helper in `apps/web/app/(champagne)/treatments/_builder/createTreatmentPage.tsx` to share heroDebug detection and brand-flag bypass for static treatment leaf routes.
+- Every treatment leaf under `apps/web/app/(champagne)/treatments/*/page.tsx` now reuses the helper, imports the canonical server renderer, and re-exports `dynamic = "force-dynamic"` so `heroDebug=1` mounts the runtime surfaces.
+- Dev trace logs `[HeroRenderer] mounted` only when heroDebug is enabled on a leaf route, confirming mount context during development.
+- Verified via `/treatments/implants?heroDebug=1`, `/treatments/whitening?heroDebug=1`, `/treatments/veneers?heroDebug=1`: `window.__CHAMPAGNE_HERO_DEBUG__` defined and `[data-surface-id]/[data-motion-id]` nodes present after hard refresh and the server renderer log prints.
 
 ## Canonical renderer wiring (treatments)
 - Server HeroRenderer path: `apps/web/app/components/hero/HeroRenderer.tsx` (data-surface-id + heroDebug receipts script).
-- Treatments leaf now imports `{ HeroRenderer }` from `../../components/hero/HeroRenderer`, matching team/blog/contact usage of the server renderer.
-- Render site: `apps/web/app/treatments/[slug]/page.tsx` mounts `<HeroRenderer mode="treatment" treatmentSlug={params.slug} pageCategory="treatment" />` whenever brand hero is enabled or `heroDebug=1` is present.
-- Dev check: `/treatments/implants?heroDebug=1` → `window.__CHAMPAGNE_HERO_DEBUG__` object present, `document.querySelectorAll('[data-surface-id]').length > 0`, and console prints `CHAMPAGNE_HERO_RECEIPTS_JSON=` from the server renderer.
+- Static treatment leaves under `apps/web/app/(champagne)/treatments/*/page.tsx` import from `../_builder/createTreatmentPage` to render `<HeroRenderer mode="treatment" treatmentSlug={slug} pageCategory="treatment" />` when the brand hero flag is on or `heroDebug=1` is present.
+- Dev check: `/treatments/implants?heroDebug=1` (and other leaves) → `window.__CHAMPAGNE_HERO_DEBUG__` object present, `document.querySelectorAll('[data-surface-id]').length > 0`, and console prints `CHAMPAGNE_HERO_RECEIPTS_JSON=` from the server renderer.
