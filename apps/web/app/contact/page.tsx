@@ -1,5 +1,14 @@
 import ChampagnePageBuilder from "../(champagne)/_builder/ChampagnePageBuilder";
+import { HeroRenderer } from "../components/hero/HeroRenderer";
+import { isBrandHeroEnabled } from "../featureFlags";
 
 export default function ContactPage() {
-  return <ChampagnePageBuilder slug="/contact" />;
+  const isHeroEnabled = isBrandHeroEnabled();
+
+  return (
+    <>
+      {isHeroEnabled && <HeroRenderer pageCategory="utility" />}
+      <ChampagnePageBuilder slug="/contact" />
+    </>
+  );
 }

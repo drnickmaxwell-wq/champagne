@@ -1,0 +1,35 @@
+{
+  "variants": [
+    {
+      "id": "hero.variant.utility_v1",
+      "label": "Utility hero (phase 3)",
+      "manifestSource": "packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+      "allowedSurfaces": [
+        "gradient.base",
+        "hero.contentFrame"
+      ],
+      "surfaces": {
+        "overlays": {
+          "dots": null,
+          "field": null
+        },
+        "particles": false,
+        "motion": [],
+        "video": false,
+        "grain": {
+          "desktop": null,
+          "mobile": null
+        },
+        "background": {
+          "desktop": null,
+          "mobile": null
+        },
+        "waveMask": {
+          "desktop": null,
+          "mobile": null
+        }
+      },
+      "filmGrain": { "enabled": false, "opacity": 0 }
+    }
+  ]
+}

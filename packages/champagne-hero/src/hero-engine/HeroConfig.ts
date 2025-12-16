@@ -171,6 +171,8 @@ export interface HeroBaseConfig {
 export interface HeroVariantConfig {
   id: string;
   label?: string;
+  manifestSource?: string;
+  allowedSurfaces?: string[];
   tone?: string;
   treatmentSlug?: string;
   timeOfDay?: HeroTimeOfDay;
@@ -192,6 +194,7 @@ export interface HeroRuntimeConfig {
   filmGrain: HeroFilmGrainSettings;
   energyMode?: HeroEnergyMode;
   variant?: HeroVariantConfig;
+  manifestSources?: string[];
   flags: {
     prm: boolean;
     mode: HeroMode;

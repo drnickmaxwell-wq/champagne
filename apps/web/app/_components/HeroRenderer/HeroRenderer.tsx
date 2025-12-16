@@ -24,6 +24,7 @@ export interface HeroRendererProps {
   particles?: boolean;
   filmGrain?: boolean;
   debugOpacityBoost?: number;
+  pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
 }
 
 function HeroFallback() {
@@ -74,14 +75,20 @@ export function HeroRenderer({
   particles,
   filmGrain,
   debugOpacityBoost = 1,
+  pageCategory,
 }: HeroRendererProps) {
   const runtimeParams = useMemo(
-    () => ({ mode, treatmentSlug, prm, timeOfDay, particles, filmGrain }),
-    [mode, treatmentSlug, prm, timeOfDay, particles, filmGrain],
+    () => ({ mode, treatmentSlug, prm, timeOfDay, particles, filmGrain, pageCategory }),
+    [mode, treatmentSlug, prm, timeOfDay, particles, filmGrain, pageCategory],
   );
+  const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
   const [runtime, setRuntime] = useState<any>(() => {
     try {
-      const result = getHeroRuntime({ ...runtimeParams, variantId: mode === "home" ? "default" : undefined });
+      const result = getHeroRuntime({
+        ...runtimeParams,
+        pageCategory: resolvedPageCategory,
+        variantId: mode === "home" ? "default" : undefined,
+      });
       if (result && typeof (result as any).then === "function") return null;
       return result;
     } catch (error) {
@@ -94,7 +101,11 @@ export function HeroRenderer({
 
   useEffect(() => {
     let cancelled = false;
-    const result = getHeroRuntime({ ...runtimeParams, variantId: mode === "home" ? "default" : undefined });
+    const result = getHeroRuntime({
+      ...runtimeParams,
+      pageCategory: resolvedPageCategory,
+      variantId: mode === "home" ? "default" : undefined,
+    });
 
     if (result && typeof (result as any).then === "function") {
       (result as Promise<any>)
@@ -114,7 +125,7 @@ export function HeroRenderer({
     return () => {
       cancelled = true;
     };
-  }, [runtimeParams, mode]);
+  }, [runtimeParams, mode, resolvedPageCategory]);
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") return;

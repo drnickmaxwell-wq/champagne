@@ -1,5 +1,7 @@
-import ChampagnePageBuilder from "../../_builder/ChampagnePageBuilder";
+import { createTreatmentPage } from "../_builder/createTreatmentPage";
 
-export default function Page() {
-  return <ChampagnePageBuilder slug="/treatments/whitening-in-surgery" />;
-}
+export { dynamic } from "../_builder/createTreatmentPage";
+
+const slug = "/treatments/whitening-in-surgery";
+
+export default createTreatmentPage(slug);

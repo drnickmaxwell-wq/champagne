@@ -2,6 +2,26 @@ import Link from "next/link";
 import { BaseChampagneSurface } from "@champagne/hero";
 import { getTreatmentPages } from "@champagne/manifests";
 
+import { HeroRenderer } from "../components/hero/HeroRenderer";
+import { isBrandHeroEnabled } from "../featureFlags";
+
+type PageSearchParams = { [key: string]: string | string[] | undefined };
+
+function hasHeroDebug(searchParams?: PageSearchParams) {
+  const value = searchParams?.heroDebug;
+
+  if (Array.isArray(value)) {
+    return value.some((entry) => entry && entry !== "0");
+  }
+
+  return Boolean(value && value !== "0");
+}
+
+async function resolveHeroDebug(searchParams?: Promise<PageSearchParams>) {
+  const resolved = searchParams ? await searchParams : undefined;
+  return hasHeroDebug(resolved);
+}
+
 const FAMILY_LABELS: Record<string, string> = {
   implants: "Implants",
   whitening: "Whitening",
@@ -29,7 +49,12 @@ function buildDescription(label?: string) {
   return `Learn more about ${label.toLowerCase()}.`;
 }
 
-export default function TreatmentsPage() {
+export default async function TreatmentsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<PageSearchParams>;
+}) {
+  const isHeroEnabled = isBrandHeroEnabled() || (await resolveHeroDebug(searchParams));
   const treatments = getTreatmentPages();
   const grouped = treatments.reduce<Record<string, typeof treatments>>((acc, treatment) => {
     const key = inferFamily(treatment.slug);
@@ -54,6 +79,8 @@ export default function TreatmentsPage() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 py-8 px-2 sm:px-0">
+      {isHeroEnabled && <HeroRenderer mode="treatment" pageCategory="treatment" />}
+
       <header className="space-y-2">
         <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">Treatments</p>
         <h1 className="text-3xl font-semibold text-neutral-50">Clinical care, mapped to the canon</h1>
