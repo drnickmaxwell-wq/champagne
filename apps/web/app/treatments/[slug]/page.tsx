@@ -58,15 +58,25 @@ export default async function TreatmentPage({
   searchParams?: Promise<PageSearchParams>;
 }) {
   const { manifest, pageSlug, slug } = await resolveTreatment(params);
-  const isHeroEnabled = isBrandHeroEnabled() || (await resolveHeroDebug(searchParams));
+  const heroDebugEnabled = await resolveHeroDebug(searchParams);
+  const shouldRenderHero = isBrandHeroEnabled() || heroDebugEnabled;
+  const heroId = (manifest as { hero?: { heroId?: string } })?.hero?.heroId;
 
   if (!manifest) {
     return notFound();
   }
 
+  if (process.env.NODE_ENV === "development" && shouldRenderHero) {
+    console.info("[HeroRenderer] mounted", {
+      pageKey: "treatment-leaf",
+      heroId,
+      heroDebug: heroDebugEnabled,
+    });
+  }
+
   return (
     <>
-      {isHeroEnabled && (
+      {shouldRenderHero && (
         <HeroRenderer
           mode="treatment"
           treatmentSlug={slug}
