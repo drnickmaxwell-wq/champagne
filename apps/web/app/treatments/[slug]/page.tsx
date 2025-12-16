@@ -6,6 +6,8 @@ import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilde
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import { isBrandHeroEnabled } from "../../featureFlags";
 
+export const dynamic = "force-dynamic";
+
 type PageSearchParams = { [key: string]: string | string[] | undefined };
 
 function hasHeroDebug(searchParams?: PageSearchParams) {
@@ -18,14 +20,14 @@ function hasHeroDebug(searchParams?: PageSearchParams) {
   return Boolean(value && value !== "0");
 }
 
-async function resolveHeroDebug(searchParams?: Promise<PageSearchParams>) {
+async function resolveHeroDebug(searchParams?: PageSearchParams | Promise<PageSearchParams>) {
   const resolved = searchParams ? await searchParams : undefined;
   return hasHeroDebug(resolved);
 }
 
-type PageParams = Promise<{ slug: string }>;
+type PageParams = { slug: string };
 
-async function resolveTreatment(params: PageParams | Promise<PageParams>) {
+async function resolveTreatment(params: Promise<PageParams>) {
   const resolved = await params;
   const manifest = getTreatmentManifest(resolved.slug);
   const pageSlug = manifest?.path ?? `/treatments/${resolved.slug}`;
@@ -33,7 +35,7 @@ async function resolveTreatment(params: PageParams | Promise<PageParams>) {
   return { manifest, slug: resolved.slug, pageSlug };
 }
 
-export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
   const { manifest } = await resolveTreatment(params);
 
   if (!manifest) {
@@ -52,7 +54,7 @@ export default async function TreatmentPage({
   params,
   searchParams,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
   searchParams?: Promise<PageSearchParams>;
 }) {
   const { manifest, pageSlug, slug } = await resolveTreatment(params);
