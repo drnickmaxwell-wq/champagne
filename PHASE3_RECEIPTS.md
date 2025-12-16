@@ -34,3 +34,9 @@
 - Ensured `/treatments/[slug]` mounts the canonical HeroRenderer when `heroDebug=1` is present by reading `searchParams` directly in `apps/web/app/treatments/[slug]/page.tsx` and bypassing the brand flag at render time.
 - Dev trace logs `[HeroRenderer] mounted` only when heroDebug is enabled for the leaf route, confirming mount context during development.
 - Verified via `/treatments/implants?heroDebug=1`: `window.__CHAMPAGNE_HERO_DEBUG__` defined and `[data-surface-id]/[data-motion-id]` nodes present after hard refresh.
+
+## Canonical renderer wiring (treatments)
+- Server HeroRenderer path: `apps/web/app/components/hero/HeroRenderer.tsx` (data-surface-id + heroDebug receipts script).
+- Treatments leaf import updated from `../../components/hero/HeroRenderer` to `HeroRenderer as CanonicalHeroRenderer` from the same path to ensure the server renderer is used explicitly.
+- Render site: `apps/web/app/treatments/[slug]/page.tsx` now mounts `<CanonicalHeroRenderer mode="treatment" treatmentSlug={params.slug} pageCategory="treatment" />` whenever brand hero is enabled or `heroDebug=1` is present.
+- Dev check: `/treatments/implants?heroDebug=1` → `window.__CHAMPAGNE_HERO_DEBUG__` object present, `document.querySelectorAll('[data-surface-id]').length > 0`, and console prints `CHAMPAGNE_HERO_RECEIPTS_JSON=` from the server renderer.
