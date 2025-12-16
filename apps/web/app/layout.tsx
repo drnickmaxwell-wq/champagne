@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import "./globals.css";
-import { Footer } from "./_components/Footer";
-import { Header } from "./_components/Header";
+import { Footer } from "./components/layout/Footer";
+import { Header } from "./components/layout/Header";
 
 export const metadata = {
   title: "St Mary’s House Dental – Champagne Core",
