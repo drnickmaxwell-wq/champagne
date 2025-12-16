@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getTreatmentManifest } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
+import { HeroRenderer } from "../../components/hero/HeroRenderer";
+import { isBrandHeroEnabled } from "../../featureFlags";
 
 type PageParams = Promise<{ slug: string }>;
 
@@ -30,11 +32,23 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
 }
 
 export default async function TreatmentPage({ params }: { params: PageParams }) {
-  const { manifest, pageSlug } = await resolveTreatment(params);
+  const { manifest, pageSlug, slug } = await resolveTreatment(params);
+  const isHeroEnabled = isBrandHeroEnabled();
 
   if (!manifest) {
     return notFound();
   }
 
-  return <ChampagnePageBuilder slug={pageSlug} />;
+  return (
+    <>
+      {isHeroEnabled && (
+        <HeroRenderer
+          mode="treatment"
+          treatmentSlug={slug}
+          pageCategory="treatment"
+        />
+      )}
+      <ChampagnePageBuilder slug={pageSlug} />
+    </>
+  );
 }
