@@ -6,9 +6,26 @@ import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilde
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import { isBrandHeroEnabled } from "../../featureFlags";
 
+type PageSearchParams = { [key: string]: string | string[] | undefined };
+
+function hasHeroDebug(searchParams?: PageSearchParams) {
+  const value = searchParams?.heroDebug;
+
+  if (Array.isArray(value)) {
+    return value.some((entry) => entry && entry !== "0");
+  }
+
+  return Boolean(value && value !== "0");
+}
+
+async function resolveHeroDebug(searchParams?: Promise<PageSearchParams>) {
+  const resolved = searchParams ? await searchParams : undefined;
+  return hasHeroDebug(resolved);
+}
+
 type PageParams = Promise<{ slug: string }>;
 
-async function resolveTreatment(params: PageParams) {
+async function resolveTreatment(params: PageParams | Promise<PageParams>) {
   const resolved = await params;
   const manifest = getTreatmentManifest(resolved.slug);
   const pageSlug = manifest?.path ?? `/treatments/${resolved.slug}`;
@@ -31,9 +48,15 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   };
 }
 
-export default async function TreatmentPage({ params }: { params: PageParams }) {
+export default async function TreatmentPage({
+  params,
+  searchParams,
+}: {
+  params: PageParams;
+  searchParams?: Promise<PageSearchParams>;
+}) {
   const { manifest, pageSlug, slug } = await resolveTreatment(params);
-  const isHeroEnabled = isBrandHeroEnabled();
+  const isHeroEnabled = isBrandHeroEnabled() || (await resolveHeroDebug(searchParams));
 
   if (!manifest) {
     return notFound();
