@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTreatmentManifest } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
-import { HeroRenderer as CanonicalHeroRenderer } from "../../components/hero/HeroRenderer";
+import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import { isBrandHeroEnabled } from "../../featureFlags";
 
 export const dynamic = "force-dynamic";
@@ -73,7 +73,7 @@ export default async function TreatmentPage({
   return (
     <>
       {shouldRenderHero && (
-        <CanonicalHeroRenderer
+        <HeroRenderer
           mode="treatment"
           treatmentSlug={slug}
           pageCategory="treatment"
