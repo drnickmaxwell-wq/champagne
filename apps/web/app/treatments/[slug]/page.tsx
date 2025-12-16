@@ -20,11 +20,6 @@ function hasHeroDebug(searchParams?: PageSearchParams) {
   return Boolean(value && value !== "0");
 }
 
-async function resolveHeroDebug(searchParams?: PageSearchParams | Promise<PageSearchParams>) {
-  const resolved = searchParams ? await searchParams : undefined;
-  return hasHeroDebug(resolved);
-}
-
 type PageParams = { slug: string };
 
 async function resolveTreatment(params: Promise<PageParams>) {
@@ -58,15 +53,16 @@ export default async function TreatmentPage({
   searchParams?: Promise<PageSearchParams>;
 }) {
   const { manifest, pageSlug, slug } = await resolveTreatment(params);
-  const heroDebugEnabled = await resolveHeroDebug(searchParams);
-  const shouldRenderHero = isBrandHeroEnabled() || heroDebugEnabled;
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const heroDebugEnabled = hasHeroDebug(resolvedSearchParams);
+  const shouldRenderHero = heroDebugEnabled || isBrandHeroEnabled();
   const heroId = (manifest as { hero?: { heroId?: string } })?.hero?.heroId;
 
   if (!manifest) {
     return notFound();
   }
 
-  if (process.env.NODE_ENV === "development" && shouldRenderHero) {
+  if (process.env.NODE_ENV === "development" && heroDebugEnabled) {
     console.info("[HeroRenderer] mounted", {
       pageKey: "treatment-leaf",
       heroId,

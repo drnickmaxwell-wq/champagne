@@ -29,3 +29,8 @@
 ## Guards
 - guard:hero, guard:canon, guard:rogue-hex, guard:hero-freeze, guard:manifest, guard:brand-structure
 - `pnpm run verify` (includes guards, lint, typecheck, build)
+
+## Debug wiring updates
+- Ensured `/treatments/[slug]` mounts the canonical HeroRenderer when `heroDebug=1` is present by reading `searchParams` directly in `apps/web/app/treatments/[slug]/page.tsx` and bypassing the brand flag at render time.
+- Dev trace logs `[HeroRenderer] mounted` only when heroDebug is enabled for the leaf route, confirming mount context during development.
+- Verified via `/treatments/implants?heroDebug=1`: `window.__CHAMPAGNE_HERO_DEBUG__` defined and `[data-surface-id]/[data-motion-id]` nodes present after hard refresh.
