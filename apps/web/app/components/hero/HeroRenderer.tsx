@@ -119,21 +119,47 @@ export async function HeroRenderer({
   const activeMotionIds = new Set(
     filteredMotionEntries.map((entry) => entry.id).filter((id): id is string => Boolean(id)),
   );
+  const missingGovernance = new Map<
+    string,
+    {
+      id: string;
+      kind: "surface" | "motion";
+      missingFields: Set<"opacity" | "blend" | "zIndex">;
+      reason: "missing manifest governance";
+      action: "disabled; not rendered";
+    }
+  >();
+  const noteMissing = (id: string, field: "opacity" | "blend" | "zIndex", kind: "surface" | "motion") => {
+    const existing = missingGovernance.get(id);
+    if (existing) {
+      existing.missingFields.add(field);
+      return;
+    }
+
+    missingGovernance.set(id, {
+      id,
+      kind,
+      missingFields: new Set([field]),
+      reason: "missing manifest governance",
+      action: "disabled; not rendered",
+    });
+  };
   const grainOpacity = filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
-  const grainOpacityAvailable = grainOpacity !== undefined;
+  const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
+  const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
   const shouldShowGrain = Boolean(
-    filmGrain !== false && (filmGrainSettings?.enabled ?? false) && grainAssetAvailable && grainOpacityAvailable,
+    !grainGovernanceMissing && filmGrain !== false && (filmGrainSettings?.enabled ?? false) && grainAssetAvailable,
   );
-  const shouldShowParticles = Boolean(
-    particles !== false && particlesAssetAvailable && particleOpacity !== undefined,
-  );
+  const shouldShowParticles = Boolean(!particlesGovernanceMissing && particles !== false && particlesAssetAvailable);
+  if (particlesGovernanceMissing) {
+    noteMissing("overlay.particles", "opacity", "surface");
+  }
+  if (grainGovernanceMissing) {
+    noteMissing("overlay.filmGrain", "opacity", "surface");
+  }
   const waveBackdropOpacity = surfaces.background?.desktop?.opacity;
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
-  const missingGovernedValues: { id: string; field: "opacity" | "blend"; kind: "surface" | "motion" }[] = [];
-  const noteMissing = (id: string, field: "opacity" | "blend", kind: "surface" | "motion") => {
-    missingGovernedValues.push({ id, field, kind });
-  };
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
@@ -142,11 +168,10 @@ export async function HeroRenderer({
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
-    if (token === "overlay.particles" && !shouldShowParticles) return false;
-    if (token === "overlay.filmGrain" && !shouldShowGrain) return false;
+    if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
+    if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
   });
-  const staticLayerOpacity = (value?: number) => value;
   const resolveMotionOpacity = (value?: number) => (value === undefined ? undefined : value);
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
@@ -170,10 +195,13 @@ export async function HeroRenderer({
       style.mixBlendMode = entry.blendMode as CSSProperties["mixBlendMode"];
     } else if (id) {
       noteMissing(id, "blend", "motion");
+      style.opacity = 0;
     }
 
     if (typeof entry.zIndex === "number") {
       style.zIndex = entry.zIndex;
+    } else if (id) {
+      noteMissing(id, "zIndex", "motion");
     }
 
     return style;
@@ -259,18 +287,21 @@ export async function HeroRenderer({
     "gradient.base": { zIndex: 1 },
     "field.waveBackdrop": (() => {
       const style: CSSProperties = { zIndex: 2 };
+      let missingForLayer = false;
 
       if (waveBackdropBlend) {
         style.mixBlendMode = waveBackdropBlend;
       } else {
         noteMissing("field.waveBackdrop", "blend", "surface");
+        missingForLayer = true;
       }
 
       if (waveBackdropOpacity !== undefined) {
-        style.opacity = waveBackdropOpacity;
+        style.opacity = missingForLayer ? 0 : waveBackdropOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveBackdrop", "opacity", "surface");
+        missingForLayer = true;
       }
 
       return style;
@@ -291,18 +322,21 @@ export async function HeroRenderer({
         backgroundPosition: "center",
         zIndex: 3,
       };
+      let missingForLayer = false;
 
       if (surfaces.overlays?.field?.blendMode) {
         style.mixBlendMode = surfaces.overlays.field.blendMode as CSSProperties["mixBlendMode"];
       } else {
         noteMissing("field.waveRings", "blend", "surface");
+        missingForLayer = true;
       }
 
       if (surfaces.overlays?.field?.opacity !== undefined) {
-        style.opacity = staticLayerOpacity(surfaces.overlays.field.opacity);
+        style.opacity = missingForLayer ? 0 : surfaces.overlays.field.opacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveRings", "opacity", "surface");
+        missingForLayer = true;
       }
 
       return style;
@@ -315,44 +349,79 @@ export async function HeroRenderer({
         backgroundPosition: "center",
         zIndex: 4,
       };
+      let missingForLayer = false;
 
       if (surfaces.overlays?.dots?.blendMode) {
         style.mixBlendMode = surfaces.overlays.dots.blendMode as CSSProperties["mixBlendMode"];
       } else {
         noteMissing("field.dotGrid", "blend", "surface");
+        missingForLayer = true;
       }
 
       if (surfaces.overlays?.dots?.opacity !== undefined) {
-        style.opacity = staticLayerOpacity(surfaces.overlays.dots.opacity);
+        style.opacity = missingForLayer ? 0 : surfaces.overlays.dots.opacity;
       } else {
         style.opacity = 0;
         noteMissing("field.dotGrid", "opacity", "surface");
+        missingForLayer = true;
       }
 
       return style;
     })(),
-    "overlay.particles": {
-      ...(surfaces.particles?.blendMode
-        ? { mixBlendMode: surfaces.particles.blendMode as CSSProperties["mixBlendMode"] }
-        : {}),
-      ...(particleOpacity !== undefined ? { opacity: particleOpacity } : {}),
-      backgroundImage: "var(--hero-particles)",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      zIndex: 5,
-    },
-    "overlay.filmGrain": {
-      ...(surfaces.grain?.desktop?.blendMode
-        ? { mixBlendMode: surfaces.grain.desktop.blendMode as CSSProperties["mixBlendMode"] }
-        : {}),
-      ...(grainOpacity !== undefined ? { opacity: grainOpacity } : {}),
-      backgroundImage: "var(--hero-grain-desktop)",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      zIndex: 7,
-    },
+    "overlay.particles": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-particles)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        zIndex: 5,
+      };
+      let missingForLayer = false;
+
+      if (surfaces.particles?.blendMode) {
+        style.mixBlendMode = surfaces.particles.blendMode as CSSProperties["mixBlendMode"];
+      } else if (shouldShowParticles) {
+        noteMissing("overlay.particles", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (particleOpacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : particleOpacity;
+      } else if (shouldShowParticles) {
+        style.opacity = 0;
+        noteMissing("overlay.particles", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
+    "overlay.filmGrain": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-grain-desktop)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        zIndex: 7,
+      };
+      let missingForLayer = false;
+
+      if (surfaces.grain?.desktop?.blendMode) {
+        style.mixBlendMode = surfaces.grain.desktop.blendMode as CSSProperties["mixBlendMode"];
+      } else if (shouldShowGrain) {
+        noteMissing("overlay.filmGrain", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (grainOpacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : grainOpacity;
+      } else if (shouldShowGrain) {
+        style.opacity = 0;
+        noteMissing("overlay.filmGrain", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
     "hero.contentFrame": {
       background: "transparent",
       backdropFilter: "none",
@@ -484,6 +553,7 @@ export async function HeroRenderer({
     { type: "base", path: null, present: false },
     { type: "variants", path: null, present: false },
   ];
+  const structuralSurfaceIds = new Set(["gradient.base", "hero.contentFrame"]);
   const canonicalSurfaceIds = [
     "gradient.base",
     "field.waveBackdrop",
@@ -499,19 +569,29 @@ export async function HeroRenderer({
     const manifest = manifestLookup(id);
     const resolvedEntry = surfaceDebug.find((entry) => entry.id === id) ?? null;
     const inline = surfaceInlineStyles.get(id);
+    const disabled = !surfaceIdsRendered.includes(id);
+    const structural = structuralSurfaceIds.has(id);
+    const opacitySource = manifest.opacity !== null ? "manifest" : "none";
+    const blendSource = manifest.blendMode !== null ? "manifest" : "none";
+    const zIndexSource = manifest.zIndex !== null ? "manifest" : "none";
 
     return {
       id,
       manifestOpacity: manifest.opacity,
       manifestBlend: manifest.blendMode,
       manifestZ: manifest.zIndex,
-      resolvedOpacity: resolvedEntry?.resolved.opacity ?? null,
-      resolvedBlend: resolvedEntry?.resolved.blendMode ?? null,
+      opacitySource,
+      blendSource,
+      zIndexSource,
+      resolvedOpacity: disabled ? 0 : resolvedEntry?.resolved.opacity ?? null,
+      resolvedBlend: disabled ? null : resolvedEntry?.resolved.blendMode ?? null,
       resolvedZ: resolvedEntry?.resolved.zIndex ?? null,
       inlineOpacity: inline?.opacity ?? null,
       inlineBlend: inline?.mixBlendMode ?? null,
       inlineZ: inline?.zIndex ?? null,
       rendered: surfaceIdsRendered.includes(id),
+      disabled,
+      structural,
     };
   });
 
@@ -519,21 +599,38 @@ export async function HeroRenderer({
     const manifest = manifestLookup(id);
     const inline = motionInlineStyles.get(id);
     const debugEntry = motionEntriesWithStyles.find(({ entry }) => entry.id === id)?.debug ?? null;
+    const disabled = !surfaceIdsRendered.includes(id);
+    const opacitySource = manifest.opacity !== null ? "manifest" : "none";
+    const blendSource = manifest.blendMode !== null ? "manifest" : "none";
+    const zIndexSource = manifest.zIndex !== null ? "manifest" : "none";
 
     return {
       id,
       manifestOpacity: manifest.opacity,
       manifestBlend: manifest.blendMode,
       manifestZ: manifest.zIndex,
-      resolvedOpacity: debugEntry?.resolved.opacity ?? null,
-      resolvedBlend: debugEntry?.resolved.blendMode ?? null,
+      opacitySource,
+      blendSource,
+      zIndexSource,
+      resolvedOpacity: disabled ? 0 : debugEntry?.resolved.opacity ?? null,
+      resolvedBlend: disabled ? null : debugEntry?.resolved.blendMode ?? null,
       resolvedZ: debugEntry?.resolved.zIndex ?? null,
       inlineOpacity: inline?.opacity ?? null,
       inlineBlend: inline?.mixBlendMode ?? null,
       inlineZ: inline?.zIndex ?? null,
       rendered: surfaceIdsRendered.includes(id),
+      disabled,
+      structural: false,
     };
   });
+
+  const missingGovernanceReceipts = Array.from(missingGovernance.values()).map((entry) => ({
+    id: entry.id,
+    kind: entry.kind,
+    missingFields: Array.from(entry.missingFields),
+    reason: entry.reason,
+    action: entry.action,
+  }));
 
   const heroDebugPayload =
     process.env.NODE_ENV !== "production"
@@ -543,7 +640,7 @@ export async function HeroRenderer({
           surfaceIdsRendered,
           resolvedSurfaces,
           resolvedMotions,
-          missingGovernedValues,
+          missingGovernance: missingGovernanceReceipts,
         }
       : null;
 
@@ -591,6 +688,8 @@ export async function HeroRenderer({
               const assertions = [];
 
               const compareEntry = (entry, domEntry) => {
+                if (entry.structural || entry.disabled) return;
+
                 const manifestOpacity = normalizeNumber(entry.manifestOpacity);
                 const resolvedOpacity = normalizeNumber(entry.resolvedOpacity);
                 const inlineOpacity = normalizeNumber(domEntry.inline.opacity);
@@ -606,35 +705,50 @@ export async function HeroRenderer({
                 const inlineZ = normalizeNumber(domEntry.inline.zIndex);
                 const computedZ = normalizeNumber(domEntry.computed.zIndex);
 
-                assertions.push({
-                  id: entry.id,
-                  field: 'opacity',
-                  manifest: manifestOpacity,
-                  resolved: resolvedOpacity,
-                  inline: inlineOpacity,
-                  computed: computedOpacity,
-                  match: manifestOpacity === null ? computedOpacity === null : manifestOpacity === computedOpacity,
-                });
+                if (entry.opacitySource === 'manifest') {
+                  assertions.push({
+                    id: entry.id,
+                    field: 'opacity',
+                    source: entry.opacitySource,
+                    structural: entry.structural,
+                    disabled: entry.disabled,
+                    manifest: manifestOpacity,
+                    resolved: resolvedOpacity,
+                    inline: inlineOpacity,
+                    computed: computedOpacity,
+                    match: manifestOpacity === null ? computedOpacity === null : manifestOpacity === computedOpacity,
+                  });
+                }
 
-                assertions.push({
-                  id: entry.id,
-                  field: 'blend',
-                  manifest: manifestBlend,
-                  resolved: resolvedBlend,
-                  inline: inlineBlend,
-                  computed: computedBlend,
-                  match: manifestBlend === null ? computedBlend === null : manifestBlend === computedBlend,
-                });
+                if (entry.blendSource === 'manifest') {
+                  assertions.push({
+                    id: entry.id,
+                    field: 'blend',
+                    source: entry.blendSource,
+                    structural: entry.structural,
+                    disabled: entry.disabled,
+                    manifest: manifestBlend,
+                    resolved: resolvedBlend,
+                    inline: inlineBlend,
+                    computed: computedBlend,
+                    match: manifestBlend === null ? computedBlend === null : manifestBlend === computedBlend,
+                  });
+                }
 
-                assertions.push({
-                  id: entry.id,
-                  field: 'zIndex',
-                  manifest: manifestZ,
-                  resolved: resolvedZ,
-                  inline: inlineZ,
-                  computed: computedZ,
-                  match: manifestZ === null ? computedZ === null : manifestZ === computedZ,
-                });
+                if (entry.zIndexSource === 'manifest') {
+                  assertions.push({
+                    id: entry.id,
+                    field: 'zIndex',
+                    source: entry.zIndexSource,
+                    structural: entry.structural,
+                    disabled: entry.disabled,
+                    manifest: manifestZ,
+                    resolved: resolvedZ,
+                    inline: inlineZ,
+                    computed: computedZ,
+                    match: manifestZ === null ? computedZ === null : manifestZ === computedZ,
+                  });
+                }
               };
 
               payload.resolvedSurfaces.forEach((entry) => {
@@ -647,6 +761,20 @@ export async function HeroRenderer({
                 compareEntry(entry, domEntry);
               });
 
+              const diffs = assertions
+                .filter((a) => !a.match)
+                .map((a) => ({
+                  id: a.id,
+                  field: a.field,
+                  source: a.source,
+                  structural: a.structural,
+                  disabled: a.disabled,
+                  manifest: a.manifest,
+                  resolved: a.resolved,
+                  inline: a.inline,
+                  computed: a.computed,
+                }));
+
               const receipts = {
                 heroId: payload.heroId,
                 manifestSources: payload.manifestSources,
@@ -655,13 +783,27 @@ export async function HeroRenderer({
                 resolvedMotions: payload.resolvedMotions,
                 domSurfaces,
                 domMotions,
-                assertions,
-                missingGovernedValues: payload.missingGovernedValues,
+                diffs,
+                missingGovernance: payload.missingGovernance,
               };
 
+              window.__CHAMPAGNE_HERO_DEBUG__ = receipts;
+
               console.log('CHAMPAGNE_HERO_RECEIPTS_JSON=' + JSON.stringify(receipts));
-              console.table(assertions.map((a) => ({ id: a.id, field: a.field, manifest: a.manifest, computed: a.computed, match: a.match })));
+              console.table(
+                assertions.map((a) => ({
+                  id: a.id,
+                  field: a.field,
+                  source: a.source,
+                  structural: a.structural,
+                  disabled: a.disabled,
+                  manifest: a.manifest,
+                  computed: a.computed,
+                  match: a.match,
+                })),
+              );
             } catch (error) {
+              window.__CHAMPAGNE_HERO_DEBUG__ = { heroId: payload.heroId, error: String(error) };
               console.error('CHAMPAGNE_HERO_RECEIPTS_ERROR', error);
             }
           })();`,
@@ -703,7 +845,6 @@ export async function HeroRenderer({
             .hero-renderer.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
               background: none !important;
               opacity: 0 !important;
-              mix-blend-mode: normal !important;
               backdrop-filter: none !important;
               -webkit-backdrop-filter: none !important;
             }
@@ -728,10 +869,6 @@ export async function HeroRenderer({
               -webkit-mask-size: cover;
               mask-position: center;
               -webkit-mask-position: center;
-            }
-            .hero-renderer [data-surface-id="gradient.base"],
-            .hero-renderer .hero-surface-layer.hero-surface--gradient-field {
-              mix-blend-mode: normal;
             }
             .hero-renderer [data-surface-id="field.waveBackdrop"],
             .hero-renderer [data-surface-id="field.waveRings"],

@@ -56,8 +56,6 @@ const LAYER_DEFAULTS: Record<string, Partial<HeroSurfaceLayerDefinition>> = {
   "overlay.glassShimmer": { blendMode: "luminosity", opacity: 0.85 },
   "overlay.goldDust": { blendMode: "screen", opacity: 0.7 },
   "overlay.particlesDrift": { blendMode: "screen" },
-  "overlay.particles": { blendMode: "screen" },
-  "overlay.filmGrain": { blendMode: "multiply", opacity: 0.25 },
   "overlay.lighting": { blendMode: "soft-light", opacity: 0.82 },
 };
 
