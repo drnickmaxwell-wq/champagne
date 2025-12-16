@@ -129,6 +129,27 @@ export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest
     return normalizeHeroManifest(pageManifest.hero, pageManifest.path);
   }
 
+  if (pageManifest) {
+    const category = (pageManifest.category as string | undefined)?.toLowerCase();
+    const resolvedFromCategory = (() => {
+      if (pageManifest.path === "/") return "sacred_home_hero_v1";
+      switch (category) {
+        case "treatment":
+          return "hero.variant.treatment_v1";
+        case "editorial":
+          return "hero.variant.editorial_v1";
+        case "utility":
+          return "hero.variant.utility_v1";
+        default:
+          return "hero.variant.marketing_v1";
+      }
+    })();
+
+    if (resolvedFromCategory) {
+      return normalizeHeroManifest({ id: resolvedFromCategory }, pageManifest.path);
+    }
+  }
+
   const fromHeroId = getAllPages().find((page) => {
     const hero = page.hero;
     if (!hero) return false;

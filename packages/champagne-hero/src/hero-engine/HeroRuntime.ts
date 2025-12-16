@@ -6,6 +6,7 @@ import type {
   HeroMotionTuning,
   HeroRuntimeConfig,
   HeroSurfaceConfig,
+  ResolvedHeroSurfaceConfig,
   HeroSurfaceTokenConfig,
   HeroTimeOfDay,
   HeroVariantConfig,
@@ -25,6 +26,7 @@ interface RuntimeOptions {
   timeOfDay?: HeroTimeOfDay;
   particles?: boolean;
   filmGrain?: boolean;
+  pageCategory?: string;
 }
 
 const DEFAULT_LAYOUT: HeroLayoutConfig = {
@@ -71,6 +73,59 @@ function pickVariant(variants: HeroVariantConfig[], options: RuntimeOptions): He
   }
 
   return variants.find((variant) => variant.id === "default") ?? variants[0];
+}
+
+function resolveVariantIdForCategory(category?: string): string | undefined {
+  if (!category) return undefined;
+  switch (category) {
+    case "home":
+      return "default";
+    case "treatment":
+      return "hero.variant.treatment_v1";
+    case "editorial":
+      return "hero.variant.editorial_v1";
+    case "utility":
+      return "hero.variant.utility_v1";
+    case "marketing":
+      return "hero.variant.marketing_v1";
+    default:
+      return "hero.variant.marketing_v1";
+  }
+}
+
+function filterSurfacesByAllowlist(
+  surfaces: ResolvedHeroSurfaceConfig,
+  allowed?: string[],
+): ResolvedHeroSurfaceConfig {
+  if (!allowed || allowed.length === 0) return surfaces;
+  const allowedSet = new Set(allowed);
+  const isAllowed = (id?: string | null) => (id ? allowedSet.has(id) : false);
+
+  const grainAllowed = allowedSet.has("overlay.filmGrain");
+
+  return {
+    waveMask: isAllowed("mask.waveHeader")
+      ? surfaces.waveMask
+      : { desktop: undefined, mobile: undefined },
+    background: isAllowed("field.waveBackdrop")
+      ? surfaces.background
+      : { desktop: undefined, mobile: undefined },
+    gradient: isAllowed("gradient.base") ? surfaces.gradient : undefined,
+    overlays: {
+      dots: isAllowed("field.dotGrid") ? surfaces.overlays?.dots : undefined,
+      field: isAllowed("field.waveRings") ? surfaces.overlays?.field : undefined,
+    },
+    particles: isAllowed("overlay.particles") ? surfaces.particles : undefined,
+    grain: {
+      desktop: grainAllowed ? surfaces.grain?.desktop : undefined,
+      mobile: grainAllowed ? surfaces.grain?.mobile : undefined,
+    },
+    motion: (surfaces.motion ?? []).filter((entry) => isAllowed(entry?.id ?? entry?.asset?.id)),
+    video: isAllowed(surfaces.video?.id ?? surfaces.video?.asset?.id)
+      ? surfaces.video
+      : undefined,
+    surfaceStack: (surfaces.surfaceStack ?? []).filter((layer) => isAllowed(layer.token ?? layer.id)),
+  };
 }
 
 function mergeContent(base: HeroContentConfig, variant?: Partial<HeroContentConfig>): HeroContentConfig {
@@ -181,7 +236,8 @@ export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<Hero
   const manifests = loadSacredHeroManifests();
   const mode: HeroMode = options.mode ?? "home";
   const prmFlag = resolvePrmFlag(options);
-  const variantCandidate = pickVariant(manifests.variants, options);
+  const mappedVariantId = options.variantId ?? resolveVariantIdForCategory(options.pageCategory ?? mode);
+  const variantCandidate = pickVariant(manifests.variants, { ...options, variantId: mappedVariantId });
   const weatherConfig = options.timeOfDay ? manifests.weather[options.timeOfDay] : undefined;
   const shouldFallbackToBase =
     mode === "treatment" && Boolean(options.treatmentSlug) && variantCandidate?.treatmentSlug !== options.treatmentSlug;
@@ -200,7 +256,10 @@ export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<Hero
   );
 
   const assetIds = mapSurfaceTokensToAssets(mergedSurfaceTokens, manifests.surfaces, { prm: prmFlag });
-  const resolvedSurfaces = resolveHeroSurfaceAssets(applyPrm(assetIds, prmFlag));
+  const resolvedSurfaces = filterSurfacesByAllowlist(
+    resolveHeroSurfaceAssets(applyPrm(assetIds, prmFlag)),
+    selectedVariant?.allowedSurfaces,
+  );
   const tone = selectedVariant?.tone ?? weatherConfig?.tone ?? manifests.base.tone;
   const content = mergeContent(manifests.base.content, selectedVariant?.content);
   const layout = mergeLayout(manifests.base.layout, weatherConfig?.layout, selectedVariant?.layout);
@@ -217,6 +276,11 @@ export async function getHeroRuntime(options: RuntimeOptions = {}): Promise<Hero
     motion,
     filmGrain,
     energyMode,
+    manifestSources: [
+      "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json",
+      selectedVariant?.manifestSource ?? "packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+    ],
     variant: selectedVariant,
     flags: {
       prm: prmFlag,

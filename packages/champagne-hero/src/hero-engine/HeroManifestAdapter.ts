@@ -2,6 +2,10 @@ import baseManifest from "../../../champagne-manifests/data/hero/sacred_hero_bas
 import surfacesManifest from "../../../champagne-manifests/data/hero/sacred_hero_surfaces.json" assert { type: "json" };
 import variantsManifest from "../../../champagne-manifests/data/hero/sacred_hero_variants.json" assert { type: "json" };
 import weatherManifest from "../../../champagne-manifests/data/hero/sacred_hero_weather.json" assert { type: "json" };
+import marketingVariantManifest from "../../../champagne-manifests/data/hero/hero.variant.marketing_v1.json" assert { type: "json" };
+import treatmentVariantManifest from "../../../champagne-manifests/data/hero/hero.variant.treatment_v1.json" assert { type: "json" };
+import editorialVariantManifest from "../../../champagne-manifests/data/hero/hero.variant.editorial_v1.json" assert { type: "json" };
+import utilityVariantManifest from "../../../champagne-manifests/data/hero/hero.variant.utility_v1.json" assert { type: "json" };
 import type {
   HeroBaseConfig,
   HeroContentConfig,
@@ -62,12 +66,16 @@ function normalizeBaseManifest(manifest: SacredHeroBaseManifest): HeroBaseConfig
   };
 }
 
-function normalizeVariants(manifest: SacredHeroVariantsManifest): HeroVariantConfig[] {
+function normalizeVariants(manifest: SacredHeroVariantsManifest, manifestSource?: string): HeroVariantConfig[] {
   if (!Array.isArray(manifest.variants)) return [];
   return manifest.variants
     .filter((variant) => variant && typeof variant === "object")
     .map((variant) => ({
       id: assertString((variant as HeroVariantConfig).id) ? (variant as HeroVariantConfig).id : "default",
+      manifestSource: (variant as HeroVariantConfig).manifestSource ?? manifestSource,
+      allowedSurfaces: Array.isArray((variant as HeroVariantConfig).allowedSurfaces)
+        ? ((variant as HeroVariantConfig).allowedSurfaces ?? []).filter(assertString)
+        : undefined,
       label: (variant as HeroVariantConfig).label,
       tone: (variant as HeroVariantConfig).tone,
       treatmentSlug: (variant as HeroVariantConfig).treatmentSlug,
@@ -84,7 +92,25 @@ function normalizeVariants(manifest: SacredHeroVariantsManifest): HeroVariantCon
 export function loadSacredHeroManifests(): SacredHeroManifests {
   const base = normalizeBaseManifest(baseManifest as SacredHeroBaseManifest);
   const surfaceMap = buildSurfaceDefinitionMap(surfacesManifest);
-  const variants = normalizeVariants(variantsManifest as SacredHeroVariantsManifest);
+  const variants = [
+    ...normalizeVariants(variantsManifest as SacredHeroVariantsManifest, "packages/champagne-manifests/data/hero/sacred_hero_variants.json"),
+    ...normalizeVariants(
+      marketingVariantManifest as unknown as SacredHeroVariantsManifest,
+      "packages/champagne-manifests/data/hero/hero.variant.marketing_v1.json",
+    ),
+    ...normalizeVariants(
+      treatmentVariantManifest as unknown as SacredHeroVariantsManifest,
+      "packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+    ),
+    ...normalizeVariants(
+      editorialVariantManifest as unknown as SacredHeroVariantsManifest,
+      "packages/champagne-manifests/data/hero/hero.variant.editorial_v1.json",
+    ),
+    ...normalizeVariants(
+      utilityVariantManifest as unknown as SacredHeroVariantsManifest,
+      "packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+    ),
+  ];
   const weather = (weatherManifest as SacredHeroWeatherManifest) ?? {};
 
   return {

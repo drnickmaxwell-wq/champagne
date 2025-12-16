@@ -1,0 +1,30 @@
+{
+  "variants": [
+    {
+      "id": "hero.variant.treatment_v1",
+      "label": "Treatment hero (phase 3)",
+      "manifestSource": "packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+      "allowedSurfaces": [
+        "gradient.base",
+        "field.waveBackdrop",
+        "field.dotGrid",
+        "mask.waveHeader",
+        "hero.contentFrame"
+      ],
+      "surfaces": {
+        "overlays": {
+          "dots": "field.dotGrid",
+          "field": null
+        },
+        "particles": false,
+        "motion": [],
+        "video": false,
+        "grain": {
+          "desktop": null,
+          "mobile": null
+        }
+      },
+      "filmGrain": { "enabled": false, "opacity": 0 }
+    }
+  ]
+}

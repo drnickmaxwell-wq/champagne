@@ -32,6 +32,7 @@ export interface HeroRendererProps {
   filmGrain?: boolean;
   diagnosticBoost?: boolean;
   surfaceRef?: Ref<HTMLDivElement>;
+  pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
 }
 
 function HeroFallback() {
@@ -70,9 +71,11 @@ export async function HeroRenderer({
   filmGrain,
   diagnosticBoost = false,
   surfaceRef,
+  pageCategory,
 }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
+  const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
 
   try {
     runtime = await getHeroRuntime({
@@ -82,6 +85,7 @@ export async function HeroRenderer({
       timeOfDay,
       particles,
       filmGrain,
+      pageCategory: resolvedPageCategory,
       variantId: mode === "home" ? "default" : undefined,
     });
   } catch (error) {
@@ -548,10 +552,10 @@ export async function HeroRenderer({
   };
 
   const manifestSources = [
-    { type: "surfaces", path: "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json", present: true },
-    { type: "motion", path: "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json", present: true },
-    { type: "base", path: null, present: false },
-    { type: "variants", path: null, present: false },
+    { type: "surfaces", path: runtime.manifestSources?.[1] ?? "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json", present: true },
+    { type: "motion", path: runtime.manifestSources?.[1] ?? "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json", present: true },
+    { type: "base", path: runtime.manifestSources?.[0] ?? null, present: Boolean(runtime.manifestSources?.[0]) },
+    { type: "variants", path: runtime.manifestSources?.[2] ?? null, present: Boolean(runtime.manifestSources?.[2]) },
   ];
   const structuralSurfaceIds = new Set(["gradient.base", "hero.contentFrame"]);
   const canonicalSurfaceIds = [

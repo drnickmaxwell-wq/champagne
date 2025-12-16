@@ -1,0 +1,31 @@
+{
+  "variants": [
+    {
+      "id": "hero.variant.editorial_v1",
+      "label": "Editorial hero (phase 3)",
+      "manifestSource": "packages/champagne-manifests/data/hero/hero.variant.editorial_v1.json",
+      "allowedSurfaces": [
+        "gradient.base",
+        "field.waveBackdrop",
+        "overlay.filmGrain",
+        "overlay.caustics",
+        "mask.waveHeader",
+        "hero.contentFrame"
+      ],
+      "surfaces": {
+        "overlays": {
+          "dots": null,
+          "field": null
+        },
+        "particles": false,
+        "motion": ["overlay.caustics"],
+        "video": false,
+        "grain": {
+          "desktop": "overlay.filmGrain.desktop",
+          "mobile": "overlay.filmGrain.mobile"
+        }
+      },
+      "filmGrain": { "enabled": true, "opacity": 0.12 }
+    }
+  ]
+}

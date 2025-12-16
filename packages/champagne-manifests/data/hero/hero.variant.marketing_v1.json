@@ -1,0 +1,31 @@
+{
+  "variants": [
+    {
+      "id": "hero.variant.marketing_v1",
+      "label": "Marketing hero (phase 3)",
+      "manifestSource": "packages/champagne-manifests/data/hero/hero.variant.marketing_v1.json",
+      "allowedSurfaces": [
+        "gradient.base",
+        "field.waveBackdrop",
+        "field.waveRings",
+        "overlay.filmGrain",
+        "mask.waveHeader",
+        "hero.contentFrame"
+      ],
+      "surfaces": {
+        "overlays": {
+          "dots": null,
+          "field": "field.waveRings"
+        },
+        "particles": false,
+        "motion": [],
+        "video": false,
+        "grain": {
+          "desktop": "overlay.filmGrain.desktop",
+          "mobile": "overlay.filmGrain.mobile"
+        }
+      },
+      "filmGrain": { "enabled": true, "opacity": 0.18 }
+    }
+  ]
+}
