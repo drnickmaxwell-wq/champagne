@@ -65,6 +65,78 @@
       "pageTypes": ["home", "treatment", "fees", "team"],
       "seoRole": "cta",
       "layoutRole": "footer"
+    },
+    {
+      "id": "treatment.heroIntro",
+      "componentId": "Section.TreatmentOverviewRich",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "hero",
+      "layoutRole": "aboveFold"
+    },
+    {
+      "id": "treatment.trustSignals",
+      "componentId": "Section.FeatureList",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "supporting",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.whatAreImplants",
+      "componentId": "Section.TreatmentMediaFeature",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "primaryContent",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.whoIsItFor",
+      "componentId": "Section.FeatureList",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "primaryContent",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.processTimeline",
+      "componentId": "Section.FeatureList",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "supporting",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.technology",
+      "componentId": "Section.TreatmentMediaFeature",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "supporting",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.aftercareRisks",
+      "componentId": "Section.FeatureList",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "supporting",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.faq",
+      "componentId": "Section.Faq",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "faq",
+      "layoutRole": "body"
+    },
+    {
+      "id": "treatment.cta",
+      "componentId": "Section.TreatmentClosingCTA",
+      "importPath": "apps/web/app/sections",
+      "pageTypes": ["treatment"],
+      "seoRole": "cta",
+      "layoutRole": "footer"
     }
   ]
 }

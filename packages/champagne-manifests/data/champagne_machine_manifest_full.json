@@ -104,31 +104,21 @@
     },
     "implants": {
       "id": "implants",
-      "label": "Implant dentistry",
+      "label": "Dental Implants in Shoreham-by-Sea",
       "path": "/treatments/implants",
       "category": "treatment",
-      "hero": "implants_variant_hero_v3",
+      "hero": "treatment_neutral_hero_v1",
+      "intro": "Stable, natural-looking implant restorations with calm planning and follow-up.",
       "sections": [
-        {
-          "id": "implants_intro",
-          "type": "copy-block"
-        },
-        {
-          "id": "benefits_grid",
-          "type": "grid"
-        },
-        {
-          "id": "case_gallery_implants",
-          "type": "gallery"
-        },
-        {
-          "id": "faq_implants",
-          "type": "faq"
-        },
-        {
-          "id": "cta_gold_bar",
-          "type": "cta"
-        }
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1404,13 +1394,19 @@
   "treatments": {
     "implants": {
       "path": "/treatments/implants",
-      "hero": "implants_variant_hero_v3",
+      "hero": "treatment_neutral_hero_v1",
+      "label": "Dental Implants in Shoreham-by-Sea",
+      "intro": "Secure implant placement with guided planning and careful aftercare.",
       "sections": [
-        "implants_intro",
-        "benefits_grid",
-        "case_gallery_implants",
-        "faq_implants",
-        "cta_gold_bar"
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.whatAreImplants",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ]
     },
     "veneers": {
