@@ -13,6 +13,7 @@
     { "slug": "/treatments/implants-multiple-teeth", "hero": "implants_variant_hero_v3", "category": "treatment" },
     { "slug": "/treatments/implants-single-tooth", "hero": "implants_variant_hero_v3", "category": "treatment" },
     { "slug": "/treatments/implants-full-arch", "hero": "implants_variant_hero_v3", "category": "treatment" },
+    { "slug": "/treatments/implants-bone-grafting", "hero": "implants_variant_hero_v3", "category": "treatment" },
     { "slug": "/treatments/veneers", "hero": "veneers_gilded_hero_v2", "category": "treatment" },
     { "slug": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
