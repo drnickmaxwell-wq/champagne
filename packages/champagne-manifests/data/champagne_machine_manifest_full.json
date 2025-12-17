@@ -171,6 +171,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "clear_aligners_spark": {
+      "id": "clear_aligners_spark",
+      "label": "Spark clear aligners in Shoreham-by-Sea",
+      "path": "/treatments/clear-aligners-spark",
+      "category": "treatment",
+      "hero": "clear_aligners_hero_v1",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "smile_gallery": {
       "id": "smile_gallery",
       "label": "Smile gallery",

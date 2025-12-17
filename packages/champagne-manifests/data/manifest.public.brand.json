@@ -23,6 +23,7 @@
     { "slug": "/treatments/implant-aftercare", "hero": "implants_variant_hero_v3", "category": "treatment" },
     { "slug": "/treatments/veneers", "hero": "veneers_gilded_hero_v2", "category": "treatment" },
     { "slug": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/clear-aligners-spark", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
     { "slug": "/about", "hero": "about_story_hero_v1", "category": "hub" },
     { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },
