@@ -1,0 +1,174 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.implants-full-arch",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "full-arch-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_full_arch_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Full arch implants",
+      "title": "Full arch implant rehabilitation in Shoreham-by-Sea",
+      "body": "Fixed bridge solutions on implants for a stable, confident smile with a clear teeth-in-a-day style plan when clinically suitable.",
+      "bullets": [
+        "Consult-led planning to confirm if same-day or staged delivery is safest",
+        "Provisional fixed teeth so you can smile during healing",
+        "Transparent conversations about timelines, maintenance, and investment"
+      ],
+      "ctas": [
+        { "label": "Book a full-arch consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Speak to the implant team", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "full-arch-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_full_arch_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust us",
+      "title": "Calm, staged care for fixed full-arch bridges",
+      "items": [
+        "Detailed planning with scans, mock-ups, and a phased approach when needed",
+        "Sedation available for appropriate cases, with measured monitoring and recovery",
+        "Hygiene support to keep implants and bridges healthy from day one",
+        "Upfront discussions about fees, finance options, and maintenance visits"
+      ]
+    },
+    {
+      "instanceId": "full-arch-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_full_arch_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What is a full-arch implant bridge?",
+      "title": "Fixed teeth supported by carefully placed implants",
+      "body": "A full-arch solution secures a custom bridge to a small number of implants (often four to six), giving a fixed alternative to loose dentures. It restores bite stability, supports clearer speech, and feels more comfortable when cleaned and maintained correctly over the long term.",
+      "mediaHint": "Full-arch bridge fitted onto implants"
+    },
+    {
+      "instanceId": "full-arch-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_full_arch_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "For full smiles that need stable, fixed support",
+      "items": [
+        "Patients with many failing or missing teeth wanting a fixed option",
+        "Denture wearers seeking more bite strength and speech confidence",
+        "Cases with sufficient bone or a plan to improve bone and gum support",
+        "Those happy to follow strict hygiene and review schedules",
+        "Not suitable for everyone; bone quality, general health, and habits like smoking are assessed",
+        "Alternative options include implant-retained dentures or a staged bridge approach if full-arch is not right now"
+      ]
+    },
+    {
+      "instanceId": "full-arch-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_full_arch_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Structured timeline from consult to fixed bridge",
+      "items": [
+        "Consultation (week 0-2): medical review, smile goals, and suitability checks",
+        "Scans & records (week 1-3): CBCT, digital impressions, and bite analysis",
+        "Planning (week 2-4): prosthetic design, guided positioning, and fee confirmation",
+        "Surgery day (as planned): implant placement with immediate or next-day provisional bridge when appropriate",
+        "Provisional phase (6-12 weeks, varies by case): healing with check-ins and occlusion reviews",
+        "Final bridge design (8-20 weeks, varies by healing): precision impressions and try-ins",
+        "Fit & settle (after final fit): final bridge secured with comfort checks",
+        "Ongoing reviews: hygiene support and long-term maintenance visits"
+      ]
+    },
+    {
+      "instanceId": "full-arch-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_full_arch_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Guided, data-led implant placement",
+      "body": "CBCT imaging, digital impressions, and guided positioning help place implants accurately for the planned bridge. Occlusion reviews and torque-controlled placement support a balanced, comfortable bite.",
+      "mediaHint": "Guided full-arch implant planning"
+    },
+    {
+      "instanceId": "full-arch-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_full_arch_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Protecting healing and long-term success",
+      "items": [
+        "Expected short-term effects like swelling, bruising, or soreness with advice to manage them",
+        "Infection or implant failure risks discussed openly with signs to watch for",
+        "Daily cleaning guidance to access under the bridge and around implant posts",
+        "Regular reviews to check bite balance, hygiene scores, and bridge stability",
+        "Responsibility to maintain home care and attend hygiene visits for lasting results"
+      ]
+    },
+    {
+      "instanceId": "full-arch-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_full_arch_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Full-arch implant FAQs",
+      "title": "Your questions about fixed full-arch treatment",
+      "faqs": [
+        {
+          "question": "Is it the same day?",
+          "answer": "Some cases allow a provisional bridge on the day of surgery, but this depends on bone quality, bite, and stability; we confirm timing during planning."
+        },
+        {
+          "question": "Will I be without teeth?",
+          "answer": "We aim to provide immediate or next-day provisional teeth so you are not left without a smile; if staging is safer, we discuss temporary alternatives."
+        },
+        {
+          "question": "All-on-4 vs All-on-6?",
+          "answer": "Both use strategically placed implants to support a full bridge. The number of implants is planned around your bone volume, bite forces, and long-term maintenance needs."
+        },
+        {
+          "question": "Is it painful?",
+          "answer": "Treatment is carried out with local anaesthetic and gentle techniques, with sedation available for suitable cases. Expect pressure and post-surgery soreness that we manage with clear aftercare."
+        },
+        {
+          "question": "How do I clean under the bridge?",
+          "answer": "We demonstrate brushes, floss aids, and water flossers to clean under the bridge and around implants, and we review your routine at hygiene visits."
+        },
+        {
+          "question": "How long does it last?",
+          "answer": "Implants and bridges are designed for long-term function, but longevity relies on healthy gums, controlled bite forces, and consistent maintenance."
+        },
+        {
+          "question": "What if I grind my teeth?",
+          "answer": "We assess your bite and may recommend night protection or design adjustments to safeguard the bridge if you clench or grind."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Costs are confirmed after a full assessment and tailored plan, with finance options discussed so you understand the investment before starting."
+        }
+      ]
+    },
+    {
+      "instanceId": "full-arch-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_full_arch_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Ready for fixed full-arch confidence?",
+      "strapline": "Book a full-arch implant consultation in Shoreham-by-Sea or speak to the team about staged and financing options.",
+      "ctas": [
+        { "label": "Book consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Discuss implant options", "href": "/contact?topic=implants", "variant": "secondary" }
+      ],
+      "body": "We’ll confirm suitability, options, and next steps after a full assessment."
+    }
+  ]
+}
