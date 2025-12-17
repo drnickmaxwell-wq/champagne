@@ -1,0 +1,179 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.fixed-braces",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "fixed-braces-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_fixed_braces_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Fixed braces",
+      "title": "Predictable, clinician-led tooth straightening",
+      "body": "Fixed braces planned and adjusted in-practice for patients who want consistent oversight, clear timelines, and advice on the right bracket and wire options for their smile.",
+      "bullets": [
+        "Metal and ceramic bracket options explained",
+        "Planned wire sequencing with regular reviews",
+        "Comfort, cleaning, and care guidance at each visit",
+        "Realistic timelines before treatment starts"
+      ],
+      "ctas": [
+        { "label": "Book fixed braces consult", "href": "/contact", "preset": "primary" },
+        { "label": "Ask a braces question", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "fixed-braces-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_fixed_braces_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose us",
+      "title": "Hands-on orthodontics with monitoring and hygiene support",
+      "items": [
+        "Detailed planning to map bracket positioning and movement",
+        "Chairside adjustments by clinicians who review progress each visit",
+        "Comfort checks with options to smooth, replace, or resequence wires",
+        "Hygiene coaching so you can clean around brackets safely",
+        "Clear expectations on timelines, reviews, and retention"
+      ]
+    },
+    {
+      "instanceId": "fixed-braces-consultation-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_fixed_braces_consultation",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "How fixed braces work",
+      "title": "Planned movement with steady in-practice adjustments",
+      "body": "Fixed braces use brackets and archwires to guide teeth into position. We plan the sequence, fit the braces, and review you regularly so movement stays on track and comfortable.",
+      "bullets": [
+        "Full orthodontic assessment and records",
+        "Discussion of metal or ceramic brackets and what suits your case",
+        "Precise bonding of brackets and first wire fitted",
+        "Routine adjustment appointments to progress movement",
+        "Comfort and hygiene checks at every visit",
+        "Retention plan agreed before debonding"
+      ],
+      "mediaHint": "Bracket fitting and review appointments"
+    },
+    {
+      "instanceId": "fixed-braces-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_fixed_braces_who_for",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it's for",
+      "title": "For patients who want controlled, clinician-led straightening",
+      "items": [
+        "Crowding, spacing, or bite issues needing precise control",
+        "Teens or adults who prefer in-person reviews over remote apps",
+        "Cases where bracket mechanics offer better predictability",
+        "Patients weighing metal versus ceramic options with guidance",
+        "Anyone wanting a clear plan, monitoring, and retention strategy"
+      ]
+    },
+    {
+      "instanceId": "fixed-braces-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_fixed_braces_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your braces timeline",
+      "title": "From planning to retainers",
+      "items": [
+        "Consultation, records, and digital planning",
+        "Bonding brackets and placing the first archwire",
+        "Regular adjustments to sequence movement",
+        "Monitoring comfort and oral hygiene",
+        "Detailing to refine alignment",
+        "Debonding once movement is complete",
+        "Retention with fixed or removable options"
+      ],
+      "strapline": "Timelines depend on complexity and review intervals; we outline a realistic range before you start."
+    },
+    {
+      "instanceId": "fixed-braces-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_fixed_braces_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Bracket systems planned with scans and measured adjustments",
+      "body": "We use scans or impressions to design bracket positioning and plan wire changes. Metal braces support efficient movement, while ceramic brackets may be offered for a lower-visual option where appropriate.",
+      "mediaHint": "Digital planning for bracket positioning"
+    },
+    {
+      "instanceId": "fixed-braces-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_fixed_braces_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Stay comfortable and protect teeth during braces",
+      "items": [
+        "Pressure or rubbing is common after fittings and adjustments",
+        "Use wax and our comfort tips if a wire end catches",
+        "Extra cleaning steps to control plaque around brackets",
+        "Avoid very hard or sticky foods that could damage wires",
+        "Tell us quickly about loose brackets so we can fix them",
+        "Fees vary with case complexity, brace type, and visits; we share clear estimates after assessment"
+      ]
+    },
+    {
+      "instanceId": "fixed-braces-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_fixed_braces_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Fixed braces FAQs",
+      "title": "Answers before you start",
+      "faqs": [
+        {
+          "question": "How long do fixed braces take?",
+          "answer": "Timing depends on your bite, tooth movement needed, and how often we adjust wires. We give a projected range at consultation and update you at reviews."
+        },
+        {
+          "question": "Can I choose ceramic brackets?",
+          "answer": "Ceramic brackets may be suitable for a lower-visual option. We'll explain benefits, limits, and whether they fit your treatment plan."
+        },
+        {
+          "question": "What does treatment cost?",
+          "answer": "Costs vary with case complexity, brace material, and appointment frequency. After assessing your teeth we provide a tailored estimate and payment options."
+        },
+        {
+          "question": "Will braces hurt?",
+          "answer": "You may feel pressure or rubbing after fittings or adjustments. Discomfort usually settles in a few days; we share comfort tips and can smooth or adjust wires if needed."
+        },
+        {
+          "question": "How do I clean around braces?",
+          "answer": "We'll show you brushes, floss options, and rinses that help you clean effectively around brackets and wires between visits."
+        },
+        {
+          "question": "What if a bracket comes loose?",
+          "answer": "Contact us quickly. We can advise short-term comfort steps and book you in to repair the bracket and check your wire sequence."
+        },
+        {
+          "question": "Do I need retainers after braces?",
+          "answer": "Yes. Retainers help keep results stable. We agree whether fixed, removable, or a combination suits you and how often to wear them."
+        }
+      ]
+    },
+    {
+      "instanceId": "fixed-braces-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_fixed_braces_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Ready to talk braces?",
+      "title": "Book a fixed braces consultation",
+      "body": "Meet the team, review metal versus ceramic options, and leave with a clear plan for movement, monitoring, and retention.",
+      "ctas": [
+        { "label": "Book fixed braces consult", "href": "/contact", "preset": "primary" },
+        { "label": "Ask a braces question", "href": "/contact", "preset": "secondary" }
+      ]
+    }
+  ]
+}

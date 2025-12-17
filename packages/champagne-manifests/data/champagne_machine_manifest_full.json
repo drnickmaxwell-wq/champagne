@@ -1551,6 +1551,25 @@
         "treatment.faq",
         "treatment.cta"
       ]
+    },
+    "fixed_braces": {
+      "id": "fixed_braces",
+      "label": "Fixed braces",
+      "path": "/treatments/fixed-braces",
+      "category": "treatment",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
     }
   }
 }
