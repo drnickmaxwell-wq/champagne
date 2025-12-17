@@ -1,0 +1,183 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.clear-aligners",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "clear-aligners-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_clear_aligners_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Clear Aligners",
+      "title": "Clear aligners in Shoreham-by-Sea",
+      "body": "Discreet aligners that follow a clear, clinician-led plan so you can straighten with confidence and comfort.",
+      "bullets": [
+        "Discreet, removable aligners",
+        "Digital planning and progress checks",
+        "Comfort-first fit",
+        "Clear timelines and costs explained"
+      ],
+      "ctas": [
+        { "label": "Book consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Ask a question", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "clear-aligners-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_clear_aligners_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust us",
+      "title": "Calm, transparent aligner plans",
+      "items": [
+        "Digital planning with scans so stages stay predictable",
+        "Regular monitoring to check fit, hygiene, and progress",
+        "Hygiene-first approach to protect gums during treatment",
+        "Conservative guidance that keeps movement realistic",
+        "Straightforward advice on attachments, refinements, and retainers"
+      ]
+    },
+    {
+      "instanceId": "clear-aligners-explainer",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_clear_aligners_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "How clear aligners work",
+      "title": "Gentle, staged movements mapped in advance",
+      "body": "Clear aligners use a series of custom trays to guide teeth into position. Each stage is planned digitally, so you know the expected movements, check-in cadence, and how to care for trays day to day.",
+      "bullets": [
+        "Assessment and digital scan or impressions",
+        "Treatment plan preview with expected movements",
+        "Custom aligners produced in stages",
+        "Regular reviews to confirm fit and progress",
+        "Refinements if needed to reach the goal",
+        "Retention plan and retainers to hold the result"
+      ],
+      "mediaHint": "Clear aligner staging and review"
+    },
+    {
+      "instanceId": "clear-aligners-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_clear_aligners_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Support for mild to moderate alignment needs",
+      "items": [
+        "Mild or moderate crowding",
+        "Small gaps or spacing",
+        "Relapse after previous braces",
+        "Bite refinement when appropriate",
+        "Not suitable for everyone — an assessment confirms what’s safe"
+      ]
+    },
+    {
+      "instanceId": "clear-aligners-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_clear_aligners_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your aligner pathway",
+      "title": "Steady steps with clear expectations",
+      "items": [
+        "Consultation and goal-setting",
+        "Digital scan or impressions",
+        "Plan preview showing expected movements",
+        "Aligner series produced and issued",
+        "Review cadence to check fit and hygiene",
+        "Refinement stage if needed",
+        "Retention with retainers to protect your result"
+      ],
+      "strapline": "Timelines vary by complexity; we outline a typical range before you commit."
+    },
+    {
+      "instanceId": "clear-aligners-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_clear_aligners_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital planning you can see",
+      "body": "We use digital scans and planning software to map movements, preview attachment placement, and share expected progress before trays are ordered.",
+      "mediaHint": "Digital scan and movement preview"
+    },
+    {
+      "instanceId": "clear-aligners-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_clear_aligners_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Comfort-first guidance with clear responsibilities",
+      "items": [
+        "22-hour daily wear for predictable progress",
+        "Attachments may be placed to guide movement",
+        "Expect short-term pressure or soreness as trays change",
+        "Remove aligners for meals; water only when wearing",
+        "Diligent cleaning to protect gums and enamel",
+        "Retainers needed after treatment to avoid relapse"
+      ]
+    },
+    {
+      "instanceId": "clear-aligners-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_clear_aligners_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Aligner FAQs",
+      "title": "Answers before you decide",
+      "faqs": [
+        {
+          "question": "How much do clear aligners cost?",
+          "answer": "Fees depend on complexity and length of treatment; we outline a range after assessing your teeth and the expected number of stages."
+        },
+        {
+          "question": "How long will I wear aligners?",
+          "answer": "Most mild to moderate cases run for several months to over a year; we share a projected timeline and review it at each check-in."
+        },
+        {
+          "question": "Will aligners hurt?",
+          "answer": "You may feel pressure or mild soreness for a few days when switching trays; it typically eases with consistent wear."
+        },
+        {
+          "question": "Can I eat and drink with aligners in?",
+          "answer": "Remove aligners for meals and anything other than still water to avoid staining or warping the trays."
+        },
+        {
+          "question": "What are attachments?",
+          "answer": "Small tooth-coloured bumps that help guide movement. We explain placement, visibility, and care before adding them."
+        },
+        {
+          "question": "Will I speak differently?",
+          "answer": "Some patients notice a slight lisp for a few days. Speech usually settles as you adapt to the trays."
+        },
+        {
+          "question": "What if I lose an aligner?",
+          "answer": "Contact the clinic quickly. We’ll advise whether to move to the next tray, use a previous one, or order a replacement."
+        },
+        {
+          "question": "Do I need retainers after treatment?",
+          "answer": "Yes. Retainers hold your new tooth positions and reduce relapse risk. We’ll agree a wear schedule and maintenance plan."
+        }
+      ]
+    },
+    {
+      "instanceId": "clear-aligners-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_clear_aligners_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Ready when you are",
+      "title": "Book a calm consultation",
+      "body": "Discuss aligner options in a judgement-free setting with clear, staged planning before you decide.",
+      "ctas": [
+        { "label": "Book consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Discuss options", "href": "/contact", "preset": "secondary" }
+      ]
+    }
+  ]
+}
