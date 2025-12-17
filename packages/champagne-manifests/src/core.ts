@@ -10,6 +10,7 @@ import sectionFxDefaults from "../data/sections/section-fx.defaults.json";
 import sectionPrmDefaults from "../data/sections/section-prm.defaults.json";
 import sectionLibraryData from "../data/sections/section-library.json";
 import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
+import sectionLayoutClearAligners from "../data/sections/smh/treatments.clear-aligners.json";
 import sectionLayoutImplantsTeethInADay from "../data/sections/smh/treatments.implants-teeth-in-a-day.json";
 import sectionLayoutImplantsAftercare from "../data/sections/smh/treatments.implants-aftercare.json";
 import sectionLayoutImplantsBoneGrafting from "../data/sections/smh/treatments.implants-bone-grafting.json";
@@ -267,6 +268,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutImplantRetainedDentures as ChampagneSectionLayout,
   sectionLayoutImplants as ChampagneSectionLayout,
   sectionLayoutVeneers as ChampagneSectionLayout,
+  sectionLayoutClearAligners as ChampagneSectionLayout,
   sectionLayoutAligners as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;

@@ -154,100 +154,20 @@
     },
     "clear_aligners": {
       "id": "clear_aligners",
-      "label": "Clear aligner orthodontics (Spark and other systems)",
+      "label": "Clear Aligners in Shoreham-by-Sea",
       "path": "/treatments/clear-aligners",
       "category": "treatment",
-      "hero": "clear_aligners_rich_hero_v1",
+      "hero": "clear_aligners_hero_v1",
       "sections": [
-        {
-          "id": "clear_aligners_overview_rich",
-          "type": "treatment_overview_rich",
-          "title": "Clear aligners with mapped movement",
-          "copy": "Digital planning keeps aligner stages predictable while keeping comfort in focus.",
-          "bullets": [
-            "Plan built from detailed scans",
-            "Staged movement with check-ins",
-            "Attachments and refinements kept tidy"
-          ]
-        },
-        {
-          "id": "clear_aligners_media_feature",
-          "type": "treatment_media_feature",
-          "label": "Aligner plan viewer",
-          "title": "See the sequence before you start",
-          "copy": "A visual plan shows tooth movements, attachments, and timelines before trays are issued.",
-          "mediaHint": "Aligner plan viewer"
-        },
-        {
-          "id": "clear_aligners_tools_trio",
-          "type": "treatment_tools_trio",
-          "label": "Planning tools",
-          "title": "Tools that keep aligner therapy clear",
-          "copy": "Each tool keeps the plan transparent and manageable.",
-          "items": [
-            {
-              "title": "3D movement map",
-              "description": "Shows staged shifts and attachment points." 
-            },
-            {
-              "title": "Progress check cadence",
-              "description": "Scheduled reviews keep tracking aligned to the plan."
-            },
-            {
-              "title": "Refinement ready",
-              "description": "Adjustments are mapped digitally before issuing new trays."
-            }
-          ]
-        },
-        {
-          "id": "clear_aligners_clinician_insight",
-          "type": "clinician_insight",
-          "label": "Clinician insight",
-          "quote": "When the movement map is transparent, it’s easier to stay comfortable and on-track with each tray set.",
-          "attribution": "Clinical team",
-          "role": "Orthodontics"
-        },
-        {
-          "id": "clear_aligners_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Aligner journeys",
-          "stories": [
-            { "summary": "Tracked progress against the digital plan at each visit.", "name": "Case M" },
-            { "summary": "Refinements mapped quickly after mid-course photos.", "name": "Case N" },
-            { "summary": "Kept attachments discreet while following the schedule.", "name": "Case O" }
-          ]
-        },
-        {
-          "id": "clear_aligners_faq",
-          "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "Clear aligner questions",
-          "faqs": [
-            {
-              "question": "How is the plan created?",
-              "answer": "We scan, map movements digitally, and review the stages together before ordering trays."
-            },
-            {
-              "question": "How often are check-ins?",
-              "answer": "We set a cadence that matches your plan and can adjust if movement needs more time."
-            },
-            {
-              "question": "What about refinements?",
-              "answer": "If we need tweaks, we rescan and update the plan before issuing new trays."
-            }
-          ]
-        },
-        {
-          "id": "clear_aligners_closing_cta",
-          "type": "treatment_closing_cta",
-          "title": "Start a clear aligner plan",
-          "strapline": "Book a scan or request a preview of your movement map.",
-          "ctas": [
-            { "label": "Book a scan", "href": "/contact", "preset": "primary" },
-            { "label": "Preview the plan", "href": "/treatments/digital-smile-design", "preset": "secondary" }
-          ]
-        }
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1593,12 +1513,18 @@
     "clear_aligners": {
       "path": "/treatments/clear-aligners",
       "hero": "clear_aligners_hero_v1",
+      "label": "Clear Aligners in Shoreham-by-Sea",
+      "intro": "Discreet, removable aligners planned digitally with regular check-ins.",
       "sections": [
-        "aligners_intro",
-        "timeline_carousel",
-        "benefits_grid",
-        "faq_aligners",
-        "cta_gold_bar"
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ]
     }
   }
