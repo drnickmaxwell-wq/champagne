@@ -587,6 +587,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "implants_sinus_lift": {
+      "id": "implants_sinus_lift",
+      "label": "Sinus lift for dental implants in Shoreham-by-Sea",
+      "path": "/treatments/sinus-lift",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "implants_teeth_in_a_day": {
       "id": "implants_teeth_in_a_day",
       "label": "Teeth-in-a-Day implants in Shoreham-by-Sea",
