@@ -10,6 +10,7 @@ import sectionFxDefaults from "../data/sections/section-fx.defaults.json";
 import sectionPrmDefaults from "../data/sections/section-prm.defaults.json";
 import sectionLibraryData from "../data/sections/section-library.json";
 import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
+import sectionLayoutFullArchImplants from "../data/sections/smh/treatments.implants-full-arch.json";
 import sectionLayoutMultiImplant from "../data/sections/smh/treatments.implants-multiple-teeth.json";
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
@@ -247,6 +248,7 @@ export const champagneSectionLibrary: ChampagneSectionLibrary = sectionLibraryDa
 export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutMultiImplant as ChampagneSectionLayout,
   sectionLayoutSingleImplant as ChampagneSectionLayout,
+  sectionLayoutFullArchImplants as ChampagneSectionLayout,
   sectionLayoutImplants as ChampagneSectionLayout,
   sectionLayoutVeneers as ChampagneSectionLayout,
   sectionLayoutAligners as ChampagneSectionLayout,
