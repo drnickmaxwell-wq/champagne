@@ -5,55 +5,159 @@
   "version": "1.0.0",
   "sections": [
     {
-      "instanceId": "implants-hero",
-      "componentId": "hero_treatment_sacred",
-      "variantId": "sacred.treatment.implants",
+      "instanceId": "implants-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_implants_intro",
       "order": 10,
       "seoRole": "hero",
-      "slot": "aboveFold"
+      "eyebrow": "Implant dentistry",
+      "title": "Dental Implants in Shoreham-by-Sea",
+      "body": "Secure, natural-looking tooth replacements planned precisely for lasting comfort.",
+      "bullets": [
+        "Consultations that map your goals before any surgery",
+        "Digital planning to protect bone and soft tissue",
+        "Restorations shaped to blend with nearby teeth"
+      ]
     },
     {
-      "instanceId": "implants-intro",
-      "componentId": "section_treatment_intro",
-      "variantId": "implants_overview",
+      "instanceId": "implants-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_implants_trust",
       "order": 20,
-      "seoRole": "primaryContent"
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust us",
+      "title": "Calm, evidence-led implant care",
+      "items": [
+        "Cone beam imaging and guided planning for predictable placement",
+        "Close collaboration with labs for shade, shape, and bite harmony",
+        "Clear aftercare with direct lines back to the clinical team"
+      ]
     },
     {
-      "instanceId": "implants-before-after",
-      "componentId": "section_before_after_grid",
-      "variantId": "implants_cases",
+      "instanceId": "implants-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_implants_explainer",
       "order": 30,
-      "seoRole": "primaryContent"
+      "seoRole": "primaryContent",
+      "eyebrow": "What are dental implants?",
+      "title": "Titanium foundations that feel like your own teeth",
+      "body": "Implants replace a tooth root with a small titanium post that bonds with bone, supporting a crown, bridge, or denture that looks and feels secure.",
+      "mediaHint": "Implant post with custom crown"
     },
     {
-      "instanceId": "implants-steps",
-      "componentId": "section_implant_steps",
-      "variantId": "standard_path",
+      "instanceId": "implants-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_implants_candidates",
       "order": 40,
-      "seoRole": "supporting"
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Support for single or multiple missing teeth",
+      "items": [
+        "Single gaps where neighbouring teeth stay untouched",
+        "Several missing teeth needing a stable bridge",
+        "Full-arch solutions when dentures feel loose",
+        "Patients wanting to protect jaw bone volume"
+      ]
     },
     {
-      "instanceId": "implants-finance",
-      "componentId": "section_finance_summary",
-      "variantId": "implants",
+      "instanceId": "implants-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_implants_timeline",
       "order": 50,
-      "seoRole": "supporting"
+      "seoRole": "primaryContent",
+      "eyebrow": "Your implant pathway",
+      "title": "Mapped steps from consult to final tooth",
+      "items": [
+        "Consult: discuss goals, medical history, and smile photos",
+        "Scans: CBCT imaging and digital impressions for accuracy",
+        "Planning: guided templates and prosthetic design",
+        "Placement: gentle, measured placement with local anaesthetic",
+        "Healing: integration checks and soft tissue support",
+        "Final restoration: custom crown, bridge, or denture fit"
+      ]
+    },
+    {
+      "instanceId": "implants-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_implants_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital tools that steady each stage",
+      "body": "CBCT imaging, guided surgery sleeves, and precise torque control keep placement accurate while lab collaboration shapes restorations that feel natural.",
+      "mediaHint": "Guided placement + digital scans"
+    },
+    {
+      "instanceId": "implants-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_implants_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Healing support with clear check-ins",
+      "items": [
+        "Written guidance on cleaning around the implant site",
+        "Regular reviews to monitor healing and bite comfort",
+        "Advice on diet and activity while tissues settle",
+        "Transparent discussion of risks like soreness or implant movement"
+      ]
     },
     {
       "instanceId": "implants-faq",
-      "componentId": "section_faq",
-      "variantId": "implants",
-      "order": 60,
-      "seoRole": "faq"
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_implants_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Implant FAQs",
+      "title": "Common implant questions",
+      "faqs": [
+        {
+          "question": "Are dental implants safe?",
+          "answer": "We assess bone, gum health, and medical history before recommending implants, then plan to minimise stress on surrounding tissues."
+        },
+        {
+          "question": "How long does treatment take?",
+          "answer": "Timelines vary by healing and the number of implants, but we share a clear schedule from planning to the final restoration."
+        },
+        {
+          "question": "Will the procedure hurt?",
+          "answer": "Treatment is carried out under local anaesthetic with calming techniques; most patients describe pressure more than pain."
+        },
+        {
+          "question": "Can I have a temporary tooth while it heals?",
+          "answer": "In many cases we provide a provisional crown or denture so you can smile and chew gently during healing."
+        },
+        {
+          "question": "How do I look after the implant at home?",
+          "answer": "We give tailored cleaning guidance, including how to use brushes or floss aids around the implant and gumline."
+        },
+        {
+          "question": "What if I feel nervous about surgery?",
+          "answer": "We pace appointments, explain each step, and can arrange comfort options so you feel in control."
+        },
+        {
+          "question": "Do implants last forever?",
+          "answer": "Implants are designed for long-term use, and regular maintenance helps protect them alongside healthy gums and bone."
+        },
+        {
+          "question": "Who places the implant and who fits the crown?",
+          "answer": "Your clinician plans and places the implant, then works with trusted labs to craft the final crown or bridge."
+        }
+      ]
     },
     {
       "instanceId": "implants-cta",
-      "componentId": "section_contact_cta",
-      "variantId": "implants_priority",
-      "order": 70,
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_implants_cta",
+      "order": 90,
       "seoRole": "cta",
-      "slot": "footer"
+      "slot": "footer",
+      "title": "Ready for secure, comfortable implants?",
+      "strapline": "Book a consultation or ask about implant options in Shoreham-by-Sea.",
+      "ctas": [
+        { "label": "Book an implant consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask the team a question", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
     }
   ]
 }

@@ -4,6 +4,7 @@ import {
   Section_FeatureList,
   Section_MediaBlock,
   Section_TreatmentClosingCTA,
+  Section_TreatmentMediaFeature,
   Section_TreatmentOverviewRich,
 } from "@champagne/sections";
 
@@ -29,4 +30,13 @@ export const sectionComponentRegistry: SectionComponentRegistry = {
   section_finance_summary: ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
   section_faq: ({ section }) => <Section_FAQ section={toRegistryEntry(section)} />,
   section_contact_cta: ({ section }) => <Section_TreatmentClosingCTA section={toRegistryEntry(section)} />,
+  "treatment.heroIntro": ({ section }) => <Section_TreatmentOverviewRich section={toRegistryEntry(section)} />,
+  "treatment.trustSignals": ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
+  "treatment.whatAreImplants": ({ section }) => <Section_TreatmentMediaFeature section={toRegistryEntry(section)} />,
+  "treatment.whoIsItFor": ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
+  "treatment.processTimeline": ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
+  "treatment.technology": ({ section }) => <Section_TreatmentMediaFeature section={toRegistryEntry(section)} />,
+  "treatment.aftercareRisks": ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
+  "treatment.faq": ({ section }) => <Section_FAQ section={toRegistryEntry(section)} />,
+  "treatment.cta": ({ section }) => <Section_TreatmentClosingCTA section={toRegistryEntry(section)} />,
 };

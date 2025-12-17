@@ -107,6 +107,7 @@ export interface ChampagneSectionLayoutSection {
   visibility?: ChampagneSectionLayoutVisibility;
   propsRef?: string;
   experiments?: { abTestId?: string; variantKey?: string };
+  [key: string]: unknown;
 }
 
 export interface ChampagneSectionLayout {
@@ -301,6 +302,15 @@ const sectionComponentTypeMap: Record<string, string> = {
   section_finance_summary: "features",
   section_faq: "treatment_faq_block",
   section_contact_cta: "treatment_closing_cta",
+  "treatment.heroIntro": "treatment_overview_rich",
+  "treatment.trustSignals": "features",
+  "treatment.whatAreImplants": "treatment_media_feature",
+  "treatment.whoIsItFor": "features",
+  "treatment.processTimeline": "features",
+  "treatment.technology": "treatment_media_feature",
+  "treatment.aftercareRisks": "features",
+  "treatment.faq": "treatment_faq_block",
+  "treatment.cta": "treatment_closing_cta",
 };
 
 function buildSectionsFromLayout(manifest: ChampagneSectionLayout): ChampagnePageSection[] {
@@ -309,18 +319,21 @@ function buildSectionsFromLayout(manifest: ChampagneSectionLayout): ChampagnePag
   return sortedSections
     .filter((section) => !section.componentId?.startsWith("hero_"))
     .map((section, index) => {
+      const { instanceId, componentId, variantId, order, slot, seoRole, visibility, propsRef, experiments, ...definition } =
+        section;
       const type = sectionComponentTypeMap[section.componentId] ?? section.componentId;
       return {
-        id: section.instanceId || `${manifest.routeId}-section-${index + 1}`,
+        id: instanceId || `${manifest.routeId}-section-${index + 1}`,
         type,
-        componentId: section.componentId,
-        variantId: section.variantId,
-        order: section.order,
-        slot: section.slot,
-        seoRole: section.seoRole,
-        visibility: section.visibility,
-        propsRef: section.propsRef,
-        experiments: section.experiments,
+        componentId,
+        variantId,
+        order,
+        slot,
+        seoRole,
+        visibility,
+        propsRef,
+        experiments,
+        ...definition,
       } satisfies ChampagnePageSection;
     });
 }
