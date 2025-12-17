@@ -1,0 +1,168 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.sedation-for-implants",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "implants-sedation-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_implants_sedation_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "IMPLANTS",
+      "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+      "body": "If anxiety has stopped you from considering implants, sedation options may help you feel calmer, more relaxed, and able to proceed comfortably.",
+      "bullets": [
+        "Designed for nervous or anxious patients",
+        "Calm, supportive clinical environment",
+        "Carefully planned implant care",
+        "Clear options discussed in advance"
+      ],
+      "ctas": [
+        { "label": "Book a calm implant consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about sedation options", "href": "/contact?topic=sedation", "variant": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_implants_sedation_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "A calm, supportive approach to implant care",
+      "items": [
+        "Experience treating anxious patients",
+        "Clear explanations before treatment",
+        "Sedation suitability assessed carefully",
+        "No rushing, no pressure",
+        "Ongoing support and aftercare"
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_implants_sedation_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "SEDATION & IMPLANTS",
+      "title": "How sedation supports implant treatment",
+      "body": "Sedation can reduce anxiety and awareness during implant procedures, making longer or more involved appointments feel manageable. You remain monitored and cared for throughout, with a plan set in advance so you know what to expect.",
+      "mediaHint": "Sedation-supported implant planning and care"
+    },
+    {
+      "instanceId": "implants-sedation-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_implants_sedation_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "title": "Who may benefit from sedation for implants?",
+      "items": [
+        "People with dental anxiety or fear",
+        "Those who have avoided treatment for years",
+        "Patients worried about longer procedures",
+        "Individuals with strong gag reflexes",
+        "Anyone who wants a calmer experience",
+        "Sedation isn’t suitable for everyone — we assess carefully and discuss alternatives"
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_implants_sedation_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "title": "Your calm pathway to implant treatment",
+      "items": [
+        "Gentle consultation and discussion",
+        "CBCT scan and assessment",
+        "Sedation suitability review",
+        "Clear treatment planning",
+        "Implant procedure with sedation support",
+        "Recovery and review",
+        "Ongoing implant aftercare"
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_implants_sedation_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Carefully planned, closely monitored treatment",
+      "body": "Safety and comfort guide each decision, with planning and monitoring that match the pace you are comfortable with.",
+      "items": [
+        "Pre-treatment assessment",
+        "Continuous monitoring during care",
+        "Coordinated implant planning"
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_implants_sedation_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Aftercare, recovery, and safety",
+      "items": [
+        "What to expect after sedation",
+        "Escort requirements if applicable",
+        "Temporary drowsiness or tiredness",
+        "Implant healing alongside sedation recovery",
+        "Clear written aftercare instructions"
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_implants_sedation_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Common questions about sedation for implants",
+      "faqs": [
+        {
+          "question": "Will I be asleep during implant treatment?",
+          "answer": "Sedation can make you feel deeply relaxed and less aware, but you are still monitored and able to respond while care continues."
+        },
+        {
+          "question": "Is sedation safe?",
+          "answer": "Suitability is reviewed carefully, including medical history and current medications, with close monitoring during and after treatment."
+        },
+        {
+          "question": "Will I remember the procedure?",
+          "answer": "Many people remember little, but responses vary. We explain what to expect before treatment so you feel prepared."
+        },
+        {
+          "question": "Can I drive home afterwards?",
+          "answer": "Sedation usually means you’ll need an escort and time to rest; driving yourself home is not advised."
+        },
+        {
+          "question": "Is sedation available for all implant treatments?",
+          "answer": "We discuss whether sedation is appropriate for your specific plan. Some cases may be better managed with alternative calming options."
+        },
+        {
+          "question": "What if I’m still nervous?",
+          "answer": "It’s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
+        },
+        {
+          "question": "Does sedation cost extra?",
+          "answer": "Sedation is planned and costed as part of your assessment so you have clear information before deciding."
+        }
+      ]
+    },
+    {
+      "instanceId": "implants-sedation-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_implants_sedation_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Nervous about implants? You’re not alone.",
+      "strapline": "Book a calm implant consultation in Shoreham-by-Sea and talk through sedation options at your own pace.",
+      "ctas": [
+        { "label": "Book a calm implant consult", "href": "/contact", "variant": "primary" },
+        { "label": "Learn about implants", "href": "/treatments/implants", "variant": "secondary" }
+      ]
+    }
+  ]
+}

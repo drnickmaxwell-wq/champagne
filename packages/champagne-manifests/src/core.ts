@@ -14,6 +14,7 @@ import sectionLayoutImplantsBoneGrafting from "../data/sections/smh/treatments.i
 import sectionLayoutFullArchImplants from "../data/sections/smh/treatments.implants-full-arch.json";
 import sectionLayoutImplantRetainedDentures from "../data/sections/smh/treatments.implants-retained-dentures.json";
 import sectionLayoutMultiImplant from "../data/sections/smh/treatments.implants-multiple-teeth.json";
+import sectionLayoutImplantSedation from "../data/sections/smh/treatments.implants-sedation.json";
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
 import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
@@ -249,6 +250,7 @@ const registry: ChampagneManifestRegistry = {
 export const champagneSectionLibrary: ChampagneSectionLibrary = sectionLibraryData;
 export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutImplantsBoneGrafting as ChampagneSectionLayout,
+  sectionLayoutImplantSedation as ChampagneSectionLayout,
   sectionLayoutMultiImplant as ChampagneSectionLayout,
   sectionLayoutSingleImplant as ChampagneSectionLayout,
   sectionLayoutFullArchImplants as ChampagneSectionLayout,
