@@ -530,6 +530,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "implants_bone_grafting": {
+      "id": "implants_bone_grafting",
+      "label": "Bone grafting for dental implants",
+      "path": "/treatments/implants-bone-grafting",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "3d_implant_restorations": {
       "id": "3d_implant_restorations",
       "label": "3D implant restorations (IBEX high-tech)",
