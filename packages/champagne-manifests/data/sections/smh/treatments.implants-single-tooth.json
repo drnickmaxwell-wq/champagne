@@ -1,0 +1,155 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.implants-single-tooth",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "single-implant-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_single_implant_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Single-tooth implants",
+      "title": "Replace one missing tooth with precision",
+      "body": "A stable titanium root and custom crown that protects nearby teeth and restores your bite in Shoreham-by-Sea.",
+      "bullets": [
+        "Keep neighbouring teeth untouched while closing a single gap",
+        "Guided placement for accurate, comfortable healing",
+        "Crown shade-matched to blend with surrounding teeth"
+      ]
+    },
+    {
+      "instanceId": "single-implant-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_single_implant_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust us",
+      "title": "Planning that protects the neighbouring teeth",
+      "items": [
+        "CBCT imaging and digital models to map bone and nerve position",
+        "Guided placement designed to avoid pressure on adjacent teeth",
+        "Provisional options and close follow-up with the clinical team"
+      ]
+    },
+    {
+      "instanceId": "single-implant-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_single_implant_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What is a single-tooth implant?",
+      "title": "A titanium root topped with a custom crown",
+      "body": "One implant post integrates with the jaw and supports a handcrafted crown, restoring the shape, shade, and feel of your missing tooth without touching its neighbours.",
+      "mediaHint": "Single implant post with custom crown"
+    },
+    {
+      "instanceId": "single-implant-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_single_implant_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Designed for single gaps",
+      "items": [
+        "A missing tooth after injury or decay",
+        "Gaps where a bridge would mean drilling healthy teeth",
+        "Front or back teeth where stability and aesthetics matter",
+        "Patients wanting to preserve bone and gum contour"
+      ]
+    },
+    {
+      "instanceId": "single-implant-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_single_implant_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your implant pathway",
+      "title": "Clear steps from consult to final crown",
+      "items": [
+        "Consult: discuss your goals, medical history, and smile photos",
+        "Scans: CBCT imaging and digital impressions for precise planning",
+        "Placement: guided implant placement with gentle anaesthetic",
+        "Healing: check-ins to track integration and soft tissue health",
+        "Crown fit: custom crown designed to match nearby teeth",
+        "Review: bite checks and long-term care guidance"
+      ]
+    },
+    {
+      "instanceId": "single-implant-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_single_implant_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital planning for a seamless single crown",
+      "body": "CBCT data, guided surgery sleeves, and close lab collaboration keep the implant precisely positioned and the crown shaded to blend naturally.",
+      "mediaHint": "Guided placement + shade-matched crown"
+    },
+    {
+      "instanceId": "single-implant-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_single_implant_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Support while your implant settles",
+      "items": [
+        "Advice on cleaning around the implant without stressing the gum",
+        "Diet and activity guidance while healing progresses",
+        "Follow-up appointments to monitor integration and bite",
+        "Clear discussion of risks like soreness, infection, or implant movement"
+      ]
+    },
+    {
+      "instanceId": "single-implant-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_single_implant_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Single implant FAQs",
+      "title": "Common questions about replacing one tooth",
+      "faqs": [
+        {
+          "question": "How long does a single implant take?",
+          "answer": "Many cases take several months from placement to final crown, depending on healing and whether a temporary tooth is needed."
+        },
+        {
+          "question": "Will the implant match my other teeth?",
+          "answer": "We photograph and shade-map the neighbouring teeth so the final crown blends in shape, colour, and texture."
+        },
+        {
+          "question": "Can I have a temporary tooth?",
+          "answer": "We can often provide a provisional solution to maintain your smile while the implant integrates."
+        },
+        {
+          "question": "Does it hurt?",
+          "answer": "Placement uses local anaesthetic and gentle techniques; most patients describe pressure rather than pain, with soreness managed afterwards."
+        },
+        {
+          "question": "How do I care for the implant at home?",
+          "answer": "We show you how to brush and use cleaning aids around the implant to keep the gumline healthy."
+        },
+        {
+          "question": "Am I suitable for an implant?",
+          "answer": "We assess bone levels, gum health, and medical history in Shoreham-by-Sea to confirm if an implant is the safest choice."
+        }
+      ]
+    },
+    {
+      "instanceId": "single-implant-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_single_implant_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Ready to replace a missing tooth securely?",
+      "strapline": "Book a single-tooth implant consultation in Shoreham-by-Sea or ask how the process works.",
+      "ctas": [
+        { "label": "Book a single-implant consult", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about single implants", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    }
+  ]
+}
