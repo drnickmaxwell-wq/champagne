@@ -1,0 +1,155 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.implants-multiple-teeth",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "multi-implant-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_multi_implant_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Implants for several missing teeth",
+      "title": "Secure multiple teeth with implant-supported bridges",
+      "body": "Stable implants that support bridges or partial dentures so you can chew confidently and protect your bite in Shoreham-by-Sea.",
+      "bullets": [
+        "Bridge alternatives that avoid drilling healthy teeth",
+        "Implant support for steadier chewing and speech",
+        "Treatment plans paced to protect bone and gums"
+      ]
+    },
+    {
+      "instanceId": "multi-implant-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_multi_implant_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust us",
+      "title": "Predictable stability for multi-tooth gaps",
+      "items": [
+        "CBCT imaging and guided planning to position each implant for a balanced bridge",
+        "Close lab collaboration to shape bridgework that protects your bite",
+        "Clear timelines with interim options if you need to stay functional while healing"
+      ]
+    },
+    {
+      "instanceId": "multi-implant-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_multi_implant_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What are multi-tooth implants?",
+      "title": "Implant foundations that lock bridges in place",
+      "body": "Two or more titanium posts are placed to anchor a bridge or partial denture, replacing several teeth with a stable, natural-feeling result that spreads chewing forces evenly.",
+      "mediaHint": "Implant-supported bridge across several teeth"
+    },
+    {
+      "instanceId": "multi-implant-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_multi_implant_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "For multiple gaps and loose bridges",
+      "items": [
+        "Several missing teeth in a row where a traditional bridge isn’t suitable",
+        "Replacing a failing bridge with a stable implant-supported option",
+        "Partial denture wearers wanting more security and bite strength",
+        "Patients aiming to protect jaw bone and stop neighbouring teeth drifting"
+      ]
+    },
+    {
+      "instanceId": "multi-implant-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_multi_implant_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your implant pathway",
+      "title": "Structured steps to restore several teeth",
+      "items": [
+        "Consult: review goals, medical history, and the spaces to replace",
+        "Scans: CBCT imaging and digital impressions to map bone and bite",
+        "Planning: guided positions for multiple implants and the bridge design",
+        "Placement: gentle surgery with measured spacing for stability",
+        "Healing: integration checks and occlusion reviews while tissues settle",
+        "Final bridge fit: custom bridge or denture secured for confident chewing"
+      ]
+    },
+    {
+      "instanceId": "multi-implant-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_multi_implant_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital guidance for balanced multi-tooth support",
+      "body": "CBCT data, guided surgical sleeves, and torque-controlled placement keep each implant aligned, while lab partners craft bridgework that restores bite and speech.",
+      "mediaHint": "Guided multi-implant placement with bridge design"
+    },
+    {
+      "instanceId": "multi-implant-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_multi_implant_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Steady healing with focused reviews",
+      "items": [
+        "Home care guidance for cleaning around implants and bridgework",
+        "Diet and activity advice to protect healing bone and soft tissue",
+        "Follow-ups to monitor bite balance across the new bridge",
+        "Transparent discussion of risks like soreness, infection, or implant movement"
+      ]
+    },
+    {
+      "instanceId": "multi-implant-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_multi_implant_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Multi-tooth implant FAQs",
+      "title": "Common questions about replacing several teeth",
+      "faqs": [
+        {
+          "question": "How many implants do I need for multiple missing teeth?",
+          "answer": "Many bridges use two or more implants to support several teeth; we plan the number based on bone quality, bite, and the length of the gap."
+        },
+        {
+          "question": "What is the timeline for multi-tooth implants?",
+          "answer": "We share a clear schedule from planning and placement through healing to the final bridge, with provisional options if needed to keep you chewing."
+        },
+        {
+          "question": "Will I be without teeth during healing?",
+          "answer": "We can often provide a temporary bridge or partial denture so you can smile and eat softer foods while the implants integrate."
+        },
+        {
+          "question": "Is it better than a traditional bridge?",
+          "answer": "Implant-supported bridges avoid drilling healthy neighbouring teeth and give more stability for chewing, while helping maintain bone."
+        },
+        {
+          "question": "How do I clean around an implant-supported bridge?",
+          "answer": "We demonstrate brushing and floss aids or interdental brushes to clean under the bridge and around the implant posts."
+        },
+        {
+          "question": "Does it hurt to place multiple implants?",
+          "answer": "Placement uses local anaesthetic with gentle techniques; expect pressure and some soreness afterwards, managed with our aftercare plan."
+        }
+      ]
+    },
+    {
+      "instanceId": "multi-implant-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_multi_implant_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Ready for a stable solution to several missing teeth?",
+      "strapline": "Book a multi-tooth implant consultation in Shoreham-by-Sea or ask how implant-supported bridges work.",
+      "ctas": [
+        { "label": "Book a multi-implant consult", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about implant bridges", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    }
+  ]
+}
