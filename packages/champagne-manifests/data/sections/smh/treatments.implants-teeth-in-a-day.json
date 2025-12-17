@@ -1,0 +1,173 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.teeth-in-a-day",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "teeth-in-a-day-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_teeth_in_a_day_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "IMPLANTS",
+      "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+      "body": "In selected cases, it may be possible to place implants and fit a fixed temporary smile on the same day — guided by scans, planning, and suitability.",
+      "bullets": [
+        "Fixed temporary teeth may be possible the same day (when suitable)",
+        "Planning-led, safety-first approach",
+        "Clear options: same-day vs staged",
+        "Calm support for nervous patients"
+      ],
+      "ctas": [
+        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
+        { "label": "Ask if I qualify for Teeth-in-a-Day", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_teeth_in_a_day_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "Safety-first same-day implant care",
+      "items": [
+        "CBCT imaging and planning before decisions",
+        "Suitability-based recommendations (no pressure)",
+        "Clear explanation of what’s realistic for you",
+        "Options for comfort and anxiety support",
+        "Long-term aftercare and review plan"
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_teeth_in_a_day_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "WHAT IT MEANS",
+      "title": "What does “Teeth-in-a-Day” actually involve?",
+      "body": "Implant placement with a fixed temporary bridge or denture can sometimes happen on the same day. Healing then continues before a final restoration is fitted once stability is confirmed. Same-day refers to the temporary phase; the definitive teeth follow after integration.",
+      "mediaHint": "CBCT-led planning for immediate-load implants"
+    },
+    {
+      "instanceId": "teeth-in-a-day-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_teeth_in_a_day_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "title": "Who may be suitable for same-day teeth?",
+      "items": [
+        "People needing replacement of multiple teeth (or full arch) where conditions allow",
+        "Those with adequate bone and stable bite factors",
+        "Patients seeking a fixed temporary solution quickly for confidence",
+        "People who can commit to aftercare and follow-up",
+        "Not everyone qualifies — scans and clinical factors decide.",
+        "In some cases, a staged approach is safer and longer-lasting."
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_teeth_in_a_day_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "title": "Your pathway: assessment to fixed teeth (same day where appropriate)",
+      "items": [
+        "Consultation and goals discussion",
+        "CBCT scan and suitability assessment",
+        "Treatment planning (same-day vs staged options)",
+        "Implant placement appointment",
+        "Same-day fixed temporary teeth (when suitable)",
+        "Healing and reviews",
+        "Final teeth/bridge fitting",
+        "Maintenance and long-term care"
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_teeth_in_a_day_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Planning that makes “same-day” safer",
+      "body": "CBCT scans, guided positioning, and close coordination with the lab help us judge when immediate loading is appropriate. Every case is planned around stability, bite forces, and how temporary and final restorations will be delivered.",
+      "items": [
+        "3D CBCT imaging",
+        "Guided planning and positioning",
+        "Close lab coordination for temporaries/finals"
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_teeth_in_a_day_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Aftercare, healing, and responsible expectations",
+      "items": [
+        "Soft diet guidance after immediate-load cases",
+        "Importance of follow-ups and hygiene",
+        "Temporary teeth are functional but not indestructible",
+        "Balanced risks: swelling/soreness, integration, bite forces, smoking considerations",
+        "We plan, monitor, and adjust with you during healing"
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_teeth_in_a_day_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Teeth-in-a-Day FAQs",
+      "faqs": [
+        {
+          "question": "Do I get final teeth the same day?",
+          "answer": "Same-day refers to a fixed temporary bridge or denture. The final restoration is fitted after healing and stability checks."
+        },
+        {
+          "question": "Do I definitely qualify for Teeth-in-a-Day?",
+          "answer": "No. Suitability depends on bone levels, bite stability, health, and other clinical factors assessed with scans."
+        },
+        {
+          "question": "Is it safe?",
+          "answer": "Safety comes from planning, guided placement, and selecting cases where immediate loading is appropriate. If staging is safer, we recommend it."
+        },
+        {
+          "question": "What’s the difference between same-day and staged implants?",
+          "answer": "Same-day includes a temporary fixed bridge at surgery. Staged treatment builds stability first and may use removable temporaries before fitting the final teeth."
+        },
+        {
+          "question": "How long do the temporary teeth last?",
+          "answer": "They are designed for the healing period. We monitor them and move to the definitive restoration once the implants integrate and the bite is stable."
+        },
+        {
+          "question": "What do I need to avoid afterwards?",
+          "answer": "Follow the soft diet plan, avoid hard or sticky foods on the temporaries, keep up hygiene, and attend scheduled reviews."
+        },
+        {
+          "question": "Can I have sedation if I’m nervous?",
+          "answer": "If suitable, sedation can be arranged with careful monitoring so you feel calm and supported."
+        },
+        {
+          "question": "How much does Teeth-in-a-Day cost?",
+          "answer": "We confirm fees after assessment and planning. You’ll receive a transparent plan based on whether same-day or staged treatment is advised."
+        }
+      ]
+    },
+    {
+      "instanceId": "teeth-in-a-day-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_teeth_in_a_day_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Wondering if Teeth-in-a-Day is realistic for you?",
+      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s possible — and what’s safest — based on scans and planning.",
+      "ctas": [
+        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
+        { "label": "Explore implant options", "href": "/treatments/implants", "variant": "secondary" }
+      ]
+    }
+  ]
+}
