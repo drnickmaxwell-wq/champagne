@@ -1,0 +1,187 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.implant-consultation",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "implant-consultation-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_implant_consultation_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "IMPLANTS",
+      "title": "Implant consultation & planning in Shoreham-by-Sea",
+      "body": "A calm, structured consultation designed to assess suitability, discuss options, and build a clear plan — including likely timelines and fees — before you decide anything.",
+      "bullets": [
+        "Scan-led assessment and planning",
+        "Clear options explained (no pressure)",
+        "Transparent treatment plan and costs",
+        "Designed for nervous patients too"
+      ],
+      "ctas": [
+        { "label": "Book an implant consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask a question first", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_implant_consultation_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "Planning-led implant care, built around you",
+      "items": [
+        "Time to talk through goals and concerns",
+        "CBCT imaging when needed for safe planning",
+        "Options explained clearly (including alternatives)",
+        "Phased treatment plans available when appropriate",
+        "Clear aftercare and maintenance expectations",
+        "Transparent fees once assessed"
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_implant_consultation_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "THE CONSULTATION",
+      "title": "What happens at an implant consultation?",
+      "body": "We assess your mouth, dental history, and medical factors, carry out imaging or CBCT scans if indicated, and map options such as single implants, implant-retained dentures, or full-arch approaches — including staged versus same-day routes where suitable. The focus is understanding and planning, not rushing into treatment.",
+      "bullets": [
+        "Scan-led planning to understand your starting point",
+        "Suitability checks for single, multiple, or full-arch implants",
+        "Options explained clearly with pros/cons",
+        "Personalised plan and costed estimate after assessment"
+      ],
+      "mediaHint": "CBCT-led implant assessment and planning"
+    },
+    {
+      "instanceId": "implant-consultation-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_implant_consultation_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "title": "Who is this appointment for?",
+      "items": [
+        "Missing one tooth, several teeth, or all teeth",
+        "Denture wearers wanting more stability",
+        "People considering Teeth-in-a-Day (suitability check)",
+        "Nervous patients wanting a calmer approach",
+        "Anyone unsure whether implants are possible",
+        "If implants aren’t the best option for you, we’ll explain alternatives clearly"
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_implant_consultation_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "title": "Your pathway: consultation to treatment plan",
+      "items": [
+        "Initial consultation and goals discussion",
+        "Clinical assessment and records",
+        "Imaging / CBCT scan if required",
+        "Options review (pros/cons and suitability)",
+        "Personalised plan and costed estimate",
+        "Time to decide (no pressure)",
+        "If proceeding: scheduling and preparation",
+        "Treatment + follow-up care plan"
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_implant_consultation_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Digital planning that reduces surprises",
+      "body": "Scan-led planning helps reduce uncertainties by mapping bone, bite, and restorative needs before treatment begins.",
+      "items": [
+        "3D imaging (CBCT) when appropriate",
+        "Digital planning and guided principles",
+        "Coordination with lab workflows for restorations"
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-pricing",
+      "componentId": "treatment.pricingFinance",
+      "variantId": "shoreham_implant_consultation_pricing",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Fees, timelines, and choices — explained after assessment",
+      "items": [
+        "Written plan with options, stages, and estimated costs",
+        "CBCT or records only when clinically appropriate",
+        "Phased or staged treatment plans discussed when suitable",
+        "Time to review everything with no pressure"
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_implant_consultation_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Common questions about implant consultations",
+      "faqs": [
+        {
+          "question": "Am I suitable for dental implants?",
+          "answer": "Suitability is confirmed after a full assessment, including scans where needed, so recommendations match your health and goals."
+        },
+        {
+          "question": "Do I need a CBCT scan?",
+          "answer": "A CBCT scan is recommended when it improves safety and planning clarity; we explain why before proceeding."
+        },
+        {
+          "question": "How long does implant treatment take?",
+          "answer": "Timelines depend on healing, bone quality, and the type of restoration. We outline likely stages after your assessment."
+        },
+        {
+          "question": "Can I have sedation if I’m nervous?",
+          "answer": "Sedation options can be discussed and assessed for suitability. We prioritise calm, no-pressure planning."
+        },
+        {
+          "question": "What are the alternatives to implants?",
+          "answer": "If implants aren’t the best fit, we talk through alternatives such as bridges or dentures so you can choose confidently."
+        },
+        {
+          "question": "Can I have temporary teeth while healing?",
+          "answer": "Interim solutions may be possible depending on your plan. We cover options during consultation and planning."
+        },
+        {
+          "question": "How long do implants last?",
+          "answer": "Implants are intended as long-term solutions, but longevity depends on bone health, home care, and attending reviews."
+        },
+        {
+          "question": "How much does an implant consultation cost?",
+          "answer": "Fees are confirmed after we understand your needs and any scans required, with transparent estimates provided in writing."
+        },
+        {
+          "question": "Will I get a written plan?",
+          "answer": "Yes. After assessment you receive a personalised plan with options, timelines, and costs to review at your own pace."
+        },
+        {
+          "question": "What happens after the consultation?",
+          "answer": "You have time to consider the plan. If you proceed, we schedule treatment and guide you through preparation and aftercare."
+        }
+      ]
+    },
+    {
+      "instanceId": "implant-consultation-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_implant_consultation_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Ready to explore implants with clarity?",
+      "strapline": "Book an implant consultation in Shoreham-by-Sea and we’ll map the safest options, timelines, and costs — with no pressure.",
+      "ctas": [
+        { "label": "Book an implant consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Explore implant treatments", "href": "/treatments/implants", "variant": "secondary" }
+      ]
+    }
+  ]
+}

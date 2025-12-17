@@ -112,11 +112,11 @@
       "sections": [
         { "id": "treatment.heroIntro" },
         { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.consultationOverview" },
         { "id": "treatment.whoIsItFor" },
         { "id": "treatment.processTimeline" },
         { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.pricingFinance" },
         { "id": "treatment.faq" },
         { "id": "treatment.cta" }
       ],
@@ -544,6 +544,25 @@
         { "id": "treatment.processTimeline" },
         { "id": "treatment.technology" },
         { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "implants_consultation": {
+      "id": "implants_consultation",
+      "label": "Implant consultation & planning in Shoreham-by-Sea",
+      "path": "/treatments/implant-consultation",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.pricingFinance" },
         { "id": "treatment.faq" },
         { "id": "treatment.cta" }
       ],
