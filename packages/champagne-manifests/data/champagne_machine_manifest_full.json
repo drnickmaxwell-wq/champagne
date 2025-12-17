@@ -112,11 +112,11 @@
       "sections": [
         { "id": "treatment.heroIntro" },
         { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.consultationOverview" },
         { "id": "treatment.whoIsItFor" },
         { "id": "treatment.processTimeline" },
         { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.pricingFinance" },
         { "id": "treatment.faq" },
         { "id": "treatment.cta" }
       ],
@@ -558,11 +558,11 @@
       "sections": [
         { "id": "treatment.heroIntro" },
         { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.consultationOverview" },
         { "id": "treatment.whoIsItFor" },
         { "id": "treatment.processTimeline" },
         { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.pricingFinance" },
         { "id": "treatment.faq" },
         { "id": "treatment.cta" }
       ],

@@ -41,14 +41,20 @@
       ]
     },
     {
-      "instanceId": "implant-consultation-what-are",
-      "componentId": "treatment.whatAreImplants",
-      "variantId": "shoreham_implant_consultation_explainer",
+      "instanceId": "implant-consultation-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_implant_consultation_overview",
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "THE CONSULTATION",
       "title": "What happens at an implant consultation?",
       "body": "We assess your mouth, dental history, and medical factors, carry out imaging or CBCT scans if indicated, and map options such as single implants, implant-retained dentures, or full-arch approaches — including staged versus same-day routes where suitable. The focus is understanding and planning, not rushing into treatment.",
+      "bullets": [
+        "Scan-led planning to understand your starting point",
+        "Suitability checks for single, multiple, or full-arch implants",
+        "Options explained clearly with pros/cons",
+        "Personalised plan and costed estimate after assessment"
+      ],
       "mediaHint": "CBCT-led implant assessment and planning"
     },
     {
@@ -100,19 +106,17 @@
       ]
     },
     {
-      "instanceId": "implant-consultation-aftercare",
-      "componentId": "treatment.aftercareRisks",
-      "variantId": "shoreham_implant_consultation_aftercare",
+      "instanceId": "implant-consultation-pricing",
+      "componentId": "treatment.pricingFinance",
+      "variantId": "shoreham_implant_consultation_pricing",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Comfort, safety, and realistic expectations",
+      "title": "Fees, timelines, and choices — explained after assessment",
       "items": [
-        "Discuss comfort options and pacing",
-        "Implant timelines vary by case",
-        "Healing and review appointments are part of success",
-        "Smoking and general health can affect outcomes",
-        "Long-term maintenance is important (cleaning + reviews)",
-        "Every procedure has risks; careful planning helps reduce them"
+        "Written plan with options, stages, and estimated costs",
+        "CBCT or records only when clinically appropriate",
+        "Phased or staged treatment plans discussed when suitable",
+        "Time to review everything with no pressure"
       ]
     },
     {

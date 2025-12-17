@@ -12,6 +12,7 @@ import sectionLibraryData from "../data/sections/section-library.json";
 import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
 import sectionLayoutImplantsTeethInADay from "../data/sections/smh/treatments.implants-teeth-in-a-day.json";
 import sectionLayoutImplantsBoneGrafting from "../data/sections/smh/treatments.implants-bone-grafting.json";
+import sectionLayoutImplantConsultation from "../data/sections/smh/treatments.implants-consultation.json";
 import sectionLayoutFullArchImplants from "../data/sections/smh/treatments.implants-full-arch.json";
 import sectionLayoutImplantRetainedDentures from "../data/sections/smh/treatments.implants-retained-dentures.json";
 import sectionLayoutMultiImplant from "../data/sections/smh/treatments.implants-multiple-teeth.json";
@@ -252,6 +253,7 @@ export const champagneSectionLibrary: ChampagneSectionLibrary = sectionLibraryDa
 export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutImplantsBoneGrafting as ChampagneSectionLayout,
   sectionLayoutImplantsTeethInADay as ChampagneSectionLayout,
+  sectionLayoutImplantConsultation as ChampagneSectionLayout,
   sectionLayoutImplantSedation as ChampagneSectionLayout,
   sectionLayoutMultiImplant as ChampagneSectionLayout,
   sectionLayoutSingleImplant as ChampagneSectionLayout,
@@ -318,10 +320,12 @@ const sectionComponentTypeMap: Record<string, string> = {
   section_contact_cta: "treatment_closing_cta",
   "treatment.heroIntro": "treatment_overview_rich",
   "treatment.trustSignals": "features",
+  "treatment.consultationOverview": "treatment_overview_rich",
   "treatment.whatAreImplants": "treatment_media_feature",
   "treatment.whoIsItFor": "features",
   "treatment.processTimeline": "features",
   "treatment.technology": "treatment_media_feature",
+  "treatment.pricingFinance": "features",
   "treatment.aftercareRisks": "features",
   "treatment.faq": "treatment_faq_block",
   "treatment.cta": "treatment_closing_cta",
