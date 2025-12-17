@@ -1,0 +1,171 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.implant-retained-dentures",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "implant-retained-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_implant_retained_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "IMPLANTS",
+      "title": "Implant-retained dentures in Shoreham-by-Sea",
+      "body": "Secure dentures held in place by dental implants — designed to improve comfort, confidence, and everyday function.",
+      "bullets": [
+        "Dentures that don’t slip or lift",
+        "Fewer implants than full fixed bridges",
+        "Improved chewing and speech",
+        "Removable for cleaning (where suitable)"
+      ],
+      "ctas": [
+        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about implant-retained dentures", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "implant-retained-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_implant_retained_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "Planned implant care you can rely on",
+      "items": [
+        "CBCT-led implant planning",
+        "Experienced implant team",
+        "Clear treatment options and fees",
+        "Ongoing aftercare and reviews",
+        "Calm, patient-centred approach"
+      ]
+    },
+    {
+      "instanceId": "implant-retained-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_implant_retained_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "HOW IT WORKS",
+      "title": "What are implant-retained dentures?",
+      "body": "Dental implants anchor a denture so it stays secure while you eat and speak, reducing movement compared to traditional dentures and allowing easier cleaning than fixed full-arch bridges.",
+      "mediaHint": "Implant-stabilised denture planning and placement"
+    },
+    {
+      "instanceId": "implant-retained-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_implant_retained_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "title": "Who are implant-retained dentures suitable for?",
+      "items": [
+        "People struggling with loose lower or upper dentures",
+        "Those wanting more stability without full fixed bridges",
+        "Patients with reduced bone volume unsuitable for many implants",
+        "Anyone seeking a secure but cost-conscious implant option",
+        "Not everyone is suitable — we confirm with scans and assessment"
+      ]
+    },
+    {
+      "instanceId": "implant-retained-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_implant_retained_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "title": "Your pathway to secure dentures",
+      "items": [
+        "Implant consultation",
+        "CBCT scan and assessment",
+        "Personalised treatment planning",
+        "Implant placement",
+        "Healing phase",
+        "Denture fitting and adjustment",
+        "Review and long-term care"
+      ]
+    },
+    {
+      "instanceId": "implant-retained-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_implant_retained_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Digital planning for predictable outcomes",
+      "body": "CBCT imaging, digital planning, and implant positioning are coordinated with the dental lab to deliver stable, accurately fitting dentures.",
+      "items": [
+        "3D CBCT imaging",
+        "Guided implant placement",
+        "Close clinician–lab collaboration"
+      ]
+    },
+    {
+      "instanceId": "implant-retained-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_implant_retained_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Aftercare, healing, and long-term care",
+      "items": [
+        "What to expect after implant placement",
+        "Cleaning and maintenance guidance",
+        "Review schedule",
+        "Balanced risks: soreness, swelling, implant integration",
+        "Smoking and health considerations, discussed responsibly"
+      ]
+    },
+    {
+      "instanceId": "implant-retained-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_implant_retained_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Your implant-retained denture questions",
+      "faqs": [
+        {
+          "question": "How stable are implant-retained dentures?",
+          "answer": "Implants provide anchor points that reduce movement and lifting, giving more stability than traditional dentures when planned and cared for correctly."
+        },
+        {
+          "question": "How many implants are needed?",
+          "answer": "The number of implants is planned after assessment and scans, often fewer than a full fixed bridge requires while still providing reliable support."
+        },
+        {
+          "question": "Are they removable?",
+          "answer": "Many implant-retained dentures are designed to be removed for daily cleaning while staying secure during eating and speaking. Suitability depends on your specific plan."
+        },
+        {
+          "question": "Will they feel bulky?",
+          "answer": "The denture is crafted to balance stability with comfort. We review fit and make adjustments so it feels as natural and streamlined as possible."
+        },
+        {
+          "question": "Does the procedure hurt?",
+          "answer": "Implant placement is carried out with local anaesthetic and a calm approach. Some pressure and post-treatment soreness are expected, with clear guidance to keep you comfortable."
+        },
+        {
+          "question": "How long do they last?",
+          "answer": "Implants are intended for long-term use, but longevity depends on healing, home care, and attending regular reviews to monitor implant health and denture fit."
+        },
+        {
+          "question": "How much does treatment cost?",
+          "answer": "Costs are discussed after a full assessment and planning stage, with transparent explanations of options so you know the investment before deciding."
+        },
+        {
+          "question": "Can I upgrade later to a fixed bridge?",
+          "answer": "In some cases additional planning allows a transition to a fixed bridge later. We confirm if that pathway is realistic once we understand your bone health and goals."
+        }
+      ]
+    },
+    {
+      "instanceId": "implant-retained-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_implant_retained_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Thinking about more secure dentures?",
+      "strapline": "Book an implant assessment in Shoreham-by-Sea and explore whether implant-retained dentures are right for you.",
+      "ctas": [
+        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
+        { "label": "Explore implant options", "href": "/treatments/implants", "variant": "secondary" }
+      ]
+    }
+  ]
+}
