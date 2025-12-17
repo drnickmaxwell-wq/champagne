@@ -1,0 +1,179 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.clear-aligners-spark",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "spark-aligners-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_spark_aligners_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Spark Clear Aligners",
+      "title": "Spark clear aligners in Shoreham-by-Sea",
+      "body": "Clinician-led planning with digital scans, Spark materials, and calm progress checks so your smile stays comfortable and predictable.",
+      "bullets": [
+        "Detailed digital scans and photo records",
+        "Clinician-led Spark treatment planning",
+        "Regular progress checks and refinements",
+        "Comfort-focused trays with discreet clarity"
+      ],
+      "ctas": [
+        { "label": "Book an aligners consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about Spark aligners", "href": "/contact?topic=aligners", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_spark_aligners_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why Spark at Shoreham-by-Sea",
+      "title": "Transparent, clinician-led aligner care",
+      "items": [
+        "Clinician-led planning that sets realistic movement goals",
+        "Digital scans to map Spark tray stages before you start",
+        "Progress checks to confirm fit, hygiene, and comfort",
+        "Guidance on attachments, wear time, and refinements",
+        "Clear timelines and pricing explained in advance"
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-explainer",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_spark_aligners_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "How Spark clear aligners work",
+      "title": "Discreet trays planned for comfort and predictability",
+      "body": "Spark aligners use gentle, staged trays to guide teeth into place. Each step is planned from your digital scans, so you understand expected movements, attachments, and how progress checks keep things on track.",
+      "bullets": [
+        "Clinician consultation with digital scans and photos",
+        "Spark treatment plan preview with estimated stages",
+        "Custom trays produced with discreet, comfortable edges",
+        "Progress checks to review fit, speech, and oral health",
+        "Refinements or attachment updates if needed",
+        "Retention plan to protect your finished result"
+      ],
+      "mediaHint": "Spark aligner staging and check-ins"
+    },
+    {
+      "instanceId": "spark-aligners-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_spark_aligners_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who Spark can help",
+      "title": "Clear guidance on suitability",
+      "items": [
+        "Mild to moderate crowding or spacing",
+        "Relapse after past orthodontics",
+        "Selective bite refinement when appropriate",
+        "Patients wanting discreet, removable aligners",
+        "Complex cases assessed carefully with clinician-led advice"
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_spark_aligners_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your Spark treatment pathway",
+      "title": "Steady steps with ongoing support",
+      "items": [
+        "Consultation, photos, and digital scans",
+        "Clinician-led Spark plan with projected stages",
+        "Approve your plan and attachments where needed",
+        "Collect first trays with comfort tips",
+        "Progress checks every few weeks to review movement",
+        "Refinements or extra trays if needed",
+        "Retention with retainers and hygiene guidance"
+      ],
+      "strapline": "Most Spark journeys run across several months; we outline your expected timeline before you commit."
+    },
+    {
+      "instanceId": "spark-aligners-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_spark_aligners_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital scans meet Spark clarity",
+      "body": "We pair high-resolution digital scans with Spark’s clear, stain-resistant material to plan movements precisely and keep trays comfortable and discreet.",
+      "mediaHint": "Digital scan and Spark tray preview"
+    },
+    {
+      "instanceId": "spark-aligners-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_spark_aligners_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & responsibilities",
+      "title": "Comfort-focused guidance with clear expectations",
+      "items": [
+        "22-hour wear for predictable movement",
+        "Attachments may be placed to guide Spark trays",
+        "Short periods of pressure are normal when switching aligners",
+        "Remove trays for meals and hot drinks; water only when wearing",
+        "Clean aligners and teeth carefully to protect gums",
+        "Retainers needed to hold your result once treatment ends"
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_spark_aligners_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Spark FAQs",
+      "title": "Answers before you start",
+      "faqs": [
+        {
+          "question": "How long does treatment take?",
+          "answer": "Timelines vary by case complexity. Many Spark plans run for several months to over a year; we share your projected timeframe after reviewing your scans."
+        },
+        {
+          "question": "Does it hurt?",
+          "answer": "You may feel pressure or mild tenderness for a few days when changing trays. Clinician-led planning and regular reviews keep discomfort managed."
+        },
+        {
+          "question": "How often are reviews?",
+          "answer": "We book progress checks every few weeks to confirm fit, hygiene, and movement, adjusting the plan if something needs refining."
+        },
+        {
+          "question": "Can I eat anything?",
+          "answer": "Remove your aligners for meals and hot drinks. With trays out, you can eat normally—just brush before putting them back to protect clarity and gums."
+        },
+        {
+          "question": "What if I lose an aligner?",
+          "answer": "Contact us quickly. We’ll advise whether to move to the next tray, step back to the previous one, or order a replacement based on your stage."
+        },
+        {
+          "question": "Are attachments needed?",
+          "answer": "Many Spark plans use small tooth-coloured attachments to guide precise movement. We explain where they may sit and how visible they’ll be before starting."
+        },
+        {
+          "question": "Is Spark suitable for complex cases?",
+          "answer": "Some complex movements may need fixed orthodontics. We assess candidacy with digital scans and let you know if Spark can safely achieve your goals."
+        }
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_spark_aligners_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Ready to plan?",
+      "title": "Book a Spark consultation in Shoreham-by-Sea",
+      "body": "Meet a clinician to review your scans, plan Spark stages, and agree on a calm, predictable pathway before you commit.",
+      "ctas": [
+        { "label": "Book an aligners consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about Spark aligners", "href": "/contact?topic=aligners", "preset": "secondary" }
+      ]
+    }
+  ]
+}
