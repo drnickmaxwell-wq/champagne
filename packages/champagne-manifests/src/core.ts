@@ -10,6 +10,7 @@ import sectionFxDefaults from "../data/sections/section-fx.defaults.json";
 import sectionPrmDefaults from "../data/sections/section-prm.defaults.json";
 import sectionLibraryData from "../data/sections/section-library.json";
 import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
+import sectionLayoutImplantsBoneGrafting from "../data/sections/smh/treatments.implants-bone-grafting.json";
 import sectionLayoutFullArchImplants from "../data/sections/smh/treatments.implants-full-arch.json";
 import sectionLayoutMultiImplant from "../data/sections/smh/treatments.implants-multiple-teeth.json";
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
@@ -246,6 +247,7 @@ const registry: ChampagneManifestRegistry = {
 
 export const champagneSectionLibrary: ChampagneSectionLibrary = sectionLibraryData;
 export const champagneSectionLayouts: ChampagneSectionLayout[] = [
+  sectionLayoutImplantsBoneGrafting as ChampagneSectionLayout,
   sectionLayoutMultiImplant as ChampagneSectionLayout,
   sectionLayoutSingleImplant as ChampagneSectionLayout,
   sectionLayoutFullArchImplants as ChampagneSectionLayout,
@@ -390,6 +392,14 @@ export function getSectionStackForPage(slug: string): (ChampagnePageSection | st
   const routeId = getRouteIdFromSlug(normalizedSlug);
 
   const sectionLayout = getSectionLayoutByRoute(routeId);
+  if (process.env.NODE_ENV !== "production") {
+    console.info("[sections][resolver-debug]", {
+      routeId,
+      layoutFound: Boolean(sectionLayout),
+      tenantId: sectionLayout?.tenantId,
+      smhContentSections: sectionLayout?.sections?.length ?? 0,
+    });
+  }
   if (sectionLayout) {
     return buildSectionsFromLayout(sectionLayout);
   }
