@@ -1,0 +1,178 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.failed-implant-replacement",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "failed-implant-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_failed_implant_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "IMPLANTS",
+      "title": "Failed implant replacement in Shoreham-by-Sea",
+      "body": "If a dental implant has failed, become loose, or caused ongoing problems, a careful review can help determine the safest next steps. We start by understanding what happened because every case is different.",
+      "bullets": [
+        "Calm, non-judgemental assessment",
+        "Scan-led investigation of the cause",
+        "Clear options explained before decisions",
+        "Focus on long-term oral health"
+      ],
+      "ctas": [
+        { "label": "Book an implant review", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about failed implant options", "href": "/contact?topic=implants", "variant": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "failed-implant-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_failed_implant_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "A careful approach when things haven’t gone to plan",
+      "items": [
+        "Time to listen and understand history",
+        "CBCT imaging to assess bone and implant position",
+        "Clear explanation of findings",
+        "Options discussed without pressure",
+        "Staged care where appropriate",
+        "Ongoing support and aftercare"
+      ]
+    },
+    {
+      "instanceId": "failed-implant-explainer",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_failed_implant_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "UNDERSTANDING FAILURE",
+      "title": "Why do dental implants fail?",
+      "body": "Common factors can include infection, bone loss, bite forces, smoking, systemic health, implant position, and maintenance issues. Every case is different, so we review your records and scans before recommending any change.",
+      "mediaHint": "CBCT-led assessment of existing implants"
+    },
+    {
+      "instanceId": "failed-implant-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_failed_implant_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "title": "Who is this assessment for?",
+      "items": [
+        "Loose or uncomfortable implants",
+        "Pain, infection, or repeated inflammation",
+        "Broken or failing implant-supported teeth",
+        "Concerns about bone loss around an implant",
+        "Anyone unsure whether an implant can be saved or replaced"
+      ],
+      "honestQualifier": "Not every implant can or should be replaced immediately — assessment comes first."
+    },
+    {
+      "instanceId": "failed-implant-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_failed_implant_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "title": "Your pathway: review to next steps",
+      "items": [
+        "Implant history and concerns discussion",
+        "Clinical examination",
+        "CBCT scan and records",
+        "Explanation of findings and causes",
+        "Options discussion (remove, replace, alternative solutions)",
+        "Healing or stabilisation phase (if required)",
+        "Replacement or alternative treatment",
+        "Review and long-term maintenance"
+      ]
+    },
+    {
+      "instanceId": "failed-implant-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_failed_implant_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Assessment tools that guide safer decisions",
+      "body": "Diagnostics and planning lead every recommendation — technology supports careful assessment rather than rushed treatment. Replacement isn’t always immediate, and the right tools help us map the safest sequence.",
+      "items": [
+        "3D CBCT imaging",
+        "Digital planning for replacement implants",
+        "Monitoring and review protocols"
+      ]
+    },
+    {
+      "instanceId": "failed-implant-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_failed_implant_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Healing, risks, and realistic expectations",
+      "items": [
+        "Why rushing replacement can reduce success",
+        "Healing periods may be needed between stages",
+        "Smoking and general health considerations",
+        "Importance of hygiene and maintenance",
+        "Reassurance: a structured plan improves outcomes"
+      ]
+    },
+    {
+      "instanceId": "failed-implant-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_failed_implant_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Failed implant questions, answered calmly",
+      "faqs": [
+        {
+          "question": "Why did my implant fail?",
+          "answer": "Causes vary — infection, bite forces, bone quality, smoking, systemic health, positioning, and maintenance can all play a role. We review your specific history and scans before advising next steps."
+        },
+        {
+          "question": "Can a failed implant be replaced?",
+          "answer": "Sometimes, but the right approach depends on why it failed. Replacement may follow healing or stabilisation to protect surrounding bone and gum."
+        },
+        {
+          "question": "Do you have to remove a failed implant first?",
+          "answer": "If an implant is loose, painful, or infected, removal might be safer before planning any replacement. We’ll outline the options and timing."
+        },
+        {
+          "question": "Will I need a bone graft?",
+          "answer": "Bone support is reviewed on CBCT scans. If volume is reduced, grafting or a staged approach might be recommended to improve stability."
+        },
+        {
+          "question": "How long do I need to wait before replacement?",
+          "answer": "Healing time depends on the cause of failure and bone health. Replacement isn’t always immediate; we propose a timeline after assessment."
+        },
+        {
+          "question": "Is replacement more complicated than the first implant?",
+          "answer": "Revision care can involve extra planning to protect bone and soft tissue. We share a clear plan so you know the steps and rationale."
+        },
+        {
+          "question": "What are the alternatives if replacement isn’t possible?",
+          "answer": "Options may include bridges, partial dentures, or staged grafting before future implants. We explain pros and considerations for each."
+        },
+        {
+          "question": "Will it hurt?",
+          "answer": "Procedures are carried out with local anaesthetic and a calm pace. We also discuss comfort options tailored to your needs."
+        },
+        {
+          "question": "How much does failed implant treatment cost?",
+          "answer": "Costs depend on the findings and recommended steps. We provide a transparent breakdown after assessment rather than fixed figures upfront."
+        }
+      ]
+    },
+    {
+      "instanceId": "failed-implant-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_failed_implant_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Concerned about an implant that hasn’t worked?",
+      "strapline": "Book a calm implant review in Shoreham-by-Sea and we’ll explain your options clearly and carefully.",
+      "ctas": [
+        { "label": "Book now", "href": "/contact", "variant": "primary" },
+        { "label": "See implant consultation details", "href": "/treatments/implant-consultation", "variant": "secondary" }
+      ]
+    }
+  ]
+}
