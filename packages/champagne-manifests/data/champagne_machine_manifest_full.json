@@ -625,6 +625,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "implants_aftercare": {
+      "id": "implants_aftercare",
+      "label": "Implant aftercare & recovery in Shoreham-by-Sea",
+      "path": "/treatments/implant-aftercare",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "3d_implant_restorations": {
       "id": "3d_implant_restorations",
       "label": "3D implant restorations (IBEX high-tech)",
