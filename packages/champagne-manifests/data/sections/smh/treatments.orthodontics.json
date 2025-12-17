@@ -1,0 +1,183 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.orthodontics",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "orthodontics-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_orthodontics_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Orthodontics",
+      "title": "Fixed braces with clinician-led planning",
+      "body": "Orthodontic treatment delivered in practice with fixed braces — for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app.",
+      "bullets": [
+        "Focus on fixed braces, not Invisalign",
+        "Metal and ceramic bracket options",
+        "Digital planning with in-person adjustments",
+        "Clear timelines and review points"
+      ],
+      "ctas": [
+        { "label": "Book orthodontic consult", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about braces", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "orthodontics-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_orthodontics_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose us",
+      "title": "Clinician-guided orthodontics with clear oversight",
+      "items": [
+        "Treatment plans set by dentists with regular chairside reviews",
+        "Bracket positioning and wire sequencing tailored to your bite",
+        "Hygiene support throughout to protect teeth and gums",
+        "Practical advice on eating, cleaning, and caring for braces",
+        "Progress checks that keep movement safe and realistic"
+      ]
+    },
+    {
+      "instanceId": "orthodontics-consultation-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_orthodontics_consultation",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "How fixed braces work",
+      "title": "Steady tooth movement guided by in-clinic adjustments",
+      "body": "Fixed braces use brackets and wires to move teeth gradually. Each adjustment is planned in practice so you know what to expect, how to care for your braces, and when to return for reviews.",
+      "bullets": [
+        "Full orthodontic assessment and records",
+        "Digital planning to map movements and timelines",
+        "Bonding of brackets and first wire placement",
+        "Regular adjustments to progress movement",
+        "Comfort checks and guidance at each visit",
+        "Retention plan once active movement finishes"
+      ],
+      "mediaHint": "Fixed brace fitting and review"
+    },
+    {
+      "instanceId": "orthodontics-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_orthodontics_who_for",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Support for teens and adults who want hands-on orthodontics",
+      "items": [
+        "Crowding or spacing that needs controlled movement",
+        "Bite issues that benefit from fixed bracket mechanics",
+        "Patients who prefer visible progress reviews over remote apps",
+        "Relapse after previous braces with movement best managed in-clinic",
+        "Anyone wanting guidance on whether braces or another pathway is safer"
+      ]
+    },
+    {
+      "instanceId": "orthodontics-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_orthodontics_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your orthodontic pathway",
+      "title": "From assessment to retainers",
+      "items": [
+        "Consultation, records, and treatment planning",
+        "Bracket bonding and first archwire fitted",
+        "Regular adjustment visits to progress movement",
+        "Comfort and hygiene reviews along the way",
+        "Detailing phase to fine-tune alignment",
+        "Debonding once movement is complete",
+        "Retention plan with bonded or removable retainers"
+      ],
+      "strapline": "Timelines vary by complexity; we outline a realistic range before treatment starts."
+    },
+    {
+      "instanceId": "orthodontics-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_orthodontics_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital planning with precise bracket systems",
+      "body": "We use scans or impressions to plan wire sequences, bracket positioning, and expected review points. Options include modern metal braces for efficiency and ceramic brackets for a lower-visual look where appropriate.",
+      "mediaHint": "Bracket positioning and wire planning"
+    },
+    {
+      "instanceId": "orthodontics-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_orthodontics_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Stay comfortable and protect your smile during treatment",
+      "items": [
+        "Mild pressure or rubbing after adjustments is common",
+        "Extra cleaning steps to manage plaque around brackets",
+        "Some foods may need to be avoided to protect wires",
+        "Report any loose brackets or rubbing wire ends promptly",
+        "Regular visits help us spot and manage issues early",
+        "Retainers are needed after braces to help prevent relapse"
+      ]
+    },
+    {
+      "instanceId": "orthodontics-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_orthodontics_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Orthodontic FAQs",
+      "title": "Answers before you commit",
+      "faqs": [
+        {
+          "question": "How long do fixed braces take?",
+          "answer": "Treatment length depends on your bite and the amount of movement needed. We share a projected range at your consultation and keep you updated at reviews."
+        },
+        {
+          "question": "Are there less visible options?",
+          "answer": "Ceramic brackets may be suitable for a lower-visual look. We’ll explain pros, limitations, and whether they fit your plan."
+        },
+        {
+          "question": "Do braces hurt?",
+          "answer": "You may feel tightness or rubbing after fittings or adjustments. Discomfort usually eases in a few days; we’ll share tips to stay comfortable."
+        },
+        {
+          "question": "Can I eat normally?",
+          "answer": "You can enjoy most foods, but we’ll advise on harder or sticky items that could damage brackets or wires. Softer options help right after adjustments."
+        },
+        {
+          "question": "How much do braces cost?",
+          "answer": "Fees vary with complexity, brace type, and visit frequency. We provide a clear estimate and payment options after assessing your case."
+        },
+        {
+          "question": "Why choose braces instead of aligners?",
+          "answer": "Fixed braces give the clinician more direct control over certain movements and don’t rely on long wear times. We’ll recommend the approach that best suits your teeth and lifestyle."
+        },
+        {
+          "question": "What if a bracket or wire comes loose?",
+          "answer": "Contact the clinic promptly. We’ll schedule a fix and guide you on temporary steps to stay comfortable until the visit."
+        },
+        {
+          "question": "Will I need retainers?",
+          "answer": "Yes. Retainers help keep your teeth stable after movement. We agree a retention plan and review it with you before braces come off."
+        }
+      ]
+    },
+    {
+      "instanceId": "orthodontics-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_orthodontics_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Ready to talk braces?",
+      "title": "Book a clinician-led orthodontic consult",
+      "body": "Meet the team, review whether fixed braces are right for you, and map a plan with clear steps before starting treatment.",
+      "ctas": [
+        { "label": "Book orthodontic consult", "href": "/contact", "preset": "primary" },
+        { "label": "Discuss brace options", "href": "/contact", "preset": "secondary" }
+      ]
+    }
+  ]
+}
