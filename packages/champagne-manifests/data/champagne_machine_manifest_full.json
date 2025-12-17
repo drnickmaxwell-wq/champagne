@@ -549,6 +549,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "implants_consultation": {
+      "id": "implants_consultation",
+      "label": "Implant consultation & planning in Shoreham-by-Sea",
+      "path": "/treatments/implant-consultation",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "implants_bone_grafting": {
       "id": "implants_bone_grafting",
       "label": "Bone grafting for dental implants",
