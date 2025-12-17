@@ -475,14 +475,20 @@
     },
     "implants_single_tooth": {
       "id": "implants_single_tooth",
-      "label": "Single tooth implant solutions",
+      "label": "Single-tooth dental implants in Shoreham-by-Sea",
       "path": "/treatments/implants-single-tooth",
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
       ],
       "surface": "champagne/surface/treatment"
     },
