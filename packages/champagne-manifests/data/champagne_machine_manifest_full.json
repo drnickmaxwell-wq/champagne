@@ -644,6 +644,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "implants_failed_replacement": {
+      "id": "implants_failed_replacement",
+      "label": "Failed implant replacement in Shoreham-by-Sea",
+      "path": "/treatments/failed-implant-replacement",
+      "category": "treatment",
+      "hero": "implants_variant_hero_v3",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.whatAreImplants" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "implants_aftercare": {
       "id": "implants_aftercare",
       "label": "Implant aftercare & recovery in Shoreham-by-Sea",
