@@ -1,0 +1,116 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "technology.3d-digital-dentistry",
+  "pageType": "technology",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "digital-dentistry-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_digital_dentistry_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Digital dentistry",
+      "title": "Clinician-led digital dentistry in Shoreham-by-Sea",
+      "body": "Every digital step stays under clinician oversight. We scan, plan, and fabricate with measured control so comfort, precision, and predictability stay aligned from consultation to fit.",
+      "bullets": [
+        "Intra-oral scanning replaces messy impressions for precise data",
+        "Planning led by the clinicians who deliver your treatment",
+        "In-house production keeps adjustments and remakes within reach",
+        "Clear visuals and checkpoints before any treatment begins"
+      ],
+      "ctas": [
+        { "label": "Explore digitally planned treatments", "href": "/treatments", "preset": "primary" },
+        { "label": "Book a digital consultation", "href": "/contact?topic=digital", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "digital-dentistry-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_digital_dentistry_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why our digital workflow is different",
+      "title": "Measured, in-house control from scan to finish",
+      "items": [
+        "Experienced clinicians guiding scans, planning, and material choice",
+        "On-site fabrication keeps timelines tight and quality consistent",
+        "Controlled workflows reduce remakes and late-stage surprises",
+        "Predictable outcomes with documented settings and review points"
+      ]
+    },
+    {
+      "instanceId": "digital-dentistry-scanning",
+      "componentId": "technology.digitalScanning",
+      "variantId": "shoreham_digital_scanning",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Digital scanning",
+      "title": "Intra-oral scans for comfort and accuracy",
+      "body": "We capture detailed scans without trays or putty, giving us precise models for planning. Real-time feedback helps us refine data at the chair so fittings and guides are built on solid information.",
+      "mediaHint": "Calm intra-oral scanning workflow"
+    },
+    {
+      "instanceId": "digital-dentistry-smile-design",
+      "componentId": "technology.digitalSmileDesign",
+      "variantId": "shoreham_digital_smile_design",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Digital smile design",
+      "title": "Preview options with collaborative planning",
+      "body": "Visual previews show how proposed changes align with your features. We discuss conservative options first, adjust shapes or movement together, and only proceed when the plan feels right clinically and aesthetically.",
+      "mediaHint": "Smile preview and planning controls"
+    },
+    {
+      "instanceId": "digital-dentistry-printing",
+      "componentId": "technology.inHouse3DPrinting",
+      "variantId": "shoreham_in_house_printing",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "In-house 3D printing",
+      "title": "Printed guides, provisionals, and protective appliances",
+      "body": "We print restorations, dentures, provisionals, and guards on-site using controlled settings. This shortens turnaround, enables same-day refinements, and keeps material choices aligned with your treatment plan.",
+      "mediaHint": "In-house 3D printing and finishing"
+    },
+    {
+      "instanceId": "digital-dentistry-hand-finish",
+      "componentId": "technology.handFinishedAesthetics",
+      "variantId": "shoreham_hand_finished_aesthetics",
+      "order": 60,
+      "seoRole": "primaryContent",
+      "eyebrow": "Hand-finished aesthetics",
+      "title": "Character and shading guided by clinicians",
+      "body": "Printed work is tinted and characterised by hand so gums and teeth look natural. Clinicians oversee shade, texture, and gingival detail to ensure every piece harmonises with your smile and bite.",
+      "mediaHint": "Hand-characterised gums and teeth"
+    },
+    {
+      "instanceId": "digital-dentistry-case-selection",
+      "componentId": "technology.caseSelection",
+      "variantId": "shoreham_case_selection",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Honest case selection",
+      "title": "Guidance on when printing or lab ceramics serve you best",
+      "items": [
+        "Printed guides, provisionals, and guards are ideal when precision and speed support care",
+        "Printed dentures and temporaries help us refine fit before commissioning final work",
+        "Complex cosmetic cases may still warrant lab-crafted ceramics for long-term polish",
+        "We recommend the approach that keeps your outcome stable, comfortable, and predictable"
+      ]
+    },
+    {
+      "instanceId": "digital-dentistry-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_digital_dentistry_cta",
+      "order": 80,
+      "seoRole": "cta",
+      "eyebrow": "Ready when you are",
+      "title": "Explore care planned with digital precision",
+      "body": "See how scanning, planning, and in-house fabrication keep your treatment predictable.",
+      "ctas": [
+        { "label": "Explore digitally planned treatments", "href": "/treatments", "preset": "primary" },
+        { "label": "Book a digital consultation", "href": "/contact?topic=digital", "preset": "secondary" }
+      ]
+    }
+  ]
+}

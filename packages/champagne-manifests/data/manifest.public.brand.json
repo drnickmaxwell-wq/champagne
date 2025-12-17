@@ -25,6 +25,7 @@
     { "slug": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/treatments/clear-aligners-spark", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/treatments/fixed-braces", "hero": "orthodontics_balanced_hero_v1", "category": "treatment" },
+    { "slug": "/technology/3d-digital-dentistry", "hero": "treatment_tech_focus_hero_v1", "category": "technology" },
     { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
     { "slug": "/about", "hero": "about_story_hero_v1", "category": "hub" },
     { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },
@@ -33,6 +34,7 @@
   "surfaces": {
     "hub": "champagne/surface/hub",
     "treatment": "champagne/surface/treatment",
+    "technology": "champagne/surface/hub",
     "editorial": "champagne/surface/editorial",
     "utility": "champagne/surface/utility",
     "legal": "champagne/surface/legal"

@@ -1259,6 +1259,24 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "technology_digital_dentistry": {
+      "id": "technology_digital_dentistry",
+      "label": "Digital dentistry & in-house fabrication",
+      "path": "/technology/3d-digital-dentistry",
+      "category": "technology",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "technology.digitalScanning" },
+        { "id": "technology.digitalSmileDesign" },
+        { "id": "technology.inHouse3DPrinting" },
+        { "id": "technology.handFinishedAesthetics" },
+        { "id": "technology.caseSelection" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/hub"
+    },
     "emergency_dentistry": {
       "id": "emergency_dentistry",
       "label": "Emergency dentistry",
