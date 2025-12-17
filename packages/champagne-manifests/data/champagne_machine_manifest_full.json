@@ -124,31 +124,21 @@
     },
     "veneers": {
       "id": "veneers",
-      "label": "Veneers",
+      "label": "Dental veneers in Shoreham-by-Sea",
       "path": "/treatments/veneers",
       "category": "treatment",
-      "hero": "veneers_gilded_hero_v2",
+      "hero": "treatment_neutral_hero_v1",
       "sections": [
-        {
-          "id": "veneers_intro",
-          "type": "copy-block"
-        },
-        {
-          "id": "process_steps",
-          "type": "steps"
-        },
-        {
-          "id": "smile_gallery_featured",
-          "type": "gallery"
-        },
-        {
-          "id": "pricing_assurance",
-          "type": "pricing"
-        },
-        {
-          "id": "cta_gold_bar",
-          "type": "cta"
-        }
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.technology" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1526,13 +1516,18 @@
     },
     "veneers": {
       "path": "/treatments/veneers",
-      "hero": "veneers_gilded_hero_v2",
+      "hero": "treatment_neutral_hero_v1",
       "sections": [
-        "veneers_intro",
-        "process_steps",
-        "smile_gallery_featured",
-        "pricing_assurance",
-        "cta_gold_bar"
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ]
     },
     "clear_aligners": {
