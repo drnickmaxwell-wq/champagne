@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.painless-numbing-the-wand",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "painless-wand-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_painless_wand_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Comfort dentistry",
+      "title": "Gentle numbing with The Wand",
+      "body": "Computer-assisted delivery keeps anaesthetic steady and precise, helping patients who dislike needles or pressure stay comfortable.",
+      "bullets": [
+        "Fine control to reduce sudden pressure",
+        "Mapped numbing around the treatment area",
+        "Useful for nervous patients or longer visits"
+      ],
+      "ctas": [
+        { "label": "Ask about The Wand", "href": "/contact?topic=comfort", "preset": "primary" },
+        { "label": "Discuss calming options", "href": "/contact?topic=anxiety", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "painless-wand-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_painless_wand_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients feel calmer",
+      "title": "Comfort-first numbing",
+      "items": [
+        "Computer-managed flow to keep delivery smooth",
+        "Thin, targeted tips to limit tissue stretch",
+        "Used alongside calm explanations and paced starts",
+        "Can pair with sedation discussions for suitable cases",
+        "Links to nervous patient guidance if you want extra support"
+      ]
+    },
+    {
+      "instanceId": "painless-wand-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_painless_wand_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What happens",
+      "title": "We plan comfort before treatment begins",
+      "body": "Your clinician will explain the process, where numbing is needed, and how The Wand keeps flow steady. We discuss your comfort preferences, including options for anxious patients or those with a strong gag reflex.",
+      "bullets": [
+        "Review treatment plan and where numbing is required",
+        "Talk through needle concerns and how we pace the start",
+        "Set expectations for pressure, taste, or warmth",
+        "Combine with other comfort support or sedation when suitable",
+        "Share what to do if you need emergency care before your visit"
+      ],
+      "mediaHint": "Computer-assisted numbing walkthrough"
+    },
+    {
+      "instanceId": "painless-wand-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_painless_wand_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who benefits",
+      "title": "Designed for patients who want gentle numbing",
+      "items": [
+        "Anyone anxious about injections or pressure",
+        "Patients with needle phobia or strong gag reflex",
+        "Those planning longer appointments who want predictable comfort",
+        "People combining care with mouth guards, restorative, or implant work",
+        "Patients who want clear communication before each step"
+      ]
+    },
+    {
+      "instanceId": "painless-wand-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_painless_wand_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "During your visit",
+      "title": "A calm start to treatment",
+      "items": [
+        "Comfort chat and plan for numbing",
+        "Topical preparation if appropriate",
+        "Slow, computer-controlled delivery with The Wand",
+        "Confirm numbness before treatment begins",
+        "Treatment carried out with check-ins",
+        "Aftercare guidance before you leave"
+      ],
+      "strapline": "We tailor timings to the procedure and check comfort before moving forward."
+    },
+    {
+      "instanceId": "painless-wand-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_painless_wand_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare",
+      "title": "What to expect once you’re numb",
+      "items": [
+        "Temporary numbness is normal—take care with hot drinks and biting",
+        "Mild tenderness can occur; we explain how to manage it",
+        "Tell us if sensation feels unusual or lingers longer than expected",
+        "Emergency dentistry support is available if you have concerns",
+        "We can discuss ongoing calming options for future visits"
+      ]
+    },
+    {
+      "instanceId": "painless-wand-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_painless_wand_faq",
+      "order": 70,
+      "seoRole": "faq",
+      "eyebrow": "The Wand FAQs",
+      "title": "Common comfort questions",
+      "faqs": [
+        {
+          "question": "How is The Wand different from a syringe?",
+          "answer": "It uses computer-controlled flow and slim tips to deliver anaesthetic steadily, reducing sudden pressure."
+        },
+        {
+          "question": "Will it make my appointment longer?",
+          "answer": "The start may be slower to prioritise comfort, but it’s planned into your appointment time."
+        },
+        {
+          "question": "Can it be combined with sedation?",
+          "answer": "Yes, when suitable. We discuss whether sedation dentistry or other calming support is appropriate first."
+        },
+        {
+          "question": "Is it safe for emergency visits?",
+          "answer": "Yes, we can use it in emergency care when time allows. You’ll still receive standard safety checks."
+        },
+        {
+          "question": "What if I still feel nervous?",
+          "answer": "Tell us. We can pause, adjust, or explore additional calming options, including referrals to nervous patient resources."
+        }
+      ]
+    },
+    {
+      "instanceId": "painless-wand-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_painless_wand_cta",
+      "order": 80,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Choose gentler numbing for your visit",
+      "body": "Book a comfort consult to see if The Wand or other calming options suit your treatment—whether routine care, restorative work, or implants.",
+      "ctas": [
+        { "label": "Ask about The Wand", "href": "/contact?topic=comfort", "preset": "primary" },
+        { "label": "Discuss calming options", "href": "/contact?topic=anxiety", "preset": "secondary" }
+      ]
+    }
+  ]
+}

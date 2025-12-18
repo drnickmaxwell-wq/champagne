@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.tmj-jaw-comfort",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "tmj-jaw-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_tmj_jaw_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "TMJ & jaw care",
+      "title": "Support for jaw pain, clenching, and TMJ symptoms",
+      "body": "We assess why your jaw feels tight, sore, or clicks, then plan care that could include bite guards, muscle relief, and referral when needed.",
+      "bullets": [
+        "Calm assessment of clenching, grinding, or jaw fatigue",
+        "Custom bite guards and self-care guidance",
+        "Referral pathways if imaging or specialist input is needed"
+      ],
+      "ctas": [
+        { "label": "Book a TMJ assessment", "href": "/contact?topic=tmj", "preset": "primary" },
+        { "label": "Ask about mouth guards", "href": "/contact?topic=mouth-guards", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "tmj-jaw-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_tmj_jaw_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust this approach",
+      "title": "Clinician-led and conservative first",
+      "items": [
+        "Assessment includes bite, muscle tenderness, and wear patterns",
+        "Jaw care planned around lifestyle, stress, and existing dental work",
+        "Night or day guard options reviewed with 3D mouth guard pathways",
+        "When symptoms suggest joint pathology, we coordinate imaging or specialist referral",
+        "Clear safety advice, including when to use emergency dentistry if pain escalates"
+      ]
+    },
+    {
+      "instanceId": "tmj-jaw-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_tmj_jaw_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What happens in clinic",
+      "title": "We listen, examine, and plan",
+      "body": "Your clinician will explore your symptoms—morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
+      "bullets": [
+        "Medical and dental history, including stress or sleep impacts",
+        "Examination of jaw range, clicks, tenderness, and tooth wear",
+        "Discuss contributing factors like clenching, grinding, or airway concerns",
+        "If needed, link to mouth guard options or restorative adjustments",
+        "Explain when specialist TMJ referral or imaging is advised"
+      ],
+      "mediaHint": "Jaw assessment and bite review"
+    },
+    {
+      "instanceId": "tmj-jaw-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_tmj_jaw_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who we help",
+      "title": "Patients experiencing jaw strain",
+      "items": [
+        "People who clench or grind with morning soreness or headaches",
+        "Patients with clicking joints or limited opening",
+        "Those noticing tooth wear, chipped edges, or muscle fatigue",
+        "Anyone whose jaw symptoms worsen during long treatments",
+        "Patients needing guidance before restorative or implant work"
+      ]
+    },
+    {
+      "instanceId": "tmj-jaw-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_tmj_jaw_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Treatment pathway",
+      "title": "Stepwise support for jaw comfort",
+      "items": [
+        "Initial consultation and symptom review",
+        "Bite and muscle assessment with photos or scans if needed",
+        "Discuss self-care, stretching, and habit changes",
+        "Plan for a custom guard or restorative adjustments if indicated",
+        "Follow-up to review comfort and fit",
+        "Escalate to imaging or specialist input if symptoms persist"
+      ],
+      "strapline": "Timelines vary; we keep you informed and align with any ongoing care such as implants or orthodontics."
+    },
+    {
+      "instanceId": "tmj-jaw-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_tmj_jaw_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Self-care & safety",
+      "title": "Protect your jaw day-to-day",
+      "items": [
+        "Follow exercises and warm compress guidance to ease muscles",
+        "Use custom guards as directed; bring them to reviews for adjustments",
+        "Maintain regular dental checks to monitor wear and bite",
+        "Seek emergency support if you experience jaw locking or sudden swelling",
+        "We’ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
+      ]
+    },
+    {
+      "instanceId": "tmj-jaw-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_tmj_jaw_faq",
+      "order": 70,
+      "seoRole": "faq",
+      "eyebrow": "TMJ FAQs",
+      "title": "Questions we often hear",
+      "faqs": [
+        {
+          "question": "Do I always need a night guard?",
+          "answer": "Not always. We only recommend a guard when it suits your symptoms and bite. Some cases respond well to self-care, stretching, or adjusting existing dental work."
+        },
+        {
+          "question": "Can jaw pain be linked to stress or sleep?",
+          "answer": "Yes. We explore lifestyle, breathing, and sleep factors. Support may include guards plus advice on habit changes and when to seek medical or physiotherapy input."
+        },
+        {
+          "question": "Will treatment affect other dental work?",
+          "answer": "We plan around your restorations, implants, or orthodontics. Guards and adjustments are tailored to protect existing work while easing symptoms."
+        },
+        {
+          "question": "When should I seek urgent help?",
+          "answer": "If your jaw locks, you can’t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
+        },
+        {
+          "question": "How long until I feel improvement?",
+          "answer": "Many patients notice changes after consistent self-care and guard use, but timelines vary. We review progress and adjust the plan if needed."
+        }
+      ]
+    },
+    {
+      "instanceId": "tmj-jaw-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_tmj_jaw_cta",
+      "order": 80,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan your TMJ care with a calm consult",
+      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We’ll coordinate with other care like mouth guards, implants, or orthodontics.",
+      "ctas": [
+        { "label": "Book a TMJ assessment", "href": "/contact?topic=tmj", "preset": "primary" },
+        { "label": "Ask about mouth guards", "href": "/contact?topic=mouth-guards", "preset": "secondary" }
+      ]
+    }
+  ]
+}
