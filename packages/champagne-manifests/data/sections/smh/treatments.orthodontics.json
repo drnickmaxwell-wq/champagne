@@ -60,6 +60,22 @@
       "mediaHint": "Fixed brace fitting and review"
     },
     {
+      "instanceId": "orthodontics-outcomes",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_orthodontics_outcomes",
+      "order": 35,
+      "seoRole": "supporting",
+      "eyebrow": "How orthodontic outcomes are planned",
+      "title": "Digital records, bite checks, and stability planning",
+      "items": [
+        "Full photos, scans, and radiographs to map starting positions",
+        "Bite assessment that considers jaw position, wear, and gum health",
+        "Planned sequencing that protects enamel and roots during movement",
+        "Space analysis before extractions or stripping are recommended",
+        "Retention and long-term stability discussed before you begin"
+      ]
+    },
+    {
       "instanceId": "orthodontics-who-for",
       "componentId": "treatment.whoIsItFor",
       "variantId": "shoreham_orthodontics_who_for",
@@ -95,6 +111,22 @@
       "strapline": "Timelines vary by complexity; we outline a realistic range before treatment starts."
     },
     {
+      "instanceId": "orthodontics-monitoring",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_orthodontics_monitoring",
+      "order": 55,
+      "seoRole": "supporting",
+      "eyebrow": "Monitoring & adjustments",
+      "title": "Predictable reviews with a plan if teeth don’t track",
+      "items": [
+        "Routine review intervals set at the start so you know your schedule",
+        "Wire changes and elastic guidance tailored to how your teeth respond",
+        "Comfort checks at every visit with quick repairs if a bracket loosens",
+        "If movement stalls, we rescan, replan, or resequence wires to get back on track",
+        "You’ll always know the next steps, costs, and timelines before changes are made"
+      ]
+    },
+    {
       "instanceId": "orthodontics-technology",
       "componentId": "treatment.technology",
       "variantId": "shoreham_orthodontics_technology",
@@ -120,6 +152,22 @@
         "Report any loose brackets or rubbing wire ends promptly",
         "Regular visits help us spot and manage issues early",
         "Retainers are needed after braces to help prevent relapse"
+      ]
+    },
+    {
+      "instanceId": "orthodontics-retention",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_orthodontics_retention",
+      "order": 72,
+      "seoRole": "supporting",
+      "eyebrow": "Retention matters",
+      "title": "Fixed and removable retainers with lifetime expectations",
+      "items": [
+        "Fixed retainers can be bonded behind front teeth when suitable",
+        "Removable retainers protect your result overnight—wear schedule agreed together",
+        "Expect to maintain retention long-term; we guide realistic upkeep",
+        "Replacement protocols explained so you know when to contact us",
+        "Retention reviews help catch early shifts before they become relapse"
       ]
     },
     {
@@ -166,16 +214,32 @@
       ]
     },
     {
+      "instanceId": "orthodontics-smile-planning",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_orthodontics_smile_planning",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "Orthodontics as part of smile planning",
+      "title": "Link tooth movement with whitening, bonding, or veneers",
+      "items": [
+        "Whitening can be timed once braces are off for an even shade (/treatments/teeth-whitening)",
+        "Composite bonding can refine symmetry after teeth are aligned (/treatments/composite-bonding)",
+        "Veneers or 3D printed veneers considered when porcelain coverage is safest (/treatments/veneers)",
+        "Digital Smile Design and smile makeover plans map how orthodontics supports the final look (/treatments/full-smile-makeover)",
+        "We explain sequencing so you know what happens before, during, and after braces"
+      ]
+    },
+    {
       "instanceId": "orthodontics-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_orthodontics_cta",
       "order": 90,
       "seoRole": "cta",
       "eyebrow": "Ready to talk braces?",
-      "title": "Book a clinician-led orthodontic consult",
-      "body": "Meet the team, review whether fixed braces are right for you, and map a plan with clear steps before starting treatment.",
+      "title": "Book an Orthodontic Assessment",
+      "body": "Meet the team, review whether fixed braces are right for you, and map a plan with clear steps, monitoring, and retention before starting treatment.",
       "ctas": [
-        { "label": "Book orthodontic consult", "href": "/contact", "preset": "primary" },
+        { "label": "Book an Orthodontic Assessment", "href": "/contact", "preset": "primary" },
         { "label": "Discuss brace options", "href": "/contact", "preset": "secondary" }
       ]
     },
