@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Clear Aligners",
       "title": "Clear aligners in Shoreham-by-Sea",
-      "body": "Discreet aligners that follow a clear, clinician-led plan so you can straighten with confidence and comfort.",
+      "body": "Discreet aligners that follow a clear, clinician-led plan so you can straighten with confidence and comfort, while we co-ordinate whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) when needed.",
       "bullets": [
         "Discreet, removable aligners",
         "Digital planning and progress checks",
@@ -48,7 +48,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "How clear aligners work",
       "title": "Gentle, staged movements mapped in advance",
-      "body": "Clear aligners use a series of custom trays to guide teeth into position. Each stage is planned digitally, so you know the expected movements, check-in cadence, and how to care for trays day to day.",
+      "body": "Clear aligners use a series of custom trays to guide teeth into position. Each stage is planned digitally, so you know the expected movements, check-in cadence, and how to care for trays day to day, with options to align shade through whitening (/treatments/teeth-whitening) or plan veneers (/treatments/veneers) once alignment is stable.",
       "bullets": [
         "Assessment and digital scan or impressions",
         "Treatment plan preview with expected movements",
@@ -177,6 +177,23 @@
       "ctas": [
         { "label": "Book consultation", "href": "/contact", "preset": "primary" },
         { "label": "Discuss options", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "clear-aligners-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_clear_aligners_related",
+      "order": 100,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Plan the full smile sequence",
+      "items": [
+        "Teeth whitening to set a balanced shade before refinements (/treatments/teeth-whitening)",
+        "Composite bonding for finishing edges after movement (/treatments/composite-bonding)",
+        "Veneers when porcelain coverage suits the goal (/treatments/veneers)",
+        "3D printed veneers as a reversible preview step (/treatments/3d-printed-veneers)",
+        "Digital Smile Design to map changes in advance (/treatments/digital-smile-design)",
+        "Full Smile Makeover pathways for complex aims (/treatments/full-smile-makeover)"
       ]
     }
   ]

@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Spark Clear Aligners",
       "title": "Spark clear aligners in Shoreham-by-Sea",
-      "body": "Clinician-led planning with digital scans, Spark materials, and calm progress checks so your smile stays comfortable and predictable.",
+      "body": "Clinician-led planning with digital scans, Spark materials, and calm progress checks so your smile stays comfortable and predictable, with whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) sequenced when appropriate.",
       "bullets": [
         "Detailed digital scans and photo records",
         "Clinician-led Spark treatment planning",
@@ -48,7 +48,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "How Spark clear aligners work",
       "title": "Discreet trays planned for comfort and predictability",
-      "body": "Spark aligners use gentle, staged trays to guide teeth into place. Each step is planned from your digital scans, so you understand expected movements, attachments, and how progress checks keep things on track.",
+      "body": "Spark aligners use gentle, staged trays to guide teeth into place. Each step is planned from your digital scans, so you understand expected movements, attachments, and how progress checks keep things on track, alongside plans for whitening (/treatments/teeth-whitening) or veneers (/treatments/veneers) if you want to refine shade and shape after movement.",
       "bullets": [
         "Clinician consultation with digital scans and photos",
         "Spark treatment plan preview with estimated stages",
@@ -173,6 +173,23 @@
       "ctas": [
         { "label": "Book an aligners consultation", "href": "/contact", "preset": "primary" },
         { "label": "Ask about Spark aligners", "href": "/contact?topic=aligners", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_spark_aligners_related",
+      "order": 100,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Link your Spark plan with wider cosmetic care",
+      "items": [
+        "Teeth whitening to align shade with new positions (/treatments/teeth-whitening)",
+        "Composite bonding to refine edges after alignment (/treatments/composite-bonding)",
+        "Veneers when porcelain coverage is the safer finish (/treatments/veneers)",
+        "3D printed veneers for reversible previews (/treatments/3d-printed-veneers)",
+        "Digital Smile Design to map changes before treatment (/treatments/digital-smile-design)",
+        "Full Smile Makeover planning for complex goals (/treatments/full-smile-makeover)"
       ]
     }
   ]
