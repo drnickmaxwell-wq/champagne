@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.cbct-3d-scanning",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "cbct-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_cbct_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "CBCT / 3D scanning",
+      "title": "3D dental scanning and CBCT",
+      "body": "High-resolution imaging that maps bone, roots, and airway anatomy so we can plan treatments safely and conservatively.",
+      "bullets": [
+        "Low-dose protocols tailored to your needs",
+        "Detailed visuals for implants and surgical planning",
+        "Intraoral scans for comfortable impressions",
+        "Shared results so you understand the plan"
+      ],
+      "ctas": [
+        { "label": "Book a scan appointment", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
+        { "label": "Ask about CBCT", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "cbct-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_cbct_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why it matters",
+      "title": "Diagnostic clarity guided by clinicians",
+      "items": [
+        "Clear visuals to plan implants, extractions, and orthodontics",
+        "Comfort-first intraoral scanning instead of putty impressions",
+        "Dose minimised and justified before we scan",
+        "Results reviewed with you so decisions are informed",
+        "Data shared with labs or specialists when appropriate"
+      ]
+    },
+    {
+      "instanceId": "cbct-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_cbct_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What it is",
+      "title": "3D imaging that supports precise dentistry",
+      "body": "CBCT scans and intraoral 3D scans create a detailed map of your teeth, bone, and soft tissue. They guide implants, surgical planning, airway assessments, and restorative work while keeping interventions conservative.",
+      "bullets": [
+        "Visualise bone height and nerve positions",
+        "Plan implant angles and restoration space",
+        "Assess impacted teeth or sinus proximity",
+        "Capture comfortable digital impressions",
+        "Share findings and next steps transparently"
+      ]
+    },
+    {
+      "instanceId": "cbct-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_cbct_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients needing detailed planning",
+      "items": [
+        "Implant patients needing accurate site assessment",
+        "People considering extractions or complex surgery",
+        "Orthodontic and airway assessments requiring 3D views",
+        "Patients preferring scan-based impressions",
+        "Cases where precise restorative space must be mapped"
+      ]
+    },
+    {
+      "instanceId": "cbct-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_cbct_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Clear steps from scan to plan",
+      "items": [
+        "Clinical justification and consent for imaging",
+        "Comfort-focused scan appointment",
+        "Data review with your clinician",
+        "Planning with digital models and reports",
+        "Sharing results with labs or specialists as needed",
+        "Next steps scheduled with timelines explained"
+      ],
+      "strapline": "We only scan when it benefits your care and explain every stage."
+    },
+    {
+      "instanceId": "cbct-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_cbct_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Calibrated CBCT and intraoral scanning",
+      "body": "Our imaging uses calibrated protocols to capture accurate data with minimal dose. Intraoral scans replace traditional impressions for comfort and precision."
+    },
+    {
+      "instanceId": "cbct-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_cbct_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Using your scan responsibly",
+      "items": [
+        "We justify scans and record indications",
+        "Data securely stored and shared when you agree",
+        "Follow-up visits scheduled based on findings",
+        "Advice on any interim care if we spot concerns",
+        "Guidance on when re-scans are or aren’t needed"
+      ]
+    },
+    {
+      "instanceId": "cbct-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_cbct_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "CBCT & 3D scan FAQs",
+      "title": "Safety, comfort, and next steps",
+      "faqs": [
+        {
+          "question": "Is the radiation dose high?",
+          "answer": "We use low-dose protocols and only scan when clinically justified. We will explain dose considerations before proceeding."
+        },
+        {
+          "question": "Will I feel anything during the scan?",
+          "answer": "CBCT is quick and non-invasive. Intraoral scans avoid putty impressions for better comfort."
+        },
+        {
+          "question": "Can I have the scan for my specialist?",
+          "answer": "Yes. We can securely share the data and reports with your wider care team as needed."
+        },
+        {
+          "question": "Do I always need both CBCT and intraoral scans?",
+          "answer": "Not always. We choose the imaging that best answers the clinical question and keep exposure minimal."
+        },
+        {
+          "question": "How soon will I know the results?",
+          "answer": "We review the findings with you and outline next steps promptly, often during the same visit."
+        }
+      ]
+    },
+    {
+      "instanceId": "cbct-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_cbct_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a 3D scan with clinician guidance",
+      "body": "Schedule a scan appointment to map your anatomy and plan treatment with clear, conservative steps.",
+      "ctas": [
+        { "label": "Book a scan", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
+        { "label": "Ask about CBCT", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,7 @@ async function resolveHeroDebug(searchParams?: Promise<PageSearchParams>) {
 const FAMILY_LABELS: Record<string, string> = {
   implants: "Implants",
   whitening: "Whitening",
-  "3d-tech": "3D & tech",
+  "3d-tech": "3D & digital dentistry",
   aligners: "Orthodontics & aligners",
   comfort: "Comfort & anxiety care",
   other: "More care options",

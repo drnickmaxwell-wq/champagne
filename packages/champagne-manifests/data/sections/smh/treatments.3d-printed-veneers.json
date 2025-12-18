@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.3d-printed-veneers",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "printed-veneers-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_printed_veneers_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "3D printed veneers",
+      "title": "3D printed veneers in Shoreham-by-Sea",
+      "body": "Digitally planned veneers that give you a cost-effective, conservative option when porcelain is not required immediately.",
+      "bullets": [
+        "Scans map veneer thickness and edge transitions",
+        "Mock-ups you can review before we finalise",
+        "Polishing passes planned for a natural sheen",
+        "Discussing when porcelain remains the gold standard"
+      ],
+      "ctas": [
+        { "label": "Book a veneer consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Request a digital preview", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_printed_veneers_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose this option",
+      "title": "Planned fit with clinician oversight",
+      "items": [
+        "Digital design keeps margins and contacts clean",
+        "Trial prints help confirm edge length and symmetry",
+        "Finishing guided by your bite and lip line",
+        "Clear guidance when to step up to porcelain",
+        "Regulated dental materials matched to their indication"
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_printed_veneers_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What they are",
+      "title": "Digitally produced veneers with guided finishing",
+      "body": "We design veneers from high-resolution scans, print test sets to check comfort and shade, and finish them under clinician direction. Porcelain remains the premium long-term choice, but printed veneers can be a modern, cost-effective step for suitable cases.",
+      "bullets": [
+        "Design informed by your current enamel and bite",
+        "Printed mock-ups for review before the final finish",
+        "Conservative adjustments to protect natural tooth",
+        "Material choices explained with durability expectations",
+        "Pathway to porcelain when it best serves longevity"
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_printed_veneers_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients seeking a staged or value-led veneer plan",
+      "items": [
+        "People wanting a previewable veneer option before porcelain",
+        "Cases where small shape or edge changes are needed",
+        "Patients balancing cost with short-to-mid-term goals",
+        "Those needing conservative enamel preservation",
+        "Patients who want digital check-ins before committing"
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_printed_veneers_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "From scan to refined finish",
+      "items": [
+        "Digital consultation and smile capture",
+        "Designing veneer thickness and edge curves",
+        "Printing and reviewing a mock set",
+        "Finishing and tinting to blend with natural teeth",
+        "Fit appointment with bite and comfort checks",
+        "Maintenance plan and upgrade options when ready"
+      ],
+      "strapline": "We outline when printed veneers are appropriate and when a ceramic route may be recommended."
+    },
+    {
+      "instanceId": "printed-veneers-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_printed_veneers_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Calibrated printing with clinician-led finishing",
+      "body": "Scans, digital smile design, and controlled printing keep contours consistent. Final shaping and polishing are overseen by the clinical team to protect enamel and comfort."
+    },
+    {
+      "instanceId": "printed-veneers-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_printed_veneers_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Caring for printed veneers",
+      "items": [
+        "Follow hygiene advice to protect margins and gums",
+        "Avoid very hard foods while edges settle",
+        "Attend review visits to monitor wear and fit",
+        "Understand when porcelain could be advised for longevity",
+        "Report any edge lifting or roughness for quick adjustment"
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_printed_veneers_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Printed veneer FAQs",
+      "title": "What to consider before choosing printed veneers",
+      "faqs": [
+        {
+          "question": "Are printed veneers permanent?",
+          "answer": "They can provide a stable result for suitable cases, but we will explain when porcelain remains the long-term standard and plan accordingly."
+        },
+        {
+          "question": "Can I review the look before committing?",
+          "answer": "Yes. We provide digital previews and can print a mock set so you can see length, symmetry, and shade before finalising."
+        },
+        {
+          "question": "What materials do you use?",
+          "answer": "We use regulated dental printing materials selected for the indication. We’ll explain wear expectations and maintenance needs."
+        },
+        {
+          "question": "Will my teeth need significant preparation?",
+          "answer": "We aim for conservative adjustments. Preparation is guided by digital plans so we preserve as much natural enamel as possible."
+        },
+        {
+          "question": "When would you recommend porcelain instead?",
+          "answer": "If you need maximum longevity, high-load durability, or specific translucency, porcelain may be preferred. We discuss this openly during planning."
+        }
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_printed_veneers_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "See if printed veneers suit your goals",
+      "body": "Book a calm consultation to review digital previews, materials, and whether a staged path to porcelain is right for you.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact?topic=veneers", "preset": "primary" },
+        { "label": "Ask about printed options", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    }
+  ]
+}

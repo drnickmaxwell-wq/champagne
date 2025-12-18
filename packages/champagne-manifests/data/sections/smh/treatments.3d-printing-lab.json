@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.3d-printing-lab",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "printing-lab-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_printing_lab_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "3D printing lab",
+      "title": "In-house 3D printing for restorative dentistry",
+      "body": "A clinician-led printing lab producing guides, provisionals, guards, and restorations with controlled materials and timelines.",
+      "bullets": [
+        "Scans feed directly into our print workflows",
+        "Trial prints for verification before final fit",
+        "Materials selected for their intended indications",
+        "Option to escalate to lab ceramics when required"
+      ],
+      "ctas": [
+        { "label": "Book a digital scan consult", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
+        { "label": "Ask about 3D printed options", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "printing-lab-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_printing_lab_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients value this",
+      "title": "Quality controlled, clinician directed",
+      "items": [
+        "Design and print decisions made chairside with you",
+        "Reduced remakes through test prints and checks",
+        "Material traceability and regulated indications",
+        "Faster turnaround while keeping fit standards high",
+        "Transparent advice when lab-made options are preferred"
+      ]
+    },
+    {
+      "instanceId": "printing-lab-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_printing_lab_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What we make",
+      "title": "Printed guides, provisionals, and protective devices",
+      "body": "Our in-house lab produces restorative guides, try-in veneers, implant provisionals, dentures, and mouth guards under clinician oversight. Porcelain and lab ceramics remain the standard when long-term aesthetics and wear demand it.",
+      "bullets": [
+        "Printed mock-ups for veneers and smile previews",
+        "Guides and provisionals for implant and restorative work",
+        "3D printed dentures with hand-finished detail",
+        "Digitally designed mouth guards",
+        "Clear pathways to lab ceramics where they serve best"
+      ]
+    },
+    {
+      "instanceId": "printing-lab-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_printing_lab_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients needing precise, timely printed solutions",
+      "items": [
+        "Those wanting digital previews before committing",
+        "Implant patients needing guided provisionals",
+        "People requiring fast-turnaround dentures or guards",
+        "Patients balancing cost with clinician-led quality",
+        "Anyone needing clarity on when to upgrade to ceramic"
+      ]
+    },
+    {
+      "instanceId": "printing-lab-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_printing_lab_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Scan, design, print, and fit",
+      "items": [
+        "Digital consultation and scan",
+        "Design review with material guidance",
+        "Printing and test fitting",
+        "Refinement and finishing under clinician direction",
+        "Fit appointment with bite and comfort checks",
+        "Maintenance plan and upgrade options when appropriate"
+      ],
+      "strapline": "We explain timelines upfront, including when external lab work is the better choice."
+    },
+    {
+      "instanceId": "printing-lab-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_printing_lab_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Integrated scan-to-print workflows",
+      "body": "Scans flow into design software and calibrated printers, with finishing guided by the clinical team to protect accuracy and comfort. Materials are chosen for the indication and verified before fit."
+    },
+    {
+      "instanceId": "printing-lab-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_printing_lab_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Keeping printed devices performing",
+      "items": [
+        "Cleaning guidance specific to each printed device",
+        "Bite checks where relevant to protect restorations",
+        "Material wear monitoring with clear replacement timelines",
+        "Advice on when to move to ceramic or metal alternatives",
+        "Rapid adjustments available if comfort changes"
+      ]
+    },
+    {
+      "instanceId": "printing-lab-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_printing_lab_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "3D printing lab FAQs",
+      "title": "Safety, materials, and suitability",
+      "faqs": [
+        {
+          "question": "Are printed devices as strong as lab ceramics?",
+          "answer": "Printed materials are selected for specific indications and can be very durable. For certain long-term aesthetic or high-load cases, lab ceramics may still be recommended."
+        },
+        {
+          "question": "How fast can items be produced?",
+          "answer": "In-house control shortens turnaround. We share expected timelines and confirm when external lab work is needed."
+        },
+        {
+          "question": "Do you keep records of the designs?",
+          "answer": "Yes. We store digital files so remakes or adjustments follow the original plan without guesswork."
+        },
+        {
+          "question": "What materials do you use?",
+          "answer": "We use regulated dental-grade resins and materials suitable for their intended use and explain maintenance requirements."
+        },
+        {
+          "question": "Can I upgrade later?",
+          "answer": "Absolutely. We outline when transitioning to ceramic or metal alternatives benefits longevity or aesthetics."
+        }
+      ]
+    },
+    {
+      "instanceId": "printing-lab-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_printing_lab_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "See what our 3D printing lab can make for you",
+      "body": "Book a digital consultation to review whether in-house printing, provisional work, or lab ceramics will best support your treatment.",
+      "ctas": [
+        { "label": "Book a digital scan", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
+        { "label": "Ask about printing", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    }
+  ]
+}
