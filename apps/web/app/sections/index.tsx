@@ -31,6 +31,9 @@ export const sectionComponentRegistry: SectionComponentRegistry = {
   section_faq: ({ section }) => <Section_FAQ section={toRegistryEntry(section)} />,
   section_contact_cta: ({ section }) => <Section_TreatmentClosingCTA section={toRegistryEntry(section)} />,
   "treatment.heroIntro": ({ section }) => <Section_TreatmentOverviewRich section={toRegistryEntry(section)} />,
+  "treatment.consultationOverview": ({ section }) => (
+    <Section_TreatmentOverviewRich section={toRegistryEntry(section)} />
+  ),
   "treatment.trustSignals": ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
   "treatment.whatAreImplants": ({ section }) => <Section_TreatmentMediaFeature section={toRegistryEntry(section)} />,
   "treatment.whoIsItFor": ({ section }) => <Section_FeatureList section={toRegistryEntry(section)} />,
