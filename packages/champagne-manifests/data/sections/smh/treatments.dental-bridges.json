@@ -1,0 +1,162 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-bridges",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "dental-bridges-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_dental_bridges_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Dental bridges",
+      "title": "Dental bridges in Shoreham-by-Sea",
+      "body": "Fixed replacements that span a gap using neighbouring teeth or implants for support. We only advise a bridge when the supporting teeth and gums are healthy enough to carry it long term.",
+      "bullets": [
+        "Careful assessment of bite, bone levels, and supporting teeth",
+        "Options across conventional, cantilever, and resin-bonded designs",
+        "Digital planning to balance fit, contact points, and cleaning access",
+        "Clear maintenance plan so the bridge remains comfortable"
+      ],
+      "ctas": [
+        { "label": "Arrange a bridge assessment", "href": "/contact", "preset": "primary" },
+        { "label": "Discuss tooth replacement options", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_dental_bridges_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "When we consider a bridge",
+      "title": "Stable neighbouring teeth and gum health come first",
+      "items": [
+        "Single or short spans where adjacent teeth are healthy and well-supported",
+        "Patients who prefer a fixed option over a removable denture",
+        "Cases where implants are unsuitable or deferred due to health or bone volume",
+        "Bite schemes that can be balanced without overloading the abutment teeth",
+        "Confirmed periodontal stability to protect the supporting teeth and bridge margins"
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental_bridges_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What a dental bridge is",
+      "title": "A fixed replacement anchored to neighbouring teeth or implants",
+      "body": "A bridge links one or more replacement teeth (pontics) to supporting teeth or implants on either side. We assess the strength, enamel quality, and gum levels of the abutment teeth and map the space to ensure the bridge will seat securely and be cleanable.",
+      "bullets": [
+        "Review of medical history, oral hygiene, and bite forces",
+        "X-rays and scans to check bone support and root health",
+        "Planning that respects speech, gum contour, and cleaning access",
+        "Discussion of material choices and how they suit your bite",
+        "Clear guidance on maintenance and review intervals"
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-types",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_dental_bridges_types",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Choosing the right bridge",
+      "title": "Designs matched to your teeth, gums, and bite",
+      "items": [
+        "Conventional bridges: full-coverage or onlay-style retainers on both sides when abutment teeth are strong and aligned",
+        "Cantilever bridges: used cautiously for small spans where one strong abutment can safely share the load",
+        "Resin-bonded / Maryland bridges: adhesive wings to a sound tooth when minimal preparation is preferred and bite forces are moderate",
+        "Implant-supported bridgework may be considered if natural abutments are unsuitable or would require aggressive preparation",
+        "If a bridge would overburden the teeth, we will discuss alternatives such as dental implants, dentures, or implant-retained dentures"
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_dental_bridges_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "How we plan and fit a bridge",
+      "title": "Measured steps to protect the supporting teeth",
+      "items": [
+        "Comprehensive exam with scans and bite assessment to confirm suitability",
+        "Discussion of options versus implants or dentures, including pros, limits, and maintenance",
+        "Conservative preparation or enamel conditioning on the supporting teeth where required",
+        "Digital impressions and photographs to guide the lab design and shade",
+        "Try-in or fit appointment with careful seating, contact checks, and occlusal adjustments",
+        "Review visit to confirm comfort, hygiene technique, and long-term care plan"
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-technology",
+      "componentId": "technology.digitalScanning",
+      "variantId": "smh_dental_bridges_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "Digital accuracy",
+      "title": "Scans that shape fit, bite, and hygiene access",
+      "body": "Intraoral scanning records the prepared teeth, opposing bite, and soft tissue profile. The data helps the lab design pontics with natural emergence profiles and retainers that seat smoothly, reducing chairside adjustments and protecting the gums.",
+      "mediaHint": "Digital scan for bridge design"
+    },
+    {
+      "instanceId": "dental-bridges-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_dental_bridges_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Longevity & maintenance",
+      "title": "Keeping the bridge and abutment teeth healthy",
+      "items": [
+        "Daily cleaning under the pontic with floss threaders or interdental brushes to protect the gums",
+        "Fluoride toothpaste and tailored hygiene advice to reduce decay risk around retainers",
+        "Avoiding excessive biting on hard foods while adapting to the new bridge",
+        "Regular reviews to monitor bite, margins, and the health of supporting teeth",
+        "If gum disease, mobility, or heavy grinding is present, we may advise strengthening the foundation first or consider implants instead"
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_dental_bridges_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Dental bridge FAQs",
+      "title": "Common questions about bridges",
+      "faqs": [
+        {
+          "question": "How long does a dental bridge last?",
+          "answer": "Longevity depends on the strength of the supporting teeth, gum health, and your cleaning routine. With good hygiene and routine reviews, bridges can serve reliably for many years; we outline the maintenance needed at each review."
+        },
+        {
+          "question": "When might an implant or denture be a better option?",
+          "answer": "If the neighbouring teeth are unrestored, lack support, or the gap is wide, a dental implant or implant-retained denture can avoid overloading them. We also compare removable dentures when flexibility or a non-preparation option is preferred."
+        },
+        {
+          "question": "Are cantilever or resin-bonded bridges safe?",
+          "answer": "They can be appropriate in carefully selected cases with light bite forces and strong enamel. Cantilevers are limited to short spans, and resin-bonded bridges need controlled moisture and monitoring. We will advise if a conventional bridge, crown support, or implant offers better stability."
+        },
+        {
+          "question": "Who is not suitable for a bridge?",
+          "answer": "Active gum disease, significant tooth mobility, short clinical crowns, or uncontrolled grinding reduce predictability. In these situations we stabilise the gums first or plan alternatives such as dental implants or implant-retained dentures before proceeding."
+        },
+        {
+          "question": "Do the supporting teeth need crowns?",
+          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge’s long-term stability."
+        }
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_dental_bridges_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan your fixed replacement with a calm review",
+      "body": "We will check whether a bridge is the safest option for your gap, or if alternatives such as dental crowns for supporting teeth, dental implants, dentures, or implant-retained dentures would serve you better."
+    }
+  ]
+}

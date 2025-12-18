@@ -838,6 +838,26 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "dental_bridges": {
+      "id": "dental_bridges",
+      "label": "Dental bridges",
+      "path": "/treatments/dental-bridges",
+      "description": "Fixed replacements for missing teeth planned with careful case selection and maintenance.",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "dental_crowns": {
       "id": "dental_crowns",
       "label": "Dental crowns",
