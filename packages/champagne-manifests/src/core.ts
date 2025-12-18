@@ -25,6 +25,15 @@ import sectionLayoutImplantSinusLift from "../data/sections/smh/treatments.impla
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
 import sectionLayoutFixedBraces from "../data/sections/smh/treatments.fixed-braces.json";
+import sectionLayout3DDigitalDentistry from "../data/sections/smh/treatments.3d-digital-dentistry.json";
+import sectionLayout3DMouthGuards from "../data/sections/smh/treatments.3d-mouth-guards.json";
+import sectionLayout3DPrintedDentures from "../data/sections/smh/treatments.3d-printed-dentures.json";
+import sectionLayout3DPrintedVeneers from "../data/sections/smh/treatments.3d-printed-veneers.json";
+import sectionLayout3DImplantRestorations from "../data/sections/smh/treatments.3d-implant-restorations.json";
+import sectionLayout3DPrintingLab from "../data/sections/smh/treatments.3d-printing-lab.json";
+import sectionLayoutDigitalSmileDesign from "../data/sections/smh/treatments.digital-smile-design.json";
+import sectionLayoutCbct3DScanning from "../data/sections/smh/treatments.cbct-3d-scanning.json";
+import sectionLayoutInlaysOnlays from "../data/sections/smh/treatments.inlays-onlays.json";
 import sectionLayoutOrthodontics from "../data/sections/smh/treatments.orthodontics.json";
 import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
 
@@ -276,6 +285,15 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutClearAligners as ChampagneSectionLayout,
   sectionLayoutSparkAligners as ChampagneSectionLayout,
   sectionLayoutAligners as ChampagneSectionLayout,
+  sectionLayout3DDigitalDentistry as ChampagneSectionLayout,
+  sectionLayout3DMouthGuards as ChampagneSectionLayout,
+  sectionLayout3DPrintedDentures as ChampagneSectionLayout,
+  sectionLayout3DPrintedVeneers as ChampagneSectionLayout,
+  sectionLayout3DImplantRestorations as ChampagneSectionLayout,
+  sectionLayout3DPrintingLab as ChampagneSectionLayout,
+  sectionLayoutDigitalSmileDesign as ChampagneSectionLayout,
+  sectionLayoutCbct3DScanning as ChampagneSectionLayout,
+  sectionLayoutInlaysOnlays as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
@@ -339,6 +357,11 @@ const sectionComponentTypeMap: Record<string, string> = {
   "treatment.whoIsItFor": "features",
   "treatment.processTimeline": "features",
   "treatment.technology": "treatment_media_feature",
+  "technology.digitalScanning": "treatment_media_feature",
+  "technology.digitalSmileDesign": "treatment_media_feature",
+  "technology.inHouse3DPrinting": "treatment_media_feature",
+  "technology.handFinishedAesthetics": "treatment_media_feature",
+  "technology.caseSelection": "features",
   "treatment.pricingFinance": "features",
   "treatment.aftercareRisks": "features",
   "treatment.faq": "treatment_faq_block",

@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.inlays-onlays",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "inlays-onlays-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_inlays_onlays_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Inlays & onlays",
+      "title": "Inlays and onlays in Shoreham-by-Sea",
+      "body": "Conservative restorations that reinforce weakened teeth with digitally planned margins and precise fit.",
+      "bullets": [
+        "Digital scans for accurate preparation guidance",
+        "Stronger alternative to large fillings",
+        "Designed for clean contacts and occlusion",
+        "Materials matched to the tooth and bite"
+      ],
+      "ctas": [
+        { "label": "Book an assessment", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about inlays & onlays", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "inlays-onlays-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_inlays_onlays_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose this approach",
+      "title": "Precision-led restorations",
+      "items": [
+        "Digital design keeps margins clean and well-sealed",
+        "Bite and contacts planned to protect neighbouring teeth",
+        "Materials selected for durability and aesthetics",
+        "Clear guidance on caring for the restoration",
+        "Calm, clinician-led appointments with clear timelines"
+      ]
+    },
+    {
+      "instanceId": "inlays-onlays-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_inlays_onlays_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What they are",
+      "title": "Reinforcement without removing healthy structure",
+      "body": "Inlays and onlays are custom restorations that sit within or over the biting surface of a tooth. They stabilise weakened areas while preserving more natural enamel than a full crown.",
+      "bullets": [
+        "Ideal for larger cavities where a filling may not hold",
+        "Designed to restore strength and shape",
+        "Custom-made to fit your bite and contact points",
+        "Bonded for stability and easier cleaning",
+        "Planned digitally for predictable seating"
+      ]
+    },
+    {
+      "instanceId": "inlays-onlays-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_inlays_onlays_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients needing strength without full crowns",
+      "items": [
+        "Teeth with large existing fillings that are breaking down",
+        "Cracked cusps needing reinforcement",
+        "Patients seeking conservative alternatives to crowns",
+        "Cases where precise contacts improve cleaning",
+        "Those wanting materials tailored to bite forces"
+      ]
+    },
+    {
+      "instanceId": "inlays-onlays-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_inlays_onlays_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "From assessment to precise fit",
+      "items": [
+        "Assessment and digital scan",
+        "Preparation with conservative shaping",
+        "Design of contacts and occlusion",
+        "Fabrication using the selected material",
+        "Try-in, fit, and bite checks",
+        "Finishing polish with care instructions"
+      ],
+      "strapline": "We share expected timelines upfront, including review visits."
+    },
+    {
+      "instanceId": "inlays-onlays-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_inlays_onlays_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital planning for cleaner margins",
+      "body": "Scans and design software guide the preparation and fabrication, helping us achieve accurate contacts and a stable bite with minimal chairside adjustment."
+    },
+    {
+      "instanceId": "inlays-onlays-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_inlays_onlays_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Protecting your restored tooth",
+      "items": [
+        "Good daily cleaning around the margins to protect gums",
+        "Avoid chewing very hard foods on the tooth while settling",
+        "Attend bite checks if sensitivity or high spots occur",
+        "Material choices explained, including wear expectations",
+        "Regular reviews to monitor the surrounding tooth"
+      ]
+    },
+    {
+      "instanceId": "inlays-onlays-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_inlays_onlays_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Inlay & onlay FAQs",
+      "title": "What to know before you proceed",
+      "faqs": [
+        {
+          "question": "How long do inlays and onlays last?",
+          "answer": "Longevity depends on bite forces, material, and hygiene. We select materials to match your needs and review the restoration at routine visits."
+        },
+        {
+          "question": "How do they differ from crowns?",
+          "answer": "Crowns cover the whole tooth; inlays and onlays reinforce only the needed areas, preserving more natural tooth when suitable."
+        },
+        {
+          "question": "Will I need numbing?",
+          "answer": "Most preparations are completed with local anaesthetic for comfort. We explain options before starting."
+        },
+        {
+          "question": "Can they be repaired?",
+          "answer": "Minor chips can sometimes be polished or repaired; significant damage may need a replacement. Digital files help us reproduce the fit accurately."
+        },
+        {
+          "question": "What materials do you use?",
+          "answer": "We recommend ceramics or high-strength composites based on bite forces, aesthetics, and the location of the tooth."
+        }
+      ]
+    },
+    {
+      "instanceId": "inlays-onlays-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_inlays_onlays_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Strengthen your tooth with a precise fit",
+      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we’d recommend.",
+      "ctas": [
+        { "label": "Book an assessment", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about options", "href": "/contact", "preset": "secondary" }
+      ]
+    }
+  ]
+}

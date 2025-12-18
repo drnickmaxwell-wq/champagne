@@ -25,6 +25,15 @@
     { "slug": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/treatments/clear-aligners-spark", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/treatments/fixed-braces", "hero": "orthodontics_balanced_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/inlays-onlays", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/3d-printed-dentures", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/3d-mouth-guards", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/3d-digital-dentistry", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/3d-printed-veneers", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/3d-implant-restorations", "hero": "implant_restorations_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/3d-printing-lab", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/digital-smile-design", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/cbct-3d-scanning", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
     { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
     { "slug": "/about", "hero": "about_story_hero_v1", "category": "hub" },
     { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },
@@ -33,6 +42,7 @@
   "surfaces": {
     "hub": "champagne/surface/hub",
     "treatment": "champagne/surface/treatment",
+    "technology": "champagne/surface/hub",
     "editorial": "champagne/surface/editorial",
     "utility": "champagne/surface/utility",
     "legal": "champagne/surface/legal"

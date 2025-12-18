@@ -48,14 +48,24 @@ export interface ChampagneTreatmentPage extends ChampagnePageManifest {
   slug: string;
 }
 
+const TREATMENT_PATH_PREFIXES = ["/treatments/"];
+
 function normalizeTreatmentPage(manifest: ChampagnePageManifest): ChampagneTreatmentPage | undefined {
   const path = manifest.path;
-  if (!path || !path.startsWith("/treatments/")) return undefined;
+  const isTreatmentPath = path && TREATMENT_PATH_PREFIXES.some((prefix) => path.startsWith(prefix));
+  const isTreatmentCategory = (manifest.category as string | undefined)?.toLowerCase() === "treatment";
+
+  if (!path || !isTreatmentPath || !isTreatmentCategory) return undefined;
+
+  const slug = path
+    .split("/")
+    .filter(Boolean)
+    .pop();
 
   return {
     ...manifest,
     path,
-    slug: path.replace("/treatments/", ""),
+    slug: slug ?? "",
   };
 }
 

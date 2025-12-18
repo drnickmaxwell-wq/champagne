@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.3d-implant-restorations",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "implant-restorations-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_implant_restorations_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "3D implant restorations",
+      "title": "3D planned implant restorations",
+      "body": "Digitally mapped crowns and bridges that align with your implant position, soft tissue, and bite for a calm, precise fit.",
+      "bullets": [
+        "Scans and CBCT data guide emergence profiles",
+        "Digital occlusion checks reduce chairside adjustments",
+        "Printed or milled restorations with clinician oversight",
+        "Porcelain still recommended when longevity demands it"
+      ],
+      "ctas": [
+        { "label": "Plan an implant restoration", "href": "/contact?topic=implants", "preset": "primary" },
+        { "label": "Preview your design", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "implant-restorations-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_implant_restorations_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose this",
+      "title": "Restorations built with clinical controls",
+      "items": [
+        "Design aligned to implant positioning and gum contours",
+        "Material guidance for strength and wear",
+        "Bite planning to protect neighbouring teeth",
+        "In-house fabrication options for predictable timelines",
+        "Honest advice when lab ceramics are the better fit"
+      ]
+    },
+    {
+      "instanceId": "implant-restorations-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_implant_restorations_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What it is",
+      "title": "Digital workflows for stable implant crowns and bridges",
+      "body": "We merge scans, CBCT data, and bite records to design implant restorations that follow your tissue profile and occlusion. Printing or milling is used according to the indication, with porcelain or lab ceramics recommended when they best support longevity.",
+      "bullets": [
+        "Emergence profiles shaped to your gumline",
+        "Contacts mapped to balance forces and hygiene",
+        "Materials chosen for strength, wear, and shade",
+        "Chairside adjustments planned before your fit visit",
+        "Clear maintenance guidance after placement"
+      ]
+    },
+    {
+      "instanceId": "implant-restorations-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_implant_restorations_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Implant patients wanting precision and predictability",
+      "items": [
+        "Single implant crowns needing precise contacts",
+        "Implant bridges that must balance load and hygiene",
+        "Patients preferring digital previews before seating",
+        "Those seeking in-house timelines with clinician oversight",
+        "People needing guidance on when lab ceramics are preferred"
+      ]
+    },
+    {
+      "instanceId": "implant-restorations-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_implant_restorations_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Plan, preview, fit, and review",
+      "items": [
+        "Consultation with scan and bite capture",
+        "Merging CBCT data where indicated",
+        "Digital design of contours and contacts",
+        "Printing or milling based on the treatment plan",
+        "Fit appointment with bite checks and finishing",
+        "Post-fit review and maintenance schedule"
+      ],
+      "strapline": "We explain timelines and when staged upgrades to ceramics might be recommended."
+    },
+    {
+      "instanceId": "implant-restorations-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_implant_restorations_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Scans, CBCT insight, and guided finishing",
+      "body": "We combine intraoral scans, CBCT imaging when indicated, and digital occlusion mapping to shape restorations before they reach the mouth. Materials are selected for their regulated indications and finished under clinician supervision."
+    },
+    {
+      "instanceId": "implant-restorations-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_implant_restorations_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Protecting your restoration",
+      "items": [
+        "Regular hygiene visits to keep tissues healthy",
+        "Bite checks to monitor contacts over time",
+        "Night guard advice when grinding risk is present",
+        "Material-specific care to protect surfaces",
+        "Clear escalation path if chips or wear appear"
+      ]
+    },
+    {
+      "instanceId": "implant-restorations-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_implant_restorations_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Implant restoration FAQs",
+      "title": "Planning, fit, and materials",
+      "faqs": [
+        {
+          "question": "Can I see the design before it is made?",
+          "answer": "Yes. We share digital previews and, where useful, printed mock-ups so you can understand contours and contacts."
+        },
+        {
+          "question": "Do you always print these restorations?",
+          "answer": "We select printing, milling, or lab ceramics based on strength, aesthetics, and your long-term needs. Porcelain or hybrid ceramics may be recommended for higher-load cases."
+        },
+        {
+          "question": "How do you check the bite?",
+          "answer": "We map contacts digitally and verify them at the fit appointment, making measured refinements to protect the implant and surrounding teeth."
+        },
+        {
+          "question": "What follow-up is needed?",
+          "answer": "You’ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
+        },
+        {
+          "question": "Are the materials regulated?",
+          "answer": "Yes. We use regulated dental materials selected for their intended indications and explain their maintenance and lifespan."
+        }
+      ]
+    },
+    {
+      "instanceId": "implant-restorations-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_implant_restorations_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan your implant restoration with clarity",
+      "body": "Book a consultation to review digital designs, material choices, and whether in-house or lab-made options best suit your long-term goals.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact?topic=implants", "preset": "primary" },
+        { "label": "Ask about materials", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    }
+  ]
+}

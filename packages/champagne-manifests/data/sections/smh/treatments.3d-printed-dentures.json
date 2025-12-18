@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.3d-printed-dentures",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "3d-printed-dentures-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_3d_printed_dentures_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "3D printed dentures",
+      "title": "3D printed dentures in Shoreham-by-Sea",
+      "body": "Digitally designed dentures with controlled fit, gum characterisation, and faster turnaround from our in-house lab.",
+      "bullets": [
+        "Digital scans for accurate impressions",
+        "In-house printing for quicker iterations",
+        "Gum tinting and characterisation available",
+        "Clinician-led fit and occlusion checks"
+      ],
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about 3D printing", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "3d-printed-dentures-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_3d_printed_dentures_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose our digital dentures",
+      "title": "Comfort, fit, and clinical oversight",
+      "items": [
+        "Scans replace most physical impressions for comfort",
+        "Multiple try-in stages planned to refine bite",
+        "In-house printing reduces remakes and wait times",
+        "Gum shading and surface character can be personalised",
+        "Clear guidance on maintenance and relines"
+      ]
+    },
+    {
+      "instanceId": "3d-printed-dentures-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_3d_printed_dentures_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What they are",
+      "title": "Digitally planned dentures with faster feedback loops",
+      "body": "3D printed dentures use digital scans and design software to map tooth position, bite, and gum contour. The digital file lets us adjust fit and aesthetics quickly while keeping the treating clinician in control.",
+      "bullets": [
+        "Scanned records replace most impressions",
+        "Design preview for tooth position and smile",
+        "Try-ins to refine comfort and occlusion",
+        "Printed bases and teeth with gum characterisation",
+        "Adjustments and relines supported by stored files"
+      ]
+    },
+    {
+      "instanceId": "3d-printed-dentures-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_3d_printed_dentures_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients needing stability and a predictable fit",
+      "items": [
+        "New denture wearers wanting a calmer, scan-led process",
+        "Existing denture wearers seeking better retention or comfort",
+        "Patients needing quicker replacements without compromising fit",
+        "Those interested in personalised gum tinting",
+        "People who value clear maintenance plans"
+      ]
+    },
+    {
+      "instanceId": "3d-printed-dentures-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_3d_printed_dentures_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Digitally staged from scan to fit",
+      "items": [
+        "Consultation and digital scan",
+        "Design preview for bite and smile position",
+        "Try-in or printed prototype for comfort checks",
+        "Final denture printed with gum characterisation",
+        "Fit appointment with occlusion and pressure checks",
+        "Follow-up for relines or refinements as needed"
+      ],
+      "strapline": "We outline timelines and review points before we begin."
+    },
+    {
+      "instanceId": "3d-printed-dentures-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_3d_printed_dentures_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Scans, design software, and calibrated printers",
+      "body": "High-accuracy scanners and calibrated printers help us achieve consistent fit and colour. Designs stay on file so adjustments or remakes are efficient and clinician-reviewed."
+    },
+    {
+      "instanceId": "3d-printed-dentures-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_3d_printed_dentures_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Keeping your dentures stable",
+      "items": [
+        "Cleaning guidance to protect the printed surfaces",
+        "Reline and review schedule explained upfront",
+        "Bite and pressure points checked after settling",
+        "Materials discussed, including when a lab-made option is advised",
+        "Storage and handling tips to avoid warping"
+      ]
+    },
+    {
+      "instanceId": "3d-printed-dentures-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_3d_printed_dentures_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Denture FAQs",
+      "title": "Clarity before you proceed",
+      "faqs": [
+        {
+          "question": "How fast can 3D printed dentures be made?",
+          "answer": "Turnaround is typically faster than traditional methods because scanning and in-house printing reduce lab transit. We confirm timelines after your assessment."
+        },
+        {
+          "question": "Will they feel different to traditional dentures?",
+          "answer": "Digital design aims for improved comfort and retention. We plan try-ins and adjustments to ensure the fit is right for you."
+        },
+        {
+          "question": "Can colours be customised?",
+          "answer": "Yes. We offer gum characterisation and tooth shades guided by your clinician to keep results natural."
+        },
+        {
+          "question": "What if I need a reline or repair?",
+          "answer": "Stored digital files let us reprint or adjust efficiently, with the clinician checking bite and pressure points to avoid repeating issues."
+        },
+        {
+          "question": "Are printed dentures right for everyone?",
+          "answer": "Not always. We’ll advise if a different material or lab-made option is more appropriate based on your bite, bone support, and aesthetic goals."
+        }
+      ]
+    },
+    {
+      "instanceId": "3d-printed-dentures-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_3d_printed_dentures_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan digital dentures with clinician oversight",
+      "body": "Book a consultation to see how digital scanning and in-house printing could support a comfortable, stable denture fit.",
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about 3D printing", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    }
+  ]
+}

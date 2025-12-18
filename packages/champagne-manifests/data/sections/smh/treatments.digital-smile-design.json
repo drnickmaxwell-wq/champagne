@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.digital-smile-design",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "dsd-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_dsd_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Digital smile design",
+      "title": "Digital smile design in Shoreham-by-Sea",
+      "body": "See planned changes before treatment. We use scans and photography to build a preview you can review calmly with your clinician.",
+      "bullets": [
+        "Scans and photos mapped into a 3D preview",
+        "Collaborative adjustments before any clinical work",
+        "Guidance on conservative and staged options",
+        "Clear next steps for printed or ceramic outcomes"
+      ],
+      "ctas": [
+        { "label": "Book a digital design consult", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
+        { "label": "Ask about smile previews", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "dsd-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_dsd_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose this",
+      "title": "Transparent planning with clinician oversight",
+      "items": [
+        "Review your potential smile before treatment starts",
+        "Understand when conservative steps are best",
+        "Digital checkpoints reduce surprises",
+        "Options for printed mock-ups before committing",
+        "Clear advice if porcelain or lab ceramics suit you better"
+      ]
+    },
+    {
+      "instanceId": "dsd-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dsd_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What it is",
+      "title": "A preview-driven planning session",
+      "body": "We capture scans, photos, and bite data to create a 3D design that shows possible changes to tooth shape, position, and shade. You can review options, including cost-effective printed steps or definitive porcelain plans.",
+      "bullets": [
+        "Scans and photography combined for accuracy",
+        "Design adjustments made with you present",
+        "Printed try-ins available for tangible review",
+        "Conservative guidance to protect healthy tooth",
+        "Clear pathway to the right material for longevity"
+      ]
+    },
+    {
+      "instanceId": "dsd-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_dsd_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients wanting clarity before treatment",
+      "items": [
+        "People considering veneers or bonding who want a preview",
+        "Patients exploring 3D printed options before porcelain",
+        "Those seeking conservative adjustments with guidance",
+        "Implant or denture patients wanting to see contours",
+        "Anyone needing cost and timeline clarity upfront"
+      ]
+    },
+    {
+      "instanceId": "dsd-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_dsd_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "From scan to informed plan",
+      "items": [
+        "Consultation with scan and photos",
+        "Smile design built from your data",
+        "Review session to adjust proportions",
+        "Optional printed mock-up for fit and feel",
+        "Treatment roadmap with staged options",
+        "Follow-up to finalise material choices"
+      ],
+      "strapline": "You’ll know whether printed, composite, or porcelain options best suit your aims before committing."
+    },
+    {
+      "instanceId": "dsd-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_dsd_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Scan-based design with clinician controls",
+      "body": "We use calibrated photography, intraoral scans, and design software to produce accurate previews. This keeps subsequent printing or ceramic work aligned to the agreed plan."
+    },
+    {
+      "instanceId": "dsd-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_dsd_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Planning that respects long-term health",
+      "items": [
+        "Designs favour conservative tooth changes",
+        "We’ll flag when gum health needs support first",
+        "Advice on maintenance for printed or ceramic routes",
+        "Bite checks if we move forward with appliances",
+        "Clear escalation plan if goals change"
+      ]
+    },
+    {
+      "instanceId": "dsd-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_dsd_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Digital smile design FAQs",
+      "title": "Previewing and choosing your plan",
+      "faqs": [
+        {
+          "question": "Will this lock me into a treatment?",
+          "answer": "No. It is a planning tool. We’ll outline options from conservative polishing to printed steps or porcelain, with pros and cons for each."
+        },
+        {
+          "question": "Can I try a physical mock-up?",
+          "answer": "Yes. We can print a try-in so you can feel contours and discuss refinements before any definitive work."
+        },
+        {
+          "question": "Does this work for implants or dentures?",
+          "answer": "It helps visualise implant restorations and denture shapes. We’ll still explain when lab ceramics or metal frameworks are required for durability."
+        },
+        {
+          "question": "How accurate is the preview?",
+          "answer": "It is based on your scans and photos. Final outcomes depend on chosen materials and clinical considerations, which we’ll review together."
+        },
+        {
+          "question": "What happens after the design?",
+          "answer": "You’ll receive a clear roadmap with timings, material recommendations, and fees so you can decide at your own pace."
+        }
+      ]
+    },
+    {
+      "instanceId": "dsd-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_dsd_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Start with a digital smile preview",
+      "body": "Book a calm design consultation to see your options before any treatment, with clear guidance on printed and porcelain pathways.",
+      "ctas": [
+        { "label": "Book a design session", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
+        { "label": "Ask about mock-ups", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+      ]
+    }
+  ]
+}

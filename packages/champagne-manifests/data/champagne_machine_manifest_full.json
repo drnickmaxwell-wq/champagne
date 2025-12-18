@@ -613,199 +613,39 @@
     },
     "3d_implant_restorations": {
       "id": "3d_implant_restorations",
-      "label": "3D implant restorations (IBEX high-tech)",
+      "label": "3D implant restorations",
       "path": "/treatments/3d-implant-restorations",
       "category": "treatment",
       "hero": "implant_restorations_hero_v1",
       "sections": [
-        {
-          "id": "implant_restorations_overview_rich",
-          "type": "treatment_overview_rich",
-          "title": "Digital precision for implant restorations",
-          "copy": "Scans, design, and milling stay connected so implant crowns and bridges land with a comfortable fit.",
-          "bullets": [
-            "3D planning keeps emergence profiles and bite contacts aligned",
-            "Chairside adjustments guided by live occlusion data",
-            "Surfaces finished to match surrounding enamel"
-          ]
-        },
-        {
-          "id": "implant_restorations_media_feature",
-          "type": "treatment_media_feature",
-          "label": "Restoration preview",
-          "title": "Visualise the restoration before it’s seated",
-          "copy": "A digital mock-up shows contours and bite points so you can sign off on the shape ahead of fitting.",
-          "mediaHint": "3D restoration canvas"
-        },
-        {
-          "id": "implant_restorations_tools_trio",
-          "type": "treatment_tools_trio",
-          "label": "Tech stack",
-          "title": "Tools that keep fit and finish consistent",
-          "copy": "Each stage uses guided workflows to keep the implant restoration precise and comfortable.",
-          "items": [
-            {
-              "title": "Intraoral scanning",
-              "description": "Captures soft tissue contours so the restoration blends with the gumline."
-            },
-            {
-              "title": "Digital occlusion check",
-              "description": "Maps contact points to balance force before the final seat."
-            },
-            {
-              "title": "High-accuracy milling",
-              "description": "Produces smooth margins and polish-ready surfaces for a natural finish."
-            }
-          ]
-        },
-        {
-          "id": "implant_restorations_clinician_insight",
-          "type": "clinician_insight",
-          "label": "Clinician insight",
-          "quote": "A clean digital chain from scan to seat means fewer chairside tweaks and a restoration that feels settled quickly.",
-          "attribution": "Clinical team",
-          "role": "Implant restorative"
-        },
-        {
-          "id": "implant_restorations_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Comfort-first implant restorations",
-          "stories": [
-            { "summary": "Previewed a bridge design digitally before fitting.", "name": "Case A" },
-            { "summary": "Balanced bite contacts on-screen to reduce adjustments.", "name": "Case B" },
-            { "summary": "Matched crown texture to neighbouring enamel for a blended finish.", "name": "Case C" }
-          ]
-        },
-        {
-          "id": "implant_restorations_faq",
-          "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "Implant restoration questions",
-          "faqs": [
-            {
-              "question": "How is the restoration planned?",
-              "answer": "We align scans, implant position, and bite data to shape the crown or bridge before milling."
-            },
-            {
-              "question": "Can I review the design?",
-              "answer": "Yes, we share a visual preview so contours and contacts are clear before the appointment."
-            },
-            {
-              "question": "What happens on fit day?",
-              "answer": "We check comfort, polish margins, and confirm the bite using the digital map."
-            }
-          ]
-        },
-        {
-          "id": "implant_restorations_closing_cta",
-          "type": "treatment_closing_cta",
-          "title": "Ready to plan your restoration?",
-          "strapline": "Book a visit or request a digital preview of your implant restoration.",
-          "ctas": [
-            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "See a digital preview", "href": "/treatments/digital-smile-design", "preset": "secondary" }
-          ]
-        }
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
     "3d_printed_veneers": {
       "id": "3d_printed_veneers",
-      "label": "3D printed veneers (IBEX high-tech)",
+      "label": "3D printed veneers",
       "path": "/treatments/3d-printed-veneers",
       "category": "treatment",
       "hero": "printed_veneers_hero_v1",
       "sections": [
-        {
-          "id": "printed_veneers_overview_rich",
-          "type": "treatment_overview_rich",
-          "title": "3D printed veneers with digital fit",
-          "copy": "Layered prints and guided finishing help veneers sit comfortably while staying true to your smile line.",
-          "bullets": [
-            "Scans inform veneer thickness and edge curves",
-            "Trial fit visuals before we finalise gloss",
-            "Finish passes mapped to keep a natural sheen"
-          ]
-        },
-        {
-          "id": "printed_veneers_media_feature",
-          "type": "treatment_media_feature",
-          "label": "3D smile preview",
-          "title": "Preview veneer contours on-screen",
-          "copy": "See edge symmetry, translucency, and length on the Champagne canvas before we print the final set.",
-          "mediaHint": "3D smile preview surface"
-        },
-        {
-          "id": "printed_veneers_tools_trio",
-          "type": "treatment_tools_trio",
-          "label": "Fabrication tools",
-          "title": "Tech that keeps veneers precise",
-          "copy": "From scan to polish, each step is mapped to preserve detail and comfort.",
-          "items": [
-            {
-              "title": "High-resolution scanning",
-              "description": "Captures enamel texture so veneer edges land softly."
-            },
-            {
-              "title": "Printed mock-ups",
-              "description": "Allows a test fit to confirm length and contour before final glaze."
-            },
-            {
-              "title": "Guided finishing",
-              "description": "Polishing maps keep the surface uniform and natural."
-            }
-          ]
-        },
-        {
-          "id": "printed_veneers_clinician_insight",
-          "type": "clinician_insight",
-          "label": "Clinician insight",
-          "quote": "Printed veneers let us iterate digitally, so by the time we seat them the fit and finish feel intentional.",
-          "attribution": "Clinical team",
-          "role": "Cosmetic dentistry"
-        },
-        {
-          "id": "printed_veneers_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Veneer journeys",
-          "stories": [
-            { "summary": "Test-fit a printed set to align edge heights before finalising.", "name": "Case D" },
-            { "summary": "Adjusted translucency after reviewing the digital mock-up.", "name": "Case E" },
-            { "summary": "Matched incisal curves to a scanned reference for a soft finish.", "name": "Case F" }
-          ]
-        },
-        {
-          "id": "printed_veneers_faq",
-          "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "3D printed veneer questions",
-          "faqs": [
-            {
-              "question": "How are the veneers planned?",
-              "answer": "We build them from scans and adjust contour, texture, and brightness before printing."
-            },
-            {
-              "question": "Can I see the design before printing?",
-              "answer": "Yes, we share a 3D preview and can print a mock set for review."
-            },
-            {
-              "question": "What is the finish like?",
-              "answer": "Guided polishing keeps the surface smooth while respecting natural translucency."
-            }
-          ]
-        },
-        {
-          "id": "printed_veneers_closing_cta",
-          "type": "treatment_closing_cta",
-          "title": "Explore 3D printed veneers",
-          "strapline": "Schedule a consult or request a digital preview of your veneer plan.",
-          "ctas": [
-            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "Preview a mock-up", "href": "/treatments/digital-smile-design", "preset": "secondary" }
-          ]
-        }
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1259,6 +1099,25 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "technology_digital_dentistry": {
+      "id": "technology_digital_dentistry",
+      "label": "3D & digital dentistry",
+      "path": "/treatments/3d-digital-dentistry",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "emergency_dentistry": {
       "id": "emergency_dentistry",
       "label": "Emergency dentistry",
@@ -1276,7 +1135,7 @@
       "id": "3d_dentistry_and_technology",
       "label": "3D dentistry & technology",
       "path": "/treatments/3d-dentistry-and-technology",
-      "category": "treatment",
+      "category": "technology",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
         "treatment_overview_copy",
@@ -1287,14 +1146,20 @@
     },
     "cbct_3d_scanning": {
       "id": "cbct_3d_scanning",
-      "label": "CBCT & 3D scanning",
+      "label": "CBCT / 3D scanning",
       "path": "/treatments/cbct-3d-scanning",
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1305,9 +1170,15 @@
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1318,9 +1189,72 @@
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "inlays_onlays": {
+      "id": "inlays_onlays",
+      "label": "Inlays & onlays",
+      "path": "/treatments/inlays-onlays",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_dentures_3d": {
+      "id": "printed_dentures_3d",
+      "label": "3D printed dentures",
+      "path": "/treatments/3d-printed-dentures",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "mouth_guards_3d": {
+      "id": "mouth_guards_3d",
+      "label": "3D mouth guards",
+      "path": "/treatments/3d-mouth-guards",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
