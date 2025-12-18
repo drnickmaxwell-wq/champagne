@@ -30,14 +30,14 @@
       "variantId": "smh_childrens_dentistry_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why families choose us",
-      "title": "Calm, prevention-first care for young patients",
+      "eyebrow": "Why children’s dentistry matters",
+      "title": "Prevention and calm visits protect growing smiles",
       "items": [
-        "Regular dentists and hygienists who explain each step in child-friendly language",
-        "Tell-show-do with choices like sitting in the chair or on a parent’s lap for the first visit",
-        "Flexible pacing — shorter appointments and breaks if a child is nervous",
-        "Evidence-based fluoride and diet advice with practical handouts",
-        "Clear guidance for knocks, chips, or sore first molars so you know when to call"
+        "Gentle monitoring helps spot issues with first molars, enamel, or bite before they cause pain",
+        "Early decay control with fluoride varnish, diet tweaks, and brushing support at home",
+        "Habits guidance for thumb sucking, bottles at bedtime, or nail biting to protect new teeth",
+        "Clear advice on trauma and chips so parents know when to call and how to store fragments",
+        "Positive visits that build confidence for future orthodontic checks if they’re needed"
       ]
     },
     {
@@ -99,7 +99,7 @@
       "variantId": "smh_childrens_dentistry_timeline",
       "order": 60,
       "seoRole": "primaryContent",
-      "eyebrow": "Visit flow",
+      "eyebrow": "What parents can expect",
       "title": "Steady steps that build confidence",
       "items": [
         "Welcome and tell-show-do to familiarise your child with the room",
@@ -118,9 +118,9 @@
       "variantId": "smh_childrens_dentistry_technology",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Comfort and reassurance",
+      "eyebrow": "Nervous or anxious children",
       "title": "Tools and pacing designed for younger patients",
-      "body": "We use small instruments, topical numbing gels when needed, and calm language to keep visits comfortable. Parents are kept involved so children know what to expect and feel safe."
+      "body": "Tell-show-do, short appointments, and positive framing help worried children settle in. We use small instruments, topical numbing gels when needed, and keep parents close so everything feels safe and predictable."
     },
     {
       "instanceId": "childrens-dentistry-aftercare",
