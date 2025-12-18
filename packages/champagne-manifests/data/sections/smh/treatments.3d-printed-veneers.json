@@ -58,6 +58,25 @@
       ]
     },
     {
+      "instanceId": "printed-veneers-planning",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_printed_veneers_planning",
+      "order": 35,
+      "seoRole": "primaryContent",
+      "eyebrow": "How veneers are planned",
+      "title": "Digital smile design with face-driven previews",
+      "body": "Intraoral scanning, calibrated photographs, and Digital Smile Design guide printed veneer contours so they follow your lips, speech, and bite. Trial smiles help confirm the plan before any enamel changes.",
+      "bullets": [
+        "Intraoral scans map enamel thickness, contacts, and occlusion",
+        "Digital Smile Design aligned to your facial midline and smile curve (/treatments/digital-smile-design)",
+        "Face-driven aesthetics to balance gum levels, phonetics, and tooth proportions",
+        "3D printed trial smiles or mock-ups to review length and edge position",
+        "Shade planning coordinated with whitening hub steps when appropriate (/treatments/teeth-whitening)",
+        "Alternatives like composite bonding for limited refinements when more conservative (/treatments/composite-bonding)"
+      ],
+      "mediaHint": "Digital smile design and trial smile workflow"
+    },
+    {
       "instanceId": "printed-veneers-who",
       "componentId": "treatment.whoIsItFor",
       "variantId": "smh_printed_veneers_who",
@@ -74,6 +93,23 @@
       ]
     },
     {
+      "instanceId": "printed-veneers-comparison",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_printed_veneers_comparison",
+      "order": 45,
+      "seoRole": "primaryContent",
+      "eyebrow": "Porcelain veneers vs digitally designed / 3D printed veneers",
+      "title": "Match the material to how long you want it to last",
+      "items": [
+        "Longevity: printed veneers support short-to-mid-term plans; porcelain remains the benchmark for long-term wear.",
+        "Cost: printed options are the most affordable entry point; porcelain reflects handcrafted lab work and durability.",
+        "Repairability: printed resins can often be repolished or reprinted; porcelain typically needs remaking if a major chip occurs.",
+        "Thickness: both are conservative; porcelain can be ultra-thin while printed veneers may need modest thickness for strength.",
+        "Aesthetic ceiling: porcelain delivers the highest translucency and texture; printed veneers provide a natural, precise upgrade with a satin finish.",
+        "Best suited: printed for previews, staged journeys, or budget-conscious choices; porcelain for enduring outcomes or when planning a full smile makeover (/treatments/full-smile-makeover)."
+      ]
+    },
+    {
       "instanceId": "printed-veneers-process",
       "componentId": "treatment.processTimeline",
       "variantId": "smh_printed_veneers_process",
@@ -82,12 +118,12 @@
       "eyebrow": "Your pathway",
       "title": "From scan to refined finish",
       "items": [
-        "Digital consultation and smile capture",
-        "Designing veneer thickness and edge curves",
-        "Printing and reviewing a mock set",
-        "Finishing and tinting to blend with natural teeth",
-        "Fit appointment with bite and comfort checks",
-        "Maintenance plan and upgrade options when ready"
+        "Digital consultation, photographs, and intraoral scan",
+        "Designing veneer thickness, edge curves, and gum harmony",
+        "Printing and reviewing a mock set or trial smile",
+        "Finishing and tinting to blend with natural teeth and speech",
+        "Fit appointment with bite, phonetics, and comfort checks",
+        "Maintenance plan, whitening coordination, and porcelain upgrade timing when ready"
       ],
       "strapline": "We outline when printed veneers are appropriate and when a ceramic route may be recommended."
     },
@@ -97,9 +133,9 @@
       "variantId": "smh_printed_veneers_technology",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Calibrated printing with clinician-led finishing",
-      "body": "Scans, digital smile design, and controlled printing keep contours consistent. Final shaping and polishing are overseen by the clinical team to protect enamel and comfort."
+      "eyebrow": "Materials & craftsmanship",
+      "title": "Regulated printed resins with hand finishing",
+      "body": "We use FDA-cleared and CE-marked resins for printed veneers, calibrated printers, and layered stains to add texture. Clinician-led finishing shapes edges for gum harmony and integrates the bite; porcelain remains available when the highest aesthetic ceiling is required."
     },
     {
       "instanceId": "printed-veneers-aftercare",
@@ -110,11 +146,27 @@
       "eyebrow": "Aftercare & considerations",
       "title": "Caring for printed veneers",
       "items": [
-        "Follow hygiene advice to protect margins and gums",
-        "Avoid very hard foods while edges settle",
-        "Attend review visits to monitor wear and fit",
-        "Understand when porcelain could be advised for longevity",
-        "Report any edge lifting or roughness for quick adjustment"
+        "Printed veneers are not maintenance-free — hygiene visits protect margins and gums",
+        "Avoid very hard foods while edges settle and report any edge lifting",
+        "Chipping, wear, or staining can occur; we can repolish or refresh when needed",
+        "Night guards are advised if you clench to protect edges and bonding",
+        "We’ll signal when a porcelain upgrade is safer for longevity"
+      ]
+    },
+    {
+      "instanceId": "printed-veneers-limitations",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_printed_veneers_limitations",
+      "order": 75,
+      "seoRole": "supporting",
+      "eyebrow": "Limitations & honesty",
+      "title": "Transparent expectations for staged veneers",
+      "items": [
+        "Printed veneers are a value-led step, not a lifetime solution; we outline refresh or replacement timelines upfront.",
+        "Bite forces, dietary acids, and staining drinks can shorten lifespan — protective habits matter.",
+        "Maintenance includes hygiene visits, occasional re-polishing, and night guard use for clenching.",
+        "If goals need more coverage or detail, porcelain or composite bonding may be recommended instead (/treatments/composite-bonding).",
+        "Alternative routes like whitening or a full smile makeover are explored if they serve you better (/treatments/teeth-whitening, /treatments/full-smile-makeover)."
       ]
     },
     {
@@ -127,24 +179,24 @@
       "title": "What to consider before choosing printed veneers",
       "faqs": [
         {
-          "question": "Are printed veneers permanent?",
-          "answer": "They can provide a stable result for suitable cases, but we will explain when porcelain remains the long-term standard and plan accordingly."
+          "question": "How long do digitally designed or printed veneers last?",
+          "answer": "They are designed for short-to-mid-term wear. Lifespan depends on your bite, diet, and maintenance; we outline when refreshes or porcelain upgrades make sense."
         },
         {
-          "question": "Can I review the look before committing?",
-          "answer": "Yes. We provide digital previews and can print a mock set so you can see length, symmetry, and shade before finalising."
+          "question": "What do printed veneers cost?",
+          "answer": "They are typically the most affordable veneer route. We explain how costs differ from composite bonding and porcelain so you can choose the right stage for you."
         },
         {
-          "question": "What materials do you use?",
-          "answer": "We use regulated dental printing materials selected for the indication. We’ll explain wear expectations and maintenance needs."
+          "question": "Who are printed veneers suitable for?",
+          "answer": "They suit patients seeking a preview, staged journey, or budget-conscious plan with healthy gums and enamel. If you need maximum longevity or load-bearing strength, we may suggest porcelain instead."
         },
         {
-          "question": "Will my teeth need significant preparation?",
-          "answer": "We aim for conservative adjustments. Preparation is guided by digital plans so we preserve as much natural enamel as possible."
+          "question": "What maintenance do printed veneers need?",
+          "answer": "Expect hygiene visits, occasional polishing, and night guard wear if you clench. Printed veneers can stain or wear sooner than porcelain, so refreshes are planned into your care."
         },
         {
-          "question": "When would you recommend porcelain instead?",
-          "answer": "If you need maximum longevity, high-load durability, or specific translucency, porcelain may be preferred. We discuss this openly during planning."
+          "question": "Can I see the smile before committing?",
+          "answer": "Yes. Digital previews and printed mock sets let you assess length, symmetry, and shade. We can also discuss whitening or a combined smile makeover if that better matches your goals (/treatments/full-smile-makeover)."
         }
       ]
     },
@@ -155,11 +207,11 @@
       "order": 90,
       "seoRole": "cta",
       "eyebrow": "Next steps",
-      "title": "See if printed veneers suit your goals",
-      "body": "Book a calm consultation to review digital previews, materials, and whether a staged path to porcelain is right for you.",
+      "title": "Veneer Consultation & Smile Design",
+      "body": "Discuss printed and porcelain options with digital previews, timelines, and alternatives.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact?topic=veneers", "preset": "primary" },
-        { "label": "Ask about printed options", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        { "label": "Veneer Consultation & Smile Design", "href": "/contact?topic=veneers", "preset": "primary" },
+        { "label": "Explore alternative cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
       ]
     }
   ]

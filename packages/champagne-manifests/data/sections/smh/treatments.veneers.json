@@ -114,15 +114,51 @@
       "strapline": "Timelines vary by case complexity; we share a realistic range before you decide."
     },
     {
+      "instanceId": "veneers-planning",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_veneers_planning",
+      "order": 65,
+      "seoRole": "primaryContent",
+      "eyebrow": "How veneers are planned",
+      "title": "Face-driven, digital planning before any tooth changes",
+      "body": "Digital Smile Design, intraoral scanning, and calibrated photographs guide every case so veneer shapes follow your face, bite, and speech. Trial smiles or printed previews are offered when it helps you feel confident about proportion and shade.",
+      "bullets": [
+        "Digital Smile Design mock-ups aligned to your midline and lip dynamics (/treatments/digital-smile-design)",
+        "Intraoral scans to measure enamel thickness, contacts, and bite pathways",
+        "Face-driven aesthetics that balance tooth width, gingival levels, and phonetics",
+        "Trial smiles or provisional previews to test length and volume before committing",
+        "Sequencing with our whitening hub before shade matching if needed (/treatments/teeth-whitening)",
+        "Alternatives such as composite bonding for minor refinements when safer (/treatments/composite-bonding)"
+      ],
+      "mediaHint": "Digital smile planning and preview workflow"
+    },
+    {
+      "instanceId": "veneers-porcelain-vs-printed",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_veneers_comparison",
+      "order": 70,
+      "seoRole": "primaryContent",
+      "eyebrow": "Porcelain veneers vs digitally designed / 3D printed veneers",
+      "title": "Choosing between ceramic longevity and staged printed options",
+      "items": [
+        "Longevity: porcelain is engineered for long-term wear; digitally designed or 3D printed veneers suit staged plans or shorter horizons.",
+        "Cost: printed options are more affordable upfront; porcelain reflects laboratory artistry and durability.",
+        "Repairability: printed and composite-style veneers can be repaired or refreshed; porcelain often needs replacement if a major chip occurs.",
+        "Thickness: porcelain can be ultra-thin yet strong; printed options are conservative but may need a little more thickness for stability.",
+        "Aesthetic ceiling: porcelain offers the highest translucency, texture, and colour layering; printed veneers provide a natural upgrade with a modest sheen.",
+        "Best suited: porcelain for long-term, high-demand smiles; printed for previews, budget-conscious stages, or when a full smile makeover is still being planned (/treatments/full-smile-makeover)."
+      ]
+    },
+    {
       "instanceId": "veneers-technology",
       "componentId": "treatment.technology",
       "variantId": "shoreham_veneers_technology",
-      "order": 70,
+      "order": 75,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Digital planning for precision and fit",
-      "body": "We use digital scans, clinical photography, and shade mapping to collaborate with the lab. Bite analysis and minimally invasive planning help veneers sit comfortably and look natural.",
-      "mediaHint": "Digital scan and shade-matching workflow"
+      "eyebrow": "Materials & craftsmanship",
+      "title": "Laboratory porcelain and regulated printed resins",
+      "body": "Porcelain veneers are hand-layered in the lab with staining, characterisation, and glazing that suit your neighbouring teeth. Printed or milled options use FDA-cleared and CE-marked resins, then are hand finished chairside for gum harmony, bite integration, and a natural sheen.",
+      "mediaHint": "Porcelain lab work and regulated printed materials"
     },
     {
       "instanceId": "veneers-aftercare",
@@ -143,6 +179,22 @@
       ]
     },
     {
+      "instanceId": "veneers-limitations",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_veneers_limitations",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "Limitations & honesty",
+      "title": "Clear boundaries so results stay predictable",
+      "items": [
+        "Veneers are not maintenance-free — hygiene visits and home care protect the margins and gumline.",
+        "Chipping, wear, or staining can happen, especially with strong bite forces or frequent dark foods and drinks.",
+        "Night guards are advised for clenching or grinding to protect edges and adhesive bonds.",
+        "Printed veneers are a more affordable step but not a lifetime solution; we set expectations for refresh or porcelain upgrades.",
+        "We review when whitening, composite bonding, or a full smile makeover may be safer alternatives for your goals (/treatments/teeth-whitening, /treatments/composite-bonding, /treatments/full-smile-makeover)."
+      ]
+    },
+    {
       "instanceId": "veneers-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_veneers_faq",
@@ -152,32 +204,20 @@
       "title": "Answers before you commit",
       "faqs": [
         {
-          "question": "Composite vs porcelain — which is right for me?",
-          "answer": "Composite is sculpted in-practice and easier to adjust; porcelain is crafted in the lab for strength and stain resistance. We recommend based on goals, enamel health, and how long you want the result to last."
-        },
-        {
-          "question": "Do veneers ruin teeth?",
-          "answer": "We only suggest veneers when the benefit outweighs the enamel we may need to remove. Minimal-prep options are used when safe, and we explain all implications before you decide."
-        },
-        {
           "question": "How long do veneers last?",
-          "answer": "Longevity varies by material, bite, and care. Porcelain can last many years with reviews and protection; composite may need maintenance or refreshes sooner."
+          "answer": "Longevity depends on material, bite forces, and maintenance. Porcelain can offer many stable years with night guard protection and reviews; digitally designed or composite-style veneers may need refreshes or upgrades sooner."
         },
         {
-          "question": "Can I whiten veneers?",
-          "answer": "Veneer materials do not whiten like natural teeth. We often whiten natural teeth before shade matching so the result stays balanced."
+          "question": "How much do veneers cost?",
+          "answer": "Costs vary by material and complexity. Printed or composite-style options are the most affordable, while handcrafted porcelain reflects lab artistry and longevity. We outline options and payment plans before you commit."
         },
         {
-          "question": "Do they hurt?",
-          "answer": "You may feel temporary sensitivity during preparation or shortly after fitting. We manage comfort carefully and provide guidance to ease recovery."
+          "question": "Am I suitable for veneers?",
+          "answer": "Suitability depends on gum health, enamel thickness, bite, and habits. We may recommend whitening, composite bonding, orthodontics, or a full smile makeover instead if coverage is not the safest choice."
         },
         {
-          "question": "What if one chips?",
-          "answer": "Contact us promptly. Minor chips may be polished or repaired; larger issues might need a replacement or a revised bite assessment."
-        },
-        {
-          "question": "Are there alternatives?",
-          "answer": "Yes. Composite bonding, professional whitening, orthodontics, or crowns may be more suitable depending on your goals. We discuss options before recommending veneers."
+          "question": "What maintenance do veneers need?",
+          "answer": "Routine hygiene, non-abrasive home care, and wearing a night guard if you clench all extend veneer life. Printed or composite-style veneers may need more frequent polishing or planned replacement; porcelain benefits from the same protective habits."
         }
       ]
     },
@@ -188,11 +228,11 @@
       "order": 100,
       "seoRole": "cta",
       "eyebrow": "Ready when you are",
-      "title": "Book a thoughtful veneers consultation",
-      "body": "We’ll advise what’s safest and most predictable for your teeth.",
+      "title": "Veneer Consultation & Smile Design",
+      "body": "Review digital designs, material choices, and alternatives with a clinician-led plan.",
       "ctas": [
-        { "label": "Book a veneers consultation", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about composite vs porcelain", "href": "/contact?topic=veneers", "preset": "secondary" }
+        { "label": "Veneer Consultation & Smile Design", "href": "/contact", "preset": "primary" },
+        { "label": "Explore alternative cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
       ]
     }
   ]
