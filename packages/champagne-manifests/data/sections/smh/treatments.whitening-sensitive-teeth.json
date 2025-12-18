@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Sensitive teeth & whitening",
       "title": "Whitening with sensitivity in mind",
-      "body": "We plan whitening for sensitive teeth using gentle gel strengths, protective trays, and pacing. Every step is monitored by your dentist so comfort leads the plan.",
+      "body": "We plan whitening for sensitive teeth using gentle gel strengths, protective trays, and pacing. Every step is monitored by your dentist so comfort leads the plan, and we align shade changes with aligners (/treatments/clear-aligners) or bonding (/treatments/composite-bonding) when relevant.",
       "bullets": [
         "Suitability check to rule out underlying causes",
         "Custom trays that limit gel contact with gums",
@@ -90,6 +90,23 @@
       "ctas": [
         { "label": "Book a sensitivity review", "href": "/contact", "preset": "primary" },
         { "label": "Explore home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-sensitivity-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_whitening_sensitivity_related",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Comfort-first options that pair with whitening",
+      "items": [
+        "Composite bonding timed after shade stabilises (/treatments/composite-bonding)",
+        "3D printed veneers to preview smile changes gently (/treatments/3d-printed-veneers)",
+        "Veneers planned once sensitivity is controlled (/treatments/veneers)",
+        "Aligners or Spark aligners where spacing also needs care (/treatments/clear-aligners)",
+        "Digital Smile Design for coordinated cosmetic steps (/treatments/digital-smile-design)",
+        "Full Smile Makeover planning when multiple treatments combine (/treatments/full-smile-makeover)"
       ]
     }
   ]

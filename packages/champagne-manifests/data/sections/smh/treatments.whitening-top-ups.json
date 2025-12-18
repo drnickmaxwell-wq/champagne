@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Whitening top-ups & maintenance",
       "title": "Keep your whitening results steady",
-      "body": "Dentist-guided top-ups reuse your existing trays and follow a conservative schedule. We protect enamel, match refreshes to hygiene visits, and avoid over-whitening.",
+      "body": "Dentist-guided top-ups reuse your existing trays and follow a conservative schedule. We protect enamel, match refreshes to hygiene visits, and avoid over-whitening while keeping plans aligned with any bonding (/treatments/composite-bonding) or aligner care (/treatments/clear-aligners).",
       "bullets": [
         "Tray checks to confirm fit before supplying gel",
         "Top-up cadence tailored to coffee, wine, or lifestyle factors",
@@ -32,7 +32,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Review first",
       "title": "A quick check before any refresh",
-      "body": "We review your shade, tray fit, and any recent dental work before recommending more gel. This keeps maintenance aligned with your oral health and any planned bonding or veneer updates.",
+      "body": "We review your shade, tray fit, and any recent dental work before recommending more gel. This keeps maintenance aligned with your oral health and any planned bonding (/treatments/composite-bonding), veneer updates (/treatments/veneers), or Digital Smile Design steps (/treatments/digital-smile-design).",
       "bullets": [
         "Shade comparison against your baseline",
         "Inspection of trays for seal and comfort",
@@ -93,6 +93,23 @@
       "ctas": [
         { "label": "Book a top-up", "href": "/contact", "preset": "primary" },
         { "label": "Plan future whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-topups-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_whitening_topups_related",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Keep maintenance aligned with your plan",
+      "items": [
+        "Composite bonding refreshes timed to your shade (/treatments/composite-bonding)",
+        "3D printed veneers for reversible previews before changes (/treatments/3d-printed-veneers)",
+        "Veneers when porcelain updates are planned (/treatments/veneers)",
+        "Aligners or Spark aligners if tooth position also needs review (/treatments/clear-aligners)",
+        "Digital Smile Design to coordinate maintenance with future steps (/treatments/digital-smile-design)",
+        "Full Smile Makeover options when combining multiple updates (/treatments/full-smile-makeover)"
       ]
     }
   ]

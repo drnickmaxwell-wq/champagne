@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Teeth whitening",
       "title": "Teeth whitening in Shoreham-by-Sea",
-      "body": "Dentist-led home whitening with UK-compliant gels, custom trays, and clear shade planning. We keep enamel safe while preparing your smile for wider cosmetic work such as alignment or bonding.",
+      "body": "Dentist-led home whitening with UK-compliant gels, custom trays, and clear shade planning. We keep enamel safe while preparing your smile for wider cosmetic work such as alignment (/treatments/clear-aligners) or bonding (/treatments/composite-bonding).",
       "bullets": [
         "Custom-fit trays made from digital scans",
         "UK-appropriate gels prescribed and monitored by your dentist",
@@ -48,7 +48,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What to expect",
       "title": "A measured plan tailored to your smile",
-      "body": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we’ll review progress.",
+      "body": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment (/treatments/clear-aligners) or bonding (/treatments/composite-bonding), and know when Digital Smile Design (/treatments/digital-smile-design) or veneer planning (/treatments/veneers) might follow.",
       "bullets": [
         "Clinical exam and baseline shade recording",
         "Digital scans for precise tray production",
@@ -102,6 +102,23 @@
       "ctas": [
         { "label": "Book a whitening visit", "href": "/contact", "preset": "primary" },
         { "label": "Discuss cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_whitening_related",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Link whitening with follow-on care",
+      "items": [
+        "Composite bonding for finishing touches after shade setting (/treatments/composite-bonding)",
+        "3D printed veneers as reversible previews (/treatments/3d-printed-veneers)",
+        "Veneers when porcelain coverage fits the goal (/treatments/veneers)",
+        "Aligners to correct spacing alongside shade planning (/treatments/clear-aligners)",
+        "Digital Smile Design to map combined changes (/treatments/digital-smile-design)",
+        "Full Smile Makeover pathways for comprehensive cases (/treatments/full-smile-makeover)"
       ]
     }
   ]

@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Home teeth whitening",
       "title": "Custom home whitening with dentist oversight",
-      "body": "A calm, paced whitening plan using custom trays and prescribed gel strengths. We keep change gradual, stable, and respectful of your enamel and existing restorations.",
+      "body": "A calm, paced whitening plan using custom trays and prescribed gel strengths. We keep change gradual, stable, and respectful of your enamel and existing restorations, while mapping how aligners (/treatments/clear-aligners) or bonding (/treatments/composite-bonding) might follow.",
       "bullets": [
         "Bespoke trays from your digital scans",
         "UK-compliant gels chosen for your needs",
@@ -48,7 +48,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Assessment & planning",
       "title": "Measured home whitening without guesswork",
-      "body": "We check enamel health, record your starting shade, and take scans for trays. Your dentist prescribes a gel strength, sets a nightly or alternate-day cadence, and aligns the plan with any upcoming cosmetic work.",
+      "body": "We check enamel health, record your starting shade, and take scans for trays. Your dentist prescribes a gel strength, sets a nightly or alternate-day cadence, and aligns the plan with any upcoming cosmetic work such as veneers (/treatments/veneers), 3D printed veneers (/treatments/3d-printed-veneers), or Digital Smile Design (/treatments/digital-smile-design).",
       "bullets": [
         "Baseline photos and shade guide for reference",
         "Tray fitting with instructions on gel placement",
@@ -125,6 +125,23 @@
       "ctas": [
         { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
         { "label": "Plan for future cosmetic work", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "home-whitening-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_home_whitening_related",
+      "order": 80,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Combine whitening with wider smile planning",
+      "items": [
+        "Composite bonding for post-whitening refinements (/treatments/composite-bonding)",
+        "3D printed veneers when you want a reversible preview (/treatments/3d-printed-veneers)",
+        "Porcelain veneers for longer-term coverage (/treatments/veneers)",
+        "Aligners to position teeth before final shade set (/treatments/clear-aligners)",
+        "Digital Smile Design to plan sequence and outcomes (/treatments/digital-smile-design)",
+        "Full Smile Makeover options for more complex aims (/treatments/full-smile-makeover)"
       ]
     }
   ]

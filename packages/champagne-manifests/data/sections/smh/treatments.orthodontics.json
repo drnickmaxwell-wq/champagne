@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Orthodontics",
       "title": "Fixed braces with clinician-led planning",
-      "body": "Orthodontic treatment delivered in practice with fixed braces — for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app.",
+      "body": "Orthodontic treatment delivered in practice with fixed braces — for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app, with whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) sequenced after movement when helpful.",
       "bullets": [
         "Focus on fixed braces, not Invisalign",
         "Metal and ceramic bracket options",
@@ -48,7 +48,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "How fixed braces work",
       "title": "Steady tooth movement guided by in-clinic adjustments",
-      "body": "Fixed braces use brackets and wires to move teeth gradually. Each adjustment is planned in practice so you know what to expect, how to care for your braces, and when to return for reviews.",
+      "body": "Fixed braces use brackets and wires to move teeth gradually. Each adjustment is planned in practice so you know what to expect, how to care for your braces, and when to return for reviews, while we outline how whitening (/treatments/teeth-whitening) or veneers (/treatments/veneers) can refine the smile once teeth are stable.",
       "bullets": [
         "Full orthodontic assessment and records",
         "Digital planning to map movements and timelines",
@@ -177,6 +177,23 @@
       "ctas": [
         { "label": "Book orthodontic consult", "href": "/contact", "preset": "primary" },
         { "label": "Discuss brace options", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "orthodontics-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_orthodontics_related",
+      "order": 100,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Plan finishing steps after braces",
+      "items": [
+        "Teeth whitening to harmonise shade after alignment (/treatments/teeth-whitening)",
+        "Composite bonding for edge polishing and symmetry (/treatments/composite-bonding)",
+        "Veneers when porcelain coverage is best for longevity (/treatments/veneers)",
+        "3D printed veneers for reversible previews (/treatments/3d-printed-veneers)",
+        "Digital Smile Design to visualise the final result (/treatments/digital-smile-design)",
+        "Full Smile Makeover planning for complex goals (/treatments/full-smile-makeover)"
       ]
     }
   ]

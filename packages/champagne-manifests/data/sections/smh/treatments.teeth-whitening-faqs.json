@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Teeth whitening FAQs",
       "title": "Dentist-led answers about whitening",
-      "body": "Clear, UK-compliant guidance on whitening safety, shade expectations, and how treatment fits with veneers or crowns.",
+      "body": "Clear, UK-compliant guidance on whitening safety, shade expectations, and how treatment fits with veneers (/treatments/veneers), crowns (/treatments/dental-crowns), or aligner plans (/treatments/clear-aligners).",
       "bullets": [
         "Honest limits on shade change",
         "What to expect with existing restorations",
@@ -51,7 +51,7 @@
         },
         {
           "question": "Is whitening part of a smile makeover?",
-          "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
+          "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
         }
       ]
     },
@@ -66,6 +66,23 @@
       "ctas": [
         { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
         { "label": "Learn about maintenance", "href": "/treatments/whitening-top-ups", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-faqs-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_whitening_faqs_related",
+      "order": 40,
+      "seoRole": "supporting",
+      "eyebrow": "Related treatments",
+      "title": "Where whitening sits in wider care",
+      "items": [
+        "Composite bonding once shade is set (/treatments/composite-bonding)",
+        "3D printed veneers for reversible previews (/treatments/3d-printed-veneers)",
+        "Veneers if porcelain coverage suits your goals (/treatments/veneers)",
+        "Aligners or Spark aligners to correct spacing alongside whitening (/treatments/clear-aligners)",
+        "Digital Smile Design to map combined cosmetic steps (/treatments/digital-smile-design)",
+        "Full Smile Makeover pathways when multiple treatments combine (/treatments/full-smile-makeover)"
       ]
     }
   ]
