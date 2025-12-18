@@ -1399,6 +1399,97 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "emergency_dental_appointments": {
+      "id": "emergency_dental_appointments",
+      "label": "Emergency dental appointments",
+      "path": "/treatments/emergency-dental-appointments",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_severe_toothache": {
+      "id": "emergency_severe_toothache",
+      "label": "Severe toothache & dental pain",
+      "path": "/treatments/severe-toothache-dental-pain",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_dental_abscess": {
+      "id": "emergency_dental_abscess",
+      "label": "Dental abscess & infection",
+      "path": "/treatments/dental-abscess-infection",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_broken_chipped_teeth": {
+      "id": "emergency_broken_chipped_teeth",
+      "label": "Broken, chipped or cracked teeth",
+      "path": "/treatments/broken-chipped-cracked-teeth",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_knocked_out_tooth": {
+      "id": "emergency_knocked_out_tooth",
+      "label": "Knocked-out (avulsed) tooth",
+      "path": "/treatments/knocked-out-tooth",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_lost_crowns": {
+      "id": "emergency_lost_crowns",
+      "label": "Lost crowns, veneers & fillings",
+      "path": "/treatments/lost-crowns-veneers-fillings",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "emergency_dental_trauma": {
+      "id": "emergency_dental_trauma",
+      "label": "Dental trauma & accidents",
+      "path": "/treatments/dental-trauma-accidents",
+      "category": "treatment",
+      "hero": "emergency_support_hero_v1",
+      "sections": [
+        "treatment_overview_copy",
+        "treatment_media_highlight",
+        "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "3d_dentistry_and_technology": {
       "id": "3d_dentistry_and_technology",
       "label": "3D dentistry & technology",
