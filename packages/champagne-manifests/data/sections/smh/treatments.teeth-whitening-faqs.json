@@ -1,0 +1,72 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.teeth-whitening-faqs",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "whitening-faq-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_whitening_faqs_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Teeth whitening FAQs",
+      "title": "Dentist-led answers about whitening",
+      "body": "Clear, UK-compliant guidance on whitening safety, shade expectations, and how treatment fits with veneers or crowns.",
+      "bullets": [
+        "Honest limits on shade change",
+        "What to expect with existing restorations",
+        "How whitening supports smile makeovers",
+        "Steps to keep results stable"
+      ],
+      "ctas": [
+        { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
+        { "label": "See home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-faqs",
+      "componentId": "treatment.faq",
+      "variantId": "smh_whitening_faqs",
+      "order": 20,
+      "seoRole": "faq",
+      "eyebrow": "Common questions",
+      "title": "Teeth whitening questions answered",
+      "faqs": [
+        {
+          "question": "Does whitening damage teeth?",
+          "answer": "When prescribed and monitored by a dentist using UK-regulated gels, whitening is safe for enamel. We assess for decay or gum issues first and use protective trays."
+        },
+        {
+          "question": "How white can teeth go?",
+          "answer": "We aim for a natural, even shade that suits your skin tone and enamel. Shade maps set a realistic range so we avoid over-whitening."
+        },
+        {
+          "question": "Does whitening affect veneers or crowns?",
+          "answer": "Existing crowns, veneers, and fillings will not lighten. We plan whitening first, then match or refresh restorations if needed."
+        },
+        {
+          "question": "How long does whitening last?",
+          "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
+        },
+        {
+          "question": "Is whitening part of a smile makeover?",
+          "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
+        }
+      ]
+    },
+    {
+      "instanceId": "whitening-faq-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_whitening_faqs_cta",
+      "order": 30,
+      "seoRole": "cta",
+      "title": "Plan whitening with a dentist",
+      "strapline": "Ask your questions in person and receive a tailored whitening plan.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Learn about maintenance", "href": "/treatments/whitening-top-ups", "preset": "secondary" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.home-teeth-whitening",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "home-whitening-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_home_whitening_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Home teeth whitening",
+      "title": "Custom home whitening with dentist oversight",
+      "body": "A calm, paced whitening plan using custom trays and prescribed gel strengths. We keep change gradual, stable, and respectful of your enamel and existing restorations.",
+      "bullets": [
+        "Bespoke trays from your digital scans",
+        "UK-compliant gels chosen for your needs",
+        "Shade planning that fits with aligners or bonding",
+        "Check-ins to balance results and comfort"
+      ],
+      "ctas": [
+        { "label": "Arrange a tray scan", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about whitening timing", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "home-whitening-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_home_whitening_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Whitening planned around your teeth and gums",
+      "items": [
+        "Prescription-only gels supplied with clear usage guidance",
+        "Trays designed to protect gum tissue and avoid spillage",
+        "Shade checks before, during, and after treatment",
+        "Sensitivity protocols with pacing and desensitising gel",
+        "Notes on how whitening will sit alongside crowns or veneers"
+      ]
+    },
+    {
+      "instanceId": "home-whitening-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_home_whitening_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Assessment & planning",
+      "title": "Measured home whitening without guesswork",
+      "body": "We check enamel health, record your starting shade, and take scans for trays. Your dentist prescribes a gel strength, sets a nightly or alternate-day cadence, and aligns the plan with any upcoming cosmetic work.",
+      "bullets": [
+        "Baseline photos and shade guide for reference",
+        "Tray fitting with instructions on gel placement",
+        "Advice on wear time and what to avoid",
+        "Review of existing fillings, crowns, or bonding",
+        "Planned review to confirm stability"
+      ]
+    },
+    {
+      "instanceId": "home-whitening-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_home_whitening_process",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your timeline",
+      "title": "Steady steps to a brighter shade",
+      "items": [
+        "Consultation and eligibility check",
+        "Digital scans and tray fabrication",
+        "Tray fit with first application guidance",
+        "Planned whitening sessions at home",
+        "Mid-plan review for shade and comfort",
+        "Final check and maintenance advice"
+      ],
+      "strapline": "We keep communication open so you know when to pause, adjust gel, or book a review."
+    },
+    {
+      "instanceId": "home-whitening-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_home_whitening_aftercare",
+      "order": 50,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Comfort-first whitening",
+      "items": [
+        "Temporary sensitivity is managed with pacing and desensitising care",
+        "Existing restorations will not change shade; we plan any refinements after whitening",
+        "Avoid strongly coloured foods or smoking during active treatment",
+        "We check fit and margins to prevent gum irritation",
+        "Long-term maintenance planned with your hygienist"
+      ]
+    },
+    {
+      "instanceId": "home-whitening-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_home_whitening_faq",
+      "order": 60,
+      "seoRole": "faq",
+      "eyebrow": "Home whitening questions",
+      "title": "Guidance from your dentist",
+      "faqs": [
+        {
+          "question": "How long will I wear the trays each day?",
+          "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
+        },
+        {
+          "question": "What if my teeth feel sensitive?",
+          "answer": "Tell us and pause for a day or two. We can adjust frequency, provide desensitising gel, or modify the plan."
+        },
+        {
+          "question": "Can I whiten if I have bonding or crowns?",
+          "answer": "Yes, but those materials will not lighten. We plan whitening first and discuss refreshing restorations afterwards if needed."
+        }
+      ]
+    },
+    {
+      "instanceId": "home-whitening-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_home_whitening_cta",
+      "order": 70,
+      "seoRole": "cta",
+      "title": "Set up your home whitening plan",
+      "strapline": "Book a dentist-led whitening assessment and tray fit.",
+      "ctas": [
+        { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
+        { "label": "Plan for future cosmetic work", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+      ]
+    }
+  ]
+}

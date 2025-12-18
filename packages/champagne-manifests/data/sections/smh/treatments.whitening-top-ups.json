@@ -1,0 +1,99 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.whitening-top-ups",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "whitening-topups-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_whitening_topups_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Whitening top-ups & maintenance",
+      "title": "Keep your whitening results steady",
+      "body": "Dentist-guided top-ups reuse your existing trays and follow a conservative schedule. We protect enamel, match refreshes to hygiene visits, and avoid over-whitening.",
+      "bullets": [
+        "Tray checks to confirm fit before supplying gel",
+        "Top-up cadence tailored to coffee, wine, or lifestyle factors",
+        "Advice on timing with hygiene or other cosmetic steps",
+        "Monitoring to keep shade within a natural range"
+      ],
+      "ctas": [
+        { "label": "Book a top-up review", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about maintenance", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-topups-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_whitening_topups_overview",
+      "order": 20,
+      "seoRole": "primaryContent",
+      "eyebrow": "Review first",
+      "title": "A quick check before any refresh",
+      "body": "We review your shade, tray fit, and any recent dental work before recommending more gel. This keeps maintenance aligned with your oral health and any planned bonding or veneer updates.",
+      "bullets": [
+        "Shade comparison against your baseline",
+        "Inspection of trays for seal and comfort",
+        "Discussion of how often you’ll realistically top-up",
+        "Guidance if restorations need refreshing instead of whitening",
+        "Written instructions for the latest gel strength"
+      ]
+    },
+    {
+      "instanceId": "whitening-topups-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_whitening_topups_process",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Maintenance steps",
+      "title": "Refresh without starting from scratch",
+      "items": [
+        "Book a review and shade check",
+        "Confirm tray fit and comfort",
+        "Agree a short, conservative top-up schedule",
+        "Use prescribed gel with your existing trays",
+        "Pause and check-in if sensitivity appears",
+        "Align future top-ups with routine visits"
+      ],
+      "strapline": "Top-ups are calibrated to your lifestyle so results stay natural, not artificial."
+    },
+    {
+      "instanceId": "whitening-topups-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_whitening_topups_faq",
+      "order": 40,
+      "seoRole": "faq",
+      "eyebrow": "Maintenance questions",
+      "title": "Clarity on keeping your shade",
+      "faqs": [
+        {
+          "question": "How often should I top-up?",
+          "answer": "Most patients refresh once or twice a year, often after hygiene visits. We tailor the schedule to your habits and starting shade."
+        },
+        {
+          "question": "Can I reuse my old trays?",
+          "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
+        },
+        {
+          "question": "Will I need stronger gel each time?",
+          "answer": "Usually not. We stick to safe, regulated strengths and keep to the smallest effective dose for your goals."
+        }
+      ]
+    },
+    {
+      "instanceId": "whitening-topups-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_whitening_topups_cta",
+      "order": 50,
+      "seoRole": "cta",
+      "title": "Schedule a maintenance review",
+      "strapline": "Refresh your whitening plan with dentist guidance and the trays you already have.",
+      "ctas": [
+        { "label": "Book a top-up", "href": "/contact", "preset": "primary" },
+        { "label": "Plan future whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+      ]
+    }
+  ]
+}
