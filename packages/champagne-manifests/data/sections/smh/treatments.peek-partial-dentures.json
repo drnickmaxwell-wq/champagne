@@ -1,0 +1,162 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.peek-partial-dentures",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "peek-dentures-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_peek_dentures_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "PEEK partial dentures",
+      "title": "PEEK partial dentures in Shoreham-by-Sea",
+      "body": "Lightweight, metal-free partial dentures made from PEEK for a warm feel, discreet clasps, and balanced support.",
+      "bullets": [
+        "Metal-free frameworks that feel warm in the mouth",
+        "Discreet clasps coloured to blend with teeth",
+        "Balanced design to protect supporting teeth",
+        "Clear guidance on fit, care, and limitations"
+      ],
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Return to denture hub", "href": "/treatments/dentures", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "peek-dentures-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_peek_dentures_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why choose PEEK",
+      "title": "Lightweight strength with careful planning",
+      "items": [
+        "High-performance polymer that avoids metal taste",
+        "Custom clasps shaped to share forces gently",
+        "Design reviews to balance slimness with durability",
+        "Honest chat about when PEEK is and isn’t ideal",
+        "Follow-up adjustments if fit changes over time"
+      ]
+    },
+    {
+      "instanceId": "peek-dentures-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_peek_dentures_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What they are",
+      "title": "Metal-free partials with a natural feel",
+      "body": "PEEK dentures use a tooth-coloured polymer framework instead of metal. We design clasp shapes, tooth positions, and bite with you, then test comfort before finishing so you know how the material behaves.",
+      "bullets": [
+        "Assessment of supporting teeth, gums, and bite",
+        "Framework planning to keep bulk low while staying strong",
+        "Try-ins to check speech and smile line",
+        "Discussion of shade matching for clasps and teeth",
+        "Guidance on when acrylic or chrome may be better"
+      ]
+    },
+    {
+      "instanceId": "peek-dentures-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_peek_dentures_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who they suit",
+      "title": "For patients wanting metal-free stability",
+      "items": [
+        "People sensitive to metal taste or appearance",
+        "Patients wanting discreet clasps that blend in",
+        "Those preferring a lighter feel than chrome",
+        "Patients open to staged fittings for precision",
+        "Wearers exploring fit before considering implant stabilisation"
+      ]
+    },
+    {
+      "instanceId": "peek-dentures-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_peek_dentures_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Pathway",
+      "title": "Designed for comfort and discretion",
+      "items": [
+        "Consultation to map goals and assess supporting teeth",
+        "Records for framework design and shade selection",
+        "Try-in to review fit, speech, and smile line",
+        "Final fit with bite checks and clasp tuning",
+        "Guidance on cleaning to protect the polymer surface",
+        "Follow-up to review retention and comfort"
+      ],
+      "strapline": "You’ll know how PEEK feels and behaves before you commit."
+    },
+    {
+      "instanceId": "peek-dentures-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_peek_dentures_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Materials & fit",
+      "title": "Metal-free support with balanced flexibility",
+      "body": "PEEK frameworks are strong yet slightly flexible, helping clasps hug teeth gently. We tune bite, polish contact points, and explain how adhesives or implant support could help if you want even more stability."
+    },
+    {
+      "instanceId": "peek-dentures-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_peek_dentures_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Looking after PEEK dentures",
+      "items": [
+        "Daily cleaning to avoid scratching the polymer",
+        "Careful storage away from high heat",
+        "Regular checks to ensure clasps stay comfortable",
+        "Advice on expected movement with removable options",
+        "Discussion of alternatives if heavy forces or grinding are present"
+      ]
+    },
+    {
+      "instanceId": "peek-dentures-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_peek_dentures_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "FAQs",
+      "title": "Understanding PEEK partials",
+      "faqs": [
+        {
+          "question": "How does PEEK feel compared to metal?",
+          "answer": "It feels warm and lightweight with no metal taste. We still plan a settling-in period and review points for adjustments."
+        },
+        {
+          "question": "Can PEEK clasps be tooth coloured?",
+          "answer": "Yes. We colour-match clasps where possible so they blend with neighbouring teeth."
+        },
+        {
+          "question": "Is PEEK as strong as chrome?",
+          "answer": "PEEK is strong but slightly flexible. It suits many partials, but for very heavy bites or minimal tooth support we may advise chrome or another approach."
+        },
+        {
+          "question": "What if I want more stability later?",
+          "answer": "We can revisit fit, add a soft liner, or discuss implant support if you’d like even less movement. Each step is paced around comfort and healing."
+        }
+      ]
+    },
+    {
+      "instanceId": "peek-dentures-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_peek_dentures_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan discreet PEEK partial dentures",
+      "body": "Book a consultation to explore PEEK’s metal-free feel with clear guidance on fit, care, and future stabilisation options if you need them.",
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Implant-retained dentures", "href": "/treatments/implant-retained-dentures", "preset": "secondary" }
+      ]
+    }
+  ]
+}

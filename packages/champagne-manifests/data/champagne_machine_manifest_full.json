@@ -2200,6 +2200,82 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "dentures": {
+      "id": "dentures",
+      "label": "Dentures & tooth replacement",
+      "path": "/treatments/dentures",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "acrylic_dentures": {
+      "id": "acrylic_dentures",
+      "label": "Acrylic dentures",
+      "path": "/treatments/acrylic-dentures",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "chrome_dentures": {
+      "id": "chrome_dentures",
+      "label": "Chrome dentures",
+      "path": "/treatments/chrome-dentures",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "peek_partial_dentures": {
+      "id": "peek_partial_dentures",
+      "label": "PEEK partial dentures",
+      "path": "/treatments/peek-partial-dentures",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "printed_dentures_3d": {
       "id": "printed_dentures_3d",
       "label": "3D printed dentures",

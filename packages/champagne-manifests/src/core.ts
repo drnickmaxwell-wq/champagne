@@ -17,6 +17,10 @@ import sectionLayoutImplantsAftercare from "../data/sections/smh/treatments.impl
 import sectionLayoutImplantsBoneGrafting from "../data/sections/smh/treatments.implants-bone-grafting.json";
 import sectionLayoutImplantConsultation from "../data/sections/smh/treatments.implants-consultation.json";
 import sectionLayoutFullArchImplants from "../data/sections/smh/treatments.implants-full-arch.json";
+import sectionLayoutDentures from "../data/sections/smh/treatments.dentures.json";
+import sectionLayoutAcrylicDentures from "../data/sections/smh/treatments.acrylic-dentures.json";
+import sectionLayoutChromeDentures from "../data/sections/smh/treatments.chrome-dentures.json";
+import sectionLayoutPeekPartialDentures from "../data/sections/smh/treatments.peek-partial-dentures.json";
 import sectionLayoutImplantRetainedDentures from "../data/sections/smh/treatments.implants-retained-dentures.json";
 import sectionLayoutMultiImplant from "../data/sections/smh/treatments.implants-multiple-teeth.json";
 import sectionLayoutFailedImplantReplacement from "../data/sections/smh/treatments.implants-failed-replacement.json";
@@ -283,6 +287,10 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutMultiImplant as ChampagneSectionLayout,
   sectionLayoutSingleImplant as ChampagneSectionLayout,
   sectionLayoutFullArchImplants as ChampagneSectionLayout,
+  sectionLayoutDentures as ChampagneSectionLayout,
+  sectionLayoutAcrylicDentures as ChampagneSectionLayout,
+  sectionLayoutChromeDentures as ChampagneSectionLayout,
+  sectionLayoutPeekPartialDentures as ChampagneSectionLayout,
   sectionLayoutImplantRetainedDentures as ChampagneSectionLayout,
   sectionLayoutImplants as ChampagneSectionLayout,
   sectionLayoutVeneers as ChampagneSectionLayout,
