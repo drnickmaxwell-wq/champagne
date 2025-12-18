@@ -107,7 +107,7 @@ export default async function TreatmentsPage({
                 {group.items.map((treatment) => (
                   <BaseChampagneSurface key={treatment.slug} variant="glass" className="h-full">
                     <Link
-                      href={`/treatments/${treatment.slug}`}
+                      href={treatment.path}
                       className="group block h-full"
                       style={{ textDecoration: "none", color: "inherit" }}
                     >

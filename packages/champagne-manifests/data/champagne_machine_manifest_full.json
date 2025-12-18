@@ -1261,19 +1261,21 @@
     },
     "technology_digital_dentistry": {
       "id": "technology_digital_dentistry",
-      "label": "Digital dentistry & in-house fabrication",
+      "label": "3D & digital dentistry",
       "path": "/technology/3d-digital-dentistry",
       "category": "technology",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "technology.digitalScanning" },
-        { "id": "technology.digitalSmileDesign" },
-        { "id": "technology.inHouse3DPrinting" },
-        { "id": "technology.handFinishedAesthetics" },
-        { "id": "technology.caseSelection" },
-        { "id": "treatment.cta" }
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whatAreImplants",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/hub"
     },
@@ -1339,6 +1341,63 @@
         "treatment_overview_copy",
         "treatment_media_highlight",
         "treatment_feature_list"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "inlays_onlays": {
+      "id": "inlays_onlays",
+      "label": "Inlays & onlays",
+      "path": "/treatments/inlays-onlays",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "printed_dentures_3d": {
+      "id": "printed_dentures_3d",
+      "label": "3D printed dentures",
+      "path": "/treatments/3d-printed-dentures",
+      "category": "treatment",
+      "hero": "treatment_tech_focus_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "mouth_guards_3d": {
+      "id": "mouth_guards_3d",
+      "label": "3D mouth guards",
+      "path": "/treatments/3d-mouth-guards",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
       ],
       "surface": "champagne/surface/treatment"
     },
