@@ -1,8 +1,8 @@
 {
   "tenantId": "smh-dental",
-  "routeId": "technology.digital-dentistry",
+  "routeId": "treatments.3d-digital-dentistry",
   "pageType": "treatment",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "sections": [
     {
       "instanceId": "digital-dentistry-hero",
@@ -59,26 +59,10 @@
       "mediaHint": "Sequential digital dentistry workflow"
     },
     {
-      "instanceId": "digital-dentistry-inhouse",
-      "componentId": "treatment.whatAreImplants",
-      "variantId": "smh_digital_dentistry_inhouse",
-      "order": 40,
-      "seoRole": "primaryContent",
-      "eyebrow": "What we can make in-house",
-      "title": "Precision outputs, matched to the indication",
-      "items": [
-        "3D printed veneers: a cost-effective, conservative option; porcelain remains the premium standard for longevity",
-        "3D printed implant restorations with careful torque planning and maintenance notes",
-        "3D printed dentures with gum characterisation and clinician-reviewed occlusion",
-        "3D mouth guards designed from scans for comfort and retention",
-        "Digitally planned inlays and onlays for cleaner margins"
-      ]
-    },
-    {
       "instanceId": "digital-dentistry-who",
       "componentId": "treatment.whoIsItFor",
       "variantId": "smh_digital_dentistry_who",
-      "order": 50,
+      "order": 40,
       "seoRole": "primaryContent",
       "eyebrow": "Who benefits",
       "title": "Patients who want predictable, visual planning",
@@ -94,7 +78,7 @@
       "instanceId": "digital-dentistry-timeline",
       "componentId": "treatment.processTimeline",
       "variantId": "smh_digital_dentistry_timeline",
-      "order": 60,
+      "order": 50,
       "seoRole": "primaryContent",
       "eyebrow": "Your digital pathway",
       "title": "Clear checkpoints from scan to maintenance",
@@ -112,17 +96,17 @@
       "instanceId": "digital-dentistry-technology",
       "componentId": "treatment.technology",
       "variantId": "smh_digital_dentistry_technology",
-      "order": 70,
+      "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology with clinician control",
-      "title": "Scans, planning suites, and calibrated printers",
-      "body": "We pair high-accuracy intraoral scanners with planning software and calibrated 3D printers to keep margins, occlusion, and aesthetics under direct clinical control."
+      "eyebrow": "What we can make in-house",
+      "title": "Precision outputs, clinician-reviewed",
+      "body": "We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays—all produced under the treating clinician's oversight."
     },
     {
       "instanceId": "digital-dentistry-aftercare",
       "componentId": "treatment.aftercareRisks",
       "variantId": "smh_digital_dentistry_aftercare",
-      "order": 80,
+      "order": 70,
       "seoRole": "supporting",
       "eyebrow": "Aftercare & considerations",
       "title": "Long-term fit backed by maintenance",
@@ -138,7 +122,7 @@
       "instanceId": "digital-dentistry-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_digital_dentistry_faq",
-      "order": 90,
+      "order": 80,
       "seoRole": "faq",
       "eyebrow": "Digital dentistry FAQs",
       "title": "Answers before you choose",
@@ -169,7 +153,7 @@
       "instanceId": "digital-dentistry-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_digital_dentistry_cta",
-      "order": 100,
+      "order": 90,
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "See your options digitally before you commit",

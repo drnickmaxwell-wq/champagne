@@ -28,7 +28,7 @@
     { "slug": "/treatments/inlays-onlays", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
     { "slug": "/treatments/3d-printed-dentures", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
     { "slug": "/treatments/3d-mouth-guards", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
-    { "slug": "/technology/3d-digital-dentistry", "hero": "treatment_tech_focus_hero_v1", "category": "technology" },
+    { "slug": "/treatments/3d-digital-dentistry", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
     { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
     { "slug": "/about", "hero": "about_story_hero_v1", "category": "hub" },
     { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },

@@ -1262,14 +1262,13 @@
     "technology_digital_dentistry": {
       "id": "technology_digital_dentistry",
       "label": "3D & digital dentistry",
-      "path": "/technology/3d-digital-dentistry",
-      "category": "technology",
+      "path": "/treatments/3d-digital-dentistry",
+      "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
         "treatment.heroIntro",
         "treatment.trustSignals",
         "treatment.consultationOverview",
-        "treatment.whatAreImplants",
         "treatment.whoIsItFor",
         "treatment.processTimeline",
         "treatment.technology",
@@ -1277,7 +1276,7 @@
         "treatment.faq",
         "treatment.cta"
       ],
-      "surface": "champagne/surface/hub"
+      "surface": "champagne/surface/treatment"
     },
     "emergency_dentistry": {
       "id": "emergency_dentistry",
@@ -1296,7 +1295,7 @@
       "id": "3d_dentistry_and_technology",
       "label": "3D dentistry & technology",
       "path": "/treatments/3d-dentistry-and-technology",
-      "category": "treatment",
+      "category": "technology",
       "hero": "treatment_tech_focus_hero_v1",
       "sections": [
         "treatment_overview_copy",
