@@ -955,7 +955,7 @@
           "id": "composite_intro",
           "type": "treatment_overview_rich",
           "title": "Composite bonding for measured smile refinement",
-          "copy": "Composite bonding (also called cosmetic bonding or dental bonding) uses layered resin to rebuild edges and balance shapes with minimal drilling. We preserve enamel wherever possible, plan conservatively, and keep results reversible.",
+          "copy": "Composite bonding (also called cosmetic bonding or dental bonding) uses layered resin to rebuild edges and balance shapes with minimal drilling. We preserve enamel wherever possible, plan conservatively, and explain how wear and staining can be managed over time.",
           "bullets": [
             "Tooth-preserving contouring with light surface preparation",
             "Resins layered to match shade, translucency, and texture",
@@ -965,12 +965,13 @@
         {
           "id": "composite_indications",
           "type": "features",
-          "title": "Where composite bonding can help",
+          "title": "What composite bonding can and can’t do",
           "items": [
-            "Can often be used to tidy chipped or worn incisal edges",
-            "Closes small gaps and black triangles in suitable cases",
-            "Refines tooth shape and proportions after orthodontic alignment",
-            "Balances a single tooth without committing to a full smile makeover"
+            "Adds volume to close small gaps, soften edges, and refine proportions without drilling healthy enamel",
+            "Repairs chipped or worn incisal edges; larger fractures or weakened teeth may need onlays or crowns",
+            "Helps smooth minor rotations and asymmetry, but major crowding still needs aligners or orthodontics",
+            "Can mask shade variations to a degree, yet deep discolouration often responds better to whitening or veneers",
+            "Composite will pick up surface stain and light wear; expect periodic polishing to keep results fresh"
           ]
         },
         {
@@ -978,18 +979,19 @@
           "type": "treatment_media_feature",
           "label": "Digital planning",
           "title": "Digitally planned and guided bonding",
-          "copy": "We start with 3D scans and photographs, design the proposed changes digitally, and share mock-ups so you can preview the direction. Guided placement and finishing maps keep the resin precise and consistent.",
+          "copy": "We start with 3D scans and photographs, design the proposed changes digitally, and share mock-ups so you can preview the direction. Guided placement and finishing maps keep the resin precise and consistent, and set up injection moulding when it is the safest choice.",
           "mediaHint": "Digital smile planning and mock-up visuals"
         },
         {
           "id": "composite_injection_moulding",
           "type": "treatment_overview_rich",
-          "title": "Injection-moulded composite for controlled changes",
-          "copy": "For patients seeking the highest level of precision, we also offer injection moulded composite. The smile is digitally designed, a guide is produced, and resin is delivered through the guide to keep widths, edge lengths, and symmetry accurate.",
+          "title": "Injection moulding technique",
+          "copy": "Injection moulded composite uses digital design and silicone or printed keys to deliver resin through a precise guide. It keeps edge lengths, embrasures, and widths consistent, improves symmetry across multiple teeth, and reduces chairside guesswork.",
           "bullets": [
-            "Useful for smile widening and lengthening without aggressive preparation",
-            "Guided delivery to manage black triangles and embrasure form",
-            "Supports symmetry when planning alongside whitening or aligners"
+            "Digital scans and wax-ups map planned tooth shapes before treatment",
+            "Silicone keys or printed guides control resin volume for repeatable placement",
+            "Predictable edge lengths and contact points with fewer mid-appointment adjustments",
+            "Efficient when treating several teeth together or refining symmetry after orthodontics"
           ]
         },
         {
@@ -1006,12 +1008,46 @@
         {
           "id": "composite_lifespan",
           "type": "features",
-          "title": "Longevity, maintenance, and repairs",
+          "title": "Longevity & maintenance",
           "items": [
-            "With routine care, composite bonding can remain stable for several years; polish can be refreshed without replacing the whole restoration",
-            "Repairs are possible if chips occur, keeping intervention conservative",
-            "Good hygiene, reduced staining foods, and regular reviews help maintain colour and gloss",
-            "We discuss realistic wear expectations so you know when refinements may be needed"
+            "Professional polishing restores gloss and smoothness without replacing the whole restoration",
+            "Small chips or edge wear can usually be touched up chairside to extend lifespan",
+            "Night guards help protect edges if you clench or grind, reducing fracture risk",
+            "Coffee, tea, red wine, and smoking increase staining; hygiene visits and mindful habits keep colour stable"
+          ]
+        },
+        {
+          "id": "composite_not_suited",
+          "type": "features",
+          "title": "When bonding isn’t the best choice",
+          "items": [
+            "Heavy bites or active clenching with limited space may need occlusal therapy or guards first",
+            "Severe wear or bite collapse often requires orthodontics, onlays, or veneers for stability",
+            "Deep discolouration or large colour jumps are better addressed with whitening or porcelain coverage",
+            "Insufficient enamel or untreated gum disease must be managed before cosmetic bonding is planned"
+          ]
+        },
+        {
+          "id": "composite_faq",
+          "type": "treatment_faq_block",
+          "title": "Composite bonding FAQs",
+          "faqs": [
+            {
+              "question": "How long does composite bonding last?",
+              "answer": "With regular hygiene visits, polishing, and a night guard if you clench, many cases stay stable for several years before refreshes are needed."
+            },
+            {
+              "question": "Can composite bonding be repaired?",
+              "answer": "Yes. Chips or edge wear can usually be smoothed and re-layered without removing the rest of the bonding, keeping treatment conservative."
+            },
+            {
+              "question": "How do I maintain bonded teeth?",
+              "answer": "Use non-abrasive toothpaste, attend hygienist visits for polishing, minimise staining foods and smoking, and wear a night guard if advised."
+            },
+            {
+              "question": "Is composite bonding suitable for everyone?",
+              "answer": "Suitability depends on bite forces, enamel quality, and goals. We may recommend whitening, aligners, or veneers instead if the bite is heavy or colour change needed is significant."
+            }
           ]
         },
         {
@@ -1028,17 +1064,27 @@
         {
           "id": "composite_next_steps",
           "type": "treatment_closing_cta",
-          "title": "Plan a calm, dentist-led bonding consultation",
-          "strapline": "We assess your teeth, discuss how whitening or aligners may fit, and tailor composite bonding to your goals.",
+          "title": "Book a Cosmetic Assessment",
+          "strapline": "We assess your teeth, review bite forces, and explain whether composite bonding, veneers, whitening, or aligners best fit your goals.",
           "ctas": [
             {
-              "label": "Book a consultation",
+              "label": "Cosmetic Assessment",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "Discuss smile planning",
-              "href": "/treatments/full-smile-makeover",
+              "label": "Veneers",
+              "href": "/treatments/veneers",
+              "preset": "secondary"
+            },
+            {
+              "label": "Teeth whitening",
+              "href": "/treatments/teeth-whitening",
+              "preset": "secondary"
+            },
+            {
+              "label": "Clear aligners",
+              "href": "/treatments/clear-aligners",
               "preset": "secondary"
             }
           ]
