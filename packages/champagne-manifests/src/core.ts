@@ -25,6 +25,10 @@ import sectionLayoutImplantSinusLift from "../data/sections/smh/treatments.impla
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
 import sectionLayoutFixedBraces from "../data/sections/smh/treatments.fixed-braces.json";
+import sectionLayout3DDigitalDentistry from "../data/sections/smh/treatments.3d-digital-dentistry.json";
+import sectionLayout3DMouthGuards from "../data/sections/smh/treatments.3d-mouth-guards.json";
+import sectionLayout3DPrintedDentures from "../data/sections/smh/treatments.3d-printed-dentures.json";
+import sectionLayoutInlaysOnlays from "../data/sections/smh/treatments.inlays-onlays.json";
 import sectionLayoutOrthodontics from "../data/sections/smh/treatments.orthodontics.json";
 import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
 
@@ -276,6 +280,10 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutClearAligners as ChampagneSectionLayout,
   sectionLayoutSparkAligners as ChampagneSectionLayout,
   sectionLayoutAligners as ChampagneSectionLayout,
+  sectionLayout3DDigitalDentistry as ChampagneSectionLayout,
+  sectionLayout3DMouthGuards as ChampagneSectionLayout,
+  sectionLayout3DPrintedDentures as ChampagneSectionLayout,
+  sectionLayoutInlaysOnlays as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
