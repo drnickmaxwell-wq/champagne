@@ -1393,9 +1393,92 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_dentistry_overview",
+          "type": "treatment_overview_rich",
+          "title": "Calm, prompt support when something feels urgent",
+          "copy": "We make time for same-day emergencies, guide you on what to do next, and keep language calm and practical. If you are in pain, bleeding, or have a sudden change to a tooth or restoration, contact us so we can prioritise your visit.",
+          "bullets": [
+            "Clear triage to decide if you need immediate or urgent care",
+            "Advice on protecting a tooth or restoration before you arrive",
+            "Appointments that focus on settling pain and stabilising the area",
+            "Follow-up planning once things feel safe again"
+          ]
+        },
+        {
+          "id": "emergency_dentistry_triage",
+          "type": "features",
+          "title": "Emergency, urgent, or routine?",
+          "items": [
+            "Emergency: severe pain, significant bleeding, facial swelling, or a knocked-out tooth",
+            "Urgent: broken, chipped, or lost restorations without major pain",
+            "Routine: minor sensitivity or small chips that can wait for a scheduled visit",
+            "Unsure: call us and we will help decide the right pace"
+          ]
+        },
+        {
+          "id": "emergency_dentistry_steps",
+          "type": "steps",
+          "title": "What to do now",
+          "items": [
+            "Call the practice so we can triage and reserve time for you",
+            "Keep the area clean with gentle rinsing; avoid very hot or cold foods",
+            "Store any broken fragment or restoration in a clean container",
+            "Use pharmacy pain relief if needed and safe for you, following the packet instructions",
+            "If a tooth is knocked out, keep it moist in milk or saliva and bring it with you"
+          ]
+        },
+        {
+          "id": "emergency_dentistry_topics",
+          "type": "cta",
+          "title": "Common emergency visits",
+          "ctas": [
+            { "label": "Emergency dental appointments", "href": "/treatments/emergency-dental-appointments", "preset": "secondary" },
+            { "label": "Severe toothache & dental pain", "href": "/treatments/severe-toothache-dental-pain", "preset": "secondary" },
+            { "label": "Dental abscess & infection", "href": "/treatments/dental-abscess-infection", "preset": "secondary" },
+            { "label": "Broken, chipped or cracked teeth", "href": "/treatments/broken-chipped-cracked-teeth", "preset": "secondary" },
+            { "label": "Knocked-out (avulsed) tooth", "href": "/treatments/knocked-out-tooth", "preset": "secondary" },
+            { "label": "Lost crowns, veneers & fillings", "href": "/treatments/lost-crowns-veneers-fillings", "preset": "secondary" },
+            { "label": "Dental trauma & accidents", "href": "/treatments/dental-trauma-accidents", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "emergency_dentistry_support",
+          "type": "treatment_media_feature",
+          "label": "Supportive care",
+          "title": "Stabilise first, then plan comfortable follow-up",
+          "copy": "We focus on easing pain, protecting the area, and explaining what to expect next. If further treatment is needed, we discuss options in plain language so you can choose the right pace.",
+          "mediaHint": "Calm, stepwise care"
+        },
+        {
+          "id": "emergency_dentistry_faq",
+          "type": "treatment_faq_block",
+          "title": "Emergency dentistry questions",
+          "faqs": [
+            {
+              "question": "How quickly can I be seen?",
+              "answer": "We reserve time for emergencies each day. Call as soon as you can so we can confirm the earliest slot and share any immediate advice."
+            },
+            {
+              "question": "Is emergency care different from a routine visit?",
+              "answer": "Emergency appointments focus on stabilising and relieving pain. Follow-up visits handle any longer-term treatment once you are comfortable."
+            },
+            {
+              "question": "What if I am unsure it is an emergency?",
+              "answer": "Contact us and describe what you are feeling or seeing. We will advise whether you need to come in urgently or schedule a routine visit."
+            }
+          ]
+        },
+        {
+          "id": "emergency_dentistry_cta",
+          "type": "treatment_closing_cta",
+          "title": "Call for emergency dental care",
+          "strapline": "Tell us what has happened so we can guide you and reserve the right appointment time.",
+          "ctas": [
+            { "label": "Call the practice", "href": "/contact", "preset": "primary" },
+            { "label": "See emergency options", "href": "/treatments", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1406,9 +1489,85 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_appointments_overview",
+          "type": "treatment_overview_rich",
+          "title": "Same-day appointments when something can’t wait",
+          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We’ll stabilise the area, ease discomfort, and plan the next steps together.",
+          "bullets": [
+            "Phone triage to book the right appointment length",
+            "Advice on caring for the area before you arrive",
+            "Focus on relief and stabilisation first",
+            "Clear follow-up plan once you are comfortable"
+          ]
+        },
+        {
+          "id": "emergency_appointments_symptoms",
+          "type": "features",
+          "title": "When to book an emergency appointment",
+          "items": [
+            "Severe or escalating toothache",
+            "Swelling in the face or gums",
+            "Broken teeth or restorations causing pain",
+            "Bleeding that does not settle",
+            "Knocked-out or loose teeth after an accident"
+          ]
+        },
+        {
+          "id": "emergency_appointments_steps",
+          "type": "steps",
+          "title": "How to prepare",
+          "items": [
+            "Call us and describe what happened so we can schedule you appropriately",
+            "Avoid eating on the affected side and keep the area clean",
+            "Bring any fragments, crowns, or fillings with you in a clean container",
+            "Use pharmacy pain relief if safe for you and follow the packet guidance"
+          ]
+        },
+        {
+          "id": "emergency_appointments_importance",
+          "type": "copy-block",
+          "title": "Why timing matters",
+          "copy": "Seeing you quickly reduces discomfort, prevents problems from worsening, and helps us save or protect the tooth. Early care often means simpler treatment and calmer visits.",
+          "label": "Prompt care"
+        },
+        {
+          "id": "emergency_appointments_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Stabilise, soothe, and plan",
+          "copy": "Depending on what we find, we may provide temporary fillings, smooth sharp edges, adjust or re-fit a restoration, prescribe medication, or start definitive treatment once you are ready.",
+          "mediaHint": "Calm chairside care"
+        },
+        {
+          "id": "emergency_appointments_faq",
+          "type": "treatment_faq_block",
+          "title": "Emergency appointment FAQs",
+          "faqs": [
+            {
+              "question": "Can you always fix the problem on the day?",
+              "answer": "We focus on relieving pain and protecting the area at the first visit. Some treatments are completed immediately; others may be staged once things are stable."
+            },
+            {
+              "question": "What if I am nervous about urgent treatment?",
+              "answer": "We explain each step, use gentle techniques, and only move forward at a pace you are comfortable with."
+            },
+            {
+              "question": "Do I need a referral for an emergency visit?",
+              "answer": "No referral is needed. Contact us directly and we will arrange an appointment based on your symptoms."
+            }
+          ]
+        },
+        {
+          "id": "emergency_appointments_cta",
+          "type": "treatment_closing_cta",
+          "title": "Call for an emergency appointment",
+          "strapline": "Tell us what has happened so we can reserve time and guide you before you travel.",
+          "ctas": [
+            { "label": "Call now", "href": "/contact", "preset": "primary" },
+            { "label": "View all emergency options", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1419,9 +1578,86 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_pain_overview",
+          "type": "treatment_overview_rich",
+          "title": "Relief for severe toothache and sudden dental pain",
+          "copy": "Intense or throbbing pain can be unsettling. We triage quickly, keep explanations straightforward, and focus on making you comfortable while we identify the cause.",
+          "bullets": [
+            "Calm assessment to pinpoint the source of pain",
+            "Gentle care to reduce sensitivity and inflammation",
+            "Medication or protective dressings where appropriate",
+            "Follow-up plan to prevent pain returning"
+          ]
+        },
+        {
+          "id": "emergency_pain_symptoms",
+          "type": "features",
+          "title": "Common signs",
+          "items": [
+            "Sharp, throbbing, or radiating pain",
+            "Sensitivity to hot, cold, or biting",
+            "Swelling around the tooth or face",
+            "Pain that wakes you at night",
+            "Discomfort after a recent filling or trauma"
+          ]
+        },
+        {
+          "id": "emergency_pain_steps",
+          "type": "steps",
+          "title": "What to do now",
+          "items": [
+            "Contact us so we can arrange an emergency visit",
+            "Rinse gently with warm salty water to keep the area clean",
+            "Avoid extremes of temperature and chew on the opposite side",
+            "Use over-the-counter pain relief if suitable for you and follow the instructions",
+            "Do not place aspirin on the gum or tooth"
+          ]
+        },
+        {
+          "id": "emergency_pain_importance",
+          "type": "copy-block",
+          "title": "Why prompt care matters",
+          "copy": "Severe pain can indicate infection, a cracked tooth, or deep decay. Early attention helps us relieve discomfort quickly and protect the tooth or supporting tissues.",
+          "label": "Prompt relief"
+        },
+        {
+          "id": "emergency_pain_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Ease pain and address the cause",
+          "copy": "Depending on the diagnosis, we may place a soothing dressing, adjust a restoration, clean an inflamed area, begin root canal care, or prescribe medication to settle infection.",
+          "mediaHint": "Comfort-first care"
+        },
+        {
+          "id": "emergency_pain_faq",
+          "type": "treatment_faq_block",
+          "title": "Pain relief FAQs",
+          "faqs": [
+            {
+              "question": "Can I wait to see if the pain settles?",
+              "answer": "If pain is severe or getting worse, contact us. Early care helps prevent complications and keeps treatment simpler."
+            },
+            {
+              "question": "Will treatment be painful?",
+              "answer": "We use gentle techniques and numbing to make you comfortable. Let us know how you are feeling throughout the visit."
+            },
+            {
+              "question": "What if the pain starts overnight?",
+              "answer": "Use appropriate pain relief if safe for you, avoid triggers such as hot or cold food, and call us first thing so we can book you in."
+            }
+          ]
+        },
+        {
+          "id": "emergency_pain_cta",
+          "type": "treatment_closing_cta",
+          "title": "Arrange urgent toothache care",
+          "strapline": "We will guide you on immediate steps and bring you in quickly to relieve pain.",
+          "ctas": [
+            { "label": "Call for support", "href": "/contact", "preset": "primary" },
+            { "label": "See emergency options", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1432,9 +1668,86 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_abscess_overview",
+          "type": "treatment_overview_rich",
+          "title": "Support for dental abscesses and infections",
+          "copy": "Swelling, throbbing pain, or a bad taste can indicate infection. We act quickly to ease discomfort, manage the infection, and protect surrounding teeth and tissues.",
+          "bullets": [
+            "Rapid assessment and drainage where appropriate",
+            "Medication guidance tailored to you",
+            "Advice on reducing pressure and irritation",
+            "Follow-up to complete definitive treatment"
+          ]
+        },
+        {
+          "id": "emergency_abscess_symptoms",
+          "type": "features",
+          "title": "What you might notice",
+          "items": [
+            "Swelling of the gum or face",
+            "Persistent or throbbing pain",
+            "Bad taste or discharge",
+            "Fever or feeling unwell",
+            "Difficulty biting or opening"
+          ]
+        },
+        {
+          "id": "emergency_abscess_steps",
+          "type": "steps",
+          "title": "What to do now",
+          "items": [
+            "Call us urgently so we can arrange appropriate care",
+            "Avoid pressing on the swelling and keep the area clean",
+            "Rinse gently with warm salty water to reduce surface bacteria",
+            "Use pharmacy pain relief if suitable and stay hydrated",
+            "Seek immediate help if swelling affects breathing or vision"
+          ]
+        },
+        {
+          "id": "emergency_abscess_importance",
+          "type": "copy-block",
+          "title": "Why swift treatment matters",
+          "copy": "Infections can spread and become more serious if left untreated. Early drainage or medication reduces pain and helps protect your overall health.",
+          "label": "Act early"
+        },
+        {
+          "id": "emergency_abscess_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Reduce infection and protect the tooth",
+          "copy": "We may drain the infection, adjust or open the tooth to relieve pressure, prescribe antibiotics when clinically appropriate, and plan root canal treatment or other care to resolve the cause.",
+          "mediaHint": "Gentle relief"
+        },
+        {
+          "id": "emergency_abscess_faq",
+          "type": "treatment_faq_block",
+          "title": "Infection FAQs",
+          "faqs": [
+            {
+              "question": "Do I always need antibiotics?",
+              "answer": "Not every abscess requires antibiotics. We assess you in person to decide the best approach, which may include drainage or other treatment."
+            },
+            {
+              "question": "Will the swelling go away on its own?",
+              "answer": "Swelling often needs professional care. Contact us if you notice it, especially if pain or fever is present."
+            },
+            {
+              "question": "Can I work or travel after treatment?",
+              "answer": "We will advise based on the procedure performed and how you feel. Many people can return to routine with simple aftercare guidance."
+            }
+          ]
+        },
+        {
+          "id": "emergency_abscess_cta",
+          "type": "treatment_closing_cta",
+          "title": "Get help for swelling or infection",
+          "strapline": "Call now so we can assess and relieve the infection safely.",
+          "ctas": [
+            { "label": "Call the practice", "href": "/contact", "preset": "primary" },
+            { "label": "See emergency care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1445,9 +1758,86 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_chipped_overview",
+          "type": "treatment_overview_rich",
+          "title": "Care for broken, chipped, or cracked teeth",
+          "copy": "A sudden chip or crack can be alarming. We smooth sharp edges, protect the tooth, and plan restorative options so you can eat and speak comfortably again.",
+          "bullets": [
+            "Quick smoothing to prevent cuts to cheeks or tongue",
+            "Temporary coverings where needed",
+            "Assessment for structural stability",
+            "Clear plan for lasting repairs"
+          ]
+        },
+        {
+          "id": "emergency_chipped_symptoms",
+          "type": "features",
+          "title": "What you might notice",
+          "items": [
+            "Sharp edges or roughness",
+            "Sensitivity to cold or air",
+            "Pain when biting",
+            "Visible crack lines",
+            "A missing piece of tooth"
+          ]
+        },
+        {
+          "id": "emergency_chipped_steps",
+          "type": "steps",
+          "title": "What to do now",
+          "items": [
+            "Save any broken fragment in clean water or milk",
+            "Avoid biting on the damaged tooth",
+            "Rinse gently to keep the area clean",
+            "Use dental wax or sugar-free chewing gum to cover a sharp edge if needed",
+            "Contact us promptly so we can protect the tooth"
+          ]
+        },
+        {
+          "id": "emergency_chipped_importance",
+          "type": "copy-block",
+          "title": "Why prompt treatment matters",
+          "copy": "Acting quickly reduces the risk of the crack deepening, prevents irritation to the mouth, and helps us preserve as much natural tooth as possible.",
+          "label": "Protect the tooth"
+        },
+        {
+          "id": "emergency_chipped_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Stabilise and restore",
+          "copy": "Depending on the size and location of the damage, we may smooth the area, place a temporary cover, rebuild with composite bonding, fit a crown, or plan further treatment if the crack is deeper.",
+          "mediaHint": "Restorative options"
+        },
+        {
+          "id": "emergency_chipped_faq",
+          "type": "treatment_faq_block",
+          "title": "Cracked tooth FAQs",
+          "faqs": [
+            {
+              "question": "Can a chipped tooth wait?",
+              "answer": "Small chips may seem minor but can lead to sensitivity or further damage. Contact us so we can advise on timing."
+            },
+            {
+              "question": "Will I need a crown straight away?",
+              "answer": "Not always. We choose the least invasive repair that keeps the tooth strong, which may start with composite bonding or smoothing."
+            },
+            {
+              "question": "Is it safe to keep eating?",
+              "answer": "Avoid chewing on the affected side until we assess the tooth. Softer foods and careful cleaning can help protect it in the meantime."
+            }
+          ]
+        },
+        {
+          "id": "emergency_chipped_cta",
+          "type": "treatment_closing_cta",
+          "title": "Book care for a chipped or cracked tooth",
+          "strapline": "We will protect the tooth, relieve sensitivity, and plan the right repair.",
+          "ctas": [
+            { "label": "Call for an emergency visit", "href": "/contact", "preset": "primary" },
+            { "label": "Explore emergency care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1458,9 +1848,85 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_avulsion_overview",
+          "type": "treatment_overview_rich",
+          "title": "Urgent help for a knocked-out tooth",
+          "copy": "A tooth that has fully come out needs immediate attention. We guide you on how to handle the tooth, prepare the site, and increase the chances of saving it.",
+          "bullets": [
+            "Clear instructions on storing the tooth",
+            "Priority appointments for avulsed teeth",
+            "Calm handling to protect the socket and root",
+            "Follow-up care to support healing"
+          ]
+        },
+        {
+          "id": "emergency_avulsion_symptoms",
+          "type": "features",
+          "title": "What you might notice",
+          "items": [
+            "A missing tooth after trauma",
+            "Bleeding or an empty socket",
+            "Swelling or tenderness around the area",
+            "Possible damage to nearby teeth or lips"
+          ]
+        },
+        {
+          "id": "emergency_avulsion_steps",
+          "type": "steps",
+          "title": "What to do immediately",
+          "items": [
+            "Handle the tooth by the crown only; avoid touching the root",
+            "If dirty, gently rinse with cold running water for a few seconds—do not scrub",
+            "Place the tooth back into the socket if you can and bite gently on a clean cloth",
+            "If you cannot reinsert it, store it in milk or saliva (not water)",
+            "Call us straight away and travel to the practice"
+          ]
+        },
+        {
+          "id": "emergency_avulsion_importance",
+          "type": "copy-block",
+          "title": "Why speed is critical",
+          "copy": "The sooner a knocked-out tooth is replanted, the better the chance of long-term success. Delays can reduce survival of the tooth or affect surrounding tissues.",
+          "label": "Act quickly"
+        },
+        {
+          "id": "emergency_avulsion_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Replant, stabilise, and protect",
+          "copy": "We clean and replant the tooth when appropriate, stabilise it with a splint, manage any injuries to nearby teeth, and discuss future options such as root canal therapy or replacement if needed.",
+          "mediaHint": "Stabilisation and healing"
+        },
+        {
+          "id": "emergency_avulsion_faq",
+          "type": "treatment_faq_block",
+          "title": "Knocked-out tooth FAQs",
+          "faqs": [
+            {
+              "question": "Can a baby tooth be replanted?",
+              "answer": "Baby teeth are not typically replanted. Contact us so we can assess and protect the area safely."
+            },
+            {
+              "question": "What if the tooth looks damaged?",
+              "answer": "Bring it with you even if broken. We will determine whether replanting is possible or discuss other options."
+            },
+            {
+              "question": "Do I need a tetanus check?",
+              "answer": "If the injury involved soil or uncertain contamination, we may suggest contacting your GP about tetanus status."
+            }
+          ]
+        },
+        {
+          "id": "emergency_avulsion_cta",
+          "type": "treatment_closing_cta",
+          "title": "Call immediately about a knocked-out tooth",
+          "strapline": "We will guide you on safe handling and prepare to see you right away.",
+          "ctas": [
+            { "label": "Call now", "href": "/contact", "preset": "primary" },
+            { "label": "Return to emergency hub", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1471,9 +1937,86 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_crown_overview",
+          "type": "treatment_overview_rich",
+          "title": "Support for lost crowns, veneers, or fillings",
+          "copy": "If a restoration comes loose or falls out, we protect the exposed tooth, ease any sensitivity, and plan a secure repair or replacement.",
+          "bullets": [
+            "Clean, careful assessment of the exposed tooth",
+            "Temporary coverage when needed",
+            "Discussion on repair versus replacement",
+            "Guidance on protecting the tooth until fixed"
+          ]
+        },
+        {
+          "id": "emergency_crown_symptoms",
+          "type": "features",
+          "title": "What you might notice",
+          "items": [
+            "A missing crown, veneer, or filling",
+            "Sensitivity to hot or cold",
+            "Rough or sharp edges",
+            "Food catching in the exposed area",
+            "Change in how your bite feels"
+          ]
+        },
+        {
+          "id": "emergency_crown_steps",
+          "type": "steps",
+          "title": "What to do now",
+          "items": [
+            "Keep the restoration if you have it and bring it to your appointment",
+            "Avoid chewing on the exposed tooth",
+            "Rinse after eating to keep the area clean",
+            "Do not attempt to glue the restoration back yourself",
+            "Call us so we can arrange a prompt visit"
+          ]
+        },
+        {
+          "id": "emergency_crown_importance",
+          "type": "copy-block",
+          "title": "Why prompt attention helps",
+          "copy": "Exposed tooth surfaces can become sensitive or decay if left uncovered. Seeing you quickly keeps the tooth protected and makes re-fitting or replacing smoother.",
+          "label": "Protect exposed teeth"
+        },
+        {
+          "id": "emergency_crown_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Secure, calm repairs",
+          "copy": "We assess whether the existing crown, veneer, or filling can be cleaned and re-bonded, place a temporary solution if needed, or plan a new restoration tailored to your bite and smile.",
+          "mediaHint": "Restoration check"
+        },
+        {
+          "id": "emergency_crown_faq",
+          "type": "treatment_faq_block",
+          "title": "Restoration FAQs",
+          "faqs": [
+            {
+              "question": "Can I eat before the appointment?",
+              "answer": "Choose softer foods and avoid the affected side to prevent further damage or sensitivity."
+            },
+            {
+              "question": "Will you reuse my crown or veneer?",
+              "answer": "If the restoration is suitable and fits well, we may re-bond it. Otherwise, we will plan a replacement and keep you comfortable in the meantime."
+            },
+            {
+              "question": "Is it urgent if I have no pain?",
+              "answer": "Even without pain, an exposed tooth can deteriorate. Booking soon helps protect the tooth structure and your bite."
+            }
+          ]
+        },
+        {
+          "id": "emergency_crown_cta",
+          "type": "treatment_closing_cta",
+          "title": "Book help for a lost restoration",
+          "strapline": "We will protect the tooth, discuss repair options, and get you back to comfort.",
+          "ctas": [
+            { "label": "Arrange an emergency visit", "href": "/contact", "preset": "primary" },
+            { "label": "Return to emergency hub", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -1484,9 +2027,86 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "emergency_trauma_overview",
+          "type": "treatment_overview_rich",
+          "title": "Care after dental trauma or accidents",
+          "copy": "Falls, sports injuries, or other accidents can affect teeth and soft tissues. We provide calm assessment, stop bleeding, protect damaged areas, and outline any further treatment.",
+          "bullets": [
+            "Gentle checks for teeth, gums, and jaw",
+            "Advice on cleaning and swelling control",
+            "Temporary stabilisation if needed",
+            "Clear next steps for definitive care"
+          ]
+        },
+        {
+          "id": "emergency_trauma_symptoms",
+          "type": "features",
+          "title": "What you might notice",
+          "items": [
+            "Bleeding from gums or lips",
+            "Loose or displaced teeth",
+            "Chips, cracks, or fractures",
+            "Cuts inside the mouth",
+            "Jaw soreness after impact"
+          ]
+        },
+        {
+          "id": "emergency_trauma_steps",
+          "type": "steps",
+          "title": "What to do now",
+          "items": [
+            "If bleeding, apply gentle pressure with a clean cloth or gauze",
+            "Rinse with cool water to clear debris",
+            "Save any tooth fragments or restorations",
+            "Use a cold compress on the outside of the cheek to reduce swelling",
+            "Contact us promptly; seek urgent medical help if you suspect other injuries"
+          ]
+        },
+        {
+          "id": "emergency_trauma_importance",
+          "type": "copy-block",
+          "title": "Why prompt assessment helps",
+          "copy": "Early evaluation lets us stabilise teeth, check for hidden fractures, and plan repairs before complications develop. It also helps us coordinate with medical teams if needed.",
+          "label": "Early checks"
+        },
+        {
+          "id": "emergency_trauma_options",
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Stabilise and plan recovery",
+          "copy": "Treatment may include smoothing edges, splinting loose teeth, placing temporary coverings, prescribing medication, or coordinating imaging and follow-up restorative care.",
+          "mediaHint": "Staged recovery"
+        },
+        {
+          "id": "emergency_trauma_faq",
+          "type": "treatment_faq_block",
+          "title": "Trauma FAQs",
+          "faqs": [
+            {
+              "question": "Do I need X-rays after an accident?",
+              "answer": "We will advise after examining the area. Imaging helps check for fractures or root damage that are not visible."
+            },
+            {
+              "question": "What if a tooth feels loose?",
+              "answer": "Keep it clean, avoid wiggling it, and contact us. We may splint it to nearby teeth while it heals."
+            },
+            {
+              "question": "Can you help with mouth cuts?",
+              "answer": "Yes. We assess soft tissue injuries, clean the area, and advise if medical attention or stitches are needed."
+            }
+          ]
+        },
+        {
+          "id": "emergency_trauma_cta",
+          "type": "treatment_closing_cta",
+          "title": "Arrange care after dental trauma",
+          "strapline": "We will check for hidden issues, stabilise your teeth, and guide recovery.",
+          "ctas": [
+            { "label": "Call for urgent care", "href": "/contact", "preset": "primary" },
+            { "label": "Back to emergency hub", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
