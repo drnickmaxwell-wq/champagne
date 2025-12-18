@@ -743,6 +743,101 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "injection_moulded_composite": {
+      "id": "injection_moulded_composite",
+      "label": "Injection-moulded composite",
+      "path": "/treatments/injection-moulded-composite",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "injection_intro",
+          "type": "treatment_overview_rich",
+          "title": "Injection-moulded composite for guided precision",
+          "copy": "Injection moulded composite is a digitally planned approach to cosmetic bonding. We design the smile change first, create a custom guide, and deliver the composite through it so widths, edges, and symmetry follow the plan without unnecessary drilling.",
+          "bullets": [
+            "Digitally designed smile plan agreed before treatment",
+            "Custom guide helps composite follow planned shapes",
+            "Minimal tooth preparation to keep treatment reversible"
+          ]
+        },
+        {
+          "id": "injection_use_cases",
+          "type": "features",
+          "title": "Where injection-moulded composite is useful",
+          "items": [
+            "Smile widening with controlled arch form",
+            "Lengthening worn or uneven incisal edges",
+            "Closing small gaps and managing black triangles",
+            "Improving symmetry when several teeth are treated together",
+            "Providing predictable edge positions after orthodontic alignment"
+          ]
+        },
+        {
+          "id": "injection_digital_planning",
+          "type": "treatment_media_feature",
+          "label": "Digital design",
+          "title": "Digitally planned, guide-delivered composite",
+          "copy": "We start with scans and photographs, map proposed changes with digital smile design, and share previews where helpful. A guide is produced from this plan so the composite is placed and finished against a defined blueprint, keeping the process controlled and repeatable while still relying on clinician judgement.",
+          "mediaHint": "Digital smile design, guide fabrication, and preview mock-ups"
+        },
+        {
+          "id": "injection_vs_freehand",
+          "type": "features",
+          "title": "Injection moulding and freehand composite",
+          "items": [
+            "Freehand composite bonding remains excellent for single teeth and nuanced texture work",
+            "Injection moulding is chosen when symmetry and edge positions must match across several teeth",
+            "Guide-based delivery reduces guesswork without removing the need for skilled finishing",
+            "Both techniques sit within our cosmetic bonding toolkit and are selected case by case"
+          ]
+        },
+        {
+          "id": "injection_reversibility",
+          "type": "features",
+          "title": "Reversibility, repairs, and maintenance",
+          "items": [
+            "Composite placement is additive and generally keeps drilling minimal",
+            "Repairs or refinements can usually be made without starting again",
+            "Regular hygiene, polishing, and mindful diet choices help maintain gloss and shade",
+            "Longevity is discussed at consultation so you know how to look after guided composite work"
+          ]
+        },
+        {
+          "id": "injection_vs_veneers",
+          "type": "features",
+          "title": "Injection-moulded composite and veneers",
+          "items": [
+            "Porcelain veneers may offer greater long-term surface durability",
+            "Injection-moulded composite is reversible and often suited to staged cosmetic treatment",
+            "Patients considering veneers can trial digitally planned shapes with composite first",
+            "Upgrades to porcelain or digitally designed 3D veneers remain available later if appropriate"
+          ]
+        },
+        {
+          "id": "injection_candidates",
+          "type": "features",
+          "title": "Who benefits from guided composite bonding",
+          "items": [
+            "Patients wanting precision changes with minimal intervention",
+            "People weighing veneers but preferring a reversible option",
+            "Those seeking digitally planned outcomes after whitening or orthodontic alignment",
+            "Detail-oriented patients who value predictable symmetry"
+          ]
+        },
+        {
+          "id": "injection_next_steps",
+          "type": "treatment_closing_cta",
+          "title": "Plan an injection-moulded composite consultation",
+          "strapline": "We review your teeth, discuss how composite bonding, veneers, whitening, or alignment fit together, and build a guided plan that matches your goals.",
+          "ctas": [
+            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
+            { "label": "Discuss digitally planned options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "crowns_bridges_restorative": {
       "id": "crowns_bridges_restorative",
       "label": "Crowns, bridges & restorative dentistry",
