@@ -60,6 +60,22 @@
       "mediaHint": "Spark aligner staging and check-ins"
     },
     {
+      "instanceId": "spark-aligners-outcomes",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_spark_aligners_outcomes",
+      "order": 35,
+      "seoRole": "supporting",
+      "eyebrow": "How orthodontic outcomes are planned",
+      "title": "Digital Spark planning with bite checks and stability in mind",
+      "items": [
+        "Full photo records, scans, and radiographs to map your starting point",
+        "Bite assessment that considers jaw position, wear patterns, and gum health",
+        "Attachment and movement sequencing set with Spark to protect enamel and roots",
+        "Space analysis before proposing any stripping or refinements",
+        "Retention and long-term expectations outlined before you approve the plan"
+      ]
+    },
+    {
       "instanceId": "spark-aligners-who-for",
       "componentId": "treatment.whoIsItFor",
       "variantId": "shoreham_spark_aligners_candidates",
@@ -95,6 +111,22 @@
       "strapline": "Most Spark journeys run across several months; we outline your expected timeline before you commit."
     },
     {
+      "instanceId": "spark-aligners-monitoring",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_spark_aligners_monitoring",
+      "order": 55,
+      "seoRole": "supporting",
+      "eyebrow": "Monitoring & adjustments",
+      "title": "Set review intervals with options if teeth don’t track",
+      "items": [
+        "Review spacing agreed at the start—typically every few weeks",
+        "Fit checks, speech checks, and hygiene reviews at each visit",
+        "If a tray feels loose or tight, we assess wear patterns and adjust guidance",
+        "Non-tracking teeth may need new scans, revised attachments, or extra Spark trays",
+        "You’ll know next steps and timings before we order refinements"
+      ]
+    },
+    {
       "instanceId": "spark-aligners-technology",
       "componentId": "treatment.technology",
       "variantId": "shoreham_spark_aligners_technology",
@@ -120,6 +152,22 @@
         "Remove trays for meals and hot drinks; water only when wearing",
         "Clean aligners and teeth carefully to protect gums",
         "Retainers needed to hold your result once treatment ends"
+      ]
+    },
+    {
+      "instanceId": "spark-aligners-retention",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_spark_aligners_retention",
+      "order": 72,
+      "seoRole": "supporting",
+      "eyebrow": "Retention matters",
+      "title": "Fixed and removable retainers with long-term guidance",
+      "items": [
+        "Fixed retainers can be bonded behind teeth when suitable after aligners",
+        "Removable retainers worn nightly to keep Spark results stable",
+        "Expect retention to be a long-term habit—we agree a schedule that works for you",
+        "What to do if a retainer cracks, warps, or is lost",
+        "Retention reviews to catch small shifts early and avoid retreatment"
       ]
     },
     {
@@ -162,16 +210,32 @@
       ]
     },
     {
+      "instanceId": "spark-aligners-smile-planning",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_spark_aligners_smile_planning",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "Orthodontics as part of smile planning",
+      "title": "Coordinate Spark with whitening, bonding, or veneers",
+      "items": [
+        "Whitening often timed after alignment for consistent shade (/treatments/teeth-whitening)",
+        "Composite bonding to tidy edges once teeth are in position (/treatments/composite-bonding)",
+        "Veneers or 3D printed veneers considered when porcelain is the safer finish (/treatments/veneers)",
+        "Digital Smile Design and smile makeover planning to map the full journey (/treatments/full-smile-makeover)",
+        "Sequencing explained so you know what happens before and after aligners"
+      ]
+    },
+    {
       "instanceId": "spark-aligners-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_spark_aligners_cta",
       "order": 90,
       "seoRole": "cta",
       "eyebrow": "Ready to plan?",
-      "title": "Book a Spark consultation in Shoreham-by-Sea",
-      "body": "Meet a clinician to review your scans, plan Spark stages, and agree on a calm, predictable pathway before you commit.",
+      "title": "Book an Orthodontic Assessment",
+      "body": "Meet a clinician to review your scans, plan Spark stages, and agree on monitoring, refinements, and retention before you commit.",
       "ctas": [
-        { "label": "Book an aligners consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Book an Orthodontic Assessment", "href": "/contact", "preset": "primary" },
         { "label": "Ask about Spark aligners", "href": "/contact?topic=aligners", "preset": "secondary" }
       ]
     },
