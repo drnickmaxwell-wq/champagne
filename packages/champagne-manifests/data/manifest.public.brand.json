@@ -22,6 +22,7 @@
     { "slug": "/treatments/failed-implant-replacement", "hero": "implants_variant_hero_v3", "category": "treatment" },
     { "slug": "/treatments/implant-aftercare", "hero": "implants_variant_hero_v3", "category": "treatment" },
     { "slug": "/treatments/veneers", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/childrens-dentistry", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
     { "slug": "/treatments/clear-aligners", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/treatments/clear-aligners-spark", "hero": "clear_aligners_hero_v1", "category": "treatment" },
     { "slug": "/treatments/fixed-braces", "hero": "orthodontics_balanced_hero_v1", "category": "treatment" },

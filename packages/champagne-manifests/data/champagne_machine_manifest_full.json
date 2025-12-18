@@ -2993,9 +2993,169 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "childrens-dentistry-hero",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.heroIntro",
+          "variantId": "smh_childrens_dentistry_hero",
+          "order": 10,
+          "seoRole": "hero",
+          "eyebrow": "Children’s dentistry",
+          "title": "Gentle check-ups that build lifelong habits",
+          "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
+          "bullets": [
+            "Calm examinations with tell-show-do and plenty of reassurance",
+            "Decay risk checks with fluoride and diet advice matched to age",
+            "Coaching for children and parents on brushing and home routines"
+          ],
+          "ctas": [
+            { "label": "Book a children’s check-up", "href": "/contact?topic=children", "preset": "primary" },
+            { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "childrens-dentistry-trust",
+          "type": "features",
+          "componentId": "treatment.trustSignals",
+          "variantId": "smh_childrens_dentistry_trust",
+          "order": 20,
+          "seoRole": "supporting",
+          "eyebrow": "Why families choose us",
+          "title": "Care designed around young patients",
+          "items": [
+            "Friendly, unhurried visits with the same calm clinicians where possible",
+            "Simple language and visuals to explain what will happen before we start",
+            "Age-appropriate fluoride guidance with no pushy product sales",
+            "Transparent advice for parents on diet, sugar frequency, and brushing",
+            "Clear next steps if we spot issues or need to monitor development"
+          ]
+        },
+        {
+          "id": "childrens-dentistry-checkup",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.consultationOverview",
+          "variantId": "smh_childrens_dentistry_checkup",
+          "order": 30,
+          "seoRole": "primaryContent",
+          "eyebrow": "What a children’s check-up includes",
+          "title": "Gentle exams with practical guidance",
+          "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
+          "bullets": [
+            "Tooth, gum, and bite review with extra focus on erupting first molars",
+            "Decay risk assessment including grooves, early white spots, and diet habits",
+            "Oral hygiene coaching with brushing demonstrations and parent tips"
+          ]
+        },
+        {
+          "id": "childrens-dentistry-prevention",
+          "type": "features",
+          "componentId": "treatment.processTimeline",
+          "variantId": "smh_childrens_dentistry_prevention",
+          "order": 40,
+          "seoRole": "primaryContent",
+          "eyebrow": "Prevention first",
+          "title": "Simple steps we cover at every stage",
+          "items": [
+            "Fluoride strength and varnish advice tailored to age and decay risk",
+            "Diet and sugar-frequency guidance with realistic swaps for snacks and drinks",
+            "Brushing habits: twice-daily routines, supervised brushing, and gentle technique",
+            "Fissure sealants discussed for deep grooves when they will genuinely help",
+            "Custom mouthguards and trauma tips for sports or active play"
+          ],
+          "strapline": "Consistent, friendly reminders help children build habits that protect baby and adult teeth."
+        },
+        {
+          "id": "childrens-dentistry-nervous",
+          "type": "treatment_media_feature",
+          "componentId": "treatment.technology",
+          "variantId": "smh_childrens_dentistry_nervous",
+          "order": 50,
+          "seoRole": "supporting",
+          "eyebrow": "For nervous children",
+          "title": "Short, positive visits that build confidence",
+          "body": "We use tell-show-do, gentle pacing, and plenty of positive framing. Parents stay involved, and we pause whenever a child needs a breather.",
+          "mediaHint": "Calm, child-friendly pacing with familiar faces"
+        },
+        {
+          "id": "childrens-dentistry-common",
+          "type": "features",
+          "componentId": "treatment.whoIsItFor",
+          "variantId": "smh_childrens_dentistry_common",
+          "order": 60,
+          "seoRole": "primaryContent",
+          "eyebrow": "Common things we monitor",
+          "title": "Support for growing smiles",
+          "items": [
+            "First molars erupting with deep grooves that may trap plaque",
+            "Chipped or bumped teeth from sports or playground knocks",
+            "Early decay or white spots so we can act before fillings are needed",
+            "Thumb sucking, dummies, or mouth breathing that influence tooth position",
+            "Spacing and crowding patterns that may need orthodontic review"
+          ]
+        },
+        {
+          "id": "childrens-dentistry-orthodontics",
+          "type": "treatment_media_feature",
+          "componentId": "treatment.whatAreImplants",
+          "variantId": "smh_childrens_dentistry_orthodontics",
+          "order": 70,
+          "seoRole": "supporting",
+          "eyebrow": "When we suggest an orthodontic chat",
+          "title": "Early guidance keeps options open",
+          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—always explained clearly to families.",
+          "mediaHint": "Monitoring bite, spacing, and eruption patterns"
+        },
+        {
+          "id": "childrens-dentistry-faq",
+          "type": "faq",
+          "componentId": "treatment.faq",
+          "variantId": "smh_childrens_dentistry_faq",
+          "order": 80,
+          "seoRole": "faq",
+          "eyebrow": "Children’s dentistry FAQs",
+          "title": "Answers for parents",
+          "faqs": [
+            {
+              "question": "When should my child first visit?",
+              "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+            },
+            {
+              "question": "How often should they come?",
+              "answer": "Most children benefit from 6-monthly check-ups, but we may recommend shorter intervals if decay risk is higher or longer if everything is very stable."
+            },
+            {
+              "question": "Do baby teeth really matter?",
+              "answer": "Yes. Healthy baby teeth guide adult teeth into place, support speech, and allow comfortable eating. Protecting them reduces the risk of pain, infection, or early tooth loss."
+            },
+            {
+              "question": "What if my child is scared?",
+              "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+            }
+          ]
+        },
+        {
+          "id": "childrens-dentistry-cta",
+          "type": "treatment_closing_cta",
+          "componentId": "treatment.cta",
+          "variantId": "smh_childrens_dentistry_cta",
+          "order": 90,
+          "seoRole": "cta",
+          "eyebrow": "Next steps",
+          "title": "Book a gentle check-up for your child",
+          "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+          "ctas": [
+            { "label": "Book a children’s appointment", "href": "/contact?topic=children", "variant": "primary" },
+            { "label": "Call the practice team", "href": "/contact", "variant": "secondary" },
+            {
+              "label": "Preventative & General Dentistry",
+              "href": "/treatments/preventative-and-general-dentistry",
+              "variant": "ghost"
+            },
+            { "label": "Emergency Dentistry", "href": "/treatments/emergency-dentistry", "variant": "ghost" },
+            { "label": "Nervous Patients", "href": "/treatments/nervous-patients", "variant": "ghost" },
+            { "label": "Orthodontics & Fixed Braces", "href": "/treatments/fixed-braces", "variant": "ghost" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
