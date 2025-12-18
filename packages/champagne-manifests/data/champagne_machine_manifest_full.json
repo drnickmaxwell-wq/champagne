@@ -2322,9 +2322,32 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "sedation_dentistry": {
+      "id": "sedation_dentistry",
+      "label": "Sedation dentistry",
+      "path": "/treatments/sedation-dentistry",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -2335,76 +2358,14 @@
       "category": "treatment",
       "hero": "painless_wand_hero_v1",
       "sections": [
-        {
-          "id": "painless_wand_overview_rich",
-          "type": "treatment_overview_rich",
-          "title": "Comfort-first numbing with The Wand",
-          "copy": "Computer-assisted delivery keeps numbing steady and precise for a calmer appointment.",
-          "bullets": [
-            "Gentle delivery with fine control",
-            "Numbing mapped to the treatment area",
-            "Designed to keep pressure and surprise low"
-          ]
-        },
-        {
-          "id": "painless_wand_media_feature",
-          "type": "treatment_media_feature",
-          "label": "Comfort visual",
-          "title": "See how The Wand guides numbing",
-          "copy": "A simple visual shows the handheld device and how it controls flow during treatment.",
-          "mediaHint": "Comfort-first numbing visual"
-        },
-        {
-          "id": "painless_wand_tools_trio",
-          "type": "treatment_tools_trio",
-          "label": "Comfort tools",
-          "title": "Tech that keeps numbing gentle",
-          "copy": "Each feature is designed to soften the experience without slowing care.",
-          "items": [
-            {
-              "title": "Computer-controlled flow",
-              "description": "Delivers numbing at a steady, precise pace."
-            },
-            {
-              "title": "Targeted delivery tips",
-              "description": "Focuses numbing where it’s needed with minimal pressure."
-            },
-            {
-              "title": "Calm start routine",
-              "description": "We stage the process so you know what’s happening at each step."
-            }
-          ]
-        },
-        {
-          "id": "painless_wand_faq",
-          "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "Comfort numbing questions",
-          "faqs": [
-            {
-              "question": "What is The Wand?",
-              "answer": "It’s a computer-assisted numbing system that controls flow for gentle delivery."
-            },
-            {
-              "question": "Does it change the appointment length?",
-              "answer": "It’s designed to fit into normal scheduling while keeping the start of treatment comfortable."
-            },
-            {
-              "question": "Where is it used?",
-              "answer": "We use it for treatments that benefit from precise, calm numbing around the area of care."
-            }
-          ]
-        },
-        {
-          "id": "painless_wand_closing_cta",
-          "type": "treatment_closing_cta",
-          "title": "Experience comfort-led numbing",
-          "strapline": "Ask about The Wand for your next visit or book a comfort consult.",
-          "ctas": [
-            { "label": "Book a comfort consult", "href": "/contact", "preset": "primary" },
-            { "label": "See how it works", "href": "/treatments/3d-dentistry-and-technology", "preset": "secondary" }
-          ]
-        }
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.aftercareRisks" },
+        { "id": "treatment.faq" },
+        { "id": "treatment.cta" }
       ],
       "surface": "champagne/surface/treatment"
     }

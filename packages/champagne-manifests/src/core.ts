@@ -35,7 +35,10 @@ import sectionLayoutDigitalSmileDesign from "../data/sections/smh/treatments.dig
 import sectionLayoutCbct3DScanning from "../data/sections/smh/treatments.cbct-3d-scanning.json";
 import sectionLayoutInlaysOnlays from "../data/sections/smh/treatments.inlays-onlays.json";
 import sectionLayoutOrthodontics from "../data/sections/smh/treatments.orthodontics.json";
+import sectionLayoutPainlessNumbingTheWand from "../data/sections/smh/treatments.painless-numbing-the-wand.json";
+import sectionLayoutSedationDentistry from "../data/sections/smh/treatments.sedation-dentistry.json";
 import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
+import sectionLayoutTmjJawComfort from "../data/sections/smh/treatments.tmj-jaw-comfort.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -294,6 +297,9 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutDigitalSmileDesign as ChampagneSectionLayout,
   sectionLayoutCbct3DScanning as ChampagneSectionLayout,
   sectionLayoutInlaysOnlays as ChampagneSectionLayout,
+  sectionLayoutPainlessNumbingTheWand as ChampagneSectionLayout,
+  sectionLayoutSedationDentistry as ChampagneSectionLayout,
+  sectionLayoutTmjJawComfort as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
