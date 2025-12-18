@@ -770,212 +770,399 @@
       ],
       "surface": "champagne/surface/treatment"
     },
-    "whitening": {
-      "id": "whitening",
+    "whitening_hub": {
+      "id": "whitening_hub",
       "label": "Teeth whitening",
-      "path": "/treatments/whitening",
+      "path": "/treatments/teeth-whitening",
       "category": "treatment",
-      "hero": "whitening_bright_hero_v1",
-      "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
-      ],
-      "surface": "champagne/surface/treatment"
-    },
-    "whitening_in_surgery": {
-      "id": "whitening_in_surgery",
-      "label": "In-surgery whitening",
-      "path": "/treatments/whitening-in-surgery",
-      "category": "treatment",
-      "hero": "whitening_in_surgery_hero_v1",
+      "hero": "treatment_neutral_hero_v1",
       "sections": [
         {
-          "id": "whitening_in_surgery_overview_rich",
+          "id": "whitening_hero_intro",
           "type": "treatment_overview_rich",
-          "title": "In-surgery whitening with mapped shade control",
-          "copy": "Guided shade targets and cooling support keep treatment comfortable while brightening in the chair.",
+          "title": "Teeth whitening in Shoreham-by-Sea",
+          "copy": "Dentist-led home whitening with UK-compliant gels, custom trays, and clear shade planning. We keep enamel safe while preparing your smile for wider cosmetic work such as alignment or bonding.",
           "bullets": [
-            "Shade targets set before we begin",
-            "Comfort measures layered throughout the session",
-            "Finishing polish to smooth the surface"
+            "Custom-fit trays made from digital scans",
+            "UK-appropriate gels prescribed and monitored by your dentist",
+            "Shade targets that respect your natural enamel and restorations",
+            "Planned as part of Align, Bleach, Composite smile design"
           ]
         },
         {
-          "id": "whitening_in_surgery_media_feature",
-          "type": "treatment_media_feature",
-          "label": "Shade map",
-          "title": "Track progress on a shade map",
-          "copy": "A visual shade chart shows where we start and where we aim, with updates during the visit.",
-          "mediaHint": "Whitening shade map"
-        },
-        {
-          "id": "whitening_in_surgery_tools_trio",
-          "type": "treatment_tools_trio",
-          "label": "Comfort tools",
-          "title": "Supportive tech for chairside whitening",
-          "copy": "Tools focus on steady results and a calm appointment.",
+          "id": "whitening_trust",
+          "type": "features",
+          "title": "Safe, planned brightening with clear guardrails",
           "items": [
-            {
-              "title": "Shade planning",
-              "description": "We set a target range to keep results even and predictable."
-            },
-            {
-              "title": "Cooling aids",
-              "description": "Comfort steps help reduce heat and sensitivity during the session."
-            },
-            {
-              "title": "Post-treatment polish",
-              "description": "A gentle gloss pass smooths the surface for an even finish."
-            }
+            "UK-permitted gels selected for your enamel and gum health",
+            "Custom trays that protect soft tissues and deliver even gel coverage",
+            "Shade mapping and photography to track change without over-bleaching",
+            "Advice on how whitening interacts with veneers, crowns, and fillings",
+            "Follow-up built around hygiene visits and wider cosmetic plans"
           ]
         },
         {
-          "id": "whitening_in_surgery_clinician_insight",
-          "type": "clinician_insight",
-          "label": "Clinician insight",
-          "quote": "Planning the shade and pacing the session keeps the experience calm while achieving a brighter finish.",
-          "attribution": "Clinical team",
-          "role": "Whitening care"
-        },
-        {
-          "id": "whitening_in_surgery_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Chairside whitening journeys",
-          "stories": [
-            { "summary": "Mapped a shade goal and checked comfort throughout.", "name": "Case G" },
-            { "summary": "Used cooling breaks to keep sensitivity low.", "name": "Case H" },
-            { "summary": "Finished with a smooth polish for an even look.", "name": "Case I" }
+          "id": "whitening_consult_overview",
+          "type": "treatment_overview_rich",
+          "title": "A measured plan tailored to your smile",
+          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we’ll review progress.",
+          "bullets": [
+            "Clinical exam and baseline shade recording",
+            "Digital scans for precise tray production",
+            "Discussion of ideal shade within safe limits",
+            "Guidance if veneers or composites are part of your plan",
+            "Clear timing for reviews and maintenance"
           ]
         },
         {
-          "id": "whitening_in_surgery_faq",
+          "id": "whitening_technology",
+          "type": "treatment_media_feature",
+          "label": "Technology",
+          "title": "Digital records and lab-made trays",
+          "copy": "We use calibrated photography, digital scans, and lab-made trays to keep gel placement accurate. Shade mapping documents progress and informs any adjustments to pacing or gel strength.",
+          "mediaHint": "Custom trays and shade records"
+        },
+        {
+          "id": "whitening_faq",
           "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "In-surgery whitening questions",
+          "title": "Clear answers before you start",
           "faqs": [
             {
-              "question": "How is the shade target set?",
-              "answer": "We use a chart and agree on a range that suits your smile before starting."
+              "question": "Is dentist-led whitening safe?",
+              "answer": "Yes. We prescribe UK-compliant gels, design protective trays, and pace treatment so enamel stays healthy."
             },
             {
-              "question": "What comfort steps are included?",
-              "answer": "Cooling aids and pacing breaks are built in to keep the session comfortable."
+              "question": "How long does treatment take?",
+              "answer": "Most plans take a few weeks of at-home use with review points. Timing depends on your starting shade and goals."
             },
             {
-              "question": "What happens after the visit?",
-              "answer": "We share simple care steps to help maintain the new shade."
+              "question": "Will whitening change crowns or veneers?",
+              "answer": "Existing crowns, veneers, and fillings do not lighten. We plan around them and discuss refresh options if needed."
             }
           ]
         },
         {
-          "id": "whitening_in_surgery_closing_cta",
+          "id": "whitening_cta",
           "type": "treatment_closing_cta",
-          "title": "Plan an in-surgery whitening session",
-          "strapline": "Book a chairside visit or ask for a shade planning preview.",
+          "title": "Start with a whitening consultation",
+          "strapline": "Plan a calm, dentist-led whitening routine or pair it with wider smile design.",
           "ctas": [
-            { "label": "Book whitening", "href": "/contact", "preset": "primary" },
-            { "label": "See shade planning", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+            { "label": "Book a whitening visit", "href": "/contact", "preset": "primary" },
+            { "label": "Discuss cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
           ]
         }
       ],
       "surface": "champagne/surface/treatment"
     },
-    "whitening_at_home": {
-      "id": "whitening_at_home",
-      "label": "Whitening at home",
-      "path": "/treatments/whitening-at-home",
+    "home_teeth_whitening": {
+      "id": "home_teeth_whitening",
+      "label": "Home teeth whitening",
+      "path": "/treatments/home-teeth-whitening",
       "category": "treatment",
-      "hero": "whitening_at_home_hero_v1",
+      "hero": "treatment_neutral_hero_v1",
       "sections": [
         {
-          "id": "whitening_at_home_overview_rich",
+          "id": "home_whitening_hero_intro",
           "type": "treatment_overview_rich",
-          "title": "At-home whitening with guided check-ins",
-          "copy": "Custom trays and a paced plan keep shade changes steady while you whiten comfortably at home.",
+          "title": "Custom home whitening with dentist oversight",
+          "copy": "A calm, paced whitening plan using custom trays and prescribed gel strengths. We keep change gradual, stable, and respectful of your enamel and existing restorations.",
           "bullets": [
-            "Custom-fit trays from your scans",
-            "Paced plan with check-in points",
-            "Tips to keep sensitivity low"
+            "Bespoke trays from your digital scans",
+            "UK-compliant gels chosen for your needs",
+            "Shade planning that fits with aligners or bonding",
+            "Check-ins to balance results and comfort"
           ]
         },
         {
-          "id": "whitening_at_home_media_feature",
-          "type": "treatment_media_feature",
-          "label": "Shade tracker",
-          "title": "Follow progress with a shade tracker",
-          "copy": "Simple visuals show your starting point and expected change across the plan.",
-          "mediaHint": "Whitening shade tracker"
-        },
-        {
-          "id": "whitening_at_home_tools_trio",
-          "type": "treatment_tools_trio",
-          "label": "At-home kit",
-          "title": "Tools to keep home whitening predictable",
-          "copy": "Each element supports comfort and consistency between visits.",
+          "id": "home_whitening_trust",
+          "type": "features",
+          "title": "Whitening planned around your teeth and gums",
           "items": [
-            {
-              "title": "Custom trays",
-              "description": "Snug fit helps gel distribute evenly."
-            },
-            {
-              "title": "Planned schedule",
-              "description": "A guided cadence keeps shade changes gradual and balanced."
-            },
-            {
-              "title": "Check-in support",
-              "description": "We review progress and adjust pacing if needed."
-            }
+            "Prescription-only gels supplied with clear usage guidance",
+            "Trays designed to protect gum tissue and avoid spillage",
+            "Shade checks before, during, and after treatment",
+            "Sensitivity protocols with pacing and desensitising gel",
+            "Notes on how whitening will sit alongside crowns or veneers"
           ]
         },
         {
-          "id": "whitening_at_home_clinician_insight",
-          "type": "clinician_insight",
-          "label": "Clinician insight",
-          "quote": "Custom trays and a paced plan mean you can whiten at home without guessing about timing or comfort.",
-          "attribution": "Clinical team",
-          "role": "Whitening care"
-        },
-        {
-          "id": "whitening_at_home_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "At-home whitening journeys",
-          "stories": [
-            { "summary": "Followed the schedule with minimal sensitivity.", "name": "Case J" },
-            { "summary": "Adjusted pacing after a mid-plan review.", "name": "Case K" },
-            { "summary": "Tracked shade changes with simple check-ins.", "name": "Case L" }
+          "id": "home_whitening_overview",
+          "type": "treatment_overview_rich",
+          "title": "Measured home whitening without guesswork",
+          "copy": "We check enamel health, record your starting shade, and take scans for trays. Your dentist prescribes a gel strength, sets a nightly or alternate-day cadence, and aligns the plan with any upcoming cosmetic work.",
+          "bullets": [
+            "Baseline photos and shade guide for reference",
+            "Tray fitting with instructions on gel placement",
+            "Advice on wear time and what to avoid",
+            "Review of existing fillings, crowns, or bonding",
+            "Planned review to confirm stability"
           ]
         },
         {
-          "id": "whitening_at_home_faq",
+          "id": "home_whitening_process",
+          "type": "features",
+          "title": "Steady steps to a brighter shade",
+          "items": [
+            "Consultation and eligibility check",
+            "Digital scans and tray fabrication",
+            "Tray fit with first application guidance",
+            "Planned whitening sessions at home",
+            "Mid-plan review for shade and comfort",
+            "Final check and maintenance advice"
+          ],
+          "strapline": "We keep communication open so you know when to pause, adjust gel, or book a review."
+        },
+        {
+          "id": "home_whitening_aftercare",
+          "type": "features",
+          "title": "Comfort-first whitening",
+          "items": [
+            "Temporary sensitivity is managed with pacing and desensitising care",
+            "Existing restorations will not change shade; we plan any refinements after whitening",
+            "Avoid strongly coloured foods or smoking during active treatment",
+            "We check fit and margins to prevent gum irritation",
+            "Long-term maintenance planned with your hygienist"
+          ]
+        },
+        {
+          "id": "home_whitening_faq",
           "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "At-home whitening questions",
+          "title": "Guidance from your dentist",
           "faqs": [
             {
-              "question": "How are the trays made?",
-              "answer": "We scan your teeth and create trays that fit closely to guide gel placement."
+              "question": "How long will I wear the trays each day?",
+              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
             },
             {
-              "question": "How long does the plan take?",
-              "answer": "Most plans run over several weeks with set check-in points to review progress."
+              "question": "What if my teeth feel sensitive?",
+              "answer": "Tell us and pause for a day or two. We can adjust frequency, provide desensitising gel, or modify the plan."
             },
             {
-              "question": "What if I feel sensitivity?",
-              "answer": "Let us know and we can adjust pacing or share comfort tips."
+              "question": "Can I whiten if I have bonding or crowns?",
+              "answer": "Yes, but those materials will not lighten. We plan whitening first and discuss refreshing restorations afterwards if needed."
             }
           ]
         },
         {
-          "id": "whitening_at_home_closing_cta",
+          "id": "home_whitening_cta",
           "type": "treatment_closing_cta",
-          "title": "Set up your at-home whitening plan",
-          "strapline": "Book a visit to scan for trays or request a pacing guide.",
+          "title": "Set up your home whitening plan",
+          "strapline": "Book a dentist-led whitening assessment and tray fit.",
           "ctas": [
-            { "label": "Book a scan", "href": "/contact", "preset": "primary" },
-            { "label": "Request pacing guide", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+            { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
+            { "label": "Plan for future cosmetic work", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_topups": {
+      "id": "whitening_topups",
+      "label": "Whitening top-ups & maintenance",
+      "path": "/treatments/whitening-top-ups",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "whitening_topups_hero_intro",
+          "type": "treatment_overview_rich",
+          "title": "Keep your whitening results steady",
+          "copy": "Dentist-guided top-ups reuse your existing trays and follow a conservative schedule. We protect enamel, match refreshes to hygiene visits, and avoid over-whitening.",
+          "bullets": [
+            "Tray checks to confirm fit before supplying gel",
+            "Top-up cadence tailored to coffee, wine, or lifestyle factors",
+            "Advice on timing with hygiene or other cosmetic steps",
+            "Monitoring to keep shade within a natural range"
+          ]
+        },
+        {
+          "id": "whitening_topups_consult_overview",
+          "type": "treatment_overview_rich",
+          "title": "A quick check before any refresh",
+          "copy": "We review your shade, tray fit, and any recent dental work before recommending more gel. This keeps maintenance aligned with your oral health and any planned bonding or veneer updates.",
+          "bullets": [
+            "Shade comparison against your baseline",
+            "Inspection of trays for seal and comfort",
+            "Discussion of how often you’ll realistically top-up",
+            "Guidance if restorations need refreshing instead of whitening",
+            "Written instructions for the latest gel strength"
+          ]
+        },
+        {
+          "id": "whitening_topups_process",
+          "type": "features",
+          "title": "Refresh without starting from scratch",
+          "items": [
+            "Book a review and shade check",
+            "Confirm tray fit and comfort",
+            "Agree a short, conservative top-up schedule",
+            "Use prescribed gel with your existing trays",
+            "Pause and check-in if sensitivity appears",
+            "Align future top-ups with routine visits"
+          ],
+          "strapline": "Top-ups are calibrated to your lifestyle so results stay natural, not artificial."
+        },
+        {
+          "id": "whitening_topups_faq",
+          "type": "treatment_faq_block",
+          "title": "Clarity on keeping your shade",
+          "faqs": [
+            {
+              "question": "How often should I top-up?",
+              "answer": "Most patients refresh once or twice a year, often after hygiene visits. We tailor the schedule to your habits and starting shade."
+            },
+            {
+              "question": "Can I reuse my old trays?",
+              "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
+            },
+            {
+              "question": "Will I need stronger gel each time?",
+              "answer": "Usually not. We stick to safe, regulated strengths and keep to the smallest effective dose for your goals."
+            }
+          ]
+        },
+        {
+          "id": "whitening_topups_cta",
+          "type": "treatment_closing_cta",
+          "title": "Schedule a maintenance review",
+          "strapline": "Refresh your whitening plan with dentist guidance and the trays you already have.",
+          "ctas": [
+            { "label": "Book a top-up", "href": "/contact", "preset": "primary" },
+            { "label": "Plan future whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_sensitivity": {
+      "id": "whitening_sensitivity",
+      "label": "Sensitive teeth & whitening",
+      "path": "/treatments/whitening-sensitive-teeth",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "whitening_sensitivity_hero_intro",
+          "type": "treatment_overview_rich",
+          "title": "Whitening with sensitivity in mind",
+          "copy": "We plan whitening for sensitive teeth using gentle gel strengths, protective trays, and pacing. Every step is monitored by your dentist so comfort leads the plan.",
+          "bullets": [
+            "Suitability check to rule out underlying causes",
+            "Custom trays that limit gel contact with gums",
+            "UK-regulated gels selected for comfort",
+            "Pacing and breaks built in to reduce flare-ups"
+          ]
+        },
+        {
+          "id": "whitening_sensitivity_trust",
+          "type": "features",
+          "title": "Designed to be tolerable for sensitive teeth",
+          "items": [
+            "Assessment for cracks, recession, or decay before starting",
+            "Desensitising toothpaste or gel recommended ahead of whitening",
+            "Lower, regulated gel strengths with clinician oversight",
+            "Guidance on shorter wear times and gradual pacing",
+            "Follow-up to adjust if tingling or zingers appear"
+          ]
+        },
+        {
+          "id": "whitening_sensitivity_aftercare",
+          "type": "features",
+          "title": "Staying comfortable during whitening",
+          "items": [
+            "We pause treatment if sensitivity spikes and restart with changes",
+            "Avoid very hot, cold, or acidic foods during active whitening",
+            "Use desensitising products as advised between sessions",
+            "Existing restorations will not lighten; we plan around them",
+            "Report any sharp sensations so we can adjust or review"
+          ]
+        },
+        {
+          "id": "whitening_sensitivity_faq",
+          "type": "treatment_faq_block",
+          "title": "Know what to expect",
+          "faqs": [
+            {
+              "question": "Why can whitening feel sensitive?",
+              "answer": "Whitening gels can temporarily increase fluid movement within the tooth. We control gel strength and contact time to keep this minimal."
+            },
+            {
+              "question": "Can I still whiten if I already feel sensitivity?",
+              "answer": "Often yes, once we rule out decay or cracks. We may start slower, use desensitising support, and space applications further apart."
+            },
+            {
+              "question": "What should I do if I feel a zing?",
+              "answer": "Pause for a day or two and let us know. We can adjust frequency, recommend relief products, or review fit."
+            }
+          ]
+        },
+        {
+          "id": "whitening_sensitivity_cta",
+          "type": "treatment_closing_cta",
+          "title": "Plan whitening that respects sensitivity",
+          "strapline": "Book a review so we can tailor gel strength, pacing, and aftercare to your comfort.",
+          "ctas": [
+            { "label": "Book a sensitivity review", "href": "/contact", "preset": "primary" },
+            { "label": "Explore home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "whitening_faq": {
+      "id": "whitening_faq",
+      "label": "Teeth whitening FAQs",
+      "path": "/treatments/teeth-whitening-faqs",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "whitening_faqs_hero_intro",
+          "type": "treatment_overview_rich",
+          "title": "Dentist-led answers about whitening",
+          "copy": "Clear, UK-compliant guidance on whitening safety, shade expectations, and how treatment fits with veneers or crowns.",
+          "bullets": [
+            "Honest limits on shade change",
+            "What to expect with existing restorations",
+            "How whitening supports smile makeovers",
+            "Steps to keep results stable"
+          ]
+        },
+        {
+          "id": "whitening_faqs_primary",
+          "type": "treatment_faq_block",
+          "title": "Teeth whitening questions answered",
+          "faqs": [
+            {
+              "question": "Does whitening damage teeth?",
+              "answer": "When prescribed and monitored by a dentist using UK-regulated gels, whitening is safe for enamel. We assess for decay or gum issues first and use protective trays."
+            },
+            {
+              "question": "How white can teeth go?",
+              "answer": "We aim for a natural, even shade that suits your skin tone and enamel. Shade maps set a realistic range so we avoid over-whitening."
+            },
+            {
+              "question": "Does whitening affect veneers or crowns?",
+              "answer": "Existing crowns, veneers, and fillings will not lighten. We plan whitening first, then match or refresh restorations if needed."
+            },
+            {
+              "question": "How long does whitening last?",
+              "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
+            },
+            {
+              "question": "Is whitening part of a smile makeover?",
+              "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
+            }
+          ]
+        },
+        {
+          "id": "whitening_faqs_cta",
+          "type": "treatment_closing_cta",
+          "title": "Plan whitening with a dentist",
+          "strapline": "Ask your questions in person and receive a tailored whitening plan.",
+          "ctas": [
+            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
+            { "label": "Learn about maintenance", "href": "/treatments/whitening-top-ups", "preset": "secondary" }
           ]
         }
       ],

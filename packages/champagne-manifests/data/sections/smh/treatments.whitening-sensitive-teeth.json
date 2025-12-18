@@ -1,0 +1,96 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.whitening-sensitive-teeth",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "whitening-sensitivity-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_whitening_sensitivity_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Sensitive teeth & whitening",
+      "title": "Whitening with sensitivity in mind",
+      "body": "We plan whitening for sensitive teeth using gentle gel strengths, protective trays, and pacing. Every step is monitored by your dentist so comfort leads the plan.",
+      "bullets": [
+        "Suitability check to rule out underlying causes",
+        "Custom trays that limit gel contact with gums",
+        "UK-regulated gels selected for comfort",
+        "Pacing and breaks built in to reduce flare-ups"
+      ],
+      "ctas": [
+        { "label": "Discuss sensitivity", "href": "/contact", "preset": "primary" },
+        { "label": "See whitening approach", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "whitening-sensitivity-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_whitening_sensitivity_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Comfort protocols",
+      "title": "Designed to be tolerable for sensitive teeth",
+      "items": [
+        "Assessment for cracks, recession, or decay before starting",
+        "Desensitising toothpaste or gel recommended ahead of whitening",
+        "Lower, regulated gel strengths with clinician oversight",
+        "Guidance on shorter wear times and gradual pacing",
+        "Follow-up to adjust if tingling or zingers appear"
+      ]
+    },
+    {
+      "instanceId": "whitening-sensitivity-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_whitening_sensitivity_aftercare",
+      "order": 30,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Staying comfortable during whitening",
+      "items": [
+        "We pause treatment if sensitivity spikes and restart with changes",
+        "Avoid very hot, cold, or acidic foods during active whitening",
+        "Use desensitising products as advised between sessions",
+        "Existing restorations will not lighten; we plan around them",
+        "Report any sharp sensations so we can adjust or review"
+      ]
+    },
+    {
+      "instanceId": "whitening-sensitivity-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_whitening_sensitivity_faq",
+      "order": 40,
+      "seoRole": "faq",
+      "eyebrow": "Sensitivity questions",
+      "title": "Know what to expect",
+      "faqs": [
+        {
+          "question": "Why can whitening feel sensitive?",
+          "answer": "Whitening gels can temporarily increase fluid movement within the tooth. We control gel strength and contact time to keep this minimal."
+        },
+        {
+          "question": "Can I still whiten if I already feel sensitivity?",
+          "answer": "Often yes, once we rule out decay or cracks. We may start slower, use desensitising support, and space applications further apart."
+        },
+        {
+          "question": "What should I do if I feel a zing?",
+          "answer": "Pause for a day or two and let us know. We can adjust frequency, recommend relief products, or review fit."
+        }
+      ]
+    },
+    {
+      "instanceId": "whitening-sensitivity-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_whitening_sensitivity_cta",
+      "order": 50,
+      "seoRole": "cta",
+      "title": "Plan whitening that respects sensitivity",
+      "strapline": "Book a review so we can tailor gel strength, pacing, and aftercare to your comfort.",
+      "ctas": [
+        { "label": "Book a sensitivity review", "href": "/contact", "preset": "primary" },
+        { "label": "Explore home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+      ]
+    }
+  ]
+}
