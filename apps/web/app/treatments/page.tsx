@@ -51,11 +51,13 @@ function inferFamily(slug: string) {
   if (emergencyKeywords.some((keyword) => slug.includes(keyword))) return "emergency";
   if (slug.startsWith("implants")) return "implants";
   if (slug.includes("whitening")) return "whitening";
+  if (slug.includes("painless-numbing") || slug.includes("sedation") || slug.includes("tmj") || slug.includes("nervous")) {
+    return "comfort";
+  }
   if (slug === "clear-aligners" || slug === "orthodontics") return "aligners";
   if (slug.startsWith("3d-") || slug.includes("3d-")) return "3d-tech";
   if (slug.startsWith("cbct")) return "3d-tech";
   if (slug === "digital-smile-design") return "3d-tech";
-  if (slug.includes("painless-numbing")) return "comfort";
   return "other";
 }
 

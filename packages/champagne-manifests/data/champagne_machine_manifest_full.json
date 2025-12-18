@@ -2333,6 +2333,23 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "nervous_patients": {
+      "id": "nervous_patients",
+      "label": "Nervous patients",
+      "path": "/treatments/nervous-patients",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        { "id": "treatment.heroIntro" },
+        { "id": "treatment.whoIsItFor" },
+        { "id": "treatment.trustSignals" },
+        { "id": "treatment.consultationOverview" },
+        { "id": "treatment.cta" },
+        { "id": "treatment.processTimeline" },
+        { "id": "treatment.cta" }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "sedation_dentistry": {
       "id": "sedation_dentistry",
       "label": "Sedation dentistry",
