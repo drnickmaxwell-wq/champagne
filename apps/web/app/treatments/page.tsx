@@ -27,13 +27,28 @@ const FAMILY_LABELS: Record<string, string> = {
   whitening: "Whitening",
   "3d-tech": "3D & digital dentistry",
   aligners: "Orthodontics & aligners",
+  emergency: "Emergency dentistry",
   comfort: "Comfort & anxiety care",
   other: "More care options",
 };
 
-const FAMILY_ORDER = ["implants", "whitening", "3d-tech", "aligners", "comfort", "other"];
+const FAMILY_ORDER = ["implants", "whitening", "3d-tech", "aligners", "emergency", "comfort", "other"];
 
 function inferFamily(slug: string) {
+  const emergencyKeywords = [
+    "emergency",
+    "toothache",
+    "abscess",
+    "knocked-out",
+    "trauma",
+    "broken",
+    "cracked",
+    "chipped",
+    "lost-crowns",
+    "veneers-fillings",
+  ];
+
+  if (emergencyKeywords.some((keyword) => slug.includes(keyword))) return "emergency";
   if (slug.startsWith("implants")) return "implants";
   if (slug.includes("whitening")) return "whitening";
   if (slug === "clear-aligners" || slug === "orthodontics") return "aligners";
