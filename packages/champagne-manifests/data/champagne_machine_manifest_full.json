@@ -657,101 +657,182 @@
       "hero": "treatment_neutral_hero_v1",
       "sections": [
         {
-          "id": "composite_overview_rich",
+          "id": "composite_intro",
           "type": "treatment_overview_rich",
-          "title": "Composite bonding that blends seamlessly",
-          "copy": "We restore chips, smooth edges, and close micro-gaps with layered composite that respects natural tooth texture.",
+          "title": "Composite bonding for measured smile refinement",
+          "copy": "Composite bonding (also called cosmetic bonding or dental bonding) uses layered resin to rebuild edges and balance shapes with minimal drilling. We preserve enamel wherever possible, plan conservatively, and keep results reversible.",
           "bullets": [
-            "Minimally invasive contouring with enamel-first prep",
-            "Shade-matched layering for a subtle, glassy finish",
-            "Same-day refinements guided by digital previews"
+            "Tooth-preserving contouring with light surface preparation",
+            "Resins layered to match shade, translucency, and texture",
+            "Calm appointment pacing with time for review before final polishing"
           ]
         },
         {
-          "id": "composite_media_feature",
-          "type": "treatment_media_feature",
-          "label": "3D preview",
-          "title": "See the plan before we polish",
-          "copy": "Digital scans and mock-ups appear on the Champagne media canvas so you can co-sign the look before we finalise.",
-          "mediaHint": "3D smile preview surface"
-        },
-        {
-          "id": "composite_ai_tools",
-          "type": "treatment_tools_trio",
-          "label": "AI tools & tech",
-          "title": "Digital precision throughout",
-          "copy": "From capture to finishing, each stage uses tech that keeps the bonding precise and the finish durable.",
+          "id": "composite_indications",
+          "type": "features",
+          "title": "Where composite bonding can help",
           "items": [
-            {
-              "title": "Intraoral 3D scanning",
-              "description": "Captures tooth edges and texture so composite hugs every contour."
-            },
-            {
-              "title": "AI smile simulations",
-              "description": "Predicts proportions, translucency, and line angles before we bond."
-            },
-            {
-              "title": "Digital finishing map",
-              "description": "Guides polishing passes to keep gloss consistent and natural."
-            }
+            "Can often be used to tidy chipped or worn incisal edges",
+            "Closes small gaps and black triangles in suitable cases",
+            "Refines tooth shape and proportions after orthodontic alignment",
+            "Balances a single tooth without committing to a full smile makeover"
           ]
         },
         {
-          "id": "composite_clinician_insight",
-          "type": "clinician_insight",
-          "label": "Clinical insight",
-          "quote": "Composite bonding works best when we honour the natural anatomy – we layer, cure, and polish in stages so the final gloss feels like enamel.",
-          "attribution": "Dr. Patel",
-          "role": "Cosmetic dentist"
+          "id": "composite_digital_planning",
+          "type": "treatment_media_feature",
+          "label": "Digital planning",
+          "title": "Digitally planned and guided bonding",
+          "copy": "We start with 3D scans and photographs, design the proposed changes digitally, and share mock-ups so you can preview the direction. Guided placement and finishing maps keep the resin precise and consistent.",
+          "mediaHint": "Digital smile planning and mock-up visuals"
         },
         {
-          "id": "composite_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Composite bonding journeys",
-          "stories": [
-            {
-              "summary": "Closed a hairline gap and softened a chipped edge in one appointment.",
-              "name": "Alex M."
-            },
-            {
-              "summary": "Balanced two incisors with layered composite for a softer smile line.",
-              "name": "Samira R."
-            },
-            {
-              "summary": "Rebuilt a worn corner with minimal prep and a gloss that matched enamel.",
-              "name": "Priya L."
-            }
+          "id": "composite_injection_moulding",
+          "type": "treatment_overview_rich",
+          "title": "Injection-moulded composite for controlled changes",
+          "copy": "For patients seeking the highest level of precision, we also offer injection moulded composite. The smile is digitally designed, a guide is produced, and resin is delivered through the guide to keep widths, edge lengths, and symmetry accurate.",
+          "bullets": [
+            "Useful for smile widening and lengthening without aggressive preparation",
+            "Guided delivery to manage black triangles and embrasure form",
+            "Supports symmetry when planning alongside whitening or aligners"
           ]
         },
         {
-          "id": "composite_faq",
-          "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "Composite bonding questions",
-          "faqs": [
-            {
-              "question": "How long does composite bonding last?",
-              "answer": "Most cases stay bright for several years; we monitor and refresh polish during routine hygiene visits."
-            },
-            {
-              "question": "Is it reversible?",
-              "answer": "Bonding is conservative and can be adjusted or removed without harming the underlying enamel."
-            },
-            {
-              "question": "Will the colour match my teeth?",
-              "answer": "We layer resins in shades that mirror your enamel so the finish blends seamlessly."
-            }
+          "id": "composite_comparisons",
+          "type": "features",
+          "title": "How composite bonding fits with other options",
+          "items": [
+            "When colour is the main concern, dentist-led whitening is usually recommended before bonding so shades align",
+            "If teeth are rotated or crowded, aligners or other orthodontic treatment can set the foundation before cosmetic bonding",
+            "For larger shape changes or durability, porcelain veneers or digitally designed 3D veneers may be more appropriate",
+            "Composite bonding often forms part of an Align → Bleach → Composite pathway, with veneers reserved for specific needs"
           ]
         },
         {
-          "id": "composite_closing_cta",
+          "id": "composite_lifespan",
+          "type": "features",
+          "title": "Longevity, maintenance, and repairs",
+          "items": [
+            "With routine care, composite bonding can remain stable for several years; polish can be refreshed without replacing the whole restoration",
+            "Repairs are possible if chips occur, keeping intervention conservative",
+            "Good hygiene, reduced staining foods, and regular reviews help maintain colour and gloss",
+            "We discuss realistic wear expectations so you know when refinements may be needed"
+          ]
+        },
+        {
+          "id": "composite_candidates",
+          "type": "features",
+          "title": "Who composite bonding suits best",
+          "items": [
+            "Patients wanting cosmetic improvement without irreversible drilling",
+            "Those planning staged care such as whitening or orthodontic alignment before final bonding",
+            "People exploring a cost-effective step before considering porcelain veneers",
+            "Patients who value reversible changes and measured maintenance"
+          ]
+        },
+        {
+          "id": "composite_next_steps",
           "type": "treatment_closing_cta",
-          "title": "Ready for a seamless smile refresh?",
-          "strapline": "Book a consultation or preview your smile with AI-guided mock-ups.",
+          "title": "Plan a calm, dentist-led bonding consultation",
+          "strapline": "We assess your teeth, discuss how whitening or aligners may fit, and tailor composite bonding to your goals.",
           "ctas": [
             { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "AI smile preview", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+            { "label": "Discuss smile planning", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "injection_moulded_composite": {
+      "id": "injection_moulded_composite",
+      "label": "Injection-moulded composite",
+      "path": "/treatments/injection-moulded-composite",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "injection_intro",
+          "type": "treatment_overview_rich",
+          "title": "Injection-moulded composite for guided precision",
+          "copy": "Injection moulded composite is a digitally planned approach to cosmetic bonding. We design the smile change first, create a custom guide, and deliver the composite through it so widths, edges, and symmetry follow the plan without unnecessary drilling.",
+          "bullets": [
+            "Digitally designed smile plan agreed before treatment",
+            "Custom guide helps composite follow planned shapes",
+            "Minimal tooth preparation to keep treatment reversible"
+          ]
+        },
+        {
+          "id": "injection_use_cases",
+          "type": "features",
+          "title": "Where injection-moulded composite is useful",
+          "items": [
+            "Smile widening with controlled arch form",
+            "Lengthening worn or uneven incisal edges",
+            "Closing small gaps and managing black triangles",
+            "Improving symmetry when several teeth are treated together",
+            "Providing predictable edge positions after orthodontic alignment"
+          ]
+        },
+        {
+          "id": "injection_digital_planning",
+          "type": "treatment_media_feature",
+          "label": "Digital design",
+          "title": "Digitally planned, guide-delivered composite",
+          "copy": "We start with scans and photographs, map proposed changes with digital smile design, and share previews where helpful. A guide is produced from this plan so the composite is placed and finished against a defined blueprint, keeping the process controlled and repeatable while still relying on clinician judgement.",
+          "mediaHint": "Digital smile design, guide fabrication, and preview mock-ups"
+        },
+        {
+          "id": "injection_vs_freehand",
+          "type": "features",
+          "title": "Injection moulding and freehand composite",
+          "items": [
+            "Freehand composite bonding remains excellent for single teeth and nuanced texture work",
+            "Injection moulding is chosen when symmetry and edge positions must match across several teeth",
+            "Guide-based delivery reduces guesswork without removing the need for skilled finishing",
+            "Both techniques sit within our cosmetic bonding toolkit and are selected case by case"
+          ]
+        },
+        {
+          "id": "injection_reversibility",
+          "type": "features",
+          "title": "Reversibility, repairs, and maintenance",
+          "items": [
+            "Composite placement is additive and generally keeps drilling minimal",
+            "Repairs or refinements can usually be made without starting again",
+            "Regular hygiene, polishing, and mindful diet choices help maintain gloss and shade",
+            "Longevity is discussed at consultation so you know how to look after guided composite work"
+          ]
+        },
+        {
+          "id": "injection_vs_veneers",
+          "type": "features",
+          "title": "Injection-moulded composite and veneers",
+          "items": [
+            "Porcelain veneers may offer greater long-term surface durability",
+            "Injection-moulded composite is reversible and often suited to staged cosmetic treatment",
+            "Patients considering veneers can trial digitally planned shapes with composite first",
+            "Upgrades to porcelain or digitally designed 3D veneers remain available later if appropriate"
+          ]
+        },
+        {
+          "id": "injection_candidates",
+          "type": "features",
+          "title": "Who benefits from guided composite bonding",
+          "items": [
+            "Patients wanting precision changes with minimal intervention",
+            "People weighing veneers but preferring a reversible option",
+            "Those seeking digitally planned outcomes after whitening or orthodontic alignment",
+            "Detail-oriented patients who value predictable symmetry"
+          ]
+        },
+        {
+          "id": "injection_next_steps",
+          "type": "treatment_closing_cta",
+          "title": "Plan an injection-moulded composite consultation",
+          "strapline": "We review your teeth, discuss how composite bonding, veneers, whitening, or alignment fit together, and build a guided plan that matches your goals.",
+          "ctas": [
+            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
+            { "label": "Discuss digitally planned options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
           ]
         }
       ],
