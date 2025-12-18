@@ -1,0 +1,165 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.preventative-and-general-dentistry",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "preventative-general-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_preventative_general_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Preventative & general dentistry",
+      "title": "Prevention-first dentistry that keeps teeth for life",
+      "body": "Regular exams, calm explanations, and thoughtful hygiene support help you avoid problems and keep your smile comfortable for the long term.",
+      "bullets": [
+        "Gentle, unhurried check-ups with the same clinical team",
+        "Prevention plans tailored to your enamel, gums, and lifestyle",
+        "Clear guidance if you’re anxious or prefer slower appointments"
+      ],
+      "ctas": [
+        { "label": "Book a dental exam", "href": "/contact?topic=check-up", "preset": "primary" },
+        { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "preventative-general-definition",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_preventative_general_definition",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "What preventative dentistry means",
+      "title": "Protect teeth before problems arise",
+      "items": [
+        "Prevention-first mindset: preserve natural tooth structure wherever possible",
+        "Routine reviews that track subtle changes in enamel, gums, and bite",
+        "Comfort-focused care so you feel confident attending regularly",
+        "Advice that matches your habits, home care, and medical history",
+        "Clear onward pathways when you need restorative or specialist support"
+      ]
+    },
+    {
+      "instanceId": "preventative-general-exam",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_preventative_general_exam",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your comprehensive dental exam",
+      "title": "Every check-up is detailed and documented",
+      "body": "We map your teeth, gums, and bite at each visit so we can spot issues early. Records are updated calmly with time for your questions.",
+      "bullets": [
+        "Oral cancer screening at every check-up",
+        "Gum assessment to track inflammation or recession",
+        "Bite and jaw comfort review with referral to TMJ care when needed (/treatments/tmj-jaw-comfort)",
+        "Digital photos and scans where appropriate to monitor changes"
+      ]
+    },
+    {
+      "instanceId": "preventative-general-hygiene",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_preventative_general_hygiene",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Cleaning & hygiene",
+      "title": "Professional hygiene that supports home care",
+      "items": [
+        "Gentle, thorough cleaning to remove plaque and hardened tartar",
+        "Polishing and airflow-style finishing where suitable for stain control",
+        "Tips to improve brushing and interdental cleaning at home",
+        "Why visits matter even if you brush well: hidden build-up and hard-to-reach areas",
+        "Preventing gum disease and bad breath with tailored intervals—see periodontal care (/treatments/periodontal-gum-care)"
+      ],
+      "strapline": "Regular hygiene keeps gums healthy and helps fillings, crowns, and implants last longer."
+    },
+    {
+      "instanceId": "preventative-general-prevention-plan",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_preventative_general_plan",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your prevention plan",
+      "title": "Simple, science-led guidance you can follow",
+      "body": "We create a plan that fits your daily routine so small adjustments have a big impact.",
+      "bullets": [
+        "Fluoride advice matched to your risk level—no pushy sales",
+        "Diet and sugar-frequency guidance with practical swaps",
+        "Support for sensitive teeth, including gentle techniques and desensitising care",
+        "Custom mouthguards for sport or grinding, with 3D-printed options (/treatments/3d-mouth-guards)"
+      ]
+    },
+    {
+      "instanceId": "preventative-general-common-issues",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_preventative_general_common",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Common issues we help prevent",
+      "title": "Early detection keeps treatment simpler",
+      "items": [
+        "Decay caught early before fillings or inlays are needed",
+        "Cracks, chips, and worn teeth monitored before they worsen",
+        "Gum problems identified before they require periodontal therapy",
+        "Bite changes spotted early to avoid premature wear",
+        "Clear onward paths if you ever need restorative care such as crowns, root canal, or extractions"
+      ]
+    },
+    {
+      "instanceId": "preventative-general-families",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_preventative_general_families",
+      "order": 70,
+      "seoRole": "primaryContent",
+      "eyebrow": "For families and mature smiles",
+      "title": "Care tailored to every stage",
+      "items": [
+        "Children: gentle guidance on brushing habits, diet, and fissure sealant suitability",
+        "Teens and young adults: monitoring wisdom teeth, orthodontic retainers, and sports protection",
+        "Young-at-heart retirees: focus on comfort, function, and maintaining existing restorations",
+        "Medical changes considered so your plan stays safe and effective",
+        "Appointment pacing adjusted if you’re nervous or prefer slower visits"
+      ]
+    },
+    {
+      "instanceId": "preventative-general-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_preventative_general_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Preventative dentistry FAQs",
+      "title": "What patients ask most",
+      "faqs": [
+        {
+          "question": "How often should I come?",
+          "answer": "Most patients attend every 6 months, but we may suggest shorter or longer gaps based on gum health, decay risk, and how quickly plaque builds for you."
+        },
+        {
+          "question": "Do you check for mouth cancer?",
+          "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you’ve noticed."
+        },
+        {
+          "question": "I’m nervous — can you go slowly?",
+          "answer": "Absolutely. Tell us ahead of time and we’ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
+        },
+        {
+          "question": "Is home whitening better?",
+          "answer": "Dentist-led whitening is usually safer and more predictable. We assess your teeth first and can advise on supervised home whitening through our whitening hub (/treatments/teeth-whitening)."
+        }
+      ]
+    },
+    {
+      "instanceId": "preventative-general-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_preventative_general_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book your comprehensive dental exam",
+      "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
+      "ctas": [
+        { "label": "Book an exam", "href": "/contact?topic=check-up", "preset": "primary" },
+        { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+      ]
+    }
+  ]
+}
