@@ -1,0 +1,162 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.chrome-dentures",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "chrome-dentures-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_chrome_dentures_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Chrome dentures",
+      "title": "Chrome cobalt partial dentures",
+      "body": "Slim, durable chrome frameworks designed to share bite forces gently while keeping speech and taste clear.",
+      "bullets": [
+        "Thinner metal bases for a less bulky feel",
+        "Precision clasps planned around healthy teeth",
+        "Staged try-ins to balance strength and aesthetics",
+        "Clear guidance on cleaning and daily care"
+      ],
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "See all denture options", "href": "/treatments/dentures", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_chrome_dentures_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why choose chrome",
+      "title": "Slim support with clinician oversight",
+      "items": [
+        "Metal frameworks crafted for strength with minimal bulk",
+        "Clasps and rests designed to protect supporting teeth",
+        "Bite balancing to reduce rocking and sore spots",
+        "Advice on where chrome shines and where it may not suit",
+        "Follow-up checks to keep fit and function steady"
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_chrome_dentures_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What they are",
+      "title": "Chrome cobalt partial dentures designed for stability",
+      "body": "Chrome dentures use a custom metal framework to support replacement teeth while keeping the base slim. We plan clasp positions, tooth shade, and bite with you, then test comfort before finishing.",
+      "bullets": [
+        "Detailed assessment of supporting teeth and gums",
+        "Framework design to distribute forces evenly",
+        "Try-ins to fine-tune speech and smile line",
+        "Options for tooth-coloured clasps where suitable",
+        "Guidance on when acrylic or PEEK may be better"
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_chrome_dentures_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who they suit",
+      "title": "For people wanting slimmer partials",
+      "items": [
+        "Patients with enough healthy teeth to support a framework",
+        "Those wanting a less bulky feel than acrylic partials",
+        "People seeking long-lasting metal strength",
+        "Patients open to staged fittings for precision",
+        "Wearers exploring stability before considering implants"
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_chrome_dentures_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Pathway",
+      "title": "Planned for comfort and resilience",
+      "items": [
+        "Consultation to review goals, tooth support, and hygiene",
+        "Records and design of clasps, rests, and occlusion",
+        "Framework try-in to confirm fit and speech",
+        "Tooth set-up to check aesthetics and bite",
+        "Final fit with pressure checks and polishing",
+        "Follow-up to review wear, cleaning, and stability"
+      ],
+      "strapline": "We map each stage so you know how the framework will feel before you commit."
+    },
+    {
+      "instanceId": "chrome-dentures-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_chrome_dentures_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Materials & fit",
+      "title": "Rigid support with careful design",
+      "body": "We use cobalt-chrome frameworks for strength and slimness, adding tooth-coloured clasps where appropriate. Bite adjustments, fit check sprays, and gentle clasp tuning help balance stability without overloading teeth."
+    },
+    {
+      "instanceId": "chrome-dentures-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_chrome_dentures_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Keeping chrome dentures comfortable",
+      "items": [
+        "Daily cleaning to protect teeth, gums, and metal surfaces",
+        "Careful insertion and removal to protect clasps",
+        "Regular checks so supporting teeth stay healthy",
+        "Advice on managing expected movement with removable options",
+        "Discussion of implant stabilisation if you want extra hold"
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_chrome_dentures_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "FAQs",
+      "title": "Understanding chrome dentures",
+      "faqs": [
+        {
+          "question": "Will metal show when I smile?",
+          "answer": "We design clasp positions and tooth shades to stay discreet. In some cases we can use tooth-coloured clasps; we’ll show you options before fitting."
+        },
+        {
+          "question": "Are chrome dentures heavy?",
+          "answer": "They are usually lighter and slimmer than acrylic partials because the framework can be thinner. You’ll still need an adjustment period, which we support."
+        },
+        {
+          "question": "Do they damage teeth?",
+          "answer": "Well-designed rests and clasps spread the load. We review supporting teeth carefully and adjust clasps so they’re secure without excessive pressure."
+        },
+        {
+          "question": "What if I need more stability later?",
+          "answer": "We can revisit fit, clasp tension, or consider implant support if you want reduced movement. Any step is planned with your comfort and timeline in mind."
+        }
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_chrome_dentures_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan slim, steady chrome dentures",
+      "body": "Book a consultation to design a chrome framework that balances strength, discretion, and fit. If you later want added stability, we can discuss implant-retained options gently.",
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Implant-retained dentures", "href": "/treatments/implant-retained-dentures", "preset": "secondary" }
+      ]
+    }
+  ]
+}

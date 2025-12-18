@@ -1,0 +1,165 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dentures",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "dentures-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_dentures_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Dentures & tooth replacement",
+      "title": "Dentures and tooth replacement in Shoreham-by-Sea",
+      "body": "Removable dentures planned with calm fittings, practical guidance, and clear explanations of how each material feels day to day.",
+      "bullets": [
+        "Acrylic full or partial dentures with gentle fit checks",
+        "Chrome frameworks for slim, stable partials",
+        "Lightweight PEEK partial dentures for metal-free comfort",
+        "Straightforward advice on adhesives and stabilisation"
+      ],
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Explore acrylic dentures", "href": "/treatments/acrylic-dentures", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "dentures-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_dentures_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose us",
+      "title": "Measured fittings with honest conversations",
+      "items": [
+        "Consultations that explain acrylic, chrome, and PEEK options in plain language",
+        "Bite, speech, and comfort checks built into each fitting",
+        "Guidance on adhesives, relines, and realistic retention",
+        "Clinician-led adjustments to reduce rubbing or pressure points",
+        "Follow-up support if stability changes over time"
+      ]
+    },
+    {
+      "instanceId": "dentures-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dentures_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Options explained",
+      "title": "Clear choices for removable tooth replacement",
+      "body": "We help you weigh acrylic dentures for flexibility and cost-effectiveness, chrome frameworks for slimmer partials, and PEEK partial dentures for lightweight, metal-free support. You’ll hear where each option shines and where limits exist so you can choose confidently.",
+      "bullets": [
+        "Full acrylic dentures and partials with staged try-ins",
+        "Chrome cobalt partials designed for thinner, stronger bases",
+        "PEEK partials for a warm, low-weight feel",
+        "Discussion of when implant stabilisation could help later"
+      ]
+    },
+    {
+      "instanceId": "dentures-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_dentures_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who they help",
+      "title": "People seeking steady, removable solutions",
+      "items": [
+        "New denture wearers wanting a calmer introduction",
+        "Existing wearers looking for improved fit or slimmer designs",
+        "Patients preferring removable options before considering implants",
+        "People needing replacements after breakage or changes in fit",
+        "Those wanting guidance on adhesives and relines"
+      ]
+    },
+    {
+      "instanceId": "dentures-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_dentures_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Pathway",
+      "title": "From consultation to comfortable wear",
+      "items": [
+        "Conversation about goals, past denture experiences, and stability needs",
+        "Impressions or digital scans for accurate records",
+        "Design review to choose acrylic, chrome, or PEEK based on your bite",
+        "Try-in or framework check to refine speech and comfort",
+        "Final fit with occlusion and pressure checks",
+        "Follow-up to review adhesives, relines, and longer-term stability"
+      ],
+      "strapline": "You’ll know timelines, review points, and costs before we begin."
+    },
+    {
+      "instanceId": "dentures-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_dentures_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Fit and stability",
+      "title": "Measured adjustments for day-to-day confidence",
+      "body": "Digital scans, fit check sprays, and bite balancing help us seat dentures securely. We explain how adhesives, soft liners, or selective implant stabilisation can improve hold without overpromising."
+    },
+    {
+      "instanceId": "dentures-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_dentures_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & considerations",
+      "title": "Keeping dentures comfortable and secure",
+      "items": [
+        "Cleaning routines that protect teeth, gums, and denture surfaces",
+        "Reline schedules explained so looseness is addressed early",
+        "Tips on adhesives and soft liners without masking poor fit",
+        "Honest chat about expected movement with removable options",
+        "Guidance if repeated breakages suggest a different material"
+      ]
+    },
+    {
+      "instanceId": "dentures-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_dentures_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Denture FAQs",
+      "title": "Clarity before you proceed",
+      "faqs": [
+        {
+          "question": "How long does it take to adapt?",
+          "answer": "Most people need a few weeks of gradual wear, speech practice, and small adjustments. We schedule reviews to smooth the transition."
+        },
+        {
+          "question": "Can I chew normally?",
+          "answer": "You can eat a wide range of foods with practice, but very hard or sticky foods may remain challenging. We show techniques and assess if extra stabilisation would help."
+        },
+        {
+          "question": "When do you suggest chrome or PEEK instead of acrylic?",
+          "answer": "If you have enough healthy teeth for support, chrome or PEEK partials can feel slimmer and more stable. We’ll explain when acrylic is still the better match."
+        },
+        {
+          "question": "Do I have to use adhesive?",
+          "answer": "Some people prefer the reassurance of adhesive for longer days or meals. We focus on good fit first and show how to use adhesive lightly if needed."
+        },
+        {
+          "question": "What if I want more stability?",
+          "answer": "We can explore selective implant support once you’ve experienced how the denture fits. Any recommendation is paced around comfort, healing, and your goals."
+        }
+      ]
+    },
+    {
+      "instanceId": "dentures-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_dentures_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan a denture that feels secure",
+      "body": "Book a calm consultation to compare acrylic, chrome, and PEEK options. If you later want added stability, we can talk through implant-retained choices at your pace.",
+      "ctas": [
+        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
+        { "label": "Implant-retained dentures", "href": "/treatments/implant-retained-dentures", "preset": "secondary" }
+      ]
+    }
+  ]
+}
