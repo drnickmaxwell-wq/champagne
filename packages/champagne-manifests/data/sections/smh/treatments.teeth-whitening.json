@@ -12,16 +12,16 @@
       "seoRole": "hero",
       "eyebrow": "Teeth whitening",
       "title": "Teeth whitening in Shoreham-by-Sea",
-      "body": "Dentist-led home whitening with UK-compliant gels, custom trays, and clear shade planning. We keep enamel safe while preparing your smile for wider cosmetic work such as alignment (/treatments/clear-aligners) or bonding (/treatments/composite-bonding).",
+      "body": "Dentist-led whitening that follows UK regulations, uses custom trays, and sets the shade for the rest of your smile plan. We map whitening into Align → Bleach → Composite or veneer routes so results look natural and stay comfortable.",
       "bullets": [
         "Custom-fit trays made from digital scans",
-        "UK-appropriate gels prescribed and monitored by your dentist",
-        "Shade targets that respect your natural enamel and restorations",
-        "Planned as part of Align, Bleach, Composite smile design"
+        "UK-permitted gels prescribed and supervised by your dentist",
+        "Shade targets that respect enamel, gums, and existing restorations",
+        "Sequenced with aligners, bonding, or veneers so shade is locked in first"
       ],
       "ctas": [
-        { "label": "Plan whitening", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about smile design", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+        { "label": "Book a whitening consultation", "href": "/contact", "preset": "primary" },
+        { "label": "See aligner options", "href": "/treatments/clear-aligners", "preset": "secondary" }
       ]
     },
     {
@@ -30,14 +30,14 @@
       "variantId": "smh_whitening_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why dentist-led whitening",
-      "title": "Safe, planned brightening with clear guardrails",
+      "eyebrow": "Why dentist-led whitening matters",
+      "title": "Clinical oversight that keeps whitening safe",
       "items": [
-        "UK-permitted gels selected for your enamel and gum health",
-        "Custom trays that protect soft tissues and deliver even gel coverage",
-        "Shade mapping and photography to track change without over-bleaching",
-        "Advice on how whitening interacts with veneers, crowns, and fillings",
-        "Follow-up built around hygiene visits and wider cosmetic plans"
+        "Care delivered under UK regulations with prescriptions matched to your oral health",
+        "Assessment for decay, gum health, and restorations before starting",
+        "Protective, custom trays that direct gel safely and evenly",
+        "Clinical monitoring to stop treatment if sensitivity or concerns arise",
+        "Documentation that keeps results traceable for future smile work"
       ]
     },
     {
@@ -46,15 +46,15 @@
       "variantId": "smh_whitening_overview",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What to expect",
-      "title": "A measured plan tailored to your smile",
-      "body": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment (/treatments/clear-aligners) or bonding (/treatments/composite-bonding), and know when Digital Smile Design (/treatments/digital-smile-design) or veneer planning (/treatments/veneers) might follow.",
+      "eyebrow": "Home whitening vs over-the-counter",
+      "title": "Measured change with custom trays and follow-up",
+      "body": "Home whitening uses lab-made trays and dentist-prescribed gels to keep progress gradual and comfortable. Over-the-counter strips and pens cannot be customised to your enamel, so shade changes are less predictable and can irritate gums.",
       "bullets": [
-        "Clinical exam and baseline shade recording",
-        "Digital scans for precise tray production",
-        "Discussion of ideal shade within safe limits",
-        "Guidance if veneers or composites are part of your plan",
-        "Clear timing for reviews and maintenance"
+        "Custom trays from digital scans for sealed, even gel placement",
+        "Planned, gradual whitening with check-ins to review comfort",
+        "Guidance to reduce sensitivity and protect gums",
+        "Advice on how whitening interacts with veneers, crowns, and fillings",
+        "Clear steps for top-ups using the same trays when indicated"
       ]
     },
     {
@@ -63,31 +63,51 @@
       "variantId": "smh_whitening_technology",
       "order": 40,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Digital records and lab-made trays",
-      "body": "We use calibrated photography, digital scans, and lab-made trays to keep gel placement accurate. Shade mapping documents progress and informs any adjustments to pacing or gel strength.",
-      "mediaHint": "Custom trays and shade records"
+      "eyebrow": "Sensitivity management",
+      "title": "Protocols that keep whitening comfortable",
+      "body": "We stage whitening in planned blocks, use desensitising pastes or gels, and pause treatment if symptoms persist. Your dentist adjusts wear times or gel selection so comfort leads the plan.",
+      "mediaHint": "Staged whitening plan"
+    },
+    {
+      "instanceId": "whitening-abc",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_whitening_overview",
+      "order": 50,
+      "seoRole": "supporting",
+      "eyebrow": "Whitening as part of ABC dentistry",
+      "title": "Align → Bleach → Composite or veneers",
+      "body": "We set the sequence so shade and shape work together. Teeth are aligned first if needed, whitening sets the baseline shade, then composite bonding or veneers are matched to that colour. This order avoids mismatched restorations and keeps future maintenance straightforward.",
+      "bullets": [
+        "Aligners or orthodontics establish positions before shade work",
+        "Whitening locks in a natural shade to match future composites or veneers",
+        "Composite or porcelain is planned after bleaching to avoid re-making restorations",
+        "Review points keep the plan compliant and comfortable at every stage"
+      ]
     },
     {
       "instanceId": "whitening-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_whitening_faq",
-      "order": 50,
+      "order": 60,
       "seoRole": "faq",
       "eyebrow": "Whitening questions",
-      "title": "Clear answers before you start",
+      "title": "Safety, sensitivity, and longevity",
       "faqs": [
         {
           "question": "Is dentist-led whitening safe?",
-          "answer": "Yes. We prescribe UK-compliant gels, design protective trays, and pace treatment so enamel stays healthy."
+          "answer": "Yes. Whitening is only started after a clinical assessment and uses UK-permitted gels in custom trays to protect enamel and gums."
         },
         {
-          "question": "How long does treatment take?",
-          "answer": "Most plans take a few weeks of at-home use with review points. Timing depends on your starting shade and goals."
+          "question": "What if my teeth feel sensitive?",
+          "answer": "We use staged wear times, desensitising toothpaste or gels, and can pause treatment until symptoms settle. Your dentist adapts the plan if sensitivity persists."
         },
         {
-          "question": "Will whitening change crowns or veneers?",
-          "answer": "Existing crowns, veneers, and fillings do not lighten. We plan around them and discuss refresh options if needed."
+          "question": "How long do results last?",
+          "answer": "Results are maintained with good hygiene, mindful diet, and scheduled top-ups. We advise when to refresh so shade stays stable without over-whitening."
+        },
+        {
+          "question": "Do I need top-ups?",
+          "answer": "Top-ups are planned around your exams or hygiene visits and use your existing trays. They are only recommended when clinically appropriate to keep shade balanced."
         }
       ]
     },
@@ -95,20 +115,22 @@
       "instanceId": "whitening-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_whitening_cta",
-      "order": 60,
+      "order": 70,
       "seoRole": "cta",
       "title": "Start with a whitening consultation",
       "strapline": "Plan a calm, dentist-led whitening routine or pair it with wider smile design.",
       "ctas": [
-        { "label": "Book a whitening visit", "href": "/contact", "preset": "primary" },
-        { "label": "Discuss cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+        { "label": "Book a whitening consultation", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about bonding", "href": "/treatments/composite-bonding", "preset": "secondary" },
+        { "label": "See veneer planning", "href": "/treatments/veneers", "preset": "secondary" },
+        { "label": "Explore aligners", "href": "/treatments/clear-aligners", "preset": "secondary" }
       ]
     },
     {
       "instanceId": "whitening-related",
       "componentId": "treatment.trustSignals",
       "variantId": "smh_whitening_related",
-      "order": 70,
+      "order": 80,
       "seoRole": "supporting",
       "eyebrow": "Related treatments",
       "title": "Link whitening with follow-on care",
