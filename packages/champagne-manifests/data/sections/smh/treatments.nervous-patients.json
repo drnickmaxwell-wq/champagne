@@ -1,0 +1,115 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.nervous-patients",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "nervous-patients-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_nervous_patients_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Nervous patients",
+      "title": "Calm dental visits on your terms",
+      "body": "If you feel anxious about treatment, we slow the pace, explain clearly, and give you choices at every step. Nothing happens until you say so.",
+      "bullets": [
+        "Gentle, calm tone with clear language",
+        "You decide the pace with planned pauses",
+        "Comfort-first support without pressure"
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-reasons",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_nervous_patients_reasons",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients feel anxious",
+      "title": "Common worries we plan for",
+      "items": [
+        "Fear of pain or injections",
+        "Past bad experiences or feeling rushed",
+        "Strong gag reflex",
+        "Jaw discomfort or locking",
+        "Worry about losing control"
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-care",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_nervous_patients_care",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "How we care for nervous patients",
+      "title": "Support that keeps you in control",
+      "items": [
+        "Longer appointments so you can pause and breathe",
+        "Clear explanations before anything begins",
+        "Agreed stop signals and check-ins throughout",
+        "Comfort-first approach with gentle techniques",
+        "Choice of coping methods suited to you"
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-options-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_nervous_patients_options",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your comfort options",
+      "title": "Pick the support that feels right",
+      "body": "We guide you through calming options and let you choose what feels safest—whether that’s gentle numbing tech, measured relaxation, or easing jaw tension first.",
+      "bullets": [
+        "Painless numbing with The Wand keeps anaesthetic slow and steady",
+        "Dental sedation options add deeper relaxation when assessed as suitable",
+        "TMJ & jaw comfort care reduces tension that can trigger anxiety"
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-options-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_nervous_patients_option_links",
+      "order": 50,
+      "seoRole": "supporting",
+      "eyebrow": "Explore calming techniques",
+      "title": "Learn how each option works before you decide",
+      "strapline": "Read the dedicated pages to see how they manage anxiety and comfort.",
+      "ctas": [
+        { "label": "Painless numbing with The Wand", "href": "/treatments/painless-numbing-the-wand", "variant": "primary" },
+        { "label": "Dental sedation options", "href": "/treatments/sedation-dentistry", "variant": "secondary" },
+        { "label": "TMJ & jaw comfort care", "href": "/treatments/tmj-jaw-comfort", "variant": "ghost" }
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-expect",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_nervous_patients_expect",
+      "order": 60,
+      "seoRole": "primaryContent",
+      "eyebrow": "What to expect at your visit",
+      "title": "A calm, consultation-first pathway",
+      "items": [
+        "Consultation-first to hear your worries and past experiences",
+        "No pressure to proceed—options explained before any care",
+        "Nothing happens without consent and a clear plan",
+        "You stay in control with agreed stop signals and pacing",
+        "Follow-ups arranged so you can build confidence gradually"
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_nervous_patients_cta",
+      "order": 70,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Ready to talk through a calmer visit?",
+      "body": "Book a consultation or speak to the team about the pace and comfort options you prefer.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact?topic=anxiety", "variant": "primary" },
+        { "label": "Speak to the team", "href": "/contact?topic=comfort", "variant": "secondary" }
+      ]
+    }
+  ]
+}
