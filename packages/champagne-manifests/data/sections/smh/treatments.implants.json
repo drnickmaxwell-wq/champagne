@@ -28,10 +28,28 @@
       "eyebrow": "Why patients trust us",
       "title": "Calm, evidence-led implant care",
       "items": [
-        "Cone beam imaging and guided planning for predictable placement",
+        "Every case mapped with CBCT imaging and 3D implant planning software",
+        "Surgical guides designed for your anatomy before any visit to theatre",
         "Close collaboration with labs for shade, shape, and bite harmony",
         "Clear aftercare with direct lines back to the clinical team"
       ]
+    },
+    {
+      "instanceId": "implants-guided-planning",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_implants_guided_planning",
+      "order": 25,
+      "seoRole": "primaryContent",
+      "eyebrow": "How we plan implants (CBCT + 3D planning)",
+      "title": "Scan-led planning for every implant",
+      "body": "Implants are only placed after a full clinical assessment and CBCT scan, followed by 3D planning software that positions the implant within your bone, nerves, and planned restoration. We share the plan with you before treatment and link to your implant consultation (/treatments/implant-consultation) if you want to review next steps in more detail.",
+      "bullets": [
+        "CBCT scan plus digital impressions to map bone, soft tissue, and bite",
+        "3D planning software to align the implant with your final crown or bridge",
+        "Guide design and fabrication in-house so you can see how precision is built in",
+        "Options for sedation (/treatments/sedation-dentistry) when appropriate"
+      ],
+      "mediaHint": "CBCT with 3D implant planning overlay"
     },
     {
       "instanceId": "implants-what-are",
@@ -66,15 +84,13 @@
       "order": 50,
       "seoRole": "primaryContent",
       "eyebrow": "Your implant pathway",
-      "title": "Mapped steps from consult to final tooth",
+      "title": "What to expect: scan, plan, guided placement",
       "items": [
-        "Consult: discuss goals, medical history, and smile photos",
-        "Scans: CBCT imaging and digital impressions for accuracy",
-        "Planning: guided templates and prosthetic design",
-        "Placement: gentle, measured placement with local anaesthetic",
-        "Healing: integration checks and soft tissue support",
-        "Final restoration: custom crown, bridge, or denture fit"
-      ]
+        "Scan: CBCT imaging and digital records to understand bone, nerves, and the space for your new tooth",
+        "Plan: 3D implant positioning with a custom surgical guide designed and printed in-house",
+        "Place: measured, often flapless placement under local anaesthetic, with healing checks and clear aftercare (/treatments/implant-aftercare)"
+      ],
+      "strapline": "Timelines vary. Healing, bone quality, and your medical history guide whether we stage treatment or progress more quickly."
     },
     {
       "instanceId": "implants-technology",
@@ -83,9 +99,25 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Technology",
-      "title": "Digital tools that steady each stage",
-      "body": "CBCT imaging, guided surgery sleeves, and precise torque control keep placement accurate while lab collaboration shapes restorations that feel natural.",
-      "mediaHint": "Guided placement + digital scans"
+      "title": "Guided surgery with 3D-printed surgical guides",
+      "body": "We design and 3D print your surgical guide in-house so implant positioning follows the digital plan precisely. Sleeved guidance helps us avoid key anatomy, manage angulation, and deliver the planned depth while keeping tissue handling as gentle as possible.",
+      "mediaHint": "In-house printed implant surgical guide"
+    },
+    {
+      "instanceId": "implants-benefits",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_implants_guided_benefits",
+      "order": 65,
+      "seoRole": "supporting",
+      "eyebrow": "Patient benefits",
+      "title": "Why guided implant surgery matters",
+      "items": [
+        "Predictable positioning that supports long-term stability",
+        "Measured angulation to avoid nerves and sinus spaces",
+        "Often flapless or minimally invasive for less trauma and fewer stitches",
+        "Calmer appointments with shorter chair time and faster recovery",
+        "Comfort-focused aftercare to protect healing and implant longevity"
+      ]
     },
     {
       "instanceId": "implants-aftercare",
@@ -98,8 +130,8 @@
       "items": [
         "Written guidance on cleaning around the implant site",
         "Regular reviews to monitor healing and bite comfort",
-        "Advice on diet and activity while tissues settle",
-        "Transparent discussion of risks like soreness or implant movement"
+        "Advice on diet and activity while tissues settle, including when to adjust routines after guided, often minimally invasive placement",
+        "Transparent discussion of risks like soreness or implant movement, plus individual candidacy, consent, and safety checks before proceeding"
       ]
     },
     {
@@ -112,37 +144,49 @@
       "title": "Common implant questions",
       "faqs": [
         {
-          "question": "Are dental implants safe?",
-          "answer": "We assess bone, gum health, and medical history before recommending implants, then plan to minimise stress on surrounding tissues."
+          "question": "Why use CBCT and 3D planning for implants?",
+          "answer": "A CBCT scan shows bone, nerves, and sinus spaces in 3D. Planning software lets us position the implant within that anatomy and the planned crown, increasing accuracy before surgery."
         },
         {
-          "question": "How long does treatment take?",
-          "answer": "Timelines vary by healing and the number of implants, but we share a clear schedule from planning to the final restoration."
+          "question": "What is a 3D-printed surgical guide?",
+          "answer": "It’s a custom template designed from your scan that directs implant angulation, depth, and position. We design and print guides in-house to follow the digital plan precisely."
         },
         {
-          "question": "Will the procedure hurt?",
-          "answer": "Treatment is carried out under local anaesthetic with calming techniques; most patients describe pressure more than pain."
+          "question": "Does guided surgery heal faster?",
+          "answer": "Guided placement often allows flapless or minimally invasive techniques, which can mean less swelling and fewer stitches. Healing still varies by bone quality and overall health."
         },
         {
-          "question": "Can I have a temporary tooth while it heals?",
-          "answer": "In many cases we provide a provisional crown or denture so you can smile and chew gently during healing."
+          "question": "Am I suitable for guided implants?",
+          "answer": "Suitability depends on bone volume, gum health, bite forces, and medical history. We confirm this during your implant consultation (/treatments/implant-consultation) and may advise preparatory care first."
         },
         {
-          "question": "How do I look after the implant at home?",
-          "answer": "We give tailored cleaning guidance, including how to use brushes or floss aids around the implant and gumline."
+          "question": "How long do guided implants last?",
+          "answer": "Implants are intended for long-term use. Longevity depends on healing, home care, attending reviews, and following aftercare guidance (/treatments/implant-aftercare)."
         },
         {
-          "question": "What if I feel nervous about surgery?",
-          "answer": "We pace appointments, explain each step, and can arrange comfort options so you feel in control."
+          "question": "What support is there after surgery?",
+          "answer": "You receive written aftercare, review appointments, and hygiene guidance. We also discuss comfort options, including sedation (/treatments/sedation-dentistry) if anxiety makes visits difficult."
         },
         {
-          "question": "Do implants last forever?",
-          "answer": "Implants are designed for long-term use, and regular maintenance helps protect them alongside healthy gums and bone."
-        },
-        {
-          "question": "Who places the implant and who fits the crown?",
-          "answer": "Your clinician plans and places the implant, then works with trusted labs to craft the final crown or bridge."
+          "question": "Will I have a temporary tooth while it heals?",
+          "answer": "In many cases we provide a provisional crown or denture so you can smile and chew gently while the implant integrates."
         }
+      ]
+    },
+    {
+      "instanceId": "implants-clinician",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "shoreham_implants_clinician",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "About the clinician",
+      "title": "Nearly 30 years of restorative and implant experience",
+      "body": "Your implant care is led by a clinician who graduated in 1998 (BDS, King’s), holds an MSc in Restorative & Aesthetic Dentistry, and a PGDip in Orthodontics & Facial Orthopaedics. Training includes a year-long implant surgical course plus intensive implant placement training in Cairo (2014), supporting balanced judgement across planning, surgery, and long-term maintenance.",
+      "bullets": [
+        "1998 dental graduate with almost three decades of clinical experience",
+        "Focus on restorative harmony so implants blend with surrounding teeth",
+        "Guided surgery skills strengthened through structured implant programs",
+        "Ongoing learning to combine 3D planning, surgery, and restorative outcomes"
       ]
     },
     {
@@ -152,11 +196,11 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Ready for secure, comfortable implants?",
-      "strapline": "Book a consultation or ask about implant options in Shoreham-by-Sea.",
+      "title": "Book an Implant Consultation & Planning",
+      "strapline": "See how CBCT-led planning, in-house 3D printing, and guided placement can support a predictable result. Explore aftercare (/treatments/implant-aftercare) and digital dentistry (/treatments/3d-digital-dentistry) resources too.",
       "ctas": [
-        { "label": "Book an implant consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Ask the team a question", "href": "/contact?topic=implants", "variant": "secondary" }
+        { "label": "Book an Implant Consultation & Planning", "href": "/contact", "variant": "primary" },
+        { "label": "Ask a question", "href": "/contact?topic=implants", "variant": "secondary" }
       ]
     }
   ]
