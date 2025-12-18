@@ -1,0 +1,158 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.senior-mature-smile-care",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "senior-smile-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_senior_smile_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Senior & mature smile care",
+      "title": "Young-at-heart dentistry for later life",
+      "body": "Comfort-first dentistry with longer appointments when needed, focused on healthy gums, comfortable dentures or implants, and keeping existing crowns or bridges performing well.",
+      "bullets": [
+        "Prevention-led care that protects natural teeth wherever possible",
+        "Gentle support for dry mouth, sensitivity, and changing gum health",
+        "Thoughtful planning for dentures, bridges, crowns, and implant options"
+      ],
+      "ctas": [
+        { "label": "Book a mature smile review", "href": "/contact", "preset": "primary" },
+        { "label": "Ask about comfort-focused care", "href": "/contact", "preset": "secondary" }
+      ]
+    },
+    {
+      "instanceId": "senior-smile-priorities",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_senior_smile_priorities",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Care priorities",
+      "title": "Protect, maintain, and keep every visit comfortable",
+      "items": [
+        "Gum health monitoring with gentle cleaning plans to prevent flare-ups",
+        "Dry mouth and sensitivity support matched to your medications and comfort",
+        "Maintenance of heavily restored teeth, including crowns and bridges",
+        "Checking bite and wear so existing restorations continue to fit and function",
+        "Denture comfort assessments across acrylic, chrome, or PEEK designs",
+        "Implant and implant-retained denture options discussed when appropriate"
+      ]
+    },
+    {
+      "instanceId": "senior-smile-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_senior_smile_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What to expect",
+      "title": "An unhurried assessment with time for your questions",
+      "body": "We review your medical history, medications, and day-to-day comfort before examining your teeth, gums, bite, and any existing restorations. You will leave with a clear maintenance plan and options that respect your pace.",
+      "bullets": [
+        "Comfort-first exam with oral cancer screening at every visit",
+        "Gum charting, bone support review, and tailored hygiene intervals",
+        "Check of crowns, bridges, and fillings for fractures, leakage, or wear",
+        "Assessment of dry mouth, sensitivity triggers, and enamel erosion",
+        "Review of denture fit, pressure points, and implant health where present",
+        "Written plan covering preventive steps and any recommended treatment"
+      ]
+    },
+    {
+      "instanceId": "senior-smile-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_senior_smile_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who we help",
+      "title": "Care for patients who want comfort and longevity",
+      "items": [
+        "Young-at-heart patients who value calm, longer appointments",
+        "Anyone managing dry mouth, sensitivity, or changing gum health",
+        "People with crowns, bridges, or heavily restored teeth who want predictable maintenance",
+        "Patients with tooth wear or clenching who need bite-friendly plans",
+        "Denture wearers seeking better fit, stability, or implant-retained options"
+      ]
+    },
+    {
+      "instanceId": "senior-smile-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_senior_smile_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "How we tailor care",
+      "title": "Step-by-step support designed around comfort",
+      "items": [
+        "Longer or staged appointments if you prefer a slower pace",
+        "Comfort measures explained, including breaks and gentle numbing for sensitive areas",
+        "Digital photos or scans to baseline wear, gums, and existing restorations",
+        "Hygiene approach matched to sensitivity, including airflow-style finishing when suitable",
+        "Maintenance plans for crowns, bridges, and implants with clear review intervals",
+        "Denture adjustments, relines, or implant-retained options discussed when helpful"
+      ],
+      "strapline": "Prevention-first planning keeps treatment conservative and protects the work you already have."
+    },
+    {
+      "instanceId": "senior-smile-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_senior_smile_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Maintenance & comfort",
+      "title": "Practical steps to keep everything feeling right",
+      "items": [
+        "Soft-bristle brushing and tailored interdental cleaning to protect gums and margins",
+        "Support for dry mouth and sensitivity, including hydration tips and clinic-grade products",
+        "Care guides for crowns and bridges to reduce chipping or loosened contacts",
+        "Night-time protection or bite checks if wear or clenching is present",
+        "Denture hygiene, relines, and pressure-point checks to maintain fit",
+        "Implant and implant-retained denture reviews with measured hygiene intervals"
+      ]
+    },
+    {
+      "instanceId": "senior-smile-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_senior_smile_faq",
+      "order": 70,
+      "seoRole": "faq",
+      "eyebrow": "Senior smile care FAQs",
+      "title": "Common questions answered",
+      "faqs": [
+        {
+          "question": "Do you allow extra time for appointments?",
+          "answer": "Yes. We can book longer or staged visits so we can work gently, answer questions, and pace any treatment around your comfort."
+        },
+        {
+          "question": "What can you do for dry mouth or sensitivity?",
+          "answer": "We review medications and triggers, suggest targeted rinses or gels, and adjust cleaning techniques to keep teeth comfortable while protecting enamel."
+        },
+        {
+          "question": "Do existing crowns or bridges need replacing?",
+          "answer": "Not always. We check margins, bite, and supporting teeth. If they remain healthy, we focus on maintenance; if not, we explain repair or replacement options calmly."
+        },
+        {
+          "question": "Can dentures be made more secure?",
+          "answer": "Often yes. We can adjust or reline current dentures, consider chrome or PEEK frameworks, or discuss implant-retained options if suitable."
+        },
+        {
+          "question": "Are implants safe later in life?",
+          "answer": "Suitability depends on gum health, bone support, and medical factors. We assess these carefully and outline alternatives if implants are not the best option."
+        }
+      ]
+    },
+    {
+      "instanceId": "senior-smile-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_senior_smile_cta",
+      "order": 80,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a mature smile assessment",
+      "body": "Let’s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
+      "ctas": [
+        { "label": "Plan my visit", "href": "/contact", "preset": "primary" },
+        { "label": "Ask a clinician", "href": "/contact", "preset": "secondary" }
+      ]
+    }
+  ]
+}
