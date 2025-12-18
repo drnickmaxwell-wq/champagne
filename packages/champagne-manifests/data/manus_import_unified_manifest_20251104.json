@@ -645,7 +645,8 @@
       "category": "treatment"
     },
     {
-      "slug": "/treatments/crowns-bridges-restorative",
+      "slug": "/treatments/dental-crowns",
+      "label": "Dental crowns",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
         "treatment_overview_copy",

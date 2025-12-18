@@ -481,10 +481,10 @@
       "notes": ""
     },
     {
-      "route": "/treatments/crowns-bridges-restorative",
-      "pageFile": "apps/web/app/(champagne)/treatments/crowns-bridges-restorative/page.tsx",
+      "route": "/treatments/dental-crowns",
+      "pageFile": "apps/web/app/treatments/[slug]/page.tsx",
       "imports": [
-        "import ChampagnePageBuilder from \"../../_builder/ChampagnePageBuilder\";"
+        "import ChampagnePageBuilder from \"../../(champagne)/_builder/ChampagnePageBuilder\";"
       ],
       "usesHeroRenderer": false,
       "usesSectionsEngine": true,
