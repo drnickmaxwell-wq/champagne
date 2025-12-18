@@ -838,10 +838,11 @@
       ],
       "surface": "champagne/surface/treatment"
     },
-    "crowns_bridges_restorative": {
-      "id": "crowns_bridges_restorative",
-      "label": "Crowns, bridges & restorative dentistry",
-      "path": "/treatments/crowns-bridges-restorative",
+    "dental_crowns": {
+      "id": "dental_crowns",
+      "label": "Dental crowns",
+      "path": "/treatments/dental-crowns",
+      "description": "Protective, tooth-preserving crowns planned with digital scans and calm appointments.",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [

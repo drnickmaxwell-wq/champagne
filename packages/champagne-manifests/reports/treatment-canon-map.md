@@ -12,7 +12,7 @@ Snapshot of treatment routes in the Champagne manifests. Hero and section indica
 | childrens-dentistry | Children’s dentistry | ✅ | ✅ | Simple |
 | clear-aligners | Clear aligner orthodontics (Spark and other systems) | ✅ | ✅ | Rich |
 | composite-bonding | Composite bonding | ✅ | ✅ | Rich |
-| crowns-bridges-restorative | Crowns, bridges & restorative dentistry | ✅ | ✅ | Simple |
+| dental-crowns | Dental crowns | ✅ | ✅ | Simple |
 | digital-smile-design | Digital smile design | ✅ | ✅ | Simple |
 | emergency-dentistry | Emergency dentistry | ✅ | ✅ | Simple |
 | endodontics-root-canal | Endodontics & root canal care | ✅ | ✅ | Simple |
@@ -47,7 +47,7 @@ Snapshot of treatment routes in the Champagne manifests. Hero and section indica
   - childrens-dentistry
   - clear-aligners
   - composite-bonding
-  - crowns-bridges-restorative
+  - dental-crowns
   - digital-smile-design
   - emergency-dentistry
   - endodontics-root-canal
