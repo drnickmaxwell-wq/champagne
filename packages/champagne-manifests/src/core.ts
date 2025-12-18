@@ -45,6 +45,7 @@ import sectionLayoutPainlessNumbingTheWand from "../data/sections/smh/treatments
 import sectionLayoutNervousPatients from "../data/sections/smh/treatments.nervous-patients.json";
 import sectionLayoutSedationDentistry from "../data/sections/smh/treatments.sedation-dentistry.json";
 import sectionLayoutPreventativeGeneralDentistry from "../data/sections/smh/treatments.preventative-and-general-dentistry.json";
+import sectionLayoutSeniorMatureSmileCare from "../data/sections/smh/treatments.senior-mature-smile-care.json";
 import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
 import sectionLayoutTmjJawComfort from "../data/sections/smh/treatments.tmj-jaw-comfort.json";
 
@@ -315,6 +316,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutNervousPatients as ChampagneSectionLayout,
   sectionLayoutSedationDentistry as ChampagneSectionLayout,
   sectionLayoutPreventativeGeneralDentistry as ChampagneSectionLayout,
+  sectionLayoutSeniorMatureSmileCare as ChampagneSectionLayout,
   sectionLayoutTmjJawComfort as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;

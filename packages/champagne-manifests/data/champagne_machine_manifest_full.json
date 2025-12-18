@@ -3371,6 +3371,7 @@
     "senior_mature_smile_care": {
       "id": "senior_mature_smile_care",
       "label": "Senior & mature smile care",
+      "description": "Comfort-first dentistry for later life with focus on gums, dry mouth, restored teeth, dentures, and implant options.",
       "path": "/treatments/senior-mature-smile-care",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
