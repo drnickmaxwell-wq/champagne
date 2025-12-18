@@ -2530,9 +2530,163 @@
       "category": "treatment",
       "hero": "periodontal_health_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "periodontal-hero",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.heroIntro",
+          "variantId": "smh_periodontal_hero",
+          "order": 10,
+          "seoRole": "hero",
+          "eyebrow": "Periodontal & gum care",
+          "title": "Calm, thorough gum care to steady teeth and implants",
+          "body": "Healthy gums support every part of your smile. We explain the difference between gingivitis (reversible inflammation) and periodontitis (deeper bone loss), then tailor care that protects your teeth, implants, and confidence.",
+          "bullets": [
+            "Full periodontal assessments with gentle charting and imaging",
+            "Non-surgical therapy focused on deep cleaning and root surface debridement",
+            "Personalised maintenance to keep gums, teeth, and implants stable"
+          ],
+          "ctas": [
+            { "label": "Book a periodontal assessment", "href": "/contact?topic=periodontal", "preset": "primary" },
+            { "label": "Ask about gum care", "href": "/contact", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "periodontal-importance",
+          "type": "features",
+          "componentId": "treatment.trustSignals",
+          "variantId": "smh_periodontal_importance",
+          "order": 20,
+          "seoRole": "supporting",
+          "eyebrow": "Why gum health matters",
+          "title": "Stable gums protect your bite and overall health",
+          "items": [
+            "Healthy gums keep teeth and implants anchored and comfortable",
+            "Preventing inflammation supports fresher breath and everyday comfort",
+            "Evidence links uncontrolled gum disease with diabetes control and cardiovascular health",
+            "Care plans are judgement-free and paced to suit you"
+          ]
+        },
+        {
+          "id": "periodontal-disease-explainer",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.consultationOverview",
+          "variantId": "smh_periodontal_explainer",
+          "order": 30,
+          "seoRole": "primaryContent",
+          "eyebrow": "Understanding gum disease",
+          "title": "Gingivitis vs periodontitis",
+          "body": "Gingivitis is surface-level inflammation that can usually be reversed with tailored cleaning and home care. Periodontitis affects the deeper support around teeth or implants, leading to pocketing and bone loss. Early, steady treatment limits damage and keeps treatment conservative.",
+          "bullets": [
+            "We check for bleeding, plaque build-up, and gum measurements",
+            "X-rays or scans help us see bone levels where needed",
+            "You’ll receive a clear, written plan before any therapy"
+          ]
+        },
+        {
+          "id": "periodontal-signs-risks",
+          "type": "features",
+          "componentId": "treatment.whoIsItFor",
+          "variantId": "smh_periodontal_signs",
+          "order": 40,
+          "seoRole": "supporting",
+          "eyebrow": "Signs & risk factors",
+          "title": "What patients often notice",
+          "items": [
+            "Bleeding gums, soreness, or bad breath that keeps returning",
+            "Gum recession, spacing changes, or teeth feeling slightly mobile",
+            "History of smoking, stress, diabetes, or family tendency to gum disease",
+            "Peri-implant inflammation such as redness or bleeding around implants"
+          ]
+        },
+        {
+          "id": "periodontal-pathway",
+          "type": "features",
+          "componentId": "treatment.processTimeline",
+          "variantId": "smh_periodontal_pathway",
+          "order": 50,
+          "seoRole": "primaryContent",
+          "eyebrow": "Your periodontal pathway",
+          "title": "Non-surgical care first, with clear reviews",
+          "items": [
+            "Comprehensive assessment with periodontal charting and tailored photos/scans",
+            "Personalised home care coaching, including interdental cleaning and toothpaste advice",
+            "Root surface debridement (deep cleaning) with topical anaesthetic or local anaesthetic for comfort",
+            "Airflow-style stain removal or polishing where suitable after plaque and tartar are removed",
+            "Re-evaluation of pocket depths and gum response after healing",
+            "Supportive maintenance visits to keep disease stable; onward referral discussed for complex cases"
+          ],
+          "strapline": "Most patients stabilise with non-surgical care and regular maintenance when we work together on habits and reviews."
+        },
+        {
+          "id": "periodontal-technology",
+          "componentId": "treatment.technology",
+          "variantId": "smh_periodontal_technology",
+          "order": 60,
+          "seoRole": "supporting",
+          "eyebrow": "Techniques & comfort",
+          "title": "Modern hygiene tools with a gentle touch",
+          "body": "Ultrasonic scalers, fine hand instruments, and airflow-style finishing help remove plaque and calculus thoroughly. We use numbing gels or local anaesthetic when needed and share measured progress so you feel in control.",
+          "mediaHint": "Gentle deep cleaning"
+        },
+        {
+          "id": "periodontal-maintenance",
+          "type": "features",
+          "componentId": "treatment.aftercareRisks",
+          "variantId": "smh_periodontal_maintenance",
+          "order": 70,
+          "seoRole": "supporting",
+          "eyebrow": "Maintenance & long-term stability",
+          "title": "Keeping gums healthy after treatment",
+          "items": [
+            "Short-term tenderness or temperature sensitivity is common and settles with good home care",
+            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
+            "Regular supportive periodontal therapy to maintain pocket depth reductions",
+            "Clear instructions on cleaning around teeth and implants to protect results"
+          ]
+        },
+        {
+          "id": "periodontal-faq",
+          "type": "treatment_faq_block",
+          "componentId": "treatment.faq",
+          "variantId": "smh_periodontal_faq",
+          "order": 80,
+          "seoRole": "faq",
+          "eyebrow": "Periodontal FAQs",
+          "title": "Answers to common gum care questions",
+          "faqs": [
+            {
+              "question": "Does deep cleaning hurt?",
+              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You’ll be guided on what to expect and how to keep things comfortable afterwards."
+            },
+            {
+              "question": "How long does it take to see improvement?",
+              "answer": "Gums often look and feel healthier within weeks, but long-term stability depends on regular maintenance and the risk factors we identify together."
+            },
+            {
+              "question": "Can gum tissue grow back?",
+              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we’ll discuss options if grafting or referral is appropriate."
+            },
+            {
+              "question": "What about implants with gum inflammation?",
+              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we’ll outline referral options calmly."
+            }
+          ]
+        },
+        {
+          "id": "periodontal-cta",
+          "type": "treatment_closing_cta",
+          "componentId": "treatment.cta",
+          "variantId": "smh_periodontal_cta",
+          "order": 90,
+          "seoRole": "cta",
+          "eyebrow": "Next steps",
+          "title": "Book a periodontal assessment",
+          "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+          "ctas": [
+            { "label": "Schedule a gum review", "href": "/contact?topic=periodontal", "preset": "primary" },
+            { "label": "Speak with the team", "href": "/contact", "preset": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
