@@ -64,9 +64,18 @@
           "label": "Patient stories",
           "title": "Journeys through Champagne care",
           "stories": [
-            { "summary": "Mapped a bonding plan that stayed gentle on enamel.", "name": "Case A" },
-            { "summary": "Followed a clear aligner cadence with visual checkpoints.", "name": "Case B" },
-            { "summary": "Combined whitening and contouring with calm visits.", "name": "Case C" }
+            {
+              "summary": "Mapped a bonding plan that stayed gentle on enamel.",
+              "name": "Case A"
+            },
+            {
+              "summary": "Followed a clear aligner cadence with visual checkpoints.",
+              "name": "Case B"
+            },
+            {
+              "summary": "Combined whitening and contouring with calm visits.",
+              "name": "Case C"
+            }
           ]
         },
         {
@@ -95,8 +104,16 @@
           "title": "Plan your visit",
           "strapline": "Book a calm consultation or explore treatment pathways.",
           "ctas": [
-            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "Explore treatments", "href": "/treatments", "preset": "secondary" }
+            {
+              "label": "Book a consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Explore treatments",
+              "href": "/treatments",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -110,15 +127,33 @@
       "hero": "treatment_neutral_hero_v1",
       "intro": "Stable, natural-looking implant restorations with calm planning and follow-up.",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.pricingFinance" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.pricingFinance"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -129,16 +164,36 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -168,15 +223,33 @@
       "category": "treatment",
       "hero": "clear_aligners_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -272,8 +345,16 @@
           "type": "cta",
           "title": "Connect with the team",
           "ctas": [
-            { "label": "Plan a visit", "href": "/contact", "preset": "primary" },
-            { "label": "Patient portal", "href": "/patient-portal", "preset": "secondary" }
+            {
+              "label": "Plan a visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Patient portal",
+              "href": "/patient-portal",
+              "preset": "secondary"
+            }
           ],
           "label": "Connection"
         }
@@ -310,8 +391,16 @@
           "type": "cta",
           "title": "Plan a visit",
           "ctas": [
-            { "label": "Request a call back", "href": "/patient-portal", "preset": "primary" },
-            { "label": "Message the team", "href": "/contact", "preset": "secondary" }
+            {
+              "label": "Request a call back",
+              "href": "/patient-portal",
+              "preset": "primary"
+            },
+            {
+              "label": "Message the team",
+              "href": "/contact",
+              "preset": "secondary"
+            }
           ],
           "label": "Next steps"
         }
@@ -394,8 +483,16 @@
           "type": "cta",
           "title": "Check back soon",
           "ctas": [
-            { "label": "Portal status", "href": "/patient-portal", "preset": "primary" },
-            { "label": "Contact the team", "href": "/contact", "preset": "secondary" }
+            {
+              "label": "Portal status",
+              "href": "/patient-portal",
+              "preset": "primary"
+            },
+            {
+              "label": "Contact the team",
+              "href": "/contact",
+              "preset": "secondary"
+            }
           ],
           "label": "CTA"
         }
@@ -409,15 +506,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -428,15 +543,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -447,15 +580,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -466,15 +617,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -485,15 +654,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.pricingFinance" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.pricingFinance"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -504,15 +691,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -523,15 +728,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -542,15 +765,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -561,15 +802,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -580,15 +839,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -599,15 +876,33 @@
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.whatAreImplants" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.technology" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -736,8 +1031,16 @@
           "title": "Plan a calm, dentist-led bonding consultation",
           "strapline": "We assess your teeth, discuss how whitening or aligners may fit, and tailor composite bonding to your goals.",
           "ctas": [
-            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "Discuss smile planning", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+            {
+              "label": "Book a consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Discuss smile planning",
+              "href": "/treatments/full-smile-makeover",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -831,8 +1134,16 @@
           "title": "Plan an injection-moulded composite consultation",
           "strapline": "We review your teeth, discuss how composite bonding, veneers, whitening, or alignment fit together, and build a guided plan that matches your goals.",
           "ctas": [
-            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "Discuss digitally planned options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+            {
+              "label": "Book a consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Discuss digitally planned options",
+              "href": "/treatments/full-smile-makeover",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -949,8 +1260,16 @@
           "title": "Start with a whitening consultation",
           "strapline": "Plan a calm, dentist-led whitening routine or pair it with wider smile design.",
           "ctas": [
-            { "label": "Book a whitening visit", "href": "/contact", "preset": "primary" },
-            { "label": "Discuss cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+            {
+              "label": "Book a whitening visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Discuss cosmetic options",
+              "href": "/treatments/full-smile-makeover",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1051,8 +1370,16 @@
           "title": "Set up your home whitening plan",
           "strapline": "Book a dentist-led whitening assessment and tray fit.",
           "ctas": [
-            { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
-            { "label": "Plan for future cosmetic work", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+            {
+              "label": "Book a whitening consult",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Plan for future cosmetic work",
+              "href": "/treatments/teeth-whitening",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1129,8 +1456,16 @@
           "title": "Schedule a maintenance review",
           "strapline": "Refresh your whitening plan with dentist guidance and the trays you already have.",
           "ctas": [
-            { "label": "Book a top-up", "href": "/contact", "preset": "primary" },
-            { "label": "Plan future whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+            {
+              "label": "Book a top-up",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Plan future whitening",
+              "href": "/treatments/home-teeth-whitening",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1204,8 +1539,16 @@
           "title": "Plan whitening that respects sensitivity",
           "strapline": "Book a review so we can tailor gel strength, pacing, and aftercare to your comfort.",
           "ctas": [
-            { "label": "Book a sensitivity review", "href": "/contact", "preset": "primary" },
-            { "label": "Explore home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+            {
+              "label": "Book a sensitivity review",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Explore home whitening",
+              "href": "/treatments/home-teeth-whitening",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1263,8 +1606,16 @@
           "title": "Plan whitening with a dentist",
           "strapline": "Ask your questions in person and receive a tailored whitening plan.",
           "ctas": [
-            { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-            { "label": "Learn about maintenance", "href": "/treatments/whitening-top-ups", "preset": "secondary" }
+            {
+              "label": "Book a consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Learn about maintenance",
+              "href": "/treatments/whitening-top-ups",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1350,9 +1701,18 @@
           "label": "Patient stories",
           "title": "Makeover journeys",
           "stories": [
-            { "summary": "Combined aligners and whitening with clear checkpoints.", "name": "Case P" },
-            { "summary": "Reviewed veneer mock-ups before printing finals.", "name": "Case Q" },
-            { "summary": "Tracked each phase with photos to stay aligned to the plan.", "name": "Case R" }
+            {
+              "summary": "Combined aligners and whitening with clear checkpoints.",
+              "name": "Case P"
+            },
+            {
+              "summary": "Reviewed veneer mock-ups before printing finals.",
+              "name": "Case Q"
+            },
+            {
+              "summary": "Tracked each phase with photos to stay aligned to the plan.",
+              "name": "Case R"
+            }
           ]
         },
         {
@@ -1381,8 +1741,16 @@
           "title": "Plan a full smile makeover",
           "strapline": "Book a planning session or preview a digital roadmap.",
           "ctas": [
-            { "label": "Book a planning session", "href": "/contact", "preset": "primary" },
-            { "label": "Preview the roadmap", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+            {
+              "label": "Book a planning session",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Preview the roadmap",
+              "href": "/treatments/digital-smile-design",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1454,13 +1822,41 @@
           "type": "cta",
           "title": "Common emergency visits",
           "ctas": [
-            { "label": "Emergency dental appointments", "href": "/treatments/emergency-dental-appointments", "preset": "secondary" },
-            { "label": "Severe toothache & dental pain", "href": "/treatments/severe-toothache-dental-pain", "preset": "secondary" },
-            { "label": "Dental abscess & infection", "href": "/treatments/dental-abscess-infection", "preset": "secondary" },
-            { "label": "Broken, chipped or cracked teeth", "href": "/treatments/broken-chipped-cracked-teeth", "preset": "secondary" },
-            { "label": "Knocked-out (avulsed) tooth", "href": "/treatments/knocked-out-tooth", "preset": "secondary" },
-            { "label": "Lost crowns, veneers & fillings", "href": "/treatments/lost-crowns-veneers-fillings", "preset": "secondary" },
-            { "label": "Dental trauma & accidents", "href": "/treatments/dental-trauma-accidents", "preset": "secondary" }
+            {
+              "label": "Emergency dental appointments",
+              "href": "/treatments/emergency-dental-appointments",
+              "preset": "secondary"
+            },
+            {
+              "label": "Severe toothache & dental pain",
+              "href": "/treatments/severe-toothache-dental-pain",
+              "preset": "secondary"
+            },
+            {
+              "label": "Dental abscess & infection",
+              "href": "/treatments/dental-abscess-infection",
+              "preset": "secondary"
+            },
+            {
+              "label": "Broken, chipped or cracked teeth",
+              "href": "/treatments/broken-chipped-cracked-teeth",
+              "preset": "secondary"
+            },
+            {
+              "label": "Knocked-out (avulsed) tooth",
+              "href": "/treatments/knocked-out-tooth",
+              "preset": "secondary"
+            },
+            {
+              "label": "Lost crowns, veneers & fillings",
+              "href": "/treatments/lost-crowns-veneers-fillings",
+              "preset": "secondary"
+            },
+            {
+              "label": "Dental trauma & accidents",
+              "href": "/treatments/dental-trauma-accidents",
+              "preset": "secondary"
+            }
           ]
         },
         {
@@ -1496,8 +1892,16 @@
           "title": "Call for emergency dental care",
           "strapline": "Tell us what has happened so we can guide you and reserve the right appointment time.",
           "ctas": [
-            { "label": "Call the practice", "href": "/contact", "preset": "primary" },
-            { "label": "See emergency options", "href": "/treatments", "preset": "secondary" }
+            {
+              "label": "Call the practice",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "See emergency options",
+              "href": "/treatments",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1585,8 +1989,16 @@
           "title": "Call for an emergency appointment",
           "strapline": "Tell us what has happened so we can reserve time and guide you before you travel.",
           "ctas": [
-            { "label": "Call now", "href": "/contact", "preset": "primary" },
-            { "label": "View all emergency options", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Call now",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "View all emergency options",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1675,8 +2087,16 @@
           "title": "Arrange urgent toothache care",
           "strapline": "We will guide you on immediate steps and bring you in quickly to relieve pain.",
           "ctas": [
-            { "label": "Call for support", "href": "/contact", "preset": "primary" },
-            { "label": "See emergency options", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Call for support",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "See emergency options",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1765,8 +2185,16 @@
           "title": "Get help for swelling or infection",
           "strapline": "Call now so we can assess and relieve the infection safely.",
           "ctas": [
-            { "label": "Call the practice", "href": "/contact", "preset": "primary" },
-            { "label": "See emergency care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Call the practice",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "See emergency care",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1855,8 +2283,16 @@
           "title": "Book care for a chipped or cracked tooth",
           "strapline": "We will protect the tooth, relieve sensitivity, and plan the right repair.",
           "ctas": [
-            { "label": "Call for an emergency visit", "href": "/contact", "preset": "primary" },
-            { "label": "Explore emergency care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Call for an emergency visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Explore emergency care",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -1944,8 +2380,16 @@
           "title": "Call immediately about a knocked-out tooth",
           "strapline": "We will guide you on safe handling and prepare to see you right away.",
           "ctas": [
-            { "label": "Call now", "href": "/contact", "preset": "primary" },
-            { "label": "Return to emergency hub", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Call now",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Return to emergency hub",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -2034,8 +2478,16 @@
           "title": "Book help for a lost restoration",
           "strapline": "We will protect the tooth, discuss repair options, and get you back to comfort.",
           "ctas": [
-            { "label": "Arrange an emergency visit", "href": "/contact", "preset": "primary" },
-            { "label": "Return to emergency hub", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Arrange an emergency visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Return to emergency hub",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -2124,8 +2576,16 @@
           "title": "Arrange care after dental trauma",
           "strapline": "We will check for hidden issues, stabilise your teeth, and guide recovery.",
           "ctas": [
-            { "label": "Call for urgent care", "href": "/contact", "preset": "primary" },
-            { "label": "Back to emergency hub", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+            {
+              "label": "Call for urgent care",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Back to emergency hub",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -2357,8 +2817,16 @@
             "Clear guidance if you’re anxious or prefer slower appointments"
           ],
           "ctas": [
-            { "label": "Book a dental exam", "href": "/contact?topic=check-up", "preset": "primary" },
-            { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+            {
+              "label": "Book a dental exam",
+              "href": "/contact?topic=check-up",
+              "preset": "primary"
+            },
+            {
+              "label": "Speak to the team",
+              "href": "/contact",
+              "preset": "secondary"
+            }
           ]
         },
         {
@@ -2503,8 +2971,16 @@
           "title": "Book your comprehensive dental exam",
           "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
           "ctas": [
-            { "label": "Book an exam", "href": "/contact?topic=check-up", "preset": "primary" },
-            { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+            {
+              "label": "Book an exam",
+              "href": "/contact?topic=check-up",
+              "preset": "primary"
+            },
+            {
+              "label": "Speak to the team",
+              "href": "/contact",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -2546,8 +3022,16 @@
             "Personalised maintenance to keep gums, teeth, and implants stable"
           ],
           "ctas": [
-            { "label": "Book a periodontal assessment", "href": "/contact?topic=periodontal", "preset": "primary" },
-            { "label": "Ask about gum care", "href": "/contact", "preset": "secondary" }
+            {
+              "label": "Book a periodontal assessment",
+              "href": "/contact?topic=periodontal",
+              "preset": "primary"
+            },
+            {
+              "label": "Ask about gum care",
+              "href": "/contact",
+              "preset": "secondary"
+            }
           ]
         },
         {
@@ -2683,8 +3167,16 @@
           "title": "Book a periodontal assessment",
           "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
           "ctas": [
-            { "label": "Schedule a gum review", "href": "/contact?topic=periodontal", "preset": "primary" },
-            { "label": "Speak with the team", "href": "/contact", "preset": "secondary" }
+            {
+              "label": "Schedule a gum review",
+              "href": "/contact?topic=periodontal",
+              "preset": "primary"
+            },
+            {
+              "label": "Speak with the team",
+              "href": "/contact",
+              "preset": "secondary"
+            }
           ]
         }
       ],
@@ -2736,14 +3228,30 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -2754,13 +3262,27 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.cta" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.cta"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -2771,14 +3293,30 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -2789,14 +3327,175 @@
       "category": "treatment",
       "hero": "painless_wand_hero_v1",
       "sections": [
-        { "id": "treatment.heroIntro" },
-        { "id": "treatment.trustSignals" },
-        { "id": "treatment.consultationOverview" },
-        { "id": "treatment.whoIsItFor" },
-        { "id": "treatment.processTimeline" },
-        { "id": "treatment.aftercareRisks" },
-        { "id": "treatment.faq" },
-        { "id": "treatment.cta" }
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "tooth_wear_broken_teeth": {
+      "id": "tooth_wear_broken_teeth",
+      "label": "Tooth Wear & Broken Teeth",
+      "path": "/treatments/tooth-wear-broken-teeth",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "tooth_wear_overview",
+          "type": "treatment_overview_rich",
+          "title": "Tooth wear, chips, and cracks explained in plain language",
+          "copy": "Tooth wear happens when enamel thins from three main patterns: attrition from teeth rubbing together, abrasion from brushing or habits, and erosion from acids. We identify which type is affecting you, calm sensitivity, and guide you through protective repairs.",
+          "bullets": [
+            "Attrition: clenching or grinding flattens biting edges and creates micro-cracks",
+            "Abrasion: firm brushing or habits like nail biting scuff enamel and expose dentine",
+            "Erosion: acidic drinks, reflux, or dry mouth soften enamel so chips happen more easily"
+          ]
+        },
+        {
+          "id": "tooth_wear_causes",
+          "type": "features",
+          "title": "Common causes of tooth wear",
+          "items": [
+            "Night-time clenching or grinding, sometimes linked to stress or sleep patterns",
+            "Acidic food, sparkling drinks, sports drinks, or reflux lowering mouth pH",
+            "Pressing too hard with a toothbrush or using stiff bristles",
+            "Jaw habits like nail biting, pen chewing, or frequent tooth contact",
+            "Existing fillings or crowns altering the bite and concentrating force on certain teeth"
+          ]
+        },
+        {
+          "id": "tooth_wear_symptoms",
+          "type": "features",
+          "title": "What you might notice",
+          "items": [
+            "Zingy sensitivity to cold air, water, or sweets",
+            "Chips, notches near the gumline, or small fractures in corners",
+            "Flatter or shortened front teeth with thinning edges",
+            "Jagged or rough surfaces that catch the tongue or lip",
+            "Tired jaw muscles or morning ache from overnight clenching"
+          ]
+        },
+        {
+          "id": "tooth_wear_assessment",
+          "type": "treatment_media_feature",
+          "label": "Calm assessment",
+          "title": "A mapped look at how your teeth meet and where they are wearing",
+          "copy": "We start with a clinical exam, close-up photos, and a 3D scan to record current tooth shapes. A simple bite analysis checks where forces land, and we review diet or reflux history so you know why wear is happening and how to slow it.",
+          "mediaHint": "Photos, scans, and bite map overlay"
+        },
+        {
+          "id": "tooth_wear_treatment_ladder",
+          "type": "features",
+          "title": "Treatment ladder: protect, rebuild, stabilise",
+          "items": [
+            "Prevention and stabilisation: night guard or splint, fluoride or desensitising gels, and tailored diet guidance to slow further loss",
+            "Composite edge bonding or additive fillings to rebuild chipped edges with minimal drilling",
+            "Onlays or crowns for teeth that need full coverage or reinforced support",
+            "Bite stabilisation plans when wear is advanced, coordinating several teeth so forces spread evenly"
+          ]
+        },
+        {
+          "id": "tooth_wear_process",
+          "type": "treatment_overview_rich",
+          "title": "What happens at your appointment",
+          "copy": "We talk through your symptoms, capture photos and scans, and share a simple explanation of the wear pattern. Together we prioritise comfort first, then agree the most conservative repairs that will hold up day-to-day.",
+          "bullets": [
+            "Initial visit: assessment, photos, and digital scan with a calm explanation of findings",
+            "Stabilisation: protective polish, fluoride, and night guard impressions where helpful",
+            "Follow-up: fit the guard or trial composite repairs, then review bite comfort and sensitivity"
+          ]
+        },
+        {
+          "id": "tooth_wear_timelines",
+          "type": "treatment_media_feature",
+          "label": "Realistic timelines",
+          "title": "Clear expectations on timing and feel",
+          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1–3 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
+          "mediaHint": "Calm scheduling map"
+        },
+        {
+          "id": "tooth_wear_faq",
+          "type": "treatment_faq_block",
+          "title": "Tooth wear FAQs",
+          "faqs": [
+            {
+              "question": "Do I always need a crown for a worn tooth?",
+              "answer": "Not necessarily. We start with additive options like composite edge bonding or onlays to preserve tooth structure, reserving crowns for teeth that need full coverage support."
+            },
+            {
+              "question": "Will a night guard stop my teeth from wearing down?",
+              "answer": "A guard or splint protects the biting surfaces and spreads forces, reducing further wear. We pair it with habit coaching and diet guidance so you address the cause as well as the protection."
+            },
+            {
+              "question": "How do you check if my bite is causing cracks?",
+              "answer": "We review your scan, mark contact points, and use simple bite tests to see where forces land. This shows whether a guard, adjustment, or staged restorations are needed to balance pressure."
+            }
+          ]
+        },
+        {
+          "id": "tooth_wear_closing",
+          "type": "treatment_closing_cta",
+          "title": "Plan a calm review for tooth wear or broken edges",
+          "strapline": "We stabilise sensitivity, protect your bite, and rebuild worn teeth with conservative steps.",
+          "ctas": [
+            {
+              "label": "Book a tooth wear assessment",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "TMJ & Jaw Care",
+              "href": "/treatments/tmj-jaw-comfort",
+              "preset": "secondary"
+            },
+            {
+              "label": "Mouth Guards",
+              "href": "/treatments/3d-mouth-guards",
+              "preset": "ghost"
+            },
+            {
+              "label": "Dental Crowns",
+              "href": "/treatments/dental-crowns",
+              "preset": "ghost"
+            },
+            {
+              "label": "Inlays & Onlays",
+              "href": "/treatments/inlays-onlays",
+              "preset": "ghost"
+            },
+            {
+              "label": "Composite Bonding",
+              "href": "/treatments/composite-bonding",
+              "preset": "ghost"
+            },
+            {
+              "label": "Nervous Patients",
+              "href": "/treatments/nervous-patients",
+              "preset": "ghost"
+            }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     }
