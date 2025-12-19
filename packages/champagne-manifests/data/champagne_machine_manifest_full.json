@@ -2970,12 +2970,12 @@
           ],
           "ctas": [
             {
-              "label": "Book a dental exam",
-              "href": "/contact?topic=check-up",
+              "label": "Dental check-ups & oral cancer screening",
+              "href": "/dental-checkups-oral-cancer-screening",
               "preset": "primary"
             },
             {
-              "label": "Speak to the team",
+              "label": "Book a consultation",
               "href": "/contact",
               "preset": "secondary"
             }
@@ -3142,12 +3142,12 @@
           "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
           "ctas": [
             {
-              "label": "Dental check-ups & screening",
+              "label": "Dental check-ups & oral cancer screening",
               "href": "/dental-checkups-oral-cancer-screening",
               "preset": "primary"
             },
             {
-              "label": "Book an exam",
+              "label": "Book a consultation",
               "href": "/contact",
               "preset": "secondary"
             }

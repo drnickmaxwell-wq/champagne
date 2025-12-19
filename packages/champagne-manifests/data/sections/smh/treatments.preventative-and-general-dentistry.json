@@ -19,8 +19,8 @@
         "Clear guidance if you’re anxious or prefer slower appointments"
       ],
       "ctas": [
-        { "label": "Book a dental exam", "href": "/contact?topic=check-up", "preset": "primary" },
-        { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+        { "label": "Dental check-ups & oral cancer screening", "href": "/dental-checkups-oral-cancer-screening", "preset": "primary" },
+        { "label": "Book a consultation", "href": "/contact", "preset": "secondary" }
       ]
     },
     {
@@ -183,8 +183,8 @@
       "title": "Book your comprehensive dental exam",
       "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
       "ctas": [
-        { "label": "Dental check-ups & screening", "href": "/dental-checkups-oral-cancer-screening", "preset": "primary" },
-        { "label": "Book an exam", "href": "/contact", "preset": "secondary" }
+        { "label": "Dental check-ups & oral cancer screening", "href": "/dental-checkups-oral-cancer-screening", "preset": "primary" },
+        { "label": "Book a consultation", "href": "/contact", "preset": "secondary" }
       ]
     }
   ]
