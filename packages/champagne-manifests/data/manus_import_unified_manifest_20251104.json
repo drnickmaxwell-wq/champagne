@@ -309,6 +309,20 @@
       "category": "utility"
     },
     {
+      "slug": "/dental-checkups-oral-cancer-screening",
+      "hero": "contact_calm_hero_v1",
+      "sections": [
+        "dental_checkups_intro",
+        "dental_checkups_what_to_expect",
+        "dental_checkups_digital_imaging",
+        "dental_checkups_who_benefits",
+        "dental_checkups_frequency",
+        "dental_checkups_worried",
+        "dental_checkups_faq"
+      ],
+      "category": "site"
+    },
+    {
       "slug": "/legal/privacy",
       "hero": "legal_simple_banner",
       "sections": [
