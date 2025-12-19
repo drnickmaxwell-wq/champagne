@@ -37,6 +37,7 @@
     { "slug": "/treatments/cbct-3d-scanning", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
     { "slug": "/smile-gallery", "hero": "gallery_showcase_hero", "category": "editorial" },
     { "slug": "/about", "hero": "about_story_hero_v1", "category": "hub" },
+    { "slug": "/dental-checkups-oral-cancer-screening", "hero": "contact_calm_hero_v1", "category": "site" },
     { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },
     { "slug": "/legal/privacy", "hero": "legal_simple_banner", "category": "legal" }
   ],

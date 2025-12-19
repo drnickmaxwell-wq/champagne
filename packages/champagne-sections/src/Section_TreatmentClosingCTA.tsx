@@ -42,11 +42,25 @@ function mapSectionCTAs(section?: SectionRegistryEntry): ChampagneCTAInput[] {
   );
 }
 
-export function Section_TreatmentClosingCTA({ section, ctas }: SectionTreatmentClosingCTAProps = {}) {
-  const title = section?.title ?? "Ready for a seamless smile refresh?";
-  const strapline = section?.strapline
-    ?? "Book a consultation or preview your smile with AI-guided mock-ups.";
-  const fallbackCTAs: ChampagneCTAConfig[] = [
+function getFallbackCTAs(section?: SectionRegistryEntry): ChampagneCTAConfig[] {
+  const preventativeCheckupIds = new Set([
+    "preventative-general-checkups-card",
+    "preventative-general-cta",
+  ]);
+
+  if (section?.id && preventativeCheckupIds.has(section.id)) {
+    return [
+      {
+        id: "dental-checkups-primary",
+        label: "Dental check-ups & oral cancer screening",
+        href: "/dental-checkups-oral-cancer-screening",
+        variant: "primary",
+      },
+      { id: "book-consultation", label: "Book a consultation", href: "/contact", variant: "secondary" },
+    ];
+  }
+
+  return [
     { id: "book-consultation", label: "Book a consultation", href: "/contact", variant: "primary" },
     {
       id: "ai-smile-preview",
@@ -55,6 +69,13 @@ export function Section_TreatmentClosingCTA({ section, ctas }: SectionTreatmentC
       variant: "secondary",
     },
   ];
+}
+
+export function Section_TreatmentClosingCTA({ section, ctas }: SectionTreatmentClosingCTAProps = {}) {
+  const title = section?.title ?? "Ready for a seamless smile refresh?";
+  const strapline = section?.strapline
+    ?? "Book a consultation or preview your smile with AI-guided mock-ups.";
+  const fallbackCTAs = getFallbackCTAs(section);
   const resolvedCTAs = resolveCTAList(ctas ?? mapSectionCTAs(section) ?? fallbackCTAs, "primary");
 
   const renderedCTAs = resolvedCTAs.length > 0 ? resolvedCTAs : fallbackCTAs;

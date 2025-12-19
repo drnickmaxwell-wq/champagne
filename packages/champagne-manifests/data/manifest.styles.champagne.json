@@ -305,6 +305,38 @@
       "type": "cta",
       "surface": "champagne/surface/utility"
     },
+    "dental_checkups_intro": {
+      "type": "copy-block",
+      "surface": "champagne/surface/hub"
+    },
+    "dental_checkups_what_to_expect": {
+      "type": "feature-list",
+      "surface": "champagne/surface/hub"
+    },
+    "dental_checkups_digital_imaging": {
+      "type": "feature-list",
+      "surface": "champagne/surface/hub"
+    },
+    "dental_checkups_who_benefits": {
+      "type": "feature-list",
+      "surface": "champagne/surface/hub"
+    },
+    "dental_checkups_frequency": {
+      "type": "copy-block",
+      "surface": "champagne/surface/hub"
+    },
+    "dental_checkups_worried": {
+      "type": "copy-block",
+      "surface": "champagne/surface/hub"
+    },
+    "dental_checkups_faq": {
+      "type": "treatment_faq_block",
+      "surface": "champagne/surface/hub"
+    },
+    "preventative-general-checkups-card": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
     "treatment_overview_copy": {
       "type": "copy-block",
       "surface": "champagne/surface/treatment"

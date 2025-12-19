@@ -19,8 +19,8 @@
         "Clear guidance if you’re anxious or prefer slower appointments"
       ],
       "ctas": [
-        { "label": "Book a dental exam", "href": "/contact?topic=check-up", "preset": "primary" },
-        { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+        { "label": "Dental check-ups & oral cancer screening", "href": "/dental-checkups-oral-cancer-screening", "preset": "primary" },
+        { "label": "Book a consultation", "href": "/contact", "preset": "secondary" }
       ]
     },
     {
@@ -121,6 +121,19 @@
       ]
     },
     {
+      "instanceId": "preventative-general-checkups-card",
+      "componentId": "treatment.cta",
+      "variantId": "smh_preventative_general_checkups_card",
+      "order": 75,
+      "seoRole": "supporting",
+      "eyebrow": "Routine exams",
+      "title": "Dental Check-Ups & Oral Cancer Screening",
+      "body": "Comprehensive exams, digital assessment, and a visual oral cancer check at every visit.",
+      "ctas": [
+        { "label": "Learn about check-ups", "href": "/dental-checkups-oral-cancer-screening", "preset": "secondary" }
+      ]
+    },
+    {
       "instanceId": "preventative-general-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_preventative_general_faq",
@@ -148,6 +161,19 @@
       ]
     },
     {
+      "instanceId": "preventative-general-related-checkups",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_preventative_general_related_checkups",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "Next steps",
+      "title": "Keep your routine care on track",
+      "items": [
+        "Book Dental Check-Ups & Oral Cancer Screening to combine prevention with a calm oral cancer screening every visit (/dental-checkups-oral-cancer-screening)",
+        "If you notice any new changes, mention them during your check-up so we can review them together"
+      ]
+    },
+    {
       "instanceId": "preventative-general-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_preventative_general_cta",
@@ -157,8 +183,8 @@
       "title": "Book your comprehensive dental exam",
       "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
       "ctas": [
-        { "label": "Book an exam", "href": "/contact?topic=check-up", "preset": "primary" },
-        { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+        { "label": "Dental check-ups & oral cancer screening", "href": "/dental-checkups-oral-cancer-screening", "preset": "primary" },
+        { "label": "Book a consultation", "href": "/contact", "preset": "secondary" }
       ]
     }
   ]

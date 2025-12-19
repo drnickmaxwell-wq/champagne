@@ -83,6 +83,26 @@ function collectTreatmentEntries(): ChampagneTreatmentPage[] {
     });
   }
 
+  const hubExtras = ["/dental-checkups-oral-cancer-screening"]
+    .map((path) => getPageManifestBySlug(path))
+    .filter((entry): entry is ChampagnePageManifest => Boolean(entry?.path));
+
+  for (const entry of hubExtras) {
+    const path = entry.path as string;
+    if (byPath.has(path)) continue;
+
+    const slug = path
+      .split("/")
+      .filter(Boolean)
+      .pop();
+
+    byPath.set(path, {
+      ...entry,
+      path,
+      slug: slug ?? "",
+    });
+  }
+
   return Array.from(byPath.values());
 }
 
