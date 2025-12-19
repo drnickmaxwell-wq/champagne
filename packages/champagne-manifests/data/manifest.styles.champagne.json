@@ -333,6 +333,10 @@
       "type": "treatment_faq_block",
       "surface": "champagne/surface/hub"
     },
+    "preventative-general-checkups-card": {
+      "type": "treatment_closing_cta",
+      "surface": "champagne/surface/treatment"
+    },
     "treatment_overview_copy": {
       "type": "copy-block",
       "surface": "champagne/surface/treatment"

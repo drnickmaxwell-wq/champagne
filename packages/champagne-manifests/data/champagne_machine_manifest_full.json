@@ -3072,6 +3072,24 @@
           ]
         },
         {
+          "id": "preventative-general-checkups-card",
+          "type": "treatment_closing_cta",
+          "componentId": "treatment.cta",
+          "variantId": "smh_preventative_general_checkups_card",
+          "order": 75,
+          "seoRole": "supporting",
+          "eyebrow": "Routine exams",
+          "title": "Dental Check-Ups & Oral Cancer Screening",
+          "body": "Comprehensive exams, digital assessment, and a visual oral cancer check at every visit.",
+          "ctas": [
+            {
+              "label": "Learn about check-ups",
+              "href": "/dental-checkups-oral-cancer-screening",
+              "preset": "secondary"
+            }
+          ]
+        },
+        {
           "id": "preventative-general-faq",
           "type": "treatment_faq_block",
           "componentId": "treatment.faq",
