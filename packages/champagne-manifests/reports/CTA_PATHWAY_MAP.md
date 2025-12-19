@@ -1,265 +1,160 @@
-# CTA Pathway Map — Champagne / SMH Dental (Phase 1)
+# CTA_PATHWAY_MAP.md
+Version: CTA_PATHWAY_MAP.v1
+Status: CANONICAL (Phase: Homepage Logic → Portal CTA Wiring)
+Owner: Managing Director (MD)
+Date: 2025-12-19
 
-Purpose:
-Define the canonical CTA pathways across public site pages and portal-adjacent pages.
-This prevents “circular CTA loops”, avoids orphan routes, and ensures each CTA has a purposeful next step.
+## 0) Prime Directive
+CTAs must resolve to **canonical runtime routes** only.
+**No CTA may target legacy/unknown routes** (e.g. `/book`) unless explicitly defined in this map.
 
-Scope covered (current audits + new pages):
-- Ortho & aligners: /treatments/clear-aligners, /treatments/clear-aligners-spark, /treatments/orthodontics, /treatments/fixed-braces
-- Cosmetic: /treatments/composite-bonding, /treatments/veneers, /treatments/full-smile-makeover, /treatments/digital-smile-design
-- Implants: /treatments/implants, /treatments/implants-single-tooth, /treatments/implants-multiple-teeth, /treatments/implants-full-arch,
-           /treatments/implant-retained-dentures, /treatments/implant-consultation, /treatments/teeth-in-a-day,
-           /treatments/failed-implant-replacement, /treatments/implant-aftercare, /treatments/sinus-lift
-- Utility pages (new): /practice-plan, /video-consultation
-- Home entry (current): /
-
-Key canonical destinations (Phase 1):
-- /contact (primary conversion endpoint)
-- /contact?topic=<topic> (topic-routed intent capture)
-- /treatments/<slug> (education depth)
-- Portal endpoints (Phase 2+): /portal/* (uploads, finance, video consult booking, treatment plan view)
+If a CTA target is not in this map:
+- DEV/PREVIEW: fail loud (console error + heroDebug receipt if applicable)
+- PROD: fail safe (fallback to `/contact`) AND emit detectable event/log
 
 ---
 
-## Canon rules (Phase 1)
+## 1) Canonical CTA Targets (Allowed)
+These are the **only** CTA href targets allowed by default.
 
-1) Primary CTA should move the user forward:
-   - Book / Request consultation (usually /contact or /contact?topic=...)
-2) Secondary CTA should reduce friction:
-   - “Ask a question” (topic form), “Check suitability”, “See costs/finance options” (when available)
-3) Avoid circular loops:
-   - Page A footer CTA → Page B → footer CTA back to Page A is a loop.
-4) “Aftercare” pages should not behave like “new patient acquisition” pages:
-   - They must include triage/support paths (Phase 2: portal + urgent guidance routing).
-5) Utility pages (Practice Plan, Video Consultation, Finance) should *not* steal the main treatment journey:
-   - They should support it: “How to pay”, “Remote review”, “Membership”, then return to the relevant next step.
+### Primary booking / contact
+- `/contact`  
+  Use for: “Book a consultation”, “Speak to the team”, “Request a call back”, “Ask a question”.
 
----
+### Treatments discovery
+- `/treatments`  
+  Use for: “Explore treatments”, “See all options”, “Browse services”.
 
-## Pathway index (the map)
+### Treatment hubs (examples – only if pages exist)
+- `/treatments/implants`
+- `/treatments/whitening`
+- `/treatments/composite-bonding`
+- `/treatments/veneers`
+- `/treatments/nervous-patients`
+- `/treatments/emergency-dentistry`
 
-### 0) Home ( / )
-Primary user intents:
-A) “I know what I want” → treatment page
-B) “I want to book” → /contact
-C) “I’m unsure / anxious / urgent” → guided triage path (Phase 2: portal/telemedicine routing)
+### Authority / assessment pages (only if present)
+- `/treatments/dental-check-ups-oral-cancer-screening`
+- `/treatments/digital-smile-design` (or canonical DSD slug if different)
 
-Recommended Phase 1 CTAs:
-- Primary: Book a consultation → /contact
-- Secondary: Explore treatments → /treatments
-- Secondary: Nervous / urgent / need advice → /video-consultation (then to /contact?topic=urgent or /contact?topic=video)
+### Practice Plan
+- `/practice-plan`
 
-Notes:
-- Home hero CTA must NOT route to unknown legacy endpoints (e.g. /book) unless deliberately defined and styled as canonical.
+### Portal / patient flows (preferred pattern)
+If the portal is not yet public, these can temporarily redirect to `/contact` with intent text.
 
----
+- `/portal` (or canonical portal entry route)
+- `/portal?intent=video-consult`
+- `/portal?intent=finance`
+- `/portal?intent=uploads`
+- `/portal?intent=appointments`
+- `/portal?intent=treatment-plan`
 
-### 1) Ortho & aligners
-
-#### /treatments/clear-aligners
-Primary: Book consultation → /contact
-Secondary: Ask a question → /contact
-Phase 2+ enhancement: “Check suitability” → quiz/ai-smile-analysis (planned)
-
-#### /treatments/clear-aligners-spark
-Primary: Book an Orthodontic Assessment → /contact
-Secondary: Ask about Spark aligners → /contact?topic=aligners
-Risk note:
-- Requested path “/treatments/spark-clear-aligners” not present; manifest uses /treatments/clear-aligners-spark.
-- Preserve canonical slugs; ensure internal links match.
-
-#### /treatments/orthodontics
-Primary: Book an Orthodontic Assessment → /contact
-Secondary: Discuss brace options → /contact
-
-#### /treatments/fixed-braces
-Primary: Book an Orthodontic Assessment → /contact
-Secondary: Ask a braces question → /contact
-
-Missing:
-- /treatments/retainers has no route/manifest. (Orphan topic; decide whether to create page or remove links.)
+**Rule:** If `/portal` is not live, use `/contact` and append intent via query:
+- `/contact?intent=video-consult`
+- `/contact?intent=finance`
+- `/contact?intent=uploads`
 
 ---
 
-### 2) Cosmetic
+## 2) Forbidden Targets (Blocklist)
+These must be removed or rewritten if found anywhere in manifests/components:
 
-#### /treatments/composite-bonding
-Primary: Cosmetic Assessment → /contact
-Secondary: Veneers → /treatments/veneers
-Secondary: Teeth whitening → /treatments/teeth-whitening (if exists)
-Secondary: Clear aligners → /treatments/clear-aligners
+- `/book`  ❌ (legacy / unknown route)
+- `/booking` ❌ unless explicitly implemented later
+- `/ai-smile-analysis` ❌ unless explicitly implemented and promoted
+- `/ai-smile-quiz` ❌ unless explicitly implemented and promoted
+- `/preview/*` ❌
+- `/_legacy_route_stubs/*` ❌
+- Any external URLs unless explicitly approved (Phase-gated)
 
-#### /treatments/veneers
-Hero Primary: Book a veneers consultation → /contact
-Hero Secondary: Composite vs porcelain → /contact?topic=veneers
-Footer Primary: Veneer Consultation & Smile Design → /contact
-Footer Secondary: Explore alternative cosmetic options → /treatments/full-smile-makeover
-
-Missing:
-- /treatments/smile-makeover route absent; closest present is /treatments/full-smile-makeover.
-- Ensure internal links use the canonical existing slug.
-
-#### /treatments/full-smile-makeover
-Primary: Book a planning session → /contact
-Secondary: Preview the roadmap → /treatments/digital-smile-design
-
-#### /treatments/digital-smile-design
-Hero Primary: Book a digital design consult → /contact?topic=digital-dentistry
-Hero Secondary: Ask about smile previews → /contact?topic=3d-printing
-Footer Primary: Book a design session → /contact?topic=digital-dentistry
-Footer Secondary: Ask about mock-ups → /contact?topic=3d-printing
-
-Notes:
-- Good: strong topic routing.
-- Future: connect DSD → portal upload flow (photos/scans) in Phase 2.
+**Enforcement rule:** Any CTA pointing to a forbidden target is a governance violation.
 
 ---
 
-### 3) Implants
+## 3) CTA Copy → Target Mapping (Canonical)
+Use this mapping when generating or correcting CTAs.
 
-#### /treatments/implants (hub page)
-Primary: Book Implant Consultation & Planning → /contact
-Secondary: Ask a question → /contact?topic=implants
+### Universal CTAs
+- “Book a consultation” → `/contact`
+- “Call us” → `/contact` (or tel link only if allowed by component)
+- “Email us” → `/contact` (or mailto only if allowed by component)
+- “Ask a question” → `/contact`
 
-#### /treatments/implants-single-tooth
-Primary: Book a single-implant consult → /contact
-Secondary: Ask about single implants → /contact?topic=implants
+### Discovery / education CTAs
+- “Explore treatments” → `/treatments`
+- “View treatment options” → `/treatments`
+- “Learn about sedation” → `/treatments/sedation-dentistry`
+- “Nervous patient options” → `/treatments/nervous-patients`
 
-#### /treatments/implants-multiple-teeth
-Primary: Book a multi-implant consult → /contact
-Secondary: Ask about implant bridges → /contact?topic=implants
+### ABC pathway (Align → Bleach → Composite)
+These CTAs should appear across Aligners/Sparks/Whitening/Bonding/Veneers/Smile Makeover pages:
 
-Missing:
-- /treatments/all-on-4 route/manifest entry missing (but /treatments/implants-full-arch exists).
-- Decide canonical positioning: keep /treatments/implants-full-arch as canonical; optionally add “all-on-4” as alias later if permitted.
+- “Aligners / Braces options” → `/treatments/orthodontics` (or canonical ortho slug)
+- “Teeth whitening” → `/treatments/whitening`
+- “Composite bonding” → `/treatments/composite-bonding`
+- “Veneers” → `/treatments/veneers`
+- “3D / digitally designed veneers” → `/treatments/digitally-designed-veneers` (or canonical 3D veneers slug)
+- “Smile makeover” → `/treatments/smile-makeover` (if present)
+- “Digital Smile Design” → `/treatments/digital-smile-design`
 
-#### /treatments/implants-full-arch
-Hero Primary: Book a full-arch consultation → /contact
-Hero Secondary: Speak to the implant team → /contact?topic=implants
-Footer Primary: Book consultation → /contact
-Footer Secondary: Discuss implant options → /contact?topic=implants
+### Implant trust signals / conversion
+- “Implant consultation” → `/treatments/implant-consultation`
+- “Implant aftercare” → `/treatments/implant-aftercare`
+- “Bone grafting” → `/treatments/bone-grafting`
+- “Teeth in a day” → `/treatments/teeth-in-a-day` (if present)
 
-Risk note:
-- CTAs currently do not create a distinct “full arch” pathway; they collapse into generic contact.
-
-#### /treatments/implant-consultation
-Hero Primary: Book an implant consultation → /contact
-Hero Secondary: Ask a question first → /contact?topic=implants
-Footer Primary: Book an implant consultation → /contact
-Footer Secondary: Explore implant treatments → /treatments/implants
-Risk note:
-- Footer secondary loops back to implants hub (acceptable, but can become circular if overused).
-
-#### /treatments/teeth-in-a-day
-Hero Primary: Book an implant assessment → /contact
-Hero Secondary: Ask if I qualify → /contact?topic=implants
-Footer Primary: Book an implant assessment → /contact
-Footer Secondary: Explore implant options → /treatments/implants
-Risk note:
-- No dedicated “same-day” intent capture step yet; add qualification gating later (Phase 2 quiz).
-
-#### /treatments/failed-implant-replacement
-Hero Primary: Book an implant review → /contact
-Hero Secondary: Ask about options → /contact?topic=implants
-Footer Primary: Book now → /contact
-Footer Secondary: See implant consultation details → /treatments/implant-consultation
-Risk note:
-- Could bypass diagnostics context; ensure content frames it as assessment-first.
-
-#### /treatments/implant-aftercare
-Primary: Book a consultation → /contact
-Secondary: See implant consultation details → /treatments/implant-consultation
-Risk note (important):
-- Aftercare should include support/triage pathways (Phase 2: portal, phone, urgent guidance). It should not behave as purely sales acquisition.
-
-#### /treatments/sinus-lift
-Hero Primary: Book an implant assessment → /contact
-Hero Secondary: Ask about suitability → /contact?topic=implants
-Footer Primary: Book an implant assessment → /contact
-Footer Secondary: Implant consultation → /treatments/implant-consultation
-
-#### /treatments/implant-retained-dentures
-Hero Primary: Book an implant assessment → /contact
-Hero Secondary: Ask about implant-retained dentures → /contact?topic=implants
-Footer Primary: Book an implant assessment → /contact
-Footer Secondary: Explore implant options → /treatments/implants
-
-Cross-link risk:
-- Several implant footers loop back to /treatments/implants or /treatments/implant-consultation.
-- Keep one “loop-back” link, but prefer at least one forward step (Phase 2: finance, uploads, video consult triage).
+### Portal conversion CTAs (future-proof SaaS)
+- “Video consultation” → `/portal?intent=video-consult`
+- “Finance options” → `/portal?intent=finance` (Tabeo)
+- “Upload photos / documents” → `/portal?intent=uploads`
+- “Manage appointments” → `/portal?intent=appointments`
 
 ---
 
-## Utility / Support pathways (Phase 1 → Phase 2 bridge)
+## 4) CTA Component Types (Design Note)
+This repo currently contains at least two CTA behaviours:
 
-### /practice-plan
-Goal:
-Membership education → either join enquiry or book check-up.
+1) **Section-level CTAs** (manifest-provided)
+   - Must render exactly what the manifest provides.
+   - Must not silently substitute fallback links.
 
-Phase 1 CTAs:
-- Primary: Ask about Practice Plan → /contact?topic=membership
-- Secondary: What’s included in a check-up? → /treatments/check-up (if exists) or /contact?topic=checkup
+2) **Preset / fallback CTAs** (component-level defaults)
+   - Only allowed if the manifest provides *no CTAs*.
+   - Presets must use **only** canonical targets from Section 1.
+   - Presets must never point at `/book`.
 
-Phase 2 enhancements:
-- “Join Practice Plan” → Portal onboarding + finance direct debit setup (or Tabeo if used for plans)
-
-### /video-consultation (Telemedicine entry)
-Goal:
-Remote review to reduce friction, handle anxious/urgent queries, and pre-triage.
-
-Phase 1 CTAs:
-- Primary: Book a consultation → /contact?topic=video
-- Secondary: Emergency? See urgent care → /contact?topic=urgent (or a dedicated urgent guidance page)
-
-Phase 2 wiring:
-- Book video consult → Portal scheduling + secure upload intake (photos, symptoms)
-- Routing:
-  - Urgent → urgent triage flow
-  - Non-urgent cosmetic query → consult booking
-  - Post-op issue → aftercare portal support
-
-### Tabeo Finance (planned)
-Public entry points (Phase 2):
-- From high-ticket pages (implants full arch, veneer smile design) secondary CTA:
-  “Finance options” → /finance (public explainer) → portal Tabeo application
-
-Portal endpoints (Phase 2):
-- /portal/finance (Tabeo application + status)
-- /portal/documents (quotes, estimates, consent forms)
-
-### Uploads (planned)
-Where uploads should appear:
-- Video consultation intake
-- Digital Smile Design intake (photos, scans)
-- Implant consult intake (referrals, CT images if appropriate process exists)
-
-Portal endpoints (Phase 2):
-- /portal/uploads (secure uploads, tagging by pathway)
+**Policy:** Prefer manifest-provided CTAs for treatment pages.
 
 ---
 
-## Known route anomalies discovered during CTA audits
+## 5) Verification Checklist (Before Merge)
+### Repo-wide CTA grep
+Search for forbidden targets:
+- `/book`
+- `href="/book"`
+- `"to": "/book"`
+- `"href": "/book"`
 
-1) Ortho:
-- /treatments/retainers missing (no route/manifest)
+Expected result: **zero hits**.
 
-2) Cosmetic:
-- /treatments/smile-makeover missing; /treatments/full-smile-makeover exists
-
-3) Implants:
-- /treatments/all-on-4 missing; /treatments/implants-full-arch exists
-
-4) Aligners slug mismatch risk:
-- requested /treatments/spark-clear-aligners not present; canonical is /treatments/clear-aligners-spark
-
-5) Unexpected /book route discovered via hero CTA click:
-- treat as legacy or unintended route until explicitly canonised.
+### Runtime smoke test
+- Home: click “Book a consultation” in hero + any CTA blocks → must go `/contact`
+- Nervous Patients: “Read about sedation” → sedation page slug must resolve
+- Whitening hub: CTAs must resolve to whitening subpages and/or `/treatments/composite-bonding`, `/treatments/veneers`, `/treatments/digital-smile-design` as mapped
+- Portal CTAs (if not live): temporarily route to `/contact?intent=…`
 
 ---
 
-## Implementation notes (for Codex)
+## 6) Phase Gates (Do Not Auto-Add Yet)
+These routes are planned but must not be referenced until implemented and promoted:
 
-- Ensure all hero CTAs on home and utility pages resolve from the canonical manifest pathway map.
-- Remove any debug/audit labels (“HERO CTAS”, “FOOTER CTAS”) from production rendering.
-- Prevent route-level layouts (e.g. /book) from mutating global container sizing or body styles without cleanup.
-- If /book is not canonical, remove from navigation sources and replace hero CTA href with /contact.
+- AI Smile Analysis
+- AI Smile Quiz
+- Downloads
+- Newsletter
+- Blog
+
+When promoted, this file must be version-bumped and targets moved from blocklist → allowed list.
+
+END.
