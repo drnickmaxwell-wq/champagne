@@ -11,6 +11,7 @@ import { Section_TextBlock } from "./Section_TextBlock";
 import { Section_TreatmentClosingCTA } from "./Section_TreatmentClosingCTA";
 import { Section_TreatmentMediaFeature } from "./Section_TreatmentMediaFeature";
 import { Section_TreatmentOverviewRich } from "./Section_TreatmentOverviewRich";
+import { Section_TreatmentRoutingCards } from "./Section_TreatmentRoutingCards";
 import { Section_TreatmentToolsTrio } from "./Section_TreatmentToolsTrio";
 import { getSectionStack } from "./SectionRegistry";
 import type { SectionRegistryEntry } from "./SectionRegistry";
@@ -37,6 +38,7 @@ const typeMap: Record<string, SectionComponent> = {
   treatment_overview_rich: (props) => <Section_TreatmentOverviewRich {...props} />,
   treatment_media_feature: (props) => <Section_TreatmentMediaFeature {...props} />,
   treatment_tools_trio: (props) => <Section_TreatmentToolsTrio {...props} />,
+  routing_cards: (props) => <Section_TreatmentRoutingCards {...props} />,
   clinician_insight: (props) => <Section_ClinicianInsight {...props} />,
   patient_stories_rail: (props) => <Section_PatientStoriesRail {...props} />,
   treatment_faq_block: (props) => <Section_FAQ {...props} />,

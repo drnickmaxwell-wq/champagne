@@ -10,109 +10,112 @@
       "path": "/",
       "category": "hub",
       "hero": "home_neutral_hero_v1",
+      "ctas": {
+        "heroCTAs": [
+          "book-consultation",
+          "view-treatments",
+          {
+            "label": "Nervous about dentistry?",
+            "href": "/treatments/nervous-patients",
+            "preset": "ghost"
+          }
+        ],
+        "footerCTAs": [
+          {
+            "label": "Book a consultation",
+            "href": "/contact",
+            "preset": "primary"
+          }
+        ]
+      },
       "sections": [
         {
-          "id": "home_intro_positioning",
+          "id": "home_intro",
           "type": "copy-block",
-          "title": "A calm welcome into Champagne care",
-          "copy": "Soft-light hero, steady rhythm, and a concise primer on how Champagne care works. This home stack guides visitors to key journeys without heavy motion.",
+          "title": "A calm homepage with clear pathways",
+          "copy": "Choose the route that fits: book a consultation, explore treatment detail, or get help quickly when something feels urgent. Every link below follows a mapped next step.",
           "label": "Welcome"
         },
         {
-          "id": "home_treatment_hub",
-          "type": "feature-list",
-          "title": "Priority treatments at a glance",
+          "id": "home_authority",
+          "type": "feature-grid",
+          "title": "Clinical depth with steady hands",
           "items": [
-            "Composite bonding, veneers, and full smile refinement",
-            "Clear aligners with mapped movement and check-ins",
-            "Implant dentistry, whitening, and restorative care"
+            "Over 30 years of experience across restorative and orthodontic care.",
+            "Advanced restorative and orthodontic training applied to complex cases.",
+            "CBCT-guided implant planning for precise placement and healing.",
+            "In-house digital dentistry to shorten feedback loops and keep planning clear."
           ],
-          "label": "Treatment hub"
+          "label": "Trusted practice detail"
         },
         {
-          "id": "home_care_pathway",
-          "type": "steps",
-          "title": "How care flows with Champagne",
+          "id": "home_treatment_routing",
+          "type": "routing_cards",
+          "title": "Pick a treatment to explore",
+          "label": "Explore treatments",
           "items": [
-            "Share goals and capture scans for a precise baseline",
-            "Preview options with visual planning and simple language",
-            "Start treatment with clear timelines and follow-ups"
-          ],
-          "label": "Care pathway"
-        },
-        {
-          "id": "home_finance_options",
-          "type": "feature-list",
-          "title": "Finance and access options",
-          "items": [
-            "Transparent estimates before any commitment",
-            "Installments or staged plans to fit your pace",
-            "Guidance on benefits, receipts, and aftercare"
-          ],
-          "label": "Finance"
-        },
-        {
-          "id": "home_technology_showcase",
-          "type": "media",
-          "label": "Tech & tools",
-          "title": "Technology that keeps planning clear",
-          "copy": "Diagnostics, digital planning, and visual previews stay visible on the Champagne canvas so you can see each step before it begins."
-        },
-        {
-          "id": "home_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Journeys through Champagne care",
-          "stories": [
             {
-              "summary": "Mapped a bonding plan that stayed gentle on enamel.",
-              "name": "Case A"
+              "title": "Dental implants",
+              "description": "Planning, placement, and aftercare guidance.",
+              "href": "/treatments/implants"
             },
             {
-              "summary": "Followed a clear aligner cadence with visual checkpoints.",
-              "name": "Case B"
+              "title": "Veneers",
+              "description": "Shape, shade, and contouring options with conservative prep.",
+              "href": "/treatments/veneers"
             },
             {
-              "summary": "Combined whitening and contouring with calm visits.",
-              "name": "Case C"
+              "title": "Orthodontics",
+              "description": "Aligner and brace journeys with regular reviews.",
+              "href": "/treatments/orthodontics"
+            },
+            {
+              "title": "General dentistry",
+              "description": "Check-ups, hygiene, and preventative care with transparent steps.",
+              "href": "/treatments/general-dentistry"
+            },
+            {
+              "title": "3D digital dentistry",
+              "description": "On-site digital planning, printing, and scanning support.",
+              "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "Nervous patients",
+              "description": "Calm visits, gentle numbing, and pacing that suits you.",
+              "href": "/treatments/nervous-patients"
             }
           ]
         },
         {
-          "id": "home_faq",
-          "type": "treatment_faq_block",
-          "label": "FAQ",
-          "title": "Questions about the practice",
-          "faqs": [
+          "id": "home_special_pathways",
+          "type": "routing_cards",
+          "title": "Need urgent or remote support?",
+          "label": "Special pathways",
+          "items": [
             {
-              "question": "What happens at the first visit?",
-              "answer": "We listen to goals, capture scans or photos if helpful, and outline options with straightforward next steps."
+              "title": "Emergency dentistry",
+              "description": "Call for urgent help and same-day guidance when possible.",
+              "href": "/treatments/emergency-dentistry",
+              "tag": "Urgent"
             },
             {
-              "question": "Do you show previews before treatment?",
-              "answer": "Whenever possible we use visual planning so you can see movement, shaping, or shade shifts before committing."
-            },
-            {
-              "question": "How do payments work?",
-              "answer": "We share estimates early, support staged payments, and provide receipts or documentation you may need."
+              "title": "Video consultation",
+              "description": "Start with a secure video appointment to discuss options.",
+              "href": "/video-consultation",
+              "tag": "Remote"
             }
           ]
         },
         {
           "id": "home_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Plan your visit",
-          "strapline": "Book a calm consultation or explore treatment pathways.",
+          "title": "Book a consultation",
+          "strapline": "Set a time to discuss your goals and next steps.",
           "ctas": [
             {
               "label": "Book a consultation",
               "href": "/contact",
               "preset": "primary"
-            },
-            {
-              "label": "Explore treatments",
-              "href": "/treatments",
-              "preset": "secondary"
             }
           ]
         }

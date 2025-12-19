@@ -32,6 +32,9 @@ export const SectionRegistry: SectionComponentMap = {
   "treatment-media-feature": dynamic(() =>
     import("./Section_TreatmentMediaFeature").then((module) => module.Section_TreatmentMediaFeature),
   ),
+  "routing-cards": dynamic(() =>
+    import("./Section_TreatmentRoutingCards").then((module) => module.Section_TreatmentRoutingCards),
+  ),
 };
 
 /**

@@ -8,6 +8,7 @@ export interface SectionRegistryEntry {
     | "text"
     | "media"
     | "features"
+    | "routing_cards"
     | "treatment_overview_rich"
     | "treatment_media_feature"
     | "treatment_tools_trio"
@@ -50,6 +51,7 @@ const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
   patient_stories_rail: "patient_stories_rail",
   treatment_faq_block: "treatment_faq_block",
   treatment_closing_cta: "treatment_closing_cta",
+  routing_cards: "routing_cards",
 };
 
 function deriveKind(type?: string): SectionRegistryEntry["kind"] {
@@ -57,6 +59,7 @@ function deriveKind(type?: string): SectionRegistryEntry["kind"] {
   if (specializedKinds[type]) return specializedKinds[type];
   if (["text", "copy", "copy-block", "story", "faq", "accordion"].includes(type)) return "text";
   if (["media", "gallery", "carousel", "map", "slider", "lab"].includes(type)) return "media";
+  if (["routing_cards", "navigation_grid"].includes(type)) return "routing_cards";
   if (["feature-grid", "steps", "features", "feature-list", "pricing"].includes(type)) return "features";
   return "text";
 }
