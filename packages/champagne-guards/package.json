@@ -23,7 +23,8 @@
     "guard:manifest": "node scripts/guard-manifest-sync.mjs",
     "guard:manifests": "pnpm run guard:manifest",
     "guard:brand-structure": "node scripts/brand-structure-guard.cjs",
-    "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:brand-structure"
+    "guard:no-book": "node scripts/guard-no-book.mjs",
+    "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:brand-structure && pnpm run guard:no-book"
   },
   "dependencies": {
     "micromatch": "^4.0.8"

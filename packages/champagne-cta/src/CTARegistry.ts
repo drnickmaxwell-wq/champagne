@@ -1,11 +1,43 @@
 import type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "./types";
 
+const portalEntry = (intent: string) => `/patient-portal?intent=${intent}`;
+
 const registry: Record<string, ChampagneCTAConfig> = {
   "book-consultation": {
     id: "book-consultation",
     label: "Book a consultation",
     href: "/contact",
     variant: "primary",
+  },
+  "video-consultation-portal": {
+    id: "video-consultation-portal",
+    label: "Start a video consultation",
+    href: portalEntry("video"),
+    variant: "primary",
+  },
+  "portal-finance": {
+    id: "portal-finance",
+    label: "Review finance options",
+    href: portalEntry("finance"),
+    variant: "primary",
+  },
+  "portal-upload": {
+    id: "portal-upload",
+    label: "Upload documents securely",
+    href: portalEntry("upload"),
+    variant: "secondary",
+  },
+  "portal-login": {
+    id: "portal-login",
+    label: "Patient portal",
+    href: portalEntry("login"),
+    variant: "secondary",
+  },
+  "practice-plan": {
+    id: "practice-plan",
+    label: "Practice Plan",
+    href: "/practice-plan",
+    variant: "secondary",
   },
   "ai-smile-preview": {
     id: "ai-smile-preview",
