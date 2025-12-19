@@ -3142,12 +3142,12 @@
           "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
           "ctas": [
             {
-              "label": "Book an exam",
-              "href": "/contact?topic=check-up",
+              "label": "Dental check-ups & screening",
+              "href": "/dental-checkups-oral-cancer-screening",
               "preset": "primary"
             },
             {
-              "label": "Speak to the team",
+              "label": "Book an exam",
               "href": "/contact",
               "preset": "secondary"
             }

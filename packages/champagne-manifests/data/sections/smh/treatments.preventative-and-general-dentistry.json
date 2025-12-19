@@ -183,8 +183,8 @@
       "title": "Book your comprehensive dental exam",
       "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
       "ctas": [
-        { "label": "Book an exam", "href": "/contact?topic=check-up", "preset": "primary" },
-        { "label": "Speak to the team", "href": "/contact", "preset": "secondary" }
+        { "label": "Dental check-ups & screening", "href": "/dental-checkups-oral-cancer-screening", "preset": "primary" },
+        { "label": "Book an exam", "href": "/contact", "preset": "secondary" }
       ]
     }
   ]
