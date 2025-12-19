@@ -107,8 +107,9 @@
       "title": "Ready to talk through a calmer visit?",
       "body": "Book a consultation or speak to the team about the pace and comfort options you prefer.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact?topic=anxiety", "variant": "primary" },
-        { "label": "Speak to the team", "href": "/contact?topic=comfort", "variant": "secondary" }
+        { "label": "Sedation dentistry", "href": "/treatments/sedation-dentistry", "variant": "primary" },
+        { "label": "Painless numbing with The Wand", "href": "/treatments/painless-numbing-with-the-wand", "variant": "secondary" },
+        { "label": "TMJ & jaw comfort", "href": "/treatments/tmj-jaw-comfort", "variant": "ghost" }
       ]
     }
   ]
