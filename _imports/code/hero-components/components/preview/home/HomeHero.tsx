@@ -14,7 +14,7 @@ export default function HomeHero() {
       </p>
       <div className={styles.heroCtaPlate}>
         <div className={styles.heroCtaRow}>
-          <PreviewChampagneCTA href="/book" className={styles.heroCtaPrimary}>
+          <PreviewChampagneCTA href="/contact" className={styles.heroCtaPrimary}>
             Book a consultation
           </PreviewChampagneCTA>
           <PreviewChampagneCTA

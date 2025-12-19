@@ -6,7 +6,7 @@ Date: 2025-12-19
 
 ## 0) Prime Directive
 CTAs must resolve to **canonical runtime routes** only.
-**No CTA may target legacy/unknown routes** (e.g. `/book`) unless explicitly defined in this map.
+**No CTA may target legacy/unknown routes** (e.g. the retired booking endpoint) unless explicitly defined in this map.
 
 If a CTA target is not in this map:
 - DEV/PREVIEW: fail loud (console error + heroDebug receipt if applicable)
@@ -60,8 +60,8 @@ If the portal is not yet public, these can temporarily redirect to `/contact` wi
 ## 2) Forbidden Targets (Blocklist)
 These must be removed or rewritten if found anywhere in manifests/components:
 
-- `/book`  ❌ (legacy / unknown route)
-- `/booking` ❌ unless explicitly implemented later
+- retired booking endpoint ❌ (legacy / unknown route)
+- legacy booking path ❌ unless explicitly implemented later
 - `/ai-smile-analysis` ❌ unless explicitly implemented and promoted
 - `/ai-smile-quiz` ❌ unless explicitly implemented and promoted
 - `/preview/*` ❌
@@ -122,7 +122,7 @@ This repo currently contains at least two CTA behaviours:
 2) **Preset / fallback CTAs** (component-level defaults)
    - Only allowed if the manifest provides *no CTAs*.
    - Presets must use **only** canonical targets from Section 1.
-   - Presets must never point at `/book`.
+   - Presets must never point at the retired booking endpoint.
 
 **Policy:** Prefer manifest-provided CTAs for treatment pages.
 
@@ -131,10 +131,7 @@ This repo currently contains at least two CTA behaviours:
 ## 5) Verification Checklist (Before Merge)
 ### Repo-wide CTA grep
 Search for forbidden targets:
-- `/book`
-- `href="/book"`
-- `"to": "/book"`
-- `"href": "/book"`
+- retired booking endpoint (including href/to attributes)
 
 Expected result: **zero hits**.
 

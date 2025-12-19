@@ -32,7 +32,7 @@ export function ChampagneCTAGroup({
   label,
   defaultVariant = "ghost",
 }: ChampagneCTAGroupProps) {
-  const resolved = resolveCTAList(ctas ?? [], defaultVariant);
+  const resolved = resolveCTAList(ctas ?? [], defaultVariant, { component: "ChampagneCTAGroup" });
   if (resolved.length === 0) return null;
 
   return (

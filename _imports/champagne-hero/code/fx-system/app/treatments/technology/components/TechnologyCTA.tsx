@@ -36,7 +36,7 @@ export default function TechnologyCTA() {
         </p>
         
         <div className="cta-buttons">
-          <a href="/book" className="cta-btn cta-btn-primary cta-hover-lift">
+          <a href="/contact" className="cta-btn cta-btn-primary cta-hover-lift">
             Book Consultation
             <span className="btn-underline"></span>
           </a>

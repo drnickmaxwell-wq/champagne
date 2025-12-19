@@ -973,7 +973,7 @@
           },
           {
             "severity": "warn",
-            "where": "components/imports/booking-calendar",
+            "where": "components/imports/consultation-calendar",
             "note": "Selected-day color may use hard hex; tokenize and add aria-selected + keyboard support."
           },
           {

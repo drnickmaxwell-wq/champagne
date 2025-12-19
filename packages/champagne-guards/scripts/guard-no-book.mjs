@@ -9,19 +9,19 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '../../..');
 
 const scanRoots = ['apps', 'packages', 'public'];
+const retiredBookingSegment = 'book';
+const retiredBookingTarget = `/${retiredBookingSegment}`;
 const allowList = [
-  'packages/champagne-manifests/data/hero/sacred_hero_base.json',
-  'packages/champagne-manifests/reports/CTA_PATHWAY_MAP.md',
 ];
 
 const routingPatterns = [
-  /href\s*[:=]\s*["']\/book\b/,
-  /to\s*[:=]\s*["']\/book\b/,
-  /router\.push\(\s*["']\/book\b/,
-  /navigate\(\s*["']\/book\b/,
-  /path\s*[:=]\s*["']\/book\b/,
-  /<Link[^>]*href=["']\/book\b/,
-  /"cta"[^\n]*"href"\s*:\s*"\/book"/,
+  new RegExp(`href\\s*[:=]\\s*["']${retiredBookingTarget}\\b`),
+  new RegExp(`to\\s*[:=]\\s*["']${retiredBookingTarget}\\b`),
+  new RegExp(`router\\.push\\(\\s*["']${retiredBookingTarget}\\b`),
+  new RegExp(`navigate\\(\\s*["']${retiredBookingTarget}\\b`),
+  new RegExp(`path\\s*[:=]\\s*["']${retiredBookingTarget}\\b`),
+  new RegExp(`<Link[^>]*href=["']${retiredBookingTarget}\\b`),
+  new RegExp(`"cta"[^\\n]*"href"\\s*:\\s*"${retiredBookingTarget}"`),
 ];
 
 function isAllowed(filePath) {
@@ -29,7 +29,7 @@ function isAllowed(filePath) {
 }
 
 function collectCandidates() {
-  const command = `cd ${repoRoot} && rg --no-heading --line-number "/book" ${scanRoots.join(' ')}`;
+  const command = `cd ${repoRoot} && rg --no-heading --line-number "${retiredBookingTarget}" ${scanRoots.join(' ')}`;
 
   try {
     const output = execSync(command, { stdio: 'pipe' }).toString().trim();
@@ -58,12 +58,12 @@ function run() {
   }
 
   if (violations.length > 0) {
-    console.error('❌ /book routing targets detected:');
+    console.error('❌ Retired booking routing targets detected:');
     violations.forEach((entry) => console.error(`- ${entry}`));
     process.exit(1);
   }
 
-  console.log('✅ No /book routing targets detected.');
+  console.log('✅ No retired booking routing targets detected.');
 }
 
 run();

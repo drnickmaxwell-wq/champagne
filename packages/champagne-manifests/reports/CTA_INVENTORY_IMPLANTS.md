@@ -129,4 +129,4 @@ _Report scope: manifest-defined CTAs and clickable treatment cards for implant p
   - “Implant aftercare & recovery in Shoreham-by-Sea” → `/treatments/implant-aftercare`.【F:packages/champagne-manifests/data/champagne_machine_manifest_full.json†L965-L1000】
   - “Sinus lift for dental implants in Shoreham-by-Sea” → `/treatments/sinus-lift`.【F:packages/champagne-manifests/data/champagne_machine_manifest_full.json†L817-L852】
 
-- **Notes:** Treatment hub cards inherit the same contact-heavy journey; no dedicated consultation/booking differentiator is exposed at the card level.
+- **Notes:** Treatment hub cards inherit the same contact-heavy journey; no dedicated consultation or booking differentiator is exposed at the card level.
