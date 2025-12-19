@@ -459,6 +459,7 @@
       "path": "/patient-portal",
       "category": "utility",
       "hero": "patient_portal_placeholder_hero",
+      "description": "Secure portal experience overview while the live connection is prepared.",
       "sections": [
         {
           "id": "patient_portal_intro_copy",
@@ -493,6 +494,235 @@
               "href": "/contact",
               "preset": "secondary"
             }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "video_consultation": {
+      "id": "video_consultation",
+      "label": "Video Consultation",
+      "path": "/video-consultation",
+      "category": "utility",
+      "hero": "contact_calm_hero_v1",
+      "description": "Tele-dentistry guidance with clear expectations on what can be handled remotely and when to visit in person.",
+      "ctas": {
+        "heroCTAs": [
+          { "label": "Book a consultation", "href": "/contact?topic=video-consultation", "preset": "primary" },
+          { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+        ],
+        "footerCTAs": [
+          { "label": "Book a consultation", "href": "/contact?topic=video-consultation", "preset": "primary" },
+          { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+        ]
+      },
+      "sections": [
+        {
+          "id": "video_consultation_intro",
+          "type": "copy-block",
+          "title": "Remote guidance with a clinician",
+          "copy": "Video consultations give you a calm first review from home. We use the call to understand symptoms, share visual guidance, and set the right next steps.",
+          "label": "Overview"
+        },
+        {
+          "id": "video_consultation_scope",
+          "type": "feature-list",
+          "title": "What we can cover remotely",
+          "items": [
+            "Discuss discomfort, swelling, or sensitivity and assess urgency",
+            "Review recent photos or scans you can share securely",
+            "Explain likely causes and immediate self-care steps",
+            "Plan whether you need an in-practice visit or a specific clinician"
+          ],
+          "label": "Scope"
+        },
+        {
+          "id": "video_consultation_limitations",
+          "type": "feature-list",
+          "title": "What still needs the practice",
+          "items": [
+            "X-rays, detailed periodontal checks, and restorative work",
+            "Hands-on examinations for bite, mobility, or soft tissue changes",
+            "Emergency relief that requires medication or procedures"
+          ],
+          "label": "Limitations"
+        },
+        {
+          "id": "video_consultation_flow",
+          "type": "steps",
+          "title": "How your video visit works",
+          "items": [
+            "Share your concern and any photos when booking",
+            "Join the secure video link at the scheduled time",
+            "We listen, guide you through a visual review, and outline next steps",
+            "If needed, we book you straight into an in-practice slot"
+          ],
+          "label": "Process"
+        },
+        {
+          "id": "video_consultation_suitability",
+          "type": "feature-list",
+          "title": "Who this works well for",
+          "items": [
+            "Minor concerns where you want reassurance before travelling",
+            "Follow-up questions after a recent appointment",
+            "Accessibility needs that make a pre-visit review helpful"
+          ],
+          "label": "Suitability"
+        },
+        {
+          "id": "video_consultation_cta",
+          "type": "cta",
+          "title": "Start with a video consultation",
+          "ctas": [
+            { "label": "Book a consultation", "href": "/contact?topic=video-consultation", "preset": "primary" },
+            { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "finance": {
+      "id": "finance",
+      "label": "Finance",
+      "path": "/finance",
+      "category": "utility",
+      "hero": "contact_calm_hero_v1",
+      "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
+      "ctas": {
+        "heroCTAs": [
+          { "label": "Discuss costs & options", "href": "/contact?topic=finance", "preset": "primary" },
+          { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
+        ],
+        "footerCTAs": [
+          { "label": "Discuss costs & options", "href": "/contact?topic=finance", "preset": "primary" },
+          { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
+        ]
+      },
+      "sections": [
+        {
+          "id": "finance_intro",
+          "type": "copy-block",
+          "title": "Finance support without pressure",
+          "copy": "We explain treatment costs clearly and explore payment options with Tabeo as our finance partner. Approval decisions sit with the lender and follow once you choose a plan.",
+          "label": "Overview"
+        },
+        {
+          "id": "finance_options",
+          "type": "feature-list",
+          "title": "Ways we can structure payments",
+          "items": [
+            "Installments arranged through our finance partner Tabeo",
+            "Staged treatment plans so costs follow your pace",
+            "Guidance on combining preventative and restorative visits sensibly"
+          ],
+          "label": "Options"
+        },
+        {
+          "id": "finance_discussion_flow",
+          "type": "steps",
+          "title": "How finance conversations run",
+          "items": [
+            "We map out the treatment plan and transparent estimates",
+            "You choose whether to proceed and if finance should be explored",
+            "We share the Tabeo application link and timelines",
+            "Final eligibility and terms are confirmed directly with the lender"
+          ],
+          "label": "Process"
+        },
+        {
+          "id": "finance_expectations",
+          "type": "feature-list",
+          "title": "Setting expectations",
+          "items": [
+            "Eligibility, rates, and approvals are set after your application",
+            "We do not promise outcomes but keep paperwork and guidance clear",
+            "You always see fees before choosing a pathway"
+          ],
+          "label": "Expectations"
+        },
+        {
+          "id": "finance_cta",
+          "type": "cta",
+          "title": "Discuss finance with the team",
+          "ctas": [
+            { "label": "Discuss costs & options", "href": "/contact?topic=finance", "preset": "primary" },
+            { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "practice_plan": {
+      "id": "practice_plan",
+      "label": "Practice Plan",
+      "path": "/practice-plan",
+      "category": "utility",
+      "hero": "contact_calm_hero_v1",
+      "description": "Membership overview covering what is included, how to join, and how it supports routine care.",
+      "ctas": {
+        "heroCTAs": [
+          { "label": "Ask about Practice Plan", "href": "/contact?topic=practice-plan", "preset": "primary" },
+          { "label": "What’s included in a check-up?", "href": "/dental-checkups-oral-cancer-screening", "preset": "secondary" }
+        ],
+        "footerCTAs": [
+          { "label": "Ask about Practice Plan", "href": "/contact?topic=practice-plan", "preset": "primary" },
+          { "label": "What’s included in a check-up?", "href": "/dental-checkups-oral-cancer-screening", "preset": "secondary" }
+        ]
+      },
+      "sections": [
+        {
+          "id": "practice_plan_intro",
+          "type": "copy-block",
+          "title": "Membership that keeps care consistent",
+          "copy": "Practice Plan members stay on a steady recall rhythm with predictable costs. We keep the inclusions clear so you know exactly what your membership covers.",
+          "label": "Overview"
+        },
+        {
+          "id": "practice_plan_included",
+          "type": "feature-list",
+          "title": "What membership typically includes",
+          "items": [
+            "Scheduled dental health checks with oral cancer screening",
+            "Hygiene appointments to keep gums healthy",
+            "Member-rate discounts on recommended treatments",
+            "Emergency assessment priority during opening hours"
+          ],
+          "label": "Inclusions"
+        },
+        {
+          "id": "practice_plan_joining",
+          "type": "steps",
+          "title": "How joining works",
+          "items": [
+            "We review your current oral health and recommend the right plan tier",
+            "You complete a quick sign-up with membership details",
+            "We schedule your covered check-ups and hygiene visits",
+            "You receive reminders and updates so you stay on track"
+          ],
+          "label": "Process"
+        },
+        {
+          "id": "practice_plan_fit",
+          "type": "feature-list",
+          "title": "Why members choose it",
+          "items": [
+            "Predictable preventive care without surprise costs",
+            "Encourages earlier intervention before issues progress",
+            "Keeps records and recall intervals organised for you"
+          ],
+          "label": "Benefits"
+        },
+        {
+          "id": "practice_plan_cta",
+          "type": "cta",
+          "title": "Ask about joining",
+          "ctas": [
+            { "label": "Ask about Practice Plan", "href": "/contact?topic=practice-plan", "preset": "primary" },
+            { "label": "What’s included in a check-up?", "href": "/dental-checkups-oral-cancer-screening", "preset": "secondary" }
           ],
           "label": "CTA"
         }
