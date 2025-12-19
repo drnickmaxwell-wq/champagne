@@ -165,10 +165,23 @@ function ensureTokensNotModified() {
   }
 }
 
+function runSubGuard(label, scriptPath) {
+  try {
+    console.log(`Running ${label} guard...`);
+    execSync(`node ${scriptPath}`, { stdio: 'inherit' });
+  } catch (error) {
+    const output =
+      error.stdout?.toString().trim() || error.stderr?.toString().trim() || error.message;
+    recordError(`Canon Guard: ${label} failed.${output ? `\n${output}` : ''}`);
+  }
+}
+
 function run() {
   ensureHeroGradientUsesToken();
   ensureTokenDefinitions();
   ensureTokensNotModified();
+  runSubGuard('retired booking routes', 'packages/champagne-guards/scripts/guard-no-book.mjs');
+  runSubGuard('patient portal SSR smoke test', 'packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs');
 
   if (warnings.length) {
     console.warn('⚠️ Canon Guard warnings:');

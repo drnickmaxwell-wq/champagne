@@ -65,14 +65,13 @@ function IntentLanding({ intent }: { intent: PortalIntent }) {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Link
-              href="#"
-              aria-disabled
-              onClick={(event) => event.preventDefault()}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 aria-disabled:cursor-not-allowed aria-disabled:opacity-60"
+            <button
+              type="button"
+              disabled
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
               Continue
-            </Link>
+            </button>
             <Link
               href="/contact"
               className="text-sm font-semibold text-neutral-900 underline-offset-4 transition hover:underline"
