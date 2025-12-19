@@ -4,7 +4,7 @@
     "eyebrow": "Champagne Dentistry",
     "headline": "Advanced cosmetic dentistry crafted with calm precision.",
     "subheadline": "Digital workflows, gentle clinicians, and beautifully layered studio light for confident smiles.",
-    "cta": { "label": "Book a consultation", "href": "/book" },
+    "cta": { "label": "Book a consultation", "href": "/contact" },
     "secondaryCta": { "label": "Explore treatments", "href": "/treatments" }
   },
   "defaults": {

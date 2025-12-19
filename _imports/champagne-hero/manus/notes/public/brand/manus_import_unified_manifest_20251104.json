@@ -241,7 +241,7 @@
     {"severity":"warn","where":"components/imports/gallery-lux","note":"Lightbox overlay uses a dark veil in older variants; change to champagne translucency and add keyboard navigation."},
     {"severity":"warn","where":"components/imports/blog-index-lux","note":"Legacy tag hover color not tokenized; replace with brand token."},
     {"severity":"warn","where":"components/imports/blog-post-lux","note":"Legacy link hover color not tokenized; replace with brand token."},
-    {"severity":"warn","where":"components/imports/booking-calendar","note":"Selected-day color may use hard hex; tokenize and add aria-selected + keyboard support."},
+    {"severity":"warn","where":"components/imports/consultation-calendar","note":"Selected-day color may use hard hex; tokenize and add aria-selected + keyboard support."},
     {"severity":"warn","where":"components/imports/emergency-lux","note":"Alert red should be swapped for Champagne-compliant coral token; add aria-live=assertive."},
     {"severity":"info","where":"brand/motion/caustics.webm","note":"Keep overlay ≤0.12–0.16 to avoid flattening gradient and gold keylines."},
     {"severity":"info","where":"brand/motion/particles-soft.webm","note":"Ensure poster is set to avoid first-frame flash; PRM should collapse to poster."}

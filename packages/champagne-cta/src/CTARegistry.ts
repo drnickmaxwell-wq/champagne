@@ -1,11 +1,51 @@
 import type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "./types";
 
+const portalEntry = (intent: string) => `/patient-portal?intent=${intent}`;
+const forbiddenTarget = `/${"book"}`;
+let hasLoggedForbiddenTarget = false;
+
+type CTAContext = {
+  component?: string;
+  page?: string;
+  instanceId?: string;
+};
+
 const registry: Record<string, ChampagneCTAConfig> = {
   "book-consultation": {
     id: "book-consultation",
     label: "Book a consultation",
     href: "/contact",
     variant: "primary",
+  },
+  "video-consultation-portal": {
+    id: "video-consultation-portal",
+    label: "Start a video consultation",
+    href: portalEntry("video"),
+    variant: "primary",
+  },
+  "portal-finance": {
+    id: "portal-finance",
+    label: "Review finance options",
+    href: portalEntry("finance"),
+    variant: "primary",
+  },
+  "portal-upload": {
+    id: "portal-upload",
+    label: "Upload documents securely",
+    href: portalEntry("upload"),
+    variant: "secondary",
+  },
+  "portal-login": {
+    id: "portal-login",
+    label: "Patient portal",
+    href: portalEntry("login"),
+    variant: "secondary",
+  },
+  "practice-plan": {
+    id: "practice-plan",
+    label: "Practice Plan",
+    href: "/practice-plan",
+    variant: "secondary",
   },
   "ai-smile-preview": {
     id: "ai-smile-preview",
@@ -43,6 +83,26 @@ function deriveHref(input: ChampagneCTAInput) {
   return input.href ?? hrefFromId;
 }
 
+function sanitizeHref(href: string, context?: CTAContext) {
+  if (href !== forbiddenTarget) return href;
+
+  if (!hasLoggedForbiddenTarget) {
+    console.error("[CHAMPAGNE_CTA_FORBIDDEN_TARGET]", {
+      target: href,
+      component: context?.component,
+      page: context?.page,
+      instanceId: context?.instanceId,
+    });
+    hasLoggedForbiddenTarget = true;
+  }
+
+  if (process.env.NODE_ENV !== "production") {
+    throw new Error(`Forbidden CTA target detected: ${href}`);
+  }
+
+  return "/contact";
+}
+
 export function registerCTA(entry: ChampagneCTAConfig) {
   registry[entry.id] = entry;
 }
@@ -55,6 +115,7 @@ export function resolveCTA(
   reference: ChampagneCTAInput,
   index = 0,
   defaultVariant: ChampagneCTAVariant = "ghost",
+  context?: CTAContext,
 ): ChampagneCTAConfig {
   const fallbackId = deriveId(reference, index);
   const registryMatch = typeof reference === "string"
@@ -71,7 +132,7 @@ export function resolveCTA(
   return {
     id: fallbackId,
     label: registryMatch?.label ?? deriveLabel(reference, fallbackId),
-    href: registryMatch?.href ?? deriveHref(reference),
+    href: sanitizeHref(registryMatch?.href ?? deriveHref(reference), context),
     variant,
   } satisfies ChampagneCTAConfig;
 }
@@ -79,9 +140,10 @@ export function resolveCTA(
 export function resolveCTAList(
   references: ChampagneCTAInput[] = [],
   defaultVariant: ChampagneCTAVariant = "ghost",
+  context?: CTAContext,
 ): ChampagneCTAConfig[] {
   return references
-    .map((reference, index) => resolveCTA(reference, index, defaultVariant))
+    .map((reference, index) => resolveCTA(reference, index, defaultVariant, context))
     .filter((cta) => Boolean(cta.label && cta.href));
 }
 

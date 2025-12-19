@@ -76,7 +76,10 @@ export function Section_TreatmentClosingCTA({ section, ctas }: SectionTreatmentC
   const strapline = section?.strapline
     ?? "Book a consultation or preview your smile with AI-guided mock-ups.";
   const fallbackCTAs = getFallbackCTAs(section);
-  const resolvedCTAs = resolveCTAList(ctas ?? mapSectionCTAs(section) ?? fallbackCTAs, "primary");
+  const resolvedCTAs = resolveCTAList(ctas ?? mapSectionCTAs(section) ?? fallbackCTAs, "primary", {
+    component: "Section_TreatmentClosingCTA",
+    page: section?.id,
+  });
 
   const renderedCTAs = resolvedCTAs.length > 0 ? resolvedCTAs : fallbackCTAs;
 

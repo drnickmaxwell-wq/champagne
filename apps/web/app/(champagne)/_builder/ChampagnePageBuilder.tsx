@@ -144,9 +144,9 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const heroPreset = (isHomePage ? sacredHomePresetId : heroManifest?.preset) ?? manifest?.hero;
   const heroContent = deriveHeroContent(manifest, pagePath);
   const ctaSlots = getCTASlotsForPage(pagePath);
-  const heroCTAs = resolveCTAList(ctaSlots.heroCTAs, "primary");
-  const midPageCTAs = resolveCTAList(ctaSlots.midPageCTAs, "secondary");
-  const footerCTAs = resolveCTAList(ctaSlots.footerCTAs, "ghost");
+  const heroCTAs = resolveCTAList(ctaSlots.heroCTAs, "primary", { component: "ChampagneHeroFrame", page: pagePath });
+  const midPageCTAs = resolveCTAList(ctaSlots.midPageCTAs, "secondary", { component: "ChampagneSectionRenderer", page: pagePath });
+  const footerCTAs = resolveCTAList(ctaSlots.footerCTAs, "ghost", { component: "ChampagneSectionRenderer", page: pagePath });
   const sections = getSectionStack(pagePath);
   const isTreatmentPage = pagePath.startsWith("/treatments/");
 

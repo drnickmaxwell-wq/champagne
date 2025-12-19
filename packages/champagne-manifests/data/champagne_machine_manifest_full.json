@@ -10,21 +10,26 @@
       "path": "/",
       "category": "hub",
       "hero": "home_neutral_hero_v1",
-      "ctas": {
-        "heroCTAs": [
-          "book-consultation",
-          "view-treatments",
-          {
-            "label": "Nervous about dentistry?",
-            "href": "/treatments/nervous-patients",
-            "preset": "ghost"
-          }
-        ],
-        "footerCTAs": [
-          {
-            "label": "Book a consultation",
-            "href": "/contact",
-            "preset": "primary"
+        "ctas": {
+          "heroCTAs": [
+            "book-consultation",
+            "view-treatments",
+            {
+              "label": "Nervous about dentistry?",
+              "href": "/treatments/nervous-patients",
+              "preset": "ghost"
+            }
+          ],
+          "midPageCTAs": [
+            "video-consultation-portal",
+            "practice-plan",
+            "portal-login"
+          ],
+          "footerCTAs": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact",
+              "preset": "primary"
           }
         ]
       },
@@ -101,7 +106,7 @@
             {
               "title": "Video consultation",
               "description": "Start with a secure video appointment to discuss options.",
-              "href": "/video-consultation",
+              "href": "/patient-portal?intent=video",
               "tag": "Remote"
             }
           ]
@@ -482,21 +487,18 @@
           ],
           "label": "Features"
         },
-        {
-          "id": "patient_portal_cta_band",
-          "type": "cta",
-          "title": "Check back soon",
-          "ctas": [
-            {
-              "label": "Portal status",
-              "href": "/patient-portal",
-              "preset": "primary"
-            },
-            {
-              "label": "Contact the team",
-              "href": "/contact",
-              "preset": "secondary"
-            }
+          {
+            "id": "patient_portal_cta_band",
+            "type": "cta",
+            "title": "Check back soon",
+            "ctas": [
+              "portal-login",
+              "portal-upload",
+              {
+                "label": "Contact the team",
+                "href": "/contact",
+                "preset": "secondary"
+              }
           ],
           "label": "CTA"
         }
@@ -510,16 +512,16 @@
       "category": "utility",
       "hero": "contact_calm_hero_v1",
       "description": "Tele-dentistry guidance with clear expectations on what can be handled remotely and when to visit in person.",
-      "ctas": {
-        "heroCTAs": [
-          { "label": "Book a consultation", "href": "/contact?topic=video-consultation", "preset": "primary" },
-          { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
-        ],
-        "footerCTAs": [
-          { "label": "Book a consultation", "href": "/contact?topic=video-consultation", "preset": "primary" },
-          { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
-        ]
-      },
+        "ctas": {
+          "heroCTAs": [
+            "video-consultation-portal",
+            { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ],
+          "footerCTAs": [
+            "video-consultation-portal",
+            { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+          ]
+        },
       "sections": [
         {
           "id": "video_consultation_intro",
@@ -578,10 +580,10 @@
           "id": "video_consultation_cta",
           "type": "cta",
           "title": "Start with a video consultation",
-          "ctas": [
-            { "label": "Book a consultation", "href": "/contact?topic=video-consultation", "preset": "primary" },
-            { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
-          ],
+        "ctas": [
+          "video-consultation-portal",
+          { "label": "Emergency? See urgent care", "href": "/treatments/emergency-dentistry", "preset": "secondary" }
+        ],
           "label": "CTA"
         }
       ],
@@ -594,16 +596,16 @@
       "category": "utility",
       "hero": "contact_calm_hero_v1",
       "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
-      "ctas": {
-        "heroCTAs": [
-          { "label": "Discuss costs & options", "href": "/contact?topic=finance", "preset": "primary" },
-          { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
-        ],
-        "footerCTAs": [
-          { "label": "Discuss costs & options", "href": "/contact?topic=finance", "preset": "primary" },
-          { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
-        ]
-      },
+        "ctas": {
+          "heroCTAs": [
+            "portal-finance",
+            { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
+          ],
+          "footerCTAs": [
+            "portal-finance",
+            { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
+          ]
+        },
       "sections": [
         {
           "id": "finance_intro",
@@ -650,10 +652,10 @@
           "id": "finance_cta",
           "type": "cta",
           "title": "Discuss finance with the team",
-          "ctas": [
-            { "label": "Discuss costs & options", "href": "/contact?topic=finance", "preset": "primary" },
-            { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
-          ],
+        "ctas": [
+          "portal-finance",
+          { "label": "See implants pricing guidance", "href": "/treatments/implants", "preset": "secondary" }
+        ],
           "label": "CTA"
         }
       ],
