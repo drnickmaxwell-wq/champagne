@@ -12,10 +12,10 @@ interface RoutingCard {
 const containerStyle: CSSProperties = {
   borderRadius: "var(--radius-lg)",
   padding: "clamp(1.35rem, 2.8vw, 2.35rem)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.22))",
+  border: "1px solid var(--champagne-keyline-gold)",
   background:
-    "linear-gradient(140deg, color-mix(in srgb, var(--bg-ink, #06070c) 90%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 76%, transparent)), radial-gradient(circle at 16% 14%, color-mix(in srgb, var(--smh-white, #ffffff) 12%, transparent), transparent 36%)",
-  boxShadow: "var(--shadow-soft, 0 10px 36px rgba(0,0,0,0.34))",
+    "linear-gradient(140deg, color-mix(in srgb, var(--bg-ink) 90%, transparent), color-mix(in srgb, var(--bg-ink-soft) 76%, transparent)), radial-gradient(circle at 16% 14%, color-mix(in srgb, var(--smh-white) 12%, transparent), transparent 36%)",
+  boxShadow: "var(--shadow-soft)",
   display: "grid",
   gap: "1rem",
 };
@@ -29,7 +29,7 @@ const eyebrowStyle: CSSProperties = {
   fontSize: "0.85rem",
   letterSpacing: "0.1em",
   textTransform: "uppercase",
-  color: "var(--text-medium, rgba(235,235,235,0.8))",
+  color: "var(--text-medium)",
 };
 
 const titleStyle: CSSProperties = {
@@ -51,11 +51,11 @@ const cardStyle: CSSProperties = {
   padding: "1rem",
   borderRadius: "var(--radius-md)",
   textDecoration: "none",
-  border: "1px solid rgba(255,255,255,0.12)",
+  border: "1px solid var(--border-strong)",
   background:
-    "linear-gradient(145deg, color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.04)) 85%, transparent), color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.04)) 45%, transparent))",
+    "linear-gradient(145deg, color-mix(in srgb, var(--surface-glass) 85%, transparent), color-mix(in srgb, var(--surface-glass) 45%, transparent))",
   color: "var(--text-high)",
-  boxShadow: "0 18px 40px rgba(0,0,0,0.28)",
+  boxShadow: "var(--shadow-elevated)",
   transition: "border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease",
 };
 
@@ -67,10 +67,10 @@ const badgeStyle: CSSProperties = {
   borderRadius: "999px",
   fontSize: "0.85rem",
   letterSpacing: "0.03em",
-  color: "var(--text-medium, rgba(235,235,235,0.78))",
-  border: "1px solid color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 55%, transparent)",
+  color: "var(--text-medium)",
+  border: "1px solid color-mix(in srgb, var(--champagne-keyline-gold) 55%, transparent)",
   background:
-    "linear-gradient(120deg, color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 14%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 75%, transparent))",
+    "linear-gradient(120deg, color-mix(in srgb, var(--champagne-keyline-gold) 14%, transparent), color-mix(in srgb, var(--bg-ink-soft) 75%, transparent))",
 };
 
 const cardTitle: CSSProperties = {
@@ -79,7 +79,7 @@ const cardTitle: CSSProperties = {
 };
 
 const cardDescription: CSSProperties = {
-  color: "var(--text-medium, rgba(230,230,230,0.82))",
+  color: "var(--text-medium)",
   lineHeight: 1.55,
   fontSize: "0.97rem",
 };
@@ -163,7 +163,7 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
             <span
               style={{
                 fontSize: "0.92rem",
-                color: "var(--text-medium, rgba(230,230,230,0.82))",
+                color: "var(--text-medium)",
                 letterSpacing: "0.04em",
                 display: "inline-flex",
                 alignItems: "center",
