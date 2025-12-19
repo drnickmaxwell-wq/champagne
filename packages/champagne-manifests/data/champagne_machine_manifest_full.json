@@ -2007,6 +2007,19 @@
           "mediaHint": "Calm, stepwise care"
         },
         {
+          "id": "emergency_dentistry_next_steps",
+          "type": "cta",
+          "title": "If symptoms ease, book a full check-up",
+          "copy": "Once urgent pain is settled, a Dental Check-Ups & Oral Cancer Screening visit lets us review any lingering concerns calmly.",
+          "ctas": [
+            {
+              "label": "Book a check-up",
+              "href": "/dental-checkups-oral-cancer-screening",
+              "preset": "secondary"
+            }
+          ]
+        },
+        {
           "id": "emergency_dentistry_faq",
           "type": "treatment_faq_block",
           "title": "Emergency dentistry questions",
