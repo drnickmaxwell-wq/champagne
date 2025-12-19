@@ -9,6 +9,7 @@ export { Section_FeatureList } from "./Section_FeatureList";
 export { Section_TreatmentOverviewRich } from "./Section_TreatmentOverviewRich";
 export { Section_TreatmentMediaFeature } from "./Section_TreatmentMediaFeature";
 export { Section_TreatmentToolsTrio } from "./Section_TreatmentToolsTrio";
+export { Section_TreatmentRoutingCards } from "./Section_TreatmentRoutingCards";
 export { Section_ClinicianInsight } from "./Section_ClinicianInsight";
 export { Section_PatientStoriesRail } from "./Section_PatientStoriesRail";
 export { Section_FAQ } from "./Section_FAQ";
