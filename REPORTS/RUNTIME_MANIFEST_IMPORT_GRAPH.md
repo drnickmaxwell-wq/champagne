@@ -1,0 +1,38 @@
+# Runtime Manifest Import Graph
+
+- `packages/champagne-manifests/src/core.ts`
+  - Imports: machine manifest, nav manifest, public brand manifest, styles manifest, Manus import bundle, media deck, journey, section defaults (page-type/fx/prm), section library, SMH section layout JSON files.
+  - Purpose: assemble the manifest registry, expose navigation items, section stacks, hero presets, journeys, media decks, and layout defaults for consumers.
+- `packages/champagne-manifests/src/helpers.ts`
+  - Imports: section-manifest JSON schema plus registry exports from `core.ts`.
+  - Purpose: validate section layouts and expose helpers for pages, treatments, CTA slots, hero lookup, section styles, journeys, and media decks.
+- `packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts`
+  - Imports: sacred hero base/surfaces/variants/weather JSON and marketing/treatment/editorial/utility variant manifests.
+  - Purpose: normalise hero presets and surfaces for the hero runtime.
+- `packages/champagne-hero/src/HeroRegistry.ts`
+  - Imports: page/hero manifest accessors from `@champagne/manifests`.
+  - Purpose: build a hero registry aligned with page manifests.
+- `packages/champagne-sections/src/SectionRegistry.ts`
+  - Imports: section stack and style resolvers from `@champagne/manifests`.
+  - Purpose: derive renderable section entries (kind, title, CTAs, reviews) from manifest definitions.
+- `apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx`
+  - Imports: machine manifest pages, page manifest lookup, hero manifest lookup, CTA slot resolver from `@champagne/manifests`.
+  - Purpose: resolve page path/hero/CTA slots and render manifest-driven sections for any slug.
+- `apps/web/app/(site)/[page]/page.tsx`
+  - Imports: page manifest lookup from `@champagne/manifests`.
+  - Purpose: catch-all renderer for non-treatment slugs; rejects treatment paths and defers to the page builder.
+- `apps/web/app/treatments/page.tsx`
+  - Imports: treatment page list from `@champagne/manifests`.
+  - Purpose: build treatment hub groups and optionally render hub sections.
+- `apps/web/app/treatments/[slug]/page.tsx`
+  - Imports: treatment manifest resolver from `@champagne/manifests`.
+  - Purpose: resolve per-slug treatment metadata and feed the page builder + hero.
+- `apps/web/app/components/layout/Header.tsx` / `Footer.tsx`
+  - Imports: navigation items from `@champagne/manifests`.
+  - Purpose: render header/footer nav consistent with the nav manifest.
+- `apps/web/app/components/PageBuilder.tsx`
+  - Imports: section layout sections from `@champagne/manifests`.
+  - Purpose: render layout-section components for the sections debugger.
+- `apps/web/app/champagne/sections-debug/page.tsx`
+  - Imports: section layouts, validation helpers, and defaults from `@champagne/manifests`.
+  - Purpose: interactive inspector for section layouts and defaults.
