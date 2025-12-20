@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.polynucleotides",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "polynucleotides-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "polynucleotides_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial therapeutics",
+      "title": "Polynucleotide treatments to support skin quality",
+      "body": "Injectable polynucleotides used in staged courses to encourage skin regeneration and elasticity, offered only after clinical assessment.",
+      "bullets": [
+        "Consultation-led suitability checks and informed consent",
+        "Protocols tailored to delicate areas such as under-eye skin when appropriate",
+        "Course plans with measured intervals and follow-up"
+      ]
+    },
+    {
+      "instanceId": "polynucleotides-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "polynucleotides_trust_signals",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Evidence-informed protocols with escalation pathways",
+      "items": [
+        "Medical-grade polynucleotide products sourced through regulated supply",
+        "Aseptic preparation and superficial placement to protect vessels and nerves",
+        "Course design that avoids overlapping treatments when the skin needs recovery",
+        "Clear instructions on when to contact us urgently for unusual swelling or discomfort"
+      ]
+    },
+    {
+      "instanceId": "polynucleotides-assessment",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "polynucleotides_assessment_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation & planning",
+      "title": "Careful assessment before regenerative injectables",
+      "body": "We review your medical history, medications, and skin health to confirm suitability. If appropriate, we outline how polynucleotides differ from skin boosters (/treatments/skin-boosters) or fillers (/treatments/dermal-fillers) and plan a course targeting areas that benefit from tissue support, such as periorbital or mid-face skin.",
+      "bullets": [
+        "Contraindication screening and discussion of realistic expectations",
+        "Photography and mapping to monitor changes over the course",
+        "Clear spacing between sessions (often 2–4 weeks) to allow healing",
+        "Written aftercare and escalation guidance before the first session"
+      ]
+    },
+    {
+      "instanceId": "polynucleotides-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "polynucleotides_suitability",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "For patients suited to regenerative injectable care",
+      "items": [
+        "Those seeking improved skin elasticity or quality where volume is not the goal",
+        "Patients with delicate under-eye or peri-oral skin needing cautious support",
+        "People prepared for a staged course with reviews rather than a single-session change",
+        "Not suitable where infection, uncontrolled medical issues, or pregnancy are present"
+      ]
+    },
+    {
+      "instanceId": "polynucleotides-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "polynucleotides_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Plan, deliver, review",
+      "items": [
+        "Consultation: suitability checks, photography, and treatment planning",
+        "Course delivery: microinjections placed at agreed intervals using fine needles",
+        "Review: assessments to track skin response and comfort after each session",
+        "Maintenance: optional top-ups scheduled once initial course benefits are stable"
+      ],
+      "strapline": "Response varies by skin quality and lifestyle. We adapt spacing or pause treatment if your skin needs more time to settle."
+    },
+    {
+      "instanceId": "polynucleotides-technology",
+      "componentId": "treatment.technology",
+      "variantId": "polynucleotides_delivery",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technique",
+      "title": "Superficial delivery for gentle stimulation",
+      "body": "Polynucleotides are placed in superficial planes with fine needles to spread evenly and minimise bulk. Depth, spacing, and product amount are recorded so future sessions can be adjusted accurately.",
+      "mediaHint": "Polynucleotide microinjections planned across under-eye and mid-face"
+    },
+    {
+      "instanceId": "polynucleotides-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "polynucleotides_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Supportive aftercare with clear escalation steps",
+      "items": [
+        "Pinpoint redness or swelling is expected for 24–72 hours; bruising can occur",
+        "Avoid strenuous activity, heat, and active skincare until advised",
+        "Contact us promptly if you notice increasing pain, unusual colour change, or signs of infection",
+        "Follow-up visits confirm healing before any further sessions"
+      ]
+    },
+    {
+      "instanceId": "polynucleotides-faq",
+      "componentId": "treatment.faq",
+      "variantId": "polynucleotides_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Polynucleotide FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "How do polynucleotides work?",
+          "answer": "They are injectable biopolymers designed to support skin regeneration and hydration. We use regulated products and place them in superficial planes for gentle stimulation."
+        },
+        {
+          "question": "When will I notice changes?",
+          "answer": "Skin often feels more supple within weeks, with further improvements over a staged course. We review progress after each session."
+        },
+        {
+          "question": "Can I combine polynucleotides with other treatments?",
+          "answer": "Often yes, when sequenced carefully. We may pair them with anti-wrinkle care (/treatments/anti-wrinkle-treatments) or skin boosters (/treatments/skin-boosters) in separate appointments if clinically appropriate."
+        },
+        {
+          "question": "Are polynucleotides suitable for everyone?",
+          "answer": "No. We avoid treatment if you are pregnant, breastfeeding, unwell, or have skin infections. Suitability is confirmed during consultation."
+        },
+        {
+          "question": "What if I do not like the outcome?",
+          "answer": "Effects are gradual and course-based. We review after each session and can pause further treatment if expectations are not aligned."
+        }
+      ]
+    },
+    {
+      "instanceId": "polynucleotides-cta",
+      "componentId": "treatment.cta",
+      "variantId": "polynucleotides_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Book a facial therapeutics consultation",
+      "strapline": "Explore whether a polynucleotide course is appropriate for your skin with a clinician who prioritises safety, sequencing, and conservative dosing.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about polynucleotides", "href": "/contact?topic=polynucleotides", "variant": "secondary" }
+      ]
+    }
+  ]
+}

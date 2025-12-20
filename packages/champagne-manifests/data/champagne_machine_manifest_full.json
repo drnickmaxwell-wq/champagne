@@ -4676,6 +4676,101 @@
         }
       ],
       "surface": "champagne/surface/treatment"
+    },
+    "facial_therapeutics": {
+      "id": "facial_therapeutics",
+      "label": "Facial therapeutics in Shoreham-by-Sea",
+      "path": "/treatments/facial-therapeutics",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "anti_wrinkle_treatments": {
+      "id": "anti_wrinkle_treatments",
+      "label": "Prescription anti-wrinkle treatments",
+      "path": "/treatments/anti-wrinkle-treatments",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "dermal_fillers": {
+      "id": "dermal_fillers",
+      "label": "Dermal fillers with medical oversight",
+      "path": "/treatments/dermal-fillers",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "skin_boosters": {
+      "id": "skin_boosters",
+      "label": "Skin boosters for hydration and elasticity",
+      "path": "/treatments/skin-boosters",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "polynucleotides": {
+      "id": "polynucleotides",
+      "label": "Polynucleotide treatments to support skin quality",
+      "path": "/treatments/polynucleotides",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
     }
   },
   "treatments": {

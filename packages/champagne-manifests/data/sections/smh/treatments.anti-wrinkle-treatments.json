@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.anti-wrinkle-treatments",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "anti-wrinkle-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "anti_wrinkle_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial therapeutics",
+      "title": "Prescription anti-wrinkle treatments",
+      "body": "Measured doses of prescription-only medicine to soften expression lines when clinically appropriate, planned by a prescriber who prioritises natural movement and safety.",
+      "bullets": [
+        "Assessment of facial movement and medical history before prescribing",
+        "Conservative dosing tailored to your goals and muscle activity",
+        "Review appointments to monitor comfort and refine only when safe"
+      ]
+    },
+    {
+      "instanceId": "anti-wrinkle-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "anti_wrinkle_trust_signals",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Prescriber-led treatment with transparent risks",
+      "items": [
+        "Prescription issued only after a face-to-face assessment and consent discussion",
+        "Doses recorded and mapped to your facial anatomy to avoid a frozen look",
+        "Sterile technique with single-use needles and antisepsis at each site",
+        "Safety guidance on expected effects, rare adverse events, and how to contact us quickly"
+      ]
+    },
+    {
+      "instanceId": "anti-wrinkle-assessment",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "anti_wrinkle_assessment_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation & prescribing",
+      "title": "We prescribe only when treatment is appropriate",
+      "body": "Your consultation covers muscle activity, skin quality, and medical history. We discuss whether anti-wrinkle medicine suits you, outline benefits and limitations, and agree areas such as frown lines, forehead, or crow’s feet only if safe to do so.",
+      "bullets": [
+        "Full medical history, medicines, and contraindication checks",
+        "Facial mapping to balance doses and avoid brow or lid heaviness",
+        "Explanation of onset (usually several days) and duration (often up to 3–4 months)",
+        "Written aftercare and review scheduling before you leave"
+      ]
+    },
+    {
+      "instanceId": "anti-wrinkle-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "anti_wrinkle_suitability",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "For suitable patients seeking gentle softening",
+      "items": [
+        "Adults with dynamic lines caused by repeated movement where muscle relaxation is appropriate",
+        "Patients wanting a measured, non-frozen finish with clear review points",
+        "Not for anyone pregnant, breastfeeding, or with contraindicated medical conditions",
+        "Those preferring prescription-led care with clear routes to reverse or pause treatment"
+      ]
+    },
+    {
+      "instanceId": "anti-wrinkle-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "anti_wrinkle_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Consult, prescribe, treat, and review",
+      "items": [
+        "Consultation: medical history, facial movement assessment, and suitability checks",
+        "Prescription & treatment: carefully placed micro-injections aligned to agreed areas",
+        "Review: follow-up (often around 2–3 weeks) to assess effect and adjust only if appropriate",
+        "Maintenance: safe intervals between appointments to avoid over-treatment"
+      ],
+      "strapline": "Results are temporary and depend on your response. We avoid high doses or rushed top-ups to protect facial function."
+    },
+    {
+      "instanceId": "anti-wrinkle-technology",
+      "componentId": "treatment.technology",
+      "variantId": "anti_wrinkle_technique",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Dose planning & technique",
+      "title": "Mapped injection points for balanced results",
+      "body": "We plan doses per muscle group, favouring multiple micro-injections to distribute medicine evenly. Needle gauge and depth are chosen to respect underlying vessels and avoid diffusion into unintended areas.",
+      "mediaHint": "Prescription anti-wrinkle vials prepared with micro-needles"
+    },
+    {
+      "instanceId": "anti-wrinkle-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "anti_wrinkle_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Clear guidance and prompt escalation routes",
+      "items": [
+        "Avoid heavy exercise, rubbing, or lying flat for the recommended period post-treatment",
+        "Mild redness, pinprick marks, or headaches can occur; bruising is possible",
+        "Rare risks like eyelid or brow heaviness are explained with advice on what to do if they appear",
+        "Direct contact details for the clinic if you have concerns between visits"
+      ]
+    },
+    {
+      "instanceId": "anti-wrinkle-faq",
+      "componentId": "treatment.faq",
+      "variantId": "anti_wrinkle_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Anti-wrinkle FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "How long do results last?",
+          "answer": "Effects typically build over several days and may last up to 3–4 months, depending on your metabolism and dose."
+        },
+        {
+          "question": "Can treatment be adjusted?",
+          "answer": "Yes. We schedule a review to check balance and can adjust doses only if clinically appropriate."
+        },
+        {
+          "question": "Does it hurt?",
+          "answer": "Most patients report brief pinpricks. Topical anaesthetic can be provided if needed, and we use fine needles to reduce discomfort."
+        },
+        {
+          "question": "Can I combine this with other treatments?",
+          "answer": "We often stage anti-wrinkle care with fillers, skin boosters, or polynucleotides when suitable. Sequencing is planned in consultation to keep safety first."
+        },
+        {
+          "question": "What if I decide not to continue?",
+          "answer": "Results wear off over time. We document doses so future care can be paused or adjusted without pressure."
+        }
+      ]
+    },
+    {
+      "instanceId": "anti-wrinkle-cta",
+      "componentId": "treatment.cta",
+      "variantId": "anti_wrinkle_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Book a facial therapeutics consultation",
+      "strapline": "Explore whether prescription anti-wrinkle treatment is right for you with a prescriber who favours careful dosing and clear follow-up.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about anti-wrinkle care", "href": "/contact?topic=anti-wrinkle", "variant": "secondary" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dermal-fillers",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "dermal-fillers-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "dermal_fillers_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial therapeutics",
+      "title": "Dermal fillers with medical oversight",
+      "body": "Hyaluronic acid fillers placed conservatively to restore structure or balance profile, planned around facial anatomy and your safety.",
+      "bullets": [
+        "Assessment-led planning with photos and facial mapping",
+        "Product selection matched to area, mobility, and desired support",
+        "Escalation protocols with dissolving enzyme available if needed"
+      ]
+    },
+    {
+      "instanceId": "dermal-fillers-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "dermal_fillers_trust_signals",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Measured volume, mapped anatomy",
+      "items": [
+        "Treatment delivered by a clinician trained in facial vascular anatomy and complication management",
+        "Use of CE-marked fillers from regulated suppliers with documented batch tracking",
+        "Needle or cannula chosen per area to limit vessel trauma and bruising",
+        "Hyaluronidase and emergency pathways on standby for rare vascular events"
+      ]
+    },
+    {
+      "instanceId": "dermal-fillers-assessment",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "dermal_fillers_assessment_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation & planning",
+      "title": "Safety-first planning for balanced restoration",
+      "body": "We review your goals, medical history, and facial structure before suggesting filler. If appropriate, we map areas such as cheeks, lips, chin, or tear troughs and agree conservative volumes. Alternatives like skin boosters (/treatments/skin-boosters) or polynucleotides (/treatments/polynucleotides) are offered when better suited.",
+      "bullets": [
+        "Baseline photos and proportion checks to avoid overfilling",
+        "Discussion of product choice, anticipated longevity, and maintenance",
+        "Consent covering risks including swelling, bruising, and vascular compromise",
+        "Clear plan for staged treatment rather than large single sessions"
+      ]
+    },
+    {
+      "instanceId": "dermal-fillers-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "dermal_fillers_suitability",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "For patients needing structural support",
+      "items": [
+        "Age-related volume loss in cheeks or mid-face when replacement is appropriate",
+        "Lip definition or contouring with conservative volume",
+        "Jawline or chin support for profile balance",
+        "Patients willing to follow medical guidance on maintenance and safety checks"
+      ]
+    },
+    {
+      "instanceId": "dermal-fillers-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "dermal_fillers_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Assess, treat, review",
+      "items": [
+        "Consultation: suitability review, photography, and treatment planning",
+        "Treatment: controlled filler placement with aseptic technique and aspiration where indicated",
+        "Review: post-treatment check to assess integration, comfort, and symmetry",
+        "Maintenance: guidance on intervals, with dissolving as an option if we need to reverse"
+      ],
+      "strapline": "Longevity varies by product and area. We avoid excessive volume in one sitting to protect tissue health."
+    },
+    {
+      "instanceId": "dermal-fillers-technology",
+      "componentId": "treatment.technology",
+      "variantId": "dermal_fillers_products",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Products & technique",
+      "title": "Layered placement with product matched to purpose",
+      "body": "Fillers are selected for cohesiveness, lift, and flexibility based on treatment area. We document depth, plane, and volume per point, using cannulas for glide when helpful and needles for precision where appropriate.",
+      "mediaHint": "Hyaluronic acid filler with cannula and needle options"
+    },
+    {
+      "instanceId": "dermal-fillers-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "dermal_fillers_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Stay monitored with clear safety advice",
+      "items": [
+        "Expect temporary swelling or tenderness; bruising is possible for several days",
+        "Avoid makeup, saunas, or strenuous exercise until advised",
+        "Urgent guidance provided on signs of vascular compromise (severe pain, blanching, or colour change)",
+        "Follow-up appointments to review feel, symmetry, and whether maintenance is required"
+      ]
+    },
+    {
+      "instanceId": "dermal-fillers-faq",
+      "componentId": "treatment.faq",
+      "variantId": "dermal_fillers_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Dermal filler FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "How long do fillers last?",
+          "answer": "Most hyaluronic acid fillers integrate over days and may last 6–18 months depending on area, product, and lifestyle."
+        },
+        {
+          "question": "Can fillers be dissolved?",
+          "answer": "Yes. If clinically indicated, hyaluronidase can reverse hyaluronic acid fillers. We keep this available and explain the process before treatment."
+        },
+        {
+          "question": "Will it look overdone?",
+          "answer": "We favour subtle changes and staged sessions. Photography and proportion checks help us avoid overfilling."
+        },
+        {
+          "question": "Is there downtime?",
+          "answer": "Most patients resume light activities the same day. Swelling or bruising can last a few days; we provide aftercare and check-ins."
+        },
+        {
+          "question": "Can fillers be combined with other therapies?",
+          "answer": "Often yes, with careful sequencing. We may pair fillers with anti-wrinkle treatment (/treatments/anti-wrinkle-treatments) or skin boosters (/treatments/skin-boosters) when appropriate."
+        }
+      ]
+    },
+    {
+      "instanceId": "dermal-fillers-cta",
+      "componentId": "treatment.cta",
+      "variantId": "dermal_fillers_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Book a facial therapeutics consultation",
+      "strapline": "Discuss whether conservative dermal filler treatment is right for you with a clinician who keeps anatomy, safety, and reversibility front of mind.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about fillers", "href": "/contact?topic=dermal-fillers", "variant": "secondary" }
+      ]
+    }
+  ]
+}
