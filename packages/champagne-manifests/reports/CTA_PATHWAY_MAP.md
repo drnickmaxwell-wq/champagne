@@ -1,74 +1,51 @@
 # CTA_PATHWAY_MAP.md
-Version: CTA_PATHWAY_MAP.v1
-Status: CANONICAL (Phase: Homepage Logic → Portal CTA Wiring)
+Version: CTA_PATHWAY_MAP.v2
+Status: Canonical — phase-home-cta-lock
 Owner: Managing Director (MD)
 Date: 2025-12-19
 
 ## 0) Prime Directive
-CTAs must resolve to **canonical runtime routes** only.
-**No CTA may target legacy/unknown routes** (e.g. the retired booking endpoint) unless explicitly defined in this map.
-
+CTAs must resolve to **canonical runtime routes** only. `/book` is forbidden.
 If a CTA target is not in this map:
-- DEV/PREVIEW: fail loud (console error + heroDebug receipt if applicable)
-- PROD: fail safe (fallback to `/contact`) AND emit detectable event/log
+- DEV/PREVIEW: fail loud (console error + guard failure where applicable)
+- PROD: fail safe (fallback to `/contact`) AND emit a detectable event/log
 
 ---
 
 ## 1) Canonical CTA Targets (Allowed)
-These are the **only** CTA href targets allowed by default.
+These are the approved destinations for presets and manifest-authored CTAs.
 
 ### Primary booking / contact
-- `/contact`  
-  Use for: “Book a consultation”, “Speak to the team”, “Request a call back”, “Ask a question”.
+- `/contact` — default for consultation, questions, and calm follow-up.
+- `/contact?intent=video` — remote-first inquiry without forcing portal auth.
+- `/contact?intent=finance` — finance pre-qualification conversations.
 
 ### Treatments discovery
-- `/treatments`  
-  Use for: “Explore treatments”, “See all options”, “Browse services”.
+- `/treatments`
+- Treatment hubs (examples — use only where the page exists):
+  - `/treatments/implants`
+  - `/treatments/veneers`
+  - `/treatments/orthodontics`
+  - `/treatments/nervous-patients`
+  - `/treatments/emergency-dentistry`
 
-### Treatment hubs (examples – only if pages exist)
-- `/treatments/implants`
-- `/treatments/whitening`
-- `/treatments/composite-bonding`
-- `/treatments/veneers`
-- `/treatments/nervous-patients`
-- `/treatments/emergency-dentistry`
+### Portal / patient flows
+- `/patient-portal?intent=login` — default portal entry.
+- `/patient-portal?intent=video` — video consultation intent (still auth-gated).
+- `/patient-portal?intent=finance` — finance / plan intent (auth-gated).
+- `/patient-portal?intent=uploads` — secure uploads intent (auth-gated).
 
-### Authority / assessment pages (only if present)
-- `/treatments/dental-check-ups-oral-cancer-screening`
-- `/treatments/digital-smile-design` (or canonical DSD slug if different)
-
-### Practice Plan
+### Practice plan / education
 - `/practice-plan`
-
-### Portal / patient flows (preferred pattern)
-If the portal is not yet public, these can temporarily redirect to `/contact` with intent text.
-
-- `/portal` (or canonical portal entry route)
-- `/portal?intent=video-consult`
-- `/portal?intent=finance`
-- `/portal?intent=uploads`
-- `/portal?intent=appointments`
-- `/portal?intent=treatment-plan`
-
-**Rule:** If `/portal` is not live, use `/contact` and append intent via query:
-- `/contact?intent=video-consult`
-- `/contact?intent=finance`
-- `/contact?intent=uploads`
+- `/video-consultation` (if surfaced as education, otherwise prefer portal intent)
 
 ---
 
 ## 2) Forbidden Targets (Blocklist)
 These must be removed or rewritten if found anywhere in manifests/components:
-
-- retired booking endpoint ❌ (legacy / unknown route)
-- legacy booking path ❌ unless explicitly implemented later
-- `/ai-smile-analysis` ❌ unless explicitly implemented and promoted
-- `/ai-smile-quiz` ❌ unless explicitly implemented and promoted
-- `/preview/*` ❌
-- `/_legacy_route_stubs/*` ❌
-- Any external URLs unless explicitly approved (Phase-gated)
-
-**Enforcement rule:** Any CTA pointing to a forbidden target is a governance violation.
+- `/book` and any derivative/legacy booking endpoints.
+- Legacy preview or stub routes (e.g. `/preview/*`, `/_legacy_route_stubs/*`).
+- External URLs unless explicitly approved and documented.
 
 ---
 
@@ -77,81 +54,46 @@ Use this mapping when generating or correcting CTAs.
 
 ### Universal CTAs
 - “Book a consultation” → `/contact`
-- “Call us” → `/contact` (or tel link only if allowed by component)
-- “Email us” → `/contact` (or mailto only if allowed by component)
+- “Plan your visit” → `/contact`
 - “Ask a question” → `/contact`
 
 ### Discovery / education CTAs
 - “Explore treatments” → `/treatments`
 - “View treatment options” → `/treatments`
-- “Learn about sedation” → `/treatments/sedation-dentistry`
 - “Nervous patient options” → `/treatments/nervous-patients`
+- “Emergency dentistry” → `/treatments/emergency-dentistry`
 
-### ABC pathway (Align → Bleach → Composite)
-These CTAs should appear across Aligners/Sparks/Whitening/Bonding/Veneers/Smile Makeover pages:
+### Portal intent CTAs (authenticated)
+- “Patient portal” / “Log in” → `/patient-portal?intent=login`
+- “Video consultation” → `/patient-portal?intent=video`
+- “Finance options” → `/patient-portal?intent=finance`
+- “Upload photos/documents” → `/patient-portal?intent=uploads`
 
-- “Aligners / Braces options” → `/treatments/orthodontics` (or canonical ortho slug)
-- “Teeth whitening” → `/treatments/whitening`
-- “Composite bonding” → `/treatments/composite-bonding`
-- “Veneers” → `/treatments/veneers`
-- “3D / digitally designed veneers” → `/treatments/digitally-designed-veneers` (or canonical 3D veneers slug)
-- “Smile makeover” → `/treatments/smile-makeover` (if present)
-- “Digital Smile Design” → `/treatments/digital-smile-design`
-
-### Implant trust signals / conversion
-- “Implant consultation” → `/treatments/implant-consultation`
-- “Implant aftercare” → `/treatments/implant-aftercare`
-- “Bone grafting” → `/treatments/bone-grafting`
-- “Teeth in a day” → `/treatments/teeth-in-a-day` (if present)
-
-### Portal conversion CTAs (future-proof SaaS)
-- “Video consultation” → `/portal?intent=video-consult`
-- “Finance options” → `/portal?intent=finance` (Tabeo)
-- “Upload photos / documents” → `/portal?intent=uploads`
-- “Manage appointments” → `/portal?intent=appointments`
+### Remote-friendly but unauthenticated
+If the visitor has not authenticated, prefer these contact intents instead of routing straight to the portal:
+- “Start remotely” → `/contact?intent=video`
+- “Talk through finance” → `/contact?intent=finance`
 
 ---
 
-## 4) CTA Component Types (Design Note)
-This repo currently contains at least two CTA behaviours:
-
-1) **Section-level CTAs** (manifest-provided)
-   - Must render exactly what the manifest provides.
-   - Must not silently substitute fallback links.
-
-2) **Preset / fallback CTAs** (component-level defaults)
-   - Only allowed if the manifest provides *no CTAs*.
-   - Presets must use **only** canonical targets from Section 1.
-   - Presets must never point at the retired booking endpoint.
-
-**Policy:** Prefer manifest-provided CTAs for treatment pages.
+## 4) CTA Component Behaviour
+- **Section-level CTAs:** Render exactly as provided in the manifest. Do not override or inject presets when a section already defines CTAs.
+- **Presets / fallbacks:** Only apply when the manifest omits CTA groups. Presets must choose from the allowed targets above and prefer `/contact` when uncertain.
+- **Accessibility:** Labels must remain readable at AA contrast with existing tokens; avoid color-only distinctions.
 
 ---
 
-## 5) Verification Checklist (Before Merge)
-### Repo-wide CTA grep
-Search for forbidden targets:
-- retired booking endpoint (including href/to attributes)
-
-Expected result: **zero hits**.
-
-### Runtime smoke test
-- Home: click “Book a consultation” in hero + any CTA blocks → must go `/contact`
-- Nervous Patients: “Read about sedation” → sedation page slug must resolve
-- Whitening hub: CTAs must resolve to whitening subpages and/or `/treatments/composite-bonding`, `/treatments/veneers`, `/treatments/digital-smile-design` as mapped
-- Portal CTAs (if not live): temporarily route to `/contact?intent=…`
+## 5) Verification Checklist
+- Repo-wide `/book` grep must be clean; guards should fail if it reappears.
+- Home hero and CTA blocks route to `/contact`, `/treatments`, or portal intent routes.
+- Portal CTAs respect the intent query and avoid unauthenticated deep-links when that would bypass consent.
 
 ---
 
-## 6) Phase Gates (Do Not Auto-Add Yet)
-These routes are planned but must not be referenced until implemented and promoted:
-
-- AI Smile Analysis
-- AI Smile Quiz
-- Downloads
-- Newsletter
-- Blog
-
-When promoted, this file must be version-bumped and targets moved from blocklist → allowed list.
+## 6) Phase Gates
+Planned but not yet live (do not surface without explicit promotion):
+- AI Smile Analysis / Smile Quiz
+- Newsletter and downloads
+- Blog index until editorial routes are shipped
 
 END.

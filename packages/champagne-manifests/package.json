@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "guard:no-book": "node scripts/guard-no-book.mjs"
   }
 }
