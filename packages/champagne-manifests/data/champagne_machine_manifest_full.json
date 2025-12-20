@@ -4046,9 +4046,169 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "endodontics-root-canal-hero",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.heroIntro",
+          "variantId": "smh_endodontics_root_canal_hero",
+          "order": 10,
+          "seoRole": "hero",
+          "eyebrow": "Endodontics & root canal care",
+          "title": "Save painful teeth with calm, precise endodontics",
+          "body": "Modern root canal treatment removes infection, protects the tooth structure, and keeps your bite stable with minimal fuss.",
+          "bullets": [
+            "Clear diagnosis to confirm when a root canal is the safest option",
+            "Gentle, well-anaesthetised care with careful rubber dam isolation",
+            "Restorations that seal the tooth and reduce the risk of reinfection"
+          ],
+          "ctas": [
+            { "label": "Book a root canal assessment", "href": "/contact", "preset": "primary" },
+            { "label": "Ask about endodontic care", "href": "/contact?topic=treatment", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "endodontics-root-canal-symptoms",
+          "type": "features",
+          "componentId": "treatment.whoIsItFor",
+          "variantId": "smh_endodontics_root_canal_symptoms",
+          "order": 20,
+          "seoRole": "primaryContent",
+          "eyebrow": "When treatment is needed",
+          "title": "Signs a tooth may need endodontic care",
+          "items": [
+            "Lingering hot or cold sensitivity that doesn’t settle quickly",
+            "Spontaneous or night pain that radiates to the jaw or ear",
+            "Swelling, tenderness, or a pimple on the gum near the tooth",
+            "Cracks, deep decay, or a failing filling that has reached the nerve",
+            "Pain when biting that suggests nerve inflammation or infection"
+          ],
+          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently — emergency dentistry support is available."
+        },
+        {
+          "id": "endodontics-root-canal-process",
+          "type": "features",
+          "componentId": "treatment.processTimeline",
+          "variantId": "smh_endodontics_root_canal_process",
+          "order": 30,
+          "seoRole": "primaryContent",
+          "eyebrow": "How a root canal works",
+          "title": "Step-by-step, focused on comfort",
+          "items": [
+            "Assessment: X-rays or CBCT review to map canals and confirm diagnosis",
+            "Comfort: Local anaesthetic and rubber dam isolation keep the area dry and calm",
+            "Cleaning: Rotary instruments and irrigation remove inflamed or infected tissue",
+            "Shaping: Canal shaping with apex location for an accurate working length",
+            "Medication & sealing: Disinfection with medicaments then biocompatible filling",
+            "Restoration: A sealed filling or crown to protect the tooth from future fracture",
+            "Review: Follow-up to monitor healing and confirm symptoms have settled"
+          ]
+        },
+        {
+          "id": "endodontics-root-canal-technology",
+          "type": "treatment_media_feature",
+          "componentId": "treatment.technology",
+          "variantId": "smh_endodontics_root_canal_technology",
+          "order": 40,
+          "seoRole": "supporting",
+          "eyebrow": "Technology & precision",
+          "title": "Digital diagnostics for predictable outcomes",
+          "body": "CBCT imaging, electronic apex location, and rotary endodontic systems guide the shape and depth of treatment, reducing guesswork and protecting surrounding bone and nerves.",
+          "mediaHint": "CBCT mapping, rotary instruments, and apex location"
+        },
+        {
+          "id": "endodontics-root-canal-comfort",
+          "type": "features",
+          "componentId": "treatment.aftercareRisks",
+          "variantId": "smh_endodontics_root_canal_comfort",
+          "order": 50,
+          "seoRole": "supporting",
+          "eyebrow": "Comfort & aftercare",
+          "title": "Keeping you comfortable during and after treatment",
+          "items": [
+            "Local anaesthetic throughout; sedation dentistry can be discussed for anxious patients",
+            "Gentle isolation and irrigation to minimise post-appointment tenderness",
+            "Clear guidance on eating, cleaning, and managing expected soreness",
+            "Advice on temporary restorations if a crown is planned",
+            "Follow-up to confirm the tooth is settling and the bite feels balanced"
+          ]
+        },
+        {
+          "id": "endodontics-root-canal-risks",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.consultationOverview",
+          "variantId": "smh_endodontics_root_canal_risks",
+          "order": 60,
+          "seoRole": "supporting",
+          "eyebrow": "Risks, limits & alternatives",
+          "title": "Honest guidance before we start",
+          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You’ll know the backup plan before consenting.",
+          "bullets": [
+            "Discusses structural strength and whether a crown is needed",
+            "Explains limits of heavily cracked or previously treated teeth",
+            "Outlines alternatives such as monitoring, extraction, or implant replacement",
+            "Clear consent and documentation with realistic expectations"
+          ]
+        },
+        {
+          "id": "endodontics-root-canal-prognosis",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.consultationOverview",
+          "variantId": "smh_endodontics_root_canal_prognosis",
+          "order": 70,
+          "seoRole": "supporting",
+          "eyebrow": "Longevity & prognosis",
+          "title": "Protecting the tooth for the long term",
+          "body": "Well-sealed canals and a protective restoration keep success rates high. We review healing radiographically and discuss maintenance to preserve the tooth for years.",
+          "bullets": [
+            "Most treated teeth remain comfortable and functional for many years",
+            "Bite checks reduce the risk of fractures after treatment",
+            "Regular hygiene visits help prevent reinfection from new decay",
+            "If a tooth cannot be saved, we’ll plan extractions and future implant or bridge options"
+          ]
+        },
+        {
+          "id": "endodontics-root-canal-faq",
+          "type": "faq",
+          "componentId": "treatment.faq",
+          "variantId": "smh_endodontics_root_canal_faq",
+          "order": 80,
+          "seoRole": "faq",
+          "eyebrow": "Root canal FAQs",
+          "title": "Common questions about endodontic care",
+          "faqs": [
+            {
+              "question": "Will a root canal hurt?",
+              "answer": "Treatment is carried out under local anaesthetic with careful isolation. Most patients feel pressure rather than pain, and any post-treatment tenderness usually settles with simple pain relief."
+            },
+            {
+              "question": "How long does it take?",
+              "answer": "Many cases are completed in one to two visits depending on the number of canals and whether we need to place medication between appointments."
+            },
+            {
+              "question": "Do I always need a crown afterwards?",
+              "answer": "Back teeth or heavily restored teeth often benefit from a crown to prevent fractures. We will explain the best way to seal and protect your tooth."
+            },
+            {
+              "question": "What if the tooth can’t be saved?",
+              "answer": "We will outline alternatives such as extraction with healing guidance and future replacement options like bridges or implants if appropriate."
+            }
+          ]
+        },
+        {
+          "id": "endodontics-root-canal-cta",
+          "type": "treatment_closing_cta",
+          "componentId": "treatment.cta",
+          "variantId": "smh_endodontics_root_canal_cta",
+          "order": 90,
+          "seoRole": "cta",
+          "eyebrow": "Next steps",
+          "title": "Need relief from tooth pain?",
+          "body": "Book an endodontic assessment so we can calm the tooth, protect your smile, and plan any follow-up care together.",
+          "ctas": [
+            { "label": "Book a root canal consult", "href": "/contact", "variant": "primary" },
+            { "label": "Speak to the clinical team", "href": "/contact", "variant": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
@@ -4059,9 +4219,169 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
-        "treatment_overview_copy",
-        "treatment_media_highlight",
-        "treatment_feature_list"
+        {
+          "id": "extractions-oral-surgery-hero",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.heroIntro",
+          "variantId": "smh_extractions_oral_surgery_hero",
+          "order": 10,
+          "seoRole": "hero",
+          "eyebrow": "Extractions & oral surgery",
+          "title": "Gentle extractions with clear surgical planning",
+          "body": "When a tooth can’t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+          "bullets": [
+            "Calm assessments that explain when extraction is the safest route",
+            "Minimally invasive techniques to protect bone and gum", 
+            "Aftercare and future planning for implants, bridges, or dentures"
+          ],
+          "ctas": [
+            { "label": "Book an extraction assessment", "href": "/contact", "preset": "primary" },
+            { "label": "Ask about oral surgery", "href": "/contact?topic=treatment", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "extractions-oral-surgery-symptoms",
+          "type": "features",
+          "componentId": "treatment.whoIsItFor",
+          "variantId": "smh_extractions_oral_surgery_symptoms",
+          "order": 20,
+          "seoRole": "primaryContent",
+          "eyebrow": "When removal is considered",
+          "title": "Situations that may need extraction or surgery",
+          "items": [
+            "Severe decay or fracture where a filling or crown cannot seal the tooth",
+            "Persistent infection after root canal or structural cracks to the root",
+            "Impacted or problematic wisdom teeth causing pain or crowding",
+            "Advanced gum disease with loose, uncomfortable teeth",
+            "Orthodontic or prosthetic planning where space or stability is needed"
+          ],
+          "strapline": "If you experience rapid swelling, spreading infection, or difficulty swallowing, treat it as urgent and contact us for emergency dentistry advice."
+        },
+        {
+          "id": "extractions-oral-surgery-process",
+          "type": "features",
+          "componentId": "treatment.processTimeline",
+          "variantId": "smh_extractions_oral_surgery_process",
+          "order": 30,
+          "seoRole": "primaryContent",
+          "eyebrow": "How the procedure works",
+          "title": "Planned steps for predictable healing",
+          "items": [
+            "Assessment: X-rays or CBCT to map roots, nerves, and sinus position",
+            "Comfort: Local anaesthetic and gentle explanation before we begin",
+            "Access: Precise gum and bone access only where needed",
+            "Removal: Sectioning or elevation to ease the tooth out with minimal force",
+            "Site care: Thorough cleaning, possible grafting, and careful suturing",
+            "Instructions: Clear guidance on rest, cleaning, and what to expect during healing",
+            "Review: Follow-up to confirm the site is settling and discuss next steps"
+          ]
+        },
+        {
+          "id": "extractions-oral-surgery-technology",
+          "type": "treatment_media_feature",
+          "componentId": "treatment.technology",
+          "variantId": "smh_extractions_oral_surgery_technology",
+          "order": 40,
+          "seoRole": "supporting",
+          "eyebrow": "Technology & precision",
+          "title": "Digital planning that protects nearby structures",
+          "body": "CBCT imaging, surgical planning, and fine instruments help us visualise roots, nerves, and sinus spaces so we can work accurately and reduce trauma.",
+          "mediaHint": "CBCT-guided planning and minimally invasive instruments"
+        },
+        {
+          "id": "extractions-oral-surgery-comfort",
+          "type": "features",
+          "componentId": "treatment.aftercareRisks",
+          "variantId": "smh_extractions_oral_surgery_comfort",
+          "order": 50,
+          "seoRole": "supporting",
+          "eyebrow": "Comfort, anxiety & aftercare",
+          "title": "Support from anaesthetic to healing",
+          "items": [
+            "Local anaesthetic for comfort; sedation dentistry can be discussed for anxious patients",
+            "Measured technique to limit swelling and bruising",
+            "Guidance on pain relief, rest, and eating while the site heals",
+            "Instructions to keep the area clean without disturbing the socket",
+            "Direct contact if bleeding, swelling, or discomfort changes unexpectedly"
+          ]
+        },
+        {
+          "id": "extractions-oral-surgery-risks",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.consultationOverview",
+          "variantId": "smh_extractions_oral_surgery_risks",
+          "order": 60,
+          "seoRole": "supporting",
+          "eyebrow": "Risks, limits & alternatives",
+          "title": "Transparent guidance before removal",
+          "body": "We outline potential risks such as dry socket, sinus communication, nerve proximity, or the need for sectioning so you know what to expect. Where a tooth might be saved with restorative care, we will explain that option too.",
+          "bullets": [
+            "Discussion of saving versus removing a tooth with restorative or endodontic care",
+            "Clear consent for complex roots, impacted teeth, or medical considerations",
+            "Alternatives such as monitoring or referral to surgical colleagues when indicated",
+            "Planning for provisional solutions while you heal"
+          ]
+        },
+        {
+          "id": "extractions-oral-surgery-prognosis",
+          "type": "treatment_overview_rich",
+          "componentId": "treatment.consultationOverview",
+          "variantId": "smh_extractions_oral_surgery_prognosis",
+          "order": 70,
+          "seoRole": "supporting",
+          "eyebrow": "Longevity & what comes next",
+          "title": "Stable healing and future options",
+          "body": "With careful socket care, most sites heal smoothly in a few weeks. We guide you on timing for implants, bridges, or dentures so you know when replacement can safely begin.",
+          "bullets": [
+            "Monitoring to confirm bone and gum health before replacement",
+            "Advice on protecting the site to maintain bone volume",
+            "Discussion of implant planning or bridgework once healing allows",
+            "Ongoing reviews to keep surrounding teeth and gums healthy"
+          ]
+        },
+        {
+          "id": "extractions-oral-surgery-faq",
+          "type": "faq",
+          "componentId": "treatment.faq",
+          "variantId": "smh_extractions_oral_surgery_faq",
+          "order": 80,
+          "seoRole": "faq",
+          "eyebrow": "Extraction & surgery FAQs",
+          "title": "Answers to common questions",
+          "faqs": [
+            {
+              "question": "Will I feel pain during the extraction?",
+              "answer": "The area is numbed thoroughly with local anaesthetic. You may feel pressure but should not feel sharp pain, and sedation options can be discussed if you are anxious."
+            },
+            {
+              "question": "How long is recovery?",
+              "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
+            },
+            {
+              "question": "Can the tooth be replaced?",
+              "answer": "Yes. We will discuss timing for implants, bridges, or dentures once the area is stable, and we can provide provisional solutions if needed."
+            },
+            {
+              "question": "What if the tooth could be saved?",
+              "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
+            }
+          ]
+        },
+        {
+          "id": "extractions-oral-surgery-cta",
+          "type": "treatment_closing_cta",
+          "componentId": "treatment.cta",
+          "variantId": "smh_extractions_oral_surgery_cta",
+          "order": 90,
+          "seoRole": "cta",
+          "eyebrow": "Next steps",
+          "title": "Need advice about a troublesome tooth?",
+          "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+          "ctas": [
+            { "label": "Book an oral surgery consult", "href": "/contact", "variant": "primary" },
+            { "label": "Call the team", "href": "/contact", "variant": "secondary" }
+          ]
+        }
       ],
       "surface": "champagne/surface/treatment"
     },
