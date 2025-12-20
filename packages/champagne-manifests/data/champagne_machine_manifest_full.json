@@ -182,7 +182,7 @@
               "source": "Google"
             },
             {
-              "quote": "Felt listened to and never rushed—highly recommend.",
+              "quote": "Felt listened to and never rushed\u2014highly recommend.",
               "name": "Google reviewer",
               "rating": 5,
               "source": "Google"
@@ -279,7 +279,7 @@
           "faqs": [
             {
               "question": "Do you help with directions or parking?",
-              "answer": "Yes—call or message ahead and we will outline nearby parking options and the best entrance to use."
+              "answer": "Yes\u2014call or message ahead and we will outline nearby parking options and the best entrance to use."
             },
             {
               "question": "Can I start with a phone discussion?",
@@ -291,7 +291,7 @@
             },
             {
               "question": "Is the practice suitable for nervous patients?",
-              "answer": "Yes—gentle pacing, clear numbing options, and calm explanations are part of every visit."
+              "answer": "Yes\u2014gentle pacing, clear numbing options, and calm explanations are part of every visit."
             }
           ]
         },
@@ -336,8 +336,8 @@
           "label": "How to use this hub",
           "title": "Use the grouped navigation",
           "items": [
-            "Nine director-defined groups keep menus, journeys, and CTAs consistent.",
-            "Each group shows 3–6 featured treatments with a clear “View all treatments in this group” link.",
+            "Ten director-defined groups keep menus, journeys, and CTAs consistent.",
+            "Each group shows up to five featured treatments with a clear \"View all treatments in this group\" link.",
             "Full inventories stay hidden until you expand the group card or follow its hub page."
           ]
         },
@@ -384,7 +384,7 @@
           "type": "copy-block",
           "label": "Browse by group",
           "title": "Browse treatments by director groups",
-          "copy": "Use the nine grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap “View all treatments in this group.”"
+          "copy": "Use the ten grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
         },
         {
           "id": "treatments_hub_authority",
@@ -444,9 +444,26 @@
       "surface": "champagne/surface/base",
       "directoryGroups": [
         {
-          "groupId": "emergency",
-          "label": "Emergency",
-          "description": "Same-day assessments for pain, swelling, trauma, or urgent issues.",
+          "groupId": "general_dentistry",
+          "label": "General Dentistry",
+          "description": "Check-ups, gum care, and everyday oral health support.",
+          "hub": "/treatments/preventative-and-general-dentistry",
+          "viewAllLabel": "View all treatments in this group",
+          "viewAllHref": "/treatments/preventative-and-general-dentistry",
+          "featuredSlugs": [
+            "preventative-and-general-dentistry",
+            "dental-checkups-oral-cancer-screening",
+            "periodontal-gum-care",
+            "childrens-dentistry",
+            "senior-mature-smile-care"
+          ],
+          "collapsedByDefault": true,
+          "featuredOnly": true
+        },
+        {
+          "groupId": "emergency_dentistry",
+          "label": "Emergency Dentistry",
+          "description": "Same-day help for pain, swelling, trauma, or urgent issues.",
           "hub": "/treatments/emergency-dentistry",
           "viewAllLabel": "View all treatments in this group",
           "viewAllHref": "/treatments/emergency-dentistry",
@@ -455,46 +472,31 @@
             "emergency-dental-appointments",
             "broken-chipped-cracked-teeth",
             "severe-toothache-dental-pain",
-            "facial-pain-and-headache",
-            "painless-numbing-the-wand"
+            "knocked-out-tooth"
           ],
-          "collapsedByDefault": true
+          "collapsedByDefault": true,
+          "featuredOnly": true
         },
         {
-          "groupId": "general",
-          "label": "General Dentistry",
-          "description": "Check-ups, gum care, root canal, and everyday oral health support.",
-          "hub": "/treatments/preventative-and-general-dentistry",
-          "viewAllLabel": "View all treatments in this group",
-          "viewAllHref": "/treatments/preventative-and-general-dentistry",
-          "featuredSlugs": [
-            "preventative-and-general-dentistry",
-            "periodontal-gum-care",
-            "endodontics-root-canal",
-            "childrens-dentistry",
-            "senior-mature-smile-care",
-            "nervous-patients"
-          ],
-          "collapsedByDefault": true
-        },
-        {
-          "groupId": "restorative",
-          "label": "Crowns & Bridges (Non-Implant)",
-          "description": "Repairs with crowns, bridges, and onlays that protect natural teeth.",
+          "groupId": "advanced_restorative_dentistry",
+          "label": "Advanced Restorative Dentistry",
+          "description": "Crowns, bridges, veneers, and smile repairs that protect teeth.",
           "hub": "/treatments/dental-crowns",
           "viewAllLabel": "View all treatments in this group",
           "viewAllHref": "/treatments/dental-crowns",
           "featuredSlugs": [
             "dental-crowns",
             "dental-bridges",
-            "inlays-onlays",
-            "lost-crowns-veneers-fillings"
+            "veneers",
+            "composite-bonding",
+            "dentures"
           ],
-          "collapsedByDefault": true
+          "collapsedByDefault": true,
+          "featuredOnly": true
         },
         {
-          "groupId": "implants",
-          "label": "Implants",
+          "groupId": "dental_implants",
+          "label": "Dental Implants",
           "description": "Consultation, placement, grafting, and restoration for missing teeth.",
           "hub": "/treatments/implants",
           "viewAllLabel": "View all treatments in this group",
@@ -504,47 +506,31 @@
             "implants-single-tooth",
             "implants-multiple-teeth",
             "implants-full-arch",
-            "implants-bone-grafting",
-            "teeth-in-a-day"
+            "implants-bone-grafting"
           ],
-          "collapsedByDefault": true
+          "collapsedByDefault": true,
+          "featuredOnly": true
         },
         {
-          "groupId": "dentures",
-          "label": "Dentures (Non-3D)",
-          "description": "Conventional acrylic and chrome dentures shaped for comfort and fit.",
-          "hub": "/treatments/dentures",
+          "groupId": "endodontics_oral_surgery",
+          "label": "Endodontics & Oral Surgery",
+          "description": "Root canal care and oral surgery for infected or damaged teeth.",
+          "hub": "/treatments/endodontics-root-canal",
           "viewAllLabel": "View all treatments in this group",
-          "viewAllHref": "/treatments/dentures",
+          "viewAllHref": "/treatments/endodontics-root-canal",
           "featuredSlugs": [
-            "dentures",
-            "acrylic-dentures",
-            "chrome-dentures",
-            "peek-partial-dentures"
+            "endodontics-root-canal",
+            "extractions-and-oral-surgery",
+            "dental-abscess-infection",
+            "dental-trauma-accidents"
           ],
-          "collapsedByDefault": true
+          "collapsedByDefault": true,
+          "featuredOnly": true
         },
         {
-          "groupId": "cosmetic",
-          "label": "Cosmetic Dentistry",
-          "description": "Whitening, veneers, bonding, and smile makeovers planned conservatively.",
-          "hub": "/treatments/veneers",
-          "viewAllLabel": "View all treatments in this group",
-          "viewAllHref": "/treatments/veneers",
-          "featuredSlugs": [
-            "veneers",
-            "composite-bonding",
-            "teeth-whitening",
-            "home-teeth-whitening",
-            "full-smile-makeover",
-            "whitening-sensitive-teeth"
-          ],
-          "collapsedByDefault": true
-        },
-        {
-          "groupId": "ortho",
+          "groupId": "orthodontics",
           "label": "Orthodontics",
-          "description": "Aligners, braces, and retainers with paced reviews to keep movements safe.",
+          "description": "Aligners, braces, and retainers with paced reviews.",
           "hub": "/treatments/orthodontics",
           "viewAllLabel": "View all treatments in this group",
           "viewAllHref": "/treatments/orthodontics",
@@ -553,15 +539,61 @@
             "clear-aligners",
             "clear-aligners-spark",
             "fixed-braces",
-            "dental-retainers",
-            "mouthguards-and-retainers"
+            "dental-retainers"
           ],
-          "collapsedByDefault": true
+          "collapsedByDefault": true,
+          "featuredOnly": true
         },
         {
-          "groupId": "digital3d",
-          "label": "3D / Digital Dentistry",
-          "description": "CBCT imaging, guided planning, and 3D-printed restorations and guides.",
+          "groupId": "occlusal_therapy_guards",
+          "label": "Occlusal Therapy & Guards",
+          "description": "Night guards, TMJ care, and sports mouthguards to protect comfort.",
+          "hub": "/treatments/night-guards-occlusal-splints",
+          "viewAllLabel": "View all treatments in this group",
+          "viewAllHref": "/treatments/night-guards-occlusal-splints",
+          "featuredSlugs": [
+            "bruxism-and-jaw-clenching",
+            "night-guards-occlusal-splints",
+            "tmj-disorder-treatment",
+            "sports-mouthguards",
+            "mouthguards-and-retainers"
+          ],
+          "collapsedByDefault": true,
+          "featuredOnly": true
+        },
+        {
+          "groupId": "facial_therapeutics",
+          "label": "Facial Therapeutics",
+          "description": "Clinical injectables and regenerative support for comfort and healing.",
+          "hub": "/treatments/therapeutic-facial-injectables",
+          "viewAllLabel": "View all treatments in this group",
+          "viewAllHref": "/treatments/therapeutic-facial-injectables",
+          "featuredSlugs": [
+            "therapeutic-facial-injectables",
+            "polynucleotides",
+            "skin-boosters"
+          ],
+          "collapsedByDefault": true,
+          "featuredOnly": true
+        },
+        {
+          "groupId": "facial_aesthetics",
+          "label": "Facial Aesthetics",
+          "description": "Aesthetic injectables to soften lines and restore volume.",
+          "hub": "/treatments/anti-wrinkle-treatments",
+          "viewAllLabel": "View all treatments in this group",
+          "viewAllHref": "/treatments/anti-wrinkle-treatments",
+          "featuredSlugs": [
+            "anti-wrinkle-treatments",
+            "dermal-fillers"
+          ],
+          "collapsedByDefault": true,
+          "featuredOnly": true
+        },
+        {
+          "groupId": "digital_3d_dentistry",
+          "label": "Digital & 3D Dentistry",
+          "description": "CBCT imaging, digital planning, and 3D-printed guides and restorations.",
           "hub": "/treatments/3d-digital-dentistry",
           "viewAllLabel": "View all treatments in this group",
           "viewAllHref": "/treatments/3d-digital-dentistry",
@@ -570,29 +602,17 @@
             "cbct-3d-scanning",
             "3d-printing-lab",
             "3d-implant-restorations",
-            "3d-printed-dentures",
             "digital-smile-design"
           ],
-          "collapsedByDefault": true
-        },
-        {
-          "groupId": "facial",
-          "label": "Facial Aesthetics",
-          "description": "Injectable facial aesthetics to soften lines and restore volume.",
-          "hub": "/treatments/facial-aesthetics",
-          "viewAllLabel": "View all treatments in this group",
-          "viewAllHref": "/treatments/facial-aesthetics",
-          "featuredSlugs": [
-            "anti-wrinkle-treatments",
-            "dermal-fillers"
-          ],
-          "collapsedByDefault": true
+          "collapsedByDefault": true,
+          "featuredOnly": true
         }
       ],
       "groupingMetadata": {
         "model": "director_locked_groups_v1",
         "inventoryHiddenByDefault": true,
         "viewAllLabel": "View all treatments in this group",
+        "featuredOnly": true,
         "reuse": [
           "header_menu_dropdowns",
           "featured_pathways",
@@ -601,70 +621,27 @@
         ],
         "groups": [
           {
-            "id": "emergency",
-            "label": "Emergency",
-            "hub": "/treatments/emergency-dentistry",
-            "intro": "Same-day assessments for pain, swelling, trauma, or urgent issues.",
-            "collapsedByDefault": true,
-            "featuredSlugs": [
-              "emergency-dentistry",
-              "emergency-dental-appointments",
-              "broken-chipped-cracked-teeth",
-              "severe-toothache-dental-pain",
-              "facial-pain-and-headache",
-              "painless-numbing-the-wand"
-            ],
-            "allSlugs": [
-              "broken-chipped-cracked-teeth",
-              "emergency-dental-appointments",
-              "emergency-dentistry",
-              "facial-pain-and-headache",
-              "painless-numbing-the-wand",
-              "severe-toothache-dental-pain",
-              "tooth-wear-broken-teeth"
-            ],
-            "viewAllLabel": "View all treatments in this group",
-            "access": {
-              "label": "View all treatments in this group",
-              "href": "/treatments/emergency-dentistry"
-            }
-          },
-          {
-            "id": "general",
+            "id": "general_dentistry",
             "label": "General Dentistry",
             "hub": "/treatments/preventative-and-general-dentistry",
-            "intro": "Check-ups, gum care, root canal, and everyday oral health support.",
+            "intro": "Check-ups, gum care, and everyday oral health support.",
             "collapsedByDefault": true,
+            "featuredOnly": true,
             "featuredSlugs": [
               "preventative-and-general-dentistry",
+              "dental-checkups-oral-cancer-screening",
               "periodontal-gum-care",
-              "endodontics-root-canal",
               "childrens-dentistry",
-              "senior-mature-smile-care",
-              "nervous-patients"
+              "senior-mature-smile-care"
             ],
             "allSlugs": [
               "dental-checkups-oral-cancer-screening",
-              "bruxism-and-jaw-clenching",
-              "childrens-dentistry",
-              "dental-abscess-infection",
-              "dental-trauma-accidents",
-              "endodontics-root-canal",
-              "extractions-and-oral-surgery",
-              "injection-moulded-composite",
-              "knocked-out-tooth",
-              "nervous-patients",
-              "night-guards-occlusal-splints",
-              "periodontal-gum-care",
-              "polynucleotides",
               "preventative-and-general-dentistry",
-              "sedation-dentistry",
+              "periodontal-gum-care",
+              "childrens-dentistry",
               "senior-mature-smile-care",
-              "skin-boosters",
-              "sports-mouthguards",
-              "therapeutic-facial-injectables",
-              "tmj-disorder-treatment",
-              "tmj-jaw-comfort"
+              "nervous-patients",
+              "sedation-dentistry"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
@@ -673,22 +650,67 @@
             }
           },
           {
-            "id": "restorative",
-            "label": "Crowns & Bridges (Non-Implant)",
-            "hub": "/treatments/dental-crowns",
-            "intro": "Repairs with crowns, bridges, and onlays that protect natural teeth.",
+            "id": "emergency_dentistry",
+            "label": "Emergency Dentistry",
+            "hub": "/treatments/emergency-dentistry",
+            "intro": "Same-day help for pain, swelling, trauma, or urgent issues.",
             "collapsedByDefault": true,
+            "featuredOnly": true,
+            "featuredSlugs": [
+              "emergency-dentistry",
+              "emergency-dental-appointments",
+              "broken-chipped-cracked-teeth",
+              "severe-toothache-dental-pain",
+              "knocked-out-tooth"
+            ],
+            "allSlugs": [
+              "emergency-dentistry",
+              "emergency-dental-appointments",
+              "broken-chipped-cracked-teeth",
+              "severe-toothache-dental-pain",
+              "facial-pain-and-headache",
+              "painless-numbing-the-wand",
+              "tooth-wear-broken-teeth",
+              "knocked-out-tooth"
+            ],
+            "viewAllLabel": "View all treatments in this group",
+            "access": {
+              "label": "View all treatments in this group",
+              "href": "/treatments/emergency-dentistry"
+            }
+          },
+          {
+            "id": "advanced_restorative_dentistry",
+            "label": "Advanced Restorative Dentistry",
+            "hub": "/treatments/dental-crowns",
+            "intro": "Crowns, bridges, veneers, and smile repairs that protect teeth.",
+            "collapsedByDefault": true,
+            "featuredOnly": true,
             "featuredSlugs": [
               "dental-crowns",
               "dental-bridges",
-              "inlays-onlays",
-              "lost-crowns-veneers-fillings"
+              "veneers",
+              "composite-bonding",
+              "dentures"
             ],
             "allSlugs": [
-              "dental-bridges",
               "dental-crowns",
+              "dental-bridges",
               "inlays-onlays",
-              "lost-crowns-veneers-fillings"
+              "lost-crowns-veneers-fillings",
+              "injection-moulded-composite",
+              "dentures",
+              "acrylic-dentures",
+              "chrome-dentures",
+              "peek-partial-dentures",
+              "veneers",
+              "composite-bonding",
+              "home-teeth-whitening",
+              "teeth-whitening",
+              "teeth-whitening-faqs",
+              "full-smile-makeover",
+              "whitening-sensitive-teeth",
+              "whitening-top-ups"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
@@ -697,31 +719,32 @@
             }
           },
           {
-            "id": "implants",
-            "label": "Implants",
+            "id": "dental_implants",
+            "label": "Dental Implants",
             "hub": "/treatments/implants",
             "intro": "Consultation, placement, grafting, and restoration for missing teeth.",
             "collapsedByDefault": true,
+            "featuredOnly": true,
             "featuredSlugs": [
               "implants",
               "implants-single-tooth",
               "implants-multiple-teeth",
               "implants-full-arch",
-              "implants-bone-grafting",
-              "teeth-in-a-day"
+              "implants-bone-grafting"
             ],
             "allSlugs": [
+              "implants",
+              "implants-single-tooth",
+              "implants-multiple-teeth",
+              "implants-full-arch",
+              "implants-bone-grafting",
+              "teeth-in-a-day",
               "failed-implant-replacement",
               "implant-aftercare",
               "implant-retained-dentures",
-              "implants",
-              "implants-bone-grafting",
-              "implants-full-arch",
-              "implants-multiple-teeth",
-              "implants-single-tooth",
               "sedation-for-implants",
               "sinus-lift",
-              "teeth-in-a-day"
+              "implant-consultation"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
@@ -730,80 +753,50 @@
             }
           },
           {
-            "id": "dentures",
-            "label": "Dentures (Non-3D)",
-            "hub": "/treatments/dentures",
-            "intro": "Conventional acrylic and chrome dentures shaped for comfort and fit.",
+            "id": "endodontics_oral_surgery",
+            "label": "Endodontics & Oral Surgery",
+            "hub": "/treatments/endodontics-root-canal",
+            "intro": "Root canal care and oral surgery for infected or damaged teeth.",
             "collapsedByDefault": true,
+            "featuredOnly": true,
             "featuredSlugs": [
-              "dentures",
-              "acrylic-dentures",
-              "chrome-dentures",
-              "peek-partial-dentures"
+              "endodontics-root-canal",
+              "extractions-and-oral-surgery",
+              "dental-abscess-infection",
+              "dental-trauma-accidents"
             ],
             "allSlugs": [
-              "acrylic-dentures",
-              "chrome-dentures",
-              "dentures",
-              "peek-partial-dentures"
+              "endodontics-root-canal",
+              "extractions-and-oral-surgery",
+              "dental-abscess-infection",
+              "dental-trauma-accidents"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
               "label": "View all treatments in this group",
-              "href": "/treatments/dentures"
+              "href": "/treatments/endodontics-root-canal"
             }
           },
           {
-            "id": "cosmetic",
-            "label": "Cosmetic Dentistry",
-            "hub": "/treatments/veneers",
-            "intro": "Whitening, veneers, bonding, and smile makeovers planned conservatively.",
-            "collapsedByDefault": true,
-            "featuredSlugs": [
-              "veneers",
-              "composite-bonding",
-              "teeth-whitening",
-              "home-teeth-whitening",
-              "full-smile-makeover",
-              "whitening-sensitive-teeth"
-            ],
-            "allSlugs": [
-              "composite-bonding",
-              "full-smile-makeover",
-              "home-teeth-whitening",
-              "teeth-whitening",
-              "teeth-whitening-faqs",
-              "veneers",
-              "whitening-sensitive-teeth",
-              "whitening-top-ups"
-            ],
-            "viewAllLabel": "View all treatments in this group",
-            "access": {
-              "label": "View all treatments in this group",
-              "href": "/treatments/veneers"
-            }
-          },
-          {
-            "id": "ortho",
+            "id": "orthodontics",
             "label": "Orthodontics",
             "hub": "/treatments/orthodontics",
-            "intro": "Aligners, braces, and retainers with paced reviews to keep movements safe.",
+            "intro": "Aligners, braces, and retainers with paced reviews.",
             "collapsedByDefault": true,
+            "featuredOnly": true,
             "featuredSlugs": [
               "orthodontics",
               "clear-aligners",
               "clear-aligners-spark",
               "fixed-braces",
-              "dental-retainers",
-              "mouthguards-and-retainers"
+              "dental-retainers"
             ],
             "allSlugs": [
+              "orthodontics",
               "clear-aligners",
               "clear-aligners-spark",
-              "dental-retainers",
               "fixed-braces",
-              "mouthguards-and-retainers",
-              "orthodontics"
+              "dental-retainers"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
@@ -812,17 +805,89 @@
             }
           },
           {
-            "id": "digital3d",
-            "label": "3D / Digital Dentistry",
-            "hub": "/treatments/3d-digital-dentistry",
-            "intro": "CBCT imaging, guided planning, and 3D-printed restorations and guides.",
+            "id": "occlusal_therapy_guards",
+            "label": "Occlusal Therapy & Guards",
+            "hub": "/treatments/night-guards-occlusal-splints",
+            "intro": "Night guards, TMJ care, and sports mouthguards to protect comfort.",
             "collapsedByDefault": true,
+            "featuredOnly": true,
+            "featuredSlugs": [
+              "bruxism-and-jaw-clenching",
+              "night-guards-occlusal-splints",
+              "tmj-disorder-treatment",
+              "sports-mouthguards",
+              "mouthguards-and-retainers"
+            ],
+            "allSlugs": [
+              "bruxism-and-jaw-clenching",
+              "night-guards-occlusal-splints",
+              "tmj-disorder-treatment",
+              "tmj-jaw-comfort",
+              "sports-mouthguards",
+              "mouthguards-and-retainers"
+            ],
+            "viewAllLabel": "View all treatments in this group",
+            "access": {
+              "label": "View all treatments in this group",
+              "href": "/treatments/night-guards-occlusal-splints"
+            }
+          },
+          {
+            "id": "facial_therapeutics",
+            "label": "Facial Therapeutics",
+            "hub": "/treatments/therapeutic-facial-injectables",
+            "intro": "Clinical injectables and regenerative support for comfort and healing.",
+            "collapsedByDefault": true,
+            "featuredOnly": true,
+            "featuredSlugs": [
+              "therapeutic-facial-injectables",
+              "polynucleotides",
+              "skin-boosters"
+            ],
+            "allSlugs": [
+              "therapeutic-facial-injectables",
+              "polynucleotides",
+              "skin-boosters"
+            ],
+            "viewAllLabel": "View all treatments in this group",
+            "access": {
+              "label": "View all treatments in this group",
+              "href": "/treatments/therapeutic-facial-injectables"
+            }
+          },
+          {
+            "id": "facial_aesthetics",
+            "label": "Facial Aesthetics",
+            "hub": "/treatments/anti-wrinkle-treatments",
+            "intro": "Aesthetic injectables to soften lines and restore volume.",
+            "collapsedByDefault": true,
+            "featuredOnly": true,
+            "featuredSlugs": [
+              "anti-wrinkle-treatments",
+              "dermal-fillers"
+            ],
+            "allSlugs": [
+              "anti-wrinkle-treatments",
+              "dermal-fillers"
+            ],
+            "viewAllLabel": "View all treatments in this group",
+            "access": {
+              "label": "View all treatments in this group",
+              "href": "/treatments/anti-wrinkle-treatments"
+            }
+          },
+          {
+            "id": "digital_3d_dentistry",
+            "label": "Digital & 3D Dentistry",
+            "hub": "/treatments/3d-digital-dentistry",
+            "intro": "CBCT imaging, digital planning, and 3D-printed guides and restorations.",
+            "collapsedByDefault": true,
+            "featuredOnly": true,
             "featuredSlugs": [
               "3d-digital-dentistry",
               "cbct-3d-scanning",
               "3d-printing-lab",
               "3d-implant-restorations",
-              "3d-printed-dentures",
               "digital-smile-design"
             ],
             "allSlugs": [
@@ -832,33 +897,12 @@
               "3d-printed-veneers",
               "3d-printing-lab",
               "cbct-3d-scanning",
-              "digital-smile-design",
-              "implant-consultation"
+              "digital-smile-design"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
               "label": "View all treatments in this group",
               "href": "/treatments/3d-digital-dentistry"
-            }
-          },
-          {
-            "id": "facial",
-            "label": "Facial Aesthetics",
-            "hub": "/treatments/facial-aesthetics",
-            "intro": "Injectable facial aesthetics to soften lines and restore volume.",
-            "collapsedByDefault": true,
-            "featuredSlugs": [
-              "anti-wrinkle-treatments",
-              "dermal-fillers"
-            ],
-            "allSlugs": [
-              "anti-wrinkle-treatments",
-              "dermal-fillers"
-            ],
-            "viewAllLabel": "View all treatments in this group",
-            "access": {
-              "label": "View all treatments in this group",
-              "href": "/treatments/facial-aesthetics"
             }
           }
         ]
@@ -1080,9 +1124,9 @@
           "type": "feature-grid",
           "title": "Team members",
           "items": [
-            "Clinical leads — bios in progress",
-            "Hygiene and therapy — caring guides",
-            "Support staff — coordinating each visit"
+            "Clinical leads \u2014 bios in progress",
+            "Hygiene and therapy \u2014 caring guides",
+            "Support staff \u2014 coordinating each visit"
           ],
           "label": "Team grid"
         },
@@ -1438,7 +1482,7 @@
             "preset": "primary"
           },
           {
-            "label": "What’s included in a check-up?",
+            "label": "What\u2019s included in a check-up?",
             "href": "/dental-checkups-oral-cancer-screening",
             "preset": "secondary"
           }
@@ -1450,7 +1494,7 @@
             "preset": "primary"
           },
           {
-            "label": "What’s included in a check-up?",
+            "label": "What\u2019s included in a check-up?",
             "href": "/dental-checkups-oral-cancer-screening",
             "preset": "secondary"
           }
@@ -1510,7 +1554,7 @@
               "preset": "primary"
             },
             {
-              "label": "What’s included in a check-up?",
+              "label": "What\u2019s included in a check-up?",
               "href": "/dental-checkups-oral-cancer-screening",
               "preset": "secondary"
             }
@@ -2079,7 +2123,7 @@
         {
           "id": "composite_indications",
           "type": "features",
-          "title": "What composite bonding can and can’t do",
+          "title": "What composite bonding can and can\u2019t do",
           "items": [
             "Adds volume to close small gaps, soften edges, and refine proportions without drilling healthy enamel",
             "Repairs chipped or worn incisal edges; larger fractures or weakened teeth may need onlays or crowns",
@@ -2116,7 +2160,7 @@
             "When colour is the main concern, dentist-led whitening is usually recommended before bonding so shades align",
             "If teeth are rotated or crowded, aligners or other orthodontic treatment can set the foundation before cosmetic bonding",
             "For larger shape changes or durability, porcelain veneers or digitally designed 3D veneers may be more appropriate",
-            "Composite bonding often forms part of an Align → Bleach → Composite pathway, with veneers reserved for specific needs"
+            "Composite bonding often forms part of an Align \u2192 Bleach \u2192 Composite pathway, with veneers reserved for specific needs"
           ]
         },
         {
@@ -2133,7 +2177,7 @@
         {
           "id": "composite_not_suited",
           "type": "features",
-          "title": "When bonding isn’t the best choice",
+          "title": "When bonding isn\u2019t the best choice",
           "items": [
             "Heavy bites or active clenching with limited space may need occlusal therapy or guards first",
             "Severe wear or bite collapse often requires orthodontics, onlays, or veneers for stability",
@@ -2379,7 +2423,7 @@
           "id": "whitening_consult_overview",
           "type": "treatment_overview_rich",
           "title": "A measured plan tailored to your smile",
-          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we’ll review progress.",
+          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You\u2019ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we\u2019ll review progress.",
           "bullets": [
             "Clinical exam and baseline shade recording",
             "Digital scans for precise tray production",
@@ -2513,7 +2557,7 @@
           "faqs": [
             {
               "question": "How long will I wear the trays each day?",
-              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
+              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We\u2019ll agree the exact cadence with you."
             },
             {
               "question": "What if my teeth feel sensitive?",
@@ -2573,7 +2617,7 @@
           "bullets": [
             "Shade comparison against your baseline",
             "Inspection of trays for seal and comfort",
-            "Discussion of how often you’ll realistically top-up",
+            "Discussion of how often you\u2019ll realistically top-up",
             "Guidance if restorations need refreshing instead of whitening",
             "Written instructions for the latest gel strength"
           ]
@@ -2603,7 +2647,7 @@
             },
             {
               "question": "Can I reuse my old trays?",
-              "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
+              "answer": "Yes, provided the fit is still secure. We\u2019ll check for wear or gaps before supplying gel."
             },
             {
               "question": "Will I need stronger gel each time?",
@@ -2753,11 +2797,11 @@
             },
             {
               "question": "How long does whitening last?",
-              "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
+              "answer": "Results are maintained with good hygiene and occasional top-ups. We\u2019ll guide you on a safe refresh schedule using your existing trays."
             },
             {
               "question": "Is whitening part of a smile makeover?",
-              "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
+              "answer": "Often yes. Whitening is the \u201cB\u201d in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
             }
           ]
         },
@@ -2852,7 +2896,7 @@
           "id": "full_smile_makeover_clinician_insight",
           "type": "clinician_insight",
           "label": "Clinician insight",
-          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
+          "quote": "A clear roadmap means every stage\u2014alignment, colour, restorations\u2014stays coordinated and calm.",
           "attribution": "Clinical team",
           "role": "Smile design"
         },
@@ -3091,8 +3135,8 @@
         {
           "id": "emergency_appointments_overview",
           "type": "treatment_overview_rich",
-          "title": "Same-day appointments when something can’t wait",
-          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We’ll stabilise the area, ease discomfort, and plan the next steps together.",
+          "title": "Same-day appointments when something can\u2019t wait",
+          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We\u2019ll stabilise the area, ease discomfort, and plan the next steps together.",
           "bullets": [
             "Phone triage to book the right appointment length",
             "Advice on caring for the area before you arrive",
@@ -3508,7 +3552,7 @@
           "title": "What to do immediately",
           "items": [
             "Handle the tooth by the crown only; avoid touching the root",
-            "If dirty, gently rinse with cold running water for a few seconds—do not scrub",
+            "If dirty, gently rinse with cold running water for a few seconds\u2014do not scrub",
             "Place the tooth back into the socket if you can and bite gently on a clean cloth",
             "If you cannot reinsert it, store it in milk or saliva (not water)",
             "Call us straight away and travel to the practice"
@@ -4021,7 +4065,7 @@
           "bullets": [
             "Gentle, unhurried check-ups with the same clinical team",
             "Prevention plans tailored to your enamel, gums, and lifestyle",
-            "Clear guidance if you’re anxious or prefer slower appointments"
+            "Clear guidance if you\u2019re anxious or prefer slower appointments"
           ],
           "ctas": [
             {
@@ -4084,7 +4128,7 @@
             "Polishing and airflow-style finishing where suitable for stain control",
             "Tips to improve brushing and interdental cleaning at home",
             "Why visits matter even if you brush well: hidden build-up and hard-to-reach areas",
-            "Preventing gum disease and bad breath with tailored intervals—see periodontal care (/treatments/periodontal-gum-care)"
+            "Preventing gum disease and bad breath with tailored intervals\u2014see periodontal care (/treatments/periodontal-gum-care)"
           ],
           "strapline": "Regular hygiene keeps gums healthy and helps fillings, crowns, and implants last longer."
         },
@@ -4099,7 +4143,7 @@
           "title": "Simple, science-led guidance you can follow",
           "body": "We create a plan that fits your daily routine so small adjustments have a big impact.",
           "bullets": [
-            "Fluoride advice matched to your risk level—no pushy sales",
+            "Fluoride advice matched to your risk level\u2014no pushy sales",
             "Diet and sugar-frequency guidance with practical swaps",
             "Support for sensitive teeth, including gentle techniques and desensitising care",
             "Custom lab-made sports mouthguards for contact or ball sports (/treatments/sports-mouthguards)"
@@ -4136,7 +4180,7 @@
             "Teens and young adults: monitoring wisdom teeth, orthodontic retainers, and sports protection",
             "Young-at-heart retirees: focus on comfort, function, and maintaining existing restorations",
             "Medical changes considered so your plan stays safe and effective",
-            "Appointment pacing adjusted if you’re nervous or prefer slower visits"
+            "Appointment pacing adjusted if you\u2019re nervous or prefer slower visits"
           ]
         },
         {
@@ -4173,11 +4217,11 @@
             },
             {
               "question": "Do you check for mouth cancer?",
-              "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you’ve noticed."
+              "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you\u2019ve noticed."
             },
             {
-              "question": "I’m nervous — can you go slowly?",
-              "answer": "Absolutely. Tell us ahead of time and we’ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
+              "question": "I\u2019m nervous \u2014 can you go slowly?",
+              "answer": "Absolutely. Tell us ahead of time and we\u2019ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
             },
             {
               "question": "Is home whitening better?",
@@ -4194,7 +4238,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book your comprehensive dental exam",
-          "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
+          "body": "Speak to us about a prevention-first plan. If you\u2019re anxious, tell us \u2014 we\u2019ll tailor the visit and pace it carefully.",
           "ctas": [
             {
               "label": "Dental check-ups & oral cancer screening",
@@ -4213,7 +4257,7 @@
     },
     "childrens_dentistry": {
       "id": "childrens_dentistry",
-      "label": "Children’s dentistry",
+      "label": "Children\u2019s dentistry",
       "path": "/treatments/childrens-dentistry",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -4225,7 +4269,7 @@
           "variantId": "smh_childrens_dentistry_hero",
           "order": 10,
           "seoRole": "hero",
-          "eyebrow": "Children’s dentistry",
+          "eyebrow": "Children\u2019s dentistry",
           "title": "Gentle check-ups that build lifelong habits",
           "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
           "bullets": [
@@ -4235,7 +4279,7 @@
           ],
           "ctas": [
             {
-              "label": "Book a children’s check-up",
+              "label": "Book a children\u2019s check-up",
               "href": "/contact?topic=children",
               "preset": "primary"
             },
@@ -4270,7 +4314,7 @@
           "variantId": "smh_childrens_dentistry_checkup",
           "order": 30,
           "seoRole": "primaryContent",
-          "eyebrow": "What a children’s check-up includes",
+          "eyebrow": "What a children\u2019s check-up includes",
           "title": "Gentle exams with practical guidance",
           "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
           "bullets": [
@@ -4335,7 +4379,7 @@
           "seoRole": "supporting",
           "eyebrow": "When we suggest an orthodontic chat",
           "title": "Early guidance keeps options open",
-          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—always explained clearly to families.",
+          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we\u2019ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right\u2014always explained clearly to families.",
           "mediaHint": "Monitoring bite, spacing, and eruption patterns"
         },
         {
@@ -4345,12 +4389,12 @@
           "variantId": "smh_childrens_dentistry_faq",
           "order": 80,
           "seoRole": "faq",
-          "eyebrow": "Children’s dentistry FAQs",
+          "eyebrow": "Children\u2019s dentistry FAQs",
           "title": "Answers for parents",
           "faqs": [
             {
               "question": "When should my child first visit?",
-              "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+              "answer": "We\u2019re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
             },
             {
               "question": "How often should they come?",
@@ -4362,7 +4406,7 @@
             },
             {
               "question": "What if my child is scared?",
-              "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+              "answer": "Tell us ahead of time and we\u2019ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
             }
           ]
         },
@@ -4375,10 +4419,10 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a gentle check-up for your child",
-          "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+          "body": "We\u2019ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
           "ctas": [
             {
-              "label": "Book a children’s appointment",
+              "label": "Book a children\u2019s appointment",
               "href": "/contact?topic=children",
               "variant": "primary"
             },
@@ -4476,7 +4520,7 @@
           "bullets": [
             "We check for bleeding, plaque build-up, and gum measurements",
             "X-rays or scans help us see bone levels where needed",
-            "You’ll receive a clear, written plan before any therapy"
+            "You\u2019ll receive a clear, written plan before any therapy"
           ]
         },
         {
@@ -4536,7 +4580,7 @@
           "title": "Keeping gums healthy after treatment",
           "items": [
             "Short-term tenderness or temperature sensitivity is common and settles with good home care",
-            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
+            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing \u2014 we\u2019ll factor this into your plan",
             "Regular supportive periodontal therapy to maintain pocket depth reductions",
             "Clear instructions on cleaning around teeth and implants to protect results"
           ]
@@ -4553,7 +4597,7 @@
           "faqs": [
             {
               "question": "Does deep cleaning hurt?",
-              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You’ll be guided on what to expect and how to keep things comfortable afterwards."
+              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You\u2019ll be guided on what to expect and how to keep things comfortable afterwards."
             },
             {
               "question": "How long does it take to see improvement?",
@@ -4561,11 +4605,11 @@
             },
             {
               "question": "Can gum tissue grow back?",
-              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we’ll discuss options if grafting or referral is appropriate."
+              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we\u2019ll discuss options if grafting or referral is appropriate."
             },
             {
               "question": "What about implants with gum inflammation?",
-              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we’ll outline referral options calmly."
+              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we\u2019ll outline referral options calmly."
             }
           ]
         },
@@ -4578,7 +4622,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a periodontal assessment",
-          "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+          "body": "Let\u2019s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
           "ctas": [
             {
               "label": "Schedule a gum review",
@@ -4640,13 +4684,13 @@
           "eyebrow": "When treatment is needed",
           "title": "Signs a tooth may need endodontic care",
           "items": [
-            "Lingering hot or cold sensitivity that doesn’t settle quickly",
+            "Lingering hot or cold sensitivity that doesn\u2019t settle quickly",
             "Spontaneous or night pain that radiates to the jaw or ear",
             "Swelling, tenderness, or a pimple on the gum near the tooth",
             "Cracks, deep decay, or a failing filling that has reached the nerve",
             "Pain when biting that suggests nerve inflammation or infection"
           ],
-          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently — emergency dentistry support is available."
+          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently \u2014 emergency dentistry support is available."
         },
         {
           "id": "endodontics-root-canal-process",
@@ -4705,7 +4749,7 @@
           "seoRole": "supporting",
           "eyebrow": "Risks, limits & alternatives",
           "title": "Honest guidance before we start",
-          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You’ll know the backup plan before consenting.",
+          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You\u2019ll know the backup plan before consenting.",
           "bullets": [
             "Discusses structural strength and whether a crown is needed",
             "Explains limits of heavily cracked or previously treated teeth",
@@ -4727,7 +4771,7 @@
             "Most treated teeth remain comfortable and functional for many years",
             "Bite checks reduce the risk of fractures after treatment",
             "Regular hygiene visits help prevent reinfection from new decay",
-            "If a tooth cannot be saved, we’ll plan extractions and future implant or bridge options"
+            "If a tooth cannot be saved, we\u2019ll plan extractions and future implant or bridge options"
           ]
         },
         {
@@ -4753,7 +4797,7 @@
               "answer": "Back teeth or heavily restored teeth often benefit from a crown to prevent fractures. We will explain the best way to seal and protect your tooth."
             },
             {
-              "question": "What if the tooth can’t be saved?",
+              "question": "What if the tooth can\u2019t be saved?",
               "answer": "We will outline alternatives such as extraction with healing guidance and future replacement options like bridges or implants if appropriate."
             }
           ]
@@ -4800,7 +4844,7 @@
           "seoRole": "hero",
           "eyebrow": "Extractions & oral surgery",
           "title": "Gentle extractions with clear surgical planning",
-          "body": "When a tooth can’t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+          "body": "When a tooth can\u2019t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
           "bullets": [
             "Calm assessments that explain when extraction is the safest route",
             "Minimally invasive techniques to protect bone and gum",
@@ -4935,7 +4979,7 @@
             },
             {
               "question": "How long is recovery?",
-              "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
+              "answer": "Most people are comfortable after a few days with steady improvement over 1\u20132 weeks. We give written instructions to support smooth healing."
             },
             {
               "question": "Can the tooth be replaced?",
@@ -4943,7 +4987,7 @@
             },
             {
               "question": "What if the tooth could be saved?",
-              "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
+              "answer": "If a filling, crown, or root canal could provide a predictable result, we\u2019ll explain that option first so you can make an informed choice."
             }
           ]
         },
@@ -4956,7 +5000,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Need advice about a troublesome tooth?",
-          "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+          "body": "We\u2019ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
           "ctas": [
             {
               "label": "Book an oral surgery consult",
@@ -5197,7 +5241,7 @@
           "type": "treatment_media_feature",
           "label": "Realistic timelines",
           "title": "Clear expectations on timing and feel",
-          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1–3 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
+          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1\u20133 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
           "mediaHint": "Calm scheduling map"
         },
         {
@@ -5547,84 +5591,27 @@
   },
   "treatmentGroups": [
     {
-      "id": "emergency",
-      "label": "Emergency",
-      "hub": "/treatments/emergency-dentistry",
-      "description": "Same-day assessments for pain, swelling, trauma, or urgent issues.",
-      "collapsedByDefault": true,
-      "slugs": [
-        "broken-chipped-cracked-teeth",
-        "emergency-dental-appointments",
-        "emergency-dentistry",
-        "facial-pain-and-headache",
-        "painless-numbing-the-wand",
-        "severe-toothache-dental-pain",
-        "tooth-wear-broken-teeth"
-      ],
-      "featuredSlugs": [
-        "emergency-dentistry",
-        "emergency-dental-appointments",
-        "broken-chipped-cracked-teeth",
-        "severe-toothache-dental-pain",
-        "facial-pain-and-headache",
-        "painless-numbing-the-wand"
-      ],
-      "viewAllLabel": "View all treatments in this group",
-      "inventoryHiddenByDefault": true,
-      "inventory": {
-        "hiddenByDefault": true,
-        "access": {
-          "label": "View all treatments in this group",
-          "href": "/treatments/emergency-dentistry"
-        },
-        "slugs": [
-          "broken-chipped-cracked-teeth",
-          "emergency-dental-appointments",
-          "emergency-dentistry",
-          "facial-pain-and-headache",
-          "painless-numbing-the-wand",
-          "severe-toothache-dental-pain",
-          "tooth-wear-broken-teeth"
-        ]
-      },
-      "showOnHub": true
-    },
-    {
-      "id": "general",
+      "id": "general_dentistry",
       "label": "General Dentistry",
       "hub": "/treatments/preventative-and-general-dentistry",
-      "description": "Check-ups, gum care, root canal, and everyday oral health support.",
+      "description": "Check-ups, gum care, and everyday oral health support.",
       "collapsedByDefault": true,
+      "featuredOnly": true,
       "slugs": [
         "dental-checkups-oral-cancer-screening",
-        "bruxism-and-jaw-clenching",
-        "childrens-dentistry",
-        "dental-abscess-infection",
-        "dental-trauma-accidents",
-        "endodontics-root-canal",
-        "extractions-and-oral-surgery",
-        "injection-moulded-composite",
-        "knocked-out-tooth",
-        "nervous-patients",
-        "night-guards-occlusal-splints",
-        "periodontal-gum-care",
-        "polynucleotides",
         "preventative-and-general-dentistry",
-        "sedation-dentistry",
+        "periodontal-gum-care",
+        "childrens-dentistry",
         "senior-mature-smile-care",
-        "skin-boosters",
-        "sports-mouthguards",
-        "therapeutic-facial-injectables",
-        "tmj-disorder-treatment",
-        "tmj-jaw-comfort"
+        "nervous-patients",
+        "sedation-dentistry"
       ],
       "featuredSlugs": [
         "preventative-and-general-dentistry",
+        "dental-checkups-oral-cancer-screening",
         "periodontal-gum-care",
-        "endodontics-root-canal",
         "childrens-dentistry",
-        "senior-mature-smile-care",
-        "nervous-patients"
+        "senior-mature-smile-care"
       ],
       "viewAllLabel": "View all treatments in this group",
       "inventoryHiddenByDefault": true,
@@ -5636,47 +5623,93 @@
         },
         "slugs": [
           "dental-checkups-oral-cancer-screening",
-          "bruxism-and-jaw-clenching",
-          "childrens-dentistry",
-          "dental-abscess-infection",
-          "dental-trauma-accidents",
-          "endodontics-root-canal",
-          "extractions-and-oral-surgery",
-          "injection-moulded-composite",
-          "knocked-out-tooth",
-          "nervous-patients",
-          "night-guards-occlusal-splints",
-          "periodontal-gum-care",
-          "polynucleotides",
           "preventative-and-general-dentistry",
-          "sedation-dentistry",
+          "periodontal-gum-care",
+          "childrens-dentistry",
           "senior-mature-smile-care",
-          "skin-boosters",
-          "sports-mouthguards",
-          "therapeutic-facial-injectables",
-          "tmj-disorder-treatment",
-          "tmj-jaw-comfort"
+          "nervous-patients",
+          "sedation-dentistry"
         ]
       },
       "showOnHub": true
     },
     {
-      "id": "restorative",
-      "label": "Crowns & Bridges (Non-Implant)",
-      "hub": "/treatments/dental-crowns",
-      "description": "Repairs with crowns, bridges, and onlays that protect natural teeth.",
+      "id": "emergency_dentistry",
+      "label": "Emergency Dentistry",
+      "hub": "/treatments/emergency-dentistry",
+      "description": "Same-day help for pain, swelling, trauma, or urgent issues.",
       "collapsedByDefault": true,
+      "featuredOnly": true,
       "slugs": [
-        "dental-bridges",
+        "emergency-dentistry",
+        "emergency-dental-appointments",
+        "broken-chipped-cracked-teeth",
+        "severe-toothache-dental-pain",
+        "facial-pain-and-headache",
+        "painless-numbing-the-wand",
+        "tooth-wear-broken-teeth",
+        "knocked-out-tooth"
+      ],
+      "featuredSlugs": [
+        "emergency-dentistry",
+        "emergency-dental-appointments",
+        "broken-chipped-cracked-teeth",
+        "severe-toothache-dental-pain",
+        "knocked-out-tooth"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "inventory": {
+        "hiddenByDefault": true,
+        "access": {
+          "label": "View all treatments in this group",
+          "href": "/treatments/emergency-dentistry"
+        },
+        "slugs": [
+          "emergency-dentistry",
+          "emergency-dental-appointments",
+          "broken-chipped-cracked-teeth",
+          "severe-toothache-dental-pain",
+          "facial-pain-and-headache",
+          "painless-numbing-the-wand",
+          "tooth-wear-broken-teeth",
+          "knocked-out-tooth"
+        ]
+      },
+      "showOnHub": true
+    },
+    {
+      "id": "advanced_restorative_dentistry",
+      "label": "Advanced Restorative Dentistry",
+      "hub": "/treatments/dental-crowns",
+      "description": "Crowns, bridges, veneers, and smile repairs that protect teeth.",
+      "collapsedByDefault": true,
+      "featuredOnly": true,
+      "slugs": [
         "dental-crowns",
+        "dental-bridges",
         "inlays-onlays",
-        "lost-crowns-veneers-fillings"
+        "lost-crowns-veneers-fillings",
+        "injection-moulded-composite",
+        "dentures",
+        "acrylic-dentures",
+        "chrome-dentures",
+        "peek-partial-dentures",
+        "veneers",
+        "composite-bonding",
+        "home-teeth-whitening",
+        "teeth-whitening",
+        "teeth-whitening-faqs",
+        "full-smile-makeover",
+        "whitening-sensitive-teeth",
+        "whitening-top-ups"
       ],
       "featuredSlugs": [
         "dental-crowns",
         "dental-bridges",
-        "inlays-onlays",
-        "lost-crowns-veneers-fillings"
+        "veneers",
+        "composite-bonding",
+        "dentures"
       ],
       "viewAllLabel": "View all treatments in this group",
       "inventoryHiddenByDefault": true,
@@ -5687,40 +5720,54 @@
           "href": "/treatments/dental-crowns"
         },
         "slugs": [
-          "dental-bridges",
           "dental-crowns",
+          "dental-bridges",
           "inlays-onlays",
-          "lost-crowns-veneers-fillings"
+          "lost-crowns-veneers-fillings",
+          "injection-moulded-composite",
+          "dentures",
+          "acrylic-dentures",
+          "chrome-dentures",
+          "peek-partial-dentures",
+          "veneers",
+          "composite-bonding",
+          "home-teeth-whitening",
+          "teeth-whitening",
+          "teeth-whitening-faqs",
+          "full-smile-makeover",
+          "whitening-sensitive-teeth",
+          "whitening-top-ups"
         ]
       },
       "showOnHub": true
     },
     {
-      "id": "implants",
-      "label": "Implants",
+      "id": "dental_implants",
+      "label": "Dental Implants",
       "hub": "/treatments/implants",
       "description": "Consultation, placement, grafting, and restoration for missing teeth.",
       "collapsedByDefault": true,
+      "featuredOnly": true,
       "slugs": [
+        "implants",
+        "implants-single-tooth",
+        "implants-multiple-teeth",
+        "implants-full-arch",
+        "implants-bone-grafting",
+        "teeth-in-a-day",
         "failed-implant-replacement",
         "implant-aftercare",
         "implant-retained-dentures",
-        "implants",
-        "implants-bone-grafting",
-        "implants-full-arch",
-        "implants-multiple-teeth",
-        "implants-single-tooth",
         "sedation-for-implants",
         "sinus-lift",
-        "teeth-in-a-day"
+        "implant-consultation"
       ],
       "featuredSlugs": [
         "implants",
         "implants-single-tooth",
         "implants-multiple-teeth",
         "implants-full-arch",
-        "implants-bone-grafting",
-        "teeth-in-a-day"
+        "implants-bone-grafting"
       ],
       "viewAllLabel": "View all treatments in this group",
       "inventoryHiddenByDefault": true,
@@ -5731,38 +5778,40 @@
           "href": "/treatments/implants"
         },
         "slugs": [
+          "implants",
+          "implants-single-tooth",
+          "implants-multiple-teeth",
+          "implants-full-arch",
+          "implants-bone-grafting",
+          "teeth-in-a-day",
           "failed-implant-replacement",
           "implant-aftercare",
           "implant-retained-dentures",
-          "implants",
-          "implants-bone-grafting",
-          "implants-full-arch",
-          "implants-multiple-teeth",
-          "implants-single-tooth",
           "sedation-for-implants",
           "sinus-lift",
-          "teeth-in-a-day"
+          "implant-consultation"
         ]
       },
       "showOnHub": true
     },
     {
-      "id": "dentures",
-      "label": "Dentures (Non-3D)",
-      "hub": "/treatments/dentures",
-      "description": "Conventional acrylic and chrome dentures shaped for comfort and fit.",
+      "id": "endodontics_oral_surgery",
+      "label": "Endodontics & Oral Surgery",
+      "hub": "/treatments/endodontics-root-canal",
+      "description": "Root canal care and oral surgery for infected or damaged teeth.",
       "collapsedByDefault": true,
+      "featuredOnly": true,
       "slugs": [
-        "acrylic-dentures",
-        "chrome-dentures",
-        "dentures",
-        "peek-partial-dentures"
+        "endodontics-root-canal",
+        "extractions-and-oral-surgery",
+        "dental-abscess-infection",
+        "dental-trauma-accidents"
       ],
       "featuredSlugs": [
-        "dentures",
-        "acrylic-dentures",
-        "chrome-dentures",
-        "peek-partial-dentures"
+        "endodontics-root-canal",
+        "extractions-and-oral-surgery",
+        "dental-abscess-infection",
+        "dental-trauma-accidents"
       ],
       "viewAllLabel": "View all treatments in this group",
       "inventoryHiddenByDefault": true,
@@ -5770,83 +5819,37 @@
         "hiddenByDefault": true,
         "access": {
           "label": "View all treatments in this group",
-          "href": "/treatments/dentures"
+          "href": "/treatments/endodontics-root-canal"
         },
         "slugs": [
-          "acrylic-dentures",
-          "chrome-dentures",
-          "dentures",
-          "peek-partial-dentures"
+          "endodontics-root-canal",
+          "extractions-and-oral-surgery",
+          "dental-abscess-infection",
+          "dental-trauma-accidents"
         ]
       },
       "showOnHub": true
     },
     {
-      "id": "cosmetic",
-      "label": "Cosmetic Dentistry",
-      "hub": "/treatments/veneers",
-      "description": "Whitening, veneers, bonding, and smile makeovers planned conservatively.",
-      "collapsedByDefault": true,
-      "slugs": [
-        "composite-bonding",
-        "full-smile-makeover",
-        "home-teeth-whitening",
-        "teeth-whitening",
-        "teeth-whitening-faqs",
-        "veneers",
-        "whitening-sensitive-teeth",
-        "whitening-top-ups"
-      ],
-      "featuredSlugs": [
-        "veneers",
-        "composite-bonding",
-        "teeth-whitening",
-        "home-teeth-whitening",
-        "full-smile-makeover",
-        "whitening-sensitive-teeth"
-      ],
-      "viewAllLabel": "View all treatments in this group",
-      "inventoryHiddenByDefault": true,
-      "inventory": {
-        "hiddenByDefault": true,
-        "access": {
-          "label": "View all treatments in this group",
-          "href": "/treatments/veneers"
-        },
-        "slugs": [
-          "composite-bonding",
-          "full-smile-makeover",
-          "home-teeth-whitening",
-          "teeth-whitening",
-          "teeth-whitening-faqs",
-          "veneers",
-          "whitening-sensitive-teeth",
-          "whitening-top-ups"
-        ]
-      },
-      "showOnHub": true
-    },
-    {
-      "id": "ortho",
+      "id": "orthodontics",
       "label": "Orthodontics",
       "hub": "/treatments/orthodontics",
-      "description": "Aligners, braces, and retainers with paced reviews to keep movements safe.",
+      "description": "Aligners, braces, and retainers with paced reviews.",
       "collapsedByDefault": true,
+      "featuredOnly": true,
       "slugs": [
+        "orthodontics",
         "clear-aligners",
         "clear-aligners-spark",
-        "dental-retainers",
         "fixed-braces",
-        "mouthguards-and-retainers",
-        "orthodontics"
+        "dental-retainers"
       ],
       "featuredSlugs": [
         "orthodontics",
         "clear-aligners",
         "clear-aligners-spark",
         "fixed-braces",
-        "dental-retainers",
-        "mouthguards-and-retainers"
+        "dental-retainers"
       ],
       "viewAllLabel": "View all treatments in this group",
       "inventoryHiddenByDefault": true,
@@ -5857,22 +5860,126 @@
           "href": "/treatments/orthodontics"
         },
         "slugs": [
+          "orthodontics",
           "clear-aligners",
           "clear-aligners-spark",
-          "dental-retainers",
           "fixed-braces",
-          "mouthguards-and-retainers",
-          "orthodontics"
+          "dental-retainers"
         ]
       },
       "showOnHub": true
     },
     {
-      "id": "digital3d",
-      "label": "3D / Digital Dentistry",
-      "hub": "/treatments/3d-digital-dentistry",
-      "description": "CBCT imaging, guided planning, and 3D-printed restorations and guides.",
+      "id": "occlusal_therapy_guards",
+      "label": "Occlusal Therapy & Guards",
+      "hub": "/treatments/night-guards-occlusal-splints",
+      "description": "Night guards, TMJ care, and sports mouthguards to protect comfort.",
       "collapsedByDefault": true,
+      "featuredOnly": true,
+      "slugs": [
+        "bruxism-and-jaw-clenching",
+        "night-guards-occlusal-splints",
+        "tmj-disorder-treatment",
+        "tmj-jaw-comfort",
+        "sports-mouthguards",
+        "mouthguards-and-retainers"
+      ],
+      "featuredSlugs": [
+        "bruxism-and-jaw-clenching",
+        "night-guards-occlusal-splints",
+        "tmj-disorder-treatment",
+        "sports-mouthguards",
+        "mouthguards-and-retainers"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "inventory": {
+        "hiddenByDefault": true,
+        "access": {
+          "label": "View all treatments in this group",
+          "href": "/treatments/night-guards-occlusal-splints"
+        },
+        "slugs": [
+          "bruxism-and-jaw-clenching",
+          "night-guards-occlusal-splints",
+          "tmj-disorder-treatment",
+          "tmj-jaw-comfort",
+          "sports-mouthguards",
+          "mouthguards-and-retainers"
+        ]
+      },
+      "showOnHub": true
+    },
+    {
+      "id": "facial_therapeutics",
+      "label": "Facial Therapeutics",
+      "hub": "/treatments/therapeutic-facial-injectables",
+      "description": "Clinical injectables and regenerative support for comfort and healing.",
+      "collapsedByDefault": true,
+      "featuredOnly": true,
+      "slugs": [
+        "therapeutic-facial-injectables",
+        "polynucleotides",
+        "skin-boosters"
+      ],
+      "featuredSlugs": [
+        "therapeutic-facial-injectables",
+        "polynucleotides",
+        "skin-boosters"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "inventory": {
+        "hiddenByDefault": true,
+        "access": {
+          "label": "View all treatments in this group",
+          "href": "/treatments/therapeutic-facial-injectables"
+        },
+        "slugs": [
+          "therapeutic-facial-injectables",
+          "polynucleotides",
+          "skin-boosters"
+        ]
+      },
+      "showOnHub": true
+    },
+    {
+      "id": "facial_aesthetics",
+      "label": "Facial Aesthetics",
+      "hub": "/treatments/anti-wrinkle-treatments",
+      "description": "Aesthetic injectables to soften lines and restore volume.",
+      "collapsedByDefault": true,
+      "featuredOnly": true,
+      "slugs": [
+        "anti-wrinkle-treatments",
+        "dermal-fillers"
+      ],
+      "featuredSlugs": [
+        "anti-wrinkle-treatments",
+        "dermal-fillers"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "inventory": {
+        "hiddenByDefault": true,
+        "access": {
+          "label": "View all treatments in this group",
+          "href": "/treatments/anti-wrinkle-treatments"
+        },
+        "slugs": [
+          "anti-wrinkle-treatments",
+          "dermal-fillers"
+        ]
+      },
+      "showOnHub": true
+    },
+    {
+      "id": "digital_3d_dentistry",
+      "label": "Digital & 3D Dentistry",
+      "hub": "/treatments/3d-digital-dentistry",
+      "description": "CBCT imaging, digital planning, and 3D-printed guides and restorations.",
+      "collapsedByDefault": true,
+      "featuredOnly": true,
       "slugs": [
         "3d-digital-dentistry",
         "3d-implant-restorations",
@@ -5880,15 +5987,13 @@
         "3d-printed-veneers",
         "3d-printing-lab",
         "cbct-3d-scanning",
-        "digital-smile-design",
-        "implant-consultation"
+        "digital-smile-design"
       ],
       "featuredSlugs": [
         "3d-digital-dentistry",
         "cbct-3d-scanning",
         "3d-printing-lab",
         "3d-implant-restorations",
-        "3d-printed-dentures",
         "digital-smile-design"
       ],
       "viewAllLabel": "View all treatments in this group",
@@ -5906,37 +6011,7 @@
           "3d-printed-veneers",
           "3d-printing-lab",
           "cbct-3d-scanning",
-          "digital-smile-design",
-          "implant-consultation"
-        ]
-      },
-      "showOnHub": true
-    },
-    {
-      "id": "facial",
-      "label": "Facial Aesthetics",
-      "hub": "/treatments/facial-aesthetics",
-      "description": "Injectable facial aesthetics to soften lines and restore volume.",
-      "collapsedByDefault": true,
-      "slugs": [
-        "anti-wrinkle-treatments",
-        "dermal-fillers"
-      ],
-      "featuredSlugs": [
-        "anti-wrinkle-treatments",
-        "dermal-fillers"
-      ],
-      "viewAllLabel": "View all treatments in this group",
-      "inventoryHiddenByDefault": true,
-      "inventory": {
-        "hiddenByDefault": true,
-        "access": {
-          "label": "View all treatments in this group",
-          "href": "/treatments/facial-aesthetics"
-        },
-        "slugs": [
-          "anti-wrinkle-treatments",
-          "dermal-fillers"
+          "digital-smile-design"
         ]
       },
       "showOnHub": true
