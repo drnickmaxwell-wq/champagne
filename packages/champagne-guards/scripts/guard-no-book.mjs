@@ -8,6 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '../../..');
 
+const manifestDataRoot = path.join('packages', 'champagne-manifests', 'data');
+const ignoredSegments = [/\/_imports\//, /\/reports\//, /\/docs\//, /\/node_modules\//];
+
 const scanRoots = ['apps', 'packages', 'public'];
 const retiredBookingSegment = 'book';
 const retiredBookingTarget = `/${retiredBookingSegment}`;
@@ -50,6 +53,14 @@ function run() {
     const content = rest.join(':');
 
     if (!file || isAllowed(file)) continue;
+    if (ignoredSegments.some((pattern) => pattern.test(file))) continue;
+
+    const isManifestData =
+      file.startsWith(`${manifestDataRoot}/`) || file.includes(`/${manifestDataRoot}/`);
+    if (isManifestData && content.includes(retiredBookingTarget)) {
+      violations.push(`${file}:${lineNo} → ${content.trim()}`);
+      continue;
+    }
 
     const matchesRouting = routingPatterns.some((pattern) => pattern.test(content));
     if (matchesRouting) {
