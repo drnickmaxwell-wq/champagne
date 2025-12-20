@@ -15,7 +15,8 @@ export interface SectionRegistryEntry {
     | "clinician_insight"
     | "patient_stories_rail"
     | "treatment_faq_block"
-    | "treatment_closing_cta";
+    | "treatment_closing_cta"
+    | "reviews";
   title?: string;
   body?: string;
   eyebrow?: string;
@@ -30,6 +31,9 @@ export interface SectionRegistryEntry {
   role?: string;
   strapline?: string;
   ctas?: { id?: string; label?: string; href?: string; preset?: string; variant?: string }[];
+  reviews?: { quote: string; name?: string; rating?: number; source?: string }[];
+  rating?: number;
+  reviewCount?: string;
   definition?: ChampagnePageSection | string;
 }
 
@@ -51,6 +55,7 @@ const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
   patient_stories_rail: "patient_stories_rail",
   treatment_faq_block: "treatment_faq_block",
   treatment_closing_cta: "treatment_closing_cta",
+  google_reviews: "reviews",
   routing_cards: "routing_cards",
 };
 
@@ -59,6 +64,7 @@ function deriveKind(type?: string): SectionRegistryEntry["kind"] {
   if (specializedKinds[type]) return specializedKinds[type];
   if (["text", "copy", "copy-block", "story", "faq", "accordion"].includes(type)) return "text";
   if (["media", "gallery", "carousel", "map", "slider", "lab"].includes(type)) return "media";
+  if (["reviews", "testimonials"].includes(type)) return "reviews";
   if (["routing_cards", "navigation_grid"].includes(type)) return "routing_cards";
   if (["feature-grid", "steps", "features", "feature-list", "pricing"].includes(type)) return "features";
   return "text";
@@ -144,6 +150,19 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
       }))
     : undefined;
 
+  const reviews = Array.isArray((definition as Record<string, unknown>).reviews)
+    ? ((definition as Record<string, unknown>).reviews as Record<string, unknown>[]).map((review, reviewIndex) => ({
+        quote:
+          (review.quote as string | undefined)
+          ?? (review.copy as string | undefined)
+          ?? (review.body as string | undefined)
+          ?? `Review snippet ${reviewIndex + 1}`,
+        name: (review.name as string | undefined) ?? (review.attribution as string | undefined),
+        rating: typeof review.rating === "number" ? (review.rating as number) : undefined,
+        source: (review.source as string | undefined) ?? (review.label as string | undefined),
+      }))
+    : undefined;
+
   return {
     id: sectionId,
     type: rawType,
@@ -156,6 +175,12 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
     bullets,
     faqs,
     stories,
+    reviews,
+    rating:
+      typeof (definition as Record<string, unknown>).rating === "number"
+        ? ((definition as Record<string, unknown>).rating as number)
+        : undefined,
+    reviewCount: (definition as Record<string, unknown>).reviewCount as string | undefined,
     quote: (definition.quote as string | undefined) ?? (definition.body as string | undefined),
     strapline: (definition.strapline as string | undefined) ?? (definition.subtitle as string | undefined),
     attribution: (definition.attribution as string | undefined) ?? (definition.clinician as string | undefined),
@@ -175,6 +200,12 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
       faqs,
       stories,
       ctas,
+      reviews,
+      rating:
+        typeof (definition as Record<string, unknown>).rating === "number"
+          ? ((definition as Record<string, unknown>).rating as number)
+          : undefined,
+      reviewCount: (definition as Record<string, unknown>).reviewCount as string | undefined,
     },
   } satisfies SectionRegistryEntry;
 }
