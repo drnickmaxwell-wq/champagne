@@ -7,21 +7,21 @@
     {
       "id": "general",
       "title": "General Dentistry",
-      "description": "Check-ups, gum care, root canal support, and everyday oral health.",
+      "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
       "featuredSlugs": [
-        "preventative-and-general-dentistry",
         "dental-checkups-oral-cancer-screening",
         "periodontal-gum-care",
+        "endodontics-root-canal",
         "childrens-dentistry",
-        "endodontics-root-canal"
+        "extractions-and-oral-surgery"
       ],
       "collapsedByDefault": true,
       "viewAllLabel": "View all treatments in this group"
     },
     {
       "id": "restorative",
-      "title": "Advanced Restorative Dentistry",
-      "description": "Crowns, bridges, onlays, dentures, and repairs for worn or broken teeth.",
+      "title": "Restorative Dentistry",
+      "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
       "featuredSlugs": [
         "dental-crowns",
         "dental-bridges",
@@ -35,12 +35,12 @@
     {
       "id": "implants",
       "title": "Dental Implants",
-      "description": "Consultation, placement, grafting, aftercare, and implant-retained options.",
+      "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
       "featuredSlugs": [
-        "implants",
         "implant-consultation",
         "implants-single-tooth",
         "implants-multiple-teeth",
+        "implants-full-arch",
         "implants-bone-grafting"
       ],
       "collapsedByDefault": true,
@@ -49,12 +49,11 @@
     {
       "id": "ortho_retainers",
       "title": "Orthodontics & Retainers",
-      "description": "Aligners, braces, and retention to keep movements paced and stable.",
+      "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
       "featuredSlugs": [
-        "orthodontics",
-        "fixed-braces",
         "clear-aligners",
         "clear-aligners-spark",
+        "fixed-braces",
         "dental-retainers"
       ],
       "collapsedByDefault": true,
@@ -62,38 +61,39 @@
     },
     {
       "id": "aesthetic",
-      "title": "Smile Aesthetics",
-      "description": "Whitening, veneers, bonding, and injection-moulded composite planning.",
+      "title": "Aesthetic Dentistry",
+      "description": "Composite bonding, veneers, and injection-moulded composite planning.",
       "featuredSlugs": [
-        "teeth-whitening",
         "composite-bonding",
         "veneers",
-        "injection-moulded-composite",
-        "full-smile-makeover"
+        "injection-moulded-composite"
       ],
       "collapsedByDefault": true,
       "viewAllLabel": "View all treatments in this group"
     },
     {
       "id": "night_guards",
-      "title": "Night Guards & Occlusal Splints",
-      "description": "Lab-made and 3D printed occlusal splints to protect teeth and joints.",
+      "title": "Night Guards & Occlusal Therapy",
+      "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
       "featuredSlugs": [
-        "night-guards-occlusal-splints"
+        "night-guards-occlusal-splints",
+        "bruxism-and-jaw-clenching",
+        "tmj-disorder-treatment",
+        "tmj-jaw-comfort"
       ],
       "collapsedByDefault": true,
       "viewAllLabel": "View all treatments in this group"
     },
     {
       "id": "digital_3d",
-      "title": "Digital & 3D Dentistry",
-      "description": "CBCT imaging, digital planning, smile design, and in-house 3D printing.",
+      "title": "3D & Digital Dentistry",
+      "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
       "featuredSlugs": [
         "3d-digital-dentistry",
         "cbct-3d-scanning",
-        "3d-implant-restorations",
+        "digital-smile-design",
         "3d-printing-lab",
-        "digital-smile-design"
+        "3d-implant-restorations"
       ],
       "collapsedByDefault": true,
       "viewAllLabel": "View all treatments in this group"
@@ -101,13 +101,13 @@
     {
       "id": "emergency",
       "title": "Emergency Dentistry",
-      "description": "Same-day help for pain, infection, trauma, or broken restorations.",
+      "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
       "featuredSlugs": [
         "emergency-dentistry",
         "emergency-dental-appointments",
+        "dental-abscess-infection",
         "severe-toothache-dental-pain",
-        "broken-chipped-cracked-teeth",
-        "knocked-out-tooth"
+        "dental-trauma-accidents"
       ],
       "collapsedByDefault": true,
       "viewAllLabel": "View all treatments in this group"

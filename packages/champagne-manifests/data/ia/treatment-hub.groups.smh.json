@@ -4,20 +4,21 @@
     {
       "id": "general",
       "label": "General Dentistry",
-      "description": "Check-ups, gum care, root canal support, and everyday oral health.",
+      "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
       "slugs": [
         "dental-checkups-oral-cancer-screening",
         "preventative-and-general-dentistry",
         "periodontal-gum-care",
         "childrens-dentistry",
         "senior-mature-smile-care",
-        "endodontics-root-canal"
+        "endodontics-root-canal",
+        "extractions-and-oral-surgery"
       ]
     },
     {
       "id": "restorative",
-      "label": "Advanced Restorative Dentistry",
-      "description": "Crowns, bridges, onlays, dentures, and repairs for worn or broken teeth.",
+      "label": "Restorative Dentistry",
+      "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
       "slugs": [
         "dental-crowns",
         "dental-bridges",
@@ -32,28 +33,21 @@
     {
       "id": "implants",
       "label": "Dental Implants",
-      "description": "Consultation, placement, grafting, aftercare, and implant-retained options.",
+      "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
       "slugs": [
         "implants",
         "implant-consultation",
         "implants-single-tooth",
         "implants-multiple-teeth",
         "implants-full-arch",
-        "teeth-in-a-day",
-        "implants-bone-grafting",
-        "sinus-lift",
-        "implant-aftercare",
-        "implant-retained-dentures",
-        "failed-implant-replacement",
-        "sedation-for-implants"
+        "implants-bone-grafting"
       ]
     },
     {
       "id": "ortho_retainers",
       "label": "Orthodontics & Retainers",
-      "description": "Aligners, braces, and retention to keep movements paced and stable.",
+      "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
       "slugs": [
-        "orthodontics",
         "clear-aligners",
         "clear-aligners-spark",
         "fixed-braces",
@@ -62,32 +56,29 @@
     },
     {
       "id": "aesthetic",
-      "label": "Smile Aesthetics",
-      "description": "Whitening, veneers, bonding, and injection-moulded composite planning.",
+      "label": "Aesthetic Dentistry",
+      "description": "Composite bonding, veneers, and injection-moulded composite planning.",
       "slugs": [
-        "teeth-whitening",
-        "home-teeth-whitening",
-        "teeth-whitening-faqs",
-        "whitening-sensitive-teeth",
-        "whitening-top-ups",
         "composite-bonding",
         "veneers",
-        "injection-moulded-composite",
-        "full-smile-makeover"
+        "injection-moulded-composite"
       ]
     },
     {
       "id": "night_guards",
-      "label": "Night Guards & Occlusal Splints",
-      "description": "Lab-made and 3D printed occlusal splints to protect teeth and joints.",
+      "label": "Night Guards & Occlusal Therapy",
+      "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
       "slugs": [
-        "night-guards-occlusal-splints"
+        "night-guards-occlusal-splints",
+        "bruxism-and-jaw-clenching",
+        "tmj-disorder-treatment",
+        "tmj-jaw-comfort"
       ]
     },
     {
       "id": "digital_3d",
-      "label": "Digital & 3D Dentistry",
-      "description": "CBCT imaging, digital planning, smile design, and in-house 3D printing.",
+      "label": "3D & Digital Dentistry",
+      "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
       "slugs": [
         "3d-digital-dentistry",
         "cbct-3d-scanning",
@@ -101,7 +92,7 @@
     {
       "id": "emergency",
       "label": "Emergency Dentistry",
-      "description": "Same-day help for pain, infection, trauma, or broken restorations.",
+      "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
       "slugs": [
         "emergency-dentistry",
         "emergency-dental-appointments",
