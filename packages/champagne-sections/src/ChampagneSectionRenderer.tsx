@@ -15,6 +15,7 @@ import { Section_TreatmentRoutingCards } from "./Section_TreatmentRoutingCards";
 import { Section_TreatmentToolsTrio } from "./Section_TreatmentToolsTrio";
 import { getSectionStack } from "./SectionRegistry";
 import type { SectionRegistryEntry } from "./SectionRegistry";
+import { Section_GoogleReviews } from "./Section_GoogleReviews";
 
 export interface ChampagneSectionRendererProps {
   pageSlug: string;
@@ -43,6 +44,7 @@ const typeMap: Record<string, SectionComponent> = {
   patient_stories_rail: (props) => <Section_PatientStoriesRail {...props} />,
   treatment_faq_block: (props) => <Section_FAQ {...props} />,
   treatment_closing_cta: (props) => <Section_TreatmentClosingCTA {...props} />,
+  reviews: (props) => <Section_GoogleReviews {...props} />,
 };
 
 function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[]) {
