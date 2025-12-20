@@ -55,6 +55,7 @@ const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
   patient_stories_rail: "patient_stories_rail",
   treatment_faq_block: "treatment_faq_block",
   treatment_closing_cta: "treatment_closing_cta",
+  cta: "treatment_closing_cta",
   google_reviews: "reviews",
   routing_cards: "routing_cards",
 };
