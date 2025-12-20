@@ -1,0 +1,140 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.hub-directory",
+  "pageType": "hub",
+  "version": "1.0.0",
+  "groups": [
+    {
+      "id": "general_dentistry",
+      "title": "General dentistry",
+      "description": "Check-ups, gum care, fillings, crowns, and dentures to keep everyday oral health steady.",
+      "featuredSlugs": [
+        "preventative-and-general-dentistry",
+        "periodontal-gum-care",
+        "dental-crowns",
+        "dentures",
+        "endodontics-root-canal",
+        "childrens-dentistry"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "dental_implants",
+      "title": "Dental implants",
+      "description": "Implant planning, placement, grafting, and restoration with guided follow-up.",
+      "featuredSlugs": [
+        "implants",
+        "implants-consultation",
+        "implants-single-tooth",
+        "implants-multiple-teeth",
+        "implants-full-arch",
+        "implants-teeth-in-a-day"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "cosmetic_dentistry",
+      "title": "Cosmetic dentistry",
+      "description": "Whitening, bonding, veneers, and smile design planned for conservative aesthetics.",
+      "featuredSlugs": [
+        "veneers",
+        "composite-bonding",
+        "teeth-whitening",
+        "digital-smile-design",
+        "home-teeth-whitening"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "orthodontics_retainers",
+      "title": "Orthodontics & retainers",
+      "description": "Aligners, fixed braces, and retainers with paced reviews to keep movements safe.",
+      "featuredSlugs": [
+        "orthodontics",
+        "clear-aligners",
+        "clear-aligners-spark",
+        "fixed-braces",
+        "dental-retainers"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "emergency_dentistry",
+      "title": "Emergency dentistry",
+      "description": "Rapid assessments for pain, infection, swelling, or trauma with same-day advice.",
+      "featuredSlugs": [
+        "emergency-dentistry",
+        "severe-toothache-dental-pain",
+        "dental-abscess-infection"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "oral_surgery",
+      "title": "Oral surgery",
+      "description": "Planned extractions and oral surgery with clear aftercare and review points.",
+      "featuredSlugs": [
+        "extractions-and-oral-surgery"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "guards_splints",
+      "title": "Guards, splints & mouthguards",
+      "description": "Custom splints and sports guards that protect teeth from clenching or impacts.",
+      "featuredSlugs": [
+        "night-guards-occlusal-splints",
+        "sports-mouthguards",
+        "mouthguards-and-retainers"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "digital_3d",
+      "title": "Digital & 3D dentistry",
+      "description": "CBCT scanning, digital planning, and 3D printing to guide precise treatment steps.",
+      "featuredSlugs": [
+        "3d-digital-dentistry",
+        "cbct-3d-scanning",
+        "3d-printing-lab",
+        "3d-implant-restorations"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "sedation_nervous",
+      "title": "Sedation & nervous patients",
+      "description": "Comfort pathways with sedation options and gentle numbing for anxious patients.",
+      "featuredSlugs": [
+        "sedation-dentistry",
+        "nervous-patients",
+        "painless-numbing-the-wand"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    },
+    {
+      "id": "facial",
+      "title": "Facial therapeutics & facial aesthetics",
+      "description": "Therapeutic injectables, TMJ comfort care, and aesthetic refinements for the face.",
+      "featuredSlugs": [
+        "facial-therapeutics",
+        "bruxism-and-jaw-clenching",
+        "tmj-jaw-comfort",
+        "facial-aesthetics",
+        "anti-wrinkle-treatments",
+        "dermal-fillers"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all"
+    }
+  ]
+}

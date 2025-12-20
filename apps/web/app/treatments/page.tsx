@@ -32,7 +32,15 @@ function getDirectoryGroupsFromManifest(): DirectoryGroup[] {
 
   return treatmentGroups
     .filter((group) => group.showOnHub !== false)
-    .map((group) => ({ groupId: group.id, label: group.label, hub: group.hub, description: group.description }));
+    .map((group) => ({
+      groupId: group.id,
+      label: group.label,
+      hub: group.hub,
+      description: group.description,
+      featuredSlugs: group.featuredSlugs,
+      viewAllLabel: group.viewAllLabel,
+      viewAllHref: group.inventory?.access?.href ?? group.hub,
+    }));
 }
 
 function resolveTreatmentSlug(slugOrPath: string) {
@@ -51,6 +59,16 @@ type TreatmentGroupConfig = {
   slugs?: string[];
   description?: string;
   showOnHub?: boolean;
+  featuredSlugs?: string[];
+  viewAllLabel?: string;
+  inventory?: {
+    hiddenByDefault?: boolean;
+    access?: {
+      label?: string;
+      href?: string;
+    };
+    slugs?: string[];
+  };
 };
 
 type DirectoryGroup = {
@@ -58,6 +76,10 @@ type DirectoryGroup = {
   label: string;
   description?: string;
   hub?: string;
+  featuredSlugs?: string[];
+  viewAllLabel?: string;
+  viewAllHref?: string;
+  collapsedByDefault?: boolean;
 };
 
 type GroupedTreatments = {
@@ -65,6 +87,9 @@ type GroupedTreatments = {
   label: string;
   description?: string;
   hub?: string;
+  viewAllLabel?: string;
+  viewAllHref?: string;
+  hiddenCount?: number;
   items: ChampagneTreatmentPage[];
 };
 
@@ -80,45 +105,36 @@ export default async function TreatmentsPage({
   const hubSections = getSectionStack("/treatments");
   const directoryGroups = getDirectoryGroupsFromManifest();
   const treatmentLookup = new Map(treatments.map((entry) => [entry.slug, entry]));
-  const assigned = new Set<string>();
 
   const orderedGroups: GroupedTreatments[] = directoryGroups
     .map((group) => {
       const groupConfig = treatmentGroups.find((entry) => entry.id === group.groupId);
+      const featuredSlugs = group.featuredSlugs ?? groupConfig?.featuredSlugs ?? groupConfig?.slugs ?? [];
       const slugs = groupConfig?.slugs ?? [];
-      const items = slugs
-        .map((slug) => {
+      const items = featuredSlugs
+        .map((slug: string) => {
           const normalized = resolveTreatmentSlug(slug);
           return treatmentLookup.get(normalized) ?? treatmentLookup.get(slug);
         })
         .filter((entry): entry is ChampagneTreatmentPage => Boolean(entry))
-        .sort((a, b) => (a.label ?? a.slug).localeCompare(b.label ?? b.slug));
+        .sort((a: ChampagneTreatmentPage, b: ChampagneTreatmentPage) =>
+          (a.label ?? a.slug).localeCompare(b.label ?? b.slug),
+        );
 
-      items.forEach((item) => assigned.add(item.slug));
+      const hiddenCount = Math.max(0, slugs.length - items.length);
 
       return {
         key: group.groupId,
         label: group.label,
         description: group.description,
         hub: group.hub ?? groupConfig?.hub,
+        viewAllLabel: group.viewAllLabel ?? groupConfig?.viewAllLabel,
+        viewAllHref: group.viewAllHref ?? groupConfig?.inventory?.access?.href ?? groupConfig?.hub ?? group.hub,
+        hiddenCount,
         items,
       };
     })
     .filter((group) => group.items.length > 0);
-
-  const remaining = treatments
-    .filter((treatment) => !assigned.has(treatment.slug))
-    .sort((a, b) => (a.label ?? a.slug).localeCompare(b.label ?? b.slug));
-
-  if (remaining.length > 0) {
-    orderedGroups.push({
-      key: "additional_treatments",
-      label: "Additional treatments",
-      description: "More canon routes not yet grouped above.",
-      hub: undefined,
-      items: remaining,
-    });
-  }
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 py-8 px-2 sm:px-0">
@@ -150,17 +166,20 @@ export default async function TreatmentsPage({
             <section key={group.key} className="space-y-4">
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <div>
-                  <p className="text-[0.8rem] uppercase tracking-[0.18em] text-neutral-400">{group.items.length} pages</p>
+                  <p className="text-[0.8rem] uppercase tracking-[0.18em] text-neutral-400">
+                    Featured {group.items.length}
+                    {group.hiddenCount ? ` · ${group.hiddenCount} more hidden` : ""}
+                  </p>
                   <h2 className="text-xl font-semibold text-neutral-50">{group.label}</h2>
                   {group.description && <p className="mt-1 text-sm text-neutral-400">{group.description}</p>}
                 </div>
-                {group.hub && (
+                {group.viewAllHref && (
                   <Link
-                    href={group.hub}
+                    href={group.viewAllHref}
                     className="text-sm font-medium text-neutral-200 hover:text-white"
-                    aria-label={`View ${group.label} hub`}
+                    aria-label={`View all ${group.label} treatments`}
                   >
-                    View hub
+                    {group.viewAllLabel ?? "View all"}
                   </Link>
                 )}
               </div>
