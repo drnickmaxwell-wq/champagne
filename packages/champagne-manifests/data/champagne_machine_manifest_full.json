@@ -37,8 +37,8 @@
         {
           "id": "home_intro",
           "type": "copy-block",
-          "title": "A calm homepage with clear pathways",
-          "copy": "Choose the route that fits: book a consultation, explore treatment detail, or get help quickly when something feels urgent. Every link below follows a mapped next step.",
+          "title": "A calm welcome into Champagne care",
+          "copy": "Soft-light hero, steady rhythm, and a concise primer on how Champagne care works. This home stack guides visitors to key journeys without heavy motion.",
           "label": "Welcome"
         },
         {
@@ -52,6 +52,28 @@
             "In-house digital dentistry to shorten feedback loops and keep planning clear."
           ],
           "label": "Trusted practice detail"
+        },
+        {
+          "id": "home_treatment_hub",
+          "type": "feature-list",
+          "title": "Priority treatments at a glance",
+          "items": [
+            "Composite bonding, veneers, and full smile refinement",
+            "Clear aligners with mapped movement and check-ins",
+            "Implant dentistry, whitening, and restorative care"
+          ],
+          "label": "Treatment hub"
+        },
+        {
+          "id": "home_care_pathway",
+          "type": "steps",
+          "title": "How care flows with Champagne",
+          "items": [
+            "Share goals and capture scans for a precise baseline",
+            "Preview options with visual planning and simple language",
+            "Start treatment with clear timelines and follow-ups"
+          ],
+          "label": "Care pathway"
         },
         {
           "id": "home_treatment_routing",
@@ -112,15 +134,78 @@
           ]
         },
         {
+          "id": "home_technology_showcase",
+          "type": "media",
+          "label": "Tech & tools",
+          "title": "Technology that keeps planning clear",
+          "copy": "Diagnostics, digital planning, and visual previews stay visible on the Champagne canvas so you can see each step before it begins."
+        },
+        {
+          "id": "home_patient_stories",
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Journeys through Champagne care",
+          "stories": [
+            {
+              "summary": "Mapped a bonding plan that stayed gentle on enamel.",
+              "name": "Case A"
+            },
+            {
+              "summary": "Followed a clear aligner cadence with visual checkpoints.",
+              "name": "Case B"
+            },
+            {
+              "summary": "Combined whitening and contouring with calm visits.",
+              "name": "Case C"
+            }
+          ]
+        },
+        {
+          "id": "home_finance_options",
+          "type": "feature-list",
+          "title": "Finance and access options",
+          "items": [
+            "Transparent estimates before any commitment",
+            "Installments or staged plans to fit your pace",
+            "Guidance on benefits, receipts, and aftercare"
+          ],
+          "label": "Finance"
+        },
+        {
+          "id": "home_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Questions about the practice",
+          "faqs": [
+            {
+              "question": "What happens at the first visit?",
+              "answer": "We listen to goals, capture scans or photos if helpful, and outline options with straightforward next steps."
+            },
+            {
+              "question": "Do you show previews before treatment?",
+              "answer": "Whenever possible we use visual planning so you can see movement, shaping, or shade shifts before committing."
+            },
+            {
+              "question": "How do payments work?",
+              "answer": "We share estimates early, support staged payments, and provide receipts or documentation you may need."
+            }
+          ]
+        },
+        {
           "id": "home_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Book a consultation",
-          "strapline": "Set a time to discuss your goals and next steps.",
+          "title": "Plan your visit",
+          "strapline": "Book a calm consultation or explore treatment pathways.",
           "ctas": [
             {
               "label": "Book a consultation",
               "href": "/contact",
               "preset": "primary"
+            },
+            {
+              "label": "Explore treatments",
+              "href": "/treatments",
+              "preset": "secondary"
             }
           ]
         }
