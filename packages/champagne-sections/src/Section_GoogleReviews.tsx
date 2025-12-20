@@ -5,11 +5,11 @@ import type { SectionRegistryEntry } from "./SectionRegistry";
 const containerStyle: CSSProperties = {
   position: "relative",
   borderRadius: "var(--radius-lg)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.28))",
+  border: "1px solid var(--champagne-keyline-gold)",
   padding: "clamp(1.5rem, 3vw, 2.5rem)",
   background:
-    "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink, #06070c) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 82%, transparent)), radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--smh-white, #ffffff) 14%, transparent), transparent 38%)",
-  boxShadow: "var(--shadow-soft, 0 10px 36px rgba(0,0,0,0.35))",
+    "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft) 82%, transparent)), radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--smh-white) 14%, transparent), transparent 38%)",
+  boxShadow: "var(--shadow-soft)",
   overflow: "hidden",
 };
 
@@ -18,7 +18,7 @@ const accentBar: CSSProperties = {
   inset: "0 0 auto 0",
   height: "3px",
   background:
-    "linear-gradient(90deg, color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 40%, transparent), color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 8%, transparent))",
+    "linear-gradient(90deg, color-mix(in srgb, var(--champagne-keyline-gold) 40%, transparent), color-mix(in srgb, var(--champagne-keyline-gold) 8%, transparent))",
 };
 
 const headerGrid: CSSProperties = {
@@ -31,7 +31,7 @@ const eyebrowStyle: CSSProperties = {
   fontSize: "0.9rem",
   letterSpacing: "0.08em",
   textTransform: "uppercase",
-  color: "var(--text-medium, rgba(255,255,255,0.72))",
+  color: "var(--text-medium)",
 };
 
 const titleStyle: CSSProperties = {
@@ -42,7 +42,7 @@ const titleStyle: CSSProperties = {
 
 const straplineStyle: CSSProperties = {
   fontSize: "1rem",
-  color: "var(--text-medium, rgba(255,255,255,0.78))",
+  color: "var(--text-medium)",
   lineHeight: 1.6,
 };
 
@@ -60,8 +60,8 @@ const ratingBadge: CSSProperties = {
   gap: "0.5rem",
   padding: "0.55rem 0.9rem",
   borderRadius: "999px",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.35))",
-  background: "color-mix(in srgb, var(--bg-ink, #06070c) 70%, transparent)",
+  border: "1px solid var(--champagne-keyline-gold)",
+  background: "color-mix(in srgb, var(--bg-ink) 70%, transparent)",
   fontWeight: 700,
 };
 
@@ -74,9 +74,9 @@ const reviewsGrid: CSSProperties = {
 
 const cardStyle: CSSProperties = {
   borderRadius: "var(--radius-md)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.25))",
+  border: "1px solid var(--champagne-keyline-gold)",
   padding: "1rem",
-  background: "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink, #06070c) 82%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 76%, transparent))",
+  background: "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink) 82%, transparent), color-mix(in srgb, var(--bg-ink-soft) 76%, transparent))",
   display: "grid",
   gap: "0.5rem",
 };
@@ -84,18 +84,18 @@ const cardStyle: CSSProperties = {
 const quoteStyle: CSSProperties = {
   fontSize: "1rem",
   lineHeight: 1.55,
-  color: "var(--text-medium, rgba(255,255,255,0.85))",
+  color: "var(--text-medium)",
 };
 
 const nameStyle: CSSProperties = {
   fontSize: "0.95rem",
-  color: "var(--text-strong, rgba(255,255,255,0.92))",
+  color: "var(--text-strong)",
   fontWeight: 600,
 };
 
 const sourceStyle: CSSProperties = {
   fontSize: "0.85rem",
-  color: "var(--text-medium, rgba(255,255,255,0.7))",
+  color: "var(--text-medium)",
 };
 
 export function Section_GoogleReviews({ section }: { section?: SectionRegistryEntry }) {
