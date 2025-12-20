@@ -20,8 +20,16 @@
         "Discussing when porcelain remains the gold standard"
       ],
       "ctas": [
-        { "label": "Book a veneer consultation", "href": "/contact", "preset": "primary" },
-        { "label": "Request a digital preview", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+        {
+          "label": "Book a veneer consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Request a digital preview",
+          "href": "/treatments/digital-smile-design",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -146,11 +154,11 @@
       "eyebrow": "Aftercare & considerations",
       "title": "Caring for printed veneers",
       "items": [
-        "Printed veneers are not maintenance-free — hygiene visits protect margins and gums",
+        "Printed veneers are not maintenance-free \u2014 hygiene visits protect margins and gums",
         "Avoid very hard foods while edges settle and report any edge lifting",
         "Chipping, wear, or staining can occur; we can repolish or refresh when needed",
         "Night guards are advised if you clench to protect edges and bonding",
-        "We’ll signal when a porcelain upgrade is safer for longevity"
+        "We\u2019ll signal when a porcelain upgrade is safer for longevity"
       ]
     },
     {
@@ -163,7 +171,7 @@
       "title": "Transparent expectations for staged veneers",
       "items": [
         "Printed veneers are a value-led step, not a lifetime solution; we outline refresh or replacement timelines upfront.",
-        "Bite forces, dietary acids, and staining drinks can shorten lifespan — protective habits matter.",
+        "Bite forces, dietary acids, and staining drinks can shorten lifespan \u2014 protective habits matter.",
         "Maintenance includes hygiene visits, occasional re-polishing, and night guard use for clenching.",
         "If goals need more coverage or detail, porcelain or composite bonding may be recommended instead (/treatments/composite-bonding).",
         "Alternative routes like whitening or a full smile makeover are explored if they serve you better (/treatments/teeth-whitening, /treatments/full-smile-makeover)."
@@ -210,9 +218,67 @@
       "title": "Veneer Consultation & Smile Design",
       "body": "Discuss printed and porcelain options with digital previews, timelines, and alternatives.",
       "ctas": [
-        { "label": "Veneer Consultation & Smile Design", "href": "/contact?topic=veneers", "preset": "primary" },
-        { "label": "Explore alternative cosmetic options", "href": "/treatments/full-smile-makeover", "preset": "secondary" }
+        {
+          "label": "Veneer Consultation & Smile Design",
+          "href": "/contact?topic=veneers",
+          "preset": "primary"
+        },
+        {
+          "label": "Explore alternative cosmetic options",
+          "href": "/treatments/full-smile-makeover",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Orthodontic alignment",
+        "href": "/treatments/orthodontics"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Protect with night guards",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Finishing whitening",
+        "href": "/treatments/whitening-top-ups"
+      },
+      {
+        "label": "Regular reviews",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Aligner refinements",
+        "href": "/treatments/aligners"
+      },
+      {
+        "label": "Gum contouring and care",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a veneer consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore digital smile previews",
+      "href": "/treatments/digital-smile-design"
+    },
+    "reassurance_intent": {
+      "label": "Learn about protecting veneers",
+      "href": "/treatments/night-guards-occlusal-splints"
+    }
+  }
 }

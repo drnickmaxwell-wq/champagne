@@ -20,8 +20,16 @@
         "Refinement and finishing guided by the treating dentist"
       ],
       "ctas": [
-        { "label": "Book a digital scan consult", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
-        { "label": "Ask about 3D printed options", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a digital scan consult",
+          "href": "/contact?topic=digital-dentistry",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about 3D printed options",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -47,7 +55,7 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "How we work",
-      "title": "Scan → Design → Print/Mill → Fit",
+      "title": "Scan \u2192 Design \u2192 Print/Mill \u2192 Fit",
       "body": "Your pathway is mapped in advance: we capture a precise scan, design collaboratively, produce the restoration in-house, and refine it chairside with the clinician who planned it.",
       "bullets": [
         "Intraoral scan and photography for reference",
@@ -100,7 +108,7 @@
       "seoRole": "supporting",
       "eyebrow": "What we can make in-house",
       "title": "Precision outputs, clinician-reviewed",
-      "body": "We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays—all produced under the treating clinician's oversight."
+      "body": "We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays\u2014all produced under the treating clinician's oversight."
     },
     {
       "instanceId": "digital-dentistry-aftercare",
@@ -137,7 +145,7 @@
         },
         {
           "question": "Do printed implant restorations need different maintenance?",
-          "answer": "We pair them with occlusion checks, hygiene plans, and torque reviews. You’ll know the follow-up cadence before treatment begins."
+          "answer": "We pair them with occlusion checks, hygiene plans, and torque reviews. You\u2019ll know the follow-up cadence before treatment begins."
         },
         {
           "question": "Can designs be adjusted after I see the preview?",
@@ -159,9 +167,67 @@
       "title": "See your options digitally before you commit",
       "body": "Book a calm digital consultation or ask about 3D printed options tailored to your case.",
       "ctas": [
-        { "label": "Book a digital scan consult", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
-        { "label": "Ask about 3D printed options", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a digital scan consult",
+          "href": "/contact?topic=digital-dentistry",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about 3D printed options",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine care",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "CBCT scanning",
+        "href": "/treatments/cbct-3d-scanning"
+      },
+      {
+        "label": "Digital smile design",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "3D printing lab",
+        "href": "/treatments/3d-printing-lab"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "3D implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      },
+      {
+        "label": "Aligner planning",
+        "href": "/treatments/aligners"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a digital dentistry consult",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan CBCT imaging",
+      "href": "/treatments/cbct-3d-scanning"
+    },
+    "reassurance_intent": {
+      "label": "Explore 3D printing support",
+      "href": "/treatments/3d-printing-lab"
+    }
+  }
 }

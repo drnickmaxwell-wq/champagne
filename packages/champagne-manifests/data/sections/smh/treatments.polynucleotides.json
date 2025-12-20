@@ -46,7 +46,7 @@
       "bullets": [
         "Contraindication screening and discussion of realistic expectations",
         "Photography and mapping to monitor changes over the course",
-        "Clear spacing between sessions (often 2–4 weeks) to allow healing",
+        "Clear spacing between sessions (often 2\u20134 weeks) to allow healing",
         "Written aftercare and escalation guidance before the first session"
       ]
     },
@@ -101,7 +101,7 @@
       "eyebrow": "Aftercare & risks",
       "title": "Supportive aftercare with clear escalation steps",
       "items": [
-        "Pinpoint redness or swelling is expected for 24–72 hours; bruising can occur",
+        "Pinpoint redness or swelling is expected for 24\u201372 hours; bruising can occur",
         "Avoid strenuous activity, heat, and active skincare until advised",
         "Contact us promptly if you notice increasing pain, unusual colour change, or signs of infection",
         "Follow-up visits confirm healing before any further sessions"
@@ -148,9 +148,67 @@
       "title": "Book a facial therapeutics consultation",
       "strapline": "Explore whether a polynucleotide course is appropriate for your skin with a clinician who prioritises safety, sequencing, and conservative dosing.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about polynucleotides", "href": "/contact?topic=polynucleotides", "variant": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about polynucleotides",
+          "href": "/contact?topic=polynucleotides",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Facial aesthetics consultation",
+        "href": "/treatments/facial-aesthetics"
+      },
+      {
+        "label": "Routine skin health checks",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Skin boosters",
+        "href": "/treatments/skin-boosters"
+      },
+      {
+        "label": "Polynucleotides",
+        "href": "/treatments/polynucleotides"
+      },
+      {
+        "label": "Therapeutic injectables",
+        "href": "/treatments/therapeutic-facial-injectables"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Anti-wrinkle pathways",
+        "href": "/treatments/anti-wrinkle-treatments"
+      },
+      {
+        "label": "Dermal fillers",
+        "href": "/treatments/dermal-fillers"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a facial injectable review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan skin booster sessions",
+      "href": "/treatments/skin-boosters"
+    },
+    "reassurance_intent": {
+      "label": "Learn about treatment safety",
+      "href": "/treatments/facial-aesthetics"
+    }
+  }
 }

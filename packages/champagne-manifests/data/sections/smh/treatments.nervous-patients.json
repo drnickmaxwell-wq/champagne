@@ -59,7 +59,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Your comfort options",
       "title": "Pick the support that feels right",
-      "body": "We guide you through calming options and let you choose what feels safest—whether that’s gentle numbing tech, measured relaxation, or easing jaw tension first.",
+      "body": "We guide you through calming options and let you choose what feels safest\u2014whether that\u2019s gentle numbing tech, measured relaxation, or easing jaw tension first.",
       "bullets": [
         "Painless numbing with The Wand keeps anaesthetic slow and steady",
         "Dental sedation options add deeper relaxation when assessed as suitable",
@@ -76,8 +76,16 @@
       "title": "Learn how each option works before you decide",
       "strapline": "Read the dedicated pages to see how they manage anxiety and comfort.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Read about sedation", "href": "/treatments/sedation-dentistry", "variant": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Read about sedation",
+          "href": "/treatments/sedation-dentistry",
+          "variant": "secondary"
+        }
       ]
     },
     {
@@ -90,7 +98,7 @@
       "title": "A calm, consultation-first pathway",
       "items": [
         "Consultation-first to hear your worries and past experiences",
-        "No pressure to proceed—options explained before any care",
+        "No pressure to proceed\u2014options explained before any care",
         "Nothing happens without consent and a clear plan",
         "You stay in control with agreed stop signals and pacing",
         "Follow-ups arranged so you can build confidence gradually"
@@ -106,9 +114,67 @@
       "title": "Ready to talk through a calmer visit?",
       "body": "Book a consultation or speak to the team about the pace and comfort options you prefer.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Read about sedation", "href": "/treatments/sedation-dentistry", "variant": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Read about sedation",
+          "href": "/treatments/sedation-dentistry",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine examinations",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Treatment hub",
+        "href": "/treatments/hub-directory"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Sedation dentistry",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Comfort-first numbing",
+        "href": "/treatments/painless-numbing-the-wand"
+      },
+      {
+        "label": "Implant sedation pathways",
+        "href": "/treatments/implants-sedation"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Orthodontic care at your pace",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Gentle gum care",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Speak to us about dental anxiety",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore sedation options",
+      "href": "/treatments/sedation-dentistry"
+    },
+    "reassurance_intent": {
+      "label": "Learn about gentle numbing",
+      "href": "/treatments/painless-numbing-the-wand"
+    }
+  }
 }

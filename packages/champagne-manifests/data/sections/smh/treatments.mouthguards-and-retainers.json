@@ -103,9 +103,71 @@
       "title": "Need a custom guard or retainer?",
       "body": "We will help you choose the right appliance, explain fabrication options, and set review points so it stays comfortable and effective.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about mouthguards or retainers", "href": "/contact?topic=mouthguards", "variant": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about mouthguards or retainers",
+          "href": "/contact?topic=mouthguards",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Orthodontic treatment",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Aligner therapy",
+        "href": "/treatments/aligners"
+      },
+      {
+        "label": "Fixed brace care",
+        "href": "/treatments/fixed-braces"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Night guards for clenching",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Sports mouthguards",
+        "href": "/treatments/sports-mouthguards"
+      },
+      {
+        "label": "Ongoing check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Protecting results",
+        "href": "/treatments/mouthguards-and-retainers"
+      },
+      {
+        "label": "Whitening after alignment",
+        "href": "/treatments/teeth-whitening"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Schedule a retainer review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Discuss night guard options",
+      "href": "/treatments/night-guards-occlusal-splints"
+    },
+    "reassurance_intent": {
+      "label": "Check retainer care guidance",
+      "href": "/treatments/mouthguards-and-retainers"
+    }
+  }
 }

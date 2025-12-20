@@ -19,8 +19,16 @@
         "Thoughtful planning for dentures, bridges, crowns, and implant options"
       ],
       "ctas": [
-        { "label": "Book a mature smile review", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about comfort-focused care", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book a mature smile review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about comfort-focused care",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -148,11 +156,69 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a mature smile assessment",
-      "body": "Let’s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
+      "body": "Let\u2019s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
       "ctas": [
-        { "label": "Plan my visit", "href": "/contact", "preset": "primary" },
-        { "label": "Ask a clinician", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Plan my visit",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask a clinician",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine dentistry",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Gum care",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Dentures and replacement teeth",
+        "href": "/treatments/dentures"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "Gum stability reviews",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Sedation support",
+        "href": "/treatments/sedation-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a mature smile review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Discuss implant options",
+      "href": "/treatments/implants-consultation"
+    },
+    "reassurance_intent": {
+      "label": "Explore denture pathways",
+      "href": "/treatments/dentures"
+    }
+  }
 }

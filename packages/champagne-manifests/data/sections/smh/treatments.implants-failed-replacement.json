@@ -20,8 +20,16 @@
         "Focus on long-term oral health"
       ],
       "ctas": [
-        { "label": "Book an implant review", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about failed implant options", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book an implant review",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about failed implant options",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     },
     {
@@ -30,7 +38,7 @@
       "variantId": "shoreham_failed_implant_trust",
       "order": 20,
       "seoRole": "supporting",
-      "title": "A careful approach when things haven’t gone to plan",
+      "title": "A careful approach when things haven\u2019t gone to plan",
       "items": [
         "Time to listen and understand history",
         "CBCT imaging to assess bone and implant position",
@@ -65,7 +73,7 @@
         "Concerns about bone loss around an implant",
         "Anyone unsure whether an implant can be saved or replaced"
       ],
-      "honestQualifier": "Not every implant can or should be replaced immediately — assessment comes first."
+      "honestQualifier": "Not every implant can or should be replaced immediately \u2014 assessment comes first."
     },
     {
       "instanceId": "failed-implant-process",
@@ -92,7 +100,7 @@
       "order": 60,
       "seoRole": "supporting",
       "title": "Assessment tools that guide safer decisions",
-      "body": "Diagnostics and planning lead every recommendation — technology supports careful assessment rather than rushed treatment. Replacement isn’t always immediate, and the right tools help us map the safest sequence.",
+      "body": "Diagnostics and planning lead every recommendation \u2014 technology supports careful assessment rather than rushed treatment. Replacement isn\u2019t always immediate, and the right tools help us map the safest sequence.",
       "items": [
         "3D CBCT imaging",
         "Digital planning for replacement implants",
@@ -124,7 +132,7 @@
       "faqs": [
         {
           "question": "Why did my implant fail?",
-          "answer": "Causes vary — infection, bite forces, bone quality, smoking, systemic health, positioning, and maintenance can all play a role. We review your specific history and scans before advising next steps."
+          "answer": "Causes vary \u2014 infection, bite forces, bone quality, smoking, systemic health, positioning, and maintenance can all play a role. We review your specific history and scans before advising next steps."
         },
         {
           "question": "Can a failed implant be replaced?",
@@ -132,7 +140,7 @@
         },
         {
           "question": "Do you have to remove a failed implant first?",
-          "answer": "If an implant is loose, painful, or infected, removal might be safer before planning any replacement. We’ll outline the options and timing."
+          "answer": "If an implant is loose, painful, or infected, removal might be safer before planning any replacement. We\u2019ll outline the options and timing."
         },
         {
           "question": "Will I need a bone graft?",
@@ -140,14 +148,14 @@
         },
         {
           "question": "How long do I need to wait before replacement?",
-          "answer": "Healing time depends on the cause of failure and bone health. Replacement isn’t always immediate; we propose a timeline after assessment."
+          "answer": "Healing time depends on the cause of failure and bone health. Replacement isn\u2019t always immediate; we propose a timeline after assessment."
         },
         {
           "question": "Is replacement more complicated than the first implant?",
           "answer": "Revision care can involve extra planning to protect bone and soft tissue. We share a clear plan so you know the steps and rationale."
         },
         {
-          "question": "What are the alternatives if replacement isn’t possible?",
+          "question": "What are the alternatives if replacement isn\u2019t possible?",
           "answer": "Options may include bridges, partial dentures, or staged grafting before future implants. We explain pros and considerations for each."
         },
         {
@@ -167,12 +175,70 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Concerned about an implant that hasn’t worked?",
-      "strapline": "Book a calm implant review in Shoreham-by-Sea and we’ll explain your options clearly and carefully.",
+      "title": "Concerned about an implant that hasn\u2019t worked?",
+      "strapline": "Book a calm implant review in Shoreham-by-Sea and we\u2019ll explain your options clearly and carefully.",
       "ctas": [
-        { "label": "Book now", "href": "/contact", "variant": "primary" },
-        { "label": "See implant consultation details", "href": "/treatments/implant-consultation", "variant": "secondary" }
+        {
+          "label": "Book now",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "See implant consultation details",
+          "href": "/treatments/implant-consultation",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "3D scans",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant placement",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Teeth in a day",
+        "href": "/treatments/implants-teeth-in-a-day"
+      },
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation dentistry",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Discuss grafting and support procedures",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan implant timelines",
+      "href": "/treatments/implants"
+    },
+    "reassurance_intent": {
+      "label": "Review sedation availability",
+      "href": "/treatments/implants-sedation"
+    }
+  }
 }

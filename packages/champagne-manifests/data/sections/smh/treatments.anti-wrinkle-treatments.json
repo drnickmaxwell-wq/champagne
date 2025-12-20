@@ -42,11 +42,11 @@
       "seoRole": "primaryContent",
       "eyebrow": "Consultation & prescribing",
       "title": "We prescribe only when treatment is appropriate",
-      "body": "Your consultation covers muscle activity, skin quality, and medical history. We discuss whether anti-wrinkle medicine suits you, outline benefits and limitations, and agree areas such as frown lines, forehead, or crow’s feet only if safe to do so.",
+      "body": "Your consultation covers muscle activity, skin quality, and medical history. We discuss whether anti-wrinkle medicine suits you, outline benefits and limitations, and agree areas such as frown lines, forehead, or crow\u2019s feet only if safe to do so.",
       "bullets": [
         "Full medical history, medicines, and contraindication checks",
         "Facial mapping to balance doses and avoid brow or lid heaviness",
-        "Explanation of onset (usually several days) and duration (often up to 3–4 months)",
+        "Explanation of onset (usually several days) and duration (often up to 3\u20134 months)",
         "Written aftercare and review scheduling before you leave"
       ]
     },
@@ -76,7 +76,7 @@
       "items": [
         "Consultation: medical history, facial movement assessment, and suitability checks",
         "Prescription & treatment: carefully placed micro-injections aligned to agreed areas",
-        "Review: follow-up (often around 2–3 weeks) to assess effect and adjust only if appropriate",
+        "Review: follow-up (often around 2\u20133 weeks) to assess effect and adjust only if appropriate",
         "Maintenance: safe intervals between appointments to avoid over-treatment"
       ],
       "strapline": "Results are temporary and depend on your response. We avoid high doses or rushed top-ups to protect facial function."
@@ -118,7 +118,7 @@
       "faqs": [
         {
           "question": "How long do results last?",
-          "answer": "Effects typically build over several days and may last up to 3–4 months, depending on your metabolism and dose."
+          "answer": "Effects typically build over several days and may last up to 3\u20134 months, depending on your metabolism and dose."
         },
         {
           "question": "Can treatment be adjusted?",
@@ -148,9 +148,67 @@
       "title": "Book a facial therapeutics consultation",
       "strapline": "Explore whether prescription anti-wrinkle treatment is right for you with a prescriber who favours careful dosing and clear follow-up.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about anti-wrinkle care", "href": "/contact?topic=anti-wrinkle", "variant": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about anti-wrinkle care",
+          "href": "/contact?topic=anti-wrinkle",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Facial aesthetics consultation",
+        "href": "/treatments/facial-aesthetics"
+      },
+      {
+        "label": "Routine skin health checks",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Skin boosters",
+        "href": "/treatments/skin-boosters"
+      },
+      {
+        "label": "Polynucleotides",
+        "href": "/treatments/polynucleotides"
+      },
+      {
+        "label": "Therapeutic injectables",
+        "href": "/treatments/therapeutic-facial-injectables"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Anti-wrinkle pathways",
+        "href": "/treatments/anti-wrinkle-treatments"
+      },
+      {
+        "label": "Dermal fillers",
+        "href": "/treatments/dermal-fillers"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a facial injectable review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan skin booster sessions",
+      "href": "/treatments/skin-boosters"
+    },
+    "reassurance_intent": {
+      "label": "Learn about treatment safety",
+      "href": "/treatments/facial-aesthetics"
+    }
+  }
 }

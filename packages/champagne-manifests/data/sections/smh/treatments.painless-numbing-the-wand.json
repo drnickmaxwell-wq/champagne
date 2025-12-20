@@ -19,8 +19,16 @@
         "Useful for nervous patients or longer visits"
       ],
       "ctas": [
-        { "label": "Ask about The Wand", "href": "/contact?topic=comfort", "preset": "primary" },
-        { "label": "Discuss calming options", "href": "/contact?topic=anxiety", "preset": "secondary" }
+        {
+          "label": "Ask about The Wand",
+          "href": "/contact?topic=comfort",
+          "preset": "primary"
+        },
+        {
+          "label": "Discuss calming options",
+          "href": "/contact?topic=anxiety",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -98,9 +106,9 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Aftercare",
-      "title": "What to expect once you’re numb",
+      "title": "What to expect once you\u2019re numb",
       "items": [
-        "Temporary numbness is normal—take care with hot drinks and biting",
+        "Temporary numbness is normal\u2014take care with hot drinks and biting",
         "Mild tenderness can occur; we explain how to manage it",
         "Tell us if sensation feels unusual or lingers longer than expected",
         "Emergency dentistry support is available if you have concerns",
@@ -122,7 +130,7 @@
         },
         {
           "question": "Will it make my appointment longer?",
-          "answer": "The start may be slower to prioritise comfort, but it’s planned into your appointment time."
+          "answer": "The start may be slower to prioritise comfort, but it\u2019s planned into your appointment time."
         },
         {
           "question": "Can it be combined with sedation?",
@@ -130,7 +138,7 @@
         },
         {
           "question": "Is it safe for emergency visits?",
-          "answer": "Yes, we can use it in emergency care when time allows. You’ll still receive standard safety checks."
+          "answer": "Yes, we can use it in emergency care when time allows. You\u2019ll still receive standard safety checks."
         },
         {
           "question": "What if I still feel nervous?",
@@ -146,11 +154,69 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Choose gentler numbing for your visit",
-      "body": "Book a comfort consult to see if The Wand or other calming options suit your treatment—whether routine care, restorative work, or implants.",
+      "body": "Book a comfort consult to see if The Wand or other calming options suit your treatment\u2014whether routine care, restorative work, or implants.",
       "ctas": [
-        { "label": "Ask about The Wand", "href": "/contact?topic=comfort", "preset": "primary" },
-        { "label": "Discuss calming options", "href": "/contact?topic=anxiety", "preset": "secondary" }
+        {
+          "label": "Ask about The Wand",
+          "href": "/contact?topic=comfort",
+          "preset": "primary"
+        },
+        {
+          "label": "Discuss calming options",
+          "href": "/contact?topic=anxiety",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Nervous patient pathway",
+        "href": "/treatments/nervous-patients"
+      },
+      {
+        "label": "Routine dental visits",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Sedation dentistry",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Gum treatment support",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Oral surgery",
+        "href": "/treatments/extractions-and-oral-surgery"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gentle orthodontic care",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Comfort during implants",
+        "href": "/treatments/implants-sedation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Talk about comfortable anaesthesia",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore sedation support",
+      "href": "/treatments/sedation-dentistry"
+    },
+    "reassurance_intent": {
+      "label": "Read about anxiety care",
+      "href": "/treatments/nervous-patients"
+    }
+  }
 }

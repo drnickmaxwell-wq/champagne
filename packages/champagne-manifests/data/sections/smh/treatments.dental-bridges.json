@@ -20,8 +20,16 @@
         "Clear maintenance plan so the bridge remains comfortable"
       ],
       "ctas": [
-        { "label": "Arrange a bridge assessment", "href": "/contact", "preset": "primary" },
-        { "label": "Discuss tooth replacement options", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Arrange a bridge assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Discuss tooth replacement options",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -144,7 +152,7 @@
         },
         {
           "question": "Do the supporting teeth need crowns?",
-          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge’s long-term stability."
+          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge\u2019s long-term stability."
         }
       ]
     },
@@ -158,5 +166,55 @@
       "title": "Plan your fixed replacement with a calm review",
       "body": "We will check whether a bridge is the safest option for your gap, or if alternatives such as dental crowns for supporting teeth, dental implants, dentures, or implant-retained dentures would serve you better."
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Oral surgery and extractions",
+        "href": "/treatments/extractions-and-oral-surgery"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Crown restoration",
+        "href": "/treatments/dental-crowns"
+      },
+      {
+        "label": "Implant replacement options",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Hygiene maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation and comfort",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Gum health support",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Discuss bridge planning",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Review implant alternatives",
+      "href": "/treatments/implants-consultation"
+    },
+    "reassurance_intent": {
+      "label": "Plan aftercare and hygiene",
+      "href": "/treatments/preventative-and-general-dentistry"
+    }
+  }
 }

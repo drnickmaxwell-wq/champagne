@@ -157,9 +157,67 @@
       "title": "Book a facial pain consultation",
       "body": "Discuss headaches, jaw discomfort, or facial pain with a clinician who prioritises safe diagnosis and conservative care.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact?topic=facial-pain", "preset": "primary" },
-        { "label": "Ask a question", "href": "/contact?topic=facial-pain", "preset": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact?topic=facial-pain",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask a question",
+          "href": "/contact?topic=facial-pain",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine dental review",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Clenching and grinding checks",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "TMJ disorder treatment",
+        "href": "/treatments/tmj-disorder-treatment"
+      },
+      {
+        "label": "Occlusal splints",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Jaw comfort exercises",
+        "href": "/treatments/tmj-jaw-comfort"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation support",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Periodontal stability",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a facial pain consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan TMJ support",
+      "href": "/treatments/tmj-disorder-treatment"
+    },
+    "reassurance_intent": {
+      "label": "Read about splint therapy",
+      "href": "/treatments/night-guards-occlusal-splints"
+    }
+  }
 }

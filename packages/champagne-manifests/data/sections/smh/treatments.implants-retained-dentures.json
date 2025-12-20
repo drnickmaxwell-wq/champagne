@@ -12,16 +12,24 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Implant-retained dentures in Shoreham-by-Sea",
-      "body": "Secure dentures held in place by dental implants — designed to improve comfort, confidence, and everyday function.",
+      "body": "Secure dentures held in place by dental implants \u2014 designed to improve comfort, confidence, and everyday function.",
       "bullets": [
-        "Dentures that don’t slip or lift",
+        "Dentures that don\u2019t slip or lift",
         "Fewer implants than full fixed bridges",
         "Improved chewing and speech",
         "Removable for cleaning (where suitable)"
       ],
       "ctas": [
-        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about implant-retained dentures", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book an implant assessment",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about implant-retained dentures",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     },
     {
@@ -62,7 +70,7 @@
         "Those wanting more stability without full fixed bridges",
         "Patients with reduced bone volume unsuitable for many implants",
         "Anyone seeking a secure but cost-conscious implant option",
-        "Not everyone is suitable — we confirm with scans and assessment"
+        "Not everyone is suitable \u2014 we confirm with scans and assessment"
       ]
     },
     {
@@ -93,7 +101,7 @@
       "items": [
         "3D CBCT imaging",
         "Guided implant placement",
-        "Close clinician–lab collaboration"
+        "Close clinician\u2013lab collaboration"
       ]
     },
     {
@@ -163,9 +171,67 @@
       "title": "Thinking about more secure dentures?",
       "strapline": "Book an implant assessment in Shoreham-by-Sea and explore whether implant-retained dentures are right for you.",
       "ctas": [
-        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
-        { "label": "Explore implant options", "href": "/treatments/implants", "variant": "secondary" }
+        {
+          "label": "Book an implant assessment",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Explore implant options",
+          "href": "/treatments/implants",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "CBCT 3D scanning",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      },
+      {
+        "label": "Hygiene and aftercare",
+        "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Retained denture options",
+        "href": "/treatments/implants-retained-dentures"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Bone grafting",
+        "href": "/treatments/implants-bone-grafting"
+      },
+      {
+        "label": "Sedation support",
+        "href": "/treatments/implants-sedation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan implant placement",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Confirm digital planning",
+      "href": "/treatments/cbct-3d-scanning"
+    },
+    "reassurance_intent": {
+      "label": "Review aftercare steps",
+      "href": "/treatments/implants-aftercare"
+    }
+  }
 }

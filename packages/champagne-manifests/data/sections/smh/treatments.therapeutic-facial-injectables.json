@@ -170,9 +170,67 @@
       "title": "Book a therapeutic injectable consultation",
       "body": "Discuss whether prescription injectables are appropriate for your facial muscle symptoms. Safety, suitability, and conservative care come first.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact?topic=therapeutic-injectables", "preset": "primary" },
-        { "label": "Ask about suitability", "href": "/contact?topic=therapeutic-injectables", "preset": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact?topic=therapeutic-injectables",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about suitability",
+          "href": "/contact?topic=therapeutic-injectables",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Facial aesthetics consultation",
+        "href": "/treatments/facial-aesthetics"
+      },
+      {
+        "label": "Routine skin health checks",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Skin boosters",
+        "href": "/treatments/skin-boosters"
+      },
+      {
+        "label": "Polynucleotides",
+        "href": "/treatments/polynucleotides"
+      },
+      {
+        "label": "Therapeutic injectables",
+        "href": "/treatments/therapeutic-facial-injectables"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Anti-wrinkle pathways",
+        "href": "/treatments/anti-wrinkle-treatments"
+      },
+      {
+        "label": "Dermal fillers",
+        "href": "/treatments/dermal-fillers"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a facial injectable review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan skin booster sessions",
+      "href": "/treatments/skin-boosters"
+    },
+    "reassurance_intent": {
+      "label": "Learn about treatment safety",
+      "href": "/treatments/facial-aesthetics"
+    }
+  }
 }

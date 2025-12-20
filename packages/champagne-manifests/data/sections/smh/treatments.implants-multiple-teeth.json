@@ -53,7 +53,7 @@
       "eyebrow": "Who it helps",
       "title": "For multiple gaps and loose bridges",
       "items": [
-        "Several missing teeth in a row where a traditional bridge isn’t suitable",
+        "Several missing teeth in a row where a traditional bridge isn\u2019t suitable",
         "Replacing a failing bridge with a stable implant-supported option",
         "Partial denture wearers wanting more security and bite strength",
         "Patients aiming to protect jaw bone and stop neighbouring teeth drifting"
@@ -148,9 +148,67 @@
       "title": "Ready for a stable solution to several missing teeth?",
       "strapline": "Book a multi-tooth implant consultation in Shoreham-by-Sea or ask how implant-supported bridges work.",
       "ctas": [
-        { "label": "Book a multi-implant consult", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about implant bridges", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book a multi-implant consult",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about implant bridges",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "CBCT 3D scanning",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      },
+      {
+        "label": "Hygiene and aftercare",
+        "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Retained denture options",
+        "href": "/treatments/implants-retained-dentures"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Bone grafting",
+        "href": "/treatments/implants-bone-grafting"
+      },
+      {
+        "label": "Sedation support",
+        "href": "/treatments/implants-sedation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan implant placement",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Confirm digital planning",
+      "href": "/treatments/cbct-3d-scanning"
+    },
+    "reassurance_intent": {
+      "label": "Review aftercare steps",
+      "href": "/treatments/implants-aftercare"
+    }
+  }
 }

@@ -20,8 +20,16 @@
         "Clinician-led fit and occlusion checks"
       ],
       "ctas": [
-        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about 3D printing", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a denture consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about 3D printing",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -144,7 +152,7 @@
         },
         {
           "question": "Are printed dentures right for everyone?",
-          "answer": "Not always. We’ll advise if a different material or lab-made option is more appropriate based on your bite, bone support, and aesthetic goals."
+          "answer": "Not always. We\u2019ll advise if a different material or lab-made option is more appropriate based on your bite, bone support, and aesthetic goals."
         }
       ]
     },
@@ -158,9 +166,67 @@
       "title": "Plan digital dentures with clinician oversight",
       "body": "Book a consultation to see how digital scanning and in-house printing could support a comfortable, stable denture fit.",
       "ctas": [
-        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about 3D printing", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a denture consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about 3D printing",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Extractions and oral surgery",
+        "href": "/treatments/extractions-and-oral-surgery"
+      },
+      {
+        "label": "Gum health management",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant-retained dentures",
+        "href": "/treatments/implants-retained-dentures"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Senior smile care",
+        "href": "/treatments/senior-mature-smile-care"
+      },
+      {
+        "label": "Comfort sedation",
+        "href": "/treatments/sedation-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a denture consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore implant-retained options",
+      "href": "/treatments/implants-retained-dentures"
+    },
+    "reassurance_intent": {
+      "label": "Plan hygiene reviews",
+      "href": "/treatments/preventative-and-general-dentistry"
+    }
+  }
 }

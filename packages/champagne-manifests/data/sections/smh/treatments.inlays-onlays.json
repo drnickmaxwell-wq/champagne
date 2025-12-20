@@ -20,8 +20,16 @@
         "Materials matched to the tooth and bite"
       ],
       "ctas": [
-        { "label": "Book an assessment", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about inlays & onlays", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book an assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about inlays & onlays",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -156,11 +164,69 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Strengthen your tooth with a precise fit",
-      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we’d recommend.",
+      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we\u2019d recommend.",
       "ctas": [
-        { "label": "Book an assessment", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about options", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book an assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about options",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Bite and wear review",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Crown restoration if needed",
+        "href": "/treatments/dental-crowns"
+      },
+      {
+        "label": "Occlusal splint for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Smile refinement",
+        "href": "/treatments/veneers"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum health support",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Digital smile planning",
+        "href": "/treatments/digital-smile-design"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book an inlay/onlay consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Protect repairs with a splint",
+      "href": "/treatments/night-guards-occlusal-splints"
+    },
+    "reassurance_intent": {
+      "label": "Plan ongoing care",
+      "href": "/treatments/preventative-and-general-dentistry"
+    }
+  }
 }

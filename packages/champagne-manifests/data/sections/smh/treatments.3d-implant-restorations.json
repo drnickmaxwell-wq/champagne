@@ -20,8 +20,16 @@
         "Porcelain still recommended when longevity demands it"
       ],
       "ctas": [
-        { "label": "Plan an implant restoration", "href": "/contact?topic=implants", "preset": "primary" },
-        { "label": "Preview your design", "href": "/treatments/digital-smile-design", "preset": "secondary" }
+        {
+          "label": "Plan an implant restoration",
+          "href": "/contact?topic=implants",
+          "preset": "primary"
+        },
+        {
+          "label": "Preview your design",
+          "href": "/treatments/digital-smile-design",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -140,7 +148,7 @@
         },
         {
           "question": "What follow-up is needed?",
-          "answer": "You’ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
+          "answer": "You\u2019ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
         },
         {
           "question": "Are the materials regulated?",
@@ -158,9 +166,67 @@
       "title": "Plan your implant restoration with clarity",
       "body": "Book a consultation to review digital designs, material choices, and whether in-house or lab-made options best suit your long-term goals.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact?topic=implants", "preset": "primary" },
-        { "label": "Ask about materials", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact?topic=implants",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about materials",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant placement",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Crown and bridge fitting",
+        "href": "/treatments/dental-crowns"
+      },
+      {
+        "label": "Hygiene and maintenance",
+        "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Digital smile refinement",
+        "href": "/treatments/digital-smile-design"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "CBCT verification",
+        "href": "/treatments/cbct-3d-scanning"
+      },
+      {
+        "label": "Sedation support",
+        "href": "/treatments/implants-sedation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan implant restoration work",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Arrange hygiene maintenance",
+      "href": "/treatments/implants-aftercare"
+    },
+    "reassurance_intent": {
+      "label": "Review digital planning",
+      "href": "/treatments/3d-digital-dentistry"
+    }
+  }
 }

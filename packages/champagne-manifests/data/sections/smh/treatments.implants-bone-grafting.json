@@ -20,8 +20,16 @@
         "Transparent timelines, options, and fees before each step"
       ],
       "ctas": [
-        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about bone grafting", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book an implant assessment",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about bone grafting",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     },
     {
@@ -64,7 +72,7 @@
         "Previous gum issues that left thinner bone in the area",
         "Upper back teeth where the sinus floor sits low",
         "Patients choosing implants instead of removable dentures",
-        "Not everyone needs grafting — we confirm with scans and planning"
+        "Not everyone needs grafting \u2014 we confirm with scans and planning"
       ]
     },
     {
@@ -159,11 +167,69 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Ready to plan implants with confidence?",
-      "strapline": "Book an assessment in Shoreham-by-Sea and we’ll map the safest route — including whether grafting is needed.",
+      "strapline": "Book an assessment in Shoreham-by-Sea and we\u2019ll map the safest route \u2014 including whether grafting is needed.",
       "ctas": [
-        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
-        { "label": "Learn about implant options", "href": "/treatments/implants", "variant": "secondary" }
+        {
+          "label": "Book an implant assessment",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Learn about implant options",
+          "href": "/treatments/implants",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "3D scans",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant placement",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Teeth in a day",
+        "href": "/treatments/implants-teeth-in-a-day"
+      },
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation dentistry",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Discuss grafting and support procedures",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan implant timelines",
+      "href": "/treatments/implants"
+    },
+    "reassurance_intent": {
+      "label": "Review sedation availability",
+      "href": "/treatments/implants-sedation"
+    }
+  }
 }

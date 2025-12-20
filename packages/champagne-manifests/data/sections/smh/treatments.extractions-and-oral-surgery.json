@@ -12,15 +12,23 @@
       "seoRole": "hero",
       "eyebrow": "Extractions & oral surgery",
       "title": "Gentle extractions with clear surgical planning",
-      "body": "When a tooth can’t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+      "body": "When a tooth can\u2019t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
       "bullets": [
         "Calm assessments that explain when extraction is the safest route",
         "Minimally invasive techniques to protect bone and gum",
         "Aftercare and future planning for implants, bridges, or dentures"
       ],
       "ctas": [
-        { "label": "Book an extraction assessment", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about oral surgery", "href": "/contact?topic=treatment", "preset": "secondary" }
+        {
+          "label": "Book an extraction assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about oral surgery",
+          "href": "/contact?topic=treatment",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -147,7 +155,7 @@
         },
         {
           "question": "How long is recovery?",
-          "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
+          "answer": "Most people are comfortable after a few days with steady improvement over 1\u20132 weeks. We give written instructions to support smooth healing."
         },
         {
           "question": "Can the tooth be replaced?",
@@ -155,7 +163,7 @@
         },
         {
           "question": "What if the tooth could be saved?",
-          "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
+          "answer": "If a filling, crown, or root canal could provide a predictable result, we\u2019ll explain that option first so you can make an informed choice."
         }
       ]
     },
@@ -167,11 +175,69 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Need advice about a troublesome tooth?",
-      "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+      "body": "We\u2019ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
       "ctas": [
-        { "label": "Book an oral surgery consult", "href": "/contact", "variant": "primary" },
-        { "label": "Call the team", "href": "/contact", "variant": "secondary" }
+        {
+          "label": "Book an oral surgery consult",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Call the team",
+          "href": "/contact",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Gum health concerns",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Routine examinations",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "Denture solutions",
+        "href": "/treatments/dentures"
+      },
+      {
+        "label": "Bone grafting for implants",
+        "href": "/treatments/implants-bone-grafting"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation support",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Comfort-first numbing",
+        "href": "/treatments/painless-numbing-the-wand"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book an oral surgery appointment",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan implant replacement",
+      "href": "/treatments/implants-consultation"
+    },
+    "reassurance_intent": {
+      "label": "Review sedation options",
+      "href": "/treatments/sedation-dentistry"
+    }
+  }
 }
