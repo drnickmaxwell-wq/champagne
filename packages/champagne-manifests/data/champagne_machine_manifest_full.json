@@ -381,12 +381,19 @@
         },
         {
           "id": "treatments_hub_reviews",
-          "type": "copy-block",
+          "type": "google_reviews",
           "label": "Reviews",
           "title": "What patients say about Champagne care",
-          "copy": "Read patient feedback from the home reviews section to see how calm pacing and clear explanations feel in practice.",
-          "ctas": [
-            { "label": "See patient reviews", "href": "/#home_google_reviews", "preset": "secondary" }
+          "strapline": "Read patient feedback from the home reviews section to see how calm pacing and clear explanations feel in practice.",
+          "rating": 4.9,
+          "reviewCount": "120+ Google reviews",
+          "reviews": [
+            { "quote": "Gentle, reassuring, and clear about every step.", "name": "Google reviewer" },
+            {
+              "quote": "Calm atmosphere with kind clinicians and organised follow-up.",
+              "name": "Google reviewer"
+            },
+            { "quote": "Explained options and pacing so I felt in control.", "name": "Google reviewer" }
           ]
         },
         {

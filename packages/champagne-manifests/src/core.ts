@@ -29,6 +29,7 @@ import sectionLayoutImplantSinusLift from "../data/sections/smh/treatments.impla
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
 import sectionLayoutFixedBraces from "../data/sections/smh/treatments.fixed-braces.json";
+import sectionLayout3DDentistryAndTechnology from "../data/sections/smh/treatments.3d-dentistry-and-technology.json";
 import sectionLayout3DDigitalDentistry from "../data/sections/smh/treatments.3d-digital-dentistry.json";
 import sectionLayout3DMouthGuards from "../data/sections/smh/treatments.3d-mouth-guards.json";
 import sectionLayout3DPrintedDentures from "../data/sections/smh/treatments.3d-printed-dentures.json";
@@ -42,12 +43,19 @@ import sectionLayoutDentalCrowns from "../data/sections/smh/treatments.dental-cr
 import sectionLayoutInlaysOnlays from "../data/sections/smh/treatments.inlays-onlays.json";
 import sectionLayoutOrthodontics from "../data/sections/smh/treatments.orthodontics.json";
 import sectionLayoutPainlessNumbingTheWand from "../data/sections/smh/treatments.painless-numbing-the-wand.json";
+import sectionLayoutPeriodontalGumCare from "../data/sections/smh/treatments.periodontal-gum-care.json";
+import sectionLayoutHomeTeethWhitening from "../data/sections/smh/treatments.home-teeth-whitening.json";
+import sectionLayoutChildrensDentistry from "../data/sections/smh/treatments.childrens-dentistry.json";
 import sectionLayoutNervousPatients from "../data/sections/smh/treatments.nervous-patients.json";
 import sectionLayoutSedationDentistry from "../data/sections/smh/treatments.sedation-dentistry.json";
 import sectionLayoutPreventativeGeneralDentistry from "../data/sections/smh/treatments.preventative-and-general-dentistry.json";
 import sectionLayoutSeniorMatureSmileCare from "../data/sections/smh/treatments.senior-mature-smile-care.json";
+import sectionLayoutTeethWhitening from "../data/sections/smh/treatments.teeth-whitening.json";
+import sectionLayoutTeethWhiteningFaqs from "../data/sections/smh/treatments.teeth-whitening-faqs.json";
 import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
 import sectionLayoutTmjJawComfort from "../data/sections/smh/treatments.tmj-jaw-comfort.json";
+import sectionLayoutWhiteningSensitiveTeeth from "../data/sections/smh/treatments.whitening-sensitive-teeth.json";
+import sectionLayoutWhiteningTopUps from "../data/sections/smh/treatments.whitening-top-ups.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -301,6 +309,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutClearAligners as ChampagneSectionLayout,
   sectionLayoutSparkAligners as ChampagneSectionLayout,
   sectionLayoutAligners as ChampagneSectionLayout,
+  sectionLayout3DDentistryAndTechnology as ChampagneSectionLayout,
   sectionLayout3DDigitalDentistry as ChampagneSectionLayout,
   sectionLayout3DMouthGuards as ChampagneSectionLayout,
   sectionLayout3DPrintedDentures as ChampagneSectionLayout,
@@ -313,11 +322,18 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutDentalCrowns as ChampagneSectionLayout,
   sectionLayoutInlaysOnlays as ChampagneSectionLayout,
   sectionLayoutPainlessNumbingTheWand as ChampagneSectionLayout,
+  sectionLayoutPeriodontalGumCare as ChampagneSectionLayout,
+  sectionLayoutHomeTeethWhitening as ChampagneSectionLayout,
+  sectionLayoutChildrensDentistry as ChampagneSectionLayout,
   sectionLayoutNervousPatients as ChampagneSectionLayout,
   sectionLayoutSedationDentistry as ChampagneSectionLayout,
   sectionLayoutPreventativeGeneralDentistry as ChampagneSectionLayout,
   sectionLayoutSeniorMatureSmileCare as ChampagneSectionLayout,
+  sectionLayoutTeethWhitening as ChampagneSectionLayout,
+  sectionLayoutTeethWhiteningFaqs as ChampagneSectionLayout,
   sectionLayoutTmjJawComfort as ChampagneSectionLayout,
+  sectionLayoutWhiteningSensitiveTeeth as ChampagneSectionLayout,
+  sectionLayoutWhiteningTopUps as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
