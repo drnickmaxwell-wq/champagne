@@ -120,15 +120,6 @@ export default async function TreatmentsPage({
     });
   }
 
-  const cardStyle = {
-    display: "grid",
-    gap: "0.35rem",
-    padding: "1rem 1.1rem",
-    borderRadius: "var(--radius-lg)",
-    border: "1px solid var(--champagne-keyline-gold, rgba(255,215,137,0.22))",
-    background: "linear-gradient(145deg, rgba(12,15,22,0.8), rgba(8,9,14,0.76))",
-  } as const;
-
   return (
     <div className="mx-auto max-w-6xl space-y-6 py-8 px-2 sm:px-0">
       {isHeroEnabled && <HeroRenderer mode="treatment" pageCategory="treatment" />}
@@ -144,8 +135,7 @@ export default async function TreatmentsPage({
       {hubSections.length > 0 && (
         <BaseChampagneSurface
           variant="inkGlass"
-          className="border border-neutral-800/70 shadow-lg"
-          style={{ background: "linear-gradient(145deg, rgba(12,15,22,0.9), rgba(8,9,14,0.82))", padding: "1.25rem 1.5rem" }}
+          className="border border-neutral-800/70 shadow-lg p-5 sm:p-6"
         >
           <ChampagneSectionRenderer pageSlug="/treatments" />
         </BaseChampagneSurface>
@@ -153,8 +143,7 @@ export default async function TreatmentsPage({
 
       <BaseChampagneSurface
         variant="inkGlass"
-        className="border border-neutral-800/70 shadow-lg"
-        style={{ background: "linear-gradient(145deg, rgba(12,15,22,0.9), rgba(8,9,14,0.82))", padding: "1.5rem 1.75rem" }}
+        className="border border-neutral-800/70 shadow-lg p-6 sm:p-7"
       >
         <div className="space-y-8">
           {orderedGroups.map((group) => (
@@ -177,13 +166,12 @@ export default async function TreatmentsPage({
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {group.items.map((treatment) => (
-                  <BaseChampagneSurface key={treatment.slug} variant="glass" className="h-full">
+                  <BaseChampagneSurface key={treatment.slug} variant="glass" className="h-full border border-neutral-800/70">
                     <Link
                       href={treatment.path}
-                      className="group block h-full"
-                      style={{ textDecoration: "none", color: "inherit" }}
+                      className="group block h-full no-underline text-inherit"
                     >
-                      <div style={cardStyle} className="transition hover:-translate-y-0.5">
+                      <div className="grid h-full gap-2 rounded-lg p-4 sm:p-5 transition hover:-translate-y-0.5">
                         <p className="text-lg font-semibold text-neutral-50 group-hover:text-white">
                           {treatment.label ?? treatment.slug.replace(/-/g, " ")}
                         </p>
