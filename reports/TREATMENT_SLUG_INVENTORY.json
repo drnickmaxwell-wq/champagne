@@ -1,0 +1,435 @@
+{
+  "sourceOfTruth": [
+    "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "getTreatmentPages() canonical logic"
+  ],
+  "generatedAt": "2025-12-20T17:04:36.785Z",
+  "treatments": [
+    {
+      "slug": "3d-digital-dentistry",
+      "href": "/treatments/3d-digital-dentistry",
+      "title": "3D & digital dentistry",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "3d-implant-restorations",
+      "href": "/treatments/3d-implant-restorations",
+      "title": "3D implant restorations",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "3d-printed-dentures",
+      "href": "/treatments/3d-printed-dentures",
+      "title": "3D printed dentures",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "3d-printed-veneers",
+      "href": "/treatments/3d-printed-veneers",
+      "title": "3D printed veneers",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "3d-printing-lab",
+      "href": "/treatments/3d-printing-lab",
+      "title": "3D printing lab",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "acrylic-dentures",
+      "href": "/treatments/acrylic-dentures",
+      "title": "Acrylic dentures",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "anti-wrinkle-treatments",
+      "href": "/treatments/anti-wrinkle-treatments",
+      "title": "Prescription anti-wrinkle treatments",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "broken-chipped-cracked-teeth",
+      "href": "/treatments/broken-chipped-cracked-teeth",
+      "title": "Broken, chipped or cracked teeth",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "bruxism-and-jaw-clenching",
+      "href": "/treatments/bruxism-and-jaw-clenching",
+      "title": "Bruxism and jaw clenching treatment",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "cbct-3d-scanning",
+      "href": "/treatments/cbct-3d-scanning",
+      "title": "CBCT / 3D scanning",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "childrens-dentistry",
+      "href": "/treatments/childrens-dentistry",
+      "title": "Children’s dentistry",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "chrome-dentures",
+      "href": "/treatments/chrome-dentures",
+      "title": "Chrome dentures",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "clear-aligners",
+      "href": "/treatments/clear-aligners",
+      "title": "Clear Aligners in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "clear-aligners-spark",
+      "href": "/treatments/clear-aligners-spark",
+      "title": "Spark clear aligners in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "composite-bonding",
+      "href": "/treatments/composite-bonding",
+      "title": "Composite bonding",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dental-abscess-infection",
+      "href": "/treatments/dental-abscess-infection",
+      "title": "Dental abscess & infection",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dental-bridges",
+      "href": "/treatments/dental-bridges",
+      "title": "Dental bridges",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dental-checkups-oral-cancer-screening",
+      "href": "/dental-checkups-oral-cancer-screening",
+      "title": "Dental Check-Ups & Oral Cancer Screening",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dental-crowns",
+      "href": "/treatments/dental-crowns",
+      "title": "Dental crowns",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dental-retainers",
+      "href": "/treatments/dental-retainers",
+      "title": "Dental retainers",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dental-trauma-accidents",
+      "href": "/treatments/dental-trauma-accidents",
+      "title": "Dental trauma & accidents",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dentures",
+      "href": "/treatments/dentures",
+      "title": "Dentures & tooth replacement",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "dermal-fillers",
+      "href": "/treatments/dermal-fillers",
+      "title": "Dermal fillers with medical oversight",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "digital-smile-design",
+      "href": "/treatments/digital-smile-design",
+      "title": "Digital smile design",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "emergency-dental-appointments",
+      "href": "/treatments/emergency-dental-appointments",
+      "title": "Emergency dental appointments",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "emergency-dentistry",
+      "href": "/treatments/emergency-dentistry",
+      "title": "Emergency dentistry",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "endodontics-root-canal",
+      "href": "/treatments/endodontics-root-canal",
+      "title": "Endodontics & root canal care",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "extractions-and-oral-surgery",
+      "href": "/treatments/extractions-and-oral-surgery",
+      "title": "Extractions & oral surgery",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "facial-pain-and-headache",
+      "href": "/treatments/facial-pain-and-headache",
+      "title": "Facial pain and headache pathways",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "failed-implant-replacement",
+      "href": "/treatments/failed-implant-replacement",
+      "title": "Failed implant replacement in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "fixed-braces",
+      "href": "/treatments/fixed-braces",
+      "title": "Fixed braces",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "full-smile-makeover",
+      "href": "/treatments/full-smile-makeover",
+      "title": "Full smile makeover",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "home-teeth-whitening",
+      "href": "/treatments/home-teeth-whitening",
+      "title": "Home teeth whitening",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implant-aftercare",
+      "href": "/treatments/implant-aftercare",
+      "title": "Implant aftercare & recovery in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implant-consultation",
+      "href": "/treatments/implant-consultation",
+      "title": "Implant consultation & planning in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implant-retained-dentures",
+      "href": "/treatments/implant-retained-dentures",
+      "title": "Implant-retained dentures",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implants",
+      "href": "/treatments/implants",
+      "title": "Dental Implants in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implants-bone-grafting",
+      "href": "/treatments/implants-bone-grafting",
+      "title": "Bone grafting for dental implants",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implants-full-arch",
+      "href": "/treatments/implants-full-arch",
+      "title": "Full arch implant rehabilitation",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implants-multiple-teeth",
+      "href": "/treatments/implants-multiple-teeth",
+      "title": "Multiple teeth implant options",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "implants-single-tooth",
+      "href": "/treatments/implants-single-tooth",
+      "title": "Single-tooth dental implants in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "injection-moulded-composite",
+      "href": "/treatments/injection-moulded-composite",
+      "title": "Injection-moulded composite",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "inlays-onlays",
+      "href": "/treatments/inlays-onlays",
+      "title": "Inlays & onlays",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "knocked-out-tooth",
+      "href": "/treatments/knocked-out-tooth",
+      "title": "Knocked-out (avulsed) tooth",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "lost-crowns-veneers-fillings",
+      "href": "/treatments/lost-crowns-veneers-fillings",
+      "title": "Lost crowns, veneers & fillings",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "mouthguards-and-retainers",
+      "href": "/treatments/mouthguards-and-retainers",
+      "title": "Mouthguards & retainers",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "nervous-patients",
+      "href": "/treatments/nervous-patients",
+      "title": "Nervous patients",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "night-guards-occlusal-splints",
+      "href": "/treatments/night-guards-occlusal-splints",
+      "title": "Night guards (occlusal splints)",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "orthodontics",
+      "href": "/treatments/orthodontics",
+      "title": "Orthodontics",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "painless-numbing-the-wand",
+      "href": "/treatments/painless-numbing-the-wand",
+      "title": "Painless numbing with The Wand",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "peek-partial-dentures",
+      "href": "/treatments/peek-partial-dentures",
+      "title": "PEEK partial dentures",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "periodontal-gum-care",
+      "href": "/treatments/periodontal-gum-care",
+      "title": "Periodontal & gum care",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "polynucleotides",
+      "href": "/treatments/polynucleotides",
+      "title": "Polynucleotide treatments to support skin quality",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "preventative-and-general-dentistry",
+      "href": "/treatments/preventative-and-general-dentistry",
+      "title": "Preventative & general dentistry",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "sedation-dentistry",
+      "href": "/treatments/sedation-dentistry",
+      "title": "Sedation dentistry",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "sedation-for-implants",
+      "href": "/treatments/sedation-for-implants",
+      "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "senior-mature-smile-care",
+      "href": "/treatments/senior-mature-smile-care",
+      "title": "Senior & mature smile care",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "severe-toothache-dental-pain",
+      "href": "/treatments/severe-toothache-dental-pain",
+      "title": "Severe toothache & dental pain",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "sinus-lift",
+      "href": "/treatments/sinus-lift",
+      "title": "Sinus lift for dental implants in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "skin-boosters",
+      "href": "/treatments/skin-boosters",
+      "title": "Skin boosters for hydration and elasticity",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "sports-mouthguards",
+      "href": "/treatments/sports-mouthguards",
+      "title": "Sports mouthguards",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "teeth-in-a-day",
+      "href": "/treatments/teeth-in-a-day",
+      "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "teeth-whitening",
+      "href": "/treatments/teeth-whitening",
+      "title": "Teeth whitening",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "teeth-whitening-faqs",
+      "href": "/treatments/teeth-whitening-faqs",
+      "title": "Teeth whitening FAQs",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "therapeutic-facial-injectables",
+      "href": "/treatments/therapeutic-facial-injectables",
+      "title": "Therapeutic facial injectables",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "tmj-disorder-treatment",
+      "href": "/treatments/tmj-disorder-treatment",
+      "title": "TMJ disorder treatment",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "tmj-jaw-comfort",
+      "href": "/treatments/tmj-jaw-comfort",
+      "title": "TMJ & jaw comfort",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "tooth-wear-broken-teeth",
+      "href": "/treatments/tooth-wear-broken-teeth",
+      "title": "Tooth Wear & Broken Teeth",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "veneers",
+      "href": "/treatments/veneers",
+      "title": "Dental veneers in Shoreham-by-Sea",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "whitening-sensitive-teeth",
+      "href": "/treatments/whitening-sensitive-teeth",
+      "title": "Sensitive teeth & whitening",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    },
+    {
+      "slug": "whitening-top-ups",
+      "href": "/treatments/whitening-top-ups",
+      "title": "Whitening top-ups & maintenance",
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    }
+  ]
+}
