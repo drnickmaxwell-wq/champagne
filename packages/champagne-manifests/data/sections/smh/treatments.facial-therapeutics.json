@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.facial-therapeutics",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "facial-therapeutics-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "facial_therapeutics_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial therapeutics",
+      "title": "Medically led facial injectables in Shoreham-by-Sea",
+      "body": "Conservative, evidence-based facial therapeutics delivered by a prescriber who prioritises safety, suitability, and informed consent before any treatment.",
+      "bullets": [
+        "Assessment-first appointments that map your health, skin, and goals",
+        "Treatment options across anti-wrinkle care, fillers, skin boosters, and polynucleotides when clinically appropriate",
+        "Clear aftercare with fast access back to the clinician for reviews"
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "facial_therapeutics_trust_signals",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Prescription-led care with measured dosing",
+      "items": [
+        "Consultations led by a prescriber who checks medical history, medicines, and skin health before any injectable care",
+        "Single-use, CE-marked products sourced through regulated supply with cold-chain monitoring",
+        "Aseptic technique, anatomical mapping, and conservative dosing to protect vessels, nerves, and soft tissue",
+        "Emergency pathways for rare complications, with dissolving agents and escalation protocols available"
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-assessment",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "facial_therapeutics_assessment_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation & suitability",
+      "title": "Medical assessment before any injectable treatment",
+      "body": "Your visit focuses on safety and suitability. We take a detailed history, review medicines, and examine facial dynamics, skin quality, and treatment goals. Together we agree whether to proceed, and if so which route—anti-wrinkle treatment (/treatments/anti-wrinkle-treatments), dermal fillers (/treatments/dermal-fillers), skin boosters (/treatments/skin-boosters), or polynucleotides (/treatments/polynucleotides)—best fits your needs.",
+      "bullets": [
+        "Medical history, contraindications, and informed consent are covered first",
+        "Clinical photography and facial mapping where helpful to plan dosing and placement",
+        "Discussion of realistic outcomes, maintenance intervals, and costs before treatment",
+        "Written aftercare issued for every pathway with clear review points"
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "facial_therapeutics_suitability",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Support for clinically appropriate facial rejuvenation",
+      "items": [
+        "Patients seeking measured softening of expression lines when prescription medicines are suitable",
+        "Those wanting careful volume restoration or contour support without overfilling",
+        "People aiming to improve skin hydration and elasticity through booster or polynucleotide courses",
+        "Anyone needing a clinician-led conversation about safety, risks, and realistic timelines"
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "facial_therapeutics_pathway",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Consult, plan, treat, and review",
+      "items": [
+        "Consultation: full medical history, skin and facial assessment, and discussion of options",
+        "Treatment: measured dosing using prescription products or medical devices suited to the agreed plan",
+        "Review: follow-up to monitor effect, adjust where clinically indicated, and plan maintenance",
+        "Ongoing care: scheduling to maintain results safely, or pausing if health or lifestyle factors change"
+      ],
+      "strapline": "Treatment only proceeds when safe and clinically justified. Timings depend on the product chosen and your response to care."
+    },
+    {
+      "instanceId": "facial-therapeutics-technology",
+      "componentId": "treatment.technology",
+      "variantId": "facial_therapeutics_products",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Products & protocols",
+      "title": "Regulated medicines and devices, handled carefully",
+      "body": "We use regulated prescription medicines and CE-marked injectables sourced via verified pharmacies. Treatment areas are prepared with antisepsis, needles or cannulas are chosen to suit anatomy, and dosing is documented so future visits can build safely on prior care.",
+      "mediaHint": "Clinical injectables prepared with sterile single-use equipment"
+    },
+    {
+      "instanceId": "facial-therapeutics-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "facial_therapeutics_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Practical guidance and responsive follow-up",
+      "items": [
+        "Written aftercare outlining how to clean, protect, and monitor treated areas",
+        "Contact routes back to the clinician if you notice unexpected swelling, bruising, or asymmetry",
+        "Transparent discussion of risks such as bruising, tenderness, infection, or vascular events with clear escalation steps",
+        "Review appointments scheduled to check comfort and plan any maintenance doses if suitable"
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-faq",
+      "componentId": "treatment.faq",
+      "variantId": "facial_therapeutics_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Facial therapeutics FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "Do I need a consultation before injectables?",
+          "answer": "Yes. Prescription medicines and medical devices require a clinical assessment, consent discussion, and suitability check before treatment."
+        },
+        {
+          "question": "How do you decide between toxins, fillers, boosters, or polynucleotides?",
+          "answer": "We review your medical history, facial dynamics, and skin health. The plan may use one route or a staged combination when clinically appropriate, or we may advise against treatment."
+        },
+        {
+          "question": "What downtime should I expect?",
+          "answer": "Most patients can return to daily tasks quickly. Mild redness or swelling is common for 24–72 hours. We explain aftercare and what to avoid, such as strenuous exercise or active skincare, until tissues settle."
+        },
+        {
+          "question": "Who carries out the treatment?",
+          "answer": "A prescriber trained in facial anatomy, complication management, and dissolving protocols leads your care and remains available for review."
+        },
+        {
+          "question": "What if I’m not suitable?",
+          "answer": "We will explain why and may suggest alternative skincare, dental, or medical routes. Safety and candidacy come before any injectable treatment."
+        }
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-cta",
+      "componentId": "treatment.cta",
+      "variantId": "facial_therapeutics_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Book a facial therapeutics consultation",
+      "strapline": "Discuss safe, clinically led options across anti-wrinkle care, fillers, skin boosters, or polynucleotides with a prescriber who prioritises your wellbeing.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask a question", "href": "/contact?topic=facial-therapeutics", "variant": "secondary" }
+      ]
+    }
+  ]
+}

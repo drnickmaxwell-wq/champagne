@@ -1,0 +1,156 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.skin-boosters",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "skin-boosters-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "skin_boosters_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial therapeutics",
+      "title": "Skin boosters for hydration and elasticity",
+      "body": "Lightweight injectable hydrators delivered in planned courses to support skin quality without adding bulk, overseen by a clinician who sequences care safely.",
+      "bullets": [
+        "Consultation-led selection of product and treatment sites",
+        "Course planning (often 2–3 sessions) with clear intervals",
+        "Aftercare that protects skin barrier while you heal"
+      ]
+    },
+    {
+      "instanceId": "skin-boosters-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "skin_boosters_trust_signals",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Gentle protocols with medical products",
+      "items": [
+        "CE-marked booster products stored and prepared under controlled conditions",
+        "Aseptic microinjection technique with single-use needles",
+        "Course-based dosing to avoid overload and monitor response",
+        "Clear escalation routes if you experience unexpected swelling or irritation"
+      ]
+    },
+    {
+      "instanceId": "skin-boosters-assessment",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "skin_boosters_assessment_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation & planning",
+      "title": "Skin-first assessment before treatment",
+      "body": "We review skin health, hydration, and lifestyle factors to decide whether boosters are suitable. Where appropriate, we plan microinjections across cheeks, peri-oral areas, neck, or hands, and discuss how boosters differ from fillers (/treatments/dermal-fillers) or polynucleotides (/treatments/polynucleotides).",
+      "bullets": [
+        "Medical history and skin examination to confirm suitability",
+        "Course design (typically two initial sessions 3–4 weeks apart)",
+        "Advice on pausing active skincare and planning around events",
+        "Written consent and aftercare before treatment begins"
+      ]
+    },
+    {
+      "instanceId": "skin-boosters-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "skin_boosters_suitability",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "For skin needing hydration and fine-texture support",
+      "items": [
+        "Patients with dryness or fine crepiness seeking improved glow without volume",
+        "Those wanting a medical alternative to topical-only hydration",
+        "Suitable for many skin types when no active infection or contraindication is present",
+        "Patients ready to follow a course schedule and maintenance as advised"
+      ]
+    },
+    {
+      "instanceId": "skin-boosters-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "skin_boosters_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Plan, treat, review",
+      "items": [
+        "Consultation: suitability check, photography, and course planning",
+        "Treatment sessions: microdroplet injections with numbing support if needed",
+        "Review: follow-up after the initial sessions to assess hydration and skin feel",
+        "Maintenance: booster top-ups scheduled based on response and seasonality"
+      ],
+      "strapline": "Skin boosters build gradually. We do not rush sessions or stack products when the skin needs time to respond."
+    },
+    {
+      "instanceId": "skin-boosters-technology",
+      "componentId": "treatment.technology",
+      "variantId": "skin_boosters_delivery",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technique",
+      "title": "Microinjection patterns for even spread",
+      "body": "We use fine needles and controlled depth to place microdroplets evenly, focusing on superficial planes to improve hydration without altering facial structure.",
+      "mediaHint": "Microdroplet skin booster technique across cheek and lower face"
+    },
+    {
+      "instanceId": "skin-boosters-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "skin_boosters_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Protect skin barrier while it settles",
+      "items": [
+        "Expect pinpoint marks or light swelling for 24–72 hours; bruising is possible",
+        "Avoid makeup, hot environments, and active skincare until advised",
+        "Contact us if you notice increasing pain, unusual warmth, or colour changes",
+        "We plan maintenance only once skin has settled and you’re comfortable"
+      ]
+    },
+    {
+      "instanceId": "skin-boosters-faq",
+      "componentId": "treatment.faq",
+      "variantId": "skin_boosters_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Skin booster FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "How are boosters different from fillers?",
+          "answer": "Boosters are runnier, hydrating injectables that improve skin texture rather than adding volume. We avoid mixing them with volume-driven fillers in the same plane."
+        },
+        {
+          "question": "When will I see changes?",
+          "answer": "Most patients notice improved hydration and suppleness after the first sessions, with further gains after the second or third treatment."
+        },
+        {
+          "question": "Can they be combined with anti-wrinkle care?",
+          "answer": "Often yes, when staged safely. We sequence treatments so skin can settle and prescription medicines remain effective."
+        },
+        {
+          "question": "What if I have sensitive skin?",
+          "answer": "We assess barrier health first. If skin is inflamed or compromised, we may delay boosters and focus on repair before proceeding."
+        },
+        {
+          "question": "How long do results last?",
+          "answer": "Maintenance varies but top-ups are often recommended every few months once the initial course is complete."
+        }
+      ]
+    },
+    {
+      "instanceId": "skin-boosters-cta",
+      "componentId": "treatment.cta",
+      "variantId": "skin_boosters_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Book a facial therapeutics consultation",
+      "strapline": "Discuss a planned course of skin boosters with a clinician who keeps barrier health and conservative dosing at the centre of care.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about skin boosters", "href": "/contact?topic=skin-boosters", "variant": "secondary" }
+      ]
+    }
+  ]
+}

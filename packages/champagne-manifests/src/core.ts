@@ -56,6 +56,11 @@ import sectionLayoutVeneers from "../data/sections/smh/treatments.veneers.json";
 import sectionLayoutTmjJawComfort from "../data/sections/smh/treatments.tmj-jaw-comfort.json";
 import sectionLayoutWhiteningSensitiveTeeth from "../data/sections/smh/treatments.whitening-sensitive-teeth.json";
 import sectionLayoutWhiteningTopUps from "../data/sections/smh/treatments.whitening-top-ups.json";
+import sectionLayoutFacialTherapeutics from "../data/sections/smh/treatments.facial-therapeutics.json";
+import sectionLayoutAntiWrinkleTreatments from "../data/sections/smh/treatments.anti-wrinkle-treatments.json";
+import sectionLayoutDermalFillers from "../data/sections/smh/treatments.dermal-fillers.json";
+import sectionLayoutSkinBoosters from "../data/sections/smh/treatments.skin-boosters.json";
+import sectionLayoutPolynucleotides from "../data/sections/smh/treatments.polynucleotides.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -334,6 +339,11 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutTmjJawComfort as ChampagneSectionLayout,
   sectionLayoutWhiteningSensitiveTeeth as ChampagneSectionLayout,
   sectionLayoutWhiteningTopUps as ChampagneSectionLayout,
+  sectionLayoutFacialTherapeutics as ChampagneSectionLayout,
+  sectionLayoutAntiWrinkleTreatments as ChampagneSectionLayout,
+  sectionLayoutDermalFillers as ChampagneSectionLayout,
+  sectionLayoutSkinBoosters as ChampagneSectionLayout,
+  sectionLayoutPolynucleotides as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
