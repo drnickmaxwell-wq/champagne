@@ -1,0 +1,22 @@
+{
+  "missingFromManifest": [
+    {
+      "id": "home_intro_positioning",
+      "note": "Present in please-work import manifest but not in the runtime machine manifest for /"
+    }
+  ],
+  "droppedAtRuntime": [],
+  "rendered": [
+    { "id": "home_intro", "componentId": "copy-block" },
+    { "id": "home_authority", "componentId": "feature-grid" },
+    { "id": "home_treatment_hub", "componentId": "feature-list" },
+    { "id": "home_care_pathway", "componentId": "steps" },
+    { "id": "home_treatment_routing", "componentId": "routing_cards" },
+    { "id": "home_special_pathways", "componentId": "routing_cards" },
+    { "id": "home_technology_showcase", "componentId": "media" },
+    { "id": "home_patient_stories", "componentId": "patient_stories_rail" },
+    { "id": "home_finance_options", "componentId": "feature-list" },
+    { "id": "home_faq", "componentId": "treatment_faq_block" },
+    { "id": "home_closing_cta", "componentId": "treatment_closing_cta" }
+  ]
+}
