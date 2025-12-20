@@ -328,7 +328,7 @@
           "type": "copy-block",
           "label": "Overview",
           "title": "Choose the right treatment pathway",
-          "copy": "Start with calm guidance, then move into curated pathways before browsing the full directory. Clinical hubs sit alongside restorative, orthodontic, emergency, and facial care so you can find the right next step without feeling overwhelmed."
+          "copy": "Start with calm guidance, then move into clinician-defined groups. Each group surfaces a handful of featured pathways first and keeps the full list tucked behind a view-all action so you only see more when you ask for it."
         },
         {
           "id": "treatments_hub_wayfinding",
@@ -336,9 +336,9 @@
           "label": "How to use this hub",
           "title": "Follow the section stack to stay oriented",
           "items": [
-            "Featured pathways surface the most requested routes before the full list",
-            "Group hubs organise related treatments such as implants, orthodontics, and mouthguards & retainers",
-            "A browse-all transition introduces the directory instead of dropping you into a long list"
+            "Six locked groups keep navigation consistent across the site",
+            "Each group shows 3–6 featured treatments with a clear \"View all treatments in this group\" link",
+            "Full inventories stay hidden until you expand a group or follow its hub link"
           ]
         },
         {
@@ -348,24 +348,19 @@
           "title": "Popular and clinically important routes",
           "items": [
             {
+              "title": "Check-ups, hygiene, and gum care",
+              "description": "Routine care that steadies your oral health before you browse deeper options.",
+              "href": "/treatments/preventative-and-general-dentistry"
+            },
+            {
               "title": "Night guards (occlusal splints)",
               "description": "Custom lab-made or in-house 3D printed splints for clenching, grinding, and tooth wear.",
               "href": "/treatments/night-guards-occlusal-splints"
             },
             {
-              "title": "Sports mouthguards",
-              "description": "Lab-made protection tailored for training, matches, and contact sports.",
-              "href": "/treatments/sports-mouthguards"
-            },
-            {
-              "title": "Dental retainers",
-              "description": "Removable Essix, bonded, and 3D printed tooth-coloured options after orthodontics.",
-              "href": "/treatments/dental-retainers"
-            },
-            {
-              "title": "Dental implants",
-              "description": "Placement, restoration, and grafting with digital planning.",
-              "href": "/treatments/implants"
+              "title": "Smile enhancement",
+              "description": "Conservative bonding, veneers, and whitening with digital previews where helpful.",
+              "href": "/treatments/veneers"
             },
             {
               "title": "Orthodontics & aligners",
@@ -373,20 +368,14 @@
               "href": "/treatments/orthodontics"
             },
             {
-              "title": "Emergency dentistry",
-              "description": "Same-day guidance for pain, swelling, or trauma.",
-              "href": "/treatments/emergency-dentistry",
-              "tag": "Urgent"
+              "title": "Dental implants",
+              "description": "Placement, restoration, and grafting with digital planning.",
+              "href": "/treatments/implants"
             },
             {
-              "title": "Teeth whitening",
-              "description": "Professional whitening with sensitivity management and top-ups.",
-              "href": "/treatments/teeth-whitening"
-            },
-            {
-              "title": "Veneers & smile design",
-              "description": "Veneers and contouring planned with digital previews.",
-              "href": "/treatments/veneers"
+              "title": "Digital & 3D dentistry",
+              "description": "Scanning, planning, and printing support that keeps treatment mapped clearly.",
+              "href": "/treatments/3d-digital-dentistry"
             }
           ]
         },
@@ -395,7 +384,7 @@
           "type": "copy-block",
           "label": "Browse all treatments",
           "title": "Browse the full directory by group",
-          "copy": "After the featured pathways, treatments are grouped under clear hubs so you can expand the areas relevant to you. Each link keeps canon routing intact while calming the experience."
+          "copy": "The six groups below show featured pathways first. Use the \"View all treatments in this group\" link on any heading to reveal the full inventory without loading everything at once."
         },
         {
           "id": "treatments_hub_authority",
@@ -455,84 +444,397 @@
       "surface": "champagne/surface/base",
       "directoryGroups": [
         {
-          "groupId": "implants_and_surgery",
-          "label": "Implants & surgical planning",
-          "hub": "/treatments/implants",
-          "description": "Implant placement, grafting, and restoration routes including aftercare."
-        },
-        {
-          "groupId": "endodontics",
-          "label": "Endodontics & root canal",
-          "hub": "/treatments/endodontics-root-canal",
-          "description": "Root canal assessment, calming pain, and protecting tooth structure."
-        },
-        {
-          "groupId": "extractions_oral_surgery",
-          "label": "Extractions & oral surgery",
-          "hub": "/treatments/extractions-and-oral-surgery",
-          "description": "Planned removals with clear healing guidance and replacement planning."
-        },
-        {
-          "groupId": "mouthguards_retainers",
-          "label": "Mouthguards & retainers",
-          "hub": "/treatments/mouthguards-and-retainers",
-          "description": "Night guards, sports mouthguards, and post-orthodontic retainers."
-        },
-        {
-          "groupId": "orthodontics_aligners",
-          "label": "Orthodontics & aligners",
-          "hub": "/treatments/orthodontics",
-          "description": "Clear aligners, Spark, and fixed braces with reviewed progress."
-        },
-        {
-          "groupId": "cosmetic_smile_design",
-          "label": "Cosmetic & smile design",
-          "hub": "/treatments/veneers",
-          "description": "Whitening, veneers, bonding, and digital smile design planning."
-        },
-        {
-          "groupId": "restorative_prosthodontics",
-          "label": "Restorative & prosthetics",
-          "hub": "/treatments/dentures",
-          "description": "Crowns, bridges, dentures, and repairs that steady your bite."
-        },
-        {
-          "groupId": "emergency_care",
-          "label": "Emergency care",
-          "hub": "/treatments/emergency-dentistry",
-          "description": "Urgent support for pain, swelling, trauma, or knocked-out teeth."
-        },
-        {
-          "groupId": "comfort_tmj_sedation",
-          "label": "Comfort, TMJ & sedation",
-          "hub": "/treatments/tmj-jaw-comfort",
-          "description": "TMJ comfort, clenching support, and calming options for nervous patients."
-        },
-        {
-          "groupId": "facial_therapeutics",
-          "label": "Facial therapeutics",
-          "hub": "/treatments/facial-therapeutics",
-          "description": "Clinical injectables for symptom relief with clear safety guidance."
-        },
-        {
-          "groupId": "facial_aesthetics",
-          "label": "Facial aesthetics",
-          "hub": "/treatments/facial-aesthetics",
-          "description": "Anti-wrinkle care, fillers, and boosters with prescriber oversight."
-        },
-        {
-          "groupId": "preventative_general",
-          "label": "Preventative & general care",
+          "groupId": "general_oral_health",
+          "label": "General Dentistry & Oral Health",
           "hub": "/treatments/preventative-and-general-dentistry",
-          "description": "Routine dentistry, gum care, and support for children and seniors."
+          "description": "Check-ups, hygiene, gum care, and calm support for routine oral health.",
+          "viewAllLabel": "View all treatments in this group",
+          "featured": [
+            {
+              "slug": "preventative-and-general-dentistry",
+              "href": "/treatments/preventative-and-general-dentistry",
+              "label": "General dentistry"
+            },
+            {
+              "slug": "periodontal-gum-care",
+              "href": "/treatments/periodontal-gum-care",
+              "label": "Gum care"
+            },
+            {
+              "slug": "childrens-dentistry",
+              "href": "/treatments/childrens-dentistry",
+              "label": "Children’s dentistry"
+            },
+            {
+              "slug": "endodontics-root-canal",
+              "href": "/treatments/endodontics-root-canal",
+              "label": "Root canal care"
+            },
+            {
+              "slug": "extractions-and-oral-surgery",
+              "href": "/treatments/extractions-and-oral-surgery",
+              "label": "Extractions"
+            },
+            {
+              "slug": "senior-mature-smile-care",
+              "href": "/treatments/senior-mature-smile-care",
+              "label": "Senior smile care"
+            }
+          ],
+          "inventoryHiddenByDefault": true
         },
         {
-          "groupId": "digital_diagnostics",
-          "label": "Digital & diagnostics",
+          "groupId": "bite_jaw_facial_pain",
+          "label": "Bite, Jaw & Facial Pain",
+          "hub": "/treatments/tmj-jaw-comfort",
+          "description": "TMJ comfort, clenching relief, and protective splints with calming options.",
+          "viewAllLabel": "View all treatments in this group",
+          "featured": [
+            {
+              "slug": "tmj-jaw-comfort",
+              "href": "/treatments/tmj-jaw-comfort",
+              "label": "TMJ jaw comfort"
+            },
+            {
+              "slug": "bruxism-and-jaw-clenching",
+              "href": "/treatments/bruxism-and-jaw-clenching",
+              "label": "Bruxism & clenching"
+            },
+            {
+              "slug": "night-guards-occlusal-splints",
+              "href": "/treatments/night-guards-occlusal-splints",
+              "label": "Night guards"
+            },
+            {
+              "slug": "sports-mouthguards",
+              "href": "/treatments/sports-mouthguards",
+              "label": "Sports mouthguards"
+            },
+            {
+              "slug": "facial-pain-and-headache",
+              "href": "/treatments/facial-pain-and-headache",
+              "label": "Facial pain support"
+            }
+          ],
+          "inventoryHiddenByDefault": true
+        },
+        {
+          "groupId": "smile_enhancement_aesthetics",
+          "label": "Smile Enhancement & Aesthetics",
+          "hub": "/treatments/veneers",
+          "description": "Whitening, bonding, veneers, and facial aesthetics planned gently.",
+          "viewAllLabel": "View all treatments in this group",
+          "featured": [
+            {
+              "slug": "veneers",
+              "href": "/treatments/veneers",
+              "label": "Veneers"
+            },
+            {
+              "slug": "composite-bonding",
+              "href": "/treatments/composite-bonding",
+              "label": "Composite bonding"
+            },
+            {
+              "slug": "teeth-whitening",
+              "href": "/treatments/teeth-whitening",
+              "label": "Teeth whitening"
+            },
+            {
+              "slug": "digital-smile-design",
+              "href": "/treatments/digital-smile-design",
+              "label": "Digital smile design"
+            },
+            {
+              "slug": "facial-aesthetics",
+              "href": "/treatments/facial-aesthetics",
+              "label": "Facial aesthetics"
+            },
+            {
+              "slug": "dermal-fillers",
+              "href": "/treatments/dermal-fillers",
+              "label": "Dermal fillers"
+            }
+          ],
+          "inventoryHiddenByDefault": true
+        },
+        {
+          "groupId": "orthodontics_alignment",
+          "label": "Orthodontics & Alignment",
+          "hub": "/treatments/orthodontics",
+          "description": "Aligners, fixed braces, and retainer care with reviewed progress.",
+          "viewAllLabel": "View all treatments in this group",
+          "featured": [
+            {
+              "slug": "orthodontics",
+              "href": "/treatments/orthodontics",
+              "label": "Orthodontics"
+            },
+            {
+              "slug": "clear-aligners",
+              "href": "/treatments/clear-aligners",
+              "label": "Clear aligners"
+            },
+            {
+              "slug": "clear-aligners-spark",
+              "href": "/treatments/clear-aligners-spark",
+              "label": "Spark aligners"
+            },
+            {
+              "slug": "fixed-braces",
+              "href": "/treatments/fixed-braces",
+              "label": "Fixed braces"
+            },
+            {
+              "slug": "dental-retainers",
+              "href": "/treatments/dental-retainers",
+              "label": "Dental retainers"
+            }
+          ],
+          "inventoryHiddenByDefault": true
+        },
+        {
+          "groupId": "implants_advanced_restorative",
+          "label": "Implants & Advanced Restorative",
+          "hub": "/treatments/implants",
+          "description": "Implant journeys, complex restorative care, and supportive sedation options.",
+          "viewAllLabel": "View all treatments in this group",
+          "featured": [
+            {
+              "slug": "implants",
+              "href": "/treatments/implants",
+              "label": "Dental implants"
+            },
+            {
+              "slug": "implant-consultation",
+              "href": "/treatments/implant-consultation",
+              "label": "Implant consultation"
+            },
+            {
+              "slug": "teeth-in-a-day",
+              "href": "/treatments/teeth-in-a-day",
+              "label": "Teeth in a day"
+            },
+            {
+              "slug": "implants-bone-grafting",
+              "href": "/treatments/implants-bone-grafting",
+              "label": "Implant bone grafting"
+            },
+            {
+              "slug": "dental-crowns",
+              "href": "/treatments/dental-crowns",
+              "label": "Dental crowns"
+            },
+            {
+              "slug": "dentures",
+              "href": "/treatments/dentures",
+              "label": "Dentures"
+            }
+          ],
+          "inventoryHiddenByDefault": true
+        },
+        {
+          "groupId": "digital_guided_3d",
+          "label": "Digital, Guided & 3D Dentistry",
           "hub": "/treatments/3d-digital-dentistry",
-          "description": "3D scanning, printing, and digital smile previews that support planning."
+          "description": "Scanning, guided workflows, and 3D printing that support precise planning.",
+          "viewAllLabel": "View all treatments in this group",
+          "featured": [
+            {
+              "slug": "3d-digital-dentistry",
+              "href": "/treatments/3d-digital-dentistry",
+              "label": "3D digital dentistry"
+            },
+            {
+              "slug": "cbct-3d-scanning",
+              "href": "/treatments/cbct-3d-scanning",
+              "label": "CBCT & 3D scanning"
+            },
+            {
+              "slug": "3d-printing-lab",
+              "href": "/treatments/3d-printing-lab",
+              "label": "3D printing lab"
+            }
+          ],
+          "inventoryHiddenByDefault": true
         }
-      ]
+      ],
+      "groupingMetadata": {
+        "model": "clinician_locked_groups_v1",
+        "inventoryHiddenByDefault": true,
+        "viewAllLabel": "View all treatments in this group",
+        "reuse": [
+          "header_menu_dropdowns",
+          "featured_pathways",
+          "treatment_journeys",
+          "ctas"
+        ],
+        "groups": [
+          {
+            "id": "general_oral_health",
+            "label": "General Dentistry & Oral Health",
+            "hub": "/treatments/preventative-and-general-dentistry",
+            "featuredSlugs": [
+              "preventative-and-general-dentistry",
+              "periodontal-gum-care",
+              "childrens-dentistry",
+              "endodontics-root-canal",
+              "extractions-and-oral-surgery",
+              "senior-mature-smile-care"
+            ],
+            "allSlugs": [
+              "preventative-and-general-dentistry",
+              "periodontal-gum-care",
+              "childrens-dentistry",
+              "senior-mature-smile-care",
+              "endodontics-root-canal",
+              "extractions-and-oral-surgery",
+              "emergency-dentistry",
+              "emergency-dental-appointments",
+              "severe-toothache-dental-pain",
+              "dental-abscess-infection",
+              "dental-trauma-accidents",
+              "knocked-out-tooth",
+              "painless-numbing-the-wand",
+              "nervous-patients"
+            ],
+            "viewAllLabel": "View all treatments in this group"
+          },
+          {
+            "id": "bite_jaw_facial_pain",
+            "label": "Bite, Jaw & Facial Pain",
+            "hub": "/treatments/tmj-jaw-comfort",
+            "featuredSlugs": [
+              "tmj-jaw-comfort",
+              "bruxism-and-jaw-clenching",
+              "night-guards-occlusal-splints",
+              "sports-mouthguards",
+              "facial-pain-and-headache"
+            ],
+            "allSlugs": [
+              "tmj-jaw-comfort",
+              "tmj-disorder-treatment",
+              "bruxism-and-jaw-clenching",
+              "night-guards-occlusal-splints",
+              "sports-mouthguards",
+              "facial-pain-and-headache",
+              "sedation-dentistry"
+            ],
+            "viewAllLabel": "View all treatments in this group"
+          },
+          {
+            "id": "smile_enhancement_aesthetics",
+            "label": "Smile Enhancement & Aesthetics",
+            "hub": "/treatments/veneers",
+            "featuredSlugs": [
+              "veneers",
+              "composite-bonding",
+              "teeth-whitening",
+              "digital-smile-design",
+              "facial-aesthetics",
+              "dermal-fillers"
+            ],
+            "allSlugs": [
+              "veneers",
+              "injection-moulded-composite",
+              "composite-bonding",
+              "full-smile-makeover",
+              "teeth-whitening",
+              "home-teeth-whitening",
+              "whitening-top-ups",
+              "whitening-sensitive-teeth",
+              "teeth-whitening-faqs",
+              "digital-smile-design",
+              "3d-printed-veneers",
+              "facial-aesthetics",
+              "anti-wrinkle-treatments",
+              "dermal-fillers",
+              "skin-boosters",
+              "polynucleotides",
+              "facial-therapeutics",
+              "therapeutic-facial-injectables"
+            ],
+            "viewAllLabel": "View all treatments in this group"
+          },
+          {
+            "id": "orthodontics_alignment",
+            "label": "Orthodontics & Alignment",
+            "hub": "/treatments/orthodontics",
+            "featuredSlugs": [
+              "orthodontics",
+              "clear-aligners",
+              "clear-aligners-spark",
+              "fixed-braces",
+              "dental-retainers"
+            ],
+            "allSlugs": [
+              "orthodontics",
+              "clear-aligners",
+              "clear-aligners-spark",
+              "fixed-braces",
+              "dental-retainers",
+              "mouthguards-and-retainers"
+            ],
+            "viewAllLabel": "View all treatments in this group"
+          },
+          {
+            "id": "implants_advanced_restorative",
+            "label": "Implants & Advanced Restorative",
+            "hub": "/treatments/implants",
+            "featuredSlugs": [
+              "implants",
+              "implant-consultation",
+              "teeth-in-a-day",
+              "implants-bone-grafting",
+              "dental-crowns",
+              "dentures"
+            ],
+            "allSlugs": [
+              "implants",
+              "implant-consultation",
+              "implants-single-tooth",
+              "implants-multiple-teeth",
+              "implants-full-arch",
+              "teeth-in-a-day",
+              "implant-retained-dentures",
+              "implant-aftercare",
+              "failed-implant-replacement",
+              "implants-bone-grafting",
+              "sinus-lift",
+              "sedation-for-implants",
+              "3d-implant-restorations",
+              "dental-crowns",
+              "dental-bridges",
+              "inlays-onlays",
+              "dentures",
+              "acrylic-dentures",
+              "chrome-dentures",
+              "peek-partial-dentures",
+              "3d-printed-dentures",
+              "tooth-wear-broken-teeth",
+              "lost-crowns-veneers-fillings",
+              "broken-chipped-cracked-teeth"
+            ],
+            "viewAllLabel": "View all treatments in this group"
+          },
+          {
+            "id": "digital_guided_3d",
+            "label": "Digital, Guided & 3D Dentistry",
+            "hub": "/treatments/3d-digital-dentistry",
+            "featuredSlugs": [
+              "3d-digital-dentistry",
+              "cbct-3d-scanning",
+              "3d-printing-lab"
+            ],
+            "allSlugs": [
+              "3d-digital-dentistry",
+              "3d-printing-lab",
+              "cbct-3d-scanning"
+            ],
+            "viewAllLabel": "View all treatments in this group"
+          }
+        ]
+      }
     },
     "implants": {
       "id": "implants",
@@ -5217,8 +5519,123 @@
   },
   "treatmentGroups": [
     {
-      "id": "implants_and_surgery",
-      "label": "Implants & surgical planning",
+      "id": "general_oral_health",
+      "label": "General Dentistry & Oral Health",
+      "hub": "/treatments/preventative-and-general-dentistry",
+      "slugs": [
+        "preventative-and-general-dentistry",
+        "periodontal-gum-care",
+        "childrens-dentistry",
+        "senior-mature-smile-care",
+        "endodontics-root-canal",
+        "extractions-and-oral-surgery",
+        "emergency-dentistry",
+        "emergency-dental-appointments",
+        "severe-toothache-dental-pain",
+        "dental-abscess-infection",
+        "dental-trauma-accidents",
+        "knocked-out-tooth",
+        "painless-numbing-the-wand",
+        "nervous-patients"
+      ],
+      "featuredSlugs": [
+        "preventative-and-general-dentistry",
+        "periodontal-gum-care",
+        "childrens-dentistry",
+        "endodontics-root-canal",
+        "extractions-and-oral-surgery",
+        "senior-mature-smile-care"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "showOnHub": true
+    },
+    {
+      "id": "bite_jaw_facial_pain",
+      "label": "Bite, Jaw & Facial Pain",
+      "hub": "/treatments/tmj-jaw-comfort",
+      "slugs": [
+        "tmj-jaw-comfort",
+        "tmj-disorder-treatment",
+        "bruxism-and-jaw-clenching",
+        "night-guards-occlusal-splints",
+        "sports-mouthguards",
+        "facial-pain-and-headache",
+        "sedation-dentistry"
+      ],
+      "featuredSlugs": [
+        "tmj-jaw-comfort",
+        "bruxism-and-jaw-clenching",
+        "night-guards-occlusal-splints",
+        "sports-mouthguards",
+        "facial-pain-and-headache"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "showOnHub": true
+    },
+    {
+      "id": "smile_enhancement_aesthetics",
+      "label": "Smile Enhancement & Aesthetics",
+      "hub": "/treatments/veneers",
+      "slugs": [
+        "veneers",
+        "injection-moulded-composite",
+        "composite-bonding",
+        "full-smile-makeover",
+        "teeth-whitening",
+        "home-teeth-whitening",
+        "whitening-top-ups",
+        "whitening-sensitive-teeth",
+        "teeth-whitening-faqs",
+        "digital-smile-design",
+        "3d-printed-veneers",
+        "facial-aesthetics",
+        "anti-wrinkle-treatments",
+        "dermal-fillers",
+        "skin-boosters",
+        "polynucleotides",
+        "facial-therapeutics",
+        "therapeutic-facial-injectables"
+      ],
+      "featuredSlugs": [
+        "veneers",
+        "composite-bonding",
+        "teeth-whitening",
+        "digital-smile-design",
+        "facial-aesthetics",
+        "dermal-fillers"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "showOnHub": true
+    },
+    {
+      "id": "orthodontics_alignment",
+      "label": "Orthodontics & Alignment",
+      "hub": "/treatments/orthodontics",
+      "slugs": [
+        "orthodontics",
+        "clear-aligners",
+        "clear-aligners-spark",
+        "fixed-braces",
+        "dental-retainers",
+        "mouthguards-and-retainers"
+      ],
+      "featuredSlugs": [
+        "orthodontics",
+        "clear-aligners",
+        "clear-aligners-spark",
+        "fixed-braces",
+        "dental-retainers"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "showOnHub": true
+    },
+    {
+      "id": "implants_advanced_restorative",
+      "label": "Implants & Advanced Restorative",
       "hub": "/treatments/implants",
       "slugs": [
         "implants",
@@ -5233,57 +5650,7 @@
         "implants-bone-grafting",
         "sinus-lift",
         "sedation-for-implants",
-        "3d-implant-restorations"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "endodontics",
-      "label": "Endodontics & root canal",
-      "hub": "/treatments/endodontics-root-canal",
-      "slugs": [
-        "endodontics-root-canal"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "extractions_oral_surgery",
-      "label": "Extractions & oral surgery",
-      "hub": "/treatments/extractions-and-oral-surgery",
-      "slugs": [
-        "extractions-and-oral-surgery"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "orthodontics_aligners",
-      "label": "Orthodontics & aligners",
-      "hub": "/treatments/orthodontics",
-      "slugs": [
-        "orthodontics",
-        "clear-aligners",
-        "clear-aligners-spark",
-        "fixed-braces"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "mouthguards_retainers",
-      "label": "Mouthguards & retainers",
-      "hub": "/treatments/mouthguards-and-retainers",
-      "slugs": [
-        "mouthguards-and-retainers",
-        "night-guards-occlusal-splints",
-        "sports-mouthguards",
-        "dental-retainers"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "restorative_prosthodontics",
-      "label": "Restorative & prosthetics",
-      "hub": "/treatments/dentures",
-      "slugs": [
+        "3d-implant-restorations",
         "dental-crowns",
         "dental-bridges",
         "inlays-onlays",
@@ -5296,101 +5663,35 @@
         "lost-crowns-veneers-fillings",
         "broken-chipped-cracked-teeth"
       ],
-      "showOnHub": true
-    },
-    {
-      "id": "cosmetic_smile_design",
-      "label": "Cosmetic & smile design",
-      "hub": "/treatments/veneers",
-      "slugs": [
-        "veneers",
-        "injection-moulded-composite",
-        "composite-bonding",
-        "full-smile-makeover",
-        "teeth-whitening",
-        "home-teeth-whitening",
-        "whitening-top-ups",
-        "whitening-sensitive-teeth",
-        "teeth-whitening-faqs",
-        "digital-smile-design",
-        "3d-printed-veneers"
+      "featuredSlugs": [
+        "implants",
+        "implant-consultation",
+        "teeth-in-a-day",
+        "implants-bone-grafting",
+        "dental-crowns",
+        "dentures"
       ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
       "showOnHub": true
     },
     {
-      "id": "emergency_care",
-      "label": "Emergency care",
-      "hub": "/treatments/emergency-dentistry",
-      "slugs": [
-        "emergency-dentistry",
-        "emergency-dental-appointments",
-        "severe-toothache-dental-pain",
-        "dental-abscess-infection",
-        "dental-trauma-accidents",
-        "knocked-out-tooth"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "comfort_tmj_sedation",
-      "label": "Comfort, TMJ & sedation",
-      "hub": "/treatments/tmj-jaw-comfort",
-      "slugs": [
-        "tmj-jaw-comfort",
-        "tmj-disorder-treatment",
-        "bruxism-and-jaw-clenching",
-        "painless-numbing-the-wand",
-        "nervous-patients",
-        "sedation-dentistry",
-        "facial-pain-and-headache"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "preventative_general",
-      "label": "Preventative & general care",
-      "hub": "/treatments/preventative-and-general-dentistry",
-      "slugs": [
-        "preventative-and-general-dentistry",
-        "periodontal-gum-care",
-        "childrens-dentistry",
-        "senior-mature-smile-care"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "facial_therapeutics",
-      "label": "Facial therapeutics",
-      "hub": "/treatments/facial-therapeutics",
-      "slugs": [
-        "facial-therapeutics",
-        "therapeutic-facial-injectables"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "facial_aesthetics",
-      "label": "Facial aesthetics",
-      "hub": "/treatments/facial-aesthetics",
-      "slugs": [
-        "facial-aesthetics",
-        "anti-wrinkle-treatments",
-        "dermal-fillers",
-        "skin-boosters",
-        "polynucleotides"
-      ],
-      "showOnHub": true
-    },
-    {
-      "id": "digital_diagnostics",
-      "label": "Digital & diagnostics",
+      "id": "digital_guided_3d",
+      "label": "Digital, Guided & 3D Dentistry",
       "hub": "/treatments/3d-digital-dentistry",
       "slugs": [
         "3d-digital-dentistry",
         "3d-printing-lab",
         "cbct-3d-scanning"
       ],
-      "showOnHub": false
+      "featuredSlugs": [
+        "3d-digital-dentistry",
+        "cbct-3d-scanning",
+        "3d-printing-lab"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "showOnHub": true
     }
   ]
 }
