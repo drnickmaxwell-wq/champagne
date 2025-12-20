@@ -1,0 +1,361 @@
+{
+  "sourceOfTruth": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+  "generatedAt": "2025-12-20T14:49:03.639Z",
+  "treatments": [
+    {
+      "slug": "/dental-checkups-oral-cancer-screening",
+      "title": "Dental Check-Ups & Oral Cancer Screening",
+      "id": "dental_checkups_oral_cancer_screening"
+    },
+    {
+      "slug": "/treatments/3d-digital-dentistry",
+      "title": "3D & digital dentistry",
+      "id": "technology_digital_dentistry"
+    },
+    {
+      "slug": "/treatments/3d-implant-restorations",
+      "title": "3D implant restorations",
+      "id": "3d_implant_restorations"
+    },
+    {
+      "slug": "/treatments/3d-printed-dentures",
+      "title": "3D printed dentures",
+      "id": "printed_dentures_3d"
+    },
+    {
+      "slug": "/treatments/3d-printed-veneers",
+      "title": "3D printed veneers",
+      "id": "3d_printed_veneers"
+    },
+    {
+      "slug": "/treatments/3d-printing-lab",
+      "title": "3D printing lab",
+      "id": "3d_printing_lab"
+    },
+    {
+      "slug": "/treatments/acrylic-dentures",
+      "title": "Acrylic dentures",
+      "id": "acrylic_dentures"
+    },
+    {
+      "slug": "/treatments/anti-wrinkle-treatments",
+      "title": "Prescription anti-wrinkle treatments",
+      "id": "anti_wrinkle_treatments"
+    },
+    {
+      "slug": "/treatments/broken-chipped-cracked-teeth",
+      "title": "Broken, chipped or cracked teeth",
+      "id": "emergency_broken_chipped_teeth"
+    },
+    {
+      "slug": "/treatments/bruxism-and-jaw-clenching",
+      "title": "Bruxism and jaw clenching treatment",
+      "id": "bruxism_jaw_clenching"
+    },
+    {
+      "slug": "/treatments/cbct-3d-scanning",
+      "title": "CBCT / 3D scanning",
+      "id": "cbct_3d_scanning"
+    },
+    {
+      "slug": "/treatments/childrens-dentistry",
+      "title": "Children’s dentistry",
+      "id": "childrens_dentistry"
+    },
+    {
+      "slug": "/treatments/chrome-dentures",
+      "title": "Chrome dentures",
+      "id": "chrome_dentures"
+    },
+    {
+      "slug": "/treatments/clear-aligners",
+      "title": "Clear Aligners in Shoreham-by-Sea",
+      "id": "clear_aligners"
+    },
+    {
+      "slug": "/treatments/clear-aligners-spark",
+      "title": "Spark clear aligners in Shoreham-by-Sea",
+      "id": "clear_aligners_spark"
+    },
+    {
+      "slug": "/treatments/composite-bonding",
+      "title": "Composite bonding",
+      "id": "composite_bonding"
+    },
+    {
+      "slug": "/treatments/dental-abscess-infection",
+      "title": "Dental abscess & infection",
+      "id": "emergency_dental_abscess"
+    },
+    {
+      "slug": "/treatments/dental-bridges",
+      "title": "Dental bridges",
+      "id": "dental_bridges"
+    },
+    {
+      "slug": "/treatments/dental-crowns",
+      "title": "Dental crowns",
+      "id": "dental_crowns"
+    },
+    {
+      "slug": "/treatments/dental-retainers",
+      "title": "Dental retainers",
+      "id": "dental_retainers"
+    },
+    {
+      "slug": "/treatments/dental-trauma-accidents",
+      "title": "Dental trauma & accidents",
+      "id": "emergency_dental_trauma"
+    },
+    {
+      "slug": "/treatments/dentures",
+      "title": "Dentures & tooth replacement",
+      "id": "dentures"
+    },
+    {
+      "slug": "/treatments/dermal-fillers",
+      "title": "Dermal fillers with medical oversight",
+      "id": "dermal_fillers"
+    },
+    {
+      "slug": "/treatments/digital-smile-design",
+      "title": "Digital smile design",
+      "id": "digital_smile_design"
+    },
+    {
+      "slug": "/treatments/emergency-dental-appointments",
+      "title": "Emergency dental appointments",
+      "id": "emergency_dental_appointments"
+    },
+    {
+      "slug": "/treatments/emergency-dentistry",
+      "title": "Emergency dentistry",
+      "id": "emergency_dentistry"
+    },
+    {
+      "slug": "/treatments/endodontics-root-canal",
+      "title": "Endodontics & root canal care",
+      "id": "endodontics_root_canal"
+    },
+    {
+      "slug": "/treatments/extractions-and-oral-surgery",
+      "title": "Extractions & oral surgery",
+      "id": "extractions_and_oral_surgery"
+    },
+    {
+      "slug": "/treatments/facial-pain-and-headache",
+      "title": "Facial pain and headache pathways",
+      "id": "facial_pain_headache"
+    },
+    {
+      "slug": "/treatments/failed-implant-replacement",
+      "title": "Failed implant replacement in Shoreham-by-Sea",
+      "id": "implants_failed_replacement"
+    },
+    {
+      "slug": "/treatments/fixed-braces",
+      "title": "Fixed braces",
+      "id": "fixed_braces"
+    },
+    {
+      "slug": "/treatments/full-smile-makeover",
+      "title": "Full smile makeover",
+      "id": "full_smile_makeover"
+    },
+    {
+      "slug": "/treatments/home-teeth-whitening",
+      "title": "Home teeth whitening",
+      "id": "home_teeth_whitening"
+    },
+    {
+      "slug": "/treatments/implant-aftercare",
+      "title": "Implant aftercare & recovery in Shoreham-by-Sea",
+      "id": "implants_aftercare"
+    },
+    {
+      "slug": "/treatments/implant-consultation",
+      "title": "Implant consultation & planning in Shoreham-by-Sea",
+      "id": "implants_consultation"
+    },
+    {
+      "slug": "/treatments/implant-retained-dentures",
+      "title": "Implant-retained dentures",
+      "id": "implant_retained_dentures"
+    },
+    {
+      "slug": "/treatments/implants",
+      "title": "Dental Implants in Shoreham-by-Sea",
+      "id": "implants"
+    },
+    {
+      "slug": "/treatments/implants-bone-grafting",
+      "title": "Bone grafting for dental implants",
+      "id": "implants_bone_grafting"
+    },
+    {
+      "slug": "/treatments/implants-full-arch",
+      "title": "Full arch implant rehabilitation",
+      "id": "implants_full_arch"
+    },
+    {
+      "slug": "/treatments/implants-multiple-teeth",
+      "title": "Multiple teeth implant options",
+      "id": "implants_multiple_teeth"
+    },
+    {
+      "slug": "/treatments/implants-single-tooth",
+      "title": "Single-tooth dental implants in Shoreham-by-Sea",
+      "id": "implants_single_tooth"
+    },
+    {
+      "slug": "/treatments/injection-moulded-composite",
+      "title": "Injection-moulded composite",
+      "id": "injection_moulded_composite"
+    },
+    {
+      "slug": "/treatments/inlays-onlays",
+      "title": "Inlays & onlays",
+      "id": "inlays_onlays"
+    },
+    {
+      "slug": "/treatments/knocked-out-tooth",
+      "title": "Knocked-out (avulsed) tooth",
+      "id": "emergency_knocked_out_tooth"
+    },
+    {
+      "slug": "/treatments/lost-crowns-veneers-fillings",
+      "title": "Lost crowns, veneers & fillings",
+      "id": "emergency_lost_crowns"
+    },
+    {
+      "slug": "/treatments/mouthguards-and-retainers",
+      "title": "Mouthguards & retainers",
+      "id": "mouthguards_and_retainers"
+    },
+    {
+      "slug": "/treatments/nervous-patients",
+      "title": "Nervous patients",
+      "id": "nervous_patients"
+    },
+    {
+      "slug": "/treatments/night-guards-occlusal-splints",
+      "title": "Night guards (occlusal splints)",
+      "id": "night_guards_occlusal_splints"
+    },
+    {
+      "slug": "/treatments/orthodontics",
+      "title": "Orthodontics",
+      "id": "orthodontics"
+    },
+    {
+      "slug": "/treatments/painless-numbing-the-wand",
+      "title": "Painless numbing with The Wand",
+      "id": "painless_numbing_the_wand"
+    },
+    {
+      "slug": "/treatments/peek-partial-dentures",
+      "title": "PEEK partial dentures",
+      "id": "peek_partial_dentures"
+    },
+    {
+      "slug": "/treatments/periodontal-gum-care",
+      "title": "Periodontal & gum care",
+      "id": "periodontal_gum_care"
+    },
+    {
+      "slug": "/treatments/polynucleotides",
+      "title": "Polynucleotide treatments to support skin quality",
+      "id": "polynucleotides"
+    },
+    {
+      "slug": "/treatments/preventative-and-general-dentistry",
+      "title": "Preventative & general dentistry",
+      "id": "preventative_and_general_dentistry"
+    },
+    {
+      "slug": "/treatments/sedation-dentistry",
+      "title": "Sedation dentistry",
+      "id": "sedation_dentistry"
+    },
+    {
+      "slug": "/treatments/sedation-for-implants",
+      "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+      "id": "implants_sedation"
+    },
+    {
+      "slug": "/treatments/senior-mature-smile-care",
+      "title": "Senior & mature smile care",
+      "id": "senior_mature_smile_care"
+    },
+    {
+      "slug": "/treatments/severe-toothache-dental-pain",
+      "title": "Severe toothache & dental pain",
+      "id": "emergency_severe_toothache"
+    },
+    {
+      "slug": "/treatments/sinus-lift",
+      "title": "Sinus lift for dental implants in Shoreham-by-Sea",
+      "id": "implants_sinus_lift"
+    },
+    {
+      "slug": "/treatments/skin-boosters",
+      "title": "Skin boosters for hydration and elasticity",
+      "id": "skin_boosters"
+    },
+    {
+      "slug": "/treatments/sports-mouthguards",
+      "title": "Sports mouthguards",
+      "id": "sports_mouthguards"
+    },
+    {
+      "slug": "/treatments/teeth-in-a-day",
+      "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+      "id": "implants_teeth_in_a_day"
+    },
+    {
+      "slug": "/treatments/teeth-whitening",
+      "title": "Teeth whitening",
+      "id": "whitening_hub"
+    },
+    {
+      "slug": "/treatments/teeth-whitening-faqs",
+      "title": "Teeth whitening FAQs",
+      "id": "whitening_faq"
+    },
+    {
+      "slug": "/treatments/therapeutic-facial-injectables",
+      "title": "Therapeutic facial injectables",
+      "id": "therapeutic_facial_injectables"
+    },
+    {
+      "slug": "/treatments/tmj-disorder-treatment",
+      "title": "TMJ disorder treatment",
+      "id": "tmj_disorder_treatment"
+    },
+    {
+      "slug": "/treatments/tmj-jaw-comfort",
+      "title": "TMJ & jaw comfort",
+      "id": "tmj_jaw_comfort"
+    },
+    {
+      "slug": "/treatments/tooth-wear-broken-teeth",
+      "title": "Tooth Wear & Broken Teeth",
+      "id": "tooth_wear_broken_teeth"
+    },
+    {
+      "slug": "/treatments/veneers",
+      "title": "Dental veneers in Shoreham-by-Sea",
+      "id": "veneers"
+    },
+    {
+      "slug": "/treatments/whitening-sensitive-teeth",
+      "title": "Sensitive teeth & whitening",
+      "id": "whitening_sensitivity"
+    },
+    {
+      "slug": "/treatments/whitening-top-ups",
+      "title": "Whitening top-ups & maintenance",
+      "id": "whitening_topups"
+    }
+  ]
+}

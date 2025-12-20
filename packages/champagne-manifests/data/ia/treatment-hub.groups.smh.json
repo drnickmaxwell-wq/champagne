@@ -1,0 +1,108 @@
+{
+  "version": "SMH_TREATMENT_HUB_GROUPS_V1",
+  "groups": [
+    {
+      "id": "general",
+      "label": "General Dentistry",
+      "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
+      "slugs": [
+        "dental-checkups-oral-cancer-screening",
+        "preventative-and-general-dentistry",
+        "periodontal-gum-care",
+        "childrens-dentistry",
+        "senior-mature-smile-care",
+        "endodontics-root-canal",
+        "extractions-and-oral-surgery"
+      ]
+    },
+    {
+      "id": "restorative",
+      "label": "Restorative Dentistry",
+      "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
+      "slugs": [
+        "dental-crowns",
+        "dental-bridges",
+        "inlays-onlays",
+        "tooth-wear-broken-teeth",
+        "dentures",
+        "acrylic-dentures",
+        "chrome-dentures",
+        "peek-partial-dentures"
+      ]
+    },
+    {
+      "id": "implants",
+      "label": "Dental Implants",
+      "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
+      "slugs": [
+        "implants",
+        "implant-consultation",
+        "implants-single-tooth",
+        "implants-multiple-teeth",
+        "implants-full-arch",
+        "implants-bone-grafting"
+      ]
+    },
+    {
+      "id": "ortho_retainers",
+      "label": "Orthodontics & Retainers",
+      "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
+      "slugs": [
+        "clear-aligners",
+        "clear-aligners-spark",
+        "fixed-braces",
+        "dental-retainers"
+      ]
+    },
+    {
+      "id": "aesthetic",
+      "label": "Aesthetic Dentistry",
+      "description": "Composite bonding, veneers, and injection-moulded composite planning.",
+      "slugs": [
+        "composite-bonding",
+        "veneers",
+        "injection-moulded-composite"
+      ]
+    },
+    {
+      "id": "night_guards",
+      "label": "Night Guards & Occlusal Therapy",
+      "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
+      "slugs": [
+        "night-guards-occlusal-splints",
+        "bruxism-and-jaw-clenching",
+        "tmj-disorder-treatment",
+        "tmj-jaw-comfort"
+      ]
+    },
+    {
+      "id": "digital_3d",
+      "label": "3D & Digital Dentistry",
+      "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
+      "slugs": [
+        "3d-digital-dentistry",
+        "cbct-3d-scanning",
+        "digital-smile-design",
+        "3d-printing-lab",
+        "3d-implant-restorations",
+        "3d-printed-dentures",
+        "3d-printed-veneers"
+      ]
+    },
+    {
+      "id": "emergency",
+      "label": "Emergency Dentistry",
+      "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
+      "slugs": [
+        "emergency-dentistry",
+        "emergency-dental-appointments",
+        "dental-abscess-infection",
+        "severe-toothache-dental-pain",
+        "dental-trauma-accidents",
+        "broken-chipped-cracked-teeth",
+        "knocked-out-tooth",
+        "lost-crowns-veneers-fillings"
+      ]
+    }
+  ]
+}

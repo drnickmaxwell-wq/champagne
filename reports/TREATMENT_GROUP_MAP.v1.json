@@ -1,0 +1,468 @@
+{
+  "version": "1.0",
+  "generatedAt": "2025-12-20T14:49:03.641Z",
+  "groups": [
+    {
+      "id": "general",
+      "treatments": [
+        {
+          "slug": "/dental-checkups-oral-cancer-screening",
+          "title": "Dental Check-Ups & Oral Cancer Screening",
+          "rule_hit": "general_keyword"
+        },
+        {
+          "slug": "/treatments/bruxism-and-jaw-clenching",
+          "title": "Bruxism and jaw clenching treatment",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/childrens-dentistry",
+          "title": "Children’s dentistry",
+          "rule_hit": "general_keyword"
+        },
+        {
+          "slug": "/treatments/dental-abscess-infection",
+          "title": "Dental abscess & infection",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/dental-trauma-accidents",
+          "title": "Dental trauma & accidents",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/endodontics-root-canal",
+          "title": "Endodontics & root canal care",
+          "rule_hit": "general_keyword"
+        },
+        {
+          "slug": "/treatments/extractions-and-oral-surgery",
+          "title": "Extractions & oral surgery",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/injection-moulded-composite",
+          "title": "Injection-moulded composite",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/knocked-out-tooth",
+          "title": "Knocked-out (avulsed) tooth",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/nervous-patients",
+          "title": "Nervous patients",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/night-guards-occlusal-splints",
+          "title": "Night guards (occlusal splints)",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/periodontal-gum-care",
+          "title": "Periodontal & gum care",
+          "rule_hit": "general_keyword"
+        },
+        {
+          "slug": "/treatments/polynucleotides",
+          "title": "Polynucleotide treatments to support skin quality",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/preventative-and-general-dentistry",
+          "title": "Preventative & general dentistry",
+          "rule_hit": "general_keyword"
+        },
+        {
+          "slug": "/treatments/sedation-dentistry",
+          "title": "Sedation dentistry",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/senior-mature-smile-care",
+          "title": "Senior & mature smile care",
+          "rule_hit": "general_keyword"
+        },
+        {
+          "slug": "/treatments/skin-boosters",
+          "title": "Skin boosters for hydration and elasticity",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/sports-mouthguards",
+          "title": "Sports mouthguards",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/therapeutic-facial-injectables",
+          "title": "Therapeutic facial injectables",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/tmj-disorder-treatment",
+          "title": "TMJ disorder treatment",
+          "rule_hit": "defaulted_to_general_no_match"
+        },
+        {
+          "slug": "/treatments/tmj-jaw-comfort",
+          "title": "TMJ & jaw comfort",
+          "rule_hit": "defaulted_to_general_no_match"
+        }
+      ]
+    },
+    {
+      "id": "digital3d",
+      "treatments": [
+        {
+          "slug": "/treatments/3d-digital-dentistry",
+          "title": "3D & digital dentistry",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/3d-implant-restorations",
+          "title": "3D implant restorations",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/3d-printed-dentures",
+          "title": "3D printed dentures",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/3d-printed-veneers",
+          "title": "3D printed veneers",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/3d-printing-lab",
+          "title": "3D printing lab",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/cbct-3d-scanning",
+          "title": "CBCT / 3D scanning",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/digital-smile-design",
+          "title": "Digital smile design",
+          "rule_hit": "digital3d_keyword"
+        },
+        {
+          "slug": "/treatments/implant-consultation",
+          "title": "Implant consultation & planning in Shoreham-by-Sea",
+          "rule_hit": "digital3d_keyword"
+        }
+      ]
+    },
+    {
+      "id": "dentures",
+      "treatments": [
+        {
+          "slug": "/treatments/acrylic-dentures",
+          "title": "Acrylic dentures",
+          "rule_hit": "dentures_keyword"
+        },
+        {
+          "slug": "/treatments/chrome-dentures",
+          "title": "Chrome dentures",
+          "rule_hit": "dentures_keyword"
+        },
+        {
+          "slug": "/treatments/dentures",
+          "title": "Dentures & tooth replacement",
+          "rule_hit": "dentures_keyword"
+        },
+        {
+          "slug": "/treatments/peek-partial-dentures",
+          "title": "PEEK partial dentures",
+          "rule_hit": "dentures_keyword"
+        }
+      ]
+    },
+    {
+      "id": "facial",
+      "treatments": [
+        {
+          "slug": "/treatments/anti-wrinkle-treatments",
+          "title": "Prescription anti-wrinkle treatments",
+          "rule_hit": "facial_keyword"
+        },
+        {
+          "slug": "/treatments/dermal-fillers",
+          "title": "Dermal fillers with medical oversight",
+          "rule_hit": "facial_keyword"
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "treatments": [
+        {
+          "slug": "/treatments/broken-chipped-cracked-teeth",
+          "title": "Broken, chipped or cracked teeth",
+          "rule_hit": "emergency_keyword"
+        },
+        {
+          "slug": "/treatments/emergency-dental-appointments",
+          "title": "Emergency dental appointments",
+          "rule_hit": "emergency_keyword"
+        },
+        {
+          "slug": "/treatments/emergency-dentistry",
+          "title": "Emergency dentistry",
+          "rule_hit": "emergency_keyword"
+        },
+        {
+          "slug": "/treatments/facial-pain-and-headache",
+          "title": "Facial pain and headache pathways",
+          "rule_hit": "emergency_keyword"
+        },
+        {
+          "slug": "/treatments/painless-numbing-the-wand",
+          "title": "Painless numbing with The Wand",
+          "rule_hit": "emergency_keyword"
+        },
+        {
+          "slug": "/treatments/severe-toothache-dental-pain",
+          "title": "Severe toothache & dental pain",
+          "rule_hit": "emergency_keyword"
+        },
+        {
+          "slug": "/treatments/tooth-wear-broken-teeth",
+          "title": "Tooth Wear & Broken Teeth",
+          "rule_hit": "emergency_keyword"
+        }
+      ]
+    },
+    {
+      "id": "ortho",
+      "treatments": [
+        {
+          "slug": "/treatments/clear-aligners",
+          "title": "Clear Aligners in Shoreham-by-Sea",
+          "rule_hit": "ortho_keyword"
+        },
+        {
+          "slug": "/treatments/clear-aligners-spark",
+          "title": "Spark clear aligners in Shoreham-by-Sea",
+          "rule_hit": "ortho_keyword"
+        },
+        {
+          "slug": "/treatments/dental-retainers",
+          "title": "Dental retainers",
+          "rule_hit": "ortho_keyword"
+        },
+        {
+          "slug": "/treatments/fixed-braces",
+          "title": "Fixed braces",
+          "rule_hit": "ortho_keyword"
+        },
+        {
+          "slug": "/treatments/mouthguards-and-retainers",
+          "title": "Mouthguards & retainers",
+          "rule_hit": "ortho_keyword"
+        },
+        {
+          "slug": "/treatments/orthodontics",
+          "title": "Orthodontics",
+          "rule_hit": "ortho_keyword"
+        }
+      ]
+    },
+    {
+      "id": "cosmetic",
+      "treatments": [
+        {
+          "slug": "/treatments/composite-bonding",
+          "title": "Composite bonding",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/full-smile-makeover",
+          "title": "Full smile makeover",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/home-teeth-whitening",
+          "title": "Home teeth whitening",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/teeth-whitening",
+          "title": "Teeth whitening",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/teeth-whitening-faqs",
+          "title": "Teeth whitening FAQs",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/veneers",
+          "title": "Dental veneers in Shoreham-by-Sea",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/whitening-sensitive-teeth",
+          "title": "Sensitive teeth & whitening",
+          "rule_hit": "cosmetic_keyword"
+        },
+        {
+          "slug": "/treatments/whitening-top-ups",
+          "title": "Whitening top-ups & maintenance",
+          "rule_hit": "cosmetic_keyword"
+        }
+      ]
+    },
+    {
+      "id": "restorative",
+      "treatments": [
+        {
+          "slug": "/treatments/dental-bridges",
+          "title": "Dental bridges",
+          "rule_hit": "restorative_keyword"
+        },
+        {
+          "slug": "/treatments/dental-crowns",
+          "title": "Dental crowns",
+          "rule_hit": "restorative_keyword"
+        },
+        {
+          "slug": "/treatments/inlays-onlays",
+          "title": "Inlays & onlays",
+          "rule_hit": "restorative_keyword"
+        },
+        {
+          "slug": "/treatments/lost-crowns-veneers-fillings",
+          "title": "Lost crowns, veneers & fillings",
+          "rule_hit": "restorative_keyword"
+        }
+      ]
+    },
+    {
+      "id": "implants",
+      "treatments": [
+        {
+          "slug": "/treatments/failed-implant-replacement",
+          "title": "Failed implant replacement in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implant-aftercare",
+          "title": "Implant aftercare & recovery in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implant-retained-dentures",
+          "title": "Implant-retained dentures",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implants",
+          "title": "Dental Implants in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implants-bone-grafting",
+          "title": "Bone grafting for dental implants",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implants-full-arch",
+          "title": "Full arch implant rehabilitation",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implants-multiple-teeth",
+          "title": "Multiple teeth implant options",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/implants-single-tooth",
+          "title": "Single-tooth dental implants in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/sedation-for-implants",
+          "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/sinus-lift",
+          "title": "Sinus lift for dental implants in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        },
+        {
+          "slug": "/treatments/teeth-in-a-day",
+          "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+          "rule_hit": "implants_keyword"
+        }
+      ]
+    }
+  ],
+  "flags": [
+    {
+      "slug": "/treatments/bruxism-and-jaw-clenching",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/dental-abscess-infection",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/dental-trauma-accidents",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/extractions-and-oral-surgery",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/injection-moulded-composite",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/knocked-out-tooth",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/nervous-patients",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/night-guards-occlusal-splints",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/polynucleotides",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/sedation-dentistry",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/skin-boosters",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/sports-mouthguards",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/therapeutic-facial-injectables",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/tmj-disorder-treatment",
+      "issue": "defaulted_to_general_no_match"
+    },
+    {
+      "slug": "/treatments/tmj-jaw-comfort",
+      "issue": "defaulted_to_general_no_match"
+    }
+  ]
+}
