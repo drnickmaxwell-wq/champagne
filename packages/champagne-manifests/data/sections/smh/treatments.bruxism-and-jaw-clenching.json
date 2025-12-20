@@ -1,0 +1,165 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.bruxism-and-jaw-clenching",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "bruxism-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_bruxism_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Jaw clenching & bruxism",
+      "title": "Relief for clenching, grinding, and jaw fatigue",
+      "body": "We investigate what is driving your bruxism—stress, bite imbalance, or airway concerns—and plan conservative measures first. Guards and therapeutic options are considered when clinically justified.",
+      "bullets": [
+        "Detailed assessment of wear patterns, muscle tenderness, and bite alignment",
+        "Custom night or day guards when indicated to protect teeth and joints",
+        "Advice on habit change, posture, and when therapeutic injectables are appropriate"
+      ]
+    },
+    {
+      "instanceId": "bruxism-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_bruxism_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Conservative-first planning",
+      "items": [
+        "History includes stress factors, sleep quality, medications, and dental work",
+        "We check muscle tenderness, jaw range, and wear facets before prescribing",
+        "3D scans or impressions for precise guard fabrication when needed",
+        "Referral for physiotherapy, sleep medicine, or imaging when symptoms warrant it"
+      ]
+    },
+    {
+      "instanceId": "bruxism-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_bruxism_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Assessment",
+      "title": "Understand triggers and protect your teeth",
+      "body": "We map your symptoms, check occlusion, and discuss lifestyle factors that may worsen clenching. Where appropriate, we plan a guard, adjust existing restorations, and outline when therapeutic injectables might support muscle relaxation.",
+      "bullets": [
+        "Medical and dental history including pain patterns and headaches",
+        "Examination of muscles, joints, and tooth surfaces",
+        "Guard options explained with pros, cons, and maintenance guidance",
+        "When to trial physiotherapy or habit coaching before medication",
+        "Clear review schedule to monitor comfort and fit"
+      ],
+      "mediaHint": "Bite assessment and wear mapping"
+    },
+    {
+      "instanceId": "bruxism-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_bruxism_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who we help",
+      "title": "Patients experiencing clenching symptoms",
+      "items": [
+        "Jaw ache or tension on waking or during concentration",
+        "Chipped, worn, or flattened tooth surfaces",
+        "Tension headaches linked to clenching or grinding",
+        "Previous dental work needing protection from heavy bite forces",
+        "Patients seeking a structured plan before considering injectables"
+      ]
+    },
+    {
+      "instanceId": "bruxism-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_bruxism_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Assess, protect, review",
+      "items": [
+        "Consultation with bite, muscle, and joint assessment",
+        "Plan self-care and habit changes; consider physiotherapy input",
+        "Fit a custom guard if indicated; adjust bite or restorations as needed",
+        "Consider therapeutic injectables for muscle overactivity where appropriate",
+        "Follow-up to review comfort, wear, and symptom changes",
+        "Escalate to imaging or specialist referral if pain or locking develops"
+      ],
+      "strapline": "Timelines depend on symptom severity and how you respond to conservative steps."
+    },
+    {
+      "instanceId": "bruxism-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_bruxism_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare",
+      "title": "Look after your jaw and guard",
+      "items": [
+        "Clean and store guards as advised; bring them to reviews for checks",
+        "Follow exercises or relaxation techniques recommended by your clinician",
+        "Avoid chewing hard foods while adjusting to guard use",
+        "Seek prompt review if you notice locking, swelling, or new bite changes"
+      ]
+    },
+    {
+      "instanceId": "bruxism-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_bruxism_related",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Related pathways",
+      "title": "Plan joined-up care",
+      "items": [
+        "TMJ disorder treatment with conservative-first approach (/treatments/tmj-disorder-treatment)",
+        "Facial pain and headache assessment when symptoms radiate (/treatments/facial-pain-and-headache)",
+        "Therapeutic facial injectables for muscle-related symptoms when suitable (/treatments/therapeutic-facial-injectables)",
+        "3D mouth guards for precise protection during sleep or sport (/treatments/3d-mouth-guards)"
+      ]
+    },
+    {
+      "instanceId": "bruxism-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_bruxism_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Bruxism FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "Do all patients need a guard?",
+          "answer": "Not always. We only prescribe a guard when examination shows it will help protect teeth or joints. Some cases respond to self-care and lifestyle adjustments alone."
+        },
+        {
+          "question": "When are injectables considered?",
+          "answer": "Only after assessment and conservative steps. They may be offered to relax overactive muscles when clenching causes pain or wear and you are medically suitable."
+        },
+        {
+          "question": "How long does a guard last?",
+          "answer": "Lifespan depends on forces and care. We review wear and fit at follow-ups and can adjust or remake when needed."
+        },
+        {
+          "question": "Can bruxism damage other dental work?",
+          "answer": "Yes. We check crowns, implants, and fillings during assessment and plan protection to reduce the risk of fractures or loosening."
+        },
+        {
+          "question": "When should I seek urgent help?",
+          "answer": "If you experience sudden jaw locking, swelling, or severe pain, contact us or emergency services for urgent review."
+        }
+      ]
+    },
+    {
+      "instanceId": "bruxism-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_bruxism_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a bruxism assessment",
+      "body": "Discuss clenching, tooth wear, and jaw tension with a clinician who prioritises conservative care and safety.",
+      "ctas": [
+        { "label": "Book an assessment", "href": "/contact?topic=bruxism", "preset": "primary" },
+        { "label": "Ask about guards", "href": "/contact?topic=mouth-guards", "preset": "secondary" }
+      ]
+    }
+  ]
+}

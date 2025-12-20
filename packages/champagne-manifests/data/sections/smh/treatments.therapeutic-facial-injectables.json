@@ -1,0 +1,178 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.therapeutic-facial-injectables",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "therapeutic-injectables-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_therapeutic_injectables_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Therapeutic injectables",
+      "title": "Prescription-only injectables for facial muscle symptoms",
+      "body": "Used to ease clenching-related discomfort, tension headaches, or TMJ-associated muscle overactivity when conservative steps are not enough. Always assessment-led and medically framed.",
+      "bullets": [
+        "Prescriber-led consultations with medical screening",
+        "Dosing planned for function and comfort, not cosmetic change",
+        "Follow-up to monitor effect and adjust safely"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_therapeutic_injectables_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Clear scope and protocols",
+      "items": [
+        "Assessment includes history, medicines, muscle activity, and bite findings",
+        "Conservative measures such as guards and physiotherapy considered first",
+        "Documentation of batch numbers, sites, and doses for traceability",
+        "Emergency pathways in place for rare adverse events"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-what-not",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_therapeutic_injectables_not",
+      "order": 30,
+      "seoRole": "supporting",
+      "eyebrow": "What this is not",
+      "title": "Therapeutic focus only",
+      "items": [
+        "Not cosmetic-first treatment or trend-led toxin use",
+        "Not for lip volume, profile balancing, or purely aesthetic aims",
+        "Not provided without prior clinical assessment and consent",
+        "Not continued if benefits are unclear or risks outweigh gains"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_therapeutic_injectables_consult",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation",
+      "title": "Decide if medication is appropriate",
+      "body": "We discuss symptoms such as clenching, tension headaches, or muscle tenderness. Examination guides whether to proceed with injectables or continue conservative care. We explain limits, review points, and when not to treat.",
+      "bullets": [
+        "Medical and dental history including contraindications",
+        "Muscle examination and, where relevant, bite assessment",
+        "Review of previous response to guards, exercises, or medication",
+        "Discussion of dosage, expected onset, and how we monitor effect",
+        "Safety netting covering when to pause or seek urgent help"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_therapeutic_injectables_who",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it may help",
+      "title": "Patients with muscle-driven facial symptoms",
+      "items": [
+        "Clenching or bruxism causing persistent muscle tension",
+        "Tension-type headaches linked to overactive jaw muscles",
+        "TMJ discomfort where muscles contribute to limited opening",
+        "Patients unsuitable for cosmetic toxin aims but appropriate for therapeutic dosing",
+        "People who understand the limits and temporary nature of medication"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_therapeutic_injectables_timeline",
+      "order": 60,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Assess, treat cautiously, and review",
+      "items": [
+        "Assessment and consent with documentation of findings",
+        "Conservative steps reinforced; proceed only if medication adds value",
+        "Measured dosing to targeted muscles using aseptic technique",
+        "Review at agreed intervals to monitor function and side effects",
+        "Adjust or pause treatment based on response and safety"
+      ],
+      "strapline": "Treatment is paused or stopped if goals are not met or risks emerge."
+    },
+    {
+      "instanceId": "therapeutic-injectables-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_therapeutic_injectables_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Look after treated areas",
+      "items": [
+        "Follow written aftercare on hygiene, activity limits, and posture",
+        "Monitor for expected temporary effects such as mild tenderness",
+        "Contact us urgently if you notice significant weakness, visual symptoms, or spreading swelling",
+        "Reviews booked to check function, adjust dosing, or decide on further care"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_therapeutic_injectables_related",
+      "order": 80,
+      "seoRole": "supporting",
+      "eyebrow": "Related pathways",
+      "title": "Consider these alongside medication",
+      "items": [
+        "Bruxism and jaw clenching care with guards and coaching (/treatments/bruxism-and-jaw-clenching)",
+        "Facial pain and headache assessment to address wider causes (/treatments/facial-pain-and-headache)",
+        "TMJ disorder treatment with staged conservative steps (/treatments/tmj-disorder-treatment)",
+        "Facial therapeutics hub for broader clinical support (/treatments/facial-therapeutics)"
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_therapeutic_injectables_faq",
+      "order": 90,
+      "seoRole": "faq",
+      "eyebrow": "Therapeutic injectable FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "Is this the same as cosmetic toxin?",
+          "answer": "The medicine is similar but the intent and dosing differ. Here it is used to reduce muscle overactivity affecting comfort or function, not to change appearance."
+        },
+        {
+          "question": "How long do effects last?",
+          "answer": "Effects are temporary and reviewed regularly. Repeat dosing only happens when benefits outweigh risks and you remain clinically suitable."
+        },
+        {
+          "question": "Can I stop at any time?",
+          "answer": "Yes. Treatment is paused if you prefer, if symptoms settle with conservative care, or if side effects occur."
+        },
+        {
+          "question": "Who should avoid this treatment?",
+          "answer": "Patients with certain neuromuscular conditions, pregnancy, breastfeeding, or contraindicated medicines may not be suitable. We screen carefully before proceeding."
+        },
+        {
+          "question": "Do I still need a guard?",
+          "answer": "Often yes. Guards and self-care remain important to protect teeth and joints even when injectables are used."
+        }
+      ]
+    },
+    {
+      "instanceId": "therapeutic-injectables-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_therapeutic_injectables_cta",
+      "order": 100,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a therapeutic injectable consultation",
+      "body": "Discuss whether prescription injectables are appropriate for your facial muscle symptoms. Safety, suitability, and conservative care come first.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact?topic=therapeutic-injectables", "preset": "primary" },
+        { "label": "Ask about suitability", "href": "/contact?topic=therapeutic-injectables", "preset": "secondary" }
+      ]
+    }
+  ]
+}

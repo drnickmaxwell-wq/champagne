@@ -1,0 +1,164 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.tmj-disorder-treatment",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "tmj-disorder-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_tmj_disorder_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "TMJ disorder",
+      "title": "Conservative-first TMJ disorder treatment",
+      "body": "We assess joint sounds, range, and muscle tension to understand your TMJ symptoms. Care focuses on reversible measures, protection, and referral when specialist input is needed.",
+      "bullets": [
+        "Comprehensive assessment of joint movement, bite, and muscle patterns",
+        "Self-care, guards, and physiotherapy pathways before invasive options",
+        "Clear safety netting with guidance on when urgent care is required"
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_tmj_disorder_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Evidence-based and escalation-aware",
+      "items": [
+        "Assessment includes joint noises, deviation, locking episodes, and pain mapping",
+        "We review previous trauma, orthodontics, and occlusal changes that affect the TMJ",
+        "Physiotherapy and medical colleagues involved early when indicated",
+        "Urgent pathways explained for sudden locking, swelling, or suspected infection"
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_tmj_disorder_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation",
+      "title": "Listen, examine, and tailor care",
+      "body": "Your clinician reviews symptoms, examines joint range and clicks, and checks bite stability. Imaging or referral is arranged when findings suggest structural change. We co-create a plan that starts conservatively and respects your comfort.",
+      "bullets": [
+        "History of locking, noise, and pain episodes",
+        "Examination of opening range, deviations, and muscle tenderness",
+        "Guard options, bite adjustments, and stretching protocols explained",
+        "When therapeutic injectables may support muscle-related symptoms",
+        "Referral letters for imaging or specialist TMJ clinics if required"
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_tmj_disorder_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who we help",
+      "title": "Patients with TMJ-related symptoms",
+      "items": [
+        "Clicking or popping joints with or without pain",
+        "Intermittent locking or stiffness when opening wide",
+        "Jaw fatigue or headaches linked to chewing or clenching",
+        "Existing dental work needing protection during TMJ care",
+        "Patients wanting a clear conservative plan before invasive routes"
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_tmj_disorder_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Staged, conservative-first TMJ care",
+      "items": [
+        "Assessment and diagnosis with documentation of joint findings",
+        "Self-care guidance and habit coaching to reduce strain",
+        "Custom guards or occlusal adjustments when indicated",
+        "Therapeutic injectables for muscle overactivity if clinically suitable",
+        "Referral for imaging, physiotherapy, or TMJ specialist input when needed",
+        "Review and maintenance to track stability"
+      ],
+      "strapline": "We keep interventions reversible where possible and explain when further medical investigation is recommended."
+    },
+    {
+      "instanceId": "tmj-disorder-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_tmj_disorder_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & urgent care",
+      "title": "Protect your joints and know when to escalate",
+      "items": [
+        "Follow stretching, posture, and guard guidance consistently",
+        "Avoid overloading the joint during flare-ups; use soft diets if advised",
+        "Report new locking, swelling, or altered bite promptly",
+        "Seek urgent care if you cannot open, have spreading swelling, or fever"
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_tmj_disorder_related",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Related pathways",
+      "title": "Joined-up jaw care",
+      "items": [
+        "Bruxism and jaw clenching support to reduce overloading (/treatments/bruxism-and-jaw-clenching)",
+        "Facial pain and headache assessment to address linked symptoms (/treatments/facial-pain-and-headache)",
+        "Therapeutic facial injectables for selected muscle-related cases (/treatments/therapeutic-facial-injectables)",
+        "3D mouth guards for protection during conservative TMJ care (/treatments/3d-mouth-guards)"
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_tmj_disorder_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "TMJ disorder FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "Do I always need imaging?",
+          "answer": "No. Imaging is recommended when symptoms, history, or examination suggest structural joint changes or atypical findings."
+        },
+        {
+          "question": "Will exercises alone help?",
+          "answer": "Exercises and habit change often improve symptoms. Guards, adjustments, or medicines are considered when exercises are insufficient or risk of damage is present."
+        },
+        {
+          "question": "What if my jaw locks?",
+          "answer": "Intermittent locking is assessed in clinic. Sudden inability to open or close, severe pain, or swelling warrants urgent contact or emergency care."
+        },
+        {
+          "question": "Are injectables used for TMJ disorders?",
+          "answer": "Only in selected cases after conservative steps. Doses are tailored to relieve muscle overactivity rather than cosmetic aims."
+        },
+        {
+          "question": "How long does treatment take?",
+          "answer": "Timelines vary; we review progress regularly and adjust the plan based on symptoms, guard wear, and any specialist feedback."
+        }
+      ]
+    },
+    {
+      "instanceId": "tmj-disorder-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_tmj_disorder_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a TMJ disorder assessment",
+      "body": "Discuss locking, clicking, or jaw pain with a clinician who prioritises reversible care and clear escalation pathways.",
+      "ctas": [
+        { "label": "Book TMJ consultation", "href": "/contact?topic=tmj", "preset": "primary" },
+        { "label": "Ask about TMJ care", "href": "/contact?topic=tmj", "preset": "secondary" }
+      ]
+    }
+  ]
+}

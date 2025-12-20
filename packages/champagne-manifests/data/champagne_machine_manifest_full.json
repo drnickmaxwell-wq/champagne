@@ -324,7 +324,7 @@
           "type": "copy-block",
           "label": "Overview",
           "title": "Choose the right treatment pathway",
-          "copy": "Start with a calm overview, then move into the treatment categories below. If you are unsure, we can guide you to the simplest next step."
+          "copy": "Start with a calm overview, then move into the treatment categories below. Clinical hubs for facial therapeutics and facial aesthetics sit alongside our restorative, orthodontic, and emergency care. If you are unsure, we can guide you to the simplest next step."
         },
         {
           "id": "treatments_hub_categories",
@@ -334,6 +334,8 @@
             "Restorative: implants, crowns, bridges, and implant-retained solutions",
             "Cosmetic: bonding, veneers, whitening, and smile refinement",
             "Orthodontic: clear aligners, Spark, and fixed braces for paced movement",
+            "Facial therapeutics: bruxism, facial pain, TMJ support, and therapeutic injectables when clinically indicated",
+            "Facial aesthetics: anti-wrinkle care, dermal fillers, skin boosters, and polynucleotides with prescriber oversight",
             "Emergency: urgent pain, fractures, or trauma support with same-day guidance",
             "Hygiene and comfort: preventative care, periodontal support, and nervous patient options"
           ],
@@ -359,6 +361,16 @@
               "title": "Dental veneers",
               "description": "Shaping, contouring, and shade planning for refined smiles.",
               "href": "/treatments/veneers"
+            },
+            {
+              "title": "Facial therapeutics",
+              "description": "Clinical pathways for bruxism, facial pain, and therapeutic injectables.",
+              "href": "/treatments/facial-therapeutics"
+            },
+            {
+              "title": "Facial aesthetics",
+              "description": "Prescriber-led anti-wrinkle care, fillers, boosters, and polynucleotides.",
+              "href": "/treatments/facial-aesthetics"
             },
             {
               "title": "Emergency dentistry",
@@ -511,6 +523,7 @@
         "treatment.processTimeline",
         "treatment.technology",
         "treatment.aftercareRisks",
+        "treatment.trustSignals",
         "treatment.faq",
         "treatment.cta"
       ],
@@ -1830,6 +1843,7 @@
         "treatment.processTimeline",
         "treatment.technology",
         "treatment.aftercareRisks",
+        "treatment.trustSignals",
         "treatment.faq",
         "treatment.cta"
       ],
@@ -4691,6 +4705,101 @@
         "treatment.processTimeline",
         "treatment.technology",
         "treatment.aftercareRisks",
+        "treatment.trustSignals",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "bruxism_jaw_clenching": {
+      "id": "bruxism_jaw_clenching",
+      "label": "Bruxism and jaw clenching treatment",
+      "path": "/treatments/bruxism-and-jaw-clenching",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.aftercareRisks",
+        "treatment.trustSignals",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "facial_pain_headache": {
+      "id": "facial_pain_headache",
+      "label": "Facial pain and headache pathways",
+      "path": "/treatments/facial-pain-and-headache",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.aftercareRisks",
+        "treatment.trustSignals",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "tmj_disorder_treatment": {
+      "id": "tmj_disorder_treatment",
+      "label": "TMJ disorder treatment",
+      "path": "/treatments/tmj-disorder-treatment",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.aftercareRisks",
+        "treatment.trustSignals",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "therapeutic_facial_injectables": {
+      "id": "therapeutic_facial_injectables",
+      "label": "Therapeutic facial injectables",
+      "path": "/treatments/therapeutic-facial-injectables",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
+        "treatment.aftercareRisks",
+        "treatment.trustSignals",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "facial_aesthetics": {
+      "id": "facial_aesthetics",
+      "label": "Facial aesthetics hub",
+      "path": "/treatments/facial-aesthetics",
+      "category": "hub",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.trustSignals",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.processTimeline",
         "treatment.faq",
         "treatment.cta"
       ],

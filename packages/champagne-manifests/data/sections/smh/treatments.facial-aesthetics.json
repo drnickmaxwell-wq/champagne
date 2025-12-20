@@ -1,0 +1,128 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.facial-aesthetics",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "facial-aesthetics-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_facial_aesthetics_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial aesthetics",
+      "title": "Measured facial aesthetic treatments with clinical oversight",
+      "body": "A prescriber-led approach to anti-wrinkle care, dermal fillers, skin boosters, and polynucleotides. Safety, suitability, and informed consent sit ahead of any cosmetic outcome.",
+      "bullets": [
+        "Assessment before treatment to map goals, health, and contraindications",
+        "Subtle, conservative dosing to respect natural anatomy",
+        "Clear aftercare with direct access back to the clinician"
+      ]
+    },
+    {
+      "instanceId": "facial-aesthetics-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_facial_aesthetics_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Prescription-led, safety-first",
+      "items": [
+        "Medical history, medicines, and skin health reviewed before any injectable care",
+        "Informed consent with discussion of benefits, risks, and limits",
+        "Aseptic technique, regulated products, and emergency pathways available",
+        "Review points scheduled to monitor comfort and adjust only when appropriate"
+      ]
+    },
+    {
+      "instanceId": "facial-aesthetics-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_facial_aesthetics_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Consultation",
+      "title": "Plan the right aesthetic pathway",
+      "body": "We discuss what you want to soften or support, explain the differences between available treatments, and agree on conservative dosing. Some patients are better suited to skincare or staged plans, which we cover openly.",
+      "bullets": [
+        "Anti-wrinkle treatment planning with prescription-only medicines (/treatments/anti-wrinkle-treatments)",
+        "Dermal fillers for careful volume or contour when clinically appropriate (/treatments/dermal-fillers)",
+        "Skin boosters to improve hydration and skin quality (/treatments/skin-boosters)",
+        "Polynucleotides for skin conditioning where suitable (/treatments/polynucleotides)",
+        "When not to treat, including contraindications or unrealistic expectations"
+      ]
+    },
+    {
+      "instanceId": "facial-aesthetics-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_facial_aesthetics_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Patients seeking carefully delivered aesthetics",
+      "items": [
+        "Those wanting subtle softening of expression lines under medical oversight",
+        "Patients considering modest volume support without overfilling",
+        "People focusing on skin texture and hydration improvements",
+        "Anyone preferring clear boundaries on what treatment can and cannot achieve"
+      ]
+    },
+    {
+      "instanceId": "facial-aesthetics-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_facial_aesthetics_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Consult, treat carefully, review",
+      "items": [
+        "Clinical consultation with photos or facial mapping as needed",
+        "Agree a conservative plan across one or more treatment types",
+        "Deliver treatment using regulated products and sterile technique",
+        "Review to monitor effect, safety, and maintenance intervals",
+        "Pause or adjust if health, preferences, or results change"
+      ],
+      "strapline": "We proceed only when safe, with no pressure to continue if you prefer to stop."
+    },
+    {
+      "instanceId": "facial-aesthetics-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_facial_aesthetics_faq",
+      "order": 60,
+      "seoRole": "faq",
+      "eyebrow": "Facial aesthetics FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "Do I need a prescription for anti-wrinkle treatment?",
+          "answer": "Yes. A prescriber assesses you first, confirms suitability, and issues a prescription before treatment."
+        },
+        {
+          "question": "Can I combine treatments?",
+          "answer": "Sometimes. We only combine routes when clinically appropriate and after discussing how they interact, costs, and maintenance."
+        },
+        {
+          "question": "What if I’m not suitable?",
+          "answer": "We will explain why and may recommend skincare, dental care, or no treatment. There is no pressure to proceed."
+        },
+        {
+          "question": "How do you manage risks?",
+          "answer": "We use regulated products, aseptic technique, and have emergency protocols including dissolving agents for filler-related issues."
+        }
+      ]
+    },
+    {
+      "instanceId": "facial-aesthetics-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_facial_aesthetics_cta",
+      "order": 70,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Book a facial aesthetics consultation",
+      "strapline": "Discuss anti-wrinkle care, dermal fillers, skin boosters, or polynucleotides with a prescriber who prioritises safety and realism.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about options", "href": "/contact?topic=facial-aesthetics", "variant": "secondary" }
+      ]
+    }
+  ]
+}

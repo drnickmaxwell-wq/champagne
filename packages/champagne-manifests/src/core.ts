@@ -44,6 +44,7 @@ import sectionLayoutInlaysOnlays from "../data/sections/smh/treatments.inlays-on
 import sectionLayoutOrthodontics from "../data/sections/smh/treatments.orthodontics.json";
 import sectionLayoutPainlessNumbingTheWand from "../data/sections/smh/treatments.painless-numbing-the-wand.json";
 import sectionLayoutPeriodontalGumCare from "../data/sections/smh/treatments.periodontal-gum-care.json";
+import sectionLayoutBruxismJawClenching from "../data/sections/smh/treatments.bruxism-and-jaw-clenching.json";
 import sectionLayoutHomeTeethWhitening from "../data/sections/smh/treatments.home-teeth-whitening.json";
 import sectionLayoutChildrensDentistry from "../data/sections/smh/treatments.childrens-dentistry.json";
 import sectionLayoutNervousPatients from "../data/sections/smh/treatments.nervous-patients.json";
@@ -57,10 +58,14 @@ import sectionLayoutTmjJawComfort from "../data/sections/smh/treatments.tmj-jaw-
 import sectionLayoutWhiteningSensitiveTeeth from "../data/sections/smh/treatments.whitening-sensitive-teeth.json";
 import sectionLayoutWhiteningTopUps from "../data/sections/smh/treatments.whitening-top-ups.json";
 import sectionLayoutFacialTherapeutics from "../data/sections/smh/treatments.facial-therapeutics.json";
+import sectionLayoutFacialPainHeadache from "../data/sections/smh/treatments.facial-pain-and-headache.json";
+import sectionLayoutFacialAesthetics from "../data/sections/smh/treatments.facial-aesthetics.json";
 import sectionLayoutAntiWrinkleTreatments from "../data/sections/smh/treatments.anti-wrinkle-treatments.json";
 import sectionLayoutDermalFillers from "../data/sections/smh/treatments.dermal-fillers.json";
 import sectionLayoutSkinBoosters from "../data/sections/smh/treatments.skin-boosters.json";
 import sectionLayoutPolynucleotides from "../data/sections/smh/treatments.polynucleotides.json";
+import sectionLayoutTherapeuticInjectables from "../data/sections/smh/treatments.therapeutic-facial-injectables.json";
+import sectionLayoutTmjDisorderTreatment from "../data/sections/smh/treatments.tmj-disorder-treatment.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -328,6 +333,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutInlaysOnlays as ChampagneSectionLayout,
   sectionLayoutPainlessNumbingTheWand as ChampagneSectionLayout,
   sectionLayoutPeriodontalGumCare as ChampagneSectionLayout,
+  sectionLayoutBruxismJawClenching as ChampagneSectionLayout,
   sectionLayoutHomeTeethWhitening as ChampagneSectionLayout,
   sectionLayoutChildrensDentistry as ChampagneSectionLayout,
   sectionLayoutNervousPatients as ChampagneSectionLayout,
@@ -337,13 +343,17 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutTeethWhitening as ChampagneSectionLayout,
   sectionLayoutTeethWhiteningFaqs as ChampagneSectionLayout,
   sectionLayoutTmjJawComfort as ChampagneSectionLayout,
+  sectionLayoutTmjDisorderTreatment as ChampagneSectionLayout,
   sectionLayoutWhiteningSensitiveTeeth as ChampagneSectionLayout,
   sectionLayoutWhiteningTopUps as ChampagneSectionLayout,
   sectionLayoutFacialTherapeutics as ChampagneSectionLayout,
+  sectionLayoutFacialPainHeadache as ChampagneSectionLayout,
+  sectionLayoutFacialAesthetics as ChampagneSectionLayout,
   sectionLayoutAntiWrinkleTreatments as ChampagneSectionLayout,
   sectionLayoutDermalFillers as ChampagneSectionLayout,
   sectionLayoutSkinBoosters as ChampagneSectionLayout,
   sectionLayoutPolynucleotides as ChampagneSectionLayout,
+  sectionLayoutTherapeuticInjectables as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
