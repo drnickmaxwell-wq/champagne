@@ -5,136 +5,131 @@
   "version": "1.0.0",
   "groups": [
     {
-      "id": "general_dentistry",
-      "title": "General dentistry",
-      "description": "Check-ups, gum care, fillings, crowns, and dentures to keep everyday oral health steady.",
+      "id": "emergency",
+      "title": "Emergency",
+      "description": "Same-day assessments for pain, swelling, trauma, or urgent issues.",
+      "featuredSlugs": [
+        "emergency-dentistry",
+        "emergency-dental-appointments",
+        "broken-chipped-cracked-teeth",
+        "severe-toothache-dental-pain",
+        "facial-pain-and-headache",
+        "painless-numbing-the-wand"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all treatments in this group"
+    },
+    {
+      "id": "general",
+      "title": "General Dentistry",
+      "description": "Check-ups, gum care, root canal, and everyday oral health support.",
       "featuredSlugs": [
         "preventative-and-general-dentistry",
         "periodontal-gum-care",
-        "dental-crowns",
-        "dentures",
         "endodontics-root-canal",
-        "childrens-dentistry"
+        "childrens-dentistry",
+        "senior-mature-smile-care",
+        "nervous-patients"
       ],
       "collapsedByDefault": true,
-      "viewAllLabel": "View all"
+      "viewAllLabel": "View all treatments in this group"
     },
     {
-      "id": "dental_implants",
-      "title": "Dental implants",
-      "description": "Implant planning, placement, grafting, and restoration with guided follow-up.",
+      "id": "restorative",
+      "title": "Crowns & Bridges (Non-Implant)",
+      "description": "Repairs with crowns, bridges, and onlays that protect natural teeth.",
+      "featuredSlugs": [
+        "dental-crowns",
+        "dental-bridges",
+        "inlays-onlays",
+        "lost-crowns-veneers-fillings"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all treatments in this group"
+    },
+    {
+      "id": "implants",
+      "title": "Implants",
+      "description": "Consultation, placement, grafting, and restoration for missing teeth.",
       "featuredSlugs": [
         "implants",
-        "implants-consultation",
         "implants-single-tooth",
         "implants-multiple-teeth",
         "implants-full-arch",
-        "implants-teeth-in-a-day"
+        "implants-bone-grafting",
+        "teeth-in-a-day"
       ],
       "collapsedByDefault": true,
-      "viewAllLabel": "View all"
+      "viewAllLabel": "View all treatments in this group"
     },
     {
-      "id": "cosmetic_dentistry",
-      "title": "Cosmetic dentistry",
-      "description": "Whitening, bonding, veneers, and smile design planned for conservative aesthetics.",
+      "id": "dentures",
+      "title": "Dentures (Non-3D)",
+      "description": "Conventional acrylic and chrome dentures shaped for comfort and fit.",
+      "featuredSlugs": [
+        "dentures",
+        "acrylic-dentures",
+        "chrome-dentures",
+        "peek-partial-dentures"
+      ],
+      "collapsedByDefault": true,
+      "viewAllLabel": "View all treatments in this group"
+    },
+    {
+      "id": "cosmetic",
+      "title": "Cosmetic Dentistry",
+      "description": "Whitening, veneers, bonding, and smile makeovers planned conservatively.",
       "featuredSlugs": [
         "veneers",
         "composite-bonding",
         "teeth-whitening",
-        "digital-smile-design",
-        "home-teeth-whitening"
+        "home-teeth-whitening",
+        "full-smile-makeover",
+        "whitening-sensitive-teeth"
       ],
       "collapsedByDefault": true,
-      "viewAllLabel": "View all"
+      "viewAllLabel": "View all treatments in this group"
     },
     {
-      "id": "orthodontics_retainers",
-      "title": "Orthodontics & retainers",
-      "description": "Aligners, fixed braces, and retainers with paced reviews to keep movements safe.",
+      "id": "ortho",
+      "title": "Orthodontics",
+      "description": "Aligners, braces, and retainers with paced reviews to keep movements safe.",
       "featuredSlugs": [
         "orthodontics",
         "clear-aligners",
         "clear-aligners-spark",
         "fixed-braces",
-        "dental-retainers"
-      ],
-      "collapsedByDefault": true,
-      "viewAllLabel": "View all"
-    },
-    {
-      "id": "emergency_dentistry",
-      "title": "Emergency dentistry",
-      "description": "Rapid assessments for pain, infection, swelling, or trauma with same-day advice.",
-      "featuredSlugs": [
-        "emergency-dentistry",
-        "severe-toothache-dental-pain",
-        "dental-abscess-infection"
-      ],
-      "collapsedByDefault": true,
-      "viewAllLabel": "View all"
-    },
-    {
-      "id": "oral_surgery",
-      "title": "Oral surgery",
-      "description": "Planned extractions and oral surgery with clear aftercare and review points.",
-      "featuredSlugs": [
-        "extractions-and-oral-surgery"
-      ],
-      "collapsedByDefault": true,
-      "viewAllLabel": "View all"
-    },
-    {
-      "id": "guards_splints",
-      "title": "Guards, splints & mouthguards",
-      "description": "Custom splints and sports guards that protect teeth from clenching or impacts.",
-      "featuredSlugs": [
-        "night-guards-occlusal-splints",
-        "sports-mouthguards",
+        "dental-retainers",
         "mouthguards-and-retainers"
       ],
       "collapsedByDefault": true,
-      "viewAllLabel": "View all"
+      "viewAllLabel": "View all treatments in this group"
     },
     {
-      "id": "digital_3d",
-      "title": "Digital & 3D dentistry",
-      "description": "CBCT scanning, digital planning, and 3D printing to guide precise treatment steps.",
+      "id": "digital3d",
+      "title": "3D / Digital Dentistry",
+      "description": "CBCT imaging, guided planning, and 3D-printed restorations and guides.",
       "featuredSlugs": [
         "3d-digital-dentistry",
         "cbct-3d-scanning",
         "3d-printing-lab",
-        "3d-implant-restorations"
+        "3d-implant-restorations",
+        "3d-printed-dentures",
+        "digital-smile-design"
       ],
       "collapsedByDefault": true,
-      "viewAllLabel": "View all"
-    },
-    {
-      "id": "sedation_nervous",
-      "title": "Sedation & nervous patients",
-      "description": "Comfort pathways with sedation options and gentle numbing for anxious patients.",
-      "featuredSlugs": [
-        "sedation-dentistry",
-        "nervous-patients",
-        "painless-numbing-the-wand"
-      ],
-      "collapsedByDefault": true,
-      "viewAllLabel": "View all"
+      "viewAllLabel": "View all treatments in this group"
     },
     {
       "id": "facial",
-      "title": "Facial therapeutics & facial aesthetics",
-      "description": "Therapeutic injectables, TMJ comfort care, and aesthetic refinements for the face.",
+      "title": "Facial Aesthetics",
+      "description": "Injectable facial aesthetics to soften lines and restore volume.",
       "featuredSlugs": [
-        "facial-therapeutics",
-        "bruxism-and-jaw-clenching",
-        "tmj-jaw-comfort",
-        "facial-aesthetics",
         "anti-wrinkle-treatments",
         "dermal-fillers"
       ],
       "collapsedByDefault": true,
-      "viewAllLabel": "View all"
+      "viewAllLabel": "View all treatments in this group"
     }
   ]
 }
