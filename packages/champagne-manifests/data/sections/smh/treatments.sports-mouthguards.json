@@ -1,0 +1,122 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.sports-mouthguards",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "sports-mouthguards-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_sports_mouthguards_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Sports mouthguards",
+      "title": "Custom sports mouthguards for confident play",
+      "body": "Lab-made sports mouthguards are custom-fitted to shield teeth and soft tissues during contact or ball sports. Each guard is shaped from your impressions for secure retention and comfortable breathing.",
+      "bullets": [
+        "Laboratory-crafted for reliable shock absorption",
+        "Tailored fit for your sport and dentition",
+        "Clear guidance on wear, storage, and replacement"
+      ]
+    },
+    {
+      "instanceId": "sports-mouthguards-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_sports_mouthguards_overview",
+      "order": 20,
+      "seoRole": "primaryContent",
+      "eyebrow": "Overview",
+      "title": "Protection that stays in place when you play",
+      "body": "We create custom sports mouthguards in partnership with specialist dental laboratories. Thickness and coverage are selected to suit your sport, letting you breathe and communicate while keeping teeth and cheeks protected.",
+      "bullets": [
+        "Impressions or scans capture your bite for an exact fit",
+        "Layered materials for impact absorption",
+        "Trim lines refined for comfort and stability"
+      ]
+    },
+    {
+      "instanceId": "sports-mouthguards-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_sports_mouthguards_who",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who needs a sports mouthguard",
+      "title": "Players wanting dependable protection",
+      "items": [
+        "Adults and children involved in contact or ball sports",
+        "Patients with orthodontic work needing tailored coverage",
+        "People seeking an alternative to shop-bought boil-and-bite guards",
+        "Anyone advised to protect crowns, veneers, or implants during sport"
+      ]
+    },
+    {
+      "instanceId": "sports-mouthguards-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_sports_mouthguards_process",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Lab fitting process",
+      "title": "From impressions to match-ready fit",
+      "items": [
+        "Consultation to discuss sport, position, and previous injuries",
+        "Impressions or scans to capture teeth and bite",
+        "Lab fabrication with tailored thickness and layering",
+        "Fit appointment with comfort and retention checks",
+        "Advice on wear-in, storage, and when to replace"
+      ],
+      "strapline": "We keep digital records where possible so replacements are simpler when seasons change."
+    },
+    {
+      "instanceId": "sports-mouthguards-care",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_sports_mouthguards_care",
+      "order": 50,
+      "seoRole": "supporting",
+      "eyebrow": "Care & replacement",
+      "title": "Look after your sports guard",
+      "items": [
+        "Rinse after use and clean with mild solutions to prevent odour",
+        "Store in a ventilated case away from heat and sunlight",
+        "Check for tears or thinning and arrange replacements before protection is reduced",
+        "Bring the guard to dental reviews for fit checks"
+      ]
+    },
+    {
+      "instanceId": "sports-mouthguards-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_sports_mouthguards_faq",
+      "order": 60,
+      "seoRole": "faq",
+      "eyebrow": "FAQs",
+      "title": "Sports mouthguard questions answered",
+      "faqs": [
+        {
+          "question": "Can you make guards for children?",
+          "answer": "Yes. We tailor designs to growing mouths and advise when replacements are sensible as teeth move or erupt."
+        },
+        {
+          "question": "How often should I replace my guard?",
+          "answer": "Replacement intervals depend on wear and growth. We review your guard at check-ups and plan updates before protection drops."
+        },
+        {
+          "question": "Are these suitable over braces?",
+          "answer": "We design lab-made guards to accommodate brackets or aligners, balancing coverage with space to avoid unwanted pressure."
+        }
+      ]
+    },
+    {
+      "instanceId": "sports-mouthguards-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_sports_mouthguards_cta",
+      "order": 70,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a fitting for your sports mouthguard",
+      "body": "Arrange a consultation to capture your bite and organise a lab-made mouthguard tailored to your sport.",
+      "ctas": [
+        { "label": "Contact the team", "href": "/contact", "preset": "primary" },
+        { "label": "Night guards for grinding", "href": "/treatments/night-guards-occlusal-splints", "preset": "secondary" }
+      ]
+    }
+  ]
+}

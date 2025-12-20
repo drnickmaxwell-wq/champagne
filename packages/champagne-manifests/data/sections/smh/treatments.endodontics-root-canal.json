@@ -41,6 +41,21 @@
       "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently — emergency dentistry support is available."
     },
     {
+      "instanceId": "endodontics-root-canal-options",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_endodontics_root_canal_options",
+      "order": 25,
+      "seoRole": "primaryContent",
+      "eyebrow": "Options within this hub",
+      "title": "Choose the right endodontic pathway",
+      "items": [
+        "Assessment and pain relief for urgent toothache or swelling (/treatments/emergency-dentistry)",
+        "Primary root canal treatment to clear infection and stabilise the tooth (/treatments/endodontics-root-canal)",
+        "Retreatment or surgical referral when anatomy or previous work needs advanced care (discussed during assessment)",
+        "Extraction planning if a tooth cannot be predictably saved, with replacement routes explained (/treatments/extractions-and-oral-surgery)"
+      ]
+    },
+    {
       "instanceId": "endodontics-root-canal-process",
       "componentId": "treatment.processTimeline",
       "variantId": "smh_endodontics_root_canal_process",

@@ -38,7 +38,9 @@
   - `treatments.implants.json`
   - `treatments.fixed-braces.json`
   - `treatments.3d-digital-dentistry.json`
-  - `treatments.3d-mouth-guards.json`
+  - `treatments.night-guards-occlusal-splints.json`
+  - `treatments.sports-mouthguards.json`
+  - `treatments.dental-retainers.json`
   - `treatments.3d-printed-dentures.json`
   - `treatments.3d-printed-veneers.json`
   - `treatments.3d-implant-restorations.json`

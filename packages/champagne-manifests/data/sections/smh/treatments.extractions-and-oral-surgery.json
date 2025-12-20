@@ -41,6 +41,21 @@
       "strapline": "If you experience rapid swelling, spreading infection, or difficulty swallowing, treat it as urgent and contact us for emergency dentistry advice."
     },
     {
+      "instanceId": "extractions-oral-surgery-options",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_extractions_oral_surgery_options",
+      "order": 25,
+      "seoRole": "primaryContent",
+      "eyebrow": "Options within this hub",
+      "title": "Plan the safest removal and next steps",
+      "items": [
+        "Emergency relief and assessment if pain or infection is acute (/treatments/emergency-dentistry)",
+        "Simple or surgical extraction with clear aftercare (/treatments/extractions-and-oral-surgery)",
+        "Socket preservation or grafting when future implants are planned (/treatments/implants-bone-grafting)",
+        "Healing and replacement pathways including bridges, dentures, or implants (/treatments/implants)"
+      ]
+    },
+    {
       "instanceId": "extractions-oral-surgery-process",
       "componentId": "treatment.processTimeline",
       "variantId": "smh_extractions_oral_surgery_process",

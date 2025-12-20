@@ -1,0 +1,111 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.mouthguards-and-retainers",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "mouthguards-retainers-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_mouthguards_retainers_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Mouthguards & retainers",
+      "title": "Protect teeth from sport, grinding, or post-orthodontic movement",
+      "body": "Custom appliances that cushion impacts, reduce clenching wear, or keep teeth aligned after braces or aligners. Options cover lab-made guards, in-house 3D printed splints, and retainers matched to your bite.",
+      "bullets": [
+        "Fitted from precise impressions or digital scans",
+        "Options for night grinding, sports contact, and orthodontic retention",
+        "Clear guidance on how long to wear and when to review"
+      ]
+    },
+    {
+      "instanceId": "mouthguards-retainers-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_mouthguards_retainers_who_for",
+      "order": 20,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who benefits",
+      "title": "Patients who need protection or retention",
+      "items": [
+        "Clenching or grinding that marks or shortens teeth",
+        "Contact sports or training where impacts are likely",
+        "Post-orthodontic patients needing reliable retention",
+        "People with TMJ discomfort who benefit from bite support",
+        "Anyone wanting clear instructions on care and review intervals"
+      ]
+    },
+    {
+      "instanceId": "mouthguards-retainers-options",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_mouthguards_retainers_options",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Options within this hub",
+      "title": "Choose the device that fits your goal",
+      "items": [
+        "Night guards (occlusal splints): lab-made or in-house 3D printed for clenching and grinding (/treatments/night-guards-occlusal-splints)",
+        "Sports mouthguards: lab-made, custom-fitted protection for training and match play (/treatments/sports-mouthguards)",
+        "Dental retainers: Essix removable, bonded fixed, and 3D printed tooth-coloured retainers after orthodontics (/treatments/dental-retainers)"
+      ]
+    },
+    {
+      "instanceId": "mouthguards-retainers-fitting",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_mouthguards_retainers_fitting",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Assessment, fitting & review",
+      "title": "Plan, fit, and review the guard or retainer",
+      "body": "We check your bite, wear patterns, and sports or retention needs before recommending a device. Impressions or scans guide fabrication, with fit checks to confirm comfort and stability. Review intervals are agreed so you know when to replace or adjust.",
+      "bullets": [
+        "Medical and dental history reviewed before fabrication",
+        "Bite assessment to confirm thickness, coverage, and durability needs",
+        "Fit checks to ensure speech, breathing, and comfort remain easy",
+        "Written advice on cleaning, storage, and when to seek a remake",
+        "Scheduled reviews to monitor wear or orthodontic stability"
+      ]
+    },
+    {
+      "instanceId": "mouthguards-retainers-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_mouthguards_retainers_faq",
+      "order": 50,
+      "seoRole": "faq",
+      "eyebrow": "FAQs",
+      "title": "Questions about mouthguards and retainers",
+      "faqs": [
+        {
+          "question": "How long do guards or retainers last?",
+          "answer": "Longevity depends on wear and bite forces. We will show you how to spot thinning or cracks and advise when to replace or adjust."
+        },
+        {
+          "question": "Can I choose between lab-made and 3D printed?",
+          "answer": "Yes. We recommend the material based on durability, comfort, and how your bite loads the device, then confirm your preference."
+        },
+        {
+          "question": "How do I clean and store them?",
+          "answer": "Use lukewarm water, non-abrasive cleaning aids, and a ventilated case. Avoid hot water or harsh chemicals that distort the fit."
+        },
+        {
+          "question": "What if my retainer feels tight?",
+          "answer": "Mild tightness after a break can be normal. If pressure is painful or teeth have shifted, contact us for a review before continuing."
+        }
+      ]
+    },
+    {
+      "instanceId": "mouthguards-retainers-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_mouthguards_retainers_cta",
+      "order": 60,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Need a custom guard or retainer?",
+      "body": "We will help you choose the right appliance, explain fabrication options, and set review points so it stays comfortable and effective.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
+        { "label": "Ask about mouthguards or retainers", "href": "/contact?topic=mouthguards", "variant": "secondary" }
+      ]
+    }
+  ]
+}

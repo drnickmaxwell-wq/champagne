@@ -67,7 +67,9 @@
 | chrome_dentures | /treatments/chrome-dentures | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
 | peek_partial_dentures | /treatments/peek-partial-dentures | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
 | printed_dentures_3d | /treatments/3d-printed-dentures | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
-| mouth_guards_3d | /treatments/3d-mouth-guards | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
+| night_guards_occlusal_splints | /treatments/night-guards-occlusal-splints | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
+| sports_mouthguards | /treatments/sports-mouthguards | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
+| dental_retainers | /treatments/dental-retainers | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
 | preventative_and_general_dentistry | /treatments/preventative-and-general-dentistry | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
 | childrens_dentistry | /treatments/childrens-dentistry | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |
 | periodontal_gum_care | /treatments/periodontal-gum-care | treatment leaf (apps/web/app/treatments/[slug]/page.tsx) |

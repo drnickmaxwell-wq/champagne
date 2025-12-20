@@ -1,0 +1,122 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-retainers",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "retainers-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_retainers_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Dental retainers",
+      "title": "Retention plans that keep orthodontic results stable",
+      "body": "Dental retainers hold teeth in their new positions after orthodontic treatment. We offer removable Essix retainers, fixed bonded retainers, and 3D printed tooth-coloured fixed retainers with reviews to keep them secure.",
+      "bullets": [
+        "Custom-made retention after braces or aligners",
+        "Removable and fixed options explained clearly",
+        "Scheduled reviews to keep retainers comfortable"
+      ]
+    },
+    {
+      "instanceId": "retainers-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_retainers_overview",
+      "order": 20,
+      "seoRole": "primaryContent",
+      "eyebrow": "Overview",
+      "title": "Why retainers matter",
+      "body": "Teeth can drift without support after orthodontics. We plan retention early, balancing appearance, hygiene access, and durability so you keep your smile aligned.",
+      "bullets": [
+        "Retention discussed before active treatment finishes",
+        "Options matched to your bite, enamel, and lifestyle",
+        "Clear wear schedules and maintenance guidance"
+      ]
+    },
+    {
+      "instanceId": "retainers-options",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_retainers_options",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Retainer options",
+      "title": "Choose the retainer that suits your smile",
+      "items": [
+        "Removable Essix retainers for discreet overnight wear",
+        "Fixed bonded retainers secured behind teeth for continuous support",
+        "3D printed tooth-coloured fixed retainers designed for stability and a low profile"
+      ]
+    },
+    {
+      "instanceId": "retainers-fitting",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_retainers_fitting",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Fitting & review",
+      "title": "Plan, fit, and monitor your retention",
+      "items": [
+        "Review tooth movement and discuss the right mix of retainers",
+        "Take impressions or scans for precise fabrication",
+        "Fit removable or fixed retainers with bite checks",
+        "Teach cleaning and wear routines tailored to your appliances",
+        "Regular reviews to check bonding, fit, and any tooth movement"
+      ],
+      "strapline": "We keep digital records where possible so replacements are straightforward if needed."
+    },
+    {
+      "instanceId": "retainers-care",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_retainers_care",
+      "order": 50,
+      "seoRole": "supporting",
+      "eyebrow": "Care & replacement",
+      "title": "Protect your retainers and your result",
+      "items": [
+        "Clean removable retainers daily with non-abrasive products",
+        "Avoid hot water to prevent warping",
+        "Check bonded retainers for loose sections and contact us promptly",
+        "Plan replacements or backups before retainers wear or are lost",
+        "Bring retainers to orthodontic reviews for monitoring"
+      ]
+    },
+    {
+      "instanceId": "retainers-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_retainers_faq",
+      "order": 60,
+      "seoRole": "faq",
+      "eyebrow": "FAQs",
+      "title": "Dental retainer questions answered",
+      "faqs": [
+        {
+          "question": "Will I need retainers after orthodontics?",
+          "answer": "Yes. Retainers are essential to maintain alignment. We guide you on how long to wear them and schedule reviews to keep them secure."
+        },
+        {
+          "question": "Can I choose between removable and fixed?",
+          "answer": "We explain the pros and cons of Essix removable retainers, bonded retainers, and 3D printed tooth-coloured fixed options so you can decide with clinical guidance."
+        },
+        {
+          "question": "What if a retainer breaks or goes missing?",
+          "answer": "Contact us promptly. We can repair bonded retainers when suitable or arrange swift replacements using your records to prevent unwanted tooth movement."
+        }
+      ]
+    },
+    {
+      "instanceId": "retainers-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_retainers_cta",
+      "order": 70,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan retention that lasts",
+      "body": "Book a visit to finalise your retention plan and choose between removable, bonded, and 3D printed tooth-coloured retainers with clear care guidance.",
+      "ctas": [
+        { "label": "Contact the team", "href": "/contact", "preset": "primary" },
+        { "label": "Orthodontics", "href": "/treatments/orthodontics", "preset": "secondary" }
+      ]
+    }
+  ]
+}
