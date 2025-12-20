@@ -4695,7 +4695,7 @@
       "id": "facial_therapeutics",
       "label": "Facial therapeutics in Shoreham-by-Sea",
       "path": "/treatments/facial-therapeutics",
-      "category": "treatment",
+      "category": "hub",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
         "treatment.heroIntro",
@@ -4800,6 +4800,7 @@
         "treatment.consultationOverview",
         "treatment.whoIsItFor",
         "treatment.processTimeline",
+        "treatment.trustSignals",
         "treatment.faq",
         "treatment.cta"
       ],
