@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BaseChampagneSurface } from "@champagne/hero";
-import { getTreatmentPages } from "@champagne/manifests";
+import { champagneMachineManifest, getPageManifest, getTreatmentPages } from "@champagne/manifests";
+import type { ChampagneTreatmentPage } from "@champagne/manifests";
 import { ChampagneSectionRenderer, getSectionStack } from "@champagne/sections";
 
 import { HeroRenderer } from "../components/hero/HeroRenderer";
@@ -23,49 +24,51 @@ async function resolveHeroDebug(searchParams?: Promise<PageSearchParams>) {
   return hasHeroDebug(resolved);
 }
 
-const FAMILY_LABELS: Record<string, string> = {
-  implants: "Implants",
-  whitening: "Whitening",
-  "3d-tech": "3D & digital dentistry",
-  aligners: "Orthodontics & aligners",
-  emergency: "Emergency dentistry",
-  comfort: "Comfort & anxiety care",
-  other: "More care options",
-};
+function getDirectoryGroupsFromManifest(): DirectoryGroup[] {
+  const hubManifest = getPageManifest("/treatments");
+  const groups = (hubManifest?.directoryGroups ?? []) as DirectoryGroup[];
 
-const FAMILY_ORDER = ["implants", "whitening", "3d-tech", "aligners", "emergency", "comfort", "other"];
+  if (groups.length > 0) return groups;
 
-function inferFamily(slug: string) {
-  const emergencyKeywords = [
-    "emergency",
-    "toothache",
-    "abscess",
-    "knocked-out",
-    "trauma",
-    "broken",
-    "cracked",
-    "chipped",
-    "lost-crowns",
-    "veneers-fillings",
-  ];
+  return treatmentGroups
+    .filter((group) => group.showOnHub !== false)
+    .map((group) => ({ groupId: group.id, label: group.label, hub: group.hub, description: group.description }));
+}
 
-  if (emergencyKeywords.some((keyword) => slug.includes(keyword))) return "emergency";
-  if (slug.startsWith("implants")) return "implants";
-  if (slug.includes("whitening")) return "whitening";
-  if (slug.includes("painless-numbing") || slug.includes("sedation") || slug.includes("tmj") || slug.includes("nervous")) {
-    return "comfort";
-  }
-  if (slug === "clear-aligners" || slug === "orthodontics") return "aligners";
-  if (slug.startsWith("3d-") || slug.includes("3d-")) return "3d-tech";
-  if (slug.startsWith("cbct")) return "3d-tech";
-  if (slug === "digital-smile-design") return "3d-tech";
-  return "other";
+function resolveTreatmentSlug(slugOrPath: string) {
+  return slugOrPath.replace("/treatments/", "");
 }
 
 function buildDescription(label?: string) {
   if (!label) return "Explore this treatment.";
   return `Learn more about ${label.toLowerCase()}.`;
 }
+
+type TreatmentGroupConfig = {
+  id: string;
+  label: string;
+  hub?: string;
+  slugs?: string[];
+  description?: string;
+  showOnHub?: boolean;
+};
+
+type DirectoryGroup = {
+  groupId: string;
+  label: string;
+  description?: string;
+  hub?: string;
+};
+
+type GroupedTreatments = {
+  key: string;
+  label: string;
+  description?: string;
+  hub?: string;
+  items: ChampagneTreatmentPage[];
+};
+
+const treatmentGroups = (champagneMachineManifest.treatmentGroups ?? []) as TreatmentGroupConfig[];
 
 export default async function TreatmentsPage({
   searchParams,
@@ -75,17 +78,47 @@ export default async function TreatmentsPage({
   const isHeroEnabled = isBrandHeroEnabled() || (await resolveHeroDebug(searchParams));
   const treatments = getTreatmentPages();
   const hubSections = getSectionStack("/treatments");
-  const grouped = treatments.reduce<Record<string, typeof treatments>>((acc, treatment) => {
-    const key = inferFamily(treatment.slug);
-    acc[key] = acc[key] ? [...acc[key], treatment] : [treatment];
-    return acc;
-  }, {});
+  const directoryGroups = getDirectoryGroupsFromManifest();
+  const treatmentLookup = new Map(treatments.map((entry) => [entry.slug, entry]));
+  const assigned = new Set<string>();
 
-  const orderedGroups = FAMILY_ORDER.map((key) => ({
-    key,
-    label: FAMILY_LABELS[key],
-    items: (grouped[key] ?? []).sort((a, b) => (a.label ?? a.slug).localeCompare(b.label ?? b.slug)),
-  })).filter((group) => group.items.length > 0);
+  const orderedGroups: GroupedTreatments[] = directoryGroups
+    .map((group) => {
+      const groupConfig = treatmentGroups.find((entry) => entry.id === group.groupId);
+      const slugs = groupConfig?.slugs ?? [];
+      const items = slugs
+        .map((slug) => {
+          const normalized = resolveTreatmentSlug(slug);
+          return treatmentLookup.get(normalized) ?? treatmentLookup.get(slug);
+        })
+        .filter((entry): entry is ChampagneTreatmentPage => Boolean(entry))
+        .sort((a, b) => (a.label ?? a.slug).localeCompare(b.label ?? b.slug));
+
+      items.forEach((item) => assigned.add(item.slug));
+
+      return {
+        key: group.groupId,
+        label: group.label,
+        description: group.description,
+        hub: group.hub ?? groupConfig?.hub,
+        items,
+      };
+    })
+    .filter((group) => group.items.length > 0);
+
+  const remaining = treatments
+    .filter((treatment) => !assigned.has(treatment.slug))
+    .sort((a, b) => (a.label ?? a.slug).localeCompare(b.label ?? b.slug));
+
+  if (remaining.length > 0) {
+    orderedGroups.push({
+      key: "additional_treatments",
+      label: "Additional treatments",
+      description: "More canon routes not yet grouped above.",
+      hub: undefined,
+      items: remaining,
+    });
+  }
 
   const cardStyle = {
     display: "grid",
@@ -102,9 +135,9 @@ export default async function TreatmentsPage({
 
       <header className="space-y-2">
         <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">Treatments</p>
-        <h1 className="text-3xl font-semibold text-neutral-50">Clinical care, mapped to the canon</h1>
+        <h1 className="text-3xl font-semibold text-neutral-50">Curated treatment pathways</h1>
         <p className="max-w-3xl text-neutral-300">
-          Browse the current Champagne treatment set. Each page is powered by the manifest canon and routes into the Champagne builder experience.
+          Featured pathways come first, with grouped hubs to calm the full directory. Each page is powered by the manifest canon and routes into the Champagne builder experience.
         </p>
       </header>
 
@@ -130,7 +163,17 @@ export default async function TreatmentsPage({
                 <div>
                   <p className="text-[0.8rem] uppercase tracking-[0.18em] text-neutral-400">{group.items.length} pages</p>
                   <h2 className="text-xl font-semibold text-neutral-50">{group.label}</h2>
+                  {group.description && <p className="mt-1 text-sm text-neutral-400">{group.description}</p>}
                 </div>
+                {group.hub && (
+                  <Link
+                    href={group.hub}
+                    className="text-sm font-medium text-neutral-200 hover:text-white"
+                    aria-label={`View ${group.label} hub`}
+                  >
+                    View hub
+                  </Link>
+                )}
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {group.items.map((treatment) => (

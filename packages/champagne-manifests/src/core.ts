@@ -34,6 +34,7 @@ import sectionLayout3DDigitalDentistry from "../data/sections/smh/treatments.3d-
 import sectionLayoutNightGuardsOcclusalSplints from "../data/sections/smh/treatments.night-guards-occlusal-splints.json";
 import sectionLayoutSportsMouthguards from "../data/sections/smh/treatments.sports-mouthguards.json";
 import sectionLayoutDentalRetainers from "../data/sections/smh/treatments.dental-retainers.json";
+import sectionLayoutMouthguardsAndRetainers from "../data/sections/smh/treatments.mouthguards-and-retainers.json";
 import sectionLayout3DPrintedDentures from "../data/sections/smh/treatments.3d-printed-dentures.json";
 import sectionLayout3DPrintedVeneers from "../data/sections/smh/treatments.3d-printed-veneers.json";
 import sectionLayout3DImplantRestorations from "../data/sections/smh/treatments.3d-implant-restorations.json";
@@ -324,6 +325,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayout3DDentistryAndTechnology as ChampagneSectionLayout,
   sectionLayout3DDigitalDentistry as ChampagneSectionLayout,
   sectionLayoutNightGuardsOcclusalSplints as ChampagneSectionLayout,
+  sectionLayoutMouthguardsAndRetainers as ChampagneSectionLayout,
   sectionLayoutSportsMouthguards as ChampagneSectionLayout,
   sectionLayout3DPrintedDentures as ChampagneSectionLayout,
   sectionLayout3DPrintedVeneers as ChampagneSectionLayout,
