@@ -3468,19 +3468,52 @@
       ],
       "surface": "champagne/surface/treatment"
     },
-    "mouth_guards_3d": {
-      "id": "mouth_guards_3d",
-      "label": "3D mouth guards",
-      "path": "/treatments/3d-mouth-guards",
-      "category": "treatment",
+    "night_guards_occlusal_splints": {
+      "id": "night_guards_occlusal_splints",
+      "label": "Night guards (occlusal splints)",
+      "path": "/treatments/night-guards-occlusal-splints",
+      "category": "Comfort, Stability & Jaw Care",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
         "treatment.heroIntro",
+        "treatment.consultationOverview",
+        "treatment.whoIsItFor",
+        "treatment.consultationOverview",
         "treatment.trustSignals",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "sports_mouthguards": {
+      "id": "sports_mouthguards",
+      "label": "Sports mouthguards",
+      "path": "/treatments/sports-mouthguards",
+      "category": "Preventive Dentistry",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
         "treatment.consultationOverview",
         "treatment.whoIsItFor",
         "treatment.processTimeline",
-        "treatment.technology",
+        "treatment.aftercareRisks",
+        "treatment.faq",
+        "treatment.cta"
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "dental_retainers": {
+      "id": "dental_retainers",
+      "label": "Dental retainers",
+      "path": "/treatments/dental-retainers",
+      "category": "Orthodontics",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        "treatment.heroIntro",
+        "treatment.consultationOverview",
+        "treatment.trustSignals",
+        "treatment.processTimeline",
         "treatment.aftercareRisks",
         "treatment.faq",
         "treatment.cta"
@@ -3588,7 +3621,7 @@
             "Fluoride advice matched to your risk level—no pushy sales",
             "Diet and sugar-frequency guidance with practical swaps",
             "Support for sensitive teeth, including gentle techniques and desensitising care",
-            "Custom mouthguards for sport or grinding, with 3D-printed options (/treatments/3d-mouth-guards)"
+            "Custom lab-made sports mouthguards for contact or ball sports (/treatments/sports-mouthguards)"
           ]
         },
         {
@@ -4662,8 +4695,8 @@
               "preset": "secondary"
             },
             {
-              "label": "Mouth Guards",
-              "href": "/treatments/3d-mouth-guards",
+              "label": "Night guards",
+              "href": "/treatments/night-guards-occlusal-splints",
               "preset": "ghost"
             },
             {

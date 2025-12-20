@@ -31,7 +31,9 @@ import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json
 import sectionLayoutFixedBraces from "../data/sections/smh/treatments.fixed-braces.json";
 import sectionLayout3DDentistryAndTechnology from "../data/sections/smh/treatments.3d-dentistry-and-technology.json";
 import sectionLayout3DDigitalDentistry from "../data/sections/smh/treatments.3d-digital-dentistry.json";
-import sectionLayout3DMouthGuards from "../data/sections/smh/treatments.3d-mouth-guards.json";
+import sectionLayoutNightGuardsOcclusalSplints from "../data/sections/smh/treatments.night-guards-occlusal-splints.json";
+import sectionLayoutSportsMouthguards from "../data/sections/smh/treatments.sports-mouthguards.json";
+import sectionLayoutDentalRetainers from "../data/sections/smh/treatments.dental-retainers.json";
 import sectionLayout3DPrintedDentures from "../data/sections/smh/treatments.3d-printed-dentures.json";
 import sectionLayout3DPrintedVeneers from "../data/sections/smh/treatments.3d-printed-veneers.json";
 import sectionLayout3DImplantRestorations from "../data/sections/smh/treatments.3d-implant-restorations.json";
@@ -321,7 +323,8 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutAligners as ChampagneSectionLayout,
   sectionLayout3DDentistryAndTechnology as ChampagneSectionLayout,
   sectionLayout3DDigitalDentistry as ChampagneSectionLayout,
-  sectionLayout3DMouthGuards as ChampagneSectionLayout,
+  sectionLayoutNightGuardsOcclusalSplints as ChampagneSectionLayout,
+  sectionLayoutSportsMouthguards as ChampagneSectionLayout,
   sectionLayout3DPrintedDentures as ChampagneSectionLayout,
   sectionLayout3DPrintedVeneers as ChampagneSectionLayout,
   sectionLayout3DImplantRestorations as ChampagneSectionLayout,
@@ -342,6 +345,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutSeniorMatureSmileCare as ChampagneSectionLayout,
   sectionLayoutTeethWhitening as ChampagneSectionLayout,
   sectionLayoutTeethWhiteningFaqs as ChampagneSectionLayout,
+  sectionLayoutDentalRetainers as ChampagneSectionLayout,
   sectionLayoutTmjJawComfort as ChampagneSectionLayout,
   sectionLayoutTmjDisorderTreatment as ChampagneSectionLayout,
   sectionLayoutWhiteningSensitiveTeeth as ChampagneSectionLayout,

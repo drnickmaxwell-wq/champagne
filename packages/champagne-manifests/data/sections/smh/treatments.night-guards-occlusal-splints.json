@@ -1,0 +1,141 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.night-guards-occlusal-splints",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "night-guards-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_night_guards_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Night guards (occlusal splints)",
+      "title": "Custom occlusal splints to protect teeth and joints",
+      "body": "Occlusal splints are custom-made devices that cushion clenching, grinding, and tooth wear. We provide both specialist lab-made splints and in-house 3D printed options, selecting the right approach for your bite and durability needs.",
+      "bullets": [
+        "Planned for clenching, grinding, and tooth wear",
+        "Choice of lab-made or 3D printed splints",
+        "Guided by your bite, comfort, and longevity goals"
+      ]
+    },
+    {
+      "instanceId": "night-guards-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_night_guards_overview",
+      "order": 20,
+      "seoRole": "primaryContent",
+      "eyebrow": "Overview",
+      "title": "Tailored protection for clenching and grinding",
+      "body": "Every occlusal splint is custom-made from your bite records to reduce tooth wear, ease muscle strain, and protect dental work. Materials and thickness are selected to balance comfort with the support you need overnight.",
+      "bullets": [
+        "Covers the biting surfaces to distribute forces",
+        "Designed to reduce jaw tension and protect restorations",
+        "Adjustable fit to keep speech and breathing comfortable"
+      ]
+    },
+    {
+      "instanceId": "night-guards-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_night_guards_who",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who night guards are for",
+      "title": "Patients needing overnight protection",
+      "items": [
+        "People with clenching or grinding that is wearing down teeth",
+        "Patients with crowns, veneers, or implants needing protection from heavy bites",
+        "Those waking with jaw ache, tension, or headaches",
+        "Individuals with enamel erosion or tooth sensitivity from grinding",
+        "Patients advised to protect their bite after restorative treatment"
+      ]
+    },
+    {
+      "instanceId": "night-guards-assessment",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_night_guards_assessment",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Assessment & diagnosis",
+      "title": "Measure your bite before prescribing",
+      "body": "We review your history, check jaw muscles and joints, and map tooth wear. Digital scans or impressions capture your bite so we can plan splint thickness, coverage, and occlusal contacts that feel balanced.",
+      "bullets": [
+        "Examination of wear facets, mobility, and existing restorations",
+        "Bite analysis to see how your teeth meet and slide",
+        "Records taken for precise design and future reviews",
+        "Discussion of habits, posture, and sleep quality that affect clenching"
+      ]
+    },
+    {
+      "instanceId": "night-guards-types",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_night_guards_types",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Types of night guards offered",
+      "title": "Lab-made and 3D printed occlusal splints",
+      "items": [
+        "Lab-made occlusal splints crafted by specialist dental laboratories for high durability and complex bites",
+        "3D printed occlusal splints produced in-house from your scan for rapid turnaround and precise fit",
+        "Recommendation based on your bite pattern, comfort preference, and how much wear protection you need"
+      ]
+    },
+    {
+      "instanceId": "night-guards-care",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_night_guards_care",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Care, longevity & review",
+      "title": "Keep your splint comfortable for the long term",
+      "items": [
+        "Rinse and brush the splint with recommended cleaners after use",
+        "Store in a ventilated case away from heat to prevent warping",
+        "Bring the splint to reviews so we can check fit, bite contacts, and wear",
+        "Expected lifespan discussed upfront; replacements planned if wear or bite changes",
+        "Report cracks or soreness early so we can adjust or refabricate"
+      ]
+    },
+    {
+      "instanceId": "night-guards-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_night_guards_faq",
+      "order": 70,
+      "seoRole": "faq",
+      "eyebrow": "FAQs",
+      "title": "Night guard questions answered",
+      "faqs": [
+        {
+          "question": "Are occlusal splints custom-made?",
+          "answer": "Yes. We base every splint on your bite records and adjust it chairside so it sits comfortably while protecting your teeth."
+        },
+        {
+          "question": "How do lab-made and 3D printed splints differ?",
+          "answer": "Specialist lab-made splints can suit complex bites or higher wear demands, while in-house 3D printed splints offer precise fit and quicker turnaround. We recommend the option that matches your clinical needs."
+        },
+        {
+          "question": "How long will my splint last?",
+          "answer": "Longevity depends on bite forces and care. We review the splint at check-ups, outline expected replacement intervals, and plan refreshes before wear compromises protection."
+        },
+        {
+          "question": "Will it affect speech or breathing?",
+          "answer": "Most people adapt quickly. We refine the fit and thickness to keep speech clear and breathing unobstructed."
+        }
+      ]
+    },
+    {
+      "instanceId": "night-guards-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_night_guards_cta",
+      "order": 80,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan a night guard that suits your bite",
+      "body": "Book a consultation to review your clenching or grinding and choose between lab-made and 3D printed splints with clear guidance on care and longevity.",
+      "ctas": [
+        { "label": "Contact the team", "href": "/contact", "preset": "primary" },
+        { "label": "Bruxism & clenching guidance", "href": "/treatments/bruxism-and-jaw-clenching", "preset": "secondary" }
+      ]
+    }
+  ]
+}
