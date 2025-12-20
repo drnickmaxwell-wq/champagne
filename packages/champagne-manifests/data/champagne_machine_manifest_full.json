@@ -34,13 +34,13 @@
         ]
       },
       "sections": [
-        {
-          "id": "home_intro",
-          "type": "copy-block",
-          "title": "A calm welcome into Champagne care",
-          "copy": "Soft-light hero, steady rhythm, and a concise primer on how Champagne care works. This home stack guides visitors to key journeys without heavy motion.",
-          "label": "Welcome"
-        },
+    {
+      "id": "home_intro_positioning",
+      "type": "copy-block",
+      "title": "A calm welcome into Champagne care",
+      "copy": "Soft-light hero, steady rhythm, and a concise primer on how Champagne care works. This home stack guides visitors to key journeys without heavy motion.",
+      "label": "Welcome"
+    },
         {
           "id": "home_authority",
           "type": "feature-grid",
@@ -140,26 +140,55 @@
           "title": "Technology that keeps planning clear",
           "copy": "Diagnostics, digital planning, and visual previews stay visible on the Champagne canvas so you can see each step before it begins."
         },
+    {
+      "id": "home_patient_stories",
+      "type": "patient_stories_rail",
+      "label": "Patient stories",
+      "title": "Journeys through Champagne care",
+      "stories": [
         {
-          "id": "home_patient_stories",
-          "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Journeys through Champagne care",
-          "stories": [
-            {
-              "summary": "Mapped a bonding plan that stayed gentle on enamel.",
-              "name": "Case A"
-            },
-            {
-              "summary": "Followed a clear aligner cadence with visual checkpoints.",
-              "name": "Case B"
-            },
-            {
-              "summary": "Combined whitening and contouring with calm visits.",
-              "name": "Case C"
-            }
-          ]
+          "summary": "Mapped a bonding plan that stayed gentle on enamel.",
+          "name": "Case A"
         },
+        {
+          "summary": "Followed a clear aligner cadence with visual checkpoints.",
+          "name": "Case B"
+        },
+        {
+          "summary": "Combined whitening and contouring with calm visits.",
+          "name": "Case C"
+        }
+      ]
+    },
+    {
+      "id": "home_google_reviews",
+      "type": "google_reviews",
+      "label": "Google Reviews",
+      "title": "Reviews from patients who chose Champagne care",
+      "strapline": "Calm, gentle visits reflected in recent Google feedback.",
+      "rating": 4.9,
+      "reviewCount": "120+ Google reviews",
+      "reviews": [
+        {
+          "quote": "Calm, reassuring, and clear about every step.",
+          "name": "Google reviewer",
+          "rating": 5,
+          "source": "Google"
+        },
+        {
+          "quote": "The team explained options patiently and kept the visit comfortable.",
+          "name": "Google reviewer",
+          "rating": 5,
+          "source": "Google"
+        },
+        {
+          "quote": "Felt listened to and never rushed—highly recommend.",
+          "name": "Google reviewer",
+          "rating": 5,
+          "source": "Google"
+        }
+      ]
+    },
         {
           "id": "home_finance_options",
           "type": "feature-list",

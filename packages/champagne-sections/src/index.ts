@@ -14,3 +14,4 @@ export { Section_ClinicianInsight } from "./Section_ClinicianInsight";
 export { Section_PatientStoriesRail } from "./Section_PatientStoriesRail";
 export { Section_FAQ } from "./Section_FAQ";
 export { Section_TreatmentClosingCTA } from "./Section_TreatmentClosingCTA";
+export { Section_GoogleReviews } from "./Section_GoogleReviews";
