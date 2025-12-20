@@ -11,12 +11,12 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Facial therapeutics",
-      "title": "Medically led facial injectables in Shoreham-by-Sea",
-      "body": "Conservative, evidence-based facial therapeutics delivered by a prescriber who prioritises safety, suitability, and informed consent before any treatment.",
+      "title": "Clinical care for jaw tension, facial pain, and therapeutic injectables",
+      "body": "Assessment-led support for clenching, bruxism, tension headaches, and TMJ-related discomfort. Therapeutic injectables are used when clinically indicated, after conservative steps and informed consent.",
       "bullets": [
-        "Assessment-first appointments that map your health, skin, and goals",
-        "Treatment options across anti-wrinkle care, fillers, skin boosters, and polynucleotides when clinically appropriate",
-        "Clear aftercare with fast access back to the clinician for reviews"
+        "Full medical review before any intervention, including medicines and contraindications",
+        "Pathways across clenching relief, facial pain management, and TMJ symptom support",
+        "Measured dosing and clear safety guidance for any prescription injectable care"
       ]
     },
     {
@@ -26,12 +26,12 @@
       "order": 20,
       "seoRole": "supporting",
       "eyebrow": "Clinical safeguards",
-      "title": "Prescription-led care with measured dosing",
+      "title": "Medical assessment, conservative first",
       "items": [
-        "Consultations led by a prescriber who checks medical history, medicines, and skin health before any injectable care",
-        "Single-use, CE-marked products sourced through regulated supply with cold-chain monitoring",
-        "Aseptic technique, anatomical mapping, and conservative dosing to protect vessels, nerves, and soft tissue",
-        "Emergency pathways for rare complications, with dissolving agents and escalation protocols available"
+        "History and examination covering bite, muscle activity, joint range, and relevant medical factors",
+        "Conservative options such as bite guards, self-care, and physiotherapy signposting explored before injections",
+        "Therapeutic injectables offered only when suitable, using prescription products with aseptic technique",
+        "Escalation protocols for red flags, including when to seek urgent dental or medical review"
       ]
     },
     {
@@ -41,13 +41,14 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "Consultation & suitability",
-      "title": "Medical assessment before any injectable treatment",
-      "body": "Your visit focuses on safety and suitability. We take a detailed history, review medicines, and examine facial dynamics, skin quality, and treatment goals. Together we agree whether to proceed, and if so which route—anti-wrinkle treatment (/treatments/anti-wrinkle-treatments), dermal fillers (/treatments/dermal-fillers), skin boosters (/treatments/skin-boosters), or polynucleotides (/treatments/polynucleotides)—best fits your needs.",
+      "title": "Understand symptoms before choosing a pathway",
+      "body": "We explore jaw tightness, clenching, headaches, and TMJ clicks or locking. Examination may include muscle palpation, bite assessment, and range-of-motion checks. We discuss conservative measures first and explain when therapeutic injectables are appropriate.",
       "bullets": [
-        "Medical history, contraindications, and informed consent are covered first",
-        "Clinical photography and facial mapping where helpful to plan dosing and placement",
-        "Discussion of realistic outcomes, maintenance intervals, and costs before treatment",
-        "Written aftercare issued for every pathway with clear review points"
+        "Medical history, medication review, and contraindication screening",
+        "Jaw and muscle assessment with attention to wear facets and trigger points",
+        "Advice on self-care, guards, or physiotherapy signposting before medication",
+        "Clear explanation of benefits, limits, and follow-up for any injectable treatment",
+        "Safety guidance on when to seek urgent care if pain, swelling, or locking escalates"
       ]
     },
     {
@@ -57,12 +58,13 @@
       "order": 40,
       "seoRole": "primaryContent",
       "eyebrow": "Who it helps",
-      "title": "Support for clinically appropriate facial rejuvenation",
+      "title": "Patients needing clinically led relief",
       "items": [
-        "Patients seeking measured softening of expression lines when prescription medicines are suitable",
-        "Those wanting careful volume restoration or contour support without overfilling",
-        "People aiming to improve skin hydration and elasticity through booster or polynucleotide courses",
-        "Anyone needing a clinician-led conversation about safety, risks, and realistic timelines"
+        "Clenching or bruxism causing jaw fatigue, tooth wear, or morning discomfort",
+        "Facial pain or headache patterns linked to muscle tension or TMJ strain",
+        "TMJ clicks, stiffness, or intermittent locking that benefit from conservative management",
+        "Patients suitable for muscle-relaxing injectables once assessment supports this route",
+        "People who want clear limits on what injectables can and cannot achieve"
       ]
     },
     {
@@ -72,14 +74,15 @@
       "order": 50,
       "seoRole": "primaryContent",
       "eyebrow": "Your pathway",
-      "title": "Consult, plan, treat, and review",
+      "title": "Assess, stabilise, treat, and review",
       "items": [
-        "Consultation: full medical history, skin and facial assessment, and discussion of options",
-        "Treatment: measured dosing using prescription products or medical devices suited to the agreed plan",
-        "Review: follow-up to monitor effect, adjust where clinically indicated, and plan maintenance",
-        "Ongoing care: scheduling to maintain results safely, or pausing if health or lifestyle factors change"
+        "Initial assessment of symptoms, triggers, and medical considerations",
+        "Conservative measures: bite guards, habit coaching, stretches, and lifestyle guidance",
+        "Therapeutic injectables: considered when indicated to relax overactive muscles",
+        "Follow-up to monitor relief, adjust dosing, or adapt guard fit",
+        "Escalation: referral, imaging, or urgent care if red flags appear"
       ],
-      "strapline": "Treatment only proceeds when safe and clinically justified. Timings depend on the product chosen and your response to care."
+      "strapline": "Treatment proceeds only when safe and clinically justified. Timelines depend on response to conservative steps and any prescribed injectables."
     },
     {
       "instanceId": "facial-therapeutics-technology",
@@ -88,8 +91,8 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Products & protocols",
-      "title": "Regulated medicines and devices, handled carefully",
-      "body": "We use regulated prescription medicines and CE-marked injectables sourced via verified pharmacies. Treatment areas are prepared with antisepsis, needles or cannulas are chosen to suit anatomy, and dosing is documented so future visits can build safely on prior care.",
+      "title": "Regulated medicines, sterile technique, and documented dosing",
+      "body": "Prescription-only medicines are sourced through regulated pharmacies, stored appropriately, and administered with anatomical mapping. Notes cover batch numbers, sites, and doses so subsequent visits remain safe and traceable.",
       "mediaHint": "Clinical injectables prepared with sterile single-use equipment"
     },
     {
@@ -99,42 +102,57 @@
       "order": 70,
       "seoRole": "supporting",
       "eyebrow": "Aftercare & risks",
-      "title": "Practical guidance and responsive follow-up",
+      "title": "Practical guidance and escalation points",
       "items": [
-        "Written aftercare outlining how to clean, protect, and monitor treated areas",
-        "Contact routes back to the clinician if you notice unexpected swelling, bruising, or asymmetry",
-        "Transparent discussion of risks such as bruising, tenderness, infection, or vascular events with clear escalation steps",
-        "Review appointments scheduled to check comfort and plan any maintenance doses if suitable"
+        "Written aftercare covering hygiene, posture, and how to monitor muscle response",
+        "What to avoid after injections or when wearing guards, including strenuous exercise and pressure on treated sites",
+        "Risks discussed plainly: bruising, transient weakness, asymmetry, infection, or vascular events with clear action steps",
+        "When to contact us urgently—for escalating pain, swelling, vision changes, or sudden jaw locking"
+      ]
+    },
+    {
+      "instanceId": "facial-therapeutics-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "facial_therapeutics_related_pathways",
+      "order": 80,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical pathways",
+      "title": "Explore focused treatment routes",
+      "items": [
+        "Bruxism and jaw clenching assessment with guard planning (/treatments/bruxism-and-jaw-clenching)",
+        "Facial pain and headache pathways with dental and TMJ review (/treatments/facial-pain-and-headache)",
+        "TMJ disorder treatment with conservative-first care and referral routes (/treatments/tmj-disorder-treatment)",
+        "Therapeutic facial injectables when indicated for muscle-related symptoms (/treatments/therapeutic-facial-injectables)"
       ]
     },
     {
       "instanceId": "facial-therapeutics-faq",
       "componentId": "treatment.faq",
       "variantId": "facial_therapeutics_faq",
-      "order": 80,
+      "order": 90,
       "seoRole": "faq",
       "eyebrow": "Facial therapeutics FAQs",
       "title": "Common questions",
       "faqs": [
         {
-          "question": "Do I need a consultation before injectables?",
-          "answer": "Yes. Prescription medicines and medical devices require a clinical assessment, consent discussion, and suitability check before treatment."
+          "question": "Do I need a consultation before any treatment?",
+          "answer": "Yes. We only proceed after a clinical assessment that reviews your medical history, medicines, and symptoms, then confirms whether conservative care or injectables are appropriate."
         },
         {
-          "question": "How do you decide between toxins, fillers, boosters, or polynucleotides?",
-          "answer": "We review your medical history, facial dynamics, and skin health. The plan may use one route or a staged combination when clinically appropriate, or we may advise against treatment."
+          "question": "Are therapeutic injectables the same as cosmetic toxin treatments?",
+          "answer": "No. Here they are used for symptom relief in carefully selected muscles, not for cosmetic aims. Doses, targets, and follow-up are chosen for function and comfort."
         },
         {
-          "question": "What downtime should I expect?",
-          "answer": "Most patients can return to daily tasks quickly. Mild redness or swelling is common for 24–72 hours. We explain aftercare and what to avoid, such as strenuous exercise or active skincare, until tissues settle."
+          "question": "What if conservative steps are enough?",
+          "answer": "If self-care, guards, or physiotherapy resolve symptoms, we continue monitoring without injectables. Medicine is only added when clinically beneficial."
         },
         {
-          "question": "Who carries out the treatment?",
-          "answer": "A prescriber trained in facial anatomy, complication management, and dissolving protocols leads your care and remains available for review."
+          "question": "When should I seek urgent care?",
+          "answer": "Contact us or emergency services if you notice jaw locking, severe swelling, breathing changes, or visual symptoms after any facial treatment."
         },
         {
-          "question": "What if I’m not suitable?",
-          "answer": "We will explain why and may suggest alternative skincare, dental, or medical routes. Safety and candidacy come before any injectable treatment."
+          "question": "Who delivers the treatment?",
+          "answer": "A prescriber trained in facial anatomy, complication management, and escalation pathways carries out your care and remains available for review."
         }
       ]
     },
@@ -142,11 +160,11 @@
       "instanceId": "facial-therapeutics-cta",
       "componentId": "treatment.cta",
       "variantId": "facial_therapeutics_cta",
-      "order": 90,
+      "order": 100,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Book a facial therapeutics consultation",
-      "strapline": "Discuss safe, clinically led options across anti-wrinkle care, fillers, skin boosters, or polynucleotides with a prescriber who prioritises your wellbeing.",
+      "title": "Book a clinical facial therapeutics consultation",
+      "strapline": "Discuss jaw tension, facial pain, or therapeutic injectables with a prescriber who prioritises safety and conservative care first.",
       "ctas": [
         { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
         { "label": "Ask a question", "href": "/contact?topic=facial-therapeutics", "variant": "secondary" }

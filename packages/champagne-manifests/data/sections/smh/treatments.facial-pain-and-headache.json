@@ -1,0 +1,165 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.facial-pain-and-headache",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "facial-pain-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_facial_pain_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Facial pain & headaches",
+      "title": "Clinical assessment for facial pain and tension headaches",
+      "body": "We investigate dental, muscular, and TMJ-related causes of facial pain. The focus is on identifying triggers, protecting teeth and joints, and coordinating care when medical input is needed.",
+      "bullets": [
+        "Structured symptom history to separate dental, muscular, and neurological causes",
+        "Jaw, bite, and muscle examination with imaging referral when indicated",
+        "Clear escalation guidance if red-flag symptoms appear"
+      ]
+    },
+    {
+      "instanceId": "facial-pain-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_facial_pain_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical safeguards",
+      "title": "Assessment before treatment",
+      "items": [
+        "History includes onset, triggers, medications, and prior diagnoses",
+        "We check teeth, muscles, and TMJ movement to pinpoint likely sources",
+        "Referral for imaging or medical review when symptoms are atypical",
+        "Transparent discussion of what dental care can and cannot resolve"
+      ]
+    },
+    {
+      "instanceId": "facial-pain-consult",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_facial_pain_consult",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What to expect",
+      "title": "We listen, examine, and plan next steps",
+      "body": "Your visit covers detailed symptom mapping, examination of teeth, muscles, and TMJ range, and discussion of conservative measures. If findings suggest non-dental causes, we help you access the right medical pathway.",
+      "bullets": [
+        "Pain history including duration, triggers, and relieving factors",
+        "Assessment of bite, soft tissues, and nerve distribution",
+        "Consider guards, desensitising care, or physiotherapy for muscular causes",
+        "When needed, referral letters for GP, neurology, or imaging",
+        "Safety netting advice with clear signs that need urgent attention"
+      ],
+      "mediaHint": "Calm facial pain assessment"
+    },
+    {
+      "instanceId": "facial-pain-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_facial_pain_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who we help",
+      "title": "Patients with persistent facial discomfort",
+      "items": [
+        "Facial aching or tightness linked to clenching or grinding",
+        "Headaches around temples or jaw that worsen with chewing",
+        "Pain near ear or joint with clicks or limited opening",
+        "Unexplained facial sensitivity after dental work",
+        "Patients needing guidance on whether dental treatment or medical review is appropriate"
+      ]
+    },
+    {
+      "instanceId": "facial-pain-timeline",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_facial_pain_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your pathway",
+      "title": "Assess, stabilise, and coordinate",
+      "items": [
+        "Consultation and examination to identify likely pain sources",
+        "Conservative steps: guards, bite adjustments, and self-care where indicated",
+        "Medical liaison or imaging if neurological or sinus causes are suspected",
+        "Consider therapeutic injectables for muscle-related pain when clinically suitable",
+        "Review to check response and adapt the plan",
+        "Escalation guidance for red flags such as swelling, fever, or vision changes"
+      ],
+      "strapline": "We prioritise safe, reversible measures and coordinate with medical colleagues when needed."
+    },
+    {
+      "instanceId": "facial-pain-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_facial_pain_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare",
+      "title": "Keep symptoms under review",
+      "items": [
+        "Follow self-care, guard use, and medication advice exactly as discussed",
+        "Note any changes in pain pattern, range of movement, or swelling",
+        "Avoid aggravating habits while tissues settle",
+        "Seek urgent advice if you notice spreading swelling, fever, visual changes, or jaw locking"
+      ]
+    },
+    {
+      "instanceId": "facial-pain-related",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_facial_pain_related",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Related pathways",
+      "title": "Linked support options",
+      "items": [
+        "Bruxism and jaw clenching management with guards and habit coaching (/treatments/bruxism-and-jaw-clenching)",
+        "TMJ disorder treatment with conservative-first care (/treatments/tmj-disorder-treatment)",
+        "Therapeutic facial injectables for muscle-driven discomfort when suitable (/treatments/therapeutic-facial-injectables)",
+        "Emergency dentistry if pain is acute, spreading, or accompanied by swelling (/treatments/emergency-dentistry)"
+      ]
+    },
+    {
+      "instanceId": "facial-pain-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_facial_pain_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Facial pain FAQs",
+      "title": "Common questions",
+      "faqs": [
+        {
+          "question": "Do all facial pains need dental treatment?",
+          "answer": "Not necessarily. We identify whether the cause is dental, muscular, joint-related, or medical. If dentistry is unlikely to help, we signpost you to the right clinician."
+        },
+        {
+          "question": "Will I need scans?",
+          "answer": "Imaging is arranged when examination suggests joint changes, sinus involvement, or other causes that need further investigation."
+        },
+        {
+          "question": "What if I already wear a guard?",
+          "answer": "We review its fit and condition, adjust where needed, and update your plan if symptoms persist."
+        },
+        {
+          "question": "Are medicines prescribed?",
+          "answer": "Short courses or topical agents may be suggested when appropriate, but we focus on reversible measures first and coordinate with your GP if prescription medicines are needed."
+        },
+        {
+          "question": "When should I seek urgent care?",
+          "answer": "Escalate quickly if you notice swelling, fever, spreading redness, visual changes, or sudden difficulty opening your mouth."
+        }
+      ]
+    },
+    {
+      "instanceId": "facial-pain-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_facial_pain_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a facial pain consultation",
+      "body": "Discuss headaches, jaw discomfort, or facial pain with a clinician who prioritises safe diagnosis and conservative care.",
+      "ctas": [
+        { "label": "Book a consultation", "href": "/contact?topic=facial-pain", "preset": "primary" },
+        { "label": "Ask a question", "href": "/contact?topic=facial-pain", "preset": "secondary" }
+      ]
+    }
+  ]
+}
