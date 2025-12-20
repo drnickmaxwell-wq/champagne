@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BaseChampagneSurface } from "@champagne/hero";
 import { getTreatmentPages } from "@champagne/manifests";
+import { ChampagneSectionRenderer, getSectionStack } from "@champagne/sections";
 
 import { HeroRenderer } from "../components/hero/HeroRenderer";
 import { isBrandHeroEnabled } from "../featureFlags";
@@ -73,6 +74,7 @@ export default async function TreatmentsPage({
 }) {
   const isHeroEnabled = isBrandHeroEnabled() || (await resolveHeroDebug(searchParams));
   const treatments = getTreatmentPages();
+  const hubSections = getSectionStack("/treatments");
   const grouped = treatments.reduce<Record<string, typeof treatments>>((acc, treatment) => {
     const key = inferFamily(treatment.slug);
     acc[key] = acc[key] ? [...acc[key], treatment] : [treatment];
@@ -105,6 +107,16 @@ export default async function TreatmentsPage({
           Browse the current Champagne treatment set. Each page is powered by the manifest canon and routes into the Champagne builder experience.
         </p>
       </header>
+
+      {hubSections.length > 0 && (
+        <BaseChampagneSurface
+          variant="inkGlass"
+          className="border border-neutral-800/70 shadow-lg"
+          style={{ background: "linear-gradient(145deg, rgba(12,15,22,0.9), rgba(8,9,14,0.82))", padding: "1.25rem 1.5rem" }}
+        >
+          <ChampagneSectionRenderer pageSlug="/treatments" />
+        </BaseChampagneSurface>
+      )}
 
       <BaseChampagneSurface
         variant="inkGlass"

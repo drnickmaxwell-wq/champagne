@@ -201,6 +201,53 @@
           "label": "Finance"
         },
         {
+          "id": "home_locality_nap",
+          "type": "copy-block",
+          "label": "Locality",
+          "title": "Champagne dental care in Shoreham-by-Sea",
+          "copy": "Local practice presence with clear directions and responsive contact routes for new and returning patients.",
+          "items": [
+            "Practice: Champagne Dental, Shoreham-by-Sea",
+            "Address area: Central Shoreham-by-Sea near the River Adur",
+            "Phone: Reach the team through the contact page for a call-back"
+          ],
+          "ctas": [
+            { "label": "Call or message the team", "href": "/contact", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "home_map_location",
+          "type": "map",
+          "label": "Map",
+          "title": "Where to find the practice",
+          "copy": "Map embed coming soon. Until then, use the contact page for step-by-step directions or parking tips.",
+          "mediaHint": "Shoreham-by-Sea map placeholder"
+        },
+        {
+          "id": "home_areas_served",
+          "type": "feature-list",
+          "title": "Areas we serve around Shoreham-by-Sea",
+          "items": [
+            "Shoreham-by-Sea and the harbour",
+            "Lancing, Sompting, and Worthing",
+            "Southwick and Portslade",
+            "Hove, Brighton, and nearby coastal towns",
+            "Upper Beeding, Steyning, and neighbouring villages"
+          ],
+          "label": "Local reach"
+        },
+        {
+          "id": "home_access_parking",
+          "type": "feature-grid",
+          "title": "Access, parking, and transport",
+          "items": [
+            "Parking: nearby street and public car parks with clear signage",
+            "Transport: short walk from Shoreham-by-Sea rail and main bus routes",
+            "Access: calm reception welcome with guidance for step-aware entry"
+          ],
+          "label": "Access"
+        },
+        {
           "id": "home_faq",
           "type": "treatment_faq_block",
           "label": "FAQ",
@@ -217,6 +264,30 @@
             {
               "question": "How do payments work?",
               "answer": "We share estimates early, support staged payments, and provide receipts or documentation you may need."
+            }
+          ]
+        },
+        {
+          "id": "home_faq_expanded",
+          "type": "treatment_faq_block",
+          "label": "More FAQ",
+          "title": "Local visit and access questions",
+          "faqs": [
+            {
+              "question": "Do you help with directions or parking?",
+              "answer": "Yes—call or message ahead and we will outline nearby parking options and the best entrance to use."
+            },
+            {
+              "question": "Can I start with a phone discussion?",
+              "answer": "You can request a call-back through the contact page to discuss your goals before booking a visit."
+            },
+            {
+              "question": "Do you see patients from nearby towns?",
+              "answer": "We regularly welcome patients from Shoreham-by-Sea, Lancing, Worthing, Southwick, Hove, and Brighton."
+            },
+            {
+              "question": "Is the practice suitable for nervous patients?",
+              "answer": "Yes—gentle pacing, clear numbing options, and calm explanations are part of every visit."
             }
           ]
         },
@@ -240,6 +311,106 @@
         }
       ],
       "surface": "champagne/surface/home"
+    },
+    "treatments_hub": {
+      "id": "treatments_hub",
+      "label": "Treatments hub",
+      "path": "/treatments",
+      "category": "hub",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "treatments_hub_intro",
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Choose the right treatment pathway",
+          "copy": "Start with a calm overview, then move into the treatment categories below. If you are unsure, we can guide you to the simplest next step."
+        },
+        {
+          "id": "treatments_hub_categories",
+          "type": "feature-list",
+          "title": "How to navigate the hub",
+          "items": [
+            "Restorative: implants, crowns, bridges, and implant-retained solutions",
+            "Cosmetic: bonding, veneers, whitening, and smile refinement",
+            "Orthodontic: clear aligners, Spark, and fixed braces for paced movement",
+            "Emergency: urgent pain, fractures, or trauma support with same-day guidance",
+            "Hygiene and comfort: preventative care, periodontal support, and nervous patient options"
+          ],
+          "label": "How to choose"
+        },
+        {
+          "id": "treatments_hub_pathways",
+          "type": "routing_cards",
+          "title": "Most searched treatment pathways",
+          "label": "Popular routes",
+          "items": [
+            {
+              "title": "Dental implants",
+              "description": "Placement, restoration, and aftercare with CBCT planning.",
+              "href": "/treatments/implants"
+            },
+            {
+              "title": "Invisalign and clear aligners",
+              "description": "Discreet teeth movement with mapped check-ins.",
+              "href": "/treatments/clear-aligners"
+            },
+            {
+              "title": "Dental veneers",
+              "description": "Shaping, contouring, and shade planning for refined smiles.",
+              "href": "/treatments/veneers"
+            },
+            {
+              "title": "Emergency dentistry",
+              "description": "Fast guidance for toothache, fractures, or urgent care.",
+              "href": "/treatments/emergency-dentistry",
+              "tag": "Urgent"
+            }
+          ]
+        },
+        {
+          "id": "treatments_hub_authority",
+          "type": "feature-grid",
+          "title": "Authority, technology, and experience",
+          "items": [
+            "Multi-disciplinary training across restorative, orthodontic, and implant care",
+            "CBCT-guided planning, digital smile design, and in-house 3D fabrication",
+            "Steady clinical cadence with transparent timelines and aftercare"
+          ],
+          "label": "Authority"
+        },
+        {
+          "id": "treatments_hub_reviews",
+          "type": "copy-block",
+          "label": "Reviews",
+          "title": "What patients say about Champagne care",
+          "copy": "Read patient feedback from the home reviews section to see how calm pacing and clear explanations feel in practice.",
+          "ctas": [
+            { "label": "See patient reviews", "href": "/#home_google_reviews", "preset": "secondary" }
+          ]
+        },
+        {
+          "id": "treatments_hub_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Treatment hub questions",
+          "faqs": [
+            {
+              "question": "How do I decide which treatment to start with?",
+              "answer": "Begin with the guidance above or request a consultation—our team will map a route based on your goals, timeline, and comfort level."
+            },
+            {
+              "question": "Can I combine treatments?",
+              "answer": "Yes. We regularly blend restorative, orthodontic, and cosmetic steps with clear sequencing so you always know what comes next."
+            },
+            {
+              "question": "Do you offer remote check-ins?",
+              "answer": "Video reviews are available for suitable cases, helping you stay on track without unnecessary travel."
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/base"
     },
     "implants": {
       "id": "implants",
