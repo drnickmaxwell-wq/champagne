@@ -221,15 +221,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a facial injectable review",
+      "label": "Plan a therapeutic injectable review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan skin booster sessions",
+      "label": "Discuss skin booster scheduling",
       "href": "/treatments/skin-boosters"
     },
     "reassurance_intent": {
-      "label": "Learn about treatment safety",
+      "label": "Understand safety and follow-up",
       "href": "/treatments/facial-aesthetics"
     }
   }

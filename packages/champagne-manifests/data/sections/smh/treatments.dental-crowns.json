@@ -229,15 +229,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a crown restoration",
+      "label": "Plan your crown restoration",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Consider inlays or onlays",
+      "label": "Review inlay or onlay suitability",
       "href": "/treatments/inlays-onlays"
     },
     "reassurance_intent": {
-      "label": "Understand post-root-canal care",
+      "label": "Understand protection after root canal",
       "href": "/treatments/endodontics-root-canal"
     }
   }

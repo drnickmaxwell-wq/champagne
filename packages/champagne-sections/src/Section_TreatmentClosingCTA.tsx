@@ -3,6 +3,13 @@ import "@champagne/tokens";
 import { ChampagneCTAGroup, resolveCTAList } from "@champagne/cta";
 import type { ChampagneCTAConfig, ChampagneCTAInput } from "@champagne/cta";
 import { BaseChampagneSurface } from "@champagne/hero";
+import {
+  getCTAIntentConfigForRoute,
+  getCTAIntentLabels,
+  getRouteIdFromSlug,
+  getTreatmentJourneyForRoute,
+  type ChampagneCTAIntentConfig,
+} from "@champagne/manifests";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 
 // Expected manifest shape:
@@ -17,6 +24,7 @@ import type { SectionRegistryEntry } from "./SectionRegistry";
 export interface SectionTreatmentClosingCTAProps {
   section?: SectionRegistryEntry;
   ctas?: ChampagneCTAConfig[];
+  pageSlug?: string;
 }
 
 const wrapperStyle: CSSProperties = {
@@ -40,6 +48,50 @@ function mapSectionCTAs(section?: SectionRegistryEntry): ChampagneCTAInput[] {
       variant: asVariant(cta.variant ?? (cta as { preset?: string }).preset),
     })) ?? []
   );
+}
+
+function intentToCTAConfig(
+  intent: string,
+  intentConfig?: Record<string, ChampagneCTAIntentConfig>,
+  intentLabels?: Record<string, string>,
+  variant: ChampagneCTAConfig["variant"] = "primary",
+): ChampagneCTAConfig | undefined {
+  const mapped = intentConfig?.[intent]
+    ?? intentConfig?.primary_intent
+    ?? intentConfig?.secondary_intent
+    ?? intentConfig?.reassurance_intent;
+
+  const label = mapped?.label ?? intentLabels?.[intent] ?? intent.replace(/[_-]/g, " ");
+  const href = mapped?.href ?? "/contact";
+  const normalizedVariant =
+    mapped?.variant === "primary" || mapped?.variant === "secondary" || mapped?.variant === "ghost"
+      ? mapped.variant
+      : variant;
+
+  if (!label || !href) return undefined;
+
+  return {
+    id: intent,
+    label,
+    href,
+    variant: normalizedVariant,
+  } satisfies ChampagneCTAConfig;
+}
+
+function mapJourneyCTAs(pageSlug?: string): ChampagneCTAConfig[] {
+  if (!pageSlug) return [];
+  const routeId = getRouteIdFromSlug(pageSlug);
+  const journey = getTreatmentJourneyForRoute(routeId);
+  const intentConfig = getCTAIntentConfigForRoute(routeId);
+  const intentLabels = getCTAIntentLabels();
+  const latePageIntents = journey?.cta_plan?.late_page?.filter((entry: { target?: string }) => entry.target === "cta")
+    ?? [];
+
+  return latePageIntents
+    .map((entry: { intent?: string }, index: number) =>
+      entry.intent ? intentToCTAConfig(entry.intent, intentConfig, intentLabels, index === 0 ? "primary" : "secondary") : undefined,
+    )
+    .filter((cta): cta is ChampagneCTAConfig => Boolean(cta?.label && cta?.href));
 }
 
 function getFallbackCTAs(section?: SectionRegistryEntry): ChampagneCTAConfig[] {
@@ -71,12 +123,20 @@ function getFallbackCTAs(section?: SectionRegistryEntry): ChampagneCTAConfig[] {
   ];
 }
 
-export function Section_TreatmentClosingCTA({ section, ctas }: SectionTreatmentClosingCTAProps = {}) {
+export function Section_TreatmentClosingCTA({ section, ctas, pageSlug }: SectionTreatmentClosingCTAProps = {}) {
   const title = section?.title ?? "Ready for a seamless smile refresh?";
   const strapline = section?.strapline
     ?? "Book a consultation or preview your smile with AI-guided mock-ups.";
   const fallbackCTAs = getFallbackCTAs(section);
-  const resolvedCTAs = resolveCTAList(ctas ?? mapSectionCTAs(section) ?? fallbackCTAs, "primary", {
+  const mappedSectionCTAs = mapSectionCTAs(section);
+  const journeyCTAs = mapJourneyCTAs(pageSlug);
+  const preferredCTAs =
+    (ctas && ctas.length > 0 ? ctas : undefined)
+    ?? (mappedSectionCTAs.length > 0 ? mappedSectionCTAs : undefined)
+    ?? (journeyCTAs.length > 0 ? journeyCTAs : undefined)
+    ?? fallbackCTAs;
+
+  const resolvedCTAs = resolveCTAList(preferredCTAs, "primary", {
     component: "Section_TreatmentClosingCTA",
     page: section?.id,
   });

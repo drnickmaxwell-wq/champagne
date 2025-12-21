@@ -207,7 +207,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Talk about comfortable anaesthesia",
+      "label": "Discuss comfortable anaesthesia options",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -215,7 +215,7 @@
       "href": "/treatments/sedation-dentistry"
     },
     "reassurance_intent": {
-      "label": "Read about anxiety care",
+      "label": "Read about anxiety-friendly care",
       "href": "/treatments/nervous-patients"
     }
   }

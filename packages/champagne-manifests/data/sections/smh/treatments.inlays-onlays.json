@@ -217,7 +217,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book an inlay/onlay consultation",
+      "label": "Discuss inlay or onlay treatment",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -225,7 +225,7 @@
       "href": "/treatments/night-guards-occlusal-splints"
     },
     "reassurance_intent": {
-      "label": "Plan ongoing care",
+      "label": "Plan ongoing care and reviews",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   }

@@ -165,7 +165,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Speak to us about dental anxiety",
+      "label": "Talk to us about dental anxiety",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -173,7 +173,7 @@
       "href": "/treatments/sedation-dentistry"
     },
     "reassurance_intent": {
-      "label": "Learn about gentle numbing",
+      "label": "Learn about gentle numbing approaches",
       "href": "/treatments/painless-numbing-the-wand"
     }
   }

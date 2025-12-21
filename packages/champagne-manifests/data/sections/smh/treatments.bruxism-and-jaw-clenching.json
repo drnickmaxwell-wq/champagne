@@ -208,15 +208,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a clenching and grinding review",
+      "label": "Review teeth clenching and grinding",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Explore TMJ treatment",
+      "label": "Explore TMJ care pathways",
       "href": "/treatments/tmj-disorder-treatment"
     },
     "reassurance_intent": {
-      "label": "Learn about night guards",
+      "label": "Learn about protective night guards",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }

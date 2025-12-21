@@ -207,15 +207,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss sedation dentistry",
+      "label": "Discuss sedation for dental care",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan oral surgery",
+      "label": "Plan oral surgery under sedation",
       "href": "/treatments/extractions-and-oral-surgery"
     },
     "reassurance_intent": {
-      "label": "Understand implant sedation",
+      "label": "Understand implant sedation options",
       "href": "/treatments/implants-sedation"
     }
   }

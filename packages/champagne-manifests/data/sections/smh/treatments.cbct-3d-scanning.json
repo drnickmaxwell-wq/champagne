@@ -217,15 +217,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a CBCT scan",
+      "label": "Arrange a CBCT imaging appointment",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant placement",
+      "label": "Discuss implant planning from scans",
       "href": "/treatments/implants"
     },
     "reassurance_intent": {
-      "label": "Review surgical support",
+      "label": "Review surgical support options",
       "href": "/treatments/implants-bone-grafting"
     }
   }

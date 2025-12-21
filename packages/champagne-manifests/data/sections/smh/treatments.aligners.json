@@ -98,15 +98,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book an aligner assessment",
+      "label": "Arrange an aligner suitability review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Compare with fixed braces",
+      "label": "Compare aligners with fixed braces",
       "href": "/treatments/fixed-braces"
     },
     "reassurance_intent": {
-      "label": "See how retainers hold results",
+      "label": "See how retainers keep results steady",
       "href": "/treatments/dental-retainers"
     }
   }

@@ -205,15 +205,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss bridge planning",
+      "label": "Plan bridge treatment options",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review implant alternatives",
+      "label": "Consider implant alternatives",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {
-      "label": "Plan aftercare and hygiene",
+      "label": "Plan bridge aftercare and hygiene",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   }

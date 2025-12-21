@@ -80,7 +80,8 @@ function deriveLabel(input: ChampagneCTAInput, fallbackId: string) {
 function deriveHref(input: ChampagneCTAInput) {
   if (typeof input === "string") return input.startsWith("/") ? input : "#";
   const hrefFromId = typeof input.id === "string" && input.id.startsWith("/") ? (input.id as string) : "#";
-  return input.href ?? hrefFromId;
+  const href = input.href ?? hrefFromId;
+  return typeof href === "string" ? href : hrefFromId;
 }
 
 function sanitizeHref(href: string, context?: CTAContext) {

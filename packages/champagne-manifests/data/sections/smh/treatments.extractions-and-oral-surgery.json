@@ -228,15 +228,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book an oral surgery appointment",
+      "label": "Arrange an oral surgery consultation",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant replacement",
+      "label": "Plan implant replacement options",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {
-      "label": "Review sedation options",
+      "label": "Discuss sedation and recovery",
       "href": "/treatments/sedation-dentistry"
     }
   }

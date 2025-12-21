@@ -290,15 +290,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a veneer consultation",
+      "label": "Discuss veneer suitability",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Explore digital smile previews",
+      "label": "Preview digital smile planning",
       "href": "/treatments/digital-smile-design"
     },
     "reassurance_intent": {
-      "label": "Learn about protecting veneers",
+      "label": "Understand how to care for veneers",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }

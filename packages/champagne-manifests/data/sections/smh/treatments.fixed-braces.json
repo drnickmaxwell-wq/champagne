@@ -323,7 +323,7 @@
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review aligner options",
+      "label": "Review aligner alternatives",
       "href": "/treatments/aligners"
     },
     "reassurance_intent": {

@@ -28,6 +28,7 @@ type SectionComponent = (props: {
   section: SectionRegistryEntry;
   ctas?: ChampagneCTAConfig[];
   footerCTAs?: ChampagneCTAConfig[];
+  pageSlug?: string;
 }) => ReactNode;
 
 const typeMap: Record<string, SectionComponent> = {
@@ -47,13 +48,13 @@ const typeMap: Record<string, SectionComponent> = {
   reviews: (props) => <Section_GoogleReviews {...props} />,
 };
 
-function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[]) {
+function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[], pageSlug?: string) {
   const key = section.kind ?? section.type;
   const component = key ? typeMap[key] : undefined;
   if (component) {
     const props = key === "treatment_closing_cta"
-      ? { section, ctas: footerCTAs, footerCTAs }
-      : { section, footerCTAs };
+      ? { section, ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined, footerCTAs, pageSlug }
+      : { section };
     return component(props);
   }
 
@@ -89,7 +90,7 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, pr
       >
         {sections.map((section, index) => (
           <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
-            <div>{renderSection(section, footerCTAs)}</div>
+            <div>{renderSection(section, footerCTAs, pageSlug)}</div>
             {hasMidPageCTAs && index === midInsertIndex - 1 && (
               <ChampagneCTAGroup
                 ctas={midPageCTAs}

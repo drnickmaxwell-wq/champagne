@@ -218,15 +218,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a digital dentistry consult",
+      "label": "Discuss your digital dentistry plan",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan CBCT imaging",
+      "label": "Review CBCT imaging options",
       "href": "/treatments/cbct-3d-scanning"
     },
     "reassurance_intent": {
-      "label": "Explore 3D printing support",
+      "label": "See how 3D printing supports care",
       "href": "/treatments/3d-printing-lab"
     }
   }

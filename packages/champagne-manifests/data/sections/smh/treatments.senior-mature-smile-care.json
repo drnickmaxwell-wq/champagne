@@ -209,11 +209,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a mature smile review",
+      "label": "Arrange a mature smile review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss implant options",
+      "label": "Discuss implant possibilities",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {

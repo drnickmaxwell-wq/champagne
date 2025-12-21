@@ -220,11 +220,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss grafting and support procedures",
+      "label": "Discuss grafting or support procedures",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant timelines",
+      "label": "Plan timelines toward implant placement",
       "href": "/treatments/implants"
     },
     "reassurance_intent": {

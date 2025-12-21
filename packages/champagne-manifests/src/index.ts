@@ -64,11 +64,15 @@ export {
   getMediaDeck,
   getTreatmentManifest,
   getTreatmentPages,
+  getCTAIntentConfigForRoute,
+  getTreatmentJourneyForRoute,
+  getCTAIntentLabels,
   validateSectionLayoutManifest,
   type ChampagneHeroManifest,
   type ChampagneCTASlots,
   type ChampagneSectionManifest,
   type ChampagneTreatmentPage,
+  type ChampagneCTAIntentConfig,
 } from "./helpers";
 export { useValidatedManifest } from "./useValidatedManifest";
 export type { ChampagneManifest, ChampagneSectionEntry } from "./types";

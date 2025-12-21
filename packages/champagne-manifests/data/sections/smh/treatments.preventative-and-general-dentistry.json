@@ -246,11 +246,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a check-up",
+      "label": "Arrange a routine check-up",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan gum care",
+      "label": "Plan gum care or hygiene support",
       "href": "/treatments/periodontal-gum-care"
     },
     "reassurance_intent": {

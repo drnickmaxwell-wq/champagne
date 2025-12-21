@@ -160,7 +160,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss whitening sensitivity",
+      "label": "Discuss whitening with sensitivity",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -168,7 +168,7 @@
       "href": "/treatments/periodontal-gum-care"
     },
     "reassurance_intent": {
-      "label": "Review whitening advice",
+      "label": "Review sensitivity advice",
       "href": "/treatments/teeth-whitening-faqs"
     }
   }

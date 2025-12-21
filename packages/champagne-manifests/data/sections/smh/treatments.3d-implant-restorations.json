@@ -217,15 +217,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan implant restoration work",
+      "label": "Plan implant restoration stages",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Arrange hygiene maintenance",
+      "label": "Arrange hygiene support for implants",
       "href": "/treatments/implants-aftercare"
     },
     "reassurance_intent": {
-      "label": "Review digital planning",
+      "label": "Review guided planning steps",
       "href": "/treatments/3d-digital-dentistry"
     }
   }

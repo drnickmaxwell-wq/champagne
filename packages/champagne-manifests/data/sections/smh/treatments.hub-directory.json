@@ -147,11 +147,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Find the right treatment",
+      "label": "Find the right treatment pathway",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Book a general consultation",
+      "label": "Arrange a general consultation",
       "href": "/treatments/preventative-and-general-dentistry"
     },
     "reassurance_intent": {

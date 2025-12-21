@@ -217,7 +217,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a facial therapeutics review",
+      "label": "Discuss therapeutic facial treatments",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -225,7 +225,7 @@
       "href": "/treatments/therapeutic-facial-injectables"
     },
     "reassurance_intent": {
-      "label": "Discuss supportive skin care",
+      "label": "Consider supportive skin care",
       "href": "/treatments/skin-boosters"
     }
   }

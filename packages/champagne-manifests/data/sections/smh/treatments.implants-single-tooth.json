@@ -198,15 +198,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan implant placement",
+      "label": "Plan single-tooth implant placement",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Confirm digital planning",
+      "label": "Confirm digital planning approach",
       "href": "/treatments/cbct-3d-scanning"
     },
     "reassurance_intent": {
-      "label": "Review aftercare steps",
+      "label": "Review aftercare and healing steps",
       "href": "/treatments/implants-aftercare"
     }
   }
