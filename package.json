@@ -12,16 +12,13 @@
     "dev:portal": "pnpm --filter portal dev",
     "dev:engine": "pnpm --filter engine dev",
     "dev:all": "pnpm run dev:web",
-
     "lint": "pnpm -r lint",
     "typecheck": "pnpm exec tsc --noEmit -p tsconfig.base.json",
     "build:web": "pnpm --filter web build",
-
     "guard:hero": "pnpm --filter @champagne/guards guard:hero",
     "guard:rogue-hex": "pnpm --filter @champagne/guards guard:rogue-hex",
     "guard:canon": "pnpm --filter @champagne/guards guard:canon",
     "guard:all": "pnpm --filter @champagne/guards guard:all",
-
     "verify": "pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web"
   },
   "devDependencies": {
@@ -33,6 +30,8 @@
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "globals": "^15.15.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.6.0"
   }
 }
