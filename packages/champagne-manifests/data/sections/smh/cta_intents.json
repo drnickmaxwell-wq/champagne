@@ -1,0 +1,13 @@
+{
+  "tenantId": "smh-dental",
+  "cta_intents": {
+    "explore_options": "Helps patients browse available clinical pathways without committing to treatment.",
+    "check_suitability": "Guides patients to confirm whether a treatment fits their clinical situation.",
+    "understand_process": "Explains stages, timelines, and what to expect before deciding.",
+    "compare_alternatives": "Supports side-by-side understanding of related treatments or approaches.",
+    "related_treatment": "Links to adjacent treatments that may solve the same problem or follow on.",
+    "maintenance_and_aftercare": "Encourages planning for follow-up care, hygiene, or protective measures.",
+    "book_consultation": "Invites a clinical consultation or assessment when appropriate.",
+    "ask_a_question": "Provides a route to seek clarification without booking."
+  }
+}
