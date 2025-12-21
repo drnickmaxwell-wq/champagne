@@ -1,12 +1,19 @@
 # Mid CTA Hygiene Report
 
 ## Summary
-- Invalid hrefs before: 7
+- Invalid hrefs before: 0
 - Invalid hrefs after: 0
 - Raw labels before: 146
 - Raw labels after: 0
 - Pages using fallback defaults: None
-- Dropped CTAs: clear-aligners → /treatments/retainers (missing /treatments/<slug> match), implant-consultation → /treatments/dental-implants (missing /treatments/<slug> match), implant-aftercare → /treatments/hygiene (missing /treatments/<slug> match), 3d-printed-dentures → /treatments/3d-printed-implant-restorations (missing /treatments/<slug> match), night-guards-occlusal-splints → /treatments/retainers (missing /treatments/<slug> match), senior-mature-smile-care → /treatments/hygiene (missing /treatments/<slug> match), fixed-braces → /treatments/retainers (missing /treatments/<slug> match)
+- Dropped CTAs: None
+
+### Remediation notes
+- Added manifest alias: `/treatments/retainers` → `/treatments/dental-retainers`
+- Added manifest alias: `/treatments/dental-implants` → `/treatments/implants`
+- Added manifest alias: `/treatments/hygiene` → `/treatments/preventative-and-general-dentistry`
+- Added manifest alias: `/treatments/3d-printed-implant-restorations` → `/treatments/3d-implant-restorations`
+- No new treatment pages were required
 
 ## BEFORE
 
@@ -36,7 +43,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange a clear aligner assessment | /contact | /contact | Arrange a clear aligner assessment | OK |  |
-| Plan retention early | /treatments/retainers | /treatments/retainers | Plan retention early | INVALID_HREF | missing /treatments/<slug> match |
+| Plan retention early | /treatments/retainers | /treatments/dental-retainers | Plan retention early | OK |  |
 | Explore related treatment: Teeth whitening | /treatments/teeth-whitening | /treatments/teeth-whitening | Explore related treatment: Teeth whitening | OK |  |
 | Explore related treatment: Composite bonding | /treatments/composite-bonding | /treatments/composite-bonding | Explore related treatment: Composite bonding | OK |  |
 | Explore related treatment: Dental veneers in Shoreham-by-Sea | /treatments/veneers | /treatments/veneers | Explore related treatment: Dental veneers in Shoreham-by-Sea | OK |  |
@@ -97,7 +104,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Book an implant consultation | /contact | /contact | Book an implant consultation | OK |  |
-| See dental implant options | /treatments/dental-implants | /treatments/dental-implants | See dental implant options | INVALID_HREF | missing /treatments/<slug> match |
+| See dental implant options | /treatments/dental-implants | /treatments/implants | See dental implant options | OK |  |
 | /treatments/implant-consultation | /treatments/implant-consultation | /treatments/implant-consultation | Implant consultation & planning in Shoreham-by-Sea | RAW_LABEL |  |
 | /treatments/implants-single-tooth | /treatments/implants-single-tooth | /treatments/implants-single-tooth | Single-tooth dental implants in Shoreham-by-Sea | RAW_LABEL |  |
 
@@ -150,7 +157,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Book an implant aftercare visit | /contact | /contact | Book an implant aftercare visit | OK |  |
-| Review implant hygiene support | /treatments/hygiene | /treatments/hygiene | Review implant hygiene support | INVALID_HREF | missing /treatments/<slug> match |
+| Review implant hygiene support | /treatments/hygiene | /treatments/preventative-and-general-dentistry | Review implant hygiene support | OK |  |
 | Explore related treatment: Single-tooth dental implants in Shoreham-by-Sea | /treatments/implants-single-tooth | /treatments/implants-single-tooth | Explore related treatment: Single-tooth dental implants in Shoreham-by-Sea | OK |  |
 | Explore related treatment: Implant-retained dentures | /treatments/implant-retained-dentures | /treatments/implant-retained-dentures | Explore related treatment: Implant-retained dentures | OK |  |
 | Explore related treatment: Failed implant replacement in Shoreham-by-Sea | /treatments/failed-implant-replacement | /treatments/failed-implant-replacement | Explore related treatment: Failed implant replacement in Shoreham-by-Sea | OK |  |
@@ -469,7 +476,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Discuss 3D printed denture suitability | /contact | /contact | Discuss 3D printed denture suitability | OK |  |
-| See implant restorations | /treatments/3d-printed-implant-restorations | /treatments/3d-printed-implant-restorations | See implant restorations | INVALID_HREF | missing /treatments/<slug> match |
+| See implant restorations | /treatments/3d-printed-implant-restorations | /treatments/3d-implant-restorations | See implant restorations | OK |  |
 | Explore related treatment: Dentures & tooth replacement | /treatments/dentures | /treatments/dentures | Explore related treatment: Dentures & tooth replacement | OK |  |
 | Explore related treatment: Chrome dentures | /treatments/chrome-dentures | /treatments/chrome-dentures | Explore related treatment: Chrome dentures | OK |  |
 | Explore related treatment: PEEK partial dentures | /treatments/peek-partial-dentures | /treatments/peek-partial-dentures | Explore related treatment: PEEK partial dentures | OK |  |
@@ -479,7 +486,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange an occlusal splint fitting | /contact | /contact | Arrange an occlusal splint fitting | OK |  |
-| Review retainer options | /treatments/retainers | /treatments/retainers | Review retainer options | INVALID_HREF | missing /treatments/<slug> match |
+| Review retainer options | /treatments/retainers | /treatments/dental-retainers | Review retainer options | OK |  |
 | Explore related treatment: Bruxism and jaw clenching treatment | /treatments/bruxism-and-jaw-clenching | /treatments/bruxism-and-jaw-clenching | Explore related treatment: Bruxism and jaw clenching treatment | OK |  |
 | Explore related treatment: TMJ disorder treatment | /treatments/tmj-disorder-treatment | /treatments/tmj-disorder-treatment | Explore related treatment: TMJ disorder treatment | OK |  |
 | Explore related treatment: Dental retainers | /treatments/dental-retainers | /treatments/dental-retainers | Explore related treatment: Dental retainers | OK |  |
@@ -572,7 +579,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange a mature smile review | /contact | /contact | Arrange a mature smile review | OK |  |
-| Plan tailored hygiene support | /treatments/hygiene | /treatments/hygiene | Plan tailored hygiene support | INVALID_HREF | missing /treatments/<slug> match |
+| Plan tailored hygiene support | /treatments/hygiene | /treatments/preventative-and-general-dentistry | Plan tailored hygiene support | OK |  |
 | Explore related treatment: Dentures & tooth replacement | /treatments/dentures | /treatments/dentures | Explore related treatment: Dentures & tooth replacement | OK |  |
 | Explore related treatment: Dental Implants in Shoreham-by-Sea | /treatments/implants | /treatments/implants | Explore related treatment: Dental Implants in Shoreham-by-Sea | OK |  |
 | Explore related treatment: Periodontal & gum care | /treatments/periodontal-gum-care | /treatments/periodontal-gum-care | Explore related treatment: Periodontal & gum care | OK |  |
@@ -737,7 +744,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange an orthodontic consultation | /contact | /contact | Arrange an orthodontic consultation | OK |  |
-| Plan retainers after braces | /treatments/retainers | /treatments/retainers | Plan retainers after braces | INVALID_HREF | missing /treatments/<slug> match |
+| Plan retainers after braces | /treatments/retainers | /treatments/dental-retainers | Plan retainers after braces | OK |  |
 | Explore related treatment: Dental retainers | /treatments/dental-retainers | /treatments/dental-retainers | Explore related treatment: Dental retainers | OK |  |
 | Explore related treatment: Teeth whitening | /treatments/teeth-whitening | /treatments/teeth-whitening | Explore related treatment: Teeth whitening | OK |  |
 | Compare clear aligners | /treatments/clear-aligners | /treatments/clear-aligners | Compare clear aligners | OK |  |
@@ -780,9 +787,9 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange a clear aligner assessment | /contact | /contact | Arrange a clear aligner assessment | OK |  |
+| Plan retention early | /treatments/dental-retainers | /treatments/dental-retainers | Plan retention early | OK |  |
 | Explore related treatment: Teeth whitening | /treatments/teeth-whitening | /treatments/teeth-whitening | Explore related treatment: Teeth whitening | OK |  |
 | Explore related treatment: Composite bonding | /treatments/composite-bonding | /treatments/composite-bonding | Explore related treatment: Composite bonding | OK |  |
-| Explore related treatment: Dental veneers in Shoreham-by-Sea | /treatments/veneers | /treatments/veneers | Explore related treatment: Dental veneers in Shoreham-by-Sea | OK |  |
 
 ### clear-aligners-spark
 
@@ -833,6 +840,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Book an implant consultation | /contact | /contact | Book an implant consultation | OK |  |
+| See dental implant options | /treatments/implants | /treatments/implants | See dental implant options | OK |  |
 | Implant consultation & planning in Shoreham-by-Sea | /treatments/implant-consultation | /treatments/implant-consultation | Implant consultation & planning in Shoreham-by-Sea | OK |  |
 | Single-tooth dental implants in Shoreham-by-Sea | /treatments/implants-single-tooth | /treatments/implants-single-tooth | Single-tooth dental implants in Shoreham-by-Sea | OK |  |
 
@@ -884,9 +892,9 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Book an implant aftercare visit | /contact | /contact | Book an implant aftercare visit | OK |  |
+| Review implant hygiene support | /treatments/preventative-and-general-dentistry | /treatments/preventative-and-general-dentistry | Review implant hygiene support | OK |  |
 | Explore related treatment: Single-tooth dental implants in Shoreham-by-Sea | /treatments/implants-single-tooth | /treatments/implants-single-tooth | Explore related treatment: Single-tooth dental implants in Shoreham-by-Sea | OK |  |
 | Explore related treatment: Implant-retained dentures | /treatments/implant-retained-dentures | /treatments/implant-retained-dentures | Explore related treatment: Implant-retained dentures | OK |  |
-| Explore related treatment: Failed implant replacement in Shoreham-by-Sea | /treatments/failed-implant-replacement | /treatments/failed-implant-replacement | Explore related treatment: Failed implant replacement in Shoreham-by-Sea | OK |  |
 
 ### 3d-implant-restorations
 
@@ -1155,18 +1163,18 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Discuss 3D printed denture suitability | /contact | /contact | Discuss 3D printed denture suitability | OK |  |
+| See implant restorations | /treatments/3d-implant-restorations | /treatments/3d-implant-restorations | See implant restorations | OK |  |
 | Explore related treatment: Dentures & tooth replacement | /treatments/dentures | /treatments/dentures | Explore related treatment: Dentures & tooth replacement | OK |  |
 | Explore related treatment: Chrome dentures | /treatments/chrome-dentures | /treatments/chrome-dentures | Explore related treatment: Chrome dentures | OK |  |
-| Explore related treatment: PEEK partial dentures | /treatments/peek-partial-dentures | /treatments/peek-partial-dentures | Explore related treatment: PEEK partial dentures | OK |  |
 
 ### night-guards-occlusal-splints
 
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange an occlusal splint fitting | /contact | /contact | Arrange an occlusal splint fitting | OK |  |
+| Review retainer options | /treatments/dental-retainers | /treatments/dental-retainers | Review retainer options | OK |  |
 | Explore related treatment: Bruxism and jaw clenching treatment | /treatments/bruxism-and-jaw-clenching | /treatments/bruxism-and-jaw-clenching | Explore related treatment: Bruxism and jaw clenching treatment | OK |  |
 | Explore related treatment: TMJ disorder treatment | /treatments/tmj-disorder-treatment | /treatments/tmj-disorder-treatment | Explore related treatment: TMJ disorder treatment | OK |  |
-| Explore related treatment: Dental retainers | /treatments/dental-retainers | /treatments/dental-retainers | Explore related treatment: Dental retainers | OK |  |
 
 ### sports-mouthguards
 
@@ -1236,9 +1244,9 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange a mature smile review | /contact | /contact | Arrange a mature smile review | OK |  |
+| Plan tailored hygiene support | /treatments/preventative-and-general-dentistry | /treatments/preventative-and-general-dentistry | Plan tailored hygiene support | OK |  |
 | Explore related treatment: Dentures & tooth replacement | /treatments/dentures | /treatments/dentures | Explore related treatment: Dentures & tooth replacement | OK |  |
 | Explore related treatment: Dental Implants in Shoreham-by-Sea | /treatments/implants | /treatments/implants | Explore related treatment: Dental Implants in Shoreham-by-Sea | OK |  |
-| Explore related treatment: Periodontal & gum care | /treatments/periodontal-gum-care | /treatments/periodontal-gum-care | Explore related treatment: Periodontal & gum care | OK |  |
 
 ### tmj-jaw-comfort
 
@@ -1371,7 +1379,7 @@
 | Label (raw) | Href (raw) | Resolved href | Resolved label | Status | Reason |
 | --- | --- | --- | --- | --- | --- |
 | Arrange an orthodontic consultation | /contact | /contact | Arrange an orthodontic consultation | OK |  |
-| Explore related treatment: Dental retainers | /treatments/dental-retainers | /treatments/dental-retainers | Explore related treatment: Dental retainers | OK |  |
+| Plan retainers after braces | /treatments/dental-retainers | /treatments/dental-retainers | Plan retainers after braces | OK |  |
 | Explore related treatment: Teeth whitening | /treatments/teeth-whitening | /treatments/teeth-whitening | Explore related treatment: Teeth whitening | OK |  |
 | Compare clear aligners | /treatments/clear-aligners | /treatments/clear-aligners | Compare clear aligners | OK |  |
 

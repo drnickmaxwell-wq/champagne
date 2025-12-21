@@ -3,6 +3,7 @@ import {
   getCTAIntentLabels,
   getTreatmentJourneyForRoute,
   getTreatmentPages,
+  resolveTreatmentPathAlias,
   type ChampagneTreatmentPage,
 } from "@champagne/manifests/src/helpers";
 import { getRouteIdFromSlug } from "@champagne/manifests/src/core";
@@ -526,6 +527,15 @@ function humanizeLabel(
   };
 }
 
+function resolveTreatmentHrefAlias(href?: string): { href?: string; wasAlias: boolean } {
+  if (!href || !href.startsWith("/treatments/")) {
+    return { href, wasAlias: false };
+  }
+
+  const { resolvedPath, wasAlias } = resolveTreatmentPathAlias(href);
+  return { href: resolvedPath, wasAlias };
+}
+
 function normalizePlanEntry(entry: CTAPlanEntry, slug: string, index: number): CTAPlanEntry {
   return {
     id: entry.id ?? `${slug}-mid-cta-${index + 1}`,
@@ -567,8 +577,9 @@ export function resolveTreatmentMidCTAPlan(
   const dropped: { id?: string; label?: string; href?: string; reason: string }[] = [];
 
   const validated = candidateCTAs.map((cta) => {
-    const validation = validateHref(cta.href ?? "", truthSet);
-    const { resolvedLabel, wasRaw } = humanizeLabel(cta.label, cta.href, cta.variant);
+    const { href: resolvedHref } = resolveTreatmentHrefAlias(cta.href);
+    const validation = validateHref(resolvedHref ?? "", truthSet);
+    const { resolvedLabel, wasRaw } = humanizeLabel(cta.label, resolvedHref, cta.variant);
     const status: MidCTAStatus = validation.valid ? (wasRaw ? "RAW_LABEL" : "OK") : "INVALID_HREF";
 
     beforeButtons.push({
@@ -576,13 +587,13 @@ export function resolveTreatmentMidCTAPlan(
       label: cta.label,
       href: cta.href,
       resolvedLabel,
-      resolvedHref: cta.href,
+      resolvedHref,
       status,
       invalidReason: validation.reason,
     });
 
     if (!validation.valid) {
-      dropped.push({ id: cta.id, label: cta.label, href: cta.href, reason: validation.reason ?? "invalid" });
+      dropped.push({ id: cta.id, label: cta.label, href: resolvedHref ?? cta.href, reason: validation.reason ?? "invalid" });
       return undefined;
     }
 
@@ -591,12 +602,13 @@ export function resolveTreatmentMidCTAPlan(
       label: cta.label,
       href: cta.href,
       resolvedLabel,
-      resolvedHref: cta.href,
+      resolvedHref,
       status: wasRaw ? "RAW_LABEL" : "OK",
     });
 
     return {
       ...cta,
+      href: resolvedHref,
       label: resolvedLabel,
     } satisfies CTAPlanEntry;
   });
