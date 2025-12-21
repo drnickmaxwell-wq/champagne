@@ -1,0 +1,1821 @@
+{
+  "count": 73,
+  "stats": {
+    "noCTA": 0,
+    "closingOnly": 73,
+    "journeyComplete": 0
+  },
+  "rows": [
+    {
+      "slug": "3d-dentistry-and-technology",
+      "routeId": "treatments.3d-dentistry-and-technology",
+      "journeyId": "treatments.3d-dentistry-and-technology",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a digital scan consult",
+              "href": "/contact?topic=digital-dentistry"
+            },
+            {
+              "label": "Ask about 3D printed options",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "3d-digital-dentistry",
+      "routeId": "treatments.3d-digital-dentistry",
+      "journeyId": "digital_3d_dentistry",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a digital scan consult",
+              "href": "/contact?topic=digital-dentistry"
+            },
+            {
+              "label": "Ask about 3D printed options",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "3d-implant-restorations",
+      "routeId": "treatments.3d-implant-restorations",
+      "journeyId": "treatments.3d-implant-restorations",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact?topic=implants"
+            },
+            {
+              "label": "Ask about materials",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "3d-printed-dentures",
+      "routeId": "treatments.3d-printed-dentures",
+      "journeyId": "digital_3d_dentistry",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a denture consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about 3D printing",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "3d-printed-veneers",
+      "routeId": "treatments.3d-printed-veneers",
+      "journeyId": "aesthetic_smile",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Veneer Consultation & Smile Design",
+              "href": "/contact?topic=veneers"
+            },
+            {
+              "label": "Explore alternative cosmetic options",
+              "href": "/treatments/full-smile-makeover"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "3d-printing-lab",
+      "routeId": "treatments.3d-printing-lab",
+      "journeyId": "treatments.3d-printing-lab",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a digital scan",
+              "href": "/contact?topic=digital-dentistry"
+            },
+            {
+              "label": "Ask about printing",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "acrylic-dentures",
+      "routeId": "treatments.acrylic-dentures",
+      "journeyId": "treatments.acrylic-dentures",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a denture consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Implant-retained dentures",
+              "href": "/treatments/implant-retained-dentures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "anti-wrinkle-treatments",
+      "routeId": "treatments.anti-wrinkle-treatments",
+      "journeyId": "treatments.anti-wrinkle-treatments",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about anti-wrinkle care",
+              "href": "/contact?topic=anti-wrinkle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "broken-chipped-cracked-teeth",
+      "routeId": "treatments.broken-chipped-cracked-teeth",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_chipped_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call for an emergency visit",
+              "href": "/contact"
+            },
+            {
+              "label": "Explore emergency care",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bruxism-and-jaw-clenching",
+      "routeId": "treatments.bruxism-and-jaw-clenching",
+      "journeyId": "treatments.bruxism-and-jaw-clenching",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an assessment",
+              "href": "/contact?topic=bruxism"
+            },
+            {
+              "label": "Ask about guards",
+              "href": "/contact?topic=mouth-guards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cbct-3d-scanning",
+      "routeId": "treatments.cbct-3d-scanning",
+      "journeyId": "treatments.cbct-3d-scanning",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a scan",
+              "href": "/contact?topic=digital-dentistry"
+            },
+            {
+              "label": "Ask about CBCT",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "childrens-dentistry",
+      "routeId": "treatments.childrens-dentistry",
+      "journeyId": "prevent_maintain",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a children’s appointment",
+              "href": "/contact?topic=children"
+            },
+            {
+              "label": "Call the practice team",
+              "href": "/contact"
+            },
+            {
+              "label": "Preventative & General Dentistry",
+              "href": "/treatments/preventative-and-general-dentistry"
+            },
+            {
+              "label": "Emergency Dentistry",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "label": "Nervous Patients",
+              "href": "/treatments/nervous-patients"
+            },
+            {
+              "label": "Orthodontics & Fixed Braces",
+              "href": "/treatments/fixed-braces"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "chrome-dentures",
+      "routeId": "treatments.chrome-dentures",
+      "journeyId": "treatments.chrome-dentures",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a denture consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Implant-retained dentures",
+              "href": "/treatments/implant-retained-dentures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "clear-aligners",
+      "routeId": "treatments.clear-aligners",
+      "journeyId": "orthodontic_stability",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "See Spark aligner options",
+              "href": "/treatments/clear-aligners-spark"
+            },
+            {
+              "label": "Plan whitening after alignment",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "label": "See Digital Smile Design",
+              "href": "/treatments/digital-smile-design"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "clear-aligners-spark",
+      "routeId": "treatments.clear-aligners-spark",
+      "journeyId": "treatments.clear-aligners-spark",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Compare aligner options",
+              "href": "/treatments/clear-aligners"
+            },
+            {
+              "label": "Plan whitening after Spark",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "label": "See smile design planning",
+              "href": "/treatments/digital-smile-design"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "composite-bonding",
+      "routeId": "treatments.composite-bonding",
+      "journeyId": "aesthetic_smile",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "composite_next_steps",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Cosmetic Assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Veneers",
+              "href": "/treatments/veneers"
+            },
+            {
+              "label": "Teeth whitening",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "label": "Clear aligners",
+              "href": "/treatments/clear-aligners"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dental-abscess-infection",
+      "routeId": "treatments.dental-abscess-infection",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_abscess_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call the practice",
+              "href": "/contact"
+            },
+            {
+              "label": "See emergency care",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dental-bridges",
+      "routeId": "treatments.dental-bridges",
+      "journeyId": "functional_restoration",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "journey",
+          "ctas": [
+            {
+              "label": "Plan a bridge fitting",
+              "href": "/contact"
+            },
+            {
+              "label": "See denture solutions",
+              "href": "/treatments/dentures"
+            },
+            {
+              "label": "Explore implant options",
+              "href": "/treatments/dental-implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dental-crowns",
+      "routeId": "treatments.dental-crowns",
+      "journeyId": "functional_restoration",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a crowns consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about crown options",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dental-retainers",
+      "routeId": "treatments.dental-retainers",
+      "journeyId": "treatments.dental-retainers",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Contact the team",
+              "href": "/contact"
+            },
+            {
+              "label": "Orthodontics",
+              "href": "/treatments/orthodontics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dental-trauma-accidents",
+      "routeId": "treatments.dental-trauma-accidents",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_trauma_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call for urgent care",
+              "href": "/contact"
+            },
+            {
+              "label": "Back to emergency hub",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dentures",
+      "routeId": "treatments.dentures",
+      "journeyId": "functional_restoration",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a denture consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Implant-retained dentures",
+              "href": "/treatments/implant-retained-dentures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dermal-fillers",
+      "routeId": "treatments.dermal-fillers",
+      "journeyId": "treatments.dermal-fillers",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about fillers",
+              "href": "/contact?topic=dermal-fillers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "digital-smile-design",
+      "routeId": "treatments.digital-smile-design",
+      "journeyId": "aesthetic_smile",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a design session",
+              "href": "/contact?topic=digital-dentistry"
+            },
+            {
+              "label": "Ask about mock-ups",
+              "href": "/contact?topic=3d-printing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "emergency-dental-appointments",
+      "routeId": "treatments.emergency-dental-appointments",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_appointments_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call now",
+              "href": "/contact"
+            },
+            {
+              "label": "View all emergency options",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "emergency-dentistry",
+      "routeId": "treatments.emergency-dentistry",
+      "journeyId": "emergency_relief",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_dentistry_topics",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Emergency dental appointments",
+              "href": "/treatments/emergency-dental-appointments"
+            },
+            {
+              "label": "Severe toothache & dental pain",
+              "href": "/treatments/severe-toothache-dental-pain"
+            },
+            {
+              "label": "Dental abscess & infection",
+              "href": "/treatments/dental-abscess-infection"
+            },
+            {
+              "label": "Broken, chipped or cracked teeth",
+              "href": "/treatments/broken-chipped-cracked-teeth"
+            },
+            {
+              "label": "Knocked-out (avulsed) tooth",
+              "href": "/treatments/knocked-out-tooth"
+            },
+            {
+              "label": "Lost crowns, veneers & fillings",
+              "href": "/treatments/lost-crowns-veneers-fillings"
+            },
+            {
+              "label": "Dental trauma & accidents",
+              "href": "/treatments/dental-trauma-accidents"
+            }
+          ]
+        },
+        {
+          "id": "emergency_dentistry_next_steps",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a check-up",
+              "href": "/dental-checkups-oral-cancer-screening"
+            }
+          ]
+        },
+        {
+          "id": "emergency_dentistry_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call the practice",
+              "href": "/contact"
+            },
+            {
+              "label": "See emergency options",
+              "href": "/treatments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "endodontics-root-canal",
+      "routeId": "treatments.endodontics-root-canal",
+      "journeyId": "emergency_relief",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a root canal consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Speak to the clinical team",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "extractions-and-oral-surgery",
+      "routeId": "treatments.extractions-and-oral-surgery",
+      "journeyId": "emergency_relief",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an oral surgery consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Call the team",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "facial-aesthetics",
+      "routeId": "treatments.facial-aesthetics",
+      "journeyId": "treatments.facial-aesthetics",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about options",
+              "href": "/contact?topic=facial-aesthetics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "facial-pain-and-headache",
+      "routeId": "treatments.facial-pain-and-headache",
+      "journeyId": "treatments.facial-pain-and-headache",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact?topic=facial-pain"
+            },
+            {
+              "label": "Ask a question",
+              "href": "/contact?topic=facial-pain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "facial-therapeutics",
+      "routeId": "treatments.facial-therapeutics",
+      "journeyId": "treatments.facial-therapeutics",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask a question",
+              "href": "/contact?topic=facial-therapeutics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "failed-implant-replacement",
+      "routeId": "treatments.failed-implant-replacement",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book now",
+              "href": "/contact"
+            },
+            {
+              "label": "See implant consultation details",
+              "href": "/treatments/implant-consultation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "fixed-braces",
+      "routeId": "treatments.fixed-braces",
+      "journeyId": "orthodontic_stability",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an Orthodontic Assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask a braces question",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "full-smile-makeover",
+      "routeId": "treatments.full-smile-makeover",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "full_smile_makeover_closing_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a planning session",
+              "href": "/contact"
+            },
+            {
+              "label": "Preview the roadmap",
+              "href": "/treatments/digital-smile-design"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "home-teeth-whitening",
+      "routeId": "treatments.home-teeth-whitening",
+      "journeyId": "treatments.home-teeth-whitening",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a whitening consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Plan for future cosmetic work",
+              "href": "/treatments/teeth-whitening"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implant-aftercare",
+      "routeId": "treatments.implant-aftercare",
+      "journeyId": "advanced_implants",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "See implant consultation details",
+              "href": "/treatments/implant-consultation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implant-consultation",
+      "routeId": "treatments.implant-consultation",
+      "journeyId": "advanced_implants",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an implant consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Explore implant treatments",
+              "href": "/treatments/implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implant-retained-dentures",
+      "routeId": "treatments.implant-retained-dentures",
+      "journeyId": "advanced_implants",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an implant assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Explore implant options",
+              "href": "/treatments/implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implants",
+      "routeId": "treatments.implants",
+      "journeyId": "treatments.implants",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an Implant Consultation & Planning",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask a question",
+              "href": "/contact?topic=implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implants-bone-grafting",
+      "routeId": "treatments.implants-bone-grafting",
+      "journeyId": "treatments.implants-bone-grafting",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an implant assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Learn about implant options",
+              "href": "/treatments/implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implants-full-arch",
+      "routeId": "treatments.implants-full-arch",
+      "journeyId": "treatments.implants-full-arch",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Discuss implant options",
+              "href": "/contact?topic=implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implants-multiple-teeth",
+      "routeId": "treatments.implants-multiple-teeth",
+      "journeyId": "treatments.implants-multiple-teeth",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a multi-implant consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about implant bridges",
+              "href": "/contact?topic=implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "implants-single-tooth",
+      "routeId": "treatments.implants-single-tooth",
+      "journeyId": "treatments.implants-single-tooth",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a single-implant consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about single implants",
+              "href": "/contact?topic=implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "injection-moulded-composite",
+      "routeId": "treatments.injection-moulded-composite",
+      "journeyId": "aesthetic_smile",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "injection_next_steps",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Discuss digitally planned options",
+              "href": "/treatments/full-smile-makeover"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "inlays-onlays",
+      "routeId": "treatments.inlays-onlays",
+      "journeyId": "functional_restoration",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about options",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "knocked-out-tooth",
+      "routeId": "treatments.knocked-out-tooth",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_avulsion_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call now",
+              "href": "/contact"
+            },
+            {
+              "label": "Return to emergency hub",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lost-crowns-veneers-fillings",
+      "routeId": "treatments.lost-crowns-veneers-fillings",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_crown_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Arrange an emergency visit",
+              "href": "/contact"
+            },
+            {
+              "label": "Return to emergency hub",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mouthguards-and-retainers",
+      "routeId": "treatments.mouthguards-and-retainers",
+      "journeyId": "treatments.mouthguards-and-retainers",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about mouthguards or retainers",
+              "href": "/contact?topic=mouthguards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nervous-patients",
+      "routeId": "treatments.nervous-patients",
+      "journeyId": "treatments.nervous-patients",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Read about sedation",
+              "href": "/treatments/sedation-dentistry"
+            }
+          ]
+        },
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Read about sedation",
+              "href": "/treatments/sedation-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "night-guards-occlusal-splints",
+      "routeId": "treatments.night-guards-occlusal-splints",
+      "journeyId": "orthodontic_stability",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Contact the team",
+              "href": "/contact"
+            },
+            {
+              "label": "Bruxism & clenching guidance",
+              "href": "/treatments/bruxism-and-jaw-clenching"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "orthodontics",
+      "routeId": "treatments.orthodontics",
+      "journeyId": "treatments.orthodontics",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an Orthodontic Assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Discuss brace options",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "painless-numbing-the-wand",
+      "routeId": "treatments.painless-numbing-the-wand",
+      "journeyId": "treatments.painless-numbing-the-wand",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Ask about The Wand",
+              "href": "/contact?topic=comfort"
+            },
+            {
+              "label": "Discuss calming options",
+              "href": "/contact?topic=anxiety"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "peek-partial-dentures",
+      "routeId": "treatments.peek-partial-dentures",
+      "journeyId": "treatments.peek-partial-dentures",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a denture consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Implant-retained dentures",
+              "href": "/treatments/implant-retained-dentures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "periodontal-gum-care",
+      "routeId": "treatments.periodontal-gum-care",
+      "journeyId": "treatments.periodontal-gum-care",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Schedule a gum review",
+              "href": "/contact?topic=periodontal"
+            },
+            {
+              "label": "Speak with the team",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "polynucleotides",
+      "routeId": "treatments.polynucleotides",
+      "journeyId": "treatments.polynucleotides",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about polynucleotides",
+              "href": "/contact?topic=polynucleotides"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "preventative-and-general-dentistry",
+      "routeId": "treatments.preventative-and-general-dentistry",
+      "journeyId": "treatments.preventative-and-general-dentistry",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Learn about check-ups",
+              "href": "/dental-checkups-oral-cancer-screening"
+            }
+          ]
+        },
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Dental check-ups & oral cancer screening",
+              "href": "/dental-checkups-oral-cancer-screening"
+            },
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sedation-dentistry",
+      "routeId": "treatments.sedation-dentistry",
+      "journeyId": "treatments.sedation-dentistry",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a sedation consult",
+              "href": "/contact?topic=sedation"
+            },
+            {
+              "label": "Ask about calming options",
+              "href": "/contact?topic=anxiety"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sedation-for-implants",
+      "routeId": "treatments.sedation-for-implants",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a calm implant consult",
+              "href": "/contact"
+            },
+            {
+              "label": "Learn about implants",
+              "href": "/treatments/implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "senior-mature-smile-care",
+      "routeId": "treatments.senior-mature-smile-care",
+      "journeyId": "prevent_maintain",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Plan my visit",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask a clinician",
+              "href": "/contact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "severe-toothache-dental-pain",
+      "routeId": "treatments.severe-toothache-dental-pain",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "emergency_pain_cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Call for support",
+              "href": "/contact"
+            },
+            {
+              "label": "See emergency options",
+              "href": "/treatments/emergency-dentistry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sinus-lift",
+      "routeId": "treatments.sinus-lift",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an implant assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Implant consultation",
+              "href": "/treatments/implant-consultation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "skin-boosters",
+      "routeId": "treatments.skin-boosters",
+      "journeyId": "treatments.skin-boosters",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about skin boosters",
+              "href": "/contact?topic=skin-boosters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sports-mouthguards",
+      "routeId": "treatments.sports-mouthguards",
+      "journeyId": "treatments.sports-mouthguards",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Contact the team",
+              "href": "/contact"
+            },
+            {
+              "label": "Night guards for grinding",
+              "href": "/treatments/night-guards-occlusal-splints"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "teeth-in-a-day",
+      "routeId": "treatments.teeth-in-a-day",
+      "journeyId": "—",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book an implant assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "Explore implant options",
+              "href": "/treatments/implants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "teeth-whitening",
+      "routeId": "treatments.teeth-whitening",
+      "journeyId": "aesthetic_smile",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a whitening consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Ask about bonding",
+              "href": "/treatments/composite-bonding"
+            },
+            {
+              "label": "See veneer planning",
+              "href": "/treatments/veneers"
+            },
+            {
+              "label": "Explore aligners",
+              "href": "/treatments/clear-aligners"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "teeth-whitening-faqs",
+      "routeId": "treatments.teeth-whitening-faqs",
+      "journeyId": "treatments.teeth-whitening-faqs",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Learn about maintenance",
+              "href": "/treatments/whitening-top-ups"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "therapeutic-facial-injectables",
+      "routeId": "treatments.therapeutic-facial-injectables",
+      "journeyId": "treatments.therapeutic-facial-injectables",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a consultation",
+              "href": "/contact?topic=therapeutic-injectables"
+            },
+            {
+              "label": "Ask about suitability",
+              "href": "/contact?topic=therapeutic-injectables"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tmj-disorder-treatment",
+      "routeId": "treatments.tmj-disorder-treatment",
+      "journeyId": "treatments.tmj-disorder-treatment",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book TMJ consultation",
+              "href": "/contact?topic=tmj"
+            },
+            {
+              "label": "Ask about TMJ care",
+              "href": "/contact?topic=tmj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tmj-jaw-comfort",
+      "routeId": "treatments.tmj-jaw-comfort",
+      "journeyId": "treatments.tmj-jaw-comfort",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a TMJ assessment",
+              "href": "/contact?topic=tmj"
+            },
+            {
+              "label": "Ask about mouth guards",
+              "href": "/contact?topic=mouth-guards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tooth-wear-broken-teeth",
+      "routeId": "treatments.tooth-wear-broken-teeth",
+      "journeyId": "functional_restoration",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "tooth_wear_closing",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a tooth wear assessment",
+              "href": "/contact"
+            },
+            {
+              "label": "TMJ & Jaw Care",
+              "href": "/treatments/tmj-jaw-comfort"
+            },
+            {
+              "label": "Night guards",
+              "href": "/treatments/night-guards-occlusal-splints"
+            },
+            {
+              "label": "Dental Crowns",
+              "href": "/treatments/dental-crowns"
+            },
+            {
+              "label": "Inlays & Onlays",
+              "href": "/treatments/inlays-onlays"
+            },
+            {
+              "label": "Composite Bonding",
+              "href": "/treatments/composite-bonding"
+            },
+            {
+              "label": "Nervous Patients",
+              "href": "/treatments/nervous-patients"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "veneers",
+      "routeId": "treatments.veneers",
+      "journeyId": "aesthetic_smile",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Veneer Consultation & Smile Design",
+              "href": "/contact"
+            },
+            {
+              "label": "Explore alternative cosmetic options",
+              "href": "/treatments/full-smile-makeover"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "whitening-sensitive-teeth",
+      "routeId": "treatments.whitening-sensitive-teeth",
+      "journeyId": "treatments.whitening-sensitive-teeth",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a sensitivity review",
+              "href": "/contact"
+            },
+            {
+              "label": "Explore home whitening",
+              "href": "/treatments/home-teeth-whitening"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "whitening-top-ups",
+      "routeId": "treatments.whitening-top-ups",
+      "journeyId": "treatments.whitening-top-ups",
+      "mid": false,
+      "closing": true,
+      "closingDetails": [
+        {
+          "id": "treatment.cta",
+          "source": "section",
+          "ctas": [
+            {
+              "label": "Book a top-up",
+              "href": "/contact"
+            },
+            {
+              "label": "Plan future whitening",
+              "href": "/treatments/home-teeth-whitening"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
