@@ -84,8 +84,29 @@ function mapJourneyCTAs(pageSlug?: string): ChampagneCTAConfig[] {
   const journey = getTreatmentJourneyForRoute(routeId);
   const intentConfig = getCTAIntentConfigForRoute(routeId);
   const intentLabels = getCTAIntentLabels();
-  const latePageIntents = journey?.cta_plan?.late_page?.filter((entry: { target?: string }) => entry.target === "cta")
-    ?? [];
+
+  const journeyTargets = (journey as { cta_targets?: Record<string, { label?: string; href?: string }> } | undefined)
+    ?.cta_targets;
+  const journeyId = (journey as { journey?: { id?: string; page_role?: string } } | undefined)?.journey?.id;
+  const journeyRole = (journey as { journey?: { page_role?: string } } | undefined)?.journey?.page_role;
+
+  const journeyCtas: ChampagneCTAConfig[] = [];
+  if (journeyTargets) {
+    (["primary", "secondary", "tertiary"] as const).forEach((slot, index) => {
+      const target = journeyTargets[slot];
+      if (!target?.label || !target?.href) return;
+      journeyCtas.push({
+        id: [journeyId ?? routeId, journeyRole ?? "page", slot].filter(Boolean).join("-"),
+        label: target.label,
+        href: target.href,
+        variant: index === 0 ? "primary" : "secondary",
+      });
+    });
+  }
+
+  if (journeyCtas.length > 0) return journeyCtas;
+
+  const latePageIntents = journey?.cta_plan?.late_page?.filter((entry: { target?: string }) => entry.target === "cta") ?? [];
 
   return latePageIntents
     .map((entry: { intent?: string }, index: number) =>

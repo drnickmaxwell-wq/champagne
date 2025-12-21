@@ -8,6 +8,20 @@
     "related_treatment": "Links to adjacent treatments that may solve the same problem or follow on.",
     "maintenance_and_aftercare": "Encourages planning for follow-up care, hygiene, or protective measures.",
     "book_consultation": "Invites a clinical consultation or assessment when appropriate.",
-    "ask_a_question": "Provides a route to seek clarification without booking."
+    "ask_a_question": "Provides a route to seek clarification without booking.",
+    "urgent_contact": "Highlights urgent contact for pain, swelling, or trauma.",
+    "pain_relief_info": "Shares immediate pain relief steps before a visit.",
+    "routine_exam": "Books a routine check-up or review to maintain health.",
+    "prevention_info": "Explains preventive care to avoid deterioration.",
+    "restorative_assessment": "Books a restorative assessment to map repair options.",
+    "treatment_options": "Guides patients through restorative treatment choices.",
+    "implant_consult": "Schedules an implant consultation to confirm suitability.",
+    "guided_surgery_info": "Explains guided surgery planning and imaging.",
+    "orthodontic_consult": "Books an orthodontic consultation for alignment or stability.",
+    "stability_care": "Shows retention or protection steps to hold results.",
+    "cosmetic_consult": "Invites a cosmetic consultation tailored to smile goals.",
+    "smile_planning": "Shares planning steps such as smile design or sequencing.",
+    "technology_consult": "Books a consult to discuss digital or 3D workflows.",
+    "digital_workflow_info": "Explains how scans, printing, or guided surgery support treatment."
   }
 }
