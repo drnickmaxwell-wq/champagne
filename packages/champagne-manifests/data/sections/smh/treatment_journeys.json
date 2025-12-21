@@ -217,7 +217,7 @@
       "related_treatments": [
         "treatments.veneers",
         "treatments.digital-smile-design",
-        "treatments.teeth-whitening"
+        "treatments.composite-bonding"
       ],
       "cta_plan": {
         "mid_page": [
@@ -244,6 +244,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a veneer preview",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Compare with porcelain veneers",
+          "href": "/treatments/veneers"
+        },
+        "tertiary": {
+          "label": "Plan a smile makeover pathway",
+          "href": "/treatments/digital-smile-design"
+        }
       }
     },
     {
@@ -489,6 +503,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a bruxism assessment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Plan a night guard fitting",
+          "href": "/treatments/night-guards-occlusal-splints"
+        },
+        "tertiary": {
+          "label": "Explore TMJ treatment",
+          "href": "/treatments/tmj-disorder-treatment"
+        }
       }
     },
     {
@@ -656,9 +684,9 @@
         "Plan retainer and finishing options"
       ],
       "related_treatments": [
-        "treatments.aligners",
-        "treatments.fixed-braces",
-        "treatments.dental-retainers"
+        "treatments.teeth-whitening",
+        "treatments.composite-bonding",
+        "treatments.veneers"
       ],
       "cta_plan": {
         "mid_page": [
@@ -685,6 +713,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan a Spark aligner review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See whitening next steps",
+          "href": "/treatments/teeth-whitening"
+        },
+        "tertiary": {
+          "label": "Explore veneers options",
+          "href": "/treatments/veneers"
+        }
       }
     },
     {
@@ -705,9 +747,9 @@
         "Plan post-treatment retention"
       ],
       "related_treatments": [
-        "treatments.aligners",
-        "treatments.fixed-braces",
-        "treatments.dental-retainers"
+        "treatments.teeth-whitening",
+        "treatments.composite-bonding",
+        "treatments.veneers"
       ],
       "cta_plan": {
         "mid_page": [
@@ -734,6 +776,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a clear aligner assessment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See teeth whitening options",
+          "href": "/treatments/teeth-whitening"
+        },
+        "tertiary": {
+          "label": "Compare bonding vs veneers",
+          "href": "/treatments/composite-bonding"
+        }
       }
     },
     {
@@ -754,9 +810,9 @@
         "Plan fit and review appointments"
       ],
       "related_treatments": [
-        "treatments.implants",
-        "treatments.implants-single-tooth",
-        "treatments.dentures"
+        "treatments.dental-crowns",
+        "treatments.dentures",
+        "treatments.implants"
       ],
       "cta_plan": {
         "mid_page": [
@@ -783,6 +839,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a bridge consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Explore crowns for single teeth",
+          "href": "/treatments/dental-crowns"
+        },
+        "tertiary": {
+          "label": "Discuss implant support",
+          "href": "/treatments/implants"
+        }
       }
     },
     {
@@ -803,9 +873,9 @@
         "Plan final fit and periodic reviews"
       ],
       "related_treatments": [
-        "treatments.inlays-onlays",
-        "treatments.endodontics-root-canal",
-        "treatments.digital-smile-design"
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
       ],
       "cta_plan": {
         "mid_page": [
@@ -832,6 +902,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan a crown appointment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Compare bridge options",
+          "href": "/treatments/dental-bridges"
+        },
+        "tertiary": {
+          "label": "Review denture pathways",
+          "href": "/treatments/dentures"
+        }
       }
     },
     {
@@ -852,8 +936,8 @@
         "Plan ongoing checks"
       ],
       "related_treatments": [
-        "treatments.aligners",
-        "treatments.fixed-braces",
+        "treatments.clear-aligners",
+        "treatments.orthodontics",
         "treatments.mouthguards-and-retainers"
       ],
       "cta_plan": {
@@ -881,6 +965,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Schedule a retainer check",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Protect results with mouthguards",
+          "href": "/treatments/mouthguards-and-retainers"
+        },
+        "tertiary": {
+          "label": "Plan whitening after alignment",
+          "href": "/treatments/teeth-whitening"
+        }
       }
     },
     {
@@ -901,9 +999,9 @@
         "Plan try-ins and follow-up"
       ],
       "related_treatments": [
-        "treatments.chrome-dentures",
-        "treatments.acrylic-dentures",
-        "treatments.implants-retained-dentures"
+        "treatments.implant-retained-dentures",
+        "treatments.dental-bridges",
+        "treatments.dental-crowns"
       ],
       "cta_plan": {
         "mid_page": [
@@ -930,6 +1028,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan a denture review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See implant-retained denture options",
+          "href": "/treatments/implant-retained-dentures"
+        },
+        "tertiary": {
+          "label": "Compare bridge alternatives",
+          "href": "/treatments/dental-bridges"
+        }
       }
     },
     {
@@ -1000,8 +1112,8 @@
       ],
       "related_treatments": [
         "treatments.veneers",
-        "treatments.aligners",
-        "treatments.teeth-whitening"
+        "treatments.composite-bonding",
+        "treatments.clear-aligners"
       ],
       "cta_plan": {
         "mid_page": [
@@ -1028,6 +1140,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Start a smile makeover plan",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review aligner pathways",
+          "href": "/treatments/clear-aligners"
+        },
+        "tertiary": {
+          "label": "See whitening and bonding options",
+          "href": "/treatments/teeth-whitening"
+        }
       }
     },
     {
@@ -1048,8 +1174,8 @@
         "Plan restoration after healing"
       ],
       "related_treatments": [
+        "treatments.emergency-dentistry",
         "treatments.dental-crowns",
-        "treatments.extractions-and-oral-surgery",
         "treatments.preventative-and-general-dentistry"
       ],
       "cta_plan": {
@@ -1077,6 +1203,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a root canal consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Plan a crown after treatment",
+          "href": "/treatments/dental-crowns"
+        },
+        "tertiary": {
+          "label": "Review emergency support",
+          "href": "/treatments/emergency-dentistry"
+        }
       }
     },
     {
@@ -1097,9 +1237,9 @@
         "Discuss replacement options such as implants or bridges"
       ],
       "related_treatments": [
-        "treatments.implants",
-        "treatments.dental-bridges",
-        "treatments.implants-sedation"
+        "treatments.emergency-dentistry",
+        "treatments.endodontics-root-canal",
+        "treatments.implants"
       ],
       "cta_plan": {
         "mid_page": [
@@ -1126,6 +1266,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange an extraction review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Discuss sedation options",
+          "href": "/treatments/sedation-dentistry"
+        },
+        "tertiary": {
+          "label": "Plan follow-up implant care",
+          "href": "/treatments/implants"
+        }
       }
     },
     {
@@ -1539,8 +1693,8 @@
       ],
       "related_treatments": [
         "treatments.implants-single-tooth",
-        "treatments.implants-full-arch",
-        "treatments.dental-bridges"
+        "treatments.implant-aftercare",
+        "treatments.implant-retained-dentures"
       ],
       "cta_plan": {
         "mid_page": [
@@ -1567,6 +1721,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book an implant consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review single tooth implants",
+          "href": "/treatments/implants-single-tooth"
+        },
+        "tertiary": {
+          "label": "Explore implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        }
       }
     },
     {
@@ -1832,9 +2000,9 @@
         "Schedule final crown fit and reviews"
       ],
       "related_treatments": [
-        "treatments.dental-bridges",
-        "treatments.implants-consultation",
-        "treatments.implants-aftercare"
+        "treatments.implant-aftercare",
+        "treatments.implant-retained-dentures",
+        "treatments.implants-consultation"
       ],
       "cta_plan": {
         "mid_page": [
@@ -1861,6 +2029,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange a single tooth implant review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Check implant aftercare steps",
+          "href": "/treatments/implant-aftercare"
+        },
+        "tertiary": {
+          "label": "Discuss implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        }
       }
     },
     {
@@ -2029,8 +2211,8 @@
       ],
       "related_treatments": [
         "treatments.dental-crowns",
-        "treatments.endodontics-root-canal",
-        "treatments.preventative-and-general-dentistry"
+        "treatments.dental-bridges",
+        "treatments.dentures"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2057,6 +2239,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book an inlay/onlay appointment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Consider crown options",
+          "href": "/treatments/dental-crowns"
+        },
+        "tertiary": {
+          "label": "Explore bridge solutions",
+          "href": "/treatments/dental-bridges"
+        }
       }
     },
     {
@@ -2177,7 +2373,7 @@
       "related_treatments": [
         "treatments.bruxism-and-jaw-clenching",
         "treatments.tmj-disorder-treatment",
-        "treatments.tmj-jaw-comfort"
+        "treatments.dental-retainers"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2204,6 +2400,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange a splint fitting",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review TMJ therapy options",
+          "href": "/treatments/tmj-disorder-treatment"
+        },
+        "tertiary": {
+          "label": "Check retainer protection",
+          "href": "/treatments/dental-retainers"
+        }
       }
     },
     {
@@ -2372,8 +2582,8 @@
       ],
       "related_treatments": [
         "treatments.preventative-and-general-dentistry",
-        "treatments.implants-aftercare",
-        "treatments.nervous-patients"
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2400,6 +2610,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Schedule a gum care visit",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review restorative fillings",
+          "href": "/treatments/inlays-onlays"
+        },
+        "tertiary": {
+          "label": "See crown and bridge options",
+          "href": "/treatments/dental-crowns"
+        }
       }
     },
     {
@@ -2469,9 +2693,9 @@
         "Schedule follow-up reminders"
       ],
       "related_treatments": [
-        "treatments.childrens-dentistry",
         "treatments.periodontal-gum-care",
-        "treatments.home-teeth-whitening"
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2498,6 +2722,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a dental check-up",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Read about gum treatment",
+          "href": "/treatments/periodontal-gum-care"
+        },
+        "tertiary": {
+          "label": "Explore inlays & onlays",
+          "href": "/treatments/inlays-onlays"
+        }
       }
     },
     {
@@ -2763,8 +3001,8 @@
         "Plan maintenance or top-ups"
       ],
       "related_treatments": [
-        "treatments.home-teeth-whitening",
-        "treatments.whitening-top-ups",
+        "treatments.composite-bonding",
+        "treatments.veneers",
         "treatments.digital-smile-design"
       ],
       "cta_plan": {
@@ -2792,6 +3030,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a whitening consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Compare bonding vs veneers",
+          "href": "/treatments/composite-bonding"
+        },
+        "tertiary": {
+          "label": "Explore Digital Smile Design",
+          "href": "/treatments/digital-smile-design"
+        }
       }
     },
     {
@@ -2959,9 +3211,9 @@
         "Plan maintenance and replacement expectations"
       ],
       "related_treatments": [
+        "treatments.3d-printed-veneers",
         "treatments.digital-smile-design",
-        "treatments.teeth-whitening",
-        "treatments.3d-printed-veneers"
+        "treatments.composite-bonding"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2988,6 +3240,20 @@
             "intent": "related_treatment"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a veneers consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Explore Digital Smile Design",
+          "href": "/treatments/digital-smile-design"
+        },
+        "tertiary": {
+          "label": "Compare porcelain and 3D printed veneers",
+          "href": "/treatments/3d-printed-veneers"
+        }
       }
     },
     {
@@ -3086,6 +3352,236 @@
             "intent": "related_treatment"
           }
         ]
+      }
+    },
+    {
+      "routeId": "treatments.composite-bonding",
+      "primary_patient_intent": "Understand how composite bonding can shape or rebuild worn teeth.",
+      "secondary_patient_intents": [
+        "See how it differs from veneers",
+        "Plan whitening before bonding"
+      ],
+      "common_questions": [
+        "How long does bonding last?",
+        "Can it be repaired or removed?",
+        "Does it need whitening first?"
+      ],
+      "typical_next_steps": [
+        "Assess enamel and bite forces",
+        "Plan whitening or alignment if needed",
+        "Book bonding and finishing polish"
+      ],
+      "related_treatments": [
+        "treatments.teeth-whitening",
+        "treatments.veneers",
+        "treatments.digital-smile-design"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "primaryContent",
+            "intent": "understand_process"
+          },
+          {
+            "target": "supporting",
+            "intent": "compare_alternatives"
+          },
+          {
+            "target": "faq",
+            "intent": "related_treatment"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "book_consultation"
+          },
+          {
+            "target": "cta",
+            "intent": "related_treatment"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a cosmetic assessment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See teeth whitening options",
+          "href": "/treatments/teeth-whitening"
+        },
+        "tertiary": {
+          "label": "Explore 3D printed veneers",
+          "href": "/treatments/3d-printed-veneers"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.emergency-dentistry",
+      "primary_patient_intent": "Get same-day help for urgent dental pain or trauma.",
+      "secondary_patient_intents": [
+        "Know what to do before arriving",
+        "Find pain relief options"
+      ],
+      "common_questions": [
+        "Can you see me today?",
+        "Do you treat broken or knocked-out teeth?",
+        "Is sedation available?"
+      ],
+      "typical_next_steps": [
+        "Call to triage symptoms",
+        "Provide on-the-day stabilisation",
+        "Plan extractions, root canal, or repairs"
+      ],
+      "related_treatments": [
+        "treatments.extractions-and-oral-surgery",
+        "treatments.endodontics-root-canal",
+        "treatments.sedation-dentistry"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "primaryContent",
+            "intent": "understand_process"
+          },
+          {
+            "target": "supporting",
+            "intent": "compare_alternatives"
+          },
+          {
+            "target": "faq",
+            "intent": "related_treatment"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "book_consultation"
+          },
+          {
+            "target": "cta",
+            "intent": "related_treatment"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Emergency help today",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See extraction and oral surgery care",
+          "href": "/treatments/extractions-and-oral-surgery"
+        },
+        "tertiary": {
+          "label": "Understand root canal options",
+          "href": "/treatments/endodontics-root-canal"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.implant-aftercare",
+      "primary_patient_intent": "",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [
+        "treatments.implants-single-tooth",
+        "treatments.implant-retained-dentures",
+        "treatments.failed-implant-replacement"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "primaryContent",
+            "intent": "understand_process"
+          },
+          {
+            "target": "supporting",
+            "intent": "compare_alternatives"
+          },
+          {
+            "target": "faq",
+            "intent": "related_treatment"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "book_consultation"
+          },
+          {
+            "target": "cta",
+            "intent": "related_treatment"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book an implant aftercare visit",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Report implant concerns",
+          "href": "/treatments/failed-implant-replacement"
+        },
+        "tertiary": {
+          "label": "Plan implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.implant-retained-dentures",
+      "primary_patient_intent": "",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [
+        "treatments.implants-full-arch",
+        "treatments.implant-aftercare",
+        "treatments.implants-single-tooth"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "primaryContent",
+            "intent": "understand_process"
+          },
+          {
+            "target": "supporting",
+            "intent": "compare_alternatives"
+          },
+          {
+            "target": "faq",
+            "intent": "related_treatment"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "book_consultation"
+          },
+          {
+            "target": "cta",
+            "intent": "related_treatment"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan implant-retained dentures",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review single tooth implant care",
+          "href": "/treatments/implants-single-tooth"
+        },
+        "tertiary": {
+          "label": "See full arch options",
+          "href": "/treatments/implants-full-arch"
+        }
       }
     }
   ]
