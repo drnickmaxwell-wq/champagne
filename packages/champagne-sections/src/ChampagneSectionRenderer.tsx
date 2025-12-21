@@ -9,6 +9,7 @@ import { Section_ClinicianInsight } from "./Section_ClinicianInsight";
 import { Section_PatientStoriesRail } from "./Section_PatientStoriesRail";
 import { Section_TextBlock } from "./Section_TextBlock";
 import { Section_TreatmentClosingCTA } from "./Section_TreatmentClosingCTA";
+import { Section_TreatmentMidCTA } from "./Section_TreatmentMidCTA";
 import { Section_TreatmentMediaFeature } from "./Section_TreatmentMediaFeature";
 import { Section_TreatmentOverviewRich } from "./Section_TreatmentOverviewRich";
 import { Section_TreatmentRoutingCards } from "./Section_TreatmentRoutingCards";
@@ -43,6 +44,7 @@ const typeMap: Record<string, SectionComponent> = {
   routing_cards: (props) => <Section_TreatmentRoutingCards {...props} />,
   clinician_insight: (props) => <Section_ClinicianInsight {...props} />,
   patient_stories_rail: (props) => <Section_PatientStoriesRail {...props} />,
+  treatment_mid_cta: (props) => <Section_TreatmentMidCTA {...props} />,
   treatment_faq_block: (props) => <Section_FAQ {...props} />,
   treatment_closing_cta: (props) => <Section_TreatmentClosingCTA {...props} />,
   reviews: (props) => <Section_GoogleReviews {...props} />,
@@ -54,7 +56,9 @@ function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAC
   if (component) {
     const props = key === "treatment_closing_cta"
       ? { section, ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined, footerCTAs, pageSlug }
-      : { section };
+      : key === "treatment_mid_cta"
+        ? { section, pageSlug }
+        : { section };
     return component(props);
   }
 

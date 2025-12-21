@@ -1,0 +1,83 @@
+# CTA Journey Coverage Audit (v2)
+
+| slug | journey | mid-cta | closing-cta | non-contact-links-count | journey-compliant |
+| --- | --- | --- | --- | --- | --- |
+| dental-checkups-oral-cancer-screening | unmapped | yes | yes | 5 | yes |
+| 3d-dentistry-and-technology | unmapped | yes | yes | 6 | yes |
+| 3d-digital-dentistry | digital_3d_dentistry | yes | yes | 6 | yes |
+| 3d-implant-restorations | unmapped | yes | yes | 6 | yes |
+| 3d-printed-dentures | digital_3d_dentistry | yes | yes | 6 | yes |
+| 3d-printed-veneers | aesthetic_smile | yes | yes | 6 | yes |
+| 3d-printing-lab | unmapped | yes | yes | 6 | yes |
+| acrylic-dentures | unmapped | yes | yes | 5 | yes |
+| anti-wrinkle-treatments | unmapped | yes | yes | 6 | yes |
+| broken-chipped-cracked-teeth | unmapped | yes | yes | 4 | yes |
+| bruxism-and-jaw-clenching | unmapped | yes | yes | 6 | yes |
+| cbct-3d-scanning | unmapped | yes | yes | 6 | yes |
+| childrens-dentistry | prevent_maintain | yes | yes | 8 | yes |
+| chrome-dentures | unmapped | yes | yes | 6 | yes |
+| clear-aligners | orthodontic_stability | yes | yes | 7 | yes |
+| clear-aligners-spark | unmapped | yes | yes | 6 | yes |
+| composite-bonding | aesthetic_smile | yes | yes | 7 | yes |
+| dental-abscess-infection | unmapped | yes | yes | 4 | yes |
+| dental-bridges | functional_restoration | yes | yes | 6 | yes |
+| dental-crowns | functional_restoration | yes | yes | 6 | yes |
+| dental-retainers | unmapped | yes | yes | 6 | yes |
+| dental-trauma-accidents | unmapped | yes | yes | 4 | yes |
+| dentures | functional_restoration | yes | yes | 6 | yes |
+| dermal-fillers | unmapped | yes | yes | 6 | yes |
+| digital-smile-design | aesthetic_smile | yes | yes | 6 | yes |
+| emergency-dental-appointments | unmapped | yes | yes | 4 | yes |
+| emergency-dentistry | emergency_relief | yes | yes | 4 | yes |
+| endodontics-root-canal | emergency_relief | yes | yes | 4 | yes |
+| extractions-and-oral-surgery | emergency_relief | yes | yes | 4 | yes |
+| facial-aesthetics | unmapped | yes | yes | 6 | yes |
+| facial-pain-and-headache | unmapped | yes | yes | 6 | yes |
+| facial-therapeutics | unmapped | yes | yes | 6 | yes |
+| failed-implant-replacement | unmapped | yes | yes | 4 | yes |
+| fixed-braces | orthodontic_stability | yes | no | 4 | yes |
+| full-smile-makeover | unmapped | yes | yes | 4 | yes |
+| home-teeth-whitening | unmapped | yes | yes | 5 | yes |
+| implant-aftercare | advanced_implants | yes | yes | 6 | yes |
+| implant-consultation | advanced_implants | yes | yes | 5 | yes |
+| implant-retained-dentures | advanced_implants | yes | yes | 6 | yes |
+| implants | unmapped | yes | yes | 6 | yes |
+| implants-bone-grafting | unmapped | yes | yes | 6 | yes |
+| implants-full-arch | unmapped | yes | yes | 4 | yes |
+| implants-multiple-teeth | unmapped | yes | yes | 5 | yes |
+| implants-single-tooth | unmapped | yes | yes | 6 | yes |
+| injection-moulded-composite | aesthetic_smile | yes | yes | 5 | yes |
+| inlays-onlays | functional_restoration | yes | yes | 6 | yes |
+| knocked-out-tooth | unmapped | yes | yes | 4 | yes |
+| lost-crowns-veneers-fillings | unmapped | yes | yes | 4 | yes |
+| mouthguards-and-retainers | unmapped | yes | yes | 6 | yes |
+| nervous-patients | unmapped | yes | yes | 6 | yes |
+| night-guards-occlusal-splints | orthodontic_stability | yes | yes | 6 | yes |
+| orthodontics | unmapped | yes | yes | 6 | yes |
+| painless-numbing-the-wand | unmapped | yes | yes | 6 | yes |
+| peek-partial-dentures | unmapped | yes | yes | 6 | yes |
+| periodontal-gum-care | unmapped | yes | yes | 4 | yes |
+| polynucleotides | unmapped | yes | yes | 6 | yes |
+| preventative-and-general-dentistry | unmapped | yes | yes | 5 | yes |
+| sedation-dentistry | unmapped | yes | yes | 6 | yes |
+| sedation-for-implants | unmapped | yes | yes | 4 | yes |
+| senior-mature-smile-care | prevent_maintain | yes | yes | 6 | yes |
+| severe-toothache-dental-pain | unmapped | yes | yes | 4 | yes |
+| sinus-lift | unmapped | yes | yes | 5 | yes |
+| skin-boosters | unmapped | yes | yes | 6 | yes |
+| sports-mouthguards | unmapped | yes | yes | 6 | yes |
+| teeth-in-a-day | unmapped | yes | yes | 5 | yes |
+| teeth-whitening | aesthetic_smile | yes | yes | 5 | yes |
+| teeth-whitening-faqs | unmapped | yes | yes | 5 | yes |
+| therapeutic-facial-injectables | unmapped | yes | yes | 6 | yes |
+| tmj-disorder-treatment | unmapped | yes | yes | 6 | yes |
+| tmj-jaw-comfort | unmapped | yes | yes | 5 | yes |
+| tooth-wear-broken-teeth | functional_restoration | yes | yes | 10 | yes |
+| veneers | aesthetic_smile | yes | yes | 6 | yes |
+| whitening-sensitive-teeth | unmapped | yes | yes | 5 | yes |
+| whitening-top-ups | unmapped | yes | yes | 5 | yes |
+
+## Summary
+- % pages with no CTAs: 0.0% (0/74)
+- % pages with only closing CTA: 0.0% (0/74)
+- % pages with journey-complete CTA coverage: 100.0% (74/74)

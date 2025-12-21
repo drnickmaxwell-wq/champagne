@@ -14,6 +14,7 @@ export interface SectionRegistryEntry {
     | "treatment_tools_trio"
     | "clinician_insight"
     | "patient_stories_rail"
+    | "treatment_mid_cta"
     | "treatment_faq_block"
     | "treatment_closing_cta"
     | "reviews";
@@ -53,6 +54,7 @@ const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
   treatment_tools_trio: "treatment_tools_trio",
   clinician_insight: "clinician_insight",
   patient_stories_rail: "patient_stories_rail",
+  treatment_mid_cta: "treatment_mid_cta",
   treatment_faq_block: "treatment_faq_block",
   faq: "treatment_faq_block",
   treatment_closing_cta: "treatment_closing_cta",
