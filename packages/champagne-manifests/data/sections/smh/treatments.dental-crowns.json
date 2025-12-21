@@ -20,8 +20,16 @@
         "Comfort measures for anxious or sensitive patients"
       ],
       "ctas": [
-        { "label": "Book a crowns assessment", "href": "/contact", "preset": "primary" },
-        { "label": "Discuss restorative options", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book a crowns assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Discuss restorative options",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -170,9 +178,67 @@
       "title": "Plan a restorative consultation",
       "body": "Book a calm review to understand whether a crown, onlay, or repair is right for your tooth. We will map the digital plan, materials, and maintenance you can expect.",
       "ctas": [
-        { "label": "Book a crowns consultation", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about crown options", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book a crowns consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about crown options",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a crown restoration",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider inlays or onlays",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Understand post-root-canal care",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  }
 }

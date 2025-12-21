@@ -147,9 +147,67 @@
       "title": "Ready to replace a missing tooth securely?",
       "strapline": "Book a single-tooth implant consultation in Shoreham-by-Sea or ask how the process works.",
       "ctas": [
-        { "label": "Book a single-implant consult", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about single implants", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book a single-implant consult",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about single implants",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "CBCT 3D scanning",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      },
+      {
+        "label": "Hygiene and aftercare",
+        "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Retained denture options",
+        "href": "/treatments/implants-retained-dentures"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Bone grafting",
+        "href": "/treatments/implants-bone-grafting"
+      },
+      {
+        "label": "Sedation support",
+        "href": "/treatments/implants-sedation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan implant placement",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Confirm digital planning",
+      "href": "/treatments/cbct-3d-scanning"
+    },
+    "reassurance_intent": {
+      "label": "Review aftercare steps",
+      "href": "/treatments/implants-aftercare"
+    }
+  }
 }

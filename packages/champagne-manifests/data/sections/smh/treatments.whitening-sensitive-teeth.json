@@ -20,8 +20,16 @@
         "Pacing and breaks built in to reduce flare-ups"
       ],
       "ctas": [
-        { "label": "Discuss sensitivity", "href": "/contact", "preset": "primary" },
-        { "label": "See whitening approach", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Discuss sensitivity",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "See whitening approach",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -88,8 +96,16 @@
       "title": "Plan whitening that respects sensitivity",
       "strapline": "Book a review so we can tailor gel strength, pacing, and aftercare to your comfort.",
       "ctas": [
-        { "label": "Book a sensitivity review", "href": "/contact", "preset": "primary" },
-        { "label": "Explore home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Book a sensitivity review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Explore home whitening",
+          "href": "/treatments/home-teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -109,5 +125,51 @@
         "Full Smile Makeover planning when multiple treatments combine (/treatments/full-smile-makeover)"
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Whitening treatment",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Routine dental care",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Whitening top-ups",
+        "href": "/treatments/whitening-top-ups"
+      },
+      {
+        "label": "Gum and tooth health review",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Whitening FAQs",
+        "href": "/treatments/teeth-whitening-faqs"
+      },
+      {
+        "label": "Home whitening guidance",
+        "href": "/treatments/home-teeth-whitening"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Discuss whitening sensitivity",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Arrange a gum health check",
+      "href": "/treatments/periodontal-gum-care"
+    },
+    "reassurance_intent": {
+      "label": "Review whitening advice",
+      "href": "/treatments/teeth-whitening-faqs"
+    }
+  }
 }

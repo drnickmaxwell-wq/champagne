@@ -107,7 +107,7 @@
         "Written aftercare covering hygiene, posture, and how to monitor muscle response",
         "What to avoid after injections or when wearing guards, including strenuous exercise and pressure on treated sites",
         "Risks discussed plainly: bruising, transient weakness, asymmetry, infection, or vascular events with clear action steps",
-        "When to contact us urgently—for escalating pain, swelling, vision changes, or sudden jaw locking"
+        "When to contact us urgently\u2014for escalating pain, swelling, vision changes, or sudden jaw locking"
       ]
     },
     {
@@ -166,9 +166,67 @@
       "title": "Book a clinical facial therapeutics consultation",
       "strapline": "Discuss jaw tension, facial pain, or therapeutic injectables with a prescriber who prioritises safety and conservative care first.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Ask a question", "href": "/contact?topic=facial-therapeutics", "variant": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask a question",
+          "href": "/contact?topic=facial-therapeutics",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Facial aesthetics consultation",
+        "href": "/treatments/facial-aesthetics"
+      },
+      {
+        "label": "Facial pain assessment",
+        "href": "/treatments/facial-pain-and-headache"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Therapeutic injectables",
+        "href": "/treatments/therapeutic-facial-injectables"
+      },
+      {
+        "label": "Skin boosters",
+        "href": "/treatments/skin-boosters"
+      },
+      {
+        "label": "Polynucleotide therapy",
+        "href": "/treatments/polynucleotides"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Anti-wrinkle treatments",
+        "href": "/treatments/anti-wrinkle-treatments"
+      },
+      {
+        "label": "Dermal fillers",
+        "href": "/treatments/dermal-fillers"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a facial therapeutics review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan therapeutic injectables",
+      "href": "/treatments/therapeutic-facial-injectables"
+    },
+    "reassurance_intent": {
+      "label": "Discuss supportive skin care",
+      "href": "/treatments/skin-boosters"
+    }
+  }
 }

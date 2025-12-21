@@ -20,8 +20,16 @@
         "Steps to keep results stable"
       ],
       "ctas": [
-        { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
-        { "label": "See home whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Book a whitening consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "See home whitening",
+          "href": "/treatments/home-teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -47,11 +55,11 @@
         },
         {
           "question": "How long does whitening last?",
-          "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
+          "answer": "Results are maintained with good hygiene and occasional top-ups. We\u2019ll guide you on a safe refresh schedule using your existing trays."
         },
         {
           "question": "Is whitening part of a smile makeover?",
-          "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
+          "answer": "Often yes. Whitening is the \u201cB\u201d in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
         }
       ]
     },
@@ -64,8 +72,16 @@
       "title": "Plan whitening with a dentist",
       "strapline": "Ask your questions in person and receive a tailored whitening plan.",
       "ctas": [
-        { "label": "Book a consultation", "href": "/contact", "preset": "primary" },
-        { "label": "Learn about maintenance", "href": "/treatments/whitening-top-ups", "preset": "secondary" }
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Learn about maintenance",
+          "href": "/treatments/whitening-top-ups",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -85,5 +101,51 @@
         "Full Smile Makeover pathways when multiple treatments combine (/treatments/full-smile-makeover)"
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Whitening planning",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Home whitening",
+        "href": "/treatments/home-teeth-whitening"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Book whitening",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Top-up arrangements",
+        "href": "/treatments/whitening-top-ups"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Managing sensitivity",
+        "href": "/treatments/whitening-sensitive-teeth"
+      },
+      {
+        "label": "Routine dental care",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Ask a whitening question",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan a whitening visit",
+      "href": "/treatments/teeth-whitening"
+    },
+    "reassurance_intent": {
+      "label": "Review home whitening steps",
+      "href": "/treatments/home-teeth-whitening"
+    }
+  }
 }

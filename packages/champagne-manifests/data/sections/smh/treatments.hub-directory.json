@@ -112,5 +112,51 @@
       "collapsedByDefault": true,
       "viewAllLabel": "View all treatments in this group"
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant treatments",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Orthodontic care",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Facial aesthetics",
+        "href": "/treatments/facial-aesthetics"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Nervous patient support",
+        "href": "/treatments/nervous-patients"
+      },
+      {
+        "label": "Senior smile care",
+        "href": "/treatments/senior-mature-smile-care"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Find the right treatment",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Book a general consultation",
+      "href": "/treatments/preventative-and-general-dentistry"
+    },
+    "reassurance_intent": {
+      "label": "Ask about anxiety support",
+      "href": "/treatments/nervous-patients"
+    }
+  }
 }

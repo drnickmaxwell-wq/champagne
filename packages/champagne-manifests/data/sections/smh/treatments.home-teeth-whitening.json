@@ -20,8 +20,16 @@
         "Check-ins to balance results and comfort"
       ],
       "ctas": [
-        { "label": "Arrange a tray scan", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about whitening timing", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Arrange a tray scan",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about whitening timing",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -102,7 +110,7 @@
       "faqs": [
         {
           "question": "How long will I wear the trays each day?",
-          "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
+          "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We\u2019ll agree the exact cadence with you."
         },
         {
           "question": "What if my teeth feel sensitive?",
@@ -123,8 +131,16 @@
       "title": "Set up your home whitening plan",
       "strapline": "Book a dentist-led whitening assessment and tray fit.",
       "ctas": [
-        { "label": "Book a whitening consult", "href": "/contact", "preset": "primary" },
-        { "label": "Plan for future cosmetic work", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Book a whitening consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Plan for future cosmetic work",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -144,5 +160,55 @@
         "Full Smile Makeover options for more complex aims (/treatments/full-smile-makeover)"
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine dental check",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "In-practice whitening discussions",
+        "href": "/treatments/teeth-whitening"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Whitening top-ups",
+        "href": "/treatments/whitening-top-ups"
+      },
+      {
+        "label": "Sensitivity management",
+        "href": "/treatments/whitening-sensitive-teeth"
+      },
+      {
+        "label": "Smile design",
+        "href": "/treatments/digital-smile-design"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Whitening FAQs",
+        "href": "/treatments/teeth-whitening-faqs"
+      },
+      {
+        "label": "Post-aligner finishing",
+        "href": "/treatments/aligners"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Order home whitening trays",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Arrange in-surgery whitening",
+      "href": "/treatments/teeth-whitening"
+    },
+    "reassurance_intent": {
+      "label": "Read sensitivity advice",
+      "href": "/treatments/whitening-sensitive-teeth"
+    }
+  }
 }

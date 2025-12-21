@@ -19,8 +19,16 @@
         "Referral pathways if imaging or specialist input is needed"
       ],
       "ctas": [
-        { "label": "Book a TMJ assessment", "href": "/contact?topic=tmj", "preset": "primary" },
-        { "label": "Ask about mouth guards", "href": "/contact?topic=mouth-guards", "preset": "secondary" }
+        {
+          "label": "Book a TMJ assessment",
+          "href": "/contact?topic=tmj",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about mouth guards",
+          "href": "/contact?topic=mouth-guards",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -47,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What happens in clinic",
       "title": "We listen, examine, and plan",
-      "body": "Your clinician will explore your symptoms—morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
+      "body": "Your clinician will explore your symptoms\u2014morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
       "bullets": [
         "Medical and dental history, including stress or sleep impacts",
         "Examination of jaw range, clicks, tenderness, and tooth wear",
@@ -104,7 +112,7 @@
         "Use custom guards as directed; bring them to reviews for adjustments",
         "Maintain regular dental checks to monitor wear and bite",
         "Seek emergency support if you experience jaw locking or sudden swelling",
-        "We’ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
+        "We\u2019ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
       ]
     },
     {
@@ -130,7 +138,7 @@
         },
         {
           "question": "When should I seek urgent help?",
-          "answer": "If your jaw locks, you can’t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
+          "answer": "If your jaw locks, you can\u2019t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
         },
         {
           "question": "How long until I feel improvement?",
@@ -146,11 +154,69 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Plan your TMJ care with a calm consult",
-      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We’ll coordinate with other care like mouth guards, implants, or orthodontics.",
+      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We\u2019ll coordinate with other care like mouth guards, implants, or orthodontics.",
       "ctas": [
-        { "label": "Book a TMJ assessment", "href": "/contact?topic=tmj", "preset": "primary" },
-        { "label": "Ask about mouth guards", "href": "/contact?topic=mouth-guards", "preset": "secondary" }
+        {
+          "label": "Book a TMJ assessment",
+          "href": "/contact?topic=tmj",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about mouth guards",
+          "href": "/contact?topic=mouth-guards",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine exams",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Grinding assessments",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Occlusal splints",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "TMJ disorder treatment",
+        "href": "/treatments/tmj-disorder-treatment"
+      },
+      {
+        "label": "Orthodontic bite correction",
+        "href": "/treatments/orthodontics"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Facial pain management",
+        "href": "/treatments/facial-pain-and-headache"
+      },
+      {
+        "label": "Nervous patient pathway",
+        "href": "/treatments/nervous-patients"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a jaw comfort review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore TMJ therapy",
+      "href": "/treatments/tmj-disorder-treatment"
+    },
+    "reassurance_intent": {
+      "label": "Understand splint options",
+      "href": "/treatments/night-guards-occlusal-splints"
+    }
+  }
 }

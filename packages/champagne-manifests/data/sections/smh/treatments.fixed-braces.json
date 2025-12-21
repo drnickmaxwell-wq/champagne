@@ -20,8 +20,16 @@
         "Realistic timelines before treatment starts"
       ],
       "ctas": [
-        { "label": "Book fixed braces consult", "href": "/contact", "preset": "primary" },
-        { "label": "Ask a braces question", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book fixed braces consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask a braces question",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -117,7 +125,7 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Scheduled reviews with clear actions if teeth don’t track",
+      "title": "Scheduled reviews with clear actions if teeth don\u2019t track",
       "items": [
         "Review intervals mapped at the outset so you know when to attend",
         "Wire changes, elastics, and ligatures adjusted to how your teeth respond",
@@ -235,8 +243,16 @@
       "title": "Book an Orthodontic Assessment",
       "body": "Meet the team, review metal versus ceramic options, and leave with a clear plan for movement, monitoring, and retention before you commit.",
       "ctas": [
-        { "label": "Book an Orthodontic Assessment", "href": "/contact", "preset": "primary" },
-        { "label": "Ask a braces question", "href": "/contact", "preset": "secondary" }
+        {
+          "label": "Book an Orthodontic Assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask a braces question",
+          "href": "/contact",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -256,5 +272,63 @@
         "Full Smile Makeover planning for combined goals (/treatments/full-smile-makeover)"
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Children's dental reviews",
+        "href": "/treatments/childrens-dentistry"
+      },
+      {
+        "label": "Smile design consult",
+        "href": "/treatments/digital-smile-design"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Retainer fitting",
+        "href": "/treatments/dental-retainers"
+      },
+      {
+        "label": "Mouthguards during treatment",
+        "href": "/treatments/mouthguards-and-retainers"
+      },
+      {
+        "label": "Post-straightening whitening",
+        "href": "/treatments/teeth-whitening"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Alternatives with aligners",
+        "href": "/treatments/aligners"
+      },
+      {
+        "label": "Sports mouthguard advice",
+        "href": "/treatments/sports-mouthguards"
+      },
+      {
+        "label": "Support for nervous patients",
+        "href": "/treatments/nervous-patients"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange an orthodontic consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Review aligner options",
+      "href": "/treatments/aligners"
+    },
+    "reassurance_intent": {
+      "label": "Understand retainer care",
+      "href": "/treatments/dental-retainers"
+    }
+  }
 }

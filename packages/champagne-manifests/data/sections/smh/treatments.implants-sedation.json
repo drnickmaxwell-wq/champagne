@@ -20,8 +20,16 @@
         "Clear options discussed in advance"
       ],
       "ctas": [
-        { "label": "Book a calm implant consultation", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about sedation options", "href": "/contact?topic=sedation", "variant": "secondary" }
+        {
+          "label": "Book a calm implant consultation",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about sedation options",
+          "href": "/contact?topic=sedation",
+          "variant": "secondary"
+        }
       ]
     },
     {
@@ -63,7 +71,7 @@
         "Patients worried about longer procedures",
         "Individuals with strong gag reflexes",
         "Anyone who wants a calmer experience",
-        "Sedation isn’t suitable for everyone — we assess carefully and discuss alternatives"
+        "Sedation isn\u2019t suitable for everyone \u2014 we assess carefully and discuss alternatives"
       ]
     },
     {
@@ -134,15 +142,15 @@
         },
         {
           "question": "Can I drive home afterwards?",
-          "answer": "Sedation usually means you’ll need an escort and time to rest; driving yourself home is not advised."
+          "answer": "Sedation usually means you\u2019ll need an escort and time to rest; driving yourself home is not advised."
         },
         {
           "question": "Is sedation available for all implant treatments?",
           "answer": "We discuss whether sedation is appropriate for your specific plan. Some cases may be better managed with alternative calming options."
         },
         {
-          "question": "What if I’m still nervous?",
-          "answer": "It’s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
+          "question": "What if I\u2019m still nervous?",
+          "answer": "It\u2019s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
         },
         {
           "question": "Does sedation cost extra?",
@@ -157,12 +165,70 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Nervous about implants? You’re not alone.",
+      "title": "Nervous about implants? You\u2019re not alone.",
       "strapline": "Book a calm implant consultation in Shoreham-by-Sea and talk through sedation options at your own pace.",
       "ctas": [
-        { "label": "Book a calm implant consult", "href": "/contact", "variant": "primary" },
-        { "label": "Learn about implants", "href": "/treatments/implants", "variant": "secondary" }
+        {
+          "label": "Book a calm implant consult",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Learn about implants",
+          "href": "/treatments/implants",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Sedation dentistry",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Nervous patient care",
+        "href": "/treatments/nervous-patients"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Single tooth implants",
+        "href": "/treatments/implants-single-tooth"
+      },
+      {
+        "label": "Full arch solutions",
+        "href": "/treatments/implants-full-arch"
+      },
+      {
+        "label": "Aftercare planning",
+        "href": "/treatments/implants-aftercare"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Comfort-first numbing",
+        "href": "/treatments/painless-numbing-the-wand"
+      },
+      {
+        "label": "CBCT planning",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Talk about implant sedation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan implant placement",
+      "href": "/treatments/implants"
+    },
+    "reassurance_intent": {
+      "label": "Understand recovery and aftercare",
+      "href": "/treatments/implants-aftercare"
+    }
+  }
 }

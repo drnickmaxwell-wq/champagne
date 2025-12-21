@@ -20,8 +20,16 @@
         "Straightforward advice on adhesives and stabilisation"
       ],
       "ctas": [
-        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
-        { "label": "Explore acrylic dentures", "href": "/treatments/acrylic-dentures", "preset": "secondary" }
+        {
+          "label": "Book a denture consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Explore acrylic dentures",
+          "href": "/treatments/acrylic-dentures",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -48,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Options explained",
       "title": "Clear choices for removable tooth replacement",
-      "body": "We help you weigh acrylic dentures for flexibility and cost-effectiveness, chrome frameworks for slimmer partials, and PEEK partial dentures for lightweight, metal-free support. You’ll hear where each option shines and where limits exist so you can choose confidently.",
+      "body": "We help you weigh acrylic dentures for flexibility and cost-effectiveness, chrome frameworks for slimmer partials, and PEEK partial dentures for lightweight, metal-free support. You\u2019ll hear where each option shines and where limits exist so you can choose confidently.",
       "bullets": [
         "Full acrylic dentures and partials with staged try-ins",
         "Chrome cobalt partials designed for thinner, stronger bases",
@@ -88,7 +96,7 @@
         "Final fit with occlusion and pressure checks",
         "Follow-up to review adhesives, relines, and longer-term stability"
       ],
-      "strapline": "You’ll know timelines, review points, and costs before we begin."
+      "strapline": "You\u2019ll know timelines, review points, and costs before we begin."
     },
     {
       "instanceId": "dentures-technology",
@@ -135,7 +143,7 @@
         },
         {
           "question": "When do you suggest chrome or PEEK instead of acrylic?",
-          "answer": "If you have enough healthy teeth for support, chrome or PEEK partials can feel slimmer and more stable. We’ll explain when acrylic is still the better match."
+          "answer": "If you have enough healthy teeth for support, chrome or PEEK partials can feel slimmer and more stable. We\u2019ll explain when acrylic is still the better match."
         },
         {
           "question": "Do I have to use adhesive?",
@@ -143,7 +151,7 @@
         },
         {
           "question": "What if I want more stability?",
-          "answer": "We can explore selective implant support once you’ve experienced how the denture fits. Any recommendation is paced around comfort, healing, and your goals."
+          "answer": "We can explore selective implant support once you\u2019ve experienced how the denture fits. Any recommendation is paced around comfort, healing, and your goals."
         }
       ]
     },
@@ -157,9 +165,67 @@
       "title": "Plan a denture that feels secure",
       "body": "Book a calm consultation to compare acrylic, chrome, and PEEK options. If you later want added stability, we can talk through implant-retained choices at your pace.",
       "ctas": [
-        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
-        { "label": "Implant-retained dentures", "href": "/treatments/implant-retained-dentures", "preset": "secondary" }
+        {
+          "label": "Book a denture consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Extractions and oral surgery",
+        "href": "/treatments/extractions-and-oral-surgery"
+      },
+      {
+        "label": "Gum health management",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant-retained dentures",
+        "href": "/treatments/implants-retained-dentures"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Senior smile care",
+        "href": "/treatments/senior-mature-smile-care"
+      },
+      {
+        "label": "Comfort sedation",
+        "href": "/treatments/sedation-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a denture consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore implant-retained options",
+      "href": "/treatments/implants-retained-dentures"
+    },
+    "reassurance_intent": {
+      "label": "Plan hygiene reviews",
+      "href": "/treatments/preventative-and-general-dentistry"
+    }
+  }
 }

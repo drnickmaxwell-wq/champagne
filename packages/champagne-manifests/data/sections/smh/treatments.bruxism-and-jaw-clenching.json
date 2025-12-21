@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Jaw clenching & bruxism",
       "title": "Relief for clenching, grinding, and jaw fatigue",
-      "body": "We investigate what is driving your bruxism—stress, bite imbalance, or airway concerns—and plan conservative measures first. Guards and therapeutic options are considered when clinically justified.",
+      "body": "We investigate what is driving your bruxism\u2014stress, bite imbalance, or airway concerns\u2014and plan conservative measures first. Guards and therapeutic options are considered when clinically justified.",
       "bullets": [
         "Detailed assessment of wear patterns, muscle tenderness, and bite alignment",
         "Custom night or day guards when indicated to protect teeth and joints",
@@ -157,9 +157,67 @@
       "title": "Book a bruxism assessment",
       "body": "Discuss clenching, tooth wear, and jaw tension with a clinician who prioritises conservative care and safety.",
       "ctas": [
-        { "label": "Book an assessment", "href": "/contact?topic=bruxism", "preset": "primary" },
-        { "label": "Ask about guards", "href": "/contact?topic=mouth-guards", "preset": "secondary" }
+        {
+          "label": "Book an assessment",
+          "href": "/contact?topic=bruxism",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about guards",
+          "href": "/contact?topic=mouth-guards",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine examinations",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Gum and bite assessments",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Night guards and splints",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "TMJ treatment pathways",
+        "href": "/treatments/tmj-disorder-treatment"
+      },
+      {
+        "label": "Repairing tooth wear",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Facial pain support",
+        "href": "/treatments/facial-pain-and-headache"
+      },
+      {
+        "label": "Bite comfort guidance",
+        "href": "/treatments/tmj-jaw-comfort"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a clenching and grinding review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore TMJ treatment",
+      "href": "/treatments/tmj-disorder-treatment"
+    },
+    "reassurance_intent": {
+      "label": "Learn about night guards",
+      "href": "/treatments/night-guards-occlusal-splints"
+    }
+  }
 }

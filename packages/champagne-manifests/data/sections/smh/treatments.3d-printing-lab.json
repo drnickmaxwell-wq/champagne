@@ -20,8 +20,16 @@
         "Option to escalate to lab ceramics when required"
       ],
       "ctas": [
-        { "label": "Book a digital scan consult", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
-        { "label": "Ask about 3D printed options", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a digital scan consult",
+          "href": "/contact?topic=digital-dentistry",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about 3D printed options",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -158,9 +166,67 @@
       "title": "See what our 3D printing lab can make for you",
       "body": "Book a digital consultation to review whether in-house printing, provisional work, or lab ceramics will best support your treatment.",
       "ctas": [
-        { "label": "Book a digital scan", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
-        { "label": "Ask about printing", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a digital scan",
+          "href": "/contact?topic=digital-dentistry",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about printing",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Digital smile design",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "3D dentistry and technology",
+        "href": "/treatments/3d-dentistry-and-technology"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "3D printed dentures",
+        "href": "/treatments/3d-printed-dentures"
+      },
+      {
+        "label": "3D printed veneers",
+        "href": "/treatments/3d-printed-veneers"
+      },
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Digital implant planning",
+        "href": "/treatments/3d-digital-dentistry"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Discuss 3D printing support",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan printed dentures",
+      "href": "/treatments/3d-printed-dentures"
+    },
+    "reassurance_intent": {
+      "label": "Preview smile prototypes",
+      "href": "/treatments/digital-smile-design"
+    }
+  }
 }

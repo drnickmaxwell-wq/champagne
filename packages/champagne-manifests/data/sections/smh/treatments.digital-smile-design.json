@@ -20,8 +20,16 @@
         "Clear next steps for printed or ceramic outcomes"
       ],
       "ctas": [
-        { "label": "Book a digital design consult", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
-        { "label": "Ask about smile previews", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a digital design consult",
+          "href": "/contact?topic=digital-dentistry",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about smile previews",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -89,7 +97,7 @@
         "Treatment roadmap with staged options",
         "Follow-up to finalise material choices"
       ],
-      "strapline": "You’ll know whether printed, composite, or porcelain options best suit your aims before committing."
+      "strapline": "You\u2019ll know whether printed, composite, or porcelain options best suit your aims before committing."
     },
     {
       "instanceId": "dsd-technology",
@@ -111,7 +119,7 @@
       "title": "Planning that respects long-term health",
       "items": [
         "Designs favour conservative tooth changes",
-        "We’ll flag when gum health needs support first",
+        "We\u2019ll flag when gum health needs support first",
         "Advice on maintenance for printed or ceramic routes",
         "Bite checks if we move forward with appliances",
         "Clear escalation plan if goals change"
@@ -128,7 +136,7 @@
       "faqs": [
         {
           "question": "Will this lock me into a treatment?",
-          "answer": "No. It is a planning tool. We’ll outline options from conservative polishing to printed steps or porcelain, with pros and cons for each."
+          "answer": "No. It is a planning tool. We\u2019ll outline options from conservative polishing to printed steps or porcelain, with pros and cons for each."
         },
         {
           "question": "Can I try a physical mock-up?",
@@ -136,15 +144,15 @@
         },
         {
           "question": "Does this work for implants or dentures?",
-          "answer": "It helps visualise implant restorations and denture shapes. We’ll still explain when lab ceramics or metal frameworks are required for durability."
+          "answer": "It helps visualise implant restorations and denture shapes. We\u2019ll still explain when lab ceramics or metal frameworks are required for durability."
         },
         {
           "question": "How accurate is the preview?",
-          "answer": "It is based on your scans and photos. Final outcomes depend on chosen materials and clinical considerations, which we’ll review together."
+          "answer": "It is based on your scans and photos. Final outcomes depend on chosen materials and clinical considerations, which we\u2019ll review together."
         },
         {
           "question": "What happens after the design?",
-          "answer": "You’ll receive a clear roadmap with timings, material recommendations, and fees so you can decide at your own pace."
+          "answer": "You\u2019ll receive a clear roadmap with timings, material recommendations, and fees so you can decide at your own pace."
         }
       ]
     },
@@ -158,9 +166,67 @@
       "title": "Start with a digital smile preview",
       "body": "Book a calm design consultation to see your options before any treatment, with clear guidance on printed and porcelain pathways.",
       "ctas": [
-        { "label": "Book a design session", "href": "/contact?topic=digital-dentistry", "preset": "primary" },
-        { "label": "Ask about mock-ups", "href": "/contact?topic=3d-printing", "preset": "secondary" }
+        {
+          "label": "Book a design session",
+          "href": "/contact?topic=digital-dentistry",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about mock-ups",
+          "href": "/contact?topic=3d-printing",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine dental care",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Bite and wear concerns",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Veneer planning",
+        "href": "/treatments/veneers"
+      },
+      {
+        "label": "Orthodontic alignment",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Crown and bridge design",
+        "href": "/treatments/dental-crowns"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Digital dentistry and scanning",
+        "href": "/treatments/3d-digital-dentistry"
+      },
+      {
+        "label": "Teeth whitening",
+        "href": "/treatments/teeth-whitening"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a smile design consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Review veneer options",
+      "href": "/treatments/veneers"
+    },
+    "reassurance_intent": {
+      "label": "Understand orthodontic staging",
+      "href": "/treatments/orthodontics"
+    }
+  }
 }

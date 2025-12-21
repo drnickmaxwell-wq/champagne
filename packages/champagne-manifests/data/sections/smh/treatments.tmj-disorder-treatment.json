@@ -156,9 +156,67 @@
       "title": "Book a TMJ disorder assessment",
       "body": "Discuss locking, clicking, or jaw pain with a clinician who prioritises reversible care and clear escalation pathways.",
       "ctas": [
-        { "label": "Book TMJ consultation", "href": "/contact?topic=tmj", "preset": "primary" },
-        { "label": "Ask about TMJ care", "href": "/contact?topic=tmj", "preset": "secondary" }
+        {
+          "label": "Book TMJ consultation",
+          "href": "/contact?topic=tmj",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about TMJ care",
+          "href": "/contact?topic=tmj",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Facial pain investigations",
+        "href": "/treatments/facial-pain-and-headache"
+      },
+      {
+        "label": "Grinding and clenching review",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Occlusal splints",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Bite balancing orthodontics",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Restoring worn teeth",
+        "href": "/treatments/veneers"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Jaw comfort strategies",
+        "href": "/treatments/tmj-jaw-comfort"
+      },
+      {
+        "label": "Support for anxious patients",
+        "href": "/treatments/nervous-patients"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a TMJ consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan a splint fitting",
+      "href": "/treatments/night-guards-occlusal-splints"
+    },
+    "reassurance_intent": {
+      "label": "Learn about jaw comfort care",
+      "href": "/treatments/tmj-jaw-comfort"
+    }
+  }
 }

@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Sinus lift for dental implants in Shoreham-by-Sea",
-      "body": "In some upper jaw cases, a sinus lift may be advised to create enough bone support for dental implants — guided by scans and careful planning.",
+      "body": "In some upper jaw cases, a sinus lift may be advised to create enough bone support for dental implants \u2014 guided by scans and careful planning.",
       "bullets": [
         "Scan-led assessment (no guesswork)",
         "Only recommended when needed",
@@ -20,8 +20,16 @@
         "Focus on long-term implant stability"
       ],
       "ctas": [
-        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
-        { "label": "Ask about sinus lift suitability", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book an implant assessment",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask about sinus lift suitability",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     },
     {
@@ -47,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "WHAT IS A SINUS LIFT?",
       "title": "Creating space for stable upper implants",
-      "body": "Explain simply what a sinus lift involves, why it’s sometimes used for upper back teeth, and that many patients do not need one.",
+      "body": "Explain simply what a sinus lift involves, why it\u2019s sometimes used for upper back teeth, and that many patients do not need one.",
       "mediaHint": "CBCT-led sinus lift planning"
     },
     {
@@ -61,7 +69,7 @@
         "Missing upper back teeth for a long time",
         "Reduced bone height beneath the sinus",
         "Cases where additional support is needed for implant stability",
-        "Many implant patients don’t require a sinus lift — scans confirm this"
+        "Many implant patients don\u2019t require a sinus lift \u2014 scans confirm this"
       ]
     },
     {
@@ -162,11 +170,69 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Unsure whether a sinus lift is needed?",
-      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s necessary — and what isn’t — based on scans.",
+      "strapline": "Book an implant assessment in Shoreham-by-Sea and we\u2019ll explain what\u2019s necessary \u2014 and what isn\u2019t \u2014 based on scans.",
       "ctas": [
-        { "label": "Book an implant assessment", "href": "/contact", "variant": "primary" },
-        { "label": "Implant consultation", "href": "/treatments/implant-consultation", "variant": "secondary" }
+        {
+          "label": "Book an implant assessment",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Implant consultation",
+          "href": "/treatments/implant-consultation",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "3D scans",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant placement",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Teeth in a day",
+        "href": "/treatments/implants-teeth-in-a-day"
+      },
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation dentistry",
+        "href": "/treatments/sedation-dentistry"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Discuss grafting and support procedures",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan implant timelines",
+      "href": "/treatments/implants"
+    },
+    "reassurance_intent": {
+      "label": "Review sedation availability",
+      "href": "/treatments/implants-sedation"
+    }
+  }
 }

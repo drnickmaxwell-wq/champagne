@@ -55,5 +55,59 @@
       "seoRole": "cta",
       "slot": "footer"
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine check-ups and hygiene",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Orthodontic overview",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Digital smile planning",
+        "href": "/treatments/digital-smile-design"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Retainer fitting after alignment",
+        "href": "/treatments/dental-retainers"
+      },
+      {
+        "label": "Mouthguards to protect new alignment",
+        "href": "/treatments/mouthguards-and-retainers"
+      },
+      {
+        "label": "Finishing with teeth whitening",
+        "href": "/treatments/teeth-whitening"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Managing jaw comfort",
+        "href": "/treatments/tmj-jaw-comfort"
+      },
+      {
+        "label": "Care for nervous patients",
+        "href": "/treatments/nervous-patients"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book an aligner assessment",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Compare with fixed braces",
+      "href": "/treatments/fixed-braces"
+    },
+    "reassurance_intent": {
+      "label": "See how retainers hold results",
+      "href": "/treatments/dental-retainers"
+    }
+  }
 }

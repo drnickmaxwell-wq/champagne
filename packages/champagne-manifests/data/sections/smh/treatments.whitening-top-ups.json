@@ -20,8 +20,16 @@
         "Monitoring to keep shade within a natural range"
       ],
       "ctas": [
-        { "label": "Book a top-up review", "href": "/contact", "preset": "primary" },
-        { "label": "Ask about maintenance", "href": "/treatments/teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Book a top-up review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about maintenance",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -36,7 +44,7 @@
       "bullets": [
         "Shade comparison against your baseline",
         "Inspection of trays for seal and comfort",
-        "Discussion of how often you’ll realistically top-up",
+        "Discussion of how often you\u2019ll realistically top-up",
         "Guidance if restorations need refreshing instead of whitening",
         "Written instructions for the latest gel strength"
       ]
@@ -74,7 +82,7 @@
         },
         {
           "question": "Can I reuse my old trays?",
-          "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
+          "answer": "Yes, provided the fit is still secure. We\u2019ll check for wear or gaps before supplying gel."
         },
         {
           "question": "Will I need stronger gel each time?",
@@ -91,8 +99,16 @@
       "title": "Schedule a maintenance review",
       "strapline": "Refresh your whitening plan with dentist guidance and the trays you already have.",
       "ctas": [
-        { "label": "Book a top-up", "href": "/contact", "preset": "primary" },
-        { "label": "Plan future whitening", "href": "/treatments/home-teeth-whitening", "preset": "secondary" }
+        {
+          "label": "Book a top-up",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Plan future whitening",
+          "href": "/treatments/home-teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -112,5 +128,51 @@
         "Full Smile Makeover options when combining multiple updates (/treatments/full-smile-makeover)"
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "In-practice whitening",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Home whitening plans",
+        "href": "/treatments/home-teeth-whitening"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine hygiene and reviews",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Managing sensitivity",
+        "href": "/treatments/whitening-sensitive-teeth"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Whitening FAQs",
+        "href": "/treatments/teeth-whitening-faqs"
+      },
+      {
+        "label": "Smile design updates",
+        "href": "/treatments/digital-smile-design"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Request whitening top-ups",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Book a review clean",
+      "href": "/treatments/preventative-and-general-dentistry"
+    },
+    "reassurance_intent": {
+      "label": "Read sensitivity support",
+      "href": "/treatments/whitening-sensitive-teeth"
+    }
+  }
 }

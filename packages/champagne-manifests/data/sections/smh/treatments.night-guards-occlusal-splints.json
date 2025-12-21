@@ -133,9 +133,67 @@
       "title": "Plan a night guard that suits your bite",
       "body": "Book a consultation to review your clenching or grinding and choose between lab-made and 3D printed splints with clear guidance on care and longevity.",
       "ctas": [
-        { "label": "Contact the team", "href": "/contact", "preset": "primary" },
-        { "label": "Bruxism & clenching guidance", "href": "/treatments/bruxism-and-jaw-clenching", "preset": "secondary" }
+        {
+          "label": "Contact the team",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Bruxism & clenching guidance",
+          "href": "/treatments/bruxism-and-jaw-clenching",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Bruxism assessment",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Jaw comfort reviews",
+        "href": "/treatments/tmj-jaw-comfort"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "TMJ specialist care",
+        "href": "/treatments/tmj-disorder-treatment"
+      },
+      {
+        "label": "Restoring worn teeth",
+        "href": "/treatments/inlays-onlays"
+      },
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Relieving facial pain",
+        "href": "/treatments/facial-pain-and-headache"
+      },
+      {
+        "label": "Retainer adjustments",
+        "href": "/treatments/dental-retainers"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book an occlusal splint fitting",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Discuss TMJ therapy",
+      "href": "/treatments/tmj-disorder-treatment"
+    },
+    "reassurance_intent": {
+      "label": "Read about comfort reviews",
+      "href": "/treatments/tmj-jaw-comfort"
+    }
+  }
 }

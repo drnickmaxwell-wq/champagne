@@ -20,8 +20,16 @@
         "Clear guidance on cleaning and daily care"
       ],
       "ctas": [
-        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
-        { "label": "See all denture options", "href": "/treatments/dentures", "preset": "secondary" }
+        {
+          "label": "Book a denture consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "See all denture options",
+          "href": "/treatments/dentures",
+          "preset": "secondary"
+        }
       ]
     },
     {
@@ -128,15 +136,15 @@
       "faqs": [
         {
           "question": "Will metal show when I smile?",
-          "answer": "We design clasp positions and tooth shades to stay discreet. In some cases we can use tooth-coloured clasps; we’ll show you options before fitting."
+          "answer": "We design clasp positions and tooth shades to stay discreet. In some cases we can use tooth-coloured clasps; we\u2019ll show you options before fitting."
         },
         {
           "question": "Are chrome dentures heavy?",
-          "answer": "They are usually lighter and slimmer than acrylic partials because the framework can be thinner. You’ll still need an adjustment period, which we support."
+          "answer": "They are usually lighter and slimmer than acrylic partials because the framework can be thinner. You\u2019ll still need an adjustment period, which we support."
         },
         {
           "question": "Do they damage teeth?",
-          "answer": "Well-designed rests and clasps spread the load. We review supporting teeth carefully and adjust clasps so they’re secure without excessive pressure."
+          "answer": "Well-designed rests and clasps spread the load. We review supporting teeth carefully and adjust clasps so they\u2019re secure without excessive pressure."
         },
         {
           "question": "What if I need more stability later?",
@@ -154,9 +162,67 @@
       "title": "Plan slim, steady chrome dentures",
       "body": "Book a consultation to design a chrome framework that balances strength, discretion, and fit. If you later want added stability, we can discuss implant-retained options gently.",
       "ctas": [
-        { "label": "Book a denture consult", "href": "/contact", "preset": "primary" },
-        { "label": "Implant-retained dentures", "href": "/treatments/implant-retained-dentures", "preset": "secondary" }
+        {
+          "label": "Book a denture consult",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Extractions and oral surgery",
+        "href": "/treatments/extractions-and-oral-surgery"
+      },
+      {
+        "label": "Gum health management",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant-retained dentures",
+        "href": "/treatments/implants-retained-dentures"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Senior smile care",
+        "href": "/treatments/senior-mature-smile-care"
+      },
+      {
+        "label": "Comfort sedation",
+        "href": "/treatments/sedation-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a denture consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore implant-retained options",
+      "href": "/treatments/implants-retained-dentures"
+    },
+    "reassurance_intent": {
+      "label": "Plan hygiene reviews",
+      "href": "/treatments/preventative-and-general-dentistry"
+    }
+  }
 }

@@ -149,7 +149,7 @@
         },
         {
           "question": "What is a 3D-printed surgical guide?",
-          "answer": "It’s a custom template designed from your scan that directs implant angulation, depth, and position. We design and print guides in-house to follow the digital plan precisely."
+          "answer": "It\u2019s a custom template designed from your scan that directs implant angulation, depth, and position. We design and print guides in-house to follow the digital plan precisely."
         },
         {
           "question": "Does guided surgery heal faster?",
@@ -181,7 +181,7 @@
       "seoRole": "supporting",
       "eyebrow": "About the clinician",
       "title": "Nearly 30 years of restorative and implant experience",
-      "body": "Your implant care is led by a clinician who graduated in 1998 (BDS, King’s), holds an MSc in Restorative & Aesthetic Dentistry, and a PGDip in Orthodontics & Facial Orthopaedics. Training includes a year-long implant surgical course plus intensive implant placement training in Cairo (2014), supporting balanced judgement across planning, surgery, and long-term maintenance.",
+      "body": "Your implant care is led by a clinician who graduated in 1998 (BDS, King\u2019s), holds an MSc in Restorative & Aesthetic Dentistry, and a PGDip in Orthodontics & Facial Orthopaedics. Training includes a year-long implant surgical course plus intensive implant placement training in Cairo (2014), supporting balanced judgement across planning, surgery, and long-term maintenance.",
       "bullets": [
         "1998 dental graduate with almost three decades of clinical experience",
         "Focus on restorative harmony so implants blend with surrounding teeth",
@@ -199,9 +199,71 @@
       "title": "Book an Implant Consultation & Planning",
       "strapline": "See how CBCT-led planning, in-house 3D printing, and guided placement can support a predictable result. Explore aftercare (/treatments/implant-aftercare) and digital dentistry (/treatments/3d-digital-dentistry) resources too.",
       "ctas": [
-        { "label": "Book an Implant Consultation & Planning", "href": "/contact", "variant": "primary" },
-        { "label": "Ask a question", "href": "/contact?topic=implants", "variant": "secondary" }
+        {
+          "label": "Book an Implant Consultation & Planning",
+          "href": "/contact",
+          "variant": "primary"
+        },
+        {
+          "label": "Ask a question",
+          "href": "/contact?topic=implants",
+          "variant": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Extraction or failed tooth",
+        "href": "/treatments/extractions-and-oral-surgery"
+      },
+      {
+        "label": "Gum health checks",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Digital planning",
+        "href": "/treatments/3d-digital-dentistry"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "CBCT planning",
+        "href": "/treatments/cbct-3d-scanning"
+      },
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Sedation pathways",
+        "href": "/treatments/implants-sedation"
+      },
+      {
+        "label": "Aftercare and hygiene",
+        "href": "/treatments/implants-aftercare"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange an implant assessment",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Review digital planning",
+      "href": "/treatments/cbct-3d-scanning"
+    },
+    "reassurance_intent": {
+      "label": "Understand aftercare",
+      "href": "/treatments/implants-aftercare"
+    }
+  }
 }

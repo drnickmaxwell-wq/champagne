@@ -114,9 +114,71 @@
       "title": "Book a fitting for your sports mouthguard",
       "body": "Arrange a consultation to capture your bite and organise a lab-made mouthguard tailored to your sport.",
       "ctas": [
-        { "label": "Contact the team", "href": "/contact", "preset": "primary" },
-        { "label": "Night guards for grinding", "href": "/treatments/night-guards-occlusal-splints", "preset": "secondary" }
+        {
+          "label": "Contact the team",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Night guards for grinding",
+          "href": "/treatments/night-guards-occlusal-splints",
+          "preset": "secondary"
+        }
       ]
     }
-  ]
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Children's dentistry",
+        "href": "/treatments/childrens-dentistry"
+      },
+      {
+        "label": "Orthodontic reviews",
+        "href": "/treatments/orthodontics"
+      },
+      {
+        "label": "Fixed braces",
+        "href": "/treatments/fixed-braces"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Combined retainers and guards",
+        "href": "/treatments/mouthguards-and-retainers"
+      },
+      {
+        "label": "Night guards for grinding",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Routine hygiene checks",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Support for jaw comfort",
+        "href": "/treatments/tmj-jaw-comfort"
+      },
+      {
+        "label": "Nervous patient support",
+        "href": "/treatments/nervous-patients"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Arrange a sports mouthguard fitting",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Plan retainer protection",
+      "href": "/treatments/dental-retainers"
+    },
+    "reassurance_intent": {
+      "label": "Read about guard care",
+      "href": "/treatments/mouthguards-and-retainers"
+    }
+  }
 }
