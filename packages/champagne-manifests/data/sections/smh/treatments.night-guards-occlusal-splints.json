@@ -184,11 +184,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book an occlusal splint fitting",
+      "label": "Arrange an occlusal splint fitting",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss TMJ therapy",
+      "label": "Discuss TMJ therapy options",
       "href": "/treatments/tmj-disorder-treatment"
     },
     "reassurance_intent": {

@@ -140,7 +140,7 @@
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan a whitening visit",
+      "label": "Plan a whitening appointment",
       "href": "/treatments/teeth-whitening"
     },
     "reassurance_intent": {

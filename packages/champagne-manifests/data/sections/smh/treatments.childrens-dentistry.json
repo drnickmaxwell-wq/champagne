@@ -225,15 +225,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a children's check-up",
+      "label": "Arrange a children's dental check",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan orthodontic reviews",
+      "label": "Plan orthodontic monitoring",
       "href": "/treatments/orthodontics"
     },
     "reassurance_intent": {
-      "label": "Learn about painless numbing",
+      "label": "Learn about gentle numbing options",
       "href": "/treatments/painless-numbing-the-wand"
     }
   }

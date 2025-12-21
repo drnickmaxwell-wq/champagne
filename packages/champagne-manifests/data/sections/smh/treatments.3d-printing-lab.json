@@ -217,15 +217,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss 3D printing support",
+      "label": "Talk through 3D printing support",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan printed dentures",
+      "label": "Plan printed denture work",
       "href": "/treatments/3d-printed-dentures"
     },
     "reassurance_intent": {
-      "label": "Preview smile prototypes",
+      "label": "Preview printed guides or prototypes",
       "href": "/treatments/digital-smile-design"
     }
   }

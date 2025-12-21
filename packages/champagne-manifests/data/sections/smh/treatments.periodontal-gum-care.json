@@ -208,11 +208,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a gum health review",
+      "label": "Arrange a gum health review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant assessments",
+      "label": "Plan implant assessments if needed",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {

@@ -217,11 +217,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a smile design consultation",
+      "label": "Discuss digital smile design",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review veneer options",
+      "label": "Review veneer planning options",
       "href": "/treatments/veneers"
     },
     "reassurance_intent": {

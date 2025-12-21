@@ -207,15 +207,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a jaw comfort review",
+      "label": "Arrange a jaw comfort review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Explore TMJ therapy",
+      "label": "Explore TMJ therapy options",
       "href": "/treatments/tmj-disorder-treatment"
     },
     "reassurance_intent": {
-      "label": "Understand splint options",
+      "label": "Understand splint choices",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }

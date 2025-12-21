@@ -206,11 +206,11 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a whitening assessment",
+      "label": "Arrange a whitening assessment",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Start home whitening",
+      "label": "Start home whitening with guidance",
       "href": "/treatments/home-teeth-whitening"
     },
     "reassurance_intent": {

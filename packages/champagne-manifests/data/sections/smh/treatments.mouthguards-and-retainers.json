@@ -158,7 +158,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Schedule a retainer review",
+      "label": "Arrange a retainer check-up",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -166,7 +166,7 @@
       "href": "/treatments/night-guards-occlusal-splints"
     },
     "reassurance_intent": {
-      "label": "Check retainer care guidance",
+      "label": "Get guidance on retainer care",
       "href": "/treatments/mouthguards-and-retainers"
     }
   }

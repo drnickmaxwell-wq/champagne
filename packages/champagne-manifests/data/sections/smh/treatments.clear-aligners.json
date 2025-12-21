@@ -255,7 +255,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book an aligner assessment",
+      "label": "Arrange a clear aligner assessment",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -263,7 +263,7 @@
       "href": "/treatments/fixed-braces"
     },
     "reassurance_intent": {
-      "label": "See how retainers hold results",
+      "label": "See how retainers maintain position",
       "href": "/treatments/dental-retainers"
     }
   }

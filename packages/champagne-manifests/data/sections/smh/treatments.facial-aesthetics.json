@@ -186,15 +186,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a facial aesthetics consultation",
+      "label": "Discuss your facial aesthetics plan",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Explore dermal fillers",
+      "label": "Explore dermal filler options",
       "href": "/treatments/dermal-fillers"
     },
     "reassurance_intent": {
-      "label": "Review treatment safety",
+      "label": "Review safety and aftercare",
       "href": "/treatments/therapeutic-facial-injectables"
     }
   }

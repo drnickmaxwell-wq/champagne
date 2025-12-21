@@ -228,15 +228,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Book a root canal assessment",
+      "label": "Arrange a root canal assessment",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan crown protection",
+      "label": "Plan crown protection after treatment",
       "href": "/treatments/dental-crowns"
     },
     "reassurance_intent": {
-      "label": "Discuss comfort options",
+      "label": "Discuss comfort and anaesthesia",
       "href": "/treatments/sedation-dentistry"
     }
   }

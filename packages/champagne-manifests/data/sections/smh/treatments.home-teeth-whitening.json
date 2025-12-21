@@ -199,7 +199,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Order home whitening trays",
+      "label": "Request home whitening trays",
       "href": "/contact"
     },
     "secondary_intent": {
@@ -207,7 +207,7 @@
       "href": "/treatments/teeth-whitening"
     },
     "reassurance_intent": {
-      "label": "Read sensitivity advice",
+      "label": "Read sensitivity guidance",
       "href": "/treatments/whitening-sensitive-teeth"
     }
   }

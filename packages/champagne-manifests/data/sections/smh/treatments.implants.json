@@ -258,11 +258,11 @@
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review digital planning",
+      "label": "Review digital planning options",
       "href": "/treatments/cbct-3d-scanning"
     },
     "reassurance_intent": {
-      "label": "Understand aftercare",
+      "label": "Understand implant aftercare",
       "href": "/treatments/implants-aftercare"
     }
   }
