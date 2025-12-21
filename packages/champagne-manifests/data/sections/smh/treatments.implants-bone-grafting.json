@@ -72,7 +72,7 @@
         "Previous gum issues that left thinner bone in the area",
         "Upper back teeth where the sinus floor sits low",
         "Patients choosing implants instead of removable dentures",
-        "Not everyone needs grafting \u2014 we confirm with scans and planning"
+        "Not everyone needs grafting — we confirm with scans and planning"
       ]
     },
     {
@@ -121,6 +121,12 @@
       ]
     },
     {
+      "instanceId": "implants-bone-grafting-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "bone-grafting-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_implant_bone_grafting_faq",
@@ -167,7 +173,7 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Ready to plan implants with confidence?",
-      "strapline": "Book an assessment in Shoreham-by-Sea and we\u2019ll map the safest route \u2014 including whether grafting is needed.",
+      "strapline": "Book an assessment in Shoreham-by-Sea and we’ll map the safest route — including whether grafting is needed.",
       "ctas": [
         {
           "label": "Book an implant assessment",

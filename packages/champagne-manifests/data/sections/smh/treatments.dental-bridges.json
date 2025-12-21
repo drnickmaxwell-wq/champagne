@@ -126,6 +126,12 @@
       ]
     },
     {
+      "instanceId": "dental-bridges-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "dental-bridges-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_dental_bridges_faq",
@@ -152,7 +158,7 @@
         },
         {
           "question": "Do the supporting teeth need crowns?",
-          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge\u2019s long-term stability."
+          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge’s long-term stability."
         }
       ]
     },

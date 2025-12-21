@@ -82,6 +82,12 @@
       ]
     },
     {
+      "instanceId": "sports-mouthguards-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 59,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "sports-mouthguards-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_sports_mouthguards_faq",

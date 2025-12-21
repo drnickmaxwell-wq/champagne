@@ -97,7 +97,7 @@
         "Guidance on cleaning and using adhesive sparingly",
         "Follow-up for relines or further adjustments"
       ],
-      "strapline": "You\u2019ll know expected timelines, review points, and fees upfront."
+      "strapline": "You’ll know expected timelines, review points, and fees upfront."
     },
     {
       "instanceId": "acrylic-dentures-technology",
@@ -124,6 +124,12 @@
         "Advice on avoiding warping or fractures",
         "Realistic chat about movement on lower dentures"
       ]
+    },
+    {
+      "instanceId": "acrylic-dentures-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "acrylic-dentures-faq",

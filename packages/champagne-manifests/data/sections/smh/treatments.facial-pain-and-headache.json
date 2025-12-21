@@ -117,6 +117,12 @@
       ]
     },
     {
+      "instanceId": "facial-pain-and-headache-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "facial-pain-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_facial_pain_faq",

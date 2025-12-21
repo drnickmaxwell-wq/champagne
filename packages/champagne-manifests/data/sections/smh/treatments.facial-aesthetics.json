@@ -30,7 +30,7 @@
       "items": [
         "Full medical history, medicines, and skin review before prescribing",
         "Only regulated products with aseptic technique and complication protocols",
-        "Clear discussion of limitations\u2014no guarantees of cosmetic outcomes",
+        "Clear discussion of limitations—no guarantees of cosmetic outcomes",
         "Review and cooling-off encouraged; you can pause at any point"
       ]
     },
@@ -42,7 +42,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Choose your pathway",
       "title": "Understand each treatment option",
-      "body": "We compare the available facial aesthetic treatments, explain when each is appropriate, and outline when to avoid treatment. If a clinical review suggests a different route\u2014such as skincare or no intervention\u2014we explain why.",
+      "body": "We compare the available facial aesthetic treatments, explain when each is appropriate, and outline when to avoid treatment. If a clinical review suggests a different route—such as skincare or no intervention—we explain why.",
       "bullets": [
         "Prescription anti-wrinkle treatments for specific expression lines (/treatments/anti-wrinkle-treatments)",
         "Dermal fillers for conservative contour or support when clinically appropriate (/treatments/dermal-fillers)",
@@ -81,7 +81,7 @@
         "Aftercare and review to monitor comfort, symmetry, and safety",
         "Pause, adjust, or stop if preferences or suitability change"
       ],
-      "strapline": "There is no obligation to continue\u2014treatment only proceeds when safe and clinically justified."
+      "strapline": "There is no obligation to continue—treatment only proceeds when safe and clinically justified."
     },
     {
       "instanceId": "facial-aesthetics-routes",
@@ -97,6 +97,12 @@
         "Skin boosters for hydration and skin quality support (/treatments/skin-boosters)",
         "Polynucleotides to encourage skin conditioning where suitable (/treatments/polynucleotides)"
       ]
+    },
+    {
+      "instanceId": "facial-aesthetics-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 69,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "facial-aesthetics-faq",
@@ -116,7 +122,7 @@
           "answer": "Only when clinically appropriate and sequenced safely. We explain how treatments interact, what maintenance looks like, and when to stage or avoid combinations."
         },
         {
-          "question": "What if I\u2019m not suitable?",
+          "question": "What if I’m not suitable?",
           "answer": "We will explain why and may recommend skincare, dental care, or no treatment. There is no pressure to proceed."
         },
         {

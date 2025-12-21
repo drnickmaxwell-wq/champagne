@@ -125,7 +125,7 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Scheduled reviews with clear actions if teeth don\u2019t track",
+      "title": "Scheduled reviews with clear actions if teeth don’t track",
       "items": [
         "Review intervals mapped at the outset so you know when to attend",
         "Wire changes, elastics, and ligatures adjusted to how your teeth respond",
@@ -177,6 +177,12 @@
         "What to do if a retainer cracks or is lost so you avoid relapse",
         "Retention reviews to spot early shifts before they need retreatment"
       ]
+    },
+    {
+      "instanceId": "fixed-braces-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "fixed-braces-faq",

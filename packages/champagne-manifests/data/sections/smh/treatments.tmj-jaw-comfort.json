@@ -55,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What happens in clinic",
       "title": "We listen, examine, and plan",
-      "body": "Your clinician will explore your symptoms\u2014morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
+      "body": "Your clinician will explore your symptoms—morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
       "bullets": [
         "Medical and dental history, including stress or sleep impacts",
         "Examination of jaw range, clicks, tenderness, and tooth wear",
@@ -112,8 +112,14 @@
         "Use custom guards as directed; bring them to reviews for adjustments",
         "Maintain regular dental checks to monitor wear and bite",
         "Seek emergency support if you experience jaw locking or sudden swelling",
-        "We\u2019ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
+        "We’ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
       ]
+    },
+    {
+      "instanceId": "tmj-jaw-comfort-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 69,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "tmj-jaw-faq",
@@ -138,7 +144,7 @@
         },
         {
           "question": "When should I seek urgent help?",
-          "answer": "If your jaw locks, you can\u2019t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
+          "answer": "If your jaw locks, you can’t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
         },
         {
           "question": "How long until I feel improvement?",
@@ -154,7 +160,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Plan your TMJ care with a calm consult",
-      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We\u2019ll coordinate with other care like mouth guards, implants, or orthodontics.",
+      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We’ll coordinate with other care like mouth guards, implants, or orthodontics.",
       "ctas": [
         {
           "label": "Book a TMJ assessment",

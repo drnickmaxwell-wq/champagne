@@ -82,6 +82,12 @@
       ]
     },
     {
+      "instanceId": "dental-retainers-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 59,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "retainers-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_retainers_faq",

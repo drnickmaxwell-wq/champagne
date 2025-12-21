@@ -106,14 +106,20 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Aftercare",
-      "title": "What to expect once you\u2019re numb",
+      "title": "What to expect once you’re numb",
       "items": [
-        "Temporary numbness is normal\u2014take care with hot drinks and biting",
+        "Temporary numbness is normal—take care with hot drinks and biting",
         "Mild tenderness can occur; we explain how to manage it",
         "Tell us if sensation feels unusual or lingers longer than expected",
         "Emergency dentistry support is available if you have concerns",
         "We can discuss ongoing calming options for future visits"
       ]
+    },
+    {
+      "instanceId": "painless-numbing-the-wand-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 69,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "painless-wand-faq",
@@ -130,7 +136,7 @@
         },
         {
           "question": "Will it make my appointment longer?",
-          "answer": "The start may be slower to prioritise comfort, but it\u2019s planned into your appointment time."
+          "answer": "The start may be slower to prioritise comfort, but it’s planned into your appointment time."
         },
         {
           "question": "Can it be combined with sedation?",
@@ -138,7 +144,7 @@
         },
         {
           "question": "Is it safe for emergency visits?",
-          "answer": "Yes, we can use it in emergency care when time allows. You\u2019ll still receive standard safety checks."
+          "answer": "Yes, we can use it in emergency care when time allows. You’ll still receive standard safety checks."
         },
         {
           "question": "What if I still feel nervous?",
@@ -154,7 +160,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Choose gentler numbing for your visit",
-      "body": "Book a comfort consult to see if The Wand or other calming options suit your treatment\u2014whether routine care, restorative work, or implants.",
+      "body": "Book a comfort consult to see if The Wand or other calming options suit your treatment—whether routine care, restorative work, or implants.",
       "ctas": [
         {
           "label": "Ask about The Wand",

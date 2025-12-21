@@ -142,6 +142,12 @@
       ]
     },
     {
+      "instanceId": "dental-crowns-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 89,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "dental-crowns-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_dental_crowns_faq",

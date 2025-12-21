@@ -116,6 +116,12 @@
       ]
     },
     {
+      "instanceId": "tmj-disorder-treatment-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "tmj-disorder-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_tmj_disorder_faq",

@@ -126,6 +126,12 @@
       ]
     },
     {
+      "instanceId": "3d-printing-lab-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "printing-lab-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_printing_lab_faq",

@@ -58,7 +58,7 @@
       "bullets": [
         "We check for bleeding, plaque build-up, and gum measurements",
         "X-rays or scans help us see bone levels where needed",
-        "You\u2019ll receive a clear, written plan before any therapy"
+        "You’ll receive a clear, written plan before any therapy"
       ]
     },
     {
@@ -115,10 +115,16 @@
       "title": "Keeping gums healthy after treatment",
       "items": [
         "Short-term tenderness or temperature sensitivity is common and settles with good home care",
-        "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing \u2014 we\u2019ll factor this into your plan",
+        "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
         "Regular supportive periodontal therapy to maintain pocket depth reductions",
         "Clear instructions on cleaning around teeth and implants to protect results"
       ]
+    },
+    {
+      "instanceId": "periodontal-gum-care-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "periodontal-faq",
@@ -131,7 +137,7 @@
       "faqs": [
         {
           "question": "Does deep cleaning hurt?",
-          "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You\u2019ll be guided on what to expect and how to keep things comfortable afterwards."
+          "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You’ll be guided on what to expect and how to keep things comfortable afterwards."
         },
         {
           "question": "How long does it take to see improvement?",
@@ -139,11 +145,11 @@
         },
         {
           "question": "Can gum tissue grow back?",
-          "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we\u2019ll discuss options if grafting or referral is appropriate."
+          "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we’ll discuss options if grafting or referral is appropriate."
         },
         {
           "question": "What about implants with gum inflammation?",
-          "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we\u2019ll outline referral options calmly."
+          "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we’ll outline referral options calmly."
         }
       ]
     },
@@ -155,7 +161,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a periodontal assessment",
-      "body": "Let\u2019s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+      "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
       "ctas": [
         {
           "label": "Schedule a gum review",

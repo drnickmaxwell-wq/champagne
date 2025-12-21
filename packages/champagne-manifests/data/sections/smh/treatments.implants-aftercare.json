@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Implant aftercare & recovery in Shoreham-by-Sea",
-      "body": "After implant treatment, most healing is straightforward \u2014 especially when you know what\u2019s normal, what to avoid, and when we\u2019ll review you. We\u2019ll guide you at every stage.",
+      "body": "After implant treatment, most healing is straightforward — especially when you know what’s normal, what to avoid, and when we’ll review you. We’ll guide you at every stage.",
       "bullets": [
         "Clear guidance for each stage of healing",
         "Comfort-focused advice and review schedule",
@@ -44,7 +44,7 @@
         "Planned follow-ups and reviews",
         "Hygiene guidance that protects healing tissues",
         "Clear expectations and timelines",
-        "Calm access to advice if you\u2019re worried",
+        "Calm access to advice if you’re worried",
         "Long-term maintenance planning"
       ]
     },
@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "RECOVERY",
       "title": "What to expect after implant treatment",
-      "body": "Most people notice expected swelling or soreness for a few days, move to gentle cleaning and a soft diet, and ease back into normal routines as tissues heal. Healing varies by individual and treatment type, and timelines for fitting final teeth can differ \u2014 we set clear steps so you know what\u2019s coming.",
+      "body": "Most people notice expected swelling or soreness for a few days, move to gentle cleaning and a soft diet, and ease back into normal routines as tissues heal. Healing varies by individual and treatment type, and timelines for fitting final teeth can differ — we set clear steps so you know what’s coming.",
       "mediaHint": "Implant healing and maintenance guidance"
     },
     {
@@ -70,9 +70,9 @@
         "After implant placement (single, multiple, full-arch)",
         "After fitting temporary teeth",
         "After implant-retained dentures",
-        "Anyone unsure what\u2019s normal during healing"
+        "Anyone unsure what’s normal during healing"
       ],
-      "honestQualifier": "If something doesn\u2019t feel right, contact us \u2014 we\u2019d always rather check."
+      "honestQualifier": "If something doesn’t feel right, contact us — we’d always rather check."
     },
     {
       "instanceId": "implants-aftercare-process",
@@ -83,9 +83,9 @@
       "title": "Recovery timeline: the stages of healing",
       "items": [
         "Day of treatment: rest, initial care, bite precautions",
-        "First 48\u201372 hours: swelling/soreness management and gentle cleaning",
+        "First 48–72 hours: swelling/soreness management and gentle cleaning",
         "Week 1: settling period and guidance check",
-        "Weeks 2\u20136: soft tissue healing and routine hygiene",
+        "Weeks 2–6: soft tissue healing and routine hygiene",
         "Integration phase (varies by case)",
         "Temporary teeth review/adjustments if present",
         "Final restoration planning and fitting (case-dependent)",
@@ -125,6 +125,12 @@
       ]
     },
     {
+      "instanceId": "implant-aftercare-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "implants-aftercare-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_implants_aftercare_faq",
@@ -134,23 +140,23 @@
       "faqs": [
         {
           "question": "How long does implant healing take?",
-          "answer": "Early settling often takes a couple of weeks, with deeper integration varying by case. We\u2019ll outline your expected checkpoints and review dates."
+          "answer": "Early settling often takes a couple of weeks, with deeper integration varying by case. We’ll outline your expected checkpoints and review dates."
         },
         {
           "question": "What can I eat after implant surgery?",
-          "answer": "Start with soft, cool foods and avoid chewing directly on the implant site until we confirm it\u2019s appropriate to progress."
+          "answer": "Start with soft, cool foods and avoid chewing directly on the implant site until we confirm it’s appropriate to progress."
         },
         {
           "question": "How do I clean around the implant?",
-          "answer": "Use gentle brushing and any recommended brushes or rinses, keeping the area clean without disturbing the site. We\u2019ll show you the technique."
+          "answer": "Use gentle brushing and any recommended brushes or rinses, keeping the area clean without disturbing the site. We’ll show you the technique."
         },
         {
           "question": "Is swelling normal?",
-          "answer": "Mild swelling and soreness are common in the first few days. We\u2019ll explain how to manage them and when to check in."
+          "answer": "Mild swelling and soreness are common in the first few days. We’ll explain how to manage them and when to check in."
         },
         {
           "question": "When can I exercise again?",
-          "answer": "Light activity is usually fine after a few days, but avoid strenuous exercise until we\u2019ve confirmed healing is on track."
+          "answer": "Light activity is usually fine after a few days, but avoid strenuous exercise until we’ve confirmed healing is on track."
         },
         {
           "question": "What if my bite feels high?",
@@ -166,10 +172,10 @@
         },
         {
           "question": "Do implants need special brushes or tools?",
-          "answer": "We may recommend interdental brushes, floss, or water flossers depending on your restoration. We\u2019ll make it clear and simple."
+          "answer": "We may recommend interdental brushes, floss, or water flossers depending on your restoration. We’ll make it clear and simple."
         },
         {
-          "question": "Can I have sedation if I\u2019m nervous about treatment?",
+          "question": "Can I have sedation if I’m nervous about treatment?",
           "answer": "If anxiety is a barrier, we can discuss sedation or other calming options before treatment so you feel supported."
         }
       ]
@@ -182,7 +188,7 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Want implant care with clear support at every stage?",
-      "strapline": "Book a consultation in Shoreham-by-Sea and we\u2019ll explain the process, aftercare, and timelines in plain English \u2014 with no pressure.",
+      "strapline": "Book a consultation in Shoreham-by-Sea and we’ll explain the process, aftercare, and timelines in plain English — with no pressure.",
       "ctas": [
         {
           "label": "Book a consultation",

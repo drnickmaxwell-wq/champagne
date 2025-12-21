@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Teeth whitening",
       "title": "Teeth whitening in Shoreham-by-Sea",
-      "body": "Dentist-led whitening that follows UK regulations, uses custom trays, and sets the shade for the rest of your smile plan. We map whitening into Align \u2192 Bleach \u2192 Composite or veneer routes so results look natural and stay comfortable.",
+      "body": "Dentist-led whitening that follows UK regulations, uses custom trays, and sets the shade for the rest of your smile plan. We map whitening into Align → Bleach → Composite or veneer routes so results look natural and stay comfortable.",
       "bullets": [
         "Custom-fit trays made from digital scans",
         "UK-permitted gels prescribed and supervised by your dentist",
@@ -83,7 +83,7 @@
       "order": 50,
       "seoRole": "supporting",
       "eyebrow": "Whitening as part of ABC dentistry",
-      "title": "Align \u2192 Bleach \u2192 Composite or veneers",
+      "title": "Align → Bleach → Composite or veneers",
       "body": "We set the sequence so shade and shape work together. Teeth are aligned first if needed, whitening sets the baseline shade, then composite bonding or veneers are matched to that colour. This order avoids mismatched restorations and keeps future maintenance straightforward.",
       "bullets": [
         "Aligners or orthodontics establish positions before shade work",
@@ -91,6 +91,12 @@
         "Composite or porcelain is planned after bleaching to avoid re-making restorations",
         "Review points keep the plan compliant and comfortable at every stage"
       ]
+    },
+    {
+      "instanceId": "teeth-whitening-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 59,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "whitening-faq",

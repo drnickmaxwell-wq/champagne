@@ -126,6 +126,12 @@
       ]
     },
     {
+      "instanceId": "3d-implant-restorations-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "implant-restorations-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_implant_restorations_faq",
@@ -148,7 +154,7 @@
         },
         {
           "question": "What follow-up is needed?",
-          "answer": "You\u2019ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
+          "answer": "You’ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
         },
         {
           "question": "Are the materials regulated?",

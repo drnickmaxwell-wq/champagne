@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Extractions & oral surgery",
       "title": "Gentle extractions with clear surgical planning",
-      "body": "When a tooth can\u2019t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+      "body": "When a tooth can’t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
       "bullets": [
         "Calm assessments that explain when extraction is the safest route",
         "Minimally invasive techniques to protect bone and gum",
@@ -141,6 +141,12 @@
       ]
     },
     {
+      "instanceId": "extractions-and-oral-surgery-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "extractions-oral-surgery-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_extractions_oral_surgery_faq",
@@ -155,7 +161,7 @@
         },
         {
           "question": "How long is recovery?",
-          "answer": "Most people are comfortable after a few days with steady improvement over 1\u20132 weeks. We give written instructions to support smooth healing."
+          "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
         },
         {
           "question": "Can the tooth be replaced?",
@@ -163,7 +169,7 @@
         },
         {
           "question": "What if the tooth could be saved?",
-          "answer": "If a filling, crown, or root canal could provide a predictable result, we\u2019ll explain that option first so you can make an informed choice."
+          "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
         }
       ]
     },
@@ -175,7 +181,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Need advice about a troublesome tooth?",
-      "body": "We\u2019ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+      "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
       "ctas": [
         {
           "label": "Book an oral surgery consult",

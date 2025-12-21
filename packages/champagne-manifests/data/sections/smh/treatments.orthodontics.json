@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Orthodontics",
       "title": "Fixed braces with clinician-led planning",
-      "body": "Orthodontic treatment delivered in practice with fixed braces \u2014 for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app, with whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) sequenced after movement when helpful.",
+      "body": "Orthodontic treatment delivered in practice with fixed braces — for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app, with whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) sequenced after movement when helpful.",
       "bullets": [
         "Focus on fixed braces, not Invisalign",
         "Metal and ceramic bracket options",
@@ -125,13 +125,13 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Predictable reviews with a plan if teeth don\u2019t track",
+      "title": "Predictable reviews with a plan if teeth don’t track",
       "items": [
         "Routine review intervals set at the start so you know your schedule",
         "Wire changes and elastic guidance tailored to how your teeth respond",
         "Comfort checks at every visit with quick repairs if a bracket loosens",
         "If movement stalls, we rescan, replan, or resequence wires to get back on track",
-        "You\u2019ll always know the next steps, costs, and timelines before changes are made"
+        "You’ll always know the next steps, costs, and timelines before changes are made"
       ]
     },
     {
@@ -172,11 +172,17 @@
       "title": "Fixed and removable retainers with lifetime expectations",
       "items": [
         "Fixed retainers can be bonded behind front teeth when suitable",
-        "Removable retainers protect your result overnight\u2014wear schedule agreed together",
+        "Removable retainers protect your result overnight—wear schedule agreed together",
         "Expect to maintain retention long-term; we guide realistic upkeep",
         "Replacement protocols explained so you know when to contact us",
         "Retention reviews help catch early shifts before they become relapse"
       ]
+    },
+    {
+      "instanceId": "orthodontics-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "orthodontics-faq",
@@ -193,15 +199,15 @@
         },
         {
           "question": "Are there less visible options?",
-          "answer": "Ceramic brackets may be suitable for a lower-visual look. We\u2019ll explain pros, limitations, and whether they fit your plan."
+          "answer": "Ceramic brackets may be suitable for a lower-visual look. We’ll explain pros, limitations, and whether they fit your plan."
         },
         {
           "question": "Do braces hurt?",
-          "answer": "You may feel tightness or rubbing after fittings or adjustments. Discomfort usually eases in a few days; we\u2019ll share tips to stay comfortable."
+          "answer": "You may feel tightness or rubbing after fittings or adjustments. Discomfort usually eases in a few days; we’ll share tips to stay comfortable."
         },
         {
           "question": "Can I eat normally?",
-          "answer": "You can enjoy most foods, but we\u2019ll advise on harder or sticky items that could damage brackets or wires. Softer options help right after adjustments."
+          "answer": "You can enjoy most foods, but we’ll advise on harder or sticky items that could damage brackets or wires. Softer options help right after adjustments."
         },
         {
           "question": "How much do braces cost?",
@@ -209,11 +215,11 @@
         },
         {
           "question": "Why choose braces instead of aligners?",
-          "answer": "Fixed braces give the clinician more direct control over certain movements and don\u2019t rely on long wear times. We\u2019ll recommend the approach that best suits your teeth and lifestyle."
+          "answer": "Fixed braces give the clinician more direct control over certain movements and don’t rely on long wear times. We’ll recommend the approach that best suits your teeth and lifestyle."
         },
         {
           "question": "What if a bracket or wire comes loose?",
-          "answer": "Contact the clinic promptly. We\u2019ll schedule a fix and guide you on temporary steps to stay comfortable until the visit."
+          "answer": "Contact the clinic promptly. We’ll schedule a fix and guide you on temporary steps to stay comfortable until the visit."
         },
         {
           "question": "Will I need retainers?",
