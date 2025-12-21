@@ -843,7 +843,21 @@
           "id": "implants_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected steps and plan the next visit.",
+          "ctas": [
+            {
+              "label": "Book an implant consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "See single tooth implant steps",
+              "href": "/treatments/implants-single-tooth"
+            },
+            {
+              "label": "Compare with bridge options",
+              "href": "/treatments/dental-bridges"
+            }
+          ]
         },
         {
           "id": "treatment.faq"
@@ -912,7 +926,21 @@
           "id": "veneers_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected steps and plan the next visit.",
+          "ctas": [
+            {
+              "label": "Plan smile design review",
+              "href": "/treatments/digital-smile-design"
+            },
+            {
+              "label": "Explore 3D printed veneers",
+              "href": "/treatments/3d-printed-veneers"
+            },
+            {
+              "label": "Check bonding alternatives",
+              "href": "/treatments/composite-bonding"
+            }
+          ]
         },
         {
           "id": "treatment.faq"
@@ -2691,7 +2719,21 @@
           "id": "composite_bonding_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected steps and plan the next visit.",
+          "ctas": [
+            {
+              "label": "Plan a bonding consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Review whitening before bonding",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "label": "Compare veneer options",
+              "href": "/treatments/veneers"
+            }
+          ]
         },
         {
           "id": "composite_faq",
