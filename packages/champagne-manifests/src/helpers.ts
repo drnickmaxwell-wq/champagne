@@ -26,12 +26,30 @@ import {
   getPageManifestBySlug,
   getRouteIdFromSlug,
 } from "./core";
+import ctaIntentHints from "../data/sections/smh/cta_intents.json";
+import treatmentJourneyPlan from "../data/sections/smh/treatment_journeys.json";
 import sectionManifestSchema from "../schema/section-manifest.schema.json";
 
 interface ValidationResult {
   valid: boolean;
   errors: string[];
 }
+
+export interface ChampagneCTAIntentConfig {
+  label?: string;
+  href?: string;
+  variant?: string;
+}
+
+type TreatmentJourneyPlan = (typeof treatmentJourneyPlan.treatments)[number];
+
+const treatmentJourneyLookup = new Map<string, TreatmentJourneyPlan>(
+  Array.isArray(treatmentJourneyPlan.treatments)
+    ? treatmentJourneyPlan.treatments.map((entry) => [entry.routeId, entry as TreatmentJourneyPlan])
+    : [],
+);
+
+const ctaIntentLabelLookup = (ctaIntentHints as { cta_intents?: Record<string, string> }).cta_intents ?? {};
 
 export function getAllPages(): ChampagnePageManifest[] {
   const pages = champagneMachineManifest.pages ?? {};
@@ -138,6 +156,19 @@ export function getCTASlotsForPage(pageSlug: string): ChampagneCTASlots {
     midPageCTAs: normalizeCTAGroup(ctas?.midPageCTAs),
     footerCTAs: normalizeCTAGroup(ctas?.footerCTAs),
   };
+}
+
+export function getCTAIntentConfigForRoute(routeId: string): Record<string, ChampagneCTAIntentConfig> | undefined {
+  const manifest = champagneSectionLayouts.find((entry) => entry.routeId === routeId);
+  return (manifest as { cta_intents?: Record<string, ChampagneCTAIntentConfig> } | undefined)?.cta_intents;
+}
+
+export function getTreatmentJourneyForRoute(routeId: string): TreatmentJourneyPlan | undefined {
+  return treatmentJourneyLookup.get(routeId);
+}
+
+export function getCTAIntentLabels(): Record<string, string> {
+  return ctaIntentLabelLookup;
 }
 
 export interface ChampagneHeroManifest {

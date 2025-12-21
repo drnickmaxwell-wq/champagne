@@ -1555,6 +1555,24 @@
               "answer": "Often yes. We can align appointments so you have your check-up and hygiene visit together when schedules allow."
             }
           ]
+        },
+        {
+          "id": "dental_checkups_cta",
+          "type": "treatment_closing_cta",
+          "title": "Arrange your routine dental check-up",
+          "copy": "Book a calm examination with oral cancer screening included. Tell us if you would like a slower pace or extra reassurance.",
+          "ctas": [
+            {
+              "label": "Arrange a routine check-up",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Support for anxious visitors",
+              "href": "/treatments/nervous-patients",
+              "preset": "secondary"
+            }
+          ]
         }
       ],
       "surface": "champagne/surface/hub"

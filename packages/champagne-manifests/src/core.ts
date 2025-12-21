@@ -173,6 +173,7 @@ export interface ChampagneSectionLayout {
   pageType: string;
   version?: string;
   sections: ChampagneSectionLayoutSection[];
+  cta_intents?: Record<string, { label?: string; href?: string; variant?: string }>;
 }
 
 export interface ChampagnePageTypeDefault {
