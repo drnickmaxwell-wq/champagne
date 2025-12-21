@@ -1,5 +1,6 @@
-import type { ChampagnePageSection } from "@champagne/manifests";
-import { getSectionStackForPage, getSectionStyle } from "@champagne/manifests";
+import type { ChampagnePageSection } from "@champagne/manifests/src/core";
+import { getSectionStackForPage } from "@champagne/manifests/src/core";
+import { getSectionStyle } from "@champagne/manifests/src/helpers";
 
 export interface SectionRegistryEntry {
   id: string;

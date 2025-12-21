@@ -68,6 +68,19 @@ export interface ChampagneTreatmentPage extends ChampagnePageManifest {
 
 const TREATMENT_PATH_PREFIXES = ["/treatments/"];
 
+const TREATMENT_PATH_ALIASES: Record<string, string> = {
+  "/treatments/retainers": "/treatments/dental-retainers",
+  "/treatments/dental-implants": "/treatments/implants",
+  "/treatments/hygiene": "/treatments/preventative-and-general-dentistry",
+  "/treatments/3d-printed-implant-restorations": "/treatments/3d-implant-restorations",
+};
+
+function normalizeTreatmentPath(value: string) {
+  if (value.startsWith("/treatments/")) return value;
+  const cleaned = value.replace(/^\//, "");
+  return `/treatments/${cleaned}`;
+}
+
 function normalizeTreatmentPage(manifest: ChampagnePageManifest): ChampagneTreatmentPage | undefined {
   const path = manifest.path;
   const isTreatmentPath = path && TREATMENT_PATH_PREFIXES.some((prefix) => path.startsWith(prefix));
@@ -129,11 +142,29 @@ export function getTreatmentPages(): ChampagneTreatmentPage[] {
 }
 
 export function getTreatmentManifest(slugOrPath: string): ChampagneTreatmentPage | undefined {
-  const normalizedPath = slugOrPath.startsWith("/treatments/")
-    ? slugOrPath
-    : `/treatments/${slugOrPath.replace(/^\//, "")}`;
+  const normalizedPath = normalizeTreatmentPath(slugOrPath);
+  const entries = collectTreatmentEntries();
+  const aliasedPath = TREATMENT_PATH_ALIASES[normalizedPath];
 
-  return collectTreatmentEntries().find((entry) => entry.path === normalizedPath);
+  if (aliasedPath && entries.some((entry) => entry.path === aliasedPath)) {
+    return entries.find((entry) => entry.path === aliasedPath);
+  }
+
+  return entries.find((entry) => entry.path === normalizedPath);
+}
+
+export function resolveTreatmentPathAlias(
+  slugOrPath: string,
+): { resolvedPath: string; wasAlias: boolean } {
+  const normalizedPath = normalizeTreatmentPath(slugOrPath);
+  const entries = collectTreatmentEntries();
+  const aliasedPath = TREATMENT_PATH_ALIASES[normalizedPath];
+
+  if (aliasedPath && entries.some((entry) => entry.path === aliasedPath)) {
+    return { resolvedPath: aliasedPath, wasAlias: true };
+  }
+
+  return { resolvedPath: normalizedPath, wasAlias: false };
 }
 
 export interface ChampagneCTASlots {

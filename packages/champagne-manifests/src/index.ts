@@ -63,6 +63,7 @@ export {
   getMediaDecks,
   getMediaDeck,
   getTreatmentManifest,
+  resolveTreatmentPathAlias,
   getTreatmentPages,
   getCTAIntentConfigForRoute,
   getTreatmentJourneyForRoute,
