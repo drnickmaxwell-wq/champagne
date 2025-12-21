@@ -5,6 +5,8 @@ import type { ChampagneCTAConfig, ChampagneCTAInput } from "@champagne/cta";
 import { BaseChampagneSurface } from "@champagne/hero";
 import {
   getRouteIdFromSlug,
+  getCTAIntentConfigForRoute,
+  getCTAIntentLabels,
   getTreatmentJourneyForRoute,
   getTreatmentPages,
   type ChampagneTreatmentPage,
@@ -47,6 +49,34 @@ function mapSectionCTAs(section?: SectionRegistryEntry): CTAPlanEntry[] {
     variant: asVariant(cta.variant ?? (cta as { preset?: string }).preset) ?? "secondary",
     preset: (cta as { preset?: string }).preset,
   }));
+}
+
+function buildIntentCTA(routeId: string): CTAPlanEntry[] {
+  const intentConfig = getCTAIntentConfigForRoute(routeId);
+  const intentLabels = getCTAIntentLabels();
+  const journey = getTreatmentJourneyForRoute(routeId);
+  const primaryIntentKey = (journey as { journey?: { primary_intent?: string } } | undefined)?.journey?.primary_intent;
+  const mappedConfig =
+    (primaryIntentKey ? intentConfig?.[primaryIntentKey] : undefined)
+    ?? intentConfig?.primary_intent
+    ?? intentConfig?.secondary_intent
+    ?? intentConfig?.reassurance_intent;
+
+  const label = mappedConfig?.label ?? (primaryIntentKey ? intentLabels[primaryIntentKey] : undefined);
+  const href = mappedConfig?.href;
+  const variant =
+    mappedConfig?.variant === "primary" || mappedConfig?.variant === "ghost" ? mappedConfig.variant : "secondary";
+
+  if (!href || !label) return [];
+
+  return [
+    {
+      id: primaryIntentKey ?? mappedConfig.label ?? href,
+      label,
+      href,
+      variant,
+    },
+  ];
 }
 
 function buildFallbackLinks(slug: string) {
@@ -170,7 +200,8 @@ function buildJourneyCTAs(routeId: string) {
     if (!path || !treatmentPaths.has(path)) return;
     const manifest = treatmentPathLookup.get(path);
     const label = manifest?.label ?? toTitleCase(route.split(".").pop()?.replace(/[-_]/g, " ") ?? "");
-    ctas.push({ href: path, label });
+    const relatedLabel = label ? `Explore related treatment: ${label}` : label;
+    ctas.push({ href: path, label: relatedLabel ?? label, variant: "secondary" });
   });
 
   const journeyTargets = (journey as { cta_targets?: Record<string, { label?: string; href?: string }> } | undefined)?.cta_targets;
@@ -178,7 +209,7 @@ function buildJourneyCTAs(routeId: string) {
     ["secondary", "tertiary"].forEach((slot) => {
       const target = journeyTargets[slot];
       if (target?.href && target.label && treatmentPaths.has(target.href)) {
-        ctas.push({ href: target.href, label: target.label });
+        ctas.push({ href: target.href, label: target.label, variant: "secondary" });
       }
     });
   }
@@ -242,9 +273,10 @@ export function Section_TreatmentMidCTA({ section, pageSlug }: SectionTreatmentM
 
   const sectionCTAs = mapSectionCTAs(section);
   const journeyCTAs = buildJourneyCTAs(routeId);
+  const intentCTAs = buildIntentCTA(routeId);
   const fallbackLinks = buildFallbackLinks(slug);
 
-  const candidateCTAs = dedupeCTAs([...sectionCTAs, ...journeyCTAs, ...fallbackLinks])
+  const candidateCTAs = dedupeCTAs([...sectionCTAs, ...journeyCTAs, ...intentCTAs, ...fallbackLinks])
     .map((cta, index) => ({
       id: cta.id ?? `${slug}-mid-cta-${index + 1}`,
       label: cta.label,

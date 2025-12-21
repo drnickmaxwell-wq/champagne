@@ -50,6 +50,30 @@ function mapSectionCTAs(section?: SectionRegistryEntry): ChampagneCTAInput[] {
   );
 }
 
+function dedupeCTAs(ctas: ChampagneCTAInput[]): ChampagneCTAConfig[] {
+  const seen = new Set<string>();
+  const cleaned: ChampagneCTAConfig[] = [];
+
+  ctas.forEach((cta, index) => {
+    const normalized = typeof cta === "string" ? { href: cta, label: cta } : cta;
+    const href = normalized?.href;
+    const label = normalized?.label ?? href;
+    if (!href || !label || seen.has(href)) return;
+    seen.add(href);
+    cleaned.push({
+      id: normalized.id ?? `cta-${index + 1}`,
+      label,
+      href,
+      variant:
+        normalized.variant === "primary" || normalized.variant === "secondary" || normalized.variant === "ghost"
+          ? normalized.variant
+          : undefined,
+    });
+  });
+
+  return cleaned;
+}
+
 function intentToCTAConfig(
   intent: string,
   intentConfig?: Record<string, ChampagneCTAIntentConfig>,
@@ -75,6 +99,34 @@ function intentToCTAConfig(
     label,
     href,
     variant: normalizedVariant,
+  } satisfies ChampagneCTAConfig;
+}
+
+function mapIntentSupportCTA(routeId?: string): ChampagneCTAConfig | undefined {
+  if (!routeId) return undefined;
+  const intentConfig = getCTAIntentConfigForRoute(routeId);
+  const intentLabels = getCTAIntentLabels();
+  const journey = getTreatmentJourneyForRoute(routeId);
+  const primaryIntentKey = (journey as { journey?: { primary_intent?: string } } | undefined)?.journey?.primary_intent;
+
+  const mappedConfig =
+    (primaryIntentKey ? intentConfig?.[primaryIntentKey] : undefined)
+    ?? intentConfig?.primary_intent
+    ?? intentConfig?.secondary_intent
+    ?? intentConfig?.reassurance_intent;
+
+  const label = mappedConfig?.label ?? (primaryIntentKey ? intentLabels[primaryIntentKey] : undefined);
+  const href = mappedConfig?.href;
+  const variant =
+    mappedConfig?.variant === "primary" || mappedConfig?.variant === "ghost" ? mappedConfig.variant : "secondary";
+
+  if (!label || !href) return undefined;
+
+  return {
+    id: primaryIntentKey ?? mappedConfig.label ?? href,
+    label,
+    href,
+    variant,
   } satisfies ChampagneCTAConfig;
 }
 
@@ -151,18 +203,31 @@ export function Section_TreatmentClosingCTA({ section, ctas, pageSlug }: Section
   const fallbackCTAs = getFallbackCTAs(section);
   const mappedSectionCTAs = mapSectionCTAs(section);
   const journeyCTAs = mapJourneyCTAs(pageSlug);
-  const preferredCTAs =
-    (ctas && ctas.length > 0 ? ctas : undefined)
-    ?? (mappedSectionCTAs.length > 0 ? mappedSectionCTAs : undefined)
-    ?? (journeyCTAs.length > 0 ? journeyCTAs : undefined)
-    ?? fallbackCTAs;
+  const routeId = pageSlug ? getRouteIdFromSlug(pageSlug) : undefined;
+  const intentSupportCTA = mapIntentSupportCTA(routeId);
 
-  const resolvedCTAs = resolveCTAList(preferredCTAs, "primary", {
+  const baseCTAs = (ctas && ctas.length > 0 ? ctas : undefined) ?? (mappedSectionCTAs.length > 0 ? mappedSectionCTAs : []);
+  const baseFromJourney = baseCTAs.length === 0 && journeyCTAs.length > 0;
+  const primaryCTAs = baseFromJourney ? [journeyCTAs[0]] : baseCTAs;
+  const journeySupporting = journeyCTAs.filter((_, index) => !(baseFromJourney && index === 0)).slice(0, 2);
+  const intentSupporting = intentSupportCTA ? [intentSupportCTA] : [];
+
+  let combinedCTAs = dedupeCTAs([...primaryCTAs, ...journeySupporting, ...intentSupporting]);
+
+  if (combinedCTAs.length === 0) {
+    combinedCTAs = fallbackCTAs;
+  } else if (combinedCTAs.length < 2) {
+    combinedCTAs = dedupeCTAs([...combinedCTAs, ...fallbackCTAs]);
+  }
+
+  const cappedCTAs = combinedCTAs.slice(0, 4);
+
+  const resolvedCTAs = resolveCTAList(cappedCTAs, "primary", {
     component: "Section_TreatmentClosingCTA",
     page: section?.id,
   });
 
-  const renderedCTAs = resolvedCTAs.length > 0 ? resolvedCTAs : fallbackCTAs;
+  const renderedCTAs = (resolvedCTAs.length > 0 ? resolvedCTAs : fallbackCTAs).slice(0, 4);
 
   return (
     <BaseChampagneSurface
