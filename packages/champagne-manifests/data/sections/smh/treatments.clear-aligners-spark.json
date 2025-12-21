@@ -244,13 +244,18 @@
       "body": "Meet a clinician to review your scans, plan Spark stages, and agree on monitoring, refinements, and retention before you commit.",
       "ctas": [
         {
-          "label": "Book an Orthodontic Assessment",
-          "href": "/contact",
+          "label": "Compare aligner options",
+          "href": "/treatments/clear-aligners",
           "preset": "primary"
         },
         {
-          "label": "Ask about Spark aligners",
-          "href": "/contact?topic=aligners",
+          "label": "Plan whitening after Spark",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        },
+        {
+          "label": "See smile design planning",
+          "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
       ]
@@ -270,6 +275,32 @@
         "3D printed veneers for reversible previews (/treatments/3d-printed-veneers)",
         "Digital Smile Design to map changes before treatment (/treatments/digital-smile-design)",
         "Full Smile Makeover planning for complex goals (/treatments/full-smile-makeover)"
+      ]
+    },
+    {
+      "instanceId": "clear_aligners_spark_closing_cta",
+      "componentId": "treatment_closing_cta",
+      "variantId": "shoreham_spark_aligners_closing_cta",
+      "order": 110,
+      "seoRole": "cta",
+      "title": "Explore Spark aligner treatment",
+      "strapline": "Review how Spark aligners compare and what retention looks like.",
+      "ctas": [
+        {
+          "label": "Book a Spark aligner review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Compare aligner options",
+          "href": "/treatments/clear-aligners",
+          "preset": "secondary"
+        },
+        {
+          "label": "See smile design planning",
+          "href": "/treatments/digital-smile-design",
+          "preset": "secondary"
+        }
       ]
     }
   ],

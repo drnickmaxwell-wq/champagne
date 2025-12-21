@@ -184,13 +184,18 @@
       "body": "Discuss aligner options in a judgement-free setting with clear, staged planning before you decide.",
       "ctas": [
         {
-          "label": "Book consultation",
-          "href": "/contact",
+          "label": "See Spark aligner options",
+          "href": "/treatments/clear-aligners-spark",
           "preset": "primary"
         },
         {
-          "label": "Discuss options",
-          "href": "/contact",
+          "label": "Plan whitening after alignment",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        },
+        {
+          "label": "See Digital Smile Design",
+          "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
       ]
@@ -210,6 +215,32 @@
         "3D printed veneers as a reversible preview step (/treatments/3d-printed-veneers)",
         "Digital Smile Design to map changes in advance (/treatments/digital-smile-design)",
         "Full Smile Makeover pathways for complex aims (/treatments/full-smile-makeover)"
+      ]
+    },
+    {
+      "instanceId": "clear_aligners_closing_cta",
+      "componentId": "treatment_closing_cta",
+      "variantId": "shoreham_clear_aligners_closing_cta",
+      "order": 110,
+      "seoRole": "cta",
+      "title": "Book a clear aligner assessment",
+      "strapline": "Confirm suitability and map whitening and retention plans.",
+      "ctas": [
+        {
+          "label": "Start your aligner consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "See Spark aligner options",
+          "href": "/treatments/clear-aligners-spark",
+          "preset": "secondary"
+        },
+        {
+          "label": "Plan whitening after alignment",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        }
       ]
     }
   ],
