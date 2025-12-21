@@ -1,0 +1,195 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.retainers",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "retainers-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_retainers_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Retainers",
+      "title": "Retainers & retention after straightening",
+      "body": "Whether you finished fixed braces or clear aligners, retainers keep teeth steady once active movement ends. We map a plan with you so wear times, reviews, and replacement options feel clear from the start.",
+      "bullets": [
+        "Support after braces or aligners with steady guidance",
+        "Removable and fixed options explained before fitting",
+        "Calm language about wear times and check-ups",
+        "Quick repairs or replacements if something changes"
+      ],
+      "ctas": [
+        {
+          "label": "Book a retention review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about retainer options",
+          "href": "/contact",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "retainers-options",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_retainers_options",
+      "order": 20,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your retainer options",
+      "title": "Fixed or removable retainers made to fit",
+      "items": [
+        "Removable Essix-style retainers worn nightly to hold teeth once braces or aligners finish.",
+        "Fixed/bonded retainers placed behind front teeth where suitable to help maintain alignment with little visual impact.",
+        "Lab-made retainers produced to your scan or impressions, with 3D printed options used where they suit the appliance—never implied for every case.",
+        "We explain when to combine fixed and removable retainers for extra stability."
+      ]
+    },
+    {
+      "instanceId": "retainers-guidance",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_retainers_guidance",
+      "order": 30,
+      "seoRole": "supporting",
+      "eyebrow": "Which retainer is right for you?",
+      "title": "Simple guidance to choose a retainer",
+      "items": [
+        "Prefer easy cleaning and don’t mind nightly wear? A removable retainer is often the simplest route.",
+        "Want discreet, always-on support? A bonded retainer may suit, with checks to keep it clean and intact.",
+        "Finished aligners and want belt-and-braces stability? Pair a bonded retainer with a removable night retainer.",
+        "Had previous relapse after braces? We’ll discuss how long-term wear and review intervals help hold your result.",
+        "Unsure what fits your lifestyle? We’ll map options with photos and timelines so you can decide calmly."
+      ]
+    },
+    {
+      "instanceId": "retainers-care-cleaning",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_retainers_care_cleaning",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Care & cleaning",
+      "title": "Keep retainers fresh and comfortable",
+      "items": [
+        "Removable retainers: rinse after removal, brush gently with cool water and mild soap, avoid hot water, and store in a ventilated case.",
+        "Avoid toothpaste or harsh cleaners on clear retainers to prevent scratches; use approved retainer cleanser when advised.",
+        "Bonded retainers: clean with floss threaders or interdental brushes to prevent plaque around the wire and glue points.",
+        "Let us know if floss catches or a section lifts—small repairs protect against unwanted movement.",
+        "Regular hygiene visits help keep bonded retainers and gums healthy."
+      ]
+    },
+    {
+      "instanceId": "retainers-replacement-repairs",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_retainers_replacements",
+      "order": 50,
+      "seoRole": "supporting",
+      "eyebrow": "Replacement & repairs",
+      "title": "Help if a retainer is lost, cracked, or loose",
+      "body": "Retainers can wear over time. If yours is damaged or your bonded retainer lifts, contact us quickly so we can check stability and prevent drift.",
+      "bullets": [
+        "Lost or cracked removable retainer? We can scan or take impressions to make a replacement.",
+        "Bonded retainer feels loose? Book a review so we can rebond or replace the wire before teeth move.",
+        "Noticing small gaps returning? Early tweaks or new retainers can correct minor relapse faster.",
+        "Bring your retainer case to appointments so we can check fit and clean it safely."
+      ]
+    },
+    {
+      "instanceId": "retainers-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_retainers_faq",
+      "order": 60,
+      "seoRole": "faq",
+      "eyebrow": "Retainer FAQs",
+      "title": "Answers about keeping teeth in place",
+      "faqs": [
+        {
+          "question": "How long do I need to wear retainers?",
+          "answer": "Retention is long-term. We often suggest nightly removable wear and regular bonded retainer checks to keep teeth steady for years."
+        },
+        {
+          "question": "Will a fixed retainer affect speech?",
+          "answer": "Most people adapt quickly. A bonded retainer sits behind the teeth and usually feels smooth after a short settling-in period."
+        },
+        {
+          "question": "Can I clean a removable retainer with toothpaste?",
+          "answer": "We recommend cool water, a soft brush, and mild soap instead—abrasive toothpaste can scratch clear retainers."
+        },
+        {
+          "question": "What if my bonded retainer wire breaks?",
+          "answer": "Contact us promptly. Avoid pulling at the wire, and use a removable retainer if you have one until we repair or replace it."
+        },
+        {
+          "question": "Do retainers affect eating or drinking?",
+          "answer": "Remove clear retainers for meals and hot drinks. If you have a bonded retainer, you can eat as normal but avoid biting hard items on the bonded teeth."
+        },
+        {
+          "question": "Can I wear retainers while playing sport?",
+          "answer": "Use a sports mouthguard over the bonded retainer. Remove clear retainers for contact sport and store them safely in a case."
+        },
+        {
+          "question": "How often should retainers be checked?",
+          "answer": "We’ll agree a review cadence—often annually or sooner if you notice movement, tightness, or damage."
+        }
+      ]
+    },
+    {
+      "instanceId": "retainers-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "variantId": "smh_retainers_mid_cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Keep your retention on track",
+      "strapline": "Book a quick check or plan a replacement retainer before teeth shift.",
+      "ctas": [
+        {
+          "label": "Retention review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Replacement retainer",
+          "href": "/contact",
+          "preset": "secondary"
+        },
+        {
+          "label": "Fixed retainer check",
+          "href": "/contact",
+          "preset": "secondary"
+        },
+        {
+          "label": "Explore clear aligners",
+          "href": "/treatments/clear-aligners",
+          "preset": "ghost"
+        }
+      ]
+    },
+    {
+      "instanceId": "retainers-closing-cta",
+      "componentId": "treatment_closing_cta",
+      "variantId": "smh_retainers_closing_cta",
+      "order": 90,
+      "seoRole": "supporting",
+      "title": "Stay confident with steady retention",
+      "strapline": "Clear guidance, quick repairs, and options that fit how you live.",
+      "ctas": [
+        {
+          "label": "Book a retention review",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Ask about replacement retainers",
+          "href": "/contact",
+          "preset": "secondary"
+        },
+        {
+          "label": "Explore clear aligners",
+          "href": "/treatments/clear-aligners",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ]
+}

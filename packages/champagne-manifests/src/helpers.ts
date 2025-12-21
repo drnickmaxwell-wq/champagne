@@ -69,7 +69,7 @@ export interface ChampagneTreatmentPage extends ChampagnePageManifest {
 const TREATMENT_PATH_PREFIXES = ["/treatments/"];
 
 const TREATMENT_PATH_ALIASES: Record<string, string> = {
-  "/treatments/retainers": "/treatments/dental-retainers",
+  "/treatments/retainers": "/treatments/retainers",
   "/treatments/dental-implants": "/treatments/implants",
   "/treatments/hygiene": "/treatments/preventative-and-general-dentistry",
   "/treatments/3d-printed-implant-restorations": "/treatments/3d-implant-restorations",

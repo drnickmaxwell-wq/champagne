@@ -31,6 +31,7 @@
     { "slug": "/treatments/night-guards-occlusal-splints", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
     { "slug": "/treatments/sports-mouthguards", "hero": "treatment_neutral_hero_v1", "category": "treatment" },
     { "slug": "/treatments/dental-retainers", "hero": "orthodontics_balanced_hero_v1", "category": "treatment" },
+    { "slug": "/treatments/retainers", "hero": "orthodontics_balanced_hero_v1", "category": "treatment" },
     { "slug": "/treatments/3d-digital-dentistry", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
     { "slug": "/treatments/3d-printed-veneers", "hero": "treatment_tech_focus_hero_v1", "category": "treatment" },
     { "slug": "/treatments/3d-implant-restorations", "hero": "implant_restorations_hero_v1", "category": "treatment" },

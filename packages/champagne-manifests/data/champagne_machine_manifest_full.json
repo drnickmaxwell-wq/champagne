@@ -505,7 +505,8 @@
             "clear-aligners",
             "clear-aligners-spark",
             "fixed-braces",
-            "dental-retainers"
+            "dental-retainers",
+            "retainers"
           ],
           "collapsedByDefault": true,
           "featuredOnly": true
@@ -686,13 +687,15 @@
               "clear-aligners",
               "clear-aligners-spark",
               "fixed-braces",
-              "dental-retainers"
+              "dental-retainers",
+              "retainers"
             ],
             "allSlugs": [
               "clear-aligners",
               "clear-aligners-spark",
               "fixed-braces",
-              "dental-retainers"
+              "dental-retainers",
+              "retainers"
             ],
             "viewAllLabel": "View all treatments in this group",
             "access": {
@@ -5452,6 +5455,88 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "orthodontics_retainers": {
+      "id": "orthodontics_retainers",
+      "label": "Retainers",
+      "path": "/treatments/retainers",
+      "category": "treatment",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "orthodontics_retainers_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Keep your retention on track",
+          "strapline": "Book a quick check or plan a replacement retainer before teeth shift.",
+          "ctas": [
+            {
+              "label": "Retention review",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Replacement retainer",
+              "href": "/contact",
+              "preset": "secondary"
+            },
+            {
+              "label": "Fixed retainer check",
+              "href": "/contact",
+              "preset": "secondary"
+            },
+            {
+              "label": "Explore clear aligners",
+              "href": "/treatments/clear-aligners",
+              "preset": "ghost"
+            }
+          ]
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        },
+        {
+          "id": "orthodontics_retainers_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Stay confident with steady retention",
+          "strapline": "Clear guidance, quick repairs, and options that fit how you live.",
+          "ctas": [
+            {
+              "label": "Book a retention review",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Ask about replacement retainers",
+              "href": "/contact",
+              "preset": "secondary"
+            },
+            {
+              "label": "Explore clear aligners",
+              "href": "/treatments/clear-aligners",
+              "preset": "secondary"
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "preventative_and_general_dentistry": {
       "id": "preventative_and_general_dentistry",
       "label": "Preventative & general dentistry",
@@ -7863,13 +7948,15 @@
         "clear-aligners",
         "clear-aligners-spark",
         "fixed-braces",
-        "dental-retainers"
+        "dental-retainers",
+        "retainers"
       ],
       "featuredSlugs": [
         "clear-aligners",
         "clear-aligners-spark",
         "fixed-braces",
-        "dental-retainers"
+        "dental-retainers",
+        "retainers"
       ],
       "viewAllLabel": "View all treatments in this group",
       "inventoryHiddenByDefault": true,
@@ -7883,7 +7970,8 @@
           "clear-aligners",
           "clear-aligners-spark",
           "fixed-braces",
-          "dental-retainers"
+          "dental-retainers",
+          "retainers"
         ]
       },
       "showOnHub": true
