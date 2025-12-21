@@ -1306,6 +1306,8 @@
     },
     {
       "routeId": "treatments.composite-bonding",
+      "primary_intent": "cosmetic_consult",
+      "secondary_intent": "smile_planning",
       "primary_patient_intent": "Understand how composite bonding can shape or rebuild worn teeth.",
       "secondary_patient_intents": [
         "See how it differs from veneers",
@@ -1317,14 +1319,23 @@
         "Does it need whitening first?"
       ],
       "typical_next_steps": [
-        "Assess enamel and bite forces",
-        "Plan whitening or alignment if needed",
-        "Book bonding and finishing polish"
+        "Assess enamel thickness, bite forces, and any cracks before planning shape changes",
+        "Sequence whitening or alignment first when shade or spacing needs adjustment",
+        "Preview digital mock-ups or wax-ups for multi-tooth cases before final bonding",
+        "Book bonding appointment with time for finishing polish and review"
+      ],
+      "next_steps": [
+        "Confirm suitability and bite protection, including guards if needed",
+        "Align shades with whitening before resin placement when appropriate",
+        "Decide between freehand and injection-moulded techniques based on scope",
+        "Schedule maintenance polish and review to keep edges smooth",
+        "Plan alternatives like veneers if long-term porcelain strength is required"
       ],
       "related_treatments": [
         "treatments.teeth-whitening",
         "treatments.veneers",
-        "treatments.digital-smile-design"
+        "treatments.digital-smile-design",
+        "treatments.injection-moulded-composite"
       ],
       "cta_plan": {
         "mid_page": [
@@ -1356,8 +1367,17 @@
         "tertiary": {
           "label": "Consider veneers",
           "href": "/treatments/veneers"
+        },
+        "quaternary": {
+          "label": "Plan whitening before bonding",
+          "href": "/treatments/teeth-whitening"
         }
       },
+      "faq_focus": [
+        "How do bonding results age and when are refreshes needed?",
+        "Can whitening or alignment improve the outcome before bonding?",
+        "What are the limits compared with porcelain veneers?"
+      ],
       "journey": {
         "id": "aesthetic_smile",
         "page_role": "refinement",
@@ -1551,6 +1571,8 @@
     },
     {
       "routeId": "treatments.veneers",
+      "primary_intent": "cosmetic_consult",
+      "secondary_intent": "smile_planning",
       "primary_patient_intent": "Understand veneer options, suitability, and maintenance.",
       "secondary_patient_intents": [
         "Compare porcelain and composite",
@@ -1562,14 +1584,23 @@
         "How do I look after them?"
       ],
       "typical_next_steps": [
-        "Book smile assessment",
-        "Review mock-ups or designs",
-        "Plan maintenance and replacement expectations"
+        "Book smile assessment with bite and enamel review",
+        "Review whitening or alignment staging before porcelain work",
+        "Trial mock-ups or Digital Smile Design visuals",
+        "Agree preparation depth, temporisation, and maintenance schedule"
+      ],
+      "next_steps": [
+        "Check suitability, bite stability, and gum health",
+        "Plan whitening or alignment first if shade or position needs refinement",
+        "Review mock-ups or provisional 3D printed veneers before definitive porcelain",
+        "Discuss longevity, replacement cycles, and maintenance appointments",
+        "Confirm finance or scheduling preferences for multi-tooth cases"
       ],
       "related_treatments": [
         "treatments.3d-printed-veneers",
         "treatments.digital-smile-design",
-        "treatments.composite-bonding"
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
       ],
       "cta_plan": {
         "mid_page": [
@@ -1601,8 +1632,17 @@
         "tertiary": {
           "label": "See digital smile design",
           "href": "/treatments/digital-smile-design"
+        },
+        "quaternary": {
+          "label": "Plan whitening before veneers",
+          "href": "/treatments/teeth-whitening"
         }
       },
+      "faq_focus": [
+        "How much enamel is reduced and how is it protected?",
+        "When should whitening or alignment happen before veneers?",
+        "What maintenance or replacement schedule should I expect?"
+      ],
       "journey": {
         "id": "aesthetic_smile",
         "page_role": "porcelain",
@@ -2721,6 +2761,8 @@
     },
     {
       "routeId": "treatments.implants",
+      "primary_intent": "implant_consult",
+      "secondary_intent": "compare_alternatives",
       "primary_patient_intent": "Get an overview of dental implant options and suitability.",
       "secondary_patient_intents": [
         "Understand stages from consultation to restoration",
@@ -2732,14 +2774,24 @@
         "How long does treatment take?"
       ],
       "typical_next_steps": [
-        "Arrange consultation and imaging",
-        "Discuss treatment plan",
-        "Plan maintenance schedule"
+        "Arrange consultation with 3D imaging and diagnostics",
+        "Review suitability, timelines, and any grafting needs",
+        "Agree on provisional or temporary solutions during healing",
+        "Plan maintenance schedule and hygiene support"
+      ],
+      "next_steps": [
+        "Book implant consultation and confirm medical history",
+        "Complete CBCT or digital scans for planning",
+        "Discuss whether grafting or sinus lift is needed",
+        "Choose between single tooth, multiple tooth, or full-arch plans",
+        "Review finance, sedation, and aftercare arrangements"
       ],
       "related_treatments": [
         "treatments.implants-consultation",
         "treatments.dental-bridges",
-        "treatments.dentures"
+        "treatments.dentures",
+        "treatments.implants-aftercare",
+        "treatments.sedation-for-implants"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2766,7 +2818,35 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book an implant consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See implant consultation steps",
+          "href": "/treatments/implant-consultation"
+        },
+        "tertiary": {
+          "label": "Explore single tooth implants",
+          "href": "/treatments/implants-single-tooth"
+        },
+        "quaternary": {
+          "label": "Review full-arch options",
+          "href": "/treatments/implants-full-arch"
+        },
+        "quinary": {
+          "label": "Compare with dental bridges",
+          "href": "/treatments/dental-bridges"
+        }
+      },
+      "faq_focus": [
+        "What scans or imaging will I need before implants?",
+        "How long between implant placement and final teeth?",
+        "Is sedation available for implant treatment?",
+        "How are implants maintained after fitting?"
+      ]
     },
     {
       "routeId": "treatments.implants-aftercare",
