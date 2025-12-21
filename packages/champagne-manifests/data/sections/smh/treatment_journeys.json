@@ -2,52 +2,1616 @@
   "tenantId": "smh-dental",
   "treatments": [
     {
-      "routeId": "treatments.3d-dentistry-and-technology",
-      "primary_patient_intent": "Understand how digital tools support diagnosis and treatment planning across dentistry.",
+      "routeId": "treatments.emergency-dentistry",
+      "primary_patient_intent": "Get same-day help for urgent dental pain or trauma.",
       "secondary_patient_intents": [
-        "See whether 3D imaging could improve accuracy for my care",
-        "Find out what scans or models are used before treatment"
+        "Know what to do before arriving",
+        "Find pain relief options"
       ],
       "common_questions": [
-        "Do digital scans replace traditional impressions?",
-        "When is CBCT imaging recommended?",
-        "How are 3D models used with the lab?"
+        "Can you see me today?",
+        "Do you treat broken or knocked-out teeth?",
+        "Is sedation available?"
       ],
       "typical_next_steps": [
-        "Discuss whether digital scanning is indicated",
-        "Review any radiation considerations",
-        "Plan next steps based on findings"
+        "Call to triage symptoms",
+        "Provide on-the-day stabilisation",
+        "Plan extractions, root canal, or repairs"
       ],
       "related_treatments": [
-        "treatments.cbct-3d-scanning",
-        "treatments.digital-smile-design",
-        "treatments.3d-printing-lab"
+        "treatments.extractions-and-oral-surgery",
+        "treatments.endodontics-root-canal",
+        "treatments.sedation-dentistry"
       ],
       "cta_plan": {
         "mid_page": [
           {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
+            "target": "cta",
+            "intent": "pain_relief_info"
           }
         ],
         "late_page": [
           {
             "target": "cta",
-            "intent": "book_consultation"
+            "intent": "urgent_contact"
           },
           {
             "target": "cta",
-            "intent": "related_treatment"
+            "intent": "pain_relief_info"
           }
         ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Call for urgent dental help",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Understand root canal care",
+          "href": "/treatments/endodontics-root-canal"
+        },
+        "tertiary": {
+          "label": "See surgical extraction support",
+          "href": "/treatments/extractions-and-oral-surgery"
+        }
+      },
+      "journey": {
+        "id": "emergency_relief",
+        "page_role": "triage",
+        "primary_intent": "urgent_contact",
+        "secondary_intent": "pain_relief_info",
+        "mid_page_cta": {
+          "label": "See root canal pain relief",
+          "href": "/treatments/endodontics-root-canal"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.endodontics-root-canal",
+      "primary_patient_intent": "Find out what root canal therapy involves and whether it is indicated.",
+      "secondary_patient_intents": [
+        "Understand discomfort management",
+        "Review success rates and alternatives"
+      ],
+      "common_questions": [
+        "How many visits will treatment take?",
+        "Will I need a crown after?",
+        "What symptoms should I expect?"
+      ],
+      "typical_next_steps": [
+        "Arrange diagnostic imaging",
+        "Begin cleaning and shaping if appropriate",
+        "Plan restoration after healing"
+      ],
+      "related_treatments": [
+        "treatments.emergency-dentistry",
+        "treatments.dental-crowns",
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "pain_relief_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "urgent_contact"
+          },
+          {
+            "target": "cta",
+            "intent": "pain_relief_info"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Urgent contact for toothache",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review emergency dentistry steps",
+          "href": "/treatments/emergency-dentistry"
+        },
+        "tertiary": {
+          "label": "Plan crowns after root canal",
+          "href": "/treatments/dental-crowns"
+        }
+      },
+      "journey": {
+        "id": "emergency_relief",
+        "page_role": "stabilise",
+        "primary_intent": "urgent_contact",
+        "secondary_intent": "pain_relief_info",
+        "mid_page_cta": {
+          "label": "When extraction is needed",
+          "href": "/treatments/extractions-and-oral-surgery"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.extractions-and-oral-surgery",
+      "primary_patient_intent": "Understand when extractions or minor oral surgery are recommended and how recovery works.",
+      "secondary_patient_intents": [
+        "Discuss anaesthesia and comfort options",
+        "Review replacement choices after extraction"
+      ],
+      "common_questions": [
+        "What is the healing time?",
+        "Can sedation be used?",
+        "How do I look after the site?"
+      ],
+      "typical_next_steps": [
+        "Complete assessment and imaging",
+        "Plan surgical appointment",
+        "Discuss replacement options such as implants or bridges"
+      ],
+      "related_treatments": [
+        "treatments.emergency-dentistry",
+        "treatments.endodontics-root-canal",
+        "treatments.implants"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "pain_relief_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "urgent_contact"
+          },
+          {
+            "target": "cta",
+            "intent": "pain_relief_info"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Call for extraction advice",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See implant consultation",
+          "href": "/treatments/implant-consultation"
+        },
+        "tertiary": {
+          "label": "Review emergency care guidance",
+          "href": "/treatments/emergency-dentistry"
+        }
+      },
+      "journey": {
+        "id": "emergency_relief",
+        "page_role": "surgical_relief",
+        "primary_intent": "urgent_contact",
+        "secondary_intent": "pain_relief_info",
+        "mid_page_cta": {
+          "label": "Plan implant consultation",
+          "href": "/treatments/implant-consultation"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.childrens-dentistry",
+      "primary_patient_intent": "Understand how routine and preventive care is tailored for children.",
+      "secondary_patient_intents": [
+        "Learn about check-up schedules",
+        "Discuss anxiety support"
+      ],
+      "common_questions": [
+        "When should my child first attend?",
+        "How to manage fissure sealants or fluoride?",
+        "What if my child is nervous?"
+      ],
+      "typical_next_steps": [
+        "Book a routine review",
+        "Discuss preventive treatments if indicated",
+        "Plan recall interval"
+      ],
+      "related_treatments": [
+        "treatments.preventative-and-general-dentistry",
+        "treatments.nervous-patients",
+        "treatments.orthodontics"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "routine_exam"
+          },
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ]
+      },
+      "journey": {
+        "id": "prevent_maintain",
+        "page_role": "paediatric",
+        "primary_intent": "routine_exam",
+        "secondary_intent": "prevention_info",
+        "mid_page_cta": {
+          "label": "Return to routine check-ups",
+          "href": "/dental-checkups-oral-cancer-screening"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange a children's check-up",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See routine check-up details",
+          "href": "/dental-checkups-oral-cancer-screening"
+        },
+        "tertiary": {
+          "label": "Plan preventive hygiene",
+          "href": "/treatments/hygiene"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.dental-checkups-oral-cancer-screening",
+      "primary_patient_intent": "Keep routine screening and early detection on track.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "prevent_maintain",
+        "page_role": "entry",
+        "primary_intent": "routine_exam",
+        "secondary_intent": "prevention_info",
+        "mid_page_cta": {
+          "label": "Book a hygiene visit next",
+          "href": "/treatments/hygiene"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a routine exam",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Read preventive care tips",
+          "href": "/treatments/hygiene"
+        },
+        "tertiary": {
+          "label": "See general dentistry support",
+          "href": "/treatments/general-dentistry"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "routine_exam"
+          },
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.general-dentistry",
+      "primary_patient_intent": "Restore or maintain everyday dental health.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "prevent_maintain",
+        "page_role": "maintenance",
+        "primary_intent": "routine_exam",
+        "secondary_intent": "prevention_info",
+        "mid_page_cta": {
+          "label": "See children's dentistry guidance",
+          "href": "/treatments/childrens-dentistry"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a general review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See children's dentistry support",
+          "href": "/treatments/childrens-dentistry"
+        },
+        "tertiary": {
+          "label": "Plan senior smile care",
+          "href": "/treatments/senior-mature-smile-care"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "routine_exam"
+          },
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.hygiene",
+      "primary_patient_intent": "Protect gums and prevent issues with regular hygiene.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "prevent_maintain",
+        "page_role": "proactive",
+        "primary_intent": "routine_exam",
+        "secondary_intent": "prevention_info",
+        "mid_page_cta": {
+          "label": "See general dentistry repairs",
+          "href": "/treatments/general-dentistry"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Schedule hygiene care",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Plan general dentistry review",
+          "href": "/treatments/general-dentistry"
+        },
+        "tertiary": {
+          "label": "Help for children",
+          "href": "/treatments/childrens-dentistry"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "routine_exam"
+          },
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.senior-mature-smile-care",
+      "primary_patient_intent": "Explore dental care considerations tailored to mature smiles.",
+      "secondary_patient_intents": [
+        "Review restorative stability",
+        "Discuss dry mouth or medication impacts"
+      ],
+      "common_questions": [
+        "How to maintain existing work?",
+        "Are implants or dentures suitable?",
+        "How often should I attend?"
+      ],
+      "typical_next_steps": [
+        "Book comprehensive review",
+        "Agree preventive and restorative priorities",
+        "Plan maintenance schedule"
+      ],
+      "related_treatments": [
+        "treatments.dentures",
+        "treatments.implants",
+        "treatments.periodontal-gum-care"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "routine_exam"
+          },
+          {
+            "target": "cta",
+            "intent": "prevention_info"
+          }
+        ]
+      },
+      "journey": {
+        "id": "prevent_maintain",
+        "page_role": "senior",
+        "primary_intent": "routine_exam",
+        "secondary_intent": "prevention_info",
+        "mid_page_cta": {
+          "label": "Plan tailored hygiene support",
+          "href": "/treatments/hygiene"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a mature smile review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Plan hygiene and gum care",
+          "href": "/treatments/hygiene"
+        },
+        "tertiary": {
+          "label": "Review denture options",
+          "href": "/treatments/dentures"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.dental-bridges",
+      "primary_patient_intent": "Understand bridge options for replacing missing teeth.",
+      "secondary_patient_intents": [
+        "Compare bridges with implants or dentures",
+        "Consider tooth preparation needs"
+      ],
+      "common_questions": [
+        "What types of bridges are available?",
+        "How long do they last?",
+        "Is special cleaning required?"
+      ],
+      "typical_next_steps": [
+        "Assess supporting teeth and gums",
+        "Discuss design and material choices",
+        "Plan fit and review appointments"
+      ],
+      "related_treatments": [
+        "treatments.dental-crowns",
+        "treatments.dentures",
+        "treatments.implants"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "restorative_assessment"
+          },
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan a bridge fitting",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See denture solutions",
+          "href": "/treatments/dentures"
+        },
+        "tertiary": {
+          "label": "Explore implant options",
+          "href": "/treatments/dental-implants"
+        }
+      },
+      "journey": {
+        "id": "functional_restoration",
+        "page_role": "span",
+        "primary_intent": "restorative_assessment",
+        "secondary_intent": "treatment_options",
+        "mid_page_cta": {
+          "label": "See denture solutions",
+          "href": "/treatments/dentures"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.dental-crowns",
+      "primary_patient_intent": "Learn when crowns are recommended and what the process involves.",
+      "secondary_patient_intents": [
+        "Consider materials and aesthetics",
+        "Understand longevity and care"
+      ],
+      "common_questions": [
+        "Why is a crown needed?",
+        "How many visits are required?",
+        "How do I look after it?"
+      ],
+      "typical_next_steps": [
+        "Take impressions or scans",
+        "Fit temporary if needed",
+        "Plan final fit and periodic reviews"
+      ],
+      "related_treatments": [
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "restorative_assessment"
+          },
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a crown consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Consider bridge planning",
+          "href": "/treatments/dental-bridges"
+        },
+        "tertiary": {
+          "label": "See denture alternatives",
+          "href": "/treatments/dentures"
+        }
+      },
+      "journey": {
+        "id": "functional_restoration",
+        "page_role": "coverage",
+        "primary_intent": "restorative_assessment",
+        "secondary_intent": "treatment_options",
+        "mid_page_cta": {
+          "label": "Compare bridge planning",
+          "href": "/treatments/dental-bridges"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.dentures",
+      "primary_patient_intent": "Explore denture solutions and which style fits current needs.",
+      "secondary_patient_intents": [
+        "Compare full and partial options",
+        "Understand adjustment and relining"
+      ],
+      "common_questions": [
+        "How many visits will I need?",
+        "Will they feel bulky?",
+        "How often are reviews?"
+      ],
+      "typical_next_steps": [
+        "Assess oral tissues and bite",
+        "Take impressions or scans",
+        "Plan try-ins and follow-up"
+      ],
+      "related_treatments": [
+        "treatments.implant-retained-dentures",
+        "treatments.dental-bridges",
+        "treatments.dental-crowns"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "restorative_assessment"
+          },
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange a denture review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Explore implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        },
+        "tertiary": {
+          "label": "See bridge alternatives",
+          "href": "/treatments/dental-bridges"
+        }
+      },
+      "journey": {
+        "id": "functional_restoration",
+        "page_role": "full_replacement",
+        "primary_intent": "restorative_assessment",
+        "secondary_intent": "treatment_options",
+        "mid_page_cta": {
+          "label": "Explore implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.inlays-onlays",
+      "primary_patient_intent": "Learn when inlays or onlays are recommended and how they differ from fillings or crowns.",
+      "secondary_patient_intents": [
+        "Understand material choices",
+        "Review preparation needs"
+      ],
+      "common_questions": [
+        "Why choose an onlay over a crown?",
+        "How many visits are needed?",
+        "How do I care for it?"
+      ],
+      "typical_next_steps": [
+        "Assess tooth structure",
+        "Take scans or impressions",
+        "Plan fit and review"
+      ],
+      "related_treatments": [
+        "treatments.dental-crowns",
+        "treatments.dental-bridges",
+        "treatments.dentures"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "restorative_assessment"
+          },
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book an onlay assessment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Compare crown coverage",
+          "href": "/treatments/dental-crowns"
+        },
+        "tertiary": {
+          "label": "Review tooth wear planning",
+          "href": "/treatments/tooth-wear-broken-teeth"
+        }
+      },
+      "journey": {
+        "id": "functional_restoration",
+        "page_role": "conservative_restoration",
+        "primary_intent": "restorative_assessment",
+        "secondary_intent": "treatment_options",
+        "mid_page_cta": {
+          "label": "Compare full crown coverage",
+          "href": "/treatments/dental-crowns"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.tooth-wear-broken-teeth",
+      "primary_patient_intent": "Repair worn or broken teeth with conservative planning.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "functional_restoration",
+        "page_role": "diagnosis",
+        "primary_intent": "restorative_assessment",
+        "secondary_intent": "treatment_options",
+        "mid_page_cta": {
+          "label": "See dental crown protection",
+          "href": "/treatments/dental-crowns"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a restorative assessment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See crown coverage options",
+          "href": "/treatments/dental-crowns"
+        },
+        "tertiary": {
+          "label": "Review onlay repairs",
+          "href": "/treatments/inlays-onlays"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "restorative_assessment"
+          },
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.dental-implants",
+      "primary_patient_intent": "Learn implant options for replacing missing teeth.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "advanced_implants",
+        "page_role": "placement",
+        "primary_intent": "implant_consult",
+        "secondary_intent": "guided_surgery_info",
+        "mid_page_cta": {
+          "label": "Explore implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book an implant assessment",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Explore implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures"
+        },
+        "tertiary": {
+          "label": "See guided surgery planning",
+          "href": "/treatments/cbct-guided-surgery"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "implant_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.implant-aftercare",
+      "primary_patient_intent": "",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [
+        "treatments.implants-single-tooth",
+        "treatments.implant-retained-dentures",
+        "treatments.failed-implant-replacement"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "implant_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Schedule implant aftercare",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Review hygiene support",
+          "href": "/treatments/hygiene"
+        },
+        "tertiary": {
+          "label": "Check implant denture maintenance",
+          "href": "/treatments/implant-retained-dentures"
+        }
+      },
+      "journey": {
+        "id": "advanced_implants",
+        "page_role": "aftercare",
+        "primary_intent": "implant_consult",
+        "secondary_intent": "guided_surgery_info",
+        "mid_page_cta": {
+          "label": "Review implant hygiene support",
+          "href": "/treatments/hygiene"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.implant-consultation",
+      "primary_patient_intent": "Confirm implant suitability and map the plan.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "advanced_implants",
+        "page_role": "planning",
+        "primary_intent": "implant_consult",
+        "secondary_intent": "guided_surgery_info",
+        "mid_page_cta": {
+          "label": "See dental implant options",
+          "href": "/treatments/dental-implants"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange an implant consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See dental implant options",
+          "href": "/treatments/dental-implants"
+        },
+        "tertiary": {
+          "label": "Review guided surgery planning",
+          "href": "/treatments/cbct-guided-surgery"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "implant_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.implant-retained-dentures",
+      "primary_patient_intent": "",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [
+        "treatments.implants-full-arch",
+        "treatments.implant-aftercare",
+        "treatments.implants-single-tooth"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "implant_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "guided_surgery_info"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan implant-retained dentures",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See implant aftercare guidance",
+          "href": "/treatments/implant-aftercare"
+        },
+        "tertiary": {
+          "label": "Review implant consultation",
+          "href": "/treatments/implant-consultation"
+        }
+      },
+      "journey": {
+        "id": "advanced_implants",
+        "page_role": "restoration",
+        "primary_intent": "implant_consult",
+        "secondary_intent": "guided_surgery_info",
+        "mid_page_cta": {
+          "label": "See implant aftercare guidance",
+          "href": "/treatments/implant-aftercare"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.clear-aligners",
+      "primary_patient_intent": "Explore clear aligner options available at the practice.",
+      "secondary_patient_intents": [
+        "Check if aligners fit my lifestyle",
+        "Understand monitoring and compliance"
+      ],
+      "common_questions": [
+        "Which aligner systems are offered?",
+        "How are attachments used?",
+        "What is the retainer plan?"
+      ],
+      "typical_next_steps": [
+        "Book an orthodontic assessment",
+        "Take records for planning",
+        "Plan post-treatment retention"
+      ],
+      "related_treatments": [
+        "treatments.teeth-whitening",
+        "treatments.composite-bonding",
+        "treatments.veneers"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "orthodontic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Start an aligner consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Plan retainers",
+          "href": "/treatments/retainers"
+        },
+        "tertiary": {
+          "label": "Protect with night guards",
+          "href": "/treatments/night-guards-occlusal-splints"
+        }
+      },
+      "journey": {
+        "id": "orthodontic_stability",
+        "page_role": "aligner_pathway",
+        "primary_intent": "orthodontic_consult",
+        "secondary_intent": "stability_care",
+        "mid_page_cta": {
+          "label": "Plan retention early",
+          "href": "/treatments/retainers"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.fixed-braces",
+      "primary_patient_intent": "Assess whether fixed braces are suitable and how treatment progresses.",
+      "secondary_patient_intents": [
+        "Compare fixed braces with aligners",
+        "Understand hygiene needs during treatment"
+      ],
+      "common_questions": [
+        "How long will treatment take?",
+        "Can ceramic options be used?",
+        "What is the retainer plan?"
+      ],
+      "typical_next_steps": [
+        "Book orthodontic assessment",
+        "Take records for planning",
+        "Plan retainer and finishing steps"
+      ],
+      "related_treatments": [
+        "treatments.aligners",
+        "treatments.dental-retainers",
+        "treatments.teeth-whitening"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "orthodontic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ]
+      },
+      "journey": {
+        "id": "orthodontic_stability",
+        "page_role": "active_alignment",
+        "primary_intent": "orthodontic_consult",
+        "secondary_intent": "stability_care",
+        "mid_page_cta": {
+          "label": "Plan retainers after braces",
+          "href": "/treatments/retainers"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange orthodontic consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Compare clear aligners",
+          "href": "/treatments/clear-aligners"
+        },
+        "tertiary": {
+          "label": "Plan retention",
+          "href": "/treatments/retainers"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.night-guards-occlusal-splints",
+      "primary_patient_intent": "Assess whether an occlusal splint can protect teeth and joints during sleep.",
+      "secondary_patient_intents": [
+        "Understand design options",
+        "Review comfort and adaptation"
+      ],
+      "common_questions": [
+        "What symptoms can a splint help?",
+        "How long does it last?",
+        "How is it cleaned?"
+      ],
+      "typical_next_steps": [
+        "Book assessment for impressions or scans",
+        "Fit and adjust the splint",
+        "Plan reviews to monitor wear"
+      ],
+      "related_treatments": [
+        "treatments.bruxism-and-jaw-clenching",
+        "treatments.tmj-disorder-treatment",
+        "treatments.dental-retainers"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "orthodontic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Arrange splint fitting",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See retainer options",
+          "href": "/treatments/retainers"
+        },
+        "tertiary": {
+          "label": "Manage jaw comfort",
+          "href": "/treatments/tmj-jaw-comfort"
+        }
+      },
+      "journey": {
+        "id": "orthodontic_stability",
+        "page_role": "protection",
+        "primary_intent": "orthodontic_consult",
+        "secondary_intent": "stability_care",
+        "mid_page_cta": {
+          "label": "Review retainer options",
+          "href": "/treatments/retainers"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.retainers",
+      "primary_patient_intent": "Keep teeth stable after orthodontic treatment.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "orthodontic_stability",
+        "page_role": "retention",
+        "primary_intent": "orthodontic_consult",
+        "secondary_intent": "stability_care",
+        "mid_page_cta": {
+          "label": "Protect with night guards",
+          "href": "/treatments/night-guards-occlusal-splints"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book a retainer check",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Protect with night guards",
+          "href": "/treatments/night-guards-occlusal-splints"
+        },
+        "tertiary": {
+          "label": "Refresh aligner planning",
+          "href": "/treatments/clear-aligners"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "orthodontic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "stability_care"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.3d-printed-veneers",
+      "primary_patient_intent": "Find out how 3D printed provisional veneers support smile planning.",
+      "secondary_patient_intents": [
+        "Check if provisional mock-ups are suitable",
+        "Understand differences from definitive veneers"
+      ],
+      "common_questions": [
+        "How long can provisionals be worn?",
+        "What adjustments are possible?",
+        "How do they inform final design?"
+      ],
+      "typical_next_steps": [
+        "Plan digital smile design if needed",
+        "Arrange provisional try-in",
+        "Review options for definitive veneers"
+      ],
+      "related_treatments": [
+        "treatments.veneers",
+        "treatments.digital-smile-design",
+        "treatments.composite-bonding"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "cosmetic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan 3D printed veneer review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "View digital smile design",
+          "href": "/treatments/digital-smile-design"
+        },
+        "tertiary": {
+          "label": "Compare porcelain veneers",
+          "href": "/treatments/veneers"
+        }
+      },
+      "journey": {
+        "id": "aesthetic_smile",
+        "page_role": "preview",
+        "primary_intent": "cosmetic_consult",
+        "secondary_intent": "smile_planning",
+        "mid_page_cta": {
+          "label": "View digital smile design",
+          "href": "/treatments/digital-smile-design"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.composite-bonding",
+      "primary_patient_intent": "Understand how composite bonding can shape or rebuild worn teeth.",
+      "secondary_patient_intents": [
+        "See how it differs from veneers",
+        "Plan whitening before bonding"
+      ],
+      "common_questions": [
+        "How long does bonding last?",
+        "Can it be repaired or removed?",
+        "Does it need whitening first?"
+      ],
+      "typical_next_steps": [
+        "Assess enamel and bite forces",
+        "Plan whitening or alignment if needed",
+        "Book bonding and finishing polish"
+      ],
+      "related_treatments": [
+        "treatments.teeth-whitening",
+        "treatments.veneers",
+        "treatments.digital-smile-design"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "cosmetic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan bonding consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Explore injection-moulded composite",
+          "href": "/treatments/injection-moulded-composite"
+        },
+        "tertiary": {
+          "label": "Consider veneers",
+          "href": "/treatments/veneers"
+        }
+      },
+      "journey": {
+        "id": "aesthetic_smile",
+        "page_role": "refinement",
+        "primary_intent": "cosmetic_consult",
+        "secondary_intent": "smile_planning",
+        "mid_page_cta": {
+          "label": "Explore injection-moulded composite",
+          "href": "/treatments/injection-moulded-composite"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.digital-smile-design",
+      "primary_patient_intent": "See how digital smile design previews potential changes before treatment.",
+      "secondary_patient_intents": [
+        "Understand what simulations show",
+        "Check how designs translate into treatment"
+      ],
+      "common_questions": [
+        "What information is needed for planning?",
+        "Can I trial a mock-up?",
+        "Which treatments might follow?"
+      ],
+      "typical_next_steps": [
+        "Book records appointment for photos/scans",
+        "Review proposed design together",
+        "Decide on next steps such as whitening or veneers"
+      ],
+      "related_treatments": [
+        "treatments.veneers",
+        "treatments.composite-bonding",
+        "treatments.clear-aligners"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "cosmetic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book smile design consult",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See veneer options",
+          "href": "/treatments/veneers"
+        },
+        "tertiary": {
+          "label": "Explore bonding refinements",
+          "href": "/treatments/composite-bonding"
+        }
+      },
+      "journey": {
+        "id": "aesthetic_smile",
+        "page_role": "planning",
+        "primary_intent": "cosmetic_consult",
+        "secondary_intent": "smile_planning",
+        "mid_page_cta": {
+          "label": "Plan veneer options",
+          "href": "/treatments/veneers"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.injection-moulded-composite",
+      "primary_patient_intent": "Shape and refine teeth with guided composite layering.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "aesthetic_smile",
+        "page_role": "transitional",
+        "primary_intent": "cosmetic_consult",
+        "secondary_intent": "smile_planning",
+        "mid_page_cta": {
+          "label": "Compare veneer options",
+          "href": "/treatments/veneers"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Schedule composite review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Compare veneer options",
+          "href": "/treatments/veneers"
+        },
+        "tertiary": {
+          "label": "See whitening planning",
+          "href": "/treatments/teeth-whitening"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "cosmetic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.teeth-whitening",
+      "primary_patient_intent": "Explore supervised teeth whitening options and expectations.",
+      "secondary_patient_intents": [
+        "Compare in-practice and home approaches",
+        "Check suitability with dental work"
+      ],
+      "common_questions": [
+        "Will crowns or fillings whiten?",
+        "How to reduce sensitivity?",
+        "How long do results last?"
+      ],
+      "typical_next_steps": [
+        "Book dental health check",
+        "Take impressions for trays if appropriate",
+        "Plan maintenance or top-ups"
+      ],
+      "related_treatments": [
+        "treatments.composite-bonding",
+        "treatments.veneers",
+        "treatments.digital-smile-design"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "cosmetic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book whitening consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See bonding refinements",
+          "href": "/treatments/composite-bonding"
+        },
+        "tertiary": {
+          "label": "Preview digital smile design",
+          "href": "/treatments/digital-smile-design"
+        }
+      },
+      "journey": {
+        "id": "aesthetic_smile",
+        "page_role": "shade_set",
+        "primary_intent": "cosmetic_consult",
+        "secondary_intent": "smile_planning",
+        "mid_page_cta": {
+          "label": "Pair with composite bonding",
+          "href": "/treatments/composite-bonding"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.veneers",
+      "primary_patient_intent": "Understand veneer options, suitability, and maintenance.",
+      "secondary_patient_intents": [
+        "Compare porcelain and composite",
+        "Consider preparation needed"
+      ],
+      "common_questions": [
+        "Am I suitable for veneers?",
+        "How long do they last?",
+        "How do I look after them?"
+      ],
+      "typical_next_steps": [
+        "Book smile assessment",
+        "Review mock-ups or designs",
+        "Plan maintenance and replacement expectations"
+      ],
+      "related_treatments": [
+        "treatments.3d-printed-veneers",
+        "treatments.digital-smile-design",
+        "treatments.composite-bonding"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "cosmetic_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "smile_planning"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book veneer consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Try 3D printed veneers",
+          "href": "/treatments/3d-printed-veneers"
+        },
+        "tertiary": {
+          "label": "See digital smile design",
+          "href": "/treatments/digital-smile-design"
+        }
+      },
+      "journey": {
+        "id": "aesthetic_smile",
+        "page_role": "porcelain",
+        "primary_intent": "cosmetic_consult",
+        "secondary_intent": "smile_planning",
+        "mid_page_cta": {
+          "label": "Try 3D printed veneers",
+          "href": "/treatments/3d-printed-veneers"
+        }
       }
     },
     {
@@ -71,6 +1635,236 @@
         "treatments.3d-printing-lab",
         "treatments.digital-smile-design",
         "treatments.cbct-3d-scanning"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "technology_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ]
+      },
+      "journey": {
+        "id": "digital_3d_dentistry",
+        "page_role": "workflow_intro",
+        "primary_intent": "technology_consult",
+        "secondary_intent": "digital_workflow_info",
+        "mid_page_cta": {
+          "label": "See 3D printed dentures",
+          "href": "/treatments/3d-printed-dentures"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book digital workflow consult",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See 3D printed dentures",
+          "href": "/treatments/3d-printed-dentures"
+        },
+        "tertiary": {
+          "label": "Explore guided surgery planning",
+          "href": "/treatments/cbct-guided-surgery"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.3d-printed-dentures",
+      "primary_patient_intent": "Understand whether 3D printed dentures are appropriate and how they are made.",
+      "secondary_patient_intents": [
+        "Compare printed dentures with traditional ones",
+        "Learn about fit, comfort, and timelines"
+      ],
+      "common_questions": [
+        "How many visits are needed?",
+        "What materials are used?",
+        "Can they be adjusted if uncomfortable?"
+      ],
+      "typical_next_steps": [
+        "Take scans or impressions if proceeding",
+        "Review trial fit results",
+        "Plan follow-up for adjustments"
+      ],
+      "related_treatments": [
+        "treatments.dentures",
+        "treatments.chrome-dentures",
+        "treatments.peek-partial-dentures"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "technology_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ]
+      },
+      "journey": {
+        "id": "digital_3d_dentistry",
+        "page_role": "removable",
+        "primary_intent": "technology_consult",
+        "secondary_intent": "digital_workflow_info",
+        "mid_page_cta": {
+          "label": "See implant restorations",
+          "href": "/treatments/3d-printed-implant-restorations"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan 3D denture consult",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See implant restorations",
+          "href": "/treatments/3d-printed-implant-restorations"
+        },
+        "tertiary": {
+          "label": "Review denture care",
+          "href": "/treatments/dentures"
+        }
+      }
+    },
+    {
+      "routeId": "treatments.3d-printed-implant-restorations",
+      "primary_patient_intent": "Use 3D workflows to plan and restore implants.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "digital_3d_dentistry",
+        "page_role": "restorative",
+        "primary_intent": "technology_consult",
+        "secondary_intent": "digital_workflow_info",
+        "mid_page_cta": {
+          "label": "See guided surgery planning",
+          "href": "/treatments/cbct-guided-surgery"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book implant restoration review",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See guided surgery planning",
+          "href": "/treatments/cbct-guided-surgery"
+        },
+        "tertiary": {
+          "label": "Review implant consultation",
+          "href": "/treatments/implant-consultation"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "technology_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.cbct-guided-surgery",
+      "primary_patient_intent": "Understand CBCT-guided planning for precise surgery.",
+      "secondary_patient_intents": [],
+      "common_questions": [],
+      "typical_next_steps": [],
+      "related_treatments": [],
+      "journey": {
+        "id": "digital_3d_dentistry",
+        "page_role": "guided_planning",
+        "primary_intent": "technology_consult",
+        "secondary_intent": "digital_workflow_info",
+        "mid_page_cta": {
+          "label": "See dental implant options",
+          "href": "/treatments/dental-implants"
+        }
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Plan guided surgery consult",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "See dental implant options",
+          "href": "/treatments/dental-implants"
+        },
+        "tertiary": {
+          "label": "Review 3D workflow",
+          "href": "/treatments/3d-digital-dentistry"
+        }
+      },
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "technology_consult"
+          },
+          {
+            "target": "cta",
+            "intent": "digital_workflow_info"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.3d-dentistry-and-technology",
+      "primary_patient_intent": "Understand how digital tools support diagnosis and treatment planning across dentistry.",
+      "secondary_patient_intents": [
+        "See whether 3D imaging could improve accuracy for my care",
+        "Find out what scans or models are used before treatment"
+      ],
+      "common_questions": [
+        "Do digital scans replace traditional impressions?",
+        "When is CBCT imaging recommended?",
+        "How are 3D models used with the lab?"
+      ],
+      "typical_next_steps": [
+        "Discuss whether digital scanning is indicated",
+        "Review any radiation considerations",
+        "Plan next steps based on findings"
+      ],
+      "related_treatments": [
+        "treatments.cbct-3d-scanning",
+        "treatments.digital-smile-design",
+        "treatments.3d-printing-lab"
       ],
       "cta_plan": {
         "mid_page": [
@@ -146,118 +1940,6 @@
             "intent": "related_treatment"
           }
         ]
-      }
-    },
-    {
-      "routeId": "treatments.3d-printed-dentures",
-      "primary_patient_intent": "Understand whether 3D printed dentures are appropriate and how they are made.",
-      "secondary_patient_intents": [
-        "Compare printed dentures with traditional ones",
-        "Learn about fit, comfort, and timelines"
-      ],
-      "common_questions": [
-        "How many visits are needed?",
-        "What materials are used?",
-        "Can they be adjusted if uncomfortable?"
-      ],
-      "typical_next_steps": [
-        "Take scans or impressions if proceeding",
-        "Review trial fit results",
-        "Plan follow-up for adjustments"
-      ],
-      "related_treatments": [
-        "treatments.dentures",
-        "treatments.chrome-dentures",
-        "treatments.peek-partial-dentures"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      }
-    },
-    {
-      "routeId": "treatments.3d-printed-veneers",
-      "primary_patient_intent": "Find out how 3D printed provisional veneers support smile planning.",
-      "secondary_patient_intents": [
-        "Check if provisional mock-ups are suitable",
-        "Understand differences from definitive veneers"
-      ],
-      "common_questions": [
-        "How long can provisionals be worn?",
-        "What adjustments are possible?",
-        "How do they inform final design?"
-      ],
-      "typical_next_steps": [
-        "Plan digital smile design if needed",
-        "Arrange provisional try-in",
-        "Review options for definitive veneers"
-      ],
-      "related_treatments": [
-        "treatments.veneers",
-        "treatments.digital-smile-design",
-        "treatments.composite-bonding"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a veneer preview",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Compare with porcelain veneers",
-          "href": "/treatments/veneers"
-        },
-        "tertiary": {
-          "label": "Plan a smile makeover pathway",
-          "href": "/treatments/digital-smile-design"
-        }
       }
     },
     {
@@ -569,55 +2251,6 @@
       }
     },
     {
-      "routeId": "treatments.childrens-dentistry",
-      "primary_patient_intent": "Understand how routine and preventive care is tailored for children.",
-      "secondary_patient_intents": [
-        "Learn about check-up schedules",
-        "Discuss anxiety support"
-      ],
-      "common_questions": [
-        "When should my child first attend?",
-        "How to manage fissure sealants or fluoride?",
-        "What if my child is nervous?"
-      ],
-      "typical_next_steps": [
-        "Book a routine review",
-        "Discuss preventive treatments if indicated",
-        "Plan recall interval"
-      ],
-      "related_treatments": [
-        "treatments.preventative-and-general-dentistry",
-        "treatments.nervous-patients",
-        "treatments.orthodontics"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      }
-    },
-    {
       "routeId": "treatments.chrome-dentures",
       "primary_patient_intent": "Assess whether chrome dentures offer better fit or durability for me.",
       "secondary_patient_intents": [
@@ -730,195 +2363,6 @@
       }
     },
     {
-      "routeId": "treatments.clear-aligners",
-      "primary_patient_intent": "Explore clear aligner options available at the practice.",
-      "secondary_patient_intents": [
-        "Check if aligners fit my lifestyle",
-        "Understand monitoring and compliance"
-      ],
-      "common_questions": [
-        "Which aligner systems are offered?",
-        "How are attachments used?",
-        "What is the retainer plan?"
-      ],
-      "typical_next_steps": [
-        "Book an orthodontic assessment",
-        "Take records for planning",
-        "Plan post-treatment retention"
-      ],
-      "related_treatments": [
-        "treatments.teeth-whitening",
-        "treatments.composite-bonding",
-        "treatments.veneers"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a clear aligner assessment",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "See teeth whitening options",
-          "href": "/treatments/teeth-whitening"
-        },
-        "tertiary": {
-          "label": "Compare bonding vs veneers",
-          "href": "/treatments/composite-bonding"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.dental-bridges",
-      "primary_patient_intent": "Understand bridge options for replacing missing teeth.",
-      "secondary_patient_intents": [
-        "Compare bridges with implants or dentures",
-        "Consider tooth preparation needs"
-      ],
-      "common_questions": [
-        "What types of bridges are available?",
-        "How long do they last?",
-        "Is special cleaning required?"
-      ],
-      "typical_next_steps": [
-        "Assess supporting teeth and gums",
-        "Discuss design and material choices",
-        "Plan fit and review appointments"
-      ],
-      "related_treatments": [
-        "treatments.dental-crowns",
-        "treatments.dentures",
-        "treatments.implants"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a bridge consultation",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Explore crowns for single teeth",
-          "href": "/treatments/dental-crowns"
-        },
-        "tertiary": {
-          "label": "Discuss implant support",
-          "href": "/treatments/implants"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.dental-crowns",
-      "primary_patient_intent": "Learn when crowns are recommended and what the process involves.",
-      "secondary_patient_intents": [
-        "Consider materials and aesthetics",
-        "Understand longevity and care"
-      ],
-      "common_questions": [
-        "Why is a crown needed?",
-        "How many visits are required?",
-        "How do I look after it?"
-      ],
-      "typical_next_steps": [
-        "Take impressions or scans",
-        "Fit temporary if needed",
-        "Plan final fit and periodic reviews"
-      ],
-      "related_treatments": [
-        "treatments.dental-bridges",
-        "treatments.dentures",
-        "treatments.inlays-onlays"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Plan a crown appointment",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Compare bridge options",
-          "href": "/treatments/dental-bridges"
-        },
-        "tertiary": {
-          "label": "Review denture pathways",
-          "href": "/treatments/dentures"
-        }
-      }
-    },
-    {
       "routeId": "treatments.dental-retainers",
       "primary_patient_intent": "Plan how retainers will hold alignment after orthodontic treatment.",
       "secondary_patient_intents": [
@@ -982,69 +2426,6 @@
       }
     },
     {
-      "routeId": "treatments.dentures",
-      "primary_patient_intent": "Explore denture solutions and which style fits current needs.",
-      "secondary_patient_intents": [
-        "Compare full and partial options",
-        "Understand adjustment and relining"
-      ],
-      "common_questions": [
-        "How many visits will I need?",
-        "Will they feel bulky?",
-        "How often are reviews?"
-      ],
-      "typical_next_steps": [
-        "Assess oral tissues and bite",
-        "Take impressions or scans",
-        "Plan try-ins and follow-up"
-      ],
-      "related_treatments": [
-        "treatments.implant-retained-dentures",
-        "treatments.dental-bridges",
-        "treatments.dental-crowns"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Plan a denture review",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "See implant-retained denture options",
-          "href": "/treatments/implant-retained-dentures"
-        },
-        "tertiary": {
-          "label": "Compare bridge alternatives",
-          "href": "/treatments/dental-bridges"
-        }
-      }
-    },
-    {
       "routeId": "treatments.dermal-fillers",
       "primary_patient_intent": "Understand how dermal fillers can be used safely and what outcomes are realistic.",
       "secondary_patient_intents": [
@@ -1091,195 +2472,6 @@
             "intent": "related_treatment"
           }
         ]
-      }
-    },
-    {
-      "routeId": "treatments.digital-smile-design",
-      "primary_patient_intent": "See how digital smile design previews potential changes before treatment.",
-      "secondary_patient_intents": [
-        "Understand what simulations show",
-        "Check how designs translate into treatment"
-      ],
-      "common_questions": [
-        "What information is needed for planning?",
-        "Can I trial a mock-up?",
-        "Which treatments might follow?"
-      ],
-      "typical_next_steps": [
-        "Book records appointment for photos/scans",
-        "Review proposed design together",
-        "Decide on next steps such as whitening or veneers"
-      ],
-      "related_treatments": [
-        "treatments.veneers",
-        "treatments.composite-bonding",
-        "treatments.clear-aligners"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Start a smile makeover plan",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Review aligner pathways",
-          "href": "/treatments/clear-aligners"
-        },
-        "tertiary": {
-          "label": "See whitening and bonding options",
-          "href": "/treatments/teeth-whitening"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.endodontics-root-canal",
-      "primary_patient_intent": "Find out what root canal therapy involves and whether it is indicated.",
-      "secondary_patient_intents": [
-        "Understand discomfort management",
-        "Review success rates and alternatives"
-      ],
-      "common_questions": [
-        "How many visits will treatment take?",
-        "Will I need a crown after?",
-        "What symptoms should I expect?"
-      ],
-      "typical_next_steps": [
-        "Arrange diagnostic imaging",
-        "Begin cleaning and shaping if appropriate",
-        "Plan restoration after healing"
-      ],
-      "related_treatments": [
-        "treatments.emergency-dentistry",
-        "treatments.dental-crowns",
-        "treatments.preventative-and-general-dentistry"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a root canal consultation",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Plan a crown after treatment",
-          "href": "/treatments/dental-crowns"
-        },
-        "tertiary": {
-          "label": "Review emergency support",
-          "href": "/treatments/emergency-dentistry"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.extractions-and-oral-surgery",
-      "primary_patient_intent": "Understand when extractions or minor oral surgery are recommended and how recovery works.",
-      "secondary_patient_intents": [
-        "Discuss anaesthesia and comfort options",
-        "Review replacement choices after extraction"
-      ],
-      "common_questions": [
-        "What is the healing time?",
-        "Can sedation be used?",
-        "How do I look after the site?"
-      ],
-      "typical_next_steps": [
-        "Complete assessment and imaging",
-        "Plan surgical appointment",
-        "Discuss replacement options such as implants or bridges"
-      ],
-      "related_treatments": [
-        "treatments.emergency-dentistry",
-        "treatments.endodontics-root-canal",
-        "treatments.implants"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Arrange an extraction review",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Discuss sedation options",
-          "href": "/treatments/sedation-dentistry"
-        },
-        "tertiary": {
-          "label": "Plan follow-up implant care",
-          "href": "/treatments/implants"
-        }
       }
     },
     {
@@ -1430,55 +2622,6 @@
       }
     },
     {
-      "routeId": "treatments.fixed-braces",
-      "primary_patient_intent": "Assess whether fixed braces are suitable and how treatment progresses.",
-      "secondary_patient_intents": [
-        "Compare fixed braces with aligners",
-        "Understand hygiene needs during treatment"
-      ],
-      "common_questions": [
-        "How long will treatment take?",
-        "Can ceramic options be used?",
-        "What is the retainer plan?"
-      ],
-      "typical_next_steps": [
-        "Book orthodontic assessment",
-        "Take records for planning",
-        "Plan retainer and finishing steps"
-      ],
-      "related_treatments": [
-        "treatments.aligners",
-        "treatments.dental-retainers",
-        "treatments.teeth-whitening"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      }
-    },
-    {
       "routeId": "treatments.home-teeth-whitening",
       "primary_patient_intent": "Learn how home whitening kits are provided and supervised.",
       "secondary_patient_intents": [
@@ -1548,6 +2691,55 @@
         "treatments.preventative-and-general-dentistry",
         "treatments.implants",
         "treatments.orthodontics"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "primaryContent",
+            "intent": "understand_process"
+          },
+          {
+            "target": "supporting",
+            "intent": "compare_alternatives"
+          },
+          {
+            "target": "faq",
+            "intent": "related_treatment"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "book_consultation"
+          },
+          {
+            "target": "cta",
+            "intent": "related_treatment"
+          }
+        ]
+      }
+    },
+    {
+      "routeId": "treatments.implants",
+      "primary_patient_intent": "Get an overview of dental implant options and suitability.",
+      "secondary_patient_intents": [
+        "Understand stages from consultation to restoration",
+        "Compare implants with bridges or dentures"
+      ],
+      "common_questions": [
+        "Am I a candidate?",
+        "What scans are required?",
+        "How long does treatment take?"
+      ],
+      "typical_next_steps": [
+        "Arrange consultation and imaging",
+        "Discuss treatment plan",
+        "Plan maintenance schedule"
+      ],
+      "related_treatments": [
+        "treatments.implants-consultation",
+        "treatments.dental-bridges",
+        "treatments.dentures"
       ],
       "cta_plan": {
         "mid_page": [
@@ -2144,118 +3336,6 @@
       }
     },
     {
-      "routeId": "treatments.implants",
-      "primary_patient_intent": "Get an overview of dental implant options and suitability.",
-      "secondary_patient_intents": [
-        "Understand stages from consultation to restoration",
-        "Compare implants with bridges or dentures"
-      ],
-      "common_questions": [
-        "Am I a candidate?",
-        "What scans are required?",
-        "How long does treatment take?"
-      ],
-      "typical_next_steps": [
-        "Arrange consultation and imaging",
-        "Discuss treatment plan",
-        "Plan maintenance schedule"
-      ],
-      "related_treatments": [
-        "treatments.implants-consultation",
-        "treatments.dental-bridges",
-        "treatments.dentures"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      }
-    },
-    {
-      "routeId": "treatments.inlays-onlays",
-      "primary_patient_intent": "Learn when inlays or onlays are recommended and how they differ from fillings or crowns.",
-      "secondary_patient_intents": [
-        "Understand material choices",
-        "Review preparation needs"
-      ],
-      "common_questions": [
-        "Why choose an onlay over a crown?",
-        "How many visits are needed?",
-        "How do I care for it?"
-      ],
-      "typical_next_steps": [
-        "Assess tooth structure",
-        "Take scans or impressions",
-        "Plan fit and review"
-      ],
-      "related_treatments": [
-        "treatments.dental-crowns",
-        "treatments.dental-bridges",
-        "treatments.dentures"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book an inlay/onlay appointment",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Consider crown options",
-          "href": "/treatments/dental-crowns"
-        },
-        "tertiary": {
-          "label": "Explore bridge solutions",
-          "href": "/treatments/dental-bridges"
-        }
-      }
-    },
-    {
       "routeId": "treatments.mouthguards-and-retainers",
       "primary_patient_intent": "Understand combined mouthguard and retainer solutions and when they are used.",
       "secondary_patient_intents": [
@@ -2351,69 +3431,6 @@
             "intent": "related_treatment"
           }
         ]
-      }
-    },
-    {
-      "routeId": "treatments.night-guards-occlusal-splints",
-      "primary_patient_intent": "Assess whether an occlusal splint can protect teeth and joints during sleep.",
-      "secondary_patient_intents": [
-        "Understand design options",
-        "Review comfort and adaptation"
-      ],
-      "common_questions": [
-        "What symptoms can a splint help?",
-        "How long does it last?",
-        "How is it cleaned?"
-      ],
-      "typical_next_steps": [
-        "Book assessment for impressions or scans",
-        "Fit and adjust the splint",
-        "Plan reviews to monitor wear"
-      ],
-      "related_treatments": [
-        "treatments.bruxism-and-jaw-clenching",
-        "treatments.tmj-disorder-treatment",
-        "treatments.dental-retainers"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Arrange a splint fitting",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Review TMJ therapy options",
-          "href": "/treatments/tmj-disorder-treatment"
-        },
-        "tertiary": {
-          "label": "Check retainer protection",
-          "href": "/treatments/dental-retainers"
-        }
       }
     },
     {
@@ -2788,55 +3805,6 @@
       }
     },
     {
-      "routeId": "treatments.senior-mature-smile-care",
-      "primary_patient_intent": "Explore dental care considerations tailored to mature smiles.",
-      "secondary_patient_intents": [
-        "Review restorative stability",
-        "Discuss dry mouth or medication impacts"
-      ],
-      "common_questions": [
-        "How to maintain existing work?",
-        "Are implants or dentures suitable?",
-        "How often should I attend?"
-      ],
-      "typical_next_steps": [
-        "Book comprehensive review",
-        "Agree preventive and restorative priorities",
-        "Plan maintenance schedule"
-      ],
-      "related_treatments": [
-        "treatments.dentures",
-        "treatments.implants",
-        "treatments.periodontal-gum-care"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      }
-    },
-    {
       "routeId": "treatments.skin-boosters",
       "primary_patient_intent": "Learn how skin boosters can improve hydration and texture and whether they suit you.",
       "secondary_patient_intents": [
@@ -2981,69 +3949,6 @@
             "intent": "related_treatment"
           }
         ]
-      }
-    },
-    {
-      "routeId": "treatments.teeth-whitening",
-      "primary_patient_intent": "Explore supervised teeth whitening options and expectations.",
-      "secondary_patient_intents": [
-        "Compare in-practice and home approaches",
-        "Check suitability with dental work"
-      ],
-      "common_questions": [
-        "Will crowns or fillings whiten?",
-        "How to reduce sensitivity?",
-        "How long do results last?"
-      ],
-      "typical_next_steps": [
-        "Book dental health check",
-        "Take impressions for trays if appropriate",
-        "Plan maintenance or top-ups"
-      ],
-      "related_treatments": [
-        "treatments.composite-bonding",
-        "treatments.veneers",
-        "treatments.digital-smile-design"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a whitening consultation",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Compare bonding vs veneers",
-          "href": "/treatments/composite-bonding"
-        },
-        "tertiary": {
-          "label": "Explore Digital Smile Design",
-          "href": "/treatments/digital-smile-design"
-        }
       }
     },
     {
@@ -3194,69 +4099,6 @@
       }
     },
     {
-      "routeId": "treatments.veneers",
-      "primary_patient_intent": "Understand veneer options, suitability, and maintenance.",
-      "secondary_patient_intents": [
-        "Compare porcelain and composite",
-        "Consider preparation needed"
-      ],
-      "common_questions": [
-        "Am I suitable for veneers?",
-        "How long do they last?",
-        "How do I look after them?"
-      ],
-      "typical_next_steps": [
-        "Book smile assessment",
-        "Review mock-ups or designs",
-        "Plan maintenance and replacement expectations"
-      ],
-      "related_treatments": [
-        "treatments.3d-printed-veneers",
-        "treatments.digital-smile-design",
-        "treatments.composite-bonding"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a veneers consultation",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Explore Digital Smile Design",
-          "href": "/treatments/digital-smile-design"
-        },
-        "tertiary": {
-          "label": "Compare porcelain and 3D printed veneers",
-          "href": "/treatments/3d-printed-veneers"
-        }
-      }
-    },
-    {
       "routeId": "treatments.whitening-sensitive-teeth",
       "primary_patient_intent": "Find out how whitening can be managed safely when teeth are sensitive.",
       "secondary_patient_intents": [
@@ -3352,236 +4194,6 @@
             "intent": "related_treatment"
           }
         ]
-      }
-    },
-    {
-      "routeId": "treatments.composite-bonding",
-      "primary_patient_intent": "Understand how composite bonding can shape or rebuild worn teeth.",
-      "secondary_patient_intents": [
-        "See how it differs from veneers",
-        "Plan whitening before bonding"
-      ],
-      "common_questions": [
-        "How long does bonding last?",
-        "Can it be repaired or removed?",
-        "Does it need whitening first?"
-      ],
-      "typical_next_steps": [
-        "Assess enamel and bite forces",
-        "Plan whitening or alignment if needed",
-        "Book bonding and finishing polish"
-      ],
-      "related_treatments": [
-        "treatments.teeth-whitening",
-        "treatments.veneers",
-        "treatments.digital-smile-design"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book a cosmetic assessment",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "See teeth whitening options",
-          "href": "/treatments/teeth-whitening"
-        },
-        "tertiary": {
-          "label": "Explore 3D printed veneers",
-          "href": "/treatments/3d-printed-veneers"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.emergency-dentistry",
-      "primary_patient_intent": "Get same-day help for urgent dental pain or trauma.",
-      "secondary_patient_intents": [
-        "Know what to do before arriving",
-        "Find pain relief options"
-      ],
-      "common_questions": [
-        "Can you see me today?",
-        "Do you treat broken or knocked-out teeth?",
-        "Is sedation available?"
-      ],
-      "typical_next_steps": [
-        "Call to triage symptoms",
-        "Provide on-the-day stabilisation",
-        "Plan extractions, root canal, or repairs"
-      ],
-      "related_treatments": [
-        "treatments.extractions-and-oral-surgery",
-        "treatments.endodontics-root-canal",
-        "treatments.sedation-dentistry"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Emergency help today",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "See extraction and oral surgery care",
-          "href": "/treatments/extractions-and-oral-surgery"
-        },
-        "tertiary": {
-          "label": "Understand root canal options",
-          "href": "/treatments/endodontics-root-canal"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.implant-aftercare",
-      "primary_patient_intent": "",
-      "secondary_patient_intents": [],
-      "common_questions": [],
-      "typical_next_steps": [],
-      "related_treatments": [
-        "treatments.implants-single-tooth",
-        "treatments.implant-retained-dentures",
-        "treatments.failed-implant-replacement"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Book an implant aftercare visit",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Report implant concerns",
-          "href": "/treatments/failed-implant-replacement"
-        },
-        "tertiary": {
-          "label": "Plan implant-retained dentures",
-          "href": "/treatments/implant-retained-dentures"
-        }
-      }
-    },
-    {
-      "routeId": "treatments.implant-retained-dentures",
-      "primary_patient_intent": "",
-      "secondary_patient_intents": [],
-      "common_questions": [],
-      "typical_next_steps": [],
-      "related_treatments": [
-        "treatments.implants-full-arch",
-        "treatments.implant-aftercare",
-        "treatments.implants-single-tooth"
-      ],
-      "cta_plan": {
-        "mid_page": [
-          {
-            "target": "primaryContent",
-            "intent": "understand_process"
-          },
-          {
-            "target": "supporting",
-            "intent": "compare_alternatives"
-          },
-          {
-            "target": "faq",
-            "intent": "related_treatment"
-          }
-        ],
-        "late_page": [
-          {
-            "target": "cta",
-            "intent": "book_consultation"
-          },
-          {
-            "target": "cta",
-            "intent": "related_treatment"
-          }
-        ]
-      },
-      "cta_targets": {
-        "primary": {
-          "label": "Plan implant-retained dentures",
-          "href": "/contact"
-        },
-        "secondary": {
-          "label": "Review single tooth implant care",
-          "href": "/treatments/implants-single-tooth"
-        },
-        "tertiary": {
-          "label": "See full arch options",
-          "href": "/treatments/implants-full-arch"
-        }
       }
     }
   ]
