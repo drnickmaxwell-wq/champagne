@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Jaw clenching & bruxism",
       "title": "Relief for clenching, grinding, and jaw fatigue",
-      "body": "We investigate what is driving your bruxism\u2014stress, bite imbalance, or airway concerns\u2014and plan conservative measures first. Guards and therapeutic options are considered when clinically justified.",
+      "body": "We investigate what is driving your bruxism—stress, bite imbalance, or airway concerns—and plan conservative measures first. Guards and therapeutic options are considered when clinically justified.",
       "bullets": [
         "Detailed assessment of wear patterns, muscle tenderness, and bite alignment",
         "Custom night or day guards when indicated to protect teeth and joints",
@@ -115,6 +115,12 @@
         "Therapeutic facial injectables for muscle-related symptoms when suitable (/treatments/therapeutic-facial-injectables)",
         "Night guards (occlusal splints) tailored for clenching and grinding protection (/treatments/night-guards-occlusal-splints)"
       ]
+    },
+    {
+      "instanceId": "bruxism-and-jaw-clenching-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "bruxism-faq",

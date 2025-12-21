@@ -158,5 +158,13 @@
       "label": "Ask about anxiety support",
       "href": "/treatments/nervous-patients"
     }
-  }
+  },
+  "sections": [
+    {
+      "instanceId": "hub-directory-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 10,
+      "seoRole": "supporting"
+    }
+  ]
 }

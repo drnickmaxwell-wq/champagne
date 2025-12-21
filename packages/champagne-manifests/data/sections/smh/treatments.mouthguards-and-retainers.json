@@ -67,6 +67,12 @@
       ]
     },
     {
+      "instanceId": "mouthguards-and-retainers-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 49,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "mouthguards-retainers-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_mouthguards_retainers_faq",

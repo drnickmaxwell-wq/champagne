@@ -122,8 +122,14 @@
         "Data securely stored and shared when you agree",
         "Follow-up visits scheduled based on findings",
         "Advice on any interim care if we spot concerns",
-        "Guidance on when re-scans are or aren\u2019t needed"
+        "Guidance on when re-scans are or aren’t needed"
       ]
+    },
+    {
+      "instanceId": "cbct-3d-scanning-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "cbct-faq",

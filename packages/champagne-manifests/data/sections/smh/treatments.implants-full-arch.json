@@ -121,6 +121,12 @@
       ]
     },
     {
+      "instanceId": "implants-full-arch-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "full-arch-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_full_arch_faq",
@@ -184,7 +190,7 @@
           "variant": "secondary"
         }
       ],
-      "body": "We\u2019ll confirm suitability, options, and next steps after a full assessment."
+      "body": "We’ll confirm suitability, options, and next steps after a full assessment."
     }
   ],
   "journeys": {

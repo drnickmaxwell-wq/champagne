@@ -65,6 +65,12 @@
       ]
     },
     {
+      "instanceId": "whitening-sensitive-teeth-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 39,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "whitening-sensitivity-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_whitening_sensitivity_faq",

@@ -118,6 +118,12 @@
       ]
     },
     {
+      "instanceId": "senior-mature-smile-care-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 69,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "senior-smile-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_senior_smile_faq",
@@ -156,7 +162,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a mature smile assessment",
-      "body": "Let\u2019s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
+      "body": "Let’s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
       "ctas": [
         {
           "label": "Plan my visit",

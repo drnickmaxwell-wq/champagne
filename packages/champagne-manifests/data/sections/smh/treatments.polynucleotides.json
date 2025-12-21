@@ -46,7 +46,7 @@
       "bullets": [
         "Contraindication screening and discussion of realistic expectations",
         "Photography and mapping to monitor changes over the course",
-        "Clear spacing between sessions (often 2\u20134 weeks) to allow healing",
+        "Clear spacing between sessions (often 2–4 weeks) to allow healing",
         "Written aftercare and escalation guidance before the first session"
       ]
     },
@@ -101,11 +101,17 @@
       "eyebrow": "Aftercare & risks",
       "title": "Supportive aftercare with clear escalation steps",
       "items": [
-        "Pinpoint redness or swelling is expected for 24\u201372 hours; bruising can occur",
+        "Pinpoint redness or swelling is expected for 24–72 hours; bruising can occur",
         "Avoid strenuous activity, heat, and active skincare until advised",
         "Contact us promptly if you notice increasing pain, unusual colour change, or signs of infection",
         "Follow-up visits confirm healing before any further sessions"
       ]
+    },
+    {
+      "instanceId": "polynucleotides-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "polynucleotides-faq",

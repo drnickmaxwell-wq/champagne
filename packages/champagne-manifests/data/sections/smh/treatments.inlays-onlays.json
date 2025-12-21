@@ -126,6 +126,12 @@
       ]
     },
     {
+      "instanceId": "inlays-onlays-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "inlays-onlays-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_inlays_onlays_faq",
@@ -164,7 +170,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Strengthen your tooth with a precise fit",
-      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we\u2019d recommend.",
+      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we’d recommend.",
       "ctas": [
         {
           "label": "Book an assessment",

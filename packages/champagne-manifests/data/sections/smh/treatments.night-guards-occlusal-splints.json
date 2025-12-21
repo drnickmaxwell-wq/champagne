@@ -97,6 +97,12 @@
       ]
     },
     {
+      "instanceId": "night-guards-occlusal-splints-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 69,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "night-guards-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_night_guards_faq",

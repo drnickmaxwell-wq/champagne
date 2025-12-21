@@ -44,7 +44,7 @@
       "bullets": [
         "Shade comparison against your baseline",
         "Inspection of trays for seal and comfort",
-        "Discussion of how often you\u2019ll realistically top-up",
+        "Discussion of how often you’ll realistically top-up",
         "Guidance if restorations need refreshing instead of whitening",
         "Written instructions for the latest gel strength"
       ]
@@ -68,6 +68,12 @@
       "strapline": "Top-ups are calibrated to your lifestyle so results stay natural, not artificial."
     },
     {
+      "instanceId": "whitening-top-ups-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 39,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "whitening-topups-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_whitening_topups_faq",
@@ -82,7 +88,7 @@
         },
         {
           "question": "Can I reuse my old trays?",
-          "answer": "Yes, provided the fit is still secure. We\u2019ll check for wear or gaps before supplying gel."
+          "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
         },
         {
           "question": "Will I need stronger gel each time?",

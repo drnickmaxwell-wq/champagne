@@ -41,6 +41,12 @@
       "seoRole": "supporting"
     },
     {
+      "instanceId": "aligners-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 59,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "aligners-faq",
       "componentId": "section_faq",
       "variantId": "aligners",

@@ -103,6 +103,12 @@
       ]
     },
     {
+      "instanceId": "implants-single-tooth-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "single-implant-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_single_implant_faq",

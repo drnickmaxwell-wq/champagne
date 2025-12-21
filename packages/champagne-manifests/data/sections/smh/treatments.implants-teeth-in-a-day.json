@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
-      "body": "In selected cases, it may be possible to place implants and fit a fixed temporary smile on the same day \u2014 guided by scans, planning, and suitability.",
+      "body": "In selected cases, it may be possible to place implants and fit a fixed temporary smile on the same day — guided by scans, planning, and suitability.",
       "bullets": [
         "Fixed temporary teeth may be possible the same day (when suitable)",
         "Planning-led, safety-first approach",
@@ -42,7 +42,7 @@
       "items": [
         "CBCT imaging and planning before decisions",
         "Suitability-based recommendations (no pressure)",
-        "Clear explanation of what\u2019s realistic for you",
+        "Clear explanation of what’s realistic for you",
         "Options for comfort and anxiety support",
         "Long-term aftercare and review plan"
       ]
@@ -54,7 +54,7 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "WHAT IT MEANS",
-      "title": "What does \u201cTeeth-in-a-Day\u201d actually involve?",
+      "title": "What does “Teeth-in-a-Day” actually involve?",
       "body": "Implant placement with a fixed temporary bridge or denture can sometimes happen on the same day. Healing then continues before a final restoration is fitted once stability is confirmed. Same-day refers to the temporary phase; the definitive teeth follow after integration.",
       "mediaHint": "CBCT-led planning for immediate-load implants"
     },
@@ -70,7 +70,7 @@
         "Those with adequate bone and stable bite factors",
         "Patients seeking a fixed temporary solution quickly for confidence",
         "People who can commit to aftercare and follow-up",
-        "Not everyone qualifies \u2014 scans and clinical factors decide.",
+        "Not everyone qualifies — scans and clinical factors decide.",
         "In some cases, a staged approach is safer and longer-lasting."
       ]
     },
@@ -98,7 +98,7 @@
       "variantId": "shoreham_teeth_in_a_day_technology",
       "order": 60,
       "seoRole": "supporting",
-      "title": "Planning that makes \u201csame-day\u201d safer",
+      "title": "Planning that makes “same-day” safer",
       "body": "CBCT scans, guided positioning, and close coordination with the lab help us judge when immediate loading is appropriate. Every case is planned around stability, bite forces, and how temporary and final restorations will be delivered.",
       "items": [
         "3D CBCT imaging",
@@ -122,6 +122,12 @@
       ]
     },
     {
+      "instanceId": "teeth-in-a-day-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "teeth-in-a-day-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_teeth_in_a_day_faq",
@@ -142,7 +148,7 @@
           "answer": "Safety comes from planning, guided placement, and selecting cases where immediate loading is appropriate. If staging is safer, we recommend it."
         },
         {
-          "question": "What\u2019s the difference between same-day and staged implants?",
+          "question": "What’s the difference between same-day and staged implants?",
           "answer": "Same-day includes a temporary fixed bridge at surgery. Staged treatment builds stability first and may use removable temporaries before fitting the final teeth."
         },
         {
@@ -154,12 +160,12 @@
           "answer": "Follow the soft diet plan, avoid hard or sticky foods on the temporaries, keep up hygiene, and attend scheduled reviews."
         },
         {
-          "question": "Can I have sedation if I\u2019m nervous?",
+          "question": "Can I have sedation if I’m nervous?",
           "answer": "If suitable, sedation can be arranged with careful monitoring so you feel calm and supported."
         },
         {
           "question": "How much does Teeth-in-a-Day cost?",
-          "answer": "We confirm fees after assessment and planning. You\u2019ll receive a transparent plan based on whether same-day or staged treatment is advised."
+          "answer": "We confirm fees after assessment and planning. You’ll receive a transparent plan based on whether same-day or staged treatment is advised."
         }
       ]
     },
@@ -171,7 +177,7 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Wondering if Teeth-in-a-Day is realistic for you?",
-      "strapline": "Book an implant assessment in Shoreham-by-Sea and we\u2019ll explain what\u2019s possible \u2014 and what\u2019s safest \u2014 based on scans and planning.",
+      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s possible — and what’s safest — based on scans and planning.",
       "ctas": [
         {
           "label": "Book an implant assessment",

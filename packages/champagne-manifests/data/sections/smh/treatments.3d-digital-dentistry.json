@@ -55,7 +55,7 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "How we work",
-      "title": "Scan \u2192 Design \u2192 Print/Mill \u2192 Fit",
+      "title": "Scan → Design → Print/Mill → Fit",
       "body": "Your pathway is mapped in advance: we capture a precise scan, design collaboratively, produce the restoration in-house, and refine it chairside with the clinician who planned it.",
       "bullets": [
         "Intraoral scan and photography for reference",
@@ -108,7 +108,7 @@
       "seoRole": "supporting",
       "eyebrow": "What we can make in-house",
       "title": "Precision outputs, clinician-reviewed",
-      "body": "We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays\u2014all produced under the treating clinician's oversight."
+      "body": "We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays—all produced under the treating clinician's oversight."
     },
     {
       "instanceId": "digital-dentistry-aftercare",
@@ -125,6 +125,12 @@
         "Clear cleaning instructions to protect surfaces and soft tissue",
         "Implant-related prints come with hygiene and torque check plans"
       ]
+    },
+    {
+      "instanceId": "3d-digital-dentistry-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
     },
     {
       "instanceId": "digital-dentistry-faq",
@@ -145,7 +151,7 @@
         },
         {
           "question": "Do printed implant restorations need different maintenance?",
-          "answer": "We pair them with occlusion checks, hygiene plans, and torque reviews. You\u2019ll know the follow-up cadence before treatment begins."
+          "answer": "We pair them with occlusion checks, hygiene plans, and torque reviews. You’ll know the follow-up cadence before treatment begins."
         },
         {
           "question": "Can designs be adjusted after I see the preview?",

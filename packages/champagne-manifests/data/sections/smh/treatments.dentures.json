@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Options explained",
       "title": "Clear choices for removable tooth replacement",
-      "body": "We help you weigh acrylic dentures for flexibility and cost-effectiveness, chrome frameworks for slimmer partials, and PEEK partial dentures for lightweight, metal-free support. You\u2019ll hear where each option shines and where limits exist so you can choose confidently.",
+      "body": "We help you weigh acrylic dentures for flexibility and cost-effectiveness, chrome frameworks for slimmer partials, and PEEK partial dentures for lightweight, metal-free support. You’ll hear where each option shines and where limits exist so you can choose confidently.",
       "bullets": [
         "Full acrylic dentures and partials with staged try-ins",
         "Chrome cobalt partials designed for thinner, stronger bases",
@@ -96,7 +96,7 @@
         "Final fit with occlusion and pressure checks",
         "Follow-up to review adhesives, relines, and longer-term stability"
       ],
-      "strapline": "You\u2019ll know timelines, review points, and costs before we begin."
+      "strapline": "You’ll know timelines, review points, and costs before we begin."
     },
     {
       "instanceId": "dentures-technology",
@@ -125,6 +125,12 @@
       ]
     },
     {
+      "instanceId": "dentures-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "dentures-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_dentures_faq",
@@ -143,7 +149,7 @@
         },
         {
           "question": "When do you suggest chrome or PEEK instead of acrylic?",
-          "answer": "If you have enough healthy teeth for support, chrome or PEEK partials can feel slimmer and more stable. We\u2019ll explain when acrylic is still the better match."
+          "answer": "If you have enough healthy teeth for support, chrome or PEEK partials can feel slimmer and more stable. We’ll explain when acrylic is still the better match."
         },
         {
           "question": "Do I have to use adhesive?",
@@ -151,7 +157,7 @@
         },
         {
           "question": "What if I want more stability?",
-          "answer": "We can explore selective implant support once you\u2019ve experienced how the denture fits. Any recommendation is paced around comfort, healing, and your goals."
+          "answer": "We can explore selective implant support once you’ve experienced how the denture fits. Any recommendation is paced around comfort, healing, and your goals."
         }
       ]
     },

@@ -130,6 +130,12 @@
       ]
     },
     {
+      "instanceId": "therapeutic-facial-injectables-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 89,
+      "seoRole": "supporting"
+    },
+    {
       "instanceId": "therapeutic-injectables-faq",
       "componentId": "treatment.faq",
       "variantId": "smh_therapeutic_injectables_faq",
