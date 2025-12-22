@@ -142,6 +142,22 @@
       ]
     },
     {
+      "instanceId": "dental-crowns-authority",
+      "componentId": "treatment_authority_block",
+      "variantId": "smh_dental_crowns_authority",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical oversight",
+      "title": "Crown planning led by restorative dentists",
+      "body": "Crowns are prescribed after assessing tooth strength, crack lines, and bite forces. Our clinicians use digital scans and restorative training to map preparation, margin placement, and occlusal contacts before committing to full coverage.",
+      "bullets": [
+        "Case selection balances preservation with long-term protection",
+        "Material choice aligned to bite dynamics and aesthetics",
+        "CBCT and vitality history considered when relevant",
+        "Review schedule agreed to monitor gum response and wear"
+      ]
+    },
+    {
       "instanceId": "dental-crowns-mid-cta",
       "componentId": "treatment_mid_cta",
       "order": 89,
@@ -157,20 +173,32 @@
       "title": "What to expect from crown treatment",
       "faqs": [
         {
-          "question": "Does getting a crown hurt?",
-          "answer": "The tooth is numbed before preparation and fitting. Mild post-appointment sensitivity is possible and usually settles quickly; we review and adjust if anything feels high."
+          "question": "Who is a suitable candidate for a crown?",
+          "answer": "Crowns are recommended when a tooth is cracked, heavily filled, or needs reinforcement after root canal treatment. If a more conservative option is viable, we will explain that first."
+        },
+        {
+          "question": "Are there alternatives to a crown?",
+          "answer": "Depending on remaining tooth structure, options may include an onlay, bonded repair, or monitoring. We map crack risk and bite forces to advise when full coverage is the safer route."
         },
         {
           "question": "How long will my crown last?",
-          "answer": "Lifespan depends on bite forces, cleaning, and material choice. With good hygiene and regular reviews, crowns typically serve for many years; we will outline maintenance tailored to you."
+          "answer": "Durability depends on bite forces, hygiene, and material. We choose ceramics or metal-ceramic options to suit your case and schedule reviews to check margins and contacts over time."
+        },
+        {
+          "question": "What maintenance does a crown need?",
+          "answer": "Clean carefully around the margins and attend regular hygiene appointments. Bite checks help us refine contacts and spot early signs of wear or gum inflammation."
+        },
+        {
+          "question": "What are the risks or limitations?",
+          "answer": "Crowns can chip, loosen, or develop decay at the margins if hygiene or bite balance is poor. We plan coverage height and consider splints if grinding is present to reduce these risks."
+        },
+        {
+          "question": "How are crowns priced?",
+          "answer": "Fees vary by material, laboratory input, and any additional planning such as scan-guided design. We provide a written estimate and outline phased treatment if needed."
         },
         {
           "question": "Will the crown match my other teeth?",
           "answer": "We shade-map your neighbouring teeth and use digital scans to guide shape and translucency. The aim is a natural blend that suits your smile and gumline."
-        },
-        {
-          "question": "Are there alternatives to a crown?",
-          "answer": "Where safe, we may recommend monitoring, a repair, or an onlay instead. If coverage is needed to protect the tooth, we will explain why a crown is the stable option."
         }
       ]
     },
@@ -230,6 +258,14 @@
       {
         "label": "Smile design planning",
         "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
       }
     ]
   },
@@ -246,5 +282,18 @@
       "label": "Understand protection after root canal",
       "href": "/treatments/endodontics-root-canal"
     }
-  }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
 }
