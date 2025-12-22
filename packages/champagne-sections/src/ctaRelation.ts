@@ -1,5 +1,6 @@
 import { resolveCTAList, type ChampagneCTAConfig } from "@champagne/cta";
-import { getTreatmentPages, resolveTreatmentPathAlias } from "@champagne/manifests/src/helpers";
+import { resolveTreatmentPathAlias } from "@champagne/manifests/src/helpers";
+import { destinationTitleForPath } from "./ctaLabelTruth";
 
 export type CTARelationship =
   | "prerequisite"
@@ -23,9 +24,6 @@ export interface NormalizedCTARelation {
   alternativeLabelBanned: boolean;
   normalizedHref?: string;
 }
-
-const treatmentPages = getTreatmentPages();
-const treatmentPathLookup = new Map(treatmentPages.map((page) => [page.path, page]));
 
 const staticRouteLabelMap: Record<string, string> = {
   "/contact": "Contact",
@@ -90,8 +88,8 @@ export function labelFromHref(href?: string): string | undefined {
     const intent = parsed.searchParams.get("intent");
 
     if (path.startsWith("/treatments/")) {
-      const treatment = treatmentPathLookup.get(path);
-      return treatment?.label ?? path.split("/").pop()?.replace(/[-_]/g, " ");
+      const treatmentTitle = destinationTitleForPath(path);
+      return treatmentTitle ?? path.split("/").pop()?.replace(/[-_]/g, " ");
     }
 
     if (path === "/patient-portal" && intent) {

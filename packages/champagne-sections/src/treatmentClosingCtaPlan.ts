@@ -15,6 +15,7 @@ import {
   updateRelationAudit,
   type CTARelationAudit,
 } from "./ctaRelation";
+import { enforceCtaLabelTruth } from "./ctaLabelTruth";
 
 type CTAPlanEntry = Partial<ChampagneCTAConfig> & { preset?: string };
 
@@ -261,16 +262,19 @@ export function resolveTreatmentClosingCTAPlan({
     .slice(primaryCTAs.length, primaryCTAs.length + supportingCandidates.length)
     .map((entry) => (typeof entry === "string" ? entry : entry.label ?? ""))
     .filter(Boolean) as string[];
-  const supportingLinesResult = dedupeSupportingLines(supportingLineCandidates, resolvedButtons.map((cta) => cta.label));
-
   const renderedButtons = (resolvedButtons.length > 0 ? resolvedButtons : fallbackCTAs).slice(0, 4);
+  const truthAlignedButtons = enforceCtaLabelTruth(renderedButtons);
+  const supportingLinesResult = dedupeSupportingLines(
+    supportingLineCandidates,
+    truthAlignedButtons.map((cta) => cta.label),
+  );
 
   return {
-    buttons: renderedButtons,
+    buttons: truthAlignedButtons,
     supportingLines: supportingLinesResult.lines,
     audit: {
       beforeButtons: relationReadyButtons,
-      afterButtons: renderedButtons,
+      afterButtons: truthAlignedButtons,
       duplicatesRemoved: {
         buttons: duplicateButtonsRemoved,
         supportingLines: supportingLinesResult.dropped.length,
