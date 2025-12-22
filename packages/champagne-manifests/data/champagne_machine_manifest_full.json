@@ -5394,7 +5394,7 @@
     },
     "dental_retainers": {
       "id": "dental_retainers",
-      "label": "Dental retainers",
+      "label": "Retainers",
       "path": "/treatments/dental-retainers",
       "category": "treatment",
       "hero": "orthodontics_balanced_hero_v1",
