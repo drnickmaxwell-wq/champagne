@@ -32,6 +32,7 @@ type SectionComponent = (props: {
   footerCTAs?: ChampagneCTAConfig[];
   pageSlug?: string;
   usedMidCtaHrefs?: string[];
+  absorbedMidCtas?: ChampagneCTAConfig[];
 }) => ReactNode;
 
 const typeMap: Record<string, SectionComponent> = {
@@ -52,12 +53,25 @@ const typeMap: Record<string, SectionComponent> = {
   reviews: (props) => <Section_GoogleReviews {...props} />,
 };
 
-function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[], pageSlug?: string, usedMidCtaHrefs?: string[]) {
+function renderSection(
+  section: SectionRegistryEntry,
+  footerCTAs?: ChampagneCTAConfig[],
+  pageSlug?: string,
+  usedMidCtaHrefs?: string[],
+  absorbedMidCtas?: ChampagneCTAConfig[],
+) {
   const key = section.kind ?? section.type;
   const component = key ? typeMap[key] : undefined;
   if (component) {
     const props = key === "treatment_closing_cta"
-      ? { section, ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined, footerCTAs, pageSlug, usedMidCtaHrefs }
+      ? {
+          section,
+          ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined,
+          footerCTAs,
+          pageSlug,
+          usedMidCtaHrefs,
+          absorbedMidCtas,
+        }
       : key === "treatment_mid_cta"
         ? { section, pageSlug }
         : { section };
@@ -85,8 +99,16 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, pr
   const hasClosingCTASection = sections.some((section) => section.kind === "treatment_closing_cta");
   const manifestMidCTASection = sections.find((section) => section.kind === "treatment_mid_cta");
   const manifestMidCtaPlan = manifestMidCTASection ? resolveTreatmentMidCTAPlan(manifestMidCTASection, pageSlug) : undefined;
-  const usedMidCtaHrefsSource = hasMidPageCTAs ? midPageCTAs ?? [] : manifestMidCtaPlan?.resolvedCTAs ?? [];
+  const closingIndex = sections.findIndex((section) => section.kind === "treatment_closing_cta");
+  const midIndex = sections.findIndex((section) => section.kind === "treatment_mid_cta");
+  const shouldAbsorbMidCTA = closingIndex >= 0 && midIndex >= 0 && (midIndex >= sections.length - 2 || midIndex >= closingIndex - 1);
+  const usedMidCtaHrefsSource = shouldAbsorbMidCTA
+    ? []
+    : hasMidPageCTAs
+      ? midPageCTAs ?? []
+      : manifestMidCtaPlan?.resolvedCTAs ?? [];
   const usedMidCtaHrefs = usedMidCtaHrefsSource.map((cta) => cta.href).filter(Boolean);
+  const absorbedMidCtas = shouldAbsorbMidCTA ? manifestMidCtaPlan?.resolvedCTAs ?? [] : undefined;
 
   return (
     <div style={{ display: "grid", gap: "clamp(1.2rem, 2.4vw, 2rem)", marginTop: "0.5rem" }}>
@@ -99,19 +121,22 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, pr
           width: "100%",
         }}
       >
-        {sections.map((section, index) => (
-          <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
-            <div>{renderSection(section, footerCTAs, pageSlug, usedMidCtaHrefs)}</div>
-            {hasMidPageCTAs && index === midInsertIndex - 1 && (
-              <ChampagneCTAGroup
-                ctas={midPageCTAs}
-                label="Mid-page CTAs"
-                showDebug={previewMode}
-                defaultVariant="secondary"
-              />
-            )}
-          </Fragment>
-        ))}
+        {sections.map((section, index) => {
+          if (shouldAbsorbMidCTA && section.kind === "treatment_mid_cta") return null;
+          return (
+            <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
+              <div>{renderSection(section, footerCTAs, pageSlug, usedMidCtaHrefs, absorbedMidCtas)}</div>
+              {hasMidPageCTAs && index === midInsertIndex - 1 && (
+                <ChampagneCTAGroup
+                  ctas={midPageCTAs}
+                  label="Mid-page CTAs"
+                  showDebug={previewMode}
+                  defaultVariant="secondary"
+                />
+              )}
+            </Fragment>
+          );
+        })}
         {sections.length === 0 && <Section_TextBlock />}
         {sections.length === 0 && hasMidPageCTAs && (
           <ChampagneCTAGroup

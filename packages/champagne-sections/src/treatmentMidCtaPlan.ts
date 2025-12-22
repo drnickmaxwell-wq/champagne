@@ -9,6 +9,14 @@ import {
 import { getRouteIdFromSlug } from "@champagne/manifests/src/core";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { dedupeButtons } from "./ctaDedupe";
+import {
+  createRelationAudit,
+  labelFromHref,
+  normalizeCtaRelation,
+  updateRelationAudit,
+  type CTARelationAudit,
+  type CTARelationship,
+} from "./ctaRelation";
 
 type ChampagneCTAVariant = "primary" | "secondary" | "ghost";
 
@@ -122,6 +130,9 @@ export interface MidCTAButtonAudit {
   href?: string;
   resolvedLabel?: string;
   resolvedHref?: string;
+  finalLabel?: string;
+  relationship?: CTARelationship;
+  alternativeLabelBanned?: boolean;
   status: MidCTAStatus;
   invalidReason?: string;
 }
@@ -140,6 +151,7 @@ export interface MidCTAAuditReport {
   dropped: { id?: string; label?: string; href?: string; reason: string }[];
   deduped: { buttonsRemoved: number };
   usedFallbackDefaults: boolean;
+  relation: CTARelationAudit;
 }
 
 export interface MidCTAPlanResult {
@@ -167,18 +179,6 @@ const allowedStaticRoutes = new Set<string>([
 ]);
 
 const allowedPortalIntents = new Set(["login", "upload", "finance", "video"]);
-
-const staticRouteLabelMap: Record<string, string> = {
-  "/contact": "Contact",
-  "/treatments": "Treatments",
-  "/patient-portal": "Patient portal",
-  "/practice-plan": "Practice Plan",
-  "/video-consultation": "Video Consultation",
-  "/finance": "Finance",
-  "/smile-gallery": "Smile Gallery",
-  "/team": "Team",
-  "/blog": "Blog",
-};
 
 const safeFallbackCTAs: CTAPlanEntry[] = [
   {
@@ -451,42 +451,6 @@ function isRawLabel(label?: string) {
   return false;
 }
 
-function labelFromHref(href?: string): string | undefined {
-  if (!href) return undefined;
-  try {
-    const parsed = new URL(href, "https://champagne.local");
-    const path = parsed.pathname;
-    const intent = parsed.searchParams.get("intent");
-
-    if (path.startsWith("/treatments/")) {
-      const treatment = treatmentPathLookup.get(path);
-      return treatment?.label ?? toTitleCase(path.split("/").pop()?.replace(/[-_]/g, " ") ?? "");
-    }
-
-    if (path === "/patient-portal" && intent) {
-      switch (intent) {
-        case "video":
-          return "Video consultation";
-        case "finance":
-          return "Finance";
-        case "upload":
-          return "Secure upload";
-        case "login":
-          return "Patient portal";
-        default:
-          break;
-      }
-    }
-
-    const staticLabel = staticRouteLabelMap[path];
-    if (staticLabel) return staticLabel;
-
-    return undefined;
-  } catch {
-    return undefined;
-  }
-}
-
 function humanizeLabel(
   label: string | undefined,
   href: string | undefined,
@@ -574,11 +538,19 @@ export function resolveTreatmentMidCTAPlan(
   const beforeButtons: MidCTAButtonAudit[] = [];
   const afterButtons: MidCTAButtonAudit[] = [];
   const dropped: { id?: string; label?: string; href?: string; reason: string }[] = [];
+  const relationAudit = createRelationAudit();
 
   const validated = candidateCTAs.map((cta) => {
     const { href: resolvedHref } = resolveTreatmentHrefAlias(cta.href);
     const validation = validateHref(resolvedHref ?? "", truthSet);
     const { resolvedLabel, wasRaw } = humanizeLabel(cta.label, resolvedHref, cta.variant);
+    const relationNormalization = normalizeCtaRelation({
+      href: resolvedHref,
+      label: resolvedLabel,
+      defaultVariant: cta.variant,
+    });
+    const finalLabel = relationNormalization.label;
+    updateRelationAudit(relationAudit, relationNormalization);
     const status: MidCTAStatus = validation.valid ? (wasRaw ? "RAW_LABEL" : "OK") : "INVALID_HREF";
 
     beforeButtons.push({
@@ -587,6 +559,9 @@ export function resolveTreatmentMidCTAPlan(
       href: cta.href,
       resolvedLabel,
       resolvedHref,
+      finalLabel,
+      relationship: relationNormalization.relationship,
+      alternativeLabelBanned: relationNormalization.alternativeLabelBanned,
       status,
       invalidReason: validation.reason,
     });
@@ -600,22 +575,33 @@ export function resolveTreatmentMidCTAPlan(
       id: cta.id,
       label: cta.label,
       href: cta.href,
-      resolvedLabel,
+      resolvedLabel: finalLabel,
       resolvedHref,
+      finalLabel,
+      relationship: relationNormalization.relationship,
+      alternativeLabelBanned: relationNormalization.alternativeLabelBanned,
       status: wasRaw ? "RAW_LABEL" : "OK",
     });
 
     return {
       ...cta,
       href: resolvedHref,
-      label: resolvedLabel,
+      label: finalLabel,
     } satisfies CTAPlanEntry;
   });
 
   let sanitized = validated.filter(Boolean) as CTAPlanEntry[];
 
   if (!sanitized.length) {
-    sanitized = [...safeFallbackCTAs];
+    sanitized = safeFallbackCTAs.map((cta) => {
+      const relationNormalization = normalizeCtaRelation({
+        href: cta.href,
+        label: cta.label,
+        defaultVariant: cta.variant,
+      });
+      updateRelationAudit(relationAudit, relationNormalization);
+      return { ...cta, label: relationNormalization.label };
+    });
   }
 
   const dedupedResult = dedupeButtons(sanitized, { normalizeHref: normalizeHrefForDedupe });
@@ -647,6 +633,7 @@ export function resolveTreatmentMidCTAPlan(
       dropped,
       deduped: { buttonsRemoved: dedupedResult.dropped.length },
       usedFallbackDefaults: validated.filter(Boolean).length === 0,
+      relation: relationAudit,
     },
   };
 }
