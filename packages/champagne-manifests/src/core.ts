@@ -43,6 +43,7 @@ import sectionLayoutDigitalSmileDesign from "../data/sections/smh/treatments.dig
 import sectionLayoutCbct3DScanning from "../data/sections/smh/treatments.cbct-3d-scanning.json";
 import sectionLayoutDentalBridges from "../data/sections/smh/treatments.dental-bridges.json";
 import sectionLayoutDentalCrowns from "../data/sections/smh/treatments.dental-crowns.json";
+import sectionLayoutDentalFillings from "../data/sections/smh/treatments.dental-fillings.json";
 import sectionLayoutInlaysOnlays from "../data/sections/smh/treatments.inlays-onlays.json";
 import sectionLayoutOrthodontics from "../data/sections/smh/treatments.orthodontics.json";
 import sectionLayoutPainlessNumbingTheWand from "../data/sections/smh/treatments.painless-numbing-the-wand.json";
@@ -336,6 +337,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutCbct3DScanning as ChampagneSectionLayout,
   sectionLayoutDentalBridges as ChampagneSectionLayout,
   sectionLayoutDentalCrowns as ChampagneSectionLayout,
+  sectionLayoutDentalFillings as ChampagneSectionLayout,
   sectionLayoutInlaysOnlays as ChampagneSectionLayout,
   sectionLayoutPainlessNumbingTheWand as ChampagneSectionLayout,
   sectionLayoutPeriodontalGumCare as ChampagneSectionLayout,

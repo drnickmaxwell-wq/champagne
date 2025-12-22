@@ -1,0 +1,306 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-fillings",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "dental-fillings-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_dental_fillings_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Dental fillings",
+      "title": "Dental fillings in Shoreham-by-Sea",
+      "body": "Clinician-led repairs with clear guidance on when composite or amalgam serves you best.",
+      "bullets": [
+        "Composite or amalgam matched to bite forces and moisture control",
+        "Bonded placement to strengthen the seal and reduce leakage",
+        "Careful shaping for smooth contacts and a balanced bite",
+        "Calm appointments with numbing and isolation"
+      ],
+      "ctas": [
+        {
+          "label": "Book a fillings consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Explore inlays and onlays",
+          "href": "/treatments/inlays-onlays",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_dental_fillings_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients choose this approach",
+      "title": "Restorations placed for longevity and comfort",
+      "items": [
+        "Balanced advice on composite versus amalgam for your specific tooth",
+        "Amalgams bonded to improve strength and marginal seal when indicated",
+        "Moisture control and isolation to help the restoration last",
+        "Bite checks to keep opposing teeth protected",
+        "Clear aftercare so sensitivity settles predictably"
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental_fillings_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "Composite vs amalgam",
+      "title": "Choosing the right filling material for your tooth",
+      "body": "Composite (tooth-coloured) fillings bond to enamel and dentine, allowing conservative shaping and a natural finish. Amalgam fillings remain highly durable in areas with heavy load or where moisture control is limited. We bond amalgams to improve strength and the seal when we use them.",
+      "bullets": [
+        "Composite: blends with your tooth, good for precise shaping",
+        "Amalgam: strong under heavy bite or limited isolation",
+        "We advise when each option best protects the tooth",
+        "For large defects we may suggest onlays/inlays or crowns",
+        "Root canal therapy is discussed if decay reaches the nerve"
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-scenarios",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_dental_fillings_who",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "When we recommend fillings",
+      "title": "Steady repairs for everyday and heavily loaded teeth",
+      "items": [
+        "New cavities caught early before more extensive work is needed",
+        "Replacing worn, fractured, or leaking fillings",
+        "Areas with limited dryness where amalgam is safer",
+        "Teeth carrying high bite forces or heavy contact points",
+        "Restorations that support onlay, crown, or endodontic planning"
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_dental_fillings_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your appointment",
+      "title": "Comfortable, well-isolated placement",
+      "items": [
+        "Numbing and isolation to keep the area comfortable and dry",
+        "Removal of decay or old material with minimal healthy tooth loss",
+        "Liners or bonding steps based on depth and sensitivity",
+        "Placement of composite or bonded amalgam with controlled layering",
+        "Careful shaping and polishing for smooth contacts",
+        "Bite check and adjustments so it feels natural"
+      ],
+      "strapline": "We explain each stage and pause if you need breaks."
+    },
+    {
+      "instanceId": "dental-fillings-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_dental_fillings_aftercare",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & what to expect",
+      "title": "Helping your filling settle",
+      "items": [
+        "Mild sensitivity to temperature or bite is common for a few days",
+        "Avoid very hard or sticky foods on the tooth for the first 24 hours",
+        "Keep to daily brushing and interdental cleaning around the margins",
+        "Contact us if pain persists, the bite feels high, or you notice cracks",
+        "Regular reviews help us monitor wear, bruxism, and gum health"
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-longevity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental_fillings_longevity",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Longevity factors",
+      "title": "What influences how long fillings last",
+      "body": "Bite forces, diet, and parafunction all affect how a filling wears. Composite and amalgam both last longer with good moisture control at placement, balanced occlusion, and supportive hygiene care.",
+      "bullets": [
+        "Bite force and grinding patterns (consider splints if needed)",
+        "Diet, sugar exposure, and acid challenges",
+        "Home care and professional hygiene visits",
+        "Size and location of the restoration",
+        "Routine check-ups to spot early changes"
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-mid-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_dental_fillings_mid_cta",
+      "order": 80,
+      "seoRole": "supporting",
+      "eyebrow": "Related care",
+      "title": "When a filling needs extra support",
+      "body": "If the tooth is heavily broken down or the nerve is affected, we guide you through the next restorative steps.",
+      "ctas": [
+        {
+          "label": "Explore onlays and inlays",
+          "href": "/treatments/inlays-onlays",
+          "preset": "secondary"
+        },
+        {
+          "label": "See when crowns are safer",
+          "href": "/treatments/dental-crowns",
+          "preset": "secondary"
+        },
+        {
+          "label": "Understand root canal options",
+          "href": "/treatments/endodontics-root-canal",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-hygiene",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental_fillings_hygiene",
+      "order": 85,
+      "seoRole": "supporting",
+      "eyebrow": "Supportive care",
+      "title": "Keeping the restored tooth healthy",
+      "body": "Regular hygiene visits and gum care keep the margins clean and reduce the risk of future decay around a filling. We plan maintenance intervals based on your gum health and any bruxism or diet risks.",
+      "bullets": [
+        "Hygiene and gum care to protect the edges",
+        "Monitoring for cracks, leakage, or wear",
+        "Occlusal splints for clenching or grinding",
+        "Check-ups to time replacements before problems escalate",
+        "Advice on diet and home care around restorations"
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_dental_fillings_faq",
+      "order": 88,
+      "seoRole": "supporting",
+      "eyebrow": "FAQs",
+      "title": "Questions about dental fillings",
+      "faqs": [
+        {
+          "question": "When is amalgam better than composite?",
+          "answer": "We consider amalgam when the tooth takes heavy load, when isolation is difficult, or when longevity is the priority. We bond amalgams to enhance strength and seal."
+        },
+        {
+          "question": "How long will sensitivity last?",
+          "answer": "Mild temperature or bite sensitivity can last a few days. Let us know if it persists beyond a week or if pain wakes you at night."
+        },
+        {
+          "question": "What happens during the appointment?",
+          "answer": "We numb the tooth, isolate it, remove decay or failing material, bond the new filling, shape and polish it, and check the bite before you leave."
+        },
+        {
+          "question": "When do you recommend an onlay or crown?",
+          "answer": "If too much tooth is missing for a filling to hold safely, we may plan an onlay or crown to reinforce the structure and seal the tooth."
+        }
+      ]
+    },
+    {
+      "instanceId": "dental-fillings-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_dental_fillings_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Plan a calm filling appointment",
+      "body": "Schedule a visit to review your tooth, choose the right material, and map any protective steps you may need.",
+      "ctas": [
+        {
+          "label": "Book fillings consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Explore onlays and inlays",
+          "href": "/treatments/inlays-onlays",
+          "preset": "secondary"
+        },
+        {
+          "label": "Explore crowns",
+          "href": "/treatments/dental-crowns",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Bite and wear review",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Plan an onlay or inlay",
+        "href": "/treatments/inlays-onlays"
+      },
+      {
+        "label": "Crown for heavily broken teeth",
+        "href": "/treatments/dental-crowns"
+      },
+      {
+        "label": "Root canal care",
+        "href": "/treatments/endodontics-root-canal"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Hygiene and gum care",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Occlusal splints",
+        "href": "/treatments/night-guards-occlusal-splints"
+      },
+      {
+        "label": "Diet and home care guidance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a fillings consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Explore onlays and inlays",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Review supportive gum care",
+      "href": "/treatments/periodontal-gum-care"
+    },
+    "review_fillings_options": {
+      "label": "Dental fillings options",
+      "href": "/treatments/dental-fillings"
+    }
+  },
+  "clinical_focus": [
+    "Material selection balancing isolation, load, and aesthetics",
+    "Bonded placement to strengthen margins and seal",
+    "Bite management and maintenance planning"
+  ],
+  "typical_case_type": [
+    "New decay requiring conservative restoration",
+    "Replacement of fractured or leaking fillings under load"
+  ],
+  "planning_considerations": [
+    "Isolation quality and depth for bonding steps",
+    "Occlusal forces, parafunction, and protective splints",
+    "Longevity planning and review intervals"
+  ]
+}
