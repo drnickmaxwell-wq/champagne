@@ -64,7 +64,31 @@
           "label": "See root canal pain relief",
           "href": "/treatments/endodontics-root-canal"
         }
-      }
+      },
+      "entry_contexts": [
+        "emergency-led",
+        "symptom-led"
+      ],
+      "primary_intent": "emergency",
+      "next_best_steps": [
+        "treatments.endodontics-root-canal",
+        "treatments.extractions-and-oral-surgery",
+        "treatments.sedation-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.endodontics-root-canal",
+        "treatments.extractions-and-oral-surgery"
+      ],
+      "escalation_triggers": [
+        "worsening pain",
+        "spreading infection",
+        "trauma with mobility"
+      ],
+      "authority_signals": [
+        "same-day triage capability",
+        "access to imaging and antibiotics",
+        "surgeon-led stabilisation"
+      ]
     },
     {
       "routeId": "treatments.endodontics-root-canal",
@@ -129,7 +153,32 @@
           "label": "When extraction is needed",
           "href": "/treatments/extractions-and-oral-surgery"
         }
-      }
+      },
+      "entry_contexts": [
+        "emergency-led",
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "emergency",
+      "next_best_steps": [
+        "treatments.dental-crowns",
+        "treatments.emergency-dentistry",
+        "treatments.extractions-and-oral-surgery"
+      ],
+      "clinical_alternatives": [
+        "treatments.extractions-and-oral-surgery",
+        "treatments.dental-implants"
+      ],
+      "escalation_triggers": [
+        "worsening pain",
+        "spreading infection",
+        "trauma with mobility"
+      ],
+      "authority_signals": [
+        "same-day triage capability",
+        "access to imaging and antibiotics",
+        "surgeon-led stabilisation"
+      ]
     },
     {
       "routeId": "treatments.extractions-and-oral-surgery",
@@ -194,7 +243,32 @@
           "label": "Plan implant consultation",
           "href": "/treatments/implant-consultation"
         }
-      }
+      },
+      "entry_contexts": [
+        "emergency-led",
+        "referral-led",
+        "symptom-led"
+      ],
+      "primary_intent": "emergency",
+      "next_best_steps": [
+        "treatments.dental-implants",
+        "treatments.dental-bridges",
+        "treatments.dentures"
+      ],
+      "clinical_alternatives": [
+        "treatments.endodontics-root-canal",
+        "treatments.sedation-dentistry"
+      ],
+      "escalation_triggers": [
+        "worsening pain",
+        "spreading infection",
+        "trauma with mobility"
+      ],
+      "authority_signals": [
+        "same-day triage capability",
+        "access to imaging and antibiotics",
+        "surgeon-led stabilisation"
+      ]
     },
     {
       "routeId": "treatments.childrens-dentistry",
@@ -259,7 +333,31 @@
           "label": "Plan preventive hygiene",
           "href": "/treatments/hygiene"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.preventative-and-general-dentistry",
+        "treatments.nervous-patients",
+        "treatments.orthodontics"
+      ],
+      "clinical_alternatives": [
+        "treatments.hygiene",
+        "treatments.general-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.dental-checkups-oral-cancer-screening",
@@ -309,7 +407,31 @@
             "intent": "prevention_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.hygiene",
+        "treatments.general-dentistry",
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.hygiene",
+        "treatments.general-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.general-dentistry",
@@ -359,7 +481,31 @@
             "intent": "prevention_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns",
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.hygiene",
+        "treatments.general-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.hygiene",
@@ -409,7 +555,31 @@
             "intent": "prevention_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.periodontal-gum-care",
+        "treatments.preventative-and-general-dentistry",
+        "treatments.dental-checkups-oral-cancer-screening"
+      ],
+      "clinical_alternatives": [
+        "treatments.hygiene",
+        "treatments.general-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.senior-mature-smile-care",
@@ -474,7 +644,30 @@
           "label": "Review denture options",
           "href": "/treatments/dentures"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.dentures",
+        "treatments.dental-implants",
+        "treatments.periodontal-gum-care"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.dental-bridges",
@@ -539,7 +732,30 @@
           "label": "See denture solutions",
           "href": "/treatments/dentures"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dental-crowns",
+        "treatments.dentures",
+        "treatments.dental-implants"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.dental-crowns",
@@ -604,7 +820,30 @@
           "label": "Compare bridge planning",
           "href": "/treatments/dental-bridges"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.inlays-onlays",
+        "treatments.tooth-wear-broken-teeth",
+        "treatments.dental-bridges"
+      ],
+      "clinical_alternatives": [
+        "treatments.dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.dentures",
@@ -669,7 +908,30 @@
           "label": "Explore implant-retained dentures",
           "href": "/treatments/implant-retained-dentures"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dental-implants",
+        "treatments.implant-retained-dentures",
+        "treatments.dental-bridges"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-crowns"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.inlays-onlays",
@@ -734,7 +996,30 @@
           "label": "Compare full crown coverage",
           "href": "/treatments/dental-crowns"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dental-crowns",
+        "treatments.tooth-wear-broken-teeth",
+        "treatments.dental-bridges"
+      ],
+      "clinical_alternatives": [
+        "treatments.dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.tooth-wear-broken-teeth",
@@ -784,7 +1069,31 @@
             "intent": "treatment_options"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns",
+        "treatments.night-guards-occlusal-splints"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.veneers"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.dental-implants",
@@ -834,7 +1143,31 @@
             "intent": "guided_surgery_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "referral-led",
+        "symptom-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implant-consultation",
+        "treatments.cbct-guided-surgery",
+        "treatments.implant-aftercare"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implant-aftercare",
@@ -888,7 +1221,31 @@
           "label": "Review implant hygiene support",
           "href": "/treatments/hygiene"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-aftercare",
+        "treatments.hygiene",
+        "treatments.night-guards-occlusal-splints"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-single-tooth",
+        "treatments.implant-retained-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implant-consultation",
@@ -938,7 +1295,32 @@
             "intent": "guided_surgery_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.cbct-guided-surgery",
+        "treatments.implants-single-tooth",
+        "treatments.implants-multiple-teeth"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implant-retained-dentures",
@@ -992,7 +1374,31 @@
           "label": "See implant aftercare guidance",
           "href": "/treatments/implant-aftercare"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-full-arch",
+        "treatments.implants-aftercare",
+        "treatments.implants-sedation"
+      ],
+      "clinical_alternatives": [
+        "treatments.implant-aftercare",
+        "treatments.implants-single-tooth"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.clear-aligners",
@@ -1057,7 +1463,31 @@
           "label": "Plan retention early",
           "href": "/treatments/retainers"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.retainers",
+        "treatments.night-guards-occlusal-splints",
+        "treatments.teeth-whitening"
+      ],
+      "clinical_alternatives": [
+        "treatments.fixed-braces",
+        "treatments.aligners"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.fixed-braces",
@@ -1122,7 +1552,31 @@
           "label": "Plan retention",
           "href": "/treatments/retainers"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.retainers",
+        "treatments.night-guards-occlusal-splints",
+        "treatments.teeth-whitening"
+      ],
+      "clinical_alternatives": [
+        "treatments.clear-aligners",
+        "treatments.aligners"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.night-guards-occlusal-splints",
@@ -1187,7 +1641,31 @@
           "label": "Review retainer options",
           "href": "/treatments/retainers"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.tooth-wear-broken-teeth",
+        "treatments.tmj-disorder-treatment",
+        "treatments.inlays-onlays"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-retainers",
+        "treatments.tmj-disorder-treatment"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.retainers",
@@ -1237,7 +1715,31 @@
             "intent": "stability_care"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "referral-led",
+        "aesthetic-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.night-guards-occlusal-splints",
+        "treatments.sports-mouthguards",
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.night-guards-occlusal-splints",
+        "treatments.dental-retainers"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.3d-printed-veneers",
@@ -1302,11 +1804,35 @@
           "label": "View digital smile design",
           "href": "/treatments/digital-smile-design"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.veneers",
+        "treatments.digital-smile-design",
+        "treatments.composite-bonding"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.composite-bonding",
-      "primary_intent": "cosmetic_consult",
+      "primary_intent": "aesthetic",
       "secondary_intent": "smile_planning",
       "primary_patient_intent": "Understand how composite bonding can shape or rebuild worn teeth.",
       "secondary_patient_intents": [
@@ -1387,7 +1913,29 @@
           "label": "Explore injection-moulded composite",
           "href": "/treatments/injection-moulded-composite"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "next_best_steps": [
+        "treatments.teeth-whitening",
+        "treatments.injection-moulded-composite",
+        "treatments.veneers"
+      ],
+      "clinical_alternatives": [
+        "treatments.digital-smile-design"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.digital-smile-design",
@@ -1452,7 +2000,30 @@
           "label": "Plan veneer options",
           "href": "/treatments/veneers"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.veneers",
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "clinical_alternatives": [
+        "treatments.clear-aligners"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.injection-moulded-composite",
@@ -1502,7 +2073,31 @@
             "intent": "smile_planning"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.composite-bonding",
+        "treatments.veneers",
+        "treatments.teeth-whitening"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.teeth-whitening",
@@ -1567,11 +2162,35 @@
           "label": "Pair with composite bonding",
           "href": "/treatments/composite-bonding"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.composite-bonding",
+        "treatments.home-teeth-whitening",
+        "treatments.whitening-top-ups"
+      ],
+      "clinical_alternatives": [
+        "treatments.home-teeth-whitening",
+        "treatments.whitening-sensitive-teeth"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.veneers",
-      "primary_intent": "cosmetic_consult",
+      "primary_intent": "aesthetic",
       "secondary_intent": "smile_planning",
       "primary_patient_intent": "Understand veneer options, suitability, and maintenance.",
       "secondary_patient_intents": [
@@ -1652,7 +2271,30 @@
           "label": "Try 3D printed veneers",
           "href": "/treatments/3d-printed-veneers"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "next_best_steps": [
+        "treatments.digital-smile-design",
+        "treatments.teeth-whitening",
+        "treatments.night-guards-occlusal-splints"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.injection-moulded-composite"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.3d-digital-dentistry",
@@ -1717,7 +2359,30 @@
           "label": "Explore guided surgery planning",
           "href": "/treatments/cbct-guided-surgery"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.cbct-3d-scanning",
+        "treatments.3d-printing-lab",
+        "treatments.3d-dentistry-and-technology"
+      ],
+      "clinical_alternatives": [
+        "treatments.digital-smile-design"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.3d-printed-dentures",
@@ -1782,7 +2447,32 @@
           "label": "Review denture care",
           "href": "/treatments/dentures"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dentures",
+        "treatments.chrome-dentures",
+        "treatments.peek-partial-dentures"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.3d-printed-implant-restorations",
@@ -1832,7 +2522,31 @@
             "intent": "digital_workflow_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.dental-implants",
+        "treatments.cbct-guided-surgery",
+        "treatments.3d-printing-lab"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.cbct-guided-surgery",
@@ -1882,7 +2596,32 @@
             "intent": "digital_workflow_info"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-bone-grafting",
+        "treatments.dental-implants",
+        "treatments.implants-aftercare"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.3d-dentistry-and-technology",
@@ -1931,7 +2670,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.cbct-3d-scanning",
+        "treatments.3d-printing-lab",
+        "treatments.3d-digital-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.digital-smile-design"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.3d-implant-restorations",
@@ -1980,7 +2742,32 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants",
+        "treatments.implants-bone-grafting",
+        "treatments.3d-printing-lab"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.3d-printing-lab",
@@ -2029,7 +2816,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.3d-printed-dentures",
+        "treatments.3d-printed-veneers",
+        "treatments.3d-printed-implant-restorations"
+      ],
+      "clinical_alternatives": [
+        "treatments.cbct-3d-scanning",
+        "treatments.3d-digital-dentistry"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.acrylic-dentures",
@@ -2078,7 +2889,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dentures",
+        "treatments.implant-retained-dentures",
+        "treatments.implants"
+      ],
+      "clinical_alternatives": [
+        "treatments.chrome-dentures",
+        "treatments.peek-partial-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.aligners",
@@ -2127,7 +2962,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.retainers",
+        "treatments.night-guards-occlusal-splints",
+        "treatments.teeth-whitening"
+      ],
+      "clinical_alternatives": [
+        "treatments.clear-aligners",
+        "treatments.fixed-braces"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.anti-wrinkle-treatments",
@@ -2176,7 +3035,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.dermal-fillers",
+        "treatments.facial-therapeutics",
+        "treatments.facial-aesthetics"
+      ],
+      "clinical_alternatives": [
+        "treatments.therapeutic-facial-injectables",
+        "treatments.polynucleotides"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.bruxism-and-jaw-clenching",
@@ -2239,7 +3122,31 @@
           "label": "Explore TMJ treatment",
           "href": "/treatments/tmj-disorder-treatment"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.night-guards-occlusal-splints",
+        "treatments.tmj-disorder-treatment",
+        "treatments.tmj-jaw-comfort"
+      ],
+      "clinical_alternatives": [
+        "treatments.aligners",
+        "treatments.fixed-braces"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.cbct-3d-scanning",
@@ -2288,7 +3195,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.cbct-guided-surgery",
+        "treatments.3d-digital-dentistry",
+        "treatments.implants-consultation"
+      ],
+      "clinical_alternatives": [
+        "treatments.3d-implant-restorations",
+        "treatments.extractions-and-oral-surgery"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.chrome-dentures",
@@ -2337,7 +3268,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dentures",
+        "treatments.peek-partial-dentures",
+        "treatments.implants"
+      ],
+      "clinical_alternatives": [
+        "treatments.acrylic-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.clear-aligners-spark",
@@ -2400,7 +3354,31 @@
           "label": "Explore veneers options",
           "href": "/treatments/veneers"
         }
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.teeth-whitening",
+        "treatments.composite-bonding",
+        "treatments.veneers"
+      ],
+      "clinical_alternatives": [
+        "treatments.aligners",
+        "treatments.fixed-braces"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.dental-retainers",
@@ -2463,7 +3441,31 @@
           "label": "Plan whitening after alignment",
           "href": "/treatments/teeth-whitening"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.clear-aligners",
+        "treatments.orthodontics",
+        "treatments.mouthguards-and-retainers"
+      ],
+      "clinical_alternatives": [
+        "treatments.hygiene",
+        "treatments.general-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.dermal-fillers",
@@ -2512,7 +3514,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.anti-wrinkle-treatments",
+        "treatments.facial-aesthetics",
+        "treatments.skin-boosters"
+      ],
+      "clinical_alternatives": [
+        "treatments.polynucleotides"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.facial-aesthetics",
@@ -2561,7 +3586,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.dermal-fillers",
+        "treatments.anti-wrinkle-treatments",
+        "treatments.therapeutic-facial-injectables"
+      ],
+      "clinical_alternatives": [
+        "treatments.facial-therapeutics"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.facial-pain-and-headache",
@@ -2610,7 +3658,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.bruxism-and-jaw-clenching",
+        "treatments.tmj-jaw-comfort",
+        "treatments.tmj-disorder-treatment"
+      ],
+      "clinical_alternatives": [
+        "treatments.night-guards-occlusal-splints"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.facial-therapeutics",
@@ -2659,7 +3730,32 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.anti-wrinkle-treatments",
+        "treatments.dermal-fillers",
+        "treatments.facial-aesthetics"
+      ],
+      "clinical_alternatives": [
+        "treatments.therapeutic-facial-injectables",
+        "treatments.facial-pain-and-headache",
+        "treatments.tmj-disorder-treatment"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.home-teeth-whitening",
@@ -2708,7 +3804,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.teeth-whitening",
+        "treatments.whitening-sensitive-teeth",
+        "treatments.whitening-top-ups"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.hub-directory",
@@ -2757,11 +3877,35 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.preventative-and-general-dentistry",
+        "treatments.emergency-dentistry",
+        "treatments.digital-smile-design"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants",
+        "treatments.orthodontics"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants",
-      "primary_intent": "implant_consult",
+      "primary_intent": "restorative",
       "secondary_intent": "compare_alternatives",
       "primary_patient_intent": "Get an overview of dental implant options and suitability.",
       "secondary_patient_intents": [
@@ -2846,6 +3990,29 @@
         "How long between implant placement and final teeth?",
         "Is sedation available for implant treatment?",
         "How are implants maintained after fitting?"
+      ],
+      "entry_contexts": [
+        "referral-led",
+        "symptom-led"
+      ],
+      "next_best_steps": [
+        "treatments.implants-consultation",
+        "treatments.implants-single-tooth",
+        "treatments.implants-aftercare"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
       ]
     },
     {
@@ -2895,7 +4062,32 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.hygiene",
+        "treatments.implants-failed-replacement",
+        "treatments.night-guards-occlusal-splints"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants",
+        "treatments.periodontal-gum-care",
+        "treatments.mouthguards-and-retainers"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-bone-grafting",
@@ -2944,7 +4136,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-sinus-lift",
+        "treatments.implants",
+        "treatments.cbct-guided-surgery"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-full-arch"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-consultation",
@@ -3007,7 +4222,31 @@
           "label": "Explore implant-retained dentures",
           "href": "/treatments/implant-retained-dentures"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-single-tooth",
+        "treatments.implants-multiple-teeth",
+        "treatments.implants-full-arch"
+      ],
+      "clinical_alternatives": [
+        "treatments.implant-aftercare",
+        "treatments.implant-retained-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-failed-replacement",
@@ -3056,7 +4295,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants",
+        "treatments.implants-aftercare",
+        "treatments.implants-retained-dentures"
+      ],
+      "clinical_alternatives": [
+        "treatments.implant-retained-dentures",
+        "treatments.dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-full-arch",
@@ -3105,7 +4368,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-teeth-in-a-day",
+        "treatments.implants-aftercare",
+        "treatments.implants-sedation"
+      ],
+      "clinical_alternatives": [
+        "treatments.implant-retained-dentures",
+        "treatments.dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-multiple-teeth",
@@ -3154,7 +4441,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-full-arch",
+        "treatments.implants-retained-dentures",
+        "treatments.implants-aftercare"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-full-arch",
+        "treatments.implant-retained-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-retained-dentures",
@@ -3203,7 +4514,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-aftercare",
+        "treatments.implants",
+        "treatments.dentures"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-full-arch",
+        "treatments.acrylic-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-sedation",
@@ -3252,7 +4587,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-consultation",
+        "treatments.implants-teeth-in-a-day",
+        "treatments.sedation-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.nervous-patients",
+        "treatments.implants"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-single-tooth",
@@ -3315,7 +4674,31 @@
           "label": "Discuss implant-retained dentures",
           "href": "/treatments/implant-retained-dentures"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dental-implants",
+        "treatments.dental-crowns",
+        "treatments.implants-aftercare"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dental-crowns"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-sinus-lift",
@@ -3364,7 +4747,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-bone-grafting",
+        "treatments.implants-teeth-in-a-day",
+        "treatments.cbct-guided-surgery"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-full-arch",
+        "treatments.implants"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.implants-teeth-in-a-day",
@@ -3413,7 +4820,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.implants-full-arch",
+        "treatments.implants-aftercare",
+        "treatments.sedation-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-full-arch",
+        "treatments.dental-implants"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.mouthguards-and-retainers",
@@ -3462,7 +4893,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "aesthetic-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.retainers",
+        "treatments.sports-mouthguards",
+        "treatments.night-guards-occlusal-splints"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-retainers"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.nervous-patients",
@@ -3511,7 +4965,32 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "referral-led",
+        "symptom-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.painless-numbing-the-wand",
+        "treatments.sedation-dentistry",
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.dental-bridges",
+        "treatments.dentures",
+        "treatments.inlays-onlays"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.orthodontics",
@@ -3560,7 +5039,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.retainers",
+        "treatments.night-guards-occlusal-splints",
+        "treatments.teeth-whitening"
+      ],
+      "clinical_alternatives": [
+        "treatments.aligners",
+        "treatments.fixed-braces"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.painless-numbing-the-wand",
@@ -3609,7 +5112,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "emergency-led",
+        "symptom-led"
+      ],
+      "primary_intent": "emergency",
+      "next_best_steps": [
+        "treatments.nervous-patients",
+        "treatments.sedation-dentistry",
+        "treatments.emergency-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "escalation_triggers": [
+        "worsening pain",
+        "spreading infection",
+        "trauma with mobility"
+      ],
+      "authority_signals": [
+        "same-day triage capability",
+        "access to imaging and antibiotics",
+        "surgeon-led stabilisation"
+      ]
     },
     {
       "routeId": "treatments.peek-partial-dentures",
@@ -3658,7 +5184,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.dentures",
+        "treatments.implant-retained-dentures",
+        "treatments.dental-bridges"
+      ],
+      "clinical_alternatives": [
+        "treatments.chrome-dentures",
+        "treatments.acrylic-dentures"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.periodontal-gum-care",
@@ -3721,7 +5271,32 @@
           "label": "See crown and bridge options",
           "href": "/treatments/dental-crowns"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.hygiene",
+        "treatments.dental-checkups-oral-cancer-screening",
+        "treatments.dental-implants"
+      ],
+      "clinical_alternatives": [
+        "treatments.preventative-and-general-dentistry",
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.polynucleotides",
@@ -3770,7 +5345,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.skin-boosters",
+        "treatments.dermal-fillers",
+        "treatments.facial-aesthetics"
+      ],
+      "clinical_alternatives": [
+        "treatments.anti-wrinkle-treatments"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.preventative-and-general-dentistry",
@@ -3833,7 +5431,31 @@
           "label": "Explore inlays & onlays",
           "href": "/treatments/inlays-onlays"
         }
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.periodontal-gum-care",
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns"
+      ],
+      "clinical_alternatives": [
+        "treatments.hygiene",
+        "treatments.general-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.sedation-dentistry",
@@ -3882,7 +5504,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.nervous-patients",
+        "treatments.emergency-dentistry",
+        "treatments.extractions-and-oral-surgery"
+      ],
+      "clinical_alternatives": [
+        "treatments.implants-sedation"
+      ],
+      "escalation_triggers": [
+        "restoration failure",
+        "post-op pain",
+        "infection or swelling"
+      ],
+      "authority_signals": [
+        "comprehensive diagnostics",
+        "digital planning and guides",
+        "proven materials and lab partners"
+      ]
     },
     {
       "routeId": "treatments.skin-boosters",
@@ -3931,7 +5576,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.polynucleotides",
+        "treatments.dermal-fillers",
+        "treatments.facial-aesthetics"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.sports-mouthguards",
@@ -3980,7 +5649,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "preventive",
+      "next_best_steps": [
+        "treatments.mouthguards-and-retainers",
+        "treatments.retainers",
+        "treatments.preventative-and-general-dentistry"
+      ],
+      "clinical_alternatives": [
+        "treatments.night-guards-occlusal-splints",
+        "treatments.childrens-dentistry"
+      ],
+      "escalation_triggers": [
+        "gum bleeding increases",
+        "new decay detected",
+        "tooth wear accelerating"
+      ],
+      "authority_signals": [
+        "recall planning",
+        "risk-based hygiene protocols",
+        "long-term tracking"
+      ]
     },
     {
       "routeId": "treatments.teeth-whitening-faqs",
@@ -4029,7 +5722,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.teeth-whitening",
+        "treatments.home-teeth-whitening",
+        "treatments.whitening-top-ups"
+      ],
+      "clinical_alternatives": [
+        "treatments.whitening-sensitive-teeth"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.therapeutic-facial-injectables",
@@ -4078,7 +5794,32 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.dermal-fillers",
+        "treatments.anti-wrinkle-treatments",
+        "treatments.facial-therapeutics"
+      ],
+      "clinical_alternatives": [
+        "treatments.facial-pain-and-headache",
+        "treatments.bruxism-and-jaw-clenching",
+        "treatments.tmj-disorder-treatment"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.tmj-disorder-treatment",
@@ -4127,7 +5868,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.night-guards-occlusal-splints",
+        "treatments.bruxism-and-jaw-clenching",
+        "treatments.tooth-wear-broken-teeth"
+      ],
+      "clinical_alternatives": [
+        "treatments.tmj-jaw-comfort"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.tmj-jaw-comfort",
@@ -4176,7 +5940,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "referral-led"
+      ],
+      "primary_intent": "corrective",
+      "next_best_steps": [
+        "treatments.night-guards-occlusal-splints",
+        "treatments.tmj-disorder-treatment",
+        "treatments.bruxism-and-jaw-clenching"
+      ],
+      "clinical_alternatives": [
+        "treatments.aligners",
+        "treatments.fixed-braces"
+      ],
+      "escalation_triggers": [
+        "relapse of movement",
+        "retainer breakage",
+        "functional pain"
+      ],
+      "authority_signals": [
+        "specialist-led planning",
+        "sequenced retention strategy",
+        "monitoring and refinement reviews"
+      ]
     },
     {
       "routeId": "treatments.whitening-sensitive-teeth",
@@ -4225,7 +6013,31 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.teeth-whitening",
+        "treatments.home-teeth-whitening",
+        "treatments.whitening-top-ups"
+      ],
+      "clinical_alternatives": [
+        "treatments.composite-bonding",
+        "treatments.teeth-whitening"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     },
     {
       "routeId": "treatments.whitening-top-ups",
@@ -4274,7 +6086,30 @@
             "intent": "related_treatment"
           }
         ]
-      }
+      },
+      "entry_contexts": [
+        "aesthetic-led",
+        "referral-led"
+      ],
+      "primary_intent": "aesthetic",
+      "next_best_steps": [
+        "treatments.teeth-whitening",
+        "treatments.home-teeth-whitening",
+        "treatments.teeth-whitening-faqs"
+      ],
+      "clinical_alternatives": [
+        "treatments.whitening-sensitive-teeth"
+      ],
+      "escalation_triggers": [
+        "restoration chipping",
+        "shade instability",
+        "bite discomfort"
+      ],
+      "authority_signals": [
+        "smile design previews",
+        "material mock-ups and trials",
+        "maintenance and longevity reviews"
+      ]
     }
   ]
 }
