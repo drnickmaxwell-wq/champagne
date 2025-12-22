@@ -182,7 +182,7 @@
               "source": "Google"
             },
             {
-              "quote": "Felt listened to and never rushed—highly recommend.",
+              "quote": "Felt listened to and never rushed\u2014highly recommend.",
               "name": "Google reviewer",
               "rating": 5,
               "source": "Google"
@@ -279,7 +279,7 @@
           "faqs": [
             {
               "question": "Do you help with directions or parking?",
-              "answer": "Yes—call or message ahead and we will outline nearby parking options and the best entrance to use."
+              "answer": "Yes\u2014call or message ahead and we will outline nearby parking options and the best entrance to use."
             },
             {
               "question": "Can I start with a phone discussion?",
@@ -291,7 +291,7 @@
             },
             {
               "question": "Is the practice suitable for nervous patients?",
-              "answer": "Yes—gentle pacing, clear numbing options, and calm explanations are part of every visit."
+              "answer": "Yes\u2014gentle pacing, clear numbing options, and calm explanations are part of every visit."
             }
           ]
         },
@@ -850,11 +850,11 @@
               "href": "/contact"
             },
             {
-              "label": "See single tooth implant steps",
+              "label": "Single-tooth implants",
               "href": "/treatments/implants-single-tooth"
             },
             {
-              "label": "Compare with bridge options",
+              "label": "Dental bridges",
               "href": "/treatments/dental-bridges"
             }
           ]
@@ -877,12 +877,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore single tooth implants",
+              "label": "Single-tooth implants",
               "href": "/treatments/implants-single-tooth",
               "preset": "secondary"
             },
             {
-              "label": "Review full-arch solutions",
+              "label": "Full arch implants",
               "href": "/treatments/implants-full-arch",
               "preset": "secondary"
             }
@@ -929,7 +929,7 @@
           "strapline": "Compare connected steps and plan the next visit.",
           "ctas": [
             {
-              "label": "Plan smile design review",
+              "label": "Digital smile design",
               "href": "/treatments/digital-smile-design"
             },
             {
@@ -937,7 +937,7 @@
               "href": "/treatments/3d-printed-veneers"
             },
             {
-              "label": "Check bonding alternatives",
+              "label": "Composite bonding",
               "href": "/treatments/composite-bonding"
             }
           ]
@@ -1029,12 +1029,12 @@
               "preset": "primary"
             },
             {
-              "label": "See Spark aligner options",
+              "label": "Spark Clear Aligners",
               "href": "/treatments/clear-aligners-spark",
               "preset": "secondary"
             },
             {
-              "label": "Plan whitening after alignment",
+              "label": "Teeth whitening",
               "href": "/treatments/teeth-whitening",
               "preset": "secondary"
             },
@@ -1100,12 +1100,12 @@
               "preset": "primary"
             },
             {
-              "label": "Compare aligner options",
+              "label": "Clear Aligners",
               "href": "/treatments/clear-aligners",
               "preset": "secondary"
             },
             {
-              "label": "See smile design planning",
+              "label": "Digital smile design",
               "href": "/treatments/digital-smile-design",
               "preset": "secondary"
             }
@@ -1195,9 +1195,9 @@
           "type": "feature-grid",
           "title": "Team members",
           "items": [
-            "Clinical leads — bios in progress",
-            "Hygiene and therapy — caring guides",
-            "Support staff — coordinating each visit"
+            "Clinical leads \u2014 bios in progress",
+            "Hygiene and therapy \u2014 caring guides",
+            "Support staff \u2014 coordinating each visit"
           ],
           "label": "Team grid"
         },
@@ -1553,7 +1553,7 @@
             "preset": "primary"
           },
           {
-            "label": "What’s included in a check-up?",
+            "label": "What\u2019s included in a check-up?",
             "href": "/dental-checkups-oral-cancer-screening",
             "preset": "secondary"
           }
@@ -1565,7 +1565,7 @@
             "preset": "primary"
           },
           {
-            "label": "What’s included in a check-up?",
+            "label": "What\u2019s included in a check-up?",
             "href": "/dental-checkups-oral-cancer-screening",
             "preset": "secondary"
           }
@@ -1625,7 +1625,7 @@
               "preset": "primary"
             },
             {
-              "label": "What’s included in a check-up?",
+              "label": "What\u2019s included in a check-up?",
               "href": "/dental-checkups-oral-cancer-screening",
               "preset": "secondary"
             }
@@ -1718,7 +1718,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Children’s dental care",
+              "label": "Children\u2019s dental care",
               "href": "/treatments/childrens-dentistry",
               "preset": "secondary"
             },
@@ -1892,7 +1892,7 @@
               "preset": "primary"
             },
             {
-              "label": "See full-arch implant options",
+              "label": "Full arch implants",
               "href": "/treatments/implants-full-arch",
               "preset": "secondary"
             },
@@ -1958,7 +1958,7 @@
               "preset": "primary"
             },
             {
-              "label": "Compare Teeth-in-a-Day pathways",
+              "label": "Teeth In A Day",
               "href": "/treatments/teeth-in-a-day",
               "preset": "secondary"
             },
@@ -2029,7 +2029,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Review denture options",
+              "label": "Dentures & tooth replacement",
               "href": "/treatments/dentures",
               "preset": "secondary"
             }
@@ -2090,12 +2090,12 @@
               "preset": "primary"
             },
             {
-              "label": "See single tooth implant steps",
+              "label": "Single-tooth implants",
               "href": "/treatments/implants-single-tooth",
               "preset": "secondary"
             },
             {
-              "label": "Learn about bone grafting",
+              "label": "Implants Bone Grafting",
               "href": "/treatments/implants-bone-grafting",
               "preset": "secondary"
             }
@@ -2161,7 +2161,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Return to implant planning",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             }
@@ -2222,12 +2222,12 @@
               "preset": "primary"
             },
             {
-              "label": "Review implant options",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             },
             {
-              "label": "See Teeth-in-a-Day planning",
+              "label": "Teeth In A Day",
               "href": "/treatments/teeth-in-a-day",
               "preset": "secondary"
             }
@@ -2293,7 +2293,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Compare full-arch options",
+              "label": "Full arch implants",
               "href": "/treatments/implants-full-arch",
               "preset": "secondary"
             }
@@ -2354,12 +2354,12 @@
               "preset": "primary"
             },
             {
-              "label": "See implant planning steps",
+              "label": "Implant Consultation",
               "href": "/treatments/implant-consultation",
               "preset": "secondary"
             },
             {
-              "label": "Explore nervous patient support",
+              "label": "Nervous patients",
               "href": "/treatments/nervous-patients",
               "preset": "secondary"
             }
@@ -2425,7 +2425,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Review full implant options",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             }
@@ -2486,12 +2486,12 @@
               "preset": "primary"
             },
             {
-              "label": "Report implant concerns",
+              "label": "Failed Implant Replacement",
               "href": "/treatments/failed-implant-replacement",
               "preset": "secondary"
             },
             {
-              "label": "Stabilise dentures with implants",
+              "label": "Implant-retained dentures",
               "href": "/treatments/implant-retained-dentures",
               "preset": "secondary"
             }
@@ -2552,12 +2552,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore CBCT planning",
+              "label": "CBCT / 3D scanning",
               "href": "/treatments/cbct-3d-scanning",
               "preset": "secondary"
             },
             {
-              "label": "Plan your implant journey",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             }
@@ -2623,7 +2623,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Plan a smile makeover",
+              "label": "Digital smile design",
               "href": "/treatments/digital-smile-design",
               "preset": "secondary"
             }
@@ -2653,7 +2653,7 @@
         {
           "id": "composite_indications",
           "type": "features",
-          "title": "What composite bonding can and can’t do",
+          "title": "What composite bonding can and can\u2019t do",
           "items": [
             "Adds volume to close small gaps, soften edges, and refine proportions without drilling healthy enamel",
             "Repairs chipped or worn incisal edges; larger fractures or weakened teeth may need onlays or crowns",
@@ -2690,7 +2690,7 @@
             "When colour is the main concern, dentist-led whitening is usually recommended before bonding so shades align",
             "If teeth are rotated or crowded, aligners or other orthodontic treatment can set the foundation before cosmetic bonding",
             "For larger shape changes or durability, porcelain veneers or digitally designed 3D veneers may be more appropriate",
-            "Composite bonding often forms part of an Align → Bleach → Composite pathway, with veneers reserved for specific needs"
+            "Composite bonding often forms part of an Align \u2192 Bleach \u2192 Composite pathway, with veneers reserved for specific needs"
           ]
         },
         {
@@ -2707,7 +2707,7 @@
         {
           "id": "composite_not_suited",
           "type": "features",
-          "title": "When bonding isn’t the best choice",
+          "title": "When bonding isn\u2019t the best choice",
           "items": [
             "Heavy bites or active clenching with limited space may need occlusal therapy or guards first",
             "Severe wear or bite collapse often requires orthodontics, onlays, or veneers for stability",
@@ -2726,11 +2726,11 @@
               "href": "/contact"
             },
             {
-              "label": "Review whitening before bonding",
+              "label": "Teeth whitening",
               "href": "/treatments/teeth-whitening"
             },
             {
-              "label": "Compare veneer options",
+              "label": "Veneers",
               "href": "/treatments/veneers"
             }
           ]
@@ -2900,7 +2900,7 @@
               "preset": "primary"
             },
             {
-              "label": "Discuss digitally planned options",
+              "label": "Full smile makeover",
               "href": "/treatments/full-smile-makeover",
               "preset": "secondary"
             }
@@ -2965,12 +2965,12 @@
               "preset": "primary"
             },
             {
-              "label": "Review crown options",
+              "label": "Dental crowns",
               "href": "/treatments/dental-crowns",
               "preset": "secondary"
             },
             {
-              "label": "Consider implant support",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             }
@@ -3014,12 +3014,12 @@
               "preset": "primary"
             },
             {
-              "label": "Compare bridge options",
+              "label": "Dental bridges",
               "href": "/treatments/dental-bridges",
               "preset": "secondary"
             },
             {
-              "label": "See denture alternatives",
+              "label": "Dentures & tooth replacement",
               "href": "/treatments/dentures",
               "preset": "secondary"
             }
@@ -3063,7 +3063,7 @@
           "id": "whitening_consult_overview",
           "type": "treatment_overview_rich",
           "title": "A measured plan tailored to your smile",
-          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we’ll review progress.",
+          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You\u2019ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we\u2019ll review progress.",
           "bullets": [
             "Clinical exam and baseline shade recording",
             "Digital scans for precise tray production",
@@ -3117,7 +3117,7 @@
               "preset": "primary"
             },
             {
-              "label": "Discuss cosmetic options",
+              "label": "Full smile makeover",
               "href": "/treatments/full-smile-makeover",
               "preset": "secondary"
             }
@@ -3209,7 +3209,7 @@
           "faqs": [
             {
               "question": "How long will I wear the trays each day?",
-              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
+              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We\u2019ll agree the exact cadence with you."
             },
             {
               "question": "What if my teeth feel sensitive?",
@@ -3233,7 +3233,7 @@
               "preset": "primary"
             },
             {
-              "label": "Plan for future cosmetic work",
+              "label": "Teeth whitening",
               "href": "/treatments/teeth-whitening",
               "preset": "secondary"
             }
@@ -3269,7 +3269,7 @@
           "bullets": [
             "Shade comparison against your baseline",
             "Inspection of trays for seal and comfort",
-            "Discussion of how often you’ll realistically top-up",
+            "Discussion of how often you\u2019ll realistically top-up",
             "Guidance if restorations need refreshing instead of whitening",
             "Written instructions for the latest gel strength"
           ]
@@ -3305,7 +3305,7 @@
             },
             {
               "question": "Can I reuse my old trays?",
-              "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
+              "answer": "Yes, provided the fit is still secure. We\u2019ll check for wear or gaps before supplying gel."
             },
             {
               "question": "Will I need stronger gel each time?",
@@ -3325,7 +3325,7 @@
               "preset": "primary"
             },
             {
-              "label": "Plan future whitening",
+              "label": "Home teeth whitening",
               "href": "/treatments/home-teeth-whitening",
               "preset": "secondary"
             }
@@ -3414,7 +3414,7 @@
               "preset": "primary"
             },
             {
-              "label": "Explore home whitening",
+              "label": "Home teeth whitening",
               "href": "/treatments/home-teeth-whitening",
               "preset": "secondary"
             }
@@ -3467,11 +3467,11 @@
             },
             {
               "question": "How long does whitening last?",
-              "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
+              "answer": "Results are maintained with good hygiene and occasional top-ups. We\u2019ll guide you on a safe refresh schedule using your existing trays."
             },
             {
               "question": "Is whitening part of a smile makeover?",
-              "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
+              "answer": "Often yes. Whitening is the \u201cB\u201d in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
             }
           ]
         },
@@ -3487,7 +3487,7 @@
               "preset": "primary"
             },
             {
-              "label": "Learn about maintenance",
+              "label": "Whitening top-ups & maintenance",
               "href": "/treatments/whitening-top-ups",
               "preset": "secondary"
             }
@@ -3548,12 +3548,12 @@
               "preset": "primary"
             },
             {
-              "label": "Review clear aligner options",
+              "label": "Clear Aligners",
               "href": "/treatments/clear-aligners",
               "preset": "secondary"
             },
             {
-              "label": "See retainer care plans",
+              "label": "Retainers",
               "href": "/treatments/dental-retainers",
               "preset": "secondary"
             }
@@ -3613,7 +3613,7 @@
           "id": "full_smile_makeover_clinician_insight",
           "type": "clinician_insight",
           "label": "Clinician insight",
-          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
+          "quote": "A clear roadmap means every stage\u2014alignment, colour, restorations\u2014stays coordinated and calm.",
           "attribution": "Clinical team",
           "role": "Smile design"
         },
@@ -3675,7 +3675,7 @@
               "preset": "primary"
             },
             {
-              "label": "Preview the roadmap",
+              "label": "Digital smile design",
               "href": "/treatments/digital-smile-design",
               "preset": "secondary"
             }
@@ -3736,7 +3736,7 @@
               "preset": "primary"
             },
             {
-              "label": "Review CBCT scanning",
+              "label": "CBCT / 3D scanning",
               "href": "/treatments/cbct-3d-scanning",
               "preset": "secondary"
             },
@@ -3911,8 +3911,8 @@
         {
           "id": "emergency_appointments_overview",
           "type": "treatment_overview_rich",
-          "title": "Same-day appointments when something can’t wait",
-          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We’ll stabilise the area, ease discomfort, and plan the next steps together.",
+          "title": "Same-day appointments when something can\u2019t wait",
+          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We\u2019ll stabilise the area, ease discomfort, and plan the next steps together.",
           "bullets": [
             "Phone triage to book the right appointment length",
             "Advice on caring for the area before you arrive",
@@ -3995,7 +3995,7 @@
               "preset": "primary"
             },
             {
-              "label": "View all emergency options",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4099,7 +4099,7 @@
               "preset": "primary"
             },
             {
-              "label": "See emergency options",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4203,7 +4203,7 @@
               "preset": "primary"
             },
             {
-              "label": "See emergency care",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4307,7 +4307,7 @@
               "preset": "primary"
             },
             {
-              "label": "Explore emergency care",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4352,7 +4352,7 @@
           "title": "What to do immediately",
           "items": [
             "Handle the tooth by the crown only; avoid touching the root",
-            "If dirty, gently rinse with cold running water for a few seconds—do not scrub",
+            "If dirty, gently rinse with cold running water for a few seconds\u2014do not scrub",
             "Place the tooth back into the socket if you can and bite gently on a clean cloth",
             "If you cannot reinsert it, store it in milk or saliva (not water)",
             "Call us straight away and travel to the practice"
@@ -4410,7 +4410,7 @@
               "preset": "primary"
             },
             {
-              "label": "Return to emergency hub",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4514,7 +4514,7 @@
               "preset": "primary"
             },
             {
-              "label": "Return to emergency hub",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4618,7 +4618,7 @@
               "preset": "primary"
             },
             {
-              "label": "Back to emergency hub",
+              "label": "Emergency dentistry",
               "href": "/treatments/emergency-dentistry",
               "preset": "secondary"
             }
@@ -4661,7 +4661,7 @@
               "preset": "primary"
             },
             {
-              "label": "Explore CBCT and scanning",
+              "label": "CBCT / 3D scanning",
               "href": "/treatments/cbct-3d-scanning",
               "preset": "secondary"
             },
@@ -4727,7 +4727,7 @@
               "preset": "primary"
             },
             {
-              "label": "See implant planning steps",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             },
@@ -4798,7 +4798,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Explore aligner pathways",
+              "label": "Clear Aligners",
               "href": "/treatments/clear-aligners",
               "preset": "secondary"
             }
@@ -4859,12 +4859,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore printed dentures",
+              "label": "3D printed dentures",
               "href": "/treatments/3d-printed-dentures",
               "preset": "secondary"
             },
             {
-              "label": "Review implant restorations",
+              "label": "3D implant restorations",
               "href": "/treatments/3d-implant-restorations",
               "preset": "secondary"
             }
@@ -4925,12 +4925,12 @@
               "preset": "primary"
             },
             {
-              "label": "Compare crown options",
+              "label": "Dental crowns",
               "href": "/treatments/dental-crowns",
               "preset": "secondary"
             },
             {
-              "label": "See bridge solutions",
+              "label": "Dental bridges",
               "href": "/treatments/dental-bridges",
               "preset": "secondary"
             }
@@ -4996,7 +4996,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Explore bridge solutions",
+              "label": "Dental bridges",
               "href": "/treatments/dental-bridges",
               "preset": "secondary"
             }
@@ -5057,12 +5057,12 @@
               "preset": "primary"
             },
             {
-              "label": "Consider chrome frameworks",
+              "label": "Chrome dentures",
               "href": "/treatments/chrome-dentures",
               "preset": "secondary"
             },
             {
-              "label": "Explore implant stabilisation",
+              "label": "Implant-retained dentures",
               "href": "/treatments/implant-retained-dentures",
               "preset": "secondary"
             }
@@ -5128,7 +5128,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Plan implant-retained support",
+              "label": "Implant-retained dentures",
               "href": "/treatments/implant-retained-dentures",
               "preset": "secondary"
             }
@@ -5189,12 +5189,12 @@
               "preset": "primary"
             },
             {
-              "label": "Compare chrome frameworks",
+              "label": "Chrome dentures",
               "href": "/treatments/chrome-dentures",
               "preset": "secondary"
             },
             {
-              "label": "Explore implant retention",
+              "label": "Implant-retained dentures",
               "href": "/treatments/implant-retained-dentures",
               "preset": "secondary"
             }
@@ -5260,7 +5260,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Consider implant stabilisation",
+              "label": "Implant-retained dentures",
               "href": "/treatments/implant-retained-dentures",
               "preset": "secondary"
             }
@@ -5318,12 +5318,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore TMJ treatment options",
+              "label": "TMJ disorder",
               "href": "/treatments/tmj-disorder-treatment",
               "preset": "secondary"
             },
             {
-              "label": "Plan retainer protection",
+              "label": "Retainers",
               "href": "/treatments/dental-retainers",
               "preset": "secondary"
             }
@@ -5378,12 +5378,12 @@
               "preset": "primary"
             },
             {
-              "label": "Plan retainer-friendly guards",
+              "label": "Mouthguards & retainers",
               "href": "/treatments/mouthguards-and-retainers",
               "preset": "secondary"
             },
             {
-              "label": "Explore night guard options",
+              "label": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints",
               "preset": "secondary"
             }
@@ -5438,12 +5438,12 @@
               "preset": "primary"
             },
             {
-              "label": "Protect with mouthguards",
+              "label": "Mouthguards & retainers",
               "href": "/treatments/mouthguards-and-retainers",
               "preset": "secondary"
             },
             {
-              "label": "Finish with whitening",
+              "label": "Teeth whitening",
               "href": "/treatments/teeth-whitening",
               "preset": "secondary"
             }
@@ -5472,7 +5472,7 @@
           "bullets": [
             "Gentle, unhurried check-ups with the same clinical team",
             "Prevention plans tailored to your enamel, gums, and lifestyle",
-            "Clear guidance if you’re anxious or prefer slower appointments"
+            "Clear guidance if you\u2019re anxious or prefer slower appointments"
           ],
           "ctas": [
             {
@@ -5535,7 +5535,7 @@
             "Polishing and airflow-style finishing where suitable for stain control",
             "Tips to improve brushing and interdental cleaning at home",
             "Why visits matter even if you brush well: hidden build-up and hard-to-reach areas",
-            "Preventing gum disease and bad breath with tailored intervals—see periodontal care (/treatments/periodontal-gum-care)"
+            "Preventing gum disease and bad breath with tailored intervals\u2014see periodontal care (/treatments/periodontal-gum-care)"
           ],
           "strapline": "Regular hygiene keeps gums healthy and helps fillings, crowns, and implants last longer."
         },
@@ -5550,7 +5550,7 @@
           "title": "Simple, science-led guidance you can follow",
           "body": "We create a plan that fits your daily routine so small adjustments have a big impact.",
           "bullets": [
-            "Fluoride advice matched to your risk level—no pushy sales",
+            "Fluoride advice matched to your risk level\u2014no pushy sales",
             "Diet and sugar-frequency guidance with practical swaps",
             "Support for sensitive teeth, including gentle techniques and desensitising care",
             "Custom lab-made sports mouthguards for contact or ball sports (/treatments/sports-mouthguards)"
@@ -5587,7 +5587,7 @@
             "Teens and young adults: monitoring wisdom teeth, orthodontic retainers, and sports protection",
             "Young-at-heart retirees: focus on comfort, function, and maintaining existing restorations",
             "Medical changes considered so your plan stays safe and effective",
-            "Appointment pacing adjusted if you’re nervous or prefer slower visits"
+            "Appointment pacing adjusted if you\u2019re nervous or prefer slower visits"
           ]
         },
         {
@@ -5630,11 +5630,11 @@
             },
             {
               "question": "Do you check for mouth cancer?",
-              "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you’ve noticed."
+              "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you\u2019ve noticed."
             },
             {
-              "question": "I’m nervous — can you go slowly?",
-              "answer": "Absolutely. Tell us ahead of time and we’ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
+              "question": "I\u2019m nervous \u2014 can you go slowly?",
+              "answer": "Absolutely. Tell us ahead of time and we\u2019ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
             },
             {
               "question": "Is home whitening better?",
@@ -5651,7 +5651,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book your comprehensive dental exam",
-          "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
+          "body": "Speak to us about a prevention-first plan. If you\u2019re anxious, tell us \u2014 we\u2019ll tailor the visit and pace it carefully.",
           "ctas": [
             {
               "label": "Dental check-ups & oral cancer screening",
@@ -5670,7 +5670,7 @@
     },
     "childrens_dentistry": {
       "id": "childrens_dentistry",
-      "label": "Children’s dentistry",
+      "label": "Children\u2019s dentistry",
       "path": "/treatments/childrens-dentistry",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -5682,7 +5682,7 @@
           "variantId": "smh_childrens_dentistry_hero",
           "order": 10,
           "seoRole": "hero",
-          "eyebrow": "Children’s dentistry",
+          "eyebrow": "Children\u2019s dentistry",
           "title": "Gentle check-ups that build lifelong habits",
           "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
           "bullets": [
@@ -5692,7 +5692,7 @@
           ],
           "ctas": [
             {
-              "label": "Book a children’s check-up",
+              "label": "Book a children\u2019s check-up",
               "href": "/contact?topic=children",
               "preset": "primary"
             },
@@ -5727,7 +5727,7 @@
           "variantId": "smh_childrens_dentistry_checkup",
           "order": 30,
           "seoRole": "primaryContent",
-          "eyebrow": "What a children’s check-up includes",
+          "eyebrow": "What a children\u2019s check-up includes",
           "title": "Gentle exams with practical guidance",
           "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
           "bullets": [
@@ -5792,7 +5792,7 @@
           "seoRole": "supporting",
           "eyebrow": "When we suggest an orthodontic chat",
           "title": "Early guidance keeps options open",
-          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—always explained clearly to families.",
+          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we\u2019ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right\u2014always explained clearly to families.",
           "mediaHint": "Monitoring bite, spacing, and eruption patterns"
         },
         {
@@ -5802,12 +5802,12 @@
           "variantId": "smh_childrens_dentistry_faq",
           "order": 80,
           "seoRole": "faq",
-          "eyebrow": "Children’s dentistry FAQs",
+          "eyebrow": "Children\u2019s dentistry FAQs",
           "title": "Answers for parents",
           "faqs": [
             {
               "question": "When should my child first visit?",
-              "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+              "answer": "We\u2019re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
             },
             {
               "question": "How often should they come?",
@@ -5819,7 +5819,7 @@
             },
             {
               "question": "What if my child is scared?",
-              "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+              "answer": "Tell us ahead of time and we\u2019ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
             }
           ]
         },
@@ -5838,10 +5838,10 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a gentle check-up for your child",
-          "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+          "body": "We\u2019ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
           "ctas": [
             {
-              "label": "Book a children’s appointment",
+              "label": "Book a children\u2019s appointment",
               "href": "/contact?topic=children",
               "variant": "primary"
             },
@@ -5939,7 +5939,7 @@
           "bullets": [
             "We check for bleeding, plaque build-up, and gum measurements",
             "X-rays or scans help us see bone levels where needed",
-            "You’ll receive a clear, written plan before any therapy"
+            "You\u2019ll receive a clear, written plan before any therapy"
           ]
         },
         {
@@ -5999,7 +5999,7 @@
           "title": "Keeping gums healthy after treatment",
           "items": [
             "Short-term tenderness or temperature sensitivity is common and settles with good home care",
-            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
+            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing \u2014 we\u2019ll factor this into your plan",
             "Regular supportive periodontal therapy to maintain pocket depth reductions",
             "Clear instructions on cleaning around teeth and implants to protect results"
           ]
@@ -6022,7 +6022,7 @@
           "faqs": [
             {
               "question": "Does deep cleaning hurt?",
-              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You’ll be guided on what to expect and how to keep things comfortable afterwards."
+              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You\u2019ll be guided on what to expect and how to keep things comfortable afterwards."
             },
             {
               "question": "How long does it take to see improvement?",
@@ -6030,11 +6030,11 @@
             },
             {
               "question": "Can gum tissue grow back?",
-              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we’ll discuss options if grafting or referral is appropriate."
+              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we\u2019ll discuss options if grafting or referral is appropriate."
             },
             {
               "question": "What about implants with gum inflammation?",
-              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we’ll outline referral options calmly."
+              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we\u2019ll outline referral options calmly."
             }
           ]
         },
@@ -6047,7 +6047,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a periodontal assessment",
-          "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+          "body": "Let\u2019s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
           "ctas": [
             {
               "label": "Schedule a gum review",
@@ -6109,13 +6109,13 @@
           "eyebrow": "When treatment is needed",
           "title": "Signs a tooth may need endodontic care",
           "items": [
-            "Lingering hot or cold sensitivity that doesn’t settle quickly",
+            "Lingering hot or cold sensitivity that doesn\u2019t settle quickly",
             "Spontaneous or night pain that radiates to the jaw or ear",
             "Swelling, tenderness, or a pimple on the gum near the tooth",
             "Cracks, deep decay, or a failing filling that has reached the nerve",
             "Pain when biting that suggests nerve inflammation or infection"
           ],
-          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently — emergency dentistry support is available."
+          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently \u2014 emergency dentistry support is available."
         },
         {
           "id": "endodontics-root-canal-process",
@@ -6174,7 +6174,7 @@
           "seoRole": "supporting",
           "eyebrow": "Risks, limits & alternatives",
           "title": "Honest guidance before we start",
-          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You’ll know the backup plan before consenting.",
+          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You\u2019ll know the backup plan before consenting.",
           "bullets": [
             "Discusses structural strength and whether a crown is needed",
             "Explains limits of heavily cracked or previously treated teeth",
@@ -6196,7 +6196,7 @@
             "Most treated teeth remain comfortable and functional for many years",
             "Bite checks reduce the risk of fractures after treatment",
             "Regular hygiene visits help prevent reinfection from new decay",
-            "If a tooth cannot be saved, we’ll plan extractions and future implant or bridge options"
+            "If a tooth cannot be saved, we\u2019ll plan extractions and future implant or bridge options"
           ]
         },
         {
@@ -6222,7 +6222,7 @@
               "answer": "Back teeth or heavily restored teeth often benefit from a crown to prevent fractures. We will explain the best way to seal and protect your tooth."
             },
             {
-              "question": "What if the tooth can’t be saved?",
+              "question": "What if the tooth can\u2019t be saved?",
               "answer": "We will outline alternatives such as extraction with healing guidance and future replacement options like bridges or implants if appropriate."
             }
           ]
@@ -6275,7 +6275,7 @@
           "seoRole": "hero",
           "eyebrow": "Extractions & oral surgery",
           "title": "Gentle extractions with clear surgical planning",
-          "body": "When a tooth can’t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+          "body": "When a tooth can\u2019t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
           "bullets": [
             "Calm assessments that explain when extraction is the safest route",
             "Minimally invasive techniques to protect bone and gum",
@@ -6410,7 +6410,7 @@
             },
             {
               "question": "How long is recovery?",
-              "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
+              "answer": "Most people are comfortable after a few days with steady improvement over 1\u20132 weeks. We give written instructions to support smooth healing."
             },
             {
               "question": "Can the tooth be replaced?",
@@ -6418,7 +6418,7 @@
             },
             {
               "question": "What if the tooth could be saved?",
-              "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
+              "answer": "If a filling, crown, or root canal could provide a predictable result, we\u2019ll explain that option first so you can make an informed choice."
             }
           ]
         },
@@ -6437,7 +6437,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Need advice about a troublesome tooth?",
-          "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+          "body": "We\u2019ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
           "ctas": [
             {
               "label": "Book an oral surgery consult",
@@ -6489,12 +6489,12 @@
               "preset": "primary"
             },
             {
-              "label": "Review denture options",
+              "label": "Dentures & tooth replacement",
               "href": "/treatments/dentures",
               "preset": "secondary"
             },
             {
-              "label": "Explore implant solutions",
+              "label": "Implant dentistry",
               "href": "/treatments/implants",
               "preset": "secondary"
             }
@@ -6557,7 +6557,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Consider splint therapy",
+              "label": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints",
               "preset": "secondary"
             }
@@ -6617,7 +6617,7 @@
               "preset": "secondary"
             },
             {
-              "label": "See painless numbing options",
+              "label": "Comfort dentistry",
               "href": "/treatments/painless-numbing-the-wand",
               "preset": "secondary"
             }
@@ -6680,7 +6680,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Review painless numbing",
+              "label": "Comfort dentistry",
               "href": "/treatments/painless-numbing-the-wand",
               "preset": "secondary"
             }
@@ -6738,12 +6738,12 @@
               "preset": "primary"
             },
             {
-              "label": "Learn about sedation options",
+              "label": "Sedation dentistry",
               "href": "/treatments/sedation-dentistry",
               "preset": "secondary"
             },
             {
-              "label": "Review nervous patient support",
+              "label": "Nervous patients",
               "href": "/treatments/nervous-patients",
               "preset": "secondary"
             }
@@ -6829,7 +6829,7 @@
           "type": "treatment_media_feature",
           "label": "Realistic timelines",
           "title": "Clear expectations on timing and feel",
-          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1–3 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
+          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1\u20133 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
           "mediaHint": "Calm scheduling map"
         },
         {
@@ -6874,7 +6874,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Night guards",
+              "label": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints",
               "preset": "ghost"
             },
@@ -6958,12 +6958,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore TMJ treatment",
+              "label": "TMJ disorder",
               "href": "/treatments/tmj-disorder-treatment",
               "preset": "secondary"
             },
             {
-              "label": "Relieve facial pain and headaches",
+              "label": "Facial pain & headaches",
               "href": "/treatments/facial-pain-and-headache",
               "preset": "secondary"
             }
@@ -7024,12 +7024,12 @@
               "preset": "primary"
             },
             {
-              "label": "Plan a night guard fitting",
+              "label": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints",
               "preset": "secondary"
             },
             {
-              "label": "Explore TMJ therapy",
+              "label": "TMJ disorder",
               "href": "/treatments/tmj-disorder-treatment",
               "preset": "secondary"
             }
@@ -7090,7 +7090,7 @@
               "preset": "primary"
             },
             {
-              "label": "Review TMJ care",
+              "label": "TMJ & jaw care",
               "href": "/treatments/tmj-jaw-comfort",
               "preset": "secondary"
             },
@@ -7156,12 +7156,12 @@
               "preset": "primary"
             },
             {
-              "label": "Review splint options",
+              "label": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints",
               "preset": "secondary"
             },
             {
-              "label": "Discuss orthodontic support",
+              "label": "Orthodontics",
               "href": "/treatments/orthodontics",
               "preset": "secondary"
             }
@@ -7225,12 +7225,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore TMJ care",
+              "label": "TMJ & jaw care",
               "href": "/treatments/tmj-jaw-comfort",
               "preset": "secondary"
             },
             {
-              "label": "See facial pain pathways",
+              "label": "Facial pain & headaches",
               "href": "/treatments/facial-pain-and-headache",
               "preset": "secondary"
             }
@@ -7288,12 +7288,12 @@
               "preset": "primary"
             },
             {
-              "label": "Review anti-wrinkle treatments",
+              "label": "Facial therapeutics",
               "href": "/treatments/anti-wrinkle-treatments",
               "preset": "secondary"
             },
             {
-              "label": "Compare dermal fillers",
+              "label": "Facial therapeutics",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             }
@@ -7354,12 +7354,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore dermal fillers",
+              "label": "Facial therapeutics",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             },
             {
-              "label": "See skin booster options",
+              "label": "Facial therapeutics",
               "href": "/treatments/skin-boosters",
               "preset": "secondary"
             }
@@ -7420,12 +7420,12 @@
               "preset": "primary"
             },
             {
-              "label": "Compare skin boosters",
+              "label": "Facial therapeutics",
               "href": "/treatments/skin-boosters",
               "preset": "secondary"
             },
             {
-              "label": "Explore polynucleotides",
+              "label": "Facial therapeutics",
               "href": "/treatments/polynucleotides",
               "preset": "secondary"
             }
@@ -7486,12 +7486,12 @@
               "preset": "primary"
             },
             {
-              "label": "Explore polynucleotides",
+              "label": "Facial therapeutics",
               "href": "/treatments/polynucleotides",
               "preset": "secondary"
             },
             {
-              "label": "Review dermal filler options",
+              "label": "Facial therapeutics",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             }
@@ -7552,12 +7552,12 @@
               "preset": "primary"
             },
             {
-              "label": "Compare skin boosters",
+              "label": "Facial therapeutics",
               "href": "/treatments/skin-boosters",
               "preset": "secondary"
             },
             {
-              "label": "Plan dermal filler contouring",
+              "label": "Facial therapeutics",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             }
@@ -7612,12 +7612,12 @@
               "preset": "primary"
             },
             {
-              "label": "Plan retainer checks",
+              "label": "Retainers",
               "href": "/treatments/dental-retainers",
               "preset": "secondary"
             },
             {
-              "label": "Explore night guard options",
+              "label": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints",
               "preset": "secondary"
             }
