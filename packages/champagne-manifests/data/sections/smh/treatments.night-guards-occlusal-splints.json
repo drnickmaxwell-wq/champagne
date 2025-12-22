@@ -97,6 +97,22 @@
       ]
     },
     {
+      "instanceId": "night-guards-authority",
+      "componentId": "treatment_authority_block",
+      "variantId": "smh_night_guards_authority",
+      "order": 65,
+      "seoRole": "supporting",
+      "eyebrow": "Clinical direction",
+      "title": "Splints prescribed by clinicians experienced in occlusal care",
+      "body": "We assess joint health, muscle tension, and tooth wear patterns before prescribing a splint. Bite records and digital scans guide thickness, contact points, and material choice to protect both natural teeth and existing restorations.",
+      "bullets": [
+        "Assessment includes parafunctional habits and joint comfort",
+        "Design aims for even contact and smooth guidance",
+        "Material options selected for durability or flexibility",
+        "Follow-up adjustments scheduled to refine comfort"
+      ]
+    },
+    {
       "instanceId": "night-guards-occlusal-splints-mid-cta",
       "componentId": "treatment_mid_cta",
       "order": 69,
@@ -112,16 +128,28 @@
       "title": "Night guard questions answered",
       "faqs": [
         {
-          "question": "Are occlusal splints custom-made?",
-          "answer": "Yes. We base every splint on your bite records and adjust it chairside so it sits comfortably while protecting your teeth."
+          "question": "Who should consider an occlusal splint?",
+          "answer": "They are recommended for patients with clenching, grinding, headaches from jaw tension, or restorations that need protection. We confirm suitability after examining your bite and joints."
         },
         {
-          "question": "How do lab-made and 3D printed splints differ?",
-          "answer": "Specialist lab-made splints can suit complex bites or higher wear demands, while in-house 3D printed splints offer precise fit and quicker turnaround. We recommend the option that matches your clinical needs."
+          "question": "Are there alternatives if I do not want a splint?",
+          "answer": "Management may include exercises, habit coaching, or muscle therapies, but a splint is often the safest way to protect teeth and dental work from night-time forces. We will outline all options."
         },
         {
           "question": "How long will my splint last?",
-          "answer": "Longevity depends on bite forces and care. We review the splint at check-ups, outline expected replacement intervals, and plan refreshes before wear compromises protection."
+          "answer": "Durability depends on grinding forces, material choice, and care. We advise expected replacement intervals and check fit at reviews so we can refresh before wear reduces protection."
+        },
+        {
+          "question": "How do I look after the splint?",
+          "answer": "Rinse and brush it gently after use, store it in a ventilated case, and avoid heat. Bring it to appointments so we can clean and adjust it, especially if your bite changes."
+        },
+        {
+          "question": "What are the risks or limitations?",
+          "answer": "Splints can feel tight or cause tenderness if contacts are uneven; adjustments resolve this. Wear or cracks may occur with heavy grinding, so periodic review is important."
+        },
+        {
+          "question": "How are night guards priced?",
+          "answer": "Fees reflect the material, lab or in-house production, and the complexity of your bite. We provide a written estimate and discuss phased care if repairs or replacements are anticipated."
         },
         {
           "question": "Will it affect speech or breathing?",
@@ -185,6 +213,14 @@
       {
         "label": "Retainer adjustments",
         "href": "/treatments/dental-retainers"
+      },
+      {
+        "label": "Protecting crowns and onlays",
+        "href": "/treatments/dental-crowns"
+      },
+      {
+        "label": "Managing worn teeth",
+        "href": "/treatments/inlays-onlays"
       }
     ]
   },
@@ -201,5 +237,18 @@
       "label": "Read about comfort reviews",
       "href": "/treatments/tmj-jaw-comfort"
     }
-  }
+  },
+  "clinical_focus": [
+    "Occlusal management for bruxism and muscle-related jaw pain",
+    "Protective splints for patients with restorative or implant work"
+  ],
+  "typical_case_type": [
+    "Heavy grinders with headaches or jaw tension",
+    "Patients needing to protect crowns, veneers, or implant restorations overnight"
+  ],
+  "planning_considerations": [
+    "Assessment of joint comfort, muscle tenderness, and wear facets",
+    "Material selection and thickness to balance comfort with durability",
+    "Scheduled adjustments to maintain even occlusal contact and compliance"
+  ]
 }
