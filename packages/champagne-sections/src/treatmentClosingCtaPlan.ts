@@ -171,7 +171,8 @@ export function resolveTreatmentClosingCTAPlan({
   section,
   ctas,
   pageSlug,
-}: { section?: SectionRegistryEntry; ctas?: ChampagneCTAConfig[]; pageSlug?: string } = {}): TreatmentClosingCTAPlan {
+  usedHrefs,
+}: { section?: SectionRegistryEntry; ctas?: ChampagneCTAConfig[]; pageSlug?: string; usedHrefs?: string[] } = {}): TreatmentClosingCTAPlan {
   const fallbackCTAs = getFallbackCTAs(section);
   const mappedSectionCTAs = mapSectionCTAs(section);
   const journeyCTAs = mapJourneyCTAs(pageSlug);
@@ -180,11 +181,12 @@ export function resolveTreatmentClosingCTAPlan({
 
   const baseCTAs: CTAPlanEntry[] = (ctas && ctas.length > 0 ? ctas : undefined)
     ?? (mappedSectionCTAs.length > 0 ? mappedSectionCTAs : []);
-  const baseFromJourney = baseCTAs.length === 0 && journeyCTAs.length > 0;
-  const primaryCTAs: CTAPlanEntry[] = baseFromJourney ? [journeyCTAs[0]] : baseCTAs;
-  const journeySupporting: CTAPlanEntry[] = journeyCTAs.filter((_, index) => !(baseFromJourney && index === 0)).slice(0, 2);
+  const journeyPrimary = journeyCTAs[0] ? [journeyCTAs[0]] : [];
+  const journeySupporting: CTAPlanEntry[] = journeyCTAs.slice(1);
+  const primaryCTAs: CTAPlanEntry[] = journeyPrimary.length > 0 ? journeyPrimary : baseCTAs;
+  const supportingFromJourney = journeyPrimary.length > 0 ? journeySupporting : journeyCTAs;
   const intentSupporting: CTAPlanEntry[] = intentSupportCTA ? [intentSupportCTA] : [];
-  const supportingCandidates: CTAPlanEntry[] = [...journeySupporting, ...intentSupporting];
+  const supportingCandidates: CTAPlanEntry[] = [...supportingFromJourney, ...baseCTAs, ...intentSupporting];
 
   const beforeButtons: CTAPlanEntry[] =
     primaryCTAs.length > 0 || supportingCandidates.length > 0
@@ -192,8 +194,23 @@ export function resolveTreatmentClosingCTAPlan({
       : [...fallbackCTAs];
 
   const primaryDedupe = dedupeButtons(beforeButtons, { normalizeHref: normalizeHrefForDedupe });
-  let buttons = primaryDedupe.buttons;
-  let duplicateButtonsRemoved = primaryDedupe.dropped.length;
+  const filterUsedHref = (entries: CTAPlanEntry[]) => {
+    if (!usedHrefs || usedHrefs.length === 0) return entries;
+    const normalizedUsed = new Set(
+      usedHrefs
+        .map((href) => normalizeHrefForDedupe(href))
+        .filter((href): href is string => Boolean(href)),
+    );
+    const filtered = entries.filter((entry) => {
+      const normalizedHref = normalizeHrefForDedupe(entry.href);
+      return normalizedHref ? !normalizedUsed.has(normalizedHref) : true;
+    });
+    return filtered.length >= 2 ? filtered : entries;
+  };
+
+  const filteredForUsage = filterUsedHref(primaryDedupe.buttons);
+  let buttons = filteredForUsage;
+  let duplicateButtonsRemoved = primaryDedupe.dropped.length + (primaryDedupe.buttons.length - filteredForUsage.length);
 
   if (buttons.length === 0) {
     buttons = fallbackCTAs;

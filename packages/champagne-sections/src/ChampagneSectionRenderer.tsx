@@ -17,6 +17,7 @@ import { Section_TreatmentToolsTrio } from "./Section_TreatmentToolsTrio";
 import { getSectionStack } from "./SectionRegistry";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { Section_GoogleReviews } from "./Section_GoogleReviews";
+import { resolveTreatmentMidCTAPlan } from "./treatmentMidCtaPlan";
 
 export interface ChampagneSectionRendererProps {
   pageSlug: string;
@@ -30,6 +31,7 @@ type SectionComponent = (props: {
   ctas?: ChampagneCTAConfig[];
   footerCTAs?: ChampagneCTAConfig[];
   pageSlug?: string;
+  usedMidCtaHrefs?: string[];
 }) => ReactNode;
 
 const typeMap: Record<string, SectionComponent> = {
@@ -50,12 +52,12 @@ const typeMap: Record<string, SectionComponent> = {
   reviews: (props) => <Section_GoogleReviews {...props} />,
 };
 
-function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[], pageSlug?: string) {
+function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAConfig[], pageSlug?: string, usedMidCtaHrefs?: string[]) {
   const key = section.kind ?? section.type;
   const component = key ? typeMap[key] : undefined;
   if (component) {
     const props = key === "treatment_closing_cta"
-      ? { section, ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined, footerCTAs, pageSlug }
+      ? { section, ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined, footerCTAs, pageSlug, usedMidCtaHrefs }
       : key === "treatment_mid_cta"
         ? { section, pageSlug }
         : { section };
@@ -77,9 +79,14 @@ function renderSection(section: SectionRegistryEntry, footerCTAs?: ChampagneCTAC
 
 export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, previewMode }: ChampagneSectionRendererProps) {
   const sections = getSectionStack(pageSlug);
-  const hasMidPageCTAs = (midPageCTAs?.length ?? 0) > 0;
+  const hasManifestMidCTA = sections.some((section) => section.kind === "treatment_mid_cta");
+  const hasMidPageCTAs = !hasManifestMidCTA && (midPageCTAs?.length ?? 0) > 0;
   const midInsertIndex = hasMidPageCTAs ? Math.max(1, Math.ceil(sections.length / 2)) : -1;
   const hasClosingCTASection = sections.some((section) => section.kind === "treatment_closing_cta");
+  const manifestMidCTASection = sections.find((section) => section.kind === "treatment_mid_cta");
+  const manifestMidCtaPlan = manifestMidCTASection ? resolveTreatmentMidCTAPlan(manifestMidCTASection, pageSlug) : undefined;
+  const usedMidCtaHrefsSource = hasMidPageCTAs ? midPageCTAs ?? [] : manifestMidCtaPlan?.resolvedCTAs ?? [];
+  const usedMidCtaHrefs = usedMidCtaHrefsSource.map((cta) => cta.href).filter(Boolean);
 
   return (
     <div style={{ display: "grid", gap: "clamp(1.2rem, 2.4vw, 2rem)", marginTop: "0.5rem" }}>
@@ -94,7 +101,7 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, pr
       >
         {sections.map((section, index) => (
           <Fragment key={section.id ?? section.type ?? `${pageSlug}-section-${index}`}>
-            <div>{renderSection(section, footerCTAs, pageSlug)}</div>
+            <div>{renderSection(section, footerCTAs, pageSlug, usedMidCtaHrefs)}</div>
             {hasMidPageCTAs && index === midInsertIndex - 1 && (
               <ChampagneCTAGroup
                 ctas={midPageCTAs}
