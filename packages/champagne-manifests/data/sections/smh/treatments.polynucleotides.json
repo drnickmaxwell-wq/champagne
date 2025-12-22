@@ -46,7 +46,7 @@
       "bullets": [
         "Contraindication screening and discussion of realistic expectations",
         "Photography and mapping to monitor changes over the course",
-        "Clear spacing between sessions (often 2–4 weeks) to allow healing",
+        "Clear spacing between sessions (often 2\u20134 weeks) to allow healing",
         "Written aftercare and escalation guidance before the first session"
       ]
     },
@@ -101,7 +101,7 @@
       "eyebrow": "Aftercare & risks",
       "title": "Supportive aftercare with clear escalation steps",
       "items": [
-        "Pinpoint redness or swelling is expected for 24–72 hours; bruising can occur",
+        "Pinpoint redness or swelling is expected for 24\u201372 hours; bruising can occur",
         "Avoid strenuous activity, heat, and active skincare until advised",
         "Contact us promptly if you notice increasing pain, unusual colour change, or signs of infection",
         "Follow-up visits confirm healing before any further sessions"
@@ -145,6 +145,22 @@
       ]
     },
     {
+      "instanceId": "polynucleotides-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_polynucleotides_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore polynucleotide treatments and their regenerative aims.",
+        "Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Routine skin health checks (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Anti-wrinkle pathways (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).",
+        "Next steps we plan for: Skin boosters (/treatments/skin-boosters); Polynucleotides (/treatments/polynucleotides); Therapeutic injectables (/treatments/therapeutic-facial-injectables)."
+      ]
+    },
+    {
       "instanceId": "polynucleotides-cta",
       "componentId": "treatment.cta",
       "variantId": "polynucleotides_cta",
@@ -155,12 +171,12 @@
       "strapline": "Explore whether a polynucleotide course is appropriate for your skin with a clinician who prioritises safety, sequencing, and conservative dosing.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led polynucleotides review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about polynucleotides",
+          "label": "Consider alternatives like Skin boosters",
           "href": "/contact?topic=polynucleotides",
           "variant": "secondary"
         }
@@ -205,15 +221,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinical polynucleotide review",
+      "label": "Plan a clinician-led polynucleotides review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss skin booster scheduling",
+      "label": "Consider alternatives like Skin boosters",
       "href": "/treatments/skin-boosters"
     },
     "reassurance_intent": {
-      "label": "Understand safety and follow-up",
+      "label": "Map next steps such as Facial aesthetics consultation",
       "href": "/treatments/facial-aesthetics"
     }
   }

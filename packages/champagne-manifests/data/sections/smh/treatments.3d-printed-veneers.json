@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a veneer consultation",
+          "label": "Plan a clinician-led 3d printed veneers review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Request a digital preview",
+          "label": "Consider alternatives like Smile design planning",
           "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
@@ -154,11 +154,11 @@
       "eyebrow": "Aftercare & considerations",
       "title": "Caring for printed veneers",
       "items": [
-        "Printed veneers are not maintenance-free — hygiene visits protect margins and gums",
+        "Printed veneers are not maintenance-free \u2014 hygiene visits protect margins and gums",
         "Avoid very hard foods while edges settle and report any edge lifting",
         "Chipping, wear, or staining can occur; we can repolish or refresh when needed",
         "Night guards are advised if you clench to protect edges and bonding",
-        "We’ll signal when a porcelain upgrade is safer for longevity"
+        "We\u2019ll signal when a porcelain upgrade is safer for longevity"
       ]
     },
     {
@@ -171,7 +171,7 @@
       "title": "Transparent expectations for staged veneers",
       "items": [
         "Printed veneers are a value-led step, not a lifetime solution; we outline refresh or replacement timelines upfront.",
-        "Bite forces, dietary acids, and staining drinks can shorten lifespan — protective habits matter.",
+        "Bite forces, dietary acids, and staining drinks can shorten lifespan \u2014 protective habits matter.",
         "Maintenance includes hygiene visits, occasional re-polishing, and night guard use for clenching.",
         "If goals need more coverage or detail, porcelain or composite bonding may be recommended instead (/treatments/composite-bonding).",
         "Alternative routes like whitening or a full smile makeover are explored if they serve you better (/treatments/teeth-whitening, /treatments/full-smile-makeover)."
@@ -215,6 +215,22 @@
       ]
     },
     {
+      "instanceId": "3d-printed-veneers-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_3d-printed-veneers_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after smile design planning (/treatments/digital-smile-design) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to find out how 3d printed provisional veneers support smile planning.",
+        "Often follows Smile design planning (/treatments/digital-smile-design); Orthodontic alignment (/treatments/orthodontics).",
+        "Alternatives we balance: Aligner refinements (/treatments/aligners); Gum contouring and care (/treatments/periodontal-gum-care).",
+        "Next steps we plan for: Protect with night guards (/treatments/night-guards-occlusal-splints); Finishing whitening (/treatments/whitening-top-ups); Regular reviews (/treatments/preventative-and-general-dentistry)."
+      ]
+    },
+    {
       "instanceId": "printed-veneers-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_printed_veneers_cta",
@@ -225,12 +241,12 @@
       "body": "Discuss printed and porcelain options with digital previews, timelines, and alternatives.",
       "ctas": [
         {
-          "label": "Veneer Consultation & Smile Design",
+          "label": "Plan a clinician-led 3d printed veneers review",
           "href": "/contact?topic=veneers",
           "preset": "primary"
         },
         {
-          "label": "Explore alternative cosmetic options",
+          "label": "Consider alternatives like full smile makeover",
           "href": "/treatments/full-smile-makeover",
           "preset": "secondary"
         }
@@ -275,15 +291,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Explore provisional veneer options",
+      "label": "Plan a clinician-led 3d printed veneers review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Preview digital smile mock-ups",
+      "label": "Consider alternatives like Smile design planning",
       "href": "/treatments/digital-smile-design"
     },
     "reassurance_intent": {
-      "label": "Understand how to protect veneers",
+      "label": "Map next steps such as Protect with night guards",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }

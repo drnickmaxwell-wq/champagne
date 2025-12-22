@@ -158,6 +158,22 @@
       ]
     },
     {
+      "instanceId": "night-guards-occlusal-splints-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_night-guards-occlusal-splints_decision_clarity",
+      "order": 79,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after bruxism assessment (/treatments/bruxism-and-jaw-clenching) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to assess whether an occlusal splint can protect teeth and joints during sleep.",
+        "Often follows Bruxism assessment (/treatments/bruxism-and-jaw-clenching); Jaw comfort reviews (/treatments/tmj-jaw-comfort).",
+        "Alternatives we balance: Relieving facial pain (/treatments/facial-pain-and-headache); Retainer adjustments (/treatments/dental-retainers); Protecting crowns and onlays (/treatments/dental-crowns).",
+        "Next steps we plan for: TMJ specialist care (/treatments/tmj-disorder-treatment); Restoring worn teeth (/treatments/inlays-onlays); Routine maintenance (/treatments/preventative-and-general-dentistry)."
+      ]
+    },
+    {
       "instanceId": "night-guards-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_night_guards_cta",
@@ -168,12 +184,12 @@
       "body": "Book a consultation to review your clenching or grinding and choose between lab-made and 3D printed splints with clear guidance on care and longevity.",
       "ctas": [
         {
-          "label": "Contact the team",
+          "label": "Plan a clinician-led night guards occlusal splints review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Bruxism & clenching guidance",
+          "label": "Consider alternatives like Bruxism assessment",
           "href": "/treatments/bruxism-and-jaw-clenching",
           "preset": "secondary"
         }
@@ -226,15 +242,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange an occlusal splint fitting",
+      "label": "Plan a clinician-led night guards occlusal splints review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss TMJ therapy options",
+      "label": "Consider alternatives like TMJ specialist care",
       "href": "/treatments/tmj-disorder-treatment"
     },
     "reassurance_intent": {
-      "label": "Read about comfort reviews",
+      "label": "Map next steps such as Jaw comfort reviews",
       "href": "/treatments/tmj-jaw-comfort"
     }
   },

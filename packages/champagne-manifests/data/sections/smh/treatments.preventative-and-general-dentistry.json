@@ -16,16 +16,16 @@
       "bullets": [
         "Gentle, unhurried check-ups with the same clinical team",
         "Prevention plans tailored to your enamel, gums, and lifestyle",
-        "Clear guidance if you’re anxious or prefer slower appointments"
+        "Clear guidance if you\u2019re anxious or prefer slower appointments"
       ],
       "ctas": [
         {
-          "label": "Dental check-ups & oral cancer screening",
+          "label": "Plan a clinician-led preventative and general dentistry review",
           "href": "/dental-checkups-oral-cancer-screening",
           "preset": "primary"
         },
         {
-          "label": "Book a consultation",
+          "label": "Consider alternatives like Gum care",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -76,7 +76,7 @@
         "Polishing and airflow-style finishing where suitable for stain control",
         "Tips to improve brushing and interdental cleaning at home",
         "Why visits matter even if you brush well: hidden build-up and hard-to-reach areas",
-        "Preventing gum disease and bad breath with tailored intervals—see periodontal care (/treatments/periodontal-gum-care)"
+        "Preventing gum disease and bad breath with tailored intervals\u2014see periodontal care (/treatments/periodontal-gum-care)"
       ],
       "strapline": "Regular hygiene keeps gums healthy and helps fillings, crowns, and implants last longer."
     },
@@ -90,7 +90,7 @@
       "title": "Simple, science-led guidance you can follow",
       "body": "We create a plan that fits your daily routine so small adjustments have a big impact.",
       "bullets": [
-        "Fluoride advice matched to your risk level—no pushy sales",
+        "Fluoride advice matched to your risk level\u2014no pushy sales",
         "Diet and sugar-frequency guidance with practical swaps",
         "Support for sensitive teeth, including gentle techniques and desensitising care",
         "Custom lab-made sports mouthguards for contact or ball sports (/treatments/sports-mouthguards)"
@@ -125,7 +125,7 @@
         "Teens and young adults: monitoring wisdom teeth, orthodontic retainers, and sports protection",
         "Young-at-heart retirees: focus on comfort, function, and maintaining existing restorations",
         "Medical changes considered so your plan stays safe and effective",
-        "Appointment pacing adjusted if you’re nervous or prefer slower visits"
+        "Appointment pacing adjusted if you\u2019re nervous or prefer slower visits"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "body": "Comprehensive exams, digital assessment, and a visual oral cancer check at every visit.",
       "ctas": [
         {
-          "label": "Learn about check-ups",
+          "label": "Plan a clinician-led preventative and general dentistry review",
           "href": "/dental-checkups-oral-cancer-screening",
           "preset": "secondary"
         }
@@ -166,11 +166,11 @@
         },
         {
           "question": "Do you check for mouth cancer?",
-          "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you’ve noticed."
+          "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you\u2019ve noticed."
         },
         {
-          "question": "I’m nervous — can you go slowly?",
-          "answer": "Absolutely. Tell us ahead of time and we’ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
+          "question": "I\u2019m nervous \u2014 can you go slowly?",
+          "answer": "Absolutely. Tell us ahead of time and we\u2019ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
         },
         {
           "question": "Is home whitening better?",
@@ -192,6 +192,22 @@
       ]
     },
     {
+      "instanceId": "preventative-and-general-dentistry-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_preventative-and-general-dentistry_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after treatment hub (/treatments/hub-directory) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to plan routine dental care, screenings, and maintenance tailored to you.",
+        "Often follows Treatment hub (/treatments/hub-directory); Nervous patient pathway (/treatments/nervous-patients).",
+        "Alternatives we balance: Senior smile care (/treatments/senior-mature-smile-care); Children's dentistry (/treatments/childrens-dentistry).",
+        "Next steps we plan for: Gum care (/treatments/periodontal-gum-care); Orthodontic review (/treatments/orthodontics); Teeth whitening (/treatments/teeth-whitening)."
+      ]
+    },
+    {
       "instanceId": "preventative-general-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_preventative_general_cta",
@@ -199,15 +215,15 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book your comprehensive dental exam",
-      "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
+      "body": "Speak to us about a prevention-first plan. If you\u2019re anxious, tell us \u2014 we\u2019ll tailor the visit and pace it carefully.",
       "ctas": [
         {
-          "label": "Dental check-ups & oral cancer screening",
+          "label": "Plan a clinician-led preventative and general dentistry review",
           "href": "/dental-checkups-oral-cancer-screening",
           "preset": "primary"
         },
         {
-          "label": "Book a consultation",
+          "label": "Consider alternatives like Gum care",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -252,15 +268,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a routine check-up",
+      "label": "Plan a clinician-led preventative and general dentistry review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan gum care or hygiene support",
+      "label": "Consider alternatives like Gum care",
       "href": "/treatments/periodontal-gum-care"
     },
     "reassurance_intent": {
-      "label": "Support for anxious visitors",
+      "label": "Map next steps such as Nervous patient pathway",
       "href": "/treatments/nervous-patients"
     }
   }

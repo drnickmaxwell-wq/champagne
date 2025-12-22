@@ -59,7 +59,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Your comfort options",
       "title": "Pick the support that feels right",
-      "body": "We guide you through calming options and let you choose what feels safest—whether that’s gentle numbing tech, measured relaxation, or easing jaw tension first.",
+      "body": "We guide you through calming options and let you choose what feels safest\u2014whether that\u2019s gentle numbing tech, measured relaxation, or easing jaw tension first.",
       "bullets": [
         "Painless numbing with The Wand keeps anaesthetic slow and steady",
         "Dental sedation options add deeper relaxation when assessed as suitable",
@@ -83,12 +83,12 @@
       "strapline": "Read the dedicated pages to see how they manage anxiety and comfort.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led nervous patients review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Read about sedation",
+          "label": "Consider alternatives like Sedation dentistry",
           "href": "/treatments/sedation-dentistry",
           "variant": "secondary"
         }
@@ -104,10 +104,26 @@
       "title": "A calm, consultation-first pathway",
       "items": [
         "Consultation-first to hear your worries and past experiences",
-        "No pressure to proceed—options explained before any care",
+        "No pressure to proceed\u2014options explained before any care",
         "Nothing happens without consent and a clear plan",
         "You stay in control with agreed stop signals and pacing",
         "Follow-ups arranged so you can build confidence gradually"
+      ]
+    },
+    {
+      "instanceId": "nervous-patients-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_nervous-patients_decision_clarity",
+      "order": 69,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine examinations (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to find out how the team supports anxious patients through dental care.",
+        "Often follows Routine examinations (/treatments/preventative-and-general-dentistry); Treatment hub (/treatments/hub-directory).",
+        "Alternatives we balance: Orthodontic care at your pace (/treatments/orthodontics); Gentle gum care (/treatments/periodontal-gum-care).",
+        "Next steps we plan for: Sedation dentistry (/treatments/sedation-dentistry); Comfort-first numbing (/treatments/painless-numbing-the-wand); Implant sedation pathways (/treatments/implants-sedation)."
       ]
     },
     {
@@ -121,12 +137,12 @@
       "body": "Book a consultation or speak to the team about the pace and comfort options you prefer.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led nervous patients review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Read about sedation",
+          "label": "Consider alternatives like Sedation dentistry",
           "href": "/treatments/sedation-dentistry",
           "variant": "secondary"
         }
@@ -171,15 +187,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Talk to us about dental anxiety",
+      "label": "Plan a clinician-led nervous patients review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Explore sedation options",
+      "label": "Consider alternatives like Sedation dentistry",
       "href": "/treatments/sedation-dentistry"
     },
     "reassurance_intent": {
-      "label": "Learn about gentle numbing approaches",
+      "label": "Map next steps such as Comfort-first numbing",
       "href": "/treatments/painless-numbing-the-wand"
     }
   }

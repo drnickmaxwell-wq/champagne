@@ -124,7 +124,7 @@
       "faqs": [
         {
           "question": "How long do fillers last?",
-          "answer": "Most hyaluronic acid fillers integrate over days and may last 6–18 months depending on area, product, and lifestyle."
+          "answer": "Most hyaluronic acid fillers integrate over days and may last 6\u201318 months depending on area, product, and lifestyle."
         },
         {
           "question": "Can fillers be dissolved?",
@@ -145,6 +145,22 @@
       ]
     },
     {
+      "instanceId": "dermal-fillers-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dermal-fillers_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand how dermal fillers can be used safely and what outcomes are realistic.",
+        "Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Routine skin health checks (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Anti-wrinkle pathways (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).",
+        "Next steps we plan for: Skin boosters (/treatments/skin-boosters); Polynucleotides (/treatments/polynucleotides); Therapeutic injectables (/treatments/therapeutic-facial-injectables)."
+      ]
+    },
+    {
       "instanceId": "dermal-fillers-cta",
       "componentId": "treatment.cta",
       "variantId": "dermal_fillers_cta",
@@ -155,12 +171,12 @@
       "strapline": "Discuss whether conservative dermal filler treatment is right for you with a clinician who keeps anatomy, safety, and reversibility front of mind.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led dermal fillers review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about fillers",
+          "label": "Consider alternatives like Skin boosters",
           "href": "/contact?topic=dermal-fillers",
           "variant": "secondary"
         }
@@ -205,15 +221,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinical filler review",
+      "label": "Plan a clinician-led dermal fillers review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss skin booster scheduling",
+      "label": "Consider alternatives like Skin boosters",
       "href": "/treatments/skin-boosters"
     },
     "reassurance_intent": {
-      "label": "Understand safety and follow-up",
+      "label": "Map next steps such as Facial aesthetics consultation",
       "href": "/treatments/facial-aesthetics"
     }
   }

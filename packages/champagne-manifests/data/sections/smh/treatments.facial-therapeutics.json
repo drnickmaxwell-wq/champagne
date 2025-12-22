@@ -107,7 +107,7 @@
         "Written aftercare covering hygiene, posture, and how to monitor muscle response",
         "What to avoid after injections or when wearing guards, including strenuous exercise and pressure on treated sites",
         "Risks discussed plainly: bruising, transient weakness, asymmetry, infection, or vascular events with clear action steps",
-        "When to contact us urgently—for escalating pain, swelling, vision changes, or sudden jaw locking"
+        "When to contact us urgently\u2014for escalating pain, swelling, vision changes, or sudden jaw locking"
       ]
     },
     {
@@ -163,6 +163,22 @@
       ]
     },
     {
+      "instanceId": "facial-therapeutics-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_facial-therapeutics_decision_clarity",
+      "order": 99,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn about therapeutic injectables for functional or pain-related concerns.",
+        "Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Facial pain assessment (/treatments/facial-pain-and-headache).",
+        "Alternatives we balance: Anti-wrinkle treatments (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).",
+        "Next steps we plan for: Therapeutic injectables (/treatments/therapeutic-facial-injectables); Skin boosters (/treatments/skin-boosters); Polynucleotide therapy (/treatments/polynucleotides)."
+      ]
+    },
+    {
       "instanceId": "facial-therapeutics-cta",
       "componentId": "treatment.cta",
       "variantId": "facial_therapeutics_cta",
@@ -173,12 +189,12 @@
       "strapline": "Discuss jaw tension, facial pain, or therapeutic injectables with a prescriber who prioritises safety and conservative care first.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led facial therapeutics review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask a question",
+          "label": "Consider alternatives like Therapeutic injectables",
           "href": "/contact?topic=facial-therapeutics",
           "variant": "secondary"
         }
@@ -223,15 +239,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss therapeutic facial treatments",
+      "label": "Plan a clinician-led facial therapeutics review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan therapeutic injectables",
+      "label": "Consider alternatives like Therapeutic injectables",
       "href": "/treatments/therapeutic-facial-injectables"
     },
     "reassurance_intent": {
-      "label": "Consider supportive skin care",
+      "label": "Map next steps such as Skin boosters",
       "href": "/treatments/skin-boosters"
     }
   }

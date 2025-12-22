@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Orthodontics",
       "title": "Fixed braces with clinician-led planning",
-      "body": "Orthodontic treatment delivered in practice with fixed braces — for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app, with whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) sequenced after movement when helpful.",
+      "body": "Orthodontic treatment delivered in practice with fixed braces \u2014 for patients who want hands-on adjustments, predictable reviews, and guidance from a dental team rather than a remote aligner app, with whitening (/treatments/teeth-whitening) or bonding (/treatments/composite-bonding) sequenced after movement when helpful.",
       "bullets": [
         "Focus on fixed braces, not Invisalign",
         "Metal and ceramic bracket options",
@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book orthodontic consult",
+          "label": "Plan a clinician-led orthodontics review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about braces",
+          "label": "Consider alternatives like Alternatives with aligners",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -125,13 +125,13 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Predictable reviews with a plan if teeth don’t track",
+      "title": "Predictable reviews with a plan if teeth don\u2019t track",
       "items": [
         "Routine review intervals set at the start so you know your schedule",
         "Wire changes and elastic guidance tailored to how your teeth respond",
         "Comfort checks at every visit with quick repairs if a bracket loosens",
         "If movement stalls, we rescan, replan, or resequence wires to get back on track",
-        "You’ll always know the next steps, costs, and timelines before changes are made"
+        "You\u2019ll always know the next steps, costs, and timelines before changes are made"
       ]
     },
     {
@@ -172,7 +172,7 @@
       "title": "Fixed and removable retainers with lifetime expectations",
       "items": [
         "Fixed retainers can be bonded behind front teeth when suitable",
-        "Removable retainers protect your result overnight—wear schedule agreed together",
+        "Removable retainers protect your result overnight\u2014wear schedule agreed together",
         "Expect to maintain retention long-term; we guide realistic upkeep",
         "Replacement protocols explained so you know when to contact us",
         "Retention reviews help catch early shifts before they become relapse"
@@ -199,15 +199,15 @@
         },
         {
           "question": "Are there less visible options?",
-          "answer": "Ceramic brackets may be suitable for a lower-visual look. We’ll explain pros, limitations, and whether they fit your plan."
+          "answer": "Ceramic brackets may be suitable for a lower-visual look. We\u2019ll explain pros, limitations, and whether they fit your plan."
         },
         {
           "question": "Do braces hurt?",
-          "answer": "You may feel tightness or rubbing after fittings or adjustments. Discomfort usually eases in a few days; we’ll share tips to stay comfortable."
+          "answer": "You may feel tightness or rubbing after fittings or adjustments. Discomfort usually eases in a few days; we\u2019ll share tips to stay comfortable."
         },
         {
           "question": "Can I eat normally?",
-          "answer": "You can enjoy most foods, but we’ll advise on harder or sticky items that could damage brackets or wires. Softer options help right after adjustments."
+          "answer": "You can enjoy most foods, but we\u2019ll advise on harder or sticky items that could damage brackets or wires. Softer options help right after adjustments."
         },
         {
           "question": "How much do braces cost?",
@@ -215,11 +215,11 @@
         },
         {
           "question": "Why choose braces instead of aligners?",
-          "answer": "Fixed braces give the clinician more direct control over certain movements and don’t rely on long wear times. We’ll recommend the approach that best suits your teeth and lifestyle."
+          "answer": "Fixed braces give the clinician more direct control over certain movements and don\u2019t rely on long wear times. We\u2019ll recommend the approach that best suits your teeth and lifestyle."
         },
         {
           "question": "What if a bracket or wire comes loose?",
-          "answer": "Contact the clinic promptly. We’ll schedule a fix and guide you on temporary steps to stay comfortable until the visit."
+          "answer": "Contact the clinic promptly. We\u2019ll schedule a fix and guide you on temporary steps to stay comfortable until the visit."
         },
         {
           "question": "Will I need retainers?",
@@ -244,6 +244,22 @@
       ]
     },
     {
+      "instanceId": "orthodontics-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_orthodontics_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to get an overview of orthodontic options and suitability.",
+        "Often follows Routine check-ups (/treatments/preventative-and-general-dentistry); Children's dental reviews (/treatments/childrens-dentistry); Smile design consult (/treatments/digital-smile-design).",
+        "Alternatives we balance: Alternatives with aligners (/treatments/aligners); Sports mouthguard advice (/treatments/sports-mouthguards); Support for nervous patients (/treatments/nervous-patients).",
+        "Next steps we plan for: Retainer fitting (/treatments/dental-retainers); Mouthguards during treatment (/treatments/mouthguards-and-retainers); Post-straightening whitening (/treatments/teeth-whitening)."
+      ]
+    },
+    {
       "instanceId": "orthodontics-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_orthodontics_cta",
@@ -254,12 +270,12 @@
       "body": "Meet the team, review whether fixed braces are right for you, and map a plan with clear steps, monitoring, and retention before starting treatment.",
       "ctas": [
         {
-          "label": "Book an Orthodontic Assessment",
+          "label": "Plan a clinician-led orthodontics review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Discuss brace options",
+          "label": "Consider alternatives like Alternatives with aligners",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -330,15 +346,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange an orthodontic consultation",
+      "label": "Plan a clinician-led orthodontics review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review aligner options",
+      "label": "Consider alternatives like Alternatives with aligners",
       "href": "/treatments/aligners"
     },
     "reassurance_intent": {
-      "label": "Understand retainer care",
+      "label": "Map next steps such as Retainer fitting",
       "href": "/treatments/dental-retainers"
     }
   }

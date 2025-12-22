@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a calm implant consultation",
+          "label": "Plan a clinician-led sedation for implants review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about sedation options",
+          "label": "Consider alternatives like implants",
           "href": "/contact?topic=sedation",
           "variant": "secondary"
         }
@@ -71,7 +71,7 @@
         "Patients worried about longer procedures",
         "Individuals with strong gag reflexes",
         "Anyone who wants a calmer experience",
-        "Sedation isn’t suitable for everyone — we assess carefully and discuss alternatives"
+        "Sedation isn\u2019t suitable for everyone \u2014 we assess carefully and discuss alternatives"
       ]
     },
     {
@@ -148,20 +148,35 @@
         },
         {
           "question": "Can I drive home afterwards?",
-          "answer": "Sedation usually means you’ll need an escort and time to rest; driving yourself home is not advised."
+          "answer": "Sedation usually means you\u2019ll need an escort and time to rest; driving yourself home is not advised."
         },
         {
           "question": "Is sedation available for all implant treatments?",
           "answer": "We discuss whether sedation is appropriate for your specific plan. Some cases may be better managed with alternative calming options."
         },
         {
-          "question": "What if I’m still nervous?",
-          "answer": "It’s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
+          "question": "What if I\u2019m still nervous?",
+          "answer": "It\u2019s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
         },
         {
           "question": "Does sedation cost extra?",
           "answer": "Sedation is planned and costed as part of your assessment so you have clear information before deciding."
         }
+      ]
+    },
+    {
+      "instanceId": "sedation-for-implants-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_sedation-for-implants_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after sedation dentistry (/treatments/sedation-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Often follows Sedation dentistry (/treatments/sedation-dentistry); Nervous patient care (/treatments/nervous-patients).",
+        "Alternatives we balance: Comfort-first numbing (/treatments/painless-numbing-the-wand); CBCT planning (/treatments/cbct-3d-scanning).",
+        "Next steps we plan for: Single tooth implants (/treatments/implants-single-tooth); Full arch solutions (/treatments/implants-full-arch); Aftercare planning (/treatments/implants-aftercare)."
       ]
     },
     {
@@ -171,16 +186,16 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Nervous about implants? You’re not alone.",
+      "title": "Nervous about implants? You\u2019re not alone.",
       "strapline": "Book a calm implant consultation in Shoreham-by-Sea and talk through sedation options at your own pace.",
       "ctas": [
         {
-          "label": "Book a calm implant consult",
+          "label": "Plan a clinician-led sedation for implants review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Learn about implants",
+          "label": "Consider alternatives like implants",
           "href": "/treatments/implants",
           "variant": "secondary"
         }
@@ -225,15 +240,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Talk about implant sedation",
+      "label": "Plan a clinician-led sedation for implants review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant placement",
+      "label": "Consider alternatives like implants",
       "href": "/treatments/implants"
     },
     "reassurance_intent": {
-      "label": "Understand recovery and aftercare",
+      "label": "Map next steps such as Aftercare planning",
       "href": "/treatments/implants-aftercare"
     }
   }

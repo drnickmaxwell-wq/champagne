@@ -154,6 +154,22 @@
       ]
     },
     {
+      "instanceId": "facial-pain-and-headache-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_facial-pain-and-headache_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine dental review (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand dental and muscular factors that may contribute to facial pain or headaches.",
+        "Often follows Routine dental review (/treatments/preventative-and-general-dentistry); Clenching and grinding checks (/treatments/bruxism-and-jaw-clenching).",
+        "Alternatives we balance: Sedation support (/treatments/sedation-dentistry); Periodontal stability (/treatments/periodontal-gum-care).",
+        "Next steps we plan for: TMJ disorder treatment (/treatments/tmj-disorder-treatment); Occlusal splints (/treatments/night-guards-occlusal-splints); Jaw comfort exercises (/treatments/tmj-jaw-comfort)."
+      ]
+    },
+    {
       "instanceId": "facial-pain-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_facial_pain_cta",
@@ -164,12 +180,12 @@
       "body": "Discuss headaches, jaw discomfort, or facial pain with a clinician who prioritises safe diagnosis and conservative care.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led facial pain and headache review",
           "href": "/contact?topic=facial-pain",
           "preset": "primary"
         },
         {
-          "label": "Ask a question",
+          "label": "Consider alternatives like TMJ disorder treatment",
           "href": "/contact?topic=facial-pain",
           "preset": "secondary"
         }
@@ -214,15 +230,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a facial pain review",
+      "label": "Plan a clinician-led facial pain and headache review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan TMJ support",
+      "label": "Consider alternatives like TMJ disorder treatment",
       "href": "/treatments/tmj-disorder-treatment"
     },
     "reassurance_intent": {
-      "label": "Learn about splint therapy",
+      "label": "Map next steps such as Occlusal splints",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }

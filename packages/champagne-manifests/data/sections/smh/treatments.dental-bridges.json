@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Arrange a bridge assessment",
+          "label": "Plan a clinician-led dental bridges review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Discuss tooth replacement options",
+          "label": "Consider alternatives like Implant consultation",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -158,8 +158,24 @@
         },
         {
           "question": "Do the supporting teeth need crowns?",
-          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge’s long-term stability."
+          "answer": "Conventional bridges often use crowned or onlay-style retainers to share the load. Where appropriate we keep preparation minimal, but if the abutment tooth already needs protection, a well-fitting crown can improve the bridge\u2019s long-term stability."
         }
+      ]
+    },
+    {
+      "instanceId": "dental-bridges-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental-bridges_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after oral surgery and extractions (/treatments/extractions-and-oral-surgery) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand bridge options for replacing missing teeth.",
+        "Often follows Oral surgery and extractions (/treatments/extractions-and-oral-surgery); Implant consultation (/treatments/implants-consultation).",
+        "Alternatives we balance: Sedation and comfort (/treatments/sedation-dentistry); Gum health support (/treatments/periodontal-gum-care).",
+        "Next steps we plan for: Crown restoration (/treatments/dental-crowns); Implant replacement options (/treatments/implants); Hygiene maintenance (/treatments/preventative-and-general-dentistry)."
       ]
     },
     {
@@ -211,15 +227,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan bridge treatment options",
+      "label": "Plan a clinician-led dental bridges review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Consider implant alternatives",
+      "label": "Consider alternatives like Implant consultation",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {
-      "label": "Plan bridge aftercare and hygiene",
+      "label": "Map next steps such as Hygiene maintenance",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   }

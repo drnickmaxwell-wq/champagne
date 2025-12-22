@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Discuss sensitivity",
+          "label": "Plan a clinician-led whitening sensitive teeth review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "See whitening approach",
+          "label": "Consider alternatives like Whitening treatment",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         }
@@ -94,6 +94,22 @@
       ]
     },
     {
+      "instanceId": "whitening-sensitive-teeth-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_whitening-sensitive-teeth_decision_clarity",
+      "order": 49,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after whitening treatment (/treatments/teeth-whitening) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to find out how whitening can be managed safely when teeth are sensitive.",
+        "Often follows Whitening treatment (/treatments/teeth-whitening); Routine dental care (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Whitening FAQs (/treatments/teeth-whitening-faqs); Home whitening guidance (/treatments/home-teeth-whitening).",
+        "Next steps we plan for: Whitening top-ups (/treatments/whitening-top-ups); Gum and tooth health review (/treatments/periodontal-gum-care)."
+      ]
+    },
+    {
       "instanceId": "whitening-sensitivity-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_whitening_sensitivity_cta",
@@ -103,12 +119,12 @@
       "strapline": "Book a review so we can tailor gel strength, pacing, and aftercare to your comfort.",
       "ctas": [
         {
-          "label": "Book a sensitivity review",
+          "label": "Plan a clinician-led whitening sensitive teeth review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Explore home whitening",
+          "label": "Consider alternatives like Home whitening guidance",
           "href": "/treatments/home-teeth-whitening",
           "preset": "secondary"
         }
@@ -166,15 +182,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss whitening with sensitivity",
+      "label": "Plan a clinician-led whitening sensitive teeth review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Arrange a gum health check",
+      "label": "Consider alternatives like Gum and tooth health review",
       "href": "/treatments/periodontal-gum-care"
     },
     "reassurance_intent": {
-      "label": "Review sensitivity advice",
+      "label": "Map next steps such as Whitening FAQs",
       "href": "/treatments/teeth-whitening-faqs"
     }
   }

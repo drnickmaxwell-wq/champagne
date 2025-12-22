@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Teeth whitening",
       "title": "Teeth whitening in Shoreham-by-Sea",
-      "body": "Dentist-led whitening that follows UK regulations, uses custom trays, and sets the shade for the rest of your smile plan. We map whitening into Align → Bleach → Composite or veneer routes so results look natural and stay comfortable.",
+      "body": "Dentist-led whitening that follows UK regulations, uses custom trays, and sets the shade for the rest of your smile plan. We map whitening into Align \u2192 Bleach \u2192 Composite or veneer routes so results look natural and stay comfortable.",
       "bullets": [
         "Custom-fit trays made from digital scans",
         "UK-permitted gels prescribed and supervised by your dentist",
@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a whitening consultation",
+          "label": "Plan a clinician-led teeth whitening review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "See aligner options",
+          "label": "Consider alternatives like clear aligners",
           "href": "/treatments/clear-aligners",
           "preset": "secondary"
         }
@@ -83,7 +83,7 @@
       "order": 50,
       "seoRole": "supporting",
       "eyebrow": "Whitening as part of ABC dentistry",
-      "title": "Align → Bleach → Composite or veneers",
+      "title": "Align \u2192 Bleach \u2192 Composite or veneers",
       "body": "We set the sequence so shade and shape work together. Teeth are aligned first if needed, whitening sets the baseline shade, then composite bonding or veneers are matched to that colour. This order avoids mismatched restorations and keeps future maintenance straightforward.",
       "bullets": [
         "Aligners or orthodontics establish positions before shade work",
@@ -126,6 +126,22 @@
       ]
     },
     {
+      "instanceId": "teeth-whitening-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_teeth-whitening_decision_clarity",
+      "order": 69,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine hygiene (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore supervised teeth whitening options and expectations.",
+        "Often follows Routine hygiene (/treatments/preventative-and-general-dentistry); Aligner or brace completion (/treatments/orthodontics).",
+        "Alternatives we balance: Whitening FAQs (/treatments/teeth-whitening-faqs); Smile makeovers (/treatments/digital-smile-design).",
+        "Next steps we plan for: Home whitening plans (/treatments/home-teeth-whitening); Whitening top-ups (/treatments/whitening-top-ups); Managing sensitivity (/treatments/whitening-sensitive-teeth)."
+      ]
+    },
+    {
       "instanceId": "whitening-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_whitening_cta",
@@ -135,22 +151,22 @@
       "strapline": "Plan a calm, dentist-led whitening routine or pair it with wider smile design.",
       "ctas": [
         {
-          "label": "Book a whitening consultation",
+          "label": "Plan a clinician-led teeth whitening review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about bonding",
+          "label": "Consider alternatives like composite bonding",
           "href": "/treatments/composite-bonding",
           "preset": "secondary"
         },
         {
-          "label": "See veneer planning",
+          "label": "Plan next steps with veneers",
           "href": "/treatments/veneers",
           "preset": "secondary"
         },
         {
-          "label": "Explore aligners",
+          "label": "Plan next steps with clear aligners",
           "href": "/treatments/clear-aligners",
           "preset": "secondary"
         }
@@ -212,15 +228,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a whitening assessment",
+      "label": "Plan a clinician-led teeth whitening review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Start home whitening with guidance",
+      "label": "Consider alternatives like Home whitening plans",
       "href": "/treatments/home-teeth-whitening"
     },
     "reassurance_intent": {
-      "label": "Read whitening FAQs",
+      "label": "Map next steps such as Whitening FAQs",
       "href": "/treatments/teeth-whitening-faqs"
     }
   }

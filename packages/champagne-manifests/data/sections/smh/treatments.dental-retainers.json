@@ -111,6 +111,22 @@
       ]
     },
     {
+      "instanceId": "dental-retainers-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental-retainers_decision_clarity",
+      "order": 69,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after orthodontic treatment (/treatments/orthodontics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to plan how retainers will hold alignment after orthodontic treatment.",
+        "Often follows Orthodontic treatment (/treatments/orthodontics); Aligner therapy (/treatments/aligners); Fixed brace care (/treatments/fixed-braces).",
+        "Alternatives we balance: Protecting results (/treatments/mouthguards-and-retainers); Whitening after alignment (/treatments/teeth-whitening).",
+        "Next steps we plan for: Night guards for clenching (/treatments/night-guards-occlusal-splints); Sports mouthguards (/treatments/sports-mouthguards); Ongoing check-ups (/treatments/preventative-and-general-dentistry)."
+      ]
+    },
+    {
       "instanceId": "retainers-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_retainers_cta",
@@ -121,12 +137,12 @@
       "body": "Book a visit to finalise your retention plan and choose between removable, bonded, and 3D printed tooth-coloured retainers with clear care guidance.",
       "ctas": [
         {
-          "label": "Contact the team",
+          "label": "Plan a clinician-led dental retainers review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Orthodontics",
+          "label": "Consider alternatives like Orthodontic treatment",
           "href": "/treatments/orthodontics",
           "preset": "secondary"
         }
@@ -175,15 +191,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a retainer check-up",
+      "label": "Plan a clinician-led dental retainers review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss night guard options",
+      "label": "Consider alternatives like Night guards for clenching",
       "href": "/treatments/night-guards-occlusal-splints"
     },
     "reassurance_intent": {
-      "label": "Get guidance on retainer care",
+      "label": "Map next steps such as Protecting results",
       "href": "/treatments/mouthguards-and-retainers"
     }
   }

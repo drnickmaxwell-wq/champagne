@@ -15,7 +15,7 @@
       "body": "Lightweight injectable hydrators delivered in planned courses to support skin quality without adding bulk, overseen by a clinician who sequences care safely.",
       "bullets": [
         "Consultation-led selection of product and treatment sites",
-        "Course planning (often 2–3 sessions) with clear intervals",
+        "Course planning (often 2\u20133 sessions) with clear intervals",
         "Aftercare that protects skin barrier while you heal"
       ]
     },
@@ -45,7 +45,7 @@
       "body": "We review skin health, hydration, and lifestyle factors to decide whether boosters are suitable. Where appropriate, we plan microinjections across cheeks, peri-oral areas, neck, or hands, and discuss how boosters differ from fillers (/treatments/dermal-fillers) or polynucleotides (/treatments/polynucleotides).",
       "bullets": [
         "Medical history and skin examination to confirm suitability",
-        "Course design (typically two initial sessions 3–4 weeks apart)",
+        "Course design (typically two initial sessions 3\u20134 weeks apart)",
         "Advice on pausing active skincare and planning around events",
         "Written consent and aftercare before treatment begins"
       ]
@@ -101,10 +101,10 @@
       "eyebrow": "Aftercare & risks",
       "title": "Protect skin barrier while it settles",
       "items": [
-        "Expect pinpoint marks or light swelling for 24–72 hours; bruising is possible",
+        "Expect pinpoint marks or light swelling for 24\u201372 hours; bruising is possible",
         "Avoid makeup, hot environments, and active skincare until advised",
         "Contact us if you notice increasing pain, unusual warmth, or colour changes",
-        "We plan maintenance only once skin has settled and you’re comfortable"
+        "We plan maintenance only once skin has settled and you\u2019re comfortable"
       ]
     },
     {
@@ -145,6 +145,22 @@
       ]
     },
     {
+      "instanceId": "skin-boosters-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_skin-boosters_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn how skin boosters can improve hydration and texture and whether they suit you.",
+        "Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Routine skin health checks (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Anti-wrinkle pathways (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).",
+        "Next steps we plan for: Skin boosters (/treatments/skin-boosters); Polynucleotides (/treatments/polynucleotides); Therapeutic injectables (/treatments/therapeutic-facial-injectables)."
+      ]
+    },
+    {
       "instanceId": "skin-boosters-cta",
       "componentId": "treatment.cta",
       "variantId": "skin_boosters_cta",
@@ -155,12 +171,12 @@
       "strapline": "Discuss a planned course of skin boosters with a clinician who keeps barrier health and conservative dosing at the centre of care.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led skin boosters review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about skin boosters",
+          "label": "Consider alternatives like Skin boosters",
           "href": "/contact?topic=skin-boosters",
           "variant": "secondary"
         }
@@ -205,15 +221,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinical skin booster review",
+      "label": "Plan a clinician-led skin boosters review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss treatment scheduling",
+      "label": "Consider alternatives like Skin boosters",
       "href": "/treatments/skin-boosters"
     },
     "reassurance_intent": {
-      "label": "Understand safety and follow-up",
+      "label": "Map next steps such as Facial aesthetics consultation",
       "href": "/treatments/facial-aesthetics"
     }
   }

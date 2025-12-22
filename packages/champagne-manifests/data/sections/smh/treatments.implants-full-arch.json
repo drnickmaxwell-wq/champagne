@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a full-arch consultation",
+          "label": "Plan a clinician-led implants full arch review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Speak to the implant team",
+          "label": "Consider alternatives like CBCT 3D scanning",
           "href": "/contact?topic=implants",
           "variant": "secondary"
         }
@@ -170,6 +170,22 @@
       ]
     },
     {
+      "instanceId": "implants-full-arch-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_implants-full-arch_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore full-arch implant approaches and whether they fit your situation.",
+        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
+        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
+        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
+      ]
+    },
+    {
       "instanceId": "full-arch-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_full_arch_cta",
@@ -180,17 +196,17 @@
       "strapline": "Book a full-arch implant consultation in Shoreham-by-Sea or speak to the team about staged and financing options.",
       "ctas": [
         {
-          "label": "Book consultation",
+          "label": "Plan a clinician-led implants full arch review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Discuss implant options",
+          "label": "Consider alternatives like CBCT 3D scanning",
           "href": "/contact?topic=implants",
           "variant": "secondary"
         }
       ],
-      "body": "We’ll confirm suitability, options, and next steps after a full assessment."
+      "body": "We\u2019ll confirm suitability, options, and next steps after a full assessment."
     }
   ],
   "journeys": {
@@ -231,15 +247,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan full-arch implant placement",
+      "label": "Plan a clinician-led implants full arch review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Confirm digital planning approach",
+      "label": "Consider alternatives like CBCT 3D scanning",
       "href": "/treatments/cbct-3d-scanning"
     },
     "reassurance_intent": {
-      "label": "Review aftercare and healing steps",
+      "label": "Map next steps such as Hygiene and aftercare",
       "href": "/treatments/implants-aftercare"
     }
   }

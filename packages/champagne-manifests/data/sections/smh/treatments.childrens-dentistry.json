@@ -10,7 +10,7 @@
       "variantId": "smh_childrens_dentistry_hero",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "Children’s dentistry",
+      "eyebrow": "Children\u2019s dentistry",
       "title": "Gentle check-ups that build lifelong habits",
       "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
       "bullets": [
@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a children’s check-up",
+          "label": "Plan a clinician-led childrens dentistry review",
           "href": "/contact?topic=children",
           "preset": "primary"
         },
         {
-          "label": "Speak to the team",
+          "label": "Consider alternatives like Orthodontic monitoring",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -53,7 +53,7 @@
       "variantId": "smh_childrens_dentistry_checkup",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What a children’s check-up includes",
+      "eyebrow": "What a children\u2019s check-up includes",
       "title": "Gentle exams with practical guidance",
       "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
       "bullets": [
@@ -114,7 +114,7 @@
       "seoRole": "supporting",
       "eyebrow": "When we suggest an orthodontic chat",
       "title": "Early guidance keeps options open",
-      "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—always explained clearly to families.",
+      "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we\u2019ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right\u2014always explained clearly to families.",
       "mediaHint": "Monitoring bite, spacing, and eruption patterns"
     },
     {
@@ -129,12 +129,12 @@
       "variantId": "smh_childrens_dentistry_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Children’s dentistry FAQs",
+      "eyebrow": "Children\u2019s dentistry FAQs",
       "title": "Answers for parents",
       "faqs": [
         {
           "question": "When should my child first visit?",
-          "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+          "answer": "We\u2019re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
         },
         {
           "question": "How often should they come?",
@@ -146,8 +146,24 @@
         },
         {
           "question": "What if my child is scared?",
-          "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+          "answer": "Tell us ahead of time and we\u2019ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
         }
+      ]
+    },
+    {
+      "instanceId": "childrens-dentistry-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_childrens-dentistry_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after family check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand how routine and preventive care is tailored for children.",
+        "Often follows Family check-ups (/treatments/preventative-and-general-dentistry); Treatment hub (/treatments/hub-directory).",
+        "Alternatives we balance: Nervous patient care (/treatments/nervous-patients); Preventive guidance (/treatments/preventative-and-general-dentistry).",
+        "Next steps we plan for: Orthodontic monitoring (/treatments/orthodontics); Sports mouthguards (/treatments/sports-mouthguards); Painless numbing support (/treatments/painless-numbing-the-wand)."
       ]
     },
     {
@@ -158,35 +174,35 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a gentle check-up for your child",
-      "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+      "body": "We\u2019ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
       "ctas": [
         {
-          "label": "Book a children’s appointment",
+          "label": "Plan a clinician-led childrens dentistry review",
           "href": "/contact?topic=children",
           "variant": "primary"
         },
         {
-          "label": "Call the practice team",
+          "label": "Consider alternatives like Orthodontic monitoring",
           "href": "/contact",
           "variant": "secondary"
         },
         {
-          "label": "Preventative & General Dentistry",
+          "label": "Plan next steps with Family check-ups",
           "href": "/treatments/preventative-and-general-dentistry",
           "variant": "ghost"
         },
         {
-          "label": "Emergency Dentistry",
+          "label": "Plan next steps with emergency dentistry",
           "href": "/treatments/emergency-dentistry",
           "variant": "ghost"
         },
         {
-          "label": "Nervous Patients",
+          "label": "Plan next steps with Nervous patient care",
           "href": "/treatments/nervous-patients",
           "variant": "ghost"
         },
         {
-          "label": "Orthodontics & Fixed Braces",
+          "label": "Plan next steps with fixed braces",
           "href": "/treatments/fixed-braces",
           "variant": "ghost"
         }
@@ -231,15 +247,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a children's dental check",
+      "label": "Plan a clinician-led childrens dentistry review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan orthodontic monitoring",
+      "label": "Consider alternatives like Orthodontic monitoring",
       "href": "/treatments/orthodontics"
     },
     "reassurance_intent": {
-      "label": "Learn about gentle numbing options",
+      "label": "Map next steps such as Painless numbing support",
       "href": "/treatments/painless-numbing-the-wand"
     }
   }

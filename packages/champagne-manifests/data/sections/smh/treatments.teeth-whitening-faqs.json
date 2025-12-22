@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a whitening consult",
+          "label": "Plan a clinician-led teeth whitening faqs review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "See home whitening",
+          "label": "Consider alternatives like Home whitening",
           "href": "/treatments/home-teeth-whitening",
           "preset": "secondary"
         }
@@ -61,12 +61,28 @@
         },
         {
           "question": "How long does whitening last?",
-          "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
+          "answer": "Results are maintained with good hygiene and occasional top-ups. We\u2019ll guide you on a safe refresh schedule using your existing trays."
         },
         {
           "question": "Is whitening part of a smile makeover?",
-          "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
+          "answer": "Often yes. Whitening is the \u201cB\u201d in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
         }
+      ]
+    },
+    {
+      "instanceId": "teeth-whitening-faqs-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_teeth-whitening-faqs_decision_clarity",
+      "order": 29,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after whitening planning (/treatments/teeth-whitening) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to get answers to common questions about teeth whitening.",
+        "Often follows Whitening planning (/treatments/teeth-whitening); Home whitening (/treatments/home-teeth-whitening).",
+        "Alternatives we balance: Managing sensitivity (/treatments/whitening-sensitive-teeth); Routine dental care (/treatments/preventative-and-general-dentistry).",
+        "Next steps we plan for: Book whitening (/treatments/teeth-whitening); Top-up arrangements (/treatments/whitening-top-ups)."
       ]
     },
     {
@@ -79,12 +95,12 @@
       "strapline": "Ask your questions in person and receive a tailored whitening plan.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led teeth whitening faqs review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Learn about maintenance",
+          "label": "Consider alternatives like Top-up arrangements",
           "href": "/treatments/whitening-top-ups",
           "preset": "secondary"
         }
@@ -142,15 +158,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Ask a whitening question",
+      "label": "Plan a clinician-led teeth whitening faqs review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan a whitening appointment",
+      "label": "Consider alternatives like Whitening planning",
       "href": "/treatments/teeth-whitening"
     },
     "reassurance_intent": {
-      "label": "Review home whitening steps",
+      "label": "Map next steps such as Home whitening",
       "href": "/treatments/home-teeth-whitening"
     }
   }

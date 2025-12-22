@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a root canal assessment",
+          "label": "Plan a clinician-led endodontics root canal review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about endodontic care",
+          "label": "Consider alternatives like Crown restoration",
           "href": "/contact?topic=treatment",
           "preset": "secondary"
         }
@@ -40,13 +40,13 @@
       "eyebrow": "When treatment is needed",
       "title": "Signs a tooth may need endodontic care",
       "items": [
-        "Lingering hot or cold sensitivity that doesn’t settle quickly",
+        "Lingering hot or cold sensitivity that doesn\u2019t settle quickly",
         "Spontaneous or night pain that radiates to the jaw or ear",
         "Swelling, tenderness, or a pimple on the gum near the tooth",
         "Cracks, deep decay, or a failing filling that has reached the nerve",
         "Pain when biting that suggests nerve inflammation or infection"
       ],
-      "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently — emergency dentistry support is available."
+      "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently \u2014 emergency dentistry support is available."
     },
     {
       "instanceId": "endodontics-root-canal-options",
@@ -116,7 +116,7 @@
       "seoRole": "supporting",
       "eyebrow": "Risks, limits & alternatives",
       "title": "Honest guidance before we start",
-      "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You’ll know the backup plan before consenting.",
+      "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You\u2019ll know the backup plan before consenting.",
       "bullets": [
         "Discusses structural strength and whether a crown is needed",
         "Explains limits of heavily cracked or previously treated teeth",
@@ -137,7 +137,7 @@
         "Most treated teeth remain comfortable and functional for many years",
         "Bite checks reduce the risk of fractures after treatment",
         "Regular hygiene visits help prevent reinfection from new decay",
-        "If a tooth cannot be saved, we’ll plan extractions and future implant or bridge options"
+        "If a tooth cannot be saved, we\u2019ll plan extractions and future implant or bridge options"
       ]
     },
     {
@@ -168,9 +168,25 @@
           "answer": "Back teeth or heavily restored teeth often benefit from a crown to prevent fractures. We will explain the best way to seal and protect your tooth."
         },
         {
-          "question": "What if the tooth can’t be saved?",
+          "question": "What if the tooth can\u2019t be saved?",
           "answer": "We will outline alternatives such as extraction with healing guidance and future replacement options like bridges or implants if appropriate."
         }
+      ]
+    },
+    {
+      "instanceId": "endodontics-root-canal-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_endodontics-root-canal_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after emergency dental care (/treatments/extractions-and-oral-surgery) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to find out what root canal therapy involves and whether it is indicated.",
+        "Often follows Emergency dental care (/treatments/extractions-and-oral-surgery); Routine examinations (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Sedation support (/treatments/sedation-dentistry); Hygiene maintenance (/treatments/preventative-and-general-dentistry).",
+        "Next steps we plan for: Crown restoration (/treatments/dental-crowns); Inlay or onlay repair (/treatments/inlays-onlays); Gum care follow-up (/treatments/periodontal-gum-care)."
       ]
     },
     {
@@ -184,12 +200,12 @@
       "body": "Book an endodontic assessment so we can calm the tooth, protect your smile, and plan any follow-up care together.",
       "ctas": [
         {
-          "label": "Book a root canal consult",
+          "label": "Plan a clinician-led endodontics root canal review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Speak to the clinical team",
+          "label": "Consider alternatives like Crown restoration",
           "href": "/contact",
           "variant": "secondary"
         }
@@ -234,15 +250,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a root canal assessment",
+      "label": "Plan a clinician-led endodontics root canal review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan crown protection after treatment",
+      "label": "Consider alternatives like Crown restoration",
       "href": "/treatments/dental-crowns"
     },
     "reassurance_intent": {
-      "label": "Discuss comfort and anaesthesia",
+      "label": "Map next steps such as Sedation support",
       "href": "/treatments/sedation-dentistry"
     }
   }

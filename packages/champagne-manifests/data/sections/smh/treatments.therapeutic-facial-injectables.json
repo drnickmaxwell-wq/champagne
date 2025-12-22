@@ -167,6 +167,22 @@
       ]
     },
     {
+      "instanceId": "therapeutic-facial-injectables-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_therapeutic-facial-injectables_decision_clarity",
+      "order": 99,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand therapeutic uses of injectables for concerns like clenching or migraines.",
+        "Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Routine skin health checks (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Anti-wrinkle pathways (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).",
+        "Next steps we plan for: Skin boosters (/treatments/skin-boosters); Polynucleotides (/treatments/polynucleotides); Therapeutic injectables (/treatments/therapeutic-facial-injectables)."
+      ]
+    },
+    {
       "instanceId": "therapeutic-injectables-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_therapeutic_injectables_cta",
@@ -177,12 +193,12 @@
       "body": "Discuss whether prescription injectables are appropriate for your facial muscle symptoms. Safety, suitability, and conservative care come first.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led therapeutic facial injectables review",
           "href": "/contact?topic=therapeutic-injectables",
           "preset": "primary"
         },
         {
-          "label": "Ask about suitability",
+          "label": "Consider alternatives like Skin boosters",
           "href": "/contact?topic=therapeutic-injectables",
           "preset": "secondary"
         }
@@ -227,15 +243,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a therapeutic injectable review",
+      "label": "Plan a clinician-led therapeutic facial injectables review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss skin booster scheduling",
+      "label": "Consider alternatives like Skin boosters",
       "href": "/treatments/skin-boosters"
     },
     "reassurance_intent": {
-      "label": "Understand safety and follow-up",
+      "label": "Map next steps such as Facial aesthetics consultation",
       "href": "/treatments/facial-aesthetics"
     }
   }

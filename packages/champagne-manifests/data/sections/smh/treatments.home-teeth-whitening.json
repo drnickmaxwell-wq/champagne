@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Arrange a tray scan",
+          "label": "Plan a clinician-led home teeth whitening review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about whitening timing",
+          "label": "Consider alternatives like In-practice whitening discussions",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         }
@@ -116,7 +116,7 @@
       "faqs": [
         {
           "question": "How long will I wear the trays each day?",
-          "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
+          "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We\u2019ll agree the exact cadence with you."
         },
         {
           "question": "What if my teeth feel sensitive?",
@@ -129,6 +129,22 @@
       ]
     },
     {
+      "instanceId": "home-teeth-whitening-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_home-teeth-whitening_decision_clarity",
+      "order": 69,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine dental check (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn how home whitening kits are provided and supervised.",
+        "Often follows Routine dental check (/treatments/preventative-and-general-dentistry); In-practice whitening discussions (/treatments/teeth-whitening).",
+        "Alternatives we balance: Whitening FAQs (/treatments/teeth-whitening-faqs); Post-aligner finishing (/treatments/aligners).",
+        "Next steps we plan for: Whitening top-ups (/treatments/whitening-top-ups); Sensitivity management (/treatments/whitening-sensitive-teeth); Smile design (/treatments/digital-smile-design)."
+      ]
+    },
+    {
       "instanceId": "home-whitening-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_home_whitening_cta",
@@ -138,12 +154,12 @@
       "strapline": "Book a dentist-led whitening assessment and tray fit.",
       "ctas": [
         {
-          "label": "Book a whitening consult",
+          "label": "Plan a clinician-led home teeth whitening review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Plan for future cosmetic work",
+          "label": "Consider alternatives like In-practice whitening discussions",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         }
@@ -205,15 +221,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Request home whitening trays",
+      "label": "Plan a clinician-led home teeth whitening review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Arrange in-surgery whitening",
+      "label": "Consider alternatives like In-practice whitening discussions",
       "href": "/treatments/teeth-whitening"
     },
     "reassurance_intent": {
-      "label": "Read sensitivity guidance",
+      "label": "Map next steps such as Sensitivity management",
       "href": "/treatments/whitening-sensitive-teeth"
     }
   }

@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a digital scan consult",
+          "label": "Plan a clinician-led 3d printing lab review",
           "href": "/contact?topic=digital-dentistry",
           "preset": "primary"
         },
         {
-          "label": "Ask about 3D printed options",
+          "label": "Consider alternatives like 3D printed dentures",
           "href": "/contact?topic=3d-printing",
           "preset": "secondary"
         }
@@ -163,6 +163,22 @@
       ]
     },
     {
+      "instanceId": "3d-printing-lab-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_3d-printing-lab_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after digital smile design (/treatments/digital-smile-design) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to see how in-house 3d printing supports models, guides, and provisional work.",
+        "Often follows Digital smile design (/treatments/digital-smile-design); 3D dentistry and technology (/treatments/3d-dentistry-and-technology).",
+        "Alternatives we balance: Digital implant planning (/treatments/3d-digital-dentistry); Implant consultation (/treatments/implants-consultation).",
+        "Next steps we plan for: 3D printed dentures (/treatments/3d-printed-dentures); 3D printed veneers (/treatments/3d-printed-veneers); Implant restorations (/treatments/3d-implant-restorations)."
+      ]
+    },
+    {
       "instanceId": "printing-lab-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_printing_lab_cta",
@@ -173,12 +189,12 @@
       "body": "Book a digital consultation to review whether in-house printing, provisional work, or lab ceramics will best support your treatment.",
       "ctas": [
         {
-          "label": "Book a digital scan",
+          "label": "Plan a clinician-led 3d printing lab review",
           "href": "/contact?topic=digital-dentistry",
           "preset": "primary"
         },
         {
-          "label": "Ask about printing",
+          "label": "Consider alternatives like 3D printed dentures",
           "href": "/contact?topic=3d-printing",
           "preset": "secondary"
         }
@@ -223,15 +239,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Talk through 3D printing support",
+      "label": "Plan a clinician-led 3d printing lab review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan printed denture work",
+      "label": "Consider alternatives like 3D printed dentures",
       "href": "/treatments/3d-printed-dentures"
     },
     "reassurance_intent": {
-      "label": "Preview printed guides or prototypes",
+      "label": "Map next steps such as Digital smile design",
       "href": "/treatments/digital-smile-design"
     }
   }

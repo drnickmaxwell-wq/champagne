@@ -100,6 +100,22 @@
       ]
     },
     {
+      "instanceId": "mouthguards-and-retainers-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_mouthguards-and-retainers_decision_clarity",
+      "order": 59,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after orthodontic treatment (/treatments/orthodontics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand combined mouthguard and retainer solutions and when they are used.",
+        "Often follows Orthodontic treatment (/treatments/orthodontics); Aligner therapy (/treatments/aligners); Fixed brace care (/treatments/fixed-braces).",
+        "Alternatives we balance: Protecting results (/treatments/mouthguards-and-retainers); Whitening after alignment (/treatments/teeth-whitening).",
+        "Next steps we plan for: Night guards for clenching (/treatments/night-guards-occlusal-splints); Sports mouthguards (/treatments/sports-mouthguards); Ongoing check-ups (/treatments/preventative-and-general-dentistry)."
+      ]
+    },
+    {
       "instanceId": "mouthguards-retainers-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_mouthguards_retainers_cta",
@@ -110,12 +126,12 @@
       "body": "We will help you choose the right appliance, explain fabrication options, and set review points so it stays comfortable and effective.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led mouthguards and retainers review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about mouthguards or retainers",
+          "label": "Consider alternatives like Night guards for clenching",
           "href": "/contact?topic=mouthguards",
           "variant": "secondary"
         }
@@ -164,15 +180,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a retainer check-up",
+      "label": "Plan a clinician-led mouthguards and retainers review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss night guard options",
+      "label": "Consider alternatives like Night guards for clenching",
       "href": "/treatments/night-guards-occlusal-splints"
     },
     "reassurance_intent": {
-      "label": "Get guidance on retainer care",
+      "label": "Map next steps such as Protecting results",
       "href": "/treatments/mouthguards-and-retainers"
     }
   }

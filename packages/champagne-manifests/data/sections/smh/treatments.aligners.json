@@ -54,6 +54,22 @@
       "seoRole": "faq"
     },
     {
+      "instanceId": "aligners-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_aligners_decision_clarity",
+      "order": 69,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups and hygiene (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to assess whether clear aligners can straighten your teeth and what the pathway looks like.",
+        "Often follows Routine check-ups and hygiene (/treatments/preventative-and-general-dentistry); Orthodontic overview (/treatments/orthodontics); Digital smile planning (/treatments/digital-smile-design).",
+        "Alternatives we balance: Managing jaw comfort (/treatments/tmj-jaw-comfort); Care for nervous patients (/treatments/nervous-patients).",
+        "Next steps we plan for: Retainer fitting after alignment (/treatments/dental-retainers); Mouthguards to protect new alignment (/treatments/mouthguards-and-retainers); Finishing with teeth whitening (/treatments/teeth-whitening)."
+      ]
+    },
+    {
       "instanceId": "aligners-cta",
       "componentId": "section_contact_cta",
       "variantId": "aligners_priority",
@@ -104,15 +120,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange an aligner suitability review",
+      "label": "Plan a clinician-led aligners review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Compare aligners with fixed braces",
+      "label": "Consider alternatives like fixed braces",
       "href": "/treatments/fixed-braces"
     },
     "reassurance_intent": {
-      "label": "See how retainers keep results steady",
+      "label": "Map next steps such as Retainer fitting after alignment",
       "href": "/treatments/dental-retainers"
     }
   }
