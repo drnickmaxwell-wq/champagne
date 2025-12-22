@@ -9,6 +9,12 @@ import {
 import { getRouteIdFromSlug } from "@champagne/manifests/src/core";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { dedupeButtons, dedupeSupportingLines } from "./ctaDedupe";
+import {
+  createRelationAudit,
+  normalizeCtaRelation,
+  updateRelationAudit,
+  type CTARelationAudit,
+} from "./ctaRelation";
 
 type CTAPlanEntry = Partial<ChampagneCTAConfig> & { preset?: string };
 
@@ -164,6 +170,7 @@ export interface TreatmentClosingCTAPlan {
     beforeButtons: CTAPlanEntry[];
     afterButtons: ChampagneCTAConfig[];
     duplicatesRemoved: { buttons: number; supportingLines: number };
+    relation: CTARelationAudit;
   };
 }
 
@@ -172,12 +179,27 @@ export function resolveTreatmentClosingCTAPlan({
   ctas,
   pageSlug,
   usedHrefs,
-}: { section?: SectionRegistryEntry; ctas?: ChampagneCTAConfig[]; pageSlug?: string; usedHrefs?: string[] } = {}): TreatmentClosingCTAPlan {
+  absorbedMidCtas,
+}: {
+  section?: SectionRegistryEntry;
+  ctas?: ChampagneCTAConfig[];
+  pageSlug?: string;
+  usedHrefs?: string[];
+  absorbedMidCtas?: ChampagneCTAConfig[];
+} = {}): TreatmentClosingCTAPlan {
   const fallbackCTAs = getFallbackCTAs(section);
   const mappedSectionCTAs = mapSectionCTAs(section);
   const journeyCTAs = mapJourneyCTAs(pageSlug);
   const routeId = pageSlug ? getRouteIdFromSlug(pageSlug) : undefined;
   const intentSupportCTA = mapIntentSupportCTA(routeId);
+  const relationAudit = createRelationAudit();
+
+  const normalizeWithRelation = (entries: CTAPlanEntry[]) =>
+    entries.map((entry) => {
+      const relation = normalizeCtaRelation({ href: entry.href, label: entry.label, defaultVariant: entry.variant });
+      updateRelationAudit(relationAudit, relation);
+      return { ...entry, label: relation.label } satisfies CTAPlanEntry;
+    });
 
   const baseCTAs: CTAPlanEntry[] = (ctas && ctas.length > 0 ? ctas : undefined)
     ?? (mappedSectionCTAs.length > 0 ? mappedSectionCTAs : []);
@@ -186,14 +208,21 @@ export function resolveTreatmentClosingCTAPlan({
   const primaryCTAs: CTAPlanEntry[] = journeyPrimary.length > 0 ? journeyPrimary : baseCTAs;
   const supportingFromJourney = journeyPrimary.length > 0 ? journeySupporting : journeyCTAs;
   const intentSupporting: CTAPlanEntry[] = intentSupportCTA ? [intentSupportCTA] : [];
-  const supportingCandidates: CTAPlanEntry[] = [...supportingFromJourney, ...baseCTAs, ...intentSupporting];
+  const absorbedButtons: CTAPlanEntry[] = (absorbedMidCtas ?? []).map((cta, index) => ({
+    ...cta,
+    variant: cta.variant ?? "secondary",
+    id: cta.id ?? `absorbed-mid-cta-${index + 1}`,
+  }));
+  const supportingCandidates: CTAPlanEntry[] = [...supportingFromJourney, ...baseCTAs, ...intentSupporting, ...absorbedButtons];
 
-  const beforeButtons: CTAPlanEntry[] =
+  const rawBeforeButtons: CTAPlanEntry[] =
     primaryCTAs.length > 0 || supportingCandidates.length > 0
       ? [...primaryCTAs, ...supportingCandidates]
       : [...fallbackCTAs];
 
-  const primaryDedupe = dedupeButtons(beforeButtons, { normalizeHref: normalizeHrefForDedupe });
+  const relationReadyButtons = normalizeWithRelation(rawBeforeButtons);
+
+  const primaryDedupe = dedupeButtons(relationReadyButtons, { normalizeHref: normalizeHrefForDedupe });
   const filterUsedHref = (entries: CTAPlanEntry[]) => {
     if (!usedHrefs || usedHrefs.length === 0) return entries;
     const normalizedUsed = new Set(
@@ -212,22 +241,24 @@ export function resolveTreatmentClosingCTAPlan({
   let buttons = filteredForUsage;
   let duplicateButtonsRemoved = primaryDedupe.dropped.length + (primaryDedupe.buttons.length - filteredForUsage.length);
 
+  const normalizeFallback = () => normalizeWithRelation(fallbackCTAs);
+
   if (buttons.length === 0) {
-    buttons = fallbackCTAs;
+    buttons = normalizeFallback();
   } else if (buttons.length < 2) {
-    const fallbackResult = dedupeButtons([...buttons, ...fallbackCTAs], { normalizeHref: normalizeHrefForDedupe });
+    const fallbackResult = dedupeButtons([...buttons, ...normalizeFallback()], { normalizeHref: normalizeHrefForDedupe });
     duplicateButtonsRemoved += fallbackResult.dropped.length;
     buttons = fallbackResult.buttons;
   }
 
   const cappedButtons = buttons.slice(0, 4);
-
   const resolvedButtons = resolveCTAList(cappedButtons, "primary", {
     component: "Section_TreatmentClosingCTA",
     page: section?.id,
   });
 
-  const supportingLineCandidates = supportingCandidates
+  const supportingLineCandidates = relationReadyButtons
+    .slice(primaryCTAs.length, primaryCTAs.length + supportingCandidates.length)
     .map((entry) => (typeof entry === "string" ? entry : entry.label ?? ""))
     .filter(Boolean) as string[];
   const supportingLinesResult = dedupeSupportingLines(supportingLineCandidates, resolvedButtons.map((cta) => cta.label));
@@ -238,12 +269,13 @@ export function resolveTreatmentClosingCTAPlan({
     buttons: renderedButtons,
     supportingLines: supportingLinesResult.lines,
     audit: {
-      beforeButtons,
+      beforeButtons: relationReadyButtons,
       afterButtons: renderedButtons,
       duplicatesRemoved: {
         buttons: duplicateButtonsRemoved,
         supportingLines: supportingLinesResult.dropped.length,
       },
+      relation: relationAudit,
     },
   };
 }
