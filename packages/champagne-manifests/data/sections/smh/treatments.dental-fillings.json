@@ -134,7 +134,7 @@
     },
     {
       "instanceId": "dental-fillings-mid-cta",
-      "componentId": "treatment.cta",
+      "componentId": "treatment_mid_cta",
       "variantId": "smh_dental_fillings_mid_cta",
       "order": 80,
       "seoRole": "supporting",

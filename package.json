@@ -18,6 +18,7 @@
     "guard:hero": "pnpm --filter @champagne/guards guard:hero",
     "guard:rogue-hex": "pnpm --filter @champagne/guards guard:rogue-hex",
     "guard:canon": "pnpm --filter @champagne/guards guard:canon",
+    "guard:cta-single-terminal": "pnpm --filter @champagne/guards guard:cta-single-terminal",
     "guard:cta-contract": "pnpm --filter @champagne/guards guard:cta-contract",
     "guard:all": "pnpm --filter @champagne/guards guard:all",
     "verify": "pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web"

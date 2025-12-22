@@ -54,6 +54,24 @@ const typeMap: Record<string, SectionComponent> = {
   reviews: (props) => <Section_GoogleReviews {...props} />,
 };
 
+function enforceSingleClosingCTA(sections: SectionRegistryEntry[]) {
+  const closingIndices = sections
+    .map((section, index) => ({ section, index }))
+    .filter(({ section }) => (section.kind ?? section.type) === "treatment_closing_cta")
+    .map(({ index }) => index);
+
+  if (closingIndices.length <= 1) {
+    return { ordered: sections, suppressed: new Set<number>() } as const;
+  }
+
+  // Keep the terminal CTA closest to the end of the stack and drop earlier duplicates.
+  const keepIndex = closingIndices[closingIndices.length - 1];
+  const suppressed = new Set<number>(closingIndices.filter((index) => index !== keepIndex));
+  const ordered = sections.filter((_, index) => !suppressed.has(index));
+
+  return { ordered, suppressed } as const;
+}
+
 function renderSection(
   section: SectionRegistryEntry,
   footerCTAs?: ChampagneCTAConfig[],
@@ -94,7 +112,9 @@ function renderSection(
 
 export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, previewMode }: ChampagneSectionRendererProps) {
   const sections = getSectionStack(pageSlug);
-  const { ordered: normalizedSections } = normalizeSectionsForMidCTA(sections);
+  const isTreatmentPage = pageSlug.startsWith("/treatments/");
+  const { ordered: withSingleClosing } = isTreatmentPage ? enforceSingleClosingCTA(sections) : { ordered: sections };
+  const { ordered: normalizedSections } = normalizeSectionsForMidCTA(withSingleClosing);
   const hasManifestMidCTA = normalizedSections.some((section) => section.kind === "treatment_mid_cta");
   const hasMidPageCTAs = !hasManifestMidCTA && (midPageCTAs?.length ?? 0) > 0;
   const midInsertIndex = hasMidPageCTAs ? Math.max(1, Math.ceil(normalizedSections.length / 2)) : -1;
