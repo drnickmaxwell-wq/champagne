@@ -1,3 +1,4 @@
+import type { ChampagneCTARelationship } from "@champagne/cta";
 import type { ChampagnePageSection } from "@champagne/manifests/src/core";
 import { getSectionStackForPage } from "@champagne/manifests/src/core";
 import { getSectionStyle } from "@champagne/manifests/src/helpers";
@@ -32,11 +33,33 @@ export interface SectionRegistryEntry {
   attribution?: string;
   role?: string;
   strapline?: string;
-  ctas?: { id?: string; label?: string; href?: string; preset?: string; variant?: string }[];
+  ctas?: {
+    id?: string;
+    label?: string;
+    href?: string;
+    preset?: string;
+    variant?: string;
+    relationship?: ChampagneCTARelationship;
+  }[];
   reviews?: { quote: string; name?: string; rating?: number; source?: string }[];
   rating?: number;
   reviewCount?: string;
   definition?: ChampagnePageSection | string;
+}
+
+const validRelationships = new Set<ChampagneCTARelationship>([
+  "next_step",
+  "prerequisite",
+  "maintenance",
+  "alternative",
+  "related",
+  "book",
+]);
+
+function normalizeRelationship(value?: string): ChampagneCTARelationship | undefined {
+  if (!value) return undefined;
+  const normalized = value as ChampagneCTARelationship;
+  return validRelationships.has(normalized) ? normalized : undefined;
 }
 
 function sentenceCase(input?: string) {
@@ -152,6 +175,7 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
         href: (cta.href as string | undefined) ?? (cta.link as string | undefined),
         variant: (cta.variant as string | undefined) ?? (cta.preset as string | undefined) ?? (cta.tone as string | undefined),
         preset: (cta.preset as string | undefined) ?? (cta.tone as string | undefined),
+        relationship: normalizeRelationship(cta.relationship as string | undefined),
       }))
     : undefined;
 

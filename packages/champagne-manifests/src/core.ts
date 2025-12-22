@@ -67,6 +67,7 @@ import sectionLayoutFacialAesthetics from "../data/sections/smh/treatments.facia
 import sectionLayoutAntiWrinkleTreatments from "../data/sections/smh/treatments.anti-wrinkle-treatments.json";
 import sectionLayoutDermalFillers from "../data/sections/smh/treatments.dermal-fillers.json";
 import sectionLayoutSkinBoosters from "../data/sections/smh/treatments.skin-boosters.json";
+import type { ChampagneCTARelationship } from "@champagne/cta";
 import sectionLayoutPolynucleotides from "../data/sections/smh/treatments.polynucleotides.json";
 import sectionLayoutTherapeuticInjectables from "../data/sections/smh/treatments.therapeutic-facial-injectables.json";
 import sectionLayoutTmjDisorderTreatment from "../data/sections/smh/treatments.tmj-disorder-treatment.json";
@@ -86,6 +87,7 @@ export interface ChampagneCTA {
   label?: string;
   href?: string;
   preset?: string;
+  relationship?: ChampagneCTARelationship;
   [key: string]: unknown;
 }
 

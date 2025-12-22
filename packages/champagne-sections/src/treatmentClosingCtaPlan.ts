@@ -11,9 +11,11 @@ import type { SectionRegistryEntry } from "./SectionRegistry";
 import { dedupeButtons, dedupeSupportingLines } from "./ctaDedupe";
 import {
   createRelationAudit,
+  enforceCTAContract,
   normalizeCtaRelation,
   updateRelationAudit,
   type CTARelationAudit,
+  type CTARelationship,
 } from "./ctaRelation";
 import { enforceCtaLabelTruth } from "./ctaLabelTruth";
 
@@ -31,6 +33,7 @@ function mapSectionCTAs(section?: SectionRegistryEntry): CTAPlanEntry[] {
       label: cta.label,
       href: cta.href,
       variant: asVariant(cta.variant ?? (cta as { preset?: string }).preset),
+      relationship: cta.relationship as CTARelationship | undefined,
     })) ?? []
   );
 }
@@ -98,8 +101,9 @@ function mapJourneyCTAs(pageSlug?: string): ChampagneCTAConfig[] {
   const intentConfig = getCTAIntentConfigForRoute(routeId);
   const intentLabels = getCTAIntentLabels();
 
-  const journeyTargets = (journey as { cta_targets?: Record<string, { label?: string; href?: string }> } | undefined)
-    ?.cta_targets;
+  const journeyTargets =
+    (journey as { cta_targets?: Record<string, { label?: string; href?: string; relationship?: CTARelationship }> } | undefined)
+      ?.cta_targets;
   const journeyId = (journey as { journey?: { id?: string; page_role?: string } } | undefined)?.journey?.id;
   const journeyRole = (journey as { journey?: { page_role?: string } } | undefined)?.journey?.page_role;
 
@@ -113,6 +117,7 @@ function mapJourneyCTAs(pageSlug?: string): ChampagneCTAConfig[] {
         label: target.label,
         href: target.href,
         variant: index === 0 ? "primary" : "secondary",
+        relationship: target.relationship,
       });
     });
   }
@@ -172,6 +177,7 @@ export interface TreatmentClosingCTAPlan {
     afterButtons: ChampagneCTAConfig[];
     duplicatesRemoved: { buttons: number; supportingLines: number };
     relation: CTARelationAudit;
+    contract?: ReturnType<typeof enforceCTAContract>["audit"];
   };
 }
 
@@ -262,8 +268,22 @@ export function resolveTreatmentClosingCTAPlan({
     .slice(primaryCTAs.length, primaryCTAs.length + supportingCandidates.length)
     .map((entry) => (typeof entry === "string" ? entry : entry.label ?? ""))
     .filter(Boolean) as string[];
-  const renderedButtons = (resolvedButtons.length > 0 ? resolvedButtons : fallbackCTAs).slice(0, 4);
-  const truthAlignedButtons = enforceCtaLabelTruth(renderedButtons);
+  const renderedButtons = (resolvedButtons.length > 0 ? resolvedButtons : fallbackCTAs)
+    .filter((cta) => (pageSlug ? normalizeHrefForDedupe(cta.href) !== normalizeHrefForDedupe(pageSlug) : true))
+    .slice(0, 4);
+  const seenDestinations = new Set<string>();
+  (usedHrefs ?? []).forEach((href) => {
+    const normalized = normalizeHrefForDedupe(href);
+    if (normalized) {
+      seenDestinations.add(`${normalized}::`);
+    }
+  });
+
+    const contractResult = enforceCTAContract(renderedButtons, {
+      pagePath: pageSlug,
+      seenDestinations,
+    });
+  const truthAlignedButtons = enforceCtaLabelTruth(contractResult.ctas);
   const supportingLinesResult = dedupeSupportingLines(
     supportingLineCandidates,
     truthAlignedButtons.map((cta) => cta.label),
@@ -280,6 +300,7 @@ export function resolveTreatmentClosingCTAPlan({
         supportingLines: supportingLinesResult.dropped.length,
       },
       relation: relationAudit,
+      contract: contractResult.audit,
     },
   };
 }

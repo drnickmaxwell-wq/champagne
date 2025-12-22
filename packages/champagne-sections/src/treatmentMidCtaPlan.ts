@@ -10,8 +10,10 @@ import { getRouteIdFromSlug } from "@champagne/manifests/src/core";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { dedupeButtons } from "./ctaDedupe";
 import { enforceCtaLabelTruth } from "./ctaLabelTruth";
+import type { ChampagneCTAConfig, ChampagneCTAInput, ChampagneCTAVariant } from "@champagne/cta";
 import {
   createRelationAudit,
+  enforceCTAContract,
   labelFromHref,
   normalizeCtaRelation,
   updateRelationAudit,
@@ -19,26 +21,9 @@ import {
   type CTARelationship,
 } from "./ctaRelation";
 
-type ChampagneCTAVariant = "primary" | "secondary" | "ghost";
-
-interface ChampagneCTAConfig {
-  id: string;
-  label: string;
-  href: string;
-  variant: ChampagneCTAVariant;
-}
-
-type ChampagneCTAInput =
-  | string
-  | {
-      id?: string;
-      label?: string;
-      href?: string;
-      variant?: ChampagneCTAVariant;
-      preset?: string;
-    };
-
-type CTAPlanEntry = Partial<Pick<ChampagneCTAConfig, "id" | "label" | "href" | "variant">> & { preset?: string };
+type CTAPlanEntry = Partial<Pick<ChampagneCTAConfig, "id" | "label" | "href" | "variant" | "relationship">> & {
+  preset?: string;
+};
 
 const forbiddenTarget = `/${"book"}`;
 let hasLoggedForbiddenTarget = false;
@@ -110,6 +95,7 @@ function resolveCTA(
     label: deriveLabel(reference, fallbackId),
     href: sanitizeHref(deriveHref(reference), context),
     variant,
+    relationship: (reference as { relationship?: CTARelationship }).relationship,
   } satisfies ChampagneCTAConfig;
 }
 
@@ -153,6 +139,7 @@ export interface MidCTAAuditReport {
   deduped: { buttonsRemoved: number };
   usedFallbackDefaults: boolean;
   relation: CTARelationAudit;
+  contract?: ReturnType<typeof enforceCTAContract>["audit"];
 }
 
 export interface MidCTAPlanResult {
@@ -177,6 +164,7 @@ const allowedStaticRoutes = new Set<string>([
   "/smile-gallery",
   "/team",
   "/blog",
+  "/dental-checkups-oral-cancer-screening",
 ]);
 
 const allowedPortalIntents = new Set(["login", "upload", "finance", "video"]);
@@ -222,6 +210,7 @@ function mapSectionCTAs(section?: SectionRegistryEntry): CTAPlanEntry[] {
     href: cta.href,
     variant: asVariant(cta.variant ?? (cta as { preset?: string }).preset) ?? "secondary",
     preset: (cta as { preset?: string }).preset,
+    relationship: cta.relationship as CTARelationship | undefined,
   }));
 }
 
@@ -362,18 +351,31 @@ function buildJourneyCTAs(routeId: string): CTAPlanEntry[] {
   const journey = getTreatmentJourneyForRoute(routeId);
   const ctas: CTAPlanEntry[] = [];
 
-  const journeyMidCTA = (journey as { journey?: { mid_page_cta?: { label?: string; href?: string } } } | undefined)?.journey
-    ?.mid_page_cta;
+  const journeyMidCTA =
+    (journey as { journey?: { mid_page_cta?: { label?: string; href?: string; relationship?: CTARelationship } } } | undefined)
+      ?.journey?.mid_page_cta;
   if (journeyMidCTA?.href && journeyMidCTA.label) {
-    ctas.push({ href: journeyMidCTA.href, label: journeyMidCTA.label, variant: "secondary" });
+    ctas.push({
+      href: journeyMidCTA.href,
+      label: journeyMidCTA.label,
+      variant: "secondary",
+      relationship: journeyMidCTA.relationship,
+    });
   }
 
-  const journeyTargets = (journey as { cta_targets?: Record<string, { label?: string; href?: string }> } | undefined)?.cta_targets;
+  const journeyTargets =
+    (journey as { cta_targets?: Record<string, { label?: string; href?: string; relationship?: CTARelationship }> } | undefined)
+      ?.cta_targets;
   if (journeyTargets) {
     ["secondary", "tertiary"].forEach((slot) => {
       const target = journeyTargets[slot];
       if (target?.href && target.label && treatmentPaths.has(target.href)) {
-        ctas.push({ href: target.href, label: target.label, variant: "secondary" });
+        ctas.push({
+          href: target.href,
+          label: target.label,
+          variant: "secondary",
+          relationship: target.relationship,
+        });
       }
     });
   }
@@ -384,8 +386,7 @@ function buildJourneyCTAs(routeId: string): CTAPlanEntry[] {
     if (!path || !treatmentPaths.has(path)) return;
     const manifest = treatmentPathLookup.get(path);
     const label = manifest?.label ?? toTitleCase(route.split(".").pop()?.replace(/[-_]/g, " ") ?? "");
-    const relatedLabel = label ? `Explore related treatment: ${label}` : label;
-    ctas.push({ href: path, label: relatedLabel ?? label, variant: "secondary" });
+    ctas.push({ href: path, label, variant: "secondary", relationship: "related" });
   });
 
   return ctas;
@@ -543,7 +544,8 @@ export function resolveTreatmentMidCTAPlan(
 
   const validated = candidateCTAs.map((cta) => {
     const { href: resolvedHref } = resolveTreatmentHrefAlias(cta.href);
-    const validation = validateHref(resolvedHref ?? "", truthSet);
+    const isSelfLink = pageSlug && resolvedHref === pageSlug;
+    const validation = isSelfLink ? { valid: false, reason: "self-link" } : validateHref(resolvedHref ?? "", truthSet);
     const { resolvedLabel, wasRaw } = humanizeLabel(cta.label, resolvedHref, cta.variant);
     const relationNormalization = normalizeCtaRelation({
       href: resolvedHref,
@@ -614,7 +616,8 @@ export function resolveTreatmentMidCTAPlan(
     page: section?.id,
   });
 
-  const truthAlignedCTAs = enforceCtaLabelTruth(resolvedCTAs);
+  const contractEnforcement = enforceCTAContract(resolvedCTAs, { pagePath: pageSlug });
+  const truthAlignedCTAs = enforceCtaLabelTruth(contractEnforcement.ctas);
 
   const sanitizedButtons = truthAlignedCTAs.map((cta) => ({
     id: cta.id,
@@ -637,6 +640,7 @@ export function resolveTreatmentMidCTAPlan(
       deduped: { buttonsRemoved: dedupedResult.dropped.length },
       usedFallbackDefaults: validated.filter(Boolean).length === 0,
       relation: relationAudit,
+      contract: contractEnforcement.audit,
     },
   };
 }

@@ -18,6 +18,7 @@ import { getSectionStack } from "./SectionRegistry";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { Section_GoogleReviews } from "./Section_GoogleReviews";
 import { arbitrateCtaSurfaces } from "./ctaSurfaceArbitrator";
+import { normalizeSectionsForMidCTA } from "./ctaPlacement";
 
 export interface ChampagneSectionRendererProps {
   pageSlug: string;
@@ -93,11 +94,12 @@ function renderSection(
 
 export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, previewMode }: ChampagneSectionRendererProps) {
   const sections = getSectionStack(pageSlug);
-  const hasManifestMidCTA = sections.some((section) => section.kind === "treatment_mid_cta");
+  const { ordered: normalizedSections } = normalizeSectionsForMidCTA(sections);
+  const hasManifestMidCTA = normalizedSections.some((section) => section.kind === "treatment_mid_cta");
   const hasMidPageCTAs = !hasManifestMidCTA && (midPageCTAs?.length ?? 0) > 0;
-  const midInsertIndex = hasMidPageCTAs ? Math.max(1, Math.ceil(sections.length / 2)) : -1;
-  const hasClosingCTASection = sections.some((section) => section.kind === "treatment_closing_cta");
-  const arbitration = arbitrateCtaSurfaces({ sections, pageSlug });
+  const midInsertIndex = hasMidPageCTAs ? Math.max(1, Math.ceil(normalizedSections.length / 2)) : -1;
+  const hasClosingCTASection = normalizedSections.some((section) => section.kind === "treatment_closing_cta");
+  const arbitration = arbitrateCtaSurfaces({ sections: normalizedSections, pageSlug });
   const usedMidCtaHrefs = hasMidPageCTAs
     ? (midPageCTAs ?? []).map((cta) => cta.href).filter(Boolean)
     : arbitration.renderedMidCtaHrefs;
@@ -114,7 +116,7 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, pr
           width: "100%",
         }}
       >
-        {sections.map((section, index) => {
+        {normalizedSections.map((section, index) => {
           if (arbitration.absorbedMidSectionIndices.has(index) && section.kind === "treatment_mid_cta") return null;
           if (arbitration.suppressedClosingIndices.has(index) && section.kind === "treatment_closing_cta") return null;
           return (
@@ -131,8 +133,8 @@ export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, pr
             </Fragment>
           );
         })}
-        {sections.length === 0 && <Section_TextBlock />}
-        {sections.length === 0 && hasMidPageCTAs && (
+        {normalizedSections.length === 0 && <Section_TextBlock />}
+        {normalizedSections.length === 0 && hasMidPageCTAs && (
           <ChampagneCTAGroup
             ctas={midPageCTAs}
             label="Mid-page CTAs"

@@ -31,10 +31,10 @@ function shouldAbsorbMidCTA({
 }): boolean {
   if (midIndex < 0 || closingIndex < 0 || midIndex > closingIndex) return false;
   const withinTerminal = isWithinTerminalZone(midIndex, sections.length);
-  const immediatelyStacked = closingIndex - midIndex <= 1;
-  const tightlyStacked = closingIndex - midIndex <= 2 && hasOnlyLightSeparators(sections, midIndex, closingIndex);
+  const tightlyStacked = closingIndex - midIndex <= 2;
+  const lightlySeparated = closingIndex - midIndex <= 3 && hasOnlyLightSeparators(sections, midIndex, closingIndex);
 
-  return withinTerminal || immediatelyStacked || tightlyStacked;
+  return withinTerminal || tightlyStacked || lightlySeparated;
 }
 
 export function getTerminalWindowSize(sectionCount: number) {
@@ -62,11 +62,10 @@ export function arbitrateCtaSurfaces({
     .filter(({ section }) => section.kind === "treatment_closing_cta")
     .map(({ index }) => index);
   const closingIndex = closingIndices.length > 0 ? closingIndices[closingIndices.length - 1] : -1;
-  const terminalStartIndex = Math.max(0, sections.length - getTerminalWindowSize(sections.length));
   const suppressedClosingIndices = new Set<number>();
   closingIndices.forEach((index) => {
     if (index === closingIndex) return;
-    if (index >= terminalStartIndex) suppressedClosingIndices.add(index);
+    suppressedClosingIndices.add(index);
   });
   const midSections: { section: SectionRegistryEntry; index: number; plan?: MidCTAPlanResult }[] = sections
     .map((section, index) => ({ section, index }))
