@@ -107,7 +107,7 @@
         "Written aftercare covering hygiene, posture, and how to monitor muscle response",
         "What to avoid after injections or when wearing guards, including strenuous exercise and pressure on treated sites",
         "Risks discussed plainly: bruising, transient weakness, asymmetry, infection, or vascular events with clear action steps",
-        "When to contact us urgently\u2014for escalating pain, swelling, vision changes, or sudden jaw locking"
+        "When to contact us urgently—for escalating pain, swelling, vision changes, or sudden jaw locking"
       ]
     },
     {
@@ -190,12 +190,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led facial therapeutics review",
-          "href": "/contact",
+          "href": "/treatments/facial-therapeutics",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like Therapeutic injectables",
-          "href": "/contact?topic=facial-therapeutics",
+          "href": "/treatments/therapeutic-facial-injectables",
           "variant": "secondary"
         }
       ]

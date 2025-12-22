@@ -127,12 +127,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led mouthguards and retainers review",
-          "href": "/contact",
+          "href": "/treatments/mouthguards-and-retainers",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like Night guards for clenching",
-          "href": "/contact?topic=mouthguards",
+          "href": "/treatments/night-guards-occlusal-splints",
           "variant": "secondary"
         }
       ]

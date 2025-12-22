@@ -27,7 +27,7 @@
         },
         {
           "label": "Consider alternatives like Occlusal splint for protection",
-          "href": "/contact",
+          "href": "/treatments/night-guards-occlusal-splints",
           "preset": "secondary"
         }
       ]
@@ -206,16 +206,16 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Strengthen your tooth with a precise fit",
-      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we\u2019d recommend.",
+      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we’d recommend.",
       "ctas": [
         {
           "label": "Plan a clinician-led inlays onlays review",
-          "href": "/contact",
+          "href": "/treatments/inlays-onlays",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Occlusal splint for protection",
-          "href": "/contact",
+          "href": "/treatments/night-guards-occlusal-splints",
           "preset": "secondary"
         }
       ]

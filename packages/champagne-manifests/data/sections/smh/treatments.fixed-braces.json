@@ -27,7 +27,7 @@
         },
         {
           "label": "Consider alternatives like Alternatives with aligners",
-          "href": "/contact",
+          "href": "/treatments/clear-aligners",
           "preset": "secondary"
         }
       ]
@@ -125,7 +125,7 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Scheduled reviews with clear actions if teeth don\u2019t track",
+      "title": "Scheduled reviews with clear actions if teeth don’t track",
       "items": [
         "Review intervals mapped at the outset so you know when to attend",
         "Wire changes, elastics, and ligatures adjusted to how your teeth respond",
@@ -267,12 +267,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led fixed braces review",
-          "href": "/contact",
+          "href": "/treatments/fixed-braces",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Alternatives with aligners",
-          "href": "/contact",
+          "href": "/treatments/clear-aligners",
           "preset": "secondary"
         }
       ]

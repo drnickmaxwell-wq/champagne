@@ -180,12 +180,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led tmj disorder treatment review",
-          "href": "/contact?topic=tmj",
+          "href": "/treatments/tmj-disorder-treatment",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Occlusal splints",
-          "href": "/contact?topic=tmj",
+          "href": "/treatments/night-guards-occlusal-splints",
           "preset": "secondary"
         }
       ]

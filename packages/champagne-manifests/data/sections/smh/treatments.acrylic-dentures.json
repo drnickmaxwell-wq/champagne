@@ -97,7 +97,7 @@
         "Guidance on cleaning and using adhesive sparingly",
         "Follow-up for relines or further adjustments"
       ],
-      "strapline": "You\u2019ll know expected timelines, review points, and fees upfront."
+      "strapline": "You’ll know expected timelines, review points, and fees upfront."
     },
     {
       "instanceId": "acrylic-dentures-technology",
@@ -186,7 +186,7 @@
       "ctas": [
         {
           "label": "Plan a clinician-led acrylic dentures review",
-          "href": "/contact",
+          "href": "/treatments/acrylic-dentures",
           "preset": "primary"
         },
         {

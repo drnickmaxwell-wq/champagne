@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Sinus lift for dental implants in Shoreham-by-Sea",
-      "body": "In some upper jaw cases, a sinus lift may be advised to create enough bone support for dental implants \u2014 guided by scans and careful planning.",
+      "body": "In some upper jaw cases, a sinus lift may be advised to create enough bone support for dental implants — guided by scans and careful planning.",
       "bullets": [
         "Scan-led assessment (no guesswork)",
         "Only recommended when needed",
@@ -55,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "WHAT IS A SINUS LIFT?",
       "title": "Creating space for stable upper implants",
-      "body": "Explain simply what a sinus lift involves, why it\u2019s sometimes used for upper back teeth, and that many patients do not need one.",
+      "body": "Explain simply what a sinus lift involves, why it’s sometimes used for upper back teeth, and that many patients do not need one.",
       "mediaHint": "CBCT-led sinus lift planning"
     },
     {
@@ -69,7 +69,7 @@
         "Missing upper back teeth for a long time",
         "Reduced bone height beneath the sinus",
         "Cases where additional support is needed for implant stability",
-        "Many implant patients don\u2019t require a sinus lift \u2014 scans confirm this"
+        "Many implant patients don’t require a sinus lift — scans confirm this"
       ]
     },
     {
@@ -191,11 +191,11 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Unsure whether a sinus lift is needed?",
-      "strapline": "Book an implant assessment in Shoreham-by-Sea and we\u2019ll explain what\u2019s necessary \u2014 and what isn\u2019t \u2014 based on scans.",
+      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s necessary — and what isn’t — based on scans.",
       "ctas": [
         {
           "label": "Plan a clinician-led sinus lift review",
-          "href": "/contact",
+          "href": "/treatments/sinus-lift",
           "variant": "primary"
         },
         {

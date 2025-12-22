@@ -10,7 +10,7 @@
       "variantId": "smh_childrens_dentistry_hero",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "Children\u2019s dentistry",
+      "eyebrow": "Children’s dentistry",
       "title": "Gentle check-ups that build lifelong habits",
       "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
       "bullets": [
@@ -26,7 +26,7 @@
         },
         {
           "label": "Consider alternatives like Orthodontic monitoring",
-          "href": "/contact",
+          "href": "/treatments/orthodontics",
           "preset": "secondary"
         }
       ]
@@ -53,7 +53,7 @@
       "variantId": "smh_childrens_dentistry_checkup",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What a children\u2019s check-up includes",
+      "eyebrow": "What a children’s check-up includes",
       "title": "Gentle exams with practical guidance",
       "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
       "bullets": [
@@ -114,7 +114,7 @@
       "seoRole": "supporting",
       "eyebrow": "When we suggest an orthodontic chat",
       "title": "Early guidance keeps options open",
-      "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we\u2019ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right\u2014always explained clearly to families.",
+      "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—always explained clearly to families.",
       "mediaHint": "Monitoring bite, spacing, and eruption patterns"
     },
     {
@@ -129,12 +129,12 @@
       "variantId": "smh_childrens_dentistry_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Children\u2019s dentistry FAQs",
+      "eyebrow": "Children’s dentistry FAQs",
       "title": "Answers for parents",
       "faqs": [
         {
           "question": "When should my child first visit?",
-          "answer": "We\u2019re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+          "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
         },
         {
           "question": "How often should they come?",
@@ -146,7 +146,7 @@
         },
         {
           "question": "What if my child is scared?",
-          "answer": "Tell us ahead of time and we\u2019ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+          "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
         }
       ]
     },
@@ -174,16 +174,16 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a gentle check-up for your child",
-      "body": "We\u2019ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+      "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
       "ctas": [
         {
           "label": "Plan a clinician-led childrens dentistry review",
-          "href": "/contact?topic=children",
+          "href": "/treatments/childrens-dentistry",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like Orthodontic monitoring",
-          "href": "/contact",
+          "href": "/treatments/orthodontics",
           "variant": "secondary"
         },
         {

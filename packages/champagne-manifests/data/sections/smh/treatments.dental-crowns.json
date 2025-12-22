@@ -27,7 +27,7 @@
         },
         {
           "label": "Consider alternatives like Tooth wear repairs",
-          "href": "/contact",
+          "href": "/treatments/inlays-onlays",
           "preset": "secondary"
         }
       ]
@@ -230,12 +230,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led dental crowns review",
-          "href": "/contact",
+          "href": "/treatments/dental-crowns",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Tooth wear repairs",
-          "href": "/contact",
+          "href": "/treatments/inlays-onlays",
           "preset": "secondary"
         }
       ]

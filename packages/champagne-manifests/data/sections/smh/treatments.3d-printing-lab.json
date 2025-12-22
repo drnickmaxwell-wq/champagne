@@ -27,7 +27,7 @@
         },
         {
           "label": "Consider alternatives like 3D printed dentures",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/3d-printed-dentures",
           "preset": "secondary"
         }
       ]
@@ -190,12 +190,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led 3d printing lab review",
-          "href": "/contact?topic=digital-dentistry",
+          "href": "/treatments/3d-printing-lab",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like 3D printed dentures",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/3d-printed-dentures",
           "preset": "secondary"
         }
       ]

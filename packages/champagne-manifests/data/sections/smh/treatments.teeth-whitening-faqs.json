@@ -61,11 +61,11 @@
         },
         {
           "question": "How long does whitening last?",
-          "answer": "Results are maintained with good hygiene and occasional top-ups. We\u2019ll guide you on a safe refresh schedule using your existing trays."
+          "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
         },
         {
           "question": "Is whitening part of a smile makeover?",
-          "answer": "Often yes. Whitening is the \u201cB\u201d in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
+          "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding (/treatments/composite-bonding). It also supports Digital Smile Design (/treatments/digital-smile-design) and veneer planning (/treatments/veneers)."
         }
       ]
     },
@@ -96,7 +96,7 @@
       "ctas": [
         {
           "label": "Plan a clinician-led teeth whitening faqs review",
-          "href": "/contact",
+          "href": "/treatments/teeth-whitening-faqs",
           "preset": "primary"
         },
         {

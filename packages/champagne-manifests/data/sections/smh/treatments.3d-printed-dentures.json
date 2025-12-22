@@ -27,7 +27,7 @@
         },
         {
           "label": "Consider alternatives like Implant-retained dentures",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/implant-retained-dentures",
           "preset": "secondary"
         }
       ]
@@ -158,7 +158,7 @@
         },
         {
           "question": "Are printed dentures right for everyone?",
-          "answer": "Not always. We\u2019ll advise if a different material or lab-made option is more appropriate based on your bite, bone support, and aesthetic goals."
+          "answer": "Not always. We’ll advise if a different material or lab-made option is more appropriate based on your bite, bone support, and aesthetic goals."
         }
       ]
     },
@@ -190,12 +190,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led 3d printed dentures review",
-          "href": "/contact",
+          "href": "/treatments/3d-printed-dentures",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Implant-retained dentures",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/implant-retained-dentures",
           "preset": "secondary"
         }
       ]

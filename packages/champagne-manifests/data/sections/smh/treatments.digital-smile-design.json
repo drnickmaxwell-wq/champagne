@@ -27,7 +27,7 @@
         },
         {
           "label": "Consider alternatives like Veneer planning",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/veneers",
           "preset": "secondary"
         }
       ]
@@ -97,7 +97,7 @@
         "Treatment roadmap with staged options",
         "Follow-up to finalise material choices"
       ],
-      "strapline": "You\u2019ll know whether printed, composite, or porcelain options best suit your aims before committing."
+      "strapline": "You’ll know whether printed, composite, or porcelain options best suit your aims before committing."
     },
     {
       "instanceId": "dsd-technology",
@@ -119,7 +119,7 @@
       "title": "Planning that respects long-term health",
       "items": [
         "Designs favour conservative tooth changes",
-        "We\u2019ll flag when gum health needs support first",
+        "We’ll flag when gum health needs support first",
         "Advice on maintenance for printed or ceramic routes",
         "Bite checks if we move forward with appliances",
         "Clear escalation plan if goals change"
@@ -142,7 +142,7 @@
       "faqs": [
         {
           "question": "Will this lock me into a treatment?",
-          "answer": "No. It is a planning tool. We\u2019ll outline options from conservative polishing to printed steps or porcelain, with pros and cons for each."
+          "answer": "No. It is a planning tool. We’ll outline options from conservative polishing to printed steps or porcelain, with pros and cons for each."
         },
         {
           "question": "Can I try a physical mock-up?",
@@ -150,15 +150,15 @@
         },
         {
           "question": "Does this work for implants or dentures?",
-          "answer": "It helps visualise implant restorations and denture shapes. We\u2019ll still explain when lab ceramics or metal frameworks are required for durability."
+          "answer": "It helps visualise implant restorations and denture shapes. We’ll still explain when lab ceramics or metal frameworks are required for durability."
         },
         {
           "question": "How accurate is the preview?",
-          "answer": "It is based on your scans and photos. Final outcomes depend on chosen materials and clinical considerations, which we\u2019ll review together."
+          "answer": "It is based on your scans and photos. Final outcomes depend on chosen materials and clinical considerations, which we’ll review together."
         },
         {
           "question": "What happens after the design?",
-          "answer": "You\u2019ll receive a clear roadmap with timings, material recommendations, and fees so you can decide at your own pace."
+          "answer": "You’ll receive a clear roadmap with timings, material recommendations, and fees so you can decide at your own pace."
         }
       ]
     },
@@ -190,12 +190,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led digital smile design review",
-          "href": "/contact?topic=digital-dentistry",
+          "href": "/treatments/digital-smile-design",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Veneer planning",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/veneers",
           "preset": "secondary"
         }
       ]
