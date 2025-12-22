@@ -1123,7 +1123,7 @@
         },
         "tertiary": {
           "label": "See guided surgery planning",
-          "href": "/treatments/cbct-guided-surgery"
+          "href": "/treatments/cbct-3d-scanning"
         }
       },
       "cta_plan": {
@@ -1275,7 +1275,7 @@
         },
         "tertiary": {
           "label": "Review guided surgery planning",
-          "href": "/treatments/cbct-guided-surgery"
+          "href": "/treatments/cbct-3d-scanning"
         }
       },
       "cta_plan": {
@@ -2357,7 +2357,7 @@
         },
         "tertiary": {
           "label": "Explore guided surgery planning",
-          "href": "/treatments/cbct-guided-surgery"
+          "href": "/treatments/cbct-3d-scanning"
         }
       },
       "entry_contexts": [
@@ -2437,7 +2437,7 @@
       "cta_targets": {
         "primary": {
           "label": "Plan 3D denture consult",
-          "href": "/contact"
+          "href": "/treatments/3d-printed-dentures"
         },
         "secondary": {
           "label": "See implant restorations",
@@ -2488,7 +2488,7 @@
         "secondary_intent": "digital_workflow_info",
         "mid_page_cta": {
           "label": "See guided surgery planning",
-          "href": "/treatments/cbct-guided-surgery"
+          "href": "/treatments/cbct-3d-scanning"
         }
       },
       "cta_targets": {
@@ -2498,7 +2498,7 @@
         },
         "secondary": {
           "label": "See guided surgery planning",
-          "href": "/treatments/cbct-guided-surgery"
+          "href": "/treatments/cbct-3d-scanning"
         },
         "tertiary": {
           "label": "Review implant consultation",

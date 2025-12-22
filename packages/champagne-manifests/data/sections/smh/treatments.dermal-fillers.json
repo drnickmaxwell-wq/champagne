@@ -124,7 +124,7 @@
       "faqs": [
         {
           "question": "How long do fillers last?",
-          "answer": "Most hyaluronic acid fillers integrate over days and may last 6\u201318 months depending on area, product, and lifestyle."
+          "answer": "Most hyaluronic acid fillers integrate over days and may last 6–18 months depending on area, product, and lifestyle."
         },
         {
           "question": "Can fillers be dissolved?",
@@ -172,12 +172,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led dermal fillers review",
-          "href": "/contact",
+          "href": "/treatments/dermal-fillers",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like Skin boosters",
-          "href": "/contact?topic=dermal-fillers",
+          "href": "/treatments/skin-boosters",
           "variant": "secondary"
         }
       ]

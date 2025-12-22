@@ -80,7 +80,7 @@
         "Small gaps or spacing",
         "Relapse after previous braces",
         "Bite refinement when appropriate",
-        "Not suitable for everyone \u2014 an assessment confirms what\u2019s safe"
+        "Not suitable for everyone — an assessment confirms what’s safe"
       ]
     },
     {
@@ -171,11 +171,11 @@
         },
         {
           "question": "What if I lose an aligner?",
-          "answer": "Contact the clinic quickly. We\u2019ll advise whether to move to the next tray, use a previous one, or order a replacement."
+          "answer": "Contact the clinic quickly. We’ll advise whether to move to the next tray, use a previous one, or order a replacement."
         },
         {
           "question": "Do I need retainers after treatment?",
-          "answer": "Yes. Retainers hold your new tooth positions and reduce relapse risk. We\u2019ll agree a wear schedule and maintenance plan."
+          "answer": "Yes. Retainers hold your new tooth positions and reduce relapse risk. We’ll agree a wear schedule and maintenance plan."
         }
       ]
     },
@@ -250,7 +250,7 @@
       "ctas": [
         {
           "label": "Plan a clinician-led clear aligners review",
-          "href": "/contact",
+          "href": "/treatments/clear-aligners",
           "preset": "primary"
         },
         {

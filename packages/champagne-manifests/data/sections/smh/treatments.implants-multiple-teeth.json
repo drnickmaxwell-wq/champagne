@@ -53,7 +53,7 @@
       "eyebrow": "Who it helps",
       "title": "For multiple gaps and loose bridges",
       "items": [
-        "Several missing teeth in a row where a traditional bridge isn\u2019t suitable",
+        "Several missing teeth in a row where a traditional bridge isn’t suitable",
         "Replacing a failing bridge with a stable implant-supported option",
         "Partial denture wearers wanting more security and bite strength",
         "Patients aiming to protect jaw bone and stop neighbouring teeth drifting"
@@ -172,12 +172,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led implants multiple teeth review",
-          "href": "/contact",
+          "href": "/treatments/implants-multiple-teeth",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like CBCT 3D scanning",
-          "href": "/contact?topic=implants",
+          "href": "/treatments/cbct-3d-scanning",
           "variant": "secondary"
         }
       ]

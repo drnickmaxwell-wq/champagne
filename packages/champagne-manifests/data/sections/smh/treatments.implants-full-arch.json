@@ -197,16 +197,16 @@
       "ctas": [
         {
           "label": "Plan a clinician-led implants full arch review",
-          "href": "/contact",
+          "href": "/treatments/implants-full-arch",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like CBCT 3D scanning",
-          "href": "/contact?topic=implants",
+          "href": "/treatments/cbct-3d-scanning",
           "variant": "secondary"
         }
       ],
-      "body": "We\u2019ll confirm suitability, options, and next steps after a full assessment."
+      "body": "We’ll confirm suitability, options, and next steps after a full assessment."
     }
   ],
   "journeys": {

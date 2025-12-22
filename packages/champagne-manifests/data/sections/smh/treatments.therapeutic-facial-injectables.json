@@ -194,12 +194,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led therapeutic facial injectables review",
-          "href": "/contact?topic=therapeutic-injectables",
+          "href": "/treatments/therapeutic-facial-injectables",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Skin boosters",
-          "href": "/contact?topic=therapeutic-injectables",
+          "href": "/treatments/skin-boosters",
           "preset": "secondary"
         }
       ]

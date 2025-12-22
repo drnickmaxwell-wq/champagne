@@ -181,12 +181,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led facial pain and headache review",
-          "href": "/contact?topic=facial-pain",
+          "href": "/treatments/facial-pain-and-headache",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like TMJ disorder treatment",
-          "href": "/contact?topic=facial-pain",
+          "href": "/treatments/tmj-disorder-treatment",
           "preset": "secondary"
         }
       ]

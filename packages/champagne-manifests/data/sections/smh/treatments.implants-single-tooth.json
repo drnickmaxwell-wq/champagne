@@ -171,12 +171,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led implants single tooth review",
-          "href": "/contact",
+          "href": "/treatments/implants-single-tooth",
           "variant": "primary"
         },
         {
           "label": "Consider alternatives like CBCT 3D scanning",
-          "href": "/contact?topic=implants",
+          "href": "/treatments/cbct-3d-scanning",
           "variant": "secondary"
         }
       ]

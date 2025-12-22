@@ -154,7 +154,7 @@
         },
         {
           "question": "What follow-up is needed?",
-          "answer": "You\u2019ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
+          "answer": "You’ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
         },
         {
           "question": "Are the materials regulated?",
@@ -190,12 +190,12 @@
       "ctas": [
         {
           "label": "Plan a clinician-led 3d implant restorations review",
-          "href": "/contact?topic=implants",
+          "href": "/treatments/3d-implant-restorations",
           "preset": "primary"
         },
         {
           "label": "Consider alternatives like Hygiene and maintenance",
-          "href": "/contact?topic=3d-printing",
+          "href": "/treatments/implant-aftercare",
           "preset": "secondary"
         }
       ]

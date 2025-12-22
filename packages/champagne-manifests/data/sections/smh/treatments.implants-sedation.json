@@ -71,7 +71,7 @@
         "Patients worried about longer procedures",
         "Individuals with strong gag reflexes",
         "Anyone who wants a calmer experience",
-        "Sedation isn\u2019t suitable for everyone \u2014 we assess carefully and discuss alternatives"
+        "Sedation isn’t suitable for everyone — we assess carefully and discuss alternatives"
       ]
     },
     {
@@ -148,15 +148,15 @@
         },
         {
           "question": "Can I drive home afterwards?",
-          "answer": "Sedation usually means you\u2019ll need an escort and time to rest; driving yourself home is not advised."
+          "answer": "Sedation usually means you’ll need an escort and time to rest; driving yourself home is not advised."
         },
         {
           "question": "Is sedation available for all implant treatments?",
           "answer": "We discuss whether sedation is appropriate for your specific plan. Some cases may be better managed with alternative calming options."
         },
         {
-          "question": "What if I\u2019m still nervous?",
-          "answer": "It\u2019s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
+          "question": "What if I’m still nervous?",
+          "answer": "It’s normal to feel unsure. We go at your pace, answer questions, and can pause or adjust the plan so you stay in control."
         },
         {
           "question": "Does sedation cost extra?",
@@ -186,12 +186,12 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Nervous about implants? You\u2019re not alone.",
+      "title": "Nervous about implants? You’re not alone.",
       "strapline": "Book a calm implant consultation in Shoreham-by-Sea and talk through sedation options at your own pace.",
       "ctas": [
         {
           "label": "Plan a clinician-led sedation for implants review",
-          "href": "/contact",
+          "href": "/treatments/sedation-for-implants",
           "variant": "primary"
         },
         {
