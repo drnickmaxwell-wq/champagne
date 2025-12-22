@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Plan an implant restoration",
+          "label": "Plan a clinician-led 3d implant restorations review",
           "href": "/contact?topic=implants",
           "preset": "primary"
         },
         {
-          "label": "Preview your design",
+          "label": "Consider alternatives like Digital smile refinement",
           "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
@@ -154,12 +154,28 @@
         },
         {
           "question": "What follow-up is needed?",
-          "answer": "You’ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
+          "answer": "You\u2019ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean."
         },
         {
           "question": "Are the materials regulated?",
           "answer": "Yes. We use regulated dental materials selected for their intended indications and explain their maintenance and lifespan."
         }
+      ]
+    },
+    {
+      "instanceId": "3d-implant-restorations-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_3d-implant-restorations_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant placement (/treatments/implants) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore how 3d planning supports implant restorations and fit.",
+        "Often follows Implant placement (/treatments/implants); Implant consultation (/treatments/implants-consultation).",
+        "Alternatives we balance: CBCT verification (/treatments/cbct-3d-scanning); Sedation support (/treatments/implants-sedation).",
+        "Next steps we plan for: Crown and bridge fitting (/treatments/dental-crowns); Hygiene and maintenance (/treatments/implants-aftercare); Digital smile refinement (/treatments/digital-smile-design)."
       ]
     },
     {
@@ -173,12 +189,12 @@
       "body": "Book a consultation to review digital designs, material choices, and whether in-house or lab-made options best suit your long-term goals.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led 3d implant restorations review",
           "href": "/contact?topic=implants",
           "preset": "primary"
         },
         {
-          "label": "Ask about materials",
+          "label": "Consider alternatives like Hygiene and maintenance",
           "href": "/contact?topic=3d-printing",
           "preset": "secondary"
         }
@@ -223,15 +239,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan implant restoration stages",
+      "label": "Plan a clinician-led 3d implant restorations review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Arrange hygiene support for implants",
+      "label": "Consider alternatives like Hygiene and maintenance",
       "href": "/treatments/implants-aftercare"
     },
     "reassurance_intent": {
-      "label": "Review guided planning steps",
+      "label": "Map next steps such as 3d digital dentistry",
       "href": "/treatments/3d-digital-dentistry"
     }
   }

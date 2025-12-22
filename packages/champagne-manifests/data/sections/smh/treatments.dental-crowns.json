@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a crowns assessment",
+          "label": "Plan a clinician-led dental crowns review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Discuss restorative options",
+          "label": "Consider alternatives like Tooth wear repairs",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -203,6 +203,22 @@
       ]
     },
     {
+      "instanceId": "dental-crowns-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental-crowns_decision_clarity",
+      "order": 99,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after root canal therapy (/treatments/endodontics-root-canal) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn when crowns are recommended and what the process involves.",
+        "Often follows Root canal therapy (/treatments/endodontics-root-canal); Tooth wear repairs (/treatments/inlays-onlays).",
+        "Alternatives we balance: Gum stability (/treatments/periodontal-gum-care); Smile design planning (/treatments/digital-smile-design); Managing clenching and grinding (/treatments/bruxism-and-jaw-clenching).",
+        "Next steps we plan for: Routine maintenance (/treatments/preventative-and-general-dentistry); Whitening after restoration (/treatments/teeth-whitening); Night guards for protection (/treatments/night-guards-occlusal-splints)."
+      ]
+    },
+    {
       "instanceId": "dental-crowns-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_dental_crowns_cta",
@@ -213,12 +229,12 @@
       "body": "Book a calm review to understand whether a crown, onlay, or repair is right for your tooth. We will map the digital plan, materials, and maintenance you can expect.",
       "ctas": [
         {
-          "label": "Book a crowns consultation",
+          "label": "Plan a clinician-led dental crowns review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about crown options",
+          "label": "Consider alternatives like Tooth wear repairs",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -271,15 +287,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan your crown restoration",
+      "label": "Plan a clinician-led dental crowns review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review inlay or onlay suitability",
+      "label": "Consider alternatives like Tooth wear repairs",
       "href": "/treatments/inlays-onlays"
     },
     "reassurance_intent": {
-      "label": "Understand protection after root canal",
+      "label": "Map next steps such as Root canal therapy",
       "href": "/treatments/endodontics-root-canal"
     }
   },

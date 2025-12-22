@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a TMJ assessment",
+          "label": "Plan a clinician-led tmj jaw comfort review",
           "href": "/contact?topic=tmj",
           "preset": "primary"
         },
         {
-          "label": "Ask about mouth guards",
+          "label": "Consider alternatives like TMJ disorder treatment",
           "href": "/contact?topic=mouth-guards",
           "preset": "secondary"
         }
@@ -55,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What happens in clinic",
       "title": "We listen, examine, and plan",
-      "body": "Your clinician will explore your symptoms—morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
+      "body": "Your clinician will explore your symptoms\u2014morning jaw ache, headaches, clicking, or limited opening. We check muscles, joints, and tooth wear, then discuss whether self-care, guards, or further imaging are appropriate.",
       "bullets": [
         "Medical and dental history, including stress or sleep impacts",
         "Examination of jaw range, clicks, tenderness, and tooth wear",
@@ -112,7 +112,7 @@
         "Use custom guards as directed; bring them to reviews for adjustments",
         "Maintain regular dental checks to monitor wear and bite",
         "Seek emergency support if you experience jaw locking or sudden swelling",
-        "We’ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
+        "We\u2019ll discuss when referral to TMJ or physiotherapy colleagues is appropriate"
       ]
     },
     {
@@ -144,12 +144,28 @@
         },
         {
           "question": "When should I seek urgent help?",
-          "answer": "If your jaw locks, you can’t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
+          "answer": "If your jaw locks, you can\u2019t fully open, or swelling or pain escalates, contact us or emergency dentistry promptly."
         },
         {
           "question": "How long until I feel improvement?",
           "answer": "Many patients notice changes after consistent self-care and guard use, but timelines vary. We review progress and adjust the plan if needed."
         }
+      ]
+    },
+    {
+      "instanceId": "tmj-jaw-comfort-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_tmj-jaw-comfort_decision_clarity",
+      "order": 79,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine exams (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn strategies to improve jaw comfort and reduce strain.",
+        "Often follows Routine exams (/treatments/preventative-and-general-dentistry); Grinding assessments (/treatments/bruxism-and-jaw-clenching).",
+        "Alternatives we balance: Facial pain management (/treatments/facial-pain-and-headache); Nervous patient pathway (/treatments/nervous-patients).",
+        "Next steps we plan for: Occlusal splints (/treatments/night-guards-occlusal-splints); TMJ disorder treatment (/treatments/tmj-disorder-treatment); Orthodontic bite correction (/treatments/orthodontics)."
       ]
     },
     {
@@ -160,15 +176,15 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Plan your TMJ care with a calm consult",
-      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We’ll coordinate with other care like mouth guards, implants, or orthodontics.",
+      "body": "Book a TMJ assessment to discuss symptoms, guards, and when referral makes sense. We\u2019ll coordinate with other care like mouth guards, implants, or orthodontics.",
       "ctas": [
         {
-          "label": "Book a TMJ assessment",
+          "label": "Plan a clinician-led tmj jaw comfort review",
           "href": "/contact?topic=tmj",
           "preset": "primary"
         },
         {
-          "label": "Ask about mouth guards",
+          "label": "Consider alternatives like TMJ disorder treatment",
           "href": "/contact?topic=mouth-guards",
           "preset": "secondary"
         }
@@ -213,15 +229,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a jaw comfort review",
+      "label": "Plan a clinician-led tmj jaw comfort review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Explore TMJ therapy options",
+      "label": "Consider alternatives like TMJ disorder treatment",
       "href": "/treatments/tmj-disorder-treatment"
     },
     "reassurance_intent": {
-      "label": "Understand splint choices",
+      "label": "Map next steps such as Occlusal splints",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }

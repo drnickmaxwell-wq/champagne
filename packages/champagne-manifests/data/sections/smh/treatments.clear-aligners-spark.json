@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book an aligners consultation",
+          "label": "Plan a clinician-led clear aligners spark review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about Spark aligners",
+          "label": "Consider alternatives like fixed braces",
           "href": "/contact?topic=aligners",
           "preset": "secondary"
         }
@@ -125,13 +125,13 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Set review intervals with options if teeth don’t track",
+      "title": "Set review intervals with options if teeth don\u2019t track",
       "items": [
-        "Review spacing agreed at the start—typically every few weeks",
+        "Review spacing agreed at the start\u2014typically every few weeks",
         "Fit checks, speech checks, and hygiene reviews at each visit",
         "If a tray feels loose or tight, we assess wear patterns and adjust guidance",
         "Non-tracking teeth may need new scans, revised attachments, or extra Spark trays",
-        "You’ll know next steps and timings before we order refinements"
+        "You\u2019ll know next steps and timings before we order refinements"
       ]
     },
     {
@@ -142,7 +142,7 @@
       "seoRole": "supporting",
       "eyebrow": "Technology",
       "title": "Digital scans meet Spark clarity",
-      "body": "We pair high-resolution digital scans with Spark’s clear, stain-resistant material to plan movements precisely and keep trays comfortable and discreet.",
+      "body": "We pair high-resolution digital scans with Spark\u2019s clear, stain-resistant material to plan movements precisely and keep trays comfortable and discreet.",
       "mediaHint": "Digital scan and Spark tray preview"
     },
     {
@@ -173,7 +173,7 @@
       "items": [
         "Fixed retainers can be bonded behind teeth when suitable after aligners",
         "Removable retainers worn nightly to keep Spark results stable",
-        "Expect retention to be a long-term habit—we agree a schedule that works for you",
+        "Expect retention to be a long-term habit\u2014we agree a schedule that works for you",
         "What to do if a retainer cracks, warps, or is lost",
         "Retention reviews to catch small shifts early and avoid retreatment"
       ]
@@ -207,15 +207,15 @@
         },
         {
           "question": "Can I eat anything?",
-          "answer": "Remove your aligners for meals and hot drinks. With trays out, you can eat normally—just brush before putting them back to protect clarity and gums."
+          "answer": "Remove your aligners for meals and hot drinks. With trays out, you can eat normally\u2014just brush before putting them back to protect clarity and gums."
         },
         {
           "question": "What if I lose an aligner?",
-          "answer": "Contact us quickly. We’ll advise whether to move to the next tray, step back to the previous one, or order a replacement based on your stage."
+          "answer": "Contact us quickly. We\u2019ll advise whether to move to the next tray, step back to the previous one, or order a replacement based on your stage."
         },
         {
           "question": "Are attachments needed?",
-          "answer": "Many Spark plans use small tooth-coloured attachments to guide precise movement. We explain where they may sit and how visible they’ll be before starting."
+          "answer": "Many Spark plans use small tooth-coloured attachments to guide precise movement. We explain where they may sit and how visible they\u2019ll be before starting."
         },
         {
           "question": "Is Spark suitable for complex cases?",
@@ -250,17 +250,17 @@
       "body": "Meet a clinician to review your scans, plan Spark stages, and agree on monitoring, refinements, and retention before you commit.",
       "ctas": [
         {
-          "label": "Compare aligner options",
+          "label": "Discuss clear aligners before deciding",
           "href": "/treatments/clear-aligners",
           "preset": "primary"
         },
         {
-          "label": "Plan whitening after Spark",
+          "label": "Consider alternatives like Finishing with teeth whitening",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         },
         {
-          "label": "See smile design planning",
+          "label": "Plan next steps with Digital smile planning",
           "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
@@ -284,6 +284,22 @@
       ]
     },
     {
+      "instanceId": "clear-aligners-spark-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_clear-aligners-spark_decision_clarity",
+      "order": 109,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups and hygiene (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn how spark aligners work and whether they suit your case.",
+        "Often follows Routine check-ups and hygiene (/treatments/preventative-and-general-dentistry); Orthodontic overview (/treatments/orthodontics); Digital smile planning (/treatments/digital-smile-design).",
+        "Alternatives we balance: Managing jaw comfort (/treatments/tmj-jaw-comfort); Care for nervous patients (/treatments/nervous-patients).",
+        "Next steps we plan for: Retainer fitting after alignment (/treatments/dental-retainers); Mouthguards to protect new alignment (/treatments/mouthguards-and-retainers); Finishing with teeth whitening (/treatments/teeth-whitening)."
+      ]
+    },
+    {
       "instanceId": "clear_aligners_spark_closing_cta",
       "componentId": "treatment_closing_cta",
       "variantId": "shoreham_spark_aligners_closing_cta",
@@ -293,17 +309,17 @@
       "strapline": "Review how Spark aligners compare and what retention looks like.",
       "ctas": [
         {
-          "label": "Book a Spark aligner review",
+          "label": "Plan a clinician-led clear aligners spark review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Compare aligner options",
+          "label": "Consider alternatives like clear aligners",
           "href": "/treatments/clear-aligners",
           "preset": "secondary"
         },
         {
-          "label": "See smile design planning",
+          "label": "Plan next steps with Digital smile planning",
           "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
@@ -352,15 +368,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a Spark aligner assessment",
+      "label": "Plan a clinician-led clear aligners spark review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Compare with fixed braces",
+      "label": "Consider alternatives like fixed braces",
       "href": "/treatments/fixed-braces"
     },
     "reassurance_intent": {
-      "label": "See how retainers maintain position",
+      "label": "Map next steps such as Retainer fitting after alignment",
       "href": "/treatments/dental-retainers"
     }
   }

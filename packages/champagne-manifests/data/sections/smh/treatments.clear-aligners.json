@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book consultation",
+          "label": "Plan a clinician-led clear aligners review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask a question",
+          "label": "Consider alternatives like fixed braces",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -80,7 +80,7 @@
         "Small gaps or spacing",
         "Relapse after previous braces",
         "Bite refinement when appropriate",
-        "Not suitable for everyone — an assessment confirms what’s safe"
+        "Not suitable for everyone \u2014 an assessment confirms what\u2019s safe"
       ]
     },
     {
@@ -171,11 +171,11 @@
         },
         {
           "question": "What if I lose an aligner?",
-          "answer": "Contact the clinic quickly. We’ll advise whether to move to the next tray, use a previous one, or order a replacement."
+          "answer": "Contact the clinic quickly. We\u2019ll advise whether to move to the next tray, use a previous one, or order a replacement."
         },
         {
           "question": "Do I need retainers after treatment?",
-          "answer": "Yes. Retainers hold your new tooth positions and reduce relapse risk. We’ll agree a wear schedule and maintenance plan."
+          "answer": "Yes. Retainers hold your new tooth positions and reduce relapse risk. We\u2019ll agree a wear schedule and maintenance plan."
         }
       ]
     },
@@ -190,17 +190,17 @@
       "body": "Discuss aligner options in a judgement-free setting with clear, staged planning before you decide.",
       "ctas": [
         {
-          "label": "See Spark aligner options",
+          "label": "Discuss clear aligners spark before deciding",
           "href": "/treatments/clear-aligners-spark",
           "preset": "primary"
         },
         {
-          "label": "Plan whitening after alignment",
+          "label": "Consider alternatives like Finishing with teeth whitening",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         },
         {
-          "label": "See Digital Smile Design",
+          "label": "Plan next steps with Digital smile planning",
           "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
@@ -224,6 +224,22 @@
       ]
     },
     {
+      "instanceId": "clear-aligners-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_clear-aligners_decision_clarity",
+      "order": 109,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups and hygiene (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore clear aligner options available at the practice.",
+        "Often follows Routine check-ups and hygiene (/treatments/preventative-and-general-dentistry); Orthodontic overview (/treatments/orthodontics); Digital smile planning (/treatments/digital-smile-design).",
+        "Alternatives we balance: Managing jaw comfort (/treatments/tmj-jaw-comfort); Care for nervous patients (/treatments/nervous-patients).",
+        "Next steps we plan for: Retainer fitting after alignment (/treatments/dental-retainers); Mouthguards to protect new alignment (/treatments/mouthguards-and-retainers); Finishing with teeth whitening (/treatments/teeth-whitening)."
+      ]
+    },
+    {
       "instanceId": "clear_aligners_closing_cta",
       "componentId": "treatment_closing_cta",
       "variantId": "shoreham_clear_aligners_closing_cta",
@@ -233,17 +249,17 @@
       "strapline": "Confirm suitability and map whitening and retention plans.",
       "ctas": [
         {
-          "label": "Start your aligner consultation",
+          "label": "Plan a clinician-led clear aligners review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "See Spark aligner options",
+          "label": "Consider alternatives like clear aligners spark",
           "href": "/treatments/clear-aligners-spark",
           "preset": "secondary"
         },
         {
-          "label": "Plan whitening after alignment",
+          "label": "Plan next steps with Finishing with teeth whitening",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         }
@@ -292,15 +308,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a clear aligner assessment",
+      "label": "Plan a clinician-led clear aligners review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Compare with fixed braces",
+      "label": "Consider alternatives like fixed braces",
       "href": "/treatments/fixed-braces"
     },
     "reassurance_intent": {
-      "label": "See how retainers maintain position",
+      "label": "Map next steps such as Retainer fitting after alignment",
       "href": "/treatments/dental-retainers"
     }
   }

@@ -111,6 +111,22 @@
       ]
     },
     {
+      "instanceId": "sports-mouthguards-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_sports-mouthguards_decision_clarity",
+      "order": 69,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after children's dentistry (/treatments/childrens-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to check options for custom sports mouthguards and fitting process.",
+        "Often follows Children's dentistry (/treatments/childrens-dentistry); Orthodontic reviews (/treatments/orthodontics); Fixed braces (/treatments/fixed-braces).",
+        "Alternatives we balance: Support for jaw comfort (/treatments/tmj-jaw-comfort); Nervous patient support (/treatments/nervous-patients).",
+        "Next steps we plan for: Combined retainers and guards (/treatments/mouthguards-and-retainers); Night guards for grinding (/treatments/night-guards-occlusal-splints); Routine hygiene checks (/treatments/preventative-and-general-dentistry)."
+      ]
+    },
+    {
       "instanceId": "sports-mouthguards-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_sports_mouthguards_cta",
@@ -121,12 +137,12 @@
       "body": "Arrange a consultation to capture your bite and organise a lab-made mouthguard tailored to your sport.",
       "ctas": [
         {
-          "label": "Contact the team",
+          "label": "Plan a clinician-led sports mouthguards review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Night guards for grinding",
+          "label": "Consider alternatives like Night guards for grinding",
           "href": "/treatments/night-guards-occlusal-splints",
           "preset": "secondary"
         }
@@ -175,15 +191,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a sports mouthguard fitting",
+      "label": "Plan a clinician-led sports mouthguards review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan retainer protection",
+      "label": "Consider alternatives like dental retainers",
       "href": "/treatments/dental-retainers"
     },
     "reassurance_intent": {
-      "label": "Read about guard care",
+      "label": "Map next steps such as Combined retainers and guards",
       "href": "/treatments/mouthguards-and-retainers"
     }
   }

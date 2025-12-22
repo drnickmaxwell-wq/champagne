@@ -42,11 +42,11 @@
       "seoRole": "primaryContent",
       "eyebrow": "Consultation & prescribing",
       "title": "We prescribe only when treatment is appropriate",
-      "body": "Your consultation covers muscle activity, skin quality, and medical history. We discuss whether anti-wrinkle medicine suits you, outline benefits and limitations, and agree areas such as frown lines, forehead, or crow’s feet only if safe to do so.",
+      "body": "Your consultation covers muscle activity, skin quality, and medical history. We discuss whether anti-wrinkle medicine suits you, outline benefits and limitations, and agree areas such as frown lines, forehead, or crow\u2019s feet only if safe to do so.",
       "bullets": [
         "Full medical history, medicines, and contraindication checks",
         "Facial mapping to balance doses and avoid brow or lid heaviness",
-        "Explanation of onset (usually several days) and duration (often up to 3–4 months)",
+        "Explanation of onset (usually several days) and duration (often up to 3\u20134 months)",
         "Written aftercare and review scheduling before you leave"
       ]
     },
@@ -76,7 +76,7 @@
       "items": [
         "Consultation: medical history, facial movement assessment, and suitability checks",
         "Prescription & treatment: carefully placed micro-injections aligned to agreed areas",
-        "Review: follow-up (often around 2–3 weeks) to assess effect and adjust only if appropriate",
+        "Review: follow-up (often around 2\u20133 weeks) to assess effect and adjust only if appropriate",
         "Maintenance: safe intervals between appointments to avoid over-treatment"
       ],
       "strapline": "Results are temporary and depend on your response. We avoid high doses or rushed top-ups to protect facial function."
@@ -124,7 +124,7 @@
       "faqs": [
         {
           "question": "How long do results last?",
-          "answer": "Effects typically build over several days and may last up to 3–4 months, depending on your metabolism and dose."
+          "answer": "Effects typically build over several days and may last up to 3\u20134 months, depending on your metabolism and dose."
         },
         {
           "question": "Can treatment be adjusted?",
@@ -145,6 +145,22 @@
       ]
     },
     {
+      "instanceId": "anti-wrinkle-treatments-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_anti-wrinkle-treatments_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to find out how anti-wrinkle injections are used and whether they match your goals.",
+        "Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Routine skin health checks (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Anti-wrinkle pathways (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).",
+        "Next steps we plan for: Skin boosters (/treatments/skin-boosters); Polynucleotides (/treatments/polynucleotides); Therapeutic injectables (/treatments/therapeutic-facial-injectables)."
+      ]
+    },
+    {
       "instanceId": "anti-wrinkle-cta",
       "componentId": "treatment.cta",
       "variantId": "anti_wrinkle_cta",
@@ -155,12 +171,12 @@
       "strapline": "Explore whether prescription anti-wrinkle treatment is right for you with a prescriber who favours careful dosing and clear follow-up.",
       "ctas": [
         {
-          "label": "Book a consultation",
+          "label": "Plan a clinician-led anti wrinkle treatments review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about anti-wrinkle care",
+          "label": "Consider alternatives like Skin boosters",
           "href": "/contact?topic=anti-wrinkle",
           "variant": "secondary"
         }
@@ -205,15 +221,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinical anti-wrinkle review",
+      "label": "Plan a clinician-led anti wrinkle treatments review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss skin booster scheduling",
+      "label": "Consider alternatives like Skin boosters",
       "href": "/treatments/skin-boosters"
     },
     "reassurance_intent": {
-      "label": "Understand safety and follow-up",
+      "label": "Map next steps such as Facial aesthetics consultation",
       "href": "/treatments/facial-aesthetics"
     }
   }

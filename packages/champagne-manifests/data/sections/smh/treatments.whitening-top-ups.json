@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a top-up review",
+          "label": "Plan a clinician-led whitening top ups review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about maintenance",
+          "label": "Consider alternatives like In-practice whitening",
           "href": "/treatments/teeth-whitening",
           "preset": "secondary"
         }
@@ -44,7 +44,7 @@
       "bullets": [
         "Shade comparison against your baseline",
         "Inspection of trays for seal and comfort",
-        "Discussion of how often you’ll realistically top-up",
+        "Discussion of how often you\u2019ll realistically top-up",
         "Guidance if restorations need refreshing instead of whitening",
         "Written instructions for the latest gel strength"
       ]
@@ -88,12 +88,28 @@
         },
         {
           "question": "Can I reuse my old trays?",
-          "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
+          "answer": "Yes, provided the fit is still secure. We\u2019ll check for wear or gaps before supplying gel."
         },
         {
           "question": "Will I need stronger gel each time?",
           "answer": "Usually not. We stick to safe, regulated strengths and keep to the smallest effective dose for your goals."
         }
+      ]
+    },
+    {
+      "instanceId": "whitening-top-ups-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_whitening-top-ups_decision_clarity",
+      "order": 49,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after in-practice whitening (/treatments/teeth-whitening) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn how to maintain whitening results with safe top-ups.",
+        "Often follows In-practice whitening (/treatments/teeth-whitening); Home whitening plans (/treatments/home-teeth-whitening).",
+        "Alternatives we balance: Whitening FAQs (/treatments/teeth-whitening-faqs); Smile design updates (/treatments/digital-smile-design).",
+        "Next steps we plan for: Routine hygiene and reviews (/treatments/preventative-and-general-dentistry); Managing sensitivity (/treatments/whitening-sensitive-teeth)."
       ]
     },
     {
@@ -106,12 +122,12 @@
       "strapline": "Refresh your whitening plan with dentist guidance and the trays you already have.",
       "ctas": [
         {
-          "label": "Book a top-up",
+          "label": "Plan a clinician-led whitening top ups review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Plan future whitening",
+          "label": "Consider alternatives like Home whitening plans",
           "href": "/treatments/home-teeth-whitening",
           "preset": "secondary"
         }
@@ -169,15 +185,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Request whitening top-ups",
+      "label": "Plan a clinician-led whitening top ups review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Book a review clean",
+      "label": "Consider alternatives like Routine hygiene and reviews",
       "href": "/treatments/preventative-and-general-dentistry"
     },
     "reassurance_intent": {
-      "label": "Read sensitivity support",
+      "label": "Map next steps such as Managing sensitivity",
       "href": "/treatments/whitening-sensitive-teeth"
     }
   }

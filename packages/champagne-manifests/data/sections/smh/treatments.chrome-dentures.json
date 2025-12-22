@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a denture consult",
+          "label": "Plan a clinician-led chrome dentures review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "See all denture options",
+          "label": "Consider alternatives like dentures",
           "href": "/treatments/dentures",
           "preset": "secondary"
         }
@@ -142,20 +142,36 @@
       "faqs": [
         {
           "question": "Will metal show when I smile?",
-          "answer": "We design clasp positions and tooth shades to stay discreet. In some cases we can use tooth-coloured clasps; we’ll show you options before fitting."
+          "answer": "We design clasp positions and tooth shades to stay discreet. In some cases we can use tooth-coloured clasps; we\u2019ll show you options before fitting."
         },
         {
           "question": "Are chrome dentures heavy?",
-          "answer": "They are usually lighter and slimmer than acrylic partials because the framework can be thinner. You’ll still need an adjustment period, which we support."
+          "answer": "They are usually lighter and slimmer than acrylic partials because the framework can be thinner. You\u2019ll still need an adjustment period, which we support."
         },
         {
           "question": "Do they damage teeth?",
-          "answer": "Well-designed rests and clasps spread the load. We review supporting teeth carefully and adjust clasps so they’re secure without excessive pressure."
+          "answer": "Well-designed rests and clasps spread the load. We review supporting teeth carefully and adjust clasps so they\u2019re secure without excessive pressure."
         },
         {
           "question": "What if I need more stability later?",
           "answer": "We can revisit fit, clasp tension, or consider implant support if you want reduced movement. Any step is planned with your comfort and timeline in mind."
         }
+      ]
+    },
+    {
+      "instanceId": "chrome-dentures-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_chrome-dentures_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after extractions and oral surgery (/treatments/extractions-and-oral-surgery) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to assess whether chrome dentures offer better fit or durability for me.",
+        "Often follows Extractions and oral surgery (/treatments/extractions-and-oral-surgery); Gum health management (/treatments/periodontal-gum-care).",
+        "Alternatives we balance: Senior smile care (/treatments/senior-mature-smile-care); Comfort sedation (/treatments/sedation-dentistry).",
+        "Next steps we plan for: Implant-retained dentures (/treatments/implants-retained-dentures); Implant consultation (/treatments/implants-consultation); Aftercare and hygiene (/treatments/implants-aftercare)."
       ]
     },
     {
@@ -169,12 +185,12 @@
       "body": "Book a consultation to design a chrome framework that balances strength, discretion, and fit. If you later want added stability, we can discuss implant-retained options gently.",
       "ctas": [
         {
-          "label": "Book a denture consult",
+          "label": "Plan a clinician-led chrome dentures review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Implant-retained dentures",
+          "label": "Consider alternatives like implant retained dentures",
           "href": "/treatments/implant-retained-dentures",
           "preset": "secondary"
         }
@@ -219,15 +235,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss chrome denture options",
+      "label": "Plan a clinician-led chrome dentures review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Consider implant-retained solutions",
+      "label": "Consider alternatives like Implant-retained dentures",
       "href": "/treatments/implants-retained-dentures"
     },
     "reassurance_intent": {
-      "label": "Plan denture care and hygiene",
+      "label": "Map next steps such as preventative and general dentistry",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   }

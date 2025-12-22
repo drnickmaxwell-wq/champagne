@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book an assessment",
+          "label": "Plan a clinician-led inlays onlays review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about inlays & onlays",
+          "label": "Consider alternatives like Occlusal splint for protection",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -183,6 +183,22 @@
       ]
     },
     {
+      "instanceId": "inlays-onlays-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_inlays-onlays_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn when inlays or onlays are recommended and how they differ from fillings or crowns.",
+        "Often follows Routine check-ups (/treatments/preventative-and-general-dentistry); Bite and wear review (/treatments/bruxism-and-jaw-clenching).",
+        "Alternatives we balance: Gum health support (/treatments/periodontal-gum-care); Digital smile planning (/treatments/digital-smile-design); Managing bite forces (/treatments/bruxism-and-jaw-clenching).",
+        "Next steps we plan for: Crown restoration if needed (/treatments/dental-crowns); Occlusal splint for protection (/treatments/night-guards-occlusal-splints); Smile refinement (/treatments/veneers)."
+      ]
+    },
+    {
       "instanceId": "inlays-onlays-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_inlays_onlays_cta",
@@ -190,15 +206,15 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Strengthen your tooth with a precise fit",
-      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we’d recommend.",
+      "body": "Book a calm assessment to see whether an inlay or onlay is right for you, and understand the materials we\u2019d recommend.",
       "ctas": [
         {
-          "label": "Book an assessment",
+          "label": "Plan a clinician-led inlays onlays review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about options",
+          "label": "Consider alternatives like Occlusal splint for protection",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -251,15 +267,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss inlay or onlay treatment",
+      "label": "Plan a clinician-led inlays onlays review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Protect repairs with a splint",
+      "label": "Consider alternatives like Occlusal splint for protection",
       "href": "/treatments/night-guards-occlusal-splints"
     },
     "reassurance_intent": {
-      "label": "Plan ongoing care and reviews",
+      "label": "Map next steps such as Routine check-ups",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   },

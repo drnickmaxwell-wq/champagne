@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a periodontal assessment",
+          "label": "Plan a clinician-led periodontal gum care review",
           "href": "/contact?topic=periodontal",
           "preset": "primary"
         },
         {
-          "label": "Ask about gum care",
+          "label": "Consider alternatives like Implant suitability",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -58,7 +58,7 @@
       "bullets": [
         "We check for bleeding, plaque build-up, and gum measurements",
         "X-rays or scans help us see bone levels where needed",
-        "You’ll receive a clear, written plan before any therapy"
+        "You\u2019ll receive a clear, written plan before any therapy"
       ]
     },
     {
@@ -115,7 +115,7 @@
       "title": "Keeping gums healthy after treatment",
       "items": [
         "Short-term tenderness or temperature sensitivity is common and settles with good home care",
-        "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
+        "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing \u2014 we\u2019ll factor this into your plan",
         "Regular supportive periodontal therapy to maintain pocket depth reductions",
         "Clear instructions on cleaning around teeth and implants to protect results"
       ]
@@ -137,7 +137,7 @@
       "faqs": [
         {
           "question": "Does deep cleaning hurt?",
-          "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You’ll be guided on what to expect and how to keep things comfortable afterwards."
+          "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You\u2019ll be guided on what to expect and how to keep things comfortable afterwards."
         },
         {
           "question": "How long does it take to see improvement?",
@@ -145,12 +145,28 @@
         },
         {
           "question": "Can gum tissue grow back?",
-          "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we’ll discuss options if grafting or referral is appropriate."
+          "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we\u2019ll discuss options if grafting or referral is appropriate."
         },
         {
           "question": "What about implants with gum inflammation?",
-          "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we’ll outline referral options calmly."
+          "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we\u2019ll outline referral options calmly."
         }
+      ]
+    },
+    {
+      "instanceId": "periodontal-gum-care-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_periodontal-gum-care_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to learn about gum health assessments and tailored periodontal care.",
+        "Often follows Routine check-ups (/treatments/preventative-and-general-dentistry); Senior smile care (/treatments/senior-mature-smile-care).",
+        "Alternatives we balance: Sedation for deep cleaning (/treatments/sedation-dentistry); Routine prevention (/treatments/preventative-and-general-dentistry).",
+        "Next steps we plan for: Implant suitability (/treatments/implants-consultation); Oral surgery and extractions (/treatments/extractions-and-oral-surgery); Maintenance hygiene (/treatments/implants-aftercare)."
       ]
     },
     {
@@ -161,15 +177,15 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a periodontal assessment",
-      "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+      "body": "Let\u2019s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
       "ctas": [
         {
-          "label": "Schedule a gum review",
+          "label": "Plan a clinician-led periodontal gum care review",
           "href": "/contact?topic=periodontal",
           "preset": "primary"
         },
         {
-          "label": "Speak with the team",
+          "label": "Consider alternatives like Implant suitability",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -214,15 +230,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a gum health review",
+      "label": "Plan a clinician-led periodontal gum care review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant assessments if needed",
+      "label": "Consider alternatives like Implant suitability",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {
-      "label": "Learn about maintenance care",
+      "label": "Map next steps such as Routine check-ups",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   }

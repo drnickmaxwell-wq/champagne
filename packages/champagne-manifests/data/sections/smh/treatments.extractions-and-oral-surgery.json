@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Extractions & oral surgery",
       "title": "Gentle extractions with clear surgical planning",
-      "body": "When a tooth can’t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+      "body": "When a tooth can\u2019t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
       "bullets": [
         "Calm assessments that explain when extraction is the safest route",
         "Minimally invasive techniques to protect bone and gum",
@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book an extraction assessment",
+          "label": "Plan a clinician-led extractions and oral surgery review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about oral surgery",
+          "label": "Consider alternatives like Implant consultation",
           "href": "/contact?topic=treatment",
           "preset": "secondary"
         }
@@ -161,7 +161,7 @@
         },
         {
           "question": "How long is recovery?",
-          "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
+          "answer": "Most people are comfortable after a few days with steady improvement over 1\u20132 weeks. We give written instructions to support smooth healing."
         },
         {
           "question": "Can the tooth be replaced?",
@@ -169,8 +169,24 @@
         },
         {
           "question": "What if the tooth could be saved?",
-          "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
+          "answer": "If a filling, crown, or root canal could provide a predictable result, we\u2019ll explain that option first so you can make an informed choice."
         }
+      ]
+    },
+    {
+      "instanceId": "extractions-and-oral-surgery-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_extractions-and-oral-surgery_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after gum health concerns (/treatments/periodontal-gum-care) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to understand when extractions or minor oral surgery are recommended and how recovery works.",
+        "Often follows Gum health concerns (/treatments/periodontal-gum-care); Routine examinations (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Sedation support (/treatments/sedation-dentistry); Comfort-first numbing (/treatments/painless-numbing-the-wand).",
+        "Next steps we plan for: Implant consultation (/treatments/implants-consultation); Denture solutions (/treatments/dentures); Bone grafting for implants (/treatments/implants-bone-grafting)."
       ]
     },
     {
@@ -181,15 +197,15 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Need advice about a troublesome tooth?",
-      "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+      "body": "We\u2019ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
       "ctas": [
         {
-          "label": "Book an oral surgery consult",
+          "label": "Plan a clinician-led extractions and oral surgery review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Call the team",
+          "label": "Consider alternatives like Implant consultation",
           "href": "/contact",
           "variant": "secondary"
         }
@@ -234,15 +250,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange an oral surgery consultation",
+      "label": "Plan a clinician-led extractions and oral surgery review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan implant replacement options",
+      "label": "Consider alternatives like Implant consultation",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {
-      "label": "Discuss sedation and recovery",
+      "label": "Map next steps such as Sedation support",
       "href": "/treatments/sedation-dentistry"
     }
   }

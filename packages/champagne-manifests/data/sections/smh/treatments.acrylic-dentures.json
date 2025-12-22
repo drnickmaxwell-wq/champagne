@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a denture consult",
+          "label": "Plan a clinician-led acrylic dentures review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Compare denture options",
+          "label": "Consider alternatives like dentures",
           "href": "/treatments/dentures",
           "preset": "secondary"
         }
@@ -97,7 +97,7 @@
         "Guidance on cleaning and using adhesive sparingly",
         "Follow-up for relines or further adjustments"
       ],
-      "strapline": "You’ll know expected timelines, review points, and fees upfront."
+      "strapline": "You\u2019ll know expected timelines, review points, and fees upfront."
     },
     {
       "instanceId": "acrylic-dentures-technology",
@@ -159,6 +159,22 @@
       ]
     },
     {
+      "instanceId": "acrylic-dentures-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_acrylic-dentures_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after extractions and oral surgery (/treatments/extractions-and-oral-surgery) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to decide if acrylic dentures suit current needs for missing teeth.",
+        "Often follows Extractions and oral surgery (/treatments/extractions-and-oral-surgery); Gum health management (/treatments/periodontal-gum-care).",
+        "Alternatives we balance: Senior smile care (/treatments/senior-mature-smile-care); Comfort sedation (/treatments/sedation-dentistry).",
+        "Next steps we plan for: Implant-retained dentures (/treatments/implants-retained-dentures); Implant consultation (/treatments/implants-consultation); Aftercare and hygiene (/treatments/implants-aftercare)."
+      ]
+    },
+    {
       "instanceId": "acrylic-dentures-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_acrylic_dentures_cta",
@@ -169,12 +185,12 @@
       "body": "Book a consultation to shape your acrylic dentures with clear expectations on fit, maintenance, and future stabilisation options.",
       "ctas": [
         {
-          "label": "Book a denture consult",
+          "label": "Plan a clinician-led acrylic dentures review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Implant-retained dentures",
+          "label": "Consider alternatives like implant retained dentures",
           "href": "/treatments/implant-retained-dentures",
           "preset": "secondary"
         }
@@ -219,15 +235,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss acrylic denture options",
+      "label": "Plan a clinician-led acrylic dentures review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Consider implant-retained alternatives",
+      "label": "Consider alternatives like Implant-retained dentures",
       "href": "/treatments/implants-retained-dentures"
     },
     "reassurance_intent": {
-      "label": "Plan denture aftercare and reviews",
+      "label": "Map next steps such as preventative and general dentistry",
       "href": "/treatments/preventative-and-general-dentistry"
     }
   }

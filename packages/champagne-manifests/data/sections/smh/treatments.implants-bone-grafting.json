@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book an implant assessment",
+          "label": "Plan a clinician-led implants bone grafting review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about bone grafting",
+          "label": "Consider alternatives like Implant placement",
           "href": "/contact?topic=implants",
           "variant": "secondary"
         }
@@ -72,7 +72,7 @@
         "Previous gum issues that left thinner bone in the area",
         "Upper back teeth where the sinus floor sits low",
         "Patients choosing implants instead of removable dentures",
-        "Not everyone needs grafting — we confirm with scans and planning"
+        "Not everyone needs grafting \u2014 we confirm with scans and planning"
       ]
     },
     {
@@ -166,6 +166,22 @@
       ]
     },
     {
+      "instanceId": "implants-bone-grafting-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_implants-bone-grafting_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to find out when bone grafting is indicated to support implants.",
+        "Often follows Implant consultation (/treatments/implants-consultation); 3D scans (/treatments/cbct-3d-scanning).",
+        "Alternatives we balance: Sedation dentistry (/treatments/sedation-dentistry); Aftercare and hygiene (/treatments/implants-aftercare).",
+        "Next steps we plan for: Implant placement (/treatments/implants); Teeth in a day (/treatments/implants-teeth-in-a-day); Implant restorations (/treatments/3d-implant-restorations)."
+      ]
+    },
+    {
       "instanceId": "bone-grafting-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_implant_bone_grafting_cta",
@@ -173,15 +189,15 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Ready to plan implants with confidence?",
-      "strapline": "Book an assessment in Shoreham-by-Sea and we’ll map the safest route — including whether grafting is needed.",
+      "strapline": "Book an assessment in Shoreham-by-Sea and we\u2019ll map the safest route \u2014 including whether grafting is needed.",
       "ctas": [
         {
-          "label": "Book an implant assessment",
+          "label": "Plan a clinician-led implants bone grafting review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Learn about implant options",
+          "label": "Consider alternatives like Implant placement",
           "href": "/treatments/implants",
           "variant": "secondary"
         }
@@ -226,15 +242,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Discuss grafting or support procedures",
+      "label": "Plan a clinician-led implants bone grafting review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan timelines toward implant placement",
+      "label": "Consider alternatives like Implant placement",
       "href": "/treatments/implants"
     },
     "reassurance_intent": {
-      "label": "Review sedation availability",
+      "label": "Map next steps such as implants sedation",
       "href": "/treatments/implants-sedation"
     }
   }

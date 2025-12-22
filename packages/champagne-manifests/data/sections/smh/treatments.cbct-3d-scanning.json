@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a scan appointment",
+          "label": "Plan a clinician-led cbct 3d scanning review",
           "href": "/contact?topic=digital-dentistry",
           "preset": "primary"
         },
         {
-          "label": "Ask about CBCT",
+          "label": "Consider alternatives like implants",
           "href": "/contact?topic=3d-printing",
           "preset": "secondary"
         }
@@ -122,7 +122,7 @@
         "Data securely stored and shared when you agree",
         "Follow-up visits scheduled based on findings",
         "Advice on any interim care if we spot concerns",
-        "Guidance on when re-scans are or aren’t needed"
+        "Guidance on when re-scans are or aren\u2019t needed"
       ]
     },
     {
@@ -163,6 +163,22 @@
       ]
     },
     {
+      "instanceId": "cbct-3d-scanning-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_cbct-3d-scanning_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to check when cbct or 3d scans are indicated and what they show.",
+        "Often follows Implant consultation (/treatments/implants-consultation); Oral surgery planning (/treatments/extractions-and-oral-surgery).",
+        "Alternatives we balance: Digital dentistry (/treatments/3d-digital-dentistry); Implant restorations (/treatments/3d-implant-restorations).",
+        "Next steps we plan for: Bone grafting (/treatments/implants-bone-grafting); Sinus lift (/treatments/implants-sinus-lift); Teeth in a day planning (/treatments/implants-teeth-in-a-day)."
+      ]
+    },
+    {
       "instanceId": "cbct-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_cbct_cta",
@@ -173,12 +189,12 @@
       "body": "Schedule a scan appointment to map your anatomy and plan treatment with clear, conservative steps.",
       "ctas": [
         {
-          "label": "Book a scan",
+          "label": "Plan a clinician-led cbct 3d scanning review",
           "href": "/contact?topic=digital-dentistry",
           "preset": "primary"
         },
         {
-          "label": "Ask about CBCT",
+          "label": "Consider alternatives like implants",
           "href": "/contact?topic=3d-printing",
           "preset": "secondary"
         }
@@ -223,15 +239,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a CBCT imaging appointment",
+      "label": "Plan a clinician-led cbct 3d scanning review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss implant planning from scans",
+      "label": "Consider alternatives like implants",
       "href": "/treatments/implants"
     },
     "reassurance_intent": {
-      "label": "Review surgical support options",
+      "label": "Map next steps such as Bone grafting",
       "href": "/treatments/implants-bone-grafting"
     }
   }

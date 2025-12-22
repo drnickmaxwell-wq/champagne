@@ -21,12 +21,12 @@
       ],
       "ctas": [
         {
-          "label": "Book fixed braces consult",
+          "label": "Plan a clinician-led fixed braces review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask a braces question",
+          "label": "Consider alternatives like Alternatives with aligners",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -125,7 +125,7 @@
       "order": 55,
       "seoRole": "supporting",
       "eyebrow": "Monitoring & adjustments",
-      "title": "Scheduled reviews with clear actions if teeth don’t track",
+      "title": "Scheduled reviews with clear actions if teeth don\u2019t track",
       "items": [
         "Review intervals mapped at the outset so you know when to attend",
         "Wire changes, elastics, and ligatures adjusted to how your teeth respond",
@@ -240,6 +240,22 @@
       ]
     },
     {
+      "instanceId": "fixed-braces-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_fixed-braces_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to assess whether fixed braces are suitable and how treatment progresses.",
+        "Often follows Routine check-ups (/treatments/preventative-and-general-dentistry); Children's dental reviews (/treatments/childrens-dentistry); Smile design consult (/treatments/digital-smile-design).",
+        "Alternatives we balance: Alternatives with aligners (/treatments/aligners); Sports mouthguard advice (/treatments/sports-mouthguards); Support for nervous patients (/treatments/nervous-patients).",
+        "Next steps we plan for: Retainer fitting (/treatments/dental-retainers); Mouthguards during treatment (/treatments/mouthguards-and-retainers); Post-straightening whitening (/treatments/teeth-whitening)."
+      ]
+    },
+    {
       "instanceId": "fixed-braces-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_fixed_braces_cta",
@@ -250,12 +266,12 @@
       "body": "Meet the team, review metal versus ceramic options, and leave with a clear plan for movement, monitoring, and retention before you commit.",
       "ctas": [
         {
-          "label": "Book an Orthodontic Assessment",
+          "label": "Plan a clinician-led fixed braces review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask a braces question",
+          "label": "Consider alternatives like Alternatives with aligners",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -325,15 +341,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange an orthodontic consultation",
+      "label": "Plan a clinician-led fixed braces review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Review aligner alternatives",
+      "label": "Consider alternatives like Alternatives with aligners",
       "href": "/treatments/aligners"
     },
     "reassurance_intent": {
-      "label": "Understand retainer care",
+      "label": "Map next steps such as Retainer fitting",
       "href": "/treatments/dental-retainers"
     }
   }

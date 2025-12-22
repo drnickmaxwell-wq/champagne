@@ -153,6 +153,22 @@
       ]
     },
     {
+      "instanceId": "tmj-disorder-treatment-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_tmj-disorder-treatment_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after facial pain investigations (/treatments/facial-pain-and-headache) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore assessment and management options for tmj disorders.",
+        "Often follows Facial pain investigations (/treatments/facial-pain-and-headache); Grinding and clenching review (/treatments/bruxism-and-jaw-clenching).",
+        "Alternatives we balance: Jaw comfort strategies (/treatments/tmj-jaw-comfort); Support for anxious patients (/treatments/nervous-patients).",
+        "Next steps we plan for: Occlusal splints (/treatments/night-guards-occlusal-splints); Bite balancing orthodontics (/treatments/orthodontics); Restoring worn teeth (/treatments/veneers)."
+      ]
+    },
+    {
       "instanceId": "tmj-disorder-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_tmj_disorder_cta",
@@ -163,12 +179,12 @@
       "body": "Discuss locking, clicking, or jaw pain with a clinician who prioritises reversible care and clear escalation pathways.",
       "ctas": [
         {
-          "label": "Book TMJ consultation",
+          "label": "Plan a clinician-led tmj disorder treatment review",
           "href": "/contact?topic=tmj",
           "preset": "primary"
         },
         {
-          "label": "Ask about TMJ care",
+          "label": "Consider alternatives like Occlusal splints",
           "href": "/contact?topic=tmj",
           "preset": "secondary"
         }
@@ -213,15 +229,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a TMJ consultation",
+      "label": "Plan a clinician-led tmj disorder treatment review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Plan a splint fitting",
+      "label": "Consider alternatives like Occlusal splints",
       "href": "/treatments/night-guards-occlusal-splints"
     },
     "reassurance_intent": {
-      "label": "Learn about jaw comfort care",
+      "label": "Map next steps such as Jaw comfort strategies",
       "href": "/treatments/tmj-jaw-comfort"
     }
   }

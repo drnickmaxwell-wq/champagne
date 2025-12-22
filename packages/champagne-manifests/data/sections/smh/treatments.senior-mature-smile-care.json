@@ -20,12 +20,12 @@
       ],
       "ctas": [
         {
-          "label": "Book a mature smile review",
+          "label": "Plan a clinician-led senior mature smile care review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask about comfort-focused care",
+          "label": "Consider alternatives like Implant consultation",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -155,6 +155,22 @@
       ]
     },
     {
+      "instanceId": "senior-mature-smile-care-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_senior-mature-smile-care_decision_clarity",
+      "order": 79,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine dentistry (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to explore dental care considerations tailored to mature smiles.",
+        "Often follows Routine dentistry (/treatments/preventative-and-general-dentistry); Gum care (/treatments/periodontal-gum-care).",
+        "Alternatives we balance: Aftercare and hygiene (/treatments/implants-aftercare); Sedation support (/treatments/sedation-dentistry).",
+        "Next steps we plan for: Dentures and replacement teeth (/treatments/dentures); Implant consultation (/treatments/implants-consultation); Gum stability reviews (/treatments/periodontal-gum-care)."
+      ]
+    },
+    {
       "instanceId": "senior-smile-cta",
       "componentId": "treatment.cta",
       "variantId": "smh_senior_smile_cta",
@@ -162,15 +178,15 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a mature smile assessment",
-      "body": "Let’s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
+      "body": "Let\u2019s plan prevention-first, comfortable care that suits how you want to be treated. Related care: Periodontal & Gum Care (/treatments/periodontal-gum-care), Dental Crowns (/treatments/dental-crowns), Dental Bridges (/treatments/dental-bridges), Dentures (/treatments/dentures), Dental Implants (/treatments/implants), Check-Ups & Oral Cancer Screening (/treatments/preventative-and-general-dentistry).",
       "ctas": [
         {
-          "label": "Plan my visit",
+          "label": "Plan a clinician-led senior mature smile care review",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Ask a clinician",
+          "label": "Consider alternatives like Implant consultation",
           "href": "/contact",
           "preset": "secondary"
         }
@@ -215,15 +231,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Arrange a mature smile review",
+      "label": "Plan a clinician-led senior mature smile care review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Discuss implant possibilities",
+      "label": "Consider alternatives like Implant consultation",
       "href": "/treatments/implants-consultation"
     },
     "reassurance_intent": {
-      "label": "Explore denture pathways",
+      "label": "Map next steps such as Dentures and replacement teeth",
       "href": "/treatments/dentures"
     }
   }

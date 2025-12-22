@@ -12,21 +12,21 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Implant-retained dentures in Shoreham-by-Sea",
-      "body": "Secure dentures held in place by dental implants — designed to improve comfort, confidence, and everyday function.",
+      "body": "Secure dentures held in place by dental implants \u2014 designed to improve comfort, confidence, and everyday function.",
       "bullets": [
-        "Dentures that don’t slip or lift",
+        "Dentures that don\u2019t slip or lift",
         "Fewer implants than full fixed bridges",
         "Improved chewing and speech",
         "Removable for cleaning (where suitable)"
       ],
       "ctas": [
         {
-          "label": "Book an implant assessment",
+          "label": "Plan a clinician-led implant retained dentures review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Ask about implant-retained dentures",
+          "label": "Consider alternatives like CBCT 3D scanning",
           "href": "/contact?topic=implants",
           "variant": "secondary"
         }
@@ -70,7 +70,7 @@
         "Those wanting more stability without full fixed bridges",
         "Patients with reduced bone volume unsuitable for many implants",
         "Anyone seeking a secure but cost-conscious implant option",
-        "Not everyone is suitable — we confirm with scans and assessment"
+        "Not everyone is suitable \u2014 we confirm with scans and assessment"
       ]
     },
     {
@@ -101,7 +101,7 @@
       "items": [
         "3D CBCT imaging",
         "Guided implant placement",
-        "Close clinician–lab collaboration"
+        "Close clinician\u2013lab collaboration"
       ]
     },
     {
@@ -168,6 +168,22 @@
       ]
     },
     {
+      "instanceId": "implant-retained-dentures-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_implant-retained-dentures_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to restorative.",
+        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
+        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
+        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
+      ]
+    },
+    {
       "instanceId": "implant-retained-cta",
       "componentId": "treatment.cta",
       "variantId": "shoreham_implant_retained_cta",
@@ -178,12 +194,12 @@
       "strapline": "Book an implant assessment in Shoreham-by-Sea and explore whether implant-retained dentures are right for you.",
       "ctas": [
         {
-          "label": "Book an implant assessment",
+          "label": "Plan a clinician-led implant retained dentures review",
           "href": "/contact",
           "variant": "primary"
         },
         {
-          "label": "Explore implant options",
+          "label": "Consider alternatives like implants",
           "href": "/treatments/implants",
           "variant": "secondary"
         }
@@ -228,15 +244,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan implant placement",
+      "label": "Plan a clinician-led implant retained dentures review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Confirm digital planning",
+      "label": "Consider alternatives like CBCT 3D scanning",
       "href": "/treatments/cbct-3d-scanning"
     },
     "reassurance_intent": {
-      "label": "Review aftercare steps",
+      "label": "Map next steps such as Hygiene and aftercare",
       "href": "/treatments/implants-aftercare"
     }
   }

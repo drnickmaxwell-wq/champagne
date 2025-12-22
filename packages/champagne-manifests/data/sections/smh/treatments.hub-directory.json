@@ -147,19 +147,35 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Find the right treatment pathway",
+      "label": "Plan a clinician-led hub directory review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Arrange a general consultation",
+      "label": "Consider alternatives like Routine check-ups",
       "href": "/treatments/preventative-and-general-dentistry"
     },
     "reassurance_intent": {
-      "label": "Ask about anxiety support",
+      "label": "Map next steps such as Nervous patient support",
       "href": "/treatments/nervous-patients"
     }
   },
   "sections": [
+    {
+      "instanceId": "hub-directory-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_hub-directory_decision_clarity",
+      "order": 9,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after routine check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to navigate treatment categories to reach the most relevant service.",
+        "Often follows Routine check-ups (/treatments/preventative-and-general-dentistry).",
+        "Alternatives we balance: Nervous patient support (/treatments/nervous-patients); Senior smile care (/treatments/senior-mature-smile-care).",
+        "Next steps we plan for: Implant treatments (/treatments/implants); Orthodontic care (/treatments/orthodontics); Facial aesthetics (/treatments/facial-aesthetics)."
+      ]
+    },
     {
       "instanceId": "hub-directory-mid-cta",
       "componentId": "treatment_mid_cta",
