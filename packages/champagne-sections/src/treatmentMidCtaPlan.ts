@@ -8,6 +8,7 @@ import {
 } from "@champagne/manifests/src/helpers";
 import { getRouteIdFromSlug } from "@champagne/manifests/src/core";
 import type { SectionRegistryEntry } from "./SectionRegistry";
+import { dedupeButtons } from "./ctaDedupe";
 
 type ChampagneCTAVariant = "primary" | "secondary" | "ghost";
 
@@ -137,6 +138,7 @@ export interface MidCTAAuditReport {
     rawLabelCount: number;
   };
   dropped: { id?: string; label?: string; href?: string; reason: string }[];
+  deduped: { buttonsRemoved: number };
   usedFallbackDefaults: boolean;
 }
 
@@ -355,14 +357,24 @@ function buildFallbackLinks(slug: string) {
   return fallbacks.filter((path) => treatmentPaths.has(path)).map((href) => ({ href }));
 }
 
-function buildJourneyCTAs(routeId: string) {
+function buildJourneyCTAs(routeId: string): CTAPlanEntry[] {
   const journey = getTreatmentJourneyForRoute(routeId);
-  const ctas: ChampagneCTAInput[] = [];
+  const ctas: CTAPlanEntry[] = [];
 
   const journeyMidCTA = (journey as { journey?: { mid_page_cta?: { label?: string; href?: string } } } | undefined)?.journey
     ?.mid_page_cta;
   if (journeyMidCTA?.href && journeyMidCTA.label) {
     ctas.push({ href: journeyMidCTA.href, label: journeyMidCTA.label, variant: "secondary" });
+  }
+
+  const journeyTargets = (journey as { cta_targets?: Record<string, { label?: string; href?: string }> } | undefined)?.cta_targets;
+  if (journeyTargets) {
+    ["secondary", "tertiary"].forEach((slot) => {
+      const target = journeyTargets[slot];
+      if (target?.href && target.label && treatmentPaths.has(target.href)) {
+        ctas.push({ href: target.href, label: target.label, variant: "secondary" });
+      }
+    });
   }
 
   const relatedTreatments = (journey as { related_treatments?: string[] } | undefined)?.related_treatments ?? [];
@@ -375,33 +387,7 @@ function buildJourneyCTAs(routeId: string) {
     ctas.push({ href: path, label: relatedLabel ?? label, variant: "secondary" });
   });
 
-  const journeyTargets = (journey as { cta_targets?: Record<string, { label?: string; href?: string }> } | undefined)?.cta_targets;
-  if (journeyTargets) {
-    ["secondary", "tertiary"].forEach((slot) => {
-      const target = journeyTargets[slot];
-      if (target?.href && target.label && treatmentPaths.has(target.href)) {
-        ctas.push({ href: target.href, label: target.label, variant: "secondary" });
-      }
-    });
-  }
-
   return ctas;
-}
-
-function dedupeCTAs(ctas: ChampagneCTAInput[]): CTAPlanEntry[] {
-  const seen = new Set<string>();
-  const cleaned: CTAPlanEntry[] = [];
-  ctas.forEach((cta) => {
-    const normalized = typeof cta === "string" ? { href: cta, label: cta } : cta;
-    const href = normalized.href;
-    const label = normalized.label ?? href;
-    if (!href || !label) return;
-    const key = href;
-    if (seen.has(key)) return;
-    seen.add(key);
-    cleaned.push({ ...normalized, label });
-  });
-  return cleaned;
 }
 
 function buildRouteTruthSet() {
@@ -536,12 +522,17 @@ function resolveTreatmentHrefAlias(href?: string): { href?: string; wasAlias: bo
   return { href: resolvedPath, wasAlias };
 }
 
+function normalizeHrefForDedupe(href?: string) {
+  if (!href || typeof href !== "string") return href;
+  return resolveTreatmentHrefAlias(href).href ?? href;
+}
+
 function normalizePlanEntry(entry: CTAPlanEntry, slug: string, index: number): CTAPlanEntry {
   return {
     id: entry.id ?? `${slug}-mid-cta-${index + 1}`,
     href: entry.href,
     label: entry.label,
-    variant: entry.variant ?? "secondary",
+    variant: entry.variant ?? (index === 0 ? "primary" : "secondary"),
   };
 }
 
@@ -551,7 +542,7 @@ function buildCandidateCTAs(section: SectionRegistryEntry | undefined, routeId: 
   const intentCTAs = buildIntentCTA(routeId);
   const fallbackLinks = buildFallbackLinks(slug);
 
-  return dedupeCTAs([...intentCTAs, ...journeyCTAs, ...sectionCTAs, ...fallbackLinks]);
+  return [...sectionCTAs, ...journeyCTAs, ...intentCTAs, ...fallbackLinks];
 }
 
 function summarizeButtons(buttons: MidCTAButtonAudit[]) {
@@ -563,7 +554,7 @@ function summarizeButtons(buttons: MidCTAButtonAudit[]) {
 export function resolveTreatmentMidCTAPlan(
   section: SectionRegistryEntry | undefined,
   pageSlug: string | undefined,
-  limit = 4,
+  limit = 2,
 ): MidCTAPlanResult {
   const slug = pageSlug?.split("/").filter(Boolean).pop() ?? "treatment";
   const routeId = getRouteIdFromSlug(pageSlug ?? slug);
@@ -619,7 +610,8 @@ export function resolveTreatmentMidCTAPlan(
     sanitized = [...safeFallbackCTAs];
   }
 
-  const deduped = dedupeCTAs(sanitized).map((cta, index) => normalizePlanEntry(cta, slug, index));
+  const dedupedResult = dedupeButtons(sanitized, { normalizeHref: normalizeHrefForDedupe });
+  const deduped = dedupedResult.buttons.map((cta, index) => normalizePlanEntry(cta, slug, index));
   const capped = deduped.slice(0, limit);
 
   const resolvedCTAs = resolveCTAList(capped, "secondary", {
@@ -645,6 +637,7 @@ export function resolveTreatmentMidCTAPlan(
       before: { buttons: beforeButtons, ...beforeSummary },
       after: { buttons: sanitizedButtons, ...afterSummary },
       dropped,
+      deduped: { buttonsRemoved: dedupedResult.dropped.length },
       usedFallbackDefaults: validated.filter(Boolean).length === 0,
     },
   };
