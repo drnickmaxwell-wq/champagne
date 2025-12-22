@@ -9,6 +9,7 @@ import {
 import { getRouteIdFromSlug } from "@champagne/manifests/src/core";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { dedupeButtons } from "./ctaDedupe";
+import { enforceCtaLabelTruth } from "./ctaLabelTruth";
 import {
   createRelationAudit,
   labelFromHref,
@@ -613,7 +614,9 @@ export function resolveTreatmentMidCTAPlan(
     page: section?.id,
   });
 
-  const sanitizedButtons = resolvedCTAs.map((cta) => ({
+  const truthAlignedCTAs = enforceCtaLabelTruth(resolvedCTAs);
+
+  const sanitizedButtons = truthAlignedCTAs.map((cta) => ({
     id: cta.id,
     label: cta.label,
     href: cta.href,
@@ -626,7 +629,7 @@ export function resolveTreatmentMidCTAPlan(
   const afterSummary = summarizeButtons(sanitizedButtons);
 
   return {
-    resolvedCTAs,
+    resolvedCTAs: truthAlignedCTAs,
     audit: {
       before: { buttons: beforeButtons, ...beforeSummary },
       after: { buttons: sanitizedButtons, ...afterSummary },
