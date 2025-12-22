@@ -542,7 +542,15 @@ function buildCandidateCTAs(section: SectionRegistryEntry | undefined, routeId: 
   const intentCTAs = buildIntentCTA(routeId);
   const fallbackLinks = buildFallbackLinks(slug);
 
-  return [...sectionCTAs, ...journeyCTAs, ...intentCTAs, ...fallbackLinks];
+  const [journeyMidCTA, ...journeySupporting] = journeyCTAs;
+
+  return [
+    ...(journeyMidCTA ? [journeyMidCTA] : []),
+    ...journeySupporting,
+    ...sectionCTAs,
+    ...intentCTAs,
+    ...fallbackLinks,
+  ];
 }
 
 function summarizeButtons(buttons: MidCTAButtonAudit[]) {

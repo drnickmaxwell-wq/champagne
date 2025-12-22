@@ -19,6 +19,7 @@ export interface SectionTreatmentClosingCTAProps {
   section?: SectionRegistryEntry;
   ctas?: ChampagneCTAConfig[];
   pageSlug?: string;
+  usedMidCtaHrefs?: string[];
 }
 
 const wrapperStyle: CSSProperties = {
@@ -28,11 +29,11 @@ const wrapperStyle: CSSProperties = {
   gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
 };
 
-export function Section_TreatmentClosingCTA({ section, ctas, pageSlug }: SectionTreatmentClosingCTAProps = {}) {
+export function Section_TreatmentClosingCTA({ section, ctas, pageSlug, usedMidCtaHrefs }: SectionTreatmentClosingCTAProps = {}) {
   const title = section?.title ?? "Ready for a seamless smile refresh?";
   const strapline = section?.strapline
     ?? "Book a consultation or preview your smile with AI-guided mock-ups.";
-  const { buttons } = resolveTreatmentClosingCTAPlan({ section, ctas, pageSlug });
+  const { buttons } = resolveTreatmentClosingCTAPlan({ section, ctas, pageSlug, usedHrefs: usedMidCtaHrefs });
 
   return (
     <BaseChampagneSurface
