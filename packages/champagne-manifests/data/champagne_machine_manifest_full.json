@@ -1015,9 +1015,6 @@
           "id": "treatment.faq"
         },
         {
-          "id": "treatment.cta"
-        },
-        {
           "id": "clear_aligners_closing_cta",
           "type": "treatment_closing_cta",
           "title": "Book a clear aligner assessment",

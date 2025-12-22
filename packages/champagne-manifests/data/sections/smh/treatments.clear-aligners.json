@@ -180,33 +180,6 @@
       ]
     },
     {
-      "instanceId": "clear-aligners-cta",
-      "componentId": "treatment.cta",
-      "variantId": "shoreham_clear_aligners_cta",
-      "order": 90,
-      "seoRole": "cta",
-      "eyebrow": "Ready when you are",
-      "title": "Book a calm consultation",
-      "body": "Discuss aligner options in a judgement-free setting with clear, staged planning before you decide.",
-      "ctas": [
-        {
-          "label": "Discuss clear aligners spark before deciding",
-          "href": "/treatments/clear-aligners-spark",
-          "preset": "primary"
-        },
-        {
-          "label": "Consider alternatives like Finishing with teeth whitening",
-          "href": "/treatments/teeth-whitening",
-          "preset": "secondary"
-        },
-        {
-          "label": "Plan next steps with Digital smile planning",
-          "href": "/treatments/digital-smile-design",
-          "preset": "secondary"
-        }
-      ]
-    },
-    {
       "instanceId": "clear-aligners-related",
       "componentId": "treatment.trustSignals",
       "variantId": "shoreham_clear_aligners_related",
