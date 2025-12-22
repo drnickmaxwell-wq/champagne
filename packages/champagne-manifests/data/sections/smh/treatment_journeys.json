@@ -1022,6 +1022,95 @@
       ]
     },
     {
+      "routeId": "treatments.dental-fillings",
+      "primary_patient_intent": "Understand filling options and when composite or amalgam is recommended.",
+      "secondary_patient_intents": [
+        "Learn what the appointment involves",
+        "Plan aftercare and sensitivity expectations"
+      ],
+      "common_questions": [
+        "Is composite or amalgam better for my tooth?",
+        "Will the tooth feel sensitive afterwards?",
+        "When would I need an onlay or crown instead?"
+      ],
+      "typical_next_steps": [
+        "Book fillings consultation",
+        "Select material based on load and isolation",
+        "Schedule bite check and review"
+      ],
+      "related_treatments": [
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns",
+        "treatments.endodontics-root-canal"
+      ],
+      "cta_plan": {
+        "mid_page": [
+          {
+            "target": "cta",
+            "intent": "review_fillings_options"
+          }
+        ],
+        "late_page": [
+          {
+            "target": "cta",
+            "intent": "restorative_assessment"
+          },
+          {
+            "target": "cta",
+            "intent": "treatment_options"
+          }
+        ]
+      },
+      "cta_targets": {
+        "primary": {
+          "label": "Book dental fillings consultation",
+          "href": "/contact"
+        },
+        "secondary": {
+          "label": "Explore onlays and inlays",
+          "href": "/treatments/inlays-onlays"
+        },
+        "tertiary": {
+          "label": "See when crowns are safer",
+          "href": "/treatments/dental-crowns"
+        }
+      },
+      "journey": {
+        "id": "functional_restoration",
+        "page_role": "direct_restoration",
+        "primary_intent": "review_fillings_options",
+        "secondary_intent": "treatment_options",
+        "mid_page_cta": {
+          "label": "Understand root canal options",
+          "href": "/treatments/endodontics-root-canal"
+        }
+      },
+      "entry_contexts": [
+        "symptom-led",
+        "preventive"
+      ],
+      "primary_intent": "restorative",
+      "next_best_steps": [
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns",
+        "treatments.endodontics-root-canal"
+      ],
+      "clinical_alternatives": [
+        "treatments.inlays-onlays",
+        "treatments.dental-crowns"
+      ],
+      "escalation_triggers": [
+        "pulp symptoms",
+        "fracture into dentine",
+        "recurrent decay around existing fillings"
+      ],
+      "authority_signals": [
+        "Moisture control, bonding, and isolation for stable seals",
+        "Bite checks and adjustments to protect opposing teeth",
+        "Follow-up hygiene and bruxism support"
+      ]
+    },
+    {
       "routeId": "treatments.tooth-wear-broken-teeth",
       "primary_patient_intent": "Repair worn or broken teeth with conservative planning.",
       "secondary_patient_intents": [],
@@ -5229,6 +5318,7 @@
       ],
       "related_treatments": [
         "treatments.preventative-and-general-dentistry",
+        "treatments.dental-fillings",
         "treatments.inlays-onlays",
         "treatments.dental-crowns"
       ],
@@ -5264,8 +5354,8 @@
           "href": "/contact"
         },
         "secondary": {
-          "label": "Review restorative fillings",
-          "href": "/treatments/inlays-onlays"
+          "label": "Review dental fillings",
+          "href": "/treatments/dental-fillings"
         },
         "tertiary": {
           "label": "See crown and bridge options",

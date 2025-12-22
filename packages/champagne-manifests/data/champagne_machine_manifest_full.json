@@ -4939,6 +4939,72 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "dental_fillings": {
+      "id": "dental_fillings",
+      "label": "Dental fillings",
+      "path": "/treatments/dental-fillings",
+      "category": "treatment",
+      "hero": "treatment_neutral_hero_v1",
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.cta"
+        },
+        {
+          "id": "dental_fillings_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Related care to explore",
+          "strapline": "Compare connected steps and plan the next visit."
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "dental_fillings_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Plan a calm filling appointment",
+          "strapline": "Choose composite or amalgam with guidance and follow-up.",
+          "ctas": [
+            {
+              "label": "Book fillings consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Explore onlays and inlays",
+              "href": "/treatments/inlays-onlays",
+              "preset": "secondary"
+            },
+            {
+              "label": "Explore crowns",
+              "href": "/treatments/dental-crowns",
+              "preset": "secondary"
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "dentures": {
       "id": "dentures",
       "label": "Dentures & tooth replacement",

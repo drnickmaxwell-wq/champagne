@@ -73,6 +73,8 @@ const TREATMENT_PATH_ALIASES: Record<string, string> = {
   "/treatments/dental-implants": "/treatments/implants",
   "/treatments/hygiene": "/treatments/preventative-and-general-dentistry",
   "/treatments/3d-printed-implant-restorations": "/treatments/3d-implant-restorations",
+  "/treatments/fillings": "/treatments/dental-fillings",
+  "/treatments/restorative-fillings": "/treatments/dental-fillings",
 };
 
 function normalizeTreatmentPath(value: string) {
