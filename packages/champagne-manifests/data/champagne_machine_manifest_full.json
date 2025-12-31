@@ -1188,15 +1188,26 @@
           "label": "Team"
         },
         {
-          "id": "team_grid_placeholder",
-          "type": "feature-grid",
-          "title": "Team members",
-          "items": [
-            "Clinical leads \u2014 bios in progress",
-            "Hygiene and therapy \u2014 caring guides",
-            "Support staff \u2014 coordinating each visit"
-          ],
-          "label": "Team grid"
+          "id": "team_clinical_team",
+          "type": "routing_cards",
+          "title": "Clinical team",
+          "eyebrow": "Clinical team",
+          "definition": {
+            "items": [
+              {
+                "title": "Dr Nick Maxwell",
+                "href": "/team/nick-maxwell"
+              },
+              {
+                "title": "Dr Sylvia Krafft",
+                "href": "/team/sylvia-krafft"
+              },
+              {
+                "title": "Sara Burden",
+                "href": "/team/sara-burden"
+              }
+            ]
+          }
         },
         {
           "id": "team_connection_cta",
