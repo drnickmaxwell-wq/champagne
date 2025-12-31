@@ -1195,31 +1195,50 @@
           "items": [
             {
               "title": "Dr Nick Maxwell",
-              "description": "Clinical lead",
+              "description": "Clinical lead with restorative and implant focus.",
+              "tag": "Clinical lead",
               "path": "/team/nick-maxwell"
             },
             {
               "title": "Dr Sylvia Krafft",
-              "description": "Clinical lead",
+              "description": "Clinical lead across restorative and orthodontic care.",
+              "tag": "Clinical lead",
               "path": "/team/sylvia-krafft"
             },
             {
               "title": "Sara Burden",
-              "description": "Therapist",
+              "description": "Therapist supporting hygiene and restorative journeys.",
+              "tag": "Therapist",
               "path": "/team/sara-burden"
             }
           ]
         },
         {
           "id": "team_supporting_staff",
-          "type": "feature-grid",
+          "type": "patient_stories_rail",
           "title": "Wider practice team",
           "label": "Support team",
-          "items": [
-            "Reception and coordination",
-            "Nursing support",
-            "Treatment coordination",
-            "Practice management"
+          "stories": [
+            {
+              "summary": "First point of contact for scheduling and visit support.",
+              "name": "Reception and coordination",
+              "role": "Reception"
+            },
+            {
+              "summary": "Assists clinicians chairside and keeps treatments running smoothly.",
+              "name": "Nursing support",
+              "role": "Nurses"
+            },
+            {
+              "summary": "Guides patients through treatment steps and follow-up planning.",
+              "name": "Treatment coordination",
+              "role": "Coordinators"
+            },
+            {
+              "summary": "Oversees operations and ensures the practice runs calmly.",
+              "name": "Practice management",
+              "role": "Managers"
+            }
           ]
         }
       ],
