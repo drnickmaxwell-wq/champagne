@@ -14,10 +14,10 @@ export default function TeamPage() {
   return (
     <>
       {isHeroEnabled && <HeroRenderer pageCategory="utility" />}
-      <section aria-labelledby="meet-the-team" className="mb-10">
+      <section aria-labelledby="clinical-team" className="mb-10">
         <div className="mb-4">
-          <h2 id="meet-the-team" className="text-2xl font-semibold leading-tight">
-            Meet the team
+          <h2 id="clinical-team" className="text-2xl font-semibold leading-tight">
+            Clinical team
           </h2>
         </div>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -25,7 +25,7 @@ export default function TeamPage() {
             <Link
               key={member.href}
               href={member.href}
-              className="block rounded-lg border border-current px-4 py-3 font-medium transition-colors hover:underline"
+              className="block rounded-lg border border-neutral-800 bg-neutral-900/40 p-4 font-medium text-neutral-50 transition hover:border-neutral-700 hover:bg-neutral-900/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-200"
             >
               {member.label}
             </Link>
