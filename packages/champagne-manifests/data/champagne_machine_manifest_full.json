@@ -1219,6 +1219,159 @@
       ],
       "surface": "champagne/surface/hub"
     },
+    "team_nick_maxwell": {
+      "id": "team_nick_maxwell",
+      "label": "Dr Nick Maxwell",
+      "path": "/team/nick-maxwell",
+      "category": "hub",
+      "hero": "about_story_hero_v1",
+      "sections": [
+        {
+          "id": "professional_summary_top",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Summary"
+        },
+        {
+          "id": "qualifications_and_experience",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Qualifications"
+        },
+        {
+          "id": "clinical_approach_philosophy",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Approach"
+        },
+        {
+          "id": "human_grounding_small",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Personal"
+        },
+        {
+          "id": "clinician_contact_cta",
+          "type": "cta",
+          "title": "PLACEHOLDER",
+          "ctas": [
+            {
+              "label": "PLACEHOLDER",
+              "href": "/contact",
+              "preset": "primary"
+            }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/hub"
+    },
+    "team_sylvia_krafft": {
+      "id": "team_sylvia_krafft",
+      "label": "Dr Sylvia Krafft",
+      "path": "/team/sylvia-krafft",
+      "category": "hub",
+      "hero": "about_story_hero_v1",
+      "sections": [
+        {
+          "id": "professional_summary_top",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Summary"
+        },
+        {
+          "id": "qualifications_and_experience",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Qualifications"
+        },
+        {
+          "id": "clinical_approach_philosophy",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Approach"
+        },
+        {
+          "id": "human_grounding_small",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Personal"
+        },
+        {
+          "id": "clinician_contact_cta",
+          "type": "cta",
+          "title": "PLACEHOLDER",
+          "ctas": [
+            {
+              "label": "PLACEHOLDER",
+              "href": "/contact",
+              "preset": "primary"
+            }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/hub"
+    },
+    "team_sara_burden": {
+      "id": "team_sara_burden",
+      "label": "Sara Burden",
+      "path": "/team/sara-burden",
+      "category": "hub",
+      "hero": "about_story_hero_v1",
+      "sections": [
+        {
+          "id": "professional_summary_top",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Summary"
+        },
+        {
+          "id": "qualifications_and_experience",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Qualifications"
+        },
+        {
+          "id": "clinical_approach_philosophy",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Approach"
+        },
+        {
+          "id": "human_grounding_small",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Personal"
+        },
+        {
+          "id": "clinician_contact_cta",
+          "type": "cta",
+          "title": "PLACEHOLDER",
+          "ctas": [
+            {
+              "label": "PLACEHOLDER",
+              "href": "/contact",
+              "preset": "primary"
+            }
+          ],
+          "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/hub"
+    },
     "contact": {
       "id": "contact",
       "label": "Contact",
@@ -1261,6 +1414,45 @@
             }
           ],
           "label": "Next steps"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "fees": {
+      "id": "fees",
+      "label": "Fees",
+      "path": "/fees",
+      "category": "utility",
+      "hero": "contact_calm_hero_v1",
+      "sections": [
+        {
+          "id": "fees_intro_copy",
+          "type": "copy-block",
+          "title": "PLACEHOLDER",
+          "copy": "PLACEHOLDER",
+          "label": "Overview"
+        },
+        {
+          "id": "fees_feature_list",
+          "type": "feature-list",
+          "title": "PLACEHOLDER",
+          "items": [
+            "PLACEHOLDER"
+          ],
+          "label": "Details"
+        },
+        {
+          "id": "fees_cta",
+          "type": "cta",
+          "title": "PLACEHOLDER",
+          "ctas": [
+            {
+              "label": "PLACEHOLDER",
+              "href": "/contact",
+              "preset": "primary"
+            }
+          ],
+          "label": "CTA"
         }
       ],
       "surface": "champagne/surface/utility"
