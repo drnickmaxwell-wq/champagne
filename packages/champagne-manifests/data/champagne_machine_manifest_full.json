@@ -1183,38 +1183,44 @@
         {
           "id": "team_intro_copy",
           "type": "copy-block",
-          "title": "Meet the clinical team",
-          "copy": "Profiles and credentials will sit here soon. This placeholder keeps space for a welcoming introduction and future team spotlights.",
+          "title": "Meet the team",
+          "copy": "Profiles and credentials sit here with space for a calm welcome and future team spotlights.",
           "label": "Team"
         },
         {
-          "id": "team_grid_placeholder",
-          "type": "feature-grid",
-          "title": "Team members",
+          "id": "team_clinical_cards",
+          "type": "routing_cards",
+          "title": "Clinical team",
+          "label": "Clinical team",
           "items": [
-            "Clinical leads \u2014 bios in progress",
-            "Hygiene and therapy \u2014 caring guides",
-            "Support staff \u2014 coordinating each visit"
-          ],
-          "label": "Team grid"
-        },
-        {
-          "id": "team_connection_cta",
-          "type": "cta",
-          "title": "Connect with the team",
-          "ctas": [
             {
-              "label": "Plan a visit",
-              "href": "/contact",
-              "preset": "primary"
+              "title": "Dr Nick Maxwell",
+              "description": "Clinical lead",
+              "path": "/team/nick-maxwell"
             },
             {
-              "label": "Patient portal",
-              "href": "/patient-portal",
-              "preset": "secondary"
+              "title": "Dr Sylvia Krafft",
+              "description": "Clinical lead",
+              "path": "/team/sylvia-krafft"
+            },
+            {
+              "title": "Sara Burden",
+              "description": "Therapist",
+              "path": "/team/sara-burden"
             }
-          ],
-          "label": "Connection"
+          ]
+        },
+        {
+          "id": "team_supporting_staff",
+          "type": "feature-grid",
+          "title": "Wider practice team",
+          "label": "Support team",
+          "items": [
+            "Reception and coordination",
+            "Nursing support",
+            "Treatment coordination",
+            "Practice management"
+          ]
         }
       ],
       "surface": "champagne/surface/hub"
