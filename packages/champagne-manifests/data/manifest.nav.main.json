@@ -2,7 +2,9 @@
   "items": [
     { "id": "home", "label": "Home", "href": "/", "priority": 1 },
     { "id": "treatments", "label": "Treatments", "href": "/treatments", "priority": 2 },
+    { "id": "about", "label": "About", "href": "/about", "priority": 2.5 },
     { "id": "team", "label": "Team", "href": "/team", "priority": 3 },
+    { "id": "fees", "label": "Fees", "href": "/fees", "priority": 3.5 },
     { "id": "smile-gallery", "label": "Smile gallery", "href": "/smile-gallery", "priority": 4 },
     { "id": "blog", "label": "Blog", "href": "/blog", "priority": 5, "status": "stub" },
     { "id": "contact", "label": "Contact", "href": "/contact", "priority": 6 },
