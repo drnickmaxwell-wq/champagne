@@ -3,6 +3,33 @@ import { resolveTreatmentPathAlias } from "@champagne/manifests/src/helpers";
 
 const forbiddenRelationWords = ["alternative", "alternatives", "instead", "compare", "options"];
 
+type SemanticIntent = "planning" | "maintenance" | "alternative" | "next_step";
+
+const semanticRouteMap: Record<string, SemanticIntent> = {
+  "/treatments/cbct-3d-scanning": "planning",
+  "/treatments/digital-smile-design": "planning",
+  "/treatments/implants-consultation": "planning",
+  "/treatments/implant-consultation": "planning",
+  "/treatments/3d-digital-dentistry": "planning",
+  "/treatments/night-guards-occlusal-splints": "maintenance",
+  "/treatments/mouthguards-and-retainers": "maintenance",
+  "/treatments/dental-retainers": "maintenance",
+  "/treatments/periodontal-gum-care": "maintenance",
+  "/treatments/preventative-and-general-dentistry": "maintenance",
+  "/treatments/whitening-top-ups": "maintenance",
+  "/treatments/home-teeth-whitening": "maintenance",
+  "/treatments/implants-aftercare": "maintenance",
+  "/treatments/implant-aftercare": "maintenance",
+  "/treatments/implants": "alternative",
+  "/treatments/implants-single-tooth": "alternative",
+  "/treatments/implants-multiple-teeth": "alternative",
+  "/treatments/dental-bridges": "alternative",
+  "/treatments/dentures": "alternative",
+};
+
+const planningKeywords = ["cbct", "scan", "planning", "assessment", "diagnostic"];
+const maintenanceKeywords = ["aftercare", "hygiene", "maintenance", "retainer", "splint", "gum", "top-up"];
+
 function slugToTitle(slug?: string) {
   if (!slug) return undefined;
   return slug
@@ -19,6 +46,45 @@ function normalizeHrefPath(href?: string) {
     return parsed.pathname + (parsed.search ?? "");
   } catch {
     return href;
+  }
+}
+
+function slugToSemanticTitle(slug?: string) {
+  const baseTitle = slugToTitle(slug);
+  if (!baseTitle) return undefined;
+  return baseTitle.replace(/\bCbct\b/i, "CBCT").replace(/\b3d\b/i, "3D");
+}
+
+function normalizeSemanticIntent(path?: string, label?: string): SemanticIntent {
+  if (!path || !path.startsWith("/treatments/")) return "next_step";
+  if (semanticRouteMap[path]) return semanticRouteMap[path];
+
+  const lowerPath = path.toLowerCase();
+  const lowerLabel = (label ?? "").toLowerCase();
+
+  if (planningKeywords.some((keyword) => lowerPath.includes(keyword))) return "planning";
+  if (maintenanceKeywords.some((keyword) => lowerPath.includes(keyword) || lowerLabel.includes(keyword))) return "maintenance";
+  if (forbiddenRelationWords.some((keyword) => new RegExp(`\\b${keyword}\\b`, "i").test(label ?? ""))) return "alternative";
+
+  return "next_step";
+}
+
+function buildSemanticLabel(intent: SemanticIntent, destinationTitle?: string, fallback?: string) {
+  const target = destinationTitle ?? fallback ?? "related care";
+
+  switch (intent) {
+    case "planning":
+      return target.toLowerCase().startsWith("planning & assessment")
+        ? target
+        : `Planning & assessment: ${target}`;
+    case "maintenance":
+      return target.toLowerCase().startsWith("maintenance & protection")
+        ? target
+        : `Maintenance & protection: ${target}`;
+    case "alternative":
+      return /^consider alternatives?/i.test(target) ? target : `Consider alternatives like ${target}`;
+    default:
+      return destinationTitle ?? fallback ?? target;
   }
 }
 
@@ -108,23 +174,32 @@ export function enforceCtaLabelTruth<CTA extends { label: string; href: string; 
     audit.scanned += 1;
     const normalizedHref = normalizeHrefPath(cta.href);
     const destinationTitle = destinationTitleForPath(normalizedHref ?? cta.href);
+    const slugTitle = normalizedHref?.startsWith("/treatments/")
+      ? slugToSemanticTitle(normalizedHref.split("/").filter(Boolean).pop())
+      : undefined;
+    const semanticIntent = normalizeSemanticIntent(normalizedHref, cta.label);
 
-    if (!destinationTitle || !normalizedHref?.startsWith("/treatments/")) {
-      if (!destinationTitle && normalizedHref?.startsWith("/treatments/")) {
-        audit.ambiguous.push({ label: cta.label, href: cta.href });
-      }
-      return cta;
+    if (!destinationTitle && normalizedHref?.startsWith("/treatments/")) {
+      audit.ambiguous.push({ label: cta.label, href: cta.href });
     }
+
+    if (!normalizedHref?.startsWith("/treatments/")) return cta;
 
     const normalizedLabel = normalizeText(cta.label);
     const normalizedDestination = normalizeText(destinationTitle);
     const hasForbiddenWord = containsForbiddenRelationWord(cta.label);
-    const labelDiffers = normalizedLabel !== normalizedDestination;
+    const fallbackTitle = destinationTitle ?? slugTitle ?? cta.label;
+    const semanticLabel = buildSemanticLabel(semanticIntent, destinationTitle, fallbackTitle);
 
-    if (labelDiffers || hasForbiddenWord) {
+    const nextLabel =
+      semanticIntent === "next_step" && !hasForbiddenWord && normalizedLabel === normalizedDestination
+        ? cta.label
+        : semanticLabel;
+
+    if (nextLabel !== cta.label) {
       audit.rewritten += 1;
-      audit.rewrites.push({ before: cta.label, after: destinationTitle, href: normalizedHref ?? cta.href });
-      return { ...cta, label: destinationTitle } satisfies CTA;
+      audit.rewrites.push({ before: cta.label, after: nextLabel, href: normalizedHref ?? cta.href });
+      return { ...cta, label: nextLabel } satisfies CTA;
     }
 
     return cta;

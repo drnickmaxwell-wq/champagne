@@ -167,7 +167,7 @@ function templateLabel(relationship: CTARelationship, targetLabel?: string, fall
     case "maintenance":
       return `Maintenance & protection: ${subject}`;
     case "alternative":
-      return subject.toLowerCase().includes("alternative") ? subject : `Consider alternatives: ${subject}`;
+      return subject.toLowerCase().includes("alternative") ? subject : `Consider alternatives like ${subject}`;
     case "related":
       return subject.toLowerCase().includes("related") ? subject : `Related: ${subject}`;
     case "book":

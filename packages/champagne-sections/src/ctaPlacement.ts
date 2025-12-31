@@ -17,8 +17,8 @@ function findPreferredMidIndex(sections: SectionRegistryEntry[]) {
     target = faqIndex;
   }
 
-  if (closingIndex >= 0 && target >= closingIndex - 1) {
-    target = Math.max(1, closingIndex - 2);
+  if (closingIndex >= 0 && target >= closingIndex - 2) {
+    target = Math.max(1, closingIndex - 3);
   }
 
   return Math.max(1, Math.min(target, sections.length));

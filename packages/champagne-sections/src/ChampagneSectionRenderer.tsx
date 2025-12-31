@@ -54,10 +54,24 @@ const typeMap: Record<string, SectionComponent> = {
   reviews: (props) => <Section_GoogleReviews {...props} />,
 };
 
+function isClosingCTA(section: SectionRegistryEntry) {
+  const kind = section.kind ?? section.type;
+  const definition = section.definition as { type?: string; componentId?: string } | undefined;
+  const componentId = (definition?.componentId ?? (section as { componentId?: string }).componentId) ?? "";
+  const definitionType = definition?.type;
+
+  return (
+    kind === "treatment_closing_cta"
+    || componentId === "treatment.cta"
+    || definitionType === "treatment_closing_cta"
+    || kind === "cta"
+  );
+}
+
 function enforceSingleClosingCTA(sections: SectionRegistryEntry[]) {
   const closingIndices = sections
     .map((section, index) => ({ section, index }))
-    .filter(({ section }) => (section.kind ?? section.type) === "treatment_closing_cta")
+    .filter(({ section }) => isClosingCTA(section))
     .map(({ index }) => index);
 
   if (closingIndices.length <= 1) {
@@ -112,7 +126,7 @@ function renderSection(
 
 export function ChampagneSectionRenderer({ pageSlug, midPageCTAs, footerCTAs, previewMode }: ChampagneSectionRendererProps) {
   const sections = getSectionStack(pageSlug);
-  const isTreatmentPage = pageSlug.startsWith("/treatments/");
+  const isTreatmentPage = pageSlug.includes("/treatments/");
   const { ordered: withSingleClosing } = isTreatmentPage ? enforceSingleClosingCTA(sections) : { ordered: sections };
   const { ordered: normalizedSections } = normalizeSectionsForMidCTA(withSingleClosing);
   const hasManifestMidCTA = normalizedSections.some((section) => section.kind === "treatment_mid_cta");

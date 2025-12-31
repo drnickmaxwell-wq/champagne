@@ -6,6 +6,20 @@ const TERMINAL_WINDOW_RATIO = 0.25;
 const TERMINAL_WINDOW_MIN = 3;
 const LIGHT_SEPARATOR_KINDS = new Set(["treatment_faq_block", "reviews"]);
 
+function isClosingSection(section: SectionRegistryEntry) {
+  const kind = section.kind ?? section.type;
+  const definition = section.definition as { type?: string; componentId?: string } | undefined;
+  const componentId = (definition?.componentId ?? (section as { componentId?: string }).componentId) ?? "";
+  const definitionType = definition?.type;
+
+  return (
+    kind === "treatment_closing_cta"
+    || kind === "cta"
+    || componentId === "treatment.cta"
+    || definitionType === "treatment_closing_cta"
+  );
+}
+
 function isWithinTerminalZone(index: number, totalSections: number) {
   const terminalWindow = getTerminalWindowSize(totalSections);
   const terminalStartIndex = Math.max(0, totalSections - terminalWindow);
@@ -59,7 +73,7 @@ export function arbitrateCtaSurfaces({
 }): CTASurfaceArbitrationResult {
   const closingIndices = sections
     .map((section, index) => ({ section, index }))
-    .filter(({ section }) => section.kind === "treatment_closing_cta")
+    .filter(({ section }) => isClosingSection(section))
     .map(({ index }) => index);
   const closingIndex = closingIndices.length > 0 ? closingIndices[closingIndices.length - 1] : -1;
   const suppressedClosingIndices = new Set<number>();
