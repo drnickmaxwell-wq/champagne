@@ -1212,6 +1212,7 @@
             ]
           }
         },
+        
         {
           "id": "team_connection_cta",
           "type": "cta",
