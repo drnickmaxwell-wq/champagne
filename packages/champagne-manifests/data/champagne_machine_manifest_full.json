@@ -1219,6 +1219,62 @@
       ],
       "surface": "champagne/surface/hub"
     },
+    "team_nick_maxwell": {
+      "id": "team_nick_maxwell",
+      "label": "Nick Maxwell",
+      "path": "/team/nick-maxwell",
+      "category": "utility",
+      "hero": "team_preview_hero_v1",
+      "sections": [
+        {
+          "id": "nick_maxwell_profile",
+          "type": "copy-block"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "team_sylvia_krafft": {
+      "id": "team_sylvia_krafft",
+      "label": "Sylvia Krafft",
+      "path": "/team/sylvia-krafft",
+      "category": "utility",
+      "hero": "team_preview_hero_v1",
+      "sections": [
+        {
+          "id": "sylvia_krafft_profile",
+          "type": "copy-block"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "team_sara_burden": {
+      "id": "team_sara_burden",
+      "label": "Sara Burden",
+      "path": "/team/sara-burden",
+      "category": "utility",
+      "hero": "team_preview_hero_v1",
+      "sections": [
+        {
+          "id": "sara_burden_profile",
+          "type": "copy-block"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "fees": {
+      "id": "fees",
+      "label": "Fees",
+      "path": "/fees",
+      "category": "utility",
+      "hero": "contact_calm_hero_v1",
+      "sections": [
+        {
+          "id": "fees_overview",
+          "type": "copy-block"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
     "contact": {
       "id": "contact",
       "label": "Contact",
