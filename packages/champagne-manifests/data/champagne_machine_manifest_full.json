@@ -1278,6 +1278,24 @@
           "type": "copy-block",
           "label": "Additional media",
           "copy": "Additional media placeholder."
+        },
+        {
+          "id": "team_connection_cta",
+          "type": "cta",
+          "title": "Connect with the team",
+          "ctas": [
+            {
+              "label": "Plan a visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Patient portal",
+              "href": "/patient-portal",
+              "preset": "secondary"
+            }
+          ],
+          "label": "Connection"
         }
       ],
       "surface": "champagne/surface/utility"
@@ -1320,6 +1338,24 @@
           "type": "copy-block",
           "label": "Additional media",
           "copy": "Additional media placeholder."
+        },
+        {
+          "id": "team_connection_cta",
+          "type": "cta",
+          "title": "Connect with the team",
+          "ctas": [
+            {
+              "label": "Plan a visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Patient portal",
+              "href": "/patient-portal",
+              "preset": "secondary"
+            }
+          ],
+          "label": "Connection"
         }
       ],
       "surface": "champagne/surface/utility"
@@ -1362,6 +1398,24 @@
           "type": "copy-block",
           "label": "Additional media",
           "copy": "Additional media placeholder."
+        },
+        {
+          "id": "team_connection_cta",
+          "type": "cta",
+          "title": "Connect with the team",
+          "ctas": [
+            {
+              "label": "Plan a visit",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Patient portal",
+              "href": "/patient-portal",
+              "preset": "secondary"
+            }
+          ],
+          "label": "Connection"
         }
       ],
       "surface": "champagne/surface/utility"
