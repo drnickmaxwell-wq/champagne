@@ -1196,7 +1196,7 @@
           "id": "team_intro_copy",
           "type": "copy-block",
           "title": "Meet the clinical team",
-          "copy": "Profiles and credentials will sit here soon. This placeholder keeps space for a welcoming introduction and future team spotlights.",
+          "copy": "The team at St Mary’s House Dental Care provides long-term, patient-centred dentistry from our practice in Shoreham-by-Sea, West Sussex. Many patients come to us seeking continuity, clarity and a calm, thoughtful approach to care — particularly when their dental needs are complex or have developed over time.\n\nOur clinicians work across general dentistry, restorative care, implants, orthodontics and prevention, supported by an experienced nursing and coordination team. This breadth allows patients to receive both routine and advanced care within the same practice, without losing the familiarity and trust that come from seeing a consistent team.\n\nStability is a defining feature of the practice. We have served the local community for over 40 years, with long-standing members of staff and many patients who have attended since childhood and continue to return with their own families. This continuity allows treatment decisions to be made with a deeper understanding of patient history, preferences and long-term goals.\n\nPatients who feel anxious about dental treatment are supported with time, clear explanations and a respectful, unhurried approach. Care is never rushed, and patients are encouraged to remain informed and in control at every stage.",
           "label": "Team"
         },
         {
@@ -1271,25 +1271,25 @@
           "id": "profile_intro",
           "type": "copy-block",
           "label": "Profile intro",
-          "copy": "Intro content placeholder."
+          "copy": "Dr Nick Maxwell is the Owner and Principal Dentist at St Mary’s House Dental Care in Shoreham-by-Sea. He qualified from King’s College London in 1998 and has nearly 30 years’ experience in general, restorative and orthodontic dentistry.\n\nPatients commonly see Dr Maxwell for complex restorative problems, tooth wear, bruxism, missing teeth and implant planning, often after previous treatment elsewhere has failed or when they have received conflicting advice. Many arrive feeling uncertain or overwhelmed, having been advised that extensive or irreversible treatment is their only option.\n\nDr Maxwell is known for his measured, diagnostic approach and for taking time to understand the full clinical picture before recommending treatment. As practice owner since 2013, he combines hands-on clinical care with oversight of long-term standards across the practice, with a focus on predictability, longevity and patient understanding rather than speed or cosmetic quick fixes."
         },
         {
           "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
-          "copy": "Credentials content placeholder."
+          "copy": "Dr Maxwell holds a Bachelor of Dental Surgery from King’s College London (1998). He completed a Master’s degree in Restorative and Aesthetic Dentistry in 2013 and was awarded a Postgraduate Diploma in Orthodontics and Facial Orthopaedics with Merit in 2024.\n\nHis clinical work includes restorative dentistry, orthodontics using fixed appliances and aligners, and implant dentistry, with particular experience in managing worn and heavily restored dentitions. He has a strong interest in digital dentistry and detailed treatment planning.\n\nDr Maxwell routinely uses intra-oral scanning, guided implant surgery and in-house 3D printing as part of his clinical workflow. This includes the design and fabrication of surgical implant guides, selected crowns and onlays, and custom-made mouthguards. These tools are used to improve planning accuracy and predictability, rather than to accelerate treatment unnecessarily."
         },
         {
           "id": "profile_philosophy",
           "type": "copy-block",
           "label": "Care philosophy",
-          "copy": "Philosophy content placeholder."
+          "copy": "Dr Maxwell’s clinical philosophy is based on preservation, predictability and long-term function. Wherever viable, he prioritises repairing, reinforcing or stabilising natural teeth rather than removing them, and will always explore conservative options before irreversible treatment.\n\nAesthetics matter, but never at the expense of function or long-term health. Treatment is planned with a ten-year view in mind, not just the immediate result. Extensive restorative or cosmetic work is only recommended when the prognosis is sound and the benefits clearly outweigh the risks.\n\nHe is comfortable managing complex cases and enjoys the diagnostic challenge they present. What concerns him more than complexity itself is rushing into irreversible treatment without fully exhausting conservative alternatives or properly understanding how problems interact across the whole mouth.\n\nHe will often recommend monitoring or phased approaches rather than immediate comprehensive work, particularly when issues are stable or a patient is not yet ready. Where appropriate, he refers readily to trusted specialists."
         },
         {
           "id": "profile_additional_media",
           "type": "copy-block",
           "label": "Additional media",
-          "copy": "Additional media placeholder."
+          "copy": "Dr Maxwell values dentistry for the balance it offers between problem-solving and long-term patient relationships. He finds particular satisfaction in rebuilding mouths that have been poorly served elsewhere and in helping patients regain confidence through careful, honest planning. He believes good dentistry should leave patients with teeth that feel like their own — strong, reliable, and unnecessary to think about day-to-day."
         },
         {
           "id": "team_connection_cta",
