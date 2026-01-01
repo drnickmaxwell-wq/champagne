@@ -1230,28 +1230,84 @@
     },
     "team_nick_maxwell": {
       "id": "team_nick_maxwell",
-      "label": "Nick Maxwell",
+      "label": "Dr Nick Maxwell",
+      "title": "Dr Nick Maxwell",
       "path": "/team/nick-maxwell",
       "category": "profile",
       "hero": "team_preview_hero_v1",
       "sections": [
         {
-          "id": "nick_maxwell_profile",
-          "type": "copy-block"
+          "id": "nick_maxwell_profile_video",
+          "type": "media",
+          "label": "Profile video placeholder",
+          "title": "Video spotlight",
+          "copy": "Reserved for the clinician intro video beneath the hero."
+        },
+        {
+          "id": "nick_maxwell_intro",
+          "type": "copy-block",
+          "label": "Profile intro",
+          "copy": "Intro content placeholder."
+        },
+        {
+          "id": "nick_maxwell_credentials",
+          "type": "copy-block",
+          "label": "Credentials",
+          "copy": "Credentials content placeholder."
+        },
+        {
+          "id": "nick_maxwell_philosophy",
+          "type": "copy-block",
+          "label": "Care philosophy",
+          "copy": "Philosophy content placeholder."
+        },
+        {
+          "id": "nick_maxwell_media_placeholder",
+          "type": "copy-block",
+          "label": "Additional media",
+          "copy": "Additional media placeholder."
         }
       ],
       "surface": "champagne/surface/utility"
     },
     "team_sylvia_krafft": {
       "id": "team_sylvia_krafft",
-      "label": "Sylvia Krafft",
+      "label": "Dr Sylvia Krafft",
+      "title": "Dr Sylvia Krafft",
       "path": "/team/sylvia-krafft",
       "category": "profile",
       "hero": "team_preview_hero_v1",
       "sections": [
         {
-          "id": "sylvia_krafft_profile",
-          "type": "copy-block"
+          "id": "sylvia_krafft_profile_video",
+          "type": "media",
+          "label": "Profile video placeholder",
+          "title": "Video spotlight",
+          "copy": "Reserved for the clinician intro video beneath the hero."
+        },
+        {
+          "id": "sylvia_krafft_intro",
+          "type": "copy-block",
+          "label": "Profile intro",
+          "copy": "Intro content placeholder."
+        },
+        {
+          "id": "sylvia_krafft_credentials",
+          "type": "copy-block",
+          "label": "Credentials",
+          "copy": "Credentials content placeholder."
+        },
+        {
+          "id": "sylvia_krafft_philosophy",
+          "type": "copy-block",
+          "label": "Care philosophy",
+          "copy": "Philosophy content placeholder."
+        },
+        {
+          "id": "sylvia_krafft_media_placeholder",
+          "type": "copy-block",
+          "label": "Additional media",
+          "copy": "Additional media placeholder."
         }
       ],
       "surface": "champagne/surface/utility"
@@ -1259,13 +1315,41 @@
     "team_sara_burden": {
       "id": "team_sara_burden",
       "label": "Sara Burden",
+      "title": "Sara Burden",
       "path": "/team/sara-burden",
       "category": "profile",
       "hero": "team_preview_hero_v1",
       "sections": [
         {
-          "id": "sara_burden_profile",
-          "type": "copy-block"
+          "id": "sara_burden_profile_video",
+          "type": "media",
+          "label": "Profile video placeholder",
+          "title": "Video spotlight",
+          "copy": "Reserved for the clinician intro video beneath the hero."
+        },
+        {
+          "id": "sara_burden_intro",
+          "type": "copy-block",
+          "label": "Profile intro",
+          "copy": "Intro content placeholder."
+        },
+        {
+          "id": "sara_burden_credentials",
+          "type": "copy-block",
+          "label": "Credentials",
+          "copy": "Credentials content placeholder."
+        },
+        {
+          "id": "sara_burden_philosophy",
+          "type": "copy-block",
+          "label": "Care philosophy",
+          "copy": "Philosophy content placeholder."
+        },
+        {
+          "id": "sara_burden_media_placeholder",
+          "type": "copy-block",
+          "label": "Additional media",
+          "copy": "Additional media placeholder."
         }
       ],
       "surface": "champagne/surface/utility"
