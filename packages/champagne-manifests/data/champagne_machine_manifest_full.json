@@ -1211,24 +1211,12 @@
           "id": "team_wider_practice_team",
           "type": "feature-grid",
           "title": "Wider practice team",
-          "label": "Support team",
+          "eyebrow": "Support team",
           "items": [
-            {
-              "title": "Nursing team",
-              "copy": "Role summary placeholder."
-            },
-            {
-              "title": "Reception",
-              "copy": "Role summary placeholder."
-            },
-            {
-              "title": "Treatment coordinators",
-              "copy": "Role summary placeholder."
-            },
-            {
-              "title": "Practice management",
-              "copy": "Role summary placeholder."
-            }
+            "Nursing team — role summary placeholder.",
+            "Reception — role summary placeholder.",
+            "Treatment coordinators — role summary placeholder.",
+            "Practice management — role summary placeholder."
           ]
         },
         {
