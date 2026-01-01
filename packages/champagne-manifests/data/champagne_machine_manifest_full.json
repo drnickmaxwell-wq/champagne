@@ -1200,6 +1200,13 @@
           "label": "Team"
         },
         {
+          "id": "why_patients_trust_this_team",
+          "type": "copy-block",
+          "title": "Why patients trust this team",
+          "copy": "",
+          "label": "Trust and continuity"
+        },
+        {
           "id": "team_clinical_cards",
           "type": "routing_cards",
           "title": "Clinical team",
