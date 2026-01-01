@@ -1232,7 +1232,7 @@
       "id": "team_nick_maxwell",
       "label": "Nick Maxwell",
       "path": "/team/nick-maxwell",
-      "category": "utility",
+      "category": "profile",
       "hero": "team_preview_hero_v1",
       "sections": [
         {
@@ -1246,7 +1246,7 @@
       "id": "team_sylvia_krafft",
       "label": "Sylvia Krafft",
       "path": "/team/sylvia-krafft",
-      "category": "utility",
+      "category": "profile",
       "hero": "team_preview_hero_v1",
       "sections": [
         {
@@ -1260,7 +1260,7 @@
       "id": "team_sara_burden",
       "label": "Sara Burden",
       "path": "/team/sara-burden",
-      "category": "utility",
+      "category": "profile",
       "hero": "team_preview_hero_v1",
       "sections": [
         {
