@@ -119,6 +119,7 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
   const itemObjects = rawItems?.filter((item) => item && typeof item === "object") as
     | Record<string, unknown>[]
     | undefined;
+  const routingItems = kind === "routing_cards" ? rawItems : undefined;
   const tools = itemObjects?.length
     ? itemObjects.map((item, itemIndex) => ({
         title:
@@ -199,7 +200,7 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
     title,
     body,
     eyebrow,
-    items,
+    items: routingItems ?? items,
     tools,
     bullets,
     faqs,
@@ -223,7 +224,7 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
       title,
       copy: body,
       label: eyebrow,
-      items,
+      items: routingItems ?? items,
       tools,
       bullets,
       faqs,
