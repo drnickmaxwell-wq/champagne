@@ -1188,26 +1188,24 @@
           "label": "Team"
         },
         {
-          "id": "team_clinical_team",
+          "id": "team_clinical_cards",
           "type": "routing_cards",
           "title": "Clinical team",
           "eyebrow": "Clinical team",
-          "definition": {
-            "items": [
-              {
-                "title": "Dr Nick Maxwell",
-                "href": "/team/nick-maxwell"
-              },
-              {
-                "title": "Dr Sylvia Krafft",
-                "href": "/team/sylvia-krafft"
-              },
-              {
-                "title": "Sara Burden",
-                "href": "/team/sara-burden"
-              }
-            ]
-          }
+          "items": [
+            {
+              "title": "Dr Nick Maxwell",
+              "href": "/team/nick-maxwell"
+            },
+            {
+              "title": "Dr Sylvia Krafft",
+              "href": "/team/sylvia-krafft"
+            },
+            {
+              "title": "Sara Burden",
+              "href": "/team/sara-burden"
+            }
+          ]
         },
         {
           "id": "team_connection_cta",
