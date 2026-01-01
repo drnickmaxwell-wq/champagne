@@ -1155,16 +1155,28 @@
       "hero": "about_story_hero_v1",
       "sections": [
         {
-          "id": "about_story",
-          "type": "story"
+          "id": "practice_overview_authority_frame",
+          "type": "story",
+          "title": "St Mary’s House Dental Care",
+          "copy": "St Mary’s House Dental Care is a long-established private dental practice based in Shoreham-by-Sea, West Sussex, serving the local community for over four decades.\n\nThe practice provides comprehensive general dentistry alongside advanced restorative, implant and orthodontic care for adults and children. Many patients attend with complex needs, including heavily restored teeth, tooth wear, missing teeth and bruxism, and value a practice that considers the whole mouth and the wider context of their health rather than focusing on isolated problems.\n\nPatients consistently choose the practice for its personal service and calm, down-to-earth approach. Care is delivered in a friendly, respectful environment where time is taken to listen, explain and plan appropriately. Recommendations are never rushed or sales-driven; instead, treatment is discussed carefully, with a focus on what is clinically appropriate and sustainable over the long term.\n\nThe practice’s role is to provide thoughtful, reliable dentistry in a setting where patients feel comfortable, informed and well looked after, often over many years."
         },
         {
-          "id": "team_profiles",
-          "type": "people"
+          "id": "philosophy_and_standards",
+          "type": "story",
+          "title": "Philosophy and standards",
+          "copy": "Clinical decisions at St Mary’s House Dental Care are guided by evidence, long-term thinking and a conservative-first philosophy wherever possible. The focus is on planning for the whole mouth and the individual patient, rather than isolated treatments, with attention given to function, longevity and maintenance.\n\nInformed consent is central to how care is delivered. Patients are given clear explanations of their dental health, the available treatment options, and the advantages, limitations and risks associated with each. Alternatives are always discussed, and patients are supported in making decisions that feel appropriate for their circumstances and priorities.\n\nAnxious and nervous patients form a significant part of the practice population. Appointments are unhurried, patients are encouraged to remain in control throughout treatment, and care is adapted to individual comfort levels. A range of supportive measures is used, including calm communication, comfort-focused techniques, The Wand painless anaesthetic system, and IV sedation provided by an experienced external sedationist when clinically appropriate.\n\nThe practice combines preventative and restorative care to reflect the needs of its patient base, supported by ongoing professional development and careful clinical planning to maintain high standards of safety and quality."
         },
         {
-          "id": "technology_stack",
-          "type": "feature-grid"
+          "id": "history_and_evolution",
+          "type": "story",
+          "title": "History and evolution",
+          "copy": "St Mary’s House Dental Care has served the Shoreham-by-Sea area for more than 40 years, providing continuity of care while gradually evolving to reflect advances in dentistry and changing patient needs.\n\nThe practice has been under its current ownership since 2013 and is led by a principal dentist who qualified in 1998, with postgraduate training in restorative and aesthetic dentistry and orthodontics. This background supports the management of both routine dental care and more complex restorative and implant cases within a familiar, trusted environment.\n\nStability is an important feature of the practice. Members of the clinical team have worked here for decades, including the head nurse, who has been part of the practice for over 30 years. Many adult patients have attended since childhood and continue to return with their own families.\n\nWhile the ethos of the practice remains consistent, its clinical approach continues to develop. Investment in digital dentistry, including intra-oral scanning, guided implant planning and in-house 3D printing, allows for more accurate planning and clearer communication, while maintaining the personal nature of a long-established family practice."
+        },
+        {
+          "id": "commitment_to_patients_and_community",
+          "type": "story",
+          "title": "Commitment to patients and community",
+          "copy": "The practice is firmly rooted in Shoreham-by-Sea, both physically and historically. It is located in a Grade II listed building opposite St Mary’s de Haura Church, reflecting a long-standing presence within the heart of the town.\n\nIts role in the community is a quiet and consistent one. The team cares for individuals and families over many years, often across generations, building relationships based on trust, familiarity and mutual respect.\n\nLong-term patient care means taking responsibility beyond individual appointments. The practice focuses on prevention, maintenance and realistic planning, helping patients look after their oral health in ways that are appropriate for their lives and circumstances.\n\nWarmth, honesty and time are regarded as essential parts of good dentistry, supporting a stable, reliable service that patients can depend on year after year."
         },
         {
           "id": "cta_gold_bar",
