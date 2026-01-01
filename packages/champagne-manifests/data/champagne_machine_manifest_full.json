@@ -1230,7 +1230,8 @@
     },
     "team_nick_maxwell": {
       "id": "team_nick_maxwell",
-      "label": "Nick Maxwell",
+      "label": "Dr Nick Maxwell",
+      "title": "Dr Nick Maxwell",
       "path": "/team/nick-maxwell",
       "category": "profile",
       "hero": "team_preview_hero_v1",
@@ -1271,7 +1272,8 @@
     },
     "team_sylvia_krafft": {
       "id": "team_sylvia_krafft",
-      "label": "Sylvia Krafft",
+      "label": "Dr Sylvia Krafft",
+      "title": "Dr Sylvia Krafft",
       "path": "/team/sylvia-krafft",
       "category": "profile",
       "hero": "team_preview_hero_v1",
@@ -1313,6 +1315,7 @@
     "team_sara_burden": {
       "id": "team_sara_burden",
       "label": "Sara Burden",
+      "title": "Sara Burden",
       "path": "/team/sara-burden",
       "category": "profile",
       "hero": "team_preview_hero_v1",
