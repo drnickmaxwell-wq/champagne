@@ -1237,32 +1237,32 @@
       "hero": "team_preview_hero_v1",
       "sections": [
         {
-          "id": "nick_maxwell_profile_video",
+          "id": "profile_video_spotlight",
           "type": "media",
           "label": "Profile video placeholder",
           "title": "Video spotlight",
           "copy": "Reserved for the clinician intro video beneath the hero."
         },
         {
-          "id": "nick_maxwell_intro",
+          "id": "profile_intro",
           "type": "copy-block",
           "label": "Profile intro",
           "copy": "Intro content placeholder."
         },
         {
-          "id": "nick_maxwell_credentials",
+          "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
           "copy": "Credentials content placeholder."
         },
         {
-          "id": "nick_maxwell_philosophy",
+          "id": "profile_philosophy",
           "type": "copy-block",
           "label": "Care philosophy",
           "copy": "Philosophy content placeholder."
         },
         {
-          "id": "nick_maxwell_media_placeholder",
+          "id": "profile_additional_media",
           "type": "copy-block",
           "label": "Additional media",
           "copy": "Additional media placeholder."
@@ -1279,32 +1279,32 @@
       "hero": "team_preview_hero_v1",
       "sections": [
         {
-          "id": "sylvia_krafft_profile_video",
+          "id": "profile_video_spotlight",
           "type": "media",
           "label": "Profile video placeholder",
           "title": "Video spotlight",
           "copy": "Reserved for the clinician intro video beneath the hero."
         },
         {
-          "id": "sylvia_krafft_intro",
+          "id": "profile_intro",
           "type": "copy-block",
           "label": "Profile intro",
           "copy": "Intro content placeholder."
         },
         {
-          "id": "sylvia_krafft_credentials",
+          "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
           "copy": "Credentials content placeholder."
         },
         {
-          "id": "sylvia_krafft_philosophy",
+          "id": "profile_philosophy",
           "type": "copy-block",
           "label": "Care philosophy",
           "copy": "Philosophy content placeholder."
         },
         {
-          "id": "sylvia_krafft_media_placeholder",
+          "id": "profile_additional_media",
           "type": "copy-block",
           "label": "Additional media",
           "copy": "Additional media placeholder."
@@ -1321,32 +1321,32 @@
       "hero": "team_preview_hero_v1",
       "sections": [
         {
-          "id": "sara_burden_profile_video",
+          "id": "profile_video_spotlight",
           "type": "media",
           "label": "Profile video placeholder",
           "title": "Video spotlight",
           "copy": "Reserved for the clinician intro video beneath the hero."
         },
         {
-          "id": "sara_burden_intro",
+          "id": "profile_intro",
           "type": "copy-block",
           "label": "Profile intro",
           "copy": "Intro content placeholder."
         },
         {
-          "id": "sara_burden_credentials",
+          "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
           "copy": "Credentials content placeholder."
         },
         {
-          "id": "sara_burden_philosophy",
+          "id": "profile_philosophy",
           "type": "copy-block",
           "label": "Care philosophy",
           "copy": "Philosophy content placeholder."
         },
         {
-          "id": "sara_burden_media_placeholder",
+          "id": "profile_additional_media",
           "type": "copy-block",
           "label": "Additional media",
           "copy": "Additional media placeholder."
