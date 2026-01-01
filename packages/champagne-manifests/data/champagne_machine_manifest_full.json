@@ -1208,6 +1208,18 @@
           ]
         },
         {
+          "id": "team_wider_practice_team",
+          "type": "feature-grid",
+          "title": "Wider practice team",
+          "eyebrow": "Support team",
+          "items": [
+            "Nursing team — role summary placeholder.",
+            "Reception — role summary placeholder.",
+            "Treatment coordinators — role summary placeholder.",
+            "Practice management — role summary placeholder."
+          ]
+        },
+        {
           "id": "team_connection_cta",
           "type": "cta",
           "title": "Connect with the team",
