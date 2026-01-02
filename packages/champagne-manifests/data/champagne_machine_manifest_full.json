@@ -379,18 +379,67 @@
             }
           ]
         },
-        {
-          "id": "treatments_hub_directory_intro",
-          "type": "copy-block",
-          "label": "Browse by group",
-          "title": "Browse treatments by locked groups",
-          "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
-        },
-        {
-          "id": "treatments_hub_authority",
-          "type": "feature-grid",
-          "title": "Authority, technology, and experience",
-          "items": [
+    {
+      "id": "treatments_hub_directory_intro",
+      "type": "copy-block",
+      "label": "Browse by group",
+      "title": "Browse treatments by locked groups",
+      "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
+    },
+    {
+      "id": "treatments_hub_directory_groups_nav",
+      "type": "routing_cards",
+      "title": "Browse treatments by group",
+      "definition": {
+        "items": [
+          {
+            "title": "General Dentistry",
+            "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
+            "href": "/treatments/preventative-and-general-dentistry"
+          },
+          {
+            "title": "Restorative Dentistry",
+            "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
+            "href": "/treatments/dental-crowns"
+          },
+          {
+            "title": "Dental Implants",
+            "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
+            "href": "/treatments/implants"
+          },
+          {
+            "title": "Orthodontics & Retainers",
+            "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
+            "href": "/treatments/orthodontics"
+          },
+          {
+            "title": "Aesthetic Dentistry",
+            "description": "Composite bonding, veneers, and injection-moulded composite planning.",
+            "href": "/treatments/teeth-whitening"
+          },
+          {
+            "title": "Night Guards & Occlusal Therapy",
+            "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
+            "href": "/treatments/night-guards-occlusal-splints"
+          },
+          {
+            "title": "3D & Digital Dentistry",
+            "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
+            "href": "/treatments/3d-digital-dentistry"
+          },
+          {
+            "title": "Emergency Dentistry",
+            "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
+            "href": "/treatments/emergency-dentistry"
+          }
+        ]
+      }
+    },
+    {
+      "id": "treatments_hub_authority",
+      "type": "feature-grid",
+      "title": "Authority, technology, and experience",
+      "items": [
             "Multi-disciplinary training across restorative, orthodontic, implant, and facial care",
             "CBCT-guided planning, digital smile design, and in-house 3D fabrication",
             "Steady clinical cadence with transparent timelines and aftercare"
