@@ -2096,6 +2096,145 @@
       ],
       "surface": "champagne/surface/hub"
     },
+    "dental_checkups_oral_cancer_screening_treatments": {
+      "id": "dental_checkups_oral_cancer_screening_treatments",
+      "label": "Dental Check-Ups & Oral Cancer Screening",
+      "path": "/treatments/dental-checkups-oral-cancer-screening",
+      "category": "site",
+      "description": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening.",
+      "hero": "contact_calm_hero_v1",
+      "sections": [
+        {
+          "id": "dental_checkups_intro",
+          "type": "copy-block",
+          "title": "Gentle check-ups with attentive screening",
+          "copy": "We keep routine exams unhurried, explaining what we see and what it means for your mouth. We include a visual oral cancer screening at every routine exam.",
+          "label": "Overview"
+        },
+        {
+          "id": "dental_checkups_what_to_expect",
+          "type": "feature-list",
+          "title": "What happens at a check-up",
+          "items": [
+            "Conversation about any changes, sensitivities, or goals",
+            "Visual review of teeth, gums, bite, and soft tissues",
+            "Periodontal charting or pocket checks when helpful",
+            "Scale and polish or tailored hygiene guidance",
+            "Clear explanation of findings with options for next steps"
+          ],
+          "label": "Check-up steps"
+        },
+        {
+          "id": "dental_checkups_digital_imaging",
+          "type": "feature-list",
+          "title": "Digital x-rays and imaging",
+          "items": [
+            "Low-dose digital x-rays when clinically indicated",
+            "Intraoral photos to track changes and share progress",
+            "Guidance on why and when imaging is recommended",
+            "Results explained in plain language with time for questions"
+          ],
+          "label": "Imaging"
+        },
+        {
+          "id": "dental_checkups_who_benefits",
+          "type": "feature-list",
+          "title": "Who benefits from regular exams",
+          "items": [
+            "Families building steady preventative habits",
+            "Adults managing fillings, crowns, or implants",
+            "Patients with gum sensitivity or dry mouth",
+            "Anyone noticing changes in bite, comfort, or soft tissues"
+          ],
+          "label": "Who it's for"
+        },
+        {
+          "id": "dental_checkups_frequency",
+          "type": "copy-block",
+          "title": "How often to book",
+          "copy": "Most people stay on track with 6-monthly visits. If you have higher decay or gum risk, recent treatment, or are in active orthodontic care, we may agree a shorter cadence. We explain any recommendations so you know why timing matters.",
+          "label": "Frequency"
+        },
+        {
+          "id": "dental_checkups_worried",
+          "type": "copy-block",
+          "title": "If something is worrying you",
+          "copy": "If you notice ulcers that do not settle, new lumps, persistent soreness, or changes to your mouth or throat, contact us promptly. We will arrange a calm assessment, share what we can see, and signpost to further investigation if needed.",
+          "label": "Support"
+        },
+        {
+          "id": "dental_checkups_oral_cancer_screening_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Stay on track between check-ups",
+          "strapline": "Keep hygiene, preventative care, and family visits on a steady rhythm.",
+          "ctas": [
+            {
+              "label": "Hygiene and gum care",
+              "href": "/treatments/periodontal-gum-care",
+              "preset": "secondary"
+            },
+            {
+              "label": "Preventative & general dentistry",
+              "href": "/treatments/preventative-and-general-dentistry",
+              "preset": "secondary"
+            },
+            {
+              "label": "Children\u2019s dental care",
+              "href": "/treatments/childrens-dentistry",
+              "preset": "secondary"
+            },
+            {
+              "label": "Senior smile care",
+              "href": "/treatments/senior-mature-smile-care",
+              "preset": "secondary"
+            }
+          ]
+        },
+        {
+          "id": "dental_checkups_faq",
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Questions about check-ups",
+          "faqs": [
+            {
+              "question": "Do I need x-rays every time?",
+              "answer": "Not always. We follow clinical guidance and your risk profile to decide when x-rays are useful. We will explain the reason, dose, and what we are looking for before taking them."
+            },
+            {
+              "question": "Will you tell me if you see anything concerning?",
+              "answer": "Yes. We talk you through any changes, explain what is normal, and outline next steps if we spot something that needs a closer look."
+            },
+            {
+              "question": "How long does a routine exam take?",
+              "answer": "Allow around 30 minutes so we can review your mouth carefully, capture notes or images, and leave time for your questions."
+            },
+            {
+              "question": "Can I combine a check-up with hygiene?",
+              "answer": "Often yes. We can align appointments so you have your check-up and hygiene visit together when schedules allow."
+            }
+          ]
+        },
+        {
+          "id": "dental_checkups_cta",
+          "type": "treatment_closing_cta",
+          "title": "Arrange your routine dental check-up",
+          "copy": "Book a calm examination with oral cancer screening included. Tell us if you would like a slower pace or extra reassurance.",
+          "ctas": [
+            {
+              "label": "Arrange a routine check-up",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Support for anxious visitors",
+              "href": "/treatments/nervous-patients",
+              "preset": "secondary"
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/hub"
+    },
     "implants_single_tooth": {
       "id": "implants_single_tooth",
       "label": "Single-tooth dental implants in Shoreham-by-Sea",
