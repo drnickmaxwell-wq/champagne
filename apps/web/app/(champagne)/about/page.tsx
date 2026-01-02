@@ -1,12 +1,14 @@
-import { ChampagneHeroFrame, getHeroBySlug } from "@champagne/hero";
-import { ChampagneSectionRenderer } from "@champagne/sections";
+import ChampagnePageBuilder from "../_builder/ChampagnePageBuilder";
+import { HeroRenderer } from "../../components/hero/HeroRenderer";
+import { isBrandHeroEnabled } from "../../featureFlags";
 
 export default function Page() {
-  const hero = getHeroBySlug("/about");
+  const isHeroEnabled = isBrandHeroEnabled();
+
   return (
-    <main className="space-y-8">
-      <ChampagneHeroFrame heroId={hero.id} headline={hero.label ?? "About champagne surface"} />
-      <ChampagneSectionRenderer pageSlug="/about" />
-    </main>
+    <>
+      {isHeroEnabled && <HeroRenderer pageCategory="utility" />}
+      <ChampagnePageBuilder slug="/about" />
+    </>
   );
 }

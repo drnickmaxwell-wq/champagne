@@ -144,6 +144,8 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
           "Clear next steps and aftercare",
         ]
       : undefined;
+  const peopleItems = kind === "people_grid" ? rawItems : undefined;
+
   const bullets = Array.isArray((definition as Record<string, unknown>).bullets)
     ? ((definition as Record<string, unknown>).bullets as unknown[]).map(String)
     : undefined;
@@ -226,7 +228,7 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
       title,
       copy: body,
       label: eyebrow,
-      items: routingItems ?? items,
+      items: kind === "people_grid" ? peopleItems : routingItems ?? items,
       tools,
       bullets,
       faqs,
