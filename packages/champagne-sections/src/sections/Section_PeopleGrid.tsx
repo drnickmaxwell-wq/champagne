@@ -1,6 +1,7 @@
 import "@champagne/tokens";
 import { BaseChampagneSurface } from "@champagne/hero";
 import type { SectionRegistryEntry } from "../SectionRegistry";
+import type { CSSProperties } from "react";
 
 type PeopleGridItem = {
   name: string;
@@ -64,13 +65,48 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
     ?? (section?.definition as { body?: string } | undefined)?.body;
 
   const people = derivePeople(section);
+  const surfaceStyle: CSSProperties = {
+    padding: "clamp(1.25rem, 3vw, 2.35rem)",
+    border: "1px solid var(--champagne-keyline-gold)",
+    background: "var(--surface-ink-soft, var(--bg-ink-soft))",
+  };
+  const headerStyle: CSSProperties = {
+    display: "grid",
+    gap: "0.5rem",
+    alignItems: "start",
+  };
+  const gridStyle: CSSProperties = {
+    display: "grid",
+    gap: "clamp(0.9rem, 2vw, 1.35rem)",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+  };
+  const cardStyle: CSSProperties = {
+    display: "grid",
+    gap: "0.75rem",
+    borderRadius: "var(--radius-md)",
+    border: "1px solid var(--border-strong)",
+    background: "var(--surface-glass)",
+    boxShadow: "var(--shadow-elevated)",
+    padding: "1rem",
+  };
+  const imageFrameStyle: CSSProperties = {
+    borderRadius: "var(--radius-md)",
+    overflow: "hidden",
+    border: "1px solid var(--border-strong)",
+    background: "var(--surface-glass-soft, var(--surface-glass))",
+  };
+  const placeholderStyle: CSSProperties = {
+    height: "12rem",
+    width: "100%",
+    background: "var(--surface-glass)",
+  };
 
   return (
     <BaseChampagneSurface
       variant="glass"
-      className="grid gap-6 border border-[color:var(--champagne-keyline-gold)] bg-[color:var(--surface-glass)] p-6 md:p-8"
+      style={surfaceStyle}
     >
-      <div className="grid gap-2">
+      <div style={headerStyle}>
         {eyebrow && (
           <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--text-medium)]">
             {eyebrow}
@@ -80,16 +116,16 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
         {copy && <p className="text-[color:var(--text-medium)] leading-relaxed">{copy}</p>}
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div style={gridStyle}>
         {people.map((person, index) => {
           const altText = person.imageAlt?.trim() || `${person.name} portrait`;
 
           return (
             <div
               key={`${person.name}-${index}`}
-              className="grid gap-3 rounded-md border border-[color:var(--border-strong)] bg-[color:var(--surface-glass)] p-4 shadow-[var(--shadow-elevated)]"
+              style={cardStyle}
             >
-              <div className="overflow-hidden rounded-md border border-[color:var(--border-strong)] bg-[color:var(--surface-glass-soft,var(--surface-glass))]">
+              <div style={imageFrameStyle}>
                 {person.imageSrc ? (
                   <img
                     src={person.imageSrc}
@@ -97,7 +133,7 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
                     className="h-48 w-full object-cover"
                   />
                 ) : (
-                  <div className="h-48 w-full bg-[color:var(--surface-glass)]" aria-hidden />
+                  <div style={placeholderStyle} aria-hidden />
                 )}
               </div>
 
