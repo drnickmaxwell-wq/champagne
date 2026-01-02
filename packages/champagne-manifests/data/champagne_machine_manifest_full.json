@@ -1214,64 +1214,67 @@
           "items": [
             {
               "title": "Dr Nick Maxwell",
-              "href": "/team/nick-maxwell"
+              "href": "/team/nick-maxwell",
+              "portrait": { "src": "placeholder", "alt": "Portrait of Dr Nick Maxwell" }
             },
             {
               "title": "Dr Sylvia Krafft",
-              "href": "/team/sylvia-krafft"
+              "href": "/team/sylvia-krafft",
+              "portrait": { "src": "placeholder", "alt": "Portrait of Dr Sylvia Krafft" }
             },
             {
               "title": "Sara Burden",
-              "href": "/team/sara-burden"
+              "href": "/team/sara-burden",
+              "portrait": { "src": "placeholder", "alt": "Portrait of Sara Burden" }
             }
           ]
         },
         {
           "id": "team_wider_practice_team",
-          "type": "people",
+          "type": "patient_stories_rail",
           "title": "Wider practice team",
           "eyebrow": "Support team",
           "copy": "Behind the clinical team is a wider practice team focused on consistency, organisation and patient comfort. From first contact through to ongoing care, they play a central role in helping patients feel informed, supported and at ease. Many patients value the familiarity and reassurance that comes from seeing the same trusted faces over time.",
-          "items": [
+          "stories": [
             {
+              "summary": "Joanna Dobson oversees the day-to-day running of the practice, supporting patients with clear communication and a calm, organised approach that helps visits feel smooth and well-coordinated.",
               "name": "Joanna Dobson",
               "role": "Practice Manager",
-              "summary": "Joanna Dobson oversees the day-to-day running of the practice, supporting patients with clear communication and a calm, organised approach that helps visits feel smooth and well-coordinated.",
               "image": "/assets/champagne/film-grain/film-grain-desktop.webp",
               "imageAlt": "Joanna Dobson, Practice Manager at St Mary’s House Dental Care, Shoreham-by-Sea"
             },
             {
+              "summary": "Riz Deen supports patients through complex treatment planning, helping them understand options clearly and feel comfortable making decisions that fit their needs.",
               "name": "Riz Deen",
               "role": "Complex Treatment Co-ordinator",
-              "summary": "Riz Deen supports patients through complex treatment planning, helping them understand options clearly and feel comfortable making decisions that fit their needs.",
               "image": "/assets/champagne/film-grain/film-grain-desktop.webp",
               "imageAlt": "Riz Deen, Complex Treatment Co-ordinator at St Mary’s House Dental Care, Shoreham-by-Sea"
             },
             {
+              "summary": "Gill Bentley leads the nursing team with a calm, organised approach, supporting patient care while maintaining consistently high clinical and infection-control standards.",
               "name": "Gill Bentley",
               "role": "Head Nurse (GDC registered)",
-              "summary": "Gill Bentley leads the nursing team with a calm, organised approach, supporting patient care while maintaining consistently high clinical and infection-control standards.",
               "image": "/assets/champagne/film-grain/film-grain-desktop.webp",
               "imageAlt": "Gill Bentley, Head Dental Nurse at St Mary’s House Dental Care, Shoreham-by-Sea"
             },
             {
+              "summary": "Sophia Ball supports patients both at reception and in surgery, helping visits feel calm, informed and well-coordinated through clear communication and reassurance.",
               "name": "Sophia Ball",
               "role": "Dental Nurse & Receptionist (GDC registered)",
-              "summary": "Sophia Ball supports patients both at reception and in surgery, helping visits feel calm, informed and well-coordinated through clear communication and reassurance.",
               "image": "/assets/champagne/film-grain/film-grain-desktop.webp",
               "imageAlt": "Sophia Ball, Dental Nurse and Receptionist at St Mary’s House Dental Care, Shoreham-by-Sea"
             },
             {
+              "summary": "Molly Pearce supports patients with a calm, detail-focused approach, helping appointments feel steady and well supported, particularly for nervous patients.",
               "name": "Molly Pearce",
               "role": "Dental Nurse (GDC registered)",
-              "summary": "Molly Pearce supports patients with a calm, detail-focused approach, helping appointments feel steady and well supported, particularly for nervous patients.",
               "image": "/assets/champagne/film-grain/film-grain-desktop.webp",
               "imageAlt": "Molly Pearce, Dental Nurse at St Mary’s House Dental Care, Shoreham-by-Sea"
             },
             {
+              "summary": "Marianne Fawbert supports patients at reception, helping appointments run smoothly through careful organisation and clear, helpful communication.",
               "name": "Marianne Fawbert",
               "role": "Receptionist",
-              "summary": "Marianne Fawbert supports patients at reception, helping appointments run smoothly through careful organisation and clear, helpful communication.",
               "image": "/assets/champagne/film-grain/film-grain-desktop.webp",
               "imageAlt": "Marianne Fawbert, Receptionist at St Mary’s House Dental Care, Shoreham-by-Sea"
             }
