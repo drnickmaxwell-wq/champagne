@@ -7,6 +7,7 @@ import { Section_MediaBlock } from "./Section_MediaBlock";
 import { Section_FAQ } from "./Section_FAQ";
 import { Section_ClinicianInsight } from "./Section_ClinicianInsight";
 import { Section_PatientStoriesRail } from "./Section_PatientStoriesRail";
+import { Section_PeopleGrid } from "./sections/Section_PeopleGrid";
 import { Section_TextBlock } from "./Section_TextBlock";
 import { Section_TreatmentClosingCTA } from "./Section_TreatmentClosingCTA";
 import { Section_TreatmentMidCTA } from "./Section_TreatmentMidCTA";
@@ -48,6 +49,7 @@ const typeMap: Record<string, SectionComponent> = {
   routing_cards: (props) => <Section_TreatmentRoutingCards {...props} />,
   clinician_insight: (props) => <Section_ClinicianInsight {...props} />,
   patient_stories_rail: (props) => <Section_PatientStoriesRail {...props} />,
+  people_grid: (props) => <Section_PeopleGrid {...props} />,
   treatment_mid_cta: (props) => <Section_TreatmentMidCTA {...props} />,
   treatment_faq_block: (props) => <Section_FAQ {...props} />,
   treatment_closing_cta: (props) => <Section_TreatmentClosingCTA {...props} />,
