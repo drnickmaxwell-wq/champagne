@@ -75,8 +75,9 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
 
   return (
     <BaseChampagneSurface
-      variant="glass"
-      className="grid gap-6 rounded-[var(--radius-lg)] border border-[color:var(--champagne-keyline-gold)] bg-[color:var(--surface-glass-soft,var(--surface-glass))] p-5 shadow-[var(--shadow-soft)] md:p-8 [--champagne-sheen-alpha:0.3] [--glass-opacity:0] [background-image:none]"
+      tone="ink"
+      variant="plain"
+      className="grid gap-6 rounded-[var(--radius-lg)] border border-[color:var(--champagne-keyline-gold)] bg-[color:var(--surface-ink,var(--bg-ink))] p-5 shadow-[var(--shadow-soft)] md:p-8 [--champagne-glass-bg:none] [--champagne-sheen-alpha:0] [--glass-opacity:0] [--smh-gradient:none]"
     >
       <div className="grid items-start gap-2">
         {eyebrow && (
