@@ -239,6 +239,48 @@
           "preset": "secondary"
         }
       ]
+    },
+    {
+      "instanceId": "restorative_full_inventory",
+      "componentId": "routing_cards",
+      "title": "Restorative Dentistry — full treatment list",
+      "order": 110,
+      "definition": {
+        "items": [
+          {
+            "title": "Dental crowns",
+            "href": "/treatments/dental-crowns"
+          },
+          {
+            "title": "Dental bridges",
+            "href": "/treatments/dental-bridges"
+          },
+          {
+            "title": "Inlays & onlays",
+            "href": "/treatments/inlays-onlays"
+          },
+          {
+            "title": "Tooth Wear & Broken Teeth",
+            "href": "/treatments/tooth-wear-broken-teeth"
+          },
+          {
+            "title": "Dentures & tooth replacement",
+            "href": "/treatments/dentures"
+          },
+          {
+            "title": "Acrylic dentures",
+            "href": "/treatments/acrylic-dentures"
+          },
+          {
+            "title": "Chrome dentures",
+            "href": "/treatments/chrome-dentures"
+          },
+          {
+            "title": "PEEK partial dentures",
+            "href": "/treatments/peek-partial-dentures"
+          }
+        ]
+      }
     }
   ],
   "journeys": {

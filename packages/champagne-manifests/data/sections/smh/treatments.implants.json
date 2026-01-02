@@ -232,6 +232,40 @@
           "variant": "secondary"
         }
       ]
+    },
+    {
+      "instanceId": "implants_full_inventory",
+      "componentId": "routing_cards",
+      "title": "Dental Implants — full treatment list",
+      "order": 95,
+      "definition": {
+        "items": [
+          {
+            "title": "Dental Implants in Shoreham-by-Sea",
+            "href": "/treatments/implants"
+          },
+          {
+            "title": "Implant consultation & planning in Shoreham-by-Sea",
+            "href": "/treatments/implant-consultation"
+          },
+          {
+            "title": "Single-tooth dental implants in Shoreham-by-Sea",
+            "href": "/treatments/implants-single-tooth"
+          },
+          {
+            "title": "Multiple teeth implant options",
+            "href": "/treatments/implants-multiple-teeth"
+          },
+          {
+            "title": "Full arch implant rehabilitation",
+            "href": "/treatments/implants-full-arch"
+          },
+          {
+            "title": "Bone grafting for dental implants",
+            "href": "/treatments/implants-bone-grafting"
+          }
+        ]
+      }
     }
   ],
   "journeys": {

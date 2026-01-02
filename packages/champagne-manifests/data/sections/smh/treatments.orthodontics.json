@@ -298,6 +298,32 @@
         "Digital Smile Design to visualise the final result (/treatments/digital-smile-design)",
         "Full Smile Makeover planning for complex goals (/treatments/full-smile-makeover)"
       ]
+    },
+    {
+      "instanceId": "ortho_retainers_full_inventory",
+      "componentId": "routing_cards",
+      "title": "Orthodontics & Retainers — full treatment list",
+      "order": 110,
+      "definition": {
+        "items": [
+          {
+            "title": "Clear Aligners in Shoreham-by-Sea",
+            "href": "/treatments/clear-aligners"
+          },
+          {
+            "title": "Spark clear aligners in Shoreham-by-Sea",
+            "href": "/treatments/clear-aligners-spark"
+          },
+          {
+            "title": "Fixed braces",
+            "href": "/treatments/fixed-braces"
+          },
+          {
+            "title": "Retainers",
+            "href": "/treatments/dental-retainers"
+          }
+        ]
+      }
     }
   ],
   "journeys": {

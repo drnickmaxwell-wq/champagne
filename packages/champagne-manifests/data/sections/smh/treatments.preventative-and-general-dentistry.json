@@ -228,6 +228,44 @@
           "preset": "secondary"
         }
       ]
+    },
+    {
+      "instanceId": "general_full_inventory",
+      "componentId": "routing_cards",
+      "title": "General Dentistry — full treatment list",
+      "order": 95,
+      "definition": {
+        "items": [
+          {
+            "title": "Dental Check-Ups & Oral Cancer Screening",
+            "href": "/treatments/dental-checkups-oral-cancer-screening"
+          },
+          {
+            "title": "Preventative & general dentistry",
+            "href": "/treatments/preventative-and-general-dentistry"
+          },
+          {
+            "title": "Periodontal & gum care",
+            "href": "/treatments/periodontal-gum-care"
+          },
+          {
+            "title": "Children’s dentistry",
+            "href": "/treatments/childrens-dentistry"
+          },
+          {
+            "title": "Senior & mature smile care",
+            "href": "/treatments/senior-mature-smile-care"
+          },
+          {
+            "title": "Endodontics & root canal care",
+            "href": "/treatments/endodontics-root-canal"
+          },
+          {
+            "title": "Extractions & oral surgery",
+            "href": "/treatments/extractions-and-oral-surgery"
+          }
+        ]
+      }
     }
   ],
   "journeys": {

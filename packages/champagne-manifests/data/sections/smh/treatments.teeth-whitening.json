@@ -188,6 +188,28 @@
         "Digital Smile Design to map combined changes (/treatments/digital-smile-design)",
         "Full Smile Makeover pathways for comprehensive cases (/treatments/full-smile-makeover)"
       ]
+    },
+    {
+      "instanceId": "aesthetic_full_inventory",
+      "componentId": "routing_cards",
+      "title": "Aesthetic Dentistry — full treatment list",
+      "order": 90,
+      "definition": {
+        "items": [
+          {
+            "title": "Composite bonding",
+            "href": "/treatments/composite-bonding"
+          },
+          {
+            "title": "Dental veneers in Shoreham-by-Sea",
+            "href": "/treatments/veneers"
+          },
+          {
+            "title": "Injection-moulded composite",
+            "href": "/treatments/injection-moulded-composite"
+          }
+        ]
+      }
     }
   ],
   "journeys": {

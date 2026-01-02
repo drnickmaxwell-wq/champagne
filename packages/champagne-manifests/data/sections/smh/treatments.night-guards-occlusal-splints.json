@@ -194,6 +194,32 @@
           "preset": "secondary"
         }
       ]
+    },
+    {
+      "instanceId": "night_guards_full_inventory",
+      "componentId": "routing_cards",
+      "title": "Night Guards & Occlusal Therapy — full treatment list",
+      "order": 90,
+      "definition": {
+        "items": [
+          {
+            "title": "Night guards (occlusal splints)",
+            "href": "/treatments/night-guards-occlusal-splints"
+          },
+          {
+            "title": "Bruxism and jaw clenching treatment",
+            "href": "/treatments/bruxism-and-jaw-clenching"
+          },
+          {
+            "title": "TMJ disorder treatment",
+            "href": "/treatments/tmj-disorder-treatment"
+          },
+          {
+            "title": "TMJ & jaw comfort",
+            "href": "/treatments/tmj-jaw-comfort"
+          }
+        ]
+      }
     }
   ],
   "journeys": {

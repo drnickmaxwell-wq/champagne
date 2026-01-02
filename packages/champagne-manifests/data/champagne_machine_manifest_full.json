@@ -1160,6 +1160,49 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "fixed_braces": {
+      "id": "fixed_braces",
+      "label": "Fixed braces",
+      "path": "/treatments/fixed-braces",
+      "category": "treatment",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "fixed_braces_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Related care to explore",
+          "strapline": "Compare connected steps and plan the next visit."
+        },
+        {
+          "id": "treatment.cta"
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "smile_gallery": {
       "id": "smile_gallery",
       "label": "Smile gallery",
@@ -4358,6 +4401,47 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "emergency_dentistry_full_inventory",
+          "type": "routing_cards",
+          "title": "Emergency Dentistry — full treatment list",
+          "definition": {
+            "items": [
+              {
+                "title": "Emergency dentistry",
+                "href": "/treatments/emergency-dentistry"
+              },
+              {
+                "title": "Emergency dental appointments",
+                "href": "/treatments/emergency-dental-appointments"
+              },
+              {
+                "title": "Dental abscess & infection",
+                "href": "/treatments/dental-abscess-infection"
+              },
+              {
+                "title": "Severe toothache & dental pain",
+                "href": "/treatments/severe-toothache-dental-pain"
+              },
+              {
+                "title": "Dental trauma & accidents",
+                "href": "/treatments/dental-trauma-accidents"
+              },
+              {
+                "title": "Broken, chipped or cracked teeth",
+                "href": "/treatments/broken-chipped-cracked-teeth"
+              },
+              {
+                "title": "Knocked-out (avulsed) tooth",
+                "href": "/treatments/knocked-out-tooth"
+              },
+              {
+                "title": "Lost crowns, veneers & fillings",
+                "href": "/treatments/lost-crowns-veneers-fillings"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
