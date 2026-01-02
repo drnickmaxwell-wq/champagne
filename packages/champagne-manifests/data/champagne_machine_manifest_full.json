@@ -978,6 +978,68 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "implants_full_inventory",
+          "type": "routing_cards",
+          "title": "Dental Implants — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Dental Implants in Shoreham-by-Sea",
+              "href": "/treatments/implants",
+              "description": "Stable, natural-looking implant restorations with calm planning and follow-up."
+            },
+            {
+              "title": "Implant consultation & planning in Shoreham-by-Sea",
+              "href": "/treatments/implant-consultation"
+            },
+            {
+              "title": "Single-tooth dental implants in Shoreham-by-Sea",
+              "href": "/treatments/implants-single-tooth"
+            },
+            {
+              "title": "Multiple teeth implant options",
+              "href": "/treatments/implants-multiple-teeth"
+            },
+            {
+              "title": "Full arch implant rehabilitation",
+              "href": "/treatments/implants-full-arch"
+            },
+            {
+              "title": "Bone grafting for dental implants",
+              "href": "/treatments/implants-bone-grafting"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Dental Implants in Shoreham-by-Sea",
+                "href": "/treatments/implants",
+                "description": "Stable, natural-looking implant restorations with calm planning and follow-up."
+              },
+              {
+                "title": "Implant consultation & planning in Shoreham-by-Sea",
+                "href": "/treatments/implant-consultation"
+              },
+              {
+                "title": "Single-tooth dental implants in Shoreham-by-Sea",
+                "href": "/treatments/implants-single-tooth"
+              },
+              {
+                "title": "Multiple teeth implant options",
+                "href": "/treatments/implants-multiple-teeth"
+              },
+              {
+                "title": "Full arch implant rehabilitation",
+                "href": "/treatments/implants-full-arch"
+              },
+              {
+                "title": "Bone grafting for dental implants",
+                "href": "/treatments/implants-bone-grafting"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -1198,6 +1260,49 @@
               "preset": "secondary"
             }
           ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "fixed_braces": {
+      "id": "fixed_braces",
+      "label": "Fixed braces",
+      "path": "/treatments/fixed-braces",
+      "category": "treatment",
+      "hero": "orthodontics_balanced_hero_v1",
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "fixed_braces_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Related care to explore",
+          "strapline": "Compare connected steps and plan the next visit."
+        },
+        {
+          "id": "treatment.cta"
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -3527,6 +3632,86 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "restorative_full_inventory",
+          "type": "routing_cards",
+          "title": "Restorative Dentistry — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Dental crowns",
+              "href": "/treatments/dental-crowns",
+              "description": "Protective, tooth-preserving crowns planned with digital scans and calm appointments."
+            },
+            {
+              "title": "Dental bridges",
+              "href": "/treatments/dental-bridges",
+              "description": "Fixed replacements for missing teeth planned with careful case selection and maintenance."
+            },
+            {
+              "title": "Inlays & onlays",
+              "href": "/treatments/inlays-onlays"
+            },
+            {
+              "title": "Tooth Wear & Broken Teeth",
+              "href": "/treatments/tooth-wear-broken-teeth"
+            },
+            {
+              "title": "Dentures & tooth replacement",
+              "href": "/treatments/dentures"
+            },
+            {
+              "title": "Acrylic dentures",
+              "href": "/treatments/acrylic-dentures"
+            },
+            {
+              "title": "Chrome dentures",
+              "href": "/treatments/chrome-dentures"
+            },
+            {
+              "title": "PEEK partial dentures",
+              "href": "/treatments/peek-partial-dentures"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Dental crowns",
+                "href": "/treatments/dental-crowns",
+                "description": "Protective, tooth-preserving crowns planned with digital scans and calm appointments."
+              },
+              {
+                "title": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "description": "Fixed replacements for missing teeth planned with careful case selection and maintenance."
+              },
+              {
+                "title": "Inlays & onlays",
+                "href": "/treatments/inlays-onlays"
+              },
+              {
+                "title": "Tooth Wear & Broken Teeth",
+                "href": "/treatments/tooth-wear-broken-teeth"
+              },
+              {
+                "title": "Dentures & tooth replacement",
+                "href": "/treatments/dentures"
+              },
+              {
+                "title": "Acrylic dentures",
+                "href": "/treatments/acrylic-dentures"
+              },
+              {
+                "title": "Chrome dentures",
+                "href": "/treatments/chrome-dentures"
+              },
+              {
+                "title": "PEEK partial dentures",
+                "href": "/treatments/peek-partial-dentures"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -3625,6 +3810,42 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "aesthetic_full_inventory",
+          "type": "routing_cards",
+          "title": "Aesthetic Dentistry — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Composite bonding",
+              "href": "/treatments/composite-bonding"
+            },
+            {
+              "title": "Dental veneers in Shoreham-by-Sea",
+              "href": "/treatments/veneers"
+            },
+            {
+              "title": "Injection-moulded composite",
+              "href": "/treatments/injection-moulded-composite"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Composite bonding",
+                "href": "/treatments/composite-bonding"
+              },
+              {
+                "title": "Dental veneers in Shoreham-by-Sea",
+                "href": "/treatments/veneers"
+              },
+              {
+                "title": "Injection-moulded composite",
+                "href": "/treatments/injection-moulded-composite"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -4061,6 +4282,50 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "orthodontics_full_inventory",
+          "type": "routing_cards",
+          "title": "Orthodontics & Retainers — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Clear Aligners in Shoreham-by-Sea",
+              "href": "/treatments/clear-aligners"
+            },
+            {
+              "title": "Spark clear aligners in Shoreham-by-Sea",
+              "href": "/treatments/clear-aligners-spark"
+            },
+            {
+              "title": "Fixed braces",
+              "href": "/treatments/fixed-braces"
+            },
+            {
+              "title": "Retainers",
+              "href": "/treatments/dental-retainers"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Clear Aligners in Shoreham-by-Sea",
+                "href": "/treatments/clear-aligners"
+              },
+              {
+                "title": "Spark clear aligners in Shoreham-by-Sea",
+                "href": "/treatments/clear-aligners-spark"
+              },
+              {
+                "title": "Fixed braces",
+                "href": "/treatments/fixed-braces"
+              },
+              {
+                "title": "Retainers",
+                "href": "/treatments/dental-retainers"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -4249,6 +4514,74 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "digital_full_inventory",
+          "type": "routing_cards",
+          "title": "3D & Digital Dentistry — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "3D & digital dentistry",
+              "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "CBCT / 3D scanning",
+              "href": "/treatments/cbct-3d-scanning"
+            },
+            {
+              "title": "Digital smile design",
+              "href": "/treatments/digital-smile-design"
+            },
+            {
+              "title": "3D printing lab",
+              "href": "/treatments/3d-printing-lab"
+            },
+            {
+              "title": "3D implant restorations",
+              "href": "/treatments/3d-implant-restorations"
+            },
+            {
+              "title": "3D printed dentures",
+              "href": "/treatments/3d-printed-dentures"
+            },
+            {
+              "title": "3D printed veneers",
+              "href": "/treatments/3d-printed-veneers"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "3D & digital dentistry",
+                "href": "/treatments/3d-digital-dentistry"
+              },
+              {
+                "title": "CBCT / 3D scanning",
+                "href": "/treatments/cbct-3d-scanning"
+              },
+              {
+                "title": "Digital smile design",
+                "href": "/treatments/digital-smile-design"
+              },
+              {
+                "title": "3D printing lab",
+                "href": "/treatments/3d-printing-lab"
+              },
+              {
+                "title": "3D implant restorations",
+                "href": "/treatments/3d-implant-restorations"
+              },
+              {
+                "title": "3D printed dentures",
+                "href": "/treatments/3d-printed-dentures"
+              },
+              {
+                "title": "3D printed veneers",
+                "href": "/treatments/3d-printed-veneers"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -4400,6 +4733,82 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "emergency_full_inventory",
+          "type": "routing_cards",
+          "title": "Emergency Dentistry — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Emergency dentistry",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "title": "Emergency dental appointments",
+              "href": "/treatments/emergency-dental-appointments"
+            },
+            {
+              "title": "Dental abscess & infection",
+              "href": "/treatments/dental-abscess-infection"
+            },
+            {
+              "title": "Severe toothache & dental pain",
+              "href": "/treatments/severe-toothache-dental-pain"
+            },
+            {
+              "title": "Dental trauma & accidents",
+              "href": "/treatments/dental-trauma-accidents"
+            },
+            {
+              "title": "Broken, chipped or cracked teeth",
+              "href": "/treatments/broken-chipped-cracked-teeth"
+            },
+            {
+              "title": "Knocked-out (avulsed) tooth",
+              "href": "/treatments/knocked-out-tooth"
+            },
+            {
+              "title": "Lost crowns, veneers & fillings",
+              "href": "/treatments/lost-crowns-veneers-fillings"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Emergency dentistry",
+                "href": "/treatments/emergency-dentistry"
+              },
+              {
+                "title": "Emergency dental appointments",
+                "href": "/treatments/emergency-dental-appointments"
+              },
+              {
+                "title": "Dental abscess & infection",
+                "href": "/treatments/dental-abscess-infection"
+              },
+              {
+                "title": "Severe toothache & dental pain",
+                "href": "/treatments/severe-toothache-dental-pain"
+              },
+              {
+                "title": "Dental trauma & accidents",
+                "href": "/treatments/dental-trauma-accidents"
+              },
+              {
+                "title": "Broken, chipped or cracked teeth",
+                "href": "/treatments/broken-chipped-cracked-teeth"
+              },
+              {
+                "title": "Knocked-out (avulsed) tooth",
+                "href": "/treatments/knocked-out-tooth"
+              },
+              {
+                "title": "Lost crowns, veneers & fillings",
+                "href": "/treatments/lost-crowns-veneers-fillings"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -5897,6 +6306,50 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "night_guards_full_inventory",
+          "type": "routing_cards",
+          "title": "Night Guards & Occlusal Therapy — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Night guards (occlusal splints)",
+              "href": "/treatments/night-guards-occlusal-splints"
+            },
+            {
+              "title": "Bruxism and jaw clenching treatment",
+              "href": "/treatments/bruxism-and-jaw-clenching"
+            },
+            {
+              "title": "TMJ disorder treatment",
+              "href": "/treatments/tmj-disorder-treatment"
+            },
+            {
+              "title": "TMJ & jaw comfort",
+              "href": "/treatments/tmj-jaw-comfort"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Night guards (occlusal splints)",
+                "href": "/treatments/night-guards-occlusal-splints"
+              },
+              {
+                "title": "Bruxism and jaw clenching treatment",
+                "href": "/treatments/bruxism-and-jaw-clenching"
+              },
+              {
+                "title": "TMJ disorder treatment",
+                "href": "/treatments/tmj-disorder-treatment"
+              },
+              {
+                "title": "TMJ & jaw comfort",
+                "href": "/treatments/tmj-jaw-comfort"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -6233,6 +6686,78 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "general_full_inventory",
+          "type": "routing_cards",
+          "title": "General Dentistry — full treatment list",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Dental Check-Ups & Oral Cancer Screening",
+              "href": "/treatments/dental-checkups-oral-cancer-screening",
+              "description": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening."
+            },
+            {
+              "title": "Preventative & general dentistry",
+              "href": "/treatments/preventative-and-general-dentistry"
+            },
+            {
+              "title": "Periodontal & gum care",
+              "href": "/treatments/periodontal-gum-care"
+            },
+            {
+              "title": "Children’s dentistry",
+              "href": "/treatments/childrens-dentistry"
+            },
+            {
+              "title": "Senior & mature smile care",
+              "href": "/treatments/senior-mature-smile-care",
+              "description": "Comfort-first dentistry for later life with focus on gums, dry mouth, restored teeth, dentures, and implant options."
+            },
+            {
+              "title": "Endodontics & root canal care",
+              "href": "/treatments/endodontics-root-canal"
+            },
+            {
+              "title": "Extractions & oral surgery",
+              "href": "/treatments/extractions-and-oral-surgery"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Dental Check-Ups & Oral Cancer Screening",
+                "href": "/treatments/dental-checkups-oral-cancer-screening",
+                "description": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening."
+              },
+              {
+                "title": "Preventative & general dentistry",
+                "href": "/treatments/preventative-and-general-dentistry"
+              },
+              {
+                "title": "Periodontal & gum care",
+                "href": "/treatments/periodontal-gum-care"
+              },
+              {
+                "title": "Children’s dentistry",
+                "href": "/treatments/childrens-dentistry"
+              },
+              {
+                "title": "Senior & mature smile care",
+                "href": "/treatments/senior-mature-smile-care",
+                "description": "Comfort-first dentistry for later life with focus on gums, dry mouth, restored teeth, dentures, and implant options."
+              },
+              {
+                "title": "Endodontics & root canal care",
+                "href": "/treatments/endodontics-root-canal"
+              },
+              {
+                "title": "Extractions & oral surgery",
+                "href": "/treatments/extractions-and-oral-surgery"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
