@@ -488,6 +488,33 @@
       }
     },
     {
+      "id": "treatments_hub_secondary_hubs",
+      "type": "routing_cards",
+      "title": "Other ways we can help",
+      "items": [
+        {
+          "title": "Emergency dentistry",
+          "description": "",
+          "href": "/treatments/emergency-dentistry"
+        },
+        {
+          "title": "Facial therapeutics in Shoreham-by-Sea",
+          "description": "",
+          "href": "/treatments/facial-therapeutics"
+        },
+        {
+          "title": "Finance",
+          "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
+          "href": "/finance"
+        },
+        {
+          "title": "Technology",
+          "description": "",
+          "href": "/technology"
+        }
+      ]
+    },
+    {
       "id": "treatments_hub_authority",
       "type": "feature-grid",
       "title": "Authority, technology, and experience",
@@ -2086,6 +2113,79 @@
             }
           ],
           "label": "CTA"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "technology_hub": {
+      "id": "technology_hub",
+      "label": "Technology",
+      "path": "/technology",
+      "category": "utility",
+      "hero": "contact_calm_hero_v1",
+      "sections": [
+        {
+          "id": "technology_hub_routing",
+          "type": "routing_cards",
+          "title": "Explore our technology",
+          "items": [
+            {
+              "title": "3D dentistry & technology",
+              "description": "",
+              "href": "/treatments/3d-dentistry-and-technology"
+            },
+            {
+              "title": "3D & digital dentistry",
+              "description": "",
+              "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "3D implant restorations",
+              "description": "",
+              "href": "/treatments/3d-implant-restorations"
+            },
+            {
+              "title": "3D printed dentures",
+              "description": "",
+              "href": "/treatments/3d-printed-dentures"
+            },
+            {
+              "title": "3D printed veneers",
+              "description": "",
+              "href": "/treatments/3d-printed-veneers"
+            },
+            {
+              "title": "3D printing lab",
+              "description": "",
+              "href": "/treatments/3d-printing-lab"
+            },
+            {
+              "title": "CBCT / 3D scanning",
+              "description": "",
+              "href": "/treatments/cbct-3d-scanning"
+            },
+            {
+              "title": "Digital smile design",
+              "description": "",
+              "href": "/treatments/digital-smile-design"
+            },
+            {
+              "title": "Painless numbing with The Wand",
+              "description": "",
+              "href": "/treatments/painless-numbing-the-wand"
+            },
+            {
+              "title": "Sedation dentistry",
+              "description": "",
+              "href": "/treatments/sedation-dentistry"
+            },
+            {
+              "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/sedation-for-implants"
+            }
+          ],
+          "label": "Technology routes"
         }
       ],
       "surface": "champagne/surface/utility"
