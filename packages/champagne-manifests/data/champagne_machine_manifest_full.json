@@ -2124,6 +2124,18 @@
           "label": "Options"
         },
         {
+          "id": "finance_navigation_cards",
+          "type": "routing_cards",
+          "label": "Next steps",
+          "title": "Explore your options",
+          "items": [
+            { "label": "Fees & pricing", "href": "/fees" },
+            { "label": "Practice plan", "href": "/practice-plan" },
+            { "label": "Contact the team", "href": "/contact" },
+            { "label": "Patient portal", "href": "/patient-portal?intent=login" }
+          ]
+        },
+        {
           "id": "finance_discussion_flow",
           "type": "steps",
           "title": "How finance conversations run",
