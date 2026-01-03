@@ -430,6 +430,11 @@
           "title": "Emergency Dentistry",
           "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
           "href": "/treatments/emergency-dentistry"
+        },
+        {
+          "title": "Facial Rejuvenation",
+          "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+          "href": "/treatments/facial-therapeutics"
         }
       ],
       "definition": {
@@ -473,6 +478,11 @@
             "title": "Emergency Dentistry",
             "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
             "href": "/treatments/emergency-dentistry"
+          },
+          {
+            "title": "Facial Rejuvenation",
+            "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+            "href": "/treatments/facial-therapeutics"
           }
         ]
       }
@@ -662,6 +672,30 @@
             "dental-abscess-infection",
             "severe-toothache-dental-pain",
             "dental-trauma-accidents"
+          ],
+          "collapsedByDefault": true,
+          "featuredOnly": true
+        },
+        {
+          "groupId": "facial_rejuv",
+          "label": "Facial Rejuvenation",
+          "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+          "hub": "/treatments/facial-therapeutics",
+          "viewAllLabel": "View all treatments in this group",
+          "viewAllHref": "/treatments/facial-therapeutics",
+          "featuredSlugs": [
+            "anti-wrinkle-treatments",
+            "dermal-fillers",
+            "facial-aesthetics",
+            "therapeutic-facial-injectables"
+          ],
+          "allSlugs": [
+            "anti-wrinkle-treatments",
+            "dermal-fillers",
+            "facial-aesthetics",
+            "facial-pain-and-headache",
+            "facial-therapeutics",
+            "therapeutic-facial-injectables"
           ],
           "collapsedByDefault": true,
           "featuredOnly": true
@@ -896,6 +930,33 @@
             "access": {
               "label": "View all treatments in this group",
               "href": "/treatments/emergency-dentistry"
+            }
+          },
+          {
+            "id": "facial_rejuv",
+            "label": "Facial Rejuvenation",
+            "hub": "/treatments/facial-therapeutics",
+            "intro": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+            "collapsedByDefault": true,
+            "featuredOnly": true,
+            "featuredSlugs": [
+              "anti-wrinkle-treatments",
+              "dermal-fillers",
+              "facial-aesthetics",
+              "therapeutic-facial-injectables"
+            ],
+            "allSlugs": [
+              "anti-wrinkle-treatments",
+              "dermal-fillers",
+              "facial-aesthetics",
+              "facial-pain-and-headache",
+              "facial-therapeutics",
+              "therapeutic-facial-injectables"
+            ],
+            "viewAllLabel": "View all treatments in this group",
+            "access": {
+              "label": "View all treatments in this group",
+              "href": "/treatments/facial-therapeutics"
             }
           }
         ]
@@ -8084,6 +8145,58 @@
               "preset": "secondary"
             }
           ]
+        },
+        {
+          "id": "facial_rejuv_full_inventory",
+          "type": "routing_cards",
+          "title": "Facial treatments",
+          "label": "Full list",
+          "items": [
+            {
+              "title": "Anti-wrinkle treatments",
+              "href": "/treatments/anti-wrinkle-treatments"
+            },
+            {
+              "title": "Dermal fillers",
+              "href": "/treatments/dermal-fillers"
+            },
+            {
+              "title": "Facial aesthetics",
+              "href": "/treatments/facial-aesthetics"
+            },
+            {
+              "title": "Facial pain & headache",
+              "href": "/treatments/facial-pain-and-headache"
+            },
+            {
+              "title": "Therapeutic facial injectables",
+              "href": "/treatments/therapeutic-facial-injectables"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Anti-wrinkle treatments",
+                "href": "/treatments/anti-wrinkle-treatments"
+              },
+              {
+                "title": "Dermal fillers",
+                "href": "/treatments/dermal-fillers"
+              },
+              {
+                "title": "Facial aesthetics",
+                "href": "/treatments/facial-aesthetics"
+              },
+              {
+                "title": "Facial pain & headache",
+                "href": "/treatments/facial-pain-and-headache"
+              },
+              {
+                "title": "Therapeutic facial injectables",
+                "href": "/treatments/therapeutic-facial-injectables"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/treatment"
@@ -9157,6 +9270,46 @@
           "broken-chipped-cracked-teeth",
           "knocked-out-tooth",
           "lost-crowns-veneers-fillings"
+        ]
+      },
+      "showOnHub": true
+    },
+    {
+      "id": "facial_rejuv",
+      "label": "Facial Rejuvenation",
+      "hub": "/treatments/facial-therapeutics",
+      "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+      "collapsedByDefault": true,
+      "featuredOnly": true,
+      "slugs": [
+        "anti-wrinkle-treatments",
+        "dermal-fillers",
+        "facial-aesthetics",
+        "facial-pain-and-headache",
+        "facial-therapeutics",
+        "therapeutic-facial-injectables"
+      ],
+      "featuredSlugs": [
+        "anti-wrinkle-treatments",
+        "dermal-fillers",
+        "facial-aesthetics",
+        "therapeutic-facial-injectables"
+      ],
+      "viewAllLabel": "View all treatments in this group",
+      "inventoryHiddenByDefault": true,
+      "inventory": {
+        "hiddenByDefault": true,
+        "access": {
+          "label": "View all treatments in this group",
+          "href": "/treatments/facial-therapeutics"
+        },
+        "slugs": [
+          "anti-wrinkle-treatments",
+          "dermal-fillers",
+          "facial-aesthetics",
+          "facial-pain-and-headache",
+          "facial-therapeutics",
+          "therapeutic-facial-injectables"
         ]
       },
       "showOnHub": true
