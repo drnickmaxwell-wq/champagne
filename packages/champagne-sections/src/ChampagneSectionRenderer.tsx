@@ -87,7 +87,11 @@ function renderSection(
     const props = key === "treatment_closing_cta"
       ? {
           section,
-          ctas: footerCTAs && footerCTAs.length > 0 ? footerCTAs : undefined,
+          ctas: footerCTAs && footerCTAs.length > 0
+            ? footerCTAs
+            : section.ctas && section.ctas.length > 0
+              ? (section.ctas as ChampagneCTAConfig[])
+              : undefined,
           footerCTAs,
           pageSlug,
           usedMidCtaHrefs,
