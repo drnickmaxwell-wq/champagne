@@ -1687,6 +1687,28 @@
         {
           "id": "fees_overview",
           "type": "copy-block"
+        },
+        {
+          "id": "fees_support_routing",
+          "type": "routing_cards",
+          "title": "Support & finance options",
+          "items": [
+            {
+              "title": "Finance options",
+              "description": "Flexible plans to spread the cost of your care.",
+              "href": "/finance"
+            },
+            {
+              "title": "Practice plan",
+              "description": "Membership for routine care with predictable payments.",
+              "href": "/practice-plan"
+            },
+            {
+              "title": "Video consultation",
+              "description": "Book a secure remote appointment to discuss your needs.",
+              "href": "/video-consultation"
+            }
+          ]
         }
       ],
       "surface": "champagne/surface/utility"
