@@ -2153,8 +2153,8 @@
           "ctas": [
             "portal-finance",
             {
-              "label": "See implants pricing guidance",
-              "href": "/treatments/implants",
+              "label": "See fees and pricing guidance",
+              "href": "/fees",
               "preset": "secondary"
             }
           ],
