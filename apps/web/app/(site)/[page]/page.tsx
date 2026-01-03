@@ -2,8 +2,6 @@ import { getPageManifest } from "@champagne/manifests";
 import { notFound } from "next/navigation";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
-import { HeroRenderer } from "../../components/hero/HeroRenderer";
-import { isBrandHeroEnabled } from "../../featureFlags";
 
 type PageParams = Promise<{ page: string }>;
 
@@ -22,12 +20,8 @@ export default async function SitePage({ params }: { params: PageParams }) {
     return notFound();
   }
 
-  const heroEnabled = isBrandHeroEnabled();
-  const pageCategory = (manifest as { category?: string })?.category;
-
   return (
     <>
-      {heroEnabled && <HeroRenderer pageCategory={pageCategory} />}
       <ChampagnePageBuilder slug={manifestPath} />
     </>
   );
