@@ -3672,6 +3672,10 @@
               "description": "Fixed replacements for missing teeth planned with careful case selection and maintenance."
             },
             {
+              "title": "Dental fillings",
+              "href": "/treatments/dental-fillings"
+            },
+            {
               "title": "Inlays & onlays",
               "href": "/treatments/inlays-onlays"
             },
@@ -3707,6 +3711,10 @@
                 "title": "Dental bridges",
                 "href": "/treatments/dental-bridges",
                 "description": "Fixed replacements for missing teeth planned with careful case selection and maintenance."
+              },
+              {
+                "title": "Dental fillings",
+                "href": "/treatments/dental-fillings"
               },
               {
                 "title": "Inlays & onlays",
@@ -3850,6 +3858,18 @@
             {
               "title": "Injection-moulded composite",
               "href": "/treatments/injection-moulded-composite"
+            },
+            {
+              "title": "Facial aesthetics",
+              "href": "/treatments/facial-aesthetics"
+            },
+            {
+              "title": "Teeth whitening FAQs",
+              "href": "/treatments/teeth-whitening-faqs"
+            },
+            {
+              "title": "Whitening for sensitive teeth",
+              "href": "/treatments/whitening-sensitive-teeth"
             }
           ],
           "definition": {
@@ -3865,6 +3885,18 @@
               {
                 "title": "Injection-moulded composite",
                 "href": "/treatments/injection-moulded-composite"
+              },
+              {
+                "title": "Facial aesthetics",
+                "href": "/treatments/facial-aesthetics"
+              },
+              {
+                "title": "Teeth whitening FAQs",
+                "href": "/treatments/teeth-whitening-faqs"
+              },
+              {
+                "title": "Whitening for sensitive teeth",
+                "href": "/treatments/whitening-sensitive-teeth"
               }
             ]
           }
@@ -4570,6 +4602,10 @@
             {
               "title": "3D printed veneers",
               "href": "/treatments/3d-printed-veneers"
+            },
+            {
+              "title": "3D dentistry & technology",
+              "href": "/treatments/3d-dentistry-and-technology"
             }
           ],
           "definition": {
@@ -4601,6 +4637,10 @@
               {
                 "title": "3D printed veneers",
                 "href": "/treatments/3d-printed-veneers"
+              },
+              {
+                "title": "3D dentistry & technology",
+                "href": "/treatments/3d-dentistry-and-technology"
               }
             ]
           }
@@ -6350,6 +6390,14 @@
             {
               "title": "TMJ & jaw comfort",
               "href": "/treatments/tmj-jaw-comfort"
+            },
+            {
+              "title": "Facial therapeutics",
+              "href": "/treatments/facial-therapeutics"
+            },
+            {
+              "title": "Sports mouthguards",
+              "href": "/treatments/sports-mouthguards"
             }
           ],
           "definition": {
@@ -6369,6 +6417,14 @@
               {
                 "title": "TMJ & jaw comfort",
                 "href": "/treatments/tmj-jaw-comfort"
+              },
+              {
+                "title": "Facial therapeutics",
+                "href": "/treatments/facial-therapeutics"
+              },
+              {
+                "title": "Sports mouthguards",
+                "href": "/treatments/sports-mouthguards"
               }
             ]
           }
