@@ -1827,8 +1827,54 @@
           "label": "Details"
         },
         {
+          "id": "contact_methods",
+          "type": "feature-grid",
+          "title": "Contact methods",
+          "items": [
+            "Phone: placeholder",
+            "Email: placeholder",
+            "Address: placeholder",
+            "Opening hours: placeholder"
+          ],
+          "label": "Contact methods"
+        },
+        {
+          "id": "contact_form_placeholder",
+          "type": "copy-block",
+          "title": "Send a message",
+          "copy": "Secure contact form placeholder. This will be replaced with the live form wiring in a later phase.",
+          "label": "Contact form"
+        },
+        {
+          "id": "contact_map_location",
+          "type": "map",
+          "label": "Map",
+          "title": "Find us",
+          "copy": "Map embed placeholder. Directions and parking details will be confirmed here.",
+          "mediaHint": "Contact page map placeholder"
+        },
+        {
+          "id": "contact_emergency_cta",
+          "type": "treatment_mid_cta",
+          "title": "Need urgent help?",
+          "strapline": "For pain, swelling, trauma, or accidents, follow the emergency pathway or contact the team for next steps.",
+          "ctas": [
+            {
+              "label": "Emergency dentistry",
+              "href": "/treatments/emergency-dentistry",
+              "preset": "primary"
+            },
+            {
+              "label": "Contact the practice",
+              "href": "/contact",
+              "preset": "secondary"
+            }
+          ],
+          "label": "Emergency"
+        },
+        {
           "id": "contact_followup_cta",
-          "type": "cta",
+          "type": "treatment_closing_cta",
           "title": "Plan a visit",
           "ctas": [
             {
