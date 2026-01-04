@@ -1504,7 +1504,7 @@
           "id": "philosophy_and_standards",
           "type": "story",
           "title": "Philosophy and standards",
-          "copy": "Clinical decisions at St Mary’s House Dental Care are guided by evidence, long-term thinking and a conservative-first philosophy wherever possible. The focus is on planning for the whole mouth and the individual patient, rather than isolated treatments, with attention given to function, longevity and maintenance.\n\nInformed consent is central to how care is delivered. Patients are given clear explanations of their dental health, the available treatment options, and the advantages, limitations and risks associated with each. Alternatives are always discussed, and patients are supported in making decisions that feel appropriate for their circumstances and priorities.\n\nAnxious and nervous patients form a significant part of the practice population. Appointments are unhurried, patients are encouraged to remain in control throughout treatment, and care is adapted to individual comfort levels. A range of supportive measures is used, including calm communication, comfort-focused techniques, The Wand painless anaesthetic system, and IV sedation provided by an experienced external sedationist when clinically appropriate.\n\nThe practice combines preventative and restorative care to reflect the needs of its patient base, supported by ongoing professional development and careful clinical planning to maintain high standards of safety and quality."
+          "copy": "Clinical decisions at St Mary’s House Dental Care are guided by evidence, long-term thinking and a conservative-first philosophy wherever possible. The focus is on planning for the whole mouth and the individual patient, rather than isolated treatments, with attention given to function, longevity and maintenance.\n\nInformed consent is central to how care is delivered. Patients are given clear explanations of their dental health, the available treatment options, and the advantages, limitations and risks associated with each. Alternatives are always discussed, and patients are supported in making decisions that feel appropriate for their circumstances and priorities.\n\nAnxious and nervous patients form a significant part of the practice population. Appointments are unhurried, patients are encouraged to remain in control throughout treatment, and care is adapted to individual comfort levels. A range of supportive measures is used, including calm communication, comfort-focused techniques, The Wand anaesthetic system designed to keep you comfortable, and IV sedation provided by an experienced external sedationist when clinically appropriate.\n\nThe practice combines preventative and restorative care to reflect the needs of its patient base, supported by ongoing professional development and careful clinical planning to maintain high standards of safety and quality."
         },
         {
           "id": "history_and_evolution",
@@ -1999,11 +1999,175 @@
           "type": "copy-block",
           "title": "Privacy and your information",
           "label": "Overview",
-          "copy": "We take your privacy seriously. This notice explains what personal information we collect, how we use it, and the choices you have. We only process data when there is a lawful basis to do so, keep it secure, and retain it for appropriate periods. You’ll also find information about cookies, third-party services, and how to request access, correction or deletion where applicable. If you have any questions about how your information is handled, please contact the practice and we’ll help."
+          "copy": "We handle personal information to run the practice and respond to your requests. We collect details you share when booking, clinical notes created during care, and technical data that keeps the site secure. We do this to provide treatment, manage appointments and payments, meet regulatory duties, and keep communication consistent. Where optional updates or reminders are offered, you can change your preference at any time.\n\nWe may use third-party providers for hosting, forms, messaging, payments, analytics, or security. They receive only the minimum information needed for their task, under appropriate safeguards. Some records must be retained for clinical, legal, or audit reasons; other information is kept only as long as it supports the purpose it was collected for. Cookies may be used to keep sessions stable, understand site performance, support accessibility features, and remember preferences; see the cookies page for more detail.\n\nThis page is informational, not legal advice. If you want to access, correct, limit, or delete data where rights apply, or if you have questions about how we handle information, contact the practice team. We will acknowledge your request, explain any next steps, and set expectations on timeframes or identification we may need."
         },
         {
           "id": "legal_terms",
           "type": "accordion"
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "cookies": {
+      "id": "cookies",
+      "label": "Cookies",
+      "path": "/legal/cookies",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "How we use cookies",
+          "label": "Overview",
+          "copy": "Cookies and similar tools help keep this site working and allow us to understand how it is used. We do use essential cookies to support navigation, security, and form submissions. We may use preference cookies to remember settings like language or accessibility options, and performance cookies to check that pages load reliably. Where optional categories are offered, we aim to explain their purpose before enabling them.\n\nWe may also work with trusted providers for hosting, analytics, payments, or embedded content. Those services may set their own cookies under their own policies, and retention can vary by provider. You can adjust browser settings, clear stored cookies, or opt out of non-essential categories if prompts are available; some features may be reduced if essential cookies are blocked.\n\nThis page is informational and not legal advice. If you want to know which cookies are active right now, what categories they fall into, or how long they typically remain on your device, contact the practice team. We will share the current list we use for this site, explain what each category does, and outline what options you have to limit or disable them."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "title": "Cookie details and options",
+          "label": "Cookie info",
+          "items": [
+            {
+              "title": "Cookie categories",
+              "items": [
+                "Essential: keep security, navigation, and forms stable.",
+                "Performance: help measure reliability and basic analytics.",
+                "Preference: remember settings such as language or accessibility aids when available."
+              ]
+            },
+            {
+              "title": "Managing cookies",
+              "items": [
+                "Use browser controls to block or delete stored cookies.",
+                "Check prompts on this site for optional categories before consenting.",
+                "Contact us if you need a current list of cookies in use or want guidance on adjustments."
+              ]
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "terms": {
+      "id": "terms",
+      "label": "Website terms",
+      "path": "/legal/terms",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Website use and expectations",
+          "label": "Overview",
+          "copy": "This website outlines information about our practice, services, and ways to contact us. We do maintain and update pages to reflect current services, opening hours, and booking routes, and aim to keep downloads and links working. We may revise or remove content without notice, adjust availability, or pause access for maintenance. Nothing on this site is clinical advice, a guarantee of suitability, or a binding quote; treatment options and fees depend on your circumstances after an in-person discussion.\n\nWe may link to third-party tools for booking, payments, maps, or media. Those services set their own terms and may change independently. Use of the site should remain lawful and respectful: please avoid submitting material that is abusive, misleading, or infringes others’ rights. This page is informational and not legal advice.\n\nIf you spot an error, want clarification on a statement, or need to understand how a term applies to you, contact the practice team. We will explain what the website covers, what needs a direct conversation, and how to progress any concerns."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "title": "Key website points",
+          "label": "Terms detail",
+          "items": [
+            {
+              "title": "Using this site",
+              "items": [
+                "Content is informational and does not replace tailored advice.",
+                "Keep any login or enquiry details accurate and respectful if provided.",
+                "Do not misuse forms or uploads in ways that could disrupt the service."
+              ]
+            },
+            {
+              "title": "Changes and limits",
+              "items": [
+                "Pages, pricing, and availability may change without notice.",
+                "Downtime can occur during maintenance or external service issues.",
+                "Third-party tools and embeds have their own terms and controls."
+              ]
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "accessibility": {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "path": "/legal/accessibility",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Accessibility statement",
+          "label": "Overview",
+          "copy": "We want this site to be usable for as many visitors as possible. We do aim for clear language, consistent navigation, and layouts that work across modern devices. We may provide features like alt text on images, descriptive link labels, keyboard-friendly focus states, and captions or transcripts where media is available. We review feedback to prioritise improvements.\n\nWe may use third-party embeds such as maps, video, or forms that come with their own controls and accessibility levels. Some accessibility updates are ongoing, and parts of the site may still be refined. If you rely on assistive technology and encounter an issue, letting us know helps us address it.\n\nThis page is informational and not legal advice. To report an accessibility barrier, request information in another format, or ask about planned improvements, contact the practice team. We will acknowledge your message, explain any immediate workarounds, and outline when a fix or alternative can be provided."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "title": "Access considerations",
+          "label": "Accessibility detail",
+          "items": [
+            {
+              "title": "Features we aim to support",
+              "items": [
+                "Clear headings, readable contrast, and consistent layouts where possible.",
+                "Keyboard-friendly navigation cues and focus indicators on interactive elements.",
+                "Alt text, captions, or transcripts for media when available."
+              ]
+            },
+            {
+              "title": "If you need help",
+              "items": [
+                "Contact us if you encounter a barrier so we can investigate it.",
+                "Tell us which device, browser, or assistive tech you use to speed up checks.",
+                "Request information in another format and we will outline available options."
+              ]
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "complaints": {
+      "id": "complaints",
+      "label": "Complaints",
+      "path": "/legal/complaints",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Sharing feedback or concerns",
+          "label": "Overview",
+          "copy": "We want to handle concerns promptly and fairly. We do record feedback, aim to resolve issues quickly, and review themes to improve our service. We may ask for details about your experience, relevant dates, and preferred contact method so we can investigate. Depending on the topic, we may involve the clinician or practice manager best placed to respond.\n\nWe may offer a call or meeting to understand the issue, share what we find, and outline any steps we can take. Some matters can be addressed immediately; others may need more time for clinical review or coordination with external providers. This page is informational and not legal advice.\n\nTo raise a complaint or follow up on one you’ve already submitted, contact the practice team. We will acknowledge your message, explain the next steps and expected timelines, and signpost any external escalation routes if they become relevant."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "title": "How complaints are handled",
+          "label": "Complaints detail",
+          "items": [
+            {
+              "title": "What we do",
+              "items": [
+                "Log the concern and route it to the right person to respond.",
+                "Aim to acknowledge and follow up within reasonable timeframes.",
+                "Review outcomes to see where processes can improve."
+              ]
+            },
+            {
+              "title": "What to include",
+              "items": [
+                "Your name, contact details, and preferred way for us to reply.",
+                "Dates, clinicians, or services involved so we can check records.",
+                "Any supporting information that helps us understand what happened."
+              ]
+            }
+          ]
         }
       ],
       "surface": "champagne/surface/legal"
@@ -2325,7 +2489,7 @@
               "href": "/treatments/digital-smile-design"
             },
             {
-              "title": "Painless numbing with The Wand",
+              "title": "Comfort-focused numbing with The Wand",
               "description": "",
               "href": "/treatments/painless-numbing-the-wand"
             },
