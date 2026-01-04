@@ -1,6 +1,6 @@
 # CTA Contract Audit
 
-- Scanned CTAs: 265
+- Scanned CTAs: 269
 - Dropped: 0
 - Invalid targets: 0
 - Self-links: 0
