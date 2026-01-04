@@ -185,7 +185,7 @@
       "bullets": [
         "Appropriate when you want to understand when extractions or minor oral surgery are recommended and how recovery works.",
         "Often follows Gum health concerns (/treatments/periodontal-gum-care); Routine examinations (/treatments/preventative-and-general-dentistry).",
-        "Alternatives we balance: Sedation support (/treatments/sedation-dentistry); Comfort-first numbing (/treatments/painless-numbing-the-wand).",
+        "Alternatives we balance: Sedation support (/treatments/sedation-dentistry); Comfort-first numbing (/treatments/designed to keep you comfortable-numbing-the-wand).",
         "Next steps we plan for: Implant consultation (/treatments/implants-consultation); Denture solutions (/treatments/dentures); Bone grafting for implants (/treatments/implants-bone-grafting)."
       ]
     },
@@ -197,7 +197,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Need advice about a troublesome tooth?",
-      "body": "We’ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+      "body": "We’ll review your options, plan comfortable removal if needed, and map high standards path to restore your smile.",
       "ctas": [
         {
           "label": "Plan a clinician-led extractions and oral surgery review",
@@ -244,7 +244,7 @@
       },
       {
         "label": "Comfort-first numbing",
-        "href": "/treatments/painless-numbing-the-wand"
+        "href": "/treatments/designed to keep you comfortable-numbing-the-wand"
       }
     ]
   },
