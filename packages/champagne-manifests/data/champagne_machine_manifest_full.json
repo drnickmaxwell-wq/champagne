@@ -1462,7 +1462,7 @@
           "id": "smile_gallery_intro_copy",
           "type": "copy-block",
           "title": "Smile transformations, simplified",
-          "copy": "This gallery will showcase restorative and cosmetic journeys once assets are ready. For now, it outlines the structure for future case stories.",
+          "copy": "Our smile gallery shares examples of treatments carried out at St Mary’s House Dental Care, with the aim of helping you understand what different options can look like in real life. Every smile is unique and results vary, so these cases are here to support informed conversations — not to promise a specific outcome. Where we share before-and-after images, we do so with consent and with context about the type of work involved. If you see a result you like, we can discuss whether a similar approach is clinically suitable for you, and what the planning would involve.",
           "label": "Overview"
         },
         {
@@ -1906,7 +1906,7 @@
           "id": "contact_intro_copy",
           "type": "copy-block",
           "title": "How to reach us",
-          "copy": "We are setting up the refreshed contact channels. Use these placeholders as a guide until the live communication tools are connected.",
+          "copy": "Getting in touch should feel straightforward. If you’d like to book, ask a question, or talk through a concern, our team can guide you to the right next step and the right appointment length. If you’re in pain or think you may have an infection, please let us know — we keep space for urgent problems and we’ll advise what to do next. For anything non-urgent, you can call during opening hours or send an enquiry and we’ll come back to you as soon as we can. If you’re exploring a bigger change — implants, aligners, veneers, or complex restorative work — we can arrange a consultation focused on options, planning and costs, with time for questions.",
           "label": "Contact"
         },
         {
@@ -2019,7 +2019,7 @@
           "id": "blog_intro_copy",
           "type": "copy-block",
           "title": "Practice insights",
-          "copy": "Stories and updates will publish here once the content calendar is live. This space holds the layout for future articles.",
+          "copy": "Here you’ll find updates and practical guidance from the St Mary’s House Dental Care team — written to help you make sense of common dental concerns and the options available. We’ll cover topics like prevention, hygiene, restorative dentistry, cosmetic choices, and how planning and technology support safer, more predictable treatment. Articles are informational and can’t replace personalised advice, but they can give you a clearer starting point. If a post raises questions about your own teeth or gums, we’re happy to talk it through at an appointment.",
           "label": "Insights"
         },
         {
@@ -2048,7 +2048,7 @@
           "id": "patient_portal_intro_copy",
           "type": "copy-block",
           "title": "Secure access for patients",
-          "copy": "The portal will bring together appointments, forms, and updates. Until it is live, this placeholder outlines the planned experience.",
+          "copy": "Our patient portal is designed to keep key information in one secure place — helping you stay organised before, during and after appointments. Depending on what you’re using it for, the portal may include appointment details, forms, messages, treatment plans, and helpful aftercare information. If you’re not sure whether the portal is relevant for your situation, our team can guide you. We also keep communication simple: if you prefer to speak to us directly, you can always call the practice. The portal is an optional support tool, built around clarity and convenience rather than complexity.",
           "label": "Portal"
         },
         {
@@ -2110,7 +2110,7 @@
           "id": "video_consultation_intro",
           "type": "copy-block",
           "title": "Remote guidance with a clinician",
-          "copy": "Video consultations give you a calm first review from home. We use the call to understand symptoms, share visual guidance, and set the right next steps.",
+          "copy": "A video consultation can be a calm first step when you’d like professional guidance before visiting the practice. It works well for discussing symptoms, reviewing history, talking through treatment options, and planning what would be most useful to do in-person. If something needs a hands-on examination, x-rays or scans, we’ll be clear about that and help you book the right appointment. It’s not designed for emergencies, severe swelling, trauma, or situations where immediate clinical care is needed — in those cases please call us so we can advise promptly.",
           "label": "Overview"
         },
         {
@@ -2206,7 +2206,7 @@
           "id": "finance_intro",
           "type": "copy-block",
           "title": "Finance support without pressure",
-          "copy": "We explain treatment costs clearly and explore payment options with Tabeo as our finance partner. Approval decisions sit with the lender and follow once you choose a plan.",
+          "copy": "Treatment costs vary depending on what you need and the materials or stages involved, so we start with a clear plan and a written estimate. If spreading the cost would help, we can talk you through available payment options, including third-party finance where appropriate. Any credit agreement is subject to status and approval by the finance provider, and we’ll explain the key terms so you can make a comfortable decision. If you’d prefer, we can also phase treatment where clinically suitable. The goal is simple: no surprises, and a plan you understand before you begin.",
           "label": "Overview"
         },
         {
@@ -2383,7 +2383,7 @@
           "id": "practice_plan_intro",
           "type": "copy-block",
           "title": "Membership that keeps care consistent",
-          "copy": "Practice Plan members stay on a steady recall rhythm with predictable costs. We keep the inclusions clear so you know exactly what your membership covers.",
+          "copy": "A practice plan is a simple way to keep on top of routine dental care with predictable monthly costs. Membership typically covers regular check-ups and hygiene appointments, with additional benefits depending on the level you choose. We’ll explain exactly what’s included, what isn’t, and how often appointments are recommended for you personally. If you’re comparing options, we can also talk through pay-as-you-go fees so you can choose what fits best. The focus is prevention: spotting small problems early, keeping gums healthy, and reducing the chance of needing more involved treatment later.",
           "label": "Overview"
         },
         {
