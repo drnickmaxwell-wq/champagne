@@ -1999,11 +1999,183 @@
           "type": "copy-block",
           "title": "Privacy and your information",
           "label": "Overview",
-          "copy": "We take your privacy seriously. This notice explains what personal information we collect, how we use it, and the choices you have. We only process data when there is a lawful basis to do so, keep it secure, and retain it for appropriate periods. You’ll also find information about cookies, third-party services, and how to request access, correction or deletion where applicable. If you have any questions about how your information is handled, please contact the practice and we’ll help."
+          "copy": "Your privacy matters to us. This page explains, in plain language, how St Mary’s House Dental Care handles personal information when you use our website and when you contact us about care. The website may collect limited information such as enquiry details you choose to send, basic technical logs needed for security and performance, and (where enabled) analytics data that helps us understand how pages are used. If you become a patient, your clinical records and communications are handled through appropriate clinical systems and processes, and access is limited to those involved in your care or administration.\n\nWe aim to use information only for legitimate purposes such as responding to enquiries, providing care, improving services, and meeting legal and regulatory obligations. We do not sell personal data. Some suppliers who help us run the website or communications may process data on our behalf under contractual safeguards.\n\nIf you have questions about what we hold, or you’d like to request access or correction, please contact the practice using the details on our Contact page. Where this page uses terms like ‘may’ or ‘typically’, it’s because website tooling can change over time — we’ll keep this information under review."
         },
         {
           "id": "legal_terms",
           "type": "accordion"
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "cookies": {
+      "id": "cookies",
+      "label": "Cookies",
+      "path": "/legal/cookies",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Cookies and website tools",
+          "label": "Overview",
+          "copy": "This page explains how cookies and similar technologies may be used on our website. Cookies are small files stored on your device that help a site work properly, remember preferences, and (where enabled) provide usage insights. Some cookies are essential for core site functions and security. Others may be used for analytics to understand which pages are visited and how the site performs. Where optional cookies are used, they should be controlled through a consent banner or settings. You can also manage cookies through your browser settings, although this may affect how some features behave."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "items": [
+            {
+              "title": "What this page covers",
+              "copy": "A summary of how cookies and related tools may operate on the website and what their purposes are."
+            },
+            {
+              "title": "Key points in plain English",
+              "copy": "Highlights about essential cookies, optional analytics, and how they support site performance and preferences."
+            },
+            {
+              "title": "Your choices and controls",
+              "copy": "Ways you can manage cookie settings, including consent options and browser-level controls."
+            },
+            {
+              "title": "How to contact us",
+              "copy": "Where to reach the practice if you have questions or feedback about cookies on this site."
+            },
+            {
+              "title": "Updates to this page",
+              "copy": "How and when we may refresh this cookies information to reflect current website behaviour."
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "terms": {
+      "id": "terms",
+      "label": "Website terms",
+      "path": "/legal/terms",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Using this website",
+          "label": "Overview",
+          "copy": "These website terms explain how you may use our site, and the limits of what the information here can do. Content on this website is provided for general information and does not replace personalised clinical advice. We aim to keep information accurate and up to date, but dentistry is individual and treatment suitability depends on an examination and appropriate investigations. By using the website, you agree not to misuse it, attempt to interfere with its operation, or copy content in ways that breach rights. If you need guidance about a specific dental problem, please contact the practice."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "items": [
+            {
+              "title": "What this page covers",
+              "copy": "Overview of the website terms and what they mean for visitors using this site."
+            },
+            {
+              "title": "Key points in plain English",
+              "copy": "Main takeaways about proper use of the website and the informational nature of its content."
+            },
+            {
+              "title": "Your choices and controls",
+              "copy": "Reminders about how you can use the site responsibly and when to seek tailored advice."
+            },
+            {
+              "title": "How to contact us",
+              "copy": "Details on reaching the practice if you have questions about the website or its content."
+            },
+            {
+              "title": "Updates to this page",
+              "copy": "Notes on how these website terms may be reviewed and updated over time."
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "accessibility": {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "path": "/legal/accessibility",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Accessibility on our website",
+          "label": "Overview",
+          "copy": "We want our website to be usable for as many people as possible. Accessibility is an ongoing process, and we aim to improve readability, navigation, and compatibility with assistive technologies over time. If you find any part of the site difficult to use — for example, problems with contrast, text size, forms, or keyboard navigation — please let us know. Where possible, we can provide information in an alternative format and record feedback for future improvements."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "items": [
+            {
+              "title": "What this page covers",
+              "copy": "Brief outline of our approach to website accessibility and the areas we review."
+            },
+            {
+              "title": "Key points in plain English",
+              "copy": "Summary of practical measures and improvements we consider for accessibility."
+            },
+            {
+              "title": "Your choices and controls",
+              "copy": "Ways you can adjust your experience, such as browser settings or assistive tools."
+            },
+            {
+              "title": "How to contact us",
+              "copy": "How to share accessibility feedback or request information in alternative formats."
+            },
+            {
+              "title": "Updates to this page",
+              "copy": "Indication that accessibility information may be updated as improvements are made."
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
+    "complaints": {
+      "id": "complaints",
+      "label": "Complaints",
+      "path": "/legal/complaints",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_intro",
+          "type": "copy-block",
+          "title": "Raising concerns",
+          "label": "Overview",
+          "copy": "We take concerns seriously and aim to resolve problems fairly and promptly. If you’re unhappy with any aspect of care or service, we encourage you to tell us as soon as possible so we can listen, investigate, and agree next steps. Complaints can be raised in person, by phone, or in writing. We may ask for details to help us understand what happened and what outcome you’re seeking. If you remain dissatisfied after our response, we can explain other routes available, including relevant external bodies where appropriate."
+        },
+        {
+          "id": "legal_terms",
+          "type": "accordion",
+          "items": [
+            {
+              "title": "What this page covers",
+              "copy": "Overview of how we handle concerns and the general steps involved in our complaints process."
+            },
+            {
+              "title": "Key points in plain English",
+              "copy": "Summary of how we listen, review, and respond to feedback or complaints."
+            },
+            {
+              "title": "Your choices and controls",
+              "copy": "How you can raise a concern, provide details, and let us know your preferred outcome."
+            },
+            {
+              "title": "How to contact us",
+              "copy": "Contact routes for sharing a concern or following up on a complaint."
+            },
+            {
+              "title": "Updates to this page",
+              "copy": "Note that we may revise this information to reflect current complaints handling practices."
+            }
+          ]
         }
       ],
       "surface": "champagne/surface/legal"
