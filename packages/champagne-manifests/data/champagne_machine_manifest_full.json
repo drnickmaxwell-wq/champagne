@@ -1830,7 +1830,10 @@
       "sections": [
         {
           "id": "fees_overview",
-          "type": "copy-block"
+          "type": "copy-block",
+          "title": "Fees and planning",
+          "label": "Overview",
+          "copy": "We aim to be clear, consistent and fair about fees. Every plan is tailored to your needs, and we’ll explain what’s recommended, what’s optional, and why. Before you proceed, you’ll receive a written outline of the proposed care and the likely costs, with time to ask questions and consider alternatives. Where appropriate, we can phase treatment to suit priorities and comfort, and we’ll talk through ways to spread costs so you can move forward with confidence."
         },
         {
           "id": "fees_how_we_approach_fees",
@@ -1993,7 +1996,10 @@
       "sections": [
         {
           "id": "legal_intro",
-          "type": "copy-block"
+          "type": "copy-block",
+          "title": "Privacy and your information",
+          "label": "Overview",
+          "copy": "We take your privacy seriously. This notice explains what personal information we collect, how we use it, and the choices you have. We only process data when there is a lawful basis to do so, keep it secure, and retain it for appropriate periods. You’ll also find information about cookies, third-party services, and how to request access, correction or deletion where applicable. If you have any questions about how your information is handled, please contact the practice and we’ll help."
         },
         {
           "id": "legal_terms",
