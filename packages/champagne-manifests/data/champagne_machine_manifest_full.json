@@ -37,9 +37,9 @@
         {
           "id": "home_intro_positioning",
           "type": "copy-block",
-          "title": "A calm welcome into Champagne care",
-          "copy": "Soft-light hero, steady rhythm, and a concise primer on how Champagne care works. This home stack guides visitors to key journeys without heavy motion.",
-          "label": "Welcome"
+          "title": "Dentistry with calm precision",
+          "label": "Overview",
+          "copy": "St Mary’s House Dental Care is a long-established private practice in Shoreham-by-Sea, focused on clear planning and calm, evidence-led dentistry. We look after everyday oral health and also support complex cases involving tooth wear, missing teeth, heavily restored mouths and bite-related problems. Appointments are structured so you understand what we’ve found, what it means, and what options are sensible for your goals and circumstances. If you’re anxious, short on time, or simply want things explained properly, we’ll take a measured approach and agree the next step together."
         },
         {
           "id": "home_who_we_are",
@@ -1036,6 +1036,13 @@
           "id": "treatment.heroIntro"
         },
         {
+          "id": "implants_intro_prose",
+          "type": "copy-block",
+          "title": "Planning first, surgery second",
+          "label": "Introduction",
+          "copy": "Dental implants replace missing teeth using a small titanium post that supports a crown, bridge, or implant-retained denture. Planning matters: before any surgery we assess your mouth, review your medical history, and use CBCT imaging and digital scans to map bone, nerves, bite and the final tooth shape. This allows us to discuss realistic options, timing, and whether additional steps such as bone grafting or sinus lift assessment may be relevant. If implants aren’t the right fit, we’ll explain alternatives such as bridges or removable solutions and help you choose an approach that’s stable, maintainable and comfortable long-term."
+        },
+        {
           "id": "treatment.trustSignals"
         },
         {
@@ -1178,6 +1185,13 @@
           "id": "treatment.heroIntro"
         },
         {
+          "id": "veneers_intro_prose",
+          "type": "copy-block",
+          "title": "A conservative route to refined change",
+          "label": "Introduction",
+          "copy": "Veneers are thin restorations placed on the front surface of teeth to refine shape, colour and alignment. They can be an excellent option when the teeth underneath are healthy enough, and when the plan is conservative and carefully staged. We start by understanding what you’d like to change, then assess enamel, bite, gum health and wear patterns so the result is stable and maintainable. In many cases, we can explore minimal-prep or additive approaches, or consider alternatives such as whitening, bonding, or aligners first. If veneers are suitable, we’ll talk through preview options, longevity factors and how to protect the finished work."
+        },
+        {
           "id": "treatment.trustSignals"
         },
         {
@@ -1259,6 +1273,13 @@
       "sections": [
         {
           "id": "treatment.heroIntro"
+        },
+        {
+          "id": "clear_aligners_intro_prose",
+          "type": "copy-block",
+          "title": "Clear aligners with clear diagnosis",
+          "label": "Introduction",
+          "copy": "Clear aligners straighten teeth using a series of custom trays that move teeth in small, planned steps. The key is diagnosis and planning: we assess your bite, gum health, tooth wear and any jaw symptoms, then use digital scans to model movement and discuss what’s realistic. Aligners can help with crowding, spacing and some bite corrections, but not every case is suitable — and retention is essential to keep results stable. We’ll also discuss where aligners fit alongside whitening, bonding or restorative work, especially if you’re planning a broader smile refresh. If aligners are recommended, you’ll receive a clear timeline, check-in plan and aftercare guidance."
         },
         {
           "id": "treatment.trustSignals"
@@ -3570,6 +3591,13 @@
           ]
         },
         {
+          "id": "composite_bonding_intro_prose",
+          "type": "copy-block",
+          "title": "Conservative improvements, well planned",
+          "label": "Introduction",
+          "copy": "Composite bonding uses tooth-coloured resin to improve shape, close small gaps, repair chips, or soften uneven edges. It can often be done with minimal drilling, making it a conservative option when the bite and enamel are suitable. We begin with an assessment of wear, staining, gum health and bite forces, because those factors determine how predictable bonding will be over time. For some patients, whitening or aligner straightening first can improve the final result and reduce the amount of composite needed. If bonding is a good fit, we’ll explain what it can achieve, how it’s maintained, and what to expect with polishing and repairs."
+        },
+        {
           "id": "composite_indications",
           "type": "features",
           "title": "What composite bonding can and can\u2019t do",
@@ -3906,6 +3934,13 @@
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "sections": [
+        {
+          "id": "dental_crowns_intro_prose",
+          "type": "copy-block",
+          "title": "Strength, function, and maintainability",
+          "label": "Introduction",
+          "copy": "A dental crown is a protective restoration that covers and strengthens a tooth that is heavily filled, cracked, worn down, or has had root canal treatment. The goal is to restore function and protect the remaining tooth structure, while keeping the bite comfortable and the margins clean and maintainable. We plan crowns using a full assessment and digital scans so we can check contact points, bite forces and appearance before anything is finalised. Where appropriate, we’ll discuss onlays or adhesive options that preserve more natural tooth. If a crown is recommended, we’ll explain materials, preparation, and how to look after it."
+        },
         {
           "id": "treatment_overview_copy"
         },
@@ -4915,6 +4950,13 @@
             "Appointments that focus on settling pain and stabilising the area",
             "Follow-up planning once things feel safe again"
           ]
+        },
+        {
+          "id": "emergency_dentistry_intro_prose",
+          "type": "copy-block",
+          "title": "Urgent care, explained clearly",
+          "label": "Introduction",
+          "copy": "Dental emergencies can be painful and stressful, so the first goal is to stabilise the situation and get you comfortable. Emergency appointments focus on diagnosis: we examine the tooth and gums, check the bite, and take X-rays if needed to understand the cause of pain, swelling, trauma or a broken restoration. Treatment may involve temporary repairs, drainage where appropriate, dressing a tooth, adjusting a bite, or planning definitive care such as a root canal, extraction, crown or replacement filling. We’ll explain what we can do today, what needs follow-up, and what warning signs mean you should contact us urgently."
         },
         {
           "id": "emergency_dentistry_triage",
