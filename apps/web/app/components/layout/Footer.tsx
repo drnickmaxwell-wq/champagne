@@ -61,6 +61,26 @@ export function Footer() {
                   Privacy policy
                 </Link>
               </li>
+              <li>
+                <Link href="/legal/cookies" className={styles.link}>
+                  Cookies policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal/terms" className={styles.link}>
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal/accessibility" className={styles.link}>
+                  Accessibility
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal/complaints" className={styles.link}>
+                  Complaints policy
+                </Link>
+              </li>
             </ul>
           </div>
 
