@@ -979,7 +979,7 @@
               "href": "/treatments/sedation-dentistry"
             },
             {
-              "title": "Painless numbing with The Wand",
+              "title": "The Wand numbing system",
               "description": "",
               "href": "/treatments/painless-numbing-the-wand"
             },
@@ -1357,7 +1357,7 @@
                 "href": "/treatments/sedation-dentistry"
               },
               {
-                "title": "Painless numbing with The Wand",
+                "title": "The Wand numbing system",
                 "description": "",
                 "href": "/treatments/painless-numbing-the-wand"
               },
@@ -2490,7 +2490,7 @@
           "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
-          "copy": "Dr Maxwell holds a Bachelor of Dental Surgery from King’s College London (1998). He completed a Master’s degree in Restorative and Aesthetic Dentistry in 2013 and was awarded a Postgraduate Diploma in Orthodontics and Facial Orthopaedics with Merit in 2024.\n\nHis clinical work includes restorative dentistry, orthodontics using fixed appliances and aligners, and implant dentistry, with particular experience in managing worn and heavily restored dentitions. He has a strong interest in digital dentistry and detailed treatment planning.\n\nDr Maxwell routinely uses intra-oral scanning, guided implant surgery and in-house 3D printing as part of his clinical workflow. This includes the design and fabrication of surgical implant guides, selected crowns and onlays, and custom-made mouthguards. These tools are used to improve planning accuracy and predictability, rather than to accelerate treatment unnecessarily."
+          "copy": "Dr Maxwell holds a Bachelor of Dental Surgery from King’s College London (1998). He completed a Master’s degree in Restorative and Aesthetic Dentistry in 2013 and was awarded a Postgraduate Diploma in Orthodontics and Facial Orthopaedics with Merit in 2024.\n\nHis clinical work includes restorative dentistry, orthodontics using fixed appliances and aligners, and implant dentistry, with particular experience in managing worn and heavily restored dentitions. He has a strong interest in digital dentistry and detailed treatment planning.\n\nDr Maxwell routinely uses intra-oral scanning, guided implant surgery and in-house 3D printing as part of his clinical workflow. This includes the design and fabrication of surgical implant guides, selected crowns and onlays, and custom-made mouthguards. These tools are used to improve planning accuracy and predictability, rather than to accelerate treatment unnecessarily. GDC: 74877."
         },
         {
           "id": "profile_philosophy",
@@ -2550,7 +2550,7 @@
           "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
-          "copy": "Dr Krafft qualified as a Zahnarzt (Dental Surgeon) at the University of Cologne (Zahnklinik Köln) in 2001. In addition to her dental qualification, she is also a trained dental technician, giving her a detailed understanding of dental materials, morphology and precision.\n\nEarly in her career, she worked in general practice in Germany before moving to the United States, where she volunteered at a dental charity hospital in Miami. This experience reinforced her commitment to ethical, patient-centred care and to providing treatment that balances clinical need with individual circumstance.\n\nSince moving to the UK in 2009, Dr Krafft has gained over 15 years’ experience across NHS and private dentistry. She has developed a particular interest in aesthetic dentistry delivered conservatively, focusing on proportion, harmony and tooth preservation rather than aggressive cosmetic change.\n\nHer background as both clinician and technician informs a careful, detail-led approach, especially when planning aesthetic or restorative work."
+          "copy": "Dr Krafft qualified as a Zahnarzt (Dental Surgeon) at the University of Cologne (Zahnklinik Köln) in 2001. In addition to her dental qualification, she is also a trained dental technician, giving her a detailed understanding of dental materials, morphology and precision.\n\nEarly in her career, she worked in general practice in Germany before moving to the United States, where she volunteered at a dental charity hospital in Miami. This experience reinforced her commitment to ethical, patient-centred care and to providing treatment that balances clinical need with individual circumstance.\n\nSince moving to the UK in 2009, Dr Krafft has gained over 15 years’ experience across NHS and private dentistry. She has developed a particular interest in aesthetic dentistry delivered conservatively, focusing on proportion, harmony and tooth preservation rather than aggressive cosmetic change.\n\nHer background as both clinician and technician informs a careful, detail-led approach, especially when planning aesthetic or restorative work. GDC: 174528."
         },
         {
           "id": "profile_philosophy",
@@ -2610,7 +2610,7 @@
           "id": "profile_credentials",
           "type": "copy-block",
           "label": "Credentials",
-          "copy": "Sara qualified as a dental hygienist from Birmingham Dental School in 1990. Over the course of her career, she has gained extensive experience in general dental practice, specialist environments and dental research.\n\nShe has a particular interest in the management of acute gum conditions and in the relationship between oral health, nutrition and systemic wellbeing. Sara takes a holistic view of periodontal care, supporting patients with practical, evidence-based advice alongside clinical treatment.\n\nShe remains committed to maintaining high professional standards and keeps her knowledge up to date through regular continuing professional development, ensuring her approach reflects current best practice in periodontal care."
+          "copy": "Sara qualified as a dental hygienist from Birmingham Dental School in 1990. Over the course of her career, she has gained extensive experience in general dental practice, specialist environments and dental research.\n\nShe has a particular interest in the management of acute gum conditions and in the relationship between oral health, nutrition and systemic wellbeing. Sara takes a holistic view of periodontal care, supporting patients with practical, evidence-based advice alongside clinical treatment.\n\nShe remains committed to maintaining high professional standards and keeps her knowledge up to date through regular continuing professional development, ensuring her approach reflects current best practice in periodontal care. GDC: 3966."
         },
         {
           "id": "profile_philosophy",
@@ -2760,7 +2760,7 @@
           "id": "contact_form_placeholder",
           "type": "copy-block",
           "title": "Send a message",
-          "copy": "Secure contact form placeholder. This will be replaced with the live form wiring in a later phase.",
+          "copy": "Please contact the practice using the details provided on this page.",
           "label": "Contact form"
         },
         {
@@ -2768,7 +2768,7 @@
           "type": "map",
           "label": "Map",
           "title": "Find us",
-          "copy": "Map embed placeholder. Directions and parking details will be confirmed here.",
+          "copy": "Find us using the map below. If you need help with directions or parking, please contact the practice.",
           "mediaHint": "Contact page map placeholder"
         },
         {
@@ -2823,7 +2823,7 @@
           "type": "copy-block",
           "title": "Newsletter updates",
           "label": "Overview",
-          "copy": "Updates from the practice are shared through calm briefings focused on service availability and site changes. Sign-ups are optional and meant to keep patients informed about guidance already in place. To adjust communication preferences or ask questions, contact the team directly."
+          "copy": "Updates from the practice are shared through calm briefings focused on service availability and site changes. This website does not offer a newsletter sign-up at present. To adjust communication preferences or ask questions, contact the team directly."
         },
         {
           "id": "newsletter_contact_cta",
@@ -2853,7 +2853,7 @@
           "type": "copy-block",
           "title": "Care downloads",
           "label": "Overview",
-          "copy": "Post-operative and care instructions are provided as needed and kept in straightforward formats. Patients can request copies or confirm the right guidance through the team. If you need access to specific documents, the practice can direct you to the appropriate download or arrange an alternative format."
+          "copy": "Post-operative and care instructions are provided as needed and kept in straightforward formats. Patients can request copies or confirm the right guidance through the team. If you need a copy of any documents, please contact the practice and we can provide them in a suitable format."
         },
         {
           "id": "downloads_contact_cta",
@@ -2883,7 +2883,7 @@
           "type": "copy-block",
           "title": "Privacy and your information",
           "label": "Overview",
-          "copy": "Your privacy matters to us. This page explains, in plain language, how St Mary’s House Dental Care handles personal information when you use our website and when you contact us about care. The website may collect limited information such as enquiry details you choose to send, basic technical logs needed for security and performance, and (where enabled) analytics data that helps us understand how pages are used. If you become a patient, your clinical records and communications are handled through appropriate clinical systems and processes, and access is limited to those involved in your care or administration.\n\nWe aim to use information only for legitimate purposes such as responding to enquiries, providing care, improving services, and meeting legal and regulatory obligations. We do not sell personal data. Some suppliers who help us run the website or communications may process data on our behalf under contractual safeguards.\n\nIf you have questions about what we hold, or you’d like to request access or correction, please contact the practice using the details on our Contact page. Where this page uses terms like ‘may’ or ‘typically’, it’s because website tooling can change over time — we’ll keep this information under review."
+          "copy": "Your privacy matters to us. This page explains, in plain language, how St Mary’s House Dental Care handles personal information when you use our website and when you contact us about care. The website may collect limited information such as enquiry details you choose to send, basic technical logs needed for security and performance, and (where enabled) analytics data that helps us understand how pages are used. If you become a patient, your clinical records and communications are handled through appropriate clinical systems and processes, and access is limited to those involved in your care or administration.\n\nWe aim to use information only for legitimate purposes such as responding to enquiries, providing care, improving services, and meeting legal and regulatory obligations. We do not sell personal data. Some suppliers who help us run the website or communications may process data on our behalf under contractual safeguards.\n\nIf you have questions about what we hold, or you’d like to request access or correction, please contact the practice using the details on our Contact page. We review this notice regularly."
         },
         {
           "id": "legal_terms",
@@ -2904,7 +2904,7 @@
           "type": "copy-block",
           "title": "Cookies and website tools",
           "label": "Overview",
-          "copy": "This page explains how cookies and similar technologies may be used on our website. Cookies are small files stored on your device that help a site work properly, remember preferences, and (where enabled) provide usage insights. Some cookies are essential for core site functions and security. Others may be used for analytics to understand which pages are visited and how the site performs. Where optional cookies are used, they should be controlled through a consent banner or settings. You can also manage cookies through your browser settings, although this may affect how some features behave."
+          "copy": "This page explains how cookies and similar technologies may be used on our website. Cookies are small files stored on your device that help a site work properly, remember preferences, and (where enabled) provide usage insights. Some cookies are essential for core site functions and security. Others may be used for analytics to understand which pages are visited and how the site performs. Optional cookies, if used, can be managed through your browser settings. You can also manage cookies through your browser settings, although this may affect how some features behave."
         },
         {
           "id": "legal_terms",
@@ -3381,7 +3381,7 @@
               "href": "/treatments/digital-smile-design"
             },
             {
-              "title": "Painless numbing with The Wand",
+              "title": "The Wand numbing system",
               "description": "",
               "href": "/treatments/painless-numbing-the-wand"
             },
@@ -9243,7 +9243,7 @@
     },
     "painless_numbing_the_wand": {
       "id": "painless_numbing_the_wand",
-      "label": "Painless numbing with The Wand",
+      "label": "The Wand numbing system",
       "path": "/treatments/painless-numbing-the-wand",
       "category": "treatment",
       "hero": "painless_wand_hero_v1",
