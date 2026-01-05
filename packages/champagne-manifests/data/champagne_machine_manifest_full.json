@@ -2811,6 +2811,66 @@
       ],
       "surface": "champagne/surface/utility"
     },
+    "newsletter": {
+      "id": "newsletter",
+      "label": "Newsletter",
+      "path": "/newsletter",
+      "category": "utility",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "newsletter_intro_copy",
+          "type": "copy-block",
+          "title": "Newsletter updates",
+          "label": "Overview",
+          "copy": "Updates from the practice are shared through calm briefings focused on service availability and site changes. Sign-ups are optional and meant to keep patients informed about guidance already in place. To adjust communication preferences or ask questions, contact the team directly."
+        },
+        {
+          "id": "newsletter_contact_cta",
+          "type": "treatment_closing_cta",
+          "title": "Contact the practice",
+          "ctas": [
+            {
+              "label": "Contact the practice",
+              "href": "/contact",
+              "preset": "secondary"
+            }
+          ],
+          "label": "Next steps"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
+    "downloads": {
+      "id": "downloads",
+      "label": "Downloads",
+      "path": "/downloads",
+      "category": "utility",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "downloads_intro_copy",
+          "type": "copy-block",
+          "title": "Care downloads",
+          "label": "Overview",
+          "copy": "Post-operative and care instructions are provided as needed and kept in straightforward formats. Patients can request copies or confirm the right guidance through the team. If you need access to specific documents, the practice can direct you to the appropriate download or arrange an alternative format."
+        },
+        {
+          "id": "downloads_contact_cta",
+          "type": "treatment_closing_cta",
+          "title": "Contact for access",
+          "ctas": [
+            {
+              "label": "Contact the practice",
+              "href": "/contact",
+              "preset": "secondary"
+            }
+          ],
+          "label": "Support"
+        }
+      ],
+      "surface": "champagne/surface/utility"
+    },
     "privacy": {
       "id": "privacy",
       "label": "Privacy Policy",

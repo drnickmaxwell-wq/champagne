@@ -81,6 +81,16 @@ export function Footer() {
                   Complaints policy
                 </Link>
               </li>
+              <li>
+                <Link href="/newsletter" className={styles.link}>
+                  Newsletter
+                </Link>
+              </li>
+              <li>
+                <Link href="/downloads" className={styles.link}>
+                  Downloads
+                </Link>
+              </li>
             </ul>
           </div>
 
