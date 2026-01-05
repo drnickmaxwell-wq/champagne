@@ -131,6 +131,16 @@
               "title": "Nervous patients",
               "description": "Calm visits, gentle numbing, and pacing that suits you.",
               "href": "/treatments/nervous-patients"
+            },
+            {
+              "title": "Dental fillings",
+              "description": "Repair decay and protect teeth with calm visits.",
+              "href": "/treatments/dental-fillings"
+            },
+            {
+              "title": "Implant consultation",
+              "description": "Review suitability, scans, and planning steps for implants.",
+              "href": "/treatments/implant-consultation"
             }
           ]
         },
@@ -411,6 +421,11 @@
               "title": "3D and digital dentistry",
               "description": "CBCT imaging, digital planning, and 3D printing that guide care.",
               "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "Technology",
+              "description": "See the digital tools that support planning and comfort.",
+              "href": "/technology"
             }
           ]
         },
@@ -1139,6 +1154,30 @@
             {
               "title": "Bone grafting for dental implants",
               "href": "/treatments/implants-bone-grafting"
+            },
+            {
+              "title": "Implant aftercare",
+              "href": "/treatments/implant-aftercare"
+            },
+            {
+              "title": "Sedation for implants",
+              "href": "/treatments/sedation-for-implants"
+            },
+            {
+              "title": "Implant-retained dentures",
+              "href": "/treatments/implant-retained-dentures"
+            },
+            {
+              "title": "Sinus lift",
+              "href": "/treatments/sinus-lift"
+            },
+            {
+              "title": "Teeth in a day",
+              "href": "/treatments/teeth-in-a-day"
+            },
+            {
+              "title": "Failed implant replacement",
+              "href": "/treatments/failed-implant-replacement"
             }
           ],
           "definition": {
@@ -1167,6 +1206,30 @@
               {
                 "title": "Bone grafting for dental implants",
                 "href": "/treatments/implants-bone-grafting"
+              },
+              {
+                "title": "Implant aftercare",
+                "href": "/treatments/implant-aftercare"
+              },
+              {
+                "title": "Sedation for implants",
+                "href": "/treatments/sedation-for-implants"
+              },
+              {
+                "title": "Implant-retained dentures",
+                "href": "/treatments/implant-retained-dentures"
+              },
+              {
+                "title": "Sinus lift",
+                "href": "/treatments/sinus-lift"
+              },
+              {
+                "title": "Teeth in a day",
+                "href": "/treatments/teeth-in-a-day"
+              },
+              {
+                "title": "Failed implant replacement",
+                "href": "/treatments/failed-implant-replacement"
               }
             ]
           }
@@ -4186,6 +4249,10 @@
               "href": "/treatments/dentures"
             },
             {
+              "title": "Dental fillings",
+              "href": "/treatments/dental-fillings"
+            },
+            {
               "title": "Acrylic dentures",
               "href": "/treatments/acrylic-dentures"
             },
@@ -4221,6 +4288,10 @@
               {
                 "title": "Dentures & tooth replacement",
                 "href": "/treatments/dentures"
+              },
+              {
+                "title": "Dental fillings",
+                "href": "/treatments/dental-fillings"
               },
               {
                 "title": "Acrylic dentures",
