@@ -2422,7 +2422,7 @@
         "heroCTAs": [
           "portal-finance",
           {
-            "label": "See implants pricing guidance",
+            "label": "Implant treatment information",
             "href": "/treatments/implants",
             "preset": "secondary"
           }
@@ -2430,7 +2430,7 @@
         "footerCTAs": [
           "portal-finance",
           {
-            "label": "See implants pricing guidance",
+            "label": "Implant treatment information",
             "href": "/treatments/implants",
             "preset": "secondary"
           }
