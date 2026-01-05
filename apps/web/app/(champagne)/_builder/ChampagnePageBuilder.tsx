@@ -149,29 +149,32 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const footerCTAs = resolveCTAList(ctaSlots.footerCTAs, "ghost", { component: "ChampagneSectionRenderer", page: pagePath });
   const sections = getSectionStack(pagePath);
   const isTreatmentPage = pagePath.startsWith("/treatments/");
+  const shouldRenderBuilderHero = previewMode === true;
 
   return (
     <BaseChampagneSurface variant="inkGlass" style={surfaceStyle}>
       <div style={gridStyle}>
         {isTreatmentPage && <TreatmentBreadcrumb label={manifest?.label as string | undefined} href={pagePath} />}
-        <div style={{ display: "grid", gap: "0.8rem" }}>
-          <ChampagneHeroFrame
-            heroId={heroId ?? pagePath}
-            preset={heroPreset}
-            headline={heroContent.label}
-            eyebrow={heroContent.eyebrow}
-            strapline={heroContent.strapline}
-            cta={heroCTAs[0] ? { label: heroCTAs[0].label, href: heroCTAs[0].href } : undefined}
-          />
-          {heroCTAs.length > 0 && (
-            <ChampagneCTAGroup
-              ctas={heroCTAs}
-              label="Hero CTAs"
-              defaultVariant="primary"
-              showDebug={previewMode}
+        {shouldRenderBuilderHero && (
+          <div style={{ display: "grid", gap: "0.8rem" }}>
+            <ChampagneHeroFrame
+              heroId={heroId ?? pagePath}
+              preset={heroPreset}
+              headline={heroContent.label}
+              eyebrow={heroContent.eyebrow}
+              strapline={heroContent.strapline}
+              cta={heroCTAs[0] ? { label: heroCTAs[0].label, href: heroCTAs[0].href } : undefined}
             />
-          )}
-        </div>
+            {heroCTAs.length > 0 && (
+              <ChampagneCTAGroup
+                ctas={heroCTAs}
+                label="Hero CTAs"
+                defaultVariant="primary"
+                showDebug={previewMode}
+              />
+            )}
+          </div>
+        )}
         <ChampagneSectionRenderer
           pageSlug={pagePath}
           midPageCTAs={midPageCTAs}
