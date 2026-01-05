@@ -23,10 +23,11 @@
     "guard:manifest": "node scripts/guard-manifest-sync.mjs",
     "guard:manifests": "pnpm run guard:manifest",
     "guard:brand-structure": "node scripts/brand-structure-guard.cjs",
+    "guard:no-_imports-runtime": "node scripts/guard-no-imports-from-_imports.mjs",
     "guard:no-book": "node scripts/guard-no-book.mjs",
     "guard:cta-single-terminal": "node scripts/guard-cta-single-terminal.cjs",
     "guard:cta-contract": "bash ./scripts/run-cta-contract.sh",
-    "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:brand-structure && pnpm run guard:no-book && pnpm run guard:cta-single-terminal && pnpm run guard:cta-contract"
+    "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:no-_imports-runtime && pnpm run guard:brand-structure && pnpm run guard:no-book && pnpm run guard:cta-single-terminal && pnpm run guard:cta-contract"
   },
   "dependencies": {
     "micromatch": "^4.0.8"
