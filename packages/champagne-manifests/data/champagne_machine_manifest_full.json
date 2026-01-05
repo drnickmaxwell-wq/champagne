@@ -617,6 +617,767 @@
               "answer": "Scroll past the featured pathways to the grouped directory. Each heading links to its hub so you can explore in more detail."
             }
           ]
+        },
+        {
+          "id": "treatments_hub_all_treatments_index",
+          "type": "routing_cards",
+          "title": "All treatments",
+          "items": [
+            {
+              "title": "Dental Check-Ups & Oral Cancer Screening",
+              "description": "",
+              "href": "/treatments/dental-checkups-oral-cancer-screening"
+            },
+            {
+              "title": "Preventative & general dentistry",
+              "description": "",
+              "href": "/treatments/preventative-and-general-dentistry"
+            },
+            {
+              "title": "Periodontal & gum care",
+              "description": "",
+              "href": "/treatments/periodontal-gum-care"
+            },
+            {
+              "title": "Children’s dentistry",
+              "description": "",
+              "href": "/treatments/childrens-dentistry"
+            },
+            {
+              "title": "Senior & mature smile care",
+              "description": "",
+              "href": "/treatments/senior-mature-smile-care"
+            },
+            {
+              "title": "Endodontics & root canal care",
+              "description": "",
+              "href": "/treatments/endodontics-root-canal"
+            },
+            {
+              "title": "Extractions & oral surgery",
+              "description": "",
+              "href": "/treatments/extractions-and-oral-surgery"
+            },
+            {
+              "title": "Dental crowns",
+              "description": "",
+              "href": "/treatments/dental-crowns"
+            },
+            {
+              "title": "Dental bridges",
+              "description": "",
+              "href": "/treatments/dental-bridges"
+            },
+            {
+              "title": "Inlays & onlays",
+              "description": "",
+              "href": "/treatments/inlays-onlays"
+            },
+            {
+              "title": "Tooth Wear & Broken Teeth",
+              "description": "",
+              "href": "/treatments/tooth-wear-broken-teeth"
+            },
+            {
+              "title": "Dentures & tooth replacement",
+              "description": "",
+              "href": "/treatments/dentures"
+            },
+            {
+              "title": "Acrylic dentures",
+              "description": "",
+              "href": "/treatments/acrylic-dentures"
+            },
+            {
+              "title": "Chrome dentures",
+              "description": "",
+              "href": "/treatments/chrome-dentures"
+            },
+            {
+              "title": "PEEK partial dentures",
+              "description": "",
+              "href": "/treatments/peek-partial-dentures"
+            },
+            {
+              "title": "Dental Implants in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/implants"
+            },
+            {
+              "title": "Implant consultation & planning in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/implant-consultation"
+            },
+            {
+              "title": "Single-tooth dental implants in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/implants-single-tooth"
+            },
+            {
+              "title": "Multiple teeth implant options",
+              "description": "",
+              "href": "/treatments/implants-multiple-teeth"
+            },
+            {
+              "title": "Full arch implant rehabilitation",
+              "description": "",
+              "href": "/treatments/implants-full-arch"
+            },
+            {
+              "title": "Bone grafting for dental implants",
+              "description": "",
+              "href": "/treatments/implants-bone-grafting"
+            },
+            {
+              "title": "Clear Aligners in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/clear-aligners"
+            },
+            {
+              "title": "Spark clear aligners in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/clear-aligners-spark"
+            },
+            {
+              "title": "Fixed braces",
+              "description": "",
+              "href": "/treatments/fixed-braces"
+            },
+            {
+              "title": "Retainers",
+              "description": "",
+              "href": "/treatments/dental-retainers"
+            },
+            {
+              "title": "Composite bonding",
+              "description": "",
+              "href": "/treatments/composite-bonding"
+            },
+            {
+              "title": "Dental veneers in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/veneers"
+            },
+            {
+              "title": "Injection-moulded composite",
+              "description": "",
+              "href": "/treatments/injection-moulded-composite"
+            },
+            {
+              "title": "Night guards (occlusal splints)",
+              "description": "",
+              "href": "/treatments/night-guards-occlusal-splints"
+            },
+            {
+              "title": "Bruxism and jaw clenching treatment",
+              "description": "",
+              "href": "/treatments/bruxism-and-jaw-clenching"
+            },
+            {
+              "title": "TMJ disorder treatment",
+              "description": "",
+              "href": "/treatments/tmj-disorder-treatment"
+            },
+            {
+              "title": "TMJ & jaw comfort",
+              "description": "",
+              "href": "/treatments/tmj-jaw-comfort"
+            },
+            {
+              "title": "3D & digital dentistry",
+              "description": "",
+              "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "CBCT / 3D scanning",
+              "description": "",
+              "href": "/treatments/cbct-3d-scanning"
+            },
+            {
+              "title": "Digital smile design",
+              "description": "",
+              "href": "/treatments/digital-smile-design"
+            },
+            {
+              "title": "3D printing lab",
+              "description": "",
+              "href": "/treatments/3d-printing-lab"
+            },
+            {
+              "title": "3D implant restorations",
+              "description": "",
+              "href": "/treatments/3d-implant-restorations"
+            },
+            {
+              "title": "3D printed dentures",
+              "description": "",
+              "href": "/treatments/3d-printed-dentures"
+            },
+            {
+              "title": "3D printed veneers",
+              "description": "",
+              "href": "/treatments/3d-printed-veneers"
+            },
+            {
+              "title": "Emergency dentistry",
+              "description": "",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "title": "Emergency dental appointments",
+              "description": "",
+              "href": "/treatments/emergency-dental-appointments"
+            },
+            {
+              "title": "Dental abscess & infection",
+              "description": "",
+              "href": "/treatments/dental-abscess-infection"
+            },
+            {
+              "title": "Severe toothache & dental pain",
+              "description": "",
+              "href": "/treatments/severe-toothache-dental-pain"
+            },
+            {
+              "title": "Dental trauma & accidents",
+              "description": "",
+              "href": "/treatments/dental-trauma-accidents"
+            },
+            {
+              "title": "Broken, chipped or cracked teeth",
+              "description": "",
+              "href": "/treatments/broken-chipped-cracked-teeth"
+            },
+            {
+              "title": "Knocked-out (avulsed) tooth",
+              "description": "",
+              "href": "/treatments/knocked-out-tooth"
+            },
+            {
+              "title": "Lost crowns, veneers & fillings",
+              "description": "",
+              "href": "/treatments/lost-crowns-veneers-fillings"
+            },
+            {
+              "title": "Prescription anti-wrinkle treatments",
+              "description": "",
+              "href": "/treatments/anti-wrinkle-treatments"
+            },
+            {
+              "title": "Dermal fillers with medical oversight",
+              "description": "",
+              "href": "/treatments/dermal-fillers"
+            },
+            {
+              "title": "Facial aesthetics hub",
+              "description": "",
+              "href": "/treatments/facial-aesthetics"
+            },
+            {
+              "title": "Facial pain and headache pathways",
+              "description": "",
+              "href": "/treatments/facial-pain-and-headache"
+            },
+            {
+              "title": "Facial therapeutics in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/facial-therapeutics"
+            },
+            {
+              "title": "Therapeutic facial injectables",
+              "description": "",
+              "href": "/treatments/therapeutic-facial-injectables"
+            },
+            {
+              "title": "Implant-retained dentures",
+              "description": "",
+              "href": "/treatments/implant-retained-dentures"
+            },
+            {
+              "title": "Sinus lift for dental implants in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/sinus-lift"
+            },
+            {
+              "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/teeth-in-a-day"
+            },
+            {
+              "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/sedation-for-implants"
+            },
+            {
+              "title": "Failed implant replacement in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/failed-implant-replacement"
+            },
+            {
+              "title": "Implant aftercare & recovery in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/implant-aftercare"
+            },
+            {
+              "title": "Teeth whitening",
+              "description": "",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "title": "Home teeth whitening",
+              "description": "",
+              "href": "/treatments/home-teeth-whitening"
+            },
+            {
+              "title": "Whitening top-ups & maintenance",
+              "description": "",
+              "href": "/treatments/whitening-top-ups"
+            },
+            {
+              "title": "Sensitive teeth & whitening",
+              "description": "",
+              "href": "/treatments/whitening-sensitive-teeth"
+            },
+            {
+              "title": "Teeth whitening FAQs",
+              "description": "",
+              "href": "/treatments/teeth-whitening-faqs"
+            },
+            {
+              "title": "Orthodontics",
+              "description": "",
+              "href": "/treatments/orthodontics"
+            },
+            {
+              "title": "Full smile makeover",
+              "description": "",
+              "href": "/treatments/full-smile-makeover"
+            },
+            {
+              "title": "3D dentistry & technology",
+              "description": "",
+              "href": "/treatments/3d-dentistry-and-technology"
+            },
+            {
+              "title": "Dental fillings",
+              "description": "",
+              "href": "/treatments/dental-fillings"
+            },
+            {
+              "title": "Sports mouthguards",
+              "description": "",
+              "href": "/treatments/sports-mouthguards"
+            },
+            {
+              "title": "Nervous patients",
+              "description": "",
+              "href": "/treatments/nervous-patients"
+            },
+            {
+              "title": "Sedation dentistry",
+              "description": "",
+              "href": "/treatments/sedation-dentistry"
+            },
+            {
+              "title": "Painless numbing with The Wand",
+              "description": "",
+              "href": "/treatments/painless-numbing-the-wand"
+            },
+            {
+              "title": "Skin boosters for hydration and elasticity",
+              "description": "",
+              "href": "/treatments/skin-boosters"
+            },
+            {
+              "title": "Polynucleotide treatments to support skin quality",
+              "description": "",
+              "href": "/treatments/polynucleotides"
+            },
+            {
+              "title": "Mouthguards & retainers",
+              "description": "",
+              "href": "/treatments/mouthguards-and-retainers"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "Dental Check-Ups & Oral Cancer Screening",
+                "description": "",
+                "href": "/treatments/dental-checkups-oral-cancer-screening"
+              },
+              {
+                "title": "Preventative & general dentistry",
+                "description": "",
+                "href": "/treatments/preventative-and-general-dentistry"
+              },
+              {
+                "title": "Periodontal & gum care",
+                "description": "",
+                "href": "/treatments/periodontal-gum-care"
+              },
+              {
+                "title": "Children’s dentistry",
+                "description": "",
+                "href": "/treatments/childrens-dentistry"
+              },
+              {
+                "title": "Senior & mature smile care",
+                "description": "",
+                "href": "/treatments/senior-mature-smile-care"
+              },
+              {
+                "title": "Endodontics & root canal care",
+                "description": "",
+                "href": "/treatments/endodontics-root-canal"
+              },
+              {
+                "title": "Extractions & oral surgery",
+                "description": "",
+                "href": "/treatments/extractions-and-oral-surgery"
+              },
+              {
+                "title": "Dental crowns",
+                "description": "",
+                "href": "/treatments/dental-crowns"
+              },
+              {
+                "title": "Dental bridges",
+                "description": "",
+                "href": "/treatments/dental-bridges"
+              },
+              {
+                "title": "Inlays & onlays",
+                "description": "",
+                "href": "/treatments/inlays-onlays"
+              },
+              {
+                "title": "Tooth Wear & Broken Teeth",
+                "description": "",
+                "href": "/treatments/tooth-wear-broken-teeth"
+              },
+              {
+                "title": "Dentures & tooth replacement",
+                "description": "",
+                "href": "/treatments/dentures"
+              },
+              {
+                "title": "Acrylic dentures",
+                "description": "",
+                "href": "/treatments/acrylic-dentures"
+              },
+              {
+                "title": "Chrome dentures",
+                "description": "",
+                "href": "/treatments/chrome-dentures"
+              },
+              {
+                "title": "PEEK partial dentures",
+                "description": "",
+                "href": "/treatments/peek-partial-dentures"
+              },
+              {
+                "title": "Dental Implants in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/implants"
+              },
+              {
+                "title": "Implant consultation & planning in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/implant-consultation"
+              },
+              {
+                "title": "Single-tooth dental implants in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/implants-single-tooth"
+              },
+              {
+                "title": "Multiple teeth implant options",
+                "description": "",
+                "href": "/treatments/implants-multiple-teeth"
+              },
+              {
+                "title": "Full arch implant rehabilitation",
+                "description": "",
+                "href": "/treatments/implants-full-arch"
+              },
+              {
+                "title": "Bone grafting for dental implants",
+                "description": "",
+                "href": "/treatments/implants-bone-grafting"
+              },
+              {
+                "title": "Clear Aligners in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/clear-aligners"
+              },
+              {
+                "title": "Spark clear aligners in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/clear-aligners-spark"
+              },
+              {
+                "title": "Fixed braces",
+                "description": "",
+                "href": "/treatments/fixed-braces"
+              },
+              {
+                "title": "Retainers",
+                "description": "",
+                "href": "/treatments/dental-retainers"
+              },
+              {
+                "title": "Composite bonding",
+                "description": "",
+                "href": "/treatments/composite-bonding"
+              },
+              {
+                "title": "Dental veneers in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/veneers"
+              },
+              {
+                "title": "Injection-moulded composite",
+                "description": "",
+                "href": "/treatments/injection-moulded-composite"
+              },
+              {
+                "title": "Night guards (occlusal splints)",
+                "description": "",
+                "href": "/treatments/night-guards-occlusal-splints"
+              },
+              {
+                "title": "Bruxism and jaw clenching treatment",
+                "description": "",
+                "href": "/treatments/bruxism-and-jaw-clenching"
+              },
+              {
+                "title": "TMJ disorder treatment",
+                "description": "",
+                "href": "/treatments/tmj-disorder-treatment"
+              },
+              {
+                "title": "TMJ & jaw comfort",
+                "description": "",
+                "href": "/treatments/tmj-jaw-comfort"
+              },
+              {
+                "title": "3D & digital dentistry",
+                "description": "",
+                "href": "/treatments/3d-digital-dentistry"
+              },
+              {
+                "title": "CBCT / 3D scanning",
+                "description": "",
+                "href": "/treatments/cbct-3d-scanning"
+              },
+              {
+                "title": "Digital smile design",
+                "description": "",
+                "href": "/treatments/digital-smile-design"
+              },
+              {
+                "title": "3D printing lab",
+                "description": "",
+                "href": "/treatments/3d-printing-lab"
+              },
+              {
+                "title": "3D implant restorations",
+                "description": "",
+                "href": "/treatments/3d-implant-restorations"
+              },
+              {
+                "title": "3D printed dentures",
+                "description": "",
+                "href": "/treatments/3d-printed-dentures"
+              },
+              {
+                "title": "3D printed veneers",
+                "description": "",
+                "href": "/treatments/3d-printed-veneers"
+              },
+              {
+                "title": "Emergency dentistry",
+                "description": "",
+                "href": "/treatments/emergency-dentistry"
+              },
+              {
+                "title": "Emergency dental appointments",
+                "description": "",
+                "href": "/treatments/emergency-dental-appointments"
+              },
+              {
+                "title": "Dental abscess & infection",
+                "description": "",
+                "href": "/treatments/dental-abscess-infection"
+              },
+              {
+                "title": "Severe toothache & dental pain",
+                "description": "",
+                "href": "/treatments/severe-toothache-dental-pain"
+              },
+              {
+                "title": "Dental trauma & accidents",
+                "description": "",
+                "href": "/treatments/dental-trauma-accidents"
+              },
+              {
+                "title": "Broken, chipped or cracked teeth",
+                "description": "",
+                "href": "/treatments/broken-chipped-cracked-teeth"
+              },
+              {
+                "title": "Knocked-out (avulsed) tooth",
+                "description": "",
+                "href": "/treatments/knocked-out-tooth"
+              },
+              {
+                "title": "Lost crowns, veneers & fillings",
+                "description": "",
+                "href": "/treatments/lost-crowns-veneers-fillings"
+              },
+              {
+                "title": "Prescription anti-wrinkle treatments",
+                "description": "",
+                "href": "/treatments/anti-wrinkle-treatments"
+              },
+              {
+                "title": "Dermal fillers with medical oversight",
+                "description": "",
+                "href": "/treatments/dermal-fillers"
+              },
+              {
+                "title": "Facial aesthetics hub",
+                "description": "",
+                "href": "/treatments/facial-aesthetics"
+              },
+              {
+                "title": "Facial pain and headache pathways",
+                "description": "",
+                "href": "/treatments/facial-pain-and-headache"
+              },
+              {
+                "title": "Facial therapeutics in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/facial-therapeutics"
+              },
+              {
+                "title": "Therapeutic facial injectables",
+                "description": "",
+                "href": "/treatments/therapeutic-facial-injectables"
+              },
+              {
+                "title": "Implant-retained dentures",
+                "description": "",
+                "href": "/treatments/implant-retained-dentures"
+              },
+              {
+                "title": "Sinus lift for dental implants in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/sinus-lift"
+              },
+              {
+                "title": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/teeth-in-a-day"
+              },
+              {
+                "title": "Sedation for dental implant treatment in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/sedation-for-implants"
+              },
+              {
+                "title": "Failed implant replacement in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/failed-implant-replacement"
+              },
+              {
+                "title": "Implant aftercare & recovery in Shoreham-by-Sea",
+                "description": "",
+                "href": "/treatments/implant-aftercare"
+              },
+              {
+                "title": "Teeth whitening",
+                "description": "",
+                "href": "/treatments/teeth-whitening"
+              },
+              {
+                "title": "Home teeth whitening",
+                "description": "",
+                "href": "/treatments/home-teeth-whitening"
+              },
+              {
+                "title": "Whitening top-ups & maintenance",
+                "description": "",
+                "href": "/treatments/whitening-top-ups"
+              },
+              {
+                "title": "Sensitive teeth & whitening",
+                "description": "",
+                "href": "/treatments/whitening-sensitive-teeth"
+              },
+              {
+                "title": "Teeth whitening FAQs",
+                "description": "",
+                "href": "/treatments/teeth-whitening-faqs"
+              },
+              {
+                "title": "Orthodontics",
+                "description": "",
+                "href": "/treatments/orthodontics"
+              },
+              {
+                "title": "Full smile makeover",
+                "description": "",
+                "href": "/treatments/full-smile-makeover"
+              },
+              {
+                "title": "3D dentistry & technology",
+                "description": "",
+                "href": "/treatments/3d-dentistry-and-technology"
+              },
+              {
+                "title": "Dental fillings",
+                "description": "",
+                "href": "/treatments/dental-fillings"
+              },
+              {
+                "title": "Sports mouthguards",
+                "description": "",
+                "href": "/treatments/sports-mouthguards"
+              },
+              {
+                "title": "Nervous patients",
+                "description": "",
+                "href": "/treatments/nervous-patients"
+              },
+              {
+                "title": "Sedation dentistry",
+                "description": "",
+                "href": "/treatments/sedation-dentistry"
+              },
+              {
+                "title": "Painless numbing with The Wand",
+                "description": "",
+                "href": "/treatments/painless-numbing-the-wand"
+              },
+              {
+                "title": "Skin boosters for hydration and elasticity",
+                "description": "",
+                "href": "/treatments/skin-boosters"
+              },
+              {
+                "title": "Polynucleotide treatments to support skin quality",
+                "description": "",
+                "href": "/treatments/polynucleotides"
+              },
+              {
+                "title": "Mouthguards & retainers",
+                "description": "",
+                "href": "/treatments/mouthguards-and-retainers"
+              }
+            ]
+          }
         }
       ],
       "surface": "champagne/surface/base",
