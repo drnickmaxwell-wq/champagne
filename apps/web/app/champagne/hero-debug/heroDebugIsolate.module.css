@@ -1,0 +1,30 @@
+.heroDebugIsolate {
+  position: relative;
+}
+
+.heroDebugIsolate.muteParticles [data-surface-id="overlay.particles"],
+.heroDebugIsolate.muteParticles video[data-surface-id="overlay.particles"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.muteFilmGrain [data-surface-id="overlay.filmGrain"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.muteDotGrid [data-surface-id="field.dotGrid"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.muteMotion [data-surface-id="overlay.caustics"],
+.heroDebugIsolate.muteMotion [data-surface-id="overlay.glassShimmer"],
+.heroDebugIsolate.muteMotion [data-surface-id="overlay.goldDust"],
+.heroDebugIsolate.muteMotion [data-surface-id="motion.heroVideo"],
+.heroDebugIsolate.muteMotion video[data-surface-id="motion.heroVideo"],
+.heroDebugIsolate.muteMotion video[data-surface-id^="motion."],
+.heroDebugIsolate.muteMotion video[data-surface-id] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
