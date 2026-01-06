@@ -181,22 +181,63 @@ export async function HeroRenderer({
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
 
+  const isDeMilkMode = mode === "home" || mode === "treatment";
+  const layerOpacityTuning: Record<
+    string,
+    | {
+        multiplier?: number;
+        cap?: number;
+        screenBlendOverride?: CSSProperties["mixBlendMode"];
+      }
+    | undefined
+  > = {
+    "field.waveBackdrop": { multiplier: 0.62, cap: 0.22, screenBlendOverride: "soft-light" },
+    "field.waveRings": { multiplier: 0.78, cap: 0.35 },
+    "field.dotGrid": { multiplier: 0.6, cap: 0.22, screenBlendOverride: "soft-light" },
+    "overlay.particles": { multiplier: 0.7, cap: 0.12 },
+    "overlay.caustics": { multiplier: 0.6, cap: 0.24, screenBlendOverride: "soft-light" },
+    "overlay.glassShimmer": { multiplier: 0.6, cap: 0.24 },
+    "overlay.goldDust": { multiplier: 0.6, cap: 0.24 },
+  };
+
+  const applyBlendTuning = (id: string, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (!isDeMilkMode || !blendMode) return blendMode;
+    const tuning = layerOpacityTuning[id];
+    if (tuning?.screenBlendOverride && blendMode === "screen") {
+      return tuning.screenBlendOverride;
+    }
+    return blendMode;
+  };
+
+  const applyOpacityTuning = (id: string, value?: number, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (!isDeMilkMode || value === undefined) return value;
+    const tuning = layerOpacityTuning[id];
+    if (!tuning) return value;
+    const multiplier = tuning.multiplier ?? 1;
+    const capped = Math.min(value * multiplier, tuning.cap ?? 1);
+    if (blendMode === "screen" && tuning.cap !== undefined) {
+      return Math.min(capped, tuning.cap);
+    }
+    return capped;
+  };
+
   const resolveMotionStyle = (
     entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number },
     id?: string,
   ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
+    const tunedBlend = applyBlendTuning(id ?? "", entry.blendMode as CSSProperties["mixBlendMode"] | undefined);
 
     if (entry.opacity !== undefined && entry.opacity !== null) {
-      style.opacity = resolveMotionOpacity(entry.opacity);
+      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", entry.opacity, tunedBlend));
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
     }
 
-    if (entry.blendMode) {
-      style.mixBlendMode = entry.blendMode as CSSProperties["mixBlendMode"];
+    if (tunedBlend) {
+      style.mixBlendMode = tunedBlend;
     } else if (id) {
       noteMissing(id, "blend", "motion");
       style.opacity = 0;
@@ -293,15 +334,17 @@ export async function HeroRenderer({
       const style: CSSProperties = { zIndex: 2 };
       let missingForLayer = false;
 
-      if (waveBackdropBlend) {
-        style.mixBlendMode = waveBackdropBlend;
+      const tunedBlend = applyBlendTuning("field.waveBackdrop", waveBackdropBlend);
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else {
         noteMissing("field.waveBackdrop", "blend", "surface");
         missingForLayer = true;
       }
 
       if (waveBackdropOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : waveBackdropOpacity;
+        const tunedOpacity = applyOpacityTuning("field.waveBackdrop", waveBackdropOpacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveBackdrop", "opacity", "surface");
@@ -328,15 +371,20 @@ export async function HeroRenderer({
       };
       let missingForLayer = false;
 
-      if (surfaces.overlays?.field?.blendMode) {
-        style.mixBlendMode = surfaces.overlays.field.blendMode as CSSProperties["mixBlendMode"];
+      const tunedBlend = applyBlendTuning(
+        "field.waveRings",
+        surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+      );
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else {
         noteMissing("field.waveRings", "blend", "surface");
         missingForLayer = true;
       }
 
       if (surfaces.overlays?.field?.opacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : surfaces.overlays.field.opacity;
+        const tunedOpacity = applyOpacityTuning("field.waveRings", surfaces.overlays.field.opacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveRings", "opacity", "surface");
@@ -355,15 +403,20 @@ export async function HeroRenderer({
       };
       let missingForLayer = false;
 
-      if (surfaces.overlays?.dots?.blendMode) {
-        style.mixBlendMode = surfaces.overlays.dots.blendMode as CSSProperties["mixBlendMode"];
+      const tunedBlend = applyBlendTuning(
+        "field.dotGrid",
+        surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+      );
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else {
         noteMissing("field.dotGrid", "blend", "surface");
         missingForLayer = true;
       }
 
       if (surfaces.overlays?.dots?.opacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : surfaces.overlays.dots.opacity;
+        const tunedOpacity = applyOpacityTuning("field.dotGrid", surfaces.overlays.dots.opacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.dotGrid", "opacity", "surface");
@@ -382,15 +435,20 @@ export async function HeroRenderer({
       };
       let missingForLayer = false;
 
-      if (surfaces.particles?.blendMode) {
-        style.mixBlendMode = surfaces.particles.blendMode as CSSProperties["mixBlendMode"];
+      const tunedBlend = applyBlendTuning(
+        "overlay.particles",
+        surfaces.particles?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+      );
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else if (shouldShowParticles) {
         noteMissing("overlay.particles", "blend", "surface");
         missingForLayer = true;
       }
 
       if (particleOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : particleOpacity;
+        const tunedOpacity = applyOpacityTuning("overlay.particles", particleOpacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else if (shouldShowParticles) {
         style.opacity = 0;
         noteMissing("overlay.particles", "opacity", "surface");
