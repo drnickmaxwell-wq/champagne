@@ -192,7 +192,7 @@ export async function HeroRenderer({
     | undefined
   > = {
     "field.waveBackdrop": { multiplier: 0.62, cap: 0.22, screenBlendOverride: "soft-light" },
-    "field.waveRings": { multiplier: 0.78, cap: 0.30 },
+    "field.waveRings": { multiplier: 0.78, cap: 0.28 },
     "field.dotGrid": { multiplier: 0.6, cap: 0.22, screenBlendOverride: "soft-light" },
     "overlay.particles": { multiplier: 0.7, cap: 0.12 },
     "overlay.caustics": { multiplier: 0.6, cap: 0.22, screenBlendOverride: "soft-light" },
