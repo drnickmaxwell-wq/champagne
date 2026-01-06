@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import type { HeroTimeOfDay } from "@champagne/hero";
+import styles from "./heroDebugIsolate.module.css";
 
 const trackedCssVars = [
   "--hero-wave-mask-desktop",
@@ -21,6 +22,24 @@ type TimeOfDayOption = "auto" | HeroTimeOfDay;
 type CssVarMap = Record<string, string>;
 
 export function HeroDebugClientPanel() {
+  const debugParams = useMemo(() => {
+    if (typeof window === "undefined") return null;
+
+    return new URLSearchParams(window.location.search);
+  }, []);
+
+  const isolateFlags = useMemo(() => {
+    const muteAllVeil = debugParams?.get("heroMuteAllVeil") === "1";
+
+    return {
+      muteParticles: muteAllVeil || debugParams?.get("heroMuteParticles") === "1",
+      muteFilmGrain: muteAllVeil || debugParams?.get("heroMuteFilmGrain") === "1",
+      muteDotGrid: debugParams?.get("heroMuteDotGrid") === "1",
+      muteMotion: muteAllVeil || debugParams?.get("heroMuteMotion") === "1",
+      muteAllVeil,
+    };
+  }, [debugParams]);
+
   const [diagnosticBoost, setDiagnosticBoost] = useState(true);
   const [mockPrm, setMockPrm] = useState(false);
   const [particles, setParticles] = useState(true);
@@ -43,6 +62,12 @@ export function HeroDebugClientPanel() {
       ].join("-"),
     [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay],
   );
+
+  useEffect(() => {
+    if (!debugParams) return;
+
+    console.debug("Hero debug isolate flags:", JSON.stringify(isolateFlags));
+  }, [debugParams, isolateFlags]);
 
   useEffect(() => {
     const heroElement = heroSurfaceRef.current;
@@ -130,17 +155,29 @@ export function HeroDebugClientPanel() {
       </div>
 
       <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
-        <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
-          <HeroRenderer
-            key={heroRenderKey}
-            prm={mockPrm}
-            particles={particles}
-            filmGrain={filmGrain}
-            timeOfDay={resolvedTimeOfDay}
-            diagnosticBoost={diagnosticBoost}
-            surfaceRef={heroSurfaceRef}
-          />
-        </Suspense>
+        <div
+          className={[
+            styles.heroDebugIsolate,
+            isolateFlags.muteParticles ? styles.muteParticles : "",
+            isolateFlags.muteFilmGrain ? styles.muteFilmGrain : "",
+            isolateFlags.muteDotGrid ? styles.muteDotGrid : "",
+            isolateFlags.muteMotion ? styles.muteMotion : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+            <HeroRenderer
+              key={heroRenderKey}
+              prm={mockPrm}
+              particles={particles}
+              filmGrain={filmGrain}
+              timeOfDay={resolvedTimeOfDay}
+              diagnosticBoost={diagnosticBoost}
+              surfaceRef={heroSurfaceRef}
+            />
+          </Suspense>
+        </div>
       </div>
 
       <div style={{ display: "grid", gap: "0.5rem" }}>
