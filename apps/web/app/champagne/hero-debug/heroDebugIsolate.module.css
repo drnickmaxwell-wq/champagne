@@ -2,9 +2,94 @@
   position: relative;
 }
 
+.heroDebugIsolate [data-surface-id="field.waveBackdrop"],
+.heroDebugIsolate [data-surface-id="field.waveRings"],
+.heroDebugIsolate [data-surface-id="mask.waveHeader"] {
+  opacity: var(--heroDebugOpacityWaves, 1) !important;
+}
+
+.heroDebugIsolate [data-surface-id="field.dotGrid"] {
+  opacity: var(--heroDebugOpacityDotGrid, 1) !important;
+}
+
+.heroDebugIsolate [data-surface-id="overlay.particles"],
+.heroDebugIsolate video[data-surface-id="overlay.particles"] {
+  opacity: var(--heroDebugOpacityParticles, 1) !important;
+}
+
+.heroDebugIsolate [data-surface-id="overlay.filmGrain"] {
+  opacity: var(--heroDebugOpacityFilmGrain, 1) !important;
+}
+
+.heroDebugIsolate [data-surface-id="overlay.caustics"],
+.heroDebugIsolate [data-surface-id="overlay.glassShimmer"],
+.heroDebugIsolate [data-surface-id="overlay.goldDust"],
+.heroDebugIsolate [data-surface-id="overlay.particlesDrift"],
+.heroDebugIsolate [data-surface-id="motion.heroVideo"],
+.heroDebugIsolate video[data-surface-id^="motion."],
+.heroDebugIsolate video[data-surface-id] {
+  opacity: var(--heroDebugOpacityMotion, 1) !important;
+}
+
+.heroDebugIsolate [data-surface-id="overlay.lighting"] {
+  opacity: var(--heroDebugOpacityScrim, 1) !important;
+}
+
+.heroDebugIsolate.soloActive [data-surface-id],
+.heroDebugIsolate.soloActive video[data-surface-id] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.soloWaves [data-surface-id="field.waveBackdrop"],
+.heroDebugIsolate.soloWaves [data-surface-id="field.waveRings"],
+.heroDebugIsolate.soloWaves [data-surface-id="mask.waveHeader"] {
+  opacity: var(--heroDebugOpacityWaves, 1) !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloDotGrid [data-surface-id="field.dotGrid"] {
+  opacity: var(--heroDebugOpacityDotGrid, 1) !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloParticles [data-surface-id="overlay.particles"],
+.heroDebugIsolate.soloParticles video[data-surface-id="overlay.particles"] {
+  opacity: var(--heroDebugOpacityParticles, 1) !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloFilmGrain [data-surface-id="overlay.filmGrain"] {
+  opacity: var(--heroDebugOpacityFilmGrain, 1) !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloMotion [data-surface-id="overlay.caustics"],
+.heroDebugIsolate.soloMotion [data-surface-id="overlay.glassShimmer"],
+.heroDebugIsolate.soloMotion [data-surface-id="overlay.goldDust"],
+.heroDebugIsolate.soloMotion [data-surface-id="overlay.particlesDrift"],
+.heroDebugIsolate.soloMotion [data-surface-id="motion.heroVideo"],
+.heroDebugIsolate.soloMotion video[data-surface-id^="motion."],
+.heroDebugIsolate.soloMotion video[data-surface-id] {
+  opacity: var(--heroDebugOpacityMotion, 1) !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloScrim [data-surface-id="overlay.lighting"] {
+  opacity: var(--heroDebugOpacityScrim, 1) !important;
+  pointer-events: auto !important;
+}
+
 .heroDebugIsolate.muteAllVeil [data-surface-id^="overlay."],
 .heroDebugIsolate.muteAllVeil [data-surface-id^="field."],
 .heroDebugIsolate.muteAllVeil video[data-surface-id] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.muteWaves [data-surface-id="field.waveBackdrop"],
+.heroDebugIsolate.muteWaves [data-surface-id="field.waveRings"],
+.heroDebugIsolate.muteWaves [data-surface-id="mask.waveHeader"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }
@@ -21,6 +106,11 @@
 }
 
 .heroDebugIsolate.muteDotGrid [data-surface-id="field.dotGrid"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.muteScrim [data-surface-id="overlay.lighting"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, Suspense } from "react";
+import type { CSSProperties } from "react";
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import type { HeroTimeOfDay } from "@champagne/hero";
 import styles from "./heroDebugIsolate.module.css";
@@ -21,6 +22,35 @@ type TimeOfDayOption = "auto" | HeroTimeOfDay;
 
 type CssVarMap = Record<string, string>;
 
+type LayerKey = "waves" | "dotGrid" | "particles" | "filmGrain" | "motion" | "scrim";
+
+const layerConfigs: { key: LayerKey; label: string; opacityParam: string; muteParam: string }[] = [
+  { key: "waves", label: "Waves", opacityParam: "heroOpacityWaves", muteParam: "heroMuteWaves" },
+  { key: "dotGrid", label: "Dot grid", opacityParam: "heroOpacityDotGrid", muteParam: "heroMuteDotGrid" },
+  { key: "particles", label: "Particles", opacityParam: "heroOpacityParticles", muteParam: "heroMuteParticles" },
+  { key: "filmGrain", label: "Film grain", opacityParam: "heroOpacityFilmGrain", muteParam: "heroMuteFilmGrain" },
+  { key: "motion", label: "Motion overlays", opacityParam: "heroOpacityMotion", muteParam: "heroMuteMotion" },
+  { key: "scrim", label: "Scrim / lighting", opacityParam: "heroOpacityScrim", muteParam: "heroMuteScrim" },
+];
+
+const clampPercent = (value: number) => Math.min(100, Math.max(0, value));
+
+const parseOpacityParam = (params: URLSearchParams | null, key: string) => {
+  const raw = params?.get(key);
+  if (!raw) return 100;
+  const parsed = Number.parseFloat(raw);
+  if (!Number.isFinite(parsed)) return 100;
+  const normalized = parsed <= 1 ? parsed * 100 : parsed;
+  return clampPercent(normalized);
+};
+
+const parseSoloParam = (params: URLSearchParams | null) => {
+  const raw = params?.get("heroSolo");
+  if (!raw) return null;
+  const match = layerConfigs.find((layer) => layer.key === raw);
+  return match ? match.key : null;
+};
+
 export function HeroDebugClientPanel() {
   const debugParams = useMemo(() => {
     if (typeof window === "undefined") return null;
@@ -28,23 +58,30 @@ export function HeroDebugClientPanel() {
     return new URLSearchParams(window.location.search);
   }, []);
 
-  const isolateFlags = useMemo(() => {
-    const muteAllVeil = debugParams?.get("heroMuteAllVeil") === "1";
-
-    return {
-      muteParticles: muteAllVeil || debugParams?.get("heroMuteParticles") === "1",
-      muteFilmGrain: muteAllVeil || debugParams?.get("heroMuteFilmGrain") === "1",
-      muteDotGrid: muteAllVeil || debugParams?.get("heroMuteDotGrid") === "1",
-      muteMotion: muteAllVeil || debugParams?.get("heroMuteMotion") === "1",
-      muteAllVeil,
-    };
-  }, [debugParams]);
+  const muteAllVeil = useMemo(() => debugParams?.get("heroMuteAllVeil") === "1", [debugParams]);
 
   const [diagnosticBoost, setDiagnosticBoost] = useState(true);
   const [mockPrm, setMockPrm] = useState(false);
   const [particles, setParticles] = useState(true);
   const [filmGrain, setFilmGrain] = useState(true);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
+  const [soloLayer, setSoloLayer] = useState<LayerKey | null>(() => parseSoloParam(debugParams));
+  const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
+    waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
+    dotGrid: muteAllVeil || debugParams?.get("heroMuteDotGrid") === "1",
+    particles: muteAllVeil || debugParams?.get("heroMuteParticles") === "1",
+    filmGrain: muteAllVeil || debugParams?.get("heroMuteFilmGrain") === "1",
+    motion: muteAllVeil || debugParams?.get("heroMuteMotion") === "1",
+    scrim: muteAllVeil || debugParams?.get("heroMuteScrim") === "1",
+  }));
+  const [layerOpacities, setLayerOpacities] = useState<Record<LayerKey, number>>(() => ({
+    waves: parseOpacityParam(debugParams, "heroOpacityWaves"),
+    dotGrid: parseOpacityParam(debugParams, "heroOpacityDotGrid"),
+    particles: parseOpacityParam(debugParams, "heroOpacityParticles"),
+    filmGrain: parseOpacityParam(debugParams, "heroOpacityFilmGrain"),
+    motion: parseOpacityParam(debugParams, "heroOpacityMotion"),
+    scrim: parseOpacityParam(debugParams, "heroOpacityScrim"),
+  }));
 
   const heroSurfaceRef = useRef<HTMLDivElement | null>(null);
   const [cssVars, setCssVars] = useState<CssVarMap>({});
@@ -66,8 +103,42 @@ export function HeroDebugClientPanel() {
   useEffect(() => {
     if (!debugParams) return;
 
-    console.debug("Hero debug isolate flags:", JSON.stringify(isolateFlags));
-  }, [debugParams, isolateFlags]);
+    const opacityValues = Object.fromEntries(
+      layerConfigs.map((layer) => [layer.key, Number((layerOpacities[layer.key] / 100).toFixed(3))]),
+    );
+    const summary = {
+      solo: soloLayer,
+      muteAllVeil,
+      mutes: layerMutes,
+      opacities: opacityValues,
+    };
+    console.log("[Hero Layer Lab] settings", summary);
+  }, [debugParams, layerMutes, layerOpacities, muteAllVeil, soloLayer]);
+
+  const layerOpacityVars = useMemo(
+    () =>
+      ({
+        ["--heroDebugOpacityWaves" as const]: `${layerOpacities.waves / 100}`,
+        ["--heroDebugOpacityDotGrid" as const]: `${layerOpacities.dotGrid / 100}`,
+        ["--heroDebugOpacityParticles" as const]: `${layerOpacities.particles / 100}`,
+        ["--heroDebugOpacityFilmGrain" as const]: `${layerOpacities.filmGrain / 100}`,
+        ["--heroDebugOpacityMotion" as const]: `${layerOpacities.motion / 100}`,
+        ["--heroDebugOpacityScrim" as const]: `${layerOpacities.scrim / 100}`,
+      }) as CSSProperties,
+    [layerOpacities],
+  );
+
+  const exportPayload = useMemo(
+    () => ({
+      solo: soloLayer,
+      muteAllVeil,
+      mutes: layerMutes,
+      opacities: Object.fromEntries(
+        layerConfigs.map((layer) => [layer.key, Number((layerOpacities[layer.key] / 100).toFixed(3))]),
+      ),
+    }),
+    [layerMutes, layerOpacities, muteAllVeil, soloLayer],
+  );
 
   useEffect(() => {
     const heroElement = heroSurfaceRef.current;
@@ -158,14 +229,24 @@ export function HeroDebugClientPanel() {
         <div
           className={[
             styles.heroDebugIsolate,
-            isolateFlags.muteParticles ? styles.muteParticles : "",
-            isolateFlags.muteFilmGrain ? styles.muteFilmGrain : "",
-            isolateFlags.muteDotGrid ? styles.muteDotGrid : "",
-            isolateFlags.muteMotion ? styles.muteMotion : "",
-            isolateFlags.muteAllVeil ? styles.muteAllVeil : "",
+            muteAllVeil ? styles.muteAllVeil : "",
+            layerMutes.waves ? styles.muteWaves : "",
+            layerMutes.dotGrid ? styles.muteDotGrid : "",
+            layerMutes.particles ? styles.muteParticles : "",
+            layerMutes.filmGrain ? styles.muteFilmGrain : "",
+            layerMutes.motion ? styles.muteMotion : "",
+            layerMutes.scrim ? styles.muteScrim : "",
+            soloLayer ? styles.soloActive : "",
+            soloLayer === "waves" ? styles.soloWaves : "",
+            soloLayer === "dotGrid" ? styles.soloDotGrid : "",
+            soloLayer === "particles" ? styles.soloParticles : "",
+            soloLayer === "filmGrain" ? styles.soloFilmGrain : "",
+            soloLayer === "motion" ? styles.soloMotion : "",
+            soloLayer === "scrim" ? styles.soloScrim : "",
           ]
             .filter(Boolean)
             .join(" ")}
+          style={layerOpacityVars}
         >
           <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
             <HeroRenderer
@@ -179,6 +260,78 @@ export function HeroDebugClientPanel() {
             />
           </Suspense>
         </div>
+      </div>
+
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <h3 style={{ margin: 0 }}>Layer Lab</h3>
+        <div style={{ display: "grid", gap: "0.75rem" }}>
+          {layerConfigs.map((layer) => {
+            const opacityValue = layerOpacities[layer.key];
+            return (
+              <div
+                key={layer.key}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "minmax(140px, 1fr) repeat(2, auto) minmax(160px, 1fr) 3.5rem",
+                  gap: "0.75rem",
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ fontWeight: 500 }}>{layer.label}</span>
+                <label style={{ display: "flex", gap: "0.4rem", alignItems: "center" }}>
+                  <input
+                    type="checkbox"
+                    checked={layerMutes[layer.key]}
+                    onChange={(event) =>
+                      setLayerMutes((prev) => ({
+                        ...prev,
+                        [layer.key]: event.target.checked,
+                      }))
+                    }
+                  />
+                  <span>Mute</span>
+                </label>
+                <label style={{ display: "flex", gap: "0.4rem", alignItems: "center" }}>
+                  <input
+                    type="checkbox"
+                    checked={soloLayer === layer.key}
+                    onChange={(event) => setSoloLayer(event.target.checked ? layer.key : null)}
+                  />
+                  <span>Solo</span>
+                </label>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  value={opacityValue}
+                  onChange={(event) =>
+                    setLayerOpacities((prev) => ({
+                      ...prev,
+                      [layer.key]: clampPercent(Number(event.target.value)),
+                    }))
+                  }
+                />
+                <span style={{ textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                  {(opacityValue / 100).toFixed(2)}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        <textarea
+          readOnly
+          rows={6}
+          value={JSON.stringify(exportPayload, null, 2)}
+          style={{
+            width: "100%",
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.9rem",
+          }}
+        />
       </div>
 
       <div style={{ display: "grid", gap: "0.5rem" }}>
