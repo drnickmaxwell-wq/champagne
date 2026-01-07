@@ -191,13 +191,14 @@ export async function HeroRenderer({
       }
     | undefined
   > = {
-    "field.waveBackdrop": { multiplier: 0.62, cap: 0.16, screenBlendOverride: "soft-light" },
+    "field.waveBackdrop": { multiplier: 0.62, cap: 0.2 },
     "field.waveRings": { multiplier: 0.78, cap: 0.24 },
-    "field.dotGrid": { multiplier: 0.6, cap: 0.16, screenBlendOverride: "soft-light" },
-    "overlay.particles": { multiplier: 0.7, cap: 0.12 },
-    "overlay.caustics": { multiplier: 0.6, cap: 0.14, screenBlendOverride: "soft-light" },
-    "overlay.glassShimmer": { multiplier: 0.6, cap: 0.16, screenBlendOverride: "soft-light" },
-    "overlay.goldDust": { multiplier: 0.6, cap: 0.16, screenBlendOverride: "soft-light" },
+    "field.dotGrid": { multiplier: 0.6, cap: 0.2 },
+    "overlay.particles": { multiplier: 0.7, cap: 0.08 },
+    "overlay.caustics": { multiplier: 0.6, cap: 0.1, screenBlendOverride: "soft-light" },
+    "overlay.glassShimmer": { multiplier: 0.6, cap: 0.1, screenBlendOverride: "soft-light" },
+    "overlay.goldDust": { multiplier: 0.6, cap: 0.1, screenBlendOverride: "soft-light" },
+    "overlay.filmGrain": { multiplier: 1, cap: 0.06 },
   };
 
   const applyBlendTuning = (id: string, blendMode?: CSSProperties["mixBlendMode"]) => {
