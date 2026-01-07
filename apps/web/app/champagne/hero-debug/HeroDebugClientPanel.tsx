@@ -23,6 +23,7 @@ type TimeOfDayOption = "auto" | HeroTimeOfDay;
 type CssVarMap = Record<string, string>;
 
 type LayerKey = "waves" | "dotGrid" | "particles" | "filmGrain" | "motion" | "scrim";
+type SoloLayerKey = LayerKey | "gradient";
 
 const layerConfigs: { key: LayerKey; label: string; opacityParam: string; muteParam: string }[] = [
   { key: "waves", label: "Waves", opacityParam: "heroOpacityWaves", muteParam: "heroMuteWaves" },
@@ -47,8 +48,9 @@ const parseOpacityParam = (params: URLSearchParams | null, key: string) => {
 const parseSoloParam = (params: URLSearchParams | null) => {
   const raw = params?.get("heroSolo");
   if (!raw) return null;
-  const match = layerConfigs.find((layer) => layer.key === raw);
-  return match ? match.key : null;
+  const soloOptions: SoloLayerKey[] = [...layerConfigs.map((layer) => layer.key), "gradient"];
+  const match = soloOptions.find((layer) => layer === raw);
+  return match ?? null;
 };
 
 export function HeroDebugClientPanel() {
@@ -65,7 +67,7 @@ export function HeroDebugClientPanel() {
   const [particles, setParticles] = useState(true);
   const [filmGrain, setFilmGrain] = useState(true);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
-  const [soloLayer, setSoloLayer] = useState<LayerKey | null>(() => parseSoloParam(debugParams));
+  const [soloLayer, setSoloLayer] = useState<SoloLayerKey | null>(() => parseSoloParam(debugParams));
   const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
     waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
     dotGrid: muteAllVeil || debugParams?.get("heroMuteDotGrid") === "1",
@@ -86,6 +88,21 @@ export function HeroDebugClientPanel() {
   const heroSurfaceRef = useRef<HTMLDivElement | null>(null);
   const [cssVars, setCssVars] = useState<CssVarMap>({});
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
+
+  const updateQueryParam = (key: string, value: string | null) => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    if (value === null) {
+      url.searchParams.delete(key);
+    } else {
+      url.searchParams.set(key, value);
+    }
+    window.history.replaceState({}, "", url);
+  };
+
+  const updateBooleanParam = (key: string, enabled: boolean) => {
+    updateQueryParam(key, enabled ? "1" : null);
+  };
 
   const resolvedTimeOfDay = useMemo(() => (timeOfDay === "auto" ? undefined : timeOfDay), [timeOfDay]);
   const heroRenderKey = useMemo(
@@ -114,6 +131,19 @@ export function HeroDebugClientPanel() {
     };
     console.log("[Hero Layer Lab] settings", summary);
   }, [debugParams, layerMutes, layerOpacities, muteAllVeil, soloLayer]);
+
+  useEffect(() => {
+    const waveOpacity = Number((layerOpacities.waves / 100).toFixed(3));
+    const dotOpacity = Number((layerOpacities.dotGrid / 100).toFixed(3));
+    console.log(
+      "[Cutter Lab]",
+      `solo=${soloLayer ?? "none"}`,
+      `wave=${waveOpacity}`,
+      `dot=${dotOpacity}`,
+      `muteWaves=${layerMutes.waves}`,
+      `muteDotGrid=${layerMutes.dotGrid}`,
+    );
+  }, [layerMutes.dotGrid, layerMutes.waves, layerOpacities.dotGrid, layerOpacities.waves, soloLayer]);
 
   const layerOpacityVars = useMemo(
     () =>
@@ -179,8 +209,150 @@ export function HeroDebugClientPanel() {
     return () => observer.disconnect();
   }, [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay]);
 
+  const waveOpacityValue = Number((layerOpacities.waves / 100).toFixed(2));
+  const dotOpacityValue = Number((layerOpacities.dotGrid / 100).toFixed(2));
+
   return (
     <div className="hero-debug-panel" style={{ display: "grid", gap: "1rem" }}>
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <h3 style={{ margin: 0 }}>Cutter Lab — Waves &amp; Dots</h3>
+        <div
+          style={{
+            display: "grid",
+            gap: "0.75rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            alignItems: "center",
+          }}
+        >
+          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <input
+              type="checkbox"
+              checked={layerMutes.waves}
+              onChange={(event) => {
+                const checked = event.target.checked;
+                setLayerMutes((prev) => ({ ...prev, waves: checked }));
+                updateBooleanParam("heroMuteWaves", checked);
+              }}
+            />
+            <span>Mute Waves</span>
+          </label>
+
+          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <input
+              type="checkbox"
+              checked={layerMutes.dotGrid}
+              onChange={(event) => {
+                const checked = event.target.checked;
+                setLayerMutes((prev) => ({ ...prev, dotGrid: checked }));
+                updateBooleanParam("heroMuteDotGrid", checked);
+              }}
+            />
+            <span>Mute Dot Grid</span>
+          </label>
+
+          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <input
+              type="checkbox"
+              checked={soloLayer === "waves"}
+              onChange={(event) => {
+                const nextSolo = event.target.checked ? "waves" : null;
+                setSoloLayer(nextSolo);
+                updateQueryParam("heroSolo", nextSolo);
+              }}
+            />
+            <span>Solo Waves</span>
+          </label>
+
+          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <input
+              type="checkbox"
+              checked={soloLayer === "dotGrid"}
+              onChange={(event) => {
+                const nextSolo = event.target.checked ? "dotGrid" : null;
+                setSoloLayer(nextSolo);
+                updateQueryParam("heroSolo", nextSolo);
+              }}
+            />
+            <span>Solo Dot Grid</span>
+          </label>
+
+          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <input
+              type="checkbox"
+              checked={soloLayer === "gradient"}
+              onChange={(event) => {
+                const nextSolo = event.target.checked ? "gradient" : null;
+                setSoloLayer(nextSolo);
+                updateQueryParam("heroSolo", nextSolo);
+              }}
+            />
+            <span>Solo Gradient Only</span>
+          </label>
+
+          <label style={{ display: "grid", gap: "0.35rem" }}>
+            <span>Waves Opacity</span>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 3.5rem", gap: "0.75rem" }}>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.01}
+                value={waveOpacityValue}
+                onInput={(event) => {
+                  const nextValue = Number(event.currentTarget.value);
+                  setLayerOpacities((prev) => ({
+                    ...prev,
+                    waves: clampPercent(nextValue * 100),
+                  }));
+                }}
+                onChange={(event) => {
+                  const nextValue = Number(event.target.value);
+                  setLayerOpacities((prev) => ({
+                    ...prev,
+                    waves: clampPercent(nextValue * 100),
+                  }));
+                  updateQueryParam("heroOpacityWaves", `${nextValue}`);
+                }}
+              />
+              <span style={{ textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                {waveOpacityValue.toFixed(2)}
+              </span>
+            </div>
+          </label>
+
+          <label style={{ display: "grid", gap: "0.35rem" }}>
+            <span>Dot Grid Opacity</span>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 3.5rem", gap: "0.75rem" }}>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.01}
+                value={dotOpacityValue}
+                onInput={(event) => {
+                  const nextValue = Number(event.currentTarget.value);
+                  setLayerOpacities((prev) => ({
+                    ...prev,
+                    dotGrid: clampPercent(nextValue * 100),
+                  }));
+                }}
+                onChange={(event) => {
+                  const nextValue = Number(event.target.value);
+                  setLayerOpacities((prev) => ({
+                    ...prev,
+                    dotGrid: clampPercent(nextValue * 100),
+                  }));
+                  updateQueryParam("heroOpacityDotGrid", `${nextValue}`);
+                }}
+              />
+              <span style={{ textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                {dotOpacityValue.toFixed(2)}
+              </span>
+            </div>
+          </label>
+        </div>
+      </div>
+
       <div
         style={{
           display: "grid",
@@ -239,6 +411,7 @@ export function HeroDebugClientPanel() {
             soloLayer ? styles.soloActive : "",
             soloLayer === "waves" ? styles.soloWaves : "",
             soloLayer === "dotGrid" ? styles.soloDotGrid : "",
+            soloLayer === "gradient" ? styles.soloGradient : "",
             soloLayer === "particles" ? styles.soloParticles : "",
             soloLayer === "filmGrain" ? styles.soloFilmGrain : "",
             soloLayer === "motion" ? styles.soloMotion : "",

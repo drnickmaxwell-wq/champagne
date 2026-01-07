@@ -3,8 +3,7 @@
 }
 
 .heroDebugIsolate [data-surface-id="field.waveBackdrop"],
-.heroDebugIsolate [data-surface-id="field.waveRings"],
-.heroDebugIsolate [data-surface-id="mask.waveHeader"] {
+.heroDebugIsolate [data-surface-id="field.waveRings"] {
   opacity: var(--heroDebugOpacityWaves, 1) !important;
 }
 
@@ -42,15 +41,53 @@
 }
 
 .heroDebugIsolate.soloWaves [data-surface-id="field.waveBackdrop"],
-.heroDebugIsolate.soloWaves [data-surface-id="field.waveRings"],
-.heroDebugIsolate.soloWaves [data-surface-id="mask.waveHeader"] {
+.heroDebugIsolate.soloWaves [data-surface-id="field.waveRings"] {
   opacity: var(--heroDebugOpacityWaves, 1) !important;
   pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloWaves [data-surface-id="gradient.base"] {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloWaves [data-surface-id="field.dotGrid"],
+.heroDebugIsolate.soloWaves [data-surface-id^="overlay."],
+.heroDebugIsolate.soloWaves video[data-surface-id^="sacred.motion."] {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .heroDebugIsolate.soloDotGrid [data-surface-id="field.dotGrid"] {
   opacity: var(--heroDebugOpacityDotGrid, 1) !important;
   pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloDotGrid [data-surface-id="gradient.base"] {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloDotGrid [data-surface-id="field.waveBackdrop"],
+.heroDebugIsolate.soloDotGrid [data-surface-id="field.waveRings"],
+.heroDebugIsolate.soloDotGrid [data-surface-id^="overlay."],
+.heroDebugIsolate.soloDotGrid video[data-surface-id^="sacred.motion."] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.heroDebugIsolate.soloGradient [data-surface-id="gradient.base"] {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.heroDebugIsolate.soloGradient [data-surface-id="field.waveBackdrop"],
+.heroDebugIsolate.soloGradient [data-surface-id="field.waveRings"],
+.heroDebugIsolate.soloGradient [data-surface-id="field.dotGrid"],
+.heroDebugIsolate.soloGradient [data-surface-id^="overlay."],
+.heroDebugIsolate.soloGradient video[data-surface-id^="sacred.motion."] {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .heroDebugIsolate.soloParticles [data-surface-id="overlay.particles"],
@@ -88,8 +125,7 @@
 }
 
 .heroDebugIsolate.muteWaves [data-surface-id="field.waveBackdrop"],
-.heroDebugIsolate.muteWaves [data-surface-id="field.waveRings"],
-.heroDebugIsolate.muteWaves [data-surface-id="mask.waveHeader"] {
+.heroDebugIsolate.muteWaves [data-surface-id="field.waveRings"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }
