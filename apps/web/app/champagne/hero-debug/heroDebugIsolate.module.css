@@ -2,6 +2,13 @@
   position: relative;
 }
 
+.heroDebugIsolate.muteAllVeil [data-surface-id^="overlay."],
+.heroDebugIsolate.muteAllVeil [data-surface-id^="field."],
+.heroDebugIsolate.muteAllVeil video[data-surface-id] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .heroDebugIsolate.muteParticles [data-surface-id="overlay.particles"],
 .heroDebugIsolate.muteParticles video[data-surface-id="overlay.particles"] {
   opacity: 0 !important;

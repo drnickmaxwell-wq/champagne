@@ -34,7 +34,7 @@ export function HeroDebugClientPanel() {
     return {
       muteParticles: muteAllVeil || debugParams?.get("heroMuteParticles") === "1",
       muteFilmGrain: muteAllVeil || debugParams?.get("heroMuteFilmGrain") === "1",
-      muteDotGrid: debugParams?.get("heroMuteDotGrid") === "1",
+      muteDotGrid: muteAllVeil || debugParams?.get("heroMuteDotGrid") === "1",
       muteMotion: muteAllVeil || debugParams?.get("heroMuteMotion") === "1",
       muteAllVeil,
     };
@@ -162,6 +162,7 @@ export function HeroDebugClientPanel() {
             isolateFlags.muteFilmGrain ? styles.muteFilmGrain : "",
             isolateFlags.muteDotGrid ? styles.muteDotGrid : "",
             isolateFlags.muteMotion ? styles.muteMotion : "",
+            isolateFlags.muteAllVeil ? styles.muteAllVeil : "",
           ]
             .filter(Boolean)
             .join(" ")}
