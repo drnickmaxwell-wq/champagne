@@ -31,4 +31,9 @@
   --text-high: var(--smh-white);
   --text-medium: color-mix(in srgb, var(--smh-white) 86%, transparent);
   --text-low: color-mix(in srgb, var(--smh-white) 72%, transparent);
+
+  --surface-0: var(--text-high);
+  --smh-sand: var(--text-high);
+  --smh-navy-900: var(--bg-ink);
+  --smh-ink-soft: var(--bg-ink-soft);
 }
