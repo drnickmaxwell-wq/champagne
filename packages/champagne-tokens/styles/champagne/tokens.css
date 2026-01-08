@@ -22,7 +22,6 @@
 
   --bg-ink: var(--ink-100);
   --bg-ink-soft: color-mix(in srgb, var(--brand-ink) 88%, var(--smh-white) 12%);
-  --ink: var(--brand-ink);
   --bg: var(--brand-white);
 
   --surface-glass: color-mix(in srgb, var(--brand-ink) 70%, transparent);
