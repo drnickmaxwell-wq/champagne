@@ -183,11 +183,11 @@
 }
 
 .hero-surface-layer.hero-surface--lighting {
-  background: radial-gradient(circle at 45% 18%, color-mix(in srgb, var(--smh-white) 14%, transparent), transparent 46%),
-    radial-gradient(circle at 70% 72%, color-mix(in srgb, var(--accent-gold, var(--text-high)) 18%, transparent), transparent 58%),
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-ink, currentColor) 70%, transparent), transparent 52%);
+  background: radial-gradient(circle at 45% 18%, color-mix(in srgb, var(--smh-white) 16%, transparent), transparent 46%),
+    radial-gradient(circle at 70% 72%, color-mix(in srgb, var(--accent-gold, var(--text-high)) 20%, transparent), transparent 58%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-ink, currentColor) 66%, transparent), transparent 52%);
   mix-blend-mode: var(--surface-blend-lighting, soft-light);
-  opacity: var(--surface-opacity-lighting, 0.82);
+  opacity: var(--surface-opacity-lighting, 0.86);
   z-index: var(--surface-zindex-lighting, 10);
 }
 

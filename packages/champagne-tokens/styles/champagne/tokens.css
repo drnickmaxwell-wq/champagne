@@ -6,8 +6,8 @@
   --brand-white: var(--smh-white);
 
   --ink-100: var(--ink);
-  --ink-80: color-mix(in srgb, var(--brand-ink) 80%, white);
-  --ink-60: color-mix(in srgb, var(--brand-ink) 60%, white);
+  --ink-80: color-mix(in srgb, var(--brand-ink) 84%, white);
+  --ink-60: color-mix(in srgb, var(--brand-ink) 64%, white);
 
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -21,7 +21,7 @@
   --glass-opacity: 0.18;
 
   --bg-ink: var(--ink-100);
-  --bg-ink-soft: color-mix(in srgb, var(--brand-ink) 85%, var(--smh-white) 15%);
+  --bg-ink-soft: color-mix(in srgb, var(--brand-ink) 88%, var(--smh-white) 12%);
   --ink: var(--brand-ink);
   --bg: var(--brand-white);
 
@@ -29,6 +29,6 @@
   --surface-glass-deep: color-mix(in srgb, var(--brand-ink) 82%, transparent);
 
   --text-high: var(--smh-white);
-  --text-medium: color-mix(in srgb, var(--smh-white) 82%, transparent);
-  --text-low: color-mix(in srgb, var(--smh-white) 68%, transparent);
+  --text-medium: color-mix(in srgb, var(--smh-white) 86%, transparent);
+  --text-low: color-mix(in srgb, var(--smh-white) 72%, transparent);
 }
