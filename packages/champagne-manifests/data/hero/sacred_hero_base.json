@@ -16,7 +16,7 @@
       "overlays": { "dots": "field.dotGrid", "field": "field.waveRings" },
       "particles": "overlay.particlesPrimary",
       "grain": { "desktop": "overlay.filmGrain.desktop", "mobile": "overlay.filmGrain.mobile" },
-      "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDust", "overlay.particlesDrift"],
+      "motion": ["overlay.caustics"],
       "video": "hero.video"
     },
     "layout": {

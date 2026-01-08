@@ -39,6 +39,7 @@ function HeroFallback() {
   return (
     <BaseChampagneSurface
       variant="inkGlass"
+      disableInternalOverlays
       style={{
         background: "var(--smh-gradient)",
         minHeight: "48vh",
@@ -877,6 +878,7 @@ export async function HeroRenderer({
   return (
     <BaseChampagneSurface
       variant="plain"
+      disableInternalOverlays
       style={{
         minHeight: "72vh",
         display: "grid",

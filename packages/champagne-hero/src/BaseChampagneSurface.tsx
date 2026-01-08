@@ -10,6 +10,7 @@ export interface BaseChampagneSurfaceProps {
   style?: CSSProperties;
   variant?: SurfaceVariant;
   tone?: SurfaceTone;
+  disableInternalOverlays?: boolean;
 }
 
 const baseStyle: CSSProperties = {
@@ -40,6 +41,7 @@ export function BaseChampagneSurface({
   style,
   variant = "glass",
   tone = "default",
+  disableInternalOverlays = false,
 }: BaseChampagneSurfaceProps) {
   const appliedTone: CSSProperties = tone === "ink"
     ? { color: "var(--smh-ink)" }
@@ -61,29 +63,33 @@ export function BaseChampagneSurface({
         ...style,
       }}
     >
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 0,
-          background: "radial-gradient(circle at 10% 10%, rgba(255,255,255,0.12), transparent 35%)",
-          opacity: "var(--champagne-sheen-alpha, 0.85)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 0,
-          background: "var(--champagne-glass-bg, linear-gradient(135deg, rgba(255,255,255,0.08), rgba(6,7,12,0.35)))",
-          mixBlendMode: "screen",
-          opacity: "var(--glass-opacity, 0.8)",
-          pointerEvents: "none",
-        }}
-      />
+      {!disableInternalOverlays && (
+        <>
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 0,
+              background: "radial-gradient(circle at 10% 10%, rgba(255,255,255,0.12), transparent 35%)",
+              opacity: "var(--champagne-sheen-alpha, 0.85)",
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 0,
+              background: "var(--champagne-glass-bg, linear-gradient(135deg, rgba(255,255,255,0.08), rgba(6,7,12,0.35)))",
+              mixBlendMode: "screen",
+              opacity: "var(--glass-opacity, 0.8)",
+              pointerEvents: "none",
+            }}
+          />
+        </>
+      )}
       <div style={{ position: "relative", zIndex: 1 }}>
         {children}
       </div>
