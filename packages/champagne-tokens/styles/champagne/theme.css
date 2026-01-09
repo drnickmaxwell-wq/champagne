@@ -9,14 +9,14 @@
 
 :root {
   --bg-ink: var(--brand-ink);
-  color: var(--text-high);
+  color: var(--text-ink-high);
   background: var(--bg-ink);
 }
 
 body,
 .champagne-page {
   background: var(--bg-ink);
-  color: var(--text-high);
+  color: var(--text-ink-high);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   min-height: 100vh;
 }
