@@ -39,9 +39,9 @@ export function Section_TreatmentOverviewRich({ section }: SectionTreatmentOverv
       variant="glass"
       style={{
         padding: "clamp(1.25rem, 3vw, 2.5rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.22))",
-        background:
-          "linear-gradient(115deg, color-mix(in srgb, var(--bg-ink, #06070c) 88%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 76%, transparent)), radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--smh-white, #ffffff) 10%, transparent), transparent 36%)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-1)",
+        boxShadow: "var(--shadow-soft)",
       }}
     >
       <div style={{ display: "grid", gap: "0.65rem" }}>
@@ -50,8 +50,10 @@ export function Section_TreatmentOverviewRich({ section }: SectionTreatmentOverv
             {eyebrow}
           </span>
         )}
-        <h2 style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.85rem)", fontWeight: 700, lineHeight: 1.3 }}>{heading}</h2>
-        <p style={{ color: "var(--text-medium, rgba(240,240,240,0.82))", lineHeight: 1.65, fontSize: "1.02rem" }}>{body}</p>
+        <h2 style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.85rem)", fontWeight: 700, lineHeight: 1.3, color: "var(--text-high)" }}>
+          {heading}
+        </h2>
+        <p style={{ color: "var(--text-medium)", lineHeight: 1.65, fontSize: "1.02rem" }}>{body}</p>
       </div>
       {bullets && bullets.length > 0 && (
         <div style={layoutStyle}>
@@ -61,12 +63,12 @@ export function Section_TreatmentOverviewRich({ section }: SectionTreatmentOverv
               style={{
                 padding: "0.85rem 1rem",
                 borderRadius: "var(--radius-md)",
-                border: "1px solid color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 28%, transparent)",
-                background: "color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.06)) 70%, transparent)",
-                boxShadow: "0 16px 32px rgba(0,0,0,0.22)",
+                border: "1px solid var(--border-subtle)",
+                background: "var(--surface-2)",
+                boxShadow: "var(--shadow-soft)",
               }}
             >
-              <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.55 }}>{bullet}</p>
+              <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.55, color: "var(--text-high)" }}>{bullet}</p>
             </div>
           ))}
         </div>
