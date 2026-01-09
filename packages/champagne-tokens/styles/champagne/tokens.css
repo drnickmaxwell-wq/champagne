@@ -20,6 +20,7 @@
 
   --shadow-soft: 0 8px 36px color-mix(in srgb, var(--brand-ink) 16%, transparent);
   --shadow-strong: 0 14px 48px color-mix(in srgb, var(--brand-ink) 32%, transparent);
+  --border-subtle: color-mix(in oklab, var(--brand-ink) 12%, var(--surface-0) 88%);
 
   --particles-opacity: 0.08;
   --grain-opacity: 0.06;
@@ -43,7 +44,13 @@
     transparent
   );
 
-  --text-high: color-mix(in oklab, var(--smh-white) 96%, transparent);
-  --text-medium: color-mix(in oklab, var(--smh-white) 86%, transparent);
-  --text-low: color-mix(in oklab, var(--smh-white) 72%, transparent);
+  --text-porcelain-high: color-mix(in oklab, var(--brand-ink) 92%, var(--brand-white) 8%);
+  --text-porcelain-medium: color-mix(in oklab, var(--brand-ink) 74%, var(--brand-white) 26%);
+  --text-porcelain-low: color-mix(in oklab, var(--brand-ink) 58%, var(--brand-white) 42%);
+  --text-high: var(--text-porcelain-high);
+  --text-medium: var(--text-porcelain-medium);
+  --text-low: var(--text-porcelain-low);
+  --text-ink-high: color-mix(in oklab, var(--smh-white) 96%, transparent);
+  --text-ink-medium: color-mix(in oklab, var(--smh-white) 86%, transparent);
+  --text-ink-low: color-mix(in oklab, var(--smh-white) 72%, transparent);
 }

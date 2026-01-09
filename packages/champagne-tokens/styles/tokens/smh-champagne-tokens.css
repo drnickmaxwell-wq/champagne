@@ -22,6 +22,11 @@
   --ink:  #0B0D0F;
   --text: #1A1A1A;
   --bg:   #FFFFFF;
+  --surface-0: color-mix(in oklab, var(--smh-white) 96%, var(--brand-gold-keyline) 4%);
+  --surface-1: color-mix(in oklab, var(--smh-white) 92%, var(--brand-gold-keyline) 8%);
+  --surface-2: color-mix(in oklab, var(--smh-white) 86%, var(--brand-gold-keyline) 14%);
+  --radius: 18px;
+  --shadow-soft: 0 8px 36px color-mix(in srgb, var(--ink) 16%, transparent);
 
   /* Legacy token aliases (kept for compatibility) */
   --smh-ink: var(--ink);
