@@ -46,6 +46,7 @@ export function SectionShell({
         className
       )}
       data-section
+      data-surface="porcelain"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8">{children}</div>
     </section>

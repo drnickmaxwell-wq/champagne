@@ -150,6 +150,24 @@ Hard prohibitions remain in force:
 - apps/web/app/globals.css is still forbidden.
 - apps/web/app/components/layout/** is still forbidden.
 
+EXEMPTION — PASS T2 Surface Semantics (Director-authorized)
+Agents MAY modify:
+- apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx
+- apps/web/app/components/sections/SectionShell.tsx
+
+Scope:
+- Add data-surface / data-surface-tone attributes only.
+- No styling changes.
+- No component restructuring.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- apps/web/app/layout.tsx is still forbidden.
+- apps/web/app/globals.css is still forbidden.
+- apps/web/app/components/layout/** is still forbidden.
+- No header/footer edits.
+- No token edits.
+
 
 Only within task scope.
 
