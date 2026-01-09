@@ -48,10 +48,12 @@ function deriveHeroContent(manifest?: unknown, fallbackSlug?: string) {
 }
 
 const surfaceStyle: CSSProperties = {
-  padding: "clamp(1.25rem, 3vw, 2.5rem)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.28))",
-  background:
-    "radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--smh-white, #ffffff) 12%, transparent), transparent 40%), linear-gradient(145deg, color-mix(in srgb, var(--bg-ink, #06070c) 90%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 82%, transparent))",
+  padding: "clamp(1.5rem, 3.5vw, 2.75rem)",
+  border: "1px solid color-mix(in srgb, var(--champagne-keyline-gold, var(--surface-0)) 24%, transparent)",
+  backgroundColor: "var(--bg)",
+  backgroundImage: "none",
+  boxShadow: "none",
+  borderRadius: "0",
 };
 
 const gridStyle: CSSProperties = {
@@ -152,7 +154,7 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const shouldRenderBuilderHero = previewMode === true;
 
   return (
-    <BaseChampagneSurface variant="inkGlass" style={surfaceStyle}>
+    <BaseChampagneSurface variant="plain" style={surfaceStyle} disableInternalOverlays>
       <div style={gridStyle}>
         {isTreatmentPage && <TreatmentBreadcrumb label={manifest?.label as string | undefined} href={pagePath} />}
         {shouldRenderBuilderHero && (

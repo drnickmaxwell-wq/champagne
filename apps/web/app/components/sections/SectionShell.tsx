@@ -26,7 +26,7 @@ export function SectionShell({
   id,
   className,
   children,
-  background = "surface.section",
+  background = "bg",
   padding = "normal",
 }: SectionShellProps) {
   const paddingMap = {
