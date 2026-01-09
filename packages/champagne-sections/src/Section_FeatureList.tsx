@@ -9,11 +9,10 @@ export interface SectionFeatureListProps {
 const wrapperStyle: CSSProperties = {
   borderRadius: "var(--radius-lg)",
   padding: "clamp(1.25rem, 2.8vw, 2rem)",
-  background:
-    "linear-gradient(120deg, color-mix(in srgb, var(--bg-ink, #06070c) 88%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent)), radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--smh-white, #ffffff) 10%, transparent), transparent 32%)",
+  background: "var(--surface-1)",
   color: "var(--text-high)",
-  border: "1px solid rgba(255,255,255,0.12)",
-  boxShadow: "var(--shadow-soft, 0 10px 36px rgba(0,0,0,0.32))",
+  border: "1px solid var(--border-subtle)",
+  boxShadow: "var(--shadow-soft)",
 };
 
 const listStyle: CSSProperties = {
@@ -26,9 +25,8 @@ const listStyle: CSSProperties = {
 const pillStyle: CSSProperties = {
   padding: "0.8rem 1rem",
   borderRadius: "var(--radius-md)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.24))",
-  background:
-    "linear-gradient(90deg, color-mix(in srgb, var(--smh-white, #ffffff) 6%, transparent), color-mix(in srgb, var(--smh-white, #ffffff) 0%, transparent)), radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--smh-white, #ffffff) 10%, transparent), transparent 40%)",
+  border: "1px solid var(--border-subtle)",
+  background: "var(--surface-2)",
   display: "grid",
   gridTemplateColumns: "auto 1fr",
   gap: "0.65rem",
@@ -39,14 +37,14 @@ const badgeStyle: CSSProperties = {
   width: "38px",
   height: "38px",
   borderRadius: "50%",
-  background: "radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--smh-white, #ffffff) 24%, transparent), color-mix(in srgb, var(--smh-white, #ffffff) 8%, transparent))",
-  border: "1px solid rgba(255,255,255,0.12)",
+  background: "var(--surface-0)",
+  border: "1px solid var(--border-subtle)",
   display: "grid",
   placeItems: "center",
   color: "var(--text-high)",
   fontWeight: 700,
   letterSpacing: "0.02em",
-  boxShadow: "0 10px 28px rgba(0,0,0,0.28)",
+  boxShadow: "var(--shadow-soft)",
 };
 
 const headingStyle: CSSProperties = {
@@ -55,7 +53,7 @@ const headingStyle: CSSProperties = {
 };
 
 const subtextStyle: CSSProperties = {
-  color: "var(--text-medium, rgba(255,255,255,0.78))",
+  color: "var(--text-medium)",
   lineHeight: 1.55,
   fontSize: "0.98rem",
 };
@@ -84,7 +82,7 @@ export function Section_FeatureList({ section }: SectionFeatureListProps = {}) {
             fontSize: "0.85rem",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
-            color: "var(--text-medium, rgba(255,255,255,0.7))",
+            color: "var(--text-medium)",
           }}>
             {eyebrow}
           </span>

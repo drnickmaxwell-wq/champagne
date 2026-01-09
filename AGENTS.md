@@ -185,6 +185,26 @@ Hard prohibitions remain:
 - No apps/web/app/globals.css edits.
 - No header/footer edits.
 
+EXEMPTION — PASS T4 Section Semantics (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_FeatureList.tsx
+- packages/champagne-sections/src/Section_PatientStoriesRail.tsx
+
+Scope:
+- Replace hardcoded colors/fallbacks with semantic tokens only:
+  background -> --surface-0/1/2 or --surface-glass (if intentionally glass)
+  border -> --border-subtle
+  shadow -> --shadow-soft
+  text -> --text-high/medium/low
+- No layout changes, no copy changes
+
+Hard prohibitions remain:
+- Sacred zones unchanged.
+- No hero engine/manifests.
+- No apps/web/app/layout.tsx edits.
+- No apps/web/app/globals.css edits.
+- No header/footer edits.
+
 
 Only within task scope.
 

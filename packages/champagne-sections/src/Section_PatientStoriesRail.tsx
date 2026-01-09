@@ -34,9 +34,9 @@ export function Section_PatientStoriesRail({ section }: SectionPatientStoriesRai
       variant="glass"
       style={{
         padding: "clamp(1.25rem, 3vw, 2.35rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.18))",
-        background:
-          "linear-gradient(135deg, color-mix(in srgb, var(--bg-ink, #06070c) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent)), radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--smh-white, #ffffff) 12%, transparent), transparent 34%)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-glass)",
+        boxShadow: "var(--shadow-soft)",
       }}
     >
       <div style={{ display: "grid", gap: "0.55rem" }}>
@@ -54,11 +54,12 @@ export function Section_PatientStoriesRail({ section }: SectionPatientStoriesRai
             style={{
               borderRadius: "var(--radius-md)",
               padding: "1rem",
-              border: "1px solid rgba(255,255,255,0.1)",
-              background: "color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.05)) 80%, transparent)",
-              boxShadow: "0 16px 36px rgba(0,0,0,0.24)",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--surface-glass)",
+              boxShadow: "var(--shadow-soft)",
               display: "grid",
               gap: "0.4rem",
+              color: "var(--text-high)",
             }}
           >
             {story.title && <div style={{ fontWeight: 700 }}>{story.title}</div>}
