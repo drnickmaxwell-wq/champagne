@@ -149,7 +149,15 @@ export async function HeroRenderer({
       action: "disabled; not rendered",
     });
   };
-  const grainOpacity = filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
+  const isDeMilkMode = mode === "home" || mode === "treatment";
+  const internalOverlaysDisabled = true;
+  const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
+  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
+  const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
+  const grainOpacity =
+    honorManifestOpacity && manifestGrainOpacity !== undefined
+      ? manifestGrainOpacity
+      : filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
   const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
   const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
@@ -182,11 +190,13 @@ export async function HeroRenderer({
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
 
-  const isDeMilkMode = mode === "home" || mode === "treatment";
-  const internalOverlaysDisabled = true;
-  const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
-  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
-  const honorOpacityIds = new Set(["field.waveRings", "field.dotGrid"]);
+  const honorOpacityIds = new Set([
+    "field.waveBackdrop",
+    "field.waveRings",
+    "field.dotGrid",
+    "overlay.particles",
+    "overlay.filmGrain",
+  ]);
   const layerOpacityTuning: Record<
     string,
     | {
@@ -482,7 +492,12 @@ export async function HeroRenderer({
       }
 
       if (grainOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : grainOpacity;
+        const tunedOpacity = applyOpacityTuning(
+          "overlay.filmGrain",
+          grainOpacity,
+          surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+        );
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else if (shouldShowGrain) {
         style.opacity = 0;
         noteMissing("overlay.filmGrain", "opacity", "surface");
@@ -720,7 +735,9 @@ export async function HeroRenderer({
           __html: `(() => {
             if (typeof window === 'undefined') return;
             const params = new URLSearchParams(window.location.search);
-            if (!params.has('heroDebug') || params.get('heroDebug') !== '1') return;
+            const isHeroDebugParam = params.get('heroDebug') === '1';
+            const isHeroDebugRoute = window.location.pathname.includes('/champagne/hero-debug');
+            if (!isHeroDebugParam && !isHeroDebugRoute) return;
             const payload = ${JSON.stringify(heroDebugPayload)};
             if (!payload) return;
             try {
@@ -858,6 +875,29 @@ export async function HeroRenderer({
 
               window.__CHAMPAGNE_HERO_DEBUG__ = receipts;
 
+              const debugIds = [
+                'gradient.base',
+                'field.waveBackdrop',
+                'field.waveRings',
+                'field.dotGrid',
+                'overlay.particles',
+                'overlay.filmGrain',
+                'sacred.motion.waveCaustics',
+                'sacred.motion.glassShimmer',
+              ];
+
+              const debugLayerValues = debugIds.map((id) => {
+                const domSurface = domSurfaces.find((item) => item.id === id);
+                const domMotion = domMotions.find((item) => item.id === id);
+                const source = domSurface ?? domMotion;
+                return {
+                  id,
+                  opacity: source?.computed.opacity ?? null,
+                  blendMode: source?.computed.mixBlendMode ?? null,
+                };
+              });
+
+              console.table(debugLayerValues);
               console.log('CHAMPAGNE_HERO_RECEIPTS_JSON=' + JSON.stringify(receipts));
               console.table(
                 assertions.map((a) => ({
