@@ -13,6 +13,8 @@ const reportsDir = path.join(repoRoot, "reports", "hero-match");
 const resultsPath = path.join(reportsDir, "results.json");
 const bestPath = path.join(reportsDir, "best.png");
 const baseUrl = process.env.HERO_MATCH_URL ?? "http://localhost:3000";
+const normalizedBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+const heroUrl = `${normalizedBaseUrl}/`;
 
 const missingReferenceMessage = [
   "Reference image not found for hero_match_sacred.",
@@ -178,10 +180,22 @@ const applyOverrides = async (page, candidate) => {
   }, candidate);
 };
 
-const captureHero = async (page) => {
-  const hero = page.locator(".hero-renderer");
-  await hero.waitFor({ state: "visible", timeout: 15000 });
-  return hero.screenshot({ type: "png" });
+const waitForHeroReady = async (page) => {
+  await page.waitForSelector('[data-surface-id="hero.contentFrame"]', { timeout: 30000 });
+  await page.waitForSelector('[data-surface-id="mask.waveHeader"]', { timeout: 30000 });
+  await page.waitForSelector('[data-surface-id="overlay.caustics"]', { timeout: 30000 });
+};
+
+const resolveHeroContainer = async (page) => {
+  const contentFrame = page.locator('[data-surface-id="hero.contentFrame"]');
+  await contentFrame.waitFor({ state: "visible", timeout: 30000 });
+  const containerHandle = await contentFrame.evaluateHandle((el) => {
+    const closestHero = el.closest(".hero-renderer");
+    return closestHero ?? el.parentElement ?? el;
+  });
+  const elementHandle = containerHandle.asElement();
+  if (!elementHandle) throw new Error("Unable to resolve hero container element.");
+  return elementHandle;
 };
 
 const main = async () => {
@@ -202,12 +216,13 @@ const main = async () => {
   const results = [];
 
   for (const candidate of candidates) {
-    await page.goto(`${baseUrl}/?heroDebug=1`, { waitUntil: "networkidle" });
-    await page.waitForTimeout(2000);
+    await page.goto(heroUrl, { waitUntil: "domcontentloaded" });
+    await waitForHeroReady(page);
     await applyOverrides(page, candidate);
     await page.waitForTimeout(500);
 
-    const shot = await captureHero(page);
+    const heroContainer = await resolveHeroContainer(page);
+    const shot = await heroContainer.screenshot({ type: "png" });
     const { width, height } = await sharp(shot).metadata();
     if (!width || !height) throw new Error("Unable to read screenshot dimensions.");
 
@@ -233,12 +248,13 @@ const main = async () => {
   results.sort((a, b) => a.score - b.score);
   const best = results[0];
 
-  await page.goto(`${baseUrl}/?heroDebug=1`, { waitUntil: "networkidle" });
-  await page.waitForTimeout(2000);
+  await page.goto(heroUrl, { waitUntil: "domcontentloaded" });
+  await waitForHeroReady(page);
   await applyOverrides(page, best.candidate);
   await page.waitForTimeout(500);
 
-  const bestShot = await captureHero(page);
+  const bestContainer = await resolveHeroContainer(page);
+  const bestShot = await bestContainer.screenshot({ type: "png" });
   fs.writeFileSync(bestPath, bestShot);
   fs.writeFileSync(resultsPath, JSON.stringify({
     generatedAt: new Date().toISOString(),
