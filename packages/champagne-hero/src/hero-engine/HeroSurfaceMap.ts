@@ -181,20 +181,20 @@ function resolveLayerRef(
   if (typeof ref === "string") {
     const mapped = map[ref];
     if (mapped) {
-      const assetKey = typeof mapped.asset === "string" ? mapped.asset : ref;
-      return { ...mapped, id: assetKey };
+      return { ...mapped, id: ref };
     }
     return { id: ref, asset: ref };
   }
 
   const normalized = normalizeLayer(ref);
+  const refId = typeof (ref as HeroSurfaceLayer).id === "string" ? (ref as HeroSurfaceLayer).id : undefined;
   const assetKey = typeof normalized?.asset === "string" ? normalized.asset : undefined;
   if (assetKey && map[assetKey]) {
-    return { ...map[assetKey], ...normalized, id: assetKey };
+    return { ...map[assetKey], ...normalized, id: refId };
   }
 
   return normalized
-    ? { ...normalized, id: assetKey ?? (typeof normalized.asset === "string" ? normalized.asset : undefined) }
+    ? { ...normalized, id: refId }
     : undefined;
 }
 
