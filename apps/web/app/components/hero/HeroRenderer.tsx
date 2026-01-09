@@ -176,7 +176,9 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
-    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
+    if (!isSacredHomeVariant && (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask"))) {
+      return false;
+    }
     if (token && activeMotionIds.has(token)) return false;
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
@@ -642,6 +644,7 @@ export async function HeroRenderer({
     "gradient.base",
     "field.waveBackdrop",
     "field.waveRings",
+    "mask.waveHeader",
     "field.dotGrid",
     "overlay.particles",
     "overlay.filmGrain",

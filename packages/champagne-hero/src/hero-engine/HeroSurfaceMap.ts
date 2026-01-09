@@ -182,7 +182,7 @@ function resolveLayerRef(
     const mapped = map[ref];
     if (mapped) {
       const assetKey = typeof mapped.asset === "string" ? mapped.asset : ref;
-      return { ...mapped, id: assetKey };
+      return { ...mapped, id: ref, asset: assetKey };
     }
     return { id: ref, asset: ref };
   }
@@ -460,7 +460,7 @@ function resolveLayer(layer?: HeroSurfaceLayer): HeroSurfaceLayerResolved | unde
   return assetEntry
     ? ({
         ...layer,
-        id: typeof layer.asset === "string" ? layer.asset : layer.id,
+        id: layer.id ?? (typeof layer.asset === "string" ? layer.asset : undefined),
         asset: assetEntry,
         path,
       } as HeroSurfaceLayerResolved)
