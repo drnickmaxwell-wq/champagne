@@ -42,9 +42,9 @@ export function Section_FAQ({ section }: SectionFAQProps = {}) {
       variant="glass"
       style={{
         padding: "clamp(1.25rem, 3vw, 2.35rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.18))",
-        background:
-          "linear-gradient(120deg, color-mix(in srgb, var(--bg-ink, #06070c) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent)), radial-gradient(circle at 16% 20%, color-mix(in srgb, var(--smh-white, #ffffff) 12%, transparent), transparent 34%)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-1)",
+        boxShadow: "var(--shadow-soft)",
       }}
     >
       <div style={{ display: "grid", gap: "0.5rem" }}>
@@ -62,12 +62,14 @@ export function Section_FAQ({ section }: SectionFAQProps = {}) {
             open={index === 0}
             style={{
               borderRadius: "var(--radius-md)",
-              border: "1px solid rgba(255,255,255,0.14)",
-              background: "color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.05)) 80%, transparent)",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--surface-2)",
               padding: "0.9rem 1rem",
             }}
           >
-            <summary style={{ cursor: "pointer", fontWeight: 700, lineHeight: 1.5 }}>{faq.question}</summary>
+            <summary style={{ cursor: "pointer", fontWeight: 700, lineHeight: 1.5, color: "var(--text-high)" }}>
+              {faq.question}
+            </summary>
             <p style={{ marginTop: "0.5rem", lineHeight: 1.6, color: "var(--text-medium)" }}>{faq.answer}</p>
           </details>
         ))}

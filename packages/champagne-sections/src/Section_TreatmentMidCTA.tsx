@@ -28,12 +28,22 @@ export function Section_TreatmentMidCTA({ section, pageSlug }: SectionTreatmentM
       variant="glass"
       style={{
         padding: "clamp(1.15rem, 2.5vw, 2rem)",
-        border: "1px solid var(--champagne-keyline-gold)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-1)",
+        boxShadow: "var(--shadow-soft)",
       }}
     >
       <div style={wrapperStyle}>
         <div style={{ display: "grid", gap: "0.4rem" }}>
-          <h3 style={{ fontSize: "clamp(1.1rem, 2vw, 1.45rem)", fontWeight: 700, lineHeight: 1.35 }}>{title}</h3>
+          <h3 style={{
+            fontSize: "clamp(1.1rem, 2vw, 1.45rem)",
+            fontWeight: 700,
+            lineHeight: 1.35,
+            color: "var(--text-high)",
+          }}
+          >
+            {title}
+          </h3>
           <p style={{ margin: 0, color: "var(--text-medium)", lineHeight: 1.6 }}>{strapline}</p>
         </div>
         <ChampagneCTAGroup ctas={resolvedCTAs} label="Mid-page CTAs" direction="row" defaultVariant="secondary" />
