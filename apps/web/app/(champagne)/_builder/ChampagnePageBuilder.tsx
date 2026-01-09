@@ -155,7 +155,7 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
 
   return (
     <BaseChampagneSurface variant="plain" style={surfaceStyle} disableInternalOverlays>
-      <div style={gridStyle}>
+      <div style={gridStyle} data-surface="porcelain">
         {isTreatmentPage && <TreatmentBreadcrumb label={manifest?.label as string | undefined} href={pagePath} />}
         {shouldRenderBuilderHero && (
           <div style={{ display: "grid", gap: "0.8rem" }}>
