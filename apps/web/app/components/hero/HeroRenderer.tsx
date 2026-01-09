@@ -1,10 +1,7 @@
 import type { CSSProperties, Ref } from "react";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 
-const sacredSurfacesManifest =
-  process.env.NODE_ENV !== "production"
-    ? require("../../../../../packages/champagne-manifests/data/hero/sacred_hero_surfaces.json")
-    : null;
+const sacredSurfacesManifest = require("../../../../../packages/champagne-manifests/data/hero/sacred_hero_surfaces.json");
 
 function normalizeGradientCss(input?: string): string {
   if (!input || !input.trim()) return "var(--smh-gradient)";
@@ -152,6 +149,7 @@ export async function HeroRenderer({
   const isDeMilkMode = mode === "home" || mode === "treatment";
   const internalOverlaysDisabled = true;
   const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
+  const strictManifestMode = isSacredHomeVariant;
   const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
   const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
   const grainOpacity =
@@ -173,18 +171,36 @@ export async function HeroRenderer({
   }
   const waveBackdropOpacity = surfaces.background?.desktop?.opacity;
   const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
-  const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
-    const token = layer.token ?? layer.id;
-    if (layer.suppressed) return false;
-    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
-    if (token && activeMotionIds.has(token)) return false;
-    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
-    if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
-    if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
-    if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
-    if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
-    return true;
-  });
+  const surfaceStack = (() => {
+    const filtered = (surfaces.surfaceStack ?? []).filter((layer) => {
+      const token = layer.token ?? layer.id;
+      if (layer.suppressed) return false;
+      if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
+      if (token && activeMotionIds.has(token)) return false;
+      if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
+      if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
+      if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
+      if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
+      if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
+      return true;
+    });
+
+    if (!strictManifestMode || !Array.isArray(sacredSurfacesManifest?.surfaceStack)) {
+      return filtered;
+    }
+
+    const manifestEntries = sacredSurfacesManifest.surfaceStack as { id?: string; token?: string }[];
+    const byId = new Map(filtered.map((layer) => [layer.id, layer]));
+    const byToken = new Map(filtered.map((layer) => [layer.token ?? layer.id, layer]));
+
+    return manifestEntries
+      .map((entry) => {
+        const id = entry.id ?? entry.token;
+        if (!id) return null;
+        return byId.get(id) ?? byToken.get(id) ?? null;
+      })
+      .filter(Boolean) as typeof filtered;
+  })();
   const resolveMotionOpacity = (value?: number) => (value === undefined ? undefined : value);
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
@@ -217,7 +233,7 @@ export async function HeroRenderer({
   };
 
   const applyBlendTuning = (id: string, blendMode?: CSSProperties["mixBlendMode"]) => {
-    if (!isDeMilkMode || !blendMode) return blendMode;
+    if (strictManifestMode || !isDeMilkMode || !blendMode) return blendMode;
     const tuning = layerOpacityTuning[id];
     if (tuning?.screenBlendOverride && blendMode === "screen") {
       return tuning.screenBlendOverride;
@@ -226,6 +242,7 @@ export async function HeroRenderer({
   };
 
   const applyOpacityTuning = (id: string, value?: number, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (strictManifestMode) return value;
     if (honorManifestOpacity && honorOpacityIds.has(id)) return value;
     if (!isDeMilkMode || value === undefined) return value;
     const tuning = layerOpacityTuning[id];

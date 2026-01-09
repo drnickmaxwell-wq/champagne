@@ -1,7 +1,119 @@
 {
-  "generatedAt": "2026-01-09T08:04:16.273Z",
+  "generatedAt": "2026-01-09T09:40:43.327Z",
   "totalCandidates": 288,
   "top10": [
+    {
+      "candidate": {
+        "maskOpacity": 0.55,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.45,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.45,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10540.506092242265,
+      "labMse": 14857.548094490563,
+      "edgeMse": 467.40808699623955
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.75,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.45,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.35,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10542.824281498331,
+      "labMse": 14849.195703845608,
+      "edgeMse": 494.6242960213566
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.45,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.35,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.45,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10542.88804899248,
+      "labMse": 14860.658360827303,
+      "edgeMse": 468.09065471122466
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.65,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.35,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.35,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10543.172863489486,
+      "labMse": 14849.492009380469,
+      "edgeMse": 495.0948564105293
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.75,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.35,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.35,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10543.209234573815,
+      "labMse": 14849.490139125397,
+      "edgeMse": 495.2204572867887
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.55,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.45,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.35,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10543.281169994027,
+      "labMse": 14848.945138814981,
+      "edgeMse": 496.73190941180644
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.65,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.45,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.35,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10543.378026479944,
+      "labMse": 14849.14999105707,
+      "edgeMse": 496.5767757999858
+    },
+    {
+      "candidate": {
+        "maskOpacity": 0.45,
+        "backdropOpacity": 0.2,
+        "ringsOpacity": 0.35,
+        "dotsOpacity": 0.45,
+        "causticsOpacity": 0.35,
+        "causticsBlend": "screen",
+        "causticsSource": "motion"
+      },
+      "score": 10543.469115551534,
+      "labMse": 14849.572252968166,
+      "edgeMse": 495.89512824606214
+    },
     {
       "candidate": {
         "maskOpacity": 0.55,
@@ -12,9 +124,9 @@
         "causticsBlend": "screen",
         "causticsSource": "motion"
       },
-      "score": 10541.871969972446,
-      "labMse": 14848.218348307199,
-      "edgeMse": 493.73042052469134
+      "score": 10543.541213792216,
+      "labMse": 14849.750287134597,
+      "edgeMse": 495.72004265999715
     },
     {
       "candidate": {
@@ -26,135 +138,23 @@
         "causticsBlend": "screen",
         "causticsSource": "motion"
       },
-      "score": 10542.032147988504,
-      "labMse": 14848.217326521924,
-      "edgeMse": 494.2667314105293
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10542.38435670764,
-      "labMse": 14848.806064415709,
-      "edgeMse": 494.06703872215127
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10542.922286227,
-      "labMse": 14859.414889905871,
-      "edgeMse": 471.10621097630195
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10542.962316152558,
-      "labMse": 14860.685494122794,
-      "edgeMse": 468.27490088867603
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10543.286156490942,
-      "labMse": 14848.940402757084,
-      "edgeMse": 496.75958186994467
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.75,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10543.368799518708,
-      "labMse": 14849.167453422851,
-      "edgeMse": 496.50527374237265
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10543.383046161782,
-      "labMse": 14849.138347508988,
-      "edgeMse": 496.620676351639
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10543.383785099157,
-      "labMse": 14860.818713858735,
-      "edgeMse": 469.36895132680576
-    },
-    {
-      "candidate": {
-        "maskOpacity": 0.75,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.25,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
-      },
-      "score": 10543.4326268418,
-      "labMse": 14838.838901231611,
-      "edgeMse": 520.8179865989073
+      "score": 10543.595678273261,
+      "labMse": 14849.565713172864,
+      "edgeMse": 496.3322635075209
     }
   ],
   "best": {
     "candidate": {
       "maskOpacity": 0.55,
       "backdropOpacity": 0.2,
-      "ringsOpacity": 0.35,
+      "ringsOpacity": 0.45,
       "dotsOpacity": 0.45,
-      "causticsOpacity": 0.35,
+      "causticsOpacity": 0.45,
       "causticsBlend": "screen",
       "causticsSource": "motion"
     },
-    "score": 10541.871969972446,
-    "labMse": 14848.218348307199,
-    "edgeMse": 493.73042052469134
+    "score": 10540.506092242265,
+    "labMse": 14857.548094490563,
+    "edgeMse": 467.40808699623955
   }
 }
