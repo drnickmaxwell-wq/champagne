@@ -2,7 +2,12 @@
 
 :root {
   --brand-soft-gold: var(--brand-gold-keyline);
-  --brand-ink: var(--ink);
+  --smh-ink-navy: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--ink) 88%, var(--brand-teal) 12%) 92%,
+    var(--brand-magenta) 8%
+  );
+  --brand-ink: var(--smh-ink-navy);
   --brand-white: var(--smh-white);
 
   --ink-100: var(--ink);
