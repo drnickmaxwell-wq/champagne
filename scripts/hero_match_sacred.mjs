@@ -14,6 +14,12 @@ const resultsPath = path.join(reportsDir, "results.json");
 const bestPath = path.join(reportsDir, "best.png");
 const baseUrl = process.env.HERO_MATCH_URL ?? "http://localhost:3000";
 
+const missingReferenceMessage = [
+  "Reference image not found for hero_match_sacred.",
+  `Place sacred-hero.png at ${referencePath} (or /mnt/data/sacred-hero.png) and re-run manually.`,
+  "This matcher never runs in verify/guards/CI; it is manual only.",
+].join(" ");
+
 const ensureReference = () => {
   if (fs.existsSync(referencePath)) return referencePath;
   const legacyPath = "/mnt/data/sacred-hero.png";
@@ -22,9 +28,7 @@ const ensureReference = () => {
     fs.copyFileSync(legacyPath, referencePath);
     return referencePath;
   }
-  throw new Error(
-    `Reference image not found. Place sacred-hero.png at ${referencePath} (or ${legacyPath}) before running this script.`,
-  );
+  return null;
 };
 
 const waitForHttpOk = async (url, timeoutMs = 30000) => {
@@ -181,14 +185,19 @@ const captureHero = async (page) => {
 };
 
 const main = async () => {
-  ensureReference();
+  const resolvedReference = ensureReference();
+  if (!resolvedReference) {
+    console.error(missingReferenceMessage);
+    process.exitCode = 1;
+    return;
+  }
   fs.mkdirSync(reportsDir, { recursive: true });
 
   const { child } = await startDevServer();
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
-  const referenceBuffer = fs.readFileSync(referencePath);
+  const referenceBuffer = fs.readFileSync(resolvedReference);
   const candidates = buildCandidates();
   const results = [];
 
