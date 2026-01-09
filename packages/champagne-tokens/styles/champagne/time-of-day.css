@@ -7,5 +7,5 @@
 }
 
 :root[data-theme='night'] {
-  --bg-ink: rgb(0 0 0);
+  --bg-ink: var(--ink-100);
 }
