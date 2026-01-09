@@ -32,6 +32,9 @@
   --bg-ink: var(--ink-100);
   --bg-ink-soft: color-mix(in oklab, var(--brand-ink) 90%, var(--ink-luxe-sheen) 10%);
   --bg: var(--brand-white);
+  --surface-0: color-mix(in oklab, var(--brand-white) 96%, var(--brand-soft-gold) 4%);
+  --surface-1: color-mix(in oklab, var(--brand-white) 92%, var(--brand-soft-gold) 8%);
+  --surface-2: color-mix(in oklab, var(--brand-white) 86%, var(--brand-soft-gold) 14%);
 
   --surface-glass: color-mix(
     in oklab,
