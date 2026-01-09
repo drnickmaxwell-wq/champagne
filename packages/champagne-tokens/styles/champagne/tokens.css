@@ -20,25 +20,25 @@
   --grain-opacity: 0.06;
   --glass-opacity: 0.18;
 
-  --ink-luxe-shift: color-mix(in srgb, var(--brand-teal) 55%, var(--brand-magenta) 45%);
-  --ink-luxe-sheen: color-mix(in srgb, var(--ink-luxe-shift) 85%, var(--brand-gold) 15%);
+  --ink-luxe-shift: color-mix(in oklab, var(--brand-teal) 55%, var(--brand-magenta) 45%);
+  --ink-luxe-sheen: color-mix(in oklab, var(--ink-luxe-shift) 88%, var(--brand-gold) 12%);
 
   --bg-ink: var(--ink-100);
-  --bg-ink-soft: color-mix(in srgb, var(--brand-ink) 88%, var(--ink-luxe-sheen) 12%);
+  --bg-ink-soft: color-mix(in oklab, var(--brand-ink) 90%, var(--ink-luxe-sheen) 10%);
   --bg: var(--brand-white);
 
   --surface-glass: color-mix(
-    in srgb,
-    color-mix(in srgb, var(--brand-ink) 72%, var(--ink-luxe-sheen) 28%) 70%,
+    in oklab,
+    color-mix(in oklab, var(--brand-ink) 76%, var(--ink-luxe-sheen) 24%) 70%,
     transparent
   );
   --surface-glass-deep: color-mix(
-    in srgb,
-    color-mix(in srgb, var(--brand-ink) 82%, var(--ink-luxe-sheen) 18%) 78%,
+    in oklab,
+    color-mix(in oklab, var(--brand-ink) 84%, var(--ink-luxe-sheen) 16%) 78%,
     transparent
   );
 
-  --text-high: var(--smh-white);
-  --text-medium: color-mix(in srgb, var(--smh-white) 86%, transparent);
-  --text-low: color-mix(in srgb, var(--smh-white) 72%, transparent);
+  --text-high: color-mix(in oklab, var(--smh-white) 96%, transparent);
+  --text-medium: color-mix(in oklab, var(--smh-white) 86%, transparent);
+  --text-low: color-mix(in oklab, var(--smh-white) 72%, transparent);
 }
