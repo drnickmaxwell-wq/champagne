@@ -21,6 +21,7 @@
     "guard:cta-single-terminal": "pnpm --filter @champagne/guards guard:cta-single-terminal",
     "guard:cta-contract": "pnpm --filter @champagne/guards guard:cta-contract",
     "guard:all": "pnpm --filter @champagne/guards guard:all",
+    "hero:match:sacred": "node scripts/hero_match_sacred.mjs",
     "verify": "pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web"
   },
   "devDependencies": {
