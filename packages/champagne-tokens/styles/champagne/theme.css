@@ -7,10 +7,14 @@
 @import './time-of-day.css';
 @import './surface.css';
 
+/* =========================================================
+   Root theme defaults (INK context)
+   Default = ink context (site chrome / hero / footer zones)
+   ========================================================= */
+
 :root {
   --bg-ink: var(--brand-ink);
 
-  /* Default = ink context (site chrome / hero / footer zones) */
   --text-high: var(--text-ink-high);
   --text-medium: var(--text-ink-medium);
   --text-low: var(--text-ink-low);
@@ -19,12 +23,21 @@
   background: var(--bg-ink);
 }
 
-/* Porcelain context overrides — apply wherever porcelain is declared */
+/* =========================================================
+   Porcelain context overrides
+   Applies anywhere porcelain is declared
+   (token-only, SaaS-safe, no app code required)
+   ========================================================= */
+
 :where([data-surface-tone='porcelain'], [data-surface='porcelain']) {
   --text-high: var(--text-porcelain-high);
   --text-medium: var(--text-porcelain-medium);
   --text-low: var(--text-porcelain-low);
 }
+
+/* =========================================================
+   Page defaults
+   ========================================================= */
 
 body,
 .champagne-page {
@@ -34,4 +47,7 @@ body,
   min-height: 100vh;
 }
 
-a { color: inherit; }
+a {
+  color: inherit;
+}
+
