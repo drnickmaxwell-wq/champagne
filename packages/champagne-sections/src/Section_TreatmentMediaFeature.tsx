@@ -35,9 +35,9 @@ export function Section_TreatmentMediaFeature({ section }: SectionTreatmentMedia
       variant="glass"
       style={{
         padding: "clamp(1.25rem, 2.8vw, 2.25rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.22))",
-        background:
-          "linear-gradient(145deg, color-mix(in srgb, var(--bg-ink, #06070c) 88%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 76%, transparent)), radial-gradient(circle at 78% 18%, color-mix(in srgb, var(--smh-white, #ffffff) 10%, transparent), transparent 32%)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-1)",
+        boxShadow: "var(--shadow-soft)",
       }}
     >
       <div style={wrapperStyle}>
@@ -47,18 +47,20 @@ export function Section_TreatmentMediaFeature({ section }: SectionTreatmentMedia
               {eyebrow}
             </span>
           )}
-          <h3 style={{ fontSize: "clamp(1.25rem, 2vw, 1.65rem)", fontWeight: 700, lineHeight: 1.3 }}>{title}</h3>
-          <p style={{ fontSize: "1rem", lineHeight: 1.65, color: "var(--text-medium, rgba(235,235,235,0.8))" }}>{body}</p>
+          <h3 style={{ fontSize: "clamp(1.25rem, 2vw, 1.65rem)", fontWeight: 700, lineHeight: 1.3, color: "var(--text-high)" }}>
+            {title}
+          </h3>
+          <p style={{ fontSize: "1rem", lineHeight: 1.65, color: "var(--text-medium)" }}>{body}</p>
         </div>
         <div
           style={{
             position: "relative",
             borderRadius: "var(--radius-lg)",
             overflow: "hidden",
-            border: "1px solid rgba(255,255,255,0.1)",
+            border: "1px solid var(--border-subtle)",
             minHeight: "230px",
-            background: "var(--surface-glass, rgba(255,255,255,0.06))",
-            boxShadow: "0 20px 48px rgba(0,0,0,0.28)",
+            background: "var(--surface-glass-deep)",
+            boxShadow: "var(--shadow-soft)",
           }}
         >
           <div
@@ -66,9 +68,8 @@ export function Section_TreatmentMediaFeature({ section }: SectionTreatmentMedia
             style={{
               position: "absolute",
               inset: 0,
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 16%, transparent), color-mix(in srgb, var(--smh-white, #ffffff) 4%, transparent))",
-              opacity: 0.65,
+              background: "var(--surface-0)",
+              opacity: 0.4,
             }}
           />
           <div
@@ -76,8 +77,8 @@ export function Section_TreatmentMediaFeature({ section }: SectionTreatmentMedia
               position: "absolute",
               inset: "12% 10%",
               borderRadius: "var(--radius-md)",
-              border: "1px solid rgba(255,255,255,0.16)",
-              background: "linear-gradient(160deg, color-mix(in srgb, var(--smh-white, #ffffff) 10%, transparent), color-mix(in srgb, var(--bg-ink, #06070c) 72%, transparent))",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--surface-2)",
               display: "grid",
               placeItems: "center",
               textAlign: "center",

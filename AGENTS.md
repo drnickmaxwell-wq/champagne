@@ -73,7 +73,7 @@ If any command does not exist, STOP and report:
 
 The Brand Canon Guard enforces:
 
-❌ No raw hex colours (#fff, #FF00AA, 0xFFFFFF)
+❌ No raw hex colours (e.g. #RGB, #RRGGBB, 0xFFFFFF)
 
 ❌ No rogue gradients
 
@@ -197,6 +197,26 @@ Scope:
   shadow -> --shadow-soft
   text -> --text-high/medium/low
 - No layout changes, no copy changes
+
+Hard prohibitions remain:
+- Sacred zones unchanged.
+- No hero engine/manifests.
+- No apps/web/app/layout.tsx edits.
+- No apps/web/app/globals.css edits.
+- No header/footer edits.
+
+EXEMPTION — PASS T6 Treatment Page Dark-Slab Removal (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TreatmentOverviewRich.tsx
+- packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx
+- packages/champagne-sections/src/Section_FAQ.tsx
+- packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx
+- packages/champagne-sections/src/Section_TreatmentMidCTA.tsx
+
+Scope:
+- Semantic-token styling replacement only (background/border/shadow/text).
+- No layout/structure edits.
+- No copy changes.
 
 Hard prohibitions remain:
 - Sacred zones unchanged.

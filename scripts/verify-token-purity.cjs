@@ -3,15 +3,23 @@ const path = require("node:path");
 
 const repoRoot = path.resolve(__dirname, "..");
 const targetFiles = [
+  "AGENTS.md",
   "packages/champagne-sections/src/Section_TextBlock.tsx",
   "packages/champagne-sections/src/Section_FeatureList.tsx",
   "packages/champagne-sections/src/Section_PatientStoriesRail.tsx",
   "packages/champagne-sections/src/Section_MediaBlock.tsx",
+  "packages/champagne-sections/src/Section_TreatmentOverviewRich.tsx",
+  "packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx",
+  "packages/champagne-sections/src/Section_FAQ.tsx",
+  "packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx",
+  "packages/champagne-sections/src/Section_TreatmentMidCTA.tsx",
+  "scripts/verify-token-purity.cjs",
 ].map((file) => path.resolve(repoRoot, file));
 
 const forbiddenMatchers = [
   { label: "hex", regex: /#[0-9a-fA-F]{3,8}\b/g },
   { label: "rgb", regex: /\brgba?\(/g },
+  { label: "linear-gradient-hex", regex: /linear-gradient\([^)]*#/g },
 ];
 
 const scanFile = async (filePath) => {
