@@ -152,12 +152,13 @@ export async function HeroRenderer({
   const isDeMilkMode = mode === "home" || mode === "treatment";
   const internalOverlaysDisabled = true;
   const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
-  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
+  const sacredHomeStrictManifest = isSacredHomeVariant;
+  const honorManifestOpacity = internalOverlaysDisabled && sacredHomeStrictManifest;
   const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
   const grainOpacity =
-    honorManifestOpacity && manifestGrainOpacity !== undefined
+    sacredHomeStrictManifest && manifestGrainOpacity !== undefined
       ? manifestGrainOpacity
-      : filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
+      : filmGrainSettings?.opacity ?? manifestGrainOpacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
   const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
   const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
@@ -176,9 +177,19 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
-    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
-    if (token && activeMotionIds.has(token)) return false;
-    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
+    if (
+      !sacredHomeStrictManifest &&
+      (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask"))
+    )
+      return false;
+    if (token && activeMotionIds.has(token) && !(sacredHomeStrictManifest && token === "overlay.caustics"))
+      return false;
+    if (
+      motionCausticsActive &&
+      layer.className?.includes("hero-surface--caustics") &&
+      !sacredHomeStrictManifest
+    )
+      return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
     if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
@@ -194,6 +205,15 @@ export async function HeroRenderer({
     "field.waveBackdrop",
     "field.waveRings",
     "field.dotGrid",
+    "overlay.particles",
+    "overlay.filmGrain",
+  ]);
+  const sacredHomeUntunedIds = new Set([
+    "field.waveBackdrop",
+    "field.waveRings",
+    "field.dotGrid",
+    "mask.waveHeader",
+    "overlay.caustics",
     "overlay.particles",
     "overlay.filmGrain",
   ]);
@@ -217,6 +237,7 @@ export async function HeroRenderer({
   };
 
   const applyBlendTuning = (id: string, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (sacredHomeStrictManifest && sacredHomeUntunedIds.has(id)) return blendMode;
     if (!isDeMilkMode || !blendMode) return blendMode;
     const tuning = layerOpacityTuning[id];
     if (tuning?.screenBlendOverride && blendMode === "screen") {
@@ -226,6 +247,7 @@ export async function HeroRenderer({
   };
 
   const applyOpacityTuning = (id: string, value?: number, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (sacredHomeStrictManifest && sacredHomeUntunedIds.has(id)) return value;
     if (honorManifestOpacity && honorOpacityIds.has(id)) return value;
     if (!isDeMilkMode || value === undefined) return value;
     const tuning = layerOpacityTuning[id];
