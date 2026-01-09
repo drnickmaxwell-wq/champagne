@@ -1,3 +1,4 @@
+
 @import './tokens.css';
 @import './gradients.css';
 @import './layers.css';
@@ -7,20 +8,27 @@
 @import './time-of-day.css';
 @import './surface.css';
 
+/* ============================================================
+   Root theme defaults (INK context)
+   ============================================================ */
+
 :root {
   --bg-ink: var(--brand-ink);
+
   --text-high: var(--text-ink-high);
   --text-medium: var(--text-ink-medium);
   --text-low: var(--text-ink-low);
+
   color: var(--text-high);
   background: var(--bg-ink);
 }
 
-/* Porcelain context overrides — applies anywhere porcelain is declared */
-:root[data-surface-tone='porcelain'],
-:root[data-surface='porcelain'],
-.champagne-page[data-surface-tone='porcelain'],
-.champagne-page[data-surface='porcelain'],
+/* ============================================================
+   Porcelain context overrides
+   Applies anywhere porcelain is explicitly declared
+   (token-only, SaaS-safe, no app code required)
+   ============================================================ */
+
 [data-surface-tone='porcelain'],
 [data-surface='porcelain'] {
   --text-high: var(--text-porcelain-high);
@@ -28,10 +36,9 @@
   --text-low: var(--text-porcelain-low);
 }
 
-  --text-high: var(--text-porcelain-high);
-  --text-medium: var(--text-porcelain-medium);
-  --text-low: var(--text-porcelain-low);
-}
+/* ============================================================
+   Page defaults
+   ============================================================ */
 
 body,
 .champagne-page {
@@ -41,4 +48,10 @@ body,
   min-height: 100vh;
 }
 
-a { color: inherit; }
+/* ============================================================
+   Links inherit text color by default
+   ============================================================ */
+
+a {
+  color: inherit;
+}
