@@ -19,15 +19,15 @@ const alignClasses: Record<NonNullable<ChampagneCTAButtonProps["align"]>, string
 const variantClasses: Record<ChampagneCTAVariant, string> = {
   primary:
     "glass-soft champagne-gradient text-[var(--bg-ink)] border-transparent shadow-md " +
-    "hover:opacity-95 focus-visible:outline-[color-mix(in_srgb,var(--brand-soft-gold)_60%,transparent)]",
+    "hover:opacity-95 focus-visible:outline-[var(--text-high)]",
   secondary:
     "glass-card text-[var(--text-high)] border-[color-mix(in_srgb,var(--champagne-keyline-gold)_55%,transparent)] " +
-    "hover:bg-[color-mix(in_srgb,var(--surface-glass)_70%,transparent)] " +
-    "focus-visible:outline-[color-mix(in_srgb,var(--brand-soft-gold)_45%,transparent)]",
+    "hover:bg-[var(--surface-1)] " +
+    "focus-visible:outline-[var(--text-high)]",
   ghost:
     "bg-transparent text-[var(--text-medium)] border-[color-mix(in_srgb,var(--champagne-keyline-gold)_40%,transparent)] " +
-    "hover:border-[color-mix(in_srgb,var(--champagne-keyline-gold)_60%,transparent)] " +
-    "focus-visible:outline-[color-mix(in_srgb,var(--brand-soft-gold)_40%,transparent)]",
+    "hover:border-[var(--text-high)] " +
+    "focus-visible:outline-[var(--text-high)]",
 };
 
 export function ChampagneCTAButton({ cta, align = "start" }: ChampagneCTAButtonProps) {
