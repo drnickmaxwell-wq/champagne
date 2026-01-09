@@ -22,11 +22,9 @@ const listStyle: CSSProperties = {
   marginTop: "0.75rem",
 };
 
-const pillStyle: CSSProperties = {
+const pillBaseStyle: CSSProperties = {
   padding: "0.8rem 1rem",
   borderRadius: "var(--radius-md)",
-  border: "1px solid var(--border-subtle)",
-  background: "var(--surface-2)",
   display: "grid",
   gridTemplateColumns: "auto 1fr",
   gap: "0.65rem",
@@ -76,6 +74,18 @@ export function Section_FeatureList({ section }: SectionFeatureListProps = {}) {
 
   return (
     <section style={wrapperStyle}>
+      <style>{`
+        .champagne-feature-pill {
+          border: 1px solid var(--border-subtle);
+          background: var(--surface-2);
+          transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .champagne-feature-pill:hover {
+          background: var(--surface-1);
+          border-color: var(--border-subtle);
+        }
+      `}</style>
       <div style={{ display: "grid", gap: "0.45rem" }}>
         {eyebrow && (
           <span style={{
@@ -91,7 +101,7 @@ export function Section_FeatureList({ section }: SectionFeatureListProps = {}) {
       </div>
       <div style={listStyle}>
         {features.map((item, index) => (
-          <div key={item + index} style={pillStyle}>
+          <div key={item + index} style={pillBaseStyle} className="champagne-feature-pill">
             <span style={badgeStyle}>{index + 1}</span>
             <span style={subtextStyle}>{item}</span>
           </div>

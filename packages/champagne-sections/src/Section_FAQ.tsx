@@ -47,6 +47,34 @@ export function Section_FAQ({ section }: SectionFAQProps = {}) {
         boxShadow: "var(--shadow-soft)",
       }}
     >
+      <style>{`
+        .champagne-faq-item {
+          border-radius: var(--radius-md);
+          border: 1px solid var(--border-subtle);
+          background: var(--surface-2);
+          padding: 0.9rem 1rem;
+          transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .champagne-faq-item:hover {
+          background: var(--surface-1);
+          border-color: var(--border-subtle);
+        }
+
+        .champagne-faq-summary {
+          cursor: pointer;
+          font-weight: 700;
+          line-height: 1.5;
+          color: var(--text-high);
+          outline: 2px solid transparent;
+          outline-offset: 4px;
+          border-radius: var(--radius-sm);
+        }
+
+        .champagne-faq-summary:focus-visible {
+          outline-color: var(--border-subtle);
+        }
+      `}</style>
       <div style={{ display: "grid", gap: "0.5rem" }}>
         {eyebrow && (
           <span style={{ fontSize: "0.85rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-medium)" }}>
@@ -57,17 +85,8 @@ export function Section_FAQ({ section }: SectionFAQProps = {}) {
       </div>
       <div style={listStyle}>
         {faqs.map((faq, index) => (
-          <details
-            key={`${faq.question}-${index}`}
-            open={index === 0}
-            style={{
-              borderRadius: "var(--radius-md)",
-              border: "1px solid var(--border-subtle)",
-              background: "var(--surface-2)",
-              padding: "0.9rem 1rem",
-            }}
-          >
-            <summary style={{ cursor: "pointer", fontWeight: 700, lineHeight: 1.5, color: "var(--text-high)" }}>
+          <details key={`${faq.question}-${index}`} open={index === 0} className="champagne-faq-item">
+            <summary className="champagne-faq-summary">
               {faq.question}
             </summary>
             <p style={{ marginTop: "0.5rem", lineHeight: 1.6, color: "var(--text-medium)" }}>{faq.answer}</p>
