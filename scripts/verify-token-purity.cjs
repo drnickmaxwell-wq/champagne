@@ -1,0 +1,65 @@
+const fs = require("node:fs/promises");
+const path = require("node:path");
+
+const repoRoot = path.resolve(__dirname, "..");
+const targetFiles = [
+  "packages/champagne-sections/src/Section_TextBlock.tsx",
+  "packages/champagne-sections/src/Section_FeatureList.tsx",
+  "packages/champagne-sections/src/Section_PatientStoriesRail.tsx",
+].map((file) => path.resolve(repoRoot, file));
+
+const forbiddenMatchers = [
+  { label: "hex", regex: /#[0-9a-fA-F]{3,8}\b/g },
+  { label: "rgb", regex: /\brgba?\(/g },
+];
+
+const scanFile = async (filePath) => {
+  const content = await fs.readFile(filePath, "utf8");
+  const lines = content.split(/\r?\n/);
+  const matches = [];
+
+  lines.forEach((line, index) => {
+    forbiddenMatchers.forEach(({ label, regex }) => {
+      const lineMatches = Array.from(line.matchAll(regex));
+      lineMatches.forEach((match) => {
+        matches.push({
+          filePath,
+          line: index + 1,
+          label,
+          value: match[0],
+          lineText: line.trim(),
+        });
+      });
+    });
+  });
+
+  return matches;
+};
+
+const run = async () => {
+  const allMatches = [];
+
+  for (const filePath of targetFiles) {
+    const matches = await scanFile(filePath);
+    allMatches.push(...matches);
+  }
+
+  if (allMatches.length > 0) {
+    console.error("FAIL: token purity");
+    allMatches.forEach((match) => {
+      const relativePath = path.relative(repoRoot, match.filePath);
+      console.error(
+        `${relativePath}:${match.line} [${match.label}] ${match.value} :: ${match.lineText}`
+      );
+    });
+    process.exit(1);
+  }
+
+  console.log("PASS: token purity");
+};
+
+run().catch((error) => {
+  console.error("FAIL: token purity");
+  console.error(error);
+  process.exit(1);
+});
