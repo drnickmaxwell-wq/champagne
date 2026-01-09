@@ -214,8 +214,7 @@ Agents MAY modify:
 - packages/champagne-sections/src/Section_TreatmentMidCTA.tsx
 
 Scope:
-- Semantic-token styling replacement only (background/border/shadow/text).
-- No layout/structure edits.
+- Semantic-token-only styling replacement (background/border/shadow/text) with no structural edits.
 - No copy changes.
 
 Hard prohibitions remain:
