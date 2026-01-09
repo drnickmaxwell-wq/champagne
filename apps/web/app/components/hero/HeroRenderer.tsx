@@ -711,6 +711,86 @@ export async function HeroRenderer({
     };
   });
 
+  const manifestSurfaceIds =
+    sacredSurfacesManifest?.surfaceStack && Array.isArray(sacredSurfacesManifest.surfaceStack)
+      ? new Set(
+          (sacredSurfacesManifest.surfaceStack as { id?: string; token?: string }[])
+            .map((entry) => entry.id ?? entry.token)
+            .filter((entry): entry is string => typeof entry === "string" && entry.length > 0),
+        )
+      : new Set<string>();
+  const manifestMotionIds =
+    sacredSurfacesManifest?.motion && typeof sacredSurfacesManifest.motion === "object"
+      ? new Set(Object.keys(sacredSurfacesManifest.motion as Record<string, unknown>))
+      : new Set<string>();
+  const manifestVideoIds =
+    sacredSurfacesManifest?.video && typeof sacredSurfacesManifest.video === "object"
+      ? new Set(Object.keys(sacredSurfacesManifest.video as Record<string, unknown>))
+      : new Set<string>();
+
+  const resolveSurfaceAssetKey = (id: string): string | null => {
+    switch (id) {
+      case "mask.waveHeader":
+        return surfaces.waveMask?.desktop?.asset?.id ?? surfaces.waveMask?.desktop?.id ?? null;
+      case "field.waveBackdrop":
+        return surfaces.background?.desktop?.asset?.id ?? surfaces.background?.desktop?.id ?? null;
+      case "field.waveRings":
+        return surfaces.overlays?.field?.asset?.id ?? surfaces.overlays?.field?.id ?? null;
+      case "field.dotGrid":
+        return surfaces.overlays?.dots?.asset?.id ?? surfaces.overlays?.dots?.id ?? null;
+      case "overlay.particles":
+        return surfaces.particles?.asset?.id ?? surfaces.particles?.id ?? null;
+      case "overlay.filmGrain":
+        return surfaces.grain?.desktop?.asset?.id ?? surfaces.grain?.desktop?.id ?? null;
+      case "hero.contentFrame":
+        return null;
+      default:
+        return null;
+    }
+  };
+
+  const renderStackDebug = [
+    ...surfaceStack.map((layer, index) => {
+      const debugEntry = surfaceDebug.find((entry) => entry.id === layer.id);
+      return {
+        order: index,
+        kind: "surface",
+        id: layer.id,
+        source: manifestSurfaceIds.has(layer.id) ? "manifest" : "runtime-injected",
+        token: layer.token ?? layer.id,
+        asset: resolveSurfaceAssetKey(layer.id),
+        opacity: debugEntry?.resolved.opacity ?? null,
+        blendMode: debugEntry?.resolved.blendMode ?? null,
+        zIndex: debugEntry?.resolved.zIndex ?? null,
+        className: layer.className ?? null,
+      };
+    }),
+    ...heroVideoDebug.map((entry, index) => ({
+      order: surfaceStack.length + index,
+      kind: "motion",
+      id: entry.id,
+      source: manifestVideoIds.has("hero.video") ? "manifest" : "runtime-injected",
+      token: "hero.video",
+      asset: videoEntry?.asset?.id ?? videoEntry?.id ?? null,
+      opacity: entry.resolved.opacity ?? null,
+      blendMode: entry.resolved.blendMode ?? null,
+      zIndex: entry.resolved.zIndex ?? null,
+      className: "hero-surface-layer hero-surface--motion",
+    })),
+    ...motionEntriesWithStyles.map(({ entry, debug }, index) => ({
+      order: surfaceStack.length + heroVideoDebug.length + index,
+      kind: "motion",
+      id: entry.id ?? null,
+      source: entry.id && manifestMotionIds.has(entry.id) ? "manifest" : "runtime-injected",
+      token: entry.id ?? null,
+      asset: entry.asset?.id ?? entry.id ?? null,
+      opacity: debug.resolved.opacity ?? null,
+      blendMode: debug.resolved.blendMode ?? null,
+      zIndex: debug.resolved.zIndex ?? null,
+      className: entry.className ?? null,
+    })),
+  ];
+
   const missingGovernanceReceipts = Array.from(missingGovernance.values()).map((entry) => ({
     id: entry.id,
     kind: entry.kind,
@@ -727,6 +807,7 @@ export async function HeroRenderer({
           surfaceIdsRendered,
           resolvedSurfaces,
           resolvedMotions,
+          renderStack: renderStackDebug,
           missingGovernance: missingGovernanceReceipts,
         }
       : null;
@@ -738,9 +819,11 @@ export async function HeroRenderer({
           __html: `(() => {
             if (typeof window === 'undefined') return;
             const params = new URLSearchParams(window.location.search);
-            const isHeroDebugParam = params.get('heroDebug') === '1';
+            const heroDebugParam = params.get('heroDebug');
+            const isHeroDebugParam = heroDebugParam === '1';
+            const isHeroDebugDetails = heroDebugParam === '2';
             const isHeroDebugRoute = window.location.pathname.includes('/champagne/hero-debug');
-            if (!isHeroDebugParam && !isHeroDebugRoute) return;
+            if (!isHeroDebugParam && !isHeroDebugDetails && !isHeroDebugRoute) return;
             const payload = ${JSON.stringify(heroDebugPayload)};
             if (!payload) return;
             try {
@@ -914,6 +997,49 @@ export async function HeroRenderer({
                   match: a.match,
                 })),
               );
+
+              if (isHeroDebugDetails) {
+                const readContainer = (el) => {
+                  if (!el) return null;
+                  const cs = window.getComputedStyle(el);
+                  return {
+                    className: el.className || null,
+                    background: cs.backgroundImage || cs.backgroundColor || null,
+                    opacity: cs.opacity || null,
+                    filter: cs.filter || null,
+                    backdropFilter: cs.backdropFilter || null,
+                    mixBlendMode: cs.mixBlendMode || null,
+                  };
+                };
+
+                const layerElements = hero ? Array.from(hero.querySelectorAll('[data-surface-id]')) : [];
+                const layerComputed = layerElements.map((el) => {
+                  const cs = window.getComputedStyle(el);
+                  return {
+                    id: el.getAttribute('data-surface-id'),
+                    className: el.className || null,
+                    opacity: cs.opacity || null,
+                    mixBlendMode: cs.mixBlendMode || null,
+                    filter: cs.filter || null,
+                    backdropFilter: cs.backdropFilter || null,
+                    zIndex: cs.zIndex || null,
+                  };
+                });
+
+                const containerComputed = {
+                  hero: readContainer(hero),
+                  surfaceStack: readContainer(hero ? hero.querySelector('.hero-surface-stack') : null),
+                  content: readContainer(hero ? hero.querySelector('.hero-content') : null),
+                  parent: readContainer(hero?.parentElement ?? null),
+                };
+
+                console.log('CHAMPAGNE_HERO_DEBUG2=' + JSON.stringify({
+                  heroId: payload.heroId,
+                  renderStack: payload.renderStack ?? [],
+                  containers: containerComputed,
+                  layers: layerComputed,
+                }));
+              }
             } catch (error) {
               window.__CHAMPAGNE_HERO_DEBUG__ = { heroId: payload.heroId, error: String(error) };
               console.error('CHAMPAGNE_HERO_RECEIPTS_ERROR', error);
