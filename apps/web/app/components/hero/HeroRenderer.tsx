@@ -176,14 +176,9 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
-    if ((token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) && !isSacredHomeVariant) {
-      return false;
-    }
-    if (token && activeMotionIds.has(token) && !(isSacredHomeVariant && token === "overlay.caustics")) return false;
-    if (isSacredHomeVariant && motionCausticsActive && token === "overlay.caustics") return false;
-    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics") && !isSacredHomeVariant) {
-      return false;
-    }
+    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
+    if (token && activeMotionIds.has(token)) return false;
+    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
     if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
@@ -885,12 +880,10 @@ export async function HeroRenderer({
                 'field.waveBackdrop',
                 'field.waveRings',
                 'field.dotGrid',
-                'mask.waveHeader',
-                'overlay.caustics',
-                'sacred.motion.waveCaustics',
-                'sacred.motion.glassShimmer',
                 'overlay.particles',
                 'overlay.filmGrain',
+                'sacred.motion.waveCaustics',
+                'sacred.motion.glassShimmer',
               ];
 
               const debugLayerValues = debugIds.map((id) => {
@@ -899,7 +892,6 @@ export async function HeroRenderer({
                 const source = domSurface ?? domMotion;
                 return {
                   id,
-                  found: Boolean(source),
                   opacity: source?.computed.opacity ?? null,
                   blendMode: source?.computed.mixBlendMode ?? null,
                 };

@@ -1,8 +1,8 @@
 {
   "waveMasks": {
-    "mask.waveHeader.desktop": { "asset": "sacred.wave.mask.desktop", "blendMode": "soft-light", "opacity": 0.65 },
-    "mask.waveHeader.mobile": { "asset": "sacred.wave.mask.mobile", "blendMode": "soft-light", "opacity": 0.65 },
-    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "soft-light", "opacity": 0.65 },
+    "mask.waveHeader.desktop": "sacred.wave.mask.desktop",
+    "mask.waveHeader.mobile": "sacred.wave.mask.mobile",
+    "mask.waveHeader": "sacred.wave.mask.desktop",
     "mask.wave.smh": "sacred.wave.mask.smh"
   },
   "surfaceStack": [
