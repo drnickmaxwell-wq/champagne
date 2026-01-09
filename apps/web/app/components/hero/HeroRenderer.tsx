@@ -180,6 +180,7 @@ export async function HeroRenderer({
       return false;
     }
     if (token && activeMotionIds.has(token) && !(isSacredHomeVariant && token === "overlay.caustics")) return false;
+    if (isSacredHomeVariant && motionCausticsActive && token === "overlay.caustics") return false;
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics") && !isSacredHomeVariant) {
       return false;
     }
