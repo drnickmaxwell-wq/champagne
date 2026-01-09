@@ -9,8 +9,19 @@
 
 :root {
   --bg-ink: var(--brand-ink);
+  --text-high: var(--text-ink-high);
+  --text-medium: var(--text-ink-medium);
+  --text-low: var(--text-ink-low);
   color: var(--text-high);
   background: var(--bg-ink);
+}
+
+/* Porcelain context overrides — applies anywhere porcelain is declared */
+[data-surface-tone='porcelain'],
+[data-surface='porcelain'] {
+  --text-high: var(--text-porcelain-high);
+  --text-medium: var(--text-porcelain-medium);
+  --text-low: var(--text-porcelain-low);
 }
 
 body,
