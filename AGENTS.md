@@ -136,6 +136,20 @@ apps/web/app/_components/** (EXCEPT HeroRenderer.tsx)
 packages/champagne-guards/**
 .github/workflows/**
 
+EXEMPTION — PASS T1 Token Binding (Director-authorized)
+Agents MAY modify:
+- packages/champagne-tokens/styles/**
+
+Scope:
+- Token binding + theme variable mapping only (e.g. --bg-ink, --text-*, surface vars).
+- No component/layout edits, no globals.css edits, no hero changes.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- apps/web/app/layout.tsx is still forbidden.
+- apps/web/app/globals.css is still forbidden.
+- apps/web/app/components/layout/** is still forbidden.
+
 
 Only within task scope.
 
