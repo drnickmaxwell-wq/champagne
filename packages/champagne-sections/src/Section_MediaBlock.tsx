@@ -8,10 +8,9 @@ export interface SectionMediaBlockProps {
 
 const wrapperStyle: CSSProperties = {
   borderRadius: "var(--radius-lg)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.22))",
+  border: "1px solid var(--border-subtle)",
   padding: "clamp(1.25rem, 2.8vw, 2.25rem)",
-  background:
-    "linear-gradient(140deg, color-mix(in srgb, var(--bg-ink, #06070c) 88%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent)), radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--smh-white, #ffffff) 8%, transparent), transparent 30%)",
+  background: "var(--surface-1)",
   display: "grid",
   gap: "clamp(1rem, 2vw, 1.5rem)",
 };
@@ -27,23 +26,22 @@ const mediaShell: CSSProperties = {
   position: "relative",
   borderRadius: "var(--radius-md)",
   overflow: "hidden",
-  background: "var(--surface-glass, rgba(255,255,255,0.06))",
+  background: "var(--surface-glass)",
   minHeight: "220px",
-  boxShadow: "var(--shadow-soft, 0 10px 36px rgba(0,0,0,0.35))",
-  border: "1px solid rgba(255,255,255,0.08)",
+  boxShadow: "var(--shadow-soft)",
+  border: "1px solid var(--border-subtle)",
 };
 
 const mediaGradient: CSSProperties = {
   position: "absolute",
   inset: 0,
-  background:
-    "linear-gradient(135deg, color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 14%, transparent), color-mix(in srgb, var(--smh-white, #ffffff) 0%, transparent)), radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--smh-white, #ffffff) 16%, transparent), transparent 36%)",
+  background: "var(--surface-glass)",
   mixBlendMode: "screen",
 };
 
 const captionStyle: CSSProperties = {
   fontSize: "0.95rem",
-  color: "var(--text-medium, rgba(255,255,255,0.76))",
+  color: "var(--text-medium)",
   lineHeight: 1.6,
 };
 
@@ -51,13 +49,14 @@ const headlineStyle: CSSProperties = {
   fontSize: "clamp(1.25rem, 2vw, 1.65rem)",
   fontWeight: 700,
   lineHeight: 1.3,
+  color: "var(--text-high)",
 };
 
 const eyebrowStyle: CSSProperties = {
   fontSize: "0.85rem",
   letterSpacing: "0.1em",
   textTransform: "uppercase",
-  color: "var(--text-medium, rgba(255,255,255,0.7))",
+  color: "var(--text-low)",
 };
 
 export function Section_MediaBlock({ section }: SectionMediaBlockProps = {}) {
@@ -87,9 +86,9 @@ export function Section_MediaBlock({ section }: SectionMediaBlockProps = {}) {
               position: "absolute",
               inset: "12% 10%",
               borderRadius: "var(--radius-md)",
-              border: "1px solid rgba(255,255,255,0.14)",
-              background: "linear-gradient(160deg, color-mix(in srgb, var(--smh-white, #ffffff) 10%, transparent), color-mix(in srgb, var(--bg-ink, #06070c) 70%, transparent))",
-              boxShadow: "0 24px 60px rgba(0,0,0,0.48)",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--surface-1)",
+              boxShadow: "var(--shadow-soft)",
               display: "grid",
               placeItems: "center",
               color: "var(--text-high)",
