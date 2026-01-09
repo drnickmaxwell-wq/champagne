@@ -224,6 +224,23 @@ Hard prohibitions remain:
 - No apps/web/app/globals.css edits.
 - No header/footer edits.
 
+EXEMPTION — PASS T8 Interactive States (Director-authorized)
+Agents MAY modify:
+- packages/champagne-cta/src/ChampagneCTAButton.tsx
+
+Scope:
+- Replace hardcoded interaction-state colors (hover/active/focus/disabled) with semantic tokens only.
+- No layout changes.
+- No structural refactors.
+- No copy changes.
+- No new tokens unless they are defined in packages/champagne-tokens/styles/** and contain no new hex.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- apps/web/app/layout.tsx is still forbidden.
+- apps/web/app/globals.css is still forbidden.
+- apps/web/app/components/layout/** is still forbidden.
+
 
 Only within task scope.
 

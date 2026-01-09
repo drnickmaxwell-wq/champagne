@@ -4,6 +4,7 @@ const path = require("node:path");
 const repoRoot = path.resolve(__dirname, "..");
 const targetFiles = [
   "AGENTS.md",
+  "packages/champagne-cta/src/ChampagneCTAButton.tsx",
   "packages/champagne-sections/src/Section_TextBlock.tsx",
   "packages/champagne-sections/src/Section_FeatureList.tsx",
   "packages/champagne-sections/src/Section_PatientStoriesRail.tsx",
