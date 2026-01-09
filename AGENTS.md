@@ -241,6 +241,20 @@ Hard prohibitions remain in force:
 - apps/web/app/globals.css is still forbidden.
 - apps/web/app/components/layout/** is still forbidden.
 
+EXEMPTION — PASS T9 (Inputs + Accordions + Pills) (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_FAQ.tsx
+- packages/champagne-sections/src/Section_FeatureList.tsx
+
+Scope:
+- Semantic-token-only interaction state replacement.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- apps/web/app/layout.tsx is still forbidden.
+- apps/web/app/globals.css is still forbidden.
+- apps/web/app/components/layout/** is still forbidden.
+
 
 Only within task scope.
 
