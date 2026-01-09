@@ -6,7 +6,7 @@
       "tone": "night",
       "surfaces": {
         "particles": "overlay.particlesPrimary",
-        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDust"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       }
     },
     {
