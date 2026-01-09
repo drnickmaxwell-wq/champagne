@@ -168,6 +168,23 @@ Hard prohibitions remain in force:
 - No header/footer edits.
 - No token edits.
 
+EXEMPTION — PASS T3 Section Semantics (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TextBlock.tsx
+
+Scope:
+- Remove raw hex/RGBA fallbacks in section styling.
+- Bind background/border/text to semantic tokens only:
+  --surface-0/1/2, --border-subtle, --shadow-soft, --text-high/medium/low
+- No layout changes, no copy changes, no manifest changes.
+
+Hard prohibitions remain:
+- Sacred zones unchanged.
+- No hero engine/manifests.
+- No apps/web/app/layout.tsx edits.
+- No apps/web/app/globals.css edits.
+- No header/footer edits.
+
 
 Only within task scope.
 

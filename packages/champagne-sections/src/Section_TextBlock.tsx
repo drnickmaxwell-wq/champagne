@@ -9,11 +9,10 @@ export interface SectionComponentProps {
 const containerStyle: CSSProperties = {
   position: "relative",
   borderRadius: "var(--radius-lg)",
-  border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.28))",
+  border: "1px solid var(--border-subtle)",
   padding: "clamp(1.5rem, 3vw, 2.5rem)",
-  background:
-    "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink, #06070c) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 82%, transparent)), radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--smh-white, #ffffff) 14%, transparent), transparent 38%)",
-  boxShadow: "var(--shadow-soft, 0 10px 36px rgba(0,0,0,0.35))",
+  background: "var(--surface-1)",
+  boxShadow: "var(--shadow-soft)",
   overflow: "hidden",
 };
 
@@ -21,8 +20,7 @@ const accentBar: CSSProperties = {
   position: "absolute",
   inset: "0 0 auto 0",
   height: "3px",
-  background:
-    "linear-gradient(90deg, color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 40%, transparent), color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 8%, transparent))",
+  background: "var(--border-subtle)",
 };
 
 const gridStyle: CSSProperties = {
@@ -35,19 +33,20 @@ const eyebrowStyle: CSSProperties = {
   fontSize: "0.9rem",
   letterSpacing: "0.08em",
   textTransform: "uppercase",
-  color: "var(--text-medium, rgba(255,255,255,0.72))",
+  color: "var(--text-medium)",
 };
 
 const headingStyle: CSSProperties = {
   fontSize: "clamp(1.35rem, 2vw, 1.8rem)",
   fontWeight: 700,
   lineHeight: 1.3,
+  color: "var(--text-high)",
 };
 
 const bodyStyle: CSSProperties = {
   fontSize: "1.05rem",
   lineHeight: 1.7,
-  color: "var(--text-medium, rgba(255,255,255,0.78))",
+  color: "var(--text-medium)",
 };
 
 export function Section_TextBlock({ section }: SectionComponentProps = {}) {
