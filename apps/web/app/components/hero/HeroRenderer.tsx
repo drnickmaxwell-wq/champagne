@@ -183,6 +183,10 @@ export async function HeroRenderer({
     : undefined;
 
   const isDeMilkMode = mode === "home" || mode === "treatment";
+  const internalOverlaysDisabled = true;
+  const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
+  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
+  const honorOpacityIds = new Set(["field.waveRings", "field.dotGrid"]);
   const layerOpacityTuning: Record<
     string,
     | {
@@ -212,6 +216,7 @@ export async function HeroRenderer({
   };
 
   const applyOpacityTuning = (id: string, value?: number, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (honorManifestOpacity && honorOpacityIds.has(id)) return value;
     if (!isDeMilkMode || value === undefined) return value;
     const tuning = layerOpacityTuning[id];
     if (!tuning) return value;
