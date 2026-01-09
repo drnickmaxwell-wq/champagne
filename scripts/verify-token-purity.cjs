@@ -14,6 +14,8 @@ const targetFiles = [
   "packages/champagne-sections/src/Section_FAQ.tsx",
   "packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx",
   "packages/champagne-sections/src/Section_TreatmentMidCTA.tsx",
+  "apps/web/app/components/layout/Footer.tsx",
+  "apps/web/app/components/layout/FooterLuxe.module.css",
   "scripts/verify-token-purity.cjs",
 ].map((file) => path.resolve(repoRoot, file));
 

@@ -255,6 +255,19 @@ Hard prohibitions remain in force:
 - apps/web/app/globals.css is still forbidden.
 - apps/web/app/components/layout/** is still forbidden.
 
+EXEMPTION — PASS T10 (Form Controls Interaction + Token Purity) (Director-authorized)
+Agents MAY modify:
+- apps/web/app/components/layout/Footer.tsx
+- apps/web/app/components/layout/FooterLuxe.module.css
+
+Scope:
+- Semantic-token-only styling + interaction state replacement.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- apps/web/app/layout.tsx is still forbidden.
+- apps/web/app/globals.css is still forbidden.
+
 
 Only within task scope.
 
