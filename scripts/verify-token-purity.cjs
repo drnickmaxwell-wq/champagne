@@ -2,31 +2,41 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 
 const repoRoot = path.resolve(__dirname, "..");
-const targetFiles = [
-  "AGENTS.md",
-  "packages/champagne-cta/src/ChampagneCTAButton.tsx",
-  "packages/champagne-sections/src/Section_TextBlock.tsx",
-  "packages/champagne-sections/src/Section_FeatureList.tsx",
-  "packages/champagne-sections/src/Section_GoogleReviews.tsx",
-  "packages/champagne-sections/src/Section_PatientStoriesRail.tsx",
-  "packages/champagne-sections/src/Section_MediaBlock.tsx",
-  "packages/champagne-sections/src/Section_TreatmentToolsTrio.tsx",
-  "packages/champagne-sections/src/Section_TreatmentOverviewRich.tsx",
-  "packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx",
-  "packages/champagne-sections/src/Section_FAQ.tsx",
-  "packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx",
-  "packages/champagne-sections/src/Section_TreatmentMidCTA.tsx",
-  "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
-  "packages/champagne-sections/src/sections/Section_PeopleGrid.tsx",
-  "packages/champagne-hero/src/BaseChampagneSurface.tsx",
-  "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
-  "packages/champagne-hero/src/HeroPreviewDebug.tsx",
-  "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
-  "apps/web/app/components/hero/HeroRenderer.tsx",
-  "apps/web/app/components/layout/Footer.tsx",
-  "apps/web/app/components/layout/FooterLuxe.module.css",
-  "scripts/verify-token-purity.cjs",
+
+const runtimeRoots = [
+  "packages/champagne-sections/src",
+  "packages/champagne-cta/src",
+  "apps/web/app",
+  "packages/champagne-hero/src",
+].map((dir) => path.resolve(repoRoot, dir));
+
+const runtimeExclusions = [
+  "apps/web/app/champagne/hero-preview",
+  "apps/web/app/champagne/hero-debug",
+  "apps/web/app/champagne/hero-lab",
+].map((dir) => path.resolve(repoRoot, dir));
+
+const tokenSourceRoots = ["packages/champagne-tokens/styles/tokens"].map((dir) =>
+  path.resolve(repoRoot, dir),
+);
+
+const tokenSourceFiles = [
+  "packages/champagne-tokens/styles/champagne/gradients.css",
+  "packages/champagne-tokens/styles/champagne/surface.css",
+  "packages/champagne-tokens/styles/champagne/theme.css",
 ].map((file) => path.resolve(repoRoot, file));
+
+const allowedExtensions = new Set([
+  ".css",
+  ".scss",
+  ".ts",
+  ".tsx",
+  ".js",
+  ".jsx",
+  ".mjs",
+  ".cjs",
+  ".json",
+]);
 
 const offenderTypes = {
   HEX: "HEX",
@@ -55,7 +65,7 @@ const orderedTypes = [
   offenderTypes.BOX_SHADOW,
 ];
 
-const sampleReport = [
+const sampleForbiddenReport = [
   {
     filePath: "path/to/file.tsx",
     line: 12,
@@ -78,6 +88,53 @@ const sampleReport = [
     lineText: "background: VAR_FALLBACK_LITERAL;",
   },
 ];
+
+const sampleAllowedReport = [
+  {
+    filePath: "packages/champagne-tokens/styles/tokens/core.css",
+    line: 4,
+    type: offenderTypes.HEX,
+    value: "HEX_LITERAL",
+    lineText: "--token-color: HEX_LITERAL;",
+  },
+];
+
+const isWithin = (filePath, rootDir) => {
+  const relative = path.relative(rootDir, filePath);
+  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
+};
+
+const isTokenSourceFile = (filePath) =>
+  tokenSourceFiles.includes(filePath) ||
+  tokenSourceRoots.some((root) => isWithin(filePath, root));
+
+const isRuntimeExcluded = (filePath) =>
+  runtimeExclusions.some((root) => isWithin(filePath, root));
+
+const hasAllowedExtension = (filePath) => allowedExtensions.has(path.extname(filePath));
+
+const collectFiles = async (rootDir, { excludeDirs = [] } = {}) => {
+  const entries = await fs.readdir(rootDir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const entryPath = path.join(rootDir, entry.name);
+    if (entry.isDirectory()) {
+      if (excludeDirs.some((excludeDir) => isWithin(entryPath, excludeDir))) {
+        continue;
+      }
+      const nestedFiles = await collectFiles(entryPath, { excludeDirs });
+      files.push(...nestedFiles);
+      continue;
+    }
+    if (!hasAllowedExtension(entryPath)) {
+      continue;
+    }
+    files.push(entryPath);
+  }
+
+  return files;
+};
 
 const collectMatches = (line, index, filePath, matches) => {
   const excludeRanges = [];
@@ -138,46 +195,83 @@ const formatReportLine = (match) => {
   return `${relativePath}:${match.line} [${match.type}] ${match.value} :: ${match.lineText}`;
 };
 
-const run = async () => {
-  const allMatches = [];
+const reportMatches = (label, matches, log) => {
+  if (label) {
+    log(label);
+  }
+  if (matches.length === 0) {
+    log("  (none)");
+    return;
+  }
+  orderedTypes.forEach((type) => {
+    const typeMatches = matches.filter((match) => match.type === type);
+    if (typeMatches.length === 0) {
+      return;
+    }
+    log(`\n${type}`);
+    typeMatches.forEach((match) => {
+      log(formatReportLine(match));
+    });
+  });
+};
 
-  for (const filePath of targetFiles) {
+const run = async () => {
+  const runtimeFiles = (
+    await Promise.all(
+      runtimeRoots.map((root) => collectFiles(root, { excludeDirs: runtimeExclusions })),
+    )
+  )
+    .flat()
+    .filter((filePath) => !isRuntimeExcluded(filePath));
+  const tokenFiles = (
+    await Promise.all(tokenSourceRoots.map((root) => collectFiles(root)))
+  ).flat();
+  tokenSourceFiles.forEach((filePath) => {
+    if (!tokenFiles.includes(filePath)) {
+      tokenFiles.push(filePath);
+    }
+  });
+
+  const forbiddenMatches = [];
+  const allowedMatches = [];
+
+  for (const filePath of runtimeFiles) {
+    if (isTokenSourceFile(filePath)) {
+      continue;
+    }
     const matches = await scanFile(filePath);
-    allMatches.push(...matches);
+    forbiddenMatches.push(...matches);
+  }
+
+  for (const filePath of tokenFiles) {
+    if (!isTokenSourceFile(filePath)) {
+      continue;
+    }
+    const matches = await scanFile(filePath);
+    allowedMatches.push(...matches);
   }
 
   if (process.argv.includes("--demo")) {
-    console.log("FAIL: token purity");
-    orderedTypes.forEach((type) => {
-      const typeMatches = sampleReport.filter((match) => match.type === type);
-      if (typeMatches.length === 0) {
-        return;
-      }
-      console.log(`\n${type}`);
-      typeMatches.forEach((match) => {
-        console.log(formatReportLine(match));
-      });
-    });
+    reportMatches("Allowed literals: token source", sampleAllowedReport, console.log);
+    console.log("");
+    reportMatches("Forbidden literals: runtime", sampleForbiddenReport, console.log);
+    console.log("\nFAIL: token purity");
     console.log("\n(End of demo output)");
     return;
   }
 
-  if (allMatches.length > 0) {
-    console.error("FAIL: token purity");
-    orderedTypes.forEach((type) => {
-      const typeMatches = allMatches.filter((match) => match.type === type);
-      if (typeMatches.length === 0) {
-        return;
-      }
-      console.error(`\n${type}`);
-      typeMatches.forEach((match) => {
-        console.error(formatReportLine(match));
-      });
-    });
+  reportMatches("Allowed literals: token source", allowedMatches, console.log);
+
+  if (forbiddenMatches.length > 0) {
+    console.error("");
+    reportMatches("Forbidden literals: runtime", forbiddenMatches, console.error);
+    console.error("\nFAIL: token purity");
     process.exit(1);
   }
 
-  console.log("PASS: token purity");
+  console.log("");
+  reportMatches("Forbidden literals: runtime", forbiddenMatches, console.log);
+  console.log("\nPASS: token purity");
 };
 
 run().catch((error) => {
