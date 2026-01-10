@@ -125,7 +125,7 @@
   border-radius: 0.85rem;
   padding: 0.9rem 1rem;
   border: 1px solid var(--border-subtle);
-  background: var(--surface-1);
+  background: var(--smh-ink-soft, var(--smh-footer-bg, var(--smh-ink)));
   color: var(--text-high);
   outline: none;
   transition: border-color 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
@@ -161,7 +161,7 @@
   font-weight: 600;
   color: var(--text-high);
   cursor: pointer;
-  background: var(--surface-1);
+  background: var(--smh-ink-soft, var(--smh-footer-bg, var(--smh-ink)));
   transition: transform 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
     box-shadow 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
   box-shadow: var(--shadow-soft);

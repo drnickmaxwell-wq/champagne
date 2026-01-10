@@ -477,6 +477,23 @@ No edits to apps/web/app/globals.css
 
 No edits to hero engine runtime config files beyond the 4 files listed.
 
+EXEMPTION — PASS T33 Footer Ink-Chrome Surface Contract (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- apps/web/app/components/layout/FooterLuxe.module.css
+- apps/web/app/components/layout/Footer.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+
+Replace porcelain ladder tokens in footer controls with ink-surface tokens/variables.
+
+Token-only. Preserve structure. No copy. No gradients/hex/rgba.
+
+CSS-first; Footer.tsx only if unavoidable.
+
+Hard prohibitions remain unchanged.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.
