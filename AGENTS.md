@@ -303,6 +303,25 @@ Hard prohibitions remain in force:
 - No header/footer edits.
 - No token edits.
 
+EXEMPTION — PASS T13 Chips/Pills/Badges (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text/outline)
+- No structural edits
+- No copy edits
+- No new literal colors
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- No hero engine/manifests.
+- No apps/web/app/layout.tsx edits.
+- No apps/web/app/globals.css edits.
+- No header/footer edits.
+- No token edits.
+
 
 Only within task scope.
 

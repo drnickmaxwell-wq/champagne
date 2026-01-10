@@ -24,7 +24,10 @@ const targetFiles = [
 const forbiddenMatchers = [
   { label: "hex", regex: /#[0-9a-fA-F]{3,8}\b/g },
   { label: "rgb", regex: /\brgba?\(/g },
-  { label: "linear-gradient-hex", regex: /linear-gradient\([^)]*#/g },
+  { label: "linear-gradient", regex: /linear-gradient\([^)]*(#|rgba?\()/g },
+  { label: "radial-gradient", regex: /radial-gradient\([^)]*(#|rgba?\()/g },
+  { label: "var-fallback-hex", regex: /var\(--[^,]+,\s*#[0-9a-fA-F]{3,8}\b/g },
+  { label: "var-fallback-rgb", regex: /var\(--[^,]+,\s*rgba?\(/g },
 ];
 
 const scanFile = async (filePath) => {
