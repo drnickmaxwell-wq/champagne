@@ -268,6 +268,23 @@ Hard prohibitions remain in force:
 - apps/web/app/layout.tsx is still forbidden.
 - apps/web/app/globals.css is still forbidden.
 
+EXEMPTION — PASS T11 Tables & Data Surfaces (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text + hover/focus) for tables, fee grids, download lists, and comparison grids.
+- Verification coverage updates in scripts/verify-token-purity.cjs only.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- No hero engine/manifests.
+- No apps/web/app/layout.tsx edits.
+- No apps/web/app/globals.css edits.
+- No header/footer edits.
+- No token edits.
+
 
 Only within task scope.
 
