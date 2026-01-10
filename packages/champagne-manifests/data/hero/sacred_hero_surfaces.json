@@ -40,8 +40,8 @@
     "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "soft-light", "opacity": 0.12, "prmSafe": true }
   },
   "motion": {
-    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "soft-light", "opacity": 0.35 },
-    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "screen", "opacity": 0.18 },
+    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "soft-light", "opacity": 0.12 },
+    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "screen", "opacity": 0.06 },
     "overlay.goldDust": { "asset": "sacred.motion.goldDust", "blendMode": "screen", "opacity": 0.45 },
     "overlay.particlesDrift": { "asset": "sacred.motion.particleDrift", "blendMode": "screen", "opacity": 0.3 }
   },

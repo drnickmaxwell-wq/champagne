@@ -13,6 +13,7 @@ const reportsDir = path.join(repoRoot, "reports", "hero-match");
 const resultsPath = path.join(reportsDir, "results.json");
 const bestPath = path.join(reportsDir, "best.png");
 const baseUrl = process.env.HERO_MATCH_URL ?? "http://localhost:3000";
+const heroMatchPath = process.env.HERO_MATCH_PATH ?? "/champagne/hero-debug";
 
 const missingReferenceMessage = [
   "Reference image not found for hero_match_sacred.",
@@ -118,70 +119,83 @@ const loadEdges = async (buffer, width, height) => {
 };
 
 const buildCandidates = () => {
-  const maskOpacities = [0.45, 0.55, 0.65, 0.75];
-  const backdropOpacities = [0.2, 0.27, 0.35];
-  const ringsOpacities = [0.35, 0.45];
-  const dotsOpacities = [0.35, 0.45];
-  const causticsOpacities = [0.25, 0.35, 0.45];
-  const causticsBlends = ["soft-light", "screen"];
+  const waveCausticsOpacities = [];
+  for (let value = 0; value <= 0.6001; value += 0.03) {
+    waveCausticsOpacities.push(Number(value.toFixed(2)));
+  }
 
+  const glassShimmerOpacities = [];
+  for (let value = 0; value <= 0.3001; value += 0.02) {
+    glassShimmerOpacities.push(Number(value.toFixed(2)));
+  }
+
+  const blendModes = ["screen", "soft-light"];
   const candidates = [];
-  for (const maskOpacity of maskOpacities) {
-    for (const backdropOpacity of backdropOpacities) {
-      for (const ringsOpacity of ringsOpacities) {
-        for (const dotsOpacity of dotsOpacities) {
-          for (const causticsOpacity of causticsOpacities) {
-            for (const causticsBlend of causticsBlends) {
-              candidates.push({
-                maskOpacity,
-                backdropOpacity,
-                ringsOpacity,
-                dotsOpacity,
-                causticsOpacity,
-                causticsBlend,
-                causticsSource: "motion",
-              });
-            }
-          }
+
+  for (const waveCausticsOpacity of waveCausticsOpacities) {
+    for (const glassShimmerOpacity of glassShimmerOpacities) {
+      for (const waveCausticsBlend of blendModes) {
+        for (const glassShimmerBlend of blendModes) {
+          if (waveCausticsBlend === "screen" && glassShimmerBlend === "screen") continue;
+          candidates.push({
+            waveCausticsOpacity,
+            glassShimmerOpacity,
+            waveCausticsBlend,
+            glassShimmerBlend,
+          });
         }
       }
     }
   }
+
   return candidates;
 };
 
 const applyOverrides = async (page, candidate) => {
   await page.evaluate((params) => {
-    const applyStyle = (id, style) => {
-      const el = document.querySelector(`[data-surface-id="${id}"]`);
-      if (!el) return false;
-      Object.assign(el.style, style);
+    const applyStyle = (selector, style) => {
+      const nodes = document.querySelectorAll(selector);
+      if (!nodes.length) return false;
+      nodes.forEach((node) => Object.assign(node.style, style));
       return true;
     };
 
-    applyStyle("field.waveBackdrop", { opacity: String(params.backdropOpacity) });
-    applyStyle("field.waveRings", { opacity: String(params.ringsOpacity) });
-    applyStyle("field.dotGrid", { opacity: String(params.dotsOpacity) });
-    applyStyle("mask.waveHeader", { opacity: String(params.maskOpacity) });
+    applyStyle('.hero-content', { display: "none" });
+    applyStyle('[data-surface-id="hero.contentFrame"]', { opacity: "0", display: "none" });
 
-    const overlayCaustics = document.querySelector('[data-surface-id="overlay.caustics"]');
-    if (overlayCaustics) {
-      overlayCaustics.style.opacity = "0";
-      overlayCaustics.style.display = "none";
-    }
+    applyStyle('[data-surface-id="overlay.caustics"]', {
+      opacity: String(params.waveCausticsOpacity),
+      mixBlendMode: params.waveCausticsBlend,
+    });
+    applyStyle('[data-surface-id="sacred.motion.waveCaustics"]', {
+      opacity: String(params.waveCausticsOpacity),
+      mixBlendMode: params.waveCausticsBlend,
+    });
 
-    const motionCaustics = document.querySelector('[data-surface-id="sacred.motion.waveCaustics"]');
-    if (motionCaustics) {
-      motionCaustics.style.opacity = String(params.causticsOpacity);
-      motionCaustics.style.mixBlendMode = params.causticsBlend;
-    }
+    applyStyle('[data-surface-id="overlay.glassShimmer"]', {
+      opacity: String(params.glassShimmerOpacity),
+      mixBlendMode: params.glassShimmerBlend,
+    });
+    applyStyle('[data-surface-id="sacred.motion.glassShimmer"]', {
+      opacity: String(params.glassShimmerOpacity),
+      mixBlendMode: params.glassShimmerBlend,
+    });
   }, candidate);
 };
 
 const captureHero = async (page) => {
-  const hero = page.locator(".hero-renderer");
-  await hero.waitFor({ state: "visible", timeout: 15000 });
-  return hero.screenshot({ type: "png" });
+  let lastError;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const heroSurface = page.locator(".hero-debug-hero-shell .hero-renderer .hero-surface-stack");
+    try {
+      await heroSurface.waitFor({ state: "visible", timeout: 15000 });
+      return await heroSurface.screenshot({ type: "png" });
+    } catch (error) {
+      lastError = error;
+      await page.waitForTimeout(200);
+    }
+  }
+  throw lastError;
 };
 
 const main = async () => {
@@ -201,25 +215,35 @@ const main = async () => {
   const candidates = buildCandidates();
   const results = [];
 
+  await page.goto(`${baseUrl}${heroMatchPath}?heroDebug=1`, { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(800);
+
+  await applyOverrides(page, candidates[0]);
+  await page.waitForTimeout(150);
+  const baselineShot = await captureHero(page);
+  const { width, height } = await sharp(baselineShot).metadata();
+  if (!width || !height) throw new Error("Unable to read screenshot dimensions.");
+  const matchWidth = Math.min(480, width);
+  const matchHeight = Math.max(1, Math.round((matchWidth / width) * height));
+
+  const [referenceLab, referenceEdge] = await Promise.all([
+    loadLab(referenceBuffer, matchWidth, matchHeight),
+    loadEdges(referenceBuffer, matchWidth, matchHeight),
+  ]);
+
   for (const candidate of candidates) {
-    await page.goto(`${baseUrl}/?heroDebug=1`, { waitUntil: "networkidle" });
-    await page.waitForTimeout(2000);
     await applyOverrides(page, candidate);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(150);
 
     const shot = await captureHero(page);
-    const { width, height } = await sharp(shot).metadata();
-    if (!width || !height) throw new Error("Unable to read screenshot dimensions.");
 
-    const [labShot, labRef, edgeShot, edgeRef] = await Promise.all([
-      loadLab(shot, width, height),
-      loadLab(referenceBuffer, width, height),
-      loadEdges(shot, width, height),
-      loadEdges(referenceBuffer, width, height),
+    const [labShot, edgeShot] = await Promise.all([
+      loadLab(shot, matchWidth, matchHeight),
+      loadEdges(shot, matchWidth, matchHeight),
     ]);
 
-    const labMse = mse(labShot, labRef);
-    const edgeMse = mse(edgeShot, edgeRef);
+    const labMse = mse(labShot, referenceLab);
+    const edgeMse = mse(edgeShot, referenceEdge);
     const score = labMse * 0.7 + edgeMse * 0.3;
 
     results.push({
@@ -233,10 +257,8 @@ const main = async () => {
   results.sort((a, b) => a.score - b.score);
   const best = results[0];
 
-  await page.goto(`${baseUrl}/?heroDebug=1`, { waitUntil: "networkidle" });
-  await page.waitForTimeout(2000);
   await applyOverrides(page, best.candidate);
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(150);
 
   const bestShot = await captureHero(page);
   fs.writeFileSync(bestPath, bestShot);

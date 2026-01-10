@@ -1,160 +1,127 @@
 {
-  "generatedAt": "2026-01-09T08:04:16.273Z",
-  "totalCandidates": 288,
+  "generatedAt": "2026-01-10T18:11:28.661Z",
+  "totalCandidates": 1008,
   "top10": [
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.12,
+        "glassShimmerOpacity": 0.06,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10541.871969972446,
-      "labMse": 14848.218348307199,
-      "edgeMse": 493.73042052469134
+      "score": 10685.05059479449,
+      "labMse": 14941.637968608853,
+      "edgeMse": 753.0133892276423
     },
     {
       "candidate": {
-        "maskOpacity": 0.45,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.12,
+        "glassShimmerOpacity": 0.3,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10542.032147988504,
-      "labMse": 14848.217326521924,
-      "edgeMse": 494.2667314105293
+      "score": 10685.084319952573,
+      "labMse": 14941.767056233062,
+      "edgeMse": 752.8246019647696
     },
     {
       "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.03,
+        "glassShimmerOpacity": 0.04,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10542.38435670764,
-      "labMse": 14848.806064415709,
-      "edgeMse": 494.06703872215127
+      "score": 10685.437463301716,
+      "labMse": 14941.411184507679,
+      "edgeMse": 754.8321138211383
     },
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.15,
+        "glassShimmerOpacity": 0.12,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10542.922286227,
-      "labMse": 14859.414889905871,
-      "edgeMse": 471.10621097630195
+      "score": 10685.437463301716,
+      "labMse": 14941.411184507679,
+      "edgeMse": 754.8321138211383
     },
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0,
+        "glassShimmerOpacity": 0.28,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10542.962316152558,
-      "labMse": 14860.685494122794,
-      "edgeMse": 468.27490088867603
+      "score": 10685.589711495031,
+      "labMse": 14941.46518744354,
+      "edgeMse": 755.2136009485095
     },
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.42,
+        "glassShimmerOpacity": 0.16,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10543.286156490942,
-      "labMse": 14848.940402757084,
-      "edgeMse": 496.75958186994467
+      "score": 10685.715926772808,
+      "labMse": 14937.700256887985,
+      "edgeMse": 764.4191565040651
     },
     {
       "candidate": {
-        "maskOpacity": 0.75,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.42,
+        "glassShimmerOpacity": 0.02,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10543.368799518708,
-      "labMse": 14849.167453422851,
-      "edgeMse": 496.50527374237265
+      "score": 10685.741885444895,
+      "labMse": 14938.047978771454,
+      "edgeMse": 763.6943343495935
     },
     {
       "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.3,
+        "glassShimmerOpacity": 0.02,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10543.383046161782,
-      "labMse": 14849.138347508988,
-      "edgeMse": 496.620676351639
+      "score": 10686.105266203702,
+      "labMse": 14941.508793473351,
+      "edgeMse": 756.8303692411924
     },
     {
       "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.48,
+        "glassShimmerOpacity": 0,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10543.383785099157,
-      "labMse": 14860.818713858735,
-      "edgeMse": 469.36895132680576
+      "score": 10687.019039916438,
+      "labMse": 14938.05407633243,
+      "edgeMse": 767.9372882791328
     },
     {
       "candidate": {
-        "maskOpacity": 0.75,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.25,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "waveCausticsOpacity": 0.48,
+        "glassShimmerOpacity": 0.24,
+        "waveCausticsBlend": "soft-light",
+        "glassShimmerBlend": "screen"
       },
-      "score": 10543.4326268418,
-      "labMse": 14838.838901231611,
-      "edgeMse": 520.8179865989073
+      "score": 10687.023564250225,
+      "labMse": 14938.325623870822,
+      "edgeMse": 767.3187584688347
     }
   ],
   "best": {
     "candidate": {
-      "maskOpacity": 0.55,
-      "backdropOpacity": 0.2,
-      "ringsOpacity": 0.35,
-      "dotsOpacity": 0.45,
-      "causticsOpacity": 0.35,
-      "causticsBlend": "screen",
-      "causticsSource": "motion"
+      "waveCausticsOpacity": 0.12,
+      "glassShimmerOpacity": 0.06,
+      "waveCausticsBlend": "soft-light",
+      "glassShimmerBlend": "screen"
     },
-    "score": 10541.871969972446,
-    "labMse": 14848.218348307199,
-    "edgeMse": 493.73042052469134
+    "score": 10685.05059479449,
+    "labMse": 14941.637968608853,
+    "edgeMse": 753.0133892276423
   }
 }
