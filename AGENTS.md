@@ -450,6 +450,33 @@ No copy changes.
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — PASS T32 Hero Residue Cleanup (Director-authorized)
+Agents MAY modify (token-only fallback removal only):
+
+apps/web/app/components/hero/HeroRenderer.tsx
+
+packages/champagne-hero/src/BaseChampagneSurface.tsx
+
+packages/champagne-hero/src/ChampagneHeroFrame.tsx
+
+packages/champagne-hero/src/HeroPreviewDebug.tsx
+
+Scope:
+
+Remove literal #hex, rgba or rgb, and gradient fallbacks from inline style strings by replacing them with semantic tokens already used elsewhere (--surface-*, --border-*, --text-*, --shadow-*, and existing hero tokens).
+
+Preserve the same property keys and component structure.
+
+If a fallback exists, remove the fallback portion (do not replace with a literal).
+
+Hard prohibitions remain:
+
+No edits to packages/champagne-manifests/data/hero/**
+
+No edits to apps/web/app/globals.css
+
+No edits to hero engine runtime config files beyond the 4 files listed.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.

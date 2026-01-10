@@ -11,8 +11,8 @@ export function HeroPreviewDebug({ hero }: HeroPreviewDebugProps) {
         marginTop: "1rem",
         padding: "0.75rem 1rem",
         borderRadius: "var(--radius-md)",
-        background: "rgba(0,0,0,0.35)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.5))",
+        background: "var(--surface-ink-soft)",
+        border: "1px solid var(--champagne-keyline-gold)",
         color: "var(--text-high)",
         fontSize: "0.875rem",
       }}
