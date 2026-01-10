@@ -5,20 +5,19 @@ import type { SectionRegistryEntry } from "./SectionRegistry";
 const containerStyle: CSSProperties = {
   position: "relative",
   borderRadius: "var(--radius-lg)",
-  border: "1px solid var(--champagne-keyline-gold)",
+  border: "1px solid var(--border-subtle)",
   padding: "clamp(1.5rem, 3vw, 2.5rem)",
-  background:
-    "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft) 82%, transparent)), radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--smh-white) 14%, transparent), transparent 38%)",
+  background: "var(--surface-1)",
   boxShadow: "var(--shadow-soft)",
   overflow: "hidden",
+  color: "var(--text-high)",
 };
 
 const accentBar: CSSProperties = {
   position: "absolute",
   inset: "0 0 auto 0",
   height: "3px",
-  background:
-    "linear-gradient(90deg, color-mix(in srgb, var(--champagne-keyline-gold) 40%, transparent), color-mix(in srgb, var(--champagne-keyline-gold) 8%, transparent))",
+  background: "var(--border-subtle)",
 };
 
 const headerGrid: CSSProperties = {
@@ -60,9 +59,11 @@ const ratingBadge: CSSProperties = {
   gap: "0.5rem",
   padding: "0.55rem 0.9rem",
   borderRadius: "999px",
-  border: "1px solid var(--champagne-keyline-gold)",
-  background: "color-mix(in srgb, var(--bg-ink) 70%, transparent)",
+  border: "1px solid var(--border-subtle)",
+  background: "var(--surface-2)",
+  color: "var(--text-high)",
   fontWeight: 700,
+  boxShadow: "var(--shadow-soft)",
 };
 
 const reviewsGrid: CSSProperties = {
@@ -74,11 +75,12 @@ const reviewsGrid: CSSProperties = {
 
 const cardStyle: CSSProperties = {
   borderRadius: "var(--radius-md)",
-  border: "1px solid var(--champagne-keyline-gold)",
+  border: "1px solid var(--border-subtle)",
   padding: "1rem",
-  background: "linear-gradient(180deg, color-mix(in srgb, var(--bg-ink) 82%, transparent), color-mix(in srgb, var(--bg-ink-soft) 76%, transparent))",
+  background: "var(--surface-2)",
   display: "grid",
   gap: "0.5rem",
+  boxShadow: "var(--shadow-soft)",
 };
 
 const quoteStyle: CSSProperties = {
@@ -89,7 +91,7 @@ const quoteStyle: CSSProperties = {
 
 const nameStyle: CSSProperties = {
   fontSize: "0.95rem",
-  color: "var(--text-strong)",
+  color: "var(--text-high)",
   fontWeight: 600,
 };
 

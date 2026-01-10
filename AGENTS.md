@@ -285,6 +285,24 @@ Hard prohibitions remain in force:
 - No header/footer edits.
 - No token edits.
 
+EXEMPTION — PASS T12 Chip/Pill/Badge Token Purity (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_GoogleReviews.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text + interaction states) for chip/pill/badge/tag UI.
+- No layout changes.
+- No copy changes.
+
+Hard prohibitions remain in force:
+- Sacred zones unchanged.
+- No hero engine/manifests.
+- No apps/web/app/layout.tsx edits.
+- No apps/web/app/globals.css edits.
+- No header/footer edits.
+- No token edits.
+
 
 Only within task scope.
 

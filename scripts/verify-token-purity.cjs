@@ -7,6 +7,7 @@ const targetFiles = [
   "packages/champagne-cta/src/ChampagneCTAButton.tsx",
   "packages/champagne-sections/src/Section_TextBlock.tsx",
   "packages/champagne-sections/src/Section_FeatureList.tsx",
+  "packages/champagne-sections/src/Section_GoogleReviews.tsx",
   "packages/champagne-sections/src/Section_PatientStoriesRail.tsx",
   "packages/champagne-sections/src/Section_MediaBlock.tsx",
   "packages/champagne-sections/src/Section_TreatmentOverviewRich.tsx",
