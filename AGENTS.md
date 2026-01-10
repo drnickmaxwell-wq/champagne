@@ -414,6 +414,23 @@ No app layout/globals edits.
 
 Only within task scope.
 
+EXEMPTION — PASS T24 (MediaBlock Surface Contract) — Director-authorized
+Agents MAY modify:
+- packages/champagne-sections/src/Section_MediaBlock.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+
+Replace default MediaBlock “glass slab” surfaces with porcelain semantic surfaces.
+
+Token-only (background/border/shadow/text only).
+
+No structure/layout changes.
+
+No copy changes.
+
+Hard prohibitions remain unchanged.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.
