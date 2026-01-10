@@ -68,7 +68,7 @@ export function Section_TreatmentOverviewRich({ section }: SectionTreatmentOverv
                 boxShadow: "var(--shadow-soft)",
               }}
             >
-              <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.55, color: "var(--text-high)" }}>{bullet}</p>
+              <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.55, color: "var(--text-medium)" }}>{bullet}</p>
             </div>
           ))}
         </div>
