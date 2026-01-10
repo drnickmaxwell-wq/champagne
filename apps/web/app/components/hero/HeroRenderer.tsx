@@ -243,10 +243,13 @@ export async function HeroRenderer({
   ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
-    const tunedBlend = applyBlendTuning(id ?? "", entry.blendMode as CSSProperties["mixBlendMode"] | undefined);
+    const isSacredHomeCaustics = isSacredHomeDefault && id === "sacred.motion.waveCaustics";
+    const resolvedBlend = isSacredHomeCaustics ? "screen" : entry.blendMode ?? undefined;
+    const resolvedOpacity = isSacredHomeCaustics ? 0.45 : entry.opacity ?? undefined;
+    const tunedBlend = applyBlendTuning(id ?? "", resolvedBlend as CSSProperties["mixBlendMode"] | undefined);
 
-    if (entry.opacity !== undefined && entry.opacity !== null) {
-      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", entry.opacity, tunedBlend));
+    if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
+      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", resolvedOpacity, tunedBlend));
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
