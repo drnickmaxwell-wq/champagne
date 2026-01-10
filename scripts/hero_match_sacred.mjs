@@ -13,7 +13,7 @@ const reportsDir = path.join(repoRoot, "reports", "hero-match");
 const resultsPath = path.join(reportsDir, "results.json");
 const bestPath = path.join(reportsDir, "best.png");
 const baseUrl = process.env.HERO_MATCH_URL ?? "http://localhost:3000";
-const targetPath = process.env.HERO_MATCH_PATH ?? "/champagne/hero-debug";
+const targetPath = process.env.HERO_MATCH_PATH ?? "/";
 
 const missingReferenceMessage = [
   "Reference image not found for hero_match_sacred.",
@@ -92,9 +92,9 @@ const loadLab = async (buffer, width, height) => {
 };
 
 const buildCandidates = () => {
-  const causticsOpacities = Array.from({ length: 21 }, (_, i) => Number((i * 0.03).toFixed(2)));
-  const shimmerOpacities = Array.from({ length: 16 }, (_, i) => Number((i * 0.02).toFixed(2)));
-  const blends = ["screen", "soft-light"];
+  const causticsOpacities = Array.from({ length: 14 }, (_, i) => Number((0.1 + i * 0.05).toFixed(2)));
+  const shimmerOpacities = Array.from({ length: 12 }, (_, i) => Number((0.05 + i * 0.03).toFixed(2)));
+  const blends = ["soft-light", "screen", "overlay", "normal"];
 
   const candidates = [];
   for (const causticsOpacity of causticsOpacities) {
@@ -117,29 +117,11 @@ const buildCandidates = () => {
 
 const applyOverrides = async (page, candidate) => {
   await page.evaluate((params) => {
-    const applyStyle = (id, style) => {
-      const el = document.querySelector(`[data-surface-id="${id}"]`);
-      if (!el) return false;
-      Object.assign(el.style, style);
-      return true;
-    };
-
-    const heroContent = document.querySelector(".hero-content");
-    if (heroContent) heroContent.style.display = "none";
-    applyStyle("hero.contentFrame", { opacity: "0" });
-
-    const overlayCaustics = document.querySelector('[data-surface-id="overlay.caustics"]');
-    if (overlayCaustics) {
-      overlayCaustics.style.opacity = "0";
-      overlayCaustics.style.display = "none";
-    }
-
     const motionCaustics = document.querySelector('[data-surface-id="sacred.motion.waveCaustics"]');
     if (motionCaustics) {
       motionCaustics.style.opacity = String(params.causticsOpacity);
       motionCaustics.style.mixBlendMode = params.causticsBlend;
     }
-
     const motionShimmer = document.querySelector('[data-surface-id="sacred.motion.glassShimmer"]');
     if (motionShimmer) {
       motionShimmer.style.opacity = String(params.shimmerOpacity);
@@ -148,12 +130,58 @@ const applyOverrides = async (page, candidate) => {
   }, candidate);
 };
 
+const waitForHeroReady = async (page) => {
+  const selectors = [
+    '[data-surface-id="hero.contentFrame"]',
+    '[data-surface-id="mask.waveHeader"]',
+    '[data-surface-id="sacred.motion.waveCaustics"]',
+    '[data-surface-id="sacred.motion.glassShimmer"]',
+  ];
+  await Promise.all(selectors.map((selector) => page.waitForSelector(selector, { state: "attached", timeout: 15000 })));
+};
+
 const captureHero = async (page) => {
-  const isolateHero = page.locator(".heroDebugIsolate .hero-renderer");
-  const target = (await isolateHero.count()) > 0 ? isolateHero.first() : page.locator(".hero-renderer").first();
+  const target = page.locator(".hero-renderer").first();
   await target.waitFor({ state: "visible", timeout: 15000 });
   return target.screenshot({ type: "png" });
 };
+
+const hideHeroContent = async (page) => {
+  await page.addStyleTag({
+    content: `
+      .hero-content { display: none !important; }
+      [data-surface-id="hero.contentFrame"] { opacity: 0 !important; }
+    `,
+  });
+};
+
+const dumpEvidence = async (page) =>
+  page.evaluate(() => {
+    const ids = [
+      "gradient.base",
+      "field.waveBackdrop",
+      "field.waveRings",
+      "mask.waveHeader",
+      "field.dotGrid",
+      "overlay.particles",
+      "overlay.filmGrain",
+      "sacred.motion.waveCaustics",
+      "sacred.motion.glassShimmer",
+    ];
+    return ids.map((id) => {
+      const el = document.querySelector(`[data-surface-id="${id}"]`);
+      if (!el) return { id, present: false };
+      const s = getComputedStyle(el);
+      return {
+        id,
+        present: true,
+        opacity: s.opacity,
+        mixBlendMode: s.mixBlendMode,
+        backgroundImage: s.backgroundImage,
+        maskImage: s.maskImage,
+      };
+    });
+  });
 
 const main = async () => {
   const resolvedReference = ensureReference();
@@ -175,7 +203,8 @@ const main = async () => {
   let referenceSize = null;
 
   await page.goto(`${baseUrl}${targetPath}?heroDebug=1`, { waitUntil: "domcontentloaded" });
-  await page.waitForTimeout(300);
+  await waitForHeroReady(page);
+  await hideHeroContent(page);
 
   for (const [index, candidate] of candidates.entries()) {
     await applyOverrides(page, candidate);
@@ -221,15 +250,18 @@ const main = async () => {
     best,
   }, null, 2));
 
-  await browser.close();
-  if (child) child.kill("SIGTERM");
-
   console.log("Top 10 candidates:");
   results.slice(0, 10).forEach((entry, index) => {
     console.log(`#${index + 1}`, entry.score.toFixed(4), entry.candidate);
   });
   console.log(`Best candidate saved to ${bestPath}`);
   console.log(`Results saved to ${resultsPath}`);
+
+  const evidence = await dumpEvidence(page);
+  console.log("ACCEPTANCE_EVIDENCE_JSON:", JSON.stringify(evidence));
+
+  await browser.close();
+  if (child) child.kill("SIGTERM");
 };
 
 main().catch((error) => {
