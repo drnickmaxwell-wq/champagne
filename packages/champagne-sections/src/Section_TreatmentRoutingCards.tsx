@@ -164,7 +164,7 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
         .champagne-routing-card:focus-visible {
           outline: 2px solid var(--border-subtle);
           outline-offset: 2px;
-          box-shadow: var(--shadow-soft), 0 0 0 3px var(--border-subtle);
+          box-shadow: var(--shadow-soft);
         }
       `}</style>
       <div style={headerStyle}>
