@@ -111,6 +111,18 @@ Touching hero debug
 
 Touching any marketing hero renderer
 
+3.4 Residue Gate (token purity enforcement)
+
+All new component style work must be token-only.
+
+Any new exemption MUST:
+
+- List exact files in this AGENTS.md
+- Add those files to scripts/verify-token-purity.cjs targetFiles
+- Run: node scripts/verify-token-purity.cjs (must PASS)
+
+This is process law, not design law.
+
 4. CI & Visibility Requirements
 
 Guards MUST be visible in GitHub / CI.
