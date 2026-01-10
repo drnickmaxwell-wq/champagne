@@ -17,6 +17,7 @@ const targetFiles = [
   "packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx",
   "packages/champagne-sections/src/Section_TreatmentMidCTA.tsx",
   "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+  "packages/champagne-sections/src/sections/Section_PeopleGrid.tsx",
   "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
   "apps/web/app/components/layout/Footer.tsx",
   "apps/web/app/components/layout/FooterLuxe.module.css",

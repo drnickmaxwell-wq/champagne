@@ -75,9 +75,9 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
 
   return (
     <BaseChampagneSurface
-      tone="ink"
+      tone="default"
       variant="plain"
-      className="grid gap-6 rounded-[var(--radius-lg)] border border-[color:var(--champagne-keyline-gold)] bg-[color:var(--surface-ink,var(--bg-ink))] p-5 shadow-[var(--shadow-soft)] md:p-8 [--champagne-glass-bg:none] [--champagne-sheen-alpha:0] [--glass-opacity:0] [--smh-gradient:none]"
+      className="grid gap-6 rounded-[var(--radius-lg)] border border-[color:var(--border-subtle)] bg-[color:var(--surface-1)] p-5 shadow-[var(--shadow-soft)] md:p-8 [--champagne-glass-bg:none] [--champagne-sheen-alpha:0] [--glass-opacity:0] [--smh-gradient:none]"
     >
       <div className="grid items-start gap-2">
         {eyebrow && (
@@ -96,9 +96,9 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
           return (
             <div
               key={`${person.name}-${index}`}
-              className="grid gap-3 rounded-[var(--radius-md)] border border-[color:var(--champagne-keyline-gold)] bg-[color:var(--surface-ink-soft,var(--surface-glass))] p-4 shadow-[var(--shadow-soft)]"
+              className="grid gap-3 rounded-[var(--radius-md)] border border-[color:var(--border-subtle)] bg-[color:var(--surface-2)] p-4 shadow-[var(--shadow-soft)]"
             >
-              <div className="aspect-[4/5] w-full max-h-48 overflow-hidden rounded-[var(--radius-md)] border border-[color:var(--champagne-keyline-gold)] bg-[color:var(--surface-glass-soft,var(--surface-glass))]">
+              <div className="aspect-[4/5] w-full max-h-48 overflow-hidden rounded-[var(--radius-md)] border border-[color:var(--border-subtle)] bg-[color:var(--surface-1)]">
                 {person.imageSrc ? (
                   <img
                     src={person.imageSrc}
@@ -106,7 +106,7 @@ export function Section_PeopleGrid({ section }: { section?: SectionRegistryEntry
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="h-full w-full bg-[color:var(--surface-ink-soft,var(--surface-glass-soft,var(--surface-glass)))]" aria-hidden />
+                  <div className="h-full w-full bg-[color:var(--surface-1)]" aria-hidden />
                 )}
               </div>
 

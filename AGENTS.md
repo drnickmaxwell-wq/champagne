@@ -389,6 +389,29 @@ Scope:
 Hard prohibitions remain unchanged.
 
 
+EXEMPTION — PASS T23 PeopleGrid Porcelain Contract (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/sections/Section_PeopleGrid.tsx
+
+Scope:
+
+Semantic-token-only surface/border/shadow/text replacements.
+
+Remove ink-surface forcing inside porcelain sections.
+
+No layout/structure edits.
+
+No copy changes.
+
+Hard prohibitions unchanged:
+
+Sacred zones unchanged.
+
+No hero/manifests edits.
+
+No app layout/globals edits.
+
+
 Only within task scope.
 
 6. Role-Based Authority
