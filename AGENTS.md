@@ -481,3 +481,23 @@ Stop
 Report
 
 Do not patch blindly
+
+Semantic Surface Contract (PASS T21)
+
+Statement: token purity ≠ semantic correctness.
+
+| Surface token | Intended meaning | Allowed contexts | Forbidden contexts |
+| --- | --- | --- | --- |
+| --surface-0 | Base porcelain canvas for primary content | Default page backgrounds, body sections, standard cards | Glass effects, high-contrast slabs, footer emotion treatments |
+| --surface-1 | Elevated porcelain for layered surfaces | Secondary sections, raised cards, inset panels | Glass effects, high-contrast slabs, footer emotion treatments |
+| --surface-2 | Highest porcelain elevation | Topmost cards, featured panels, modal shells | Glass effects, high-contrast slabs, footer emotion treatments |
+| --surface-glass | Translucent glass surface | Hero overlays, frosted panes, glass panels | Default cards, standard section backgrounds |
+| --surface-ink | Dark ink surfaces | High-contrast slabs, dark callouts, cinematic bands | Porcelain replacements, standard body content |
+| --surface-footer-emotion | Reserved footer emotional slab | Footer emotional sections only | Body content, cards, general sections |
+
+Hard rules:
+- glass ≠ default cards
+- ink ≠ porcelain replacement
+- footer emotion ≠ body content
+
+Note: Future enforcement may exist, but does not yet.
