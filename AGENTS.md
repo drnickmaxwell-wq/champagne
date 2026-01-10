@@ -335,6 +335,22 @@ Semantic-token-only change. No layout/structure. No copy.
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — PASS T17 Tools Trio Token Purity (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TreatmentToolsTrio.tsx
+- scripts/verify-token-purity.cjs (ONLY if needed to include the file)
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text).
+- No layout/structure edits.
+- No copy changes.
+
+Hard prohibitions remain:
+- No hero edits
+- No manifests edits
+- No globals.css
+- No header/footer edits
+
 
 Only within task scope.
 
