@@ -973,26 +973,6 @@ export async function HeroRenderer({
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
               background-position: center;
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
-            }
-            .hero-renderer [data-surface-id="field.waveBackdrop"],
-            .hero-renderer [data-surface-id="field.waveRings"],
-            .hero-renderer [data-surface-id="field.dotGrid"] {
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
             }
             .hero-renderer .hero-layer.motion,
             .hero-renderer .hero-surface-layer.hero-surface--motion {
@@ -1016,14 +996,6 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
-              }
-              .hero-renderer [data-surface-id="field.waveBackdrop"],
-              .hero-renderer [data-surface-id="field.waveRings"],
-              .hero-renderer [data-surface-id="field.dotGrid"] {
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="overlay.filmGrain"] {
                 background-image: var(--hero-grain-mobile);
