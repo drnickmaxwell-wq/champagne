@@ -352,6 +352,18 @@ Hard prohibitions remain:
 - No header/footer edits
 
 
+EXEMPTION — PASS T18 Patient Stories Rail Token Purity (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_PatientStoriesRail.tsx
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text).
+- No layout/structure edits.
+- No copy changes.
+
+Hard prohibitions remain unchanged.
+
+
 Only within task scope.
 
 6. Role-Based Authority
