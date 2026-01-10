@@ -1,15 +1,7 @@
 .footer {
   position: relative;
   color: color-mix(in oklab, var(--smh-sand, var(--surface-0)) 92%, transparent);
-  background: var(
-    --smh-footer-bg,
-    linear-gradient(
-      140deg,
-      color-mix(in srgb, var(--smh-ink) 94%, transparent) 0%,
-      color-mix(in srgb, var(--smh-ink-soft, var(--smh-ink)) 88%, transparent) 48%,
-      color-mix(in srgb, var(--smh-navy-900, var(--smh-ink)) 96%, transparent) 100%
-    )
-  );
+  background: var(--smh-footer-bg, var(--smh-ink));
   overflow: hidden;
   isolation: isolate;
 }
@@ -18,9 +10,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(120% 140% at 20% 0%, color-mix(in srgb, var(--smh-primary-teal, var(--brand-teal)) 18%, transparent) 0%, transparent 55%),
-    radial-gradient(120% 160% at 82% 10%, color-mix(in srgb, var(--smh-primary-magenta, var(--brand-magenta)) 16%, transparent) 0%, transparent 60%);
+  background: var(--smh-ink-soft, var(--smh-ink));
   opacity: 0.6;
   pointer-events: none;
   z-index: 0;
@@ -42,15 +32,8 @@
 .rim {
   height: 6px;
   width: 100%;
-  background: var(
-    --smh-footer-rim,
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--smh-accent-gold, var(--brand-gold)) 70%, transparent) 0%,
-      color-mix(in srgb, var(--smh-accent-gold, var(--brand-gold)) 45%, transparent) 100%
-    )
-  );
-  box-shadow: 0 6px 30px color-mix(in srgb, var(--smh-accent-gold, var(--brand-gold)) 22%, transparent);
+  background: var(--smh-footer-rim, var(--smh-accent-gold, var(--brand-gold)));
+  box-shadow: var(--shadow-soft);
   position: relative;
   z-index: 1;
 }
