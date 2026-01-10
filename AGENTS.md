@@ -322,6 +322,19 @@ Hard prohibitions remain in force:
 - No header/footer edits.
 - No token edits.
 
+EXEMPTION — PASS T14 Forms & Inputs (Director-authorized)
+Agents MAY modify:
+- apps/web/app/components/layout/FooterLuxe.module.css
+(only add Footer.tsx if absolutely required, but prefer CSS-only)
+
+Scope:
+
+Unify focus-visible ring styling for newsletter input only.
+
+Semantic-token-only change. No layout/structure. No copy.
+
+Hard prohibitions remain unchanged.
+
 
 Only within task scope.
 
