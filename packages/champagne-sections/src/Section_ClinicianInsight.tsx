@@ -34,9 +34,8 @@ export function Section_ClinicianInsight({ section }: SectionClinicianInsightPro
       variant="inkGlass"
       style={{
         padding: "clamp(1.25rem, 3vw, 2.35rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.2))",
-        background:
-          "linear-gradient(160deg, color-mix(in srgb, var(--bg-ink, #06070c) 90%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent)), radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--smh-white, #ffffff) 8%, transparent), transparent 34%)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-1)",
       }}
     >
       <div style={blockStyle}>
