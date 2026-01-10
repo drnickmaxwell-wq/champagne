@@ -363,6 +363,19 @@ Scope:
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — PASS T19 Repo-wide literal colour residue scan + patch (Director-authorized)
+Agents MAY modify:
+- apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Semantic-token-only replacements.
+- No structure/layout changes.
+- No copy changes.
+- Hero is off-limits (do not touch hero renderer, manifests, or hero routes).
+
+Hard prohibitions remain unchanged.
+
 
 Only within task scope.
 

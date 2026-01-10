@@ -49,8 +49,8 @@ function deriveHeroContent(manifest?: unknown, fallbackSlug?: string) {
 
 const surfaceStyle: CSSProperties = {
   padding: "clamp(1.5rem, 3.5vw, 2.75rem)",
-  border: "1px solid color-mix(in srgb, var(--champagne-keyline-gold, var(--surface-0)) 24%, transparent)",
-  backgroundColor: "var(--bg)",
+  border: "1px solid var(--border-subtle)",
+  backgroundColor: "var(--surface-1)",
   backgroundImage: "none",
   boxShadow: "none",
   borderRadius: "0",
@@ -70,7 +70,7 @@ function TreatmentBreadcrumb({ label, href }: { label?: string; href: string }) 
         alignItems: "center",
         gap: "0.65rem",
         fontSize: "0.95rem",
-        color: "var(--text-medium, rgba(230,230,230,0.82))",
+        color: "var(--text-medium)",
         letterSpacing: "0.02em",
       }}
     >
@@ -105,11 +105,11 @@ function DebugPanel({
   return (
     <div
       style={{
-        border: "1px dashed color-mix(in srgb, var(--champagne-keyline-gold, #f9e8c3) 45%, transparent)",
+        border: "1px dashed var(--border-subtle)",
         borderRadius: "var(--radius-md)",
         padding: "0.9rem 1rem",
-        background: "color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 35%, transparent)",
-        color: "var(--text-medium, rgba(245,245,245,0.8))",
+        background: "var(--surface-2)",
+        color: "var(--text-medium)",
         display: "grid",
         gap: "0.4rem",
       }}
