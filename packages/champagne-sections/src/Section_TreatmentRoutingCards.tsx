@@ -142,6 +142,31 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
 
   return (
     <section style={containerStyle}>
+      <style>{`
+        .champagne-routing-card {
+          color: var(--text-high);
+        }
+
+        .champagne-routing-card:visited {
+          color: var(--text-high);
+        }
+
+        .champagne-routing-card:hover {
+          box-shadow: var(--shadow-soft), 0 0 0 1px var(--border-subtle);
+          color: var(--text-high);
+        }
+
+        .champagne-routing-card:active {
+          box-shadow: var(--shadow-soft), 0 0 0 1px var(--border-subtle);
+          color: var(--text-high);
+        }
+
+        .champagne-routing-card:focus-visible {
+          outline: 2px solid var(--border-subtle);
+          outline-offset: 2px;
+          box-shadow: var(--shadow-soft), 0 0 0 3px var(--border-subtle);
+        }
+      `}</style>
       <div style={headerStyle}>
         {eyebrow && <span style={eyebrowStyle}>{eyebrow}</span>}
         <h3 style={titleStyle}>{title}</h3>
@@ -153,6 +178,7 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
             href={card.href}
             style={cardStyle}
             aria-label={`${card.title} pathway`}
+            className="champagne-routing-card"
           >
             {card.tag && <span style={badgeStyle}>{card.tag}</span>}
             <div style={cardTitle}>{card.title}</div>
