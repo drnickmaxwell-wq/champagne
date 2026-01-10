@@ -80,23 +80,23 @@ export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, eyeb
 
   const heroBackground = layers.background
     ?? (heroType === "gilded"
-      ? "linear-gradient(145deg, color-mix(in srgb, var(--champagne-keyline-gold, #ffd789) 34%, transparent), color-mix(in srgb, var(--bg-ink, #06070c) 90%, transparent))"
+      ? "linear-gradient(145deg, color-mix(in srgb, var(--champagne-keyline-gold) 34%, transparent), color-mix(in srgb, var(--bg-ink) 90%, transparent))"
       : heroType === "soft-focus"
-        ? "radial-gradient(circle at 22% 18%, color-mix(in srgb, var(--smh-white, #ffffff) 18%, transparent), transparent 36%), linear-gradient(160deg, color-mix(in srgb, var(--bg-ink, #06070c) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent))"
-        : "linear-gradient(135deg, var(--smh-gradient-legacy, rgba(255,255,255,0.08)), color-mix(in srgb, var(--bg-ink, #06070c) 75%, transparent))");
+        ? "radial-gradient(circle at 22% 18%, color-mix(in srgb, var(--smh-white) 18%, transparent), transparent 36%), linear-gradient(160deg, color-mix(in srgb, var(--bg-ink) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft) 78%, transparent))"
+        : "linear-gradient(135deg, var(--smh-gradient-legacy), color-mix(in srgb, var(--bg-ink) 75%, transparent))");
 
   const vignetteLayer = layers.vignette
-    ?? "radial-gradient(circle at 50% 50%, transparent 35%, rgba(0,0,0,0.55))";
+    ?? "radial-gradient(circle at 50% 50%, transparent 35%, color-mix(in srgb, var(--bg-ink) 55%, transparent))";
 
   const waveLayer = layers.wave
-    ?? "linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0)), linear-gradient(15deg, rgba(255,255,255,0.06), transparent 65%)";
+    ?? "linear-gradient(135deg, color-mix(in srgb, var(--smh-white) 4%, transparent), transparent), linear-gradient(15deg, color-mix(in srgb, var(--smh-white) 6%, transparent), transparent 65%)";
 
   return (
     <BaseChampagneSurface
       variant="inkGlass"
       style={{
         padding: "clamp(2rem, 4vw, 3rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.35))",
+        border: "1px solid var(--champagne-keyline-gold)",
         background: heroBackground,
       }}
     >
@@ -110,7 +110,7 @@ export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, eyeb
               fontSize: "0.92rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "var(--text-medium, rgba(255,255,255,0.7))",
+              color: "var(--text-medium)",
             }}>
               {resolvedEyebrow}
             </span>
@@ -119,7 +119,7 @@ export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, eyeb
             {resolvedHeadline ?? "Placeholder hero headline"}
           </h1>
           {resolvedSubheadline && (
-            <p style={{ fontSize: "1.08rem", color: "var(--text-medium, rgba(255,255,255,0.82))", lineHeight: 1.65 }}>
+            <p style={{ fontSize: "1.08rem", color: "var(--text-medium)", lineHeight: 1.65 }}>
               {resolvedSubheadline}
             </p>
           )}
@@ -132,11 +132,11 @@ export function ChampagneHeroFrame({ heroId, preset, headline, subheadline, eyeb
               alignSelf: "flex-start",
               padding: "0.85rem 1.6rem",
               borderRadius: "var(--radius-md)",
-              background: "rgba(255, 215, 137, 0.14)",
+              background: "var(--surface-gold-soft)",
               color: "var(--text-high)",
               textDecoration: "none",
-              border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.35))",
-              boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
+              border: "1px solid var(--champagne-keyline-gold)",
+              boxShadow: "var(--shadow-soft)",
             }}
           >
             {cta.label}
