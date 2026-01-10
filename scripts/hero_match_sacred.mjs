@@ -13,6 +13,7 @@ const reportsDir = path.join(repoRoot, "reports", "hero-match");
 const resultsPath = path.join(reportsDir, "results.json");
 const bestPath = path.join(reportsDir, "best.png");
 const baseUrl = process.env.HERO_MATCH_URL ?? "http://localhost:3000";
+const targetPath = process.env.HERO_MATCH_PATH ?? "/champagne/hero-debug";
 
 const missingReferenceMessage = [
   "Reference image not found for hero_match_sacred.",
@@ -75,18 +76,6 @@ const startDevServer = async () => {
   return { child, started: true };
 };
 
-const sobelKernelX = {
-  width: 3,
-  height: 3,
-  kernel: [-1, 0, 1, -2, 0, 2, -1, 0, 1],
-};
-
-const sobelKernelY = {
-  width: 3,
-  height: 3,
-  kernel: [-1, -2, -1, 0, 0, 0, 1, 2, 1],
-};
-
 const mse = (a, b) => {
   let sum = 0;
   for (let i = 0; i < a.length; i += 1) {
@@ -102,47 +91,23 @@ const loadLab = async (buffer, width, height) => {
   return data;
 };
 
-const loadEdges = async (buffer, width, height) => {
-  const image = sharp(buffer)
-    .resize(width, height)
-    .greyscale()
-    .convolve(sobelKernelX)
-    .composite([
-      {
-        input: await sharp(buffer).resize(width, height).greyscale().convolve(sobelKernelY).toBuffer(),
-        blend: "add",
-      },
-    ]);
-  const { data } = await image.raw().toBuffer({ resolveWithObject: true });
-  return data;
-};
-
 const buildCandidates = () => {
-  const maskOpacities = [0.45, 0.55, 0.65, 0.75];
-  const backdropOpacities = [0.2, 0.27, 0.35];
-  const ringsOpacities = [0.35, 0.45];
-  const dotsOpacities = [0.35, 0.45];
-  const causticsOpacities = [0.25, 0.35, 0.45];
-  const causticsBlends = ["soft-light", "screen"];
+  const causticsOpacities = Array.from({ length: 21 }, (_, i) => Number((i * 0.03).toFixed(2)));
+  const shimmerOpacities = Array.from({ length: 16 }, (_, i) => Number((i * 0.02).toFixed(2)));
+  const blends = ["screen", "soft-light"];
 
   const candidates = [];
-  for (const maskOpacity of maskOpacities) {
-    for (const backdropOpacity of backdropOpacities) {
-      for (const ringsOpacity of ringsOpacities) {
-        for (const dotsOpacity of dotsOpacities) {
-          for (const causticsOpacity of causticsOpacities) {
-            for (const causticsBlend of causticsBlends) {
-              candidates.push({
-                maskOpacity,
-                backdropOpacity,
-                ringsOpacity,
-                dotsOpacity,
-                causticsOpacity,
-                causticsBlend,
-                causticsSource: "motion",
-              });
-            }
-          }
+  for (const causticsOpacity of causticsOpacities) {
+    for (const shimmerOpacity of shimmerOpacities) {
+      for (const causticsBlend of blends) {
+        for (const shimmerBlend of blends) {
+          if (causticsBlend === "screen" && shimmerBlend === "screen") continue;
+          candidates.push({
+            causticsOpacity,
+            causticsBlend,
+            shimmerOpacity,
+            shimmerBlend,
+          });
         }
       }
     }
@@ -159,10 +124,9 @@ const applyOverrides = async (page, candidate) => {
       return true;
     };
 
-    applyStyle("field.waveBackdrop", { opacity: String(params.backdropOpacity) });
-    applyStyle("field.waveRings", { opacity: String(params.ringsOpacity) });
-    applyStyle("field.dotGrid", { opacity: String(params.dotsOpacity) });
-    applyStyle("mask.waveHeader", { opacity: String(params.maskOpacity) });
+    const heroContent = document.querySelector(".hero-content");
+    if (heroContent) heroContent.style.display = "none";
+    applyStyle("hero.contentFrame", { opacity: "0" });
 
     const overlayCaustics = document.querySelector('[data-surface-id="overlay.caustics"]');
     if (overlayCaustics) {
@@ -175,13 +139,20 @@ const applyOverrides = async (page, candidate) => {
       motionCaustics.style.opacity = String(params.causticsOpacity);
       motionCaustics.style.mixBlendMode = params.causticsBlend;
     }
+
+    const motionShimmer = document.querySelector('[data-surface-id="sacred.motion.glassShimmer"]');
+    if (motionShimmer) {
+      motionShimmer.style.opacity = String(params.shimmerOpacity);
+      motionShimmer.style.mixBlendMode = params.shimmerBlend;
+    }
   }, candidate);
 };
 
 const captureHero = async (page) => {
-  const hero = page.locator(".hero-renderer");
-  await hero.waitFor({ state: "visible", timeout: 15000 });
-  return hero.screenshot({ type: "png" });
+  const isolateHero = page.locator(".heroDebugIsolate .hero-renderer");
+  const target = (await isolateHero.count()) > 0 ? isolateHero.first() : page.locator(".hero-renderer").first();
+  await target.waitFor({ state: "visible", timeout: 15000 });
+  return target.screenshot({ type: "png" });
 };
 
 const main = async () => {
@@ -195,48 +166,51 @@ const main = async () => {
 
   const { child } = await startDevServer();
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  const page = await browser.newPage({ viewport: { width: 960, height: 600 } });
 
   const referenceBuffer = fs.readFileSync(resolvedReference);
   const candidates = buildCandidates();
   const results = [];
+  let referenceLab = null;
+  let referenceSize = null;
 
-  for (const candidate of candidates) {
-    await page.goto(`${baseUrl}/?heroDebug=1`, { waitUntil: "networkidle" });
-    await page.waitForTimeout(2000);
+  await page.goto(`${baseUrl}${targetPath}?heroDebug=1`, { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(300);
+
+  for (const [index, candidate] of candidates.entries()) {
     await applyOverrides(page, candidate);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(75);
 
     const shot = await captureHero(page);
     const { width, height } = await sharp(shot).metadata();
     if (!width || !height) throw new Error("Unable to read screenshot dimensions.");
 
-    const [labShot, labRef, edgeShot, edgeRef] = await Promise.all([
-      loadLab(shot, width, height),
-      loadLab(referenceBuffer, width, height),
-      loadEdges(shot, width, height),
-      loadEdges(referenceBuffer, width, height),
-    ]);
+    if (!referenceLab || referenceSize?.width !== width || referenceSize?.height !== height) {
+      referenceLab = await loadLab(referenceBuffer, width, height);
+      referenceSize = { width, height };
+    }
 
-    const labMse = mse(labShot, labRef);
-    const edgeMse = mse(edgeShot, edgeRef);
-    const score = labMse * 0.7 + edgeMse * 0.3;
+    const labShot = await loadLab(shot, width, height);
+
+    const labMse = mse(labShot, referenceLab);
+    const score = labMse;
 
     results.push({
       candidate,
       score,
       labMse,
-      edgeMse,
     });
+
+    if ((index + 1) % 20 === 0) {
+      console.log(`Processed ${index + 1}/${candidates.length} candidates...`);
+    }
   }
 
   results.sort((a, b) => a.score - b.score);
   const best = results[0];
 
-  await page.goto(`${baseUrl}/?heroDebug=1`, { waitUntil: "networkidle" });
-  await page.waitForTimeout(2000);
   await applyOverrides(page, best.candidate);
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(75);
 
   const bestShot = await captureHero(page);
   fs.writeFileSync(bestPath, bestShot);
