@@ -12,9 +12,8 @@ interface RoutingCard {
 const containerStyle: CSSProperties = {
   borderRadius: "var(--radius-lg)",
   padding: "clamp(1.35rem, 2.8vw, 2.35rem)",
-  border: "1px solid var(--champagne-keyline-gold)",
-  background:
-    "linear-gradient(140deg, color-mix(in srgb, var(--bg-ink) 90%, transparent), color-mix(in srgb, var(--bg-ink-soft) 76%, transparent)), radial-gradient(circle at 16% 14%, color-mix(in srgb, var(--smh-white) 12%, transparent), transparent 36%)",
+  border: "1px solid var(--border-subtle)",
+  background: "var(--surface-1)",
   boxShadow: "var(--shadow-soft)",
   display: "grid",
   gap: "1rem",
@@ -51,11 +50,10 @@ const cardStyle: CSSProperties = {
   padding: "1rem",
   borderRadius: "var(--radius-md)",
   textDecoration: "none",
-  border: "1px solid var(--border-strong)",
-  background:
-    "linear-gradient(145deg, color-mix(in srgb, var(--surface-glass) 85%, transparent), color-mix(in srgb, var(--surface-glass) 45%, transparent))",
+  border: "1px solid var(--border-subtle)",
+  background: "var(--surface-2)",
   color: "var(--text-high)",
-  boxShadow: "var(--shadow-elevated)",
+  boxShadow: "var(--shadow-soft)",
   transition: "border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease",
 };
 
@@ -68,9 +66,8 @@ const badgeStyle: CSSProperties = {
   fontSize: "0.85rem",
   letterSpacing: "0.03em",
   color: "var(--text-medium)",
-  border: "1px solid color-mix(in srgb, var(--champagne-keyline-gold) 55%, transparent)",
-  background:
-    "linear-gradient(120deg, color-mix(in srgb, var(--champagne-keyline-gold) 14%, transparent), color-mix(in srgb, var(--bg-ink-soft) 75%, transparent))",
+  border: "1px solid var(--border-subtle)",
+  background: "var(--surface-1)",
 };
 
 const cardTitle: CSSProperties = {
