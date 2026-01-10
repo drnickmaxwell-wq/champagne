@@ -431,6 +431,25 @@ No copy changes.
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — PASS T25 (De-Glass Default Section Wrappers) — Director-authorized
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx
+- packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx
+- scripts/verify-token-purity.cjs
+- AGENTS.md
+
+Scope:
+
+Replace default glass/glass-deep surfaces with porcelain ladder surfaces.
+
+Token-only styling replacement (background/border/shadow/text).
+
+No structural/layout edits.
+
+No copy changes.
+
+Hard prohibitions remain unchanged.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.
