@@ -494,6 +494,20 @@ CSS-first; Footer.tsx only if unavoidable.
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — PASS T34 Footer Controls Interaction Contract (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- apps/web/app/components/layout/FooterLuxe.module.css
+- apps/web/app/components/layout/Footer.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+
+Footer newsletter input + button interaction states (hover/active/focus/disabled/placeholder).
+Token-only replacements. CSS-first. Single-token focus-visible ring. No structure/copy/layout changes.
+
+Hard prohibitions remain unchanged.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.
