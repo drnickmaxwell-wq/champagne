@@ -179,8 +179,11 @@ function resolveLayerRef(
   if (!ref) return undefined;
 
   if (typeof ref === "string") {
-    const mapped = map[ref];
+    const mapped = map[ref] as HeroSurfaceLayerDefinition | string | undefined;
     if (mapped) {
+      if (typeof mapped === "string") {
+        return { id: ref, asset: mapped };
+      }
       return { ...mapped, id: ref };
     }
     return { id: ref, asset: ref };
