@@ -151,8 +151,8 @@ export async function HeroRenderer({
   };
   const isDeMilkMode = mode === "home" || mode === "treatment";
   const internalOverlaysDisabled = true;
-  const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
-  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
+  const isSacredHomeDefault = mode === "home" && runtime.variant?.id === "default";
+  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeDefault;
   const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
   const grainOpacity =
     honorManifestOpacity && manifestGrainOpacity !== undefined
@@ -176,9 +176,10 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
-    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
-    if (token && activeMotionIds.has(token)) return false;
-    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
+    const isWaveMask = token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask");
+    if (isWaveMask && !isSacredHomeDefault) return false;
+    if (token && activeMotionIds.has(token) && !(isSacredHomeDefault && token === "overlay.caustics")) return false;
+    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics") && !isSacredHomeDefault) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
     if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
