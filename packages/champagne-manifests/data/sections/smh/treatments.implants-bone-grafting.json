@@ -10,27 +10,11 @@
       "variantId": "shoreham_implant_bone_grafting_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "IMPLANTS",
-      "title": "Bone grafting for dental implants in Shoreham-by-Sea",
-      "body": "Bone grafting can be used when there isn’t enough bone volume to place an implant in a stable, predictable position. The need for grafting depends on the site, how long the tooth has been missing, gum thickness, and the shape of the bone. We plan using CBCT imaging and digital scans to assess anatomy and map where the final tooth needs to sit, then discuss options such as minor grafting at implant placement or a staged approach where grafting is done first. We’ll explain healing times, how grafting affects treatment length, and what alternatives may be suitable if grafting isn’t ideal for your circumstances.",
-      "bullets": [
-        "CBCT-led planning to map bone and sinus space",
-        "Staged grafting and implant placement when healing time is needed",
-        "Guided implant placement once the foundation is ready",
-        "Transparent timelines, options, and fees before each step"
-      ],
-      "ctas": [
-        {
-          "label": "Plan a clinician-led implants bone grafting review",
-          "href": "/contact",
-          "variant": "primary"
-        },
-        {
-          "label": "Consider alternatives like Implant placement",
-          "href": "/contact?topic=implants",
-          "variant": "secondary"
-        }
-      ]
+      "eyebrow": "",
+      "title": "Preparing the jaw for implant treatment",
+      "body": "Bone grafting or sinus lift procedures may be recommended when there is insufficient bone to support implants safely.\n\nThese procedures are preparatory, not implant treatment themselves.\n\nRisks, healing, and limitations\n\nThese procedures involve surgery and carry risks. Healing time varies.\n\nRelationship to wider implant care\n\nBone grafting supports implant treatment. See the Dental Implants page for an overview.",
+      "bullets": [],
+      "ctas": []
     },
     {
       "instanceId": "bone-grafting-trust-signals",
@@ -38,15 +22,9 @@
       "variantId": "shoreham_implant_bone_grafting_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why patients trust us",
-      "title": "Planned implant care with safety first",
-      "items": [
-        "Cone beam scans and digital models to measure bone and sinus height",
-        "Treatment plans that stage grafting and implant placement to protect healing",
-        "Guided surgery principles to support accurate implant position",
-        "Clear aftercare with review points and direct contact if you need support",
-        "Honest discussion of options, alternatives, and investment before we begin"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "bone-grafting-explainer",
@@ -54,10 +32,10 @@
       "variantId": "shoreham_implant_bone_grafting_explainer",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "WHY BONE GRAFTING?",
-      "title": "Create a stable foundation for implants",
-      "body": "If bone height or width has reduced, adding graft material or lifting the sinus floor can give the implant a secure base. We recommend it only when scans show it will support long-term stability and comfort.",
-      "mediaHint": "CBCT-led planning and staged implant care"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "bone-grafting-who-for",
@@ -65,15 +43,9 @@
       "variantId": "shoreham_implant_bone_grafting_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Who it's for",
-      "title": "Who benefits from grafting or sinus lift?",
-      "items": [
-        "Missing teeth for a while with reduced bone volume",
-        "Previous gum issues that left thinner bone in the area",
-        "Upper back teeth where the sinus floor sits low",
-        "Patients choosing implants instead of removable dentures",
-        "Not everyone needs grafting — we confirm with scans and planning"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "bone-grafting-process",
@@ -81,17 +53,9 @@
       "variantId": "shoreham_implant_bone_grafting_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your pathway",
-      "title": "From scans to stable implant placement",
-      "items": [
-        "Consultation: talk through your goals, medical history, and comfort preferences",
-        "CBCT and digital impressions: map bone levels and neighbouring structures",
-        "Planning: agree the safest sequence and share timelines and fees",
-        "Grafting or sinus lift: place graft material with measured, gentle techniques",
-        "Healing window: allow integration time with review appointments",
-        "Implant placement: guided placement once the foundation is ready",
-        "Restoration and review: fit the crown or bridge and check bite comfort"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "bone-grafting-technology",
@@ -99,10 +63,10 @@
       "variantId": "shoreham_implant_bone_grafting_technology",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Digital planning that reduces surprises",
-      "body": "We pair CBCT imaging with guided surgery principles so grafting and implant placement align. Digital impressions and lab coordination help restorations seat comfortably once healing is complete.",
-      "mediaHint": "CBCT planning, guided placement, lab coordination"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "bone-grafting-aftercare",
@@ -110,15 +74,9 @@
       "variantId": "shoreham_implant_bone_grafting_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & risks",
-      "title": "Healing support and clear aftercare",
-      "items": [
-        "Gentle hygiene advice to keep the graft site clean without pressure",
-        "What to expect: temporary swelling or tenderness as tissues settle",
-        "Risks we monitor: infection, graft integration delays, or sinus discomfort",
-        "Review schedule so we can track healing and adjust if needed",
-        "Guidance on smoking and health factors that can affect recovery"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "implants-bone-grafting-mid-cta",
@@ -132,38 +90,9 @@
       "variantId": "shoreham_implant_bone_grafting_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Bone grafting FAQs",
-      "title": "Questions about grafting and sinus lifts",
-      "faqs": [
-        {
-          "question": "Do I often need bone grafting for implants?",
-          "answer": "No. We only recommend grafting when scans show there isn't enough bone to support an implant predictably."
-        },
-        {
-          "question": "What is a sinus lift?",
-          "answer": "A sinus lift gently raises the sinus floor and places graft material to create enough height for an implant near upper back teeth."
-        },
-        {
-          "question": "How long does grafting take to heal?",
-          "answer": "Healing times vary, but many grafts need several months before implant placement. We confirm your timeline after reviewing scans."
-        },
-        {
-          "question": "Can I have a temporary tooth while healing?",
-          "answer": "In many cases we can provide a provisional solution to maintain your smile while the graft heals."
-        },
-        {
-          "question": "Does grafting hurt?",
-          "answer": "Treatment is carried out with local anaesthetic and careful techniques; some soreness afterwards is normal and we support you with guidance."
-        },
-        {
-          "question": "What affects success?",
-          "answer": "Factors like smoking, diabetes control, and oral hygiene can influence healing. We tailor advice to your situation and monitor progress."
-        },
-        {
-          "question": "How much does it cost?",
-          "answer": "Costs depend on the type of grafting and number of implants. After assessment we share a clear plan with fees for each stage."
-        }
-      ]
+      "eyebrow": "",
+      "title": "",
+      "faqs": []
     },
     {
       "instanceId": "implants-bone-grafting-decision-clarity",
@@ -171,15 +100,10 @@
       "variantId": "smh_implants-bone-grafting_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
-      "bullets": [
-        "Appropriate when you want to find out when bone grafting is indicated to support implants.",
-        "Often follows Implant consultation (/treatments/implants-consultation); 3D scans (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Sedation dentistry (/treatments/sedation-dentistry); Aftercare and hygiene (/treatments/implants-aftercare).",
-        "Next steps we plan for: Implant placement (/treatments/implants); Teeth in a day (/treatments/implants-teeth-in-a-day); Implant restorations (/treatments/3d-implant-restorations)."
-      ]
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "bullets": []
     },
     {
       "instanceId": "bone-grafting-cta",
@@ -188,20 +112,9 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Ready to plan implants with confidence?",
-      "strapline": "Book an assessment in Shoreham-by-Sea and we’ll map the safest route — including whether grafting is needed.",
-      "ctas": [
-        {
-          "label": "Plan a clinician-led implants bone grafting review",
-          "href": "/treatments/implants-bone-grafting",
-          "variant": "primary"
-        },
-        {
-          "label": "Consider alternatives like Implant placement",
-          "href": "/treatments/implants",
-          "variant": "secondary"
-        }
-      ]
+      "title": "",
+      "strapline": "",
+      "ctas": []
     }
   ],
   "journeys": {
@@ -237,6 +150,10 @@
       {
         "label": "Aftercare and hygiene",
         "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Dental Implants",
+        "href": "/treatments/implants"
       }
     ]
   },

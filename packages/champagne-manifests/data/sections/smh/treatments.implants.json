@@ -10,14 +10,10 @@
       "variantId": "shoreham_implants_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "Implant dentistry",
-      "title": "Dental Implants in Shoreham-by-Sea",
-      "body": "Dental implants replace missing teeth using a small titanium post that supports a crown, bridge, or implant-retained denture. Planning matters: before any surgery we assess your mouth, review your medical history, and use CBCT imaging and digital scans to map bone, nerves, bite and the final tooth shape. This allows us to discuss realistic options, timing, and whether additional steps such as bone grafting or sinus lift assessment may be relevant. If implants aren’t the right fit, we’ll explain alternatives such as bridges or removable solutions and help you choose an approach that’s stable, maintainable and comfortable long-term.",
-      "bullets": [
-        "Consultations that map your goals before any surgery",
-        "Digital planning to protect bone and soft tissue",
-        "Restorations shaped to blend with nearby teeth"
-      ]
+      "eyebrow": "",
+      "title": "Dental implants — a considered approach to replacing missing teeth",
+      "body": "Dental implants are one option for replacing missing teeth. They are not suitable for everyone, and they are never a shortcut. When planned carefully and maintained properly, they can offer a stable, long-term way of restoring function and confidence.\n\nAt St Mary’s House Dental Care, implant treatment is approached conservatively and individually. Decisions are based on clinical assessment, risk management, and long-term oral health — not on selling a particular technique.\n\nWhat a dental implant is — and what it isn’t\n\nA dental implant is a small titanium fixture that is placed into the jawbone to support a replacement tooth or teeth. Over time, the surrounding bone may integrate with the implant, allowing it to act as a foundation for a crown, bridge, or denture.\n\nImplants do not replace teeth on their own. They are part of a broader restorative plan that involves diagnosis, planning, healing time, and long-term maintenance. They are not instant, and they are not guaranteed.\n\nWho implant treatment may be suitable for\n\nImplant treatment may be considered if you:\n- Are missing one or more teeth\n- Have healthy gums and controlled dental disease\n- Have sufficient bone, or may be suitable for grafting\n- Are in good general health\n- Are able to maintain excellent oral hygiene\n- Understand that implants require ongoing care and review\n\nImplants are not always the best option. In some situations, alternatives such as bridges or dentures may be more appropriate. A responsible treatment plan compares these options honestly.\n\nAssessment, planning, and safety\n\nSuccessful implant treatment begins with careful assessment. This may include:\n- A full clinical examination\n- Digital scans and 3D imaging where appropriate\n- Assessment of bone levels, bite, and gum health\n- Review of medical history and risk factors\n\nPlanning is individual. Rushing this stage increases risk and compromises long-term outcomes.\n\nTreatment is usually staged — not a single appointment\n\nImplant treatment is commonly carried out in stages. Depending on your circumstances, this may include:\n- Preparatory procedures such as bone grafting\n- Placement of the implant\n- A healing period to allow integration\n- Restoration with a crown, bridge, or denture\n\nSome cases can be restored more quickly than others, but no implant treatment is truly “instant”, and outcomes vary between individuals.\n\nMaintenance, longevity, and limitations\n\nDental implants require the same — and often greater — care than natural teeth. Long-term success depends on:\n- Daily cleaning at home\n- Regular professional maintenance\n- Monitoring of gum health and bone levels\n- Avoiding habits that increase risk, such as smoking\n\nImplants can fail. Understanding this risk, and how to reduce it, is an essential part of informed consent.\n\nAlternatives to implants\n\nImplants are not the only way to replace missing teeth. Depending on your situation, alternatives may include:\n- Fixed bridges\n- Removable dentures\n- Accepting spaces where appropriate\n\nChoosing the right option involves balancing function, appearance, risk, maintenance, and long-term oral health.\n\nWhy choose St Mary’s House Dental Care\n\nImplant care here is clinician-led and carefully planned. Dr Nick Maxwell has advanced postgraduate training in restorative and aesthetic dentistry, with additional qualifications in orthodontics and facial orthopaedics. Implant treatment is supported by digital planning and guided techniques where appropriate.\n\nThe focus is on careful assessment, clear explanation, and long-term patient relationships — not speed, volume, or sales targets.",
+      "bullets": []
     },
     {
       "instanceId": "implants-trust-signals",
@@ -25,14 +21,9 @@
       "variantId": "shoreham_implants_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why patients trust us",
-      "title": "Calm, evidence-led implant care",
-      "items": [
-        "Every case mapped with CBCT imaging and 3D implant planning software",
-        "Surgical guides designed for your anatomy before any visit to theatre",
-        "Close collaboration with labs for shade, shape, and bite harmony",
-        "Clear aftercare with direct lines back to the clinical team"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "implants-guided-planning",
@@ -40,16 +31,11 @@
       "variantId": "shoreham_implants_guided_planning",
       "order": 25,
       "seoRole": "primaryContent",
-      "eyebrow": "How we plan implants (CBCT + 3D planning)",
-      "title": "Scan-led planning for every implant",
-      "body": "Implants are only placed after a full clinical assessment and CBCT scan, followed by 3D planning software that positions the implant within your bone, nerves, and planned restoration. We share the plan with you before treatment and link to your implant consultation (/treatments/implant-consultation) if you want to review next steps in more detail.",
-      "bullets": [
-        "CBCT scan plus digital impressions to map bone, soft tissue, and bite",
-        "3D planning software to align the implant with your final crown or bridge",
-        "Guide design and fabrication in-house so you can see how precision is built in",
-        "Options for sedation (/treatments/sedation-dentistry) when appropriate"
-      ],
-      "mediaHint": "CBCT with 3D implant planning overlay"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "bullets": [],
+      "mediaHint": ""
     },
     {
       "instanceId": "implants-what-are",
@@ -57,10 +43,10 @@
       "variantId": "shoreham_implants_explainer",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What are dental implants?",
-      "title": "Titanium foundations that feel like your own teeth",
-      "body": "Implants replace a tooth root with a small titanium post that bonds with bone, supporting a crown, bridge, or denture that looks and feels secure.",
-      "mediaHint": "Implant post with custom crown"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "implants-who-for",
@@ -68,14 +54,9 @@
       "variantId": "shoreham_implants_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Who it helps",
-      "title": "Support for single or multiple missing teeth",
-      "items": [
-        "Single gaps where neighbouring teeth stay untouched",
-        "Several missing teeth needing a stable bridge",
-        "Full-arch solutions when dentures feel loose",
-        "Patients wanting to protect jaw bone volume"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "implants-process",
@@ -83,14 +64,10 @@
       "variantId": "shoreham_implants_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your implant pathway",
-      "title": "What to expect: scan, plan, guided placement",
-      "items": [
-        "Scan: CBCT imaging and digital records to understand bone, nerves, and the space for your new tooth",
-        "Plan: 3D implant positioning with a custom surgical guide designed and printed in-house",
-        "Place: measured, often flapless placement under local anaesthetic, with healing checks and clear aftercare (/treatments/implant-aftercare)"
-      ],
-      "strapline": "Timelines vary. Healing, bone quality, and your medical history guide whether we stage treatment or progress more quickly."
+      "eyebrow": "",
+      "title": "",
+      "items": [],
+      "strapline": ""
     },
     {
       "instanceId": "implants-technology",
@@ -98,10 +75,10 @@
       "variantId": "shoreham_implants_technology",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Guided surgery with 3D-printed surgical guides",
-      "body": "We design and 3D print your surgical guide in-house so implant positioning follows the digital plan precisely. Sleeved guidance helps us avoid key anatomy, manage angulation, and deliver the planned depth while keeping tissue handling as gentle as possible.",
-      "mediaHint": "In-house printed implant surgical guide"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "implants-benefits",
@@ -109,15 +86,9 @@
       "variantId": "shoreham_implants_guided_benefits",
       "order": 65,
       "seoRole": "supporting",
-      "eyebrow": "Patient benefits",
-      "title": "Why guided implant surgery matters",
-      "items": [
-        "Predictable positioning that supports long-term stability",
-        "Measured angulation to avoid nerves and sinus spaces",
-        "Often flapless or minimally invasive for less trauma and fewer stitches",
-        "Calmer appointments with shorter chair time and faster recovery",
-        "Comfort-focused aftercare to protect healing and implant longevity"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "implants-aftercare",
@@ -125,14 +96,9 @@
       "variantId": "shoreham_implants_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & risks",
-      "title": "Healing support with clear check-ins",
-      "items": [
-        "Written guidance on cleaning around the implant site",
-        "Regular reviews to monitor healing and bite comfort",
-        "Advice on diet and activity while tissues settle, including when to adjust routines after guided, often minimally invasive placement",
-        "Transparent discussion of risks like soreness or implant movement, plus individual candidacy, consent, and safety checks before proceeding"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "implants-mid-cta",
@@ -146,38 +112,9 @@
       "variantId": "shoreham_implants_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Implant FAQs",
-      "title": "Common implant questions",
-      "faqs": [
-        {
-          "question": "Why use CBCT and 3D planning for implants?",
-          "answer": "A CBCT scan shows bone, nerves, and sinus spaces in 3D. Planning software lets us position the implant within that anatomy and the planned crown, increasing accuracy before surgery."
-        },
-        {
-          "question": "What is a 3D-printed surgical guide?",
-          "answer": "It’s a custom template designed from your scan that directs implant angulation, depth, and position. We design and print guides in-house to follow the digital plan precisely."
-        },
-        {
-          "question": "Does guided surgery heal faster?",
-          "answer": "Guided placement often allows flapless or minimally invasive techniques, which can mean less swelling and fewer stitches. Healing still varies by bone quality and overall health."
-        },
-        {
-          "question": "Am I suitable for guided implants?",
-          "answer": "Suitability depends on bone volume, gum health, bite forces, and medical history. We confirm this during your implant consultation (/treatments/implant-consultation) and may advise preparatory care first."
-        },
-        {
-          "question": "How long do guided implants last?",
-          "answer": "Implants are intended for long-term use. Longevity depends on healing, home care, attending reviews, and following aftercare guidance (/treatments/implant-aftercare)."
-        },
-        {
-          "question": "What support is there after surgery?",
-          "answer": "You receive written aftercare, review appointments, and hygiene guidance. We also discuss comfort options, including sedation (/treatments/sedation-dentistry) if anxiety makes visits difficult."
-        },
-        {
-          "question": "Will I have a temporary tooth while it heals?",
-          "answer": "In many cases we provide a provisional crown or denture so you can smile and chew gently while the implant integrates."
-        }
-      ]
+      "eyebrow": "",
+      "title": "",
+      "faqs": []
     },
     {
       "instanceId": "implants-clinician",
@@ -185,15 +122,10 @@
       "variantId": "shoreham_implants_clinician",
       "order": 85,
       "seoRole": "supporting",
-      "eyebrow": "About the clinician",
-      "title": "Nearly 30 years of restorative and implant experience",
-      "body": "Your implant care is led by a clinician who graduated in 1998 (BDS, King’s), holds an MSc in Restorative & Aesthetic Dentistry, and a PGDip in Orthodontics & Facial Orthopaedics. Training includes a year-long implant surgical course plus intensive implant placement training in Cairo (2014), supporting balanced judgement across planning, surgery, and long-term maintenance.",
-      "bullets": [
-        "1998 dental graduate with almost three decades of clinical experience",
-        "Focus on restorative harmony so implants blend with surrounding teeth",
-        "Guided surgery skills strengthened through structured implant programs",
-        "Ongoing learning to combine 3D planning, surgery, and restorative outcomes"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "bullets": []
     },
     {
       "instanceId": "implants-decision-clarity",
@@ -201,15 +133,10 @@
       "variantId": "smh_implants_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after extraction or failed tooth (/treatments/extractions-and-oral-surgery) so the plan stays safe and measured.",
-      "bullets": [
-        "Appropriate when you want to get an overview of dental implant options and suitability.",
-        "Often follows Extraction or failed tooth (/treatments/extractions-and-oral-surgery); Gum health checks (/treatments/periodontal-gum-care); Digital planning (/treatments/3d-digital-dentistry).",
-        "Alternatives we balance: Sedation pathways (/treatments/implants-sedation); Aftercare and hygiene (/treatments/implants-aftercare).",
-        "Next steps we plan for: CBCT planning (/treatments/cbct-3d-scanning); Implant consultation (/treatments/implants-consultation); Implant restorations (/treatments/3d-implant-restorations)."
-      ]
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "bullets": []
     },
     {
       "instanceId": "implants-cta",
@@ -218,20 +145,9 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Book an Implant Consultation & Planning",
-      "strapline": "See how CBCT-led planning, in-house 3D printing, and guided placement can support a predictable result. Explore aftercare (/treatments/implant-aftercare) and digital dentistry (/treatments/3d-digital-dentistry) resources too.",
-      "ctas": [
-        {
-          "label": "Plan a clinician-led implants review",
-          "href": "/treatments/implants",
-          "variant": "primary"
-        },
-        {
-          "label": "Consider alternatives like CBCT planning",
-          "href": "/treatments/cbct-3d-scanning",
-          "variant": "secondary"
-        }
-      ]
+      "title": "",
+      "strapline": "",
+      "ctas": []
     }
   ],
   "journeys": {

@@ -10,27 +10,11 @@
       "variantId": "shoreham_implant_sinus_lift_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "IMPLANTS",
-      "title": "Sinus lift for dental implants in Shoreham-by-Sea",
-      "body": "A sinus lift is a grafting procedure used in the upper back jaw when the sinus space and bone height limit implant placement. Planning is essential: we use CBCT imaging to measure bone height, assess sinus anatomy, and determine whether a small “internal” lift at the time of implant placement is feasible or whether a staged approach is safer. We’ll talk through expected healing times, how this affects the overall timeline, and what you can expect during recovery. Not every case requires a sinus lift, and not every patient is high standards served by one — we’ll explain alternatives such as shorter implants, different implant positions, or other tooth replacement options where appropriate.",
-      "bullets": [
-        "Scan-led assessment (no guesswork)",
-        "Only recommended when needed",
-        "Planned, staged approach where appropriate",
-        "Focus on long-term implant stability"
-      ],
-      "ctas": [
-        {
-          "label": "Plan a clinician-led sinus lift review",
-          "href": "/contact",
-          "variant": "primary"
-        },
-        {
-          "label": "Consider alternatives like Implant placement",
-          "href": "/contact?topic=implants",
-          "variant": "secondary"
-        }
-      ]
+      "eyebrow": "",
+      "title": "Preparing the jaw for implant treatment",
+      "body": "Bone grafting or sinus lift procedures may be recommended when there is insufficient bone to support implants safely.\n\nThese procedures are preparatory, not implant treatment themselves.\n\nRisks, healing, and limitations\n\nThese procedures involve surgery and carry risks. Healing time varies.\n\nRelationship to wider implant care\n\nBone grafting supports implant treatment. See the Dental Implants page for an overview.",
+      "bullets": [],
+      "ctas": []
     },
     {
       "instanceId": "sinus-lift-trust-signals",
@@ -38,14 +22,8 @@
       "variantId": "shoreham_implant_sinus_lift_trust",
       "order": 20,
       "seoRole": "supporting",
-      "title": "Safety-first planning for upper jaw implants",
-      "items": [
-        "CBCT imaging to assess bone and sinus anatomy",
-        "Personalised treatment planning",
-        "Clear explanation of options and alternatives",
-        "Staged care when appropriate",
-        "Ongoing review and aftercare"
-      ]
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "sinus-lift-explainer",
@@ -53,10 +31,10 @@
       "variantId": "shoreham_implant_sinus_lift_explainer",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "WHAT IS A SINUS LIFT?",
-      "title": "Creating space for stable upper implants",
-      "body": "Explain simply what a sinus lift involves, why it’s sometimes used for upper back teeth, and that many patients do not need one.",
-      "mediaHint": "CBCT-led sinus lift planning"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "sinus-lift-who-for",
@@ -64,13 +42,8 @@
       "variantId": "shoreham_implant_sinus_lift_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "title": "Who might need a sinus lift?",
-      "items": [
-        "Missing upper back teeth for a long time",
-        "Reduced bone height beneath the sinus",
-        "Cases where additional support is needed for implant stability",
-        "Many implant patients don’t require a sinus lift — scans confirm this"
-      ]
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "sinus-lift-process",
@@ -78,17 +51,8 @@
       "variantId": "shoreham_implant_sinus_lift_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "title": "Your pathway: assessment to implant placement",
-      "items": [
-        "Implant consultation and discussion",
-        "CBCT scan and assessment",
-        "Options review (sinus lift vs alternatives)",
-        "Sinus lift procedure (if recommended)",
-        "Healing phase (varies by case)",
-        "Implant placement",
-        "Restoration stage",
-        "Reviews and long-term care"
-      ]
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "sinus-lift-technology",
@@ -96,13 +60,9 @@
       "variantId": "shoreham_implant_sinus_lift_technology",
       "order": 60,
       "seoRole": "supporting",
-      "title": "Digital planning that reduces surprises",
-      "body": "Emphasise diagnostics and planning rather than technical bravado.",
-      "items": [
-        "3D CBCT imaging",
-        "Guided planning principles",
-        "Coordinated clinical and lab workflows"
-      ]
+      "title": "",
+      "body": "",
+      "items": []
     },
     {
       "instanceId": "sinus-lift-aftercare",
@@ -110,14 +70,8 @@
       "variantId": "shoreham_implant_sinus_lift_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Aftercare, healing, and realistic expectations",
-      "items": [
-        "Expected swelling or soreness",
-        "Gentle aftercare guidance",
-        "When to contact the clinic",
-        "Smoking and general health considerations",
-        "Healing timelines vary and are reviewed"
-      ]
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "sinus-lift-mid-cta",
@@ -131,42 +85,9 @@
       "variantId": "shoreham_implant_sinus_lift_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Sinus lift FAQs",
-      "title": "Questions about sinus lifts and implants",
-      "faqs": [
-        {
-          "question": "Do I often need a sinus lift for upper implants?",
-          "answer": "No. We only advise a sinus lift when scans show it would improve implant stability."
-        },
-        {
-          "question": "Is a sinus lift painful?",
-          "answer": "Treatment is carried out with local anaesthetic. Some soreness afterwards is expected and we support you with guidance."
-        },
-        {
-          "question": "How long does healing take?",
-          "answer": "Healing times vary by case and are reviewed at follow-up appointments before moving to implant placement."
-        },
-        {
-          "question": "Can I have temporary teeth while healing?",
-          "answer": "In many situations we can discuss a temporary option to maintain appearance while healing progresses."
-        },
-        {
-          "question": "Are there alternatives to a sinus lift?",
-          "answer": "Sometimes shorter implants or angulated approaches may be possible. We review options once scans are assessed."
-        },
-        {
-          "question": "What are the risks?",
-          "answer": "Risks can include swelling, sinus discomfort, or graft healing delays. We explain these and monitor recovery closely."
-        },
-        {
-          "question": "Will it delay my implant treatment?",
-          "answer": "A healing phase is usually needed before implant placement. Timelines are shared so you know what to expect."
-        },
-        {
-          "question": "How much does a sinus lift cost?",
-          "answer": "Costs depend on the complexity and any staged care. After assessment we provide a tailored plan with fees for each step."
-        }
-      ]
+      "eyebrow": "",
+      "title": "",
+      "faqs": []
     },
     {
       "instanceId": "sinus-lift-decision-clarity",
@@ -174,14 +95,10 @@
       "variantId": "smh_sinus-lift_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
-      "bullets": [
-        "Often follows Implant consultation (/treatments/implants-consultation); 3D scans (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Sedation dentistry (/treatments/sedation-dentistry); Aftercare and hygiene (/treatments/implants-aftercare).",
-        "Next steps we plan for: Implant placement (/treatments/implants); Teeth in a day (/treatments/implants-teeth-in-a-day); Implant restorations (/treatments/3d-implant-restorations)."
-      ]
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "bullets": []
     },
     {
       "instanceId": "sinus-lift-cta",
@@ -190,20 +107,9 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Unsure whether a sinus lift is needed?",
-      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s necessary — and what isn’t — based on scans.",
-      "ctas": [
-        {
-          "label": "Plan a clinician-led sinus lift review",
-          "href": "/treatments/sinus-lift",
-          "variant": "primary"
-        },
-        {
-          "label": "Consider alternatives like implant consultation",
-          "href": "/treatments/implant-consultation",
-          "variant": "secondary"
-        }
-      ]
+      "title": "",
+      "strapline": "",
+      "ctas": []
     }
   ],
   "journeys": {
@@ -239,6 +145,10 @@
       {
         "label": "Aftercare and hygiene",
         "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Dental Implants",
+        "href": "/treatments/implants"
       }
     ]
   },

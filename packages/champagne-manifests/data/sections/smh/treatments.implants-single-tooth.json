@@ -10,14 +10,10 @@
       "variantId": "shoreham_single_implant_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "Single-tooth implants",
-      "title": "Replace one missing tooth with precision",
-      "body": "A single-tooth implant replaces one missing tooth without trimming down neighbouring teeth, which can make it a conservative option when conditions are suitable. Planning starts with the end in mind: we assess the bite, gum shape, bone volume, and the position of adjacent teeth, then use CBCT and digital scans to plan implant placement to support a natural-looking crown. We’ll explain timing options, including immediate placement in selected cases, and discuss factors that affect predictability such as smoking, gum health, and tooth grinding. If an implant isn’t appropriate, we’ll outline alternatives such as a bridge or a removable option and help you choose a stable long-term solution.",
-      "bullets": [
-        "Keep neighbouring teeth untouched while closing a single gap",
-        "Guided placement for accurate, comfortable healing",
-        "Crown shade-matched to blend with surrounding teeth"
-      ]
+      "eyebrow": "",
+      "title": "Replacing a single missing tooth with an implant",
+      "body": "A single tooth dental implant may be considered when one tooth is missing and the surrounding teeth are otherwise healthy. It is one of several options for replacing a single tooth and is not always the most appropriate solution.\n\nTreatment decisions should be based on clinical assessment, long-term risk, and maintenance — not on replacing a tooth simply because it can be done.\n\nHow a single tooth implant works\n\nA single tooth implant involves placing a titanium implant into the jawbone to support a custom-made crown. The implant acts as the foundation, while the crown replaces the visible part of the tooth.\n\nThis treatment is planned as part of a wider restorative approach and usually involves assessment, placement, healing, and restoration over time.\n\nWhen a single tooth implant may be suitable\n\nA single tooth implant may be considered if:\n- You are missing one tooth\n- The neighbouring teeth are healthy and do not require treatment\n- There is adequate bone, or bone grafting is possible\n- Gum health is stable\n- You are able to maintain good oral hygiene\n\nAlternatives to a single tooth implant\n\nDepending on your circumstances, alternatives may include:\n- A fixed dental bridge\n- A removable partial denture\n- Leaving the space untreated if appropriate\n\nPlanning and long-term considerations\n\nSingle tooth implants require ongoing care and professional maintenance. They are not maintenance-free and are not guaranteed.\n\nRelationship to wider implant treatment\n\nSingle tooth implants are one form of implant treatment. For a broader explanation of implant care, planning, risks, and alternatives, see the Dental Implants page.",
+      "bullets": []
     },
     {
       "instanceId": "single-implant-trust-signals",
@@ -25,13 +21,9 @@
       "variantId": "shoreham_single_implant_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why patients trust us",
-      "title": "Planning that protects the neighbouring teeth",
-      "items": [
-        "CBCT imaging and digital models to map bone and nerve position",
-        "Guided placement designed to avoid pressure on adjacent teeth",
-        "Provisional options and close follow-up with the clinical team"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "single-implant-what-are",
@@ -39,10 +31,10 @@
       "variantId": "shoreham_single_implant_explainer",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What is a single-tooth implant?",
-      "title": "A titanium root topped with a custom crown",
-      "body": "One implant post integrates with the jaw and supports a handcrafted crown, restoring the shape, shade, and feel of your missing tooth without touching its neighbours.",
-      "mediaHint": "Single implant post with custom crown"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "single-implant-who-for",
@@ -50,14 +42,9 @@
       "variantId": "shoreham_single_implant_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Who it helps",
-      "title": "Designed for single gaps",
-      "items": [
-        "A missing tooth after injury or decay",
-        "Gaps where a bridge would mean drilling healthy teeth",
-        "Front or back teeth where stability and aesthetics matter",
-        "Patients wanting to preserve bone and gum contour"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "single-implant-process",
@@ -65,16 +52,9 @@
       "variantId": "shoreham_single_implant_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your implant pathway",
-      "title": "Clear steps from consult to final crown",
-      "items": [
-        "Consult: discuss your goals, medical history, and smile photos",
-        "Scans: CBCT imaging and digital impressions for precise planning",
-        "Placement: guided implant placement with gentle anaesthetic",
-        "Healing: check-ins to track integration and soft tissue health",
-        "Crown fit: custom crown designed to match nearby teeth",
-        "Review: bite checks and long-term care guidance"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "single-implant-technology",
@@ -82,10 +62,10 @@
       "variantId": "shoreham_single_implant_technology",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Digital planning for a seamless single crown",
-      "body": "CBCT data, guided surgery sleeves, and close lab collaboration keep the implant precisely positioned and the crown shaded to blend naturally.",
-      "mediaHint": "Guided placement + shade-matched crown"
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "mediaHint": ""
     },
     {
       "instanceId": "single-implant-aftercare",
@@ -93,14 +73,9 @@
       "variantId": "shoreham_single_implant_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & risks",
-      "title": "Support while your implant settles",
-      "items": [
-        "Advice on cleaning around the implant without stressing the gum",
-        "Diet and activity guidance while healing progresses",
-        "Follow-up appointments to monitor integration and bite",
-        "Clear discussion of risks like soreness, infection, or implant movement"
-      ]
+      "eyebrow": "",
+      "title": "",
+      "items": []
     },
     {
       "instanceId": "implants-single-tooth-mid-cta",
@@ -114,34 +89,9 @@
       "variantId": "shoreham_single_implant_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Single implant FAQs",
-      "title": "Common questions about replacing one tooth",
-      "faqs": [
-        {
-          "question": "How long does a single implant take?",
-          "answer": "Many cases take several months from placement to final crown, depending on healing and whether a temporary tooth is needed."
-        },
-        {
-          "question": "Will the implant match my other teeth?",
-          "answer": "We photograph and shade-map the neighbouring teeth so the final crown blends in shape, colour, and texture."
-        },
-        {
-          "question": "Can I have a temporary tooth?",
-          "answer": "We can often provide a provisional solution to maintain your smile while the implant integrates."
-        },
-        {
-          "question": "Does it hurt?",
-          "answer": "Placement uses local anaesthetic and gentle techniques; most patients describe pressure rather than pain, with soreness managed afterwards."
-        },
-        {
-          "question": "How do I care for the implant at home?",
-          "answer": "We show you how to brush and use cleaning aids around the implant to keep the gumline healthy."
-        },
-        {
-          "question": "Am I suitable for an implant?",
-          "answer": "We assess bone levels, gum health, and medical history in Shoreham-by-Sea to confirm if an implant is the safest choice."
-        }
-      ]
+      "eyebrow": "",
+      "title": "",
+      "faqs": []
     },
     {
       "instanceId": "implants-single-tooth-decision-clarity",
@@ -149,15 +99,10 @@
       "variantId": "smh_implants-single-tooth_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
-      "bullets": [
-        "Appropriate when you want to assess whether a single-tooth implant is appropriate for your missing tooth.",
-        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
-        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
-      ]
+      "eyebrow": "",
+      "title": "",
+      "body": "",
+      "bullets": []
     },
     {
       "instanceId": "single-implant-cta",
@@ -166,20 +111,9 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Ready to replace a missing tooth securely?",
-      "strapline": "Book a single-tooth implant consultation in Shoreham-by-Sea or ask how the process works.",
-      "ctas": [
-        {
-          "label": "Plan a clinician-led implants single tooth review",
-          "href": "/treatments/implants-single-tooth",
-          "variant": "primary"
-        },
-        {
-          "label": "Consider alternatives like CBCT 3D scanning",
-          "href": "/treatments/cbct-3d-scanning",
-          "variant": "secondary"
-        }
-      ]
+      "title": "",
+      "strapline": "",
+      "ctas": []
     }
   ],
   "journeys": {
@@ -215,6 +149,10 @@
       {
         "label": "Sedation support",
         "href": "/treatments/implants-sedation"
+      },
+      {
+        "label": "Dental Implants",
+        "href": "/treatments/implants"
       }
     ]
   },
