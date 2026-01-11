@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "3D printed veneers",
-      "title": "3D printed veneers in Shoreham-by-Sea",
-      "body": "We offer digitally designed veneer restorations created from high-precision scans and 3D printing workflows. In carefully selected cases, printed resin veneers can be a highly conservative way to refresh a smile — with your bite, goals, and long-term plan guiding every decision. We’ll always discuss whether printed veneers, ceramic veneers, or another restoration is the most appropriate option for you.",
+      "title": "Digitally designed, 3D-printed veneer restorations — crafted with calm precision.",
+      "body": "We use high-precision scanning and digital smile planning to design ultra-thin, custom veneer restorations for carefully selected cases. You’ll get clear options, honest guidance, and a clinician-led plan — whether a printed resin restoration, ceramic veneer, or another approach is best for you.",
       "bullets": [
         "Scans map veneer thickness and edge transitions",
         "Mock-ups you can review before we finalise",
@@ -21,13 +21,13 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led 3d printed veneers review",
+          "label": "Book a consultation",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Consider alternatives like Smile design planning",
-          "href": "/treatments/digital-smile-design",
+          "label": "Explore treatment pathways",
+          "href": "/treatments",
           "preset": "secondary"
         }
       ]
@@ -55,8 +55,8 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "What they are",
-      "title": "Digitally designed, 3D-printed veneer restorations — carefully selected cases",
-      "body": "This is advanced digital restorative dentistry: we scan, design, and plan your case first, then create custom veneer restorations with a precise digital workflow. Suitability depends on bite forces, tooth position, enamel quality, and aesthetic goals — so we’ll guide you honestly on whether a printed veneer restoration, ceramic veneer, or an alternative approach is best for you.",
+      "title": "3D printed veneers in Shoreham-by-Sea",
+      "body": "These are digitally designed veneer restorations created from medical-grade dental resin using high-precision 3D printing. They’re planned from detailed scans and smile design previews, then finished and fitted with a focus on comfort, fit, and a highly conservative approach where clinically appropriate.\n\nSuitability varies — your bite, enamel quality, and long-term goals decide whether a printed resin restoration, ceramic veneer, or another option is the best match.",
       "bullets": [
         "Digital smile design preview before we start",
         "Highly conservative preparation in suitable cases",
@@ -183,8 +183,8 @@
       "componentId": "treatment_mid_cta",
       "order": 79,
       "seoRole": "supporting",
-      "title": "Not sure which veneer route fits you best?",
-      "strapline": "Book a calm consultation and we’ll assess your bite, goals, and options — printed restorations, ceramic veneers, or an alternative plan."
+      "title": "Explore options around printed veneers",
+      "strapline": "Compare complementary treatments and planning steps that often pair well with digitally designed veneer restorations. We’ll always help you choose what fits your bite, lifestyle, and long-term plan."
     },
     {
       "instanceId": "printed-veneers-faq",
@@ -241,16 +241,16 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Veneer Consultation & Smile Design",
-      "body": "Discuss printed and porcelain options with digital previews, timelines, and alternatives.",
+      "body": "If you’re considering printed resin veneer restorations, we’ll start with a calm, clinician-led assessment and digital preview. We’ll talk you through suitability, alternatives (including ceramic veneers), and how to keep results looking natural and stable over time.",
       "ctas": [
         {
-          "label": "Plan a clinician-led 3d printed veneers review",
-          "href": "/treatments/3d-printed-veneers",
+          "label": "Plan your consultation",
+          "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Consider alternatives like full smile makeover",
-          "href": "/treatments/full-smile-makeover",
+          "label": "Explore digital smile design",
+          "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
       ]
@@ -294,15 +294,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led 3d printed veneers review",
+      "label": "Plan a clinician-led 3D-printed veneer review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Consider alternatives like Smile design planning",
+      "label": "Explore digital smile design planning",
       "href": "/treatments/digital-smile-design"
     },
     "reassurance_intent": {
-      "label": "Map next steps such as Protect with night guards",
+      "label": "Protect results with night guard options",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }
