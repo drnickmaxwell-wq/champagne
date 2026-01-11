@@ -115,6 +115,8 @@ Touching any marketing hero renderer
 
 All new component style work must be token-only.
 
+Token source files may contain literals; all runtime usage must be token-only.
+
 Any new exemption MUST:
 
 - List exact files in this AGENTS.md
