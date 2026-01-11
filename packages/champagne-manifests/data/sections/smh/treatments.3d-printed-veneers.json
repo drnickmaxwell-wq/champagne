@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "3D printed veneers",
-      "title": "3D printed veneers in Shoreham-by-Sea",
-      "body": "Digitally planned veneers that give you a cost-effective, conservative option when porcelain is not required immediately.",
+      "title": "Digitally designed, 3D-printed veneer restorations in Shoreham-by-Sea",
+      "body": "Ultra-thin, custom veneer restorations planned using advanced digital scans and smile design previews — with clinical judgement guiding every decision.",
       "bullets": [
         "Scans map veneer thickness and edge transitions",
         "Mock-ups you can review before we finalise",
@@ -21,13 +21,13 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led 3d printed veneers review",
+          "label": "Book a consultation",
           "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Consider alternatives like Smile design planning",
-          "href": "/treatments/digital-smile-design",
+          "label": "Explore treatment pathways",
+          "href": "/treatments",
           "preset": "secondary"
         }
       ]
@@ -55,14 +55,13 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "What they are",
-      "title": "Digitally produced veneers with guided finishing",
-      "body": "We design veneers from high-resolution scans, print test sets to check comfort and shade, and finish them under clinician direction. Porcelain remains the premium long-term choice, but printed veneers can be a modern, cost-effective step for suitable cases.",
+      "title": "3D printed veneers in Shoreham-by-Sea",
+      "body": "These are digitally designed veneer restorations created from medical-grade dental resin using high-precision 3D printing. They’re planned from detailed scans and smile design previews, then finished and fitted with a focus on comfort, fit, and a highly conservative approach where clinically appropriate.\n\nSuitability varies — your bite, enamel quality, and long-term goals decide whether a printed resin restoration, ceramic veneer, or another option is the best match.",
       "bullets": [
-        "Design informed by your current enamel and bite",
-        "Printed mock-ups for review before the final finish",
-        "Conservative adjustments to protect natural tooth",
-        "Material choices explained with durability expectations",
-        "Pathway to porcelain when it best serves longevity"
+        "Digital smile design preview before we start",
+        "Highly conservative preparation in suitable cases",
+        "Custom-made restorations produced from precise scans",
+        "Planned around your bite and long-term maintenance"
       ]
     },
     {
@@ -107,14 +106,11 @@
       "order": 45,
       "seoRole": "primaryContent",
       "eyebrow": "Porcelain veneers vs digitally designed / 3D printed veneers",
-      "title": "Match the material to how long you want it to last",
+      "title": "Printed vs ceramic veneers — what’s different?",
+      "body": "Ceramic (porcelain) veneers and digitally printed veneer restorations are made from different materials and produced in different ways. Ceramic veneers are a long-established option. Printed restorations use modern scanning and printing technology to create precise, ultra-thin restorations for carefully selected cases. The right choice depends on your bite, goals, and long-term plan — not one material ‘winning’ for everyone.",
       "items": [
-        "Longevity: printed veneers support short-to-mid-term plans; porcelain remains the benchmark for long-term wear.",
-        "Cost: printed options are the most affordable entry point; porcelain reflects handcrafted lab work and durability.",
-        "Repairability: printed resins can often be repolished or reprinted; porcelain typically needs remaking if a major chip occurs.",
-        "Thickness: both are conservative; porcelain can be ultra-thin while printed veneers may need modest thickness for strength.",
-        "Aesthetic ceiling: porcelain delivers the highest translucency and texture; printed veneers provide a natural, precise upgrade with a satin finish.",
-        "Best suited: printed for previews, staged journeys, or budget-conscious choices; porcelain for enduring outcomes or when planning a full smile makeover (/treatments/full-smile-makeover)."
+        "Ceramic veneers (porcelain) — A long-established, lab-made option with excellent aesthetics and colour stability. Often chosen where a definitive ceramic solution is appropriate.",
+        "Digitally printed veneer restorations — A modern digital restorative option produced from scans and 3D printing workflows. Can be highly conservative in suitable cases and is planned around individual bite and function."
       ]
     },
     {
@@ -124,14 +120,15 @@
       "order": 50,
       "seoRole": "primaryContent",
       "eyebrow": "Your pathway",
-      "title": "From scan to refined finish",
+      "title": "Digitally designed, 3D-printed veneer restorations",
+      "body": "We offer advanced digitally designed veneer restorations using high-precision scanning and 3D printing technology. These restorations are custom designed from digital scans and printed from biocompatible dental resins used internationally in advanced restorative dentistry. The aim is a precise fit, controlled thickness, and a conservative approach — always guided by clinical judgement and careful case selection.",
       "items": [
-        "Digital consultation, photographs, and intraoral scan",
-        "Designing veneer thickness, edge curves, and gum harmony",
-        "Printing and reviewing a mock set or trial smile",
-        "Finishing and tinting to blend with natural teeth and speech",
-        "Fit appointment with bite, phonetics, and comfort checks",
-        "Maintenance plan, whitening coordination, and porcelain upgrade timing when ready"
+        "Precision fit from digital scans — We design from detailed 3D scans so the restoration is planned in relation to your tooth shape, contact points, and bite.",
+        "Ultra-thin, conservative designs (when suitable) — In the right cases, we can minimise tooth preparation and still achieve a meaningful aesthetic change.",
+        "Digitally repeatable workflow — Digital planning improves consistency and makes it easier to refine the design across appointments if needed.",
+        "Hand-finished by your clinician — Printed restorations are shaped, finished, and polished carefully by hand for a natural, bespoke result.",
+        "Case selection + bite planning first — We assess bite forces, tooth position, enamel, and habits (like grinding) before recommending printed veneer restorations.",
+        "Staged treatment planning options — Depending on your situation, these restorations may be used as long-term or medium-term aesthetic solutions, or as part of a staged plan."
       ],
       "strapline": "We outline when printed veneers are appropriate and when a ceramic route may be recommended."
     },
@@ -142,8 +139,13 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Materials & craftsmanship",
-      "title": "Regulated printed resins with hand finishing",
-      "body": "We use FDA-cleared and CE-marked resins for printed veneers, calibrated printers, and layered stains to add texture. Clinician-led finishing shapes edges for gum harmony and integrates the bite; porcelain remains available when the highest aesthetic ceiling is required."
+      "title": "Materials and finishing",
+      "body": "We use biocompatible dental resins supplied for regulated dental applications and process them strictly according to manufacturer instructions. The final restoration is then finished and polished by hand to refine shape, texture, and shine. If ceramic is the better option for your goals or bite, we’ll tell you clearly.",
+      "items": [
+        "Biocompatible dental resins — Chosen for clinical suitability and processed under manufacturer guidelines.",
+        "Hand-finished and polished — Designed digitally, then refined by hand for a natural result.",
+        "Honest guidance on alternatives — Where ceramic or another restoration is more appropriate, we’ll recommend it."
+      ]
     },
     {
       "instanceId": "printed-veneers-aftercare",
@@ -168,20 +170,21 @@
       "order": 75,
       "seoRole": "supporting",
       "eyebrow": "Limitations & honesty",
-      "title": "Transparent expectations for staged veneers",
+      "title": "What to consider before choosing printed veneer restorations",
+      "body": "Printed veneer restorations can be an excellent option in carefully selected cases — but suitability depends on bite forces, tooth position, enamel, and long-term maintenance. We’ll explain what’s realistic for your smile and help you choose the option that fits your plan and priorities.",
       "items": [
-        "Printed veneers are a value-led step, not a lifetime solution; we outline refresh or replacement timelines upfront.",
-        "Bite forces, dietary acids, and staining drinks can shorten lifespan — protective habits matter.",
-        "Maintenance includes hygiene visits, occasional re-polishing, and night guard use for clenching.",
-        "If goals need more coverage or detail, porcelain or composite bonding may be recommended instead (/treatments/composite-bonding).",
-        "Alternative routes like whitening or a full smile makeover are explored if they serve you better (/treatments/teeth-whitening, /treatments/full-smile-makeover)."
+        "Longevity varies by bite and habits",
+        "Maintenance and review matter",
+        "Case selection is key"
       ]
     },
     {
       "instanceId": "3d-printed-veneers-mid-cta",
       "componentId": "treatment_mid_cta",
       "order": 79,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "title": "Explore options around printed veneers",
+      "strapline": "Compare complementary treatments and planning steps that often pair well with digitally designed veneer restorations. We’ll always help you choose what fits your bite, lifestyle, and long-term plan."
     },
     {
       "instanceId": "printed-veneers-faq",
@@ -194,7 +197,7 @@
       "faqs": [
         {
           "question": "How long do digitally designed or printed veneers last?",
-          "answer": "They are designed for short-to-mid-term wear. Lifespan depends on your bite, diet, and maintenance; we outline when refreshes or porcelain upgrades make sense."
+          "answer": "Longevity depends on bite forces, tooth position, habits such as grinding, and how the restorations are looked after. We’ll plan for durability and talk you through realistic expectations for your individual case."
         },
         {
           "question": "What do printed veneers cost?",
@@ -202,7 +205,7 @@
         },
         {
           "question": "Who are printed veneers suitable for?",
-          "answer": "They suit patients seeking a preview, staged journey, or budget-conscious plan with healthy gums and enamel. If you need maximum longevity or load-bearing strength, we may suggest porcelain instead."
+          "answer": "Suitability is decided after a full assessment of enamel, alignment, bite forces, and aesthetic goals. If printed veneer restorations aren’t right for you, we’ll recommend a better alternative."
         },
         {
           "question": "What maintenance do printed veneers need?",
@@ -238,16 +241,16 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Veneer Consultation & Smile Design",
-      "body": "Discuss printed and porcelain options with digital previews, timelines, and alternatives.",
+      "body": "If you’re considering printed resin veneer restorations, we’ll start with a calm, clinician-led assessment and digital preview. We’ll talk you through suitability, alternatives (including ceramic veneers), and how to keep results looking natural and stable over time.",
       "ctas": [
         {
-          "label": "Plan a clinician-led 3d printed veneers review",
-          "href": "/treatments/3d-printed-veneers",
+          "label": "Plan your consultation",
+          "href": "/contact",
           "preset": "primary"
         },
         {
-          "label": "Consider alternatives like full smile makeover",
-          "href": "/treatments/full-smile-makeover",
+          "label": "Explore digital smile design",
+          "href": "/treatments/digital-smile-design",
           "preset": "secondary"
         }
       ]
@@ -291,15 +294,15 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led 3d printed veneers review",
+      "label": "Plan a clinician-led 3D-printed veneer review",
       "href": "/contact"
     },
     "secondary_intent": {
-      "label": "Consider alternatives like Smile design planning",
+      "label": "Explore digital smile design planning",
       "href": "/treatments/digital-smile-design"
     },
     "reassurance_intent": {
-      "label": "Map next steps such as Protect with night guards",
+      "label": "Protect results with night guard options",
       "href": "/treatments/night-guards-occlusal-splints"
     }
   }
