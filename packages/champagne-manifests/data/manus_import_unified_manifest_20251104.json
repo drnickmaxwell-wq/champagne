@@ -894,60 +894,60 @@
         {
           "id": "full_smile_makeover_overview_rich",
           "type": "treatment_overview_rich",
-          "title": "Smile makeovers guided by a shared plan",
-          "copy": "We map veneers, whitening, aligners, or restorations into one coordinated plan with clear checkpoints.",
+          "title": "Smile makeovers at St Mary’s House Dental Care",
+          "copy": "A “smile makeover” can mean many things — from subtle refinement to more involved restorative work.\n\nAt St Mary’s House Dental Care, we use the term in a clinical way: a smile makeover is a thoughtful plan that improves the appearance of your smile without losing sight of health, stability, and long-term maintenance.\n\nThere’s no one-size-fits-all smile. Our role is to help you choose what’s sensible, conservative where possible, and predictable over time.",
           "bullets": [
-            "Plan designed from scans and photos",
-            "Sequence options reviewed together",
-            "Checkpoints keep outcomes aligned"
+            "Thoughtful plan that improves appearance without losing sight of health, stability, and long-term maintenance.",
+            "There’s no one-size-fits-all smile.",
+            "Choose what’s sensible, conservative where possible, and predictable over time."
           ]
         },
         {
           "id": "full_smile_makeover_media_feature",
           "type": "treatment_media_feature",
-          "label": "Plan canvas",
-          "title": "Preview the makeover path",
-          "copy": "A visual map shows phases, materials, and timing so you know what happens when.",
-          "mediaHint": "Smile plan canvas"
+          "label": "What a smile makeover can involve",
+          "title": "What a smile makeover can involve",
+          "copy": "A smile makeover may include one or more of the following, depending on what you actually need:\n• Whitening to brighten the overall smile\n• Composite bonding for conservative shape changes\n• Aligners to improve alignment and spacing\n• Veneers for carefully selected cases where tooth surface changes are appropriate\n• Crowns or restorative dentistry when teeth are heavily restored or structurally compromised\n• Implant replacement where teeth are missing and suitability is confirmed\n\nNot every patient needs every option — and not every patient needs treatment at all. Often the best results come from doing less, but doing it well.",
+          "mediaHint": "What a smile makeover can involve"
         },
         {
           "id": "full_smile_makeover_tools_trio",
           "type": "treatment_tools_trio",
-          "label": "Planning tools",
-          "title": "Tools that keep complex plans clear",
-          "copy": "Each tool keeps the makeover coordinated and transparent.",
+          "label": "Conservative first, long-term always",
+          "title": "Conservative first, long-term always",
+          "copy": "Cosmetic dentistry is easiest to sell when it’s described as a “quick transformation”. It’s safer — and more honest — to describe it as a set of choices with trade-offs.\n\nWe’re comfortable saying no when a request isn’t in a patient’s best interest.\n\nThis is the difference between a makeover that looks good in photos and one that remains stable and healthy over time.",
           "items": [
             {
-              "title": "Digital smile design",
-              "description": "Aligns proportions and material choices before we start."
+              "title": "Conservative where possible",
+              "description": "Preserving tooth structure matters."
             },
             {
-              "title": "Phase timeline",
-              "description": "Lays out aligner, veneer, or whitening steps with review points."
+              "title": "Planning-first",
+              "description": "We look at the whole mouth, not just the front teeth."
             },
             {
-              "title": "Photo and scan tracking",
-              "description": "We log progress to keep adjustments on-plan."
+              "title": "Clear about maintenance",
+              "description": "All cosmetic work needs looking after."
             }
           ]
         },
         {
           "id": "full_smile_makeover_clinician_insight",
           "type": "clinician_insight",
-          "label": "Clinician insight",
-          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
+          "label": "How we plan your smile makeover",
+          "quote": "Every case begins with assessment and listening.\n\nDepending on your needs, planning may include:\n• Clinical examination of teeth, gums and bite\n• Photographs and digital scans where appropriate\n• Discussion of what you like (and don’t like) about your smile\n• Explanation of options, limitations, and realistic outcomes\n• A staged plan if treatment is better carried out gradually\n\nWe focus on clarity: what’s possible, what’s sensible, and what would be better avoided.\n\nA smile makeover isn’t just about the result. It also involves:\n• The health of your gums\n• How your bite functions\n• What can be cleaned and maintained long-term\n• Whether treatment is reversible or involves permanent change\n\nWe’ll explain these factors clearly, so you can decide with confidence and without pressure.",
           "attribution": "Clinical team",
           "role": "Smile design"
         },
         {
           "id": "full_smile_makeover_patient_stories",
           "type": "patient_stories_rail",
-          "label": "Patient stories",
-          "title": "Makeover journeys",
+          "label": "In many cases, small changes can make a meaningful difference.",
+          "title": "Why patients ask about smile makeovers",
           "stories": [
-            { "summary": "Combined aligners and whitening with clear checkpoints.", "name": "Case P" },
-            { "summary": "Reviewed veneer mock-ups before printing finals.", "name": "Case Q" },
-            { "summary": "Tracked each phase with photos to stay aligned to the plan.", "name": "Case R" }
+            { "summary": "Worn or chipped edges; Gaps or uneven spacing.", "name": "Worn or chipped edges" },
+            { "summary": "Crowding or orthodontic relapse; Uneven tooth shape or size.", "name": "Crowding or orthodontic relapse" },
+            { "summary": "Older restorations that show when smiling; A smile that feels tired or dull despite otherwise healthy teeth.", "name": "Older restorations that show when smiling" }
           ]
         },
         {
@@ -957,16 +957,16 @@
           "title": "Smile makeover questions",
           "faqs": [
             {
-              "question": "How is the plan built?",
-              "answer": "We combine scans, photos, and goals to set phases for alignment, whitening, and restorations."
+              "question": "Is a smile makeover right for everyone?",
+              "answer": "Not necessarily. Suitability depends on oral health, bite, expectations, and long-term maintenance. We confirm this during assessment."
             },
             {
-              "question": "Can we adjust along the way?",
-              "answer": "Checkpoints let us refine timing or materials while staying on-plan."
+              "question": "Does a smile makeover always involve veneers?",
+              "answer": "No. Many smile improvements can be achieved with whitening, bonding, or orthodontic alignment alone. Veneers are considered only where appropriate."
             },
             {
-              "question": "How do I follow the phases?",
-              "answer": "A shared roadmap outlines what happens next and when review visits are scheduled."
+              "question": "How long does treatment take?",
+              "answer": "Timelines vary depending on the plan. Some cases are completed quickly; others are staged over time for predictability and stability. All dental work has a lifespan and requires maintenance. We’ll explain what to expect and how to look after it long-term."
             }
           ]
         },
