@@ -1,5 +1,6 @@
 import type { CSSProperties, Ref } from "react";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import heroGlueManifest from "./heroGlue.manifest.json";
 
 export interface HeroRendererV2Props {
   mode?: HeroMode;
@@ -16,11 +17,27 @@ export interface HeroRendererV2Props {
     waveRingsSize: string;
     waveRingsRepeat: string;
     waveRingsPosition: string;
+    waveRingsImageRendering: string;
     dotGridSize: string;
     dotGridRepeat: string;
     dotGridPosition: string;
+    dotGridImageRendering: string;
   }>;
 }
+
+type GlueRule = {
+  backgroundSize?: string;
+  backgroundRepeat?: string;
+  backgroundPosition?: string;
+  imageRendering?: CSSProperties["imageRendering"];
+};
+
+type GlueManifest = {
+  version: number;
+  modes: Record<string, Record<string, GlueRule>>;
+};
+
+type GlueSource = "manifest" | "override" | "none";
 
 const resolveAssetUrl = (entry?: { path?: string; asset?: { id?: string }; id?: string }) => {
   if (!entry) return undefined;
@@ -41,6 +58,7 @@ const resolveBackgroundGlue = (url?: string) => {
 };
 
 const resolveBackgroundImage = (url?: string) => (url ? `url("${url}")` : undefined);
+const resolvedGlueManifest = heroGlueManifest as GlueManifest;
 
 function HeroFallback() {
   return (
@@ -252,16 +270,67 @@ export async function HeroRendererV2({
   const overlayDotsGlue = resolveBackgroundGlue(overlayDotsUrl);
   const particlesGlue = resolveBackgroundGlue(particlesUrl);
   const grainGlue = resolveBackgroundGlue(grainUrlDesktop);
+  const glueTelemetry = new Map<
+    string,
+    {
+      source: GlueSource;
+      backgroundSize?: string;
+      backgroundRepeat?: string;
+      backgroundPosition?: string;
+      imageRendering?: string;
+    }
+  >();
+  const resolveManifestGlue = (surfaceId: string): GlueRule | undefined => {
+    const modeGlue = resolvedGlueManifest.modes?.[mode];
+    return modeGlue?.[surfaceId];
+  };
+  const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule) => {
+    if (!url) {
+      glueTelemetry.set(surfaceId, { source: "none" });
+      return null;
+    }
+    const baseGlue = resolveBackgroundGlue(url) ?? {};
+    const manifestGlue = resolveManifestGlue(surfaceId);
+    const hasManifest = Boolean(manifestGlue && Object.keys(manifestGlue).length > 0);
+    const hasOverride = Boolean(overrideGlue && Object.keys(overrideGlue).length > 0);
+    const glue = {
+      ...baseGlue,
+      ...(manifestGlue ?? {}),
+      ...(overrideGlue ?? {}),
+    } satisfies CSSProperties;
+    const source: GlueSource = hasOverride ? "override" : hasManifest ? "manifest" : "none";
+
+    glueTelemetry.set(surfaceId, {
+      source,
+      backgroundSize: glue.backgroundSize?.toString(),
+      backgroundRepeat: glue.backgroundRepeat?.toString(),
+      backgroundPosition: glue.backgroundPosition?.toString(),
+      imageRendering: glue.imageRendering?.toString(),
+    });
+
+    return glue;
+  };
   const waveRingsGlueOverrides: CSSProperties = {
     ...(glueVars?.waveRingsSize ? { backgroundSize: "var(--hero-glue-waveRings-size)" } : {}),
     ...(glueVars?.waveRingsRepeat ? { backgroundRepeat: "var(--hero-glue-waveRings-repeat)" } : {}),
     ...(glueVars?.waveRingsPosition ? { backgroundPosition: "var(--hero-glue-waveRings-position)" } : {}),
+    ...(glueVars?.waveRingsImageRendering
+      ? { imageRendering: glueVars.waveRingsImageRendering as CSSProperties["imageRendering"] }
+      : {}),
   };
   const dotGridGlueOverrides: CSSProperties = {
     ...(glueVars?.dotGridSize ? { backgroundSize: "var(--hero-glue-dotGrid-size)" } : {}),
     ...(glueVars?.dotGridRepeat ? { backgroundRepeat: "var(--hero-glue-dotGrid-repeat)" } : {}),
     ...(glueVars?.dotGridPosition ? { backgroundPosition: "var(--hero-glue-dotGrid-position)" } : {}),
+    ...(glueVars?.dotGridImageRendering
+      ? { imageRendering: glueVars.dotGridImageRendering as CSSProperties["imageRendering"] }
+      : {}),
   };
+  const waveBackdropResolvedGlue = resolveGlueForSurface("field.waveBackdrop", waveBackdropUrlDesktop);
+  const waveRingsResolvedGlue = resolveGlueForSurface("field.waveRings", overlayFieldUrl, waveRingsGlueOverrides as GlueRule);
+  const dotGridResolvedGlue = resolveGlueForSurface("field.dotGrid", overlayDotsUrl, dotGridGlueOverrides as GlueRule);
+  const particlesResolvedGlue = resolveGlueForSurface("overlay.particles", particlesUrl);
+  const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": { zIndex: 1 },
@@ -269,7 +338,7 @@ export async function HeroRendererV2({
       const style: CSSProperties = {
         zIndex: 2,
         backgroundImage: "var(--hero-wave-background-desktop)",
-        ...(waveBackdropGlue ?? {}),
+        ...(waveBackdropResolvedGlue ?? waveBackdropGlue ?? {}),
       };
       let missingForLayer = false;
 
@@ -299,8 +368,7 @@ export async function HeroRendererV2({
     "field.waveRings": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-overlay-field)",
-        ...(overlayFieldGlue ?? {}),
-        ...waveRingsGlueOverrides,
+        ...(waveRingsResolvedGlue ?? overlayFieldGlue ?? {}),
         zIndex: 3,
       };
       let missingForLayer = false;
@@ -326,8 +394,7 @@ export async function HeroRendererV2({
     "field.dotGrid": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-overlay-dots)",
-        ...(overlayDotsGlue ?? {}),
-        ...dotGridGlueOverrides,
+        ...(dotGridResolvedGlue ?? overlayDotsGlue ?? {}),
         zIndex: 4,
       };
       let missingForLayer = false;
@@ -353,7 +420,7 @@ export async function HeroRendererV2({
     "overlay.particles": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-particles)",
-        ...(particlesGlue ?? {}),
+        ...(particlesResolvedGlue ?? particlesGlue ?? {}),
         zIndex: 5,
       };
       let missingForLayer = false;
@@ -379,7 +446,7 @@ export async function HeroRendererV2({
     "overlay.filmGrain": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-grain-desktop)",
-        ...(grainGlue ?? {}),
+        ...(grainResolvedGlue ?? grainGlue ?? {}),
         zIndex: 7,
       };
       let missingForLayer = false;
@@ -409,11 +476,22 @@ export async function HeroRendererV2({
   };
 
   const surfaceInlineStyles = new Map<string, CSSProperties>();
+  const surfaceGlueMeta = new Map<
+    string,
+    {
+      source: GlueSource;
+      backgroundSize?: string;
+      backgroundRepeat?: string;
+      backgroundPosition?: string;
+      imageRendering?: string;
+    }
+  >();
   surfaceStack.forEach((layer) => {
     const resolvedStyle = layer.token ? layerStyles[layer.token] : undefined;
     const inlineStyle = { ...(resolvedStyle ?? {}), ...diagnosticOutlineStyle };
 
     surfaceInlineStyles.set(layer.id, inlineStyle);
+    surfaceGlueMeta.set(layer.id, glueTelemetry.get(layer.id) ?? { source: "none" });
   });
 
   const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
@@ -526,6 +604,7 @@ export async function HeroRendererV2({
         >
         {surfaceStack.map((layer) => {
           const inlineStyle = surfaceInlineStyles.get(layer.id);
+          const glueMeta = surfaceGlueMeta.get(layer.id);
 
           return (
             <div
@@ -533,6 +612,11 @@ export async function HeroRendererV2({
               data-surface-id={layer.id}
               data-surface-role={layer.role}
               data-prm-safe={layer.prmSafe ? "true" : undefined}
+              data-glue-source={glueMeta?.source}
+              data-glue-size={glueMeta?.backgroundSize}
+              data-glue-repeat={glueMeta?.backgroundRepeat}
+              data-glue-position={glueMeta?.backgroundPosition}
+              data-glue-image-rendering={glueMeta?.imageRendering}
               className={layer.className ?? "hero-surface-layer"}
               style={inlineStyle}
             />

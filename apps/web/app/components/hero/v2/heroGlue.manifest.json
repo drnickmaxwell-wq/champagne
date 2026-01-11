@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "modes": {
+    "home": {
+      "field.waveRings": {
+        "backgroundSize": "auto",
+        "backgroundRepeat": "repeat",
+        "backgroundPosition": "left top"
+      },
+      "field.dotGrid": {
+        "backgroundSize": "auto",
+        "backgroundRepeat": "repeat",
+        "backgroundPosition": "left top"
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import type { CSSProperties } from "react";
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
 import { HeroRendererV2 } from "../../components/hero/v2/HeroRendererV2";
+import heroGlueManifest from "../../components/hero/v2/heroGlue.manifest.json";
 import type { HeroTimeOfDay } from "@champagne/hero";
 import styles from "./heroDebugIsolate.module.css";
 
@@ -24,6 +25,16 @@ type RendererMode = "v1" | "v2";
 type ViewMode = "v1" | "v2" | "compare";
 
 type CssVarMap = Record<string, string>;
+type GlueRule = {
+  backgroundSize?: string;
+  backgroundRepeat?: string;
+  backgroundPosition?: string;
+  imageRendering?: string;
+};
+type GlueManifest = {
+  version: number;
+  modes: Record<string, Record<string, GlueRule>>;
+};
 type TelemetryEntry = {
   id: string;
   tagName: string;
@@ -39,6 +50,13 @@ type TelemetryEntry = {
   filter: string | null;
   imageRendering: string | null;
   videoSrc: string | null;
+  resolvedGlueSource: "manifest" | "override" | "none" | null;
+  resolvedGlue: {
+    backgroundSize: string | null;
+    backgroundRepeat: string | null;
+    backgroundPosition: string | null;
+    imageRendering: string | null;
+  };
 };
 type TelemetryDump = {
   generatedAt: string;
@@ -93,16 +111,19 @@ export function HeroDebugClientPanel() {
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
   const [rendererMode, setRendererMode] = useState<RendererMode>("v1");
   const [viewMode, setViewMode] = useState<ViewMode>("compare");
+  const v2Mode = "home";
   const [soloLayer, setSoloLayer] = useState<SoloLayerKey | null>(() => parseSoloParam(debugParams));
   const [waveRingsGlue, setWaveRingsGlue] = useState({
     size: "",
     repeat: "",
     position: "",
+    imageRendering: "",
   });
   const [dotGridGlue, setDotGridGlue] = useState({
     size: "",
     repeat: "",
     position: "",
+    imageRendering: "",
   });
   const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
     waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
@@ -127,6 +148,7 @@ export function HeroDebugClientPanel() {
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
   const [telemetryDump, setTelemetryDump] = useState<TelemetryDump | null>(null);
   const [telemetryCopyStatus, setTelemetryCopyStatus] = useState<string | null>(null);
+  const manifestGlue = useMemo(() => (heroGlueManifest as GlueManifest).modes?.[v2Mode] ?? {}, [v2Mode]);
 
   const updateQueryParam = (key: string, value: string | null) => {
     if (typeof window === "undefined") return;
@@ -277,25 +299,78 @@ export function HeroDebugClientPanel() {
     if (waveRingsGlue.size) style["--hero-glue-waveRings-size" as const] = waveRingsGlue.size;
     if (waveRingsGlue.repeat) style["--hero-glue-waveRings-repeat" as const] = waveRingsGlue.repeat;
     if (waveRingsGlue.position) style["--hero-glue-waveRings-position" as const] = waveRingsGlue.position;
-
     if (dotGridGlue.size) style["--hero-glue-dotGrid-size" as const] = dotGridGlue.size;
     if (dotGridGlue.repeat) style["--hero-glue-dotGrid-repeat" as const] = dotGridGlue.repeat;
     if (dotGridGlue.position) style["--hero-glue-dotGrid-position" as const] = dotGridGlue.position;
 
     return style;
-  }, [dotGridGlue.position, dotGridGlue.repeat, dotGridGlue.size, waveRingsGlue.position, waveRingsGlue.repeat, waveRingsGlue.size]);
+  }, [
+    dotGridGlue.position,
+    dotGridGlue.repeat,
+    dotGridGlue.size,
+    waveRingsGlue.position,
+    waveRingsGlue.repeat,
+    waveRingsGlue.size,
+  ]);
 
   const v2GlueVars = useMemo(
     () => ({
       ...(waveRingsGlue.size ? { waveRingsSize: waveRingsGlue.size } : {}),
       ...(waveRingsGlue.repeat ? { waveRingsRepeat: waveRingsGlue.repeat } : {}),
       ...(waveRingsGlue.position ? { waveRingsPosition: waveRingsGlue.position } : {}),
+      ...(waveRingsGlue.imageRendering ? { waveRingsImageRendering: waveRingsGlue.imageRendering } : {}),
       ...(dotGridGlue.size ? { dotGridSize: dotGridGlue.size } : {}),
       ...(dotGridGlue.repeat ? { dotGridRepeat: dotGridGlue.repeat } : {}),
       ...(dotGridGlue.position ? { dotGridPosition: dotGridGlue.position } : {}),
+      ...(dotGridGlue.imageRendering ? { dotGridImageRendering: dotGridGlue.imageRendering } : {}),
     }),
-    [dotGridGlue.position, dotGridGlue.repeat, dotGridGlue.size, waveRingsGlue.position, waveRingsGlue.repeat, waveRingsGlue.size],
+    [
+      dotGridGlue.imageRendering,
+      dotGridGlue.position,
+      dotGridGlue.repeat,
+      dotGridGlue.size,
+      waveRingsGlue.imageRendering,
+      waveRingsGlue.position,
+      waveRingsGlue.repeat,
+      waveRingsGlue.size,
+    ],
   );
+  const resolvedGlueForPanel = useMemo(() => {
+    const buildGlue = (surfaceId: string, override: GlueRule) => {
+      const manifestRule = manifestGlue?.[surfaceId] ?? {};
+      const hasOverride = Object.values(override).some(Boolean);
+      return {
+        source: hasOverride ? "override" : Object.keys(manifestRule).length ? "manifest" : "none",
+        ...manifestRule,
+        ...override,
+      };
+    };
+
+    return {
+      "field.waveRings": buildGlue("field.waveRings", {
+        ...(waveRingsGlue.size ? { backgroundSize: waveRingsGlue.size } : {}),
+        ...(waveRingsGlue.repeat ? { backgroundRepeat: waveRingsGlue.repeat } : {}),
+        ...(waveRingsGlue.position ? { backgroundPosition: waveRingsGlue.position } : {}),
+        ...(waveRingsGlue.imageRendering ? { imageRendering: waveRingsGlue.imageRendering } : {}),
+      }),
+      "field.dotGrid": buildGlue("field.dotGrid", {
+        ...(dotGridGlue.size ? { backgroundSize: dotGridGlue.size } : {}),
+        ...(dotGridGlue.repeat ? { backgroundRepeat: dotGridGlue.repeat } : {}),
+        ...(dotGridGlue.position ? { backgroundPosition: dotGridGlue.position } : {}),
+        ...(dotGridGlue.imageRendering ? { imageRendering: dotGridGlue.imageRendering } : {}),
+      }),
+    };
+  }, [
+    dotGridGlue.imageRendering,
+    dotGridGlue.position,
+    dotGridGlue.repeat,
+    dotGridGlue.size,
+    manifestGlue,
+    waveRingsGlue.imageRendering,
+    waveRingsGlue.position,
+    waveRingsGlue.repeat,
+    waveRingsGlue.size,
+  ]);
 
   const collectTelemetry = (root: HTMLElement | null): TelemetryEntry[] => {
     if (!root) return [];
@@ -321,6 +396,13 @@ export function HeroDebugClientPanel() {
         filter: computed.filter || null,
         imageRendering: computed.imageRendering || null,
         videoSrc,
+        resolvedGlueSource: (node.dataset.glueSource as TelemetryEntry["resolvedGlueSource"]) ?? null,
+        resolvedGlue: {
+          backgroundSize: computed.backgroundSize || null,
+          backgroundRepeat: computed.backgroundRepeat || null,
+          backgroundPosition: computed.backgroundPosition || null,
+          imageRendering: computed.imageRendering || null,
+        },
       };
     });
   };
@@ -561,7 +643,60 @@ export function HeroDebugClientPanel() {
       </div>
 
       <div style={{ display: "grid", gap: "0.75rem" }}>
-        <h3 style={{ margin: 0 }}>V2 Glue Overrides (LAB)</h3>
+        <h3 style={{ margin: 0 }}>V2 Glue Manifest (read-only)</h3>
+        <span style={{ color: "var(--text-medium)" }}>Active mode: {v2Mode}</span>
+        <pre
+          style={{
+            margin: 0,
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+          }}
+        >
+          {JSON.stringify(manifestGlue, null, 2)}
+        </pre>
+        <h3 style={{ margin: 0 }}>V2 Glue Resolved (manifest + overrides)</h3>
+        <pre
+          style={{
+            margin: 0,
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+          }}
+        >
+          {JSON.stringify(resolvedGlueForPanel, null, 2)}
+        </pre>
+      </div>
+
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
+          <h3 style={{ margin: 0 }}>V2 Glue Overrides (LAB OVERRIDE)</h3>
+          <button
+            type="button"
+            onClick={() => {
+              setWaveRingsGlue({ size: "", repeat: "", position: "", imageRendering: "" });
+              setDotGridGlue({ size: "", repeat: "", position: "", imageRendering: "" });
+            }}
+            style={{
+              padding: "0.45rem 0.9rem",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              fontWeight: 600,
+            }}
+          >
+            Reset overrides
+          </button>
+        </div>
         <div
           style={{
             display: "grid",
@@ -602,6 +737,18 @@ export function HeroDebugClientPanel() {
                 <option value="left top">Left top</option>
               </select>
             </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Image rendering</span>
+              <select
+                value={waveRingsGlue.imageRendering}
+                onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, imageRendering: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="auto">Auto</option>
+                <option value="crisp-edges">Crisp edges</option>
+                <option value="pixelated">Pixelated</option>
+              </select>
+            </label>
           </div>
 
           <div style={{ display: "grid", gap: "0.5rem" }}>
@@ -631,6 +778,18 @@ export function HeroDebugClientPanel() {
                 <option value="">Default</option>
                 <option value="center">Center</option>
                 <option value="left top">Left top</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Image rendering</span>
+              <select
+                value={dotGridGlue.imageRendering}
+                onChange={(event) => setDotGridGlue((prev) => ({ ...prev, imageRendering: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="auto">Auto</option>
+                <option value="crisp-edges">Crisp edges</option>
+                <option value="pixelated">Pixelated</option>
               </select>
             </label>
           </div>
