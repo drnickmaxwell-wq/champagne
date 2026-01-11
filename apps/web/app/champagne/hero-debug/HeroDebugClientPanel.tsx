@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import type { CSSProperties } from "react";
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
+import { HeroRendererV2 } from "../../components/hero/v2/HeroRendererV2";
 import type { HeroTimeOfDay } from "@champagne/hero";
 import styles from "./heroDebugIsolate.module.css";
 
@@ -19,8 +20,31 @@ const trackedCssVars = [
 ];
 
 type TimeOfDayOption = "auto" | HeroTimeOfDay;
+type RendererMode = "v1" | "v2";
+type ViewMode = "v1" | "v2" | "compare";
 
 type CssVarMap = Record<string, string>;
+type TelemetryEntry = {
+  id: string;
+  tagName: string;
+  opacity: string | null;
+  mixBlendMode: string | null;
+  zIndex: string | null;
+  backgroundImage: string | null;
+  backgroundSize: string | null;
+  backgroundRepeat: string | null;
+  backgroundPosition: string | null;
+  maskImage: string | null;
+  webkitMaskImage: string | null;
+  filter: string | null;
+  imageRendering: string | null;
+  videoSrc: string | null;
+};
+type TelemetryDump = {
+  generatedAt: string;
+  v1: TelemetryEntry[];
+  v2: TelemetryEntry[];
+};
 
 type LayerKey = "waves" | "dotGrid" | "particles" | "filmGrain" | "motion" | "scrim";
 type SoloLayerKey = LayerKey | "gradient";
@@ -67,7 +91,19 @@ export function HeroDebugClientPanel() {
   const [particles, setParticles] = useState(true);
   const [filmGrain, setFilmGrain] = useState(true);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
+  const [rendererMode, setRendererMode] = useState<RendererMode>("v1");
+  const [viewMode, setViewMode] = useState<ViewMode>("compare");
   const [soloLayer, setSoloLayer] = useState<SoloLayerKey | null>(() => parseSoloParam(debugParams));
+  const [waveRingsGlue, setWaveRingsGlue] = useState({
+    size: "",
+    repeat: "",
+    position: "",
+  });
+  const [dotGridGlue, setDotGridGlue] = useState({
+    size: "",
+    repeat: "",
+    position: "",
+  });
   const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
     waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
     dotGrid: muteAllVeil || debugParams?.get("heroMuteDotGrid") === "1",
@@ -85,9 +121,12 @@ export function HeroDebugClientPanel() {
     scrim: parseOpacityParam(debugParams, "heroOpacityScrim"),
   }));
 
-  const heroSurfaceRef = useRef<HTMLDivElement | null>(null);
+  const heroSurfaceRefV1 = useRef<HTMLDivElement | null>(null);
+  const heroSurfaceRefV2 = useRef<HTMLDivElement | null>(null);
   const [cssVars, setCssVars] = useState<CssVarMap>({});
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
+  const [telemetryDump, setTelemetryDump] = useState<TelemetryDump | null>(null);
+  const [telemetryCopyStatus, setTelemetryCopyStatus] = useState<string | null>(null);
 
   const updateQueryParam = (key: string, value: string | null) => {
     if (typeof window === "undefined") return;
@@ -171,7 +210,7 @@ export function HeroDebugClientPanel() {
   );
 
   useEffect(() => {
-    const heroElement = heroSurfaceRef.current;
+    const heroElement = rendererMode === "v2" ? heroSurfaceRefV2.current : heroSurfaceRefV1.current;
 
     if (!heroElement) {
       setCssVars({});
@@ -207,10 +246,117 @@ export function HeroDebugClientPanel() {
     });
 
     return () => observer.disconnect();
-  }, [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay]);
+  }, [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay, rendererMode]);
 
   const waveOpacityValue = Number((layerOpacities.waves / 100).toFixed(2));
   const dotOpacityValue = Number((layerOpacities.dotGrid / 100).toFixed(2));
+  const heroClassName = [
+    styles.heroDebugIsolate,
+    muteAllVeil ? styles.muteAllVeil : "",
+    layerMutes.waves ? styles.muteWaves : "",
+    layerMutes.dotGrid ? styles.muteDotGrid : "",
+    layerMutes.particles ? styles.muteParticles : "",
+    layerMutes.filmGrain ? styles.muteFilmGrain : "",
+    layerMutes.motion ? styles.muteMotion : "",
+    layerMutes.scrim ? styles.muteScrim : "",
+    soloLayer ? styles.soloActive : "",
+    soloLayer === "waves" ? styles.soloWaves : "",
+    soloLayer === "dotGrid" ? styles.soloDotGrid : "",
+    soloLayer === "gradient" ? styles.soloGradient : "",
+    soloLayer === "particles" ? styles.soloParticles : "",
+    soloLayer === "filmGrain" ? styles.soloFilmGrain : "",
+    soloLayer === "motion" ? styles.soloMotion : "",
+    soloLayer === "scrim" ? styles.soloScrim : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const v2RootStyle = useMemo(() => {
+    const style: CSSProperties & Record<string, string> = {};
+
+    if (waveRingsGlue.size) style["--hero-glue-waveRings-size" as const] = waveRingsGlue.size;
+    if (waveRingsGlue.repeat) style["--hero-glue-waveRings-repeat" as const] = waveRingsGlue.repeat;
+    if (waveRingsGlue.position) style["--hero-glue-waveRings-position" as const] = waveRingsGlue.position;
+
+    if (dotGridGlue.size) style["--hero-glue-dotGrid-size" as const] = dotGridGlue.size;
+    if (dotGridGlue.repeat) style["--hero-glue-dotGrid-repeat" as const] = dotGridGlue.repeat;
+    if (dotGridGlue.position) style["--hero-glue-dotGrid-position" as const] = dotGridGlue.position;
+
+    return style;
+  }, [dotGridGlue.position, dotGridGlue.repeat, dotGridGlue.size, waveRingsGlue.position, waveRingsGlue.repeat, waveRingsGlue.size]);
+
+  const v2GlueVars = useMemo(
+    () => ({
+      ...(waveRingsGlue.size ? { waveRingsSize: waveRingsGlue.size } : {}),
+      ...(waveRingsGlue.repeat ? { waveRingsRepeat: waveRingsGlue.repeat } : {}),
+      ...(waveRingsGlue.position ? { waveRingsPosition: waveRingsGlue.position } : {}),
+      ...(dotGridGlue.size ? { dotGridSize: dotGridGlue.size } : {}),
+      ...(dotGridGlue.repeat ? { dotGridRepeat: dotGridGlue.repeat } : {}),
+      ...(dotGridGlue.position ? { dotGridPosition: dotGridGlue.position } : {}),
+    }),
+    [dotGridGlue.position, dotGridGlue.repeat, dotGridGlue.size, waveRingsGlue.position, waveRingsGlue.repeat, waveRingsGlue.size],
+  );
+
+  const collectTelemetry = (root: HTMLElement | null): TelemetryEntry[] => {
+    if (!root) return [];
+    const nodes = Array.from(root.querySelectorAll<HTMLElement>("[data-surface-id]"));
+
+    return nodes.map((node) => {
+      const computed = window.getComputedStyle(node);
+      const videoNode = node instanceof HTMLVideoElement ? node : null;
+      const videoSrc = videoNode?.currentSrc || videoNode?.querySelector("source")?.getAttribute("src") || null;
+
+      return {
+        id: node.getAttribute("data-surface-id") ?? "",
+        tagName: node.tagName,
+        opacity: computed.opacity || null,
+        mixBlendMode: computed.mixBlendMode || null,
+        zIndex: computed.zIndex || null,
+        backgroundImage: computed.backgroundImage || null,
+        backgroundSize: computed.backgroundSize || null,
+        backgroundRepeat: computed.backgroundRepeat || null,
+        backgroundPosition: computed.backgroundPosition || null,
+        maskImage: computed.maskImage || null,
+        webkitMaskImage: computed.webkitMaskImage || null,
+        filter: computed.filter || null,
+        imageRendering: computed.imageRendering || null,
+        videoSrc,
+      };
+    });
+  };
+
+  const handleDumpTelemetry = () => {
+    if (typeof window === "undefined") return;
+    const roots = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-hero-root="true"][data-hero-renderer]'),
+    );
+    const telemetryByRenderer = roots.reduce<Record<string, TelemetryEntry[]>>((acc, root) => {
+      const renderer = root.dataset.heroRenderer;
+      if (!renderer) return acc;
+      acc[renderer] = collectTelemetry(root);
+      return acc;
+    }, {});
+    const payload: TelemetryDump = {
+      generatedAt: new Date().toISOString(),
+      v1: telemetryByRenderer.v1 ?? [],
+      v2: telemetryByRenderer.v2 ?? [],
+    };
+
+    setTelemetryDump(payload);
+    setTelemetryCopyStatus(null);
+    console.log("[Hero Debug Telemetry]", payload);
+  };
+
+  const handleCopyTelemetry = async () => {
+    if (!telemetryDump || typeof navigator === "undefined") return;
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(telemetryDump, null, 2));
+      setTelemetryCopyStatus("Copied.");
+    } catch (error) {
+      setTelemetryCopyStatus("Copy failed.");
+      console.error("Telemetry copy failed", error);
+    }
+  };
 
   return (
     <div className="hero-debug-panel" style={{ display: "grid", gap: "1rem" }}>
@@ -395,45 +541,178 @@ export function HeroDebugClientPanel() {
             <option value="night">Night</option>
           </select>
         </label>
+
+        <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <span>Renderer focus</span>
+          <select value={rendererMode} onChange={(event) => setRendererMode(event.target.value as RendererMode)}>
+            <option value="v1">V1</option>
+            <option value="v2">V2</option>
+          </select>
+        </label>
+
+        <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <span>View mode</span>
+          <select value={viewMode} onChange={(event) => setViewMode(event.target.value as ViewMode)}>
+            <option value="v1">V1</option>
+            <option value="v2">V2</option>
+            <option value="compare">Compare</option>
+          </select>
+        </label>
       </div>
 
-      <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <h3 style={{ margin: 0 }}>V2 Glue Overrides (LAB)</h3>
         <div
-          className={[
-            styles.heroDebugIsolate,
-            muteAllVeil ? styles.muteAllVeil : "",
-            layerMutes.waves ? styles.muteWaves : "",
-            layerMutes.dotGrid ? styles.muteDotGrid : "",
-            layerMutes.particles ? styles.muteParticles : "",
-            layerMutes.filmGrain ? styles.muteFilmGrain : "",
-            layerMutes.motion ? styles.muteMotion : "",
-            layerMutes.scrim ? styles.muteScrim : "",
-            soloLayer ? styles.soloActive : "",
-            soloLayer === "waves" ? styles.soloWaves : "",
-            soloLayer === "dotGrid" ? styles.soloDotGrid : "",
-            soloLayer === "gradient" ? styles.soloGradient : "",
-            soloLayer === "particles" ? styles.soloParticles : "",
-            soloLayer === "filmGrain" ? styles.soloFilmGrain : "",
-            soloLayer === "motion" ? styles.soloMotion : "",
-            soloLayer === "scrim" ? styles.soloScrim : "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-          style={layerOpacityVars}
+          style={{
+            display: "grid",
+            gap: "0.75rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            alignItems: "center",
+          }}
         >
-          <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
-            <HeroRenderer
-              key={heroRenderKey}
-              prm={mockPrm}
-              particles={particles}
-              filmGrain={filmGrain}
-              timeOfDay={resolvedTimeOfDay}
-              diagnosticBoost={diagnosticBoost}
-              surfaceRef={heroSurfaceRef}
-            />
-          </Suspense>
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>Wave Rings</strong>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Size</span>
+              <select value={waveRingsGlue.size} onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, size: event.target.value }))}>
+                <option value="">Default</option>
+                <option value="cover">Cover</option>
+                <option value="auto">Auto</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Repeat</span>
+              <select
+                value={waveRingsGlue.repeat}
+                onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, repeat: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="no-repeat">No-repeat</option>
+                <option value="repeat">Repeat</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Position</span>
+              <select
+                value={waveRingsGlue.position}
+                onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, position: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="center">Center</option>
+                <option value="left top">Left top</option>
+              </select>
+            </label>
+          </div>
+
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>Dot Grid</strong>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Size</span>
+              <select value={dotGridGlue.size} onChange={(event) => setDotGridGlue((prev) => ({ ...prev, size: event.target.value }))}>
+                <option value="">Default</option>
+                <option value="cover">Cover</option>
+                <option value="auto">Auto</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Repeat</span>
+              <select value={dotGridGlue.repeat} onChange={(event) => setDotGridGlue((prev) => ({ ...prev, repeat: event.target.value }))}>
+                <option value="">Default</option>
+                <option value="no-repeat">No-repeat</option>
+                <option value="repeat">Repeat</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Position</span>
+              <select
+                value={dotGridGlue.position}
+                onChange={(event) => setDotGridGlue((prev) => ({ ...prev, position: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="center">Center</option>
+                <option value="left top">Left top</option>
+              </select>
+            </label>
+          </div>
         </div>
       </div>
+
+      {viewMode === "compare" ? (
+        <div style={{ display: "grid", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>V1</strong>
+            <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+              <div className={heroClassName} style={layerOpacityVars} data-hero-renderer="v1" data-hero-root="true">
+                <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+                  <HeroRenderer
+                    key={`${heroRenderKey}-v1`}
+                    prm={mockPrm}
+                    particles={particles}
+                    filmGrain={filmGrain}
+                    timeOfDay={resolvedTimeOfDay}
+                    diagnosticBoost={diagnosticBoost}
+                    surfaceRef={heroSurfaceRefV1}
+                  />
+                </Suspense>
+              </div>
+            </div>
+          </div>
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>V2</strong>
+            <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+              <div className={heroClassName} style={layerOpacityVars}>
+                <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+                  <HeroRendererV2
+                    key={`${heroRenderKey}-v2`}
+                    prm={mockPrm}
+                    particles={particles}
+                    filmGrain={filmGrain}
+                    timeOfDay={resolvedTimeOfDay}
+                    diagnosticBoost={diagnosticBoost}
+                    surfaceRef={heroSurfaceRefV2}
+                    rootStyle={v2RootStyle}
+                    glueVars={v2GlueVars}
+                  />
+                </Suspense>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+          <div
+            className={heroClassName}
+            style={layerOpacityVars}
+            {...(viewMode === "v1" ? { "data-hero-renderer": "v1", "data-hero-root": "true" } : {})}
+          >
+            <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+              {viewMode === "v2" ? (
+                <HeroRendererV2
+                  key={`${heroRenderKey}-v2`}
+                  prm={mockPrm}
+                  particles={particles}
+                  filmGrain={filmGrain}
+                  timeOfDay={resolvedTimeOfDay}
+                  diagnosticBoost={diagnosticBoost}
+                  surfaceRef={heroSurfaceRefV2}
+                  rootStyle={v2RootStyle}
+                  glueVars={v2GlueVars}
+                />
+              ) : (
+                <HeroRenderer
+                  key={`${heroRenderKey}-v1`}
+                  prm={mockPrm}
+                  particles={particles}
+                  filmGrain={filmGrain}
+                  timeOfDay={resolvedTimeOfDay}
+                  diagnosticBoost={diagnosticBoost}
+                  surfaceRef={heroSurfaceRefV1}
+                />
+              )}
+            </Suspense>
+          </div>
+        </div>
+      )}
 
       <div style={{ display: "grid", gap: "0.75rem" }}>
         <h3 style={{ margin: 0 }}>Layer Lab</h3>
@@ -522,6 +801,59 @@ export function HeroDebugClientPanel() {
           }}
         >
           {trackedCssVars.map((key) => `${key}: ${cssVars[key] ?? "(empty)"}`).join("\n")}
+        </pre>
+      </div>
+
+      <div style={{ display: "grid", gap: "0.5rem" }}>
+        <h3 style={{ margin: 0 }}>Hero telemetry</h3>
+        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          <button
+            type="button"
+            onClick={handleDumpTelemetry}
+            style={{
+              padding: "0.55rem 0.9rem",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              fontWeight: 600,
+            }}
+          >
+            Dump telemetry (V1+V2)
+          </button>
+          <button
+            type="button"
+            onClick={handleCopyTelemetry}
+            disabled={!telemetryDump}
+            style={{
+              padding: "0.55rem 0.9rem",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              fontWeight: 600,
+              opacity: telemetryDump ? 1 : 0.6,
+            }}
+          >
+            Copy JSON
+          </button>
+          <span style={{ color: "var(--text-medium)" }}>
+            {telemetryCopyStatus ?? "Exports separate arrays by renderer root."}
+          </span>
+        </div>
+        <pre
+          style={{
+            margin: 0,
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+          }}
+        >
+          {telemetryDump ? JSON.stringify(telemetryDump, null, 2) : "No telemetry captured yet."}
         </pre>
       </div>
 

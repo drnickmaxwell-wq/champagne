@@ -1,0 +1,635 @@
+import type { CSSProperties, Ref } from "react";
+import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+
+export interface HeroRendererV2Props {
+  mode?: HeroMode;
+  treatmentSlug?: string;
+  prm?: boolean;
+  timeOfDay?: HeroTimeOfDay;
+  particles?: boolean;
+  filmGrain?: boolean;
+  diagnosticBoost?: boolean;
+  surfaceRef?: Ref<HTMLDivElement>;
+  pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
+  rootStyle?: CSSProperties;
+  glueVars?: Partial<{
+    waveRingsSize: string;
+    waveRingsRepeat: string;
+    waveRingsPosition: string;
+    dotGridSize: string;
+    dotGridRepeat: string;
+    dotGridPosition: string;
+  }>;
+}
+
+const resolveAssetUrl = (entry?: { path?: string; asset?: { id?: string }; id?: string }) => {
+  if (!entry) return undefined;
+  if (entry.path) return entry.path;
+  if (entry.asset?.id) return ensureHeroAssetPath(entry.asset.id);
+  if (entry.id) return ensureHeroAssetPath(entry.id);
+  return undefined;
+};
+
+const resolveBackgroundGlue = (url?: string) => {
+  if (!url) return null;
+  const isSvg = url.includes(".svg");
+  return {
+    backgroundSize: isSvg ? "auto" : "cover",
+    backgroundRepeat: isSvg ? "repeat" : "no-repeat",
+    backgroundPosition: "center",
+  } as const;
+};
+
+const resolveBackgroundImage = (url?: string) => (url ? `url("${url}")` : undefined);
+
+function HeroFallback() {
+  return (
+    <BaseChampagneSurface
+      variant="inkGlass"
+      disableInternalOverlays
+      style={{
+        background: "var(--smh-gradient)",
+        minHeight: "48vh",
+        display: "grid",
+        alignItems: "center",
+        padding: "clamp(2rem, 5vw, 3.5rem)",
+      }}
+    >
+      <div style={{ display: "grid", gap: "0.75rem", maxWidth: "960px" }}>
+        <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+          Champagne Dentistry
+        </span>
+        <h1 style={{ fontSize: "clamp(2rem, 3.6vw, 3rem)", lineHeight: 1.1 }}>
+          A calm, cinematic hero is loading.
+        </h1>
+        <p style={{ color: "var(--text-medium)", maxWidth: "720px", lineHeight: 1.6 }}>
+          Sacred hero assets are unavailable. Showing a safe gradient surface until the manifest is ready.
+        </p>
+      </div>
+    </BaseChampagneSurface>
+  );
+}
+
+export async function HeroRendererV2({
+  mode = "home",
+  treatmentSlug,
+  prm,
+  timeOfDay,
+  particles,
+  filmGrain,
+  diagnosticBoost = false,
+  surfaceRef,
+  pageCategory,
+  rootStyle,
+  glueVars,
+}: HeroRendererV2Props) {
+  let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
+  const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
+
+  try {
+    runtime = await getHeroRuntime({
+      mode,
+      treatmentSlug,
+      prm,
+      timeOfDay,
+      particles,
+      filmGrain,
+      pageCategory: resolvedPageCategory,
+      variantId: mode === "home" ? "default" : undefined,
+    });
+  } catch (error) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error("Hero runtime failed", error);
+    }
+  }
+
+  if (!runtime) return <HeroFallback />;
+
+  const { content, surfaces, layout, filmGrain: filmGrainSettings } = runtime;
+  const videoDenylist = ["dental-hero-4k.mp4"];
+  const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
+  const gradient = surfaces.gradient?.trim() || "var(--smh-gradient)";
+  const motionEntries = surfaces.motion ?? [];
+  const prmEnabled = prm ?? runtime.flags.prm;
+  const videoEntry = surfaces.video;
+  const heroVideoActive = Boolean(!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path));
+  const particleOpacity = surfaces.particles?.opacity;
+  const particlesAssetAvailable = Boolean(surfaces.particles?.path || surfaces.particles?.asset?.id);
+  const filteredMotionEntries = motionEntries.filter((entry) => {
+    if (isDeniedVideo(entry.path)) return false;
+    if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
+    return true;
+  });
+  const motionCausticsActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--caustics"));
+  const motionShimmerActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--glass-shimmer"));
+  const motionGoldDustActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--gold-dust"));
+  const activeMotionIds = new Set(
+    filteredMotionEntries.map((entry) => entry.id).filter((id): id is string => Boolean(id)),
+  );
+  const missingGovernance = new Map<
+    string,
+    {
+      id: string;
+      kind: "surface" | "motion";
+      missingFields: Set<"opacity" | "blend" | "zIndex">;
+      reason: "missing manifest governance";
+      action: "disabled; not rendered";
+    }
+  >();
+  const noteMissing = (id: string, field: "opacity" | "blend" | "zIndex", kind: "surface" | "motion") => {
+    const existing = missingGovernance.get(id);
+    if (existing) {
+      existing.missingFields.add(field);
+      return;
+    }
+
+    missingGovernance.set(id, {
+      id,
+      kind,
+      missingFields: new Set([field]),
+      reason: "missing manifest governance",
+      action: "disabled; not rendered",
+    });
+  };
+
+  const grainOpacity = filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
+  const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
+  const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
+  const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
+  const shouldShowGrain = Boolean(
+    !grainGovernanceMissing && filmGrain !== false && (filmGrainSettings?.enabled ?? false) && grainAssetAvailable,
+  );
+  const shouldShowParticles = Boolean(!particlesGovernanceMissing && particles !== false && particlesAssetAvailable);
+  if (particlesGovernanceMissing) {
+    noteMissing("overlay.particles", "opacity", "surface");
+  }
+  if (grainGovernanceMissing) {
+    noteMissing("overlay.filmGrain", "opacity", "surface");
+  }
+  const waveBackdropOpacity = surfaces.background?.desktop?.opacity;
+  const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
+  const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
+    const token = layer.token ?? layer.id;
+    if (layer.suppressed) return false;
+    if (token && activeMotionIds.has(token)) return false;
+    if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
+    if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
+    if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
+    if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
+    if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
+    return true;
+  });
+  const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }, id?: string) => {
+    if (!entry) return {};
+    const style: CSSProperties = {};
+    const resolvedBlend = entry.blendMode ?? undefined;
+    const resolvedOpacity = entry.opacity ?? undefined;
+
+    if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
+      style.opacity = resolvedOpacity;
+    } else {
+      style.opacity = 0;
+      if (id) noteMissing(id, "opacity", "motion");
+    }
+
+    if (resolvedBlend) {
+      style.mixBlendMode = resolvedBlend as CSSProperties["mixBlendMode"];
+    } else if (id) {
+      noteMissing(id, "blend", "motion");
+      style.opacity = 0;
+    }
+
+    if (typeof entry.zIndex === "number") {
+      style.zIndex = entry.zIndex;
+    } else if (id) {
+      noteMissing(id, "zIndex", "motion");
+    }
+
+    return style;
+  };
+
+  const waveBackdropUrlDesktop = resolveAssetUrl(surfaces.background?.desktop);
+  const waveBackdropUrlMobile = resolveAssetUrl(surfaces.background?.mobile);
+  const overlayFieldUrl = resolveAssetUrl(surfaces.overlays?.field);
+  const overlayDotsUrl = resolveAssetUrl(surfaces.overlays?.dots);
+  const particlesUrl = resolveAssetUrl(surfaces.particles);
+  const grainUrlDesktop = resolveAssetUrl(surfaces.grain?.desktop);
+  const grainUrlMobile = resolveAssetUrl(surfaces.grain?.mobile);
+
+  const surfaceVars: CSSProperties = {
+    ["--hero-gradient" as string]: gradient,
+    ["--hero-wave-mask-desktop" as string]: surfaces.waveMask?.desktop?.path
+      ? `url("${surfaces.waveMask.desktop.path}")`
+      : surfaces.waveMask?.desktop?.asset?.id
+        ? `url("${ensureHeroAssetPath(surfaces.waveMask.desktop.asset.id)}")`
+        : undefined,
+    ["--hero-wave-mask-mobile" as string]: surfaces.waveMask?.mobile?.path
+      ? `url("${surfaces.waveMask.mobile.path}")`
+      : surfaces.waveMask?.mobile?.asset?.id
+        ? `url("${ensureHeroAssetPath(surfaces.waveMask.mobile.asset.id)}")`
+        : undefined,
+    ["--hero-wave-background-desktop" as string]: waveBackdropUrlDesktop ? resolveBackgroundImage(waveBackdropUrlDesktop) : undefined,
+    ["--hero-wave-background-mobile" as string]: waveBackdropUrlMobile ? resolveBackgroundImage(waveBackdropUrlMobile) : undefined,
+    ["--hero-overlay-field" as string]: overlayFieldUrl ? resolveBackgroundImage(overlayFieldUrl) : undefined,
+    ["--hero-overlay-dots" as string]: overlayDotsUrl ? resolveBackgroundImage(overlayDotsUrl) : undefined,
+    ["--hero-particles" as string]: shouldShowParticles && particlesUrl ? resolveBackgroundImage(particlesUrl) : undefined,
+    ["--hero-grain-desktop" as string]: grainUrlDesktop ? resolveBackgroundImage(grainUrlDesktop) : undefined,
+    ["--hero-grain-mobile" as string]: grainUrlMobile ? resolveBackgroundImage(grainUrlMobile) : undefined,
+    ["--hero-film-grain-opacity" as string]: shouldShowGrain ? grainOpacity : undefined,
+    ["--hero-film-grain-blend" as string]: shouldShowGrain
+      ? ((surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined)
+      : undefined,
+    ["--hero-particles-opacity" as string]: shouldShowParticles ? particleOpacity : undefined,
+    ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
+  };
+
+  const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
+    ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
+    : undefined;
+
+  const waveBackdropGlue = resolveBackgroundGlue(waveBackdropUrlDesktop);
+  const overlayFieldGlue = resolveBackgroundGlue(overlayFieldUrl);
+  const overlayDotsGlue = resolveBackgroundGlue(overlayDotsUrl);
+  const particlesGlue = resolveBackgroundGlue(particlesUrl);
+  const grainGlue = resolveBackgroundGlue(grainUrlDesktop);
+  const waveRingsGlueOverrides: CSSProperties = {
+    ...(glueVars?.waveRingsSize ? { backgroundSize: "var(--hero-glue-waveRings-size)" } : {}),
+    ...(glueVars?.waveRingsRepeat ? { backgroundRepeat: "var(--hero-glue-waveRings-repeat)" } : {}),
+    ...(glueVars?.waveRingsPosition ? { backgroundPosition: "var(--hero-glue-waveRings-position)" } : {}),
+  };
+  const dotGridGlueOverrides: CSSProperties = {
+    ...(glueVars?.dotGridSize ? { backgroundSize: "var(--hero-glue-dotGrid-size)" } : {}),
+    ...(glueVars?.dotGridRepeat ? { backgroundRepeat: "var(--hero-glue-dotGrid-repeat)" } : {}),
+    ...(glueVars?.dotGridPosition ? { backgroundPosition: "var(--hero-glue-dotGrid-position)" } : {}),
+  };
+
+  const layerStyles: Record<string, CSSProperties> = {
+    "gradient.base": { zIndex: 1 },
+    "field.waveBackdrop": (() => {
+      const style: CSSProperties = {
+        zIndex: 2,
+        backgroundImage: "var(--hero-wave-background-desktop)",
+        ...(waveBackdropGlue ?? {}),
+      };
+      let missingForLayer = false;
+
+      if (waveBackdropBlend) {
+        style.mixBlendMode = waveBackdropBlend;
+      } else {
+        noteMissing("field.waveBackdrop", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (waveBackdropOpacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : waveBackdropOpacity;
+      } else {
+        style.opacity = 0;
+        noteMissing("field.waveBackdrop", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
+    "mask.waveHeader": {
+      ...(surfaces.waveMask?.desktop?.blendMode
+        ? { mixBlendMode: surfaces.waveMask.desktop.blendMode as CSSProperties["mixBlendMode"] }
+        : {}),
+      ...(surfaces.waveMask?.desktop?.opacity !== undefined ? { opacity: surfaces.waveMask.desktop.opacity } : {}),
+    },
+    "field.waveRings": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-overlay-field)",
+        ...(overlayFieldGlue ?? {}),
+        ...waveRingsGlueOverrides,
+        zIndex: 3,
+      };
+      let missingForLayer = false;
+
+      const blend = surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"] | undefined;
+      if (blend) {
+        style.mixBlendMode = blend;
+      } else {
+        noteMissing("field.waveRings", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (surfaces.overlays?.field?.opacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : surfaces.overlays.field.opacity;
+      } else {
+        style.opacity = 0;
+        noteMissing("field.waveRings", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
+    "field.dotGrid": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-overlay-dots)",
+        ...(overlayDotsGlue ?? {}),
+        ...dotGridGlueOverrides,
+        zIndex: 4,
+      };
+      let missingForLayer = false;
+
+      const blend = surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"] | undefined;
+      if (blend) {
+        style.mixBlendMode = blend;
+      } else {
+        noteMissing("field.dotGrid", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (surfaces.overlays?.dots?.opacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : surfaces.overlays.dots.opacity;
+      } else {
+        style.opacity = 0;
+        noteMissing("field.dotGrid", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
+    "overlay.particles": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-particles)",
+        ...(particlesGlue ?? {}),
+        zIndex: 5,
+      };
+      let missingForLayer = false;
+
+      const blend = surfaces.particles?.blendMode as CSSProperties["mixBlendMode"] | undefined;
+      if (blend) {
+        style.mixBlendMode = blend;
+      } else if (shouldShowParticles) {
+        noteMissing("overlay.particles", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (particleOpacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : particleOpacity;
+      } else if (shouldShowParticles) {
+        style.opacity = 0;
+        noteMissing("overlay.particles", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
+    "overlay.filmGrain": (() => {
+      const style: CSSProperties = {
+        backgroundImage: "var(--hero-grain-desktop)",
+        ...(grainGlue ?? {}),
+        zIndex: 7,
+      };
+      let missingForLayer = false;
+
+      if (surfaces.grain?.desktop?.blendMode) {
+        style.mixBlendMode = surfaces.grain.desktop.blendMode as CSSProperties["mixBlendMode"];
+      } else if (shouldShowGrain) {
+        noteMissing("overlay.filmGrain", "blend", "surface");
+        missingForLayer = true;
+      }
+
+      if (grainOpacity !== undefined) {
+        style.opacity = missingForLayer ? 0 : grainOpacity;
+      } else if (shouldShowGrain) {
+        style.opacity = 0;
+        noteMissing("overlay.filmGrain", "opacity", "surface");
+        missingForLayer = true;
+      }
+
+      return style;
+    })(),
+    "hero.contentFrame": {
+      background: "transparent",
+      backdropFilter: "none",
+      WebkitBackdropFilter: "none",
+    },
+  };
+
+  const surfaceInlineStyles = new Map<string, CSSProperties>();
+  surfaceStack.forEach((layer) => {
+    const resolvedStyle = layer.token ? layerStyles[layer.token] : undefined;
+    const inlineStyle = { ...(resolvedStyle ?? {}), ...diagnosticOutlineStyle };
+
+    surfaceInlineStyles.set(layer.id, inlineStyle);
+  });
+
+  const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
+
+  const motionEntriesWithStyles = filteredMotionEntries.map((entry, index) => {
+    const style = resolveMotionStyle(entry, entry.id ?? `motion-${index}`);
+
+    return { entry, style };
+  });
+
+  return (
+    <div
+      className="hero-renderer hero-renderer-v2 hero-optical-isolation"
+      data-hero-renderer="v2"
+      data-hero-root="true"
+      style={rootStyle}
+    >
+      <BaseChampagneSurface
+        variant="plain"
+        disableInternalOverlays
+        style={{
+          minHeight: "72vh",
+          display: "grid",
+          alignItems: layout.contentAlign === "center" ? "center" : "stretch",
+          overflow: "hidden",
+          backgroundImage: "none",
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          borderRadius: 0,
+          ["--hero-gradient" as string]: gradient,
+          ["--glass-opacity" as string]: 0,
+          ["--champagne-sheen-alpha" as string]: 0,
+          ["--champagne-glass-bg" as string]: "",
+          backdropFilter: "none",
+          WebkitBackdropFilter: "none",
+        }}
+      >
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .hero-renderer-v2 {
+                position: relative;
+                color: var(--text-high);
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+              }
+              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
+              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
+                background: none !important;
+                opacity: 0 !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+              }
+              .hero-renderer-v2 .hero-surface-stack {
+                position: absolute;
+                inset: 0;
+              }
+              .hero-renderer-v2 .hero-layer,
+              .hero-renderer-v2 .hero-surface-layer {
+                position: absolute;
+                inset: 0;
+              }
+              .hero-renderer-v2 .hero-layer.motion,
+              .hero-renderer-v2 .hero-surface-layer.hero-surface--motion {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+              }
+              .hero-renderer-v2 .hero-surface-layer {
+                pointer-events: none;
+              }
+              .hero-renderer-v2 .hero-content {
+                position: relative;
+                z-index: 10;
+                display: grid;
+                gap: 1rem;
+                max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
+                padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+                transform: translateY(${layout.verticalOffset ?? "0px"});
+              }
+              @media (max-width: 640px) {
+                .hero-renderer-v2 [data-surface-id="field.waveBackdrop"] {
+                  background-image: var(--hero-wave-background-mobile);
+                }
+                .hero-renderer-v2 [data-surface-id="overlay.filmGrain"] {
+                  background-image: var(--hero-grain-mobile);
+                }
+                .hero-renderer-v2 .hero-content {
+                  padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+                }
+                .hero-renderer-v2 {
+                  min-height: 68vh;
+                }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .hero-renderer-v2 .hero-layer.motion,
+                .hero-renderer-v2 .hero-surface--motion { display: none; }
+              }
+            `,
+          }}
+        />
+
+        <div
+          aria-hidden
+          className="hero-surface-stack"
+          ref={surfaceRef}
+          data-prm={prmEnabled ? "true" : "false"}
+          style={surfaceVars}
+        >
+        {surfaceStack.map((layer) => {
+          const inlineStyle = surfaceInlineStyles.get(layer.id);
+
+          return (
+            <div
+              key={layer.id}
+              data-surface-id={layer.id}
+              data-surface-role={layer.role}
+              data-prm-safe={layer.prmSafe ? "true" : undefined}
+              className={layer.className ?? "hero-surface-layer"}
+              style={inlineStyle}
+            />
+          );
+        })}
+
+        {!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path) && (
+          <video
+            className="hero-surface-layer hero-surface--motion"
+            autoPlay
+            playsInline
+            loop
+            muted
+            preload="metadata"
+            poster={surfaces.background?.desktop?.path}
+            data-surface-id="motion.heroVideo"
+            style={heroVideoStyle}
+          >
+            <source src={videoEntry.path} />
+          </video>
+        )}
+
+        {!prmEnabled &&
+          motionEntriesWithStyles.map(({ entry, style }) => (
+            <video
+              key={entry.id}
+              className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
+              autoPlay
+              playsInline
+              loop
+              muted
+              preload="metadata"
+              data-surface-id={entry.id}
+              style={style}
+            >
+              <source src={entry.path} />
+            </video>
+          ))}
+      </div>
+
+        <div
+          className="hero-content"
+          style={{
+            justifyItems: layout.contentAlign === "center" ? "center" : "start",
+            textAlign: layout.contentAlign === "center" ? "center" : "start",
+          }}
+        >
+        {content.eyebrow && (
+          <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+            {content.eyebrow}
+          </span>
+        )}
+        {content.headline && (
+          <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
+            {content.headline}
+          </h1>
+        )}
+        {content.subheadline && (
+          <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
+            {content.subheadline}
+          </p>
+        )}
+        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          {content.cta && (
+            <a
+              href={content.cta.href}
+              style={{
+                padding: "0.9rem 1.6rem",
+                borderRadius: "var(--radius-md)",
+                background: "var(--surface-gold-soft)",
+                color: "var(--text-high)",
+                border: "1px solid var(--champagne-keyline-gold)",
+                textDecoration: "none",
+                boxShadow: "var(--shadow-soft)",
+              }}
+            >
+              {content.cta.label}
+            </a>
+          )}
+          {content.secondaryCta && (
+            <a
+              href={content.secondaryCta.href}
+              style={{
+                padding: "0.9rem 1.2rem",
+                borderRadius: "var(--radius-md)",
+                background: "var(--surface-ink-soft)",
+                color: "var(--text-high)",
+                border: "1px solid var(--champagne-keyline-gold)",
+                textDecoration: "none",
+              }}
+            >
+              {content.secondaryCta.label}
+            </a>
+          )}
+        </div>
+        </div>
+      </BaseChampagneSurface>
+    </div>
+  );
+}
