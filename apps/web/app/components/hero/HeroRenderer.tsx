@@ -945,6 +945,7 @@ export async function HeroRenderer({
         WebkitBackdropFilter: "none",
       }}
       className="hero-renderer hero-optical-isolation"
+      data-hero-mode="engine"
     >
       <style
         dangerouslySetInnerHTML={{

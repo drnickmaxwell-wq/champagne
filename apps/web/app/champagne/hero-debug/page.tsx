@@ -35,7 +35,23 @@ export default function HeroDebugPage() {
         </p>
       </header>
 
-      <div className="hero-debug-hero-shell">
+      <div className="hero-debug-hero-shell" data-hero-mode="engine-debug">
+        <span
+          style={{
+            position: "absolute",
+            top: "0.5rem",
+            left: "0.5rem",
+            fontSize: "0.65rem",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "var(--text-high)",
+            opacity: 0.6,
+            pointerEvents: "none",
+            zIndex: 9,
+          }}
+        >
+          Engine Debug
+        </span>
         <HeroDebugClientPanel />
       </div>
     </div>

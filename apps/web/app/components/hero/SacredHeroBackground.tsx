@@ -1,6 +1,22 @@
 export function SacredHeroBackground() {
   return (
-    <div className="sacred-hero-bg" aria-hidden>
+    <div className="sacred-hero-bg" aria-hidden data-hero-mode="sacred">
+      <span
+        style={{
+          position: "absolute",
+          top: "0.5rem",
+          left: "0.5rem",
+          fontSize: "0.65rem",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "var(--text-high)",
+          opacity: 0.6,
+          pointerEvents: "none",
+          zIndex: 9,
+        }}
+      >
+        Sacred Mode
+      </span>
       <div className="hero-gradient-base" />
       <div className="hero-wave-caustics hero-motion-layer">
         <video autoPlay loop muted playsInline preload="auto">
