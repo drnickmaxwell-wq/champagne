@@ -6,12 +6,11 @@ import styles from "./FooterLuxe.module.css";
 
 const footerStyle = {
   "--smh-footer-bg":
-    "radial-gradient(140% 140% at 18% 0%, color-mix(in srgb, var(--smh-primary-teal, var(--brand-teal)) 16%, transparent) 0%, transparent 55%)," +
-    "radial-gradient(120% 160% at 80% 8%, color-mix(in srgb, var(--smh-primary-magenta, var(--brand-magenta)) 14%, transparent) 0%, transparent 58%)," +
-    "linear-gradient(135deg, color-mix(in srgb, var(--smh-ink) 90%, transparent) 0%, color-mix(in srgb, var(--smh-ink-soft, var(--smh-ink)) 86%, transparent) 50%, color-mix(in srgb, var(--smh-navy-900, var(--smh-ink)) 94%, transparent) 100%)",
+    "var(--smh-ink)",
   "--smh-footer-particles": "url('/assets/champagne/particles/particles-gold.webp')",
+  "--smh-footer-rim": "var(--smh-accent-gold, var(--brand-gold))",
   "--smh-footer-button-shadow":
-    "0 22px 48px color-mix(in srgb, var(--smh-ink) 42%, transparent), 0 0 0 1px color-mix(in srgb, var(--smh-accent-gold, var(--brand-gold)) 22%, transparent)",
+    "var(--shadow-soft)",
 } as const;
 
 export function Footer() {

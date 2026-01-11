@@ -1101,11 +1101,11 @@ export async function HeroRenderer({
               style={{
                 padding: "0.9rem 1.6rem",
                 borderRadius: "var(--radius-md)",
-                background: "var(--surface-gold-soft, rgba(255, 215, 137, 0.16))",
+                background: "var(--surface-gold-soft)",
                 color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.45))",
+                border: "1px solid var(--champagne-keyline-gold)",
                 textDecoration: "none",
-                boxShadow: "0 12px 32px rgba(0,0,0,0.3)",
+                boxShadow: "var(--shadow-soft)",
               }}
             >
               {content.cta.label}
@@ -1117,9 +1117,9 @@ export async function HeroRenderer({
               style={{
                 padding: "0.9rem 1.2rem",
                 borderRadius: "var(--radius-md)",
-                background: "var(--surface-ink-soft, rgba(6,7,12,0.35))",
+                background: "var(--surface-ink-soft)",
                 color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.3))",
+                border: "1px solid var(--champagne-keyline-gold)",
                 textDecoration: "none",
               }}
             >

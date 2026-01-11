@@ -21,17 +21,17 @@ const baseStyle: CSSProperties = {
   backgroundSize: "var(--smh-surface-bg-size, cover)",
   backgroundPosition: "var(--smh-surface-bg-position, center)",
   borderRadius: "var(--radius-lg)",
-  boxShadow: "var(--shadow-soft, 0 12px 40px rgba(0,0,0,0.35))",
+  boxShadow: "var(--shadow-soft)",
   overflow: "hidden",
 };
 
 const glassStyle: CSSProperties = {
-  backgroundColor: "var(--surface-glass, rgba(255,255,255,0.04))",
+  backgroundColor: "var(--surface-glass)",
   backdropFilter: "blur(18px)",
 };
 
 const inkGlassStyle: CSSProperties = {
-  backgroundColor: "var(--surface-glass-deep, rgba(6,7,12,0.4))",
+  backgroundColor: "var(--surface-glass-deep)",
   backdropFilter: "blur(16px)",
 };
 
@@ -71,7 +71,7 @@ export function BaseChampagneSurface({
               position: "absolute",
               inset: 0,
               zIndex: 0,
-              background: "radial-gradient(circle at 10% 10%, rgba(255,255,255,0.12), transparent 35%)",
+              background: "radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--smh-white) 12%, transparent), transparent 35%)",
               opacity: "var(--champagne-sheen-alpha, 0.85)",
               pointerEvents: "none",
             }}
@@ -82,7 +82,7 @@ export function BaseChampagneSurface({
               position: "absolute",
               inset: 0,
               zIndex: 0,
-              background: "var(--champagne-glass-bg, linear-gradient(135deg, rgba(255,255,255,0.08), rgba(6,7,12,0.35)))",
+              background: "var(--champagne-glass-bg)",
               mixBlendMode: "screen",
               opacity: "var(--glass-opacity, 0.8)",
               pointerEvents: "none",

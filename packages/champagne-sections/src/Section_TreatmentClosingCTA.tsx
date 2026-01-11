@@ -54,7 +54,7 @@ export function Section_TreatmentClosingCTA({
       style={{
         padding: "clamp(1.35rem, 3vw, 2.5rem)",
         border: "1px solid var(--border-subtle)",
-        background: "var(--surface-glass-deep)",
+        background: "var(--surface-1)",
         boxShadow: "var(--shadow-soft)",
       }}
     >

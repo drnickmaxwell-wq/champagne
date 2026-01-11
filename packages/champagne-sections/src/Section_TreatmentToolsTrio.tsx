@@ -38,9 +38,8 @@ export function Section_TreatmentToolsTrio({ section }: SectionTreatmentToolsTri
       variant="glass"
       style={{
         padding: "clamp(1.25rem, 3vw, 2.35rem)",
-        border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.18))",
-        background:
-          "linear-gradient(120deg, color-mix(in srgb, var(--bg-ink, #06070c) 86%, transparent), color-mix(in srgb, var(--bg-ink-soft, #0c0f16) 78%, transparent)), radial-gradient(circle at 16% 22%, color-mix(in srgb, var(--smh-white, #ffffff) 12%, transparent), transparent 34%)",
+        border: "1px solid var(--border-subtle)",
+        background: "var(--surface-1)",
       }}
     >
       <div style={{ display: "grid", gap: "0.65rem" }}>
@@ -50,7 +49,7 @@ export function Section_TreatmentToolsTrio({ section }: SectionTreatmentToolsTri
           </span>
         )}
         <h3 style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", fontWeight: 700 }}>{title}</h3>
-        <p style={{ fontSize: "0.98rem", color: "var(--text-medium, rgba(235,235,235,0.8))", lineHeight: 1.6 }}>{body}</p>
+        <p style={{ fontSize: "0.98rem", color: "var(--text-medium)", lineHeight: 1.6 }}>{body}</p>
       </div>
       <div style={gridStyle}>
         {tools.map((tool, index) => (
@@ -59,13 +58,12 @@ export function Section_TreatmentToolsTrio({ section }: SectionTreatmentToolsTri
             style={{
               borderRadius: "var(--radius-md)",
               padding: "1rem",
-              border: "1px solid rgba(255,255,255,0.12)",
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.04)) 90%, transparent), color-mix(in srgb, var(--surface-glass, rgba(255,255,255,0.04)) 50%, transparent))",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--surface-glass)",
               display: "grid",
               gap: "0.45rem",
               minHeight: "160px",
-              boxShadow: "0 18px 42px rgba(0,0,0,0.26)",
+              boxShadow: "var(--shadow-soft)",
             }}
           >
             <span style={{ fontSize: "0.9rem", letterSpacing: "0.02em", color: "var(--text-medium)" }}>Tool {index + 1}</span>
