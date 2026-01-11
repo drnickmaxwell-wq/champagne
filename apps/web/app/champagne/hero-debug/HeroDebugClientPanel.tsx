@@ -33,9 +33,11 @@ type TelemetryEntry = {
   backgroundImage: string | null;
   backgroundSize: string | null;
   backgroundRepeat: string | null;
+  backgroundPosition: string | null;
   maskImage: string | null;
   webkitMaskImage: string | null;
   filter: string | null;
+  imageRendering: string | null;
   videoSrc: string | null;
 };
 type TelemetryDump = {
@@ -92,6 +94,16 @@ export function HeroDebugClientPanel() {
   const [rendererMode, setRendererMode] = useState<RendererMode>("v1");
   const [viewMode, setViewMode] = useState<ViewMode>("compare");
   const [soloLayer, setSoloLayer] = useState<SoloLayerKey | null>(() => parseSoloParam(debugParams));
+  const [waveRingsGlue, setWaveRingsGlue] = useState({
+    size: "",
+    repeat: "",
+    position: "",
+  });
+  const [dotGridGlue, setDotGridGlue] = useState({
+    size: "",
+    repeat: "",
+    position: "",
+  });
   const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
     waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
     dotGrid: muteAllVeil || debugParams?.get("heroMuteDotGrid") === "1",
@@ -259,6 +271,32 @@ export function HeroDebugClientPanel() {
     .filter(Boolean)
     .join(" ");
 
+  const v2RootStyle = useMemo(() => {
+    const style: CSSProperties & Record<string, string> = {};
+
+    if (waveRingsGlue.size) style["--hero-glue-waveRings-size" as const] = waveRingsGlue.size;
+    if (waveRingsGlue.repeat) style["--hero-glue-waveRings-repeat" as const] = waveRingsGlue.repeat;
+    if (waveRingsGlue.position) style["--hero-glue-waveRings-position" as const] = waveRingsGlue.position;
+
+    if (dotGridGlue.size) style["--hero-glue-dotGrid-size" as const] = dotGridGlue.size;
+    if (dotGridGlue.repeat) style["--hero-glue-dotGrid-repeat" as const] = dotGridGlue.repeat;
+    if (dotGridGlue.position) style["--hero-glue-dotGrid-position" as const] = dotGridGlue.position;
+
+    return style;
+  }, [dotGridGlue.position, dotGridGlue.repeat, dotGridGlue.size, waveRingsGlue.position, waveRingsGlue.repeat, waveRingsGlue.size]);
+
+  const v2GlueVars = useMemo(
+    () => ({
+      ...(waveRingsGlue.size ? { waveRingsSize: waveRingsGlue.size } : {}),
+      ...(waveRingsGlue.repeat ? { waveRingsRepeat: waveRingsGlue.repeat } : {}),
+      ...(waveRingsGlue.position ? { waveRingsPosition: waveRingsGlue.position } : {}),
+      ...(dotGridGlue.size ? { dotGridSize: dotGridGlue.size } : {}),
+      ...(dotGridGlue.repeat ? { dotGridRepeat: dotGridGlue.repeat } : {}),
+      ...(dotGridGlue.position ? { dotGridPosition: dotGridGlue.position } : {}),
+    }),
+    [dotGridGlue.position, dotGridGlue.repeat, dotGridGlue.size, waveRingsGlue.position, waveRingsGlue.repeat, waveRingsGlue.size],
+  );
+
   const collectTelemetry = (root: HTMLElement | null): TelemetryEntry[] => {
     if (!root) return [];
     const nodes = Array.from(root.querySelectorAll<HTMLElement>("[data-surface-id]"));
@@ -277,9 +315,11 @@ export function HeroDebugClientPanel() {
         backgroundImage: computed.backgroundImage || null,
         backgroundSize: computed.backgroundSize || null,
         backgroundRepeat: computed.backgroundRepeat || null,
+        backgroundPosition: computed.backgroundPosition || null,
         maskImage: computed.maskImage || null,
         webkitMaskImage: computed.webkitMaskImage || null,
         filter: computed.filter || null,
+        imageRendering: computed.imageRendering || null,
         videoSrc,
       };
     });
@@ -520,6 +560,83 @@ export function HeroDebugClientPanel() {
         </label>
       </div>
 
+      <div style={{ display: "grid", gap: "0.75rem" }}>
+        <h3 style={{ margin: 0 }}>V2 Glue Overrides (LAB)</h3>
+        <div
+          style={{
+            display: "grid",
+            gap: "0.75rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>Wave Rings</strong>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Size</span>
+              <select value={waveRingsGlue.size} onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, size: event.target.value }))}>
+                <option value="">Default</option>
+                <option value="cover">Cover</option>
+                <option value="auto">Auto</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Repeat</span>
+              <select
+                value={waveRingsGlue.repeat}
+                onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, repeat: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="no-repeat">No-repeat</option>
+                <option value="repeat">Repeat</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Position</span>
+              <select
+                value={waveRingsGlue.position}
+                onChange={(event) => setWaveRingsGlue((prev) => ({ ...prev, position: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="center">Center</option>
+                <option value="left top">Left top</option>
+              </select>
+            </label>
+          </div>
+
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>Dot Grid</strong>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Size</span>
+              <select value={dotGridGlue.size} onChange={(event) => setDotGridGlue((prev) => ({ ...prev, size: event.target.value }))}>
+                <option value="">Default</option>
+                <option value="cover">Cover</option>
+                <option value="auto">Auto</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Repeat</span>
+              <select value={dotGridGlue.repeat} onChange={(event) => setDotGridGlue((prev) => ({ ...prev, repeat: event.target.value }))}>
+                <option value="">Default</option>
+                <option value="no-repeat">No-repeat</option>
+                <option value="repeat">Repeat</option>
+              </select>
+            </label>
+            <label style={{ display: "grid", gap: "0.35rem" }}>
+              <span>Position</span>
+              <select
+                value={dotGridGlue.position}
+                onChange={(event) => setDotGridGlue((prev) => ({ ...prev, position: event.target.value }))}
+              >
+                <option value="">Default</option>
+                <option value="center">Center</option>
+                <option value="left top">Left top</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+
       {viewMode === "compare" ? (
         <div style={{ display: "grid", gap: "1.5rem" }}>
           <div style={{ display: "grid", gap: "0.5rem" }}>
@@ -553,6 +670,8 @@ export function HeroDebugClientPanel() {
                     timeOfDay={resolvedTimeOfDay}
                     diagnosticBoost={diagnosticBoost}
                     surfaceRef={heroSurfaceRefV2}
+                    rootStyle={v2RootStyle}
+                    glueVars={v2GlueVars}
                   />
                 </Suspense>
               </div>
@@ -576,6 +695,8 @@ export function HeroDebugClientPanel() {
                   timeOfDay={resolvedTimeOfDay}
                   diagnosticBoost={diagnosticBoost}
                   surfaceRef={heroSurfaceRefV2}
+                  rootStyle={v2RootStyle}
+                  glueVars={v2GlueVars}
                 />
               ) : (
                 <HeroRenderer

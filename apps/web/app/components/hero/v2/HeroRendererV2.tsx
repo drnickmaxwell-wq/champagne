@@ -11,6 +11,15 @@ export interface HeroRendererV2Props {
   diagnosticBoost?: boolean;
   surfaceRef?: Ref<HTMLDivElement>;
   pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
+  rootStyle?: CSSProperties;
+  glueVars?: Partial<{
+    waveRingsSize: string;
+    waveRingsRepeat: string;
+    waveRingsPosition: string;
+    dotGridSize: string;
+    dotGridRepeat: string;
+    dotGridPosition: string;
+  }>;
 }
 
 const resolveAssetUrl = (entry?: { path?: string; asset?: { id?: string }; id?: string }) => {
@@ -71,6 +80,8 @@ export async function HeroRendererV2({
   diagnosticBoost = false,
   surfaceRef,
   pageCategory,
+  rootStyle,
+  glueVars,
 }: HeroRendererV2Props) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
@@ -241,6 +252,16 @@ export async function HeroRendererV2({
   const overlayDotsGlue = resolveBackgroundGlue(overlayDotsUrl);
   const particlesGlue = resolveBackgroundGlue(particlesUrl);
   const grainGlue = resolveBackgroundGlue(grainUrlDesktop);
+  const waveRingsGlueOverrides: CSSProperties = {
+    ...(glueVars?.waveRingsSize ? { backgroundSize: "var(--hero-glue-waveRings-size)" } : {}),
+    ...(glueVars?.waveRingsRepeat ? { backgroundRepeat: "var(--hero-glue-waveRings-repeat)" } : {}),
+    ...(glueVars?.waveRingsPosition ? { backgroundPosition: "var(--hero-glue-waveRings-position)" } : {}),
+  };
+  const dotGridGlueOverrides: CSSProperties = {
+    ...(glueVars?.dotGridSize ? { backgroundSize: "var(--hero-glue-dotGrid-size)" } : {}),
+    ...(glueVars?.dotGridRepeat ? { backgroundRepeat: "var(--hero-glue-dotGrid-repeat)" } : {}),
+    ...(glueVars?.dotGridPosition ? { backgroundPosition: "var(--hero-glue-dotGrid-position)" } : {}),
+  };
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": { zIndex: 1 },
@@ -279,6 +300,7 @@ export async function HeroRendererV2({
       const style: CSSProperties = {
         backgroundImage: "var(--hero-overlay-field)",
         ...(overlayFieldGlue ?? {}),
+        ...waveRingsGlueOverrides,
         zIndex: 3,
       };
       let missingForLayer = false;
@@ -305,6 +327,7 @@ export async function HeroRendererV2({
       const style: CSSProperties = {
         backgroundImage: "var(--hero-overlay-dots)",
         ...(overlayDotsGlue ?? {}),
+        ...dotGridGlueOverrides,
         zIndex: 4,
       };
       let missingForLayer = false;
@@ -402,7 +425,12 @@ export async function HeroRendererV2({
   });
 
   return (
-    <div className="hero-renderer hero-renderer-v2 hero-optical-isolation" data-hero-renderer="v2" data-hero-root="true">
+    <div
+      className="hero-renderer hero-renderer-v2 hero-optical-isolation"
+      data-hero-renderer="v2"
+      data-hero-root="true"
+      style={rootStyle}
+    >
       <BaseChampagneSurface
         variant="plain"
         disableInternalOverlays
