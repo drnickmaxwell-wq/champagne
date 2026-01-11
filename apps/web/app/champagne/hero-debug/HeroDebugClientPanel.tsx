@@ -20,12 +20,13 @@ const trackedCssVars = [
 ];
 
 type TimeOfDayOption = "auto" | HeroTimeOfDay;
-type RendererMode = "v1" | "v2" | "compare";
+type RendererMode = "v1" | "v2";
+type ViewMode = "v1" | "v2" | "compare";
 
 type CssVarMap = Record<string, string>;
 type TelemetryEntry = {
   id: string;
-  tag: string;
+  tagName: string;
   opacity: string | null;
   mixBlendMode: string | null;
   zIndex: string | null;
@@ -34,6 +35,7 @@ type TelemetryEntry = {
   backgroundRepeat: string | null;
   maskImage: string | null;
   webkitMaskImage: string | null;
+  filter: string | null;
   videoSrc: string | null;
 };
 type TelemetryDump = {
@@ -88,6 +90,7 @@ export function HeroDebugClientPanel() {
   const [filmGrain, setFilmGrain] = useState(true);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
   const [rendererMode, setRendererMode] = useState<RendererMode>("v1");
+  const [viewMode, setViewMode] = useState<ViewMode>("compare");
   const [soloLayer, setSoloLayer] = useState<SoloLayerKey | null>(() => parseSoloParam(debugParams));
   const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
     waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
@@ -111,6 +114,7 @@ export function HeroDebugClientPanel() {
   const [cssVars, setCssVars] = useState<CssVarMap>({});
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
   const [telemetryDump, setTelemetryDump] = useState<TelemetryDump | null>(null);
+  const [telemetryCopyStatus, setTelemetryCopyStatus] = useState<string | null>(null);
 
   const updateQueryParam = (key: string, value: string | null) => {
     if (typeof window === "undefined") return;
@@ -255,7 +259,7 @@ export function HeroDebugClientPanel() {
     .filter(Boolean)
     .join(" ");
 
-  const collectTelemetry = (root: HTMLDivElement | null): TelemetryEntry[] => {
+  const collectTelemetry = (root: HTMLElement | null): TelemetryEntry[] => {
     if (!root) return [];
     const nodes = Array.from(root.querySelectorAll<HTMLElement>("[data-surface-id]"));
 
@@ -266,7 +270,7 @@ export function HeroDebugClientPanel() {
 
       return {
         id: node.getAttribute("data-surface-id") ?? "",
-        tag: node.tagName,
+        tagName: node.tagName,
         opacity: computed.opacity || null,
         mixBlendMode: computed.mixBlendMode || null,
         zIndex: computed.zIndex || null,
@@ -275,6 +279,7 @@ export function HeroDebugClientPanel() {
         backgroundRepeat: computed.backgroundRepeat || null,
         maskImage: computed.maskImage || null,
         webkitMaskImage: computed.webkitMaskImage || null,
+        filter: computed.filter || null,
         videoSrc,
       };
     });
@@ -282,15 +287,35 @@ export function HeroDebugClientPanel() {
 
   const handleDumpTelemetry = () => {
     if (typeof window === "undefined") return;
+    const roots = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-hero-root="true"][data-hero-renderer]'),
+    );
+    const telemetryByRenderer = roots.reduce<Record<string, TelemetryEntry[]>>((acc, root) => {
+      const renderer = root.dataset.heroRenderer;
+      if (!renderer) return acc;
+      acc[renderer] = collectTelemetry(root);
+      return acc;
+    }, {});
     const payload: TelemetryDump = {
       generatedAt: new Date().toISOString(),
-      v1: collectTelemetry(heroSurfaceRefV1.current),
-      v2: collectTelemetry(heroSurfaceRefV2.current),
+      v1: telemetryByRenderer.v1 ?? [],
+      v2: telemetryByRenderer.v2 ?? [],
     };
 
-    (window as typeof window & { __HERO_V1_TELEMETRY?: TelemetryEntry[] }).__HERO_V1_TELEMETRY = payload.v1;
-    (window as typeof window & { __HERO_V2_TELEMETRY?: TelemetryEntry[] }).__HERO_V2_TELEMETRY = payload.v2;
     setTelemetryDump(payload);
+    setTelemetryCopyStatus(null);
+    console.log("[Hero Debug Telemetry]", payload);
+  };
+
+  const handleCopyTelemetry = async () => {
+    if (!telemetryDump || typeof navigator === "undefined") return;
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(telemetryDump, null, 2));
+      setTelemetryCopyStatus("Copied.");
+    } catch (error) {
+      setTelemetryCopyStatus("Copy failed.");
+      console.error("Telemetry copy failed", error);
+    }
   };
 
   return (
@@ -478,8 +503,16 @@ export function HeroDebugClientPanel() {
         </label>
 
         <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-          <span>Renderer</span>
+          <span>Renderer focus</span>
           <select value={rendererMode} onChange={(event) => setRendererMode(event.target.value as RendererMode)}>
+            <option value="v1">V1</option>
+            <option value="v2">V2</option>
+          </select>
+        </label>
+
+        <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <span>View mode</span>
+          <select value={viewMode} onChange={(event) => setViewMode(event.target.value as ViewMode)}>
             <option value="v1">V1</option>
             <option value="v2">V2</option>
             <option value="compare">Compare</option>
@@ -487,12 +520,12 @@ export function HeroDebugClientPanel() {
         </label>
       </div>
 
-      {rendererMode === "compare" ? (
+      {viewMode === "compare" ? (
         <div style={{ display: "grid", gap: "1.5rem" }}>
           <div style={{ display: "grid", gap: "0.5rem" }}>
             <strong>V1</strong>
             <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
-              <div className={heroClassName} style={layerOpacityVars}>
+              <div className={heroClassName} style={layerOpacityVars} data-hero-renderer="v1" data-hero-root="true">
                 <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
                   <HeroRenderer
                     key={`${heroRenderKey}-v1`}
@@ -528,9 +561,13 @@ export function HeroDebugClientPanel() {
         </div>
       ) : (
         <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
-          <div className={heroClassName} style={layerOpacityVars}>
+          <div
+            className={heroClassName}
+            style={layerOpacityVars}
+            {...(viewMode === "v1" ? { "data-hero-renderer": "v1", "data-hero-root": "true" } : {})}
+          >
             <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
-              {rendererMode === "v2" ? (
+              {viewMode === "v2" ? (
                 <HeroRendererV2
                   key={`${heroRenderKey}-v2`}
                   prm={mockPrm}
@@ -661,10 +698,26 @@ export function HeroDebugClientPanel() {
               fontWeight: 600,
             }}
           >
-            Dump Telemetry
+            Dump telemetry (V1+V2)
+          </button>
+          <button
+            type="button"
+            onClick={handleCopyTelemetry}
+            disabled={!telemetryDump}
+            style={{
+              padding: "0.55rem 0.9rem",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              fontWeight: 600,
+              opacity: telemetryDump ? 1 : 0.6,
+            }}
+          >
+            Copy JSON
           </button>
           <span style={{ color: "var(--text-medium)" }}>
-            Writes window.__HERO_V1_TELEMETRY and window.__HERO_V2_TELEMETRY
+            {telemetryCopyStatus ?? "Exports separate arrays by renderer root."}
           </span>
         </div>
         <pre

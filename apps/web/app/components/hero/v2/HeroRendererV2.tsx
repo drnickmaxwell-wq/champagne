@@ -402,100 +402,100 @@ export async function HeroRendererV2({
   });
 
   return (
-    <BaseChampagneSurface
-      variant="plain"
-      disableInternalOverlays
-      style={{
-        minHeight: "72vh",
-        display: "grid",
-        alignItems: layout.contentAlign === "center" ? "center" : "stretch",
-        overflow: "hidden",
-        backgroundImage: "none",
-        backgroundColor: "transparent",
-        boxShadow: "none",
-        borderRadius: 0,
-        ["--hero-gradient" as string]: gradient,
-        ["--glass-opacity" as string]: 0,
-        ["--champagne-sheen-alpha" as string]: 0,
-        ["--champagne-glass-bg" as string]: "",
-        backdropFilter: "none",
-        WebkitBackdropFilter: "none",
-      }}
-      className="hero-renderer hero-renderer-v2 hero-optical-isolation"
-    >
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            .hero-renderer-v2 {
-              position: relative;
-              color: var(--text-high);
-              backdrop-filter: none !important;
-              -webkit-backdrop-filter: none !important;
-            }
-            .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
-            .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
-              background: none !important;
-              opacity: 0 !important;
-              backdrop-filter: none !important;
-              -webkit-backdrop-filter: none !important;
-            }
-            .hero-renderer-v2 .hero-surface-stack {
-              position: absolute;
-              inset: 0;
-            }
-            .hero-renderer-v2 .hero-layer,
-            .hero-renderer-v2 .hero-surface-layer {
-              position: absolute;
-              inset: 0;
-            }
-            .hero-renderer-v2 .hero-layer.motion,
-            .hero-renderer-v2 .hero-surface-layer.hero-surface--motion {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
-              pointer-events: none;
-            }
-            .hero-renderer-v2 .hero-surface-layer {
-              pointer-events: none;
-            }
-            .hero-renderer-v2 .hero-content {
-              position: relative;
-              z-index: 10;
-              display: grid;
-              gap: 1rem;
-              max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
-              padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
-              transform: translateY(${layout.verticalOffset ?? "0px"});
-            }
-            @media (max-width: 640px) {
-              .hero-renderer-v2 [data-surface-id="field.waveBackdrop"] {
-                background-image: var(--hero-wave-background-mobile);
+    <div className="hero-renderer hero-renderer-v2 hero-optical-isolation" data-hero-renderer="v2" data-hero-root="true">
+      <BaseChampagneSurface
+        variant="plain"
+        disableInternalOverlays
+        style={{
+          minHeight: "72vh",
+          display: "grid",
+          alignItems: layout.contentAlign === "center" ? "center" : "stretch",
+          overflow: "hidden",
+          backgroundImage: "none",
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          borderRadius: 0,
+          ["--hero-gradient" as string]: gradient,
+          ["--glass-opacity" as string]: 0,
+          ["--champagne-sheen-alpha" as string]: 0,
+          ["--champagne-glass-bg" as string]: "",
+          backdropFilter: "none",
+          WebkitBackdropFilter: "none",
+        }}
+      >
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .hero-renderer-v2 {
+                position: relative;
+                color: var(--text-high);
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
               }
-              .hero-renderer-v2 [data-surface-id="overlay.filmGrain"] {
-                background-image: var(--hero-grain-mobile);
+              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
+              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
+                background: none !important;
+                opacity: 0 !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+              }
+              .hero-renderer-v2 .hero-surface-stack {
+                position: absolute;
+                inset: 0;
+              }
+              .hero-renderer-v2 .hero-layer,
+              .hero-renderer-v2 .hero-surface-layer {
+                position: absolute;
+                inset: 0;
+              }
+              .hero-renderer-v2 .hero-layer.motion,
+              .hero-renderer-v2 .hero-surface-layer.hero-surface--motion {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+              }
+              .hero-renderer-v2 .hero-surface-layer {
+                pointer-events: none;
               }
               .hero-renderer-v2 .hero-content {
+                position: relative;
+                z-index: 10;
+                display: grid;
+                gap: 1rem;
+                max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
                 padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+                transform: translateY(${layout.verticalOffset ?? "0px"});
               }
-              .hero-renderer-v2 {
-                min-height: 68vh;
+              @media (max-width: 640px) {
+                .hero-renderer-v2 [data-surface-id="field.waveBackdrop"] {
+                  background-image: var(--hero-wave-background-mobile);
+                }
+                .hero-renderer-v2 [data-surface-id="overlay.filmGrain"] {
+                  background-image: var(--hero-grain-mobile);
+                }
+                .hero-renderer-v2 .hero-content {
+                  padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+                }
+                .hero-renderer-v2 {
+                  min-height: 68vh;
+                }
               }
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .hero-renderer-v2 .hero-layer.motion,
-              .hero-renderer-v2 .hero-surface--motion { display: none; }
-            }
-          `,
-        }}
-      />
+              @media (prefers-reduced-motion: reduce) {
+                .hero-renderer-v2 .hero-layer.motion,
+                .hero-renderer-v2 .hero-surface--motion { display: none; }
+              }
+            `,
+          }}
+        />
 
-      <div
-        aria-hidden
-        className="hero-surface-stack"
-        ref={surfaceRef}
-        data-prm={prmEnabled ? "true" : "false"}
-        style={surfaceVars}
-      >
+        <div
+          aria-hidden
+          className="hero-surface-stack"
+          ref={surfaceRef}
+          data-prm={prmEnabled ? "true" : "false"}
+          style={surfaceVars}
+        >
         {surfaceStack.map((layer) => {
           const inlineStyle = surfaceInlineStyles.get(layer.id);
 
@@ -545,13 +545,13 @@ export async function HeroRendererV2({
           ))}
       </div>
 
-      <div
-        className="hero-content"
-        style={{
-          justifyItems: layout.contentAlign === "center" ? "center" : "start",
-          textAlign: layout.contentAlign === "center" ? "center" : "start",
-        }}
-      >
+        <div
+          className="hero-content"
+          style={{
+            justifyItems: layout.contentAlign === "center" ? "center" : "start",
+            textAlign: layout.contentAlign === "center" ? "center" : "start",
+          }}
+        >
         {content.eyebrow && (
           <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
             {content.eyebrow}
@@ -600,7 +600,8 @@ export async function HeroRendererV2({
             </a>
           )}
         </div>
-      </div>
-    </BaseChampagneSurface>
+        </div>
+      </BaseChampagneSurface>
+    </div>
   );
 }
