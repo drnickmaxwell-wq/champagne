@@ -1,0 +1,117 @@
+.sacred-hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  --champagne-hero-gradient: var(--smh-gradient);
+  --champagne-hero-wave-mask-desktop: url("/assets/champagne/waves/wave-mask-desktop.webp");
+  --champagne-hero-wave-mask-mobile: url("/assets/champagne/waves/wave-mask-mobile.webp");
+  --champagne-hero-particles-static: url("/assets/champagne/particles/home-hero-particles.webp");
+  --champagne-hero-film-grain-desktop: url("/assets/champagne/film-grain/film-grain-desktop.webp");
+  --champagne-hero-film-grain-mobile: url("/assets/champagne/film-grain/film-grain-mobile.webp");
+  --champagne-hero-caustics-opacity: 0.1;
+  --champagne-hero-glass-opacity: 0.12;
+  --champagne-hero-particles-drift-opacity: 0.06;
+  --champagne-hero-dust-opacity: 0.08;
+  --champagne-hero-static-particles-opacity: 0.08;
+  --champagne-hero-grain-opacity: 0.07;
+}
+
+.sacred-hero-bg .hero-gradient-base {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--champagne-hero-gradient);
+}
+
+.sacred-hero-bg .hero-wave-caustics {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: var(--champagne-hero-caustics-opacity);
+  mix-blend-mode: screen;
+}
+
+.sacred-hero-bg .hero-wave-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background-image: var(--champagne-hero-wave-mask-desktop);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+.sacred-hero-bg .hero-glass-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  opacity: var(--champagne-hero-glass-opacity);
+  mix-blend-mode: screen;
+}
+
+.sacred-hero-bg .hero-particles-static {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background-image: var(--champagne-hero-particles-static);
+  background-size: 1024px 1024px;
+  background-repeat: repeat;
+  opacity: var(--champagne-hero-static-particles-opacity);
+  mix-blend-mode: screen;
+}
+
+.sacred-hero-bg .hero-particles-drift {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  opacity: var(--champagne-hero-particles-drift-opacity);
+  mix-blend-mode: screen;
+}
+
+.sacred-hero-bg .hero-gold-dust-drift {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  opacity: var(--champagne-hero-dust-opacity);
+  mix-blend-mode: screen;
+}
+
+.sacred-hero-bg .hero-film-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  background-image: var(--champagne-hero-film-grain-desktop);
+  background-size: 512px 512px;
+  background-repeat: repeat;
+  opacity: var(--champagne-hero-grain-opacity);
+  mix-blend-mode: overlay;
+}
+
+.sacred-hero-bg .hero-wave-caustics video,
+.sacred-hero-bg .hero-glass-shimmer video,
+.sacred-hero-bg .hero-particles-drift video,
+.sacred-hero-bg .hero-gold-dust-drift video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .sacred-hero-bg .hero-wave-mask {
+    background-image: var(--champagne-hero-wave-mask-mobile);
+  }
+
+  .sacred-hero-bg .hero-film-grain {
+    background-image: var(--champagne-hero-film-grain-mobile);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sacred-hero-bg .hero-motion-layer {
+    display: none;
+  }
+}

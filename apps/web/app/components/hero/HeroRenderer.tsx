@@ -33,6 +33,7 @@ export interface HeroRendererProps {
   diagnosticBoost?: boolean;
   surfaceRef?: Ref<HTMLDivElement>;
   pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
+  backgroundMode?: "engine" | "sacred";
 }
 
 function HeroFallback() {
@@ -73,10 +74,12 @@ export async function HeroRenderer({
   diagnosticBoost = false,
   surfaceRef,
   pageCategory,
+  backgroundMode = "engine",
 }: HeroRendererProps) {
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   // TODO: Wire treatmentSlug directly from the treatment page router when that context is available.
   const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
+  void backgroundMode;
 
   try {
     runtime = await getHeroRuntime({
@@ -1068,7 +1071,6 @@ export async function HeroRenderer({
               <source src={entry.path} />
             </video>
           ))}
-
       </div>
 
       <div

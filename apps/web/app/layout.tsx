@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
 import { headers } from "next/headers";
 import "./globals.css";
+import "./components/hero/sacred-hero-bg.css";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
 import { HeroRenderer } from "./components/hero/HeroRenderer";
+import { SacredHeroBackground } from "./components/hero/SacredHeroBackground";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
@@ -18,6 +20,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const requestUrl = headersList.get("next-url") ?? "";
   const isPublicPage = !requestUrl.startsWith("/champagne/");
   const isHeroEnabled = isBrandHeroEnabled();
+  const heroBackgroundMode = process.env.NEXT_PUBLIC_HERO_BG === "sacred" ? "sacred" : "engine";
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
 
@@ -59,7 +62,20 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Header />
           </div>
           <main className="flex-1 px-6 py-10">
-            {isPublicPage && isHeroEnabled && (
+            {isPublicPage && isHeroEnabled && heroBackgroundMode === "sacred" && (
+              <div className="relative">
+                <SacredHeroBackground />
+                <div className="relative z-10">
+                  <HeroRenderer
+                    mode={mode}
+                    treatmentSlug={treatmentSlug}
+                    pageCategory={pageCategory}
+                    backgroundMode="sacred"
+                  />
+                </div>
+              </div>
+            )}
+            {isPublicPage && isHeroEnabled && heroBackgroundMode === "engine" && (
               <HeroRenderer
                 mode={mode}
                 treatmentSlug={treatmentSlug}
