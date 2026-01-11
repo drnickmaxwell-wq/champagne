@@ -35,7 +35,7 @@ export function Section_PatientStoriesRail({ section }: SectionPatientStoriesRai
       style={{
         padding: "clamp(1.25rem, 3vw, 2.35rem)",
         border: "1px solid var(--border-subtle)",
-        background: "var(--surface-glass)",
+        background: "var(--surface-1)",
         boxShadow: "var(--shadow-soft)",
       }}
     >
@@ -55,7 +55,7 @@ export function Section_PatientStoriesRail({ section }: SectionPatientStoriesRai
               borderRadius: "var(--radius-md)",
               padding: "1rem",
               border: "1px solid var(--border-subtle)",
-              background: "var(--surface-glass)",
+              background: "var(--surface-2)",
               boxShadow: "var(--shadow-soft)",
               display: "grid",
               gap: "0.4rem",

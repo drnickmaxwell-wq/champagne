@@ -26,7 +26,7 @@ const mediaShell: CSSProperties = {
   position: "relative",
   borderRadius: "var(--radius-md)",
   overflow: "hidden",
-  background: "var(--surface-glass)",
+  background: "var(--surface-2)",
   minHeight: "220px",
   boxShadow: "var(--shadow-soft)",
   border: "1px solid var(--border-subtle)",
@@ -35,7 +35,7 @@ const mediaShell: CSSProperties = {
 const mediaGradient: CSSProperties = {
   position: "absolute",
   inset: 0,
-  background: "var(--surface-glass)",
+  background: "var(--surface-2)",
   mixBlendMode: "screen",
 };
 

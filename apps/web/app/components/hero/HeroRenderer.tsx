@@ -151,8 +151,8 @@ export async function HeroRenderer({
   };
   const isDeMilkMode = mode === "home" || mode === "treatment";
   const internalOverlaysDisabled = true;
-  const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
-  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
+  const isSacredHomeDefault = mode === "home" && runtime.variant?.id === "default";
+  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeDefault;
   const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
   const grainOpacity =
     honorManifestOpacity && manifestGrainOpacity !== undefined
@@ -176,7 +176,6 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
-    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
     if (token && activeMotionIds.has(token)) return false;
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
@@ -239,15 +238,18 @@ export async function HeroRenderer({
   };
 
   const resolveMotionStyle = (
-    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number },
+    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number; path?: string; id?: string },
     id?: string,
   ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
-    const tunedBlend = applyBlendTuning(id ?? "", entry.blendMode as CSSProperties["mixBlendMode"] | undefined);
+    const isSacredHomeCaustics = isSacredHomeDefault && id === "sacred.motion.waveCaustics";
+    const resolvedBlend = isSacredHomeCaustics ? "screen" : entry.blendMode ?? undefined;
+    const resolvedOpacity = isSacredHomeCaustics ? 0.45 : entry.opacity ?? undefined;
+    const tunedBlend = applyBlendTuning(id ?? "", resolvedBlend as CSSProperties["mixBlendMode"] | undefined);
 
-    if (entry.opacity !== undefined && entry.opacity !== null) {
-      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", entry.opacity, tunedBlend));
+    if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
+      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", resolvedOpacity, tunedBlend));
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
@@ -258,6 +260,10 @@ export async function HeroRenderer({
     } else if (id) {
       noteMissing(id, "blend", "motion");
       style.opacity = 0;
+    }
+
+    if (entry?.path && entry?.id?.startsWith("sacred.motion.")) {
+      style.backgroundImage = `url("${entry.path}")`;
     }
 
     if (typeof entry.zIndex === "number") {
@@ -971,26 +977,6 @@ export async function HeroRenderer({
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
               background-position: center;
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
-            }
-            .hero-renderer [data-surface-id="field.waveBackdrop"],
-            .hero-renderer [data-surface-id="field.waveRings"],
-            .hero-renderer [data-surface-id="field.dotGrid"] {
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
             }
             .hero-renderer .hero-layer.motion,
             .hero-renderer .hero-surface-layer.hero-surface--motion {
@@ -1014,14 +1000,6 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
-              }
-              .hero-renderer [data-surface-id="field.waveBackdrop"],
-              .hero-renderer [data-surface-id="field.waveRings"],
-              .hero-renderer [data-surface-id="field.dotGrid"] {
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="overlay.filmGrain"] {
                 background-image: var(--hero-grain-mobile);
@@ -1127,11 +1105,11 @@ export async function HeroRenderer({
               style={{
                 padding: "0.9rem 1.6rem",
                 borderRadius: "var(--radius-md)",
-                background: "var(--surface-gold-soft, rgba(255, 215, 137, 0.16))",
+                background: "var(--surface-gold-soft)",
                 color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.45))",
+                border: "1px solid var(--champagne-keyline-gold)",
                 textDecoration: "none",
-                boxShadow: "0 12px 32px rgba(0,0,0,0.3)",
+                boxShadow: "var(--shadow-soft)",
               }}
             >
               {content.cta.label}
@@ -1143,9 +1121,9 @@ export async function HeroRenderer({
               style={{
                 padding: "0.9rem 1.2rem",
                 borderRadius: "var(--radius-md)",
-                background: "var(--surface-ink-soft, rgba(6,7,12,0.35))",
+                background: "var(--surface-ink-soft)",
                 color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold, rgba(255, 215, 137, 0.3))",
+                border: "1px solid var(--champagne-keyline-gold)",
                 textDecoration: "none",
               }}
             >

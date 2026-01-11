@@ -111,6 +111,20 @@ Touching hero debug
 
 Touching any marketing hero renderer
 
+3.4 Residue Gate (token purity enforcement)
+
+All new component style work must be token-only.
+
+Token source files may contain literals; all runtime usage must be token-only.
+
+Any new exemption MUST:
+
+- List exact files in this AGENTS.md
+- Add those files to scripts/verify-token-purity.cjs targetFiles
+- Run: node scripts/verify-token-purity.cjs (must PASS)
+
+This is process law, not design law.
+
 4. CI & Visibility Requirements
 
 Guards MUST be visible in GitHub / CI.
@@ -322,8 +336,190 @@ Hard prohibitions remain in force:
 - No header/footer edits.
 - No token edits.
 
+EXEMPTION — PASS T14 Forms & Inputs (Director-authorized)
+Agents MAY modify:
+- apps/web/app/components/layout/FooterLuxe.module.css
+(only add Footer.tsx if absolutely required, but prefer CSS-only)
+
+Scope:
+
+Unify focus-visible ring styling for newsletter input only.
+
+Semantic-token-only change. No layout/structure. No copy.
+
+Hard prohibitions remain unchanged.
+
+EXEMPTION — PASS T17 Tools Trio Token Purity (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TreatmentToolsTrio.tsx
+- scripts/verify-token-purity.cjs (ONLY if needed to include the file)
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text).
+- No layout/structure edits.
+- No copy changes.
+
+Hard prohibitions remain:
+- No hero edits
+- No manifests edits
+- No globals.css
+- No header/footer edits
+
+
+EXEMPTION — PASS T18 Patient Stories Rail Token Purity (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/Section_PatientStoriesRail.tsx
+
+Scope:
+- Semantic-token-only styling replacement (background/border/shadow/text).
+- No layout/structure edits.
+- No copy changes.
+
+Hard prohibitions remain unchanged.
+
+EXEMPTION — PASS T19 Repo-wide literal colour residue scan + patch (Director-authorized)
+Agents MAY modify:
+- apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Semantic-token-only replacements.
+- No structure/layout changes.
+- No copy changes.
+- Hero is off-limits (do not touch hero renderer, manifests, or hero routes).
+
+Hard prohibitions remain unchanged.
+
+
+EXEMPTION — PASS T23 PeopleGrid Porcelain Contract (Director-authorized)
+Agents MAY modify:
+- packages/champagne-sections/src/sections/Section_PeopleGrid.tsx
+
+Scope:
+
+Semantic-token-only surface/border/shadow/text replacements.
+
+Remove ink-surface forcing inside porcelain sections.
+
+No layout/structure edits.
+
+No copy changes.
+
+Hard prohibitions unchanged:
+
+Sacred zones unchanged.
+
+No hero/manifests edits.
+
+No app layout/globals edits.
+
 
 Only within task scope.
+
+EXEMPTION — PASS T24 (MediaBlock Surface Contract) — Director-authorized
+Agents MAY modify:
+- packages/champagne-sections/src/Section_MediaBlock.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+
+Replace default MediaBlock “glass slab” surfaces with porcelain semantic surfaces.
+
+Token-only (background/border/shadow/text only).
+
+No structure/layout changes.
+
+No copy changes.
+
+Hard prohibitions remain unchanged.
+
+EXEMPTION — PASS T25 (De-Glass Default Section Wrappers) — Director-authorized
+Agents MAY modify:
+- packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx
+- packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx
+- scripts/verify-token-purity.cjs
+- AGENTS.md
+
+Scope:
+
+Replace default glass/glass-deep surfaces with porcelain ladder surfaces.
+
+Token-only styling replacement (background/border/shadow/text).
+
+No structural/layout edits.
+
+No copy changes.
+
+Hard prohibitions remain unchanged.
+
+EXEMPTION — PASS T32 Hero Residue Cleanup (Director-authorized)
+Agents MAY modify (token-only fallback removal only):
+
+apps/web/app/components/hero/HeroRenderer.tsx
+
+packages/champagne-hero/src/BaseChampagneSurface.tsx
+
+packages/champagne-hero/src/ChampagneHeroFrame.tsx
+
+packages/champagne-hero/src/HeroPreviewDebug.tsx
+
+Scope:
+
+Remove literal #hex, rgba or rgb, and gradient fallbacks from inline style strings by replacing them with semantic tokens already used elsewhere (--surface-*, --border-*, --text-*, --shadow-*, and existing hero tokens).
+
+Preserve the same property keys and component structure.
+
+If a fallback exists, remove the fallback portion (do not replace with a literal).
+
+Hard prohibitions remain:
+
+No edits to packages/champagne-manifests/data/hero/**
+
+No edits to apps/web/app/globals.css
+
+No edits to hero engine runtime config files beyond the 4 files listed.
+
+EXEMPTION — PASS T33 Footer Ink-Chrome Surface Contract (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- apps/web/app/components/layout/FooterLuxe.module.css
+- apps/web/app/components/layout/Footer.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+
+Replace porcelain ladder tokens in footer controls with ink-surface tokens/variables.
+
+Token-only. Preserve structure. No copy. No gradients/hex/rgba.
+
+CSS-first; Footer.tsx only if unavoidable.
+
+Hard prohibitions remain unchanged.
+
+EXEMPTION — PASS T34 Footer Controls Interaction Contract (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- apps/web/app/components/layout/FooterLuxe.module.css
+- apps/web/app/components/layout/Footer.tsx
+- scripts/verify-token-purity.cjs
+
+Scope:
+
+Footer newsletter input + button interaction states (hover/active/focus/disabled/placeholder).
+Token-only replacements. CSS-first. Single-token focus-visible ring. No structure/copy/layout changes.
+
+Hard prohibitions remain unchanged.
+
+EXEMPTION — PASS T38 Token-Purity False-Positive Hardening (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Ignore svg fragment url(#...) matches from token-purity hex detection.
+- No other behavior or scope changes.
+
+Hard prohibitions remain unchanged.
 
 6. Role-Based Authority
 
@@ -415,3 +611,23 @@ Stop
 Report
 
 Do not patch blindly
+
+Semantic Surface Contract (PASS T21)
+
+Statement: token purity ≠ semantic correctness.
+
+| Surface token | Intended meaning | Allowed contexts | Forbidden contexts |
+| --- | --- | --- | --- |
+| --surface-0 | Base porcelain canvas for primary content | Default page backgrounds, body sections, standard cards | Glass effects, high-contrast slabs, footer emotion treatments |
+| --surface-1 | Elevated porcelain for layered surfaces | Secondary sections, raised cards, inset panels | Glass effects, high-contrast slabs, footer emotion treatments |
+| --surface-2 | Highest porcelain elevation | Topmost cards, featured panels, modal shells | Glass effects, high-contrast slabs, footer emotion treatments |
+| --surface-glass | Translucent glass surface | Hero overlays, frosted panes, glass panels | Default cards, standard section backgrounds |
+| --surface-ink | Dark ink surfaces | High-contrast slabs, dark callouts, cinematic bands | Porcelain replacements, standard body content |
+| --surface-footer-emotion | Reserved footer emotional slab | Footer emotional sections only | Body content, cards, general sections |
+
+Hard rules:
+- glass ≠ default cards
+- ink ≠ porcelain replacement
+- footer emotion ≠ body content
+
+Note: Future enforcement may exist, but does not yet.

@@ -59,7 +59,7 @@ export function Section_TreatmentMediaFeature({ section }: SectionTreatmentMedia
             overflow: "hidden",
             border: "1px solid var(--border-subtle)",
             minHeight: "230px",
-            background: "var(--surface-glass-deep)",
+            background: "var(--surface-2)",
             boxShadow: "var(--shadow-soft)",
           }}
         >

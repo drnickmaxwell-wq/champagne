@@ -1,160 +1,116 @@
 {
-  "generatedAt": "2026-01-09T08:04:16.273Z",
-  "totalCandidates": 288,
+  "generatedAt": "2026-01-10T19:06:45.341Z",
+  "totalCandidates": 1008,
   "top10": [
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.6,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.26,
+        "shimmerBlend": "screen"
       },
-      "score": 10541.871969972446,
-      "labMse": 14848.218348307199,
-      "edgeMse": 493.73042052469134
+      "score": 14833.022240327864,
+      "labMse": 14833.022240327864
     },
     {
       "candidate": {
-        "maskOpacity": 0.45,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.6,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.22,
+        "shimmerBlend": "screen"
       },
-      "score": 10542.032147988504,
-      "labMse": 14848.217326521924,
-      "edgeMse": 494.2667314105293
+      "score": 14833.095881220219,
+      "labMse": 14833.095881220219
     },
     {
       "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.57,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.22,
+        "shimmerBlend": "screen"
       },
-      "score": 10542.38435670764,
-      "labMse": 14848.806064415709,
-      "edgeMse": 494.06703872215127
+      "score": 14833.209658260233,
+      "labMse": 14833.209658260233
     },
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.51,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.22,
+        "shimmerBlend": "screen"
       },
-      "score": 10542.922286227,
-      "labMse": 14859.414889905871,
-      "edgeMse": 471.10621097630195
+      "score": 14833.228050716103,
+      "labMse": 14833.228050716103
     },
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.54,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.24,
+        "shimmerBlend": "screen"
       },
-      "score": 10542.962316152558,
-      "labMse": 14860.685494122794,
-      "edgeMse": 468.27490088867603
+      "score": 14833.334279226228,
+      "labMse": 14833.334279226228
     },
     {
       "candidate": {
-        "maskOpacity": 0.55,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.6,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.3,
+        "shimmerBlend": "screen"
       },
-      "score": 10543.286156490942,
-      "labMse": 14848.940402757084,
-      "edgeMse": 496.75958186994467
+      "score": 14833.381486727041,
+      "labMse": 14833.381486727041
     },
     {
       "candidate": {
-        "maskOpacity": 0.75,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.57,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.26,
+        "shimmerBlend": "screen"
       },
-      "score": 10543.368799518708,
-      "labMse": 14849.167453422851,
-      "edgeMse": 496.50527374237265
+      "score": 14833.427280464859,
+      "labMse": 14833.427280464859
     },
     {
       "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.35,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.6,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.16,
+        "shimmerBlend": "screen"
       },
-      "score": 10543.383046161782,
-      "labMse": 14849.138347508988,
-      "edgeMse": 496.620676351639
+      "score": 14833.44080385667,
+      "labMse": 14833.44080385667
     },
     {
       "candidate": {
-        "maskOpacity": 0.65,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.45,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.45,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.51,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.26,
+        "shimmerBlend": "screen"
       },
-      "score": 10543.383785099157,
-      "labMse": 14860.818713858735,
-      "edgeMse": 469.36895132680576
+      "score": 14833.527366593567,
+      "labMse": 14833.527366593567
     },
     {
       "candidate": {
-        "maskOpacity": 0.75,
-        "backdropOpacity": 0.2,
-        "ringsOpacity": 0.35,
-        "dotsOpacity": 0.45,
-        "causticsOpacity": 0.25,
-        "causticsBlend": "screen",
-        "causticsSource": "motion"
+        "causticsOpacity": 0.54,
+        "causticsBlend": "soft-light",
+        "shimmerOpacity": 0.22,
+        "shimmerBlend": "screen"
       },
-      "score": 10543.4326268418,
-      "labMse": 14838.838901231611,
-      "edgeMse": 520.8179865989073
+      "score": 14833.574535175709,
+      "labMse": 14833.574535175709
     }
   ],
   "best": {
     "candidate": {
-      "maskOpacity": 0.55,
-      "backdropOpacity": 0.2,
-      "ringsOpacity": 0.35,
-      "dotsOpacity": 0.45,
-      "causticsOpacity": 0.35,
-      "causticsBlend": "screen",
-      "causticsSource": "motion"
+      "causticsOpacity": 0.6,
+      "causticsBlend": "soft-light",
+      "shimmerOpacity": 0.26,
+      "shimmerBlend": "screen"
     },
-    "score": 10541.871969972446,
-    "labMse": 14848.218348307199,
-    "edgeMse": 493.73042052469134
+    "score": 14833.022240327864,
+    "labMse": 14833.022240327864
   }
 }
