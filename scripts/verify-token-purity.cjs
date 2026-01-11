@@ -10,6 +10,12 @@ const runtimeRoots = [
   "packages/champagne-hero/src",
 ].map((dir) => path.resolve(repoRoot, dir));
 
+const targetFiles = [
+  "apps/web/app/layout.tsx",
+  "apps/web/app/components/hero/SacredHero.tsx",
+  "apps/web/app/components/hero/sacred-hero.css",
+].map((file) => path.resolve(repoRoot, file));
+
 const runtimeExclusions = [
   "apps/web/app/champagne/hero-preview",
   "apps/web/app/champagne/hero-debug",
@@ -232,6 +238,11 @@ const run = async () => {
   )
     .flat()
     .filter((filePath) => !isRuntimeExcluded(filePath));
+  targetFiles.forEach((filePath) => {
+    if (!runtimeFiles.includes(filePath)) {
+      runtimeFiles.push(filePath);
+    }
+  });
   const tokenFiles = (
     await Promise.all(tokenSourceRoots.map((root) => collectFiles(root)))
   ).flat();

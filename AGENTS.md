@@ -521,6 +521,26 @@ Scope:
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — TRACK 1 Sacred Hero Shipping Switch (Director-authorized)
+Agents MAY modify:
+- apps/web/app/layout.tsx
+
+Agents MAY add:
+- apps/web/app/components/hero/SacredHero.tsx
+- apps/web/app/components/hero/sacred-hero.css (scoped)
+
+Scope:
+- Add a single runtime toggle that mounts SacredHero on public pages and quarantines the engine to /champagne routes.
+- No token edits.
+- No hex or raw colour literals.
+- No changes to packages/champagne-hero/** or packages/champagne-manifests/**.
+- apps/web/app/components/hero/HeroRenderer.tsx remains forbidden.
+
+Guards must pass:
+- npm run guard:hero
+- npm run guard:canon
+- npm run verify
+
 6. Role-Based Authority
 
 Agents operate under declared roles.

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
 import { HeroRenderer } from "./components/hero/HeroRenderer";
+import SacredHero from "./components/hero/SacredHero";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
@@ -20,6 +21,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const isHeroEnabled = isBrandHeroEnabled();
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
+  const heroImpl = process.env.NEXT_PUBLIC_HERO_IMPL ?? "sacred";
+  const useSacredHero = heroImpl !== "engine";
 
   let pageCategory: string | undefined;
   let mode: HeroMode | undefined;
@@ -59,7 +62,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Header />
           </div>
           <main className="flex-1 px-6 py-10">
-            {isPublicPage && isHeroEnabled && (
+            {isPublicPage && isHeroEnabled && useSacredHero && <SacredHero />}
+            {isPublicPage && isHeroEnabled && !useSacredHero && (
               <HeroRenderer
                 mode={mode}
                 treatmentSlug={treatmentSlug}
