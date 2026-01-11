@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import type { CSSProperties } from "react";
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
+import { HeroRendererV2 } from "../../components/hero/v2/HeroRendererV2";
 import type { HeroTimeOfDay } from "@champagne/hero";
 import styles from "./heroDebugIsolate.module.css";
 
@@ -19,8 +20,27 @@ const trackedCssVars = [
 ];
 
 type TimeOfDayOption = "auto" | HeroTimeOfDay;
+type RendererMode = "v1" | "v2" | "compare";
 
 type CssVarMap = Record<string, string>;
+type TelemetryEntry = {
+  id: string;
+  tag: string;
+  opacity: string | null;
+  mixBlendMode: string | null;
+  zIndex: string | null;
+  backgroundImage: string | null;
+  backgroundSize: string | null;
+  backgroundRepeat: string | null;
+  maskImage: string | null;
+  webkitMaskImage: string | null;
+  videoSrc: string | null;
+};
+type TelemetryDump = {
+  generatedAt: string;
+  v1: TelemetryEntry[];
+  v2: TelemetryEntry[];
+};
 
 type LayerKey = "waves" | "dotGrid" | "particles" | "filmGrain" | "motion" | "scrim";
 type SoloLayerKey = LayerKey | "gradient";
@@ -67,6 +87,7 @@ export function HeroDebugClientPanel() {
   const [particles, setParticles] = useState(true);
   const [filmGrain, setFilmGrain] = useState(true);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDayOption>("auto");
+  const [rendererMode, setRendererMode] = useState<RendererMode>("v1");
   const [soloLayer, setSoloLayer] = useState<SoloLayerKey | null>(() => parseSoloParam(debugParams));
   const [layerMutes, setLayerMutes] = useState<Record<LayerKey, boolean>>(() => ({
     waves: muteAllVeil || debugParams?.get("heroMuteWaves") === "1",
@@ -85,9 +106,11 @@ export function HeroDebugClientPanel() {
     scrim: parseOpacityParam(debugParams, "heroOpacityScrim"),
   }));
 
-  const heroSurfaceRef = useRef<HTMLDivElement | null>(null);
+  const heroSurfaceRefV1 = useRef<HTMLDivElement | null>(null);
+  const heroSurfaceRefV2 = useRef<HTMLDivElement | null>(null);
   const [cssVars, setCssVars] = useState<CssVarMap>({});
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
+  const [telemetryDump, setTelemetryDump] = useState<TelemetryDump | null>(null);
 
   const updateQueryParam = (key: string, value: string | null) => {
     if (typeof window === "undefined") return;
@@ -171,7 +194,7 @@ export function HeroDebugClientPanel() {
   );
 
   useEffect(() => {
-    const heroElement = heroSurfaceRef.current;
+    const heroElement = rendererMode === "v2" ? heroSurfaceRefV2.current : heroSurfaceRefV1.current;
 
     if (!heroElement) {
       setCssVars({});
@@ -207,10 +230,68 @@ export function HeroDebugClientPanel() {
     });
 
     return () => observer.disconnect();
-  }, [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay]);
+  }, [diagnosticBoost, mockPrm, particles, filmGrain, resolvedTimeOfDay, rendererMode]);
 
   const waveOpacityValue = Number((layerOpacities.waves / 100).toFixed(2));
   const dotOpacityValue = Number((layerOpacities.dotGrid / 100).toFixed(2));
+  const heroClassName = [
+    styles.heroDebugIsolate,
+    muteAllVeil ? styles.muteAllVeil : "",
+    layerMutes.waves ? styles.muteWaves : "",
+    layerMutes.dotGrid ? styles.muteDotGrid : "",
+    layerMutes.particles ? styles.muteParticles : "",
+    layerMutes.filmGrain ? styles.muteFilmGrain : "",
+    layerMutes.motion ? styles.muteMotion : "",
+    layerMutes.scrim ? styles.muteScrim : "",
+    soloLayer ? styles.soloActive : "",
+    soloLayer === "waves" ? styles.soloWaves : "",
+    soloLayer === "dotGrid" ? styles.soloDotGrid : "",
+    soloLayer === "gradient" ? styles.soloGradient : "",
+    soloLayer === "particles" ? styles.soloParticles : "",
+    soloLayer === "filmGrain" ? styles.soloFilmGrain : "",
+    soloLayer === "motion" ? styles.soloMotion : "",
+    soloLayer === "scrim" ? styles.soloScrim : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const collectTelemetry = (root: HTMLDivElement | null): TelemetryEntry[] => {
+    if (!root) return [];
+    const nodes = Array.from(root.querySelectorAll<HTMLElement>("[data-surface-id]"));
+
+    return nodes.map((node) => {
+      const computed = window.getComputedStyle(node);
+      const videoNode = node instanceof HTMLVideoElement ? node : null;
+      const videoSrc = videoNode?.currentSrc || videoNode?.querySelector("source")?.getAttribute("src") || null;
+
+      return {
+        id: node.getAttribute("data-surface-id") ?? "",
+        tag: node.tagName,
+        opacity: computed.opacity || null,
+        mixBlendMode: computed.mixBlendMode || null,
+        zIndex: computed.zIndex || null,
+        backgroundImage: computed.backgroundImage || null,
+        backgroundSize: computed.backgroundSize || null,
+        backgroundRepeat: computed.backgroundRepeat || null,
+        maskImage: computed.maskImage || null,
+        webkitMaskImage: computed.webkitMaskImage || null,
+        videoSrc,
+      };
+    });
+  };
+
+  const handleDumpTelemetry = () => {
+    if (typeof window === "undefined") return;
+    const payload: TelemetryDump = {
+      generatedAt: new Date().toISOString(),
+      v1: collectTelemetry(heroSurfaceRefV1.current),
+      v2: collectTelemetry(heroSurfaceRefV2.current),
+    };
+
+    (window as typeof window & { __HERO_V1_TELEMETRY?: TelemetryEntry[] }).__HERO_V1_TELEMETRY = payload.v1;
+    (window as typeof window & { __HERO_V2_TELEMETRY?: TelemetryEntry[] }).__HERO_V2_TELEMETRY = payload.v2;
+    setTelemetryDump(payload);
+  };
 
   return (
     <div className="hero-debug-panel" style={{ display: "grid", gap: "1rem" }}>
@@ -395,45 +476,85 @@ export function HeroDebugClientPanel() {
             <option value="night">Night</option>
           </select>
         </label>
+
+        <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <span>Renderer</span>
+          <select value={rendererMode} onChange={(event) => setRendererMode(event.target.value as RendererMode)}>
+            <option value="v1">V1</option>
+            <option value="v2">V2</option>
+            <option value="compare">Compare</option>
+          </select>
+        </label>
       </div>
 
-      <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
-        <div
-          className={[
-            styles.heroDebugIsolate,
-            muteAllVeil ? styles.muteAllVeil : "",
-            layerMutes.waves ? styles.muteWaves : "",
-            layerMutes.dotGrid ? styles.muteDotGrid : "",
-            layerMutes.particles ? styles.muteParticles : "",
-            layerMutes.filmGrain ? styles.muteFilmGrain : "",
-            layerMutes.motion ? styles.muteMotion : "",
-            layerMutes.scrim ? styles.muteScrim : "",
-            soloLayer ? styles.soloActive : "",
-            soloLayer === "waves" ? styles.soloWaves : "",
-            soloLayer === "dotGrid" ? styles.soloDotGrid : "",
-            soloLayer === "gradient" ? styles.soloGradient : "",
-            soloLayer === "particles" ? styles.soloParticles : "",
-            soloLayer === "filmGrain" ? styles.soloFilmGrain : "",
-            soloLayer === "motion" ? styles.soloMotion : "",
-            soloLayer === "scrim" ? styles.soloScrim : "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-          style={layerOpacityVars}
-        >
-          <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
-            <HeroRenderer
-              key={heroRenderKey}
-              prm={mockPrm}
-              particles={particles}
-              filmGrain={filmGrain}
-              timeOfDay={resolvedTimeOfDay}
-              diagnosticBoost={diagnosticBoost}
-              surfaceRef={heroSurfaceRef}
-            />
-          </Suspense>
+      {rendererMode === "compare" ? (
+        <div style={{ display: "grid", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>V1</strong>
+            <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+              <div className={heroClassName} style={layerOpacityVars}>
+                <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+                  <HeroRenderer
+                    key={`${heroRenderKey}-v1`}
+                    prm={mockPrm}
+                    particles={particles}
+                    filmGrain={filmGrain}
+                    timeOfDay={resolvedTimeOfDay}
+                    diagnosticBoost={diagnosticBoost}
+                    surfaceRef={heroSurfaceRefV1}
+                  />
+                </Suspense>
+              </div>
+            </div>
+          </div>
+          <div style={{ display: "grid", gap: "0.5rem" }}>
+            <strong>V2</strong>
+            <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+              <div className={heroClassName} style={layerOpacityVars}>
+                <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+                  <HeroRendererV2
+                    key={`${heroRenderKey}-v2`}
+                    prm={mockPrm}
+                    particles={particles}
+                    filmGrain={filmGrain}
+                    timeOfDay={resolvedTimeOfDay}
+                    diagnosticBoost={diagnosticBoost}
+                    surfaceRef={heroSurfaceRefV2}
+                  />
+                </Suspense>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+          <div className={heroClassName} style={layerOpacityVars}>
+            <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
+              {rendererMode === "v2" ? (
+                <HeroRendererV2
+                  key={`${heroRenderKey}-v2`}
+                  prm={mockPrm}
+                  particles={particles}
+                  filmGrain={filmGrain}
+                  timeOfDay={resolvedTimeOfDay}
+                  diagnosticBoost={diagnosticBoost}
+                  surfaceRef={heroSurfaceRefV2}
+                />
+              ) : (
+                <HeroRenderer
+                  key={`${heroRenderKey}-v1`}
+                  prm={mockPrm}
+                  particles={particles}
+                  filmGrain={filmGrain}
+                  timeOfDay={resolvedTimeOfDay}
+                  diagnosticBoost={diagnosticBoost}
+                  surfaceRef={heroSurfaceRefV1}
+                />
+              )}
+            </Suspense>
+          </div>
+        </div>
+      )}
 
       <div style={{ display: "grid", gap: "0.75rem" }}>
         <h3 style={{ margin: 0 }}>Layer Lab</h3>
@@ -522,6 +643,43 @@ export function HeroDebugClientPanel() {
           }}
         >
           {trackedCssVars.map((key) => `${key}: ${cssVars[key] ?? "(empty)"}`).join("\n")}
+        </pre>
+      </div>
+
+      <div style={{ display: "grid", gap: "0.5rem" }}>
+        <h3 style={{ margin: 0 }}>Hero telemetry</h3>
+        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          <button
+            type="button"
+            onClick={handleDumpTelemetry}
+            style={{
+              padding: "0.55rem 0.9rem",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              fontWeight: 600,
+            }}
+          >
+            Dump Telemetry
+          </button>
+          <span style={{ color: "var(--text-medium)" }}>
+            Writes window.__HERO_V1_TELEMETRY and window.__HERO_V2_TELEMETRY
+          </span>
+        </div>
+        <pre
+          style={{
+            margin: 0,
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+          }}
+        >
+          {telemetryDump ? JSON.stringify(telemetryDump, null, 2) : "No telemetry captured yet."}
         </pre>
       </div>
 
