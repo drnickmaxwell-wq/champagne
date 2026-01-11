@@ -37,9 +37,9 @@
         {
           "id": "home_intro_positioning",
           "type": "copy-block",
-          "title": "Dentistry with calm precision",
+          "title": "Private dentistry in Shoreham, delivered calmly and properly",
           "label": "Overview",
-          "copy": "St Mary’s House Dental Care is a long-established private practice in Shoreham-by-Sea, focused on clear planning and calm, evidence-led dentistry. We look after everyday oral health and also support complex cases involving tooth wear, missing teeth, heavily restored mouths and bite-related problems. Appointments are structured so you understand what we’ve found, what it means, and what options are sensible for your goals and circumstances. If you’re anxious, short on time, or simply want things explained properly, we’ll take a measured approach and agree the next step together."
+          "copy": "St Mary’s House Dental Care is a long-established private practice in Shoreham-by-Sea. We provide restorative, cosmetic and implant care with a calm, careful approach — taking time to explain options, answer questions, and agree the next step together."
         },
         {
           "id": "home_who_we_are",
@@ -53,10 +53,9 @@
           "type": "feature-grid",
           "title": "Clinical depth with steady hands",
           "items": [
-            "Over 30 years of experience across restorative and orthodontic care.",
-            "Advanced restorative and orthodontic training applied to complex cases.",
-            "CBCT-guided implant planning for precise placement and healing.",
-            "In-house digital dentistry to shorten feedback loops and keep planning clear."
+            "Established practice serving Shoreham-by-Sea for more than 40 years.",
+            "Led by a principal dentist who qualified in 1998, with postgraduate training in restorative & aesthetic dentistry and orthodontics.",
+            "Digital planning support including intra-oral scanning, guided implant planning and in-house 3D printing."
           ],
           "label": "Trusted practice detail"
         },
@@ -72,9 +71,9 @@
           "type": "feature-list",
           "title": "Priority treatments at a glance",
           "items": [
-            "Composite bonding, veneers, and full smile refinement",
-            "Clear aligners with mapped movement and check-ins",
-            "Implant dentistry, whitening, and restorative care"
+            "Implant options for replacing missing teeth, planned around long-term oral health.",
+            "Cosmetic treatments designed to improve appearance while protecting natural teeth.",
+            "Teeth straightening options focused on function, stability and maintainable results."
           ],
           "label": "Treatment hub"
         },
@@ -242,12 +241,12 @@
           "id": "home_locality_nap",
           "type": "copy-block",
           "label": "Locality",
-          "title": "Champagne dental care in Shoreham-by-Sea",
-          "copy": "Local practice presence with clear directions and responsive contact routes for new and returning patients.",
+          "title": "Private dental care in Shoreham-by-Sea",
+          "copy": "A local, established practice with clear directions and straightforward ways to get in touch for new and returning patients.",
           "items": [
-            "Practice: Champagne Dental, Shoreham-by-Sea",
-            "Address area: Central Shoreham-by-Sea near the River Adur",
-            "Phone: Reach the team through the contact page for a call-back"
+            "Practice: St Mary’s House Dental Care (Shoreham-by-Sea, West Sussex).",
+            "Area served: Shoreham-by-Sea and surrounding communities.",
+            "Contact: Use the contact page to call or send a message to the team."
           ],
           "ctas": [
             {
@@ -372,18 +371,18 @@
           "id": "treatments_hub_intro_v2",
           "type": "copy-block",
           "label": "Overview",
-          "title": "Find treatments by locked groups",
-          "copy": "Start with brief guidance, then open the eight director-defined groups. Each card shows up to five featured pathways and keeps the rest hidden until you choose View all."
+          "title": "Explore treatments with clear guidance",
+          "copy": "Whether you’re looking for routine care or something more complex, we’ll help you understand your options. Treatment is always planned individually, with time to discuss suitability, risks, alternatives and likely maintenance — so you can choose what feels right for you."
         },
         {
           "id": "treatments_hub_wayfinding",
           "type": "feature-list",
           "label": "How to use this hub",
-          "title": "Use the grouped navigation",
+          "title": "Choose a treatment area, then go deeper",
           "items": [
-            "Eight director-defined groups keep menus, journeys, and CTAs consistent.",
-            "Each group shows up to five featured treatments with a clear \"View all treatments in this group\" link.",
-            "Full inventories stay hidden until you expand the group card or follow its hub page."
+            "Start with a treatment area that matches what you’re trying to solve (for example, missing teeth or straightening).",
+            "Explore the overview first, then open the detail pages when you’re ready to compare options and what to expect.",
+            "If you’re unsure where to begin, contact the team and we’ll help you choose the right next step."
           ]
         },
         {
@@ -433,8 +432,8 @@
       "id": "treatments_hub_directory_intro",
       "type": "copy-block",
       "label": "Browse by group",
-      "title": "Browse treatments by locked groups",
-      "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
+      "title": "Browse treatments",
+      "copy": "Use the sections below to explore treatments at your own pace. Each page explains what the treatment involves, who it may suit, and the key considerations before deciding."
     },
     {
       "id": "treatments_hub_directory_groups_nav",
@@ -569,12 +568,12 @@
       "type": "feature-grid",
       "title": "Authority, technology, and experience",
       "items": [
-            "Multi-disciplinary training across restorative, orthodontic, implant, and facial care",
-            "CBCT-guided planning, digital smile design, and in-house 3D fabrication",
-            "Steady clinical cadence with transparent timelines and aftercare"
-          ],
-          "label": "Authority"
-        },
+        "Postgraduate training across restorative, orthodontic, implant and facial care.",
+        "Digital planning support including CBCT-guided planning, digital smile design and in-house 3D printing (where clinically appropriate).",
+        "Clear explanations, realistic timelines and aftercare guidance — without rushed decisions."
+      ],
+      "label": "Authority"
+    },
         {
           "id": "treatments_hub_reviews",
           "type": "google_reviews",
@@ -1814,9 +1813,9 @@
         {
           "id": "implants_intro_prose",
           "type": "copy-block",
-          "title": "Planning first, surgery second",
+          "title": "Implants planned carefully, with long-term health in mind",
           "label": "Introduction",
-          "copy": "Dental implants replace missing teeth using a small titanium post that supports a crown, bridge, or implant-retained denture. Planning matters: before any surgery we assess your mouth, review your medical history, and use CBCT imaging and digital scans to map bone, nerves, bite and the final tooth shape. This allows us to discuss realistic options, timing, and whether additional steps such as bone grafting or sinus lift assessment may be relevant. If implants aren’t the right fit, we’ll explain alternatives such as bridges or removable solutions and help you choose an approach that’s stable, maintainable and comfortable long-term."
+          "copy": "Dental implants are one option for replacing missing teeth. At St Mary’s House, implant care is planned carefully with assessment, imaging and discussion before any decision is made. We’ll explain suitability, maintenance, risks and alternatives such as bridges or dentures, so you can make an informed choice."
         },
         {
           "id": "treatment.trustSignals"
@@ -2730,7 +2729,7 @@
           "id": "contact_intro_copy",
           "type": "copy-block",
           "title": "How to reach us",
-          "copy": "Getting in touch should feel straightforward. If you’d like to book, ask a question, or talk through a concern, our team can guide you to the right next step and the right appointment length. If you’re in pain or think you may have an infection, please let us know — we keep space for urgent problems and we’ll advise what to do next. For anything non-urgent, you can call during opening hours or send an enquiry and we’ll come back to you as soon as we can. If you’re exploring a bigger change — implants, aligners, veneers, or complex restorative work — we can arrange a consultation focused on options, planning and costs, with time for questions.",
+          "copy": "Contact St Mary’s House Dental Care to arrange an appointment or ask a question about your dental care. If you’re considering treatment, we’ll focus on options, planning and costs, with time for questions.",
           "label": "Contact"
         },
         {
@@ -2775,7 +2774,7 @@
           "id": "contact_emergency_cta",
           "type": "treatment_mid_cta",
           "title": "Need urgent help?",
-          "strapline": "For pain, swelling, trauma, or accidents, follow the emergency pathway or contact the team for next steps.",
+          "strapline": "For pain, swelling, trauma or accidents, please contact the practice during opening hours. We’ll advise you on the most appropriate next step.",
           "ctas": [
             {
               "label": "Emergency dentistry",
