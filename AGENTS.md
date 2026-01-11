@@ -510,6 +510,17 @@ Token-only replacements. CSS-first. Single-token focus-visible ring. No structur
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — PASS T38 Token-Purity False-Positive Hardening (Director-authorized)
+Agents MAY modify:
+- AGENTS.md
+- scripts/verify-token-purity.cjs
+
+Scope:
+- Ignore svg fragment url(#...) matches from token-purity hex detection.
+- No other behavior or scope changes.
+
+Hard prohibitions remain unchanged.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.
