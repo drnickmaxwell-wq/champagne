@@ -151,8 +151,8 @@ export async function HeroRenderer({
   };
   const isDeMilkMode = mode === "home" || mode === "treatment";
   const internalOverlaysDisabled = true;
-  const isSacredHomeVariant = mode === "home" && runtime.variant?.id === "default";
-  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeVariant;
+  const isSacredHomeDefault = mode === "home" && runtime.variant?.id === "default";
+  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeDefault;
   const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
   const grainOpacity =
     honorManifestOpacity && manifestGrainOpacity !== undefined
@@ -176,7 +176,6 @@ export async function HeroRenderer({
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
-    if (token === "mask.waveHeader" || layer.className?.includes("hero-surface--wave-mask")) return false;
     if (token && activeMotionIds.has(token)) return false;
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
@@ -244,10 +243,12 @@ export async function HeroRenderer({
   ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
-    const tunedBlend = applyBlendTuning(id ?? "", entry.blendMode as CSSProperties["mixBlendMode"] | undefined);
+    const resolvedBlend = entry.blendMode ?? undefined;
+    const resolvedOpacity = entry.opacity ?? undefined;
+    const tunedBlend = applyBlendTuning(id ?? "", resolvedBlend as CSSProperties["mixBlendMode"] | undefined);
 
-    if (entry.opacity !== undefined && entry.opacity !== null) {
-      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", entry.opacity, tunedBlend));
+    if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
+      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", resolvedOpacity, tunedBlend));
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
@@ -971,26 +972,6 @@ export async function HeroRenderer({
               background-image: var(--hero-wave-background-desktop);
               background-size: cover;
               background-position: center;
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
-            }
-            .hero-renderer [data-surface-id="field.waveBackdrop"],
-            .hero-renderer [data-surface-id="field.waveRings"],
-            .hero-renderer [data-surface-id="field.dotGrid"] {
-              mask-image: var(--hero-wave-mask-desktop);
-              -webkit-mask-image: var(--hero-wave-mask-desktop);
-              mask-repeat: no-repeat;
-              -webkit-mask-repeat: no-repeat;
-              mask-size: cover;
-              -webkit-mask-size: cover;
-              mask-position: center;
-              -webkit-mask-position: center;
             }
             .hero-renderer .hero-layer.motion,
             .hero-renderer .hero-surface-layer.hero-surface--motion {
@@ -1014,14 +995,6 @@ export async function HeroRenderer({
             @media (max-width: 640px) {
               .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
                 background-image: var(--hero-wave-background-mobile);
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
-              }
-              .hero-renderer [data-surface-id="field.waveBackdrop"],
-              .hero-renderer [data-surface-id="field.waveRings"],
-              .hero-renderer [data-surface-id="field.dotGrid"] {
-                mask-image: var(--hero-wave-mask-mobile);
-                -webkit-mask-image: var(--hero-wave-mask-mobile);
               }
               .hero-renderer [data-surface-id="overlay.filmGrain"] {
                 background-image: var(--hero-grain-mobile);
