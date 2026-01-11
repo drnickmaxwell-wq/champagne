@@ -238,7 +238,7 @@ export async function HeroRenderer({
   };
 
   const resolveMotionStyle = (
-    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number },
+    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number; path?: string; id?: string },
     id?: string,
   ) => {
     if (!entry) return {};
@@ -260,6 +260,10 @@ export async function HeroRenderer({
     } else if (id) {
       noteMissing(id, "blend", "motion");
       style.opacity = 0;
+    }
+
+    if (entry?.path && entry?.id?.startsWith("sacred.motion.")) {
+      style.backgroundImage = `url("${entry.path}")`;
     }
 
     if (typeof entry.zIndex === "number") {
