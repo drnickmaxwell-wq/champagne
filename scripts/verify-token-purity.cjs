@@ -138,6 +138,13 @@ const collectFiles = async (rootDir, { excludeDirs = [] } = {}) => {
 
 const collectMatches = (line, index, filePath, matches) => {
   const excludeRanges = [];
+  const addExcludeRanges = (regex) => {
+    Array.from(line.matchAll(regex)).forEach((match) => {
+      const start = match.index ?? 0;
+      const end = start + match[0].length;
+      excludeRanges.push([start, end]);
+    });
+  };
   const addMatches = (type, regex) => {
     Array.from(line.matchAll(regex)).forEach((match) => {
       const start = match.index ?? 0;
@@ -152,6 +159,8 @@ const collectMatches = (line, index, filePath, matches) => {
       });
     });
   };
+
+  addExcludeRanges(/url\(\s*#[^)]+\)/g);
 
   addMatches(offenderTypes.VAR_FALLBACK, forbiddenMatchers[offenderTypes.VAR_FALLBACK]);
   addMatches(offenderTypes.GRADIENT, forbiddenMatchers[offenderTypes.GRADIENT]);
