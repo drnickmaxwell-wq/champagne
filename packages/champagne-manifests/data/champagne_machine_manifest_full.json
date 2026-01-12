@@ -6075,7 +6075,8 @@
         {
           "id": "emergency_dentistry_topics",
           "type": "cta",
-          "title": "Common emergency visits",
+          "title": "Common urgent problems",
+          "copy": "These links help you understand likely causes and next steps — and when you should contact us promptly.",
           "ctas": [
             {
               "label": "Emergency dental appointments",
@@ -6125,8 +6126,8 @@
         {
           "id": "emergency_dentistry_next_steps",
           "type": "cta",
-          "title": "If symptoms ease, book a full check-up",
-          "copy": "Once urgent pain is settled, a Dental Check-Ups & Oral Cancer Screening visit lets us review any lingering concerns calmly.",
+          "title": "What to do now",
+          "copy": "If pain is escalating, there is swelling, or trauma has occurred, contact the practice during opening hours. We’ll advise on urgency and the safest next step.",
           "ctas": [
             {
               "label": "Book a check-up",
@@ -6164,7 +6165,7 @@
           "id": "emergency_dentistry_cta",
           "type": "treatment_closing_cta",
           "title": "Call for emergency dental care",
-          "strapline": "Tell us what has happened so we can guide you and reserve the right appointment time.",
+          "strapline": "Speak to the team for calm triage and clear advice during opening hours.",
           "ctas": [
             {
               "label": "Call the practice",
@@ -6181,7 +6182,8 @@
         {
           "id": "emergency_full_inventory",
           "type": "routing_cards",
-          "title": "Emergency Dentistry — full treatment list",
+          "title": "Choose the problem you’re dealing with",
+          "copy": "Pick the closest match below to see what to do next and when to seek urgent assessment. If you’re unsure, contact the practice during opening hours for advice.",
           "label": "Full list",
           "items": [
             {
