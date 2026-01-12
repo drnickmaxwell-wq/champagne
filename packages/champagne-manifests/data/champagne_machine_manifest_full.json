@@ -2359,15 +2359,15 @@
         {
           "id": "team_intro_copy",
           "type": "copy-block",
-          "title": "Meet the clinical team",
-          "copy": "The team at St Mary’s House Dental Care provides long-term, patient-centred dentistry from our practice in Shoreham-by-Sea, West Sussex. Many patients come to us seeking continuity, clarity and a calm, thoughtful approach to care — particularly when their dental needs are complex or have developed over time.\n\nOur clinicians work across general dentistry, restorative care, implants, orthodontics and prevention, supported by an experienced nursing and coordination team. This breadth allows patients to receive both routine and advanced care within the same practice, without losing the familiarity and trust that come from seeing a consistent team.\n\nStability is a defining feature of the practice. We have served the local community for over 40 years, with long-standing members of staff and many patients who have attended since childhood and continue to return with their own families. This continuity allows treatment decisions to be made with a deeper understanding of patient history, preferences and long-term goals.\n\nPatients who feel anxious about dental treatment are supported with time, clear explanations and a respectful, unhurried approach. Care is not often rushed, and patients are encouraged to remain informed and in control at every stage.",
+          "title": "Our team",
+          "copy": "Dentistry works best when it’s delivered by people who know each other well.\n\nAt St Mary’s House Dental Care, we’re a small, experienced team who work together every day — not a rotating cast. That continuity matters. It affects communication, planning, and how calmly care is delivered.\n\nPatients often tell us they value recognising familiar faces and feeling understood rather than processed.",
           "label": "Team"
         },
         {
           "id": "why_patients_trust_this_team",
           "type": "copy-block",
-          "title": "Why patients trust this team",
-          "copy": "Trust in a dental team is built through consistency, communication and accountability. At St Mary’s House Dental Care, patients are supported by clinicians who work closely together and share a common approach to planning and decision-making.\n\nWhere care involves more than one clinician, cases are discussed carefully to ensure clarity and continuity. If a particular dentist is unavailable, handover is managed within the practice so that patients are supported by colleagues who understand their history, current position and long-term plan.\n\nThe team places particular emphasis on supporting nervous and anxious patients. Time is taken to explain findings and options clearly, without pressure, and treatment is adapted to suit individual comfort levels. Patients are encouraged to move at a pace that feels right for them, with the understanding that informed decisions often take time.\n\nContinuity also means knowing when not to proceed. Treatment is not rushed, and monitoring or phased approaches are often recommended where problems are stable or where immediate intervention would add unnecessary risk. Where focused expertise is clearly in a patient’s high standards interest, referrals are made to trusted specialists.\n\nPatients trust this team because care is delivered with honesty, respect and long-term responsibility. Recommendations are grounded in evidence and experience, with a focus on what is predictable, maintainable and appropriate — not simply what can be done.",
+          "title": "How we work together",
+          "copy": "Good outcomes in dentistry depend on more than individual skill.\n\nThey rely on clear communication between clinicians and nurses, shared standards of care, and consistency in how patients are looked after. Our team works closely across examinations, hygiene, restorative care, and longer-term treatment planning.\n\nThat collaboration reduces errors, avoids duplication, and makes appointments feel more settled.",
           "label": "Trust and continuity"
         },
         {
@@ -2396,9 +2396,9 @@
         {
           "id": "team_wider_practice_team",
           "type": "people_grid",
-          "title": "Wider practice team",
+          "title": "Nursing and support staff",
           "eyebrow": "Support team",
-          "copy": "Behind the clinical team is a wider practice team focused on consistency, organisation and patient comfort. From first contact through to ongoing care, they play a central role in helping patients feel informed, supported and at ease. Many patients value the familiarity and reassurance that comes from seeing the same trusted faces over time.",
+          "copy": "Dental nurses and support staff play a central role in patient care.\n\nThey are often the first point of contact, the calm presence during treatment, and the continuity between visits. Many of our nurses have worked here for years and know patients well.\n\nTheir role includes supporting clinicians during treatment, helping patients feel comfortable and informed, and maintaining high standards of organisation and infection control.",
           "items": [
             {
               "name": "Joanna Dobson",
