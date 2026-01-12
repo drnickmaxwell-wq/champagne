@@ -8628,12 +8628,12 @@
           "order": 10,
           "seoRole": "hero",
           "eyebrow": "Endodontics & root canal care",
-          "title": "Save painful teeth with calm, precise endodontics",
-          "body": "Modern root canal treatment removes infection, protects the tooth structure, and keeps your bite stable with minimal fuss.",
+          "title": "Root canal treatment",
+          "body": "Root canal treatment is used to manage infection or inflammation inside a tooth.\n\nIt’s often recommended when the inner tissue of a tooth becomes damaged or infected and can no longer heal on its own.\n\nAt St Mary’s House Dental Care, root canal treatment is approached as a way of relieving pain and preserving the natural tooth wherever possible.",
           "bullets": [
-            "Clear diagnosis to confirm when a root canal is the safest option",
-            "Gentle, well-anaesthetised care with careful rubber dam isolation",
-            "Restorations that seal the tooth and reduce the risk of reinfection"
+            "Managing infection or inflammation inside a tooth",
+            "Recommended when inner tissue cannot heal on its own",
+            "Aims to relieve pain and preserve the natural tooth"
           ],
           "ctas": [
             {
@@ -8655,16 +8655,16 @@
           "variantId": "smh_endodontics_root_canal_symptoms",
           "order": 20,
           "seoRole": "primaryContent",
-          "eyebrow": "When treatment is needed",
-          "title": "Signs a tooth may need endodontic care",
+          "eyebrow": "Common symptoms",
+          "title": "Common symptoms",
           "items": [
-            "Lingering hot or cold sensitivity that doesn\u2019t settle quickly",
-            "Spontaneous or night pain that radiates to the jaw or ear",
-            "Swelling, tenderness, or a pimple on the gum near the tooth",
-            "Cracks, deep decay, or a failing filling that has reached the nerve",
-            "Pain when biting that suggests nerve inflammation or infection"
+            "Prolonged toothache",
+            "Sensitivity to heat or cold",
+            "Pain when biting",
+            "Swelling of the gums",
+            "Changes seen on X-rays"
           ],
-          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently \u2014 emergency dentistry support is available."
+          "strapline": "In some cases, there may be little or no pain, and the problem is identified during examination."
         },
         {
           "id": "endodontics-root-canal-process",
@@ -8673,16 +8673,14 @@
           "variantId": "smh_endodontics_root_canal_process",
           "order": 30,
           "seoRole": "primaryContent",
-          "eyebrow": "How a root canal works",
-          "title": "Step-by-step, focused on comfort",
+          "eyebrow": "What root canal treatment involves",
+          "title": "What root canal treatment involves",
           "items": [
-            "Assessment: X-rays or CBCT review to map canals and confirm diagnosis",
-            "Comfort: Local anaesthetic and rubber dam isolation keep the area dry and calm",
-            "Cleaning: Rotary instruments and irrigation remove inflamed or infected tissue",
-            "Shaping: Canal shaping with apex location for an accurate working length",
-            "Medication & sealing: Disinfection with medicaments then biocompatible filling",
-            "Restoration: A sealed filling or crown to protect the tooth from future fracture",
-            "Review: Follow-up to monitor healing and confirm symptoms have settled"
+            "Cleaning the inside of the tooth and removing infected tissue",
+            "Sealing the space to prevent further infection",
+            "Treatment carried out under local anaesthetic",
+            "Usually no more uncomfortable than routine procedures once numb",
+            "Treatment may take place over one or more visits"
           ]
         },
         {
@@ -8692,9 +8690,9 @@
           "variantId": "smh_endodontics_root_canal_technology",
           "order": 40,
           "seoRole": "supporting",
-          "eyebrow": "Technology & precision",
-          "title": "Digital diagnostics for predictable outcomes",
-          "body": "CBCT imaging, electronic apex location, and rotary endodontic systems guide the shape and depth of treatment, reducing guesswork and protecting surrounding bone and nerves.",
+          "eyebrow": "Why root canal treatment may be needed",
+          "title": "Why root canal treatment may be needed",
+          "body": "The inside of a tooth contains nerves and blood vessels, which can become inflamed or infected due to deep decay, cracks, repeated dental work, or trauma.\n\nWithout treatment, infection may spread and symptoms can worsen.\n\nRoot canal treatment aims to remove the source of infection and allow the surrounding tissues to settle.",
           "mediaHint": "CBCT mapping, rotary instruments, and apex location"
         },
         {
@@ -8704,14 +8702,14 @@
           "variantId": "smh_endodontics_root_canal_comfort",
           "order": 50,
           "seoRole": "supporting",
-          "eyebrow": "Comfort & aftercare",
-          "title": "Keeping you comfortable during and after treatment",
+          "eyebrow": "Comfort and what to expect",
+          "title": "Comfort and what to expect",
           "items": [
-            "Local anaesthetic throughout; sedation dentistry can be discussed for anxious patients",
-            "Gentle isolation and irrigation to minimise post-appointment tenderness",
-            "Clear guidance on eating, cleaning, and managing expected soreness",
-            "Advice on temporary restorations if a crown is planned",
-            "Follow-up to confirm the tooth is settling and the bite feels balanced"
+            "The procedure is designed to relieve pain caused by infection",
+            "Treatment is carried out under local anaesthetic",
+            "Some tenderness afterwards is normal",
+            "Sensitivity usually settles with time",
+            "We explain what to expect and how to manage it"
           ]
         },
         {
@@ -8721,14 +8719,13 @@
           "variantId": "smh_endodontics_root_canal_risks",
           "order": 60,
           "seoRole": "supporting",
-          "eyebrow": "Risks, limits & alternatives",
-          "title": "Honest guidance before we start",
-          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You\u2019ll know the backup plan before consenting.",
+          "eyebrow": "Alternatives and limitations",
+          "title": "Alternatives and limitations",
+          "body": "Root canal treatment isn’t always possible or appropriate.\n\nIf a tooth is too damaged to restore predictably, alternatives such as extraction may be discussed. We’ll explain the reasons clearly so you can make an informed decision.",
           "bullets": [
-            "Discusses structural strength and whether a crown is needed",
-            "Explains limits of heavily cracked or previously treated teeth",
-            "Outlines alternatives such as monitoring, extraction, or implant replacement",
-            "Clear consent and documentation with realistic expectations"
+            "We discuss the condition of the tooth and prognosis",
+            "Alternatives are explained clearly and without pressure",
+            "Decisions are made with full information"
           ]
         },
         {
@@ -8738,14 +8735,13 @@
           "variantId": "smh_endodontics_root_canal_prognosis",
           "order": 70,
           "seoRole": "supporting",
-          "eyebrow": "Longevity & prognosis",
-          "title": "Protecting the tooth for the long term",
-          "body": "Well-sealed canals and a protective restoration keep success rates high. We review healing radiographically and discuss maintenance to preserve the tooth for years.",
+          "eyebrow": "After root canal treatment",
+          "title": "After root canal treatment",
+          "body": "Once the infection has been treated, the tooth may need additional protection.\n\nThis can involve a filling or, in some cases, a crown to help restore strength and reduce the risk of fracture.\n\nWe’ll discuss what’s appropriate based on how much of the tooth remains.",
           "bullets": [
-            "Most treated teeth remain comfortable and functional for many years",
-            "Bite checks reduce the risk of fractures after treatment",
-            "Regular hygiene visits help prevent reinfection from new decay",
-            "If a tooth cannot be saved, we\u2019ll plan extractions and future implant or bridge options"
+            "Protection is planned based on how much tooth remains",
+            "Fillings or crowns may be recommended to restore strength",
+            "We explain the next steps clearly"
           ]
         },
         {
@@ -8755,24 +8751,12 @@
           "variantId": "smh_endodontics_root_canal_faq",
           "order": 80,
           "seoRole": "faq",
-          "eyebrow": "Root canal FAQs",
-          "title": "Common questions about endodontic care",
+          "eyebrow": "Questions and reassurance",
+          "title": "Questions and reassurance",
           "faqs": [
             {
-              "question": "Will a root canal hurt?",
-              "answer": "Treatment is carried out under local anaesthetic with careful isolation. Most patients feel pressure rather than pain, and any post-treatment tenderness usually settles with simple pain relief."
-            },
-            {
-              "question": "How long does it take?",
-              "answer": "Many cases are completed in one to two visits depending on the number of canals and whether we need to place medication between appointments."
-            },
-            {
-              "question": "Do I always need a crown afterwards?",
-              "answer": "Back teeth or heavily restored teeth often benefit from a crown to prevent fractures. We will explain the best way to seal and protect your tooth."
-            },
-            {
-              "question": "What if the tooth can\u2019t be saved?",
-              "answer": "We will outline alternatives such as extraction with healing guidance and future replacement options like bridges or implants if appropriate."
+              "question": "What if I’m unsure whether I need root canal treatment?",
+              "answer": "Root canal treatment has a reputation that often causes unnecessary anxiety. If you’re unsure whether treatment is needed or what it involves, we encourage you to ask. Clear understanding helps reduce worry and supports sensible decision-making."
             }
           ]
         },
@@ -8790,8 +8774,8 @@
           "order": 90,
           "seoRole": "cta",
           "eyebrow": "Next steps",
-          "title": "Need relief from tooth pain?",
-          "body": "Book an endodontic assessment so we can calm the tooth, protect your smile, and plan any follow-up care together.",
+          "title": "Root canal treatment",
+          "body": "Contact us to discuss symptoms or whether root canal treatment may be appropriate.",
           "ctas": [
             {
               "label": "Book a root canal consult",
