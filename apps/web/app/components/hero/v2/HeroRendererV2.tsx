@@ -363,11 +363,23 @@ export async function HeroRendererV2({
   const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
   const sacredBloomResolvedGlue = resolveGlueForSurface("overlay.sacredBloom", sacredBloomUrl);
   const sacredBloomGlueMeta = glueTelemetry.get("overlay.sacredBloom");
+  const sacredBloomMask = "radial-gradient(circle at 20% 18%, var(--text-high) 0%, transparent 65%)";
+  const isHomeMode = mode === "home";
   const sacredBloomStyle: CSSProperties = {
     backgroundImage: resolveBackgroundImage(sacredBloomUrl),
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
     mixBlendMode: "soft-light",
     opacity: 0.22,
+    ...(isHomeMode
+      ? {
+          maskImage: sacredBloomMask,
+          WebkitMaskImage: sacredBloomMask,
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+          maskSize: "cover",
+          WebkitMaskSize: "cover",
+        }
+      : {}),
   };
 
   const layerStyles: Record<string, CSSProperties> = {
@@ -719,6 +731,8 @@ export async function HeroRendererV2({
         <div
           data-surface-id="overlay.sacredBloom"
           data-surface-role="fx"
+          data-bloom-shape={isHomeMode ? "phase3b" : undefined}
+          data-bloom-mask={isHomeMode ? "top-left-falloff" : undefined}
           data-glue-source={sacredBloomGlueMeta?.source}
           data-glue-size={sacredBloomGlueMeta?.backgroundSize}
           data-glue-repeat={sacredBloomGlueMeta?.backgroundRepeat}
