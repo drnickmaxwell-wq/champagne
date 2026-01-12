@@ -6012,43 +6012,42 @@
         {
           "id": "emergency_dentistry_overview",
           "type": "treatment_overview_rich",
-          "title": "Calm, prompt support when something feels urgent",
-          "copy": "We make time for same-day emergencies, guide you on what to do next, and keep language calm and practical. If you are in pain, bleeding, or have a sudden change to a tooth or restoration, contact us so we can prioritise your visit.",
+          "title": "Dental emergencies",
+          "copy": "Dental emergencies are rarely convenient — and they’re often stressful.\n\nAn emergency might involve pain, swelling, a broken tooth, or something that suddenly doesn’t feel right. Sometimes it’s obvious. Sometimes it’s not. The important thing is being assessed promptly so the situation can be stabilised and explained clearly.\n\nIf you’re experiencing a dental emergency in Shoreham-by-Sea or the surrounding area, prompt assessment can help prevent complications.\n\nAt St Mary’s House Dental Care, emergency appointments focus on relief, clarity, and next steps — not rushed decisions.",
           "bullets": [
-            "Clear triage to decide if you need immediate or urgent care",
-            "Advice on protecting a tooth or restoration before you arrive",
-            "Appointments that focus on settling pain and stabilising the area",
-            "Follow-up planning once things feel safe again"
+            "Prompt assessment to stabilise the situation",
+            "Relief, clarity, and next steps",
+            "Support for pain, swelling, or a broken tooth",
+            "Calm care without rushed decisions"
           ]
         },
         {
           "id": "emergency_dentistry_intro_prose",
           "type": "copy-block",
-          "title": "Urgent care, explained clearly",
+          "title": "What happens at an emergency appointment",
           "label": "Introduction",
-          "copy": "Dental emergencies can be painful and stressful, so the first goal is to stabilise the situation and get you comfortable. Emergency appointments focus on diagnosis: we examine the tooth and gums, check the bite, and take X-rays if needed to understand the cause of pain, swelling, trauma or a broken restoration. Treatment may involve temporary repairs, drainage where appropriate, dressing a tooth, adjusting a bite, or planning definitive care such as a root canal, extraction, crown or replacement filling. We’ll explain what we can do today, what needs follow-up, and what warning signs mean you should contact us urgently."
+          "copy": "Emergency visits are about stabilising the problem first.\n\nThis usually involves understanding what’s happened and how long it’s been an issue, examining the affected area, taking X-rays if needed, relieving pain or pressure, and explaining what’s going on.\n\nFurther treatment is often planned for a later visit once things have settled."
         },
         {
           "id": "emergency_dentistry_triage",
           "type": "features",
-          "title": "Emergency, urgent, or routine?",
+          "title": "What counts as a dental emergency?",
           "items": [
-            "Emergency: severe pain, significant bleeding, facial swelling, or a knocked-out tooth",
-            "Urgent: broken, chipped, or lost restorations without major pain",
-            "Routine: minor sensitivity or small chips that can wait for a scheduled visit",
-            "Unsure: call us and we will help decide the right pace"
+            "Toothache or pain that isn’t settling",
+            "Swelling of the face, gum, or jaw",
+            "A broken, cracked, or knocked tooth",
+            "Bleeding that doesn’t stop",
+            "Sudden problems with existing dental work"
           ]
         },
         {
           "id": "emergency_dentistry_steps",
           "type": "steps",
-          "title": "What to do now",
+          "title": "If you’ve broken or lost a tooth",
           "items": [
-            "Call the practice so we can triage and reserve time for you",
-            "Keep the area clean with gentle rinsing; avoid very hot or cold foods",
-            "Store any broken fragment or restoration in a clean container",
-            "Use pharmacy pain relief if needed and safe for you, following the packet instructions",
-            "If a tooth is knocked out, keep it moist in milk or saliva and bring it with you"
+            "Contact us as soon as you can",
+            "Keep any fragments if possible",
+            "Avoid trying to fix it yourself"
           ]
         },
         {
@@ -6097,15 +6096,15 @@
           "id": "emergency_dentistry_support",
           "type": "treatment_media_feature",
           "label": "Supportive care",
-          "title": "Stabilise first, then plan comfortable follow-up",
-          "copy": "We focus on easing pain, protecting the area, and explaining what to expect next. If further treatment is needed, we discuss options in plain language so you can choose the right pace.",
+          "title": "Relief first — decisions second",
+          "copy": "When you’re in pain, it’s not the right moment to make big decisions.\n\nOur priority is to make you comfortable, prevent things getting worse, and explain the situation clearly. Options are discussed once you’re able to think things through calmly.",
           "mediaHint": "Calm, stepwise care"
         },
         {
           "id": "emergency_dentistry_next_steps",
           "type": "cta",
-          "title": "If symptoms ease, book a full check-up",
-          "copy": "Once urgent pain is settled, a Dental Check-Ups & Oral Cancer Screening visit lets us review any lingering concerns calmly.",
+          "title": "After the emergency",
+          "copy": "Once things are stable, we’ll discuss whether further treatment is needed, which options are urgent and which can wait, and how to reduce the risk of the problem returning.",
           "ctas": [
             {
               "label": "Book a check-up",
@@ -6143,7 +6142,7 @@
           "id": "emergency_dentistry_cta",
           "type": "treatment_closing_cta",
           "title": "Call for emergency dental care",
-          "strapline": "Tell us what has happened so we can guide you and reserve the right appointment time.",
+          "strapline": "Contact us for advice or an emergency appointment.",
           "ctas": [
             {
               "label": "Call the practice",
