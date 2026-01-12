@@ -2,25 +2,15 @@
   "version": 1,
   "modes": {
     "home": {
-      "field.waveBackdrop": {
-        "backgroundSize": "cover",
-        "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
-      },
-      "mask.waveHeader": {
-        "backgroundSize": "cover",
-        "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
-      },
       "field.waveRings": {
-        "backgroundSize": "cover",
-        "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
+        "backgroundSize": "auto",
+        "backgroundRepeat": "repeat",
+        "backgroundPosition": "left top"
       },
       "field.dotGrid": {
-        "backgroundSize": "cover",
-        "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
+        "backgroundSize": "auto",
+        "backgroundRepeat": "repeat",
+        "backgroundPosition": "left top"
       }
     }
   }
