@@ -236,6 +236,7 @@ export async function HeroRendererV2({
   const particlesUrl = resolveAssetUrl(surfaces.particles);
   const grainUrlDesktop = resolveAssetUrl(surfaces.grain?.desktop);
   const grainUrlMobile = resolveAssetUrl(surfaces.grain?.mobile);
+  const sacredBloomUrl = "/assets/champagne/textures/wave-light-overlay.webp";
   const waveMaskEntry = surfaces.waveMask?.desktop as
     | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
     | undefined;
@@ -288,6 +289,7 @@ export async function HeroRendererV2({
   const overlayDotsGlue = resolveBackgroundGlue(overlayDotsUrl);
   const particlesGlue = resolveBackgroundGlue(particlesUrl);
   const grainGlue = resolveBackgroundGlue(grainUrlDesktop);
+  const sacredBloomGlue = resolveBackgroundGlue(sacredBloomUrl);
   const glueTelemetry = new Map<
     string,
     {
@@ -359,6 +361,14 @@ export async function HeroRendererV2({
   const dotGridResolvedGlue = resolveGlueForSurface("field.dotGrid", overlayDotsUrl, dotGridGlueOverrides as GlueRule);
   const particlesResolvedGlue = resolveGlueForSurface("overlay.particles", particlesUrl);
   const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
+  const sacredBloomResolvedGlue = resolveGlueForSurface("overlay.sacredBloom", sacredBloomUrl);
+  const sacredBloomGlueMeta = glueTelemetry.get("overlay.sacredBloom");
+  const sacredBloomStyle: CSSProperties = {
+    backgroundImage: resolveBackgroundImage(sacredBloomUrl),
+    ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
+    mixBlendMode: "soft-light",
+    opacity: 0.22,
+  };
 
   const layerStyles: Record<string, CSSProperties> = {
     "gradient.base": {},
@@ -706,6 +716,18 @@ export async function HeroRendererV2({
               <source src={entry.path} />
             </video>
           ))}
+        <div
+          data-surface-id="overlay.sacredBloom"
+          data-surface-role="fx"
+          data-glue-source={sacredBloomGlueMeta?.source}
+          data-glue-size={sacredBloomGlueMeta?.backgroundSize}
+          data-glue-repeat={sacredBloomGlueMeta?.backgroundRepeat}
+          data-glue-position={sacredBloomGlueMeta?.backgroundPosition}
+          data-glue-image-rendering={sacredBloomGlueMeta?.imageRendering}
+          className="hero-surface-layer"
+          aria-hidden="true"
+          style={sacredBloomStyle}
+        />
       </div>
 
         <div
