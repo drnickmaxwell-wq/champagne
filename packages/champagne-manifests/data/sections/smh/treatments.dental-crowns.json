@@ -11,13 +11,13 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Dental crowns",
-      "title": "Dental crowns in Shoreham-by-Sea",
-      "body": "A dental crown is a protective restoration that covers and strengthens a tooth that is heavily filled, cracked, worn down, or has had root canal treatment. The goal is to restore function and protect the remaining tooth structure, while keeping the bite comfortable and the margins clean and maintainable. We plan crowns using a full assessment and digital scans so we can check contact points, bite forces and appearance before anything is finalised. Where appropriate, we’ll discuss onlays or adhesive options that preserve more natural tooth. If a crown is recommended, we’ll explain materials, preparation, and how to look after it.",
+      "title": "Dental crowns",
+      "body": "A dental crown is used when a tooth needs more protection than a filling can provide.\n\nCrowns are most often recommended for teeth that are heavily worn, cracked, weakened, or have already had extensive treatment. The aim is to protect what remains of the tooth and help it function comfortably for the long term.\n\nAt St Mary’s House Dental Care, crowns are planned carefully, not routinely.",
       "bullets": [
-        "Used when a tooth needs reinforcement beyond a filling",
-        "Designed to preserve healthy structure wherever possible",
-        "Digital scans guide shape, contacts, and bite",
-        "Comfort measures for anxious or sensitive patients"
+        "Protection for heavily worn or weakened teeth",
+        "Planned carefully, not routinely",
+        "Designed to preserve healthy tooth where possible",
+        "Comfort and function are prioritised"
       ],
       "ctas": [
         {
@@ -38,14 +38,14 @@
       "variantId": "smh_dental_crowns_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "When a crown is recommended",
-      "title": "Protection for teeth that need full coverage",
+      "eyebrow": "When a crown is needed",
+      "title": "When a crown may be recommended",
       "items": [
-        "Cracks, large fractures, or missing cusps that risk further breakage",
-        "Teeth with extensive existing fillings where a replacement would not hold",
-        "Teeth restored after root canal treatment that benefit from reinforcement",
-        "Heavy wear or erosion where coverage supports bite stability",
-        "Situations where contact points and gum health need a carefully sealed margin"
+        "A tooth is badly broken or worn",
+        "A large filling has failed or is likely to fail",
+        "A tooth has been root-treated",
+        "Cracks affect strength or comfort",
+        "Long-term protection is needed"
       ]
     },
     {
@@ -54,15 +54,14 @@
       "variantId": "smh_dental_crowns_overview",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "Why crowns",
-      "title": "Strength and coverage when a tooth needs more than a filling",
-      "body": "A crown replaces the outer surface of a tooth to restore strength, shape, and protection. We assess the remaining structure, gum health, and your bite before recommending a crown, ensuring healthy enamel is preserved wherever safe to do so.",
+      "eyebrow": "Our approach",
+      "title": "Our approach to crowns",
+      "body": "Crowns aren’t just about covering a tooth.\n\nWe focus on preserving as much natural tooth as possible, choosing designs that support the tooth rather than over-cutting it, planning the bite carefully to reduce stress, and aiming for longevity rather than quick cosmetic fixes.",
       "bullets": [
-        "Assessment of cracks, decay, and remaining tooth structure",
-        "Discussion of alternatives such as repair, onlay, or monitoring",
-        "Shade and material planning to suit neighbouring teeth",
-        "Occlusion and contact design to protect adjacent teeth",
-        "Clear timelines for any temporary coverage and final fit"
+        "Preserve as much natural tooth as possible",
+        "Designs that support the tooth rather than over-cutting",
+        "Careful bite planning to reduce stress",
+        "Longevity-focused decision-making"
       ]
     },
     {
@@ -71,14 +70,14 @@
       "variantId": "smh_dental_crowns_comparison",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Crown vs filling vs onlay",
-      "title": "Choosing the right level of coverage",
+      "eyebrow": "Materials",
+      "title": "Materials and appearance",
       "items": [
-        "Filling: suitable for small to medium repairs when enough healthy tooth remains",
-        "Onlay: reinforces one or more cusps while preserving more natural enamel",
-        "Crown: full-coverage protection when remaining tooth is weakened or heavily restored",
-        "We aim for the most conservative option that will last and keep the tooth stable",
-        "If an onlay or filling is safer, we will plan that before considering a crown"
+        "Different materials suit different teeth and loads",
+        "We discuss strength and durability",
+        "We discuss appearance and translucency",
+        "We consider front versus back teeth",
+        "We explain alternatives where relevant"
       ]
     },
     {
@@ -87,15 +86,13 @@
       "variantId": "smh_dental_crowns_process",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "How we plan and fit your crown",
-      "title": "Precision steps for a secure, comfortable result",
+      "eyebrow": "Treatment process",
+      "title": "What to expect during treatment",
       "items": [
-        "Exam, digital scan, and photographs to map shape and bite",
-        "Conservative preparation focused on protecting remaining enamel",
-        "Temporary cover if needed while the lab crafts your crown",
-        "Lab design for shade, contacts, and occlusion based on your scan",
-        "Fit appointment with careful seating, margin checks, and bite balancing",
-        "Review and maintenance plan to keep the crown and surrounding tooth healthy"
+        "Preparing the tooth",
+        "Taking accurate records or digital scans",
+        "Placing a temporary crown where needed",
+        "Fitting and adjusting the final crown"
       ]
     },
     {
@@ -131,14 +128,13 @@
       "variantId": "smh_dental_crowns_aftercare",
       "order": 80,
       "seoRole": "supporting",
-      "eyebrow": "Longevity & maintenance",
-      "title": "Keeping your crown and tooth healthy",
+      "eyebrow": "Aftercare",
+      "title": "Comfort and aftercare",
       "items": [
-        "Daily cleaning around the margins to protect gums and prevent decay",
-        "Avoid biting very hard foods while you adjust to the new crown",
-        "Return for bite refinements if you notice sensitivity or heaviness",
-        "Hygiene and review visits to monitor the crown and neighbouring teeth",
-        "Advice on night-time protection if grinding or clenching is present"
+        "Crowns should feel comfortable and secure once fitted",
+        "Temporary sensitivity can occur during the process",
+        "We explain what’s normal and how to care for the tooth",
+        "Let us know if something doesn’t feel right"
       ]
     },
     {
@@ -147,14 +143,12 @@
       "variantId": "smh_dental_crowns_authority",
       "order": 85,
       "seoRole": "supporting",
-      "eyebrow": "Clinical oversight",
-      "title": "Crown planning led by restorative dentists",
-      "body": "Crowns are prescribed after assessing tooth strength, crack lines, and bite forces. Our clinicians use digital scans and restorative training to map preparation, margin placement, and occlusal contacts before committing to full coverage.",
+      "eyebrow": "Alternatives",
+      "title": "When a crown isn’t the best option",
+      "body": "Crowns aren’t always the answer.\n\nIn some situations, alternatives such as fillings, onlays, or monitoring may be more appropriate. If we think a crown isn’t the best long-term solution, we’ll explain our reasoning clearly.",
       "bullets": [
-        "Case selection balances preservation with long-term protection",
-        "Material choice aligned to bite dynamics and aesthetics",
-        "CBCT and vitality history considered when relevant",
-        "Review schedule agreed to monitor gum response and wear"
+        "We explain when alternatives may be more appropriate",
+        "We outline the reasons so you can decide confidently"
       ]
     },
     {
@@ -226,7 +220,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Plan a restorative consultation",
-      "body": "Book a calm review to understand whether a crown, onlay, or repair is right for your tooth. We will map the digital plan, materials, and maintenance you can expect.",
+      "body": "Contact us to discuss whether a crown is the right option for your tooth.",
       "ctas": [
         {
           "label": "Plan a clinician-led dental crowns review",
