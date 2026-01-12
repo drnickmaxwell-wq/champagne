@@ -160,7 +160,7 @@ const collectMatches = (line, index, filePath, matches) => {
     });
   };
 
-  addExcludeRanges(/url\(\s*['"]?#[^)'"]+['"]?\s*\)/g);
+  addExcludeRanges(/url\(\s*#[^)]+\)/g);
 
   addMatches(offenderTypes.VAR_FALLBACK, forbiddenMatchers[offenderTypes.VAR_FALLBACK]);
   addMatches(offenderTypes.GRADIENT, forbiddenMatchers[offenderTypes.GRADIENT]);
