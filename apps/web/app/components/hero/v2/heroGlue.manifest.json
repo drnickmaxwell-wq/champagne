@@ -5,7 +5,9 @@
       "field.waveBackdrop": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "50% 50%"
+        "backgroundPosition": "50% 50%",
+        "filter": "brightness(0.98) contrast(0.98)",
+        "willChange": "filter"
       },
       "mask.waveHeader": {
         "backgroundSize": "cover",
@@ -15,17 +17,23 @@
       "field.waveRings": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "50% 50%"
+        "backgroundPosition": "50% 50%",
+        "filter": "brightness(1.02) contrast(1.05)",
+        "willChange": "filter"
       },
       "field.dotGrid": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "50% 50%"
+        "backgroundPosition": "50% 50%",
+        "filter": "brightness(1.01) contrast(1.04)",
+        "willChange": "filter"
       },
       "overlay.sacredBloom": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "50% 50%"
+        "backgroundPosition": "50% 50%",
+        "filter": "brightness(1.01) contrast(0.98)",
+        "willChange": "filter"
       }
     }
   }

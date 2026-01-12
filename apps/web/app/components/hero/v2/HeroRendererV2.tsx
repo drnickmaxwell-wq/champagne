@@ -30,6 +30,8 @@ type GlueRule = {
   backgroundRepeat?: string;
   backgroundPosition?: string;
   imageRendering?: CSSProperties["imageRendering"];
+  filter?: string;
+  willChange?: string;
 };
 
 type GlueManifest = {
@@ -311,6 +313,8 @@ export async function HeroRendererV2({
       ...(glue.backgroundRepeat ? { backgroundRepeat: glue.backgroundRepeat } : {}),
       ...(glue.backgroundPosition ? { backgroundPosition: glue.backgroundPosition } : {}),
       ...(glue.imageRendering ? { imageRendering: glue.imageRendering } : {}),
+      ...(glue.filter ? { filter: glue.filter } : {}),
+      ...(glue.willChange ? { willChange: glue.willChange } : {}),
     } satisfies GlueRule;
   };
   const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule) => {
@@ -365,6 +369,18 @@ export async function HeroRendererV2({
   const sacredBloomGlueMeta = glueTelemetry.get("overlay.sacredBloom");
   const sacredBloomMask = "radial-gradient(circle at 20% 18%, var(--text-high) 0%, transparent 65%)";
   const isHomeMode = mode === "home";
+  const contrastGlueFilters = new Map<string, string>();
+  const registerContrastFilter = (surfaceId: string, glue?: GlueRule | null) => {
+    if (!isHomeMode) return;
+    if (glue?.filter) {
+      contrastGlueFilters.set(surfaceId, glue.filter);
+    }
+  };
+  registerContrastFilter("field.waveBackdrop", waveBackdropResolvedGlue);
+  registerContrastFilter("field.waveRings", waveRingsResolvedGlue);
+  registerContrastFilter("field.dotGrid", dotGridResolvedGlue);
+  registerContrastFilter("overlay.sacredBloom", sacredBloomResolvedGlue);
+  const sacredBloomContrastFilter = contrastGlueFilters.get("overlay.sacredBloom");
   const sacredBloomStyle: CSSProperties = {
     backgroundImage: resolveBackgroundImage(sacredBloomUrl),
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
@@ -678,6 +694,7 @@ export async function HeroRendererV2({
         {surfaceStack.map((layer) => {
           const inlineStyle = surfaceInlineStyles.get(layer.id);
           const glueMeta = surfaceGlueMeta.get(layer.id);
+          const contrastFilter = contrastGlueFilters.get(layer.id);
 
           return (
             <div
@@ -685,6 +702,8 @@ export async function HeroRendererV2({
               data-surface-id={layer.id}
               data-surface-role={layer.role}
               data-prm-safe={layer.prmSafe ? "true" : undefined}
+              data-contrast-glue={contrastFilter ? "phase3c" : undefined}
+              data-contrast-filter={contrastFilter}
               data-glue-source={glueMeta?.source}
               data-glue-size={glueMeta?.backgroundSize}
               data-glue-repeat={glueMeta?.backgroundRepeat}
@@ -733,6 +752,8 @@ export async function HeroRendererV2({
           data-surface-role="fx"
           data-bloom-shape={isHomeMode ? "phase3b" : undefined}
           data-bloom-mask={isHomeMode ? "top-left-falloff" : undefined}
+          data-contrast-glue={sacredBloomContrastFilter ? "phase3c" : undefined}
+          data-contrast-filter={sacredBloomContrastFilter}
           data-glue-source={sacredBloomGlueMeta?.source}
           data-glue-size={sacredBloomGlueMeta?.backgroundSize}
           data-glue-repeat={sacredBloomGlueMeta?.backgroundRepeat}
