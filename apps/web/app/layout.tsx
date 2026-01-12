@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import "./globals.css";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
-import { HeroMount } from "./_components/HeroMount";
+import { HeroRenderer } from "./components/hero/HeroRenderer";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
@@ -60,7 +60,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </div>
           <main className="flex-1 px-6 py-10">
             {isPublicPage && isHeroEnabled && (
-              <HeroMount
+              <HeroRenderer
                 mode={mode}
                 treatmentSlug={treatmentSlug}
                 pageCategory={pageCategory}
