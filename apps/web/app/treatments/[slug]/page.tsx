@@ -18,6 +18,15 @@ async function resolveTreatment(params: Promise<PageParams>) {
 
 export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
   const { manifest } = await resolveTreatment(params);
+  const resolved = await params;
+
+  if (resolved.slug === "implants") {
+    return {
+      title: "Dental Implants in Shoreham-by-Sea | St Mary’s House Dental Care",
+      description:
+        "Implant options for replacing missing teeth, planned carefully with assessment, imaging and clear discussion of risks, maintenance and alternatives such as bridges or dentures.",
+    };
+  }
 
   if (!manifest) {
     return { title: "Treatment not found" };
