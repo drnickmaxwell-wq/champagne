@@ -1802,11 +1802,12 @@
     },
     "implants": {
       "id": "implants",
-      "label": "Dental Implants in Shoreham-by-Sea",
+      "label": "Dental Implants in Shoreham-by-Sea | St Mary’s House Dental Care",
       "path": "/treatments/implants",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
       "intro": "Stable, natural-looking implant restorations with calm planning and follow-up.",
+      "description": "Clinician-led dental implants in Shoreham-by-Sea. Planning-first assessments, clear options and long-term care. Book an implant consultation.",
       "sections": [
         {
           "id": "treatment.heroIntro"
