@@ -10,13 +10,13 @@
       "variantId": "shoreham_single_implant_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "Single tooth dental implants",
-      "title": "Single tooth dental implants",
-      "body": "Losing a single tooth can affect more than appearance. Over time, gaps can allow neighbouring teeth to move, alter bite forces, and make cleaning more difficult.\n\nA single tooth implant can replace a missing tooth without involving adjacent teeth, making it a sensible option in suitable cases. As with all implant treatment, planning and case selection matter more than speed.",
+      "eyebrow": "Single-tooth implants",
+      "title": "Replace one missing tooth with precision",
+      "body": "A single-tooth implant replaces one missing tooth without trimming down neighbouring teeth, which can make it a conservative option when conditions are suitable. Planning starts with the end in mind: we assess the bite, gum shape, bone volume, and the position of adjacent teeth, then use CBCT and digital scans to plan implant placement to support a natural-looking crown. We’ll explain timing options, including immediate placement in selected cases, and discuss factors that affect predictability such as smoking, gum health, and tooth grinding. If an implant isn’t appropriate, we’ll outline alternatives such as a bridge or a removable option and help you choose a stable long-term solution.",
       "bullets": [
-        "Replace a missing tooth without involving adjacent teeth",
-        "Planning and case selection guide the recommendation",
-        "Designed to keep bite stability and cleaning manageable"
+        "Keep neighbouring teeth untouched while closing a single gap",
+        "Guided placement for accurate, comfortable healing",
+        "Crown shade-matched to blend with surrounding teeth"
       ]
     },
     {
@@ -39,9 +39,9 @@
       "variantId": "shoreham_single_implant_explainer",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "Alternatives to consider",
-      "title": "Alternatives to consider",
-      "body": "Depending on your mouth, alternatives may include:\n- a bridge (which involves preparing neighbouring teeth)\n- a removable partial denture\n- monitoring the space for a period before deciding\n\nWe’ll explain the pros, cons, and long-term implications of each option.",
+      "eyebrow": "What is a single-tooth implant?",
+      "title": "A titanium root topped with a custom crown",
+      "body": "One implant post integrates with the jaw and supports a handcrafted crown, restoring the shape, shade, and feel of your missing tooth without touching its neighbours.",
       "mediaHint": "Single implant post with custom crown"
     },
     {
@@ -50,13 +50,13 @@
       "variantId": "shoreham_single_implant_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "When a single tooth implant may be appropriate",
-      "title": "When a single tooth implant may be appropriate",
+      "eyebrow": "Who it helps",
+      "title": "Designed for single gaps",
       "items": [
-        "A tooth has been lost due to fracture, decay, or trauma",
-        "A previously root-treated tooth cannot be saved",
-        "You want a fixed option rather than a removable one",
-        "Suitability depends on bone levels, gum health, bite forces, and long-term maintenance considerations."
+        "A missing tooth after injury or decay",
+        "Gaps where a bridge would mean drilling healthy teeth",
+        "Front or back teeth where stability and aesthetics matter",
+        "Patients wanting to preserve bone and gum contour"
       ]
     },
     {
@@ -65,13 +65,15 @@
       "variantId": "shoreham_single_implant_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "What treatment involves",
-      "title": "What treatment involves",
+      "eyebrow": "Your implant pathway",
+      "title": "Clear steps from consult to final crown",
       "items": [
-        "Assessment and imaging where appropriate",
-        "Planning the final tooth position before implant placement",
-        "Placement of the implant under local anaesthetic",
-        "A healing period before the final crown is fitted"
+        "Consult: discuss your goals, medical history, and smile photos",
+        "Scans: CBCT imaging and digital impressions for precise planning",
+        "Placement: guided implant placement with gentle anaesthetic",
+        "Healing: check-ins to track integration and soft tissue health",
+        "Crown fit: custom crown designed to match nearby teeth",
+        "Review: bite checks and long-term care guidance"
       ]
     },
     {
@@ -148,12 +150,13 @@
       "order": 89,
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
-      "title": "A measured approach",
-      "body": "Replacing one tooth well often means doing very little — very carefully.\n\nOur aim is a result that looks natural, functions comfortably, can be cleaned easily, and fits into a long-term maintenance plan.",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
       "bullets": [
-        "A result that looks natural",
-        "A result that functions comfortably",
-        "A result that can be cleaned easily and fits long-term maintenance"
+        "Appropriate when you want to assess whether a single-tooth implant is appropriate for your missing tooth.",
+        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
+        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
+        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
       ]
     },
     {

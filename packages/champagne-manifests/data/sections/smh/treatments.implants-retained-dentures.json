@@ -10,14 +10,14 @@
       "variantId": "shoreham_implant_retained_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "A more stable alternative to loose dentures",
-      "title": "A more stable alternative to loose dentures",
-      "body": "Loose or unstable dentures can affect eating, speech, and confidence.\n\nImplant-retained dentures use a small number of implants to help stabilise a denture, making it more secure, more comfortable, and easier to manage day-to-day.",
+      "eyebrow": "IMPLANTS",
+      "title": "Implant-retained dentures in Shoreham-by-Sea",
+      "body": "Secure dentures held in place by dental implants — designed to improve comfort, confidence, and everyday function.",
       "bullets": [
-        "Stability without full fixed bridges",
-        "Removable for cleaning (where suitable)",
-        "Designed for comfort, function, and confidence",
-        "Assessment-led planning for suitability"
+        "Dentures that don’t slip or lift",
+        "Fewer implants than full fixed bridges",
+        "Improved chewing and speech",
+        "Removable for cleaning (where suitable)"
       ],
       "ctas": [
         {
@@ -38,12 +38,13 @@
       "variantId": "shoreham_implant_retained_trust",
       "order": 20,
       "seoRole": "supporting",
-      "title": "Long-term considerations",
+      "title": "Planned implant care you can rely on",
       "items": [
-        "Cleaning access",
-        "Regular reviews",
-        "Managing bite forces",
-        "Addressing gum health early"
+        "CBCT-led implant planning",
+        "Experienced implant team",
+        "Clear treatment options and fees",
+        "Ongoing aftercare and reviews",
+        "Calm, patient-centred approach"
       ]
     },
     {
@@ -52,9 +53,9 @@
       "variantId": "shoreham_implant_retained_explainer",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "How implant-retained dentures work",
-      "title": "How implant-retained dentures work",
-      "body": "Typically:\n- a small number of implants are placed\n- the denture is designed to clip or locate onto them\n- the denture can still be removed for cleaning\n\nThis approach improves stability while keeping maintenance manageable.",
+      "eyebrow": "HOW IT WORKS",
+      "title": "What are implant-retained dentures?",
+      "body": "Dental implants anchor a denture so it stays secure while you eat and speak, reducing movement compared to traditional dentures and allowing easier cleaning than fixed full-arch bridges.",
       "mediaHint": "Implant-stabilised denture planning and placement"
     },
     {
@@ -63,12 +64,13 @@
       "variantId": "shoreham_implant_retained_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "title": "Who may benefit",
+      "title": "Who are implant-retained dentures suitable for?",
       "items": [
-        "Struggle with loose lower dentures",
-        "Want better stability without extensive surgery",
-        "Prefer a removable option for cleaning",
-        "Assessment is essential to confirm suitability."
+        "People struggling with loose lower or upper dentures",
+        "Those wanting more stability without full fixed bridges",
+        "Patients with reduced bone volume unsuitable for many implants",
+        "Anyone seeking a secure but cost-conscious implant option",
+        "Not everyone is suitable — we confirm with scans and assessment"
       ]
     },
     {
@@ -77,12 +79,15 @@
       "variantId": "shoreham_implant_retained_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "title": "Planning before placement",
+      "title": "Your pathway to secure dentures",
       "items": [
-        "Digital scans and imaging to assess bone and space",
-        "Evaluating bite forces and chewing patterns",
-        "Considering cleaning access and long-term maintenance",
-        "Planning the final tooth position before implants"
+        "Implant consultation",
+        "CBCT scan and assessment",
+        "Personalised treatment planning",
+        "Implant placement",
+        "Healing phase",
+        "Denture fitting and adjustment",
+        "Review and long-term care"
       ]
     },
     {
@@ -91,12 +96,12 @@
       "variantId": "shoreham_implant_retained_technology",
       "order": 60,
       "seoRole": "supporting",
-      "title": "Alternatives and staging",
-      "body": "In some cases, a staged approach is more sensible:\n- starting with fewer implants\n- using a removable option initially\n- addressing gum health or bite issues first\n\nWe’ll explain when staging improves outcomes — and when it doesn’t.",
+      "title": "Digital planning for predictable outcomes",
+      "body": "CBCT imaging, digital planning, and implant positioning are coordinated with the dental lab to deliver stable, accurately fitting dentures.",
       "items": [
-        "Staging to reduce complexity where appropriate",
-        "Removable options as an interim step",
-        "Gum health and bite issues addressed early"
+        "3D CBCT imaging",
+        "Guided implant placement",
+        "Close clinician–lab collaboration"
       ]
     },
     {
@@ -107,6 +112,7 @@
       "seoRole": "supporting",
       "title": "Aftercare, healing, and long-term care",
       "items": [
+        "What to expect after implant placement",
         "Cleaning and maintenance guidance",
         "Review schedule",
         "Balanced risks: soreness, swelling, implant integration",
@@ -168,13 +174,13 @@
       "order": 89,
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
-      "title": "Fixed vs removable options",
-      "body": "Some patients ask whether they should choose a fixed implant bridge instead.\n\nThe choice depends on:\n- bone availability\n- dexterity and cleaning ability\n- budget and complexity\n- personal preference\n\nWe’ll explain both routes clearly so you can decide confidently.\n\nOur role is to help you choose a solution that improves comfort and function, fits your lifestyle, and can be maintained long-term.\n\nSometimes the simpler option is the better one.",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
       "bullets": [
-        "Bone availability",
-        "Dexterity and cleaning ability",
-        "Budget and complexity",
-        "Personal preference"
+        "Appropriate when you want to restorative.",
+        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
+        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
+        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
       ]
     },
     {
