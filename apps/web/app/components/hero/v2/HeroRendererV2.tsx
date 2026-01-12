@@ -170,7 +170,7 @@ export async function HeroRendererV2({
     });
   };
 
-  const grainOpacity = filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
+  const grainOpacity = surfaces.grain?.desktop?.opacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
   const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
   const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
@@ -184,8 +184,12 @@ export async function HeroRendererV2({
   if (grainGovernanceMissing) {
     noteMissing("overlay.filmGrain", "opacity", "surface");
   }
-  const waveBackdropOpacity = surfaces.background?.desktop?.opacity;
-  const waveBackdropBlend = surfaces.background?.desktop?.blendMode as CSSProperties["mixBlendMode"];
+  const waveBackdropEntry = surfaces.background?.desktop as
+    | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
+    | undefined;
+  const waveBackdropOpacity = waveBackdropEntry?.opacity ?? undefined;
+  const waveBackdropBlend = waveBackdropEntry?.blendMode as CSSProperties["mixBlendMode"] | undefined;
+  const waveBackdropZIndex = waveBackdropEntry?.zIndex;
   const surfaceStack = (surfaces.surfaceStack ?? []).filter((layer) => {
     const token = layer.token ?? layer.id;
     if (layer.suppressed) return false;
@@ -214,7 +218,6 @@ export async function HeroRendererV2({
       style.mixBlendMode = resolvedBlend as CSSProperties["mixBlendMode"];
     } else if (id) {
       noteMissing(id, "blend", "motion");
-      style.opacity = 0;
     }
 
     if (typeof entry.zIndex === "number") {
@@ -233,6 +236,21 @@ export async function HeroRendererV2({
   const particlesUrl = resolveAssetUrl(surfaces.particles);
   const grainUrlDesktop = resolveAssetUrl(surfaces.grain?.desktop);
   const grainUrlMobile = resolveAssetUrl(surfaces.grain?.mobile);
+  const waveMaskEntry = surfaces.waveMask?.desktop as
+    | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
+    | undefined;
+  const overlayFieldEntry = surfaces.overlays?.field as
+    | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
+    | undefined;
+  const overlayDotsEntry = surfaces.overlays?.dots as
+    | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
+    | undefined;
+  const particlesEntry = surfaces.particles as
+    | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
+    | undefined;
+  const grainEntry = surfaces.grain?.desktop as
+    | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
+    | undefined;
 
   const surfaceVars: CSSProperties = {
     ["--hero-gradient" as string]: gradient,
@@ -284,20 +302,30 @@ export async function HeroRendererV2({
     const modeGlue = resolvedGlueManifest.modes?.[mode];
     return modeGlue?.[surfaceId];
   };
+  const normalizeGlue = (glue?: GlueRule | null) => {
+    if (!glue) return {};
+    return {
+      ...(glue.backgroundSize ? { backgroundSize: glue.backgroundSize } : {}),
+      ...(glue.backgroundRepeat ? { backgroundRepeat: glue.backgroundRepeat } : {}),
+      ...(glue.backgroundPosition ? { backgroundPosition: glue.backgroundPosition } : {}),
+      ...(glue.imageRendering ? { imageRendering: glue.imageRendering } : {}),
+    } satisfies GlueRule;
+  };
   const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule) => {
     if (!url) {
       glueTelemetry.set(surfaceId, { source: "none" });
       return null;
     }
-    const baseGlue = resolveBackgroundGlue(url) ?? {};
-    const manifestGlue = resolveManifestGlue(surfaceId);
+    const baseGlue = normalizeGlue(resolveBackgroundGlue(url));
+    const manifestGlue = normalizeGlue(resolveManifestGlue(surfaceId));
+    const overrideGlueNormalized = normalizeGlue(overrideGlue);
     const hasManifest = Boolean(manifestGlue && Object.keys(manifestGlue).length > 0);
     const hasOverride = Boolean(overrideGlue && Object.keys(overrideGlue).length > 0);
     const glue = {
       ...baseGlue,
-      ...(manifestGlue ?? {}),
-      ...(overrideGlue ?? {}),
-    } satisfies CSSProperties;
+      ...manifestGlue,
+      ...overrideGlueNormalized,
+    } satisfies GlueRule;
     const source: GlueSource = hasOverride ? "override" : hasManifest ? "manifest" : "none";
 
     glueTelemetry.set(surfaceId, {
@@ -333,60 +361,79 @@ export async function HeroRendererV2({
   const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
 
   const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": { zIndex: 1 },
+    "gradient.base": {},
     "field.waveBackdrop": (() => {
       const style: CSSProperties = {
-        zIndex: 2,
         backgroundImage: "var(--hero-wave-background-desktop)",
         ...(waveBackdropResolvedGlue ?? waveBackdropGlue ?? {}),
       };
-      let missingForLayer = false;
+
+      if (typeof waveBackdropZIndex === "number") {
+        style.zIndex = waveBackdropZIndex;
+      } else {
+        noteMissing("field.waveBackdrop", "zIndex", "surface");
+      }
 
       if (waveBackdropBlend) {
         style.mixBlendMode = waveBackdropBlend;
       } else {
         noteMissing("field.waveBackdrop", "blend", "surface");
-        missingForLayer = true;
       }
 
-      if (waveBackdropOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : waveBackdropOpacity;
+      if (waveBackdropOpacity !== undefined && waveBackdropOpacity !== null) {
+        style.opacity = waveBackdropOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveBackdrop", "opacity", "surface");
-        missingForLayer = true;
       }
 
       return style;
     })(),
-    "mask.waveHeader": {
-      ...(surfaces.waveMask?.desktop?.blendMode
-        ? { mixBlendMode: surfaces.waveMask.desktop.blendMode as CSSProperties["mixBlendMode"] }
-        : {}),
-      ...(surfaces.waveMask?.desktop?.opacity !== undefined ? { opacity: surfaces.waveMask.desktop.opacity } : {}),
-    },
+    "mask.waveHeader": (() => {
+      const style: CSSProperties = {};
+      if (typeof waveMaskEntry?.zIndex === "number") {
+        style.zIndex = waveMaskEntry.zIndex;
+      } else {
+        noteMissing("mask.waveHeader", "zIndex", "surface");
+      }
+
+      if (waveMaskEntry?.blendMode) {
+        style.mixBlendMode = waveMaskEntry.blendMode as CSSProperties["mixBlendMode"];
+      } else {
+        noteMissing("mask.waveHeader", "blend", "surface");
+      }
+
+      if (waveMaskEntry?.opacity !== undefined && waveMaskEntry?.opacity !== null) {
+        style.opacity = waveMaskEntry.opacity;
+      } else {
+        style.opacity = 0;
+        noteMissing("mask.waveHeader", "opacity", "surface");
+      }
+      return style;
+    })(),
     "field.waveRings": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-overlay-field)",
         ...(waveRingsResolvedGlue ?? overlayFieldGlue ?? {}),
-        zIndex: 3,
       };
-      let missingForLayer = false;
 
-      const blend = surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"] | undefined;
-      if (blend) {
-        style.mixBlendMode = blend;
+      if (typeof overlayFieldEntry?.zIndex === "number") {
+        style.zIndex = overlayFieldEntry.zIndex;
       } else {
-        noteMissing("field.waveRings", "blend", "surface");
-        missingForLayer = true;
+        noteMissing("field.waveRings", "zIndex", "surface");
       }
 
-      if (surfaces.overlays?.field?.opacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : surfaces.overlays.field.opacity;
+      if (overlayFieldEntry?.blendMode) {
+        style.mixBlendMode = overlayFieldEntry.blendMode as CSSProperties["mixBlendMode"];
+      } else {
+        noteMissing("field.waveRings", "blend", "surface");
+      }
+
+      if (overlayFieldEntry?.opacity !== undefined && overlayFieldEntry?.opacity !== null) {
+        style.opacity = overlayFieldEntry.opacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveRings", "opacity", "surface");
-        missingForLayer = true;
       }
 
       return style;
@@ -395,24 +442,25 @@ export async function HeroRendererV2({
       const style: CSSProperties = {
         backgroundImage: "var(--hero-overlay-dots)",
         ...(dotGridResolvedGlue ?? overlayDotsGlue ?? {}),
-        zIndex: 4,
       };
-      let missingForLayer = false;
 
-      const blend = surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"] | undefined;
-      if (blend) {
-        style.mixBlendMode = blend;
+      if (typeof overlayDotsEntry?.zIndex === "number") {
+        style.zIndex = overlayDotsEntry.zIndex;
       } else {
-        noteMissing("field.dotGrid", "blend", "surface");
-        missingForLayer = true;
+        noteMissing("field.dotGrid", "zIndex", "surface");
       }
 
-      if (surfaces.overlays?.dots?.opacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : surfaces.overlays.dots.opacity;
+      if (overlayDotsEntry?.blendMode) {
+        style.mixBlendMode = overlayDotsEntry.blendMode as CSSProperties["mixBlendMode"];
+      } else {
+        noteMissing("field.dotGrid", "blend", "surface");
+      }
+
+      if (overlayDotsEntry?.opacity !== undefined && overlayDotsEntry?.opacity !== null) {
+        style.opacity = overlayDotsEntry.opacity;
       } else {
         style.opacity = 0;
         noteMissing("field.dotGrid", "opacity", "surface");
-        missingForLayer = true;
       }
 
       return style;
@@ -421,24 +469,25 @@ export async function HeroRendererV2({
       const style: CSSProperties = {
         backgroundImage: "var(--hero-particles)",
         ...(particlesResolvedGlue ?? particlesGlue ?? {}),
-        zIndex: 5,
       };
-      let missingForLayer = false;
 
-      const blend = surfaces.particles?.blendMode as CSSProperties["mixBlendMode"] | undefined;
-      if (blend) {
-        style.mixBlendMode = blend;
+      if (typeof particlesEntry?.zIndex === "number") {
+        style.zIndex = particlesEntry.zIndex;
       } else if (shouldShowParticles) {
-        noteMissing("overlay.particles", "blend", "surface");
-        missingForLayer = true;
+        noteMissing("overlay.particles", "zIndex", "surface");
       }
 
-      if (particleOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : particleOpacity;
+      if (particlesEntry?.blendMode) {
+        style.mixBlendMode = particlesEntry.blendMode as CSSProperties["mixBlendMode"];
+      } else if (shouldShowParticles) {
+        noteMissing("overlay.particles", "blend", "surface");
+      }
+
+      if (particlesEntry?.opacity !== undefined && particlesEntry?.opacity !== null) {
+        style.opacity = particlesEntry.opacity;
       } else if (shouldShowParticles) {
         style.opacity = 0;
         noteMissing("overlay.particles", "opacity", "surface");
-        missingForLayer = true;
       }
 
       return style;
@@ -447,23 +496,25 @@ export async function HeroRendererV2({
       const style: CSSProperties = {
         backgroundImage: "var(--hero-grain-desktop)",
         ...(grainResolvedGlue ?? grainGlue ?? {}),
-        zIndex: 7,
       };
-      let missingForLayer = false;
 
-      if (surfaces.grain?.desktop?.blendMode) {
-        style.mixBlendMode = surfaces.grain.desktop.blendMode as CSSProperties["mixBlendMode"];
+      if (typeof grainEntry?.zIndex === "number") {
+        style.zIndex = grainEntry.zIndex;
       } else if (shouldShowGrain) {
-        noteMissing("overlay.filmGrain", "blend", "surface");
-        missingForLayer = true;
+        noteMissing("overlay.filmGrain", "zIndex", "surface");
       }
 
-      if (grainOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : grainOpacity;
+      if (grainEntry?.blendMode) {
+        style.mixBlendMode = grainEntry.blendMode as CSSProperties["mixBlendMode"];
+      } else if (shouldShowGrain) {
+        noteMissing("overlay.filmGrain", "blend", "surface");
+      }
+
+      if (grainOpacity !== undefined && grainOpacity !== null) {
+        style.opacity = grainOpacity;
       } else if (shouldShowGrain) {
         style.opacity = 0;
         noteMissing("overlay.filmGrain", "opacity", "surface");
-        missingForLayer = true;
       }
 
       return style;
