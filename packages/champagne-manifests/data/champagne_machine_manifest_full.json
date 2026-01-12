@@ -2012,7 +2012,7 @@
           "type": "copy-block",
           "title": "A conservative route to refined change",
           "label": "Introduction",
-          "copy": "Veneers are thin restorations placed on the front surface of teeth to refine shape, colour and alignment. They can be an excellent option when the teeth underneath are healthy enough, and when the plan is conservative and carefully staged. We start by understanding what you’d like to change, then assess enamel, bite, gum health and wear patterns so the result is stable and maintainable. In many cases, we can explore minimal-prep or additive approaches, or consider alternatives such as whitening, bonding, or aligners first. If veneers are suitable, we’ll talk through preview options, longevity factors and how to protect the finished work."
+          "copy": "Veneers are thin restorations placed on the front surface of teeth to change shape, colour or alignment. They can be appropriate when the teeth underneath are healthy enough and the plan is conservative — sometimes after whitening or as an alternative to bonding. We’ll assess your bite, enamel and gum health first, then explain options, maintenance and risks such as sensitivity, chipping or future replacement before you decide."
         },
         {
           "id": "treatment.trustSignals"
@@ -2102,7 +2102,7 @@
           "type": "copy-block",
           "title": "Clear aligners with clear diagnosis",
           "label": "Introduction",
-          "copy": "Clear aligners straighten teeth using a series of custom trays that move teeth in small, planned steps. The key is diagnosis and planning: we assess your bite, gum health, tooth wear and any jaw symptoms, then use digital scans to model movement and discuss what’s realistic. Aligners can help with crowding, spacing and some bite corrections, but not every case is suitable — and retention is essential to keep results stable. We’ll also discuss where aligners fit alongside whitening, bonding or restorative work, especially if you’re planning a broader smile refresh. If aligners are recommended, you’ll receive a clear timeline, check-in plan and aftercare guidance."
+          "copy": "Clear aligners straighten teeth using a series of custom trays, changed gradually over time. They’re discreet and removable, but results depend on consistent wear and good monitoring — and some cases are better suited to fixed braces. We’ll assess tooth movement goals, bite and gum health, then outline your likely timeline, what attachments or shaping may be needed, and what retention looks like after treatment."
         },
         {
           "id": "treatment.trustSignals"
@@ -2233,7 +2233,7 @@
     },
     "fixed_braces": {
       "id": "fixed_braces",
-      "label": "Fixed braces",
+      "label": "Fixed braces in Shoreham-by-Sea",
       "path": "/treatments/fixed-braces",
       "category": "treatment",
       "hero": "orthodontics_balanced_hero_v1",
@@ -10283,10 +10283,11 @@
     },
     "fixed_braces": {
       "id": "fixed_braces",
-      "label": "Fixed braces",
+      "label": "Fixed braces in Shoreham-by-Sea",
       "path": "/treatments/fixed-braces",
       "category": "treatment",
       "hero": "orthodontics_balanced_hero_v1",
+      "intro": "Predictable orthodontic correction using fixed appliances, planned around bite, stability and long-term maintenance.",
       "sections": [
         {
           "id": "treatment.heroIntro"
