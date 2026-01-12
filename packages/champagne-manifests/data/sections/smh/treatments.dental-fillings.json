@@ -11,13 +11,13 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Dental fillings",
-      "title": "Dental fillings in Shoreham-by-Sea",
-      "body": "Fillings restore teeth affected by decay, cracks, or failed older restorations. The aim is to remove damaged tissue, seal the tooth, and rebuild natural shape so the bite remains comfortable and predictable. We’ll assess the tooth, check contact points and bite forces, and discuss whether a direct filling is suitable or whether an inlay/onlay or crown would provide better long-term support. Material choice is guided by location, remaining tooth structure and aesthetics. If you’ve had sensitivity, recurrent decay, or a history of large fillings, we’ll also talk about prevention and risk factors, so the repair lasts and the tooth stays easy to maintain.",
+      "title": "Dental fillings",
+      "body": "Fillings are one of the most common dental treatments — but when they’re done well, they’re anything but routine.\n\nA filling is used to repair a tooth that’s been damaged by decay, wear, or fracture, helping to restore its strength and function while preventing further problems.\n\nAt St Mary’s House Dental Care, we approach fillings conservatively and carefully, with an emphasis on longevity rather than quick fixes.",
       "bullets": [
-        "Composite or amalgam matched to bite forces and moisture control",
-        "Bonded placement to strengthen the seal and reduce leakage",
-        "Careful shaping for smooth contacts and a balanced bite",
-        "Calm appointments with numbing and isolation"
+        "Conservative repair of decay, wear, or fracture",
+        "Materials matched to tooth and bite",
+        "Careful shaping for comfort and function",
+        "Longevity-focused, not rushed"
       ],
       "ctas": [
         {
@@ -38,14 +38,14 @@
       "variantId": "smh_dental_fillings_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why patients choose this approach",
-      "title": "Restorations placed for longevity and comfort",
+      "eyebrow": "Our approach",
+      "title": "Our approach to fillings",
       "items": [
-        "Balanced advice on composite versus amalgam for your specific tooth",
-        "Amalgams bonded to improve strength and marginal seal when indicated",
-        "Moisture control and isolation to help the restoration last",
-        "Bite checks to keep opposing teeth protected",
-        "Clear aftercare so sensitivity settles predictably"
+        "We preserve as much natural tooth as possible",
+        "Materials are chosen to suit the tooth and bite",
+        "Fillings are shaped carefully so they function properly",
+        "Comfort and cleanability are considered from the start",
+        "We explain the options and any alternatives clearly"
       ]
     },
     {
@@ -54,15 +54,13 @@
       "variantId": "smh_dental_fillings_overview",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "Composite vs amalgam",
-      "title": "Choosing the right filling material for your tooth",
-      "body": "Composite (tooth-coloured) fillings bond to enamel and dentine, allowing conservative shaping and a natural finish. Amalgam fillings remain highly durable in areas with heavy load or where moisture control is limited. We bond amalgams to improve strength and the seal when we use them.",
+      "eyebrow": "Material options",
+      "title": "Types of filling materials",
+      "body": "There are different materials available, and the right choice depends on the tooth, its position, and how much load it takes.\n\nWe’ll explain the advantages and limitations of each option, how visible the filling may be, how durable it’s likely to be, and any alternatives worth considering.",
       "bullets": [
-        "Composite: blends with your tooth, good for precise shaping",
-        "Amalgam: strong under heavy bite or limited isolation",
-        "We advise when each option best protects the tooth",
-        "For large defects we may suggest onlays/inlays or crowns",
-        "Root canal therapy is discussed if decay reaches the nerve"
+        "We match material choice to the tooth and bite",
+        "We discuss appearance and durability clearly",
+        "We explain any alternatives where relevant"
       ]
     },
     {
@@ -71,14 +69,14 @@
       "variantId": "smh_dental_fillings_who",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "When we recommend fillings",
-      "title": "Steady repairs for everyday and heavily loaded teeth",
+      "eyebrow": "When a filling is needed",
+      "title": "When a filling is needed",
       "items": [
-        "New cavities caught early before more extensive work is needed",
-        "Replacing worn, fractured, or leaking fillings",
-        "Areas with limited dryness where amalgam is safer",
-        "Teeth carrying high bite forces or heavy contact points",
-        "Restorations that support onlay, crown, or endodontic planning"
+        "Decay has weakened part of a tooth",
+        "An old filling has failed or leaked",
+        "A tooth has chipped or worn down",
+        "Sensitivity suggests early damage",
+        "Monitoring versus intervention is discussed where appropriate"
       ]
     },
     {
@@ -87,17 +85,16 @@
       "variantId": "smh_dental_fillings_process",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your appointment",
-      "title": "Comfortable, well-isolated placement",
+      "eyebrow": "Treatment process",
+      "title": "What to expect during treatment",
       "items": [
-        "Numbing and isolation to keep the area comfortable and dry",
-        "Removal of decay or old material with minimal healthy tooth loss",
-        "Liners or bonding steps based on depth and sensitivity",
-        "Placement of composite or bonded amalgam with controlled layering",
-        "Careful shaping and polishing for smooth contacts",
-        "Bite check and adjustments so it feels natural"
+        "Numbing the area where needed",
+        "Removing damaged tooth structure",
+        "Cleaning and preparing the tooth",
+        "Placing and shaping the filling",
+        "Checking your bite for comfort"
       ],
-      "strapline": "We explain each stage and pause if you need breaks."
+      "strapline": "Placing a filling is usually straightforward."
     },
     {
       "instanceId": "dental-fillings-aftercare",
@@ -105,14 +102,13 @@
       "variantId": "smh_dental_fillings_aftercare",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & what to expect",
-      "title": "Helping your filling settle",
+      "eyebrow": "Aftercare",
+      "title": "Comfort and aftercare",
       "items": [
-        "Mild sensitivity to temperature or bite is common for a few days",
-        "Avoid very hard or sticky foods on the tooth for the first 24 hours",
-        "Keep to daily brushing and interdental cleaning around the margins",
-        "Contact us if pain persists, the bite feels high, or you notice cracks",
-        "Regular reviews help us monitor wear, bruxism, and gum health"
+        "Mild sensitivity for a short time is normal",
+        "We’ll explain what to expect after treatment",
+        "We’ll advise how to care for the tooth",
+        "Let us know if something doesn’t feel right"
       ]
     },
     {
@@ -121,15 +117,12 @@
       "variantId": "smh_dental_fillings_longevity",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Longevity factors",
-      "title": "What influences how long fillings last",
-      "body": "Bite forces, diet, and parafunction all affect how a filling wears. Composite and amalgam both last longer with good moisture control at placement, balanced occlusion, and supportive hygiene care.",
+      "eyebrow": "Alternatives",
+      "title": "When a filling may not be enough",
+      "body": "Sometimes a filling isn’t the best long-term solution, particularly if a tooth is heavily weakened.\n\nIn those cases, we may discuss alternatives such as crowns or onlays, explaining the reasons clearly so you understand the trade-offs involved.",
       "bullets": [
-        "Bite force and grinding patterns (consider splints if needed)",
-        "Diet, sugar exposure, and acid challenges",
-        "Home care and professional hygiene visits",
-        "Size and location of the restoration",
-        "Routine check-ups to spot early changes"
+        "We explain when a crown or onlay may be safer",
+        "We discuss trade-offs so you can decide confidently"
       ]
     },
     {
@@ -211,7 +204,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Plan a calm filling appointment",
-      "body": "Schedule a visit to review your tooth, choose the right material, and map any protective steps you may need.",
+      "body": "Contact us to discuss whether a filling is the right option for you.",
       "ctas": [
         {
           "label": "Book fillings consultation",

@@ -11,12 +11,12 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Children’s dentistry",
-      "title": "Gentle check-ups that build lifelong habits",
-      "body": "Children’s dentistry is centred on prevention, early diagnosis and helping children feel comfortable in the dental setting. We keep appointments calm and age-appropriate, taking time to explain what we’re doing in a way that builds confidence rather than fear. Regular reviews allow us to monitor tooth development, bite changes and oral hygiene as children grow. We also give practical advice on diet, fluoride use, brushing and habits such as thumb sucking, which can affect long-term oral health. If treatment is needed, we plan it carefully with comfort and cooperation in mind, so visits remain manageable and positive.",
+      "title": "Children’s dentistry",
+      "body": "Children’s dentistry focuses on helping young patients develop confidence with dental care while supporting healthy teeth and gums as they grow.\n\nWe provide children’s dental care for babies, children, and teenagers, supporting families at every stage of development.\n\nEarly experiences play an important role in how children feel about visiting the dentist later in life.\n\nAt St Mary’s House Dental Care, children are treated with patience, clear explanation, and an emphasis on prevention.",
       "bullets": [
-        "Calm examinations with tell-show-do and plenty of reassurance",
-        "Decay risk checks with fluoride and diet advice matched to age",
-        "Coaching for children and parents on brushing and home routines"
+        "Children’s dentistry focuses on helping young patients develop confidence with dental care while supporting healthy teeth and gums as they grow.",
+        "Early experiences play an important role in how children feel about visiting the dentist later in life.",
+        "Children are treated with patience, clear explanation, and an emphasis on prevention."
       ],
       "ctas": [
         {
@@ -37,14 +37,12 @@
       "variantId": "smh_childrens_dentistry_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why families choose us",
-      "title": "Care designed around young patients",
+      "eyebrow": "First visits and getting familiar",
+      "title": "First visits and getting familiar",
       "items": [
-        "Friendly, unhurried visits with the same calm clinicians where possible",
-        "Simple language and visuals to explain what will happen before we start",
-        "Age-appropriate fluoride guidance with no pushy product sales",
-        "Transparent advice for parents on diet, sugar frequency, and brushing",
-        "Clear next steps if we spot issues or need to monitor development"
+        "Early visits are often about getting comfortable with the environment rather than carrying out treatment.",
+        "This may involve simple examinations, showing children the equipment, and explaining what’s happening in an age-appropriate way.",
+        "Building familiarity helps reduce anxiety and supports positive long-term attitudes."
       ]
     },
     {
@@ -53,13 +51,13 @@
       "variantId": "smh_childrens_dentistry_checkup",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What a children’s check-up includes",
-      "title": "Gentle exams with practical guidance",
-      "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
+      "eyebrow": "A focus on prevention",
+      "title": "A focus on prevention",
+      "body": "Preventative care is central to children’s dentistry.\n\nThis includes monitoring tooth development, advising on brushing and diet, and identifying potential issues early.\n\nSmall changes made early can help avoid more complex problems later on.",
       "bullets": [
-        "Tooth, gum, and bite review with extra focus on erupting first molars",
-        "Decay risk assessment including grooves, early white spots, and diet habits",
-        "Oral hygiene coaching with brushing demonstrations and parent tips"
+        "Preventative care is central to children’s dentistry.",
+        "This includes monitoring tooth development and advising on brushing and diet.",
+        "Small changes made early can help avoid more complex problems later on."
       ]
     },
     {
@@ -68,16 +66,14 @@
       "variantId": "smh_childrens_dentistry_prevention",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Prevention first",
-      "title": "Simple steps we cover at every stage",
+      "eyebrow": "Treatment when needed",
+      "title": "Treatment when needed",
       "items": [
-        "Fluoride strength and varnish advice tailored to age and decay risk",
-        "Diet and sugar-frequency guidance with realistic swaps for snacks and drinks",
-        "Brushing habits: twice-daily routines, supervised brushing, and gentle technique",
-        "Fissure sealants discussed for deep grooves when they’re likely to help",
-        "Custom mouthguards and trauma tips for sports or active play"
+        "Sometimes treatment is necessary to address decay, infection, or injury.",
+        "Any recommended treatment is explained clearly to both parents and children, with an emphasis on reassurance and understanding.",
+        "The aim is to manage problems sensitively while maintaining trust."
       ],
-      "strapline": "Consistent, friendly reminders help children build habits that protect baby and adult teeth."
+      "strapline": "The aim is to manage problems sensitively while maintaining trust."
     },
     {
       "instanceId": "childrens-dentistry-nervous",
@@ -85,10 +81,10 @@
       "variantId": "smh_childrens_dentistry_nervous",
       "order": 50,
       "seoRole": "supporting",
-      "eyebrow": "For nervous children",
-      "title": "Short, positive visits that build confidence",
-      "body": "We use tell-show-do, gentle pacing, and plenty of positive framing. Parents stay involved, and we pause whenever a child needs a breather.",
-      "mediaHint": "Calm, child-friendly pacing with familiar faces"
+      "eyebrow": "Supporting nervous children",
+      "title": "Supporting nervous children",
+      "body": "It’s normal for some children to feel anxious about dental visits.\n\nWe take time to listen, move at an appropriate pace, and adapt appointments to individual needs.\n\nPositive experiences help build confidence over time.",
+      "mediaHint": "Supporting nervous children"
     },
     {
       "instanceId": "childrens-dentistry-common",
@@ -96,14 +92,12 @@
       "variantId": "smh_childrens_dentistry_common",
       "order": 60,
       "seoRole": "primaryContent",
-      "eyebrow": "Common things we monitor",
-      "title": "Support for growing smiles",
+      "eyebrow": "Information for parents and guardians",
+      "title": "Information for parents and guardians",
       "items": [
-        "First molars erupting with deep grooves that may trap plaque",
-        "Chipped or bumped teeth from sports or playground knocks",
-        "Early decay or white spots so we can act before fillings are needed",
-        "Thumb sucking, dummies, or mouth breathing that influence tooth position",
-        "Spacing and crowding patterns that may need orthodontic review"
+        "Parents and guardians play an important role in supporting children’s oral health.",
+        "We’ll share guidance on brushing, diet, and habits, and explain what to watch for as teeth develop.",
+        "Questions are always welcome."
       ]
     },
     {
@@ -112,10 +106,10 @@
       "variantId": "smh_childrens_dentistry_orthodontics",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "When we suggest an orthodontic chat",
-      "title": "Early guidance keeps options open",
-      "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—often explained clearly to families.",
-      "mediaHint": "Monitoring bite, spacing, and eruption patterns"
+      "eyebrow": "Building long-term confidence",
+      "title": "Building long-term confidence",
+      "body": "Children’s dentistry isn’t just about teeth — it’s about helping young patients feel comfortable with care.\n\nA calm, supportive approach helps set the foundation for lifelong oral health and confident dental visits.",
+      "mediaHint": "Building long-term confidence"
     },
     {
       "instanceId": "childrens-dentistry-mid-cta",
@@ -129,24 +123,24 @@
       "variantId": "smh_childrens_dentistry_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "Children’s dentistry FAQs",
-      "title": "Answers for parents",
+      "eyebrow": "Questions and reassurance",
+      "title": "Questions and reassurance",
       "faqs": [
         {
-          "question": "When should my child first visit?",
-          "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+          "question": "What are early visits for?",
+          "answer": "Early visits are often about getting comfortable with the environment rather than carrying out treatment. This may involve simple examinations and showing children the equipment."
         },
         {
-          "question": "How often should they come?",
-          "answer": "Most children benefit from 6-monthly check-ups, but we may recommend shorter intervals if decay risk is higher or longer if everything is very stable."
+          "question": "How do you approach prevention?",
+          "answer": "Preventative care is central to children’s dentistry. This includes monitoring tooth development, advising on brushing and diet, and identifying potential issues early."
         },
         {
-          "question": "Do baby teeth really matter?",
-          "answer": "Yes. Healthy baby teeth guide adult teeth into place, support speech, and allow comfortable eating. Protecting them reduces the risk of pain, infection, or early tooth loss."
+          "question": "What if treatment is needed?",
+          "answer": "Any recommended treatment is explained clearly to both parents and children, with an emphasis on reassurance and understanding. The aim is to manage problems sensitively while maintaining trust."
         },
         {
-          "question": "What if my child is scared?",
-          "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+          "question": "How do you support nervous children?",
+          "answer": "It’s normal for some children to feel anxious about dental visits. We take time to listen, move at an appropriate pace, and adapt appointments to individual needs."
         }
       ]
     },
@@ -156,14 +150,12 @@
       "variantId": "smh_childrens-dentistry_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after family check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "eyebrow": "Building long-term confidence",
+      "title": "Building long-term confidence",
+      "body": "Children’s dentistry isn’t just about teeth — it’s about helping young patients feel comfortable with care.\n\nA calm, supportive approach helps set the foundation for lifelong oral health and confident dental visits.",
       "bullets": [
-        "Appropriate when you want to understand how routine and preventive care is tailored for children.",
-        "Often follows Family check-ups (/treatments/preventative-and-general-dentistry); Treatment hub (/treatments/hub-directory).",
-        "Alternatives we balance: Nervous patient care (/treatments/nervous-patients); Preventive guidance (/treatments/preventative-and-general-dentistry).",
-        "Next steps we plan for: Orthodontic monitoring (/treatments/orthodontics); Sports mouthguards (/treatments/sports-mouthguards); Comfort-focused numbing support (/treatments/painless-numbing-the-wand)."
+        "Children’s dentistry isn’t just about teeth — it’s about helping young patients feel comfortable with care.",
+        "A calm, supportive approach helps set the foundation for lifelong oral health and confident dental visits."
       ]
     },
     {
@@ -174,7 +166,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a gentle check-up for your child",
-      "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+      "body": "Contact us to discuss dental care for your child or teenager.",
       "ctas": [
         {
           "label": "Plan a clinician-led childrens dentistry review",

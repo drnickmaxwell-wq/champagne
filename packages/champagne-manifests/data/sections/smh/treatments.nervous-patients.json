@@ -11,12 +11,12 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Nervous patients",
-      "title": "Calm dental visits on your terms",
-      "body": "Dental anxiety is common, and it often comes from past experiences, fear of discomfort, or feeling out of control. We take a calm, structured approach: clear explanations, a steady pace and agreed stop signals so you remain in charge. We can plan treatment in smaller stages, use numbing techniques carefully, and focus on comfort at each step. If you’ve avoided dental care for a long time, we prioritise assessment first and then agree a sensible plan without pressure. The aim is to make visits manageable and predictable, so confidence builds over time rather than being forced in one appointment.",
+      "title": "Nervous about dental treatment?",
+      "body": "Feeling anxious about dental visits is extremely common — and it shows up in different ways.\n\nSome people feel tense before appointments. Others avoid booking altogether. Some cope until something hurts, then worry about what they’ll be told. None of that is unusual, and none of it needs justifying.\n\nAt St Mary’s House Dental Care, we take dental anxiety seriously — without making it the centre of the appointment.",
       "bullets": [
-        "Gentle, calm tone with clear language",
-        "You decide the pace with planned pauses",
-        "Comfort-first support without pressure"
+        "Anxiety is common and understandable",
+        "Clear explanations and a steady pace",
+        "Calm, respectful care without pressure"
       ]
     },
     {
@@ -25,14 +25,14 @@
       "variantId": "smh_nervous_patients_reasons",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why patients feel anxious",
-      "title": "Common worries we plan for",
+      "eyebrow": "Understanding anxiety",
+      "title": "Anxiety looks different for different people",
       "items": [
-        "Fear of pain or injections",
-        "Past bad experiences or feeling rushed",
-        "Strong gag reflex",
-        "Jaw discomfort or locking",
-        "Worry about losing control"
+        "Worry about pain or loss of control",
+        "Previous difficult experiences",
+        "Sensitivity to sounds, smells, or sensations",
+        "Fear of judgement or being rushed",
+        "Concern about costs or unexpected treatment"
       ]
     },
     {
@@ -41,14 +41,14 @@
       "variantId": "smh_nervous_patients_care",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "How we care for nervous patients",
-      "title": "Support that keeps you in control",
+      "eyebrow": "Our approach",
+      "title": "A calmer way of working",
       "items": [
-        "Longer appointments so you can pause and breathe",
-        "Clear explanations before anything begins",
-        "Agreed stop signals and check-ins throughout",
-        "Comfort-first approach with gentle techniques",
-        "Choice of coping methods suited to you"
+        "We explain what we’re doing before we do it",
+        "We agree signals to pause or stop",
+        "We avoid surprises and check in as we go",
+        "We take time where it’s needed",
+        "We work with anxiety quietly and respectfully"
       ]
     },
     {
@@ -57,13 +57,14 @@
       "variantId": "smh_nervous_patients_options",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Your comfort options",
-      "title": "Pick the support that feels right",
-      "body": "We guide you through calming options and let you choose what feels safest—whether that’s gentle numbing tech, measured relaxation, or easing jaw tension first.",
+      "eyebrow": "Pace and control",
+      "title": "Taking things at your pace",
+      "body": "For nervous patients, treatment doesn’t have to happen all at once.\n\nIn many cases, it helps to start with a conversation or examination only, break treatment into shorter appointments, stabilise problems before addressing everything, and build familiarity with the team and environment.\n\nYou stay in control of the pace. Nothing is rushed by default.",
       "bullets": [
-        "Painless numbing with The Wand keeps anaesthetic slow and steady",
-        "Dental sedation options add deeper relaxation when assessed as suitable",
-        "TMJ & jaw comfort care reduces tension that can trigger anxiety"
+        "Start with a conversation or examination only",
+        "Break treatment into shorter appointments",
+        "Stabilise problems before addressing everything",
+        "Build familiarity with the team and environment"
       ]
     },
     {
@@ -78,9 +79,9 @@
       "variantId": "smh_nervous_patients_option_links",
       "order": 50,
       "seoRole": "supporting",
-      "eyebrow": "Explore calming techniques",
-      "title": "Learn how each option works before you decide",
-      "strapline": "Read the dedicated pages to see how they manage anxiety and comfort.",
+      "eyebrow": "Support options",
+      "title": "Support options when anxiety is significant",
+      "strapline": "For some people, extra support helps — longer appointments, staged planning, or sedation where appropriate, assessed carefully.",
       "ctas": [
         {
           "label": "Plan a clinician-led nervous patients review",
@@ -100,14 +101,14 @@
       "variantId": "smh_nervous_patients_expect",
       "order": 60,
       "seoRole": "primaryContent",
-      "eyebrow": "What to expect at your visit",
-      "title": "A calm, consultation-first pathway",
+      "eyebrow": "First appointment",
+      "title": "A first appointment doesn’t have to mean treatment",
       "items": [
-        "Consultation-first to hear your worries and past experiences",
-        "No pressure to proceed—options explained before any care",
-        "Nothing happens without consent and a clear plan",
-        "You stay in control with agreed stop signals and pacing",
-        "Follow-ups arranged so you can build confidence gradually"
+        "Booking an appointment doesn’t commit you to anything",
+        "The first visit can be a conversation and assessment only",
+        "Options are explained without pressure",
+        "It’s fine if no treatment happens at the first visit",
+        "You can choose the pace for any next steps"
       ]
     },
     {
@@ -116,14 +117,13 @@
       "variantId": "smh_nervous-patients_decision_clarity",
       "order": 69,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after routine examinations (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "eyebrow": "Comfort and control",
+      "title": "Pain control and comfort",
+      "body": "Modern dentistry allows for effective pain control when treatment is needed.\n\nWe’ll always discuss what you’re likely to feel, how discomfort is managed, when numbness is used, and what to expect afterwards.\n\nIf something doesn’t feel right, we stop and adjust. Comfort is part of good care.",
       "bullets": [
-        "Appropriate when you want to find out how the team supports anxious patients through dental care.",
-        "Often follows Routine examinations (/treatments/preventative-and-general-dentistry); Treatment hub (/treatments/hub-directory).",
-        "Alternatives we balance: Orthodontic care at your pace (/treatments/orthodontics); Gentle gum care (/treatments/periodontal-gum-care).",
-        "Next steps we plan for: Sedation dentistry (/treatments/sedation-dentistry); Comfort-first numbing (/treatments/painless-numbing-the-wand); Implant sedation pathways (/treatments/implants-sedation)."
+        "We explain what you’re likely to feel before we start",
+        "We explain how numbness is used and what to expect afterwards",
+        "If something doesn’t feel right, we stop and adjust"
       ]
     },
     {
@@ -134,7 +134,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Ready to talk through a calmer visit?",
-      "body": "Book a consultation or speak to the team about the pace and comfort options you prefer.",
+      "body": "Book an appointment to talk things through at your own pace.",
       "ctas": [
         {
           "label": "Plan a clinician-led nervous patients review",
