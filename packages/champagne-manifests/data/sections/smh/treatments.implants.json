@@ -141,12 +141,6 @@
       ]
     },
     {
-      "instanceId": "implants-mid-cta",
-      "componentId": "treatment_mid_cta",
-      "order": 79,
-      "seoRole": "supporting"
-    },
-    {
       "instanceId": "implants-faq",
       "componentId": "treatment.faq",
       "variantId": "shoreham_implants_faq",
@@ -229,7 +223,7 @@
       "ctas": [
         {
           "label": "Request an appointment",
-          "href": "/treatments/implants",
+          "href": "/contact",
           "variant": "primary"
         },
         {
