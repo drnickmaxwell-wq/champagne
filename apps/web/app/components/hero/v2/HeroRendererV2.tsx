@@ -170,7 +170,15 @@ export async function HeroRendererV2({
     });
   };
 
-  const grainOpacity = filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
+  const isDeMilkMode = mode === "home" || mode === "treatment";
+  const internalOverlaysDisabled = true;
+  const isSacredHomeDefault = mode === "home" && runtime.variant?.id === "default";
+  const honorManifestOpacity = internalOverlaysDisabled && isSacredHomeDefault;
+  const manifestGrainOpacity = surfaces.grain?.desktop?.opacity;
+  const grainOpacity =
+    honorManifestOpacity && manifestGrainOpacity !== undefined
+      ? manifestGrainOpacity
+      : filmGrainSettings?.opacity ?? surfaces.grain?.desktop?.opacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
   const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
   const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
@@ -197,21 +205,70 @@ export async function HeroRendererV2({
     if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
   });
+  const honorOpacityIds = new Set([
+    "field.waveBackdrop",
+    "field.waveRings",
+    "field.dotGrid",
+    "overlay.particles",
+    "overlay.filmGrain",
+  ]);
+  const layerOpacityTuning: Record<
+    string,
+    | {
+        multiplier?: number;
+        cap?: number;
+        screenBlendOverride?: CSSProperties["mixBlendMode"];
+      }
+    | undefined
+  > = {
+    "field.waveBackdrop": { multiplier: 0.62, cap: 0.2 },
+    "field.waveRings": { multiplier: 0.78, cap: 0.24 },
+    "field.dotGrid": { multiplier: 0.6, cap: 0.2 },
+    "overlay.particles": { multiplier: 0.7, cap: 0.08 },
+    "overlay.caustics": { multiplier: 0.6, cap: 0.1, screenBlendOverride: "soft-light" },
+    "overlay.glassShimmer": { multiplier: 0.6, cap: 0.1, screenBlendOverride: "soft-light" },
+    "overlay.goldDust": { multiplier: 0.6, cap: 0.1, screenBlendOverride: "soft-light" },
+    "overlay.filmGrain": { multiplier: 1, cap: 0.06 },
+  };
+
+  const applyBlendTuning = (id: string, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (!isDeMilkMode || !blendMode) return blendMode;
+    const tuning = layerOpacityTuning[id];
+    if (tuning?.screenBlendOverride && blendMode === "screen") {
+      return tuning.screenBlendOverride;
+    }
+    return blendMode;
+  };
+
+  const applyOpacityTuning = (id: string, value?: number, blendMode?: CSSProperties["mixBlendMode"]) => {
+    if (honorManifestOpacity && honorOpacityIds.has(id)) return value;
+    if (!isDeMilkMode || value === undefined) return value;
+    const tuning = layerOpacityTuning[id];
+    if (!tuning) return value;
+    const multiplier = tuning.multiplier ?? 1;
+    const capped = Math.min(value * multiplier, tuning.cap ?? 1);
+    if (blendMode === "screen" && tuning.cap !== undefined) {
+      return Math.min(capped, tuning.cap);
+    }
+    return capped;
+  };
+  const resolveMotionOpacity = (value?: number) => (value === undefined ? undefined : value);
   const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }, id?: string) => {
     if (!entry) return {};
     const style: CSSProperties = {};
     const resolvedBlend = entry.blendMode ?? undefined;
     const resolvedOpacity = entry.opacity ?? undefined;
+    const tunedBlend = applyBlendTuning(id ?? "", resolvedBlend as CSSProperties["mixBlendMode"] | undefined);
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
-      style.opacity = resolvedOpacity;
+      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", resolvedOpacity, tunedBlend));
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
     }
 
-    if (resolvedBlend) {
-      style.mixBlendMode = resolvedBlend as CSSProperties["mixBlendMode"];
+    if (tunedBlend) {
+      style.mixBlendMode = tunedBlend;
     } else if (id) {
       noteMissing(id, "blend", "motion");
       style.opacity = 0;
@@ -344,15 +401,17 @@ export async function HeroRendererV2({
       };
       let missingForLayer = false;
 
-      if (waveBackdropBlend) {
-        style.mixBlendMode = waveBackdropBlend;
+      const tunedBlend = applyBlendTuning("field.waveBackdrop", waveBackdropBlend);
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else {
         noteMissing("field.waveBackdrop", "blend", "surface");
         missingForLayer = true;
       }
 
       if (waveBackdropOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : waveBackdropOpacity;
+        const tunedOpacity = applyOpacityTuning("field.waveBackdrop", waveBackdropOpacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveBackdrop", "opacity", "surface");
@@ -362,6 +421,9 @@ export async function HeroRendererV2({
       return style;
     })(),
     "mask.waveHeader": {
+      ...(waveMaskUrlDesktop
+        ? { maskImage: "var(--hero-wave-mask-desktop)", WebkitMaskImage: "var(--hero-wave-mask-desktop)" }
+        : {}),
       ...(waveMaskResolvedGlue ?? {}),
       ...(surfaces.waveMask?.desktop?.blendMode
         ? { mixBlendMode: surfaces.waveMask.desktop.blendMode as CSSProperties["mixBlendMode"] }
@@ -376,16 +438,20 @@ export async function HeroRendererV2({
       };
       let missingForLayer = false;
 
-      const blend = surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"] | undefined;
-      if (blend) {
-        style.mixBlendMode = blend;
+      const tunedBlend = applyBlendTuning(
+        "field.waveRings",
+        surfaces.overlays?.field?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+      );
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else {
         noteMissing("field.waveRings", "blend", "surface");
         missingForLayer = true;
       }
 
       if (surfaces.overlays?.field?.opacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : surfaces.overlays.field.opacity;
+        const tunedOpacity = applyOpacityTuning("field.waveRings", surfaces.overlays.field.opacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.waveRings", "opacity", "surface");
@@ -402,16 +468,20 @@ export async function HeroRendererV2({
       };
       let missingForLayer = false;
 
-      const blend = surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"] | undefined;
-      if (blend) {
-        style.mixBlendMode = blend;
+      const tunedBlend = applyBlendTuning(
+        "field.dotGrid",
+        surfaces.overlays?.dots?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+      );
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else {
         noteMissing("field.dotGrid", "blend", "surface");
         missingForLayer = true;
       }
 
       if (surfaces.overlays?.dots?.opacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : surfaces.overlays.dots.opacity;
+        const tunedOpacity = applyOpacityTuning("field.dotGrid", surfaces.overlays.dots.opacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else {
         style.opacity = 0;
         noteMissing("field.dotGrid", "opacity", "surface");
@@ -428,16 +498,20 @@ export async function HeroRendererV2({
       };
       let missingForLayer = false;
 
-      const blend = surfaces.particles?.blendMode as CSSProperties["mixBlendMode"] | undefined;
-      if (blend) {
-        style.mixBlendMode = blend;
+      const tunedBlend = applyBlendTuning(
+        "overlay.particles",
+        surfaces.particles?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+      );
+      if (tunedBlend) {
+        style.mixBlendMode = tunedBlend;
       } else if (shouldShowParticles) {
         noteMissing("overlay.particles", "blend", "surface");
         missingForLayer = true;
       }
 
       if (particleOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : particleOpacity;
+        const tunedOpacity = applyOpacityTuning("overlay.particles", particleOpacity, tunedBlend);
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else if (shouldShowParticles) {
         style.opacity = 0;
         noteMissing("overlay.particles", "opacity", "surface");
@@ -462,7 +536,12 @@ export async function HeroRendererV2({
       }
 
       if (grainOpacity !== undefined) {
-        style.opacity = missingForLayer ? 0 : grainOpacity;
+        const tunedOpacity = applyOpacityTuning(
+          "overlay.filmGrain",
+          grainOpacity,
+          surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"] | undefined,
+        );
+        style.opacity = missingForLayer ? 0 : tunedOpacity;
       } else if (shouldShowGrain) {
         style.opacity = 0;
         noteMissing("overlay.filmGrain", "opacity", "surface");
