@@ -2730,7 +2730,7 @@
           "id": "contact_intro_copy",
           "type": "copy-block",
           "title": "How to reach us",
-          "copy": "Getting in touch should feel straightforward. If you’d like to book, ask a question, or talk through a concern, our team can guide you to the right next step and the right appointment length. If you’re in pain or think you may have an infection, please let us know — we keep space for urgent problems and we’ll advise what to do next. For anything non-urgent, you can call during opening hours or send an enquiry and we’ll come back to you as soon as we can. If you’re exploring a bigger change — implants, aligners, veneers, or complex restorative work — we can arrange a consultation focused on options, planning and costs, with time for questions.",
+          "copy": "Getting in touch should feel straightforward.\n\nWhether you’re looking to book an appointment, ask a question, or talk something through before deciding what to do next, our team will guide you calmly and clearly.\n\nThere’s no obligation to proceed with treatment just by contacting us.\n\nAppointments can be arranged by speaking with our reception team.\n\nWhen booking, it’s helpful to let us know what’s prompted you to get in touch, whether you’re experiencing pain or urgency, and if you feel nervous or need extra time.\n\nThis helps us book the right type of appointment and make things easier on the day.\n\nYou don’t need to know exactly what treatment you’re looking for before contacting us.\n\nMany patients get in touch simply to ask a question, understand their options, or find out what an initial appointment involves.\n\nWe’re happy to talk things through before anything is decided.\n\nIf it’s been a while since you last saw a dentist, or if you feel anxious about getting in touch, you’re not alone.\n\nWe’ll take things at your pace and focus on understanding where you’re starting from, rather than rushing you into decisions.\n\nOnce you’ve been in touch, we’ll confirm the next steps, explain what to expect at your visit, and answer any immediate questions.\n\nIf something isn’t urgent, we’ll tell you. If it is, we’ll help you arrange appropriate care.",
           "label": "Contact"
         },
         {
@@ -2760,7 +2760,7 @@
           "id": "contact_form_placeholder",
           "type": "copy-block",
           "title": "Send a message",
-          "copy": "Please contact the practice using the details provided on this page.",
+          "copy": "You’re welcome to contact the practice by phone or via the enquiry form.\n\nIf your enquiry is straightforward, our reception team can usually help immediately. If it’s more clinical or needs a dentist’s input, we’ll make sure it’s passed on appropriately.\n\nWe aim to respond promptly during normal opening hours.",
           "label": "Contact form"
         },
         {
@@ -2768,7 +2768,7 @@
           "type": "map",
           "label": "Map",
           "title": "Find us",
-          "copy": "Find us using the map below. If you need help with directions or parking, please contact the practice.",
+          "copy": "St Mary’s House Dental Care is located in Shoreham-by-Sea, West Sussex.\n\nClear directions, accessibility information, and parking details are provided below to help your visit go smoothly.",
           "mediaHint": "Contact page map placeholder"
         },
         {
