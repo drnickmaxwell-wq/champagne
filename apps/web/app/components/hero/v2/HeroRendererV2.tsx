@@ -103,6 +103,7 @@ export async function HeroRendererV2({
   rootStyle,
   glueVars,
 }: HeroRendererV2Props) {
+  const bloomDebug = typeof window !== "undefined" && window.location.search.includes("bloomDebug=1");
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
 
@@ -382,10 +383,13 @@ export async function HeroRendererV2({
   registerContrastFilter("overlay.sacredBloom", sacredBloomResolvedGlue);
   const sacredBloomContrastFilter = contrastGlueFilters.get("overlay.sacredBloom");
   const sacredBloomStyle: CSSProperties = {
-    backgroundImage: resolveBackgroundImage(sacredBloomUrl),
+    position: "absolute",
+    inset: 0,
+    pointerEvents: "none",
+    backgroundImage: "var(--hero-gradient)",
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
-    mixBlendMode: "soft-light",
-    opacity: 0.22,
+    mixBlendMode: bloomDebug ? "screen" : "soft-light",
+    opacity: bloomDebug ? 0.8 : 0.18,
     ...(isHomeMode
       ? {
           maskImage: sacredBloomMask,
@@ -750,6 +754,8 @@ export async function HeroRendererV2({
         <div
           data-surface-id="overlay.sacredBloom"
           data-surface-role="fx"
+          data-bloom="true"
+          data-bloom-debug={bloomDebug ? "true" : "false"}
           data-bloom-shape={isHomeMode ? "phase3b" : undefined}
           data-bloom-mask={isHomeMode ? "top-left-falloff" : undefined}
           data-contrast-glue={sacredBloomContrastFilter ? "phase3c" : undefined}
