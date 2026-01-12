@@ -5,22 +5,22 @@
       "field.waveBackdrop": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
+        "backgroundPosition": "50% 50%"
       },
       "mask.waveHeader": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
+        "backgroundPosition": "50% 50%"
       },
       "field.waveRings": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
+        "backgroundPosition": "50% 50%"
       },
       "field.dotGrid": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "center"
+        "backgroundPosition": "50% 50%"
       }
     }
   }
