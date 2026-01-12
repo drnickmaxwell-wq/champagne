@@ -11,13 +11,13 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Orthodontics",
-      "title": "Fixed braces with clinician-led planning",
-      "body": "Orthodontic treatment improves alignment and bite by moving teeth in planned, controlled steps. Options can include clear aligners or fixed braces, depending on the complexity of movement needed and the stability of the bite. We begin with diagnosis: assessing gum health, tooth wear, jaw symptoms and how your teeth meet, then using digital scans (and X-rays where appropriate) to plan movement and discuss what’s realistic. Orthodontics can be valuable on its own or as preparation for restorative work such as bonding, crowns or veneers. We’ll explain timelines, retention, and the checks needed to keep treatment on track safely.",
+      "title": "Orthodontic treatment",
+      "body": "Orthodontic treatment focuses on improving how teeth are positioned, how they function together, and how they’re supported over time.\n\nWhile many people associate orthodontics with straightening teeth for appearance, alignment can also play an important role in comfort, bite stability, tooth wear, and long-term oral health.\n\nAt St Mary’s House Dental Care, orthodontic treatment is approached as part of a wider plan — not as a one-size-fits-all solution.",
       "bullets": [
-        "Focus on fixed braces, not Invisalign",
-        "Metal and ceramic bracket options",
-        "Digital planning with in-person adjustments",
-        "Clear timelines and review points"
+        "Improves tooth position and function",
+        "Supports comfort, bite stability, and tooth wear",
+        "Planned as part of wider oral health care",
+        "Not a one-size-fits-all approach"
       ],
       "ctas": [
         {
@@ -38,14 +38,14 @@
       "variantId": "shoreham_orthodontics_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why patients choose us",
-      "title": "Clinician-guided orthodontics with clear oversight",
+      "eyebrow": "When orthodontics is considered",
+      "title": "When orthodontic treatment may be considered",
       "items": [
-        "Treatment plans set by dentists with regular chairside reviews",
-        "Bracket positioning and wire sequencing tailored to your bite",
-        "Hygiene support throughout to protect teeth and gums",
-        "Practical advice on eating, cleaning, and caring for braces",
-        "Progress checks that keep movement safe and realistic"
+        "Crowding or spacing that affects alignment",
+        "Bite imbalance that affects function",
+        "Difficulty cleaning teeth due to position",
+        "Excessive wear or strain on teeth and supporting structures",
+        "Preparation for restorative or stabilisation treatment"
       ]
     },
     {
@@ -54,18 +54,17 @@
       "variantId": "shoreham_orthodontics_consultation",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "How fixed braces work",
-      "title": "Steady tooth movement guided by in-clinic adjustments",
-      "body": "Fixed braces use brackets and wires to move teeth gradually. Each adjustment is planned in practice so you know what to expect, how to care for your braces, and when to return for reviews, while we outline how whitening (/treatments/teeth-whitening) or veneers (/treatments/veneers) can refine the smile once teeth are stable.",
+      "eyebrow": "Types of orthodontic treatment",
+      "title": "Types of orthodontic treatment",
+      "body": "There are different orthodontic approaches available, and suitability depends on individual circumstances.\n\nOptions may include clear aligners, fixed appliances, or limited orthodontic treatment focused on specific areas.\n\nIn some cases, treatment is focused on function and stability rather than perfect alignment.\n\nWe’ll explain which approaches are appropriate for your situation, along with their benefits and limitations.",
       "bullets": [
-        "Full orthodontic assessment and records",
-        "Digital planning to map movements and timelines",
-        "Bonding of brackets and first wire placement",
-        "Regular adjustments to progress movement",
-        "Comfort checks and guidance at each visit",
-        "Retention plan once active movement finishes"
+        "Clear aligners where appropriate",
+        "Fixed appliances for planned movement",
+        "Limited treatment for specific areas",
+        "Focus on function and stability when needed",
+        "Benefits and limitations explained clearly"
       ],
-      "mediaHint": "Fixed brace fitting and review"
+      "mediaHint": "Orthodontic assessment and planning"
     },
     {
       "instanceId": "orthodontics-outcomes",
@@ -73,14 +72,14 @@
       "variantId": "shoreham_orthodontics_outcomes",
       "order": 35,
       "seoRole": "supporting",
-      "eyebrow": "How orthodontic outcomes are planned",
-      "title": "Digital records, bite checks, and stability planning",
+      "eyebrow": "Assessment and planning",
+      "title": "Assessment and planning",
       "items": [
-        "Full photos, scans, and radiographs to map starting positions",
-        "Bite assessment that considers jaw position, wear, and gum health",
-        "Planned sequencing that protects enamel and roots during movement",
-        "Space analysis before extractions or stripping are recommended",
-        "Retention and long-term stability discussed before you begin"
+        "Clinical examination to understand your bite and tooth position",
+        "Photographs, scans, and X-rays where appropriate",
+        "Planning how teeth will move and how the bite will function",
+        "Discussion of how results will be maintained",
+        "Findings and plans explained before decisions are made"
       ]
     },
     {
@@ -89,14 +88,14 @@
       "variantId": "shoreham_orthodontics_who_for",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Who it helps",
-      "title": "Support for teens and adults who want hands-on orthodontics",
+      "eyebrow": "Orthodontics for adults",
+      "title": "Orthodontics for adults",
       "items": [
-        "Crowding or spacing that needs controlled movement",
-        "Bite issues that benefit from fixed bracket mechanics",
-        "Patients who prefer visible progress reviews over remote apps",
-        "Relapse after previous braces with movement often managed in-clinic",
-        "Anyone wanting guidance on whether braces or another pathway is safer"
+        "Orthodontic treatment isn’t limited to teenagers",
+        "Adults may address long-standing concerns or protect function",
+        "Plans consider existing dental work",
+        "Treatment is tailored to lifestyle considerations",
+        "Goals focus on realistic, stable outcomes"
       ]
     },
     {
@@ -105,18 +104,17 @@
       "variantId": "shoreham_orthodontics_process",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your orthodontic pathway",
-      "title": "From assessment to retainers",
+      "eyebrow": "Timescales and commitment",
+      "title": "Timescales and commitment",
       "items": [
-        "Consultation, records, and treatment planning",
-        "Bracket bonding and first archwire fitted",
-        "Regular adjustment visits to progress movement",
-        "Comfort and hygiene reviews along the way",
-        "Detailing phase to fine-tune alignment",
-        "Debonding once movement is complete",
-        "Retention plan with bonded or removable retainers"
+        "Orthodontic treatment is a process that takes time",
+        "Length varies with complexity and appliance type",
+        "Teeth respond at different rates",
+        "Wearing appliances as advised supports stability",
+        "Review appointments help keep treatment on track",
+        "We explain realistic timescales before starting"
       ],
-      "strapline": "Timelines vary by complexity; we outline a realistic range before treatment starts."
+      "strapline": "We’ll give you a realistic idea of timescales and what’s involved before starting."
     },
     {
       "instanceId": "orthodontics-monitoring",
@@ -124,14 +122,14 @@
       "variantId": "shoreham_orthodontics_monitoring",
       "order": 55,
       "seoRole": "supporting",
-      "eyebrow": "Monitoring & adjustments",
-      "title": "Predictable reviews with a plan if teeth don’t track",
+      "eyebrow": "After orthodontic treatment",
+      "title": "After orthodontic treatment",
       "items": [
-        "Routine review intervals set at the start so you know your schedule",
-        "Wire changes and elastic guidance tailored to how your teeth respond",
-        "Comfort checks at every visit with quick repairs if a bracket loosens",
-        "If movement stalls, we rescan, replan, or resequence wires to get back on track",
-        "We’ll explain the next steps, costs, and timelines before changes are made"
+        "Retention is essential once teeth are in a stable position",
+        "Retainers help reduce the risk of teeth drifting",
+        "We explain retention options and how to care for them",
+        "Long-term stability is part of the plan",
+        "We discuss how long retention is needed"
       ]
     },
     {
@@ -140,10 +138,10 @@
       "variantId": "shoreham_orthodontics_technology",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Digital planning with precise bracket systems",
-      "body": "We use scans or impressions to plan wire sequences, bracket positioning, and expected review points. Options include modern metal braces for efficiency and ceramic brackets for a lower-visual look where appropriate.",
-      "mediaHint": "Bracket positioning and wire planning"
+      "eyebrow": "When orthodontics may not be the right answer",
+      "title": "When orthodontics may not be the right answer",
+      "body": "Orthodontic treatment isn’t always appropriate.\n\nIn some cases, alternatives such as monitoring, restorative treatment, or a more limited approach may be better suited. If orthodontics isn’t likely to offer meaningful benefit, we’ll be open about that and explain why.",
+      "mediaHint": "Orthodontic planning discussion"
     },
     {
       "instanceId": "orthodontics-aftercare",
@@ -151,15 +149,14 @@
       "variantId": "shoreham_orthodontics_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & risks",
-      "title": "Stay comfortable and protect your smile during treatment",
+      "eyebrow": "After orthodontic treatment",
+      "title": "After orthodontic treatment",
       "items": [
-        "Mild pressure or rubbing after adjustments is common",
-        "Extra cleaning steps to manage plaque around brackets",
-        "Some foods may need to be avoided to protect wires",
-        "Report any loose brackets or rubbing wire ends promptly",
-        "Regular visits help us spot and manage issues early",
-        "Retainers are needed after braces to help prevent relapse"
+        "Retention helps maintain the result",
+        "Retainers reduce the risk of teeth drifting over time",
+        "We explain how long retainers are needed",
+        "Care instructions keep retainers effective",
+        "Long-term stability is as important as treatment"
       ]
     },
     {
@@ -168,14 +165,14 @@
       "variantId": "shoreham_orthodontics_retention",
       "order": 72,
       "seoRole": "supporting",
-      "eyebrow": "Retention matters",
-      "title": "Fixed and removable retainers with lifetime expectations",
+      "eyebrow": "When orthodontics may not be the right answer",
+      "title": "When orthodontics may not be the right answer",
       "items": [
-        "Fixed retainers can be bonded behind front teeth when suitable",
-        "Removable retainers protect your result overnight—wear schedule agreed together",
-        "Expect to maintain retention long-term; we guide realistic upkeep",
-        "Replacement protocols explained so you know when to contact us",
-        "Retention reviews help catch early shifts before they become relapse"
+        "Orthodontic treatment isn’t always appropriate",
+        "Monitoring may be a better option in some cases",
+        "Restorative treatment can sometimes be more suitable",
+        "A limited approach may be preferred",
+        "We explain if orthodontics is unlikely to help"
       ]
     },
     {
@@ -191,39 +188,27 @@
       "order": 80,
       "seoRole": "faq",
       "eyebrow": "Orthodontic FAQs",
-      "title": "Answers before you commit",
+      "title": "Questions about orthodontic treatment",
       "faqs": [
         {
-          "question": "How long do fixed braces take?",
-          "answer": "Treatment length depends on your bite and the amount of movement needed. We share a projected range at your consultation and keep you updated at reviews."
+          "question": "Why might orthodontic treatment be recommended?",
+          "answer": "Orthodontics may be considered when tooth position or bite contributes to crowding, spacing, bite imbalance, difficulty cleaning, or excessive wear."
         },
         {
-          "question": "Are there less visible options?",
-          "answer": "Ceramic brackets may be suitable for a lower-visual look. We’ll explain pros, limitations, and whether they fit your plan."
+          "question": "Is orthodontic treatment only for teenagers?",
+          "answer": "No. Many adults choose orthodontics later in life to address long-standing concerns or to support function and stability."
         },
         {
-          "question": "Do braces hurt?",
-          "answer": "You may feel tightness or rubbing after fittings or adjustments. Discomfort usually eases in a few days; we’ll share tips to stay comfortable."
+          "question": "What types of orthodontic treatment are available?",
+          "answer": "Options may include clear aligners, fixed appliances, or limited treatment focused on specific areas. Suitability depends on individual circumstances."
         },
         {
-          "question": "Can I eat normally?",
-          "answer": "You can enjoy most foods, but we’ll advise on harder or sticky items that could damage brackets or wires. Softer options help right after adjustments."
+          "question": "How long does orthodontic treatment take?",
+          "answer": "Timescales vary depending on complexity, appliance type, and how teeth respond. We’ll give you a realistic estimate before starting."
         },
         {
-          "question": "How much do braces cost?",
-          "answer": "Fees vary with complexity, brace type, and visit frequency. We provide a clear estimate and payment options after assessing your case."
-        },
-        {
-          "question": "Why choose braces instead of aligners?",
-          "answer": "Fixed braces give the clinician more direct control over certain movements and don’t rely on long wear times. We’ll recommend the approach that best suits your teeth and lifestyle."
-        },
-        {
-          "question": "What if a bracket or wire comes loose?",
-          "answer": "Contact the clinic promptly. We’ll schedule a fix and guide you on temporary steps to stay comfortable until the visit."
-        },
-        {
-          "question": "Will I need retainers?",
-          "answer": "Yes. Retainers help keep your teeth stable after movement. We agree a retention plan and review it with you before braces come off."
+          "question": "Will I need retainers after treatment?",
+          "answer": "Yes. Retainers help maintain the result and reduce the risk of teeth drifting over time."
         }
       ]
     },
@@ -233,14 +218,14 @@
       "variantId": "shoreham_orthodontics_smile_planning",
       "order": 85,
       "seoRole": "supporting",
-      "eyebrow": "Orthodontics as part of smile planning",
-      "title": "Link tooth movement with whitening, bonding, or veneers",
+      "eyebrow": "Questions and next steps",
+      "title": "Questions and next steps",
       "items": [
-        "Whitening can be timed once braces are off for an even shade (/treatments/teeth-whitening)",
-        "Composite bonding can refine symmetry after teeth are aligned (/treatments/composite-bonding)",
-        "Veneers or 3D printed veneers considered when porcelain coverage is safest (/treatments/veneers)",
-        "Digital Smile Design and smile makeover plans map how orthodontics supports the final look (/treatments/full-smile-makeover)",
-        "We explain sequencing so you know what happens before, during, and after braces"
+        "We encourage questions if you feel unsure",
+        "Understanding the reasons for treatment is important",
+        "We explain the commitment involved",
+        "Expected outcomes are discussed clearly",
+        "You decide whether orthodontics is right for you"
       ]
     },
     {
@@ -249,14 +234,14 @@
       "variantId": "smh_orthodontics_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after routine check-ups (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "eyebrow": "Questions and next steps",
+      "title": "Questions and next steps",
+      "body": "If you’re considering orthodontic treatment but feel unsure, we encourage you to ask questions.\n\nUnderstanding the reasons for treatment, the commitment involved, and the expected outcomes helps you decide whether orthodontics is right for you.",
       "bullets": [
-        "Appropriate when you want to get an overview of orthodontic options and suitability.",
-        "Often follows Routine check-ups (/treatments/preventative-and-general-dentistry); Children's dental reviews (/treatments/childrens-dentistry); Smile design consult (/treatments/digital-smile-design).",
-        "Alternatives we balance: Alternatives with aligners (/treatments/aligners); Sports mouthguard advice (/treatments/sports-mouthguards); Support for nervous patients (/treatments/nervous-patients).",
-        "Next steps we plan for: Retainer fitting (/treatments/dental-retainers); Mouthguards during treatment (/treatments/mouthguards-and-retainers); Post-straightening whitening (/treatments/teeth-whitening)."
+        "Ask about reasons for treatment and suitability",
+        "Understand the commitment involved",
+        "Discuss expected outcomes",
+        "Decide whether orthodontics is right for you"
       ]
     },
     {
@@ -267,7 +252,7 @@
       "seoRole": "cta",
       "eyebrow": "Ready to talk braces?",
       "title": "Book an Orthodontic Assessment",
-      "body": "Meet the team, review whether fixed braces are right for you, and map a plan with clear steps, monitoring, and retention before starting treatment.",
+      "body": "Contact us to discuss whether orthodontic treatment is suitable for you.",
       "ctas": [
         {
           "label": "Plan a clinician-led orthodontics review",
@@ -287,16 +272,14 @@
       "variantId": "shoreham_orthodontics_related",
       "order": 100,
       "seoRole": "supporting",
-      "eyebrow": "Related treatments",
-      "title": "Plan finishing steps after braces",
+      "eyebrow": "Questions and next steps",
+      "title": "Questions and next steps",
       "items": [
-        "Teeth whitening to harmonise shade after alignment (/treatments/teeth-whitening)",
-        "Composite bonding for edge polishing and symmetry (/treatments/composite-bonding)",
-        "Veneers when porcelain coverage is a good option for longevity (/treatments/veneers)",
-        "3D printed veneers for reversible previews (/treatments/3d-printed-veneers)",
-        "Dental retainers to keep your orthodontic result stable (/treatments/dental-retainers)",
-        "Digital Smile Design to visualise the final result (/treatments/digital-smile-design)",
-        "Full Smile Makeover planning for complex goals (/treatments/full-smile-makeover)"
+        "We encourage you to ask questions before deciding",
+        "We explain whether orthodontics is likely to help",
+        "Commitment and timescales are discussed clearly",
+        "We outline retention and long-term stability",
+        "You choose whether orthodontic treatment is right for you"
       ]
     }
   ],

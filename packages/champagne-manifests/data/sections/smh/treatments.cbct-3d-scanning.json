@@ -11,13 +11,13 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "CBCT / 3D scanning",
-      "title": "3D dental scanning and CBCT",
-      "body": "CBCT (cone beam CT) scanning provides a detailed 3D view of teeth, bone and surrounding anatomy when standard examination alone can’t answer the clinical question. It’s commonly used for implant planning, assessing infections, complex extractions and understanding root or jaw anatomy in more detail. We use CBCT selectively and only when it is clinically justified, and we explain what we’re looking for and how it affects your treatment options. The goal is safer, more predictable planning — understanding bone volume, nerve position and anatomical limits before any procedure is started — so decisions are based on evidence, not assumptions.",
+      "title": "CBCT and 3D dental scanning",
+      "body": "Three-dimensional scanning allows us to see dental structures in more detail than traditional two-dimensional X-rays.\n\nCBCT (cone beam computed tomography) provides a 3D view of teeth, bone, nerves, and surrounding anatomy. It’s used selectively, when additional information genuinely helps with diagnosis or planning.\n\nAt St Mary’s House Dental Care, CBCT scanning is used to support careful decision-making — not as a routine step for every patient.",
       "bullets": [
-        "Low-dose protocols tailored to your needs",
-        "Detailed visuals for implants and surgical planning",
-        "Intraoral scans for comfortable impressions",
-        "Shared results so you understand the plan"
+        "Three-dimensional detail beyond standard X-rays",
+        "Shows teeth, bone, nerves, and surrounding anatomy",
+        "Used selectively when extra information helps",
+        "Supports careful decision-making, not routine scanning"
       ],
       "ctas": [
         {
@@ -38,14 +38,14 @@
       "variantId": "smh_cbct_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Why it matters",
-      "title": "Diagnostic clarity guided by clinicians",
+      "eyebrow": "When CBCT is used",
+      "title": "When CBCT scanning may be recommended",
       "items": [
-        "Clear visuals to plan implants, extractions, and orthodontics",
-        "Comfort-first intraoral scanning instead of putty impressions",
-        "Dose minimised and justified before we scan",
-        "Results reviewed with you so decisions are informed",
-        "Data shared with labs or specialists when appropriate"
+        "Standard X-rays do not provide enough information",
+        "Implant planning or assessment of bone quality and anatomy",
+        "Complex extractions or impacted teeth",
+        "Root-treated teeth with ongoing symptoms",
+        "Jaw or facial pain requiring detailed assessment"
       ]
     },
     {
@@ -54,15 +54,15 @@
       "variantId": "smh_cbct_overview",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "What it is",
-      "title": "3D imaging that supports precise dentistry",
-      "body": "CBCT scans and intraoral 3D scans create a detailed map of your teeth, bone, and soft tissue. They guide implants, surgical planning, airway assessments, and restorative work while keeping interventions conservative.",
+      "eyebrow": "What CBCT shows",
+      "title": "What 3D scanning shows that standard X-rays don’t",
+      "body": "Unlike traditional X-rays, CBCT scans show structures in three dimensions.\n\nThis can help us assess bone thickness and shape, the position of nerves and sinuses, the extent of infection or fractures, and how teeth relate to surrounding structures.\n\nHaving this information upfront helps reduce uncertainty and improve planning accuracy.",
       "bullets": [
-        "Visualise bone height and nerve positions",
-        "Plan implant angles and restoration space",
-        "Assess impacted teeth or sinus proximity",
-        "Capture comfortable digital impressions",
-        "Share findings and next steps transparently"
+        "Assess bone thickness and shape",
+        "See the position of nerves and sinuses",
+        "Review the extent of infection or fractures",
+        "Understand how teeth relate to surrounding structures",
+        "Reduce uncertainty and improve planning accuracy"
       ]
     },
     {
@@ -71,14 +71,14 @@
       "variantId": "smh_cbct_who",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Who it helps",
-      "title": "Patients needing detailed planning",
+      "eyebrow": "Planning and safety",
+      "title": "Planning and safety",
       "items": [
-        "Implant patients needing accurate site assessment",
-        "People considering extractions or complex surgery",
-        "Orthodontic and airway assessments requiring 3D views",
-        "Patients preferring scan-based impressions",
-        "Cases where precise restorative space must be mapped"
+        "Scans are used when the benefit outweighs the risk",
+        "We follow UK guidance on justification and exposure",
+        "Scan area and settings are selected to minimise exposure",
+        "Supports safer, more predictable planning for complex care",
+        "We’re happy to discuss radiation levels before proceeding"
       ]
     },
     {
@@ -87,17 +87,16 @@
       "variantId": "smh_cbct_process",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your pathway",
-      "title": "Clear steps from scan to plan",
+      "eyebrow": "What to expect",
+      "title": "What to expect during a scan",
       "items": [
-        "Clinical justification and consent for imaging",
-        "Comfort-focused scan appointment",
-        "Data review with your clinician",
-        "Planning with digital models and reports",
-        "Sharing results with labs or specialists as needed",
-        "Next steps scheduled with timelines explained"
+        "We explain the scan and answer questions before starting",
+        "You stand or sit still while the scanner rotates briefly",
+        "The scan takes seconds and is non-invasive",
+        "There is no contact or discomfort during the scan",
+        "Results are reviewed alongside your examination and records"
       ],
-      "strapline": "We only scan when it benefits your care and explain every stage."
+      "strapline": "A CBCT scan is quick and non-invasive."
     },
     {
       "instanceId": "cbct-technology",
@@ -105,9 +104,9 @@
       "variantId": "smh_cbct_technology",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Technology",
-      "title": "Calibrated CBCT and intraoral scanning",
-      "body": "Our imaging uses calibrated protocols to capture accurate data with minimal dose. Intraoral scans replace traditional impressions for comfort and precision."
+      "eyebrow": "How results are used",
+      "title": "How scan results are used",
+      "body": "Scan results are used to support diagnosis and planning — not to replace clinical judgement.\n\nThey may help confirm whether treatment is appropriate, refine the proposed approach, or highlight situations where an alternative plan is safer.\n\nWe’ll explain what the scan shows and how it influences recommendations."
     },
     {
       "instanceId": "cbct-aftercare",
@@ -115,14 +114,14 @@
       "variantId": "smh_cbct_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & considerations",
-      "title": "Using your scan responsibly",
+      "eyebrow": "When CBCT isn’t needed",
+      "title": "When a CBCT scan isn’t needed",
       "items": [
-        "We justify scans and record indications",
-        "Data securely stored and shared when you agree",
-        "Follow-up visits scheduled based on findings",
-        "Advice on any interim care if we spot concerns",
-        "Guidance on when re-scans are or aren’t needed"
+        "Not every dental problem requires 3D imaging",
+        "Standard X-rays and clinical examination may be sufficient",
+        "A CBCT scan won’t be recommended if information is clear",
+        "Our aim is to use the simplest appropriate tools",
+        "We explain the reasoning for any imaging decision"
       ]
     },
     {
@@ -137,28 +136,28 @@
       "variantId": "smh_cbct_faq",
       "order": 80,
       "seoRole": "faq",
-      "eyebrow": "CBCT & 3D scan FAQs",
-      "title": "Safety, comfort, and next steps",
+      "eyebrow": "Questions or concerns",
+      "title": "Understanding when scanning is needed",
       "faqs": [
         {
-          "question": "Is the radiation dose high?",
-          "answer": "We use low-dose protocols and only scan when clinically justified. We will explain dose considerations before proceeding."
+          "question": "Why might a CBCT scan be recommended?",
+          "answer": "CBCT scanning is advised when standard X-rays don’t provide enough information, such as implant planning, complex extractions, impacted teeth, or ongoing symptoms after root treatment."
         },
         {
-          "question": "Will I feel anything during the scan?",
-          "answer": "CBCT is quick and non-invasive. Intraoral scans avoid putty impressions for better comfort."
+          "question": "Do I need a CBCT scan for every problem?",
+          "answer": "Not every dental problem requires 3D imaging. If standard X-rays and clinical examination provide sufficient information, a CBCT scan won’t be recommended."
         },
         {
-          "question": "Can I have the scan for my specialist?",
-          "answer": "Yes. We can securely share the data and reports with your wider care team as needed."
+          "question": "How are scan results used?",
+          "answer": "Results support diagnosis and planning, helping confirm whether treatment is appropriate, refine the proposed approach, or highlight when an alternative plan is safer."
         },
         {
-          "question": "Do I always need both CBCT and intraoral scans?",
-          "answer": "Not always. We choose the imaging that best answers the clinical question and keep exposure minimal."
+          "question": "Can I ask about radiation and safety?",
+          "answer": "Yes. We follow UK guidance on justification and exposure, use settings that minimise dose, and are happy to discuss radiation levels before proceeding."
         },
         {
-          "question": "How soon will I know the results?",
-          "answer": "We review the findings with you and outline next steps promptly, often during the same visit."
+          "question": "What happens during the scan?",
+          "answer": "You’ll stand or sit still while the scanner rotates briefly around your head. The scan takes seconds and is non-invasive, with no contact or discomfort."
         }
       ]
     },
@@ -168,14 +167,12 @@
       "variantId": "smh_cbct-3d-scanning_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "eyebrow": "Questions or concerns",
+      "title": "Questions or concerns",
+      "body": "If you’re unsure why a CBCT scan has been suggested, or whether it’s necessary, we encourage you to ask.\n\nUnderstanding the reason for any investigation is an important part of informed decision-making.",
       "bullets": [
-        "Appropriate when you want to check when cbct or 3d scans are indicated and what they show.",
-        "Often follows Implant consultation (/treatments/implants-consultation); Oral surgery planning (/treatments/extractions-and-oral-surgery).",
-        "Alternatives we balance: Digital dentistry (/treatments/3d-digital-dentistry); Implant restorations (/treatments/3d-implant-restorations).",
-        "Next steps we plan for: Bone grafting (/treatments/implants-bone-grafting); Sinus lift (/treatments/implants-sinus-lift); Teeth in a day planning (/treatments/implants-teeth-in-a-day)."
+        "We explain why a scan may be helpful in your case",
+        "You can ask about alternatives and whether it is necessary"
       ]
     },
     {
@@ -186,7 +183,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Book a 3D scan with clinician guidance",
-      "body": "Schedule a scan appointment to map your anatomy and plan treatment with clear, conservative steps.",
+      "body": "Contact us if you’d like to discuss whether 3D scanning is appropriate for you.",
       "ctas": [
         {
           "label": "Plan a clinician-led cbct 3d scanning review",
