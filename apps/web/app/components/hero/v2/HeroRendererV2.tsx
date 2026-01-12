@@ -197,7 +197,6 @@ export async function HeroRendererV2({
     if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
   });
-  const resolveMotionOpacity = (value?: number) => (value === undefined ? undefined : value);
   const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }, id?: string) => {
     if (!entry) return {};
     const style: CSSProperties = {};
@@ -205,7 +204,7 @@ export async function HeroRendererV2({
     const resolvedOpacity = entry.opacity ?? undefined;
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
-      style.opacity = resolveMotionOpacity(resolvedOpacity);
+      style.opacity = resolvedOpacity;
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
@@ -229,7 +228,6 @@ export async function HeroRendererV2({
 
   const waveBackdropUrlDesktop = resolveAssetUrl(surfaces.background?.desktop);
   const waveBackdropUrlMobile = resolveAssetUrl(surfaces.background?.mobile);
-  const waveMaskUrlDesktop = resolveAssetUrl(surfaces.waveMask?.desktop);
   const overlayFieldUrl = resolveAssetUrl(surfaces.overlays?.field);
   const overlayDotsUrl = resolveAssetUrl(surfaces.overlays?.dots);
   const particlesUrl = resolveAssetUrl(surfaces.particles);
@@ -329,7 +327,6 @@ export async function HeroRendererV2({
       : {}),
   };
   const waveBackdropResolvedGlue = resolveGlueForSurface("field.waveBackdrop", waveBackdropUrlDesktop);
-  const waveMaskResolvedGlue = resolveGlueForSurface("mask.waveHeader", waveMaskUrlDesktop);
   const waveRingsResolvedGlue = resolveGlueForSurface("field.waveRings", overlayFieldUrl, waveRingsGlueOverrides as GlueRule);
   const dotGridResolvedGlue = resolveGlueForSurface("field.dotGrid", overlayDotsUrl, dotGridGlueOverrides as GlueRule);
   const particlesResolvedGlue = resolveGlueForSurface("overlay.particles", particlesUrl);
@@ -363,10 +360,6 @@ export async function HeroRendererV2({
       return style;
     })(),
     "mask.waveHeader": {
-      ...(waveMaskUrlDesktop
-        ? { maskImage: "var(--hero-wave-mask-desktop)", WebkitMaskImage: "var(--hero-wave-mask-desktop)" }
-        : {}),
-      ...(waveMaskResolvedGlue ?? {}),
       ...(surfaces.waveMask?.desktop?.blendMode
         ? { mixBlendMode: surfaces.waveMask.desktop.blendMode as CSSProperties["mixBlendMode"] }
         : {}),
