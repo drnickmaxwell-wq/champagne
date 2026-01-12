@@ -9313,74 +9313,75 @@
         {
           "id": "tooth_wear_overview",
           "type": "treatment_overview_rich",
-          "title": "Tooth wear, chips, and cracks explained in plain language",
-          "copy": "Tooth wear happens when enamel thins from three main patterns: attrition from teeth rubbing together, abrasion from brushing or habits, and erosion from acids. We identify which type is affecting you, calm sensitivity, and guide you through protective repairs.",
+          "title": "Tooth wear and erosion",
+          "copy": "Tooth wear refers to the gradual loss of tooth structure over time.\n\nIt’s a common issue and often develops slowly, meaning many people don’t notice it until changes in shape, sensitivity, or appearance become more obvious.\n\nAt St Mary’s House Dental Care, tooth wear is managed thoughtfully, with an emphasis on understanding why it’s happening before deciding how to treat it.",
           "bullets": [
-            "Attrition: clenching or grinding flattens biting edges and creates micro-cracks",
-            "Abrasion: firm brushing or habits like nail biting scuff enamel and expose dentine",
-            "Erosion: acidic drinks, reflux, or dry mouth soften enamel so chips happen more easily"
+            "Gradual loss of tooth structure over time",
+            "Often develops slowly before changes become noticeable",
+            "Care focuses on understanding the cause before treatment"
           ]
         },
         {
           "id": "tooth_wear_causes",
           "type": "features",
-          "title": "Common causes of tooth wear",
+          "title": "Common causes",
           "items": [
-            "Night-time clenching or grinding, sometimes linked to stress or sleep patterns",
-            "Acidic food, sparkling drinks, sports drinks, or reflux lowering mouth pH",
-            "Pressing too hard with a toothbrush or using stiff bristles",
-            "Jaw habits like nail biting, pen chewing, or frequent tooth contact",
-            "Existing fillings or crowns altering the bite and concentrating force on certain teeth"
+            "Acidic foods or drinks and reflux",
+            "Dry mouth",
+            "Clenching or grinding",
+            "Bite relationships",
+            "Lifestyle habits that affect teeth",
+            "Often a combination of influences rather than a single cause"
           ]
         },
         {
           "id": "tooth_wear_symptoms",
           "type": "features",
-          "title": "What you might notice",
+          "title": "Different types of tooth wear",
           "items": [
-            "Zingy sensitivity to cold air, water, or sweets",
-            "Chips, notches near the gumline, or small fractures in corners",
-            "Flatter or shortened front teeth with thinning edges",
-            "Jagged or rough surfaces that catch the tongue or lip",
-            "Tired jaw muscles or morning ache from overnight clenching"
+            "Erosion: acids soften the tooth surface",
+            "Attrition: tooth-to-tooth contact, often linked to clenching or grinding",
+            "Abrasion: mechanical wear, such as from brushing habits",
+            "More than one type of wear can be present at the same time"
           ]
         },
         {
           "id": "tooth_wear_assessment",
           "type": "treatment_media_feature",
-          "label": "Calm assessment",
-          "title": "A mapped look at how your teeth meet and where they are wearing",
-          "copy": "We start with a clinical exam, close-up photos, and a 3D scan to record current tooth shapes. A simple bite analysis checks where forces land, and we review diet or reflux history so you know why wear is happening and how to slow it.",
+          "label": "Assessment",
+          "title": "Why careful assessment matters",
+          "copy": "Understanding the cause and pattern of wear helps guide appropriate management.\n\nAssessment may include examining how teeth meet, looking for signs of muscle activity, reviewing diet and habits, and checking for changes over time.\n\nNot all wear requires immediate treatment, but monitoring is important.",
           "mediaHint": "Photos, scans, and bite map overlay"
         },
         {
           "id": "tooth_wear_treatment_ladder",
           "type": "features",
-          "title": "Treatment ladder: protect, rebuild, stabilise",
+          "title": "Management and prevention",
           "items": [
-            "Prevention and stabilisation: night guard or splint, fluoride or desensitising gels, and tailored diet guidance to slow further loss",
-            "Composite edge bonding or additive fillings to rebuild chipped edges with minimal drilling",
-            "Onlays or crowns for teeth that need full coverage or reinforced support",
-            "Bite stabilisation plans when wear is advanced, coordinating several teeth so forces spread evenly"
+            "Management often begins with prevention",
+            "Advice on diet, habits, or oral hygiene",
+            "Protective measures such as splints where appropriate",
+            "More than one measure may be used together",
+            "The aim is to slow or stop progression before restorative treatment"
           ]
         },
         {
           "id": "tooth_wear_process",
           "type": "treatment_overview_rich",
-          "title": "What happens at your appointment",
-          "copy": "We talk through your symptoms, capture photos and scans, and share a simple explanation of the wear pattern. Together we prioritise comfort first, then agree the most conservative repairs that will hold up day-to-day.",
+          "title": "When treatment may be needed",
+          "copy": "If tooth wear is advanced or causing functional or comfort issues, treatment may be discussed.\n\nOptions can range from simple protective measures to restorative approaches designed to rebuild worn surfaces.\n\nAny proposed treatment is planned carefully and staged where possible.",
           "bullets": [
-            "Initial visit: assessment, photos, and digital scan with a calm explanation of findings",
-            "Stabilisation: protective polish, fluoride, and night guard impressions where helpful",
-            "Follow-up: fit the guard or trial composite repairs, then review bite comfort and sensitivity"
+            "Treatment is considered when wear affects comfort or function",
+            "Options range from protective measures to restorations",
+            "Plans are staged and tailored to the individual"
           ]
         },
         {
           "id": "tooth_wear_timelines",
           "type": "treatment_media_feature",
-          "label": "Realistic timelines",
-          "title": "Clear expectations on timing and feel",
-          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1\u20133 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
+          "label": "Long-term outlook",
+          "title": "Long-term outlook",
+          "copy": "Tooth wear is usually a long-term consideration rather than a quick fix.\n\nOngoing review helps ensure that teeth remain comfortable and functional, and that any intervention remains appropriate as circumstances change.",
           "mediaHint": "Calm scheduling map"
         },
         {
@@ -9392,19 +9393,11 @@
         {
           "id": "tooth_wear_faq",
           "type": "treatment_faq_block",
-          "title": "Tooth wear FAQs",
+          "title": "Questions and reassurance",
           "faqs": [
             {
-              "question": "Do I always need a crown for a worn tooth?",
-              "answer": "Not necessarily. We start with additive options like composite edge bonding or onlays to preserve tooth structure, reserving crowns for teeth that need full coverage support."
-            },
-            {
-              "question": "Will a night guard stop my teeth from wearing down?",
-              "answer": "A guard or splint protects the biting surfaces and spreads forces, reducing further wear. We pair it with habit coaching and diet guidance so you address the cause as well as the protection."
-            },
-            {
-              "question": "How do you check if my bite is causing cracks?",
-              "answer": "We review your scan, mark contact points, and use simple bite tests to see where forces land. This shows whether a guard, adjustment, or staged restorations are needed to balance pressure."
+              "question": "What if I’m unsure about what tooth wear means for me?",
+              "answer": "Learning that your teeth are wearing can be concerning. If you’re unsure what it means for you, we encourage you to ask. Understanding the situation clearly helps avoid unnecessary treatment and supports sensible long-term decisions."
             }
           ]
         },
