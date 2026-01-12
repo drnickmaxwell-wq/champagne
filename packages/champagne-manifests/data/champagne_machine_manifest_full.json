@@ -372,8 +372,8 @@
           "id": "treatments_hub_intro_v2",
           "type": "copy-block",
           "label": "Overview",
-          "title": "Find treatments by locked groups",
-          "copy": "Start with brief guidance, then open the eight director-defined groups. Each card shows up to five featured pathways and keeps the rest hidden until you choose View all."
+          "title": "Treatments — clear options, calmly explained",
+          "copy": "Whether you’re here for a small fix or something more involved, we’ll help you understand your options without pressure.\n\nSome people arrive knowing exactly what they want. Others just know something doesn’t feel right — a tooth has broken, old work is failing, or they’ve stopped liking their smile. This page is a simple map to our most common treatments, with honest explanations of what’s involved and who each option may suit.\n\nIf you’re not sure where to begin, start with the pathway cards below — or book an assessment and we’ll talk it through.\n\nSt Mary’s House Dental Care — Shoreham-by-Sea, West Sussex"
         },
         {
           "id": "treatments_hub_wayfinding",
@@ -381,50 +381,50 @@
           "label": "How to use this hub",
           "title": "Use the grouped navigation",
           "items": [
-            "Eight director-defined groups keep menus, journeys, and CTAs consistent.",
-            "Each group shows up to five featured treatments with a clear \"View all treatments in this group\" link.",
-            "Full inventories stay hidden until you expand the group card or follow its hub page."
+            "Start with what you’d like to change: A specific tooth, a gap, colour, or shape? Jump straight to veneers, crowns, bonding, whitening or smile makeovers.",
+            "Start with how it feels: Pain, sensitivity, a broken tooth, bleeding gums, or headaches from grinding? Use the problem-led sections to find likely next steps.",
+            "Start with the long-term plan: If you’re thinking about implants, straightening, or rebuilding worn teeth, look for the ‘planning’ and ‘process’ sections — they explain timelines and decision points."
           ]
         },
         {
           "id": "treatments_hub_featured_pathways",
           "type": "routing_cards",
           "label": "Featured pathways",
-          "title": "Popular and clinically important routes",
+          "title": "Popular pathways",
           "items": [
             {
               "title": "Check-ups, hygiene, and gum care",
-              "description": "Routine care that steadies your oral health before you browse deeper options.",
+              "description": "Routine care to protect oral health, spot problems early, and plan what’s needed next.",
               "href": "/treatments/preventative-and-general-dentistry"
             },
             {
               "title": "Emergency dentistry and urgent relief",
-              "description": "Same-day advice for pain, swelling, or trauma with calm next steps.",
+              "description": "If something hurts, feels loose, or has broken — see what usually happens next and when to contact us.",
               "href": "/treatments/emergency-dentistry"
             },
             {
               "title": "Crowns and bridges (non-implant)",
-              "description": "Stabilise cracked or missing teeth with crowns, bridges, and onlays.",
+              "description": "Crowns, bonding and ceramic restorations to protect teeth and restore confidence.",
               "href": "/treatments/dental-crowns"
             },
             {
               "title": "Dental implants and grafting",
-              "description": "Consultation, placement, grafting, and restoration with guided reviews.",
+              "description": "Replace missing teeth with a long-term, fixed option — planned with scans and guided surgery for suitable patients.",
               "href": "/treatments/implants"
             },
             {
               "title": "Orthodontics & retainers",
-              "description": "Clear aligners, fixed braces, and retainers with paced reviews.",
+              "description": "Straighten teeth discreetly with staged planning and a retention plan you can live with.",
               "href": "/treatments/orthodontics"
             },
             {
               "title": "3D and digital dentistry",
-              "description": "CBCT imaging, digital planning, and 3D printing that guide care.",
+              "description": "Planning-led digital tools that support diagnosis and predictable outcomes in suitable cases.",
               "href": "/treatments/3d-digital-dentistry"
             },
             {
               "title": "Technology",
-              "description": "See the digital tools that support planning and comfort.",
+              "description": "See how scans and planning support comfort, clarity, and clinical decision-making.",
               "href": "/technology"
             }
           ]
@@ -433,145 +433,146 @@
       "id": "treatments_hub_directory_intro",
       "type": "copy-block",
       "label": "Browse by group",
-      "title": "Browse treatments by locked groups",
-      "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
-    },
+          "title": "Browse by category",
+          "copy": "If you’d rather explore, the directory below groups treatments by what they’re for — health, comfort, appearance, and longer-term rebuilds. Each page explains the process, typical decision points, and alternatives — so you can choose with clarity."
+        },
     {
       "id": "treatments_hub_directory_groups_nav",
       "type": "routing_cards",
-      "title": "Browse treatments by group",
-      "items": [
-        {
-          "title": "General Dentistry",
-          "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
-          "href": "/treatments/preventative-and-general-dentistry"
-        },
-        {
-          "title": "Restorative Dentistry",
-          "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
-          "href": "/treatments/dental-crowns"
-        },
-        {
-          "title": "Dental Implants",
-          "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
-          "href": "/treatments/implants"
-        },
-        {
-          "title": "Orthodontics & Retainers",
-          "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
-          "href": "/treatments/orthodontics"
-        },
-        {
-          "title": "Aesthetic Dentistry",
-          "description": "Composite bonding, veneers, and injection-moulded composite planning.",
-          "href": "/treatments/teeth-whitening"
-        },
-        {
-          "title": "Night Guards & Occlusal Therapy",
-          "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
-          "href": "/treatments/night-guards-occlusal-splints"
-        },
-        {
-          "title": "3D & Digital Dentistry",
-          "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
-          "href": "/treatments/3d-digital-dentistry"
-        },
-        {
-          "title": "Emergency Dentistry",
-          "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
-          "href": "/treatments/emergency-dentistry"
-        },
-        {
-          "title": "Facial Rejuvenation",
-          "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
-          "href": "/treatments/facial-therapeutics"
-        }
-      ],
-      "definition": {
-        "items": [
-          {
-            "title": "General Dentistry",
-            "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
-            "href": "/treatments/preventative-and-general-dentistry"
-          },
-          {
-            "title": "Restorative Dentistry",
-            "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
-            "href": "/treatments/dental-crowns"
-          },
-          {
-            "title": "Dental Implants",
-            "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
-            "href": "/treatments/implants"
-          },
-          {
-            "title": "Orthodontics & Retainers",
-            "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
-            "href": "/treatments/orthodontics"
-          },
-          {
-            "title": "Aesthetic Dentistry",
-            "description": "Composite bonding, veneers, and injection-moulded composite planning.",
-            "href": "/treatments/teeth-whitening"
-          },
-          {
-            "title": "Night Guards & Occlusal Therapy",
-            "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
-            "href": "/treatments/night-guards-occlusal-splints"
-          },
-          {
-            "title": "3D & Digital Dentistry",
-            "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
-            "href": "/treatments/3d-digital-dentistry"
-          },
-          {
-            "title": "Emergency Dentistry",
-            "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
-            "href": "/treatments/emergency-dentistry"
-          },
-          {
-            "title": "Facial Rejuvenation",
-            "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
-            "href": "/treatments/facial-therapeutics"
+          "title": "Treatment categories",
+          "items": [
+            {
+              "title": "General Dentistry",
+              "description": "Check-ups, hygiene and everyday dentistry — prevention first, repairs when needed.",
+              "href": "/treatments/preventative-and-general-dentistry"
+            },
+            {
+              "title": "Restorative Dentistry",
+              "description": "Crowns, bridges, ceramic restorations and repair options for failing or broken teeth.",
+              "href": "/treatments/dental-crowns"
+            },
+            {
+              "title": "Dental Implants",
+              "description": "Planning-led tooth replacement — from single teeth to more comprehensive cases.",
+              "href": "/treatments/implants"
+            },
+            {
+              "title": "Orthodontics & Retainers",
+              "description": "Straightening options with an emphasis on stability, bite and retention.",
+              "href": "/treatments/orthodontics"
+            },
+            {
+              "title": "Aesthetic Dentistry",
+              "description": "Whitening, bonding, veneers and smile makeovers — with conservative, design-led planning.",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "title": "Night Guards & Occlusal Therapy",
+              "description": "Bite support for grinding, clenching and TMJ comfort.",
+              "href": "/treatments/night-guards-occlusal-splints"
+            },
+            {
+              "title": "3D & Digital Dentistry",
+              "description": "Digital planning and scan-led pathways that support predictable care.",
+              "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "Emergency Dentistry",
+              "description": "Support when something hurts, feels loose, or has broken — with clear next steps.",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "title": "Facial Rejuvenation",
+              "description": "Therapeutic facial care and pain relief pathways where appropriate.",
+              "href": "/treatments/facial-therapeutics"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "General Dentistry",
+                "description": "Check-ups, hygiene and everyday dentistry — prevention first, repairs when needed.",
+                "href": "/treatments/preventative-and-general-dentistry"
+              },
+              {
+                "title": "Restorative Dentistry",
+                "description": "Crowns, bridges, ceramic restorations and repair options for failing or broken teeth.",
+                "href": "/treatments/dental-crowns"
+              },
+              {
+                "title": "Dental Implants",
+                "description": "Planning-led tooth replacement — from single teeth to more comprehensive cases.",
+                "href": "/treatments/implants"
+              },
+              {
+                "title": "Orthodontics & Retainers",
+                "description": "Straightening options with an emphasis on stability, bite and retention.",
+                "href": "/treatments/orthodontics"
+              },
+              {
+                "title": "Aesthetic Dentistry",
+                "description": "Whitening, bonding, veneers and smile makeovers — with conservative, design-led planning.",
+                "href": "/treatments/teeth-whitening"
+              },
+              {
+                "title": "Night Guards & Occlusal Therapy",
+                "description": "Bite support for grinding, clenching and TMJ comfort.",
+                "href": "/treatments/night-guards-occlusal-splints"
+              },
+              {
+                "title": "3D & Digital Dentistry",
+                "description": "Digital planning and scan-led pathways that support predictable care.",
+                "href": "/treatments/3d-digital-dentistry"
+              },
+              {
+                "title": "Emergency Dentistry",
+                "description": "Support when something hurts, feels loose, or has broken — with clear next steps.",
+                "href": "/treatments/emergency-dentistry"
+              },
+              {
+                "title": "Facial Rejuvenation",
+                "description": "Therapeutic facial care and pain relief pathways where appropriate.",
+                "href": "/treatments/facial-therapeutics"
+              }
+            ]
           }
-        ]
-      }
-    },
+        },
     {
       "id": "treatments_hub_secondary_hubs",
       "type": "routing_cards",
-      "title": "Other ways we can help",
-      "items": [
-        {
-          "title": "Emergency dentistry",
-          "description": "",
-          "href": "/treatments/emergency-dentistry"
+          "title": "Not sure what it’s called?",
+          "items": [
+            {
+              "title": "Emergency dentistry",
+              "description": "If something hurts, feels loose, or has broken — see what usually happens next and when to contact us.",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "title": "Facial therapeutics in Shoreham-by-Sea",
+              "description": "Headaches, jaw tension, or facial pain? See supportive care options and suitability.",
+              "href": "/treatments/facial-therapeutics"
+            },
+            {
+              "title": "Finance",
+              "description": "A clear overview of payment options and how costs are discussed after assessment.",
+              "href": "/finance"
+            },
+            {
+              "title": "Technology",
+              "description": "See how scans and planning tools support diagnosis and treatment decisions.",
+              "href": "/technology"
+            }
+          ]
         },
-        {
-          "title": "Facial therapeutics in Shoreham-by-Sea",
-          "description": "",
-          "href": "/treatments/facial-therapeutics"
-        },
-        {
-          "title": "Finance",
-          "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
-          "href": "/finance"
-        },
-        {
-          "title": "Technology",
-          "description": "",
-          "href": "/technology"
-        }
-      ]
-    },
     {
       "id": "treatments_hub_authority",
       "type": "feature-grid",
-      "title": "Authority, technology, and experience",
-      "items": [
-            "Multi-disciplinary training across restorative, orthodontic, implant, and facial care",
-            "CBCT-guided planning, digital smile design, and in-house 3D fabrication",
-            "Steady clinical cadence with transparent timelines and aftercare"
+          "title": "Authority, technology, and experience",
+          "items": [
+            "Clinician-led planning: We’ll explain options, sequencing and trade-offs — and help you choose a plan that makes sense long-term.",
+            "Digital & 3D workflow (when useful): Scans, 3D planning and guided steps can improve predictability in suitable cases — without turning dentistry into a sales pitch.",
+            "Conservative where possible: We aim to protect healthy tooth tissue and choose the least-invasive option that solves the real problem.",
+            "Calm, honest, no-pressure care: Clear recommendations, transparent next steps, and time to decide — because ‘sleep-at-night dentistry’ matters."
           ],
           "label": "Authority"
         },
@@ -579,8 +580,8 @@
           "id": "treatments_hub_reviews",
           "type": "google_reviews",
           "label": "Reviews",
-          "title": "What patients say about Champagne care",
-          "strapline": "Read patient feedback from the home reviews section to see how calm pacing and clear explanations feel in practice.",
+          "title": "What patients often mention",
+          "strapline": "People usually tell us they felt listened to, never rushed, and clear on the plan. (Reviews are shown as published on Google.)",
           "rating": 4.9,
           "reviewCount": "120+ Google reviews",
           "reviews": [
@@ -605,16 +606,28 @@
           "title": "Treatment hub questions",
           "faqs": [
             {
-              "question": "How do I choose a starting point?",
-              "answer": "Use the featured pathways for common needs like implants, aligners, or guards. If you are unsure, contact us and we will suggest the safest next step."
+              "question": "I’m not sure which treatment I need — where do I start?",
+              "answer": "Start with an assessment. We’ll listen to what’s bothering you, examine your teeth and gums, and explain sensible options. If helpful, we may use X-rays or scans to plan. You’ll leave knowing the next step — even if you decide to think about it."
             },
             {
-              "question": "Can I combine treatments?",
-              "answer": "Yes. We regularly blend restorative, orthodontic, and facial care with clear sequencing so you often know what comes next."
+              "question": "Do I need a referral for implants, aligners, or complex restorative work?",
+              "answer": "No. You can book directly with us. If your case would benefit from involving another clinician (for example, a specialist opinion), we’ll explain why and coordinate it transparently."
             },
             {
-              "question": "Where do I find the full list?",
-              "answer": "Scroll past the featured pathways to the grouped directory. Each heading links to its hub so you can explore in more detail."
+              "question": "Can you tell me costs before I commit?",
+              "answer": "Yes. Once we’ve assessed what you need, we’ll give you a clear plan with costs and options. We’ll also explain where choices affect long-term maintenance — not just the initial price."
+            },
+            {
+              "question": "What if I’m nervous about dental treatment?",
+              "answer": "You’re not alone. We’ll go at your pace, explain what we’re doing, and agree signals to pause. If you need extra support, we can discuss suitable options to make treatment feel more manageable."
+            },
+            {
+              "question": "How long do most treatments take?",
+              "answer": "It depends on the starting point and the plan. Some repairs can be done quickly; others (like aligners, implants, or rebuilding worn teeth) involve staged steps. Each treatment page explains typical stages and decision points."
+            },
+            {
+              "question": "Do you offer alternatives if a treatment isn’t suitable?",
+              "answer": "Always. Dentistry is about matching the option to the person. If something isn’t appropriate — clinically, financially, or practically — we’ll explain alternatives and help you compare them."
             }
           ]
         },
