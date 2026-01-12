@@ -10,14 +10,14 @@
       "variantId": "shoreham_clear_aligners_intro",
       "order": 10,
       "seoRole": "hero",
-      "eyebrow": "Clear Aligners",
-      "title": "Clear aligners in Shoreham-by-Sea",
-      "body": "Clear aligners straighten teeth using a series of custom trays that move teeth in small, planned steps. The key is diagnosis and planning: we assess your bite, gum health, tooth wear and any jaw symptoms, then use digital scans to model movement and discuss what’s realistic. Aligners can help with crowding, spacing and some bite corrections, but not every case is suitable — and retention is essential to keep results stable. We’ll also discuss where aligners fit alongside whitening, bonding or restorative work, especially if you’re planning a broader smile refresh. If aligners are recommended, you’ll receive a clear timeline, check-in plan and aftercare guidance.",
+      "eyebrow": "Clear aligners in Shoreham-by-Sea",
+      "title": "Straight teeth — without fixed braces",
+      "body": "Clear aligners are a discreet way to improve crowding, spacing and bite alignment. We plan your treatment carefully, monitor progress closely, and keep the focus on long-term stability — not rushed cosmetic changes.\n\nWe start with a clinical assessment and a digital scan. From there, we map what can be moved safely, what should be left alone, and what would benefit from preparation (for example, bite adjustment or selective shaping).\n\nIf aligners are suitable, you’ll wear a series of custom trays that guide small, controlled movements over time. You’ll know what the process involves, what the limitations are, and what retention will look like before we begin.",
       "bullets": [
-        "Discreet, removable aligners",
-        "Digital planning and progress checks",
-        "Comfort-first fit",
-        "Clear timelines and costs explained"
+        "Discreet way to improve crowding, spacing and bite alignment",
+        "Clinician-led assessment and digital scan",
+        "Clear limits and retention explained before treatment",
+        "Focused on long-term stability, not rushed changes"
       ],
       "ctas": [
         {
@@ -41,11 +41,11 @@
       "eyebrow": "Why patients trust us",
       "title": "Calm, transparent aligner plans",
       "items": [
-        "Digital planning with scans so stages stay predictable",
-        "Regular monitoring to check fit, hygiene, and progress",
-        "Hygiene-first approach to protect gums during treatment",
-        "Conservative guidance that keeps movement realistic",
-        "Straightforward advice on attachments, refinements, and retainers"
+        "Clinician-led planning (not a sales funnel)",
+        "Digital scans for accurate fit and tracking",
+        "Clear expectations on time, comfort and limits",
+        "Designed around your bite — not just tooth position",
+        "Retainers planned from day one"
       ]
     },
     {
@@ -55,15 +55,15 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "How clear aligners work",
-      "title": "Gentle, staged movements mapped in advance",
-      "body": "Clear aligners use a series of custom trays to guide teeth into position. Each stage is planned digitally, so you know the expected movements, check-in cadence, and how to care for trays day to day, with options to align shade through whitening (/treatments/teeth-whitening) or plan veneers (/treatments/veneers) once alignment is stable.",
+      "title": "How clear aligners work",
+      "body": "Aligners move teeth using gentle, staged forces. The key is planning the right sequence — and knowing when not to push.\n\nEach aligner is worn for a set period, then replaced with the next one in the series. Small steps add up to meaningful change.\n\nSome cases need small attachments (to help grip and guide movement) or minor reshaping between teeth. We’ll only recommend what’s clinically justified and explain why.\n\nAligners can be excellent for mild–moderate crowding and spacing, and in some cases more complex changes — but not every bite is a safe aligner case. If fixed braces or a different approach would be more predictable, we’ll tell you.",
       "bullets": [
-        "Assessment and digital scan or impressions",
-        "Treatment plan preview with expected movements",
-        "Custom aligners produced in stages",
-        "Regular reviews to confirm fit and progress",
-        "Refinements if needed to reach the goal",
-        "Retention plan and retainers to hold the result"
+        "Each aligner is worn for a set period before moving to the next",
+        "Small steps add up to meaningful change",
+        "Attachments may be used to guide movement when justified",
+        "Minor reshaping between teeth only when clinically needed",
+        "Suitable for mild–moderate crowding and spacing",
+        "We’ll advise if fixed braces or another approach is more predictable"
       ],
       "mediaHint": "Clear aligner staging and review"
     },
@@ -76,11 +76,11 @@
       "eyebrow": "Who it helps",
       "title": "Support for mild to moderate alignment needs",
       "items": [
-        "Mild or moderate crowding",
-        "Small gaps or spacing",
-        "Relapse after previous braces",
-        "Bite refinement when appropriate",
-        "Not suitable for everyone — an assessment confirms what’s safe"
+        "Often a good fit for crowding, spacing, mild bite issues, relapse after braces, or one tooth out of line",
+        "May need a different approach for significant skeletal bite problems",
+        "May need a different approach for severe rotations or cases needing larger jaw correction",
+        "You’ll also need good gum health",
+        "You’ll also need committed wear-time and willingness to wear retainers afterwards"
       ]
     },
     {
@@ -92,13 +92,13 @@
       "eyebrow": "Your aligner pathway",
       "title": "Steady steps with clear expectations",
       "items": [
-        "Consultation and goal-setting",
-        "Digital scan or impressions",
-        "Plan preview showing expected movements",
-        "Aligner series produced and issued",
-        "Review cadence to check fit and hygiene",
-        "Refinement stage if needed",
-        "Retention with retainers to protect your result"
+        "1. Consultation & suitability check (teeth, bite, gums)",
+        "2. Digital scan + photos (and x-rays if needed for planning)",
+        "3. Plan review: what we’re aiming to change — and what we’re not",
+        "4. Aligners fitted + wear-time guidance",
+        "5. Review appointments to confirm tracking and comfort",
+        "6. Finishing & refinement (if required)",
+        "7. Retention: retainers to hold the result"
       ],
       "strapline": "Timelines vary by complexity; we outline a typical range before you commit."
     },
@@ -109,8 +109,8 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Technology",
-      "title": "Digital planning you can see",
-      "body": "We use digital scans and planning software to map movements, preview attachment placement, and share expected progress before trays are ordered.",
+      "title": "Digital planning that respects your bite",
+      "body": "We use digital scans and planning to visualise movements and check how your teeth will meet as things change.\n\nAlignment isn’t just cosmetic. A well-planned result should look natural and function comfortably — so we balance aesthetics with bite stability.\n\nWhere appropriate, we can combine aligners with whitening or edge-bonding as a separate step — but only once alignment is stable and you’ve had time to “live in” the new bite.",
       "mediaHint": "Digital scan and movement preview"
     },
     {
@@ -122,19 +122,21 @@
       "eyebrow": "Aftercare & risks",
       "title": "Comfort-first guidance with clear responsibilities",
       "items": [
-        "22-hour daily wear for predictable progress",
-        "Attachments may be placed to guide movement",
-        "Expect short-term pressure or soreness as trays change",
-        "Remove aligners for meals; water only when wearing",
-        "Diligent cleaning to protect gums and enamel",
-        "Retainers needed after treatment to avoid relapse"
+        "Keep aligners clean: rinse and brush gently",
+        "Avoid hot water to prevent warping",
+        "Remove to eat and drink anything except water",
+        "Expect mild pressure at changeover — tell us if pain is sharp or persistent",
+        "Keep up routine hygiene and hygiene appointments",
+        "Protect results with retainers as prescribed"
       ]
     },
     {
       "instanceId": "clear-aligners-mid-cta",
       "componentId": "treatment_mid_cta",
       "order": 79,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "title": "Not sure if aligners are right for you?",
+      "strapline": "We’ll assess your bite, gum health and tooth position, then talk you through options in plain English. If clear aligners are suitable, we’ll explain the likely timeline, what the day-to-day feels like, and what retention will involve — before you commit."
     },
     {
       "instanceId": "clear-aligners-faq",
@@ -146,36 +148,36 @@
       "title": "Answers before you decide",
       "faqs": [
         {
-          "question": "How much do clear aligners cost?",
-          "answer": "Fees depend on complexity and length of treatment; we outline a range after assessing your teeth and the expected number of stages."
+          "question": "How long does clear aligner treatment take?",
+          "answer": "It depends on what we’re correcting and how well the aligners track. Some cases are a few months; others take longer. After an assessment and scan, we can give you a realistic estimate and explain the variables."
         },
         {
-          "question": "How long will I wear aligners?",
-          "answer": "Most mild to moderate cases run for several months to over a year; we share a projected timeline and review it at each check-in."
+          "question": "Do I have to wear them all the time?",
+          "answer": "Aligners only work when they’re worn as prescribed. You’ll remove them for eating and drinking (except water), and you’ll need a consistent routine for best predictability."
         },
         {
-          "question": "Will aligners hurt?",
-          "answer": "You may feel pressure or mild soreness for a few days when switching trays; it typically eases with consistent wear."
+          "question": "Will aligners fix my bite as well as straighten my teeth?",
+          "answer": "Sometimes, yes — within limits. Cosmetic alignment and bite correction overlap, but they’re not the same thing. We’ll check whether your bite goals are achievable with aligners or whether another approach would be more predictable."
         },
         {
-          "question": "Can I eat and drink with aligners in?",
-          "answer": "Remove aligners for meals and anything other than still water to avoid staining or warping the trays."
+          "question": "Will I need attachments?",
+          "answer": "Many patients do. Attachments are small, tooth-coloured shapes that help aligners grip and guide specific movements. We’ll only recommend them if they improve control and predictability."
         },
         {
-          "question": "What are attachments?",
-          "answer": "Small tooth-coloured bumps that help guide movement. We explain placement, visibility, and care before adding them."
+          "question": "Are aligners painful?",
+          "answer": "Most people feel pressure, especially when switching to a new aligner. That’s normal. Sharp pain, bite changes that feel “wrong”, or anything that doesn’t settle should be reviewed."
         },
         {
-          "question": "Will I speak differently?",
-          "answer": "Some patients notice a slight lisp for a few days. Speech usually settles as you adapt to the trays."
+          "question": "What happens when I finish?",
+          "answer": "Retention is essential. Teeth can drift over time, so retainers are used to hold your result. We’ll plan retention from the start and explain your options."
         },
         {
-          "question": "What if I lose an aligner?",
-          "answer": "Contact the clinic quickly. We’ll advise whether to move to the next tray, use a previous one, or order a replacement."
+          "question": "Can aligners be combined with whitening or bonding?",
+          "answer": "Often, yes — but sequencing matters. We usually align first, stabilise the bite, then consider whitening and/or edge bonding if appropriate. We’ll advise based on your enamel, bite and goals."
         },
         {
-          "question": "Do I need retainers after treatment?",
-          "answer": "Yes. Retainers hold your new tooth positions and reduce relapse risk. We’ll agree a wear schedule and maintenance plan."
+          "question": "What if my teeth stop tracking?",
+          "answer": "If an aligner isn’t fitting as planned, we’ll assess why and adjust the plan. That may include extra wear-time guidance, a review appointment, or refinement aligners if needed."
         }
       ]
     },
@@ -188,12 +190,12 @@
       "eyebrow": "Related treatments",
       "title": "Plan the full smile sequence",
       "items": [
-        "Teeth whitening to set a balanced shade before refinements (/treatments/teeth-whitening)",
-        "Composite bonding for finishing edges after movement (/treatments/composite-bonding)",
-        "Veneers when porcelain coverage suits the goal (/treatments/veneers)",
-        "3D printed veneers as a reversible preview step (/treatments/3d-printed-veneers)",
-        "Digital Smile Design to map changes in advance (/treatments/digital-smile-design)",
-        "Full Smile Makeover pathways for complex aims (/treatments/full-smile-makeover)"
+        "Teeth whitening",
+        "Composite bonding",
+        "Veneers (case-dependent)",
+        "Smile makeover planning",
+        "Hygiene care",
+        "Gum health"
       ]
     },
     {
@@ -203,13 +205,13 @@
       "order": 109,
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after routine check-ups and hygiene (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "title": "A calm way to decide",
+      "body": "The right plan is the one that’s predictable, healthy, and fits your life — not just the one that looks fastest on paper.\n\nWe’ll show you what aligners can realistically achieve in your case, and what they can’t.\n\nWe’ll talk about trade-offs: speed vs stability, aesthetics vs bite comfort, and what retention will require long-term.\n\nIf you’d be better served by fixed braces, restorative work, or simply doing nothing right now, we’ll say so.",
       "bullets": [
-        "Appropriate when you want to explore clear aligner options available at the practice.",
-        "Often follows Routine check-ups and hygiene (/treatments/preventative-and-general-dentistry); Orthodontic overview (/treatments/orthodontics); Digital smile planning (/treatments/digital-smile-design).",
-        "Alternatives we balance: Managing jaw comfort (/treatments/tmj-jaw-comfort); Care for nervous patients (/treatments/nervous-patients).",
-        "Next steps we plan for: Retainer fitting after alignment (/treatments/dental-retainers); Mouthguards to protect new alignment (/treatments/mouthguards-and-retainers); Finishing with teeth whitening (/treatments/teeth-whitening)."
+        "We’ll show you what aligners can realistically achieve in your case.",
+        "We’ll explain what aligners can’t achieve.",
+        "We’ll talk about trade-offs: speed vs stability, aesthetics vs bite comfort, and retention.",
+        "If fixed braces, restorative work, or no treatment is better, we’ll say so."
       ]
     },
     {
@@ -218,8 +220,8 @@
       "variantId": "shoreham_clear_aligners_closing_cta",
       "order": 110,
       "seoRole": "cta",
-      "title": "Book a clear aligner assessment",
-      "strapline": "Confirm suitability and map whitening and retention plans.",
+      "title": "Ready for a proper assessment?",
+      "strapline": "Book an aligner consultation at St Mary’s House Dental Care in Shoreham-by-Sea. We’ll check suitability, explain your options, and build a plan that prioritises comfort, function and long-term stability.",
       "ctas": [
         {
           "label": "Plan a clinician-led clear aligners review",
