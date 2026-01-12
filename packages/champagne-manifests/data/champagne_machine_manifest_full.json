@@ -6012,48 +6012,50 @@
         {
           "id": "emergency_dentistry_overview",
           "type": "treatment_overview_rich",
-          "title": "Dental emergencies",
-          "copy": "Dental emergencies are rarely convenient — and they’re often stressful.\n\nAn emergency might involve pain, swelling, a broken tooth, or something that suddenly doesn’t feel right. Sometimes it’s obvious. Sometimes it’s not. The important thing is being assessed promptly so the situation can be stabilised and explained clearly.\n\nIf you’re experiencing a dental emergency in Shoreham-by-Sea or the surrounding area, prompt assessment can help prevent complications.\n\nAt St Mary’s House Dental Care, emergency appointments focus on relief, clarity, and next steps — not rushed decisions.",
+          "title": "Emergency dental care",
+          "copy": "Dental emergencies can be worrying, particularly when pain or swelling develops suddenly.\n\nEmergency dental care focuses on assessing the situation, relieving discomfort where possible, and preventing problems from becoming more serious.\n\nAt St Mary’s House Dental Care, we aim to provide clear advice and appropriate care without rushing patients into unnecessary treatment.",
           "bullets": [
-            "Prompt assessment to stabilise the situation",
-            "Relief, clarity, and next steps",
-            "Support for pain, swelling, or a broken tooth",
-            "Calm care without rushed decisions"
+            "Assessment and relief where possible",
+            "Focus on stabilising the situation",
+            "Clear advice without rushed decisions",
+            "Support for pain, swelling, or trauma"
           ]
         },
         {
           "id": "emergency_dentistry_intro_prose",
           "type": "copy-block",
-          "title": "What happens at an emergency appointment",
+          "title": "What emergency care usually involves",
           "label": "Introduction",
-          "copy": "Emergency visits are about stabilising the problem first.\n\nThis usually involves understanding what’s happened and how long it’s been an issue, examining the affected area, taking X-rays if needed, relieving pain or pressure, and explaining what’s going on.\n\nFurther treatment is often planned for a later visit once things have settled."
+          "copy": "Emergency appointments focus on diagnosis and stabilisation.\n\nThis may involve examining the affected area, taking X-rays if needed, addressing infection or inflammation, and relieving pain.\n\nIn many cases, definitive treatment is planned for a later visit once the immediate problem has been managed."
         },
         {
           "id": "emergency_dentistry_triage",
           "type": "features",
-          "title": "What counts as a dental emergency?",
+          "title": "What counts as a dental emergency",
           "items": [
-            "Toothache or pain that isn’t settling",
-            "Swelling of the face, gum, or jaw",
-            "A broken, cracked, or knocked tooth",
-            "Bleeding that doesn’t stop",
-            "Sudden problems with existing dental work"
+            "Significant dental pain",
+            "Swelling of the face or gums",
+            "Trauma to teeth or the jaw",
+            "Uncontrolled bleeding",
+            "Signs of infection"
           ]
         },
         {
           "id": "emergency_dentistry_steps",
           "type": "steps",
-          "title": "If you’ve broken or lost a tooth",
+          "title": "What to do before your appointment",
           "items": [
-            "Contact us as soon as you can",
-            "Keep any fragments if possible",
-            "Avoid trying to fix it yourself"
+            "Avoid chewing on the affected side",
+            "Maintain gentle oral hygiene",
+            "Use appropriate pain relief where suitable",
+            "Avoid applying heat to swelling",
+            "Contact the practice for guidance"
           ]
         },
         {
           "id": "emergency_dentistry_topics",
           "type": "cta",
-          "title": "Common emergency visits",
+          "title": "Common emergency situations",
           "ctas": [
             {
               "label": "Emergency dental appointments",
@@ -6096,15 +6098,15 @@
           "id": "emergency_dentistry_support",
           "type": "treatment_media_feature",
           "label": "Supportive care",
-          "title": "Relief first — decisions second",
-          "copy": "When you’re in pain, it’s not the right moment to make big decisions.\n\nOur priority is to make you comfortable, prevent things getting worse, and explain the situation clearly. Options are discussed once you’re able to think things through calmly.",
+          "title": "Questions and reassurance",
+          "copy": "Dental emergencies can feel stressful, especially when symptoms develop quickly.\n\nIf you’re unsure what to do, contacting the practice for guidance is often the best first step. Clear information helps reduce anxiety and supports appropriate care.",
           "mediaHint": "Calm, stepwise care"
         },
         {
           "id": "emergency_dentistry_next_steps",
           "type": "cta",
-          "title": "After the emergency",
-          "copy": "Once things are stable, we’ll discuss whether further treatment is needed, which options are urgent and which can wait, and how to reduce the risk of the problem returning.",
+          "title": "After an emergency visit",
+          "copy": "Following emergency care, further treatment may be recommended to address the underlying cause.\n\nWe’ll explain any findings clearly and discuss whether monitoring, further investigation, or planned treatment is appropriate.\n\nYou’ll have time to consider options once the immediate situation has settled.",
           "ctas": [
             {
               "label": "Book a check-up",
@@ -6122,19 +6124,15 @@
         {
           "id": "emergency_dentistry_faq",
           "type": "treatment_faq_block",
-          "title": "Emergency dentistry questions",
+          "title": "When urgent care may not be necessary",
           "faqs": [
             {
-              "question": "How quickly can I be seen?",
-              "answer": "We reserve time for emergencies each day. Call as soon as you can so we can confirm the earliest slot and share any immediate advice."
+              "question": "Are all dental problems emergencies?",
+              "answer": "Not all dental problems need urgent treatment. Lost fillings without pain, minor sensitivity, or long-standing concerns can often be managed through routine appointments."
             },
             {
-              "question": "Is emergency care different from a routine visit?",
-              "answer": "Emergency appointments focus on stabilising and relieving pain. Follow-up visits handle any longer-term treatment once you are comfortable."
-            },
-            {
-              "question": "What if I am unsure it is an emergency?",
-              "answer": "Contact us and describe what you are feeling or seeing. We will advise whether you need to come in urgently or schedule a routine visit."
+              "question": "What if I’m unsure whether it’s urgent?",
+              "answer": "If in doubt, we’re happy to advise. Contact the practice and we’ll guide you on the next appropriate step."
             }
           ]
         },
@@ -6142,7 +6140,7 @@
           "id": "emergency_dentistry_cta",
           "type": "treatment_closing_cta",
           "title": "Call for emergency dental care",
-          "strapline": "Contact us for advice or an emergency appointment.",
+          "strapline": "Contact us for advice if you’re unsure whether your situation is urgent.",
           "ctas": [
             {
               "label": "Call the practice",
