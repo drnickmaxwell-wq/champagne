@@ -228,6 +228,7 @@ export async function HeroRendererV2({
 
   const waveBackdropUrlDesktop = resolveAssetUrl(surfaces.background?.desktop);
   const waveBackdropUrlMobile = resolveAssetUrl(surfaces.background?.mobile);
+  const waveMaskUrlDesktop = resolveAssetUrl(surfaces.waveMask?.desktop);
   const overlayFieldUrl = resolveAssetUrl(surfaces.overlays?.field);
   const overlayDotsUrl = resolveAssetUrl(surfaces.overlays?.dots);
   const particlesUrl = resolveAssetUrl(surfaces.particles);
@@ -327,6 +328,7 @@ export async function HeroRendererV2({
       : {}),
   };
   const waveBackdropResolvedGlue = resolveGlueForSurface("field.waveBackdrop", waveBackdropUrlDesktop);
+  const waveMaskResolvedGlue = resolveGlueForSurface("mask.waveHeader", waveMaskUrlDesktop);
   const waveRingsResolvedGlue = resolveGlueForSurface("field.waveRings", overlayFieldUrl, waveRingsGlueOverrides as GlueRule);
   const dotGridResolvedGlue = resolveGlueForSurface("field.dotGrid", overlayDotsUrl, dotGridGlueOverrides as GlueRule);
   const particlesResolvedGlue = resolveGlueForSurface("overlay.particles", particlesUrl);
@@ -360,6 +362,7 @@ export async function HeroRendererV2({
       return style;
     })(),
     "mask.waveHeader": {
+      ...(waveMaskResolvedGlue ?? {}),
       ...(surfaces.waveMask?.desktop?.blendMode
         ? { mixBlendMode: surfaces.waveMask.desktop.blendMode as CSSProperties["mixBlendMode"] }
         : {}),
