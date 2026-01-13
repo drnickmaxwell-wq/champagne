@@ -369,7 +369,7 @@ export async function HeroRendererV2({
   const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
   const sacredBloomResolvedGlue = resolveGlueForSurface("overlay.sacredBloom", sacredBloomUrl);
   const sacredBloomGlueMeta = glueTelemetry.get("overlay.sacredBloom");
-  const sacredBloomMask = "radial-gradient(circle at 20% 18%, var(--text-high) 0%, transparent 65%)";
+  const sacredBloomMask = "var(--hero-wave-mask-desktop)";
   const isHomeMode = mode === "home";
   const contrastGlueFilters = new Map<string, string>();
   const registerContrastFilter = (surfaceId: string, glue?: GlueRule | null) => {
@@ -389,7 +389,8 @@ export async function HeroRendererV2({
     pointerEvents: "none",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "50% 50%",
+    backgroundPosition: "52% 24%",
+    backgroundImage: "var(--hero-caustics-overlay)",
     zIndex: 6,
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
     mixBlendMode: "screen",
@@ -763,8 +764,8 @@ export async function HeroRendererV2({
           data-bloom-driven="true"
           data-bloom-debug={bloomDebug ? "true" : "false"}
           data-bloom-base-opacity={bloomDebug ? "0.8" : "0.18"}
-          data-bloom-shape={isHomeMode ? "phase3b" : undefined}
-          data-bloom-mask={isHomeMode ? "top-left-falloff" : undefined}
+          data-bloom-shape={isHomeMode ? "phase3d" : undefined}
+          data-bloom-mask={isHomeMode ? "upper-mid-soft" : undefined}
           data-contrast-glue={sacredBloomContrastFilter ? "phase3c" : undefined}
           data-contrast-filter={sacredBloomContrastFilter}
           data-glue-source={sacredBloomGlueMeta?.source}
