@@ -690,6 +690,39 @@ export async function HeroRendererV2({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                const root = document.querySelector('.hero-renderer-v2[data-hero-root="true"]');
+                const bloom = document.querySelector('[data-surface-id="overlay.sacredBloom"]');
+                if (!root || !bloom) return;
+                const baseOpacity = Number.parseFloat(bloom.getAttribute('data-bloom-base-opacity') || '') || 0.18;
+                const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const setDrive = (drive) => {
+                  const resolved = Math.max(0, baseOpacity * drive);
+                  bloom.style.opacity = String(resolved);
+                  root.setAttribute('data-bloom-drive', drive.toFixed(3));
+                };
+                if (reduceMotion) {
+                  setDrive(1);
+                  return;
+                }
+                const target = document.querySelector('[data-surface-id="sacred.motion.waveCaustics"]');
+                if (!target || typeof target.currentTime !== 'number') {
+                  setDrive(1);
+                  return;
+                }
+                const tick = () => {
+                  const drive = 0.9 + 0.2 * (0.5 + 0.5 * Math.sin(target.currentTime * 0.8));
+                  setDrive(drive);
+                  requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+              })();
+            `,
+          }}
+        />
 
         <div
           aria-hidden
@@ -758,7 +791,9 @@ export async function HeroRendererV2({
           data-surface-id="overlay.sacredBloom"
           data-surface-role="fx"
           data-bloom="true"
+          data-bloom-driven="true"
           data-bloom-debug={bloomDebug ? "true" : "false"}
+          data-bloom-base-opacity={bloomDebug ? "0.8" : "0.18"}
           data-bloom-shape={isHomeMode ? "phase3b" : undefined}
           data-bloom-mask={isHomeMode ? "top-left-falloff" : undefined}
           data-contrast-glue={sacredBloomContrastFilter ? "phase3c" : undefined}
