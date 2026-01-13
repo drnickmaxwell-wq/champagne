@@ -28,6 +28,11 @@ export function BloomDriver() {
       (target): target is HTMLElement => Boolean(target),
     );
     const isDebug = mount?.getAttribute(BLOOM_DEBUG_ATTRIBUTE) === "true";
+    const baseOpacityRaw = Number(
+      bloom.getAttribute("data-bloom-base-opacity") || 0.18,
+    );
+    const baseOpacity = Number.isFinite(baseOpacityRaw) ? baseOpacityRaw : 0.18;
+    let lastDriveText = "0.000";
 
     if (isDebug) {
       console.debug("BloomDriver started");
@@ -35,10 +40,12 @@ export function BloomDriver() {
 
     const writeDrive = (drive: number) => {
       const driveText = clampDrive(drive).toFixed(3);
+      lastDriveText = driveText;
       targets.forEach((target) => {
         target.setAttribute(BLOOM_DRIVE_ATTRIBUTE, driveText);
         target.style.setProperty(BLOOM_DRIVE_PROPERTY, driveText);
       });
+      bloom.style.opacity = (baseOpacity * (0.6 + 0.8 * Number(driveText))).toFixed(3);
       return driveText;
     };
 
@@ -48,10 +55,10 @@ export function BloomDriver() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion) {
-      const driveText = writeDrive(0.5);
+      writeDrive(0.55);
       if (isDebug) {
         debugIntervalRef.current = window.setInterval(() => {
-          console.debug(`BloomDriver drive: ${driveText}`);
+          console.debug(`BloomDriver drive: ${lastDriveText}`);
         }, 1000);
       }
       return () => {
@@ -69,13 +76,13 @@ export function BloomDriver() {
     const tick = () => {
       const drive =
         targetVideo && targetVideo.readyState >= BLOOM_READY_STATE
-          ? 0.5 + 0.5 * Math.sin(targetVideo.currentTime * 1.2)
+          ? 0.5 + 0.5 * Math.sin(targetVideo.currentTime * 1.25)
           : 0.5 + 0.5 * Math.sin(performance.now() / 900);
-      const driveText = writeDrive(drive);
+      writeDrive(drive);
 
       if (isDebug && debugIntervalRef.current === null) {
         debugIntervalRef.current = window.setInterval(() => {
-          console.debug(`BloomDriver drive: ${driveText}`);
+          console.debug(`BloomDriver drive: ${lastDriveText}`);
         }, 1000);
       }
 
