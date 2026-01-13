@@ -31,7 +31,10 @@ export function BloomDriver() {
     let rafId = 0;
     const tick = () => {
       const drive = 0.5 + 0.5 * Math.sin(caustics.currentTime * 0.8);
-      const targetOpacity = baseOpacity * (0.85 + drive * 0.4);
+      const unclampedOpacity = baseOpacity * (0.70 + drive * 0.85);
+      const minOpacity = baseOpacity * 0.70;
+      const maxOpacity = baseOpacity * 1.55;
+      const targetOpacity = Math.min(maxOpacity, Math.max(minOpacity, unclampedOpacity));
       const driveText = drive.toFixed(3);
       bloom.style.opacity = targetOpacity.toFixed(3);
       document.documentElement.style.setProperty("--bloom-drive", driveText);
