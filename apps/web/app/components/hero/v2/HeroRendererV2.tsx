@@ -287,6 +287,16 @@ export async function HeroRendererV2({
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
+  const surfaceStackCompositeStyle: CSSProperties = {
+    contain: "paint",
+    transform: "translateZ(0)",
+    willChange: "transform",
+    backfaceVisibility: "hidden",
+  };
+  const surfaceLayerCompositeStyle: CSSProperties = {
+    transform: "translateZ(0)",
+    backfaceVisibility: "hidden",
+  };
 
   const waveBackdropGlue = resolveBackgroundGlue(waveBackdropUrlDesktop);
   const overlayFieldGlue = resolveBackgroundGlue(overlayFieldUrl);
@@ -576,7 +586,11 @@ export async function HeroRendererV2({
   >();
   surfaceStack.forEach((layer) => {
     const resolvedStyle = layer.token ? layerStyles[layer.token] : undefined;
-    const inlineStyle = { ...(resolvedStyle ?? {}), ...diagnosticOutlineStyle };
+    const inlineStyle = {
+      ...(resolvedStyle ?? {}),
+      ...diagnosticOutlineStyle,
+      ...surfaceLayerCompositeStyle,
+    };
 
     surfaceInlineStyles.set(layer.id, inlineStyle);
     surfaceGlueMeta.set(layer.id, glueTelemetry.get(layer.id) ?? { source: "none" });
@@ -689,7 +703,10 @@ export async function HeroRendererV2({
           className="hero-surface-stack"
           ref={surfaceRef}
           data-prm={prmEnabled ? "true" : "false"}
-          style={surfaceVars}
+          data-v2-composite-stabilized="true"
+          data-v2-contain="paint"
+          data-v2-willchange="transform"
+          style={{ ...surfaceVars, ...surfaceStackCompositeStyle }}
         >
         {surfaceStack.map((layer) => {
           const inlineStyle = surfaceInlineStyles.get(layer.id);
