@@ -34,6 +34,11 @@ export function BloomDriver() {
     const baseOpacity = Number.isFinite(baseOpacityRaw) ? baseOpacityRaw : 0.18;
     let lastDriveText = "0.000";
 
+    console.log("✅ BloomDriver mounted", { ts: Date.now() });
+    html.setAttribute("data-bloom-driver-mounted", "true");
+    mount?.setAttribute("data-bloom-driver-mounted", "true");
+    stack?.setAttribute("data-bloom-driver-mounted", "true");
+
     if (isDebug) {
       console.debug("BloomDriver started");
     }
