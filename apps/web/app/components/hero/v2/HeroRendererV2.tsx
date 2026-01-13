@@ -694,31 +694,44 @@ export async function HeroRendererV2({
           dangerouslySetInnerHTML={{
             __html: `
               (() => {
-                const root = document.querySelector('.hero-renderer-v2[data-hero-root="true"]');
+                const html = document.documentElement;
+                const mount = document.querySelector('[data-hero-engine]');
+                const stack = document.querySelector('.hero-surface-stack');
                 const bloom = document.querySelector('[data-surface-id="overlay.sacredBloom"]');
-                if (!root || !bloom) return;
-                const baseOpacity = Number.parseFloat(bloom.getAttribute('data-bloom-base-opacity') || '') || 0.18;
+                if (!bloom) return;
+                const parsedBase = Number.parseFloat(bloom.getAttribute('data-bloom-base-opacity') ?? '0.18');
+                const baseOpacity = Number.isFinite(parsedBase) ? parsedBase : 0.18;
+                const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+                const amplitude = 0.08;
                 const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                const setDrive = (drive) => {
-                  const resolved = Math.max(0, baseOpacity * drive);
-                  bloom.style.opacity = String(resolved);
-                  root.setAttribute('data-bloom-drive', drive.toFixed(3));
+                let rafId = 0;
+                const writeDrive = (drive) => {
+                  const safeDrive = Number.isFinite(drive) ? clamp(drive, 0, 1) : 0.5;
+                  const resolvedOpacity = clamp(baseOpacity + amplitude * safeDrive, 0, 1);
+                  const driveText = safeDrive.toFixed(3);
+                  bloom.style.opacity = String(resolvedOpacity);
+                  html.setAttribute('data-bloom-drive', driveText);
+                  if (mount) mount.setAttribute('data-bloom-drive', driveText);
+                  if (stack) stack.setAttribute('data-bloom-drive', driveText);
+                  if (mount) mount.style.setProperty('--bloom-drive', driveText);
+                  if (stack) stack.style.setProperty('--bloom-drive', driveText);
                 };
                 if (reduceMotion) {
-                  setDrive(1);
+                  writeDrive(0);
                   return;
                 }
                 const target = document.querySelector('[data-surface-id="sacred.motion.waveCaustics"]');
-                if (!target || typeof target.currentTime !== 'number') {
-                  setDrive(1);
-                  return;
-                }
                 const tick = () => {
-                  const drive = 0.9 + 0.2 * (0.5 + 0.5 * Math.sin(target.currentTime * 0.8));
-                  setDrive(drive);
-                  requestAnimationFrame(tick);
+                  const timeValue =
+                    target && typeof target.currentTime === 'number'
+                      ? target.currentTime
+                      : window.performance ? window.performance.now() / 1000 : Date.now() / 1000;
+                  const drive = (Math.sin(timeValue * 1.2) + 1) / 2;
+                  writeDrive(drive);
+                  rafId = requestAnimationFrame(tick);
                 };
-                requestAnimationFrame(tick);
+                rafId = requestAnimationFrame(tick);
+                window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId), { once: true });
               })();
             `,
           }}
