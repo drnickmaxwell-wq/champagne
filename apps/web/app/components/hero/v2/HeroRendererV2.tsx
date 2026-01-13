@@ -386,9 +386,12 @@ export async function HeroRendererV2({
     position: "absolute",
     inset: 0,
     pointerEvents: "none",
-    backgroundImage: "var(--hero-gradient)",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "50% 50%",
+    zIndex: 6,
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
-    mixBlendMode: bloomDebug ? "screen" : "soft-light",
+    mixBlendMode: "screen",
     opacity: bloomDebug ? 0.8 : 0.18,
     ...(isHomeMode
       ? {
@@ -765,7 +768,7 @@ export async function HeroRendererV2({
           data-glue-repeat={sacredBloomGlueMeta?.backgroundRepeat}
           data-glue-position={sacredBloomGlueMeta?.backgroundPosition}
           data-glue-image-rendering={sacredBloomGlueMeta?.imageRendering}
-          className="hero-surface-layer"
+          className="hero-surface-layer hero-surface--lighting"
           aria-hidden="true"
           style={sacredBloomStyle}
         />
