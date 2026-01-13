@@ -25,6 +25,7 @@ export function BloomDriver() {
 
     if (reduceMotion) {
       bloom.style.opacity = baseOpacity.toFixed(3);
+      bloom.style.filter = "";
       return;
     }
 
@@ -35,8 +36,11 @@ export function BloomDriver() {
       const minOpacity = baseOpacity * 0.70;
       const maxOpacity = baseOpacity * 1.55;
       const targetOpacity = Math.min(maxOpacity, Math.max(minOpacity, unclampedOpacity));
+      const br = 0.98 + drive * 0.06;
+      const sat = 1.0 + drive * 0.1;
       const driveText = drive.toFixed(3);
       bloom.style.opacity = targetOpacity.toFixed(3);
+      bloom.style.filter = `brightness(${br.toFixed(3)}) saturate(${sat.toFixed(3)})`;
       document.documentElement.style.setProperty("--bloom-drive", driveText);
       document.documentElement.setAttribute("data-bloom-drive", driveText);
       rafId = window.requestAnimationFrame(tick);
