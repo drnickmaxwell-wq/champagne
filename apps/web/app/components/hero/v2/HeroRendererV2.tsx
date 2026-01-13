@@ -369,7 +369,6 @@ export async function HeroRendererV2({
   const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
   const sacredBloomResolvedGlue = resolveGlueForSurface("overlay.sacredBloom", sacredBloomUrl);
   const sacredBloomGlueMeta = glueTelemetry.get("overlay.sacredBloom");
-  const sacredBloomMask = "var(--hero-wave-mask-desktop)";
   const isHomeMode = mode === "home";
   const contrastGlueFilters = new Map<string, string>();
   const registerContrastFilter = (surfaceId: string, glue?: GlueRule | null) => {
@@ -389,22 +388,13 @@ export async function HeroRendererV2({
     pointerEvents: "none",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "52% 24%",
+    backgroundPosition: "18% 14%",
     backgroundImage: "var(--hero-caustics-overlay)",
     zIndex: 6,
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
     mixBlendMode: "screen",
     opacity: bloomDebug ? 0.8 : 0.18,
-    ...(isHomeMode
-      ? {
-          maskImage: sacredBloomMask,
-          WebkitMaskImage: sacredBloomMask,
-          maskRepeat: "no-repeat",
-          WebkitMaskRepeat: "no-repeat",
-          maskSize: "cover",
-          WebkitMaskSize: "cover",
-        }
-      : {}),
+    ...(isHomeMode ? {} : {}),
   };
 
   const layerStyles: Record<string, CSSProperties> = {
