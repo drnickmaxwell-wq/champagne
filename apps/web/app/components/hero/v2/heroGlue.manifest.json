@@ -31,9 +31,7 @@
       "overlay.sacredBloom": {
         "backgroundSize": "cover",
         "backgroundRepeat": "no-repeat",
-        "backgroundPosition": "50% 50%",
-        "filter": "brightness(1.01) contrast(0.98)",
-        "willChange": "filter"
+        "backgroundPosition": "50% 50%"
       }
     }
   }
