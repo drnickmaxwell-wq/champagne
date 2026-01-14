@@ -1,22 +1,10 @@
 "use client";
 
-import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { memo, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { CSSProperties, Ref } from "react";
 import { BloomDriver } from "./BloomDriver";
 import type { HeroSurfaceStackModel } from "./HeroRendererV2";
-
-const surfaceStackCompositeStyle: CSSProperties = {
-  contain: "paint",
-  transform: "translateZ(0)",
-  willChange: "transform",
-  backfaceVisibility: "hidden",
-};
-
-const surfaceLayerCompositeStyle: CSSProperties = {
-  transform: "translateZ(0)",
-  backfaceVisibility: "hidden",
-};
 
 type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
@@ -30,29 +18,13 @@ function HeroSurfaceStackV2Base({
   heroVideo,
   sacredBloom,
   surfaceRef,
+  bloomEnabled,
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
-  const stackStyle = useMemo(() => ({ ...surfaceVars, ...surfaceStackCompositeStyle }), [surfaceVars]);
-  const normalizedLayers = useMemo(
-    () =>
-      layers.map((layer) => ({
-        ...layer,
-        style: { ...surfaceLayerCompositeStyle, ...layer.style },
-      })),
-    [layers],
-  );
-  const normalizedMotionLayers = useMemo(
-    () =>
-      motionLayers.map((layer) => ({
-        ...layer,
-        style: { ...surfaceLayerCompositeStyle, ...layer.style },
-      })),
-    [motionLayers],
-  );
 
   return (
     <>
-      <BloomDriver />
+      {bloomEnabled ? <BloomDriver /> : null}
       <div
         aria-hidden
         className="hero-surface-stack"
@@ -63,9 +35,10 @@ function HeroSurfaceStackV2Base({
         data-v2-willchange="transform"
         data-v2-persistent-stack="true"
         data-v2-stack-instance={instanceId.current}
-        style={stackStyle}
+        data-v2-bloom-driver-active={bloomEnabled ? "true" : "false"}
+        style={surfaceVars}
       >
-        {normalizedLayers.map((layer) => (
+        {layers.map((layer) => (
           <div
             key={layer.id}
             data-surface-id={layer.id}
@@ -93,14 +66,14 @@ function HeroSurfaceStackV2Base({
             preload="metadata"
             poster={heroVideo.poster}
             data-surface-id="motion.heroVideo"
-            style={{ ...surfaceLayerCompositeStyle, ...heroVideo.style }}
+            style={heroVideo.style}
           >
             <source src={heroVideo.path} />
           </video>
         )}
 
         {!prmEnabled &&
-          normalizedMotionLayers.map((entry) => (
+          motionLayers.map((entry) => (
             <video
               key={entry.id}
               className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
@@ -116,26 +89,28 @@ function HeroSurfaceStackV2Base({
             </video>
           ))}
 
-        <div
-          data-surface-id="overlay.sacredBloom"
-          data-surface-role="fx"
-          data-bloom="true"
-          data-bloom-driven="true"
-          data-bloom-debug={sacredBloom.bloomDebug ? "true" : "false"}
-          data-bloom-base-opacity={sacredBloom.baseOpacity}
-          data-bloom-shape={sacredBloom.shape}
-          data-bloom-mask={sacredBloom.mask}
-          data-contrast-glue={sacredBloom.contrastFilter ? "phase3c" : undefined}
-          data-contrast-filter={sacredBloom.contrastFilter}
-          data-glue-source={sacredBloom.glueMeta?.source}
-          data-glue-size={sacredBloom.glueMeta?.backgroundSize}
-          data-glue-repeat={sacredBloom.glueMeta?.backgroundRepeat}
-          data-glue-position={sacredBloom.glueMeta?.backgroundPosition}
-          data-glue-image-rendering={sacredBloom.glueMeta?.imageRendering}
-          className="hero-surface-layer hero-surface--lighting"
-          aria-hidden="true"
-          style={{ ...surfaceLayerCompositeStyle, ...sacredBloom.style }}
-        />
+        {bloomEnabled && sacredBloom ? (
+          <div
+            data-surface-id="overlay.sacredBloom"
+            data-surface-role="fx"
+            data-bloom="true"
+            data-bloom-driven="true"
+            data-bloom-debug={sacredBloom.bloomDebug ? "true" : "false"}
+            data-bloom-base-opacity={sacredBloom.baseOpacity}
+            data-bloom-shape={sacredBloom.shape}
+            data-bloom-mask={sacredBloom.mask}
+            data-contrast-glue={sacredBloom.contrastFilter ? "phase3c" : undefined}
+            data-contrast-filter={sacredBloom.contrastFilter}
+            data-glue-source={sacredBloom.glueMeta?.source}
+            data-glue-size={sacredBloom.glueMeta?.backgroundSize}
+            data-glue-repeat={sacredBloom.glueMeta?.backgroundRepeat}
+            data-glue-position={sacredBloom.glueMeta?.backgroundPosition}
+            data-glue-image-rendering={sacredBloom.glueMeta?.imageRendering}
+            className="hero-surface-layer hero-surface--lighting"
+            aria-hidden="true"
+            style={sacredBloom.style}
+          />
+        ) : null}
       </div>
     </>
   );
@@ -167,14 +142,11 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
     return () => cancelAnimationFrame(id);
   }, [pathname, prefersReducedMotion]);
 
-  const style = useMemo<CSSProperties>(
-    () => ({
-      opacity: prefersReducedMotion ? 1 : isVisible ? 1 : 0,
-      transition: prefersReducedMotion ? "none" : "opacity 220ms ease",
-      willChange: "opacity",
-    }),
-    [isVisible, prefersReducedMotion],
-  );
+  const style: CSSProperties = {
+    opacity: prefersReducedMotion ? 1 : isVisible ? 1 : 0,
+    transition: prefersReducedMotion ? "none" : "opacity 220ms ease",
+    willChange: "opacity",
+  };
 
   return (
     <div style={style} data-v2-content-fade="true">

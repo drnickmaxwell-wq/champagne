@@ -70,12 +70,13 @@ export type HeroSurfaceStackModel = {
   prmEnabled: boolean;
   layers: HeroV2SurfaceLayerModel[];
   motionLayers: HeroV2MotionLayerModel[];
+  bloomEnabled: boolean;
   heroVideo?: {
     path: string;
     poster?: string;
     style: CSSProperties;
   };
-  sacredBloom: HeroV2SacredBloomModel;
+  sacredBloom?: HeroV2SacredBloomModel;
 };
 
 export type HeroV2Model = {
@@ -394,6 +395,7 @@ export async function buildHeroV2Model({
   if (!runtime) return null;
 
   const { content, surfaces, layout, filmGrain: filmGrainSettings } = runtime;
+  const bloomEnabled = Boolean(runtime.variant?.allowedSurfaces?.includes("overlay.sacredBloom"));
   const videoDenylist = ["dental-hero-4k.mp4"];
   const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const gradient = surfaces.gradient?.trim() || "var(--smh-gradient)";
@@ -467,6 +469,7 @@ export async function buildHeroV2Model({
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
+    if (token === "overlay.sacredBloom" && !bloomEnabled) return false;
     if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
     if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
@@ -884,21 +887,26 @@ export async function buildHeroV2Model({
       }
     : undefined;
 
+  const sacredBloomModel = bloomEnabled
+    ? {
+        style: sacredBloomStyle,
+        bloomDebug,
+        baseOpacity: bloomDebug ? "0.8" : "0.18",
+        shape: isHomeMode ? "phase3d" : undefined,
+        mask: isHomeMode ? "upper-mid-soft" : undefined,
+        contrastFilter: sacredBloomContrastFilter,
+        glueMeta: sacredBloomGlueMeta,
+      }
+    : undefined;
+
   const surfaceStackModel: HeroSurfaceStackModel = {
     surfaceVars,
     prmEnabled,
     layers,
     motionLayers,
+    bloomEnabled,
     heroVideo,
-    sacredBloom: {
-      style: sacredBloomStyle,
-      bloomDebug,
-      baseOpacity: bloomDebug ? "0.8" : "0.18",
-      shape: isHomeMode ? "phase3d" : undefined,
-      mask: isHomeMode ? "upper-mid-soft" : undefined,
-      contrastFilter: sacredBloomContrastFilter,
-      glueMeta: sacredBloomGlueMeta,
-    },
+    sacredBloom: sacredBloomModel,
   };
 
   return {
