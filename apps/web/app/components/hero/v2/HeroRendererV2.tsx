@@ -1,6 +1,7 @@
-import type { CSSProperties, Ref } from "react";
+import type { CSSProperties, ReactNode, Ref } from "react";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import heroGlueManifest from "./heroGlue.manifest.json";
+import { HeroSurfaceStackV2 } from "./HeroV2Client";
 
 export interface HeroRendererV2Props {
   mode?: HeroMode;
@@ -25,11 +26,74 @@ export interface HeroRendererV2Props {
   }>;
 }
 
+export type HeroV2SurfaceLayerModel = {
+  id: string;
+  role?: string;
+  prmSafe?: boolean;
+  className: string;
+  style: CSSProperties;
+  glueMeta?: {
+    source: GlueSource;
+    backgroundSize?: string;
+    backgroundRepeat?: string;
+    backgroundPosition?: string;
+    imageRendering?: string;
+  };
+  contrastFilter?: string;
+};
+
+export type HeroV2MotionLayerModel = {
+  id: string;
+  className?: string;
+  path: string;
+  style: CSSProperties;
+};
+
+export type HeroV2SacredBloomModel = {
+  style: CSSProperties;
+  bloomDebug: boolean;
+  baseOpacity: string;
+  shape?: string;
+  mask?: string;
+  contrastFilter?: string;
+  glueMeta?: {
+    source: GlueSource;
+    backgroundSize?: string;
+    backgroundRepeat?: string;
+    backgroundPosition?: string;
+    imageRendering?: string;
+  };
+};
+
+export type HeroSurfaceStackModel = {
+  surfaceVars: CSSProperties;
+  prmEnabled: boolean;
+  layers: HeroV2SurfaceLayerModel[];
+  motionLayers: HeroV2MotionLayerModel[];
+  bloomEnabled: boolean;
+  heroVideo?: {
+    path: string;
+    poster?: string;
+    style: CSSProperties;
+  };
+  sacredBloom?: HeroV2SacredBloomModel;
+};
+
+export type HeroV2Model = {
+  gradient: string;
+  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
+  content: Awaited<ReturnType<typeof getHeroRuntime>>["content"];
+  surfaceStack: HeroSurfaceStackModel;
+};
+
 type GlueRule = {
   backgroundSize?: string;
   backgroundRepeat?: string;
   backgroundPosition?: string;
   imageRendering?: CSSProperties["imageRendering"];
+  zIndex?: number | string;
+  filter?: string;
+  willChange?: string;
 };
 
 type GlueManifest = {
@@ -38,6 +102,35 @@ type GlueManifest = {
 };
 
 type GlueSource = "manifest" | "override" | "none";
+
+const coerceZ = (value?: number | string | null) => {
+  if (value === undefined || value === null) return undefined;
+  if (typeof value === "string") {
+    if (value.includes("var(")) return undefined;
+    const parsed = Number.parseFloat(value);
+    if (!Number.isFinite(parsed)) return undefined;
+    return Math.round(parsed);
+  }
+  if (!Number.isFinite(value)) return undefined;
+  return Math.round(value);
+};
+
+const defaultZFor = (id: string) => {
+  const defaults = new Map<string, number>([
+    ["gradient.base", 1],
+    ["field.waveBackdrop", 2],
+    ["mask.waveHeader", 3],
+    ["field.waveRings", 4],
+    ["field.dotGrid", 5],
+    ["sacred.motion.waveCaustics", 6],
+    ["sacred.motion.glassShimmer", 7],
+    ["overlay.sacredBloom", 8],
+    ["overlay.particles", 9],
+    ["overlay.filmGrain", 10],
+    ["hero.contentFrame", 11],
+  ]);
+  return defaults.get(id) ?? 100;
+};
 
 const resolveAssetUrl = (entry?: { path?: string; asset?: { id?: string }; id?: string }) => {
   if (!entry) return undefined;
@@ -88,7 +181,186 @@ function HeroFallback() {
   );
 }
 
-export async function HeroRendererV2({
+type HeroV2FrameProps = {
+  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
+  gradient: string;
+  rootStyle?: CSSProperties;
+  children: ReactNode;
+};
+
+function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] }) {
+  return (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `
+              .hero-renderer-v2 {
+                position: relative;
+                color: var(--text-high);
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+              }
+              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
+              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
+                background: none !important;
+                opacity: 0 !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+              }
+              .hero-renderer-v2 .hero-surface-stack {
+                position: absolute;
+                inset: 0;
+              }
+              .hero-renderer-v2 .hero-layer,
+              .hero-renderer-v2 .hero-surface-layer {
+                position: absolute;
+                inset: 0;
+              }
+              .hero-renderer-v2 .hero-layer.motion,
+              .hero-renderer-v2 .hero-surface-layer.hero-surface--motion {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+              }
+              .hero-renderer-v2 .hero-surface-layer {
+                pointer-events: none;
+              }
+              .hero-renderer-v2 .hero-content {
+                position: relative;
+                z-index: 10;
+                display: grid;
+                gap: 1rem;
+                max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
+                padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+                transform: translateY(${layout.verticalOffset ?? "0px"});
+              }
+              @media (max-width: 640px) {
+                .hero-renderer-v2 [data-surface-id="field.waveBackdrop"] {
+                  background-image: var(--hero-wave-background-mobile);
+                }
+                .hero-renderer-v2 [data-surface-id="overlay.filmGrain"] {
+                  background-image: var(--hero-grain-mobile);
+                }
+                .hero-renderer-v2 .hero-content {
+                  padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
+                }
+                .hero-renderer-v2 {
+                  min-height: 68vh;
+                }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .hero-renderer-v2 .hero-layer.motion,
+                .hero-renderer-v2 .hero-surface--motion { display: none; }
+              }
+            `,
+      }}
+    />
+  );
+}
+
+export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2FrameProps) {
+  return (
+    <div
+      className="hero-renderer hero-renderer-v2 hero-optical-isolation"
+      data-hero-renderer="v2"
+      data-hero-root="true"
+      style={rootStyle}
+    >
+      <BaseChampagneSurface
+        variant="plain"
+        disableInternalOverlays
+        style={{
+          minHeight: "72vh",
+          display: "grid",
+          alignItems: layout.contentAlign === "center" ? "center" : "stretch",
+          overflow: "hidden",
+          backgroundImage: "none",
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          borderRadius: 0,
+          ["--hero-gradient" as string]: gradient,
+          ["--glass-opacity" as string]: 0,
+          ["--champagne-sheen-alpha" as string]: 0,
+          ["--champagne-glass-bg" as string]: "",
+          backdropFilter: "none",
+          WebkitBackdropFilter: "none",
+        }}
+      >
+        <HeroV2StyleBlock layout={layout} />
+        {children}
+      </BaseChampagneSurface>
+    </div>
+  );
+}
+
+export function HeroContentV2({
+  content,
+  layout,
+}: {
+  content: Awaited<ReturnType<typeof getHeroRuntime>>["content"];
+  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
+}) {
+  return (
+    <div
+      className="hero-content"
+      style={{
+        justifyItems: layout.contentAlign === "center" ? "center" : "start",
+        textAlign: layout.contentAlign === "center" ? "center" : "start",
+      }}
+    >
+      {content.eyebrow && (
+        <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+          {content.eyebrow}
+        </span>
+      )}
+      {content.headline && (
+        <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
+          {content.headline}
+        </h1>
+      )}
+      {content.subheadline && (
+        <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
+          {content.subheadline}
+        </p>
+      )}
+      <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+        {content.cta && (
+          <a
+            href={content.cta.href}
+            style={{
+              padding: "0.9rem 1.6rem",
+              borderRadius: "var(--radius-md)",
+              background: "var(--surface-gold-soft)",
+              color: "var(--text-high)",
+              border: "1px solid var(--champagne-keyline-gold)",
+              textDecoration: "none",
+              boxShadow: "var(--shadow-soft)",
+            }}
+          >
+            {content.cta.label}
+          </a>
+        )}
+        {content.secondaryCta && (
+          <a
+            href={content.secondaryCta.href}
+            style={{
+              padding: "0.9rem 1.2rem",
+              borderRadius: "var(--radius-md)",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              border: "1px solid var(--champagne-keyline-gold)",
+              textDecoration: "none",
+            }}
+          >
+            {content.secondaryCta.label}
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export async function buildHeroV2Model({
   mode = "home",
   treatmentSlug,
   prm,
@@ -96,11 +368,10 @@ export async function HeroRendererV2({
   particles,
   filmGrain,
   diagnosticBoost = false,
-  surfaceRef,
   pageCategory,
-  rootStyle,
   glueVars,
-}: HeroRendererV2Props) {
+}: HeroRendererV2Props): Promise<HeroV2Model | null> {
+  const bloomDebug = typeof window !== "undefined" && window.location.search.includes("bloomDebug=1");
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
   const resolvedPageCategory = pageCategory ?? (mode === "home" ? "home" : mode === "treatment" ? "treatment" : undefined);
 
@@ -121,9 +392,10 @@ export async function HeroRendererV2({
     }
   }
 
-  if (!runtime) return <HeroFallback />;
+  if (!runtime) return null;
 
   const { content, surfaces, layout, filmGrain: filmGrainSettings } = runtime;
+  const bloomEnabled = Boolean(runtime.variant?.allowedSurfaces?.includes("overlay.sacredBloom"));
   const videoDenylist = ["dental-hero-4k.mp4"];
   const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const gradient = surfaces.gradient?.trim() || "var(--smh-gradient)";
@@ -197,11 +469,15 @@ export async function HeroRendererV2({
     if (motionCausticsActive && layer.className?.includes("hero-surface--caustics")) return false;
     if (motionShimmerActive && layer.className?.includes("hero-surface--glass-shimmer")) return false;
     if (motionGoldDustActive && layer.className?.includes("hero-surface--gold-dust")) return false;
+    if (token === "overlay.sacredBloom" && !bloomEnabled) return false;
     if (token === "overlay.particles" && (!shouldShowParticles || particlesGovernanceMissing)) return false;
     if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
   });
-  const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }, id?: string) => {
+  const resolveMotionStyle = (
+    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number | string | null },
+    id?: string,
+  ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
     const resolvedBlend = entry.blendMode ?? undefined;
@@ -220,8 +496,8 @@ export async function HeroRendererV2({
       noteMissing(id, "blend", "motion");
     }
 
-    if (typeof entry.zIndex === "number") {
-      style.zIndex = entry.zIndex;
+    if (id) {
+      style.zIndex = resolveZIndex(id, entry.zIndex);
     } else if (id) {
       noteMissing(id, "zIndex", "motion");
     }
@@ -236,6 +512,7 @@ export async function HeroRendererV2({
   const particlesUrl = resolveAssetUrl(surfaces.particles);
   const grainUrlDesktop = resolveAssetUrl(surfaces.grain?.desktop);
   const grainUrlMobile = resolveAssetUrl(surfaces.grain?.mobile);
+  const sacredBloomUrl = "/assets/champagne/textures/wave-light-overlay.webp";
   const waveMaskEntry = surfaces.waveMask?.desktop as
     | { blendMode?: string | null; opacity?: number | null; zIndex?: number }
     | undefined;
@@ -282,12 +559,22 @@ export async function HeroRendererV2({
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
+  const usedZIndexes = new Set<number>();
+  const resolveZIndex = (id: string, candidate?: number | string | null) => {
+    let resolved = coerceZ(candidate) ?? defaultZFor(id);
+    while (usedZIndexes.has(resolved)) {
+      resolved += 1;
+    }
+    usedZIndexes.add(resolved);
+    return resolved;
+  };
 
   const waveBackdropGlue = resolveBackgroundGlue(waveBackdropUrlDesktop);
   const overlayFieldGlue = resolveBackgroundGlue(overlayFieldUrl);
   const overlayDotsGlue = resolveBackgroundGlue(overlayDotsUrl);
   const particlesGlue = resolveBackgroundGlue(particlesUrl);
   const grainGlue = resolveBackgroundGlue(grainUrlDesktop);
+  const sacredBloomGlue = resolveBackgroundGlue(sacredBloomUrl);
   const glueTelemetry = new Map<
     string,
     {
@@ -302,16 +589,19 @@ export async function HeroRendererV2({
     const modeGlue = resolvedGlueManifest.modes?.[mode];
     return modeGlue?.[surfaceId];
   };
-  const normalizeGlue = (glue?: GlueRule | null) => {
+  const normalizeGlue = (glue?: GlueRule | null): GlueRule => {
     if (!glue) return {};
     return {
       ...(glue.backgroundSize ? { backgroundSize: glue.backgroundSize } : {}),
       ...(glue.backgroundRepeat ? { backgroundRepeat: glue.backgroundRepeat } : {}),
       ...(glue.backgroundPosition ? { backgroundPosition: glue.backgroundPosition } : {}),
       ...(glue.imageRendering ? { imageRendering: glue.imageRendering } : {}),
-    } satisfies GlueRule;
+      ...(glue.zIndex !== undefined ? { zIndex: glue.zIndex } : {}),
+      ...(glue.filter ? { filter: glue.filter } : {}),
+      ...(glue.willChange ? { willChange: glue.willChange } : {}),
+    };
   };
-  const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule) => {
+  const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule): GlueRule | null => {
     if (!url) {
       glueTelemetry.set(surfaceId, { source: "none" });
       return null;
@@ -359,18 +649,48 @@ export async function HeroRendererV2({
   const dotGridResolvedGlue = resolveGlueForSurface("field.dotGrid", overlayDotsUrl, dotGridGlueOverrides as GlueRule);
   const particlesResolvedGlue = resolveGlueForSurface("overlay.particles", particlesUrl);
   const grainResolvedGlue = resolveGlueForSurface("overlay.filmGrain", grainUrlDesktop);
+  const sacredBloomResolvedGlue = resolveGlueForSurface("overlay.sacredBloom", sacredBloomUrl);
+  const sacredBloomGlueMeta = glueTelemetry.get("overlay.sacredBloom");
+  const isHomeMode = mode === "home";
+  const contrastGlueFilters = new Map<string, string>();
+  const registerContrastFilter = (surfaceId: string, glue?: GlueRule | null) => {
+    if (!isHomeMode) return;
+    if (glue?.filter) {
+      contrastGlueFilters.set(surfaceId, glue.filter);
+    }
+  };
+  registerContrastFilter("field.waveBackdrop", waveBackdropResolvedGlue);
+  registerContrastFilter("field.waveRings", waveRingsResolvedGlue);
+  registerContrastFilter("field.dotGrid", dotGridResolvedGlue);
+  registerContrastFilter("overlay.sacredBloom", sacredBloomResolvedGlue);
+  const sacredBloomContrastFilter = contrastGlueFilters.get("overlay.sacredBloom");
+  const sacredBloomStyle: CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    pointerEvents: "none",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "18% 14%",
+    backgroundImage: "var(--hero-caustics-overlay)",
+    zIndex: resolveZIndex("overlay.sacredBloom"),
+    ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
+    mixBlendMode: "screen",
+    opacity: bloomDebug ? 0.8 : 0.18,
+    ...(isHomeMode ? {} : {}),
+  };
 
   const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": {},
+    "gradient.base": {
+      zIndex: resolveZIndex("gradient.base"),
+    },
     "field.waveBackdrop": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-wave-background-desktop)",
         ...(waveBackdropResolvedGlue ?? waveBackdropGlue ?? {}),
       };
 
-      if (typeof waveBackdropZIndex === "number") {
-        style.zIndex = waveBackdropZIndex;
-      } else {
+      style.zIndex = resolveZIndex("field.waveBackdrop", waveBackdropZIndex ?? waveBackdropResolvedGlue?.zIndex);
+      if (waveBackdropZIndex === undefined || waveBackdropZIndex === null) {
         noteMissing("field.waveBackdrop", "zIndex", "surface");
       }
 
@@ -391,9 +711,8 @@ export async function HeroRendererV2({
     })(),
     "mask.waveHeader": (() => {
       const style: CSSProperties = {};
-      if (typeof waveMaskEntry?.zIndex === "number") {
-        style.zIndex = waveMaskEntry.zIndex;
-      } else {
+      style.zIndex = resolveZIndex("mask.waveHeader", waveMaskEntry?.zIndex);
+      if (waveMaskEntry?.zIndex === undefined || waveMaskEntry?.zIndex === null) {
         noteMissing("mask.waveHeader", "zIndex", "surface");
       }
 
@@ -417,9 +736,8 @@ export async function HeroRendererV2({
         ...(waveRingsResolvedGlue ?? overlayFieldGlue ?? {}),
       };
 
-      if (typeof overlayFieldEntry?.zIndex === "number") {
-        style.zIndex = overlayFieldEntry.zIndex;
-      } else {
+      style.zIndex = resolveZIndex("field.waveRings", overlayFieldEntry?.zIndex ?? waveRingsResolvedGlue?.zIndex);
+      if (overlayFieldEntry?.zIndex === undefined || overlayFieldEntry?.zIndex === null) {
         noteMissing("field.waveRings", "zIndex", "surface");
       }
 
@@ -444,9 +762,8 @@ export async function HeroRendererV2({
         ...(dotGridResolvedGlue ?? overlayDotsGlue ?? {}),
       };
 
-      if (typeof overlayDotsEntry?.zIndex === "number") {
-        style.zIndex = overlayDotsEntry.zIndex;
-      } else {
+      style.zIndex = resolveZIndex("field.dotGrid", overlayDotsEntry?.zIndex ?? dotGridResolvedGlue?.zIndex);
+      if (overlayDotsEntry?.zIndex === undefined || overlayDotsEntry?.zIndex === null) {
         noteMissing("field.dotGrid", "zIndex", "surface");
       }
 
@@ -471,9 +788,8 @@ export async function HeroRendererV2({
         ...(particlesResolvedGlue ?? particlesGlue ?? {}),
       };
 
-      if (typeof particlesEntry?.zIndex === "number") {
-        style.zIndex = particlesEntry.zIndex;
-      } else if (shouldShowParticles) {
+      style.zIndex = resolveZIndex("overlay.particles", particlesEntry?.zIndex ?? particlesResolvedGlue?.zIndex);
+      if ((particlesEntry?.zIndex === undefined || particlesEntry?.zIndex === null) && shouldShowParticles) {
         noteMissing("overlay.particles", "zIndex", "surface");
       }
 
@@ -498,9 +814,8 @@ export async function HeroRendererV2({
         ...(grainResolvedGlue ?? grainGlue ?? {}),
       };
 
-      if (typeof grainEntry?.zIndex === "number") {
-        style.zIndex = grainEntry.zIndex;
-      } else if (shouldShowGrain) {
+      style.zIndex = resolveZIndex("overlay.filmGrain", grainEntry?.zIndex ?? grainResolvedGlue?.zIndex);
+      if ((grainEntry?.zIndex === undefined || grainEntry?.zIndex === null) && shouldShowGrain) {
         noteMissing("overlay.filmGrain", "zIndex", "surface");
       }
 
@@ -523,27 +838,9 @@ export async function HeroRendererV2({
       background: "transparent",
       backdropFilter: "none",
       WebkitBackdropFilter: "none",
+      zIndex: resolveZIndex("hero.contentFrame"),
     },
   };
-
-  const surfaceInlineStyles = new Map<string, CSSProperties>();
-  const surfaceGlueMeta = new Map<
-    string,
-    {
-      source: GlueSource;
-      backgroundSize?: string;
-      backgroundRepeat?: string;
-      backgroundPosition?: string;
-      imageRendering?: string;
-    }
-  >();
-  surfaceStack.forEach((layer) => {
-    const resolvedStyle = layer.token ? layerStyles[layer.token] : undefined;
-    const inlineStyle = { ...(resolvedStyle ?? {}), ...diagnosticOutlineStyle };
-
-    surfaceInlineStyles.set(layer.id, inlineStyle);
-    surfaceGlueMeta.set(layer.id, glueTelemetry.get(layer.id) ?? { source: "none" });
-  });
 
   const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
 
@@ -553,218 +850,82 @@ export async function HeroRendererV2({
     return { entry, style };
   });
 
+  const layers: HeroV2SurfaceLayerModel[] = surfaceStack.map((layer) => {
+    const resolvedStyle = layer.token ? layerStyles[layer.token] : undefined;
+    const inlineStyle = {
+      ...(resolvedStyle ?? {}),
+      ...diagnosticOutlineStyle,
+    };
+    const glueMeta = glueTelemetry.get(layer.id) ?? { source: "none" };
+    const contrastFilter = contrastGlueFilters.get(layer.id);
+
+    return {
+      id: layer.id,
+      role: layer.role,
+      prmSafe: layer.prmSafe,
+      className: layer.className ?? "hero-surface-layer",
+      style: inlineStyle,
+      glueMeta,
+      contrastFilter,
+    };
+  });
+
+  const motionLayers: HeroV2MotionLayerModel[] = motionEntriesWithStyles
+    .filter(({ entry }) => Boolean(entry.id && entry.path))
+    .map(({ entry, style }) => ({
+      id: entry.id as string,
+      className: entry.className,
+      path: entry.path as string,
+      style,
+    }));
+
+  const heroVideo = !prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path)
+    ? {
+        path: videoEntry.path,
+        poster: surfaces.background?.desktop?.path,
+        style: heroVideoStyle,
+      }
+    : undefined;
+
+  const sacredBloomModel = bloomEnabled
+    ? {
+        style: sacredBloomStyle,
+        bloomDebug,
+        baseOpacity: bloomDebug ? "0.8" : "0.18",
+        shape: isHomeMode ? "phase3d" : undefined,
+        mask: isHomeMode ? "upper-mid-soft" : undefined,
+        contrastFilter: sacredBloomContrastFilter,
+        glueMeta: sacredBloomGlueMeta,
+      }
+    : undefined;
+
+  const surfaceStackModel: HeroSurfaceStackModel = {
+    surfaceVars,
+    prmEnabled,
+    layers,
+    motionLayers,
+    bloomEnabled,
+    heroVideo,
+    sacredBloom: sacredBloomModel,
+  };
+
+  return {
+    gradient,
+    layout,
+    content,
+    surfaceStack: surfaceStackModel,
+  };
+}
+
+export async function HeroRendererV2(props: HeroRendererV2Props) {
+  const model = await buildHeroV2Model(props);
+
+  if (!model) return <HeroFallback />;
+
   return (
-    <div
-      className="hero-renderer hero-renderer-v2 hero-optical-isolation"
-      data-hero-renderer="v2"
-      data-hero-root="true"
-      style={rootStyle}
-    >
-      <BaseChampagneSurface
-        variant="plain"
-        disableInternalOverlays
-        style={{
-          minHeight: "72vh",
-          display: "grid",
-          alignItems: layout.contentAlign === "center" ? "center" : "stretch",
-          overflow: "hidden",
-          backgroundImage: "none",
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          borderRadius: 0,
-          ["--hero-gradient" as string]: gradient,
-          ["--glass-opacity" as string]: 0,
-          ["--champagne-sheen-alpha" as string]: 0,
-          ["--champagne-glass-bg" as string]: "",
-          backdropFilter: "none",
-          WebkitBackdropFilter: "none",
-        }}
-      >
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              .hero-renderer-v2 {
-                position: relative;
-                color: var(--text-high);
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-              }
-              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
-              .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
-                background: none !important;
-                opacity: 0 !important;
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-              }
-              .hero-renderer-v2 .hero-surface-stack {
-                position: absolute;
-                inset: 0;
-              }
-              .hero-renderer-v2 .hero-layer,
-              .hero-renderer-v2 .hero-surface-layer {
-                position: absolute;
-                inset: 0;
-              }
-              .hero-renderer-v2 .hero-layer.motion,
-              .hero-renderer-v2 .hero-surface-layer.hero-surface--motion {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-              }
-              .hero-renderer-v2 .hero-surface-layer {
-                pointer-events: none;
-              }
-              .hero-renderer-v2 .hero-content {
-                position: relative;
-                z-index: 10;
-                display: grid;
-                gap: 1rem;
-                max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
-                padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
-                transform: translateY(${layout.verticalOffset ?? "0px"});
-              }
-              @media (max-width: 640px) {
-                .hero-renderer-v2 [data-surface-id="field.waveBackdrop"] {
-                  background-image: var(--hero-wave-background-mobile);
-                }
-                .hero-renderer-v2 [data-surface-id="overlay.filmGrain"] {
-                  background-image: var(--hero-grain-mobile);
-                }
-                .hero-renderer-v2 .hero-content {
-                  padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
-                }
-                .hero-renderer-v2 {
-                  min-height: 68vh;
-                }
-              }
-              @media (prefers-reduced-motion: reduce) {
-                .hero-renderer-v2 .hero-layer.motion,
-                .hero-renderer-v2 .hero-surface--motion { display: none; }
-              }
-            `,
-          }}
-        />
-
-        <div
-          aria-hidden
-          className="hero-surface-stack"
-          ref={surfaceRef}
-          data-prm={prmEnabled ? "true" : "false"}
-          style={surfaceVars}
-        >
-        {surfaceStack.map((layer) => {
-          const inlineStyle = surfaceInlineStyles.get(layer.id);
-          const glueMeta = surfaceGlueMeta.get(layer.id);
-
-          return (
-            <div
-              key={layer.id}
-              data-surface-id={layer.id}
-              data-surface-role={layer.role}
-              data-prm-safe={layer.prmSafe ? "true" : undefined}
-              data-glue-source={glueMeta?.source}
-              data-glue-size={glueMeta?.backgroundSize}
-              data-glue-repeat={glueMeta?.backgroundRepeat}
-              data-glue-position={glueMeta?.backgroundPosition}
-              data-glue-image-rendering={glueMeta?.imageRendering}
-              className={layer.className ?? "hero-surface-layer"}
-              style={inlineStyle}
-            />
-          );
-        })}
-
-        {!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path) && (
-          <video
-            className="hero-surface-layer hero-surface--motion"
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            poster={surfaces.background?.desktop?.path}
-            data-surface-id="motion.heroVideo"
-            style={heroVideoStyle}
-          >
-            <source src={videoEntry.path} />
-          </video>
-        )}
-
-        {!prmEnabled &&
-          motionEntriesWithStyles.map(({ entry, style }) => (
-            <video
-              key={entry.id}
-              className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-              autoPlay
-              playsInline
-              loop
-              muted
-              preload="metadata"
-              data-surface-id={entry.id}
-              style={style}
-            >
-              <source src={entry.path} />
-            </video>
-          ))}
-      </div>
-
-        <div
-          className="hero-content"
-          style={{
-            justifyItems: layout.contentAlign === "center" ? "center" : "start",
-            textAlign: layout.contentAlign === "center" ? "center" : "start",
-          }}
-        >
-        {content.eyebrow && (
-          <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
-            {content.eyebrow}
-          </span>
-        )}
-        {content.headline && (
-          <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
-            {content.headline}
-          </h1>
-        )}
-        {content.subheadline && (
-          <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
-            {content.subheadline}
-          </p>
-        )}
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          {content.cta && (
-            <a
-              href={content.cta.href}
-              style={{
-                padding: "0.9rem 1.6rem",
-                borderRadius: "var(--radius-md)",
-                background: "var(--surface-gold-soft)",
-                color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold)",
-                textDecoration: "none",
-                boxShadow: "var(--shadow-soft)",
-              }}
-            >
-              {content.cta.label}
-            </a>
-          )}
-          {content.secondaryCta && (
-            <a
-              href={content.secondaryCta.href}
-              style={{
-                padding: "0.9rem 1.2rem",
-                borderRadius: "var(--radius-md)",
-                background: "var(--surface-ink-soft)",
-                color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold)",
-                textDecoration: "none",
-              }}
-            >
-              {content.secondaryCta.label}
-            </a>
-          )}
-        </div>
-        </div>
-      </BaseChampagneSurface>
-    </div>
+    <HeroV2Frame layout={model.layout} gradient={model.gradient} rootStyle={props.rootStyle}>
+      <HeroSurfaceStackV2 surfaceRef={props.surfaceRef} {...model.surfaceStack} />
+      <HeroContentV2 content={model.content} layout={model.layout} />
+    </HeroV2Frame>
   );
 }
