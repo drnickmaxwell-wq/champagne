@@ -90,6 +90,7 @@ type GlueRule = {
   backgroundRepeat?: string;
   backgroundPosition?: string;
   imageRendering?: CSSProperties["imageRendering"];
+  zIndex?: number | string;
   filter?: string;
   willChange?: string;
 };
@@ -100,6 +101,35 @@ type GlueManifest = {
 };
 
 type GlueSource = "manifest" | "override" | "none";
+
+const coerceZ = (value?: number | string | null) => {
+  if (value === undefined || value === null) return undefined;
+  if (typeof value === "string") {
+    if (value.includes("var(")) return undefined;
+    const parsed = Number.parseFloat(value);
+    if (!Number.isFinite(parsed)) return undefined;
+    return Math.round(parsed);
+  }
+  if (!Number.isFinite(value)) return undefined;
+  return Math.round(value);
+};
+
+const defaultZFor = (id: string) => {
+  const defaults = new Map<string, number>([
+    ["gradient.base", 1],
+    ["field.waveBackdrop", 2],
+    ["mask.waveHeader", 3],
+    ["field.waveRings", 4],
+    ["field.dotGrid", 5],
+    ["sacred.motion.waveCaustics", 6],
+    ["sacred.motion.glassShimmer", 7],
+    ["overlay.sacredBloom", 8],
+    ["overlay.particles", 9],
+    ["overlay.filmGrain", 10],
+    ["hero.contentFrame", 11],
+  ]);
+  return defaults.get(id) ?? 100;
+};
 
 const resolveAssetUrl = (entry?: { path?: string; asset?: { id?: string }; id?: string }) => {
   if (!entry) return undefined;
@@ -441,7 +471,10 @@ export async function buildHeroV2Model({
     if (token === "overlay.filmGrain" && (!shouldShowGrain || grainGovernanceMissing)) return false;
     return true;
   });
-  const resolveMotionStyle = (entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number }, id?: string) => {
+  const resolveMotionStyle = (
+    entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number | string | null },
+    id?: string,
+  ) => {
     if (!entry) return {};
     const style: CSSProperties = {};
     const resolvedBlend = entry.blendMode ?? undefined;
@@ -460,8 +493,8 @@ export async function buildHeroV2Model({
       noteMissing(id, "blend", "motion");
     }
 
-    if (typeof entry.zIndex === "number") {
-      style.zIndex = entry.zIndex;
+    if (id) {
+      style.zIndex = resolveZIndex(id, entry.zIndex);
     } else if (id) {
       noteMissing(id, "zIndex", "motion");
     }
@@ -523,6 +556,15 @@ export async function buildHeroV2Model({
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
+  const usedZIndexes = new Set<number>();
+  const resolveZIndex = (id: string, candidate?: number | string | null) => {
+    let resolved = coerceZ(candidate) ?? defaultZFor(id);
+    while (usedZIndexes.has(resolved)) {
+      resolved += 1;
+    }
+    usedZIndexes.add(resolved);
+    return resolved;
+  };
 
   const waveBackdropGlue = resolveBackgroundGlue(waveBackdropUrlDesktop);
   const overlayFieldGlue = resolveBackgroundGlue(overlayFieldUrl);
@@ -544,18 +586,19 @@ export async function buildHeroV2Model({
     const modeGlue = resolvedGlueManifest.modes?.[mode];
     return modeGlue?.[surfaceId];
   };
-  const normalizeGlue = (glue?: GlueRule | null) => {
+  const normalizeGlue = (glue?: GlueRule | null): GlueRule => {
     if (!glue) return {};
     return {
       ...(glue.backgroundSize ? { backgroundSize: glue.backgroundSize } : {}),
       ...(glue.backgroundRepeat ? { backgroundRepeat: glue.backgroundRepeat } : {}),
       ...(glue.backgroundPosition ? { backgroundPosition: glue.backgroundPosition } : {}),
       ...(glue.imageRendering ? { imageRendering: glue.imageRendering } : {}),
+      ...(glue.zIndex !== undefined ? { zIndex: glue.zIndex } : {}),
       ...(glue.filter ? { filter: glue.filter } : {}),
       ...(glue.willChange ? { willChange: glue.willChange } : {}),
-    } satisfies GlueRule;
+    };
   };
-  const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule) => {
+  const resolveGlueForSurface = (surfaceId: string, url?: string, overrideGlue?: GlueRule): GlueRule | null => {
     if (!url) {
       glueTelemetry.set(surfaceId, { source: "none" });
       return null;
@@ -626,7 +669,7 @@ export async function buildHeroV2Model({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "18% 14%",
     backgroundImage: "var(--hero-caustics-overlay)",
-    zIndex: 6,
+    zIndex: resolveZIndex("overlay.sacredBloom"),
     ...(sacredBloomResolvedGlue ?? sacredBloomGlue ?? {}),
     mixBlendMode: "screen",
     opacity: bloomDebug ? 0.8 : 0.18,
@@ -634,16 +677,17 @@ export async function buildHeroV2Model({
   };
 
   const layerStyles: Record<string, CSSProperties> = {
-    "gradient.base": {},
+    "gradient.base": {
+      zIndex: resolveZIndex("gradient.base"),
+    },
     "field.waveBackdrop": (() => {
       const style: CSSProperties = {
         backgroundImage: "var(--hero-wave-background-desktop)",
         ...(waveBackdropResolvedGlue ?? waveBackdropGlue ?? {}),
       };
 
-      if (typeof waveBackdropZIndex === "number") {
-        style.zIndex = waveBackdropZIndex;
-      } else {
+      style.zIndex = resolveZIndex("field.waveBackdrop", waveBackdropZIndex ?? waveBackdropResolvedGlue?.zIndex);
+      if (waveBackdropZIndex === undefined || waveBackdropZIndex === null) {
         noteMissing("field.waveBackdrop", "zIndex", "surface");
       }
 
@@ -664,9 +708,8 @@ export async function buildHeroV2Model({
     })(),
     "mask.waveHeader": (() => {
       const style: CSSProperties = {};
-      if (typeof waveMaskEntry?.zIndex === "number") {
-        style.zIndex = waveMaskEntry.zIndex;
-      } else {
+      style.zIndex = resolveZIndex("mask.waveHeader", waveMaskEntry?.zIndex);
+      if (waveMaskEntry?.zIndex === undefined || waveMaskEntry?.zIndex === null) {
         noteMissing("mask.waveHeader", "zIndex", "surface");
       }
 
@@ -690,9 +733,8 @@ export async function buildHeroV2Model({
         ...(waveRingsResolvedGlue ?? overlayFieldGlue ?? {}),
       };
 
-      if (typeof overlayFieldEntry?.zIndex === "number") {
-        style.zIndex = overlayFieldEntry.zIndex;
-      } else {
+      style.zIndex = resolveZIndex("field.waveRings", overlayFieldEntry?.zIndex ?? waveRingsResolvedGlue?.zIndex);
+      if (overlayFieldEntry?.zIndex === undefined || overlayFieldEntry?.zIndex === null) {
         noteMissing("field.waveRings", "zIndex", "surface");
       }
 
@@ -717,9 +759,8 @@ export async function buildHeroV2Model({
         ...(dotGridResolvedGlue ?? overlayDotsGlue ?? {}),
       };
 
-      if (typeof overlayDotsEntry?.zIndex === "number") {
-        style.zIndex = overlayDotsEntry.zIndex;
-      } else {
+      style.zIndex = resolveZIndex("field.dotGrid", overlayDotsEntry?.zIndex ?? dotGridResolvedGlue?.zIndex);
+      if (overlayDotsEntry?.zIndex === undefined || overlayDotsEntry?.zIndex === null) {
         noteMissing("field.dotGrid", "zIndex", "surface");
       }
 
@@ -744,9 +785,8 @@ export async function buildHeroV2Model({
         ...(particlesResolvedGlue ?? particlesGlue ?? {}),
       };
 
-      if (typeof particlesEntry?.zIndex === "number") {
-        style.zIndex = particlesEntry.zIndex;
-      } else if (shouldShowParticles) {
+      style.zIndex = resolveZIndex("overlay.particles", particlesEntry?.zIndex ?? particlesResolvedGlue?.zIndex);
+      if ((particlesEntry?.zIndex === undefined || particlesEntry?.zIndex === null) && shouldShowParticles) {
         noteMissing("overlay.particles", "zIndex", "surface");
       }
 
@@ -771,9 +811,8 @@ export async function buildHeroV2Model({
         ...(grainResolvedGlue ?? grainGlue ?? {}),
       };
 
-      if (typeof grainEntry?.zIndex === "number") {
-        style.zIndex = grainEntry.zIndex;
-      } else if (shouldShowGrain) {
+      style.zIndex = resolveZIndex("overlay.filmGrain", grainEntry?.zIndex ?? grainResolvedGlue?.zIndex);
+      if ((grainEntry?.zIndex === undefined || grainEntry?.zIndex === null) && shouldShowGrain) {
         noteMissing("overlay.filmGrain", "zIndex", "surface");
       }
 
@@ -796,6 +835,7 @@ export async function buildHeroV2Model({
       background: "transparent",
       backdropFilter: "none",
       WebkitBackdropFilter: "none",
+      zIndex: resolveZIndex("hero.contentFrame"),
     },
   };
 
