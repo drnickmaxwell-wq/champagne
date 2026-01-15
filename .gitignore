@@ -16,3 +16,4 @@ yarn-error.log*
 *.log
 reports/hero-match/*.png
 reports/hero-match/*.webp
+reports/hero-fit/*
