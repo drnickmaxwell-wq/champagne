@@ -2,7 +2,7 @@
   "waveMasks": {
     "mask.waveHeader.desktop": "sacred.wave.mask.desktop",
     "mask.waveHeader.mobile": "sacred.wave.mask.mobile",
-    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "soft-light", "opacity": 0.48 },
+    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "overlay", "opacity": 0.48 },
     "mask.wave.smh": "sacred.wave.mask.smh"
   },
   "surfaceStack": [
