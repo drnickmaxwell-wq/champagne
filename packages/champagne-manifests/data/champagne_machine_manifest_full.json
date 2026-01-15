@@ -2321,26 +2321,26 @@
         {
           "id": "practice_overview_authority_frame",
           "type": "story",
-          "title": "St Mary’s House Dental Care",
-          "copy": "St Mary’s House Dental Care is a long-established private dental practice based in Shoreham-by-Sea, West Sussex, serving the local community for over four decades.\n\nThe practice provides comprehensive general dentistry alongside advanced restorative, implant and orthodontic care for adults and children. Many patients attend with complex needs, including heavily restored teeth, tooth wear, missing teeth and bruxism, and value a practice that considers the whole mouth and the wider context of their health rather than focusing on isolated problems.\n\nPatients consistently choose the practice for its personal service and calm, down-to-earth approach. Care is delivered in a friendly, respectful environment where time is taken to listen, explain and plan appropriately. Recommendations are not often rushed or sales-driven; instead, treatment is discussed carefully, with a focus on what is clinically appropriate and sustainable over the long term.\n\nThe practice’s role is to provide thoughtful, reliable dentistry in a setting where patients feel comfortable, informed and well looked after, often over many years."
+          "title": "About St Mary’s House Dental Care",
+          "copy": "St Mary’s House Dental Care has been part of Shoreham-by-Sea for over forty years.\n\nWe work from a Grade II listed building just off the High Street — not because it looks impressive on a website, but because it reflects how the practice has always operated: established, independent, and quietly consistent.\n\nMany of our patients have been coming here for years, and some for decades. That continuity shapes how we think about dentistry — not as one-off treatments, but as part of someone’s life over time."
         },
         {
           "id": "philosophy_and_standards",
           "type": "story",
-          "title": "Philosophy and standards",
-          "copy": "Clinical decisions at St Mary’s House Dental Care are guided by evidence, long-term thinking and a conservative-first philosophy wherever possible. The focus is on planning for the whole mouth and the individual patient, rather than isolated treatments, with attention given to function, longevity and maintenance.\n\nInformed consent is central to how care is delivered. Patients are given clear explanations of their dental health, the available treatment options, and the advantages, limitations and risks associated with each. Alternatives are often discussed, and patients are supported in making decisions that feel appropriate for their circumstances and priorities.\n\nAnxious and nervous patients form a significant part of the practice population. Appointments are unhurried, patients are encouraged to remain in control throughout treatment, and care is adapted to individual comfort levels. A range of supportive measures is used, including calm communication, comfort-focused techniques, The Wand designed to keep you comfortable anaesthetic system, and IV sedation provided by an experienced external sedationist when clinically appropriate.\n\nThe practice combines preventative and restorative care to reflect the needs of its patient base, supported by ongoing professional development and careful clinical planning to maintain high standards of safety and quality."
+          "title": "An independent practice by choice",
+          "copy": "We are not part of a corporate group, and we don’t operate on sales targets or treatment quotas.\n\nRemaining independent allows us to take time with diagnosis, recommend staged or conservative options, and say “not yet” — or “not necessary” — when that’s the right advice.\n\nThat independence matters most when decisions are not straightforward."
         },
         {
           "id": "history_and_evolution",
           "type": "story",
-          "title": "History and evolution",
-          "copy": "St Mary’s House Dental Care has served the Shoreham-by-Sea area for more than 40 years, providing continuity of care while gradually evolving to reflect advances in dentistry and changing patient needs.\n\nThe practice has been under its current ownership since 2013 and is led by a principal dentist who qualified in 1998, with postgraduate training in restorative and aesthetic dentistry and orthodontics. This background supports the management of both routine dental care and more complex restorative and implant cases within a familiar, trusted environment.\n\nStability is an important feature of the practice. Members of the clinical team have worked here for decades, including the head nurse, who has been part of the practice for over 30 years. Many adult patients have attended since childhood and continue to return with their own families.\n\nWhile the ethos of the practice remains consistent, its clinical approach continues to develop. Investment in digital dentistry, including intra-oral scanning, guided implant planning and in-house 3D printing, allows for more accurate planning and clearer communication, while maintaining the personal nature of a long-established family practice."
+          "title": "A practice built on relationships",
+          "copy": "Most dentistry happens over time. Teeth change. Gums change. Circumstances change.\n\nBecause of that, we place real value on continuity of care, getting to know patients properly, and building plans that still make sense years down the line.\n\nMany patients come to us after feeling rushed or confused elsewhere. Our role is often to slow things down and restore clarity."
         },
         {
           "id": "commitment_to_patients_and_community",
           "type": "story",
-          "title": "Commitment to patients and community",
-          "copy": "The practice is firmly rooted in Shoreham-by-Sea, both physically and historically. It is located in a Grade II listed building opposite St Mary’s de Haura Church, reflecting a long-standing presence within the heart of the town.\n\nIts role in the community is a quiet and consistent one. The team cares for individuals and families over many years, often across generations, building relationships based on trust, familiarity and mutual respect.\n\nLong-term patient care means taking responsibility beyond individual appointments. The practice focuses on prevention, maintenance and realistic planning, helping patients look after their oral health in ways that are appropriate for their lives and circumstances.\n\nWarmth, honesty and time are regarded as essential parts of good dentistry, supporting a stable, reliable service that patients can depend on year after year."
+          "title": "Part of Shoreham, not just located in it",
+          "copy": "We’ve looked after generations of local families and continue to welcome patients from Shoreham, Brighton, and the surrounding areas.\n\nBeing rooted locally shapes how we practise and communicate. Our aim is simple: to provide dentistry we’d be comfortable recommending to people we know."
         },
         {
           "id": "cta_gold_bar",
@@ -2359,15 +2359,15 @@
         {
           "id": "team_intro_copy",
           "type": "copy-block",
-          "title": "Meet the clinical team",
-          "copy": "The team at St Mary’s House Dental Care provides long-term, patient-centred dentistry from our practice in Shoreham-by-Sea, West Sussex. Many patients come to us seeking continuity, clarity and a calm, thoughtful approach to care — particularly when their dental needs are complex or have developed over time.\n\nOur clinicians work across general dentistry, restorative care, implants, orthodontics and prevention, supported by an experienced nursing and coordination team. This breadth allows patients to receive both routine and advanced care within the same practice, without losing the familiarity and trust that come from seeing a consistent team.\n\nStability is a defining feature of the practice. We have served the local community for over 40 years, with long-standing members of staff and many patients who have attended since childhood and continue to return with their own families. This continuity allows treatment decisions to be made with a deeper understanding of patient history, preferences and long-term goals.\n\nPatients who feel anxious about dental treatment are supported with time, clear explanations and a respectful, unhurried approach. Care is not often rushed, and patients are encouraged to remain informed and in control at every stage.",
+          "title": "Our team",
+          "copy": "Dentistry works best when it’s delivered by people who know each other well.\n\nAt St Mary’s House Dental Care, we’re a small, experienced team who work together every day — not a rotating cast. That continuity matters. It affects communication, planning, and how calmly care is delivered.\n\nPatients often tell us they value recognising familiar faces and feeling understood rather than processed.",
           "label": "Team"
         },
         {
           "id": "why_patients_trust_this_team",
           "type": "copy-block",
-          "title": "Why patients trust this team",
-          "copy": "Trust in a dental team is built through consistency, communication and accountability. At St Mary’s House Dental Care, patients are supported by clinicians who work closely together and share a common approach to planning and decision-making.\n\nWhere care involves more than one clinician, cases are discussed carefully to ensure clarity and continuity. If a particular dentist is unavailable, handover is managed within the practice so that patients are supported by colleagues who understand their history, current position and long-term plan.\n\nThe team places particular emphasis on supporting nervous and anxious patients. Time is taken to explain findings and options clearly, without pressure, and treatment is adapted to suit individual comfort levels. Patients are encouraged to move at a pace that feels right for them, with the understanding that informed decisions often take time.\n\nContinuity also means knowing when not to proceed. Treatment is not rushed, and monitoring or phased approaches are often recommended where problems are stable or where immediate intervention would add unnecessary risk. Where focused expertise is clearly in a patient’s high standards interest, referrals are made to trusted specialists.\n\nPatients trust this team because care is delivered with honesty, respect and long-term responsibility. Recommendations are grounded in evidence and experience, with a focus on what is predictable, maintainable and appropriate — not simply what can be done.",
+          "title": "How we work together",
+          "copy": "Good outcomes in dentistry depend on more than individual skill.\n\nThey rely on clear communication between clinicians and nurses, shared standards of care, and consistency in how patients are looked after. Our team works closely across examinations, hygiene, restorative care, and longer-term treatment planning.\n\nThat collaboration reduces errors, avoids duplication, and makes appointments feel more settled.",
           "label": "Trust and continuity"
         },
         {
@@ -2396,9 +2396,9 @@
         {
           "id": "team_wider_practice_team",
           "type": "people_grid",
-          "title": "Wider practice team",
+          "title": "Nursing and support staff",
           "eyebrow": "Support team",
-          "copy": "Behind the clinical team is a wider practice team focused on consistency, organisation and patient comfort. From first contact through to ongoing care, they play a central role in helping patients feel informed, supported and at ease. Many patients value the familiarity and reassurance that comes from seeing the same trusted faces over time.",
+          "copy": "Dental nurses and support staff play a central role in patient care.\n\nThey are often the first point of contact, the calm presence during treatment, and the continuity between visits. Many of our nurses have worked here for years and know patients well.\n\nTheir role includes supporting clinicians during treatment, helping patients feel comfortable and informed, and maintaining high standards of organisation and infection control.",
           "items": [
             {
               "name": "Joanna Dobson",
@@ -2657,41 +2657,41 @@
           "type": "copy-block",
           "title": "Fees and planning",
           "label": "Overview",
-          "copy": "We aim to be clear, consistent and fair about fees. Every plan is tailored to your needs, and we’ll explain what’s recommended, what’s optional, and why. Before you proceed, you’ll receive a written outline of the proposed care and the likely costs, with time to ask questions and consider alternatives. Where appropriate, we can phase treatment to suit priorities and comfort, and we’ll talk through ways to spread costs so you can move forward with confidence."
+          "copy": "We aim to be clear, consistent, and fair about fees. Every plan is tailored to your needs, and we’ll explain what’s recommended, what’s optional, and why. After your assessment, you’ll receive a written treatment plan with an estimate before you decide, along with time to ask questions and consider alternatives. Where appropriate, we can phase care to suit priorities and comfort, and we’ll discuss payment options so you can make an informed choice."
         },
         {
           "id": "fees_how_we_approach_fees",
           "type": "copy-block",
           "title": "How we approach fees",
-          "copy": "We believe patients should understand the cost of their care before making decisions — without pressure, surprises, or rushed conversations.\n\nFees at St Mary’s House Dental reflect the time, planning, materials, and clinical expertise involved in delivering care properly. Where treatment is required, costs are discussed openly, and you’ll often have the opportunity to ask questions before proceeding.",
+          "copy": "We believe patients should understand the cost of their care before making decisions — without pressure, surprises, or rushed conversations.\n\nFees at St Mary’s House Dental reflect the time, planning, materials, and clinical expertise involved in delivering care properly. Where treatment is recommended, we explain the options and provide a written plan and estimate so you can consider your next steps.",
           "label": "How we approach fees"
         },
         {
           "id": "fees_why_dentistry_costs_vary",
           "type": "copy-block",
           "title": "Why dentistry costs vary",
-          "copy": "Dentistry is rarely a one-size-fits-all service. Fees can vary depending on the complexity of your case, the condition of existing teeth or restorations, and the level of planning required.\n\nSome treatments are straightforward and completed in a single visit. Others require careful sequencing, laboratory stages, or coordination between different disciplines. Our role is to assess what’s appropriate for you, and explain the options clearly.",
+          "copy": "Dentistry is rarely a one-size-fits-all service. Fees can vary depending on the complexity of your case, the condition of existing teeth or restorations, and the level of planning required.\n\nSome treatments are straightforward and completed in a single visit. Others involve careful sequencing, laboratory stages, or coordination between different disciplines. Our role is to assess what’s appropriate for you and explain the options clearly.",
           "label": "Why dentistry costs vary"
         },
         {
           "id": "fees_what_fees_include",
           "type": "copy-block",
           "title": "What our fees include",
-          "copy": "Our fees are not just for the treatment you receive on the day. They reflect the full clinical process, which may include:\n\n• detailed assessment and diagnosis\n• digital imaging and planning where appropriate\n• high-quality materials and laboratory work\n• time for careful, unhurried delivery\n• follow-up care and review\n\nThis approach helps ensure treatment is predictable, comfortable, and designed to last — not simply completed quickly.",
+          "copy": "Our fees are not just for the treatment you receive on the day. They reflect the full clinical process, which may include:\n\n• detailed assessment and diagnosis\n• digital imaging and planning where appropriate\n• high-quality materials and laboratory work\n• time for careful, unhurried delivery\n• follow-up care and review\n\nThis approach supports safe, well-planned care that is tailored to you — not simply completed quickly.",
           "label": "What our fees include"
         },
         {
           "id": "fees_staged_treatment_and_planning",
           "type": "copy-block",
           "title": "Staged treatment and flexible planning",
-          "copy": "Not all treatment needs to be completed at once. Where appropriate, care can often be phased over time, prioritising health, comfort, and stability first.\n\nThis staged approach allows many patients to spread treatment in a way that feels manageable, without compromising long-term outcomes. We’ll often explain which parts of care are time-sensitive, and which can safely wait.",
+          "copy": "Not all treatment needs to be completed at once. Where appropriate, care can often be phased over time, prioritising health, comfort, and stability first.\n\nThis staged approach allows many patients to spread treatment in a way that feels manageable. We’ll explain which parts of care are time-sensitive and which can safely wait.",
           "label": "Staged treatment and flexible planning"
         },
         {
           "id": "fees_finance_and_affordability",
           "type": "copy-block",
           "title": "Finance and affordability",
-          "copy": "For patients who prefer to spread the cost of treatment, finance options may be available, subject to approval. These can help make planned care more accessible, particularly for more involved treatment.\n\nFinance is often optional. Our priority is to help you choose a treatment path that feels right for your health, circumstances, and peace of mind.",
+          "copy": "For patients who prefer to spread the cost of treatment, finance options may be available, subject to approval. These can help make planned care more manageable, particularly for more involved treatment.\n\nFinance is optional, and we’ll explain the key terms before you decide. Our priority is to help you choose a treatment path that feels right for your health, circumstances, and peace of mind.",
           "label": "Finance and affordability"
         },
         {
@@ -2730,7 +2730,7 @@
           "id": "contact_intro_copy",
           "type": "copy-block",
           "title": "How to reach us",
-          "copy": "Getting in touch should feel straightforward. If you’d like to book, ask a question, or talk through a concern, our team can guide you to the right next step and the right appointment length. If you’re in pain or think you may have an infection, please let us know — we keep space for urgent problems and we’ll advise what to do next. For anything non-urgent, you can call during opening hours or send an enquiry and we’ll come back to you as soon as we can. If you’re exploring a bigger change — implants, aligners, veneers, or complex restorative work — we can arrange a consultation focused on options, planning and costs, with time for questions.",
+          "copy": "Getting in touch should feel straightforward.\n\nWhether you’re looking to book an appointment, ask a question, or talk something through before deciding what to do next, our team will guide you calmly and clearly.\n\nThere’s no obligation to proceed with treatment just by contacting us.\n\nAppointments can be arranged by speaking with our reception team.\n\nWhen booking, it’s helpful to let us know what’s prompted you to get in touch, whether you’re experiencing pain or urgency, and if you feel nervous or need extra time.\n\nThis helps us book the right type of appointment and make things easier on the day.\n\nYou don’t need to know exactly what treatment you’re looking for before contacting us.\n\nMany patients get in touch simply to ask a question, understand their options, or find out what an initial appointment involves.\n\nWe’re happy to talk things through before anything is decided.\n\nIf it’s been a while since you last saw a dentist, or if you feel anxious about getting in touch, you’re not alone.\n\nWe’ll take things at your pace and focus on understanding where you’re starting from, rather than rushing you into decisions.\n\nOnce you’ve been in touch, we’ll confirm the next steps, explain what to expect at your visit, and answer any immediate questions.\n\nIf something isn’t urgent, we’ll tell you. If it is, we’ll help you arrange appropriate care.",
           "label": "Contact"
         },
         {
@@ -2760,7 +2760,7 @@
           "id": "contact_form_placeholder",
           "type": "copy-block",
           "title": "Send a message",
-          "copy": "Please contact the practice using the details provided on this page.",
+          "copy": "You’re welcome to contact the practice by phone or via the enquiry form.\n\nIf your enquiry is straightforward, our reception team can usually help immediately. If it’s more clinical or needs a dentist’s input, we’ll make sure it’s passed on appropriately.\n\nWe aim to respond promptly during normal opening hours.",
           "label": "Contact form"
         },
         {
@@ -2768,7 +2768,7 @@
           "type": "map",
           "label": "Map",
           "title": "Find us",
-          "copy": "Find us using the map below. If you need help with directions or parking, please contact the practice.",
+          "copy": "St Mary’s House Dental Care is located in Shoreham-by-Sea, West Sussex.\n\nClear directions, accessibility information, and parking details are provided below to help your visit go smoothly.",
           "mediaHint": "Contact page map placeholder"
         },
         {
@@ -6012,49 +6012,50 @@
         {
           "id": "emergency_dentistry_overview",
           "type": "treatment_overview_rich",
-          "title": "Calm, prompt support when something feels urgent",
-          "copy": "We make time for same-day emergencies, guide you on what to do next, and keep language calm and practical. If you are in pain, bleeding, or have a sudden change to a tooth or restoration, contact us so we can prioritise your visit.",
+          "title": "Emergency dental care",
+          "copy": "Dental emergencies can be worrying, particularly when pain or swelling develops suddenly.\n\nEmergency dental care focuses on assessing the situation, relieving discomfort where possible, and preventing problems from becoming more serious.\n\nAt St Mary’s House Dental Care, we aim to provide clear advice and appropriate care without rushing patients into unnecessary treatment.",
           "bullets": [
-            "Clear triage to decide if you need immediate or urgent care",
-            "Advice on protecting a tooth or restoration before you arrive",
-            "Appointments that focus on settling pain and stabilising the area",
-            "Follow-up planning once things feel safe again"
+            "Assessment and relief where possible",
+            "Focus on stabilising the situation",
+            "Clear advice without rushed decisions",
+            "Support for pain, swelling, or trauma"
           ]
         },
         {
           "id": "emergency_dentistry_intro_prose",
           "type": "copy-block",
-          "title": "Urgent care, explained clearly",
+          "title": "What emergency care usually involves",
           "label": "Introduction",
-          "copy": "Dental emergencies can be painful and stressful, so the first goal is to stabilise the situation and get you comfortable. Emergency appointments focus on diagnosis: we examine the tooth and gums, check the bite, and take X-rays if needed to understand the cause of pain, swelling, trauma or a broken restoration. Treatment may involve temporary repairs, drainage where appropriate, dressing a tooth, adjusting a bite, or planning definitive care such as a root canal, extraction, crown or replacement filling. We’ll explain what we can do today, what needs follow-up, and what warning signs mean you should contact us urgently."
+          "copy": "Emergency appointments focus on diagnosis and stabilisation.\n\nThis may involve examining the affected area, taking X-rays if needed, addressing infection or inflammation, and relieving pain.\n\nIn many cases, definitive treatment is planned for a later visit once the immediate problem has been managed."
         },
         {
           "id": "emergency_dentistry_triage",
           "type": "features",
-          "title": "Emergency, urgent, or routine?",
+          "title": "What counts as a dental emergency",
           "items": [
-            "Emergency: severe pain, significant bleeding, facial swelling, or a knocked-out tooth",
-            "Urgent: broken, chipped, or lost restorations without major pain",
-            "Routine: minor sensitivity or small chips that can wait for a scheduled visit",
-            "Unsure: call us and we will help decide the right pace"
+            "Significant dental pain",
+            "Swelling of the face or gums",
+            "Trauma to teeth or the jaw",
+            "Uncontrolled bleeding",
+            "Signs of infection"
           ]
         },
         {
           "id": "emergency_dentistry_steps",
           "type": "steps",
-          "title": "What to do now",
+          "title": "What to do before your appointment",
           "items": [
-            "Call the practice so we can triage and reserve time for you",
-            "Keep the area clean with gentle rinsing; avoid very hot or cold foods",
-            "Store any broken fragment or restoration in a clean container",
-            "Use pharmacy pain relief if needed and safe for you, following the packet instructions",
-            "If a tooth is knocked out, keep it moist in milk or saliva and bring it with you"
+            "Avoid chewing on the affected side",
+            "Maintain gentle oral hygiene",
+            "Use appropriate pain relief where suitable",
+            "Avoid applying heat to swelling",
+            "Contact the practice for guidance"
           ]
         },
         {
           "id": "emergency_dentistry_topics",
           "type": "cta",
-          "title": "Common emergency visits",
+          "title": "Common emergency situations",
           "ctas": [
             {
               "label": "Emergency dental appointments",
@@ -6097,15 +6098,15 @@
           "id": "emergency_dentistry_support",
           "type": "treatment_media_feature",
           "label": "Supportive care",
-          "title": "Stabilise first, then plan comfortable follow-up",
-          "copy": "We focus on easing pain, protecting the area, and explaining what to expect next. If further treatment is needed, we discuss options in plain language so you can choose the right pace.",
+          "title": "Questions and reassurance",
+          "copy": "Dental emergencies can feel stressful, especially when symptoms develop quickly.\n\nIf you’re unsure what to do, contacting the practice for guidance is often the best first step. Clear information helps reduce anxiety and supports appropriate care.",
           "mediaHint": "Calm, stepwise care"
         },
         {
           "id": "emergency_dentistry_next_steps",
           "type": "cta",
-          "title": "If symptoms ease, book a full check-up",
-          "copy": "Once urgent pain is settled, a Dental Check-Ups & Oral Cancer Screening visit lets us review any lingering concerns calmly.",
+          "title": "After an emergency visit",
+          "copy": "Following emergency care, further treatment may be recommended to address the underlying cause.\n\nWe’ll explain any findings clearly and discuss whether monitoring, further investigation, or planned treatment is appropriate.\n\nYou’ll have time to consider options once the immediate situation has settled.",
           "ctas": [
             {
               "label": "Book a check-up",
@@ -6123,19 +6124,15 @@
         {
           "id": "emergency_dentistry_faq",
           "type": "treatment_faq_block",
-          "title": "Emergency dentistry questions",
+          "title": "When urgent care may not be necessary",
           "faqs": [
             {
-              "question": "How quickly can I be seen?",
-              "answer": "We reserve time for emergencies each day. Call as soon as you can so we can confirm the earliest slot and share any immediate advice."
+              "question": "Are all dental problems emergencies?",
+              "answer": "Not all dental problems need urgent treatment. Lost fillings without pain, minor sensitivity, or long-standing concerns can often be managed through routine appointments."
             },
             {
-              "question": "Is emergency care different from a routine visit?",
-              "answer": "Emergency appointments focus on stabilising and relieving pain. Follow-up visits handle any longer-term treatment once you are comfortable."
-            },
-            {
-              "question": "What if I am unsure it is an emergency?",
-              "answer": "Contact us and describe what you are feeling or seeing. We will advise whether you need to come in urgently or schedule a routine visit."
+              "question": "What if I’m unsure whether it’s urgent?",
+              "answer": "If in doubt, we’re happy to advise. Contact the practice and we’ll guide you on the next appropriate step."
             }
           ]
         },
@@ -6143,7 +6140,7 @@
           "id": "emergency_dentistry_cta",
           "type": "treatment_closing_cta",
           "title": "Call for emergency dental care",
-          "strapline": "Tell us what has happened so we can guide you and reserve the right appointment time.",
+          "strapline": "Contact us for advice if you’re unsure whether your situation is urgent.",
           "ctas": [
             {
               "label": "Call the practice",
@@ -8631,12 +8628,12 @@
           "order": 10,
           "seoRole": "hero",
           "eyebrow": "Endodontics & root canal care",
-          "title": "Save painful teeth with calm, precise endodontics",
-          "body": "Modern root canal treatment removes infection, protects the tooth structure, and keeps your bite stable with minimal fuss.",
+          "title": "Root canal treatment",
+          "body": "Root canal treatment is used to manage infection or inflammation inside a tooth.\n\nIt’s often recommended when the inner tissue of a tooth becomes damaged or infected and can no longer heal on its own.\n\nAt St Mary’s House Dental Care, root canal treatment is approached as a way of relieving pain and preserving the natural tooth wherever possible.",
           "bullets": [
-            "Clear diagnosis to confirm when a root canal is the safest option",
-            "Gentle, well-anaesthetised care with careful rubber dam isolation",
-            "Restorations that seal the tooth and reduce the risk of reinfection"
+            "Managing infection or inflammation inside a tooth",
+            "Recommended when inner tissue cannot heal on its own",
+            "Aims to relieve pain and preserve the natural tooth"
           ],
           "ctas": [
             {
@@ -8658,16 +8655,16 @@
           "variantId": "smh_endodontics_root_canal_symptoms",
           "order": 20,
           "seoRole": "primaryContent",
-          "eyebrow": "When treatment is needed",
-          "title": "Signs a tooth may need endodontic care",
+          "eyebrow": "Common symptoms",
+          "title": "Common symptoms",
           "items": [
-            "Lingering hot or cold sensitivity that doesn\u2019t settle quickly",
-            "Spontaneous or night pain that radiates to the jaw or ear",
-            "Swelling, tenderness, or a pimple on the gum near the tooth",
-            "Cracks, deep decay, or a failing filling that has reached the nerve",
-            "Pain when biting that suggests nerve inflammation or infection"
+            "Prolonged toothache",
+            "Sensitivity to heat or cold",
+            "Pain when biting",
+            "Swelling of the gums",
+            "Changes seen on X-rays"
           ],
-          "strapline": "If pain escalates rapidly or swelling spreads, contact us urgently \u2014 emergency dentistry support is available."
+          "strapline": "In some cases, there may be little or no pain, and the problem is identified during examination."
         },
         {
           "id": "endodontics-root-canal-process",
@@ -8676,16 +8673,14 @@
           "variantId": "smh_endodontics_root_canal_process",
           "order": 30,
           "seoRole": "primaryContent",
-          "eyebrow": "How a root canal works",
-          "title": "Step-by-step, focused on comfort",
+          "eyebrow": "What root canal treatment involves",
+          "title": "What root canal treatment involves",
           "items": [
-            "Assessment: X-rays or CBCT review to map canals and confirm diagnosis",
-            "Comfort: Local anaesthetic and rubber dam isolation keep the area dry and calm",
-            "Cleaning: Rotary instruments and irrigation remove inflamed or infected tissue",
-            "Shaping: Canal shaping with apex location for an accurate working length",
-            "Medication & sealing: Disinfection with medicaments then biocompatible filling",
-            "Restoration: A sealed filling or crown to protect the tooth from future fracture",
-            "Review: Follow-up to monitor healing and confirm symptoms have settled"
+            "Cleaning the inside of the tooth and removing infected tissue",
+            "Sealing the space to prevent further infection",
+            "Treatment carried out under local anaesthetic",
+            "Usually no more uncomfortable than routine procedures once numb",
+            "Treatment may take place over one or more visits"
           ]
         },
         {
@@ -8695,9 +8690,9 @@
           "variantId": "smh_endodontics_root_canal_technology",
           "order": 40,
           "seoRole": "supporting",
-          "eyebrow": "Technology & precision",
-          "title": "Digital diagnostics for predictable outcomes",
-          "body": "CBCT imaging, electronic apex location, and rotary endodontic systems guide the shape and depth of treatment, reducing guesswork and protecting surrounding bone and nerves.",
+          "eyebrow": "Why root canal treatment may be needed",
+          "title": "Why root canal treatment may be needed",
+          "body": "The inside of a tooth contains nerves and blood vessels, which can become inflamed or infected due to deep decay, cracks, repeated dental work, or trauma.\n\nWithout treatment, infection may spread and symptoms can worsen.\n\nRoot canal treatment aims to remove the source of infection and allow the surrounding tissues to settle.",
           "mediaHint": "CBCT mapping, rotary instruments, and apex location"
         },
         {
@@ -8707,14 +8702,14 @@
           "variantId": "smh_endodontics_root_canal_comfort",
           "order": 50,
           "seoRole": "supporting",
-          "eyebrow": "Comfort & aftercare",
-          "title": "Keeping you comfortable during and after treatment",
+          "eyebrow": "Comfort and what to expect",
+          "title": "Comfort and what to expect",
           "items": [
-            "Local anaesthetic throughout; sedation dentistry can be discussed for anxious patients",
-            "Gentle isolation and irrigation to minimise post-appointment tenderness",
-            "Clear guidance on eating, cleaning, and managing expected soreness",
-            "Advice on temporary restorations if a crown is planned",
-            "Follow-up to confirm the tooth is settling and the bite feels balanced"
+            "The procedure is designed to relieve pain caused by infection",
+            "Treatment is carried out under local anaesthetic",
+            "Some tenderness afterwards is normal",
+            "Sensitivity usually settles with time",
+            "We explain what to expect and how to manage it"
           ]
         },
         {
@@ -8724,14 +8719,13 @@
           "variantId": "smh_endodontics_root_canal_risks",
           "order": 60,
           "seoRole": "supporting",
-          "eyebrow": "Risks, limits & alternatives",
-          "title": "Honest guidance before we start",
-          "body": "We explain the chances of complex anatomy, existing cracks, or reinfection and when retreatment, surgical endodontics, or extraction may be safer. You\u2019ll know the backup plan before consenting.",
+          "eyebrow": "Alternatives and limitations",
+          "title": "Alternatives and limitations",
+          "body": "Root canal treatment isn’t always possible or appropriate.\n\nIf a tooth is too damaged to restore predictably, alternatives such as extraction may be discussed. We’ll explain the reasons clearly so you can make an informed decision.",
           "bullets": [
-            "Discusses structural strength and whether a crown is needed",
-            "Explains limits of heavily cracked or previously treated teeth",
-            "Outlines alternatives such as monitoring, extraction, or implant replacement",
-            "Clear consent and documentation with realistic expectations"
+            "We discuss the condition of the tooth and prognosis",
+            "Alternatives are explained clearly and without pressure",
+            "Decisions are made with full information"
           ]
         },
         {
@@ -8741,14 +8735,13 @@
           "variantId": "smh_endodontics_root_canal_prognosis",
           "order": 70,
           "seoRole": "supporting",
-          "eyebrow": "Longevity & prognosis",
-          "title": "Protecting the tooth for the long term",
-          "body": "Well-sealed canals and a protective restoration keep success rates high. We review healing radiographically and discuss maintenance to preserve the tooth for years.",
+          "eyebrow": "After root canal treatment",
+          "title": "After root canal treatment",
+          "body": "Once the infection has been treated, the tooth may need additional protection.\n\nThis can involve a filling or, in some cases, a crown to help restore strength and reduce the risk of fracture.\n\nWe’ll discuss what’s appropriate based on how much of the tooth remains.",
           "bullets": [
-            "Most treated teeth remain comfortable and functional for many years",
-            "Bite checks reduce the risk of fractures after treatment",
-            "Regular hygiene visits help prevent reinfection from new decay",
-            "If a tooth cannot be saved, we\u2019ll plan extractions and future implant or bridge options"
+            "Protection is planned based on how much tooth remains",
+            "Fillings or crowns may be recommended to restore strength",
+            "We explain the next steps clearly"
           ]
         },
         {
@@ -8758,24 +8751,12 @@
           "variantId": "smh_endodontics_root_canal_faq",
           "order": 80,
           "seoRole": "faq",
-          "eyebrow": "Root canal FAQs",
-          "title": "Common questions about endodontic care",
+          "eyebrow": "Questions and reassurance",
+          "title": "Questions and reassurance",
           "faqs": [
             {
-              "question": "Will a root canal hurt?",
-              "answer": "Treatment is carried out under local anaesthetic with careful isolation. Most patients feel pressure rather than pain, and any post-treatment tenderness usually settles with simple pain relief."
-            },
-            {
-              "question": "How long does it take?",
-              "answer": "Many cases are completed in one to two visits depending on the number of canals and whether we need to place medication between appointments."
-            },
-            {
-              "question": "Do I always need a crown afterwards?",
-              "answer": "Back teeth or heavily restored teeth often benefit from a crown to prevent fractures. We will explain the best way to seal and protect your tooth."
-            },
-            {
-              "question": "What if the tooth can\u2019t be saved?",
-              "answer": "We will outline alternatives such as extraction with healing guidance and future replacement options like bridges or implants if appropriate."
+              "question": "What if I’m unsure whether I need root canal treatment?",
+              "answer": "Root canal treatment has a reputation that often causes unnecessary anxiety. If you’re unsure whether treatment is needed or what it involves, we encourage you to ask. Clear understanding helps reduce worry and supports sensible decision-making."
             }
           ]
         },
@@ -8793,8 +8774,8 @@
           "order": 90,
           "seoRole": "cta",
           "eyebrow": "Next steps",
-          "title": "Need relief from tooth pain?",
-          "body": "Book an endodontic assessment so we can calm the tooth, protect your smile, and plan any follow-up care together.",
+          "title": "Root canal treatment",
+          "body": "Contact us to discuss symptoms or whether root canal treatment may be appropriate.",
           "ctas": [
             {
               "label": "Book a root canal consult",
@@ -9314,74 +9295,74 @@
         {
           "id": "tooth_wear_overview",
           "type": "treatment_overview_rich",
-          "title": "Tooth wear, chips, and cracks explained in plain language",
-          "copy": "Tooth wear happens when enamel thins from three main patterns: attrition from teeth rubbing together, abrasion from brushing or habits, and erosion from acids. We identify which type is affecting you, calm sensitivity, and guide you through protective repairs.",
+          "title": "Tooth wear and erosion",
+          "copy": "Tooth wear refers to the gradual loss of tooth structure over time.\n\nIt’s a common issue and often develops slowly, meaning many people don’t notice it until changes in shape, sensitivity, or appearance become more obvious.\n\nAt St Mary’s House Dental Care, tooth wear is managed thoughtfully, with an emphasis on understanding why it’s happening before deciding how to treat it.",
           "bullets": [
-            "Attrition: clenching or grinding flattens biting edges and creates micro-cracks",
-            "Abrasion: firm brushing or habits like nail biting scuff enamel and expose dentine",
-            "Erosion: acidic drinks, reflux, or dry mouth soften enamel so chips happen more easily"
+            "Gradual loss of tooth structure over time",
+            "Often develops slowly before changes become noticeable",
+            "Care focuses on understanding the cause before treatment"
           ]
         },
         {
           "id": "tooth_wear_causes",
           "type": "features",
-          "title": "Common causes of tooth wear",
+          "title": "Common causes",
           "items": [
-            "Night-time clenching or grinding, sometimes linked to stress or sleep patterns",
-            "Acidic food, sparkling drinks, sports drinks, or reflux lowering mouth pH",
-            "Pressing too hard with a toothbrush or using stiff bristles",
-            "Jaw habits like nail biting, pen chewing, or frequent tooth contact",
-            "Existing fillings or crowns altering the bite and concentrating force on certain teeth"
+            "Acidic foods or drinks and reflux",
+            "Dry mouth",
+            "Clenching or grinding",
+            "Bite relationships",
+            "Lifestyle habits that affect teeth",
+            "Often a combination of influences rather than a single cause"
           ]
         },
         {
           "id": "tooth_wear_symptoms",
           "type": "features",
-          "title": "What you might notice",
+          "title": "Different types of tooth wear",
           "items": [
-            "Zingy sensitivity to cold air, water, or sweets",
-            "Chips, notches near the gumline, or small fractures in corners",
-            "Flatter or shortened front teeth with thinning edges",
-            "Jagged or rough surfaces that catch the tongue or lip",
-            "Tired jaw muscles or morning ache from overnight clenching"
+            "Erosion: acids soften the tooth surface",
+            "Attrition: tooth-to-tooth contact, often linked to clenching or grinding",
+            "Abrasion: mechanical wear, such as from brushing habits",
+            "More than one type of wear can be present at the same time"
           ]
         },
         {
           "id": "tooth_wear_assessment",
           "type": "treatment_media_feature",
-          "label": "Calm assessment",
-          "title": "A mapped look at how your teeth meet and where they are wearing",
-          "copy": "We start with a clinical exam, close-up photos, and a 3D scan to record current tooth shapes. A simple bite analysis checks where forces land, and we review diet or reflux history so you know why wear is happening and how to slow it.",
+          "label": "Assessment",
+          "title": "Why careful assessment matters",
+          "copy": "Understanding the cause and pattern of wear helps guide appropriate management.\n\nAssessment may include examining how teeth meet, looking for signs of muscle activity, reviewing diet and habits, and checking for changes over time.\n\nNot all wear requires immediate treatment, but monitoring is important.",
           "mediaHint": "Photos, scans, and bite map overlay"
         },
         {
           "id": "tooth_wear_treatment_ladder",
           "type": "features",
-          "title": "Treatment ladder: protect, rebuild, stabilise",
+          "title": "Management and prevention",
           "items": [
-            "Prevention and stabilisation: night guard or splint, fluoride or desensitising gels, and tailored diet guidance to slow further loss",
-            "Composite edge bonding or additive fillings to rebuild chipped edges with minimal drilling",
-            "Onlays or crowns for teeth that need full coverage or reinforced support",
-            "Bite stabilisation plans when wear is advanced, coordinating several teeth so forces spread evenly"
+            "Management often begins with prevention",
+            "Advice on diet, habits, or oral hygiene",
+            "Protective measures such as splints where appropriate",
+            "The aim is to slow or stop progression before restorative treatment"
           ]
         },
         {
           "id": "tooth_wear_process",
           "type": "treatment_overview_rich",
-          "title": "What happens at your appointment",
-          "copy": "We talk through your symptoms, capture photos and scans, and share a simple explanation of the wear pattern. Together we prioritise comfort first, then agree the most conservative repairs that will hold up day-to-day.",
+          "title": "When treatment may be needed",
+          "copy": "If tooth wear is advanced or causing functional or comfort issues, treatment may be discussed.\n\nOptions can range from simple protective measures to restorative approaches designed to rebuild worn surfaces.\n\nAny proposed treatment is planned carefully and staged where possible.",
           "bullets": [
-            "Initial visit: assessment, photos, and digital scan with a calm explanation of findings",
-            "Stabilisation: protective polish, fluoride, and night guard impressions where helpful",
-            "Follow-up: fit the guard or trial composite repairs, then review bite comfort and sensitivity"
+            "Treatment is considered when wear affects comfort or function",
+            "Options range from protective measures to restorations",
+            "Plans are staged and tailored to the individual"
           ]
         },
         {
           "id": "tooth_wear_timelines",
           "type": "treatment_media_feature",
-          "label": "Realistic timelines",
-          "title": "Clear expectations on timing and feel",
-          "copy": "Most patients feel sensitivity ease within days of starting desensitising care. Guards and additive bonding are usually delivered over one to two visits spaced 1\u20133 weeks apart. More involved onlays or crowns are planned with provisional steps so you stay comfortable while we finish.",
+          "label": "Long-term outlook",
+          "title": "Long-term outlook",
+          "copy": "Tooth wear is usually a long-term consideration rather than a quick fix.\n\nOngoing review helps ensure that teeth remain comfortable and functional, and that any intervention remains appropriate as circumstances change.",
           "mediaHint": "Calm scheduling map"
         },
         {
@@ -9393,19 +9374,11 @@
         {
           "id": "tooth_wear_faq",
           "type": "treatment_faq_block",
-          "title": "Tooth wear FAQs",
+          "title": "Questions and reassurance",
           "faqs": [
             {
-              "question": "Do I always need a crown for a worn tooth?",
-              "answer": "Not necessarily. We start with additive options like composite edge bonding or onlays to preserve tooth structure, reserving crowns for teeth that need full coverage support."
-            },
-            {
-              "question": "Will a night guard stop my teeth from wearing down?",
-              "answer": "A guard or splint protects the biting surfaces and spreads forces, reducing further wear. We pair it with habit coaching and diet guidance so you address the cause as well as the protection."
-            },
-            {
-              "question": "How do you check if my bite is causing cracks?",
-              "answer": "We review your scan, mark contact points, and use simple bite tests to see where forces land. This shows whether a guard, adjustment, or staged restorations are needed to balance pressure."
+              "question": "What if I’m unsure about what tooth wear means for me?",
+              "answer": "Learning that your teeth are wearing can be concerning. If you’re unsure what it means for you, we encourage you to ask. Understanding the situation clearly helps avoid unnecessary treatment and supports sensible long-term decisions."
             }
           ]
         },
