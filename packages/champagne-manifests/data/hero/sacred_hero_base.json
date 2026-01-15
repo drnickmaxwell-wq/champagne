@@ -27,11 +27,11 @@
     },
     "motion": {
       "parallaxDepth": 18,
-      "shimmerIntensity": 1,
-      "particleDrift": 1,
+      "shimmerIntensity": 0,
+      "particleDrift": 0,
       "energyMode": "balanced",
-      "particles": { "density": 1, "speed": 1, "curve": "sway" }
+      "particles": { "density": 0, "speed": 0, "curve": "sway" }
     },
-    "filmGrain": { "enabled": true, "opacity": 0.32 }
+    "filmGrain": { "enabled": true, "opacity": 0.07 }
   }
 }
