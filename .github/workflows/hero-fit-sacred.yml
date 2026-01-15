@@ -1,0 +1,116 @@
+name: Sacred Hero Fit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/hero_fit_sacred.mjs
+      - packages/champagne-manifests/data/hero/sacred_hero_surfaces.json
+      - public/assets/champagne/**
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run sacred hero fit
+        run: pnpm run hero:fit:sacred
+
+      - name: Print winner
+        run: |
+          node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate;console.log('best.candidate',c);if(c){console.log('caustics',c.causticsBlend,c.causticsOpacity);console.log('shimmer',c.shimmerBlend,c.shimmerOpacity);}else{process.exit(1);}"
+
+      - name: Upload hero fit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hero-fit-report
+          path: reports/hero-fit/**
+
+  apply_winner_pr:
+    runs-on: ubuntu-latest
+    needs: fit
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Download hero fit artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: hero-fit-report
+          path: reports/hero-fit
+
+      - name: Apply winner to manifest
+        run: node scripts/hero_fit_apply_winner.mjs
+
+      - name: Guard hero
+        run: pnpm run guard:hero
+
+      - name: Guard canon
+        run: pnpm run guard:canon
+
+      - name: Verify
+        run: pnpm run verify
+
+      - name: Prepare PR body
+        run: |
+          node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate||{};const snippet=JSON.stringify(c,null,2);const body=[\
+          '## Sacred Hero Fit Winner',\
+          '',\
+          '```json',\
+          snippet,\
+          '```',\
+          '',\
+          'Artifacts: reports/hero-fit/best.png, reports/hero-fit/top_12_grid.png, reports/hero-fit/motion_delta.png, reports/hero-fit/report.json, reports/hero-fit/results.json',\
+          '',\
+          'Download the artifacts from the workflow run (Actions → Sacred Hero Fit → Artifacts).',\
+          '',\
+          'No engine/components/tokens/CTA/typography changes.'\
+          ].join('\\n');fs.writeFileSync('reports/hero-fit/pr-body.md',body);"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/hero-fit-sacred-${{ github.sha }}
+          commit-message: chore(hero): apply sacred fit winner
+          title: Apply Sacred Hero Fit Winner
+          body-path: reports/hero-fit/pr-body.md

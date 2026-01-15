@@ -25,6 +25,7 @@ const captureUrl = `${baseUrl}${heroRoute}?${heroQuery}`;
 const deviceScaleFactor = Number.parseFloat(process.env.HERO_FIT_DPR ?? "1");
 const motionDelayMs = Number.parseInt(process.env.HERO_FIT_MOTION_MS ?? "600", 10);
 const motionRewardWeight = Number.parseFloat(process.env.HERO_FIT_MOTION_WEIGHT ?? "0.7");
+const motionRewardCap = Number.parseFloat(process.env.HERO_FIT_MOTION_REWARD_CAP ?? "0.4");
 const chromaTolerance = Number.parseFloat(process.env.HERO_FIT_CHROMA_TOLERANCE ?? "1.4");
 const chromaPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_CHROMA_WEIGHT ?? "1.2");
 const chromaRoiPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_CHROMA_ROI_WEIGHT ?? "2.4");
@@ -32,6 +33,12 @@ const washoutTolerance = Number.parseFloat(process.env.HERO_FIT_WASHOUT_TOLERANC
 const washoutPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_WASHOUT_WEIGHT ?? "1.6");
 const midFieldTolerance = Number.parseFloat(process.env.HERO_FIT_MIDFIELD_TOLERANCE ?? "0.8");
 const midFieldPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_MIDFIELD_WEIGHT ?? "1.8");
+const hueDriftTolerance = Number.parseFloat(process.env.HERO_FIT_HUE_DRIFT_TOLERANCE ?? "2.8");
+const hueDriftPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_HUE_DRIFT_WEIGHT ?? "2.6");
+const candidateLimit = process.env.HERO_FIT_CANDIDATE_LIMIT
+  ? Number.parseInt(process.env.HERO_FIT_CANDIDATE_LIMIT, 10)
+  : null;
+const candidateSeed = process.env.HERO_FIT_SEED ?? "sacred-fit";
 const epsilon = 0.0001;
 
 const missingReferenceMessage = [
@@ -112,6 +119,8 @@ const loadLab = async (buffer, width, height) => {
 
 const computeLabStats = (data, channels) => {
   let sumL = 0;
+  let sumA = 0;
+  let sumB = 0;
   let sumC = 0;
   let count = 0;
   for (let i = 0; i < data.length; i += channels) {
@@ -119,11 +128,15 @@ const computeLabStats = (data, channels) => {
     const a = data[i + 1];
     const b = data[i + 2];
     sumL += l;
+    sumA += a;
+    sumB += b;
     sumC += Math.sqrt(a * a + b * b);
     count += 1;
   }
   return {
     meanL: sumL / count,
+    meanA: sumA / count,
+    meanB: sumB / count,
     meanChroma: sumC / count,
   };
 };
@@ -159,6 +172,101 @@ const buildCandidates = () => {
     }
   }
   return candidates;
+};
+
+const hashSeed = (input) => {
+  let hash = 2166136261;
+  for (let i = 0; i < input.length; i += 1) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+};
+
+const createRng = (seedValue) => {
+  let seed = seedValue >>> 0;
+  return () => {
+    seed = (1664525 * seed + 1013904223) >>> 0;
+    return seed / 0xffffffff;
+  };
+};
+
+const limitCandidates = (candidates) => {
+  if (!candidateLimit || candidateLimit <= 0 || candidateLimit >= candidates.length) {
+    return { list: candidates, sampled: false };
+  }
+  const rng = createRng(hashSeed(candidateSeed));
+  const shuffled = [...candidates];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rng() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return { list: shuffled.slice(0, candidateLimit), sampled: true };
+};
+
+const clampRoi = (roi, viewport) => ({
+  left: Math.max(0, Math.min(viewport.width - 1, roi.left)),
+  top: Math.max(0, Math.min(viewport.height - 1, roi.top)),
+  width: Math.max(1, Math.min(viewport.width - roi.left, roi.width)),
+  height: Math.max(1, Math.min(viewport.height - roi.top, roi.height)),
+});
+
+const buildRois = (viewport) => {
+  const midField = clampRoi(
+    {
+      left: Math.round(viewport.width * 0.2),
+      top: Math.round(viewport.height * 0.35),
+      width: Math.round(viewport.width * 0.6),
+      height: Math.round(viewport.height * 0.3),
+    },
+    viewport,
+  );
+  const hue = {
+    magenta: clampRoi(
+      {
+        left: Math.round(viewport.width * 0.08),
+        top: Math.round(viewport.height * 0.08),
+        width: Math.round(viewport.width * 0.22),
+        height: Math.round(viewport.height * 0.22),
+      },
+      viewport,
+    ),
+    teal: clampRoi(
+      {
+        left: Math.round(viewport.width * 0.68),
+        top: Math.round(viewport.height * 0.34),
+        width: Math.round(viewport.width * 0.24),
+        height: Math.round(viewport.height * 0.24),
+      },
+      viewport,
+    ),
+    gold: clampRoi(
+      {
+        left: Math.round(viewport.width * 0.62),
+        top: Math.round(viewport.height * 0.66),
+        width: Math.round(viewport.width * 0.26),
+        height: Math.round(viewport.height * 0.24),
+      },
+      viewport,
+    ),
+  };
+  return { midField, hue };
+};
+
+const computeHueDrift = (reference, candidate) => {
+  const deltaA = candidate.meanA - reference.meanA;
+  const deltaB = candidate.meanB - reference.meanB;
+  return Math.sqrt(deltaA * deltaA + deltaB * deltaB);
+};
+
+const handlePlaywrightError = (error) => {
+  const message = error instanceof Error ? error.message : String(error);
+  const lower = message.toLowerCase();
+  if (lower.includes("executable") || lower.includes("playwright") || lower.includes("browser")) {
+    console.error("Playwright not available in this environment; run locally.");
+    return true;
+  }
+  return false;
 };
 
 const applyOverrides = async (page, candidate) => {
@@ -308,27 +416,42 @@ const main = async () => {
     reducedMotion,
     theme,
   });
+  console.log("[Hero Fit] toggles confirmed", heroQuery);
 
   const { child } = await startDevServer();
-  const browser = await chromium.launch();
+  let browser;
+  try {
+    browser = await chromium.launch();
+  } catch (error) {
+    if (child) child.kill("SIGTERM");
+    if (!handlePlaywrightError(error)) throw error;
+    process.exit(1);
+  }
   const page = await browser.newPage({ viewport, deviceScaleFactor });
 
   await page.goto(captureUrl, { waitUntil: "domcontentloaded" });
   await waitForHeroReady(page);
   await hideHeroContent(page);
 
-  const candidates = buildCandidates();
+  const candidatesRaw = buildCandidates();
+  const { list: candidates, sampled } = limitCandidates(candidatesRaw);
+  console.log("[Hero Fit] candidates", {
+    total: candidatesRaw.length,
+    evaluated: candidates.length,
+    sampled,
+    seed: candidateSeed,
+    limit: candidateLimit,
+  });
   const results = [];
   let referenceLab = null;
   const referenceStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height);
-
-  const roi = {
-    left: Math.round(viewport.width * 0.2),
-    top: Math.round(viewport.height * 0.35),
-    width: Math.round(viewport.width * 0.6),
-    height: Math.round(viewport.height * 0.3),
+  const rois = buildRois(viewport);
+  const referenceRoiStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.midField);
+  const referenceHueStats = {
+    magenta: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.magenta),
+    teal: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.teal),
+    gold: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.gold),
   };
-  const referenceRoiStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height, roi);
 
   for (const [index, candidate] of candidates.entries()) {
     await applyOverrides(page, candidate);
@@ -343,7 +466,12 @@ const main = async () => {
     const staticScore = mse(labShot, referenceLab);
     const staticScoreNormalized = staticScore / (255 * 255);
     const candidateStats = await loadLabStats(staticShot, viewport.width, viewport.height);
-    const candidateRoiStats = await loadLabStats(staticShot, viewport.width, viewport.height, roi);
+    const candidateRoiStats = await loadLabStats(staticShot, viewport.width, viewport.height, rois.midField);
+    const candidateHueStats = {
+      magenta: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.magenta),
+      teal: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.teal),
+      gold: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.gold),
+    };
 
     const chromaDeficit = Math.max(0, referenceStats.meanChroma - candidateStats.meanChroma - chromaTolerance);
     const chromaDeficitRoi = Math.max(0, referenceRoiStats.meanChroma - candidateRoiStats.meanChroma - chromaTolerance);
@@ -354,15 +482,33 @@ const main = async () => {
     const midFieldDelta = Math.max(0, candidateRoiStats.meanL - referenceRoiStats.meanL - midFieldTolerance);
     const midFieldPenalty = midFieldDelta * midFieldPenaltyWeight;
 
+    const hueDrift = {
+      magenta: computeHueDrift(referenceHueStats.magenta, candidateHueStats.magenta),
+      teal: computeHueDrift(referenceHueStats.teal, candidateHueStats.teal),
+      gold: computeHueDrift(referenceHueStats.gold, candidateHueStats.gold),
+    };
+    const huePenalty =
+      Math.max(0, hueDrift.magenta - hueDriftTolerance) * hueDriftPenaltyWeight +
+      Math.max(0, hueDrift.teal - hueDriftTolerance) * hueDriftPenaltyWeight +
+      Math.max(0, hueDrift.gold - hueDriftTolerance) * hueDriftPenaltyWeight;
+
     const motionStart = staticShot;
     await page.waitForTimeout(motionDelayMs);
     const motionEnd = await captureHero(page);
-    const motionEnergy = await computeMotionEnergy(motionStart, motionEnd, roi);
+    const motionEnergy = await computeMotionEnergy(motionStart, motionEnd, rois.midField);
     const motionEnergyNormalized = normalizeEnergy(motionEnergy);
-    const motionReward = motionEnergyNormalized * motionRewardWeight;
+    const motionRewardBase = motionEnergyNormalized * motionRewardWeight;
+    const motionRewardLimit = Math.max(0.05, chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty);
+    const motionReward = Math.min(motionRewardBase, motionRewardLimit, motionRewardCap);
 
     const objective =
-      staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty - motionReward + epsilon;
+      staticScoreNormalized +
+      chromaPenalty +
+      washoutPenalty +
+      midFieldPenalty +
+      huePenalty -
+      motionReward +
+      epsilon;
 
     results.push({
       candidate,
@@ -371,15 +517,29 @@ const main = async () => {
       chromaPenalty,
       washoutPenalty,
       midFieldPenalty,
+      huePenalty,
       motionScore: motionEnergy,
       motionScoreNormalized: motionEnergyNormalized,
+      motionRewardBase,
+      motionRewardLimit,
+      motionRewardCap,
       motionReward,
       objective,
       stats: {
         meanL: candidateStats.meanL,
+        meanA: candidateStats.meanA,
+        meanB: candidateStats.meanB,
         meanChroma: candidateStats.meanChroma,
         roiMeanL: candidateRoiStats.meanL,
+        roiMeanA: candidateRoiStats.meanA,
+        roiMeanB: candidateRoiStats.meanB,
         roiMeanChroma: candidateRoiStats.meanChroma,
+        hueZones: {
+          magenta: candidateHueStats.magenta,
+          teal: candidateHueStats.teal,
+          gold: candidateHueStats.gold,
+        },
+        hueDrift,
       },
     });
 
@@ -419,11 +579,12 @@ const main = async () => {
       enabledLayers,
       motionDelayMs,
     },
-    roi,
+    rois,
     objective: {
       formula:
-        "staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty - motionReward + epsilon",
+        "staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty - motionReward + epsilon",
       motionRewardWeight,
+      motionRewardCap,
       chromaTolerance,
       chromaPenaltyWeight,
       chromaRoiPenaltyWeight,
@@ -431,7 +592,20 @@ const main = async () => {
       washoutPenaltyWeight,
       midFieldTolerance,
       midFieldPenaltyWeight,
+      hueDriftTolerance,
+      hueDriftPenaltyWeight,
       epsilon,
+    },
+    candidates: {
+      total: candidatesRaw.length,
+      evaluated: candidates.length,
+      sampled,
+      seed: candidateSeed,
+      limit: candidateLimit,
+      blends: ["soft-light", "screen", "overlay"],
+      causticsOpacityMax: 0.18,
+      shimmerOpacityMax: 0.18,
+      combinedOpacityMax: 0.35,
     },
     motionDelta: {
       file: "reports/hero-fit/motion_delta.png",
@@ -454,13 +628,25 @@ const main = async () => {
     generatedAt: resultsOutput.generatedAt,
     target: resolvedReference,
     capture: resultsOutput.capture,
-    roi,
+    rois,
     objective: resultsOutput.objective,
+    candidates: resultsOutput.candidates,
     grid: resultsOutput.grid,
     motionDelta: resultsOutput.motionDelta,
     totalCandidates: results.length,
-    top12,
+    top12: top12.map((entry) => ({
+      candidate: entry.candidate,
+      objective: entry.objective,
+      chromaPenalty: entry.chromaPenalty,
+      washoutPenalty: entry.washoutPenalty,
+      midFieldPenalty: entry.midFieldPenalty,
+      huePenalty: entry.huePenalty,
+      motionReward: entry.motionReward,
+      stats: entry.stats,
+    })),
     best,
+    explanation:
+      "Best chosen because it preserves chroma authority while maximizing motion energy within constraints.",
   };
 
   fs.writeFileSync(resultsPath, JSON.stringify(resultsOutput, null, 2));
