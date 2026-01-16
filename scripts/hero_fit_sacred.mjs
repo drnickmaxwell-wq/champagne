@@ -49,6 +49,9 @@ const missingReferenceMessage = [
   "This fitter never runs in verify/guards/CI; it is manual only.",
 ].join(" ");
 
+const WATCHDOG_TIMEOUT_MS = Number.parseInt(process.env.HERO_FIT_WATCHDOG_MS ?? "720000", 10);
+const CHILD_KILL_TIMEOUT_MS = 2000;
+
 const resolveReference = () => {
   const envPath = process.env.SACRED_HERO_TARGET ? path.resolve(process.env.SACRED_HERO_TARGET) : null;
   if (envPath && fs.existsSync(envPath)) return envPath;
@@ -99,6 +102,52 @@ const waitForHttpOk = async (url, timeoutMs = 30000) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
   return false;
+};
+
+const waitForChildExit = (child, timeoutMs) =>
+  new Promise((resolve) => {
+    if (!child || child.exitCode !== null || child.killed) {
+      resolve(true);
+      return;
+    }
+    const onExit = () => resolve(true);
+    child.once("exit", onExit);
+    const timer = setTimeout(() => {
+      child.removeListener("exit", onExit);
+      resolve(false);
+    }, timeoutMs);
+    timer.unref?.();
+  });
+
+const terminateChild = async (child) => {
+  if (!child || child.exitCode !== null) return;
+  try {
+    child.kill("SIGTERM");
+  } catch (error) {
+    console.warn("[Hero Fit] failed to SIGTERM dev server", error);
+  }
+  const exited = await waitForChildExit(child, CHILD_KILL_TIMEOUT_MS);
+  if (!exited && child.exitCode === null) {
+    try {
+      child.kill("SIGKILL");
+    } catch (error) {
+      console.warn("[Hero Fit] failed to SIGKILL dev server", error);
+    }
+    await waitForChildExit(child, CHILD_KILL_TIMEOUT_MS);
+  }
+  child.unref?.();
+};
+
+const logActiveHandles = (label) => {
+  if (process.env.CI !== "true") return;
+  try {
+    if (typeof process._getActiveHandles !== "function") return;
+    const handles = process._getActiveHandles();
+    const summary = handles.map((handle) => handle?.constructor?.name ?? typeof handle);
+    console.log(`[Hero Fit] active handles (${label}):`, summary.length, summary);
+  } catch (error) {
+    console.warn("[Hero Fit] unable to read active handles", error);
+  }
 };
 
 const startDevServer = async () => {
@@ -529,13 +578,82 @@ const evaluateCandidate = async ({
 };
 
 const main = async () => {
+  let watchdogId;
+  let shuttingDown = false;
+  let shutdownResolve;
+  const shutdownPromise = new Promise((resolve) => {
+    shutdownResolve = resolve;
+  });
+
+  let child = null;
+  let browser = null;
+  let context = null;
+  let page = null;
+
+  const teardown = async (reason = "teardown") => {
+    if (shuttingDown) return shutdownPromise;
+    shuttingDown = true;
+    if (watchdogId) {
+      clearTimeout(watchdogId);
+    }
+    console.log("[Hero Fit] teardown start", reason);
+    if (page) {
+      try {
+        await page.close();
+      } catch (closeError) {
+        console.warn("[Hero Fit] page close failed", closeError);
+      }
+    }
+    if (context) {
+      try {
+        await context.close();
+      } catch (closeError) {
+        console.warn("[Hero Fit] context close failed", closeError);
+      }
+    }
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (closeError) {
+        console.warn("[Hero Fit] browser close failed", closeError);
+      }
+    }
+    if (child) {
+      await terminateChild(child);
+    }
+    logActiveHandles("post-teardown");
+    shutdownResolve?.();
+    return shutdownPromise;
+  };
+
+  const handleSignal = (signal) => {
+    console.warn(`[Hero Fit] received ${signal}, tearing down...`);
+    teardown(signal).then(() => {
+      process.exit(signal === "SIGINT" ? 130 : 143);
+    });
+  };
+
+  process.once("SIGINT", handleSignal);
+  process.once("SIGTERM", handleSignal);
+
+  watchdogId = setTimeout(() => {
+    console.error("[Hero Fit] watchdog timeout exceeded", {
+      timeoutMs: WATCHDOG_TIMEOUT_MS,
+    });
+    logActiveHandles("watchdog");
+    teardown("watchdog").then(() => {
+      process.exit(1);
+    });
+  }, WATCHDOG_TIMEOUT_MS);
+  watchdogId.unref?.();
+
   const resolvedReference = resolveReference();
   const resolvedExists = resolvedReference ? fs.existsSync(resolvedReference) : false;
   console.log("[Hero Fit] resolved target", resolvedReference ?? "missing", "exists", resolvedExists);
   if (!resolvedReference) {
     console.error(missingReferenceMessage);
-    process.exitCode = 1;
-    return;
+    await teardown("missing-reference");
+    process.exit(1);
   }
 
   fs.mkdirSync(reportsDir, { recursive: true });
@@ -561,14 +679,13 @@ const main = async () => {
   });
   console.log("[Hero Fit] toggles confirmed", heroQuery);
 
-  let child = null;
-  let browser = null;
   try {
     const devServer = await startDevServer();
     child = devServer.child;
 
     browser = await chromium.launch();
-    const page = await browser.newPage({ viewport, deviceScaleFactor });
+    context = await browser.newContext({ viewport, deviceScaleFactor });
+    page = await context.newPage();
     page.setDefaultTimeout(15000);
     page.setDefaultNavigationTimeout(15000);
 
@@ -767,23 +884,18 @@ const main = async () => {
     console.log(`Results saved to ${resultsPath}`);
     console.log(`Report saved to ${reportPath}`);
   } catch (error) {
-    if (!handlePlaywrightError(error)) {
-      throw error;
+    const handled = handlePlaywrightError(error);
+    if (!handled) {
+      console.error("[Hero Fit] fatal error", error);
     }
-    process.exitCode = 1;
-  } finally {
-    if (browser) {
-      await browser.close().catch((closeError) => {
-        console.warn("[Hero Fit] browser close failed", closeError);
-      });
-    }
-    if (child) {
-      child.kill("SIGTERM");
-    }
+    await teardown(handled ? "playwright-error" : "fatal-error");
+    process.exit(1);
   }
+  await teardown("success");
+  process.exit(0);
 };
 
 main().catch((error) => {
   console.error("hero_fit_sacred failed:", error);
-  process.exitCode = 1;
+  process.exit(1);
 });
