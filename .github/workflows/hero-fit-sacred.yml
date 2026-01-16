@@ -28,7 +28,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: "9.12.3"
+          version: "9.15.4"
           run_install: false
 
       - name: Debug PATH
@@ -75,7 +75,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: "9.12.3"
+          version: "9.15.4"
           run_install: false
 
       - name: Install
