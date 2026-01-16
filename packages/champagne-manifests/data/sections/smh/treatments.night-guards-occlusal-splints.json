@@ -11,12 +11,12 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Night guards (occlusal splints)",
-      "title": "Custom occlusal splints to protect teeth and joints",
-      "body": "Night guards and occlusal splints are custom appliances designed to protect teeth and help manage bite-related strain. They are often used for grinding/clenching, tooth wear, fracture risk or jaw discomfort. We assess how your teeth meet, where forces concentrate and whether your symptoms suggest muscle overload or joint irritation. The appliance is then designed to fit comfortably and distribute forces more evenly. Splints don’t “cure” bruxism, but they can reduce damage and improve comfort while we monitor the situation. We’ll also explain care, expected adaptation time and when adjustments are needed.",
+      "title": "Night guards and occlusal splints",
+      "body": "Night guards and occlusal splints are custom-made appliances designed to protect teeth and reduce strain on the jaw.\n\nThey’re commonly used where tooth wear, clenching, grinding, or jaw discomfort is present, and where doing nothing may allow problems to progress.\n\nAt St Mary’s House Dental Care, splints are used thoughtfully — as part of understanding and managing forces, not as a one-size-fits-all solution.",
       "bullets": [
-        "Planned for clenching, grinding, and tooth wear",
-        "Choice of lab-made or 3D printed splints",
-        "Guided by your bite, comfort, and longevity goals"
+        "Custom-made appliances designed to protect teeth and reduce strain on the jaw.",
+        "Commonly used where tooth wear, clenching, grinding, or jaw discomfort is present, and where doing nothing may allow problems to progress.",
+        "Used thoughtfully as part of understanding and managing forces, not as a one-size-fits-all solution."
       ]
     },
     {
@@ -25,13 +25,13 @@
       "variantId": "smh_night_guards_overview",
       "order": 20,
       "seoRole": "primaryContent",
-      "eyebrow": "Overview",
-      "title": "Tailored protection for clenching and grinding",
-      "body": "Every occlusal splint is custom-made from your bite records to reduce tooth wear, ease muscle strain, and protect dental work. Materials and thickness are selected to balance comfort with the support you need overnight.",
+      "eyebrow": "What to expect during treatment",
+      "title": "What to expect during treatment",
+      "body": "If a splint is recommended, we’ll take impressions or digital scans to ensure an accurate fit.\n\nOnce fitted, we’ll explain how and when to wear it, how to clean it, and what to expect initially. Review appointments allow us to check comfort, fit, and effectiveness.",
       "bullets": [
-        "Covers the biting surfaces to distribute forces",
-        "Designed to reduce jaw tension and protect restorations",
-        "Adjustable fit to keep speech and breathing comfortable"
+        "We’ll take impressions or digital scans to ensure an accurate fit.",
+        "We’ll explain how and when to wear it, how to clean it, and what to expect initially.",
+        "Review appointments allow us to check comfort, fit, and effectiveness."
       ]
     },
     {
@@ -40,14 +40,11 @@
       "variantId": "smh_night_guards_who",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "Who night guards are for",
-      "title": "Patients needing overnight protection",
+      "eyebrow": "When a night guard or splint may be recommended",
+      "title": "When a night guard or splint may be recommended",
       "items": [
-        "People with clenching or grinding that is wearing down teeth",
-        "Patients with crowns, veneers, or implants needing protection from heavy bites",
-        "Those waking with jaw ache, tension, or headaches",
-        "Individuals with enamel erosion or tooth sensitivity from grinding",
-        "Patients advised to protect their bite after restorative treatment"
+        "A splint may be suggested if there are signs or symptoms such as excessive tooth wear, fractured fillings or crowns, jaw or facial muscle discomfort, morning headaches, or clenching and grinding habits.",
+        "Sometimes a splint is recommended to protect teeth. In other cases, it helps us understand how the bite and jaw are behaving over time."
       ]
     },
     {
@@ -56,14 +53,13 @@
       "variantId": "smh_night_guards_assessment",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Assessment & diagnosis",
-      "title": "Measure your bite before prescribing",
-      "body": "We review your history, check jaw muscles and joints, and map tooth wear. Digital scans or impressions capture your bite so we can plan splint thickness, coverage, and occlusal contacts that feel balanced.",
+      "eyebrow": "Our approach to splint therapy",
+      "title": "Our approach to splint therapy",
+      "body": "Splints are most effective when they’re properly planned and reviewed.\n\nWe focus on careful assessment, accurate records, and follow-up to make sure the splint is doing what it’s intended to do. Adjustments may be needed over time as symptoms change or improve.\n\nA splint is not usually a ‘fit once and forget’ device.",
       "bullets": [
-        "Examination of wear facets, mobility, and existing restorations",
-        "Bite analysis to see how your teeth meet and slide",
-        "Records taken for precise design and future reviews",
-        "Discussion of habits, posture, and sleep quality that affect clenching"
+        "We focus on careful assessment, accurate records, and follow-up to make sure the splint is doing what it’s intended to do.",
+        "Adjustments may be needed over time as symptoms change or improve.",
+        "A splint is not usually a ‘fit once and forget’ device."
       ]
     },
     {
@@ -72,12 +68,13 @@
       "variantId": "smh_night_guards_types",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Types of night guards offered",
-      "title": "Lab-made and 3D printed occlusal splints",
+      "eyebrow": "Different types of splints",
+      "title": "Different types of splints",
       "items": [
-        "Lab-made occlusal splints crafted by specialist dental laboratories for high durability and complex bites",
-        "3D printed occlusal splints produced in-house from your scan for rapid turnaround and precise fit",
-        "Recommendation based on your bite pattern, comfort preference, and how much wear protection you need"
+        "There are different types of splints, each designed for a specific purpose.",
+        "Some are intended primarily to protect teeth from wear. Others are used to help stabilise the bite, reduce muscle strain, or assess how the jaw is functioning.",
+        "We’ll explain which type is being recommended and what role it plays in your overall care.",
+        "The design and thickness of a splint matter, and the right choice depends on your symptoms and findings."
       ]
     },
     {
@@ -86,14 +83,12 @@
       "variantId": "smh_night_guards_care",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Care, longevity & review",
-      "title": "Keep your splint comfortable for the long term",
+      "eyebrow": "Comfort and adjustment",
+      "title": "Comfort and adjustment",
       "items": [
-        "Rinse and brush the splint with recommended cleaners after use",
-        "Store in a ventilated case away from heat to prevent warping",
-        "Bring the splint to reviews so we can check fit, bite contacts, and wear",
-        "Expected lifespan discussed upfront; replacements planned if wear or bite changes",
-        "Report cracks or soreness early so we can adjust or refabricate"
+        "It’s normal for a splint to feel unfamiliar at first.",
+        "Most patients adapt quickly, but we’ll review how it feels and functions. Any discomfort, pressure, or changes in bite should be reported so adjustments can be made.",
+        "The goal is comfort and protection, not tolerance."
       ]
     },
     {
@@ -102,14 +97,12 @@
       "variantId": "smh_night_guards_authority",
       "order": 65,
       "seoRole": "supporting",
-      "eyebrow": "Clinical direction",
-      "title": "Splints prescribed by clinicians experienced in occlusal care",
-      "body": "We assess joint health, muscle tension, and tooth wear patterns before prescribing a splint. Bite records and digital scans guide thickness, contact points, and material choice to protect both natural teeth and existing restorations.",
+      "eyebrow": "Questions and next steps",
+      "title": "Questions and next steps",
+      "body": "If you’re unsure whether a night guard or splint is necessary, we encourage you to ask.\n\nUnderstanding why an appliance has been recommended — and what it can and can’t achieve — is key to making an informed decision.",
       "bullets": [
-        "Assessment includes parafunctional habits and joint comfort",
-        "Design aims for even contact and smooth guidance",
-        "Material options selected for durability or flexibility",
-        "Follow-up adjustments scheduled to refine comfort"
+        "If you’re unsure whether a night guard or splint is necessary, we encourage you to ask.",
+        "Understanding why an appliance has been recommended — and what it can and can’t achieve — is key to making an informed decision."
       ]
     },
     {
@@ -163,14 +156,13 @@
       "variantId": "smh_night-guards-occlusal-splints_decision_clarity",
       "order": 79,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after bruxism assessment (/treatments/bruxism-and-jaw-clenching) so the plan stays safe and measured.",
+      "eyebrow": "When a splint may not be enough",
+      "title": "When a splint may not be enough",
+      "body": "In some cases, a splint alone isn’t sufficient to address underlying problems.\n\nIf tooth wear is advanced, if there are structural issues with the bite, or if symptoms persist, further investigation or treatment may be needed. We’ll explain these findings clearly and discuss appropriate next steps.",
       "bullets": [
-        "Appropriate when you want to assess whether an occlusal splint can protect teeth and joints during sleep.",
-        "Often follows Bruxism assessment (/treatments/bruxism-and-jaw-clenching); Jaw comfort reviews (/treatments/tmj-jaw-comfort).",
-        "Alternatives we balance: Relieving facial pain (/treatments/facial-pain-and-headache); Retainer adjustments (/treatments/dental-retainers); Protecting crowns and onlays (/treatments/dental-crowns).",
-        "Next steps we plan for: TMJ specialist care (/treatments/tmj-disorder-treatment); Restoring worn teeth (/treatments/inlays-onlays); Routine maintenance (/treatments/preventative-and-general-dentistry)."
+        "In some cases, a splint alone isn’t sufficient to address underlying problems.",
+        "If tooth wear is advanced, if there are structural issues with the bite, or if symptoms persist, further investigation or treatment may be needed.",
+        "We’ll explain these findings clearly and discuss appropriate next steps."
       ]
     },
     {
@@ -181,7 +173,7 @@
       "seoRole": "cta",
       "eyebrow": "Next steps",
       "title": "Plan a night guard that suits your bite",
-      "body": "Book a consultation to review your clenching or grinding and choose between lab-made and 3D printed splints with clear guidance on care and longevity.",
+      "body": "Contact us to discuss whether a night guard or splint is appropriate for you.",
       "ctas": [
         {
           "label": "Plan a clinician-led night guards occlusal splints review",
