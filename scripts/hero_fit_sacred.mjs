@@ -25,8 +25,9 @@ const captureUrl = `${baseUrl}${heroRoute}?${heroQuery}`;
 const deviceScaleFactor = Number.parseFloat(process.env.HERO_FIT_DPR ?? "1");
 const motionDelayMs = Number.parseInt(process.env.HERO_FIT_MOTION_MS ?? "600", 10);
 const candidateTimeoutMs = Number.parseInt(process.env.HERO_FIT_CANDIDATE_TIMEOUT_MS ?? "25000", 10);
-const motionRewardWeight = Number.parseFloat(process.env.HERO_FIT_MOTION_WEIGHT ?? "0.7");
-const motionRewardCap = Number.parseFloat(process.env.HERO_FIT_MOTION_REWARD_CAP ?? "0.4");
+const motionRewardWeight = Number.parseFloat(process.env.HERO_FIT_MOTION_WEIGHT ?? "0.9");
+const motionRewardCap = Number.parseFloat(process.env.HERO_FIT_MOTION_REWARD_CAP ?? "0.6");
+const colorEnergyWeight = Number.parseFloat(process.env.HERO_FIT_COLOR_ENERGY_WEIGHT ?? "0.4");
 const chromaTolerance = Number.parseFloat(process.env.HERO_FIT_CHROMA_TOLERANCE ?? "1.4");
 const chromaPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_CHROMA_WEIGHT ?? "1.2");
 const chromaRoiPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_CHROMA_ROI_WEIGHT ?? "2.4");
@@ -34,12 +35,16 @@ const washoutTolerance = Number.parseFloat(process.env.HERO_FIT_WASHOUT_TOLERANC
 const washoutPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_WASHOUT_WEIGHT ?? "1.6");
 const midFieldTolerance = Number.parseFloat(process.env.HERO_FIT_MIDFIELD_TOLERANCE ?? "0.8");
 const midFieldPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_MIDFIELD_WEIGHT ?? "1.8");
-const hueDriftTolerance = Number.parseFloat(process.env.HERO_FIT_HUE_DRIFT_TOLERANCE ?? "2.8");
-const hueDriftPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_HUE_DRIFT_WEIGHT ?? "2.6");
+const hueDriftTolerance = Number.parseFloat(process.env.HERO_FIT_HUE_DRIFT_TOLERANCE ?? "0.35");
+const hueDriftPenaltyWeight = Number.parseFloat(process.env.HERO_FIT_HUE_DRIFT_WEIGHT ?? "1.6");
+const huePenaltyCap = Number.parseFloat(process.env.HERO_FIT_HUE_PENALTY_CAP ?? "2.0");
 const candidateLimit = process.env.HERO_FIT_CANDIDATE_LIMIT
   ? Number.parseInt(process.env.HERO_FIT_CANDIDATE_LIMIT, 10)
   : null;
 const candidateSeed = process.env.HERO_FIT_SEED ?? "sacred-fit";
+const causticsOpacityMax = Number.parseFloat(process.env.HERO_FIT_CAUSTICS_OPACITY_MAX ?? "0.28");
+const shimmerOpacityMax = Number.parseFloat(process.env.HERO_FIT_SHIMMER_OPACITY_MAX ?? "0.28");
+const combinedOpacityMax = Number.parseFloat(process.env.HERO_FIT_COMBINED_OPACITY_MAX ?? "0.55");
 const epsilon = 0.0001;
 
 const missingReferenceMessage = [
@@ -224,15 +229,15 @@ const loadLabStats = async (buffer, width, height, roi) => {
 };
 
 const buildCandidates = () => {
-  const causticsOpacities = [0.08, 0.12, 0.15, 0.18];
-  const shimmerOpacities = [0.06, 0.1, 0.14, 0.18];
+  const causticsOpacities = [0.08, 0.12, 0.15, 0.18, 0.22, 0.25, 0.28];
+  const shimmerOpacities = [0.06, 0.1, 0.14, 0.18, 0.22, 0.25, 0.28];
   const blends = ["soft-light", "screen", "overlay"];
 
   const candidates = [];
   for (const causticsOpacity of causticsOpacities) {
     for (const shimmerOpacity of shimmerOpacities) {
-      if (causticsOpacity > 0.18 || shimmerOpacity > 0.18) continue;
-      if (causticsOpacity + shimmerOpacity > 0.35) continue;
+      if (causticsOpacity > causticsOpacityMax || shimmerOpacity > shimmerOpacityMax) continue;
+      if (causticsOpacity + shimmerOpacity > combinedOpacityMax) continue;
       for (const causticsBlend of blends) {
         for (const shimmerBlend of blends) {
           if (causticsBlend === "screen" && shimmerBlend === "screen") continue;
@@ -329,8 +334,8 @@ const buildRois = (viewport) => {
 };
 
 const computeHueDrift = (reference, candidate) => {
-  const deltaA = candidate.meanA - reference.meanA;
-  const deltaB = candidate.meanB - reference.meanB;
+  const deltaA = (candidate.meanA - reference.meanA) / 128;
+  const deltaB = (candidate.meanB - reference.meanB) / 128;
   return Math.sqrt(deltaA * deltaA + deltaB * deltaB);
 };
 
@@ -509,6 +514,10 @@ const evaluateCandidate = async ({
     referenceRoiStats.meanChroma - candidateRoiStats.meanChroma - chromaTolerance,
   );
   const chromaPenalty = chromaDeficit * chromaPenaltyWeight + chromaDeficitRoi * chromaRoiPenaltyWeight;
+  const referenceOutsideChroma = Math.max(0, referenceStats.meanChroma - referenceRoiStats.meanChroma);
+  const candidateOutsideChroma = Math.max(0, candidateStats.meanChroma - candidateRoiStats.meanChroma);
+  const colorEnergyGain = Math.max(0, candidateOutsideChroma - referenceOutsideChroma);
+  const colorEnergyReward = colorEnergyGain * colorEnergyWeight;
 
   const washoutDelta = Math.max(0, candidateStats.meanL - referenceStats.meanL - washoutTolerance);
   const washoutPenalty = washoutDelta * washoutPenaltyWeight;
@@ -520,10 +529,11 @@ const evaluateCandidate = async ({
     teal: computeHueDrift(referenceHueStats.teal, candidateHueStats.teal),
     gold: computeHueDrift(referenceHueStats.gold, candidateHueStats.gold),
   };
-  const huePenalty =
+  const huePenaltyRaw =
     Math.max(0, hueDrift.magenta - hueDriftTolerance) * hueDriftPenaltyWeight +
     Math.max(0, hueDrift.teal - hueDriftTolerance) * hueDriftPenaltyWeight +
     Math.max(0, hueDrift.gold - hueDriftTolerance) * hueDriftPenaltyWeight;
+  const huePenalty = Math.min(huePenaltyRaw, huePenaltyCap);
 
   const motionStart = staticShot;
   await page.waitForTimeout(motionDelayMs);
@@ -540,7 +550,8 @@ const evaluateCandidate = async ({
     washoutPenalty +
     midFieldPenalty +
     huePenalty -
-    motionReward +
+    motionReward -
+    colorEnergyReward +
     epsilon;
 
   return {
@@ -551,6 +562,8 @@ const evaluateCandidate = async ({
     washoutPenalty,
     midFieldPenalty,
     huePenalty,
+    huePenaltyRaw,
+    colorEnergyReward,
     motionScore: motionEnergy,
     motionScoreNormalized: motionEnergyNormalized,
     motionRewardBase,
@@ -799,9 +812,10 @@ const main = async () => {
       rois,
       objective: {
         formula:
-          "staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty - motionReward + epsilon",
+          "staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty - motionReward - colorEnergyReward + epsilon",
         motionRewardWeight,
         motionRewardCap,
+        colorEnergyWeight,
         chromaTolerance,
         chromaPenaltyWeight,
         chromaRoiPenaltyWeight,
@@ -811,6 +825,7 @@ const main = async () => {
         midFieldPenaltyWeight,
         hueDriftTolerance,
         hueDriftPenaltyWeight,
+        huePenaltyCap,
         epsilon,
       },
       candidates: {
@@ -820,9 +835,9 @@ const main = async () => {
         seed: candidateSeed,
         limit: candidateLimit,
         blends: ["soft-light", "screen", "overlay"],
-        causticsOpacityMax: 0.18,
-        shimmerOpacityMax: 0.18,
-        combinedOpacityMax: 0.35,
+        causticsOpacityMax,
+        shimmerOpacityMax,
+        combinedOpacityMax,
       },
       motionDelta: {
         file: "reports/hero-fit/motion_delta.png",
@@ -858,6 +873,8 @@ const main = async () => {
         washoutPenalty: entry.washoutPenalty,
         midFieldPenalty: entry.midFieldPenalty,
         huePenalty: entry.huePenalty,
+        huePenaltyRaw: entry.huePenaltyRaw,
+        colorEnergyReward: entry.colorEnergyReward,
         motionReward: entry.motionReward,
         stats: entry.stats,
       })),
