@@ -43,28 +43,40 @@ jobs:
       has_report: ${{ steps.report-check.outputs.has_report }}
       has_best: ${{ steps.report-check.outputs.has_best }}
     steps:
+      - name: PR pass-through
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo "Sacred Hero Fit: PR pass-through mode (heavy steps disabled)."
+          exit 0
+
       - uses: actions/checkout@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           node-version: "20"
 
       - name: Enable corepack
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: corepack enable && corepack prepare pnpm@9.15.4 --activate
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           version: "9.15.4"
           run_install: false
 
       - name: Get pnpm store path
         id: pnpm-store
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
 
       - name: Cache pnpm store
         uses: actions/cache@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           path: ${{ steps.pnpm-store.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
@@ -73,6 +85,7 @@ jobs:
 
       - name: Cache Playwright browsers
         uses: actions/cache@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
@@ -80,19 +93,22 @@ jobs:
             ${{ runner.os }}-playwright-
 
       - name: Install
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         timeout-minutes: 10
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright Chromium
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         timeout-minutes: 15
         run: pnpm exec playwright install --with-deps chromium
 
       - name: Run sacred hero fit
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         timeout-minutes: 20
         run: pnpm run hero:fit:sacred
 
       - name: Print winner
-        if: ${{ always() }}
+        if: ${{ github.event_name == 'workflow_dispatch' && always() }}
         run: |
           if [ -f reports/hero-fit/report.json ]; then
             node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate;console.log('best.candidate',c);if(c){console.log('caustics',c.causticsBlend,c.causticsOpacity);console.log('shimmer',c.shimmerBlend,c.shimmerOpacity);}else{process.exit(1);}"
@@ -102,12 +118,12 @@ jobs:
 
       - name: Check hero fit report
         id: report-check
-        if: ${{ always() }}
+        if: ${{ github.event_name == 'workflow_dispatch' && always() }}
         run: |
           node -e "const fs=require('fs');const p='reports/hero-fit/report.json';const out=[];if(!fs.existsSync(p)){out.push('has_report=false');out.push('has_best=false');}else{const r=JSON.parse(fs.readFileSync(p,'utf8'));const hasBest=Boolean(r.best && r.best.candidate);out.push('has_report=true');out.push('has_best=' + hasBest);}fs.appendFileSync(process.env.GITHUB_OUTPUT, out.join('\\n') + '\\n');"
 
       - name: Upload hero fit artifacts
-        if: ${{ always() }}
+        if: ${{ github.event_name == 'workflow_dispatch' && always() }}
         uses: actions/upload-artifact@v4
         with:
           name: hero-fit-report
@@ -151,54 +167,72 @@ jobs:
   apply_winner_pr:
     runs-on: ubuntu-latest
     needs: fit
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_hero_fit == true && needs.fit.outputs.has_report == 'true' && needs.fit.outputs.has_best == 'true' }}
+    if: ${{ github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.run_hero_fit == true && needs.fit.outputs.has_report == 'true' && needs.fit.outputs.has_best == 'true') }}
     timeout-minutes: 45
     steps:
+      - name: PR pass-through
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo "Sacred Hero Fit: PR pass-through mode (heavy steps disabled)."
+          exit 0
+
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           node-version: "20"
 
       - name: Enable corepack
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: corepack enable && corepack prepare pnpm@9.15.4 --activate
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           version: "9.15.4"
           run_install: false
 
       - name: Install
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         timeout-minutes: 10
         run: pnpm install --frozen-lockfile
 
       - name: Download hero fit artifacts
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/download-artifact@v4
         with:
           name: hero-fit-report
           path: reports/hero-fit
 
       - name: Validate hero fit report
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: test -f reports/hero-fit/report.json
 
       - name: Apply winner to manifest
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: node scripts/hero_fit_apply_winner.mjs
 
       - name: Guard hero
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: pnpm run guard:hero
 
       - name: Guard canon
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: pnpm run guard:canon
 
       - name: Verify
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: pnpm run verify
 
       - name: Prepare PR body
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate||{};const snippet=JSON.stringify(c,null,2);const body=[\
           '## Sacred Hero Fit Winner',\
@@ -215,6 +249,7 @@ jobs:
           ].join('\\n');fs.writeFileSync('reports/hero-fit/pr-body.md',body);"
 
       - name: Commit and push winner branch
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes detected after applying winner."
