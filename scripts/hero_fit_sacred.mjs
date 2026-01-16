@@ -24,6 +24,7 @@ const captureUrl = `${baseUrl}${heroRoute}?${heroQuery}`;
 
 const deviceScaleFactor = Number.parseFloat(process.env.HERO_FIT_DPR ?? "1");
 const motionDelayMs = Number.parseInt(process.env.HERO_FIT_MOTION_MS ?? "600", 10);
+const candidateTimeoutMs = Number.parseInt(process.env.HERO_FIT_CANDIDATE_TIMEOUT_MS ?? "25000", 10);
 const motionRewardWeight = Number.parseFloat(process.env.HERO_FIT_MOTION_WEIGHT ?? "0.7");
 const motionRewardCap = Number.parseFloat(process.env.HERO_FIT_MOTION_REWARD_CAP ?? "0.4");
 const chromaTolerance = Number.parseFloat(process.env.HERO_FIT_CHROMA_TOLERANCE ?? "1.4");
@@ -55,6 +56,28 @@ const resolveReference = () => {
   if (fs.existsSync(legacyReferencePath)) return legacyReferencePath;
   const legacyPath = "/mnt/data/sacred-hero.png";
   if (fs.existsSync(legacyPath)) return legacyPath;
+  return null;
+};
+
+const resolveViewportOverride = () => {
+  const raw = process.env.HERO_FIT_VIEWPORT;
+  if (raw) {
+    const [widthRaw, heightRaw] = raw.toLowerCase().split("x");
+    const width = Number.parseInt(widthRaw, 10);
+    const height = Number.parseInt(heightRaw, 10);
+    if (Number.isFinite(width) && Number.isFinite(height) && width > 0 && height > 0) {
+      return { width, height };
+    }
+  }
+  const width = process.env.HERO_FIT_VIEWPORT_WIDTH
+    ? Number.parseInt(process.env.HERO_FIT_VIEWPORT_WIDTH, 10)
+    : null;
+  const height = process.env.HERO_FIT_VIEWPORT_HEIGHT
+    ? Number.parseInt(process.env.HERO_FIT_VIEWPORT_HEIGHT, 10)
+    : null;
+  if (width && height && Number.isFinite(width) && Number.isFinite(height)) {
+    return { width, height };
+  }
   return null;
 };
 
@@ -98,7 +121,10 @@ const startDevServer = async () => {
     setTimeout(() => resolve(false), 45000);
   });
 
-  if (!ready) throw new Error("Dev server did not become ready in time.");
+  if (!ready) {
+    child.kill("SIGTERM");
+    throw new Error("Dev server did not become ready in time.");
+  }
   return { child, started: true };
 };
 
@@ -259,6 +285,21 @@ const computeHueDrift = (reference, candidate) => {
   return Math.sqrt(deltaA * deltaA + deltaB * deltaB);
 };
 
+const withTimeout = async (promise, timeoutMs, label) => {
+  let timeoutId;
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      const suffix = label ? ` (${label})` : "";
+      reject(new Error(`Candidate timed out after ${timeoutMs}ms${suffix}`));
+    }, timeoutMs);
+  });
+  try {
+    return await Promise.race([promise, timeoutPromise]);
+  } finally {
+    clearTimeout(timeoutId);
+  }
+};
+
 const handlePlaywrightError = (error) => {
   const message = error instanceof Error ? error.message : String(error);
   const lower = message.toLowerCase();
@@ -310,6 +351,8 @@ const captureHero = async (page) => {
 };
 
 const resolveViewport = async (referenceBuffer) => {
+  const override = resolveViewportOverride();
+  if (override) return override;
   const meta = await sharp(referenceBuffer).metadata();
   if (!meta.width || !meta.height) throw new Error("Unable to read reference dimensions.");
   return { width: meta.width, height: meta.height };
@@ -385,6 +428,106 @@ const buildTopGrid = async (page, candidates, viewport) => {
   return { columns, rows };
 };
 
+const evaluateCandidate = async ({
+  page,
+  candidate,
+  viewport,
+  referenceLab,
+  referenceStats,
+  referenceRoiStats,
+  referenceHueStats,
+  rois,
+}) => {
+  await applyOverrides(page, candidate);
+  await page.waitForTimeout(75);
+
+  const staticShot = await captureHero(page);
+  const labShot = await loadLab(staticShot, viewport.width, viewport.height);
+
+  const staticScore = mse(labShot, referenceLab);
+  const staticScoreNormalized = staticScore / (255 * 255);
+  const candidateStats = await loadLabStats(staticShot, viewport.width, viewport.height);
+  const candidateRoiStats = await loadLabStats(staticShot, viewport.width, viewport.height, rois.midField);
+  const candidateHueStats = {
+    magenta: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.magenta),
+    teal: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.teal),
+    gold: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.gold),
+  };
+
+  const chromaDeficit = Math.max(0, referenceStats.meanChroma - candidateStats.meanChroma - chromaTolerance);
+  const chromaDeficitRoi = Math.max(
+    0,
+    referenceRoiStats.meanChroma - candidateRoiStats.meanChroma - chromaTolerance,
+  );
+  const chromaPenalty = chromaDeficit * chromaPenaltyWeight + chromaDeficitRoi * chromaRoiPenaltyWeight;
+
+  const washoutDelta = Math.max(0, candidateStats.meanL - referenceStats.meanL - washoutTolerance);
+  const washoutPenalty = washoutDelta * washoutPenaltyWeight;
+  const midFieldDelta = Math.max(0, candidateRoiStats.meanL - referenceRoiStats.meanL - midFieldTolerance);
+  const midFieldPenalty = midFieldDelta * midFieldPenaltyWeight;
+
+  const hueDrift = {
+    magenta: computeHueDrift(referenceHueStats.magenta, candidateHueStats.magenta),
+    teal: computeHueDrift(referenceHueStats.teal, candidateHueStats.teal),
+    gold: computeHueDrift(referenceHueStats.gold, candidateHueStats.gold),
+  };
+  const huePenalty =
+    Math.max(0, hueDrift.magenta - hueDriftTolerance) * hueDriftPenaltyWeight +
+    Math.max(0, hueDrift.teal - hueDriftTolerance) * hueDriftPenaltyWeight +
+    Math.max(0, hueDrift.gold - hueDriftTolerance) * hueDriftPenaltyWeight;
+
+  const motionStart = staticShot;
+  await page.waitForTimeout(motionDelayMs);
+  const motionEnd = await captureHero(page);
+  const motionEnergy = await computeMotionEnergy(motionStart, motionEnd, rois.midField);
+  const motionEnergyNormalized = normalizeEnergy(motionEnergy);
+  const motionRewardBase = motionEnergyNormalized * motionRewardWeight;
+  const motionRewardLimit = Math.max(0.05, chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty);
+  const motionReward = Math.min(motionRewardBase, motionRewardLimit, motionRewardCap);
+
+  const objective =
+    staticScoreNormalized +
+    chromaPenalty +
+    washoutPenalty +
+    midFieldPenalty +
+    huePenalty -
+    motionReward +
+    epsilon;
+
+  return {
+    candidate,
+    staticScore,
+    staticScoreNormalized,
+    chromaPenalty,
+    washoutPenalty,
+    midFieldPenalty,
+    huePenalty,
+    motionScore: motionEnergy,
+    motionScoreNormalized: motionEnergyNormalized,
+    motionRewardBase,
+    motionRewardLimit,
+    motionRewardCap,
+    motionReward,
+    objective,
+    stats: {
+      meanL: candidateStats.meanL,
+      meanA: candidateStats.meanA,
+      meanB: candidateStats.meanB,
+      meanChroma: candidateStats.meanChroma,
+      roiMeanL: candidateRoiStats.meanL,
+      roiMeanA: candidateRoiStats.meanA,
+      roiMeanB: candidateRoiStats.meanB,
+      roiMeanChroma: candidateRoiStats.meanChroma,
+      hueZones: {
+        magenta: candidateHueStats.magenta,
+        teal: candidateHueStats.teal,
+        gold: candidateHueStats.gold,
+      },
+      hueDrift,
+    },
+  };
+};
+
 const main = async () => {
   const resolvedReference = resolveReference();
   const resolvedExists = resolvedReference ? fs.existsSync(resolvedReference) : false;
@@ -418,257 +561,226 @@ const main = async () => {
   });
   console.log("[Hero Fit] toggles confirmed", heroQuery);
 
-  const { child } = await startDevServer();
-  let browser;
+  let child = null;
+  let browser = null;
   try {
+    const devServer = await startDevServer();
+    child = devServer.child;
+
     browser = await chromium.launch();
-  } catch (error) {
-    if (child) child.kill("SIGTERM");
-    if (!handlePlaywrightError(error)) throw error;
-    process.exit(1);
-  }
-  const page = await browser.newPage({ viewport, deviceScaleFactor });
+    const page = await browser.newPage({ viewport, deviceScaleFactor });
+    page.setDefaultTimeout(15000);
+    page.setDefaultNavigationTimeout(15000);
 
-  await page.goto(captureUrl, { waitUntil: "domcontentloaded" });
-  await waitForHeroReady(page);
-  await hideHeroContent(page);
+    await page.goto(captureUrl, { waitUntil: "domcontentloaded" });
+    await waitForHeroReady(page);
+    await hideHeroContent(page);
 
-  const candidatesRaw = buildCandidates();
-  const { list: candidates, sampled } = limitCandidates(candidatesRaw);
-  console.log("[Hero Fit] candidates", {
-    total: candidatesRaw.length,
-    evaluated: candidates.length,
-    sampled,
-    seed: candidateSeed,
-    limit: candidateLimit,
-  });
-  const results = [];
-  let referenceLab = null;
-  const referenceStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height);
-  const rois = buildRois(viewport);
-  const referenceRoiStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.midField);
-  const referenceHueStats = {
-    magenta: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.magenta),
-    teal: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.teal),
-    gold: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.gold),
-  };
-
-  for (const [index, candidate] of candidates.entries()) {
-    await applyOverrides(page, candidate);
-    await page.waitForTimeout(75);
-
-    const staticShot = await captureHero(page);
-    const labShot = await loadLab(staticShot, viewport.width, viewport.height);
-    if (!referenceLab) {
-      referenceLab = await loadLab(referenceBuffer, viewport.width, viewport.height);
-    }
-
-    const staticScore = mse(labShot, referenceLab);
-    const staticScoreNormalized = staticScore / (255 * 255);
-    const candidateStats = await loadLabStats(staticShot, viewport.width, viewport.height);
-    const candidateRoiStats = await loadLabStats(staticShot, viewport.width, viewport.height, rois.midField);
-    const candidateHueStats = {
-      magenta: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.magenta),
-      teal: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.teal),
-      gold: await loadLabStats(staticShot, viewport.width, viewport.height, rois.hue.gold),
-    };
-
-    const chromaDeficit = Math.max(0, referenceStats.meanChroma - candidateStats.meanChroma - chromaTolerance);
-    const chromaDeficitRoi = Math.max(0, referenceRoiStats.meanChroma - candidateRoiStats.meanChroma - chromaTolerance);
-    const chromaPenalty = chromaDeficit * chromaPenaltyWeight + chromaDeficitRoi * chromaRoiPenaltyWeight;
-
-    const washoutDelta = Math.max(0, candidateStats.meanL - referenceStats.meanL - washoutTolerance);
-    const washoutPenalty = washoutDelta * washoutPenaltyWeight;
-    const midFieldDelta = Math.max(0, candidateRoiStats.meanL - referenceRoiStats.meanL - midFieldTolerance);
-    const midFieldPenalty = midFieldDelta * midFieldPenaltyWeight;
-
-    const hueDrift = {
-      magenta: computeHueDrift(referenceHueStats.magenta, candidateHueStats.magenta),
-      teal: computeHueDrift(referenceHueStats.teal, candidateHueStats.teal),
-      gold: computeHueDrift(referenceHueStats.gold, candidateHueStats.gold),
-    };
-    const huePenalty =
-      Math.max(0, hueDrift.magenta - hueDriftTolerance) * hueDriftPenaltyWeight +
-      Math.max(0, hueDrift.teal - hueDriftTolerance) * hueDriftPenaltyWeight +
-      Math.max(0, hueDrift.gold - hueDriftTolerance) * hueDriftPenaltyWeight;
-
-    const motionStart = staticShot;
-    await page.waitForTimeout(motionDelayMs);
-    const motionEnd = await captureHero(page);
-    const motionEnergy = await computeMotionEnergy(motionStart, motionEnd, rois.midField);
-    const motionEnergyNormalized = normalizeEnergy(motionEnergy);
-    const motionRewardBase = motionEnergyNormalized * motionRewardWeight;
-    const motionRewardLimit = Math.max(0.05, chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty);
-    const motionReward = Math.min(motionRewardBase, motionRewardLimit, motionRewardCap);
-
-    const objective =
-      staticScoreNormalized +
-      chromaPenalty +
-      washoutPenalty +
-      midFieldPenalty +
-      huePenalty -
-      motionReward +
-      epsilon;
-
-    results.push({
-      candidate,
-      staticScore,
-      staticScoreNormalized,
-      chromaPenalty,
-      washoutPenalty,
-      midFieldPenalty,
-      huePenalty,
-      motionScore: motionEnergy,
-      motionScoreNormalized: motionEnergyNormalized,
-      motionRewardBase,
-      motionRewardLimit,
-      motionRewardCap,
-      motionReward,
-      objective,
-      stats: {
-        meanL: candidateStats.meanL,
-        meanA: candidateStats.meanA,
-        meanB: candidateStats.meanB,
-        meanChroma: candidateStats.meanChroma,
-        roiMeanL: candidateRoiStats.meanL,
-        roiMeanA: candidateRoiStats.meanA,
-        roiMeanB: candidateRoiStats.meanB,
-        roiMeanChroma: candidateRoiStats.meanChroma,
-        hueZones: {
-          magenta: candidateHueStats.magenta,
-          teal: candidateHueStats.teal,
-          gold: candidateHueStats.gold,
-        },
-        hueDrift,
-      },
-    });
-
-    if ((index + 1) % 30 === 0) {
-      console.log(`Processed ${index + 1}/${candidates.length} candidates...`);
-    }
-  }
-
-  results.sort((a, b) => a.objective - b.objective);
-  const best = results[0];
-  const top12 = results.slice(0, 12);
-
-  await applyOverrides(page, best.candidate);
-  await page.waitForTimeout(75);
-  const bestShot = await captureHero(page);
-  fs.writeFileSync(bestPath, bestShot);
-
-  const motionStart = bestShot;
-  await page.waitForTimeout(motionDelayMs);
-  const motionEnd = await captureHero(page);
-  const motionMeta = await buildMotionDeltaImage(motionStart, motionEnd);
-
-  const gridMeta = await buildTopGrid(page, top12, viewport);
-
-  const resultsOutput = {
-    generatedAt: new Date().toISOString(),
-    target: resolvedReference,
-    capture: {
-      url: captureUrl,
-      route: heroRoute,
-      query: heroQuery,
-      viewport,
-      dpr: deviceScaleFactor,
-      deviceScaleFactor,
-      theme,
-      reducedMotion,
-      enabledLayers,
-      motionDelayMs,
-    },
-    rois,
-    objective: {
-      formula:
-        "staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty - motionReward + epsilon",
-      motionRewardWeight,
-      motionRewardCap,
-      chromaTolerance,
-      chromaPenaltyWeight,
-      chromaRoiPenaltyWeight,
-      washoutTolerance,
-      washoutPenaltyWeight,
-      midFieldTolerance,
-      midFieldPenaltyWeight,
-      hueDriftTolerance,
-      hueDriftPenaltyWeight,
-      epsilon,
-    },
-    candidates: {
+    const candidatesRaw = buildCandidates();
+    const { list: candidates, sampled } = limitCandidates(candidatesRaw);
+    console.log("[Hero Fit] candidates", {
       total: candidatesRaw.length,
       evaluated: candidates.length,
       sampled,
       seed: candidateSeed,
       limit: candidateLimit,
-      blends: ["soft-light", "screen", "overlay"],
-      causticsOpacityMax: 0.18,
-      shimmerOpacityMax: 0.18,
-      combinedOpacityMax: 0.35,
-    },
-    motionDelta: {
-      file: "reports/hero-fit/motion_delta.png",
-      scale: motionMeta.scale,
-      width: motionMeta.width,
-      height: motionMeta.height,
-    },
-    grid: {
-      file: "reports/hero-fit/top_12_grid.png",
-      columns: gridMeta.columns,
-      rows: gridMeta.rows,
-      count: top12.length,
-    },
-    totalCandidates: results.length,
-    best,
-    results,
-  };
+    });
+    const results = [];
+    const referenceLab = await loadLab(referenceBuffer, viewport.width, viewport.height);
+    const referenceStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height);
+    const rois = buildRois(viewport);
+    const referenceRoiStats = await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.midField);
+    const referenceHueStats = {
+      magenta: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.magenta),
+      teal: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.teal),
+      gold: await loadLabStats(referenceBuffer, viewport.width, viewport.height, rois.hue.gold),
+    };
 
-  const reportOutput = {
-    generatedAt: resultsOutput.generatedAt,
-    target: resolvedReference,
-    capture: resultsOutput.capture,
-    rois,
-    objective: resultsOutput.objective,
-    candidates: resultsOutput.candidates,
-    grid: resultsOutput.grid,
-    motionDelta: resultsOutput.motionDelta,
-    totalCandidates: results.length,
-    top12: top12.map((entry) => ({
-      candidate: entry.candidate,
-      objective: entry.objective,
-      chromaPenalty: entry.chromaPenalty,
-      washoutPenalty: entry.washoutPenalty,
-      midFieldPenalty: entry.midFieldPenalty,
-      huePenalty: entry.huePenalty,
-      motionReward: entry.motionReward,
-      stats: entry.stats,
-    })),
-    best,
-    explanation:
-      "Best chosen because it preserves chroma authority while maximizing motion energy within constraints.",
-  };
+    for (const [index, candidate] of candidates.entries()) {
+      try {
+        const result = await withTimeout(
+          evaluateCandidate({
+            page,
+            candidate,
+            viewport,
+            referenceLab,
+            referenceStats,
+            referenceRoiStats,
+            referenceHueStats,
+            rois,
+          }),
+          candidateTimeoutMs,
+          `candidate ${index + 1}`,
+        );
+        results.push(result);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        const timedOut = message.includes("timed out");
+        console.warn("[Hero Fit] candidate failed", {
+          index: index + 1,
+          candidate,
+          timedOut,
+          error: message,
+        });
+        results.push({
+          candidate,
+          failed: true,
+          timedOut,
+          error: message,
+          objective: Number.POSITIVE_INFINITY,
+        });
+        try {
+          await page.reload({ waitUntil: "domcontentloaded" });
+          await waitForHeroReady(page);
+          await hideHeroContent(page);
+        } catch (reloadError) {
+          console.warn("[Hero Fit] page reload failed after candidate error", reloadError);
+        }
+      }
 
-  fs.writeFileSync(resultsPath, JSON.stringify(resultsOutput, null, 2));
-  fs.writeFileSync(reportPath, JSON.stringify(reportOutput, null, 2));
+      if ((index + 1) % 30 === 0) {
+        console.log(`Processed ${index + 1}/${candidates.length} candidates...`);
+      }
+    }
 
-  console.log("Best candidate:", best.candidate);
-  console.log("Best scores:", {
-    staticScore: best.staticScore,
-    motionScore: best.motionScore,
-    chromaPenalty: best.chromaPenalty,
-    washoutPenalty: best.washoutPenalty,
-    midFieldPenalty: best.midFieldPenalty,
-    objective: best.objective,
-  });
-  console.log(`Best static frame saved to ${bestPath}`);
-  console.log(`Motion delta saved to ${motionDeltaPath}`);
-  console.log(`Top grid saved to ${topGridPath}`);
-  console.log(`Results saved to ${resultsPath}`);
-  console.log(`Report saved to ${reportPath}`);
+    const successfulResults = results.filter((entry) => !entry.failed);
+    successfulResults.sort((a, b) => a.objective - b.objective);
+    const best = successfulResults[0];
+    if (!best) {
+      throw new Error("No candidates completed successfully.");
+    }
+    const top12 = successfulResults.slice(0, 12);
 
-  await browser.close();
-  if (child) child.kill("SIGTERM");
+    await applyOverrides(page, best.candidate);
+    await page.waitForTimeout(75);
+    const bestShot = await captureHero(page);
+    fs.writeFileSync(bestPath, bestShot);
+
+    const motionStart = bestShot;
+    await page.waitForTimeout(motionDelayMs);
+    const motionEnd = await captureHero(page);
+    const motionMeta = await buildMotionDeltaImage(motionStart, motionEnd);
+
+    const gridMeta = await buildTopGrid(page, top12, viewport);
+
+    const resultsOutput = {
+      generatedAt: new Date().toISOString(),
+      target: resolvedReference,
+      capture: {
+        url: captureUrl,
+        route: heroRoute,
+        query: heroQuery,
+        viewport,
+        dpr: deviceScaleFactor,
+        deviceScaleFactor,
+        theme,
+        reducedMotion,
+        enabledLayers,
+        motionDelayMs,
+        candidateTimeoutMs,
+      },
+      rois,
+      objective: {
+        formula:
+          "staticScoreNormalized + chromaPenalty + washoutPenalty + midFieldPenalty + huePenalty - motionReward + epsilon",
+        motionRewardWeight,
+        motionRewardCap,
+        chromaTolerance,
+        chromaPenaltyWeight,
+        chromaRoiPenaltyWeight,
+        washoutTolerance,
+        washoutPenaltyWeight,
+        midFieldTolerance,
+        midFieldPenaltyWeight,
+        hueDriftTolerance,
+        hueDriftPenaltyWeight,
+        epsilon,
+      },
+      candidates: {
+        total: candidatesRaw.length,
+        evaluated: candidates.length,
+        sampled,
+        seed: candidateSeed,
+        limit: candidateLimit,
+        blends: ["soft-light", "screen", "overlay"],
+        causticsOpacityMax: 0.18,
+        shimmerOpacityMax: 0.18,
+        combinedOpacityMax: 0.35,
+      },
+      motionDelta: {
+        file: "reports/hero-fit/motion_delta.png",
+        scale: motionMeta.scale,
+        width: motionMeta.width,
+        height: motionMeta.height,
+      },
+      grid: {
+        file: "reports/hero-fit/top_12_grid.png",
+        columns: gridMeta.columns,
+        rows: gridMeta.rows,
+        count: top12.length,
+      },
+      totalCandidates: results.length,
+      best,
+      results,
+    };
+
+    const reportOutput = {
+      generatedAt: resultsOutput.generatedAt,
+      target: resolvedReference,
+      capture: resultsOutput.capture,
+      rois,
+      objective: resultsOutput.objective,
+      candidates: resultsOutput.candidates,
+      grid: resultsOutput.grid,
+      motionDelta: resultsOutput.motionDelta,
+      totalCandidates: results.length,
+      top12: top12.map((entry) => ({
+        candidate: entry.candidate,
+        objective: entry.objective,
+        chromaPenalty: entry.chromaPenalty,
+        washoutPenalty: entry.washoutPenalty,
+        midFieldPenalty: entry.midFieldPenalty,
+        huePenalty: entry.huePenalty,
+        motionReward: entry.motionReward,
+        stats: entry.stats,
+      })),
+      best,
+      explanation:
+        "Best chosen because it preserves chroma authority while maximizing motion energy within constraints.",
+    };
+
+    fs.writeFileSync(resultsPath, JSON.stringify(resultsOutput, null, 2));
+    fs.writeFileSync(reportPath, JSON.stringify(reportOutput, null, 2));
+
+    console.log("Best candidate:", best.candidate);
+    console.log("Best scores:", {
+      staticScore: best.staticScore,
+      motionScore: best.motionScore,
+      chromaPenalty: best.chromaPenalty,
+      washoutPenalty: best.washoutPenalty,
+      midFieldPenalty: best.midFieldPenalty,
+      objective: best.objective,
+    });
+    console.log(`Best static frame saved to ${bestPath}`);
+    console.log(`Motion delta saved to ${motionDeltaPath}`);
+    console.log(`Top grid saved to ${topGridPath}`);
+    console.log(`Results saved to ${resultsPath}`);
+    console.log(`Report saved to ${reportPath}`);
+  } catch (error) {
+    if (!handlePlaywrightError(error)) {
+      throw error;
+    }
+    process.exitCode = 1;
+  } finally {
+    if (browser) {
+      await browser.close().catch((closeError) => {
+        console.warn("[Hero Fit] browser close failed", closeError);
+      });
+    }
+    if (child) {
+      child.kill("SIGTERM");
+    }
+  }
 };
 
 main().catch((error) => {
