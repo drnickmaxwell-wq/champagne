@@ -9,7 +9,7 @@
       "label": "Home",
       "path": "/",
       "category": "hub",
-      "hero": "home_neutral_hero_v1",
+      "hero": "sacred_home_hero_v1",
       "ctas": {
         "heroCTAs": [
           "book-consultation",

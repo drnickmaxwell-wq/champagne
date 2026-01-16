@@ -2,7 +2,7 @@
   "waveMasks": {
     "mask.waveHeader.desktop": "sacred.wave.mask.desktop",
     "mask.waveHeader.mobile": "sacred.wave.mask.mobile",
-    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "overlay", "opacity": 0.48 },
+    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "overlay", "opacity": 0.4 },
     "mask.wave.smh": "sacred.wave.mask.smh"
   },
   "surfaceStack": [
@@ -36,8 +36,8 @@
     "overlay.particlesTeal": { "asset": "sacred.particles.teal", "blendMode": "screen", "opacity": 0.18 }
   },
   "grain": {
-    "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "soft-light", "opacity": 0.06, "prmSafe": true },
-    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "soft-light", "opacity": 0.06, "prmSafe": true }
+    "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "overlay", "opacity": 0.07, "prmSafe": true },
+    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "overlay", "opacity": 0.07, "prmSafe": true }
   },
   "motion": {
     "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.1 },
