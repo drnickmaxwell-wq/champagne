@@ -107,20 +107,16 @@ jobs:
         timeout-minutes: 20
         run: pnpm run hero:fit:sacred
 
-      - name: Print winner
-        if: ${{ github.event_name == 'workflow_dispatch' && always() }}
-        run: |
-          if [ -f reports/hero-fit/report.json ]; then
-            node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate;console.log('best.candidate',c);if(c){console.log('caustics',c.causticsBlend,c.causticsOpacity);console.log('shimmer',c.shimmerBlend,c.shimmerOpacity);}else{process.exit(1);}"
-          else
-            echo "hero-fit report missing at reports/hero-fit/report.json; skipping winner printing"
-          fi
-
       - name: Check hero fit report
         id: report-check
         if: ${{ github.event_name == 'workflow_dispatch' && always() }}
         run: |
           node -e "const fs=require('fs');const p='reports/hero-fit/report.json';const out=[];if(!fs.existsSync(p)){out.push('has_report=false');out.push('has_best=false');}else{const r=JSON.parse(fs.readFileSync(p,'utf8'));const hasBest=Boolean(r.best && r.best.candidate);out.push('has_report=true');out.push('has_best=' + hasBest);}fs.appendFileSync(process.env.GITHUB_OUTPUT, out.join('\\n') + '\\n');"
+
+      - name: Print winner
+        if: ${{ github.event_name == 'workflow_dispatch' && steps.report-check.outputs.has_report == 'true' && always() }}
+        run: |
+          node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate;console.log('best.candidate',c);if(c){console.log('caustics',c.causticsBlend,c.causticsOpacity);console.log('shimmer',c.shimmerBlend,c.shimmerOpacity);}else{process.exit(1);}"
 
       - name: Upload hero fit artifacts
         if: ${{ github.event_name == 'workflow_dispatch' && always() }}
