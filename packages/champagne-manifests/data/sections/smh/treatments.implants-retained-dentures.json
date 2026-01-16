@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
-      "title": "A more stable alternative to loose dentures",
-      "body": "Loose or unstable dentures can affect eating, speech, and confidence.",
+      "title": "Implant-retained dentures FAQs",
+      "body": "Implant-retained dentures can offer improved stability compared to conventional dentures, but they are not the same as fixed teeth.\n\nThese FAQs address common questions about how they work, who they may suit, and what day-to-day life is like, so you can understand whether this option makes sense for you.\n\nThey are often considered a middle ground between conventional dentures and fully fixed implant teeth.",
       "bullets": [
         "Dentures that don’t slip or lift",
         "Fewer implants than full fixed bridges",
@@ -126,11 +126,11 @@
       "variantId": "shoreham_implant_retained_faq",
       "order": 80,
       "seoRole": "faq",
-      "title": "Your implant-retained denture questions",
+      "title": "Common questions about implant-retained dentures",
       "faqs": [
         {
-          "question": "How stable are implant-retained dentures?",
-          "answer": "Implants provide anchor points that reduce movement and lifting, giving more stability than traditional dentures when planned and cared for correctly."
+          "question": "How are they cleaned and maintained?",
+          "answer": "Cleaning involves removing the denture, cleaning it thoroughly, and cleaning around the implants in the mouth.\n\nWe’ll explain practical techniques and review them regularly to help prevent problems.\n\nAttachments and components may need periodic replacement as part of normal maintenance."
         },
         {
           "question": "How many implants are needed?",
