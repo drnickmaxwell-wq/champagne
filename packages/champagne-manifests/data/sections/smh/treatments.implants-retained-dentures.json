@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
-      "title": "Implant-retained dentures in Shoreham-by-Sea",
-      "body": "Secure dentures held in place by dental implants — designed to improve comfort, confidence, and everyday function.",
+      "title": "A more stable alternative to loose dentures",
+      "body": "Loose or unstable dentures can affect eating, speech, and confidence.",
       "bullets": [
         "Dentures that don’t slip or lift",
         "Fewer implants than full fixed bridges",
@@ -54,8 +54,8 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "HOW IT WORKS",
-      "title": "What are implant-retained dentures?",
-      "body": "Dental implants anchor a denture so it stays secure while you eat and speak, reducing movement compared to traditional dentures and allowing easier cleaning than fixed full-arch bridges.",
+      "title": "How implant-retained dentures work",
+      "body": "Implant-retained dentures use a small number of implants to help stabilise a denture, making it more secure, more comfortable, and easier to manage day-to-day. This approach improves stability while keeping maintenance manageable.",
       "mediaHint": "Implant-stabilised denture planning and placement"
     },
     {
@@ -64,13 +64,12 @@
       "variantId": "shoreham_implant_retained_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "title": "Who are implant-retained dentures suitable for?",
+      "title": "Who may benefit",
       "items": [
-        "People struggling with loose lower or upper dentures",
-        "Those wanting more stability without full fixed bridges",
-        "Patients with reduced bone volume unsuitable for many implants",
-        "Anyone seeking a secure but cost-conscious implant option",
-        "Not everyone is suitable — we confirm with scans and assessment"
+        "Struggle with loose lower dentures",
+        "Want better stability without extensive surgery",
+        "Prefer a removable option for cleaning",
+        "Assessment is essential to confirm suitability."
       ]
     },
     {
@@ -79,15 +78,11 @@
       "variantId": "shoreham_implant_retained_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "title": "Your pathway to secure dentures",
+      "title": "Typically",
       "items": [
-        "Implant consultation",
-        "CBCT scan and assessment",
-        "Personalised treatment planning",
-        "Implant placement",
-        "Healing phase",
-        "Denture fitting and adjustment",
-        "Review and long-term care"
+        "A small number of implants are placed",
+        "The denture is designed to clip or locate onto them",
+        "The denture can still be removed for cleaning"
       ]
     },
     {
@@ -174,13 +169,13 @@
       "order": 89,
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "title": "Fixed vs removable options",
+      "body": "Some patients ask whether they should choose a fixed implant bridge instead. The choice depends on the factors below, and we’ll explain both routes clearly so you can decide confidently.",
       "bullets": [
-        "Appropriate when you want to restorative.",
-        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
-        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
+        "Bone availability",
+        "Dexterity and cleaning ability",
+        "Budget and complexity",
+        "Personal preference"
       ]
     },
     {
@@ -190,8 +185,8 @@
       "order": 90,
       "seoRole": "cta",
       "slot": "footer",
-      "title": "Thinking about more secure dentures?",
-      "strapline": "Book an implant assessment in Shoreham-by-Sea and explore whether implant-retained dentures are right for you.",
+      "title": "A realistic, supportive plan",
+      "strapline": "Our role is to help you choose a solution that improves comfort and function, fits your lifestyle, and can be maintained long-term. Sometimes the simpler option is the better one.",
       "ctas": [
         {
           "label": "Plan a clinician-led implant retained dentures review",
