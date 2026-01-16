@@ -94,7 +94,11 @@ jobs:
       - name: Print winner
         if: ${{ always() }}
         run: |
-          node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate;console.log('best.candidate',c);if(c){console.log('caustics',c.causticsBlend,c.causticsOpacity);console.log('shimmer',c.shimmerBlend,c.shimmerOpacity);}else{process.exit(1);}"
+          if [ -f reports/hero-fit/report.json ]; then
+            node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('reports/hero-fit/report.json','utf8'));const c=r.best?.candidate;console.log('best.candidate',c);if(c){console.log('caustics',c.causticsBlend,c.causticsOpacity);console.log('shimmer',c.shimmerBlend,c.shimmerOpacity);}else{process.exit(1);}"
+          else
+            echo "hero-fit report missing at reports/hero-fit/report.json; skipping winner printing"
+          fi
 
       - name: Check hero fit report
         id: report-check
