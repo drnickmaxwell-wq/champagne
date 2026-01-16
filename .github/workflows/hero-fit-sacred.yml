@@ -7,6 +7,10 @@ on:
         description: "Run Sacred Hero fitting"
         type: boolean
         default: true
+      hero_fit_candidate_limit:
+        description: "Candidate limit (workflow_dispatch only)"
+        type: number
+        default: 24
   schedule:
     - cron: "0 3 * * *"
   pull_request:
@@ -29,7 +33,8 @@ jobs:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_hero_fit == true }}
     timeout-minutes: 25
     env:
-      HERO_FIT_CANDIDATE_LIMIT: "48"
+      HERO_FIT_CANDIDATE_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.hero_fit_candidate_limit || '24' }}
+      HERO_FIT_CANDIDATE_TIMEOUT_MS: "12000"
       HERO_FIT_SEED: "sacred-ci"
       HERO_FIT_DPR: "1"
       HERO_FIT_MOTION_MS: "450"
@@ -44,6 +49,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Enable corepack
+        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -114,6 +122,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Enable corepack
+        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -148,6 +159,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Enable corepack
+        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -209,3 +223,4 @@ jobs:
           git commit -m "chore(hero): apply sacred fit winner"
           git push origin "bot/hero-fit-sacred-${{ github.sha }}"
           echo "Branch pushed: bot/hero-fit-sacred-${{ github.sha }}. Open a PR manually from this branch."
+          echo "Open PR: https://github.com/drnickmaxwell-wq/champagne/pull/new/bot/hero-fit-sacred-${{ github.sha }}"
