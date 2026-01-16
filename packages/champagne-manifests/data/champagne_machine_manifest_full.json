@@ -8232,12 +8232,11 @@
           "order": 10,
           "seoRole": "hero",
           "eyebrow": "Children\u2019s dentistry",
-          "title": "Gentle check-ups that build lifelong habits",
-          "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
+          "title": "Children\u2019s dentistry",
+          "body": "Children\u2019s dentistry focuses on helping young patients develop confidence with dental care while supporting healthy teeth and gums as they grow.\n\nWe provide children\u2019s dental care for babies, children, and teenagers, supporting families at every stage of development.",
           "bullets": [
-            "Calm examinations with tell-show-do and plenty of reassurance",
-            "Decay risk checks with fluoride and diet advice matched to age",
-            "Coaching for children and parents on brushing and home routines"
+            "Early experiences play an important role in how children feel about visiting the dentist later in life.",
+            "At St Mary\u2019s House Dental Care, children are treated with patience, clear explanation, and an emphasis on prevention."
           ],
           "ctas": [
             {
@@ -8259,14 +8258,12 @@
           "variantId": "smh_childrens_dentistry_trust",
           "order": 20,
           "seoRole": "supporting",
-          "eyebrow": "Why families choose us",
-          "title": "Care designed around young patients",
+          "eyebrow": "Parents and guardians",
+          "title": "Information for parents and guardians",
           "items": [
-            "Friendly, unhurried visits with the same calm clinicians where possible",
-            "Simple language and visuals to explain what will happen before we start",
-            "Age-appropriate fluoride guidance with no pushy product sales",
-            "Transparent advice for parents on diet, sugar frequency, and brushing",
-            "Clear next steps if we spot issues or need to monitor development"
+            "Parents and guardians play an important role in supporting children\u2019s oral health.",
+            "We\u2019ll share guidance on brushing, diet, and habits, and explain what to watch for as teeth develop.",
+            "Questions are always welcome."
           ]
         },
         {
@@ -8276,13 +8273,12 @@
           "variantId": "smh_childrens_dentistry_checkup",
           "order": 30,
           "seoRole": "primaryContent",
-          "eyebrow": "What a children\u2019s check-up includes",
-          "title": "Gentle exams with practical guidance",
-          "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
+          "eyebrow": "First visits",
+          "title": "First visits and getting familiar",
+          "body": "Early visits are often about getting comfortable with the environment rather than carrying out treatment.",
           "bullets": [
-            "Tooth, gum, and bite review with extra focus on erupting first molars",
-            "Decay risk assessment including grooves, early white spots, and diet habits",
-            "Oral hygiene coaching with brushing demonstrations and parent tips"
+            "This may involve simple examinations, showing children the equipment, and explaining what\u2019s happening in an age-appropriate way.",
+            "Building familiarity helps reduce anxiety and supports positive long-term attitudes."
           ]
         },
         {
@@ -8292,16 +8288,13 @@
           "variantId": "smh_childrens_dentistry_prevention",
           "order": 40,
           "seoRole": "primaryContent",
-          "eyebrow": "Prevention first",
-          "title": "Simple steps we cover at every stage",
+          "eyebrow": "Prevention",
+          "title": "A focus on prevention",
           "items": [
-            "Fluoride strength and varnish advice tailored to age and decay risk",
-            "Diet and sugar-frequency guidance with realistic swaps for snacks and drinks",
-            "Brushing habits: twice-daily routines, supervised brushing, and gentle technique",
-            "Fissure sealants discussed for deep grooves when they will genuinely help",
-            "Custom mouthguards and trauma tips for sports or active play"
+            "Preventative care is central to children\u2019s dentistry.",
+            "This includes monitoring tooth development, advising on brushing and diet, and identifying potential issues early."
           ],
-          "strapline": "Consistent, friendly reminders help children build habits that protect baby and adult teeth."
+          "strapline": "Small changes made early can help avoid more complex problems later on."
         },
         {
           "id": "childrens-dentistry-nervous",
@@ -8310,10 +8303,10 @@
           "variantId": "smh_childrens_dentistry_nervous",
           "order": 50,
           "seoRole": "supporting",
-          "eyebrow": "For nervous children",
-          "title": "Short, positive visits that build confidence",
-          "body": "We use tell-show-do, gentle pacing, and plenty of positive framing. Parents stay involved, and we pause whenever a child needs a breather.",
-          "mediaHint": "Calm, child-friendly pacing with familiar faces"
+          "eyebrow": "Supporting nervous children",
+          "title": "Supporting nervous children",
+          "body": "It\u2019s normal for some children to feel anxious about dental visits.\n\nWe take time to listen, move at an appropriate pace, and adapt appointments to individual needs.\n\nPositive experiences help build confidence over time.",
+          "mediaHint": "Supportive, steady appointments for nervous children"
         },
         {
           "id": "childrens-dentistry-common",
@@ -8322,14 +8315,12 @@
           "variantId": "smh_childrens_dentistry_common",
           "order": 60,
           "seoRole": "primaryContent",
-          "eyebrow": "Common things we monitor",
-          "title": "Support for growing smiles",
+          "eyebrow": "Treatment when needed",
+          "title": "Treatment when needed",
           "items": [
-            "First molars erupting with deep grooves that may trap plaque",
-            "Chipped or bumped teeth from sports or playground knocks",
-            "Early decay or white spots so we can act before fillings are needed",
-            "Thumb sucking, dummies, or mouth breathing that influence tooth position",
-            "Spacing and crowding patterns that may need orthodontic review"
+            "Sometimes treatment is necessary to address decay, infection, or injury.",
+            "Any recommended treatment is explained clearly to both parents and children, with an emphasis on reassurance and understanding.",
+            "The aim is to manage problems sensitively while maintaining trust."
           ]
         },
         {
@@ -8339,10 +8330,10 @@
           "variantId": "smh_childrens_dentistry_orthodontics",
           "order": 70,
           "seoRole": "supporting",
-          "eyebrow": "When we suggest an orthodontic chat",
-          "title": "Early guidance keeps options open",
-          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we\u2019ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right\u2014always explained clearly to families.",
-          "mediaHint": "Monitoring bite, spacing, and eruption patterns"
+          "eyebrow": "Building long-term confidence",
+          "title": "Building long-term confidence",
+          "body": "Children\u2019s dentistry isn\u2019t just about teeth \u2014 it\u2019s about helping young patients feel comfortable with care.\n\nA calm, supportive approach helps set the foundation for lifelong oral health and confident dental visits.",
+          "mediaHint": "Long-term confidence through calm, supportive care"
         },
         {
           "id": "childrens-dentistry-faq",
@@ -8387,7 +8378,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a gentle check-up for your child",
-          "body": "We\u2019ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+          "body": "Contact us to discuss dental care for your child or teenager.",
           "ctas": [
             {
               "label": "Book a children\u2019s appointment",
