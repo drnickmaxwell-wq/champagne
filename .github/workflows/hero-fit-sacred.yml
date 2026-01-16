@@ -196,11 +196,16 @@ jobs:
           'No engine/components/tokens/CTA/typography changes.'\
           ].join('\\n');fs.writeFileSync('reports/hero-fit/pr-body.md',body);"
 
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "bot/hero-fit-sacred-${{ github.sha }}"
-          commit-message: "chore(hero): apply sacred fit winner"
-          title: Apply Sacred Hero Fit Winner
-          body-path: reports/hero-fit/pr-body.md
+      - name: Commit and push winner branch
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes detected after applying winner."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "bot/hero-fit-sacred-${{ github.sha }}"
+          git add -A
+          git commit -m "chore(hero): apply sacred fit winner"
+          git push origin "bot/hero-fit-sacred-${{ github.sha }}"
+          echo "Branch pushed: bot/hero-fit-sacred-${{ github.sha }}. Open a PR manually from this branch."
