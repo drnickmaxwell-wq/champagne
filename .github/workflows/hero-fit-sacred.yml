@@ -23,13 +23,10 @@ permissions:
   contents: write
   pull-requests: write
 
-env:
-  SHOULD_RUN_FIT: ${{ (github.event_name != 'workflow_dispatch') || (inputs.run_hero_fit == true) }}
-
 jobs:
   fit:
     runs-on: ubuntu-latest
-    if: ${{ env.SHOULD_RUN_FIT == 'true' }}
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_hero_fit == true }}
     timeout-minutes: 25
     env:
       HERO_FIT_CANDIDATE_LIMIT: "48"
@@ -76,17 +73,14 @@ jobs:
 
       - name: Install
         timeout-minutes: 10
-        if: ${{ env.SHOULD_RUN_FIT == 'true' }}
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright Chromium
         timeout-minutes: 15
-        if: ${{ env.SHOULD_RUN_FIT == 'true' }}
         run: pnpm exec playwright install --with-deps chromium
 
       - name: Run sacred hero fit
         timeout-minutes: 20
-        if: ${{ env.SHOULD_RUN_FIT == 'true' }}
         run: pnpm run hero:fit:sacred
 
       - name: Print winner
@@ -101,7 +95,7 @@ jobs:
           node -e "const fs=require('fs');const p='reports/hero-fit/report.json';const out=[];if(!fs.existsSync(p)){out.push('has_report=false');out.push('has_best=false');}else{const r=JSON.parse(fs.readFileSync(p,'utf8'));const hasBest=Boolean(r.best && r.best.candidate);out.push('has_report=true');out.push('has_best=' + hasBest);}fs.appendFileSync(process.env.GITHUB_OUTPUT, out.join('\\n') + '\\n');"
 
       - name: Upload hero fit artifacts
-        if: ${{ env.SHOULD_RUN_FIT == 'true' && always() }}
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: hero-fit-report
