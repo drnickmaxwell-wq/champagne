@@ -15,7 +15,7 @@
       "body": "Orthodontic treatment focuses on improving how teeth are positioned, how they function together, and how they’re supported over time.\n\nWhile many people associate orthodontics with straightening teeth for appearance, alignment can also play an important role in comfort, bite stability, tooth wear, and long-term oral health.\n\nAt St Mary’s House Dental Care, orthodontic treatment is approached as part of a wider plan — not as a one-size-fits-all solution.",
       "bullets": [
         "Improves tooth position and function",
-        "Supports comfort, bite stability, and tooth wear",
+        "Supports comfort, bite stability, tooth wear, and long-term oral health",
         "Planned as part of wider oral health care",
         "Not a one-size-fits-all approach"
       ],
@@ -41,11 +41,11 @@
       "eyebrow": "When orthodontics is considered",
       "title": "When orthodontic treatment may be considered",
       "items": [
-        "Crowding or spacing that affects alignment",
-        "Bite imbalance that affects function",
-        "Difficulty cleaning teeth due to position",
+        "Crowding, spacing, or bite imbalance that affects function",
+        "Difficulty cleaning teeth due to their position",
         "Excessive wear or strain on teeth and supporting structures",
-        "Preparation for restorative or stabilisation treatment"
+        "Orthodontics as part of preparation for other treatment",
+        "Long-term stabilisation where alignment supports ongoing care"
       ]
     },
     {
@@ -75,11 +75,11 @@
       "eyebrow": "Assessment and planning",
       "title": "Assessment and planning",
       "items": [
-        "Clinical examination to understand your bite and tooth position",
+        "Careful clinical examination of tooth position and bite",
         "Photographs, scans, and X-rays where appropriate",
         "Planning how teeth will move and how the bite will function",
-        "Discussion of how results will be maintained",
-        "Findings and plans explained before decisions are made"
+        "Consideration of how results will be maintained",
+        "Findings and the proposed plan explained before decisions are made"
       ]
     },
     {
@@ -93,9 +93,9 @@
       "items": [
         "Orthodontic treatment isn’t limited to teenagers",
         "Adults may address long-standing concerns or protect function",
-        "Plans consider existing dental work",
-        "Treatment is tailored to lifestyle considerations",
-        "Goals focus on realistic, stable outcomes"
+        "Treatment is planned around existing dental work",
+        "Lifestyle considerations are part of planning",
+        "Goals focus on realistic outcomes rather than a textbook ideal"
       ]
     },
     {
@@ -108,9 +108,8 @@
       "title": "Timescales and commitment",
       "items": [
         "Orthodontic treatment is a process that takes time",
-        "Length varies with complexity and appliance type",
-        "Teeth respond at different rates",
-        "Wearing appliances as advised supports stability",
+        "The length varies with complexity, appliance type, and how teeth respond",
+        "Wearing appliances as advised supports a stable result",
         "Review appointments help keep treatment on track",
         "We explain realistic timescales before starting"
       ],
@@ -125,11 +124,11 @@
       "eyebrow": "After orthodontic treatment",
       "title": "After orthodontic treatment",
       "items": [
-        "Retention is essential once teeth are in a stable position",
-        "Retainers help reduce the risk of teeth drifting",
+        "Retention is essential once teeth are in a more stable position",
+        "Retainers help maintain the result and reduce drifting",
         "We explain retention options and how to care for them",
-        "Long-term stability is part of the plan",
-        "We discuss how long retention is needed"
+        "We discuss how long retention is needed",
+        "Long-term stability is as important as the active phase"
       ]
     },
     {
@@ -154,9 +153,9 @@
       "items": [
         "Retention helps maintain the result",
         "Retainers reduce the risk of teeth drifting over time",
-        "We explain how long retainers are needed",
+        "We explain retention options, how long they’re needed, and how to care for them",
         "Care instructions keep retainers effective",
-        "Long-term stability is as important as treatment"
+        "Long-term stability is as important as the active phase"
       ]
     },
     {
@@ -171,8 +170,8 @@
         "Orthodontic treatment isn’t always appropriate",
         "Monitoring may be a better option in some cases",
         "Restorative treatment can sometimes be more suitable",
-        "A limited approach may be preferred",
-        "We explain if orthodontics is unlikely to help"
+        "A more limited approach may be preferred",
+        "We explain if orthodontics is unlikely to offer meaningful benefit"
       ]
     },
     {
