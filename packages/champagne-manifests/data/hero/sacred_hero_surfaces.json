@@ -13,6 +13,7 @@
     { "id": "field.dotGrid", "role": "background", "token": "field.dotGrid", "prmSafe": true },
     { "id": "overlay.caustics", "role": "fx", "token": "overlay.caustics", "prmSafe": false },
     { "id": "overlay.glassShimmer", "role": "fx", "token": "overlay.glassShimmer", "prmSafe": false },
+    { "id": "overlay.goldDustDrift", "role": "fx", "token": "overlay.goldDustDrift", "prmSafe": false },
     { "id": "overlay.particles", "role": "fx", "token": "overlay.particles" },
     { "id": "overlay.filmGrain", "role": "fx", "token": "overlay.filmGrain", "prmSafe": true },
     { "id": "hero.contentFrame", "role": "background", "token": "hero.contentFrame", "prmSafe": true }
@@ -42,7 +43,8 @@
   },
   "motion": {
     "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.1 },
-    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "overlay", "opacity": 0.1 }
+    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "overlay", "opacity": 0.1 },
+    "overlay.goldDustDrift": { "asset": "sacred.motion.goldDust", "blendMode": "screen", "opacity": 0.08 }
   },
   "video": {
     "hero.video": { "asset": "sacred.motion.heroVideo", "blendMode": "screen", "prmSafe": false }
