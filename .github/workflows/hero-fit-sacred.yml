@@ -2,6 +2,8 @@ name: Sacred Hero Fit
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
   pull_request:
     paths:
       - scripts/hero_fit_sacred.mjs
@@ -22,15 +24,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
 
-      - name: Ensure pnpm exists
-        run: |
-          node --version || true
-          npm --version || true
-          npm i -g pnpm@9.12.3
-          pnpm --version
-          which pnpm || true
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "9.12.3"
+          run_install: false
 
       - name: Debug PATH
         run: |
@@ -72,7 +71,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
