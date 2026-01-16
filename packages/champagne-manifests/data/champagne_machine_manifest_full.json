@@ -9336,9 +9336,9 @@
           "title": "Tooth wear and erosion",
           "copy": "Tooth wear refers to the gradual loss of tooth structure over time.\n\nIt’s a common issue and often develops slowly, meaning many people don’t notice it until changes in shape, sensitivity, or appearance become more obvious.\n\nAt St Mary’s House Dental Care, tooth wear is managed thoughtfully, with an emphasis on understanding why it’s happening before deciding how to treat it.",
           "bullets": [
-            "Gradual loss of tooth structure over time",
-            "Often develops slowly before changes become noticeable",
-            "Care focuses on understanding the cause before treatment"
+            "Tooth wear refers to the gradual loss of tooth structure over time",
+            "It often develops slowly before changes become more obvious",
+            "Care focuses on understanding why it’s happening before deciding how to treat it"
           ]
         },
         {
@@ -9346,12 +9346,8 @@
           "type": "features",
           "title": "Common causes",
           "items": [
-            "Acidic foods or drinks and reflux",
-            "Dry mouth",
-            "Clenching or grinding",
-            "Bite relationships",
-            "Lifestyle habits that affect teeth",
-            "Often a combination of influences rather than a single cause"
+            "Factors contributing to tooth wear can include acidic foods or drinks, reflux, dry mouth, clenching or grinding, bite relationships, and lifestyle habits",
+            "Often, tooth wear results from a combination of influences rather than a single cause"
           ]
         },
         {
@@ -9359,10 +9355,11 @@
           "type": "features",
           "title": "Different types of tooth wear",
           "items": [
-            "Erosion: acids soften the tooth surface",
-            "Attrition: tooth-to-tooth contact, often linked to clenching or grinding",
-            "Abrasion: mechanical wear, such as from brushing habits",
-            "More than one type of wear can be present at the same time"
+            "Tooth wear can occur for different reasons",
+            "Erosion is caused by acids softening the tooth surface",
+            "Attrition is wear from tooth-to-tooth contact, often linked to clenching or grinding",
+            "Abrasion involves mechanical wear, such as from brushing habits",
+            "More than one type of wear is often present at the same time"
           ]
         },
         {
@@ -9379,9 +9376,9 @@
           "title": "Management and prevention",
           "items": [
             "Management often begins with prevention",
-            "Advice on diet, habits, or oral hygiene",
-            "Protective measures such as splints where appropriate",
-            "The aim is to slow or stop progression before restorative treatment"
+            "This may involve advice on diet, habits, or oral hygiene, as well as protective measures such as splints where appropriate",
+            "Often, more than one measure is used together, depending on how wear is progressing",
+            "The aim is to slow or stop progression before considering restorative treatment"
           ]
         },
         {
@@ -9416,7 +9413,7 @@
           "faqs": [
             {
               "question": "What if I’m unsure about what tooth wear means for me?",
-              "answer": "Learning that your teeth are wearing can be concerning. If you’re unsure what it means for you, we encourage you to ask. Understanding the situation clearly helps avoid unnecessary treatment and supports sensible long-term decisions."
+              "answer": "Learning that your teeth are wearing can be concerning.\n\nIf you’re unsure what it means for you, we encourage you to ask. Understanding the situation clearly helps avoid unnecessary treatment and supports sensible long-term decisions."
             }
           ]
         },
@@ -9424,7 +9421,7 @@
           "id": "tooth_wear_closing",
           "type": "treatment_closing_cta",
           "title": "Plan a calm review for tooth wear or broken edges",
-          "strapline": "We stabilise sensitivity, protect your bite, and rebuild worn teeth with conservative steps.",
+          "strapline": "Contact us to discuss concerns about tooth wear and appropriate next steps.",
           "ctas": [
             {
               "label": "Book a tooth wear assessment",
