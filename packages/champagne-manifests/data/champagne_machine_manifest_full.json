@@ -2373,8 +2373,8 @@
         {
           "id": "team_clinical_cards",
           "type": "routing_cards",
-          "title": "Clinical team",
-          "eyebrow": "Clinical team",
+          "title": "Clinicians you can trust",
+          "eyebrow": "Clinicians you can trust",
           "items": [
             {
               "title": "Dr Nick Maxwell",
