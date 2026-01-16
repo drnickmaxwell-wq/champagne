@@ -17,12 +17,10 @@
       "waveMask": { "desktop": "mask.waveHeader", "mobile": "mask.waveHeader.mobile" },
       "background": { "desktop": "field.waveBackdrop", "mobile": "field.waveBackdrop" },
       "overlays": { "dots": "field.dotGrid", "field": "field.waveRings" },
-      "caustics": "",
-      "shimmer": "",
       "particles": "overlay.particlesPrimary",
       "grain": { "desktop": "overlay.filmGrain.desktop", "mobile": "overlay.filmGrain.mobile" },
-      "motion": [],
-      "video": ""
+      "motion": ["overlay.caustics"],
+      "video": null
     },
     "layout": {
       "contentAlign": "start",
