@@ -5535,14 +5535,15 @@
             "Avoid very hot, cold, or acidic foods during active whitening",
             "Use desensitising products as advised between sessions",
             "Existing restorations will not lighten; we plan around them",
-            "Report any sharp sensations so we can adjust or review"
+            "Report any sharp sensations so we can adjust or review",
+            "For many patients, any sensitivity is mild and settles quickly once whitening stops."
           ]
         },
         {
           "id": "whitening_sensitivity_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "If sensitivity is the main issue, it can help to address the cause first — such as gum health, tooth wear, or hygiene care — then decide whether whitening still makes sense."
         },
         {
           "id": "whitening_sensitivity_faq",
