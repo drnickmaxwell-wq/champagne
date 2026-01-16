@@ -110,7 +110,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: bot/hero-fit-sacred-${{ github.sha }}
-          commit-message: chore(hero): apply sacred fit winner
+          branch: "bot/hero-fit-sacred-${{ github.sha }}"
+          commit-message: "chore(hero): apply sacred fit winner"
           title: Apply Sacred Hero Fit Winner
           body-path: reports/hero-fit/pr-body.md
