@@ -213,7 +213,7 @@
               "source": "Google"
             },
             {
-              "quote": "Felt listened to and not often rushed\u2014highly recommend.",
+              "quote": "Felt listened to and not often rushed—highly recommend.",
               "name": "Google reviewer",
               "rating": 5,
               "source": "Google"
@@ -317,7 +317,7 @@
           "faqs": [
             {
               "question": "Do you help with directions or parking?",
-              "answer": "Yes\u2014call or message ahead and we will outline nearby parking options and the high standards entrance to use."
+              "answer": "Yes—call or message ahead and we will outline nearby parking options and the high standards entrance to use."
             },
             {
               "question": "Can I start with a phone discussion?",
@@ -329,7 +329,7 @@
             },
             {
               "question": "Is the practice suitable for nervous patients?",
-              "answer": "Yes\u2014gentle pacing, clear numbing options, and calm explanations are part of every visit."
+              "answer": "Yes—gentle pacing, clear numbing options, and calm explanations are part of every visit."
             }
           ]
         },
@@ -338,7 +338,7 @@
           "type": "copy-block",
           "label": "Patient journey",
           "title": "A clear, supportive first step",
-          "copy": "Your first visit is about listening, understanding your concerns, and gathering the information needed to guide you properly. You\u2019ll not often be pressured into decisions on the day.\n\nWhere treatment is required, options are explained clearly, including benefits, limitations, costs, and timescales. From there, you can decide how — or whether — to proceed, with support available at every stage."
+          "copy": "Your first visit is about listening, understanding your concerns, and gathering the information needed to guide you properly. You’ll not often be pressured into decisions on the day.\n\nWhere treatment is required, options are explained clearly, including benefits, limitations, costs, and timescales. From there, you can decide how — or whether — to proceed, with support available at every stage."
         },
         {
           "id": "home_closing_cta",
@@ -429,146 +429,146 @@
             }
           ]
         },
-    {
-      "id": "treatments_hub_directory_intro",
-      "type": "copy-block",
-      "label": "Browse by group",
-      "title": "Browse treatments by locked groups",
-      "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
-    },
-    {
-      "id": "treatments_hub_directory_groups_nav",
-      "type": "routing_cards",
-      "title": "Browse treatments by group",
-      "items": [
         {
-          "title": "General Dentistry",
-          "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
-          "href": "/treatments/preventative-and-general-dentistry"
+          "id": "treatments_hub_directory_intro",
+          "type": "copy-block",
+          "label": "Browse by group",
+          "title": "Browse treatments by locked groups",
+          "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
         },
         {
-          "title": "Restorative Dentistry",
-          "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
-          "href": "/treatments/dental-crowns"
-        },
-        {
-          "title": "Dental Implants",
-          "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
-          "href": "/treatments/implants"
-        },
-        {
-          "title": "Orthodontics & Retainers",
-          "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
-          "href": "/treatments/orthodontics"
-        },
-        {
-          "title": "Aesthetic Dentistry",
-          "description": "Composite bonding, veneers, and injection-moulded composite planning.",
-          "href": "/treatments/teeth-whitening"
-        },
-        {
-          "title": "Night Guards & Occlusal Therapy",
-          "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
-          "href": "/treatments/night-guards-occlusal-splints"
-        },
-        {
-          "title": "3D & Digital Dentistry",
-          "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
-          "href": "/treatments/3d-digital-dentistry"
-        },
-        {
-          "title": "Emergency Dentistry",
-          "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
-          "href": "/treatments/emergency-dentistry"
-        },
-        {
-          "title": "Facial Rejuvenation",
-          "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
-          "href": "/treatments/facial-therapeutics"
-        }
-      ],
-      "definition": {
-        "items": [
-          {
-            "title": "General Dentistry",
-            "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
-            "href": "/treatments/preventative-and-general-dentistry"
-          },
-          {
-            "title": "Restorative Dentistry",
-            "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
-            "href": "/treatments/dental-crowns"
-          },
-          {
-            "title": "Dental Implants",
-            "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
-            "href": "/treatments/implants"
-          },
-          {
-            "title": "Orthodontics & Retainers",
-            "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
-            "href": "/treatments/orthodontics"
-          },
-          {
-            "title": "Aesthetic Dentistry",
-            "description": "Composite bonding, veneers, and injection-moulded composite planning.",
-            "href": "/treatments/teeth-whitening"
-          },
-          {
-            "title": "Night Guards & Occlusal Therapy",
-            "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
-            "href": "/treatments/night-guards-occlusal-splints"
-          },
-          {
-            "title": "3D & Digital Dentistry",
-            "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
-            "href": "/treatments/3d-digital-dentistry"
-          },
-          {
-            "title": "Emergency Dentistry",
-            "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
-            "href": "/treatments/emergency-dentistry"
-          },
-          {
-            "title": "Facial Rejuvenation",
-            "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
-            "href": "/treatments/facial-therapeutics"
+          "id": "treatments_hub_directory_groups_nav",
+          "type": "routing_cards",
+          "title": "Browse treatments by group",
+          "items": [
+            {
+              "title": "General Dentistry",
+              "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
+              "href": "/treatments/preventative-and-general-dentistry"
+            },
+            {
+              "title": "Restorative Dentistry",
+              "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
+              "href": "/treatments/dental-crowns"
+            },
+            {
+              "title": "Dental Implants",
+              "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
+              "href": "/treatments/implants"
+            },
+            {
+              "title": "Orthodontics & Retainers",
+              "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
+              "href": "/treatments/orthodontics"
+            },
+            {
+              "title": "Aesthetic Dentistry",
+              "description": "Composite bonding, veneers, and injection-moulded composite planning.",
+              "href": "/treatments/teeth-whitening"
+            },
+            {
+              "title": "Night Guards & Occlusal Therapy",
+              "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
+              "href": "/treatments/night-guards-occlusal-splints"
+            },
+            {
+              "title": "3D & Digital Dentistry",
+              "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
+              "href": "/treatments/3d-digital-dentistry"
+            },
+            {
+              "title": "Emergency Dentistry",
+              "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "title": "Facial Rejuvenation",
+              "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+              "href": "/treatments/facial-therapeutics"
+            }
+          ],
+          "definition": {
+            "items": [
+              {
+                "title": "General Dentistry",
+                "description": "Dental check-ups, hygiene, root canal care, and everyday support for all ages.",
+                "href": "/treatments/preventative-and-general-dentistry"
+              },
+              {
+                "title": "Restorative Dentistry",
+                "description": "Crowns, bridges, dentures, onlays, and tooth wear management.",
+                "href": "/treatments/dental-crowns"
+              },
+              {
+                "title": "Dental Implants",
+                "description": "Consultation, single and multiple implants, full-arch care, and grafting.",
+                "href": "/treatments/implants"
+              },
+              {
+                "title": "Orthodontics & Retainers",
+                "description": "Clear aligners, fixed braces, and removable or fixed retainers.",
+                "href": "/treatments/orthodontics"
+              },
+              {
+                "title": "Aesthetic Dentistry",
+                "description": "Composite bonding, veneers, and injection-moulded composite planning.",
+                "href": "/treatments/teeth-whitening"
+              },
+              {
+                "title": "Night Guards & Occlusal Therapy",
+                "description": "Night guards plus bruxism and TMJ care to ease jaw strain.",
+                "href": "/treatments/night-guards-occlusal-splints"
+              },
+              {
+                "title": "3D & Digital Dentistry",
+                "description": "CBCT scans, digital smile design, 3D printing, and guided restorations.",
+                "href": "/treatments/3d-digital-dentistry"
+              },
+              {
+                "title": "Emergency Dentistry",
+                "description": "Emergency appointments for pain, swelling, trauma, or accidents.",
+                "href": "/treatments/emergency-dentistry"
+              },
+              {
+                "title": "Facial Rejuvenation",
+                "description": "Facial neuromodulation, fillers, and therapeutic pain relief pathways.",
+                "href": "/treatments/facial-therapeutics"
+              }
+            ]
           }
-        ]
-      }
-    },
-    {
-      "id": "treatments_hub_secondary_hubs",
-      "type": "routing_cards",
-      "title": "Other ways we can help",
-      "items": [
-        {
-          "title": "Emergency dentistry",
-          "description": "",
-          "href": "/treatments/emergency-dentistry"
         },
         {
-          "title": "Facial therapeutics in Shoreham-by-Sea",
-          "description": "",
-          "href": "/treatments/facial-therapeutics"
+          "id": "treatments_hub_secondary_hubs",
+          "type": "routing_cards",
+          "title": "Other ways we can help",
+          "items": [
+            {
+              "title": "Emergency dentistry",
+              "description": "",
+              "href": "/treatments/emergency-dentistry"
+            },
+            {
+              "title": "Facial therapeutics in Shoreham-by-Sea",
+              "description": "",
+              "href": "/treatments/facial-therapeutics"
+            },
+            {
+              "title": "Finance",
+              "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
+              "href": "/finance"
+            },
+            {
+              "title": "Technology",
+              "description": "",
+              "href": "/technology"
+            }
+          ]
         },
         {
-          "title": "Finance",
-          "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
-          "href": "/finance"
-        },
-        {
-          "title": "Technology",
-          "description": "",
-          "href": "/technology"
-        }
-      ]
-    },
-    {
-      "id": "treatments_hub_authority",
-      "type": "feature-grid",
-      "title": "Authority, technology, and experience",
-      "items": [
+          "id": "treatments_hub_authority",
+          "type": "feature-grid",
+          "title": "Authority, technology, and experience",
+          "items": [
             "Multi-disciplinary training across restorative, orthodontic, implant, and facial care",
             "CBCT-guided planning, digital smile design, and in-house 3D fabrication",
             "Steady clinical cadence with transparent timelines and aftercare"
@@ -2379,17 +2379,26 @@
             {
               "title": "Dr Nick Maxwell",
               "href": "/team/nick-maxwell",
-              "portrait": { "src": "placeholder", "alt": "Portrait of Dr Nick Maxwell" }
+              "portrait": {
+                "src": "placeholder",
+                "alt": "Portrait of Dr Nick Maxwell"
+              }
             },
             {
               "title": "Dr Sylvia Krafft",
               "href": "/team/sylvia-krafft",
-              "portrait": { "src": "placeholder", "alt": "Portrait of Dr Sylvia Krafft" }
+              "portrait": {
+                "src": "placeholder",
+                "alt": "Portrait of Dr Sylvia Krafft"
+              }
             },
             {
               "title": "Sara Burden",
               "href": "/team/sara-burden",
-              "portrait": { "src": "placeholder", "alt": "Portrait of Sara Burden" }
+              "portrait": {
+                "src": "placeholder",
+                "alt": "Portrait of Sara Burden"
+              }
             }
           ]
         },
@@ -3282,10 +3291,22 @@
           "label": "Next steps",
           "title": "Explore your options",
           "items": [
-            { "label": "Fees & pricing", "href": "/fees" },
-            { "label": "Practice plan", "href": "/practice-plan" },
-            { "label": "Contact the team", "href": "/contact" },
-            { "label": "Patient portal", "href": "/patient-portal?intent=login" }
+            {
+              "label": "Fees & pricing",
+              "href": "/fees"
+            },
+            {
+              "label": "Practice plan",
+              "href": "/practice-plan"
+            },
+            {
+              "label": "Contact the team",
+              "href": "/contact"
+            },
+            {
+              "label": "Patient portal",
+              "href": "/patient-portal?intent=login"
+            }
           ]
         },
         {
@@ -3416,7 +3437,7 @@
             "preset": "primary"
           },
           {
-            "label": "What\u2019s included in a check-up?",
+            "label": "What’s included in a check-up?",
             "href": "/dental-checkups-oral-cancer-screening",
             "preset": "secondary"
           }
@@ -3428,7 +3449,7 @@
             "preset": "primary"
           },
           {
-            "label": "What\u2019s included in a check-up?",
+            "label": "What’s included in a check-up?",
             "href": "/dental-checkups-oral-cancer-screening",
             "preset": "secondary"
           }
@@ -3488,7 +3509,7 @@
               "preset": "primary"
             },
             {
-              "label": "What\u2019s included in a check-up?",
+              "label": "What’s included in a check-up?",
               "href": "/dental-checkups-oral-cancer-screening",
               "preset": "secondary"
             }
@@ -3581,7 +3602,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Children\u2019s dental care",
+              "label": "Children’s dental care",
               "href": "/treatments/childrens-dentistry",
               "preset": "secondary"
             },
@@ -3720,7 +3741,7 @@
               "preset": "secondary"
             },
             {
-              "label": "Children\u2019s dental care",
+              "label": "Children’s dental care",
               "href": "/treatments/childrens-dentistry",
               "preset": "secondary"
             },
@@ -4662,7 +4683,7 @@
         {
           "id": "composite_indications",
           "type": "features",
-          "title": "What composite bonding can and can\u2019t do",
+          "title": "What composite bonding can and can’t do",
           "items": [
             "Adds volume to close small gaps, soften edges, and refine proportions without drilling healthy enamel",
             "Repairs chipped or worn incisal edges; larger fractures or weakened teeth may need onlays or crowns",
@@ -4699,7 +4720,7 @@
             "When colour is the main concern, dentist-led whitening is usually recommended before bonding so shades align",
             "If teeth are rotated or crowded, aligners or other orthodontic treatment can set the foundation before cosmetic bonding",
             "For larger shape changes or durability, porcelain veneers or digitally designed 3D veneers may be more appropriate",
-            "Composite bonding often forms part of an Align \u2192 Bleach \u2192 Composite pathway, with veneers reserved for specific needs"
+            "Composite bonding often forms part of an Align → Bleach → Composite pathway, with veneers reserved for specific needs"
           ]
         },
         {
@@ -4716,7 +4737,7 @@
         {
           "id": "composite_not_suited",
           "type": "features",
-          "title": "When bonding isn\u2019t the best choice",
+          "title": "When bonding isn’t the best choice",
           "items": [
             "Heavy bites or active clenching with limited space may need occlusal therapy or guards first",
             "Severe wear or bite collapse often requires orthodontics, onlays, or veneers for stability",
@@ -5167,7 +5188,7 @@
           "id": "whitening_consult_overview",
           "type": "treatment_overview_rich",
           "title": "A measured plan tailored to your smile",
-          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You\u2019ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we\u2019ll review progress.",
+          "copy": "We assess enamel, existing restorations, and gum health before prescribing a gel strength and schedule. You’ll see a realistic shade range, understand how whitening supports planned alignment or bonding, and know when we’ll review progress.",
           "bullets": [
             "Clinical exam and baseline shade recording",
             "Digital scans for precise tray production",
@@ -5349,7 +5370,7 @@
           "faqs": [
             {
               "question": "How long will I wear the trays each day?",
-              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We\u2019ll agree the exact cadence with you."
+              "answer": "Most patients whiten for a set period each evening based on the prescribed gel. We’ll agree the exact cadence with you."
             },
             {
               "question": "What if my teeth feel sensitive?",
@@ -5409,7 +5430,7 @@
           "bullets": [
             "Shade comparison against your baseline",
             "Inspection of trays for seal and comfort",
-            "Discussion of how often you\u2019ll realistically top-up",
+            "Discussion of how often you’ll realistically top-up",
             "Guidance if restorations need refreshing instead of whitening",
             "Written instructions for the latest gel strength"
           ]
@@ -5445,7 +5466,7 @@
             },
             {
               "question": "Can I reuse my old trays?",
-              "answer": "Yes, provided the fit is still secure. We\u2019ll check for wear or gaps before supplying gel."
+              "answer": "Yes, provided the fit is still secure. We’ll check for wear or gaps before supplying gel."
             },
             {
               "question": "Will I need stronger gel each time?",
@@ -5607,11 +5628,11 @@
             },
             {
               "question": "How long does whitening last?",
-              "answer": "Results are maintained with good hygiene and occasional top-ups. We\u2019ll guide you on a safe refresh schedule using your existing trays."
+              "answer": "Results are maintained with good hygiene and occasional top-ups. We’ll guide you on a safe refresh schedule using your existing trays."
             },
             {
               "question": "Is whitening part of a smile makeover?",
-              "answer": "Often yes. Whitening is the \u201cB\u201d in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
+              "answer": "Often yes. Whitening is the “B” in our Align, Bleach, Composite approach so colour is set before aligning teeth or adding bonding."
             }
           ]
         },
@@ -5797,7 +5818,7 @@
           "id": "full_smile_makeover_clinician_insight",
           "type": "clinician_insight",
           "label": "Clinician insight",
-          "quote": "A clear roadmap means every stage\u2014alignment, colour, restorations\u2014stays coordinated and calm.",
+          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
           "attribution": "Clinical team",
           "role": "Smile design"
         },
@@ -6243,8 +6264,8 @@
         {
           "id": "emergency_appointments_overview",
           "type": "treatment_overview_rich",
-          "title": "Same-day appointments when something can\u2019t wait",
-          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We\u2019ll stabilise the area, ease discomfort, and plan the next steps together.",
+          "title": "Same-day appointments when something can’t wait",
+          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We’ll stabilise the area, ease discomfort, and plan the next steps together.",
           "bullets": [
             "Phone triage to book the right appointment length",
             "Advice on caring for the area before you arrive",
@@ -6255,7 +6276,7 @@
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "Emergency appointments are designed to diagnose the cause of pain or swelling and stabilise things safely. We\u2019ll take a focused history, examine the tooth and surrounding tissues, check the bite, and take X-rays when needed. The aim is to relieve symptoms and reduce risk \u2014 for example with a temporary dressing, drainage where appropriate, bite adjustment, or stabilising a broken tooth \u2014 then agree the right definitive plan. Some problems can be fully treated on the day; others need a second visit for root canal work, a crown, extraction, or follow-up once swelling settles. We\u2019ll explain what we can do today, what comes next, and what warning signs mean you should contact us urgently."
+          "copy": "Emergency appointments are designed to diagnose the cause of pain or swelling and stabilise things safely. We’ll take a focused history, examine the tooth and surrounding tissues, check the bite, and take X-rays when needed. The aim is to relieve symptoms and reduce risk — for example with a temporary dressing, drainage where appropriate, bite adjustment, or stabilising a broken tooth — then agree the right definitive plan. Some problems can be fully treated on the day; others need a second visit for root canal work, a crown, extraction, or follow-up once swelling settles. We’ll explain what we can do today, what comes next, and what warning signs mean you should contact us urgently."
         },
         {
           "id": "emergency_appointments_symptoms",
@@ -6348,27 +6369,27 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-    {
-      "id": "emergency_pain_overview",
-      "type": "treatment_overview_rich",
-      "title": "Relief for severe toothache and sudden dental pain",
-      "copy": "Intense or throbbing pain can be unsettling. We triage quickly, keep explanations straightforward, and focus on making you comfortable while we identify the cause.",
-      "bullets": [
-        "Calm assessment to pinpoint the source of pain",
-        "Gentle care to reduce sensitivity and inflammation",
-        "Medication or protective dressings where appropriate",
-        "Follow-up plan to prevent pain returning"
-      ]
-    },
-    {
-      "id": "treatment.heroIntro",
-      "type": "copy-block",
-      "copy": "Severe toothache is usually a sign that something in the tooth or surrounding tissues needs attention — commonly deep decay, an inflamed nerve, a crack, a high bite on a restoration, or infection. An emergency appointment focuses on diagnosis first: we examine the tooth, check bite and gum tissues, and take X-rays if needed to identify the cause. Treatment on the day may include a temporary dressing, stabilising a cracked tooth, adjusting the bite, draining infection where appropriate, or planning definitive care such as root canal treatment, extraction, or a crown. We’ll also give practical advice on pain control and what changes should trigger urgent review."
-    },
-    {
-      "id": "emergency_pain_symptoms",
-      "type": "features",
-      "title": "Common signs",
+        {
+          "id": "emergency_pain_overview",
+          "type": "treatment_overview_rich",
+          "title": "Relief for severe toothache and sudden dental pain",
+          "copy": "Intense or throbbing pain can be unsettling. We triage quickly, keep explanations straightforward, and focus on making you comfortable while we identify the cause.",
+          "bullets": [
+            "Calm assessment to pinpoint the source of pain",
+            "Gentle care to reduce sensitivity and inflammation",
+            "Medication or protective dressings where appropriate",
+            "Follow-up plan to prevent pain returning"
+          ]
+        },
+        {
+          "id": "treatment.heroIntro",
+          "type": "copy-block",
+          "copy": "Severe toothache is usually a sign that something in the tooth or surrounding tissues needs attention — commonly deep decay, an inflamed nerve, a crack, a high bite on a restoration, or infection. An emergency appointment focuses on diagnosis first: we examine the tooth, check bite and gum tissues, and take X-rays if needed to identify the cause. Treatment on the day may include a temporary dressing, stabilising a cracked tooth, adjusting the bite, draining infection where appropriate, or planning definitive care such as root canal treatment, extraction, or a crown. We’ll also give practical advice on pain control and what changes should trigger urgent review."
+        },
+        {
+          "id": "emergency_pain_symptoms",
+          "type": "features",
+          "title": "Common signs",
           "items": [
             "Sharp, throbbing, or radiating pain",
             "Sensitivity to hot, cold, or biting",
@@ -6457,27 +6478,27 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-    {
-      "id": "emergency_abscess_overview",
-      "type": "treatment_overview_rich",
-      "title": "Support for dental abscesses and infections",
-      "copy": "Swelling, throbbing pain, or a bad taste can indicate infection. We act quickly to ease discomfort, manage the infection, and protect surrounding teeth and tissues.",
-      "bullets": [
-        "Rapid assessment and drainage where appropriate",
-        "Medication guidance tailored to you",
-        "Advice on reducing pressure and irritation",
-        "Follow-up to complete definitive treatment"
-      ]
-    },
-    {
-      "id": "treatment.heroIntro",
-      "type": "copy-block",
-      "copy": "A dental abscess is a build-up of infection, often caused by a deep cavity, a crack in a tooth, or gum disease. It can present as throbbing pain, swelling, a bad taste, tenderness to bite on, or sometimes very little pain but increasing facial swelling. The priority is diagnosis and safe stabilisation: we examine the area, assess the tooth and surrounding gum, and take X-rays if needed to find the source. Treatment may involve draining infection where appropriate, cleaning the tooth, placing a dressing, or planning root canal treatment or extraction. We’ll also explain when antibiotics help — and when they don’t — and what symptoms require urgent attention."
-    },
-    {
-      "id": "emergency_abscess_symptoms",
-      "type": "features",
-      "title": "What you might notice",
+        {
+          "id": "emergency_abscess_overview",
+          "type": "treatment_overview_rich",
+          "title": "Support for dental abscesses and infections",
+          "copy": "Swelling, throbbing pain, or a bad taste can indicate infection. We act quickly to ease discomfort, manage the infection, and protect surrounding teeth and tissues.",
+          "bullets": [
+            "Rapid assessment and drainage where appropriate",
+            "Medication guidance tailored to you",
+            "Advice on reducing pressure and irritation",
+            "Follow-up to complete definitive treatment"
+          ]
+        },
+        {
+          "id": "treatment.heroIntro",
+          "type": "copy-block",
+          "copy": "A dental abscess is a build-up of infection, often caused by a deep cavity, a crack in a tooth, or gum disease. It can present as throbbing pain, swelling, a bad taste, tenderness to bite on, or sometimes very little pain but increasing facial swelling. The priority is diagnosis and safe stabilisation: we examine the area, assess the tooth and surrounding gum, and take X-rays if needed to find the source. Treatment may involve draining infection where appropriate, cleaning the tooth, placing a dressing, or planning root canal treatment or extraction. We’ll also explain when antibiotics help — and when they don’t — and what symptoms require urgent attention."
+        },
+        {
+          "id": "emergency_abscess_symptoms",
+          "type": "features",
+          "title": "What you might notice",
           "items": [
             "Swelling of the gum or face",
             "Persistent or throbbing pain",
@@ -6566,27 +6587,27 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-    {
-      "id": "emergency_chipped_overview",
-      "type": "treatment_overview_rich",
-      "title": "Care for broken, chipped, or cracked teeth",
-      "copy": "A sudden chip or crack can be alarming. We smooth sharp edges, protect the tooth, and plan restorative options so you can eat and speak comfortably again.",
-      "bullets": [
-        "Quick smoothing to prevent cuts to cheeks or tongue",
-        "Temporary coverings where needed",
-        "Assessment for structural stability",
-        "Clear plan for lasting repairs"
-      ]
-    },
-    {
-      "id": "treatment.heroIntro",
-      "type": "copy-block",
-      "copy": "A broken or cracked tooth can range from a small chip to a fracture that compromises the nerve. The right treatment depends on where the crack runs, how much tooth is missing, and whether the tooth is sensitive or painful to bite. We’ll examine the tooth, check the bite, and take X-rays where appropriate to assess deeper involvement. On the day, we may smooth sharp edges, place a temporary repair, stabilise the tooth, or plan a crown/onlay to protect it. If the nerve is affected, we’ll discuss root canal treatment and the steps involved. We’ll also explain how to avoid worsening the damage until definitive care is completed."
-    },
-    {
-      "id": "emergency_chipped_symptoms",
-      "type": "features",
-      "title": "What you might notice",
+        {
+          "id": "emergency_chipped_overview",
+          "type": "treatment_overview_rich",
+          "title": "Care for broken, chipped, or cracked teeth",
+          "copy": "A sudden chip or crack can be alarming. We smooth sharp edges, protect the tooth, and plan restorative options so you can eat and speak comfortably again.",
+          "bullets": [
+            "Quick smoothing to prevent cuts to cheeks or tongue",
+            "Temporary coverings where needed",
+            "Assessment for structural stability",
+            "Clear plan for lasting repairs"
+          ]
+        },
+        {
+          "id": "treatment.heroIntro",
+          "type": "copy-block",
+          "copy": "A broken or cracked tooth can range from a small chip to a fracture that compromises the nerve. The right treatment depends on where the crack runs, how much tooth is missing, and whether the tooth is sensitive or painful to bite. We’ll examine the tooth, check the bite, and take X-rays where appropriate to assess deeper involvement. On the day, we may smooth sharp edges, place a temporary repair, stabilise the tooth, or plan a crown/onlay to protect it. If the nerve is affected, we’ll discuss root canal treatment and the steps involved. We’ll also explain how to avoid worsening the damage until definitive care is completed."
+        },
+        {
+          "id": "emergency_chipped_symptoms",
+          "type": "features",
+          "title": "What you might notice",
           "items": [
             "Sharp edges or roughness",
             "Sensitivity to cold or air",
@@ -6675,27 +6696,27 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-    {
-      "id": "emergency_avulsion_overview",
-      "type": "treatment_overview_rich",
-      "title": "Urgent help for a knocked-out tooth",
-      "copy": "A tooth that has fully come out needs immediate attention. We guide you on how to handle the tooth, prepare the site, and increase the chances of saving it.",
-      "bullets": [
-        "Clear instructions on storing the tooth",
-        "Priority appointments for avulsed teeth",
-        "Calm handling to protect the socket and root",
-        "Follow-up care to support healing"
-      ]
-    },
-    {
-      "id": "treatment.heroIntro",
-      "type": "copy-block",
-      "copy": "A knocked-out adult tooth is an emergency where minutes matter. If possible, pick the tooth up by the crown (not the root), rinse briefly if visibly dirty, and try to place it back into the socket — or keep it in milk or saliva and seek urgent care. We’ll assess the tooth, the socket and the surrounding bone, take X-rays, and stabilise the tooth with a splint where appropriate. Follow-up is essential because the tooth’s nerve and supporting tissues may be compromised. We’ll explain what to expect over the coming weeks, how to protect the tooth, and what signs mean you should contact us straight away."
-    },
-    {
-      "id": "emergency_avulsion_symptoms",
-      "type": "features",
-      "title": "What you might notice",
+        {
+          "id": "emergency_avulsion_overview",
+          "type": "treatment_overview_rich",
+          "title": "Urgent help for a knocked-out tooth",
+          "copy": "A tooth that has fully come out needs immediate attention. We guide you on how to handle the tooth, prepare the site, and increase the chances of saving it.",
+          "bullets": [
+            "Clear instructions on storing the tooth",
+            "Priority appointments for avulsed teeth",
+            "Calm handling to protect the socket and root",
+            "Follow-up care to support healing"
+          ]
+        },
+        {
+          "id": "treatment.heroIntro",
+          "type": "copy-block",
+          "copy": "A knocked-out adult tooth is an emergency where minutes matter. If possible, pick the tooth up by the crown (not the root), rinse briefly if visibly dirty, and try to place it back into the socket — or keep it in milk or saliva and seek urgent care. We’ll assess the tooth, the socket and the surrounding bone, take X-rays, and stabilise the tooth with a splint where appropriate. Follow-up is essential because the tooth’s nerve and supporting tissues may be compromised. We’ll explain what to expect over the coming weeks, how to protect the tooth, and what signs mean you should contact us straight away."
+        },
+        {
+          "id": "emergency_avulsion_symptoms",
+          "type": "features",
+          "title": "What you might notice",
           "items": [
             "A missing tooth after trauma",
             "Bleeding or an empty socket",
@@ -6709,7 +6730,7 @@
           "title": "What to do immediately",
           "items": [
             "Handle the tooth by the crown only; avoid touching the root",
-            "If dirty, gently rinse with cold running water for a few seconds\u2014do not scrub",
+            "If dirty, gently rinse with cold running water for a few seconds—do not scrub",
             "Place the tooth back into the socket if you can and bite gently on a clean cloth",
             "If you cannot reinsert it, store it in milk or saliva (not water)",
             "Call us straight away and travel to the practice"
@@ -6783,27 +6804,27 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-    {
-      "id": "emergency_crown_overview",
-      "type": "treatment_overview_rich",
-      "title": "Support for lost crowns, veneers, or fillings",
-      "copy": "If a restoration comes loose or falls out, we protect the exposed tooth, ease any sensitivity, and plan a secure repair or replacement.",
-      "bullets": [
-        "Clean, careful assessment of the exposed tooth",
-        "Temporary coverage when needed",
-        "Discussion on repair versus replacement",
-        "Guidance on protecting the tooth until fixed"
-      ]
-    },
-    {
-      "id": "treatment.heroIntro",
-      "type": "copy-block",
-      "copy": "When a crown, veneer, or filling comes off, the tooth underneath can be sensitive and vulnerable to further fracture or decay. The priority is to protect the tooth and understand why it failed — for example, recurrent decay, cement breakdown, bite forces, or a crack in the tooth. We’ll assess the area, check fit and margins, and take X-rays if needed. Depending on the situation, we may be able to re-cement the restoration, place a temporary cover, or plan a replacement if the tooth structure has changed. We’ll also advise on what to do if the tooth becomes painful or swollen before your appointment."
-    },
-    {
-      "id": "emergency_crown_symptoms",
-      "type": "features",
-      "title": "What you might notice",
+        {
+          "id": "emergency_crown_overview",
+          "type": "treatment_overview_rich",
+          "title": "Support for lost crowns, veneers, or fillings",
+          "copy": "If a restoration comes loose or falls out, we protect the exposed tooth, ease any sensitivity, and plan a secure repair or replacement.",
+          "bullets": [
+            "Clean, careful assessment of the exposed tooth",
+            "Temporary coverage when needed",
+            "Discussion on repair versus replacement",
+            "Guidance on protecting the tooth until fixed"
+          ]
+        },
+        {
+          "id": "treatment.heroIntro",
+          "type": "copy-block",
+          "copy": "When a crown, veneer, or filling comes off, the tooth underneath can be sensitive and vulnerable to further fracture or decay. The priority is to protect the tooth and understand why it failed — for example, recurrent decay, cement breakdown, bite forces, or a crack in the tooth. We’ll assess the area, check fit and margins, and take X-rays if needed. Depending on the situation, we may be able to re-cement the restoration, place a temporary cover, or plan a replacement if the tooth structure has changed. We’ll also advise on what to do if the tooth becomes painful or swollen before your appointment."
+        },
+        {
+          "id": "emergency_crown_symptoms",
+          "type": "features",
+          "title": "What you might notice",
           "items": [
             "A missing crown, veneer, or filling",
             "Sensitivity to hot or cold",
@@ -6892,27 +6913,27 @@
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
       "sections": [
-    {
-      "id": "emergency_trauma_overview",
-      "type": "treatment_overview_rich",
-      "title": "Care after dental trauma or accidents",
-      "copy": "Falls, sports injuries, or other accidents can affect teeth and soft tissues. We provide calm assessment, stop bleeding, protect damaged areas, and outline any further treatment.",
-      "bullets": [
-        "Gentle checks for teeth, gums, and jaw",
-        "Advice on cleaning and swelling control",
-        "Temporary stabilisation if needed",
-        "Clear next steps for definitive care"
-      ]
-    },
-    {
-      "id": "treatment.heroIntro",
-      "type": "copy-block",
-      "copy": "Dental trauma can range from chipped enamel to displaced or loosened teeth, fractures, and injuries to gums or supporting bone. What matters most is prompt assessment: we check tooth stability, nerve response, bite changes and soft tissue injury, and take X-rays to rule out hidden fractures. Treatment might include smoothing or repairing a chip, splinting a tooth, dressing an exposed nerve, or planning follow-up care if the tooth’s nerve is at risk. We’ll also advise on pain control and what to avoid while the area heals. If a tooth has been knocked out, time is critical — see that page for immediate steps."
-    },
-    {
-      "id": "emergency_trauma_symptoms",
-      "type": "features",
-      "title": "What you might notice",
+        {
+          "id": "emergency_trauma_overview",
+          "type": "treatment_overview_rich",
+          "title": "Care after dental trauma or accidents",
+          "copy": "Falls, sports injuries, or other accidents can affect teeth and soft tissues. We provide calm assessment, stop bleeding, protect damaged areas, and outline any further treatment.",
+          "bullets": [
+            "Gentle checks for teeth, gums, and jaw",
+            "Advice on cleaning and swelling control",
+            "Temporary stabilisation if needed",
+            "Clear next steps for definitive care"
+          ]
+        },
+        {
+          "id": "treatment.heroIntro",
+          "type": "copy-block",
+          "copy": "Dental trauma can range from chipped enamel to displaced or loosened teeth, fractures, and injuries to gums or supporting bone. What matters most is prompt assessment: we check tooth stability, nerve response, bite changes and soft tissue injury, and take X-rays to rule out hidden fractures. Treatment might include smoothing or repairing a chip, splinting a tooth, dressing an exposed nerve, or planning follow-up care if the tooth’s nerve is at risk. We’ll also advise on pain control and what to avoid while the area heals. If a tooth has been knocked out, time is critical — see that page for immediate steps."
+        },
+        {
+          "id": "emergency_trauma_symptoms",
+          "type": "features",
+          "title": "What you might notice",
           "items": [
             "Bleeding from gums or lips",
             "Loose or displaced teeth",
@@ -7949,7 +7970,7 @@
           "bullets": [
             "Gentle, unhurried check-ups with the same clinical team",
             "Prevention plans tailored to your enamel, gums, and lifestyle",
-            "Clear guidance if you\u2019re anxious or prefer slower appointments"
+            "Clear guidance if you’re anxious or prefer slower appointments"
           ],
           "ctas": [
             {
@@ -8012,7 +8033,7 @@
             "Polishing and airflow-style finishing where suitable for stain control",
             "Tips to improve brushing and interdental cleaning at home",
             "Why visits matter even if you brush well: hidden build-up and hard-to-reach areas",
-            "Preventing gum disease and bad breath with tailored intervals\u2014see periodontal care (/treatments/periodontal-gum-care)"
+            "Preventing gum disease and bad breath with tailored intervals—see periodontal care (/treatments/periodontal-gum-care)"
           ],
           "strapline": "Regular hygiene keeps gums healthy and helps fillings, crowns, and implants last longer."
         },
@@ -8027,7 +8048,7 @@
           "title": "Simple, science-led guidance you can follow",
           "body": "We create a plan that fits your daily routine so small adjustments have a big impact.",
           "bullets": [
-            "Fluoride advice matched to your risk level\u2014no pushy sales",
+            "Fluoride advice matched to your risk level—no pushy sales",
             "Diet and sugar-frequency guidance with practical swaps",
             "Support for sensitive teeth, including gentle techniques and desensitising care",
             "Custom lab-made sports mouthguards for contact or ball sports (/treatments/sports-mouthguards)"
@@ -8064,7 +8085,7 @@
             "Teens and young adults: monitoring wisdom teeth, orthodontic retainers, and sports protection",
             "Young-at-heart retirees: focus on comfort, function, and maintaining existing restorations",
             "Medical changes considered so your plan stays safe and effective",
-            "Appointment pacing adjusted if you\u2019re nervous or prefer slower visits"
+            "Appointment pacing adjusted if you’re nervous or prefer slower visits"
           ]
         },
         {
@@ -8107,11 +8128,11 @@
             },
             {
               "question": "Do you check for mouth cancer?",
-              "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you\u2019ve noticed."
+              "answer": "Yes. Oral cancer screening is part of every exam. We review soft tissues, lymph areas, and any changes you’ve noticed."
             },
             {
-              "question": "I\u2019m nervous \u2014 can you go slowly?",
-              "answer": "Absolutely. Tell us ahead of time and we\u2019ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
+              "question": "I’m nervous — can you go slowly?",
+              "answer": "Absolutely. Tell us ahead of time and we’ll pace the visit, explain each step, and link you to our nervous patient support if helpful (/treatments/nervous-patients)."
             },
             {
               "question": "Is home whitening better?",
@@ -8128,7 +8149,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book your comprehensive dental exam",
-          "body": "Speak to us about a prevention-first plan. If you\u2019re anxious, tell us \u2014 we\u2019ll tailor the visit and pace it carefully.",
+          "body": "Speak to us about a prevention-first plan. If you’re anxious, tell us — we’ll tailor the visit and pace it carefully.",
           "ctas": [
             {
               "label": "Dental check-ups & oral cancer screening",
@@ -8219,7 +8240,7 @@
     },
     "childrens_dentistry": {
       "id": "childrens_dentistry",
-      "label": "Children\u2019s dentistry",
+      "label": "Children’s dentistry",
       "path": "/treatments/childrens-dentistry",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -8231,7 +8252,7 @@
           "variantId": "smh_childrens_dentistry_hero",
           "order": 10,
           "seoRole": "hero",
-          "eyebrow": "Children\u2019s dentistry",
+          "eyebrow": "Children’s dentistry",
           "title": "Gentle check-ups that build lifelong habits",
           "body": "We keep appointments short, positive, and age-appropriate so children feel relaxed while we protect their growing smiles.",
           "bullets": [
@@ -8241,7 +8262,7 @@
           ],
           "ctas": [
             {
-              "label": "Book a children\u2019s check-up",
+              "label": "Book a children’s check-up",
               "href": "/contact?topic=children",
               "preset": "primary"
             },
@@ -8276,7 +8297,7 @@
           "variantId": "smh_childrens_dentistry_checkup",
           "order": 30,
           "seoRole": "primaryContent",
-          "eyebrow": "What a children\u2019s check-up includes",
+          "eyebrow": "What a children’s check-up includes",
           "title": "Gentle exams with practical guidance",
           "body": "Each visit is paced slowly so children stay comfortable while we check teeth, gums, and bite development.",
           "bullets": [
@@ -8341,7 +8362,7 @@
           "seoRole": "supporting",
           "eyebrow": "When we suggest an orthodontic chat",
           "title": "Early guidance keeps options open",
-          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we\u2019ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right\u2014always explained clearly to families.",
+          "body": "If we spot crowding, bite discrepancies, or habits affecting jaw growth, we’ll recommend an orthodontic assessment. We collaborate with orthodontic colleagues for fixed or removable options when the time is right—always explained clearly to families.",
           "mediaHint": "Monitoring bite, spacing, and eruption patterns"
         },
         {
@@ -8351,12 +8372,12 @@
           "variantId": "smh_childrens_dentistry_faq",
           "order": 80,
           "seoRole": "faq",
-          "eyebrow": "Children\u2019s dentistry FAQs",
+          "eyebrow": "Children’s dentistry FAQs",
           "title": "Answers for parents",
           "faqs": [
             {
               "question": "When should my child first visit?",
-              "answer": "We\u2019re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
+              "answer": "We’re happy to see children as soon as their first teeth appear or by their first birthday. Early visits help them get used to the chair and let us spot any early issues."
             },
             {
               "question": "How often should they come?",
@@ -8368,7 +8389,7 @@
             },
             {
               "question": "What if my child is scared?",
-              "answer": "Tell us ahead of time and we\u2019ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
+              "answer": "Tell us ahead of time and we’ll keep visits short, use tell-show-do, and let them stay in control. We can build up gradually with positive language and plenty of breaks."
             }
           ]
         },
@@ -8387,10 +8408,10 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a gentle check-up for your child",
-          "body": "We\u2019ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
+          "body": "We’ll keep things calm, answer your questions, and map out a prevention plan that fits family life.",
           "ctas": [
             {
-              "label": "Book a children\u2019s appointment",
+              "label": "Book a children’s appointment",
               "href": "/contact?topic=children",
               "variant": "primary"
             },
@@ -8488,7 +8509,7 @@
           "bullets": [
             "We check for bleeding, plaque build-up, and gum measurements",
             "X-rays or scans help us see bone levels where needed",
-            "You\u2019ll receive a clear, written plan before any therapy"
+            "You’ll receive a clear, written plan before any therapy"
           ]
         },
         {
@@ -8548,7 +8569,7 @@
           "title": "Keeping gums healthy after treatment",
           "items": [
             "Short-term tenderness or temperature sensitivity is common and settles with good home care",
-            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing \u2014 we\u2019ll factor this into your plan",
+            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
             "Regular supportive periodontal therapy to maintain pocket depth reductions",
             "Clear instructions on cleaning around teeth and implants to protect results"
           ]
@@ -8571,7 +8592,7 @@
           "faqs": [
             {
               "question": "Does deep cleaning hurt?",
-              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You\u2019ll be guided on what to expect and how to keep things comfortable afterwards."
+              "answer": "Treatment is planned gently with numbing gels or local anaesthetic where needed. You’ll be guided on what to expect and how to keep things comfortable afterwards."
             },
             {
               "question": "How long does it take to see improvement?",
@@ -8579,11 +8600,11 @@
             },
             {
               "question": "Can gum tissue grow back?",
-              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we\u2019ll discuss options if grafting or referral is appropriate."
+              "answer": "Inflammation can reduce and pockets can tighten with good care. Recession usually needs protective maintenance rather than regrowth, and we’ll discuss options if grafting or referral is appropriate."
             },
             {
               "question": "What about implants with gum inflammation?",
-              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we\u2019ll outline referral options calmly."
+              "answer": "Peri-implant tissues can often be stabilised with careful cleaning, airflow-style stain removal, and close reviews. If advanced peri-implantitis is present, we’ll outline referral options calmly."
             }
           ]
         },
@@ -8596,7 +8617,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a periodontal assessment",
-          "body": "Let\u2019s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+          "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
           "ctas": [
             {
               "label": "Schedule a gum review",
@@ -8807,8 +8828,8 @@
           "order": 10,
           "seoRole": "hero",
           "eyebrow": "Extractions & oral surgery",
-          "title": "Gentle extractions with clear surgical planning",
-          "body": "When a tooth can\u2019t be saved, we remove it with care, protect surrounding tissue, and guide you through healing and replacement options.",
+          "title": "Dental extractions",
+          "body": "A dental extraction involves the removal of a tooth that cannot be maintained comfortably or predictably over the long term.\n\nExtractions are usually considered only when other options are unlikely to succeed or would not offer a stable long-term outcome.\n\nAt St Mary’s House Dental Care, the focus is always on preserving teeth where possible and recommending extraction only when it’s genuinely in a patient’s best interest.",
           "bullets": [
             "Calm assessments that explain when extraction is the safest route",
             "Minimally invasive techniques to protect bone and gum",
@@ -8835,13 +8856,11 @@
           "order": 20,
           "seoRole": "primaryContent",
           "eyebrow": "When removal is considered",
-          "title": "Situations that may need extraction or surgery",
+          "title": "When an extraction may be recommended",
           "items": [
-            "Severe decay or fracture where a filling or crown cannot seal the tooth",
-            "Persistent infection after root canal or structural cracks to the root",
-            "Impacted or problematic wisdom teeth causing pain or crowding",
-            "Advanced gum disease with loose, uncomfortable teeth",
-            "Orthodontic or prosthetic planning where space or stability is needed"
+            "An extraction may be advised if a tooth is severely damaged by decay, infection, fracture, or advanced gum disease.",
+            "It may also be considered where a tooth is causing ongoing pain, repeated infection, or is affecting the health of surrounding teeth.",
+            "We’ll always explain why removal is being suggested and what alternatives have been considered."
           ],
           "strapline": "If you experience rapid swelling, spreading infection, or difficulty swallowing, treat it as urgent and contact us for emergency dentistry advice."
         },
@@ -8853,15 +8872,11 @@
           "order": 30,
           "seoRole": "primaryContent",
           "eyebrow": "How the procedure works",
-          "title": "Planned steps for predictable healing",
+          "title": "Assessment and planning",
           "items": [
-            "Assessment: X-rays or CBCT to map roots, nerves, and sinus position",
-            "Comfort: Local anaesthetic and gentle explanation before we begin",
-            "Access: Precise gum and bone access only where needed",
-            "Removal: Sectioning or elevation to ease the tooth out with minimal force",
-            "Site care: Thorough cleaning, possible grafting, and careful suturing",
-            "Instructions: Clear guidance on rest, cleaning, and what to expect during healing",
-            "Review: Follow-up to confirm the site is settling and discuss next steps"
+            "Before recommending an extraction, we carry out a careful assessment.",
+            "This includes examining the tooth, reviewing X-rays or scans where appropriate, and considering how removal may affect function, comfort, and future treatment.",
+            "Planning helps ensure the procedure is carried out as smoothly and safely as possible."
           ]
         },
         {
@@ -8872,8 +8887,8 @@
           "order": 40,
           "seoRole": "supporting",
           "eyebrow": "Technology & precision",
-          "title": "Digital planning that protects nearby structures",
-          "body": "CBCT imaging, surgical planning, and fine instruments help us visualise roots, nerves, and sinus spaces so we can work accurately and reduce trauma.",
+          "title": "What an extraction involves",
+          "body": "Dental extractions are carried out under local anaesthetic.\n\nOnce the area is numb, the tooth is removed carefully, with the aim of minimising trauma to surrounding tissues.\n\nThe procedure itself is usually straightforward, although complexity can vary depending on the tooth and its position.",
           "mediaHint": "CBCT-guided planning and minimally invasive instruments"
         },
         {
@@ -8884,13 +8899,11 @@
           "order": 50,
           "seoRole": "supporting",
           "eyebrow": "Comfort, anxiety & aftercare",
-          "title": "Support from anaesthetic to healing",
+          "title": "Comfort and what to expect",
           "items": [
-            "Local anaesthetic for comfort; sedation dentistry can be discussed for anxious patients",
-            "Measured technique to limit swelling and bruising",
-            "Guidance on pain relief, rest, and eating while the site heals",
-            "Instructions to keep the area clean without disturbing the socket",
-            "Direct contact if bleeding, swelling, or discomfort changes unexpectedly"
+            "Many patients worry about discomfort during or after an extraction.",
+            "The procedure is carried out once the area is numb, and we’ll talk you through what sensations to expect. Some soreness afterwards is normal and usually settles over time.",
+            "We’ll provide clear aftercare advice to support healing."
           ]
         },
         {
@@ -8901,8 +8914,8 @@
           "order": 60,
           "seoRole": "supporting",
           "eyebrow": "Risks, limits & alternatives",
-          "title": "Transparent guidance before removal",
-          "body": "We outline potential risks such as dry socket, sinus communication, nerve proximity, or the need for sectioning so you know what to expect. Where a tooth might be saved with restorative care, we will explain that option too.",
+          "title": "Aftercare and healing",
+          "body": "After an extraction, it’s important to allow the area to heal properly.\n\nThis may involve avoiding certain foods, keeping the area clean, and following specific instructions to reduce the risk of complications.\n\nWe’ll explain what’s normal during healing and when to get in touch if concerns arise.",
           "bullets": [
             "Discussion of saving versus removing a tooth with restorative or endodontic care",
             "Clear consent for complex roots, impacted teeth, or medical considerations",
@@ -8918,8 +8931,8 @@
           "order": 70,
           "seoRole": "supporting",
           "eyebrow": "Longevity & what comes next",
-          "title": "Stable healing and future options",
-          "body": "With careful socket care, most sites heal smoothly in a few weeks. We guide you on timing for implants, bridges, or dentures so you know when replacement can safely begin.",
+          "title": "Replacing a missing tooth",
+          "body": "If a tooth is removed, options for replacement may be discussed.\n\nThese can include leaving the space, using a denture, placing a bridge, or considering a dental implant, depending on the situation.\n\nAny replacement is planned carefully and never rushed.",
           "bullets": [
             "Monitoring to confirm bone and gum health before replacement",
             "Advice on protecting the site to maintain bone volume",
@@ -8935,15 +8948,15 @@
           "order": 80,
           "seoRole": "faq",
           "eyebrow": "Extraction & surgery FAQs",
-          "title": "Answers to common questions",
+          "title": "Questions and reassurance",
           "faqs": [
             {
-              "question": "Will I feel pain during the extraction?",
-              "answer": "The area is numbed thoroughly with local anaesthetic. You may feel pressure but should not feel sharp pain, and sedation options can be discussed if you are anxious."
+              "question": "Questions and reassurance",
+              "answer": "Being told a tooth needs to be removed can feel daunting.\n\nIf you’re unsure why an extraction has been suggested or what it means for you, we encourage you to ask. Clear explanations help support confident, informed decisions."
             },
             {
               "question": "How long is recovery?",
-              "answer": "Most people are comfortable after a few days with steady improvement over 1\u20132 weeks. We give written instructions to support smooth healing."
+              "answer": "Most people are comfortable after a few days with steady improvement over 1–2 weeks. We give written instructions to support smooth healing."
             },
             {
               "question": "Can the tooth be replaced?",
@@ -8951,7 +8964,7 @@
             },
             {
               "question": "What if the tooth could be saved?",
-              "answer": "If a filling, crown, or root canal could provide a predictable result, we\u2019ll explain that option first so you can make an informed choice."
+              "answer": "If a filling, crown, or root canal could provide a predictable result, we’ll explain that option first so you can make an informed choice."
             }
           ]
         },
@@ -8970,7 +8983,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Need advice about a troublesome tooth?",
-          "body": "We\u2019ll review your options, plan comfortable removal if needed, and map the best path to restore your smile.",
+          "body": "Contact us to discuss your situation and appropriate next steps.",
           "ctas": [
             {
               "label": "Book an oral surgery consult",
