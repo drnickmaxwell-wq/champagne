@@ -41,11 +41,12 @@
       "eyebrow": "When CBCT is used",
       "title": "When CBCT scanning may be recommended",
       "items": [
-        "Standard X-rays do not provide enough information",
-        "Implant planning or assessment of bone quality and anatomy",
-        "Complex extractions or impacted teeth",
-        "Root-treated teeth with ongoing symptoms",
-        "Jaw or facial pain requiring detailed assessment"
+        "CBCT scanning is typically advised when standard X-rays don’t provide enough information",
+        "Used for implant planning and complex cases here in Shoreham-by-Sea, where precise anatomy helps avoid unnecessary risk",
+        "Helps assess bone quality and anatomy for planning",
+        "Supports assessment of impacted teeth, complex extractions, and root-treated teeth with ongoing symptoms",
+        "Recommended when jaw or facial pain needs detailed assessment",
+        "If a CBCT scan is suggested, we’ll explain why it’s helpful in your specific case"
       ]
     },
     {
@@ -90,11 +91,9 @@
       "eyebrow": "What to expect",
       "title": "What to expect during a scan",
       "items": [
-        "We explain the scan and answer questions before starting",
-        "You stand or sit still while the scanner rotates briefly",
-        "The scan takes seconds and is non-invasive",
-        "There is no contact or discomfort during the scan",
-        "Results are reviewed alongside your examination and records"
+        "You’ll usually be asked to stand or sit still while the scanner rotates briefly around your head",
+        "The process takes seconds and doesn’t involve any contact or discomfort",
+        "Results are reviewed alongside your clinical examination and other records"
       ],
       "strapline": "A CBCT scan is quick and non-invasive."
     },
@@ -118,10 +117,8 @@
       "title": "When a CBCT scan isn’t needed",
       "items": [
         "Not every dental problem requires 3D imaging",
-        "Standard X-rays and clinical examination may be sufficient",
-        "A CBCT scan won’t be recommended if information is clear",
-        "Our aim is to use the simplest appropriate tools",
-        "We explain the reasoning for any imaging decision"
+        "If standard X-rays and clinical examination provide sufficient information, a CBCT scan won’t be recommended",
+        "Our aim is to use the simplest, most appropriate tools for each situation"
       ]
     },
     {
