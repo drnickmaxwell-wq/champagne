@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Implants for several missing teeth",
-      "title": "Secure multiple teeth with implant-supported bridges",
-      "body": "Replacing several missing teeth with implants can improve stability, function and comfort, but the plan depends on the pattern of missing teeth, the bite, and how much bone support is available. We assess the area clinically and with CBCT imaging, then use digital planning to decide the number and position of implants needed to support a bridge or individual crowns. We’ll discuss options for staged treatment, temporary teeth during healing, and how maintenance works long-term. Where implants aren’t high standards fit — due to anatomy, medical considerations, or preference — we’ll explain alternatives such as conventional bridges or removable solutions and what the trade-offs are.",
+      "title": "Replacing several missing teeth",
+      "body": "When more than one tooth is missing, the choices become broader — and the planning becomes more important.\n\nMultiple teeth can be replaced using individual implants, implants supporting a bridge, or implant-retained removable solutions. The right option depends on how many teeth are missing, where they are, and how your bite functions.",
       "bullets": [
         "Implant-supported bridges that avoid drilling healthy neighbouring teeth",
         "Secure chewing and speech thanks to steadier support",
@@ -50,13 +50,13 @@
       "variantId": "shoreham_multi_implant_candidates",
       "order": 40,
       "seoRole": "primaryContent",
-      "eyebrow": "Who it helps",
-      "title": "For multiple gaps and loose bridges",
+      "eyebrow": "Suitability",
+      "title": "When multiple implants may be suitable",
       "items": [
-        "Several missing teeth in a row where a traditional bridge isn’t suitable",
-        "Replacing a failing bridge with a stable implant-supported option",
-        "Partial denture wearers wanting more security and bite strength",
-        "Patients aiming to protect jaw bone and stop neighbouring teeth drifting"
+        "several teeth are missing in one area",
+        "existing dentures are unstable or uncomfortable",
+        "remaining teeth are heavily restored or failing",
+        "Suitability is always confirmed after assessment."
       ]
     },
     {
@@ -65,16 +65,15 @@
       "variantId": "shoreham_multi_implant_timeline",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Your implant pathway",
-      "title": "Structured steps to restore several teeth",
+      "eyebrow": "Planning may involve",
+      "title": "Planning before placement",
       "items": [
-        "Consult: review goals, medical history, and the spaces to replace",
-        "Scans: CBCT imaging and digital impressions to map bone and bite",
-        "Planning: guided positions for multiple implants with the bridge design set up",
-        "Placement: gentle surgery with measured spacing for stability and gum support",
-        "Healing: integration checks and occlusion reviews while tissues settle",
-        "Provisional bridgework: temporary options to keep you confident during healing",
-        "Final bridge fit: custom bridge or partial denture secured for confident chewing"
+        "With multiple implants, we plan the teeth first, then the implants.",
+        "digital scans and imaging to assess bone and space",
+        "evaluating bite forces and chewing patterns",
+        "deciding whether teeth should be replaced individually or splinted",
+        "considering cleaning access and long-term maintenance",
+        "This planning stage reduces surprises and improves predictability."
       ]
     },
     {
@@ -94,13 +93,14 @@
       "variantId": "shoreham_multi_implant_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare & risks",
-      "title": "Steady healing with focused reviews",
+      "eyebrow": "With multiple implants, success depends on",
+      "title": "Long-term considerations",
       "items": [
-        "Home care guidance for cleaning under bridgework and around implant posts",
-        "Diet and activity advice to protect healing bone and soft tissue",
-        "Follow-ups to monitor bite balance across the new bridge",
-        "Transparent discussion of risks like soreness, infection, or implant movement"
+        "cleaning access",
+        "regular reviews",
+        "managing bite forces",
+        "addressing gum health early",
+        "These factors are discussed before treatment begins."
       ]
     },
     {
@@ -150,14 +150,14 @@
       "variantId": "smh_implants-multiple-teeth_decision_clarity",
       "order": 89,
       "seoRole": "supporting",
-      "eyebrow": "Decision clarity",
-      "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "eyebrow": "Alternatives and staging",
+      "title": "Alternatives and staging",
+      "body": "In some cases, a staged approach is more sensible:",
       "bullets": [
-        "Appropriate when you want to review implant options for replacing several missing teeth.",
-        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
-        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
+        "starting with fewer implants",
+        "using a removable option initially",
+        "addressing gum health or bite issues first",
+        "We’ll explain when staging improves outcomes — and when it doesn’t."
       ]
     },
     {
