@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import "@champagne/tokens";
+import sacredHeroBase from "../../champagne-manifests/data/hero/sacred_hero_base.json" assert { type: "json" };
 
 type SurfaceVariant = "glass" | "inkGlass" | "plain";
 type SurfaceTone = "default" | "ink";
@@ -43,6 +44,15 @@ export function BaseChampagneSurface({
   tone = "default",
   disableInternalOverlays = false,
 }: BaseChampagneSurfaceProps) {
+  const sacredOverlayOptOut = Boolean(
+    (sacredHeroBase as { defaults?: { rendering?: { disableInternalOverlays?: boolean } } })
+      ?.defaults
+      ?.rendering
+      ?.disableInternalOverlays,
+  );
+  const isHeroSurface = typeof className === "string" && className.includes("hero-renderer");
+  const shouldDisableInternalOverlays = disableInternalOverlays || (sacredOverlayOptOut && isHeroSurface);
+
   const appliedTone: CSSProperties = tone === "ink"
     ? { color: "var(--smh-ink)" }
     : { color: "var(--text-high)" };
@@ -63,7 +73,7 @@ export function BaseChampagneSurface({
         ...style,
       }}
     >
-      {!disableInternalOverlays && (
+      {!shouldDisableInternalOverlays && (
         <>
           <div
             aria-hidden
