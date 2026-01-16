@@ -24,16 +24,21 @@ jobs:
           node-version: "20"
           cache: "pnpm"
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: "9.12.3"
-          run_install: false
-
-      - name: Verify toolchain
+      - name: Ensure pnpm exists
         run: |
-          node --version
+          node --version || true
+          npm --version || true
+          npm i -g pnpm@9.12.3
           pnpm --version
+          which pnpm || true
+
+      - name: Debug PATH
+        run: |
+          echo "PATH=$PATH"
+          which node || true
+          which npm || true
+          which pnpm || true
+          pnpm --version || true
 
       - name: Install
         run: pnpm install --frozen-lockfile
