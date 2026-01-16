@@ -6,7 +6,7 @@
       "tone": "night",
       "surfaces": {
         "particles": "overlay.particlesPrimary",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       }
     },
     {
@@ -16,7 +16,7 @@
       "tone": "day",
       "surfaces": {
         "particles": "overlay.particlesTeal",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       },
       "content": {
         "headline": "Daylight smile confidence.",
@@ -37,7 +37,7 @@
       },
       "surfaces": {
         "particles": "overlay.particlesMagenta",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "dynamic",
@@ -58,7 +58,7 @@
       },
       "surfaces": {
         "particles": "overlay.particlesGold",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "calm",
@@ -79,7 +79,7 @@
       },
       "surfaces": {
         "particles": "overlay.particlesTeal",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "balanced",
@@ -100,7 +100,7 @@
       },
       "surfaces": {
         "particles": "overlay.particlesGold",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "balanced",
@@ -121,7 +121,7 @@
       },
       "surfaces": {
         "particles": "overlay.particlesMagenta",
-        "motion": ["overlay.caustics"]
+        "motion": ["overlay.caustics", "overlay.glassShimmer"]
       },
       "motion": {
         "energyMode": "dynamic",

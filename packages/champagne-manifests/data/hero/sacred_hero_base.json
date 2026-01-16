@@ -12,7 +12,7 @@
     "rendering": {
       "disableInternalOverlays": true
     },
-    "motionAllowlist": ["overlay.caustics"],
+    "motionAllowlist": ["overlay.caustics", "overlay.glassShimmer"],
     "surfaces": {
       "gradient": "gradient.base",
       "waveMask": { "desktop": "mask.waveHeader", "mobile": "mask.waveHeader.mobile" },
@@ -20,7 +20,7 @@
       "overlays": { "dots": "field.dotGrid", "field": "field.waveRings" },
       "particles": "overlay.particlesPrimary",
       "grain": { "desktop": "overlay.filmGrain.desktop", "mobile": "overlay.filmGrain.mobile" },
-      "motion": ["overlay.caustics"],
+      "motion": ["overlay.caustics", "overlay.glassShimmer"],
       "video": "__OFF__"
     },
     "layout": {
