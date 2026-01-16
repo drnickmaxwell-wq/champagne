@@ -8444,7 +8444,7 @@
     },
     "periodontal_gum_care": {
       "id": "periodontal_gum_care",
-      "label": "Periodontal & gum care",
+      "label": "Gum disease",
       "path": "/treatments/periodontal-gum-care",
       "category": "treatment",
       "hero": "periodontal_health_hero_v1",
@@ -8457,12 +8457,12 @@
           "order": 10,
           "seoRole": "hero",
           "eyebrow": "Periodontal & gum care",
-          "title": "Calm, thorough gum care to steady teeth and implants",
-          "body": "Healthy gums support every part of your smile. We explain the difference between gingivitis (reversible inflammation) and periodontitis (deeper bone loss), then tailor care that protects your teeth, implants, and confidence.",
+          "title": "Gum disease",
+          "body": "Gum disease is a common condition that affects the tissues supporting the teeth.\n\nIt often develops gradually and may not cause pain in its early stages, which means it can progress unnoticed for some time.\n\nAt St Mary’s House Dental Care, gum disease is managed with a long-term view, focusing on understanding causes, stabilising the condition, and supporting ongoing oral health.",
           "bullets": [
-            "Full periodontal assessments with gentle charting and imaging",
-            "Non-surgical therapy focused on deep cleaning and root surface debridement",
-            "Personalised maintenance to keep gums, teeth, and implants stable"
+            "Gum disease is a common condition that affects the tissues supporting the teeth.",
+            "It often develops gradually and may not cause pain in its early stages, which means it can progress unnoticed for some time.",
+            "At St Mary’s House Dental Care, gum disease is managed with a long-term view, focusing on understanding causes, stabilising the condition, and supporting ongoing oral health."
           ],
           "ctas": [
             {
@@ -8485,12 +8485,12 @@
           "order": 20,
           "seoRole": "supporting",
           "eyebrow": "Why gum health matters",
-          "title": "Stable gums protect your bite and overall health",
+          "title": "Why gum health matters",
           "items": [
-            "Healthy gums keep teeth and implants anchored and comfortable",
-            "Preventing inflammation supports fresher breath and everyday comfort",
-            "Evidence links uncontrolled gum disease with diabetes control and cardiovascular health",
-            "Care plans are judgement-free and paced to suit you"
+            "Healthy gums provide essential support for teeth.",
+            "When gum disease progresses, it can compromise tooth stability and affect long-term oral health. Managing gum health helps protect existing dental work and reduces the risk of future problems.",
+            "The aim is stability rather than perfection.",
+            "For many patients, maintaining comfort and preventing further progression is a realistic and successful outcome."
           ]
         },
         {
@@ -8501,12 +8501,12 @@
           "order": 30,
           "seoRole": "primaryContent",
           "eyebrow": "Understanding gum disease",
-          "title": "Gingivitis vs periodontitis",
-          "body": "Gingivitis is surface-level inflammation that can usually be reversed with tailored cleaning and home care. Periodontitis affects the deeper support around teeth or implants, leading to pocketing and bone loss. Early, steady treatment limits damage and keeps treatment conservative.",
+          "title": "What gum disease is",
+          "body": "Gum disease occurs when bacteria build up around the teeth and gums, leading to inflammation and damage to the supporting tissues.\n\nIn its early form, known as gingivitis, the gums may bleed or appear swollen. If left untreated, it can progress to periodontitis, where bone and supporting structures are affected.\n\nNot everyone progresses at the same rate, and severity varies between individuals.",
           "bullets": [
-            "We check for bleeding, plaque build-up, and gum measurements",
-            "X-rays or scans help us see bone levels where needed",
-            "You’ll receive a clear, written plan before any therapy"
+            "Gum disease occurs when bacteria build up around the teeth and gums, leading to inflammation and damage to the supporting tissues.",
+            "In its early form, known as gingivitis, the gums may bleed or appear swollen. If left untreated, it can progress to periodontitis, where bone and supporting structures are affected.",
+            "Not everyone progresses at the same rate, and severity varies between individuals."
           ]
         },
         {
@@ -8517,12 +8517,10 @@
           "order": 40,
           "seoRole": "supporting",
           "eyebrow": "Signs & risk factors",
-          "title": "What patients often notice",
+          "title": "Common signs and symptoms",
           "items": [
-            "Bleeding gums, soreness, or bad breath that keeps returning",
-            "Gum recession, spacing changes, or teeth feeling slightly mobile",
-            "History of smoking, stress, diabetes, or family tendency to gum disease",
-            "Peri-implant inflammation such as redness or bleeding around implants"
+            "Signs of gum disease can include bleeding when brushing, red or swollen gums, persistent bad breath, gum recession, loose teeth, or changes in bite.",
+            "Some people experience very few symptoms, which is why regular assessment is important."
           ]
         },
         {
@@ -8532,17 +8530,14 @@
           "variantId": "smh_periodontal_pathway",
           "order": 50,
           "seoRole": "primaryContent",
-          "eyebrow": "Your periodontal pathway",
-          "title": "Non-surgical care first, with clear reviews",
+          "eyebrow": "Assessment and diagnosis",
+          "title": "Assessment and diagnosis",
           "items": [
-            "Comprehensive assessment with periodontal charting and tailored photos/scans",
-            "Personalised home care coaching, including interdental cleaning and toothpaste advice",
-            "Root surface debridement (deep cleaning) with topical anaesthetic or local anaesthetic for comfort",
-            "Airflow-style stain removal or polishing where suitable after plaque and tartar are removed",
-            "Re-evaluation of pocket depths and gum response after healing",
-            "Supportive maintenance visits to keep disease stable; onward referral discussed for complex cases"
+            "Assessment involves examining the gums, measuring gum health around the teeth, reviewing X-rays where appropriate, and considering individual risk factors.",
+            "This helps determine the stage of gum disease and the most appropriate management approach.",
+            "Findings are discussed clearly so you understand what they mean for you."
           ],
-          "strapline": "Most patients stabilise with non-surgical care and regular maintenance when we work together on habits and reviews."
+          "strapline": "Findings are discussed clearly so you understand what they mean for you."
         },
         {
           "id": "periodontal-technology",
@@ -8550,9 +8545,9 @@
           "variantId": "smh_periodontal_technology",
           "order": 60,
           "seoRole": "supporting",
-          "eyebrow": "Techniques & comfort",
-          "title": "Modern hygiene tools with a gentle touch",
-          "body": "Ultrasonic scalers, fine hand instruments, and airflow-style finishing help remove plaque and calculus thoroughly. We use numbing gels or local anaesthetic when needed and share measured progress so you feel in control.",
+          "eyebrow": "Management and treatment",
+          "title": "Management and treatment",
+          "body": "Treatment for gum disease focuses on reducing inflammation and controlling bacterial build-up.\n\nThis may involve professional cleaning, tailored oral hygiene advice, and regular monitoring.\n\nManagement is usually ongoing rather than a one-off intervention.",
           "mediaHint": "Gentle deep cleaning"
         },
         {
@@ -8562,13 +8557,12 @@
           "variantId": "smh_periodontal_maintenance",
           "order": 70,
           "seoRole": "supporting",
-          "eyebrow": "Maintenance & long-term stability",
-          "title": "Keeping gums healthy after treatment",
+          "eyebrow": "Maintenance and review",
+          "title": "Maintenance and review",
           "items": [
-            "Short-term tenderness or temperature sensitivity is common and settles with good home care",
-            "Smoking, unmanaged stress, or poorly controlled diabetes can slow healing — we’ll factor this into your plan",
-            "Regular supportive periodontal therapy to maintain pocket depth reductions",
-            "Clear instructions on cleaning around teeth and implants to protect results"
+            "Long-term gum health depends on consistent care and review.",
+            "Regular appointments allow us to monitor stability, address changes early, and adjust care as needed.",
+            "This ongoing approach helps maintain comfort and function over time."
           ]
         },
         {
@@ -8614,7 +8608,7 @@
           "seoRole": "cta",
           "eyebrow": "Next steps",
           "title": "Book a periodontal assessment",
-          "body": "Let’s map your gum health and plan steady, preventative care. Related care you may find helpful: Dental Implants (/treatments/implants), Preventative & General Dentistry (/treatments/preventative-and-general-dentistry), Dental check-ups & oral cancer screening (/treatments/preventative-and-general-dentistry), Nervous Patients (/treatments/nervous-patients).",
+          "body": "Contact us to discuss gum health and appropriate next steps.",
           "ctas": [
             {
               "label": "Schedule a gum review",
