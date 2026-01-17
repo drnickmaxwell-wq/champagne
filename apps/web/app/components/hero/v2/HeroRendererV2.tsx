@@ -231,9 +231,6 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 opacity: 0;
                 transition: opacity 220ms ease;
               }
-              .hero-renderer-v2 .hero-surface-layer.hero-surface--motion[data-motion-ready="true"] {
-                opacity: var(--hero-motion-target-opacity, 0);
-              }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
                 --hero-motion-y: 0.8%;
@@ -336,22 +333,72 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
             __html: `(() => {
               if (typeof window === 'undefined') return;
               const selector = '.hero-renderer-v2 .hero-surface--motion';
-              const videos = Array.from(document.querySelectorAll(selector));
+              const isDev = ${process.env.NODE_ENV !== "production" ? "true" : "false"};
+              const warnOnce = () => {
+                if (!isDev) return;
+                if (window.__heroMotionWarned) return;
+                window.__heroMotionWarned = true;
+                console.warn('[hero] Motion layer still hidden after 1400ms, forcing target opacity.');
+              };
+              const resolveTargetOpacity = (video) => {
+                if (!(video instanceof HTMLVideoElement)) return null;
+                const dataValue = video.dataset.motionTargetOpacity;
+                if (dataValue) {
+                  const parsed = Number.parseFloat(dataValue);
+                  if (!Number.isNaN(parsed)) return parsed;
+                }
+                const inlineValue = video.style.getPropertyValue('--hero-motion-target-opacity');
+                const computedValue = window.getComputedStyle(video).getPropertyValue('--hero-motion-target-opacity');
+                const source = inlineValue || computedValue;
+                if (source) {
+                  const parsed = Number.parseFloat(source);
+                  if (!Number.isNaN(parsed)) {
+                    video.dataset.motionTargetOpacity = String(parsed);
+                    return parsed;
+                  }
+                }
+                return null;
+              };
+              const applyTargetOpacity = (video) => {
+                const target = resolveTargetOpacity(video);
+                if (target === null || Number.isNaN(target)) return;
+                video.style.opacity = String(target);
+              };
               const reveal = (video, fallbackId) => {
                 if (!(video instanceof HTMLVideoElement)) return;
                 if (video.dataset.motionReady === 'true') return;
                 if (fallbackId) window.clearTimeout(fallbackId);
                 video.dataset.motionReady = 'true';
+                applyTargetOpacity(video);
               };
-              videos.forEach((video) => {
+              const initVideo = (video) => {
                 if (!(video instanceof HTMLVideoElement)) return;
+                if (video.dataset.motionInit === 'true') return;
+                video.dataset.motionInit = 'true';
                 video.preload = 'auto';
                 const fallbackId = window.setTimeout(() => reveal(video, fallbackId), 1200);
                 if (video.readyState >= 2) reveal(video, fallbackId);
                 video.addEventListener('loadeddata', () => reveal(video, fallbackId), { once: true });
                 video.addEventListener('canplay', () => reveal(video, fallbackId), { once: true });
                 video.addEventListener('playing', () => reveal(video, fallbackId), { once: true });
-              });
+                window.setTimeout(() => {
+                  if (!(video instanceof HTMLVideoElement)) return;
+                  const currentOpacity = Number.parseFloat(window.getComputedStyle(video).opacity || '0');
+                  if (currentOpacity <= 0.01) {
+                    applyTargetOpacity(video);
+                    warnOnce();
+                  }
+                }, 1400);
+              };
+              const init = () => {
+                Array.from(document.querySelectorAll(selector)).forEach(initVideo);
+              };
+              init();
+              const start = Date.now();
+              const intervalId = window.setInterval(() => {
+                init();
+                if (Date.now() - start > 2000) window.clearInterval(intervalId);
+              }, 250);
             })();`,
           }}
         />
@@ -546,12 +593,14 @@ export async function buildHeroV2Model({
     entry?: { blendMode?: string | null; opacity?: number | null; zIndex?: number | string | null },
     id?: string,
   ) => {
-    if (!entry) return {};
+    if (!entry) return { style: {}, targetOpacity: null };
     const style: CSSProperties = {};
     const resolvedBlend = entry.blendMode ?? undefined;
     const resolvedOpacity = entry.opacity ?? undefined;
+    let targetOpacity: number | null = null;
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
+      targetOpacity = resolvedOpacity;
       (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${resolvedOpacity}`;
       style.opacity = 0;
     } else {
@@ -571,7 +620,7 @@ export async function buildHeroV2Model({
       noteMissing(id, "zIndex", "motion");
     }
 
-    return style;
+    return { style, targetOpacity };
   };
 
   const waveBackdropUrlDesktop = resolveAssetUrl(surfaces.background?.desktop);
@@ -911,10 +960,10 @@ export async function buildHeroV2Model({
     },
   };
 
-  const heroVideoStyle = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
+  const { style: heroVideoStyle } = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
 
   const motionEntriesWithStyles = filteredMotionEntries.map((entry, index) => {
-    const style = resolveMotionStyle(entry, entry.id ?? `motion-${index}`);
+    const { style } = resolveMotionStyle(entry, entry.id ?? `motion-${index}`);
 
     return { entry, style };
   });
