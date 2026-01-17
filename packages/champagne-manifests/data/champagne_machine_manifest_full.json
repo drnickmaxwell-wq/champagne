@@ -10116,7 +10116,7 @@
     },
     "skin_boosters": {
       "id": "skin_boosters",
-      "label": "Skin boosters for hydration and elasticity",
+      "label": "Skin boosters (hydration and elasticity)",
       "path": "/treatments/skin-boosters",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -10146,7 +10146,7 @@
           "id": "skin_boosters_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected options and choose a calm, natural next step."
         },
         {
           "id": "treatment.faq"
@@ -10157,21 +10157,21 @@
         {
           "id": "skin_boosters_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Refresh skin with boosters",
-          "strapline": "Hydrate and smooth skin with a tailored booster schedule.",
+          "title": "Skin booster consultation",
+          "strapline": "Skin boosters are designed to improve hydration, texture, and elasticity with subtle, natural-looking change over time.\n\nWe’ll talk through your goals, skin quality, and what’s realistic, then recommend a plan only if it’s appropriate and safe for you.",
           "ctas": [
             {
-              "label": "Book a skin booster plan",
+              "label": "Book a skin booster consultation",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "Facial therapeutics",
+              "label": "Polynucleotides",
               "href": "/treatments/polynucleotides",
               "preset": "secondary"
             },
             {
-              "label": "Facial therapeutics",
+              "label": "Dermal fillers",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             }
