@@ -3175,7 +3175,7 @@
           "id": "video_consultation_intro",
           "type": "copy-block",
           "title": "Remote guidance with a clinician",
-          "copy": "A video consultation can be a calm first step when you’d like professional guidance before visiting the practice. It works well for discussing symptoms, reviewing history, talking through treatment options, and planning what would be most useful to do in-person. If something needs a hands-on examination, x-rays or scans, we’ll be clear about that and help you book the right appointment. It’s not designed for emergencies, severe swelling, trauma, or situations where immediate clinical care is needed — in those cases please call us so we can advise promptly.",
+          "copy": "A video consultation can be a calm first step if you’d like clinical guidance before coming into the practice.\n\nIt works well for discussing symptoms, reviewing your history, talking through options, and planning what would be most useful to do in person. If something needs a hands-on examination, X-rays or scans, we’ll be clear about that and help you book the right appointment.\n\nA video consultation is not designed for emergencies, significant swelling, trauma, or situations where you may need urgent clinical care. In those cases, please call us so we can advise promptly.",
           "label": "Overview"
         },
         {
@@ -3185,8 +3185,8 @@
           "items": [
             "Discuss discomfort, swelling, or sensitivity and assess urgency",
             "Review recent photos or scans you can share securely",
-            "Explain likely causes and immediate self-care steps",
-            "Plan whether you need an in-practice visit or a specific clinician"
+            "Explain likely causes and sensible self-care steps while you wait",
+            "Plan whether you need an in-practice visit and which appointment type fits best"
           ],
           "label": "Scope"
         },
@@ -3195,9 +3195,9 @@
           "type": "feature-list",
           "title": "What still needs the practice",
           "items": [
-            "X-rays, detailed periodontal checks, and restorative work",
-            "Hands-on examinations for bite, mobility, or soft tissue changes",
-            "Emergency relief that requires medication or procedures"
+            "X-rays, detailed gum checks, and restorative treatment",
+            "Hands-on examination for bite, mobility, or soft-tissue changes",
+            "Urgent care that requires medication, procedures, or immediate assessment"
           ],
           "label": "Limitations"
         },
@@ -3208,8 +3208,8 @@
           "items": [
             "Share your concern and any photos when booking",
             "Join the secure video link at the scheduled time",
-            "We listen, guide you through a visual review, and outline next steps",
-            "If needed, we book you straight into an in-practice slot"
+            "We listen, guide you through a visual review, and outline sensible next steps",
+            "If needed, we book you into an in-practice appointment that matches the situation"
           ],
           "label": "Process"
         },
@@ -3218,9 +3218,9 @@
           "type": "feature-list",
           "title": "Who this works well for",
           "items": [
-            "Minor concerns where you want reassurance before travelling",
+            "Concerns where you want guidance before travelling or taking time off work",
             "Follow-up questions after a recent appointment",
-            "Accessibility needs that make a pre-visit review helpful"
+            "Accessibility needs where a pre-visit review makes the in-practice appointment more efficient"
           ],
           "label": "Suitability"
         },
