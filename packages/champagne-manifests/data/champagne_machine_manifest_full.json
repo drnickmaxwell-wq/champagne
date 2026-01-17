@@ -6866,30 +6866,30 @@
         {
           "id": "emergency_crown_overview",
           "type": "treatment_overview_rich",
-          "title": "Support for lost crowns, veneers, or fillings",
-          "copy": "If a restoration comes loose or falls out, we protect the exposed tooth, ease any sensitivity, and plan a secure repair or replacement.",
+          "title": "Lost crowns, veneers or fillings",
+          "copy": "If a crown, veneer or filling has come out, it can feel urgent — especially if the tooth is sensitive or looks unfinished.\n\nIn many cases the tooth can be protected and repaired conservatively, but timing matters. A lost restoration can leave sharp edges, exposed dentine, or a tooth that is more likely to fracture.\n\nWe’ll assess what’s happened, explain the options clearly, and help you stabilise the tooth as simply as possible.",
           "bullets": [
-            "Clean, careful assessment of the exposed tooth",
-            "Temporary coverage when needed",
-            "Discussion on repair versus replacement",
-            "Guidance on protecting the tooth until fixed"
+            "Protect the tooth and reduce sensitivity",
+            "Check for decay, cracks, or a cause for the failure",
+            "Decide whether it can be re-cemented or needs replacing",
+            "Restore comfort, function, and stability"
           ]
         },
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "When a crown, veneer, or filling comes off, the tooth underneath can be sensitive and vulnerable to further fracture or decay. The priority is to protect the tooth and understand why it failed — for example, recurrent decay, cement breakdown, bite forces, or a crack in the tooth. We’ll assess the area, check fit and margins, and take X-rays if needed. Depending on the situation, we may be able to re-cement the restoration, place a temporary cover, or plan a replacement if the tooth structure has changed. We’ll also advise on what to do if the tooth becomes painful or swollen before your appointment."
+          "copy": "Restorations can come loose for lots of reasons — wear over time, biting something hard, decay underneath, or the tooth changing shape.\n\nSometimes it’s a straightforward re-cement. Sometimes it’s a sign the tooth needs a different kind of protection.\n\nIf you still have the crown or veneer, keep it safe and bring it with you. We can often learn a lot from seeing it."
         },
         {
           "id": "emergency_crown_symptoms",
           "type": "features",
-          "title": "What you might notice",
+          "title": "Common signs",
           "items": [
-            "A missing crown, veneer, or filling",
-            "Sensitivity to hot or cold",
-            "Rough or sharp edges",
-            "Food catching in the exposed area",
-            "Change in how your bite feels"
+            "A missing crown, veneer, inlay/onlay or filling",
+            "Sensitivity to cold, air, or sweet foods",
+            "A sharp edge catching your tongue",
+            "Pain on biting or a change in how your teeth meet",
+            "Bad taste, food trapping, or a looseness you can feel"
           ]
         },
         {
@@ -6897,26 +6897,26 @@
           "type": "steps",
           "title": "What to do now",
           "items": [
-            "Keep the restoration if you have it and bring it to your appointment",
-            "Avoid chewing on the exposed tooth",
-            "Rinse after eating to keep the area clean",
-            "Do not attempt to glue the restoration back yourself",
-            "Call us so we can arrange a prompt visit"
+            "Keep the area clean with gentle brushing and warm salt-water rinses",
+            "Avoid chewing on that side and stick to softer foods",
+            "If the tooth is sharp, cover it temporarily with sugar-free gum or dental wax",
+            "Keep the crown/veneer if you have it and bring it with you (don’t force it back on)",
+            "Call us so we can advise urgency and book the right appointment"
           ]
         },
         {
           "id": "emergency_crown_importance",
           "type": "copy-block",
-          "title": "Why prompt attention helps",
-          "copy": "Exposed tooth surfaces can become sensitive or decay if left uncovered. Seeing you quickly keeps the tooth protected and makes re-fitting or replacing smoother.",
+          "title": "Why it’s worth seeing us promptly",
+          "copy": "When a restoration comes out, the underlying tooth is often more vulnerable than it looks.\n\nExposed dentine can be very sensitive, and the tooth can fracture more easily — especially if it’s already heavily filled. If there is decay or a crack underneath, delaying can reduce the options.\n\nSeeing you early helps us protect the tooth, manage discomfort, and plan a repair that lasts.",
           "label": "Protect exposed teeth"
         },
         {
           "id": "emergency_crown_options",
           "type": "treatment_media_feature",
           "label": "What we can do",
-          "title": "Secure, calm repairs",
-          "copy": "We assess whether the existing crown, veneer, or filling can be cleaned and re-bonded, place a temporary solution if needed, or plan a new restoration tailored to your bite and smile.",
+          "title": "Possible treatments",
+          "copy": "The right solution depends on why the restoration came out and what the tooth looks like underneath.\n\nOptions may include re-cementing the existing crown or veneer (if it’s intact and the fit is still appropriate), replacing a filling, or making a new restoration if the tooth needs better protection.\n\nIf decay or a crack is present, we’ll explain the findings and the most sensible way to stabilise the tooth long-term.",
           "mediaHint": "Restoration check"
         },
         {
@@ -6932,15 +6932,15 @@
           "faqs": [
             {
               "question": "Can I eat before the appointment?",
-              "answer": "Choose softer foods and avoid the affected side to prevent further damage or sensitivity."
+              "answer": "Sometimes, yes. If the crown is intact and the tooth underneath is healthy and stable, re-cementing can be a good option. If decay, a crack, or fit issues are present, replacing the crown may be safer long-term."
             },
             {
               "question": "Will you reuse my crown or veneer?",
-              "answer": "If the restoration is suitable and fits well, we may re-bond it. Otherwise, we will plan a replacement and keep you comfortable in the meantime."
+              "answer": "In most cases, swallowed dental restorations pass through without causing harm. If you have breathing symptoms, chest pain, or you think it may have been inhaled, seek urgent medical advice. Either way, contact us so we can protect the tooth and plan the next step."
             },
             {
               "question": "Is it urgent if I have no pain?",
-              "answer": "Even without pain, an exposed tooth can deteriorate. Booking soon helps protect the tooth structure and your bite."
+              "answer": "Temporary dental cements can sometimes help short-term, but they can also trap bacteria if used incorrectly. The safest approach is to keep the area clean, avoid chewing on that side, and call us. If you do use a temporary product, treat it as a short stop-gap, not a fix."
             }
           ]
         },
