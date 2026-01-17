@@ -2991,7 +2991,7 @@
           "type": "copy-block",
           "title": "Using this website",
           "label": "Overview",
-          "copy": "These website terms explain how you may use our site, and the limits of what the information here can do. Content on this website is provided for general information and does not replace personalised clinical advice. We aim to keep information accurate and up to date, but dentistry is individual and treatment suitability depends on an examination and appropriate investigations. By using the website, you agree not to misuse it, attempt to interfere with its operation, or copy content in ways that breach rights. If you need guidance about a specific dental problem, please contact the practice."
+          "copy": "These website terms explain how you may use this site and what the information here is (and isn’t) intended for.\n\nThe content on this website is provided for general information only. It is not a substitute for a dental examination, diagnosis, or personalised advice.\n\nIf you have a dental problem, pain, swelling, trauma, or anything you’re worried about, please contact the practice so we can advise you appropriately."
         },
         {
           "id": "legal_terms",
@@ -2999,23 +2999,23 @@
           "items": [
             {
               "title": "What this page covers",
-              "copy": "Overview of the website terms and what they mean for visitors using this site."
+              "copy": "These terms apply to your use of this website. They cover the general informational nature of the content, responsible use of the site, and how to contact us if you have questions.\n\nThey do not replace the terms you agree to when you become a patient, and they do not form a clinical relationship on their own."
             },
             {
               "title": "Key points in plain English",
-              "copy": "Main takeaways about proper use of the website and the informational nature of its content."
+              "copy": "- You can browse and use this website for personal, lawful purposes.\n- The information is general and may not apply to your specific situation.\n- Dentistry often needs an examination and sometimes X-rays or scans before advice is reliable.\n- If you need urgent help, please contact us rather than relying on website information."
             },
             {
               "title": "Your choices and controls",
-              "copy": "Reminders about how you can use the site responsibly and when to seek tailored advice."
+              "copy": "You are welcome to print or share pages for personal use, but please don’t copy large parts of the site for commercial use.\n\nIf you’re making decisions about treatment, the safest route is always an appointment where we can assess you properly and explain options, limits, and likely maintenance."
             },
             {
               "title": "How to contact us",
-              "copy": "Details on reaching the practice if you have questions about the website or its content."
+              "copy": "If you have questions about the website content, or you believe something is unclear or out of date, please contact the practice and we’ll do our best to help.\n\nFor clinical concerns (pain, swelling, broken teeth, lost restorations, or anything urgent), please call us so we can guide you to the right next step."
             },
             {
               "title": "Updates to this page",
-              "copy": "Notes on how these website terms may be reviewed and updated over time."
+              "copy": "We may update these website terms from time to time to reflect changes to the site or how we provide information.\n\nThe current version will always be available on this page."
             }
           ]
         }
