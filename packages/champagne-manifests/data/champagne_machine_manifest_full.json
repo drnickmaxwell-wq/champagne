@@ -8703,11 +8703,11 @@
           "seoRole": "hero",
           "eyebrow": "Endodontics & root canal care",
           "title": "Root canal treatment",
-          "body": "Root canal treatment is used to manage infection or inflammation inside a tooth.\n\nIt’s often recommended when the inner tissue of a tooth becomes damaged or infected and can no longer heal on its own.\n\nAt St Mary’s House Dental Care, root canal treatment is approached as a way of relieving pain and preserving the natural tooth wherever possible.",
+          "body": "Root canal treatment is used when the nerve inside a tooth has become inflamed or infected.\n\nThe aim is to remove infection, seal the tooth, and keep it stable long-term — often avoiding the need for extraction.\n\nWe’ll assess the tooth carefully, explain what we can see (and what we can’t), and recommend the most predictable option for your situation.",
           "bullets": [
-            "Managing infection or inflammation inside a tooth",
-            "Recommended when inner tissue cannot heal on its own",
-            "Aims to relieve pain and preserve the natural tooth"
+            "Relieve pain and settle infection",
+            "Preserve the tooth where it’s sensible to do so",
+            "Restore strength with the right protection afterwards"
           ],
           "ctas": [
             {
@@ -8730,13 +8730,13 @@
           "order": 20,
           "seoRole": "primaryContent",
           "eyebrow": "Common symptoms",
-          "title": "Common symptoms",
+          "title": "Common signs you might need root canal treatment",
           "items": [
-            "Prolonged toothache",
-            "Sensitivity to heat or cold",
-            "Pain when biting",
-            "Swelling of the gums",
-            "Changes seen on X-rays"
+            "Pain that lingers after hot or cold",
+            "Throbbing pain or pain that wakes you",
+            "Pain on biting or when you release the bite",
+            "Swelling, a gum ‘spot’, or a bad taste",
+            "A tooth that has darkened after previous trauma"
           ],
           "strapline": "In some cases, there may be little or no pain, and the problem is identified during examination."
         },
@@ -8748,13 +8748,13 @@
           "order": 30,
           "seoRole": "primaryContent",
           "eyebrow": "What root canal treatment involves",
-          "title": "What root canal treatment involves",
+          "title": "How treatment usually works",
           "items": [
-            "Cleaning the inside of the tooth and removing infected tissue",
-            "Sealing the space to prevent further infection",
-            "Treatment carried out under local anaesthetic",
-            "Usually no more uncomfortable than routine procedures once numb",
-            "Treatment may take place over one or more visits"
+            "We examine the tooth and take X-rays if needed to confirm the cause",
+            "We numb the area thoroughly and isolate the tooth to keep things clean",
+            "We remove infected tissue and disinfect the canals",
+            "We seal the canals and place a suitable temporary or permanent restoration",
+            "We discuss the best long-term protection (often an onlay or crown) depending on the tooth"
           ]
         },
         {
@@ -8765,8 +8765,8 @@
           "order": 40,
           "seoRole": "supporting",
           "eyebrow": "Why root canal treatment may be needed",
-          "title": "Why root canal treatment may be needed",
-          "body": "The inside of a tooth contains nerves and blood vessels, which can become inflamed or infected due to deep decay, cracks, repeated dental work, or trauma.\n\nWithout treatment, infection may spread and symptoms can worsen.\n\nRoot canal treatment aims to remove the source of infection and allow the surrounding tissues to settle.",
+          "title": "Why planning and precision matter",
+          "body": "Root canal treatment is detail work.\n\nGood outcomes depend on seeing the anatomy clearly, cleaning thoroughly, and sealing the tooth well. Sometimes canals are narrow, curved, or hard to locate — and that’s where careful technique and appropriate imaging help.\n\nWe’ll explain what we can see on the day and whether the tooth looks straightforward, complex, or uncertain — before we commit you to a plan.",
           "mediaHint": "CBCT mapping, rotary instruments, and apex location"
         },
         {
@@ -8777,12 +8777,12 @@
           "order": 50,
           "seoRole": "supporting",
           "eyebrow": "Comfort and what to expect",
-          "title": "Comfort and what to expect",
+          "title": "Comfort, pacing, and anxiety",
           "items": [
-            "Many people worry that root canal treatment will be painful",
-            "The procedure is designed to relieve pain caused by infection",
-            "Some tenderness afterwards is normal, but this usually settles with time",
-            "We explain what sensations are expected and how to manage them"
+            "We take time to get you properly numb — pain control is not rushed",
+            "We can work in shorter stages if you find long appointments difficult",
+            "We explain each step before we do it and agree a clear ‘stop’ signal",
+            "If you’re nervous, tell us — we’ll adapt the pace and the plan"
           ]
         },
         {
@@ -8793,12 +8793,12 @@
           "order": 60,
           "seoRole": "supporting",
           "eyebrow": "Alternatives and limitations",
-          "title": "Alternatives and limitations",
-          "body": "Root canal treatment isn’t always possible or appropriate.\n\nIf a tooth is too damaged to restore predictably, alternatives such as extraction may be discussed. We’ll explain the reasons clearly so you can make an informed decision.",
+          "title": "Limitations and risks",
+          "body": "Root canal treatment is usually very successful, but it isn’t magic.\n\nSometimes anatomy is complex, infection has been present for a long time, or cracks mean the tooth cannot be predictably saved. Occasionally a tooth needs further treatment later, even after an apparently good initial result.\n\nWe’ll talk through the realistic risks for your tooth specifically, and what the alternatives would be.",
           "bullets": [
-            "We discuss the condition of the tooth and prognosis",
-            "Alternatives are explained clearly and without pressure",
-            "Decisions are made with full information"
+            "Success depends on anatomy, infection level, and tooth structure",
+            "Some teeth need follow-up treatment or referral if complexity is high",
+            "Cracks or severe breakdown can limit prognosis"
           ]
         },
         {
@@ -8809,12 +8809,12 @@
           "order": 70,
           "seoRole": "supporting",
           "eyebrow": "After root canal treatment",
-          "title": "After root canal treatment",
-          "body": "Once the infection has been treated, the tooth may need additional protection.\n\nThis can involve a filling or, in some cases, a crown to help restore strength and reduce the risk of fracture.\n\nWe’ll discuss what’s appropriate based on how much of the tooth remains.",
+          "title": "Aftercare and long-term outlook",
+          "body": "Once the nerve is treated, the tooth still needs to be protected.\n\nBack teeth in particular often need an onlay or crown afterwards because they’re more likely to fracture. A well-sealed, well-protected tooth can last many years, but maintenance matters.\n\nWe’ll recommend the simplest protection that gives the tooth the best chance of staying stable.",
           "bullets": [
-            "Protection is planned based on how much tooth remains",
-            "Fillings or crowns may be recommended to restore strength",
-            "We explain the next steps clearly"
+            "Follow-up checks are part of good endodontic care",
+            "Protecting the tooth afterwards is often the key to longevity",
+            "We plan for stability, not short-term patching"
           ]
         },
         {
@@ -8825,11 +8825,11 @@
           "order": 80,
           "seoRole": "faq",
           "eyebrow": "Questions and reassurance",
-          "title": "Questions and reassurance",
+          "title": "Questions people ask",
           "faqs": [
             {
               "question": "What if I’m unsure whether I need root canal treatment?",
-              "answer": "Root canal treatment has a reputation that often causes unnecessary anxiety. If you’re unsure whether treatment is needed or what it involves, we encourage you to ask. Clear understanding helps reduce worry and supports sensible decision-making."
+              "answer": "Root canal treatment should not be painful — the tooth is numbed thoroughly and we work carefully.\n\nPeople often come in expecting the worst because they’re already in pain. In reality, the aim is to remove the source of that pain and make the tooth comfortable again.\n\nIf you’re anxious, tell us. We can pace the appointment, take breaks, and keep the plan simple."
             }
           ]
         },
@@ -8847,8 +8847,8 @@
           "order": 90,
           "seoRole": "cta",
           "eyebrow": "Next steps",
-          "title": "Root canal treatment",
-          "body": "Contact us to discuss symptoms or whether root canal treatment may be appropriate.",
+          "title": "Talk to us about root canal treatment",
+          "body": "If you have toothache, lingering sensitivity, or swelling, it’s worth getting the tooth assessed.\n\nWe’ll explain what’s going on, whether the tooth is realistically savable, and what the next step should be — without pressure.",
           "ctas": [
             {
               "label": "Book a root canal consult",
