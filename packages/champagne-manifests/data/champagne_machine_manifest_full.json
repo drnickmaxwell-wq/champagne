@@ -10248,7 +10248,7 @@
     },
     "mouthguards_and_retainers": {
       "id": "mouthguards_and_retainers",
-      "label": "Mouthguards & retainers",
+      "label": "Mouthguards and retainers",
       "path": "/treatments/mouthguards-and-retainers",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -10272,7 +10272,7 @@
           "id": "mouthguards_and_retainers_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Retainers, sports guards, and night guards do different jobs — we’ll help you choose what’s appropriate."
         },
         {
           "id": "treatment.faq"
@@ -10283,16 +10283,16 @@
         {
           "id": "mouthguards_and_retainers_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Protect your smile day and night",
-          "strapline": "Coordinate sports guards, retainers, and splints to keep your smile stable.",
+          "title": "Protect teeth, restorations, and orthodontic results",
+          "strapline": "Mouthguards and retainers can protect teeth during sport, help maintain orthodontic results, and reduce wear from clenching in the right situations.\n\nWe’ll assess your bite and risks, then recommend the simplest option that genuinely helps — without over-treating.",
           "ctas": [
             {
-              "label": "Book a protection review",
+              "label": "Book a mouthguard / retainer review",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "Retainers",
+              "label": "Dental retainers",
               "href": "/treatments/dental-retainers",
               "preset": "secondary"
             },
