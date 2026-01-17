@@ -2666,20 +2666,20 @@
           "type": "copy-block",
           "title": "Fees and planning",
           "label": "Overview",
-          "copy": "We aim to be clear, consistent, and fair about fees. Every plan is tailored to your needs, and we’ll explain what’s recommended, what’s optional, and why. After your assessment, you’ll receive a written treatment plan with an estimate before you decide, along with time to ask questions and consider alternatives. Where appropriate, we can phase care to suit priorities and comfort, and we’ll discuss payment options so you can make an informed choice."
+          "copy": "Dental fees vary because treatment depends on the condition of the teeth and gums, the complexity of care, and the time and materials required.\n\nTwo people having what sounds like the same treatment may need very different levels of care.\n\nBecause of this, we avoid giving fixed prices without first seeing you."
         },
         {
           "id": "fees_how_we_approach_fees",
           "type": "copy-block",
           "title": "How we approach fees",
-          "copy": "We believe patients should understand the cost of their care before making decisions — without pressure, surprises, or rushed conversations.\n\nFees at St Mary’s House Dental reflect the time, planning, materials, and clinical expertise involved in delivering care properly. Where treatment is recommended, we explain the options and provide a written plan and estimate so you can consider your next steps.",
+          "copy": "Before any treatment is started, we take time to understand what you actually need. This usually involves an examination, appropriate X-rays or scans, and a discussion about your priorities.\n\nWhere treatment is straightforward, fees can often be estimated quite accurately. For more complex or staged care, we will explain the likely range and the factors that could affect it.\n\nYou will always be given a written treatment plan before going ahead, and nothing is carried out without your agreement.",
           "label": "How we approach fees"
         },
         {
           "id": "fees_why_dentistry_costs_vary",
           "type": "copy-block",
           "title": "Why dentistry costs vary",
-          "copy": "Dentistry is rarely a one-size-fits-all service. Fees can vary depending on the complexity of your case, the condition of existing teeth or restorations, and the level of planning required.\n\nSome treatments are straightforward and completed in a single visit. Others involve careful sequencing, laboratory stages, or coordination between different disciplines. Our role is to assess what’s appropriate for you and explain the options clearly.",
+          "copy": "If you are unsure whether a particular treatment is appropriate, or simply want to understand likely costs before booking, please get in touch.\n\nInitial conversations are about understanding your situation, not committing you to treatment.",
           "label": "Why dentistry costs vary"
         },
         {
@@ -2693,14 +2693,14 @@
           "id": "fees_staged_treatment_and_planning",
           "type": "copy-block",
           "title": "Staged treatment and flexible planning",
-          "copy": "Not all treatment needs to be completed at once. Where appropriate, care can often be phased over time, prioritising health, comfort, and stability first.\n\nThis staged approach allows many patients to spread treatment in a way that feels manageable. We’ll explain which parts of care are time-sensitive and which can safely wait.",
+          "copy": "Not all dental treatment needs to be done at once.\n\nIn many cases, care can be planned in stages, allowing you to prioritise what matters most and spread treatment over time. This approach often leads to better long-term outcomes and more manageable costs.\n\nWe are happy to talk through different options and help you decide what feels right for you.",
           "label": "Staged treatment and flexible planning"
         },
         {
           "id": "fees_finance_and_affordability",
           "type": "copy-block",
           "title": "Finance and affordability",
-          "copy": "For patients who prefer to spread the cost of treatment, finance options may be available, subject to approval. These can help make planned care more manageable, particularly for more involved treatment.\n\nFinance is optional, and we’ll explain the key terms before you decide. Our priority is to help you choose a treatment path that feels right for your health, circumstances, and peace of mind.",
+          "copy": "Payment is usually taken at the time of treatment. For larger treatment plans, finance options may be available to help spread the cost.\n\nIf finance is something you would like to consider, we can explain how it works and whether it may be suitable for your situation.\n\nWe’ll always explain costs clearly before treatment starts, so you’re not faced with surprises.",
           "label": "Finance and affordability"
         },
         {
