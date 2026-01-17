@@ -221,6 +221,41 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 width: 100%;
                 height: 100%;
                 pointer-events: none;
+                animation-name: heroMotionTide;
+                animation-duration: var(--hero-motion-duration, 36s);
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+                animation-delay: var(--hero-motion-delay, 0s);
+                transform-origin: center;
+                will-change: transform;
+              }
+              .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
+                --hero-motion-duration: 42s;
+                --hero-motion-delay: -9s;
+                --hero-motion-x: -1.1%;
+                --hero-motion-y: 0.8%;
+                --hero-motion-scale: 1.02;
+              }
+              .hero-renderer-v2 .hero-surface--motion.hero-surface--glass-shimmer {
+                --hero-motion-duration: 36s;
+                --hero-motion-delay: -3s;
+                --hero-motion-x: 0.9%;
+                --hero-motion-y: -0.7%;
+                --hero-motion-scale: 1.015;
+              }
+              .hero-renderer-v2 .hero-surface--motion.hero-surface--gold-dust {
+                --hero-motion-duration: 48s;
+                --hero-motion-delay: -14s;
+                --hero-motion-x: 0.6%;
+                --hero-motion-y: 1%;
+                --hero-motion-scale: 1.01;
+              }
+              .hero-renderer-v2 .hero-surface--motion.hero-surface--particles-drift {
+                --hero-motion-duration: 52s;
+                --hero-motion-delay: -21s;
+                --hero-motion-x: -0.7%;
+                --hero-motion-y: -0.9%;
+                --hero-motion-scale: 1.008;
               }
               .hero-renderer-v2 .hero-surface-layer {
                 pointer-events: none;
@@ -251,6 +286,18 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
               @media (prefers-reduced-motion: reduce) {
                 .hero-renderer-v2 .hero-layer.motion,
                 .hero-renderer-v2 .hero-surface--motion { display: none; }
+              }
+              @keyframes heroMotionTide {
+                0% {
+                  transform: translate3d(0, 0, 0) scale(1);
+                }
+                50% {
+                  transform: translate3d(var(--hero-motion-x, 0), var(--hero-motion-y, 0), 0)
+                    scale(var(--hero-motion-scale, 1));
+                }
+                100% {
+                  transform: translate3d(0, 0, 0) scale(1);
+                }
               }
             `,
       }}

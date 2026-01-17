@@ -63,6 +63,12 @@ type TelemetryDump = {
   v1: TelemetryEntry[];
   v2: TelemetryEntry[];
 };
+type SurfaceStackEntry = {
+  id: string;
+  role: string | null;
+  tagName: string;
+  order: number;
+};
 
 type LayerKey = "waves" | "dotGrid" | "particles" | "filmGrain" | "motion" | "scrim";
 type SoloLayerKey = LayerKey | "gradient";
@@ -146,6 +152,7 @@ export function HeroDebugClientPanel() {
   const heroSurfaceRefV2 = useRef<HTMLDivElement | null>(null);
   const [cssVars, setCssVars] = useState<CssVarMap>({});
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
+  const [surfaceStack, setSurfaceStack] = useState<SurfaceStackEntry[]>([]);
   const [telemetryDump, setTelemetryDump] = useState<TelemetryDump | null>(null);
   const [telemetryCopyStatus, setTelemetryCopyStatus] = useState<string | null>(null);
   const manifestGlue = useMemo(() => (heroGlueManifest as GlueManifest).modes?.[v2Mode] ?? {}, [v2Mode]);
@@ -237,6 +244,7 @@ export function HeroDebugClientPanel() {
     if (!heroElement) {
       setCssVars({});
       setSurfaceIds([]);
+      setSurfaceStack([]);
       return undefined;
     }
 
@@ -249,12 +257,16 @@ export function HeroDebugClientPanel() {
         nextVars[key] = value || "(empty)";
       });
 
-      const surfaces = Array.from(heroElement.querySelectorAll<HTMLElement>("[data-surface-id]"))
-        .map((node) => node.getAttribute("data-surface-id") ?? "")
-        .filter(Boolean);
+      const surfaces = Array.from(heroElement.querySelectorAll<HTMLElement>("[data-surface-id]")).map((node, index) => ({
+        id: node.getAttribute("data-surface-id") ?? "",
+        role: node.getAttribute("data-surface-role"),
+        tagName: node.tagName.toLowerCase(),
+        order: index,
+      }));
 
       setCssVars(nextVars);
-      setSurfaceIds(surfaces);
+      setSurfaceStack(surfaces.filter((surface) => surface.id));
+      setSurfaceIds(surfaces.map((surface) => surface.id).filter(Boolean));
     };
 
     updateDiagnostics();
@@ -1045,6 +1057,34 @@ export function HeroDebugClientPanel() {
             ))
           )}
         </div>
+      </div>
+
+      <div style={{ display: "grid", gap: "0.5rem" }}>
+        <h3 style={{ margin: 0 }}>Surface stack order</h3>
+        {surfaceStack.length === 0 ? (
+          <span style={{ color: "var(--text-medium)" }}>None detected</span>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Surface</th>
+                <th>Role</th>
+                <th>Tag</th>
+              </tr>
+            </thead>
+            <tbody>
+              {surfaceStack.map((surface) => (
+                <tr key={`${surface.id}-${surface.order}`}>
+                  <td>{surface.order + 1}</td>
+                  <td>{surface.id}</td>
+                  <td>{surface.role ?? "—"}</td>
+                  <td>{surface.tagName}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
