@@ -9654,7 +9654,7 @@
     },
     "bruxism_jaw_clenching": {
       "id": "bruxism_jaw_clenching",
-      "label": "Bruxism and jaw clenching treatment",
+      "label": "Bruxism (grinding) and jaw clenching",
       "path": "/treatments/bruxism-and-jaw-clenching",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -9684,7 +9684,7 @@
           "id": "bruxism_jaw_clenching_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Protect worn teeth, reduce jaw strain, and understand the triggers — with a practical plan."
         },
         {
           "id": "treatment.faq"
@@ -9695,8 +9695,8 @@
         {
           "id": "bruxism_and_jaw_clenching_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Address bruxism and clenching",
-          "strapline": "Reduce wear and pain with splints, bite balancing, and muscle therapy.",
+          "title": "Help for grinding and clenching",
+          "strapline": "Grinding and clenching can wear teeth, crack fillings, and overload the jaw muscles. We’ll assess the pattern, explain what it suggests, and help you protect your teeth sensibly.",
           "ctas": [
             {
               "label": "Book a bruxism assessment",
@@ -9709,7 +9709,7 @@
               "preset": "secondary"
             },
             {
-              "label": "TMJ disorder",
+              "label": "TMJ disorder treatment",
               "href": "/treatments/tmj-disorder-treatment",
               "preset": "secondary"
             }
