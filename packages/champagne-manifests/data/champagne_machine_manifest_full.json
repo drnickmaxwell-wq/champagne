@@ -7811,7 +7811,7 @@
           "id": "night_guards_occlusal_splints_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected options for clenching, jaw joint symptoms, and tooth wear — and choose the calm next step."
         },
         {
           "id": "treatment.faq"
@@ -7822,21 +7822,21 @@
         {
           "id": "night_guards_occlusal_splints_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Protect your bite with a night guard",
-          "strapline": "Reduce wear, pain, and joint strain with a tailored occlusal splint.",
+          "title": "Night guards for grinding and jaw tension",
+          "strapline": "A custom occlusal splint can reduce wear, ease muscle strain, and protect heavily filled or worn teeth — without over-treating.",
           "ctas": [
             {
-              "label": "Book a splint fitting",
+              "label": "Book a night guard assessment",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "TMJ disorder",
+              "label": "TMJ disorder treatment",
               "href": "/treatments/tmj-disorder-treatment",
               "preset": "secondary"
             },
             {
-              "label": "Retainers",
+              "label": "Dental retainers",
               "href": "/treatments/dental-retainers",
               "preset": "secondary"
             }
@@ -7845,15 +7845,15 @@
         {
           "id": "night_guards_full_inventory",
           "type": "routing_cards",
-          "title": "Night Guards & Occlusal Therapy — full treatment list",
-          "label": "Full list",
+          "title": "Night guards & occlusal therapy — related treatments",
+          "label": "Explore the full list",
           "items": [
             {
               "title": "Night guards (occlusal splints)",
               "href": "/treatments/night-guards-occlusal-splints"
             },
             {
-              "title": "Bruxism and jaw clenching treatment",
+              "title": "Bruxism and jaw clenching",
               "href": "/treatments/bruxism-and-jaw-clenching"
             },
             {
@@ -7872,7 +7872,7 @@
                 "href": "/treatments/night-guards-occlusal-splints"
               },
               {
-                "title": "Bruxism and jaw clenching treatment",
+                "title": "Bruxism and jaw clenching",
                 "href": "/treatments/bruxism-and-jaw-clenching"
               },
               {
