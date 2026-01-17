@@ -9103,7 +9103,7 @@
     },
     "tmj_jaw_comfort": {
       "id": "tmj_jaw_comfort",
-      "label": "TMJ & jaw comfort",
+      "label": "Jaw joint (TMJ) comfort",
       "path": "/treatments/tmj-jaw-comfort",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -9130,7 +9130,7 @@
           "id": "tmj_jaw_comfort_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected options and choose the calm next step."
         },
         {
           "id": "treatment.faq"
@@ -9141,16 +9141,16 @@
         {
           "id": "tmj_jaw_comfort_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Ease TMJ and jaw discomfort",
-          "strapline": "Plan splints, exercises, and supportive care for joint stability.",
+          "title": "Get help with jaw joint (TMJ) discomfort",
+          "strapline": "Understand what’s driving the symptoms, reduce strain, and build a practical plan — without hype.",
           "ctas": [
             {
-              "label": "Book a TMJ comfort review",
+              "label": "Book a jaw (TMJ) comfort review",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "Explore TMJ disorder treatment",
+              "label": "TMJ disorder assessment and treatment",
               "href": "/treatments/tmj-disorder-treatment",
               "preset": "secondary"
             },
