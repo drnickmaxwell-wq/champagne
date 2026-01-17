@@ -9921,7 +9921,7 @@
     },
     "facial_aesthetics": {
       "id": "facial_aesthetics",
-      "label": "Facial aesthetics hub",
+      "label": "Facial aesthetics",
       "path": "/treatments/facial-aesthetics",
       "category": "hub",
       "hero": "treatment_neutral_hero_v1",
@@ -9947,8 +9947,8 @@
         {
           "id": "facial_aesthetics_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Explore facial aesthetics options",
+          "strapline": "Choose a natural, clinician-led approach — with clear advice on what’s appropriate and what’s not."
         },
         {
           "id": "treatment.faq"
@@ -9959,21 +9959,21 @@
         {
           "id": "facial_aesthetics_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Plan your facial aesthetics pathway",
-          "strapline": "Choose subtle, medically-led treatments that respect facial harmony.",
+          "title": "Facial aesthetics consultation",
+          "strapline": "If you’re considering facial aesthetics, we’ll help you make a calm, informed decision.\n\nWe’ll talk through your goals, what’s realistic, and what would suit your facial balance — with an emphasis on subtle, natural results and safety.",
           "ctas": [
             {
-              "label": "Book a facial aesthetics consult",
+              "label": "Book a facial aesthetics consultation",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "Facial therapeutics",
+              "label": "Anti-wrinkle treatments",
               "href": "/treatments/anti-wrinkle-treatments",
               "preset": "secondary"
             },
             {
-              "label": "Facial therapeutics",
+              "label": "Dermal fillers",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             }
