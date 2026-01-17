@@ -3271,17 +3271,16 @@
           "id": "finance_intro",
           "type": "copy-block",
           "title": "Finance support without pressure",
-          "copy": "Treatment costs vary depending on what you need and the materials or stages involved, so we start with a clear plan and a written estimate. If spreading the cost would help, we can talk you through available payment options, including third-party finance where appropriate. Any credit agreement is subject to status and approval by the finance provider, and we’ll explain the key terms so you can make a comfortable decision. If you’d prefer, we can also phase treatment where clinically suitable. The goal is simple: no surprises, and a plan you understand before you begin.",
+          "copy": "Some patients prefer to spread the cost of dental treatment over time rather than paying for everything at once.\n\nFinance can be a practical option for larger treatment plans, but it isn’t right for everyone and isn’t a requirement for treatment.",
           "label": "Overview"
         },
         {
           "id": "finance_options",
           "type": "feature-list",
-          "title": "Ways we can structure payments",
+          "title": "Suitability",
           "items": [
-            "Installments arranged through our finance partner Tabeo",
-            "Staged treatment plans so costs follow your pace",
-            "Guidance on combining preventative and restorative visits sensibly"
+            "Finance is a personal decision. Some people find it helpful, while others prefer to pay as they go or stage treatment over time.",
+            "We are happy to talk through alternatives, including phased treatment, so you can choose an approach that feels comfortable for you."
           ],
           "label": "Options"
         },
@@ -3312,23 +3311,20 @@
         {
           "id": "finance_discussion_flow",
           "type": "steps",
-          "title": "How finance conversations run",
+          "title": "How finance works",
           "items": [
-            "We map out the treatment plan and transparent estimates",
-            "You choose whether to proceed and if finance should be explored",
-            "We share the Tabeo application link and timelines",
-            "Final eligibility and terms are confirmed directly with the lender"
+            "Dental finance allows the cost of treatment to be divided into monthly payments over an agreed period.",
+            "If finance is available to you, we will explain the terms clearly, including the length of the agreement and any interest that may apply, before you decide whether to proceed."
           ],
           "label": "Process"
         },
         {
           "id": "finance_expectations",
           "type": "feature-list",
-          "title": "Setting expectations",
+          "title": "Clarity and reassurance",
           "items": [
-            "Eligibility, rates, and approvals are set after your application",
-            "We do not promise outcomes but keep paperwork and guidance clear",
-            "You always see fees before choosing a pathway"
+            "You will never be encouraged to use finance unless it is appropriate for your situation.",
+            "All costs and options are explained before treatment starts, so you can make an informed decision without pressure."
           ],
           "label": "Expectations"
         },
