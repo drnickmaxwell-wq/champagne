@@ -6323,56 +6323,56 @@
         {
           "id": "emergency_appointments_overview",
           "type": "treatment_overview_rich",
-          "title": "Same-day appointments when something can’t wait",
-          "copy": "If you are in pain, have swelling, or have damaged a tooth, we prioritise getting you seen. We’ll stabilise the area, ease discomfort, and plan the next steps together.",
+          "title": "Emergency dental appointments",
+          "copy": "If you’re in pain, have swelling, or you’ve damaged a tooth, an emergency appointment is about stabilising the situation.\n\nThat usually means diagnosis, getting you comfortable, reducing risk, and agreeing the next sensible step. Sometimes we can fix the problem on the day. Sometimes the safest care is staged.\n\nWe’ll explain what we can see, what’s realistic, and what you can do next — without pressure.",
           "bullets": [
-            "Phone triage to book the right appointment length",
-            "Advice on caring for the area before you arrive",
-            "Focus on relief and stabilisation first",
-            "Clear follow-up plan once you are comfortable"
+            "Work out what’s happening and how urgent it is",
+            "Relieve pain and stabilise the tooth or gum",
+            "Reduce risk of infection or worsening symptoms",
+            "Plan the next step clearly and realistically"
           ]
         },
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "Emergency appointments are designed to diagnose the cause of pain or swelling and stabilise things safely. We’ll take a focused history, examine the tooth and surrounding tissues, check the bite, and take X-rays when needed. The aim is to relieve symptoms and reduce risk — for example with a temporary dressing, drainage where appropriate, bite adjustment, or stabilising a broken tooth — then agree the right definitive plan. Some problems can be fully treated on the day; others need a second visit for root canal work, a crown, extraction, or follow-up once swelling settles. We’ll explain what we can do today, what comes next, and what warning signs mean you should contact us urgently."
+          "copy": "Dental problems rarely happen at a convenient time.\n\nIf you’re not sure whether you need to be seen urgently, contact us. We’ll ask a few focused questions and advise timing.\n\nIf you have rapid facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help immediately (A&E / 999) and then let us know as soon as you can."
         },
         {
           "id": "emergency_appointments_symptoms",
           "type": "features",
-          "title": "When to book an emergency appointment",
+          "title": "Common reasons people request an emergency visit",
           "items": [
-            "Severe or escalating toothache",
-            "Swelling in the face or gums",
-            "Broken teeth or restorations causing pain",
-            "Bleeding that does not settle",
-            "Knocked-out or loose teeth after an accident"
+            "Severe toothache or pain that disrupts sleep",
+            "Swelling of the gum, face, or jaw",
+            "A broken, cracked, or sharply chipped tooth",
+            "A crown, veneer, or filling that has come out and is painful or sharp",
+            "Dental trauma after an accident (loose, displaced, or knocked-out tooth)"
           ]
         },
         {
           "id": "emergency_appointments_steps",
           "type": "steps",
-          "title": "How to prepare",
+          "title": "What to do now",
           "items": [
-            "Call us and describe what happened so we can schedule you appropriately",
-            "Avoid eating on the affected side and keep the area clean",
-            "Bring any fragments, crowns, or fillings with you in a clean container",
-            "Use pharmacy pain relief if safe for you and follow the packet guidance"
+            "Contact us and describe what’s happened, where the pain is, and how long it has been going on",
+            "Use normal pain relief if safe for you (follow the packet guidance)",
+            "Avoid chewing on the painful side and stick to softer foods",
+            "If swelling, fever, or swallowing/breathing issues develop, seek urgent medical help"
           ]
         },
         {
           "id": "emergency_appointments_importance",
           "type": "copy-block",
-          "title": "Why timing matters",
-          "copy": "Seeing you quickly reduces discomfort, prevents problems from worsening, and helps us save or protect the tooth. Early care often means simpler treatment and calmer visits.",
+          "title": "Why assessment matters",
+          "copy": "Emergency care works best when we diagnose the cause properly, not just the symptom.\n\nPain can come from decay, infection, cracks, gum problems, or failed restorations — and the right solution depends on what we find.\n\nSeeing you early often gives more conservative options, better comfort, and fewer repeat flare-ups.",
           "label": "Prompt care"
         },
         {
           "id": "emergency_appointments_options",
           "type": "treatment_media_feature",
           "label": "What we can do",
-          "title": "Stabilise, soothe, and plan",
-          "copy": "Depending on what we find, we may provide temporary fillings, smooth sharp edges, adjust or re-fit a restoration, prescribe medication, or start definitive treatment once you are ready.",
+          "title": "What an emergency appointment can involve",
+          "copy": "An emergency visit usually includes an examination and, where appropriate, X-rays to understand what’s happening under the surface.\n\nWe’ll explain the likely cause, discuss options and costs, and agree the safest next step. That might be a temporary stabilisation, a simple repair, or a plan for staged treatment.\n\nOur aim is clarity, comfort, and a sensible route forward.",
           "mediaHint": "Calm chairside care"
         },
         {
@@ -6388,15 +6388,15 @@
           "faqs": [
             {
               "question": "Can you always fix the problem on the day?",
-              "answer": "We focus on relieving pain and protecting the area at the first visit. Some treatments are completed immediately; others may be staged once things are stable."
+              "answer": "Not always — it depends on the cause and what’s safest for the tooth. Sometimes we can provide a definitive repair. Other times the priority is stabilisation and pain control, followed by a planned appointment for the longer-term fix. We’ll explain this clearly at the visit."
             },
             {
               "question": "What if I am nervous about urgent treatment?",
-              "answer": "We explain each step, use gentle techniques, and only move forward at a pace you are comfortable with."
+              "answer": "Tell us. We’ll take a calm, step-by-step approach: clear explanation, breaks if you need them, and a plan that feels manageable. Emergency dentistry isn’t about rushing you — it’s about getting you safe and comfortable."
             },
             {
               "question": "Do I need a referral for an emergency visit?",
-              "answer": "No referral is needed. Contact us directly and we will arrange an appointment based on your symptoms."
+              "answer": "No. You can contact the practice directly. If we think you need another service urgently (for example, medical assessment after trauma or signs of a serious spreading infection), we’ll tell you clearly and help you choose the safest next step."
             }
           ]
         },
