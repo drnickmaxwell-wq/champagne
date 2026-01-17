@@ -60,7 +60,7 @@
     "overlay.goldDustDrift": {
       "asset": "sacred.motion.goldDust",
       "blendMode": "soft-light",
-      "opacity": 0.1,
+      "opacity": 0.06,
       "className": "hero-surface--gold-dust"
     },
     "overlay.particlesDrift": {

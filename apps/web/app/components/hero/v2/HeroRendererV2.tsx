@@ -245,6 +245,12 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 --hero-motion-x: 0.6%;
                 --hero-motion-y: 1%;
                 --hero-motion-scale: 1.01;
+                filter: brightness(1) contrast(1);
+                animation-name: heroMotionTide, heroGoldDustPulse;
+                animation-duration: var(--hero-motion-duration, 42s), 24s;
+                animation-timing-function: ease-in-out, ease-in-out;
+                animation-iteration-count: infinite, infinite;
+                animation-delay: 0s, 6s;
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--particles-drift {
                 --hero-motion-x: -0.7%;
@@ -291,6 +297,19 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 }
                 100% {
                   transform: translate3d(0, 0, 0) scale(1);
+                }
+              }
+              @keyframes heroGoldDustPulse {
+                0%,
+                70%,
+                100% {
+                  filter: brightness(1) contrast(1);
+                }
+                78% {
+                  filter: brightness(1.2) contrast(1.26);
+                }
+                84% {
+                  filter: brightness(1.08) contrast(1.12);
                 }
               }
             `,
