@@ -1,7 +1,7 @@
 # Hero Overlay Audit Summary
 
 ## Findings
-- **Homepage (/)** uses sacred hero base copy for headline/subheadline, but hero CTA slots were not merged into the hero overlay contract. Overlay relied on hero runtime content only. 
+- **Homepage (/)** uses sacred hero base copy for headline/subheadline, but hero CTA slots and page-level hero overrides were not merged into the hero overlay contract. Overlay relied on hero runtime content only. 
 - **Treatment pages** (e.g., `/treatments/implants`) store headline/subhead in `treatment.heroIntro` section manifests. Those values were not wired into the hero renderer, so overlay content could disappear when variant defaults are empty. 
 - **Utility/editorial/marketing pages** (e.g., `/about`) use surface-only variants (no content defaults), so overlay copy relied on sacred base and ignored page-level hero CTAs/copy.
 
@@ -10,9 +10,10 @@ Hero rendering consumed `getHeroRuntime` content only. Page-level hero copy (her
 
 ## Restore Plan Implemented
 - Added a single hero overlay contract (`resolveHeroOverlay`) that merges:
-  1. Page overrides (heroIntro section fields + hero CTA slots)
-  2. Variant defaults
-  3. Sacred base defaults
+  1. Page explicit hero overlay (page manifest hero object + hero CTA slots)
+  2. Hero intro section fields
+  3. Variant defaults
+  4. Sacred base defaults
 - Overlay rendering now attaches in `HeroMount` and hides the legacy hero-content block when overlay data exists.
 
 ## Notes

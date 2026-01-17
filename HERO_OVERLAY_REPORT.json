@@ -9,7 +9,7 @@
       "overlaySource": "manifest",
       "headlineFound": true,
       "primaryCtaFound": true,
-      "reasonMissing": "Homepage copy lives in sacred hero base, but CTA slots were not wired into the hero overlay contract; overlay rendering relied on hero runtime only.",
+      "reasonMissing": "Homepage copy lives in sacred hero base, but CTA slots and page-level overrides were not wired into the hero overlay contract; overlay rendering relied on hero runtime only.",
       "files": [
         {
           "path": "packages/champagne-manifests/data/hero/sacred_hero_base.json",
@@ -78,8 +78,8 @@
   "global": {
     "overlayContract": {
       "fields": ["headline", "subhead", "primaryCta", "secondaryCta"],
-      "fallbackOrder": ["pageOverride", "variantDefault", "siteDefault"]
+      "fallbackOrder": ["pageOverride", "heroIntro", "variantDefault", "siteDefault"]
     },
-    "currentImplementation": "HeroMount resolves overlay content by merging heroIntro section fields + page CTA slots over variant defaults and sacred base content via resolveHeroOverlay."
+    "currentImplementation": "HeroMount resolves overlay content by merging page manifest overrides + heroIntro section fields + page CTA slots over variant defaults and sacred base content via resolveHeroOverlay."
   }
 }

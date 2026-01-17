@@ -4,10 +4,14 @@ export function HeroOverlayContent({
   content,
   layout,
   source,
+  debugEnabled = false,
+  debugPayload,
 }: {
   content: HeroOverlayContentConfig;
   layout: HeroOverlayLayoutConfig;
   source?: HeroOverlaySource;
+  debugEnabled?: boolean;
+  debugPayload?: Record<string, unknown>;
 }) {
   if (!content.headline && !content.subheadline && !content.cta && !content.secondaryCta && !content.eyebrow) {
     return null;
@@ -28,9 +32,10 @@ export function HeroOverlayContent({
         zIndex: 15,
         display: "grid",
         alignItems: align === "center" ? "center" : "stretch",
+        pointerEvents: "auto",
       }}
     >
-      {process.env.NODE_ENV !== "production" && source ? (
+      {debugEnabled && source ? (
         <div
           style={{
             position: "absolute",
@@ -49,6 +54,28 @@ export function HeroOverlayContent({
           Hero overlay · {source}
         </div>
       ) : null}
+      {debugEnabled && debugPayload ? (
+        <pre
+          style={{
+            position: "absolute",
+            bottom: "0.75rem",
+            right: "0.75rem",
+            maxWidth: "520px",
+            maxHeight: "240px",
+            overflow: "auto",
+            padding: "0.75rem",
+            fontSize: "0.7rem",
+            lineHeight: 1.4,
+            borderRadius: "var(--radius-sm)",
+            background: "var(--surface-ink-soft)",
+            color: "var(--text-high)",
+            border: "1px solid var(--champagne-keyline-gold)",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {JSON.stringify(debugPayload, null, 2)}
+        </pre>
+      ) : null}
       <div
         style={{
           justifyItems: align,
@@ -58,6 +85,7 @@ export function HeroOverlayContent({
           maxWidth,
           padding,
           transform: `translateY(${verticalOffset})`,
+          pointerEvents: "auto",
         }}
       >
         {content.eyebrow && (

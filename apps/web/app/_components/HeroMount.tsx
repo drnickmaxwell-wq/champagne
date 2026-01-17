@@ -16,6 +16,7 @@ export async function HeroMount(props: HeroRendererProps) {
   const headersList = await headers();
   const requestUrl = headersList.get("next-url") ?? "";
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
+  const debugEnabled = requestUrl.includes("heroDebug=1") || pathname.startsWith("/champagne/hero-debug");
   const rawFlag = process.env.NEXT_PUBLIC_HERO_ENGINE;
   const normalized = (rawFlag ?? "")
     .trim()
@@ -42,13 +43,13 @@ export async function HeroMount(props: HeroRendererProps) {
     const v2Props = props as HeroRendererV2Props;
     const model = await buildHeroV2Model(props);
 
-  return (
-    <div
-      data-hero-engine="v2"
-      data-hero-flag={rawFlag ?? ""}
-      data-hero-flag-normalized={normalized}
-      style={{ position: "relative" }}
-    >
+    return (
+      <div
+        data-hero-engine="v2"
+        data-hero-flag={rawFlag ?? ""}
+        data-hero-flag-normalized={normalized}
+        style={{ position: "relative" }}
+      >
         {shouldRenderOverlay ? (
           <style
             dangerouslySetInnerHTML={{
@@ -64,19 +65,31 @@ export async function HeroMount(props: HeroRendererProps) {
         {model ? (
           <HeroV2Frame layout={model.layout} gradient={model.gradient} rootStyle={v2Props.rootStyle}>
             <HeroSurfaceStackV2 surfaceRef={props.surfaceRef} {...model.surfaceStack} />
-            <HeroContentFade>
-              {shouldRenderOverlay ? (
-                <HeroOverlayContent content={overlay.content} layout={overlay.layout} source={overlay.source} />
-              ) : (
+            {shouldRenderOverlay ? (
+              <HeroOverlayContent
+                content={overlay.content}
+                layout={overlay.layout}
+                source={overlay.source}
+                debugEnabled={debugEnabled}
+                debugPayload={{ source: overlay.source, content: overlay.content, debug: overlay.debug }}
+              />
+            ) : (
+              <HeroContentFade>
                 <HeroContentV2 content={model.content} layout={model.layout} />
-              )}
-            </HeroContentFade>
+              </HeroContentFade>
+            )}
           </HeroV2Frame>
         ) : (
           <>
             <HeroRendererV2 {...props} />
             {shouldRenderOverlay ? (
-              <HeroOverlayContent content={overlay.content} layout={overlay.layout} source={overlay.source} />
+              <HeroOverlayContent
+                content={overlay.content}
+                layout={overlay.layout}
+                source={overlay.source}
+                debugEnabled={debugEnabled}
+                debugPayload={{ source: overlay.source, content: overlay.content, debug: overlay.debug }}
+              />
             ) : null}
           </>
         )}
@@ -104,7 +117,13 @@ export async function HeroMount(props: HeroRendererProps) {
       ) : null}
       <Renderer {...props} />
       {shouldRenderOverlay ? (
-        <HeroOverlayContent content={overlay.content} layout={overlay.layout} source={overlay.source} />
+        <HeroOverlayContent
+          content={overlay.content}
+          layout={overlay.layout}
+          source={overlay.source}
+          debugEnabled={debugEnabled}
+          debugPayload={{ source: overlay.source, content: overlay.content, debug: overlay.debug }}
+        />
       ) : null}
     </div>
   );
