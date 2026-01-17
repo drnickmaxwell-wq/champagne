@@ -9144,17 +9144,17 @@
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "title": "Nervous about dental treatment?",
-          "copy": "Feeling anxious about dental visits is extremely common — and it shows up in different ways.\n\nSome people feel tense before appointments. Others avoid booking altogether. Some cope until something hurts, then worry about what they’ll be told. None of that is unusual, and none of it needs justifying.\n\nAt St Mary’s House Dental Care, we take dental anxiety seriously — without making it the centre of the appointment."
+          "title": "Nervous patients",
+          "copy": "If you feel anxious about dentistry, you’re not alone — and you don’t need to ‘push through’ it to get help.\n\nWe take a calm, practical approach: clear explanations, gentle pacing, and treatment planned in stages where that makes things easier.\n\nSome appointments can start with just a conversation and an examination. We’ll talk through options, comfort measures, and what you want to avoid, then agree the next step together."
         },
         {
           "id": "treatment.whoIsItFor",
           "type": "features",
           "title": "Who this approach suits",
           "items": [
-            "People who want clear explanations rather than rushed reassurance",
-            "People who prefer to build trust gradually",
-            "People who value continuity and familiarity"
+            "People who want clear explanations rather than being rushed",
+            "People who prefer to build trust gradually, one step at a time",
+            "People who value continuity and a familiar, predictable approach"
           ],
           "strapline": "If you’ve had difficult dental experiences in the past, we’re used to starting carefully."
         },
@@ -9164,19 +9164,19 @@
           "eyebrow": "Dental anxiety isn’t one thing.",
           "title": "Anxiety looks different for different people",
           "items": [
-            "Worry about pain or loss of control",
-            "Previous difficult experiences",
-            "Sensitivity to sounds, smells, or sensations",
-            "Fear of judgement or being rushed",
-            "Concern about costs or unexpected treatment"
+            "Worry about pain, gagging, or feeling out of control",
+            "Previous difficult experiences or dental trauma",
+            "Sensitivity to sounds, smells, lights, or sensations",
+            "Fear of judgement, embarrassment, or being told off",
+            "Concern about costs, pressure, or unexpected treatment"
           ],
           "strapline": "Understanding what’s driving the anxiety helps us respond properly, rather than offering generic reassurance."
         },
         {
           "id": "treatment.consultationOverview",
           "type": "treatment_overview_rich",
-          "title": "A calmer way of working",
-          "body": "Our approach is simple: clarity reduces anxiety.\n\nWe don’t assume anxiety disappears once you’re in the chair. We work with it, quietly and respectfully.",
+          "title": "What to expect",
+          "body": "We’ll start by understanding what makes dentistry difficult for you. That might be specific fears (needles, numbness, drilling), sensory overload, past experiences, or simply not knowing what’s going to happen.\n\nDepending on your needs, we can:\n- go at a slower pace, with breaks\n- agree a clear ‘stop’ signal and keep you in control\n- explain each step before we do it\n- stage care so you don’t feel overwhelmed\n\nIf sedation is relevant, we can explain when it may be appropriate and what is involved. Not everyone needs it — and for many people, pacing and predictability are enough to make dentistry manageable again.",
           "bullets": [
             "Explaining what we’re doing before we do it",
             "Agreeing signals to pause or stop",
@@ -9199,10 +9199,10 @@
           "eyebrow": "For nervous patients, treatment doesn’t have to happen all at once.",
           "title": "Taking things at your pace",
           "items": [
-            "Start with a conversation or examination only",
-            "Break treatment into shorter appointments",
-            "Stabilise problems before addressing everything",
-            "Build familiarity with the team and environment"
+            "Start with a conversation and examination only if needed",
+            "Break treatment into shorter, predictable appointments",
+            "Stabilise urgent issues first, then plan the bigger picture",
+            "Build familiarity with the team, environment, and steps"
           ],
           "strapline": "You stay in control of the pace. Nothing is rushed by default."
         },
