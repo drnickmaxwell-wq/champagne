@@ -6649,8 +6649,8 @@
         {
           "id": "emergency_chipped_overview",
           "type": "treatment_overview_rich",
-          "title": "Care for broken, chipped, or cracked teeth",
-          "copy": "A sudden chip or crack can be alarming. We smooth sharp edges, protect the tooth, and plan restorative options so you can eat and speak comfortably again.",
+          "title": "Broken, chipped or cracked teeth",
+          "copy": "If you’ve chipped a tooth, cracked a corner, or something feels sharp or painful, it’s worth getting it checked promptly.\n\nSome problems look small but involve deeper cracks or exposed dentine, which can lead to sensitivity, infection, or a larger fracture.\n\nWe’ll assess what’s happened, explain what we can see, and recommend the least invasive repair that keeps the tooth stable.",
           "bullets": [
             "Quick smoothing to prevent cuts to cheeks or tongue",
             "Temporary coverings where needed",
@@ -6661,18 +6661,18 @@
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "A broken or cracked tooth can range from a small chip to a fracture that compromises the nerve. The right treatment depends on where the crack runs, how much tooth is missing, and whether the tooth is sensitive or painful to bite. We’ll examine the tooth, check the bite, and take X-rays where appropriate to assess deeper involvement. On the day, we may smooth sharp edges, place a temporary repair, stabilise the tooth, or plan a crown/onlay to protect it. If the nerve is affected, we’ll discuss root canal treatment and the steps involved. We’ll also explain how to avoid worsening the damage until definitive care is completed."
+          "copy": "Teeth can chip or crack for lots of reasons — biting something hard, an old filling giving way, grinding, or an accident.\n\nSometimes it’s mainly cosmetic. Sometimes it’s an early warning that the tooth is under stress.\n\nIf you’re unsure, we’d rather you call and ask. We can advise whether it sounds urgent and what to do in the meantime."
         },
         {
           "id": "emergency_chipped_symptoms",
           "type": "features",
-          "title": "What you might notice",
+          "title": "Common signs",
           "items": [
-            "Sharp edges or roughness",
-            "Sensitivity to cold or air",
-            "Pain when biting",
-            "Visible crack lines",
-            "A missing piece of tooth"
+            "A sharp edge that catches your tongue or floss",
+            "Pain on biting or when you release the bite",
+            "Sensitivity to cold, sweet foods, or air",
+            "A visible crack, chip, or missing corner/filling",
+            "Swelling, a bad taste, or persistent throbbing pain"
           ]
         },
         {
@@ -6680,26 +6680,26 @@
           "type": "steps",
           "title": "What to do now",
           "items": [
-            "Save any broken fragment in clean water or milk",
-            "Avoid biting on the damaged tooth",
-            "Rinse gently to keep the area clean",
-            "Use dental wax or sugar-free chewing gum to cover a sharp edge if needed",
-            "Contact us promptly so we can protect the tooth"
+            "Avoid chewing on that side and stick to softer foods",
+            "Keep the area clean with gentle brushing and warm salt-water rinses",
+            "If a sharp edge is cutting you, cover it temporarily with sugar-free gum or dental wax",
+            "Use your normal pain relief if needed and safe for you (follow the packet guidance)",
+            "Call us so we can advise timing and book the right appointment"
           ]
         },
         {
           "id": "emergency_chipped_importance",
           "type": "copy-block",
-          "title": "Why prompt treatment matters",
-          "copy": "Acting quickly reduces the risk of the crack deepening, prevents irritation to the mouth, and helps us preserve as much natural tooth as possible.",
+          "title": "Why it’s worth checking",
+          "copy": "A chip or crack isn’t always an emergency, but it can change quickly.\n\nSmall fractures can spread, and exposed dentine can become very sensitive. In some cases, cracks allow bacteria to reach the nerve, leading to infection.\n\nSeeing you early gives us more conservative options — and helps prevent the problem turning into a bigger repair.",
           "label": "Protect the tooth"
         },
         {
           "id": "emergency_chipped_options",
           "type": "treatment_media_feature",
           "label": "What we can do",
-          "title": "Stabilise and restore",
-          "copy": "Depending on the size and location of the damage, we may smooth the area, place a temporary cover, rebuild with composite bonding, fit a crown, or plan further treatment if the crack is deeper.",
+          "title": "Possible treatments",
+          "copy": "Treatment depends on where the crack is, how deep it goes, and how much tooth is missing.\n\nOptions may include smoothing a sharp edge, a bonded repair (composite), replacing or reshaping an old filling, or protecting the tooth with an onlay or crown.\n\nIf the nerve is involved, root canal treatment may be needed — but we only recommend that when it’s clearly indicated.",
           "mediaHint": "Restorative options"
         },
         {
@@ -6715,15 +6715,15 @@
           "faqs": [
             {
               "question": "Can a chipped tooth wait?",
-              "answer": "Small chips may seem minor but can lead to sensitivity or further damage. Contact us so we can advise on timing."
+              "answer": "Sometimes a small chip can wait a short time, but it’s best to get advice. Chips can expose dentine, increase sensitivity, or develop into a larger fracture. Call us and we’ll guide you on timing."
             },
             {
               "question": "Will I need a crown straight away?",
-              "answer": "Not always. We choose the least invasive repair that keeps the tooth strong, which may start with composite bonding or smoothing."
+              "answer": "Not always. We usually start with the least invasive repair that keeps the tooth stable. That may be smoothing, a bonded repair, or replacing a filling. A crown or onlay is recommended when the tooth needs extra protection."
             },
             {
               "question": "Is it safe to keep eating?",
-              "answer": "Avoid chewing on the affected side until we assess the tooth. Softer foods and careful cleaning can help protect it in the meantime."
+              "answer": "Try to avoid chewing on the affected side until we’ve assessed the tooth. Softer foods and careful cleaning help. If biting triggers sharp pain, stop and contact us as that can suggest a deeper crack."
             }
           ]
         },
