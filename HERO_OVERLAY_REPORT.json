@@ -1,0 +1,85 @@
+{
+  "pages": [
+    {
+      "route": "/",
+      "routeId": "home",
+      "heroRenderer": "V1|V2 (HeroMount)",
+      "heroVariant": "default",
+      "overlayExpected": true,
+      "overlaySource": "manifest",
+      "headlineFound": true,
+      "primaryCtaFound": true,
+      "reasonMissing": "Homepage copy lives in sacred hero base, but CTA slots were not wired into the hero overlay contract; overlay rendering relied on hero runtime only.",
+      "files": [
+        {
+          "path": "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+          "lines": "L1-L13",
+          "note": "Site default headline/subheadline/CTAs live here."
+        },
+        {
+          "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "lines": "L1-L33",
+          "note": "Homepage hero CTA slots."
+        },
+        {
+          "path": "apps/web/app/_components/HeroMount.tsx",
+          "lines": "L15-L108",
+          "note": "Hero renderer entry point for public pages."
+        }
+      ]
+    },
+    {
+      "route": "/treatments/implants",
+      "routeId": "treatments.implants",
+      "heroRenderer": "V1|V2 (HeroMount)",
+      "heroVariant": "hero.variant.treatment_v1",
+      "overlayExpected": true,
+      "overlaySource": "section",
+      "headlineFound": true,
+      "primaryCtaFound": false,
+      "reasonMissing": "Treatment hero copy is stored on the heroIntro section manifest, but hero rendering never merged section hero data with hero runtime content.",
+      "files": [
+        {
+          "path": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+          "lines": "L1-L24",
+          "note": "Hero intro section provides eyebrow/title/body copy."
+        },
+        {
+          "path": "packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+          "lines": "L1-L23",
+          "note": "Treatment hero variant lacks overlay content defaults."
+        }
+      ]
+    },
+    {
+      "route": "/about",
+      "routeId": "about",
+      "heroRenderer": "V1|V2 (HeroMount)",
+      "heroVariant": "hero.variant.utility_v1",
+      "overlayExpected": true,
+      "overlaySource": "manifest",
+      "headlineFound": true,
+      "primaryCtaFound": true,
+      "reasonMissing": "Utility hero variants provide surfaces only; overlay content fell back to sacred base but CTA slots and page-level hero copy were not wired.",
+      "files": [
+        {
+          "path": "packages/champagne-manifests/data/manifest.public.brand.json",
+          "lines": "L35-L47",
+          "note": "Public route hero IDs and categories."
+        },
+        {
+          "path": "packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+          "lines": "L1-L27",
+          "note": "Utility variant surfaces without copy defaults."
+        }
+      ]
+    }
+  ],
+  "global": {
+    "overlayContract": {
+      "fields": ["headline", "subhead", "primaryCta", "secondaryCta"],
+      "fallbackOrder": ["pageOverride", "variantDefault", "siteDefault"]
+    },
+    "currentImplementation": "HeroMount resolves overlay content by merging heroIntro section fields + page CTA slots over variant defaults and sacred base content via resolveHeroOverlay."
+  }
+}
