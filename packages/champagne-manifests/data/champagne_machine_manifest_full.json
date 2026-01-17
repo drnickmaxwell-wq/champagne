@@ -6431,30 +6431,30 @@
         {
           "id": "emergency_pain_overview",
           "type": "treatment_overview_rich",
-          "title": "Relief for severe toothache and sudden dental pain",
-          "copy": "Intense or throbbing pain can be unsettling. We triage quickly, keep explanations straightforward, and focus on making you comfortable while we identify the cause.",
+          "title": "Severe toothache and dental pain",
+          "copy": "Severe toothache is your body’s way of saying something needs attention.\n\nPain can come from decay, infection, cracks, gum problems, grinding, or a filling or crown that’s failed. The pattern and triggers of pain help us narrow down the cause.\n\nWe’ll assess what’s going on, explain what we can see, and recommend the most sensible way to settle pain and protect the tooth.",
           "bullets": [
-            "Calm assessment to pinpoint the source of pain",
-            "Gentle care to reduce sensitivity and inflammation",
-            "Medication or protective dressings where appropriate",
-            "Follow-up plan to prevent pain returning"
+            "Identify the cause of pain",
+            "Relieve discomfort safely",
+            "Prevent the problem from worsening",
+            "Plan a realistic, durable fix"
           ]
         },
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "Severe toothache is usually a sign that something in the tooth or surrounding tissues needs attention — commonly deep decay, an inflamed nerve, a crack, a high bite on a restoration, or infection. An emergency appointment focuses on diagnosis first: we examine the tooth, check bite and gum tissues, and take X-rays if needed to identify the cause. Treatment on the day may include a temporary dressing, stabilising a cracked tooth, adjusting the bite, draining infection where appropriate, or planning definitive care such as root canal treatment, extraction, or a crown. We’ll also give practical advice on pain control and what changes should trigger urgent review."
+          "copy": "Toothache can range from mild twinges to severe, throbbing pain that disrupts sleep.\n\nSometimes pain eases temporarily, but that doesn’t always mean the problem has gone away. If pain is persistent, worsening, or triggered by biting, heat, or cold, it’s worth getting checked.\n\nIf you have facial swelling, fever, difficulty swallowing, or you feel generally unwell, seek urgent medical help and contact us as soon as possible."
         },
         {
           "id": "emergency_pain_symptoms",
           "type": "features",
           "title": "Common signs",
           "items": [
-            "Sharp, throbbing, or radiating pain",
-            "Sensitivity to hot, cold, or biting",
-            "Swelling around the tooth or face",
-            "Pain that wakes you at night",
-            "Discomfort after a recent filling or trauma"
+            "Constant or throbbing tooth pain",
+            "Sharp pain on biting or when you release the bite",
+            "Sensitivity to hot, cold, or sweet foods",
+            "Pain that wakes you or lingers after triggers",
+            "Swelling, bad taste, or pain spreading to the jaw or ear"
           ]
         },
         {
@@ -6462,26 +6462,26 @@
           "type": "steps",
           "title": "What to do now",
           "items": [
-            "Contact us so we can arrange an emergency visit",
-            "Rinse gently with warm salty water to keep the area clean",
-            "Avoid extremes of temperature and chew on the opposite side",
-            "Use over-the-counter pain relief if suitable for you and follow the instructions",
-            "Do not place aspirin on the gum or tooth"
+            "Contact us so we can advise urgency and book the right appointment",
+            "Use normal pain relief if safe for you (follow the packet guidance)",
+            "Keep the area clean with gentle brushing and warm salt-water rinses",
+            "Avoid chewing on the painful side and stick to softer foods",
+            "If you develop facial swelling, fever, or difficulty swallowing, seek urgent medical help"
           ]
         },
         {
           "id": "emergency_pain_importance",
           "type": "copy-block",
-          "title": "Why prompt care matters",
-          "copy": "Severe pain can indicate infection, a cracked tooth, or deep decay. Early attention helps us relieve discomfort quickly and protect the tooth or supporting tissues.",
+          "title": "Why assessment matters",
+          "copy": "Pain often means the tooth or surrounding tissues are under stress.\n\nLeaving toothache can allow decay or infection to progress, making treatment more involved. Early assessment usually gives more conservative options and better comfort.\n\nOur aim is to diagnose the cause accurately, settle pain, and help you avoid repeat flare-ups.",
           "label": "Prompt relief"
         },
         {
           "id": "emergency_pain_options",
           "type": "treatment_media_feature",
           "label": "What we can do",
-          "title": "Ease pain and address the cause",
-          "copy": "Depending on the diagnosis, we may place a soothing dressing, adjust a restoration, clean an inflamed area, begin root canal care, or prescribe medication to settle infection.",
+          "title": "Possible treatments",
+          "copy": "Treatment depends on the cause of pain.\n\nOptions may include replacing or repairing a filling, root canal treatment to treat infection inside the tooth, gum treatment, adjusting the bite, or in some cases removing a tooth that can’t be predictably saved.\n\nWe’ll explain the findings and the pros and cons of each option before anything is done.",
           "mediaHint": "Comfort-first care"
         },
         {
@@ -6497,15 +6497,15 @@
           "faqs": [
             {
               "question": "Can I wait to see if the pain settles?",
-              "answer": "If pain is severe or getting worse, contact us. Early care helps prevent complications and keeps treatment simpler."
+              "answer": "Sometimes pain eases for a while, but the cause may still be there. If pain is severe, waking you, lingering, or getting worse, it’s best to get advice promptly. Contact us and we’ll guide you on timing."
             },
             {
               "question": "Will treatment be painful?",
-              "answer": "We use gentle techniques and numbing to make you comfortable. Let us know how you are feeling throughout the visit."
+              "answer": "Our aim is to get you comfortable first. We use effective local anaesthetic and we work in a calm, step-by-step way. If you’re anxious, tell us — pacing, breaks, and clear explanation make a big difference."
             },
             {
               "question": "What if the pain starts overnight?",
-              "answer": "Use appropriate pain relief if safe for you, avoid triggers such as hot or cold food, and call us first thing so we can book you in."
+              "answer": "Use normal pain relief if safe for you (follow the packet guidance), keep the area clean, and avoid chewing on that side. If you develop swelling, fever, or difficulty swallowing, seek urgent medical help. Contact us as soon as we’re open and we’ll advise next steps."
             }
           ]
         },
