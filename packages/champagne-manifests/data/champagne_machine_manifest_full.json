@@ -6443,7 +6443,7 @@
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "Toothache can range from mild twinges to severe, throbbing pain that disrupts sleep.\n\nSometimes pain eases temporarily, but that doesn’t always mean the problem has gone away. If pain is persistent, worsening, or triggered by biting, heat, or cold, it’s worth getting checked.\n\nIf you have facial swelling, fever, difficulty swallowing, or you feel generally unwell, seek urgent medical help and contact us as soon as possible."
+          "copy": "Toothache can range from mild twinges to severe, throbbing pain that disrupts sleep.\n\nSometimes pain eases temporarily, but that doesn’t always mean the problem has gone away. If pain is persistent, worsening, or triggered by biting, heat, or cold, it’s worth getting checked.\n\nIf you have rapid facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help immediately (A&E / 999) and then let us know as soon as you can."
         },
         {
           "id": "emergency_pain_symptoms",
@@ -6505,7 +6505,7 @@
             },
             {
               "question": "What if the pain starts overnight?",
-              "answer": "Use normal pain relief if safe for you (follow the packet guidance), keep the area clean, and avoid chewing on that side. If you develop swelling, fever, or difficulty swallowing, seek urgent medical help. Contact us as soon as we’re open and we’ll advise next steps."
+              "answer": "Use normal pain relief if safe for you (follow the packet guidance), keep the area clean, and avoid chewing on that side. If you develop swelling, fever, or difficulty swallowing/breathing, seek urgent medical help. Contact us as soon as we’re open and we’ll advise next steps."
             }
           ]
         },
