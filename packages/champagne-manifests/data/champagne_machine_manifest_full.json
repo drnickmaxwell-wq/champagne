@@ -6758,56 +6758,56 @@
         {
           "id": "emergency_avulsion_overview",
           "type": "treatment_overview_rich",
-          "title": "Urgent help for a knocked-out tooth",
-          "copy": "A tooth that has fully come out needs immediate attention. We guide you on how to handle the tooth, prepare the site, and increase the chances of saving it.",
+          "title": "Knocked-out tooth",
+          "copy": "A knocked-out adult tooth can sometimes be saved, but timing and handling matter.\n\nIf you can get advice immediately, bring the tooth with you and avoid touching the root. If it’s safe to do so, gentle first aid can improve the chances of a good outcome — but it isn’t always possible in real life, especially after an accident.\n\nCall us straight away so we can guide you on what to do next and how urgently you need to be seen.",
           "bullets": [
-            "Clear instructions on storing the tooth",
-            "Priority appointments for avulsed teeth",
-            "Calm handling to protect the socket and root",
-            "Follow-up care to support healing"
+            "Act quickly — time matters",
+            "Handle the tooth carefully (avoid the root)",
+            "Keep it moist and protected",
+            "Get assessed promptly for the best chance of stabilisation"
           ]
         },
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "A knocked-out adult tooth is an emergency where minutes matter. If possible, pick the tooth up by the crown (not the root), rinse briefly if visibly dirty, and try to place it back into the socket — or keep it in milk or saliva and seek urgent care. We’ll assess the tooth, the socket and the surrounding bone, take X-rays, and stabilise the tooth with a splint where appropriate. Follow-up is essential because the tooth’s nerve and supporting tissues may be compromised. We’ll explain what to expect over the coming weeks, how to protect the tooth, and what signs mean you should contact us straight away."
+          "copy": "Having a tooth knocked out is frightening — and it often happens alongside a fall, collision, or sports injury.\n\nIf the tooth is an adult tooth, there may be a chance of replantation depending on timing and what’s happened to the tooth and socket.\n\nIf you’re unsure whether it’s a baby tooth or an adult tooth, or there are other injuries, call us and we’ll guide you to the safest next step."
         },
         {
           "id": "emergency_avulsion_symptoms",
           "type": "features",
-          "title": "What you might notice",
+          "title": "Common signs",
           "items": [
-            "A missing tooth after trauma",
-            "Bleeding or an empty socket",
-            "Swelling or tenderness around the area",
-            "Possible damage to nearby teeth or lips"
+            "A tooth completely out of the mouth",
+            "Bleeding from the socket or gum",
+            "Pain, swelling, or a cut lip/cheek alongside the injury",
+            "A tooth that feels loose or displaced after impact"
           ]
         },
         {
           "id": "emergency_avulsion_steps",
           "type": "steps",
-          "title": "What to do immediately",
+          "title": "What to do now",
           "items": [
-            "Handle the tooth by the crown only; avoid touching the root",
-            "If dirty, gently rinse with cold running water for a few seconds—do not scrub",
-            "Place the tooth back into the socket if you can and bite gently on a clean cloth",
-            "If you cannot reinsert it, store it in milk or saliva (not water)",
-            "Call us straight away and travel to the practice"
+            "Check for head injury, heavy bleeding, or breathing problems and seek urgent medical help if needed",
+            "Find the tooth, pick it up by the crown (not the root), and avoid scrubbing it",
+            "If it’s dirty, rinse gently for a few seconds with milk or saline (avoid disinfectants)",
+            "Keep it moist: ideally in milk, saline, or inside the cheek if safe (not in water)",
+            "Call us immediately so we can advise urgency and prepare for assessment"
           ]
         },
         {
           "id": "emergency_avulsion_importance",
           "type": "copy-block",
-          "title": "Why speed is critical",
-          "copy": "The sooner a knocked-out tooth is replanted, the better the chance of long-term success. Delays can reduce survival of the tooth or affect surrounding tissues.",
+          "title": "Why speed matters",
+          "copy": "The tissues that help an adult tooth reattach can be damaged quickly if the tooth dries out or is handled roughly.\n\nEven with prompt care, replantation isn’t always possible or successful — but early assessment usually gives the best chance of stabilising the situation and planning next steps.\n\nWe’ll also check for associated injuries, fractures, and whether nearby teeth have been damaged or loosened.",
           "label": "Act quickly"
         },
         {
           "id": "emergency_avulsion_options",
           "type": "treatment_media_feature",
           "label": "What we can do",
-          "title": "Replant, stabilise, and protect",
-          "copy": "We clean and replant the tooth when appropriate, stabilise it with a splint, manage any injuries to nearby teeth, and discuss future options such as root canal therapy or replacement if needed.",
+          "title": "Possible treatments",
+          "copy": "Treatment depends on whether the tooth is an adult tooth, how long it has been out, how it has been stored, and the condition of the socket and surrounding bone.\n\nOptions may include careful replantation and stabilisation (splinting) where appropriate, monitoring healing, and follow-up assessment. In some situations, replacement options are discussed if replantation isn’t possible.\n\nWe’ll explain the likely risks, the aftercare required, and what long-term maintenance might involve.",
           "mediaHint": "Stabilisation and healing"
         },
         {
@@ -6823,15 +6823,15 @@
           "faqs": [
             {
               "question": "Can a baby tooth be replanted?",
-              "answer": "Baby teeth are not typically replanted. Contact us so we can assess and protect the area safely."
+              "answer": "Usually no. Baby (primary) teeth are not normally replanted because doing so can damage the developing adult tooth underneath. If you’re unsure whether it’s a baby or adult tooth, call us and we’ll advise quickly."
             },
             {
               "question": "What if the tooth looks damaged?",
-              "answer": "Bring it with you even if broken. We will determine whether replanting is possible or discuss other options."
+              "answer": "If the tooth is broken, cracked, or has obvious contamination, replantation may be less suitable — but it depends on the situation. Keep the tooth safe and moist, avoid touching the root, and contact us so we can assess what’s realistic."
             },
             {
               "question": "Do I need a tetanus check?",
-              "answer": "If the injury involved soil or uncertain contamination, we may suggest contacting your GP about tetanus status."
+              "answer": "If the injury involved a dirty wound, soil, or a cut that may have been contaminated, a tetanus check may be sensible. If you’re unsure, contact your GP, NHS 111, or urgent care for advice — and still contact us so we can deal with the dental side promptly."
             }
           ]
         },
