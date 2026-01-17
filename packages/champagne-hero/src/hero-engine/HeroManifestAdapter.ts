@@ -27,6 +27,7 @@ interface SacredHeroBaseManifest {
     surfaces?: HeroSurfaceTokenConfig;
     layout?: HeroLayoutConfig;
     filmGrain?: HeroFilmGrainSettings;
+    motionAllowlist?: string[];
   };
 }
 
@@ -52,21 +53,51 @@ function assertString(value: unknown): value is string {
   return typeof value === "string" && value.length > 0;
 }
 
+function normalizeMotionAllowlist(entry: unknown): string[] | undefined {
+  if (!Array.isArray(entry)) return undefined;
+  const filtered = entry.filter(assertString);
+  return filtered.length > 0 ? filtered : undefined;
+}
+
+function normalizeSurfaceTokens(
+  surfaces?: HeroSurfaceTokenConfig,
+  motionAllowlist?: string[],
+): HeroSurfaceTokenConfig | undefined {
+  if (!surfaces) return undefined;
+  const normalizedMotion = Array.isArray(surfaces.motion)
+    ? motionAllowlist
+      ? surfaces.motion.filter((entry) => typeof entry === "string" && motionAllowlist.includes(entry))
+      : surfaces.motion
+    : undefined;
+  const video = surfaces.video === "__OFF__" ? undefined : surfaces.video;
+  return {
+    ...surfaces,
+    motion: normalizedMotion,
+    video,
+  };
+}
+
 function normalizeBaseManifest(manifest: SacredHeroBaseManifest): HeroBaseConfig {
   const id = assertString(manifest.id) ? manifest.id : "sacred-home-hero";
   const content: HeroContentConfig = manifest.content ?? {};
-  const defaults: HeroSurfaceTokenConfig = manifest.defaults?.surfaces ?? {};
+  const motionAllowlist = normalizeMotionAllowlist(manifest.defaults?.motionAllowlist);
+  const defaults = normalizeSurfaceTokens(manifest.defaults?.surfaces, motionAllowlist) ?? {};
   return {
     id,
     tone: manifest.defaults?.tone,
     content,
     defaultSurfaces: defaults,
+    motionAllowlist,
     layout: manifest.defaults?.layout,
     filmGrain: manifest.defaults?.filmGrain,
   };
 }
 
-function normalizeVariants(manifest: SacredHeroVariantsManifest, manifestSource?: string): HeroVariantConfig[] {
+function normalizeVariants(
+  manifest: SacredHeroVariantsManifest,
+  manifestSource?: string,
+  motionAllowlist?: string[],
+): HeroVariantConfig[] {
   if (!Array.isArray(manifest.variants)) return [];
   return manifest.variants
     .filter((variant) => variant && typeof variant === "object")
@@ -82,36 +113,62 @@ function normalizeVariants(manifest: SacredHeroVariantsManifest, manifestSource?
       timeOfDay: (variant as HeroVariantConfig).timeOfDay,
       energyMode: (variant as HeroVariantConfig).energyMode,
       content: (variant as HeroVariantConfig).content,
-      surfaces: (variant as HeroVariantConfig).surfaces,
+      surfaces: normalizeSurfaceTokens((variant as HeroVariantConfig).surfaces, motionAllowlist),
       layout: (variant as HeroVariantConfig).layout,
       motion: (variant as HeroVariantConfig).motion,
       filmGrain: (variant as HeroVariantConfig).filmGrain,
     }));
 }
 
+function normalizeWeatherManifest(
+  manifest: SacredHeroWeatherManifest,
+  motionAllowlist?: string[],
+): SacredHeroWeatherManifest {
+  return Object.fromEntries(
+    Object.entries(manifest).map(([key, value]) => {
+      if (!value || typeof value !== "object") return [key, value];
+      return [
+        key,
+        {
+          ...value,
+          surfaces: normalizeSurfaceTokens((value as { surfaces?: HeroSurfaceTokenConfig }).surfaces, motionAllowlist),
+        },
+      ];
+    }),
+  );
+}
+
 export function loadSacredHeroManifests(): SacredHeroManifests {
   const base = normalizeBaseManifest(baseManifest as SacredHeroBaseManifest);
   const surfaceMap = buildSurfaceDefinitionMap(surfacesManifest);
   const variants = [
-    ...normalizeVariants(variantsManifest as SacredHeroVariantsManifest, "packages/champagne-manifests/data/hero/sacred_hero_variants.json"),
+    ...normalizeVariants(
+      variantsManifest as SacredHeroVariantsManifest,
+      "packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      base.motionAllowlist,
+    ),
     ...normalizeVariants(
       marketingVariantManifest as unknown as SacredHeroVariantsManifest,
       "packages/champagne-manifests/data/hero/hero.variant.marketing_v1.json",
+      base.motionAllowlist,
     ),
     ...normalizeVariants(
       treatmentVariantManifest as unknown as SacredHeroVariantsManifest,
       "packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+      base.motionAllowlist,
     ),
     ...normalizeVariants(
       editorialVariantManifest as unknown as SacredHeroVariantsManifest,
       "packages/champagne-manifests/data/hero/hero.variant.editorial_v1.json",
+      base.motionAllowlist,
     ),
     ...normalizeVariants(
       utilityVariantManifest as unknown as SacredHeroVariantsManifest,
       "packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+      base.motionAllowlist,
     ),
   ];
-  const weather = (weatherManifest as SacredHeroWeatherManifest) ?? {};
+  const weather = normalizeWeatherManifest((weatherManifest as SacredHeroWeatherManifest) ?? {}, base.motionAllowlist);
 
   return {
     base,

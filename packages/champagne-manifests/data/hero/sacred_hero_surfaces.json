@@ -2,7 +2,7 @@
   "waveMasks": {
     "mask.waveHeader.desktop": "sacred.wave.mask.desktop",
     "mask.waveHeader.mobile": "sacred.wave.mask.mobile",
-    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "overlay", "opacity": 0.48 },
+    "mask.waveHeader": { "asset": "sacred.wave.mask.desktop", "blendMode": "overlay", "opacity": 0.4 },
     "mask.wave.smh": "sacred.wave.mask.smh"
   },
   "surfaceStack": [
@@ -12,6 +12,9 @@
     { "id": "mask.waveHeader", "role": "background", "token": "mask.waveHeader", "prmSafe": true },
     { "id": "field.dotGrid", "role": "background", "token": "field.dotGrid", "prmSafe": true },
     { "id": "overlay.caustics", "role": "fx", "token": "overlay.caustics", "prmSafe": false },
+    { "id": "overlay.glassShimmer", "role": "fx", "token": "overlay.glassShimmer", "prmSafe": false },
+    { "id": "overlay.goldDustDrift", "role": "fx", "token": "overlay.goldDustDrift", "prmSafe": false },
+    { "id": "overlay.particlesDrift", "role": "fx", "token": "overlay.particlesDrift", "prmSafe": false },
     { "id": "overlay.particles", "role": "fx", "token": "overlay.particles" },
     { "id": "overlay.filmGrain", "role": "fx", "token": "overlay.filmGrain", "prmSafe": true },
     { "id": "hero.contentFrame", "role": "background", "token": "hero.contentFrame", "prmSafe": true }
@@ -36,13 +39,13 @@
     "overlay.particlesTeal": { "asset": "sacred.particles.teal", "blendMode": "screen", "opacity": 0.18 }
   },
   "grain": {
-    "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "soft-light", "opacity": 0.06, "prmSafe": true },
-    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "soft-light", "opacity": 0.06, "prmSafe": true }
+    "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "overlay", "opacity": 0.07, "prmSafe": true },
+    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "overlay", "opacity": 0.07, "prmSafe": true }
   },
   "motion": {
-    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.1 },
-    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "overlay", "opacity": 0.1 },
-    "overlay.goldDust": { "asset": "sacred.motion.goldDust", "blendMode": "screen", "opacity": 0.08 },
+    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.15 },
+    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "overlay", "opacity": 0.15 },
+    "overlay.goldDustDrift": { "asset": "sacred.motion.goldDust", "blendMode": "screen", "opacity": 0.11 },
     "overlay.particlesDrift": { "asset": "sacred.motion.particleDrift", "blendMode": "screen", "opacity": 0.07 }
   },
   "video": {

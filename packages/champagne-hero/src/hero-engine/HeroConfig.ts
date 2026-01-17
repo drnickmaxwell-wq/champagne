@@ -33,6 +33,7 @@ export interface HeroSurfaceLayerResolved extends HeroSurfaceLayerDefinition {
 }
 
 export type HeroSurfaceLayerRef = string | HeroSurfaceLayerDefinition;
+export type HeroSurfaceVideoRef = HeroSurfaceLayerRef | "__OFF__";
 
 export interface HeroCTAConfig {
   label: string;
@@ -107,7 +108,7 @@ export interface HeroSurfaceTokenConfig {
     mobile?: HeroSurfaceLayerRef;
   };
   motion?: HeroSurfaceLayerRef[];
-  video?: HeroSurfaceLayerRef;
+  video?: HeroSurfaceVideoRef;
 }
 
 export interface HeroSurfaceConfig {
@@ -163,6 +164,7 @@ export interface HeroBaseConfig {
   tone?: string;
   content: HeroContentConfig;
   defaultSurfaces: HeroSurfaceTokenConfig;
+  motionAllowlist?: string[];
   layout?: HeroLayoutConfig;
   motion?: HeroMotionTuning;
   filmGrain?: HeroFilmGrainSettings;
