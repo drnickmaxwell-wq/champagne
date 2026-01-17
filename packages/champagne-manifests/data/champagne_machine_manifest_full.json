@@ -3460,7 +3460,7 @@
           "id": "practice_plan_intro",
           "type": "copy-block",
           "title": "Membership that keeps care consistent",
-          "copy": "A practice plan is a simple way to keep on top of routine dental care with predictable monthly costs. Membership typically covers regular check-ups and hygiene appointments, with additional benefits depending on the level you choose. We’ll explain exactly what’s included, what isn’t, and how often appointments are recommended for you personally. If you’re comparing options, we can also talk through pay-as-you-go fees so you can choose what fits best. The focus is prevention: spotting small problems early, keeping gums healthy, and reducing the chance of needing more involved treatment later.",
+          "copy": "A dental practice plan is designed to help patients look after their oral health on an ongoing basis, rather than focusing only on treatment when problems arise.\n\nIt spreads the cost of routine dental care and encourages regular review, prevention, and early intervention where needed.\n\nWe’ll explain what is included, what isn’t, and how often appointments are recommended for you personally. If you’re comparing options, we can also talk through pay-as-you-go fees so you can choose what fits best.",
           "label": "Overview"
         },
         {
@@ -3468,10 +3468,10 @@
           "type": "feature-list",
           "title": "What membership typically includes",
           "items": [
-            "Scheduled dental health checks with oral cancer screening",
-            "Hygiene appointments to keep gums healthy",
-            "Member-rate discounts on recommended treatments",
-            "Emergency assessment priority during opening hours"
+            "Regular dental examinations and oral cancer screening",
+            "Hygiene appointments to support gum health",
+            "A clear plan for routine reviews and reminders",
+            "Support with urgent problems during opening hours where possible"
           ],
           "label": "Inclusions"
         },
@@ -3480,10 +3480,10 @@
           "type": "steps",
           "title": "How joining works",
           "items": [
-            "We review your current oral health and recommend the right plan tier",
-            "You complete a quick sign-up with membership details",
-            "We schedule your covered check-ups and hygiene visits",
-            "You receive reminders and updates so you stay on track"
+            "We review your oral health and recommend an appropriate level of routine care",
+            "If you choose to join, we complete a simple sign-up with your details",
+            "We schedule your examinations and hygiene visits at suitable intervals",
+            "We keep your recall organised with reminders so you stay on track"
           ],
           "label": "Process"
         },
@@ -3492,9 +3492,9 @@
           "type": "feature-list",
           "title": "Why members choose it",
           "items": [
-            "Predictable preventive care without surprise costs",
-            "Encourages earlier intervention before issues progress",
-            "Keeps records and recall intervals organised for you"
+            "Helps keep routine care consistent, rather than reactive",
+            "Encourages earlier intervention before small issues become bigger ones",
+            "Makes it easier to plan care and spread costs over time"
           ],
           "label": "Benefits"
         },
