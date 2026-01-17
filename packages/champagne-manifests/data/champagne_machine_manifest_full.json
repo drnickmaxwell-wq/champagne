@@ -9816,7 +9816,7 @@
           "id": "tmj_disorder_treatment_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Jaw pain, clicking, headaches, and clenching often overlap — compare options and choose the calm next step."
         },
         {
           "id": "treatment.faq"
@@ -9827,11 +9827,11 @@
         {
           "id": "tmj_disorder_treatment_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Plan TMJ disorder treatment",
-          "strapline": "Align splints, physiotherapy, and restorative care for long-term relief.",
+          "title": "TMJ disorder assessment and treatment",
+          "strapline": "TMJ symptoms are rarely one simple thing. We’ll assess the joints, muscles, bite factors, and clenching patterns — then build a practical, staged plan aimed at reducing strain and improving comfort.",
           "ctas": [
             {
-              "label": "Arrange a TMJ consultation",
+              "label": "Book a TMJ assessment",
               "href": "/contact",
               "preset": "primary"
             },
