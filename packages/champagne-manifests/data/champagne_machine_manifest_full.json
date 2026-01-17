@@ -2949,6 +2949,36 @@
       ],
       "surface": "champagne/surface/legal"
     },
+    "legal_cookies": {
+      "id": "legal_cookies",
+      "label": "Cookies",
+      "path": "/legal/cookies",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_cookies_intro",
+          "type": "copy-block",
+          "copy": "This cookies notice explains how and why cookies are used on this website.\n\nCookies are small text files stored on your device that help websites function properly and understand how they are used."
+        },
+        {
+          "id": "legal_cookies_types",
+          "type": "copy-block",
+          "copy": "We use a small number of cookies to keep the site working, understand how pages are used, and improve reliability.\n\nSome cookies are essential for the site to function. Others are optional and used only to help us understand usage in aggregate."
+        },
+        {
+          "id": "legal_cookies_control",
+          "type": "copy-block",
+          "copy": "You can control or delete cookies through your browser settings.\n\nWhere optional cookies are used, you can choose whether to allow them. Blocking some cookies may affect how parts of the site work."
+        },
+        {
+          "id": "legal_cookies_updates",
+          "type": "copy-block",
+          "copy": "This cookies notice may be updated from time to time.\n\nThe current version will always be available on this page."
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
     "terms": {
       "id": "terms",
       "label": "Website terms",
