@@ -9054,8 +9054,8 @@
     },
     "senior_mature_smile_care": {
       "id": "senior_mature_smile_care",
-      "label": "Senior & mature smile care",
-      "description": "Comfort-first dentistry for later life with focus on gums, dry mouth, restored teeth, dentures, and implant options.",
+      "label": "Senior and mature smile care",
+      "description": "Comfort-first dentistry for later life, focusing on gum health, dry mouth, worn or heavily filled teeth, and realistic tooth replacement options.\n\nWe’ll look at what’s changing, what’s stable, and what would genuinely improve day-to-day comfort and confidence — without over-treating.",
       "path": "/treatments/senior-mature-smile-care",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -9073,13 +9073,13 @@
           "id": "senior_mature_smile_care_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Compare connected options and plan the next step calmly."
         },
         {
           "id": "senior_mature_smile_care_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Plan senior smile care",
-          "strapline": "Balance comfort, function, and appearance with tailored restorative plans.",
+          "title": "Plan mature smile care",
+          "strapline": "Balance comfort, function, and appearance with a tailored plan — paced to suit you.",
           "ctas": [
             {
               "label": "Book a mature smile review",
@@ -9087,7 +9087,7 @@
               "preset": "primary"
             },
             {
-              "label": "Dentures & tooth replacement",
+              "label": "Dentures and tooth replacement",
               "href": "/treatments/dentures",
               "preset": "secondary"
             },
