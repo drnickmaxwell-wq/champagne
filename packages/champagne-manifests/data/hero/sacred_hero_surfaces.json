@@ -43,10 +43,30 @@
     "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "overlay", "opacity": 0.07, "prmSafe": true }
   },
   "motion": {
-    "overlay.caustics": { "asset": "sacred.motion.waveCaustics", "blendMode": "screen", "opacity": 0.15 },
-    "overlay.glassShimmer": { "asset": "sacred.motion.glassShimmer", "blendMode": "overlay", "opacity": 0.15 },
-    "overlay.goldDustDrift": { "asset": "sacred.motion.goldDust", "blendMode": "screen", "opacity": 0.11 },
-    "overlay.particlesDrift": { "asset": "sacred.motion.particleDrift", "blendMode": "screen", "opacity": 0.07 }
+    "overlay.caustics": {
+      "asset": "sacred.motion.waveCaustics",
+      "blendMode": "screen",
+      "opacity": 0.14,
+      "className": "hero-surface--caustics"
+    },
+    "overlay.glassShimmer": {
+      "asset": "sacred.motion.glassShimmer",
+      "blendMode": "soft-light",
+      "opacity": 0.13,
+      "className": "hero-surface--glass-shimmer"
+    },
+    "overlay.goldDustDrift": {
+      "asset": "sacred.motion.goldDust",
+      "blendMode": "soft-light",
+      "opacity": 0.1,
+      "className": "hero-surface--gold-dust"
+    },
+    "overlay.particlesDrift": {
+      "asset": "sacred.motion.particleDrift",
+      "blendMode": "screen",
+      "opacity": 0.06,
+      "className": "hero-surface--particles-drift"
+    }
   },
   "video": {
     "hero.video": { "asset": "sacred.motion.heroVideo", "blendMode": "screen", "prmSafe": false }
