@@ -10050,7 +10050,7 @@
     },
     "dermal_fillers": {
       "id": "dermal_fillers",
-      "label": "Dermal fillers with medical oversight",
+      "label": "Dermal fillers",
       "path": "/treatments/dermal-fillers",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -10079,8 +10079,8 @@
         {
           "id": "dermal_fillers_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Related facial aesthetics",
+          "strapline": "A careful, proportion-led approach — focused on balance, structure, and natural movement."
         },
         {
           "id": "treatment.faq"
@@ -10091,11 +10091,11 @@
         {
           "id": "dermal_fillers_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Plan dermal filler treatment",
-          "strapline": "Balance volume, contour, and safety with medical oversight.",
+          "title": "Dermal filler consultation",
+          "strapline": "Dermal fillers can be used to restore balance, support facial structure, and soften changes that develop over time.\n\nWe’ll assess facial proportions, skin quality, and movement, explain what’s realistic, and only recommend treatment where it’s appropriate, subtle, and safe.",
           "ctas": [
             {
-              "label": "Book a filler consultation",
+              "label": "Book a dermal filler consultation",
               "href": "/contact",
               "preset": "primary"
             },
