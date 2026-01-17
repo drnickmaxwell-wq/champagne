@@ -77,6 +77,7 @@ export function HeroOverlayContent({
         </pre>
       ) : null}
       <div
+        className="hero-content"
         style={{
           justifyItems: align,
           textAlign: align,
@@ -103,7 +104,7 @@ export function HeroOverlayContent({
             {content.subheadline}
           </p>
         )}
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", justifyContent: align }}>
+        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           {content.cta && (
             <a
               href={content.cta.href}
