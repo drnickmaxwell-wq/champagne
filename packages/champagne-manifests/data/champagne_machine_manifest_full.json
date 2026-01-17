@@ -2382,7 +2382,8 @@
               "portrait": {
                 "src": "placeholder",
                 "alt": "Portrait of Dr Nick Maxwell"
-              }
+              },
+              "description": "Principal dentist. Calm, planning-led care with a focus on long-term stability and clear explanation."
             },
             {
               "title": "Dr Sylvia Krafft",
@@ -2390,7 +2391,8 @@
               "portrait": {
                 "src": "placeholder",
                 "alt": "Portrait of Dr Sylvia Krafft"
-              }
+              },
+              "description": "Associate dentist. Thoughtful, prevention-focused dentistry with a clear, reassuring approach."
             },
             {
               "title": "Sara Burden",
@@ -2398,7 +2400,8 @@
               "portrait": {
                 "src": "placeholder",
                 "alt": "Portrait of Sara Burden"
-              }
+              },
+              "description": "Associate dentist. Practical, patient-centred care with attention to comfort, clarity, and sensible options."
             }
           ]
         },
