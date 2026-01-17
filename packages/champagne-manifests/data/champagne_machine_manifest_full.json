@@ -9885,7 +9885,7 @@
           "id": "therapeutic_facial_injectables_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "Jaw tension, clenching, facial pain and headaches can overlap — compare options and choose a calm next step."
         },
         {
           "id": "treatment.faq"
@@ -9896,16 +9896,16 @@
         {
           "id": "therapeutic_facial_injectables_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Therapeutic injectables for comfort",
-          "strapline": "Support TMJ, migraine, or muscle tension with doctor-led injectables.",
+          "title": "Therapeutic injectables for jaw tension and facial pain",
+          "strapline": "Some muscle-related symptoms can respond well to carefully planned injectables. We’ll assess what’s driving the problem, explain what’s realistic, and only recommend treatment where it’s appropriate.",
           "ctas": [
             {
-              "label": "Book a therapeutic injectable review",
+              "label": "Book a therapeutic injectables review",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "TMJ & jaw care",
+              "label": "TMJ & jaw comfort",
               "href": "/treatments/tmj-jaw-comfort",
               "preset": "secondary"
             },
