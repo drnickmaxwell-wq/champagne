@@ -3035,6 +3035,36 @@
       ],
       "surface": "champagne/surface/legal"
     },
+    "legal_accessibility": {
+      "id": "legal_accessibility",
+      "label": "Accessibility statement",
+      "path": "/legal/accessibility",
+      "category": "legal",
+      "hero": "legal_simple_banner",
+      "sections": [
+        {
+          "id": "legal_accessibility_intro",
+          "type": "copy-block",
+          "copy": "We want this website to be usable for as many people as possible.\n\nWe aim to present information clearly and in a way that works across different devices, browsers, and assistive technologies.\n\nIf you find something on this site difficult to use, please let us know. We take accessibility seriously and will do our best to help."
+        },
+        {
+          "id": "legal_accessibility_help",
+          "type": "copy-block",
+          "copy": "If you need information in a different format, or you would prefer to contact us in a different way, we can help.\n\nYou can call the practice, email us, or speak to the team in person and we will do our best to provide what you need."
+        },
+        {
+          "id": "legal_accessibility_limitations",
+          "type": "copy-block",
+          "copy": "We test and improve the site over time, but accessibility is an ongoing process.\n\nSome older content, documents, or third-party tools may not fully meet every accessibility standard. If you come across an issue, please tell us so we can look at it."
+        },
+        {
+          "id": "legal_accessibility_update",
+          "type": "copy-block",
+          "copy": "This statement was last reviewed on: {{PUBLISH_DATE}}.\n\nWe review accessibility when we make major site updates, and we act on feedback where possible."
+        }
+      ],
+      "surface": "champagne/surface/legal"
+    },
     "complaints": {
       "id": "complaints",
       "label": "Complaints",
