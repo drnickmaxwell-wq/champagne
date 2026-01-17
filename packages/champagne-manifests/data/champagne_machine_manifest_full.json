@@ -2293,7 +2293,7 @@
           "id": "smile_gallery_cases_overview",
           "type": "copy-block",
           "title": "Cases overview",
-          "copy": "Each case will pair concise context with before-and-after frames. Categories below preview how the gallery will be organized.",
+          "copy": "Each case includes a brief summary of the starting point, the type of treatment provided, and the kind of planning involved.\n\nWhere before-and-after images are shown, they are there to help you understand what may be possible — not to suggest you will get an identical result. Photographs also don’t show everything that matters in dentistry, such as bite, gum health, long-term maintenance, or the stability of the underlying teeth.\n\nIf you see a style of outcome you like, we can talk through whether a similar approach is clinically suitable for you and what would need to be assessed first.",
           "label": "Cases"
         },
         {
@@ -2301,10 +2301,12 @@
           "type": "feature-list",
           "title": "Case categories",
           "items": [
-            "Everyday smile refresh",
-            "Full smile rehabilitation",
-            "Implant-supported transformations",
-            "Aligner-guided straightening"
+            "Whitening and simple smile refresh",
+            "Composite bonding and edge repairs",
+            "Alignment and bite-led improvements",
+            "Crowns, bridges, and restorative rebuilds",
+            "Implant cases and replacement teeth",
+            "Wear management and long-term stabilisation"
           ],
           "label": "Categories"
         }
