@@ -35,7 +35,7 @@ export function HeroOverlayContent({
         pointerEvents: "auto",
       }}
     >
-      {debugEnabled && source ? (
+      {debugEnabled ? (
         <div
           style={{
             position: "absolute",
@@ -51,7 +51,7 @@ export function HeroOverlayContent({
             border: "1px solid var(--champagne-keyline-gold)",
           }}
         >
-          Hero overlay · {source}
+          Overlay present{source ? ` · ${source}` : ""}
         </div>
       ) : null}
       {debugEnabled && debugPayload ? (
