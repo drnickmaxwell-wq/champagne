@@ -1057,16 +1057,20 @@ export async function HeroRenderer({
             if (typeof window === 'undefined') return;
             const selector = '.hero-renderer .hero-surface--motion';
             const videos = Array.from(document.querySelectorAll(selector));
-            const markReady = (video) => {
+            const reveal = (video, fallbackId) => {
               if (!(video instanceof HTMLVideoElement)) return;
               if (video.dataset.motionReady === 'true') return;
+              if (fallbackId) window.clearTimeout(fallbackId);
               video.dataset.motionReady = 'true';
             };
             videos.forEach((video) => {
               if (!(video instanceof HTMLVideoElement)) return;
-              if (video.readyState >= 2) markReady(video);
-              video.addEventListener('canplay', () => markReady(video), { once: true });
-              video.addEventListener('loadeddata', () => markReady(video), { once: true });
+              video.preload = 'auto';
+              const fallbackId = window.setTimeout(() => reveal(video, fallbackId), 1200);
+              if (video.readyState >= 2) reveal(video, fallbackId);
+              video.addEventListener('loadeddata', () => reveal(video, fallbackId), { once: true });
+              video.addEventListener('canplay', () => reveal(video, fallbackId), { once: true });
+              video.addEventListener('playing', () => reveal(video, fallbackId), { once: true });
             });
           })();`,
         }}
@@ -1101,7 +1105,7 @@ export async function HeroRenderer({
             playsInline
             loop
             muted
-            preload="metadata"
+            preload="auto"
             poster={surfaces.background?.desktop?.path}
             data-surface-id="motion.heroVideo"
             style={heroVideoStyle}
@@ -1119,7 +1123,7 @@ export async function HeroRenderer({
               playsInline
               loop
               muted
-              preload="metadata"
+              preload="auto"
               data-surface-id={entry.id}
               style={style}
             >

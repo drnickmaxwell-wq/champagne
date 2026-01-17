@@ -337,16 +337,20 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
               if (typeof window === 'undefined') return;
               const selector = '.hero-renderer-v2 .hero-surface--motion';
               const videos = Array.from(document.querySelectorAll(selector));
-              const markReady = (video) => {
+              const reveal = (video, fallbackId) => {
                 if (!(video instanceof HTMLVideoElement)) return;
                 if (video.dataset.motionReady === 'true') return;
+                if (fallbackId) window.clearTimeout(fallbackId);
                 video.dataset.motionReady = 'true';
               };
               videos.forEach((video) => {
                 if (!(video instanceof HTMLVideoElement)) return;
-                if (video.readyState >= 2) markReady(video);
-                video.addEventListener('canplay', () => markReady(video), { once: true });
-                video.addEventListener('loadeddata', () => markReady(video), { once: true });
+                video.preload = 'auto';
+                const fallbackId = window.setTimeout(() => reveal(video, fallbackId), 1200);
+                if (video.readyState >= 2) reveal(video, fallbackId);
+                video.addEventListener('loadeddata', () => reveal(video, fallbackId), { once: true });
+                video.addEventListener('canplay', () => reveal(video, fallbackId), { once: true });
+                video.addEventListener('playing', () => reveal(video, fallbackId), { once: true });
               });
             })();`,
           }}
