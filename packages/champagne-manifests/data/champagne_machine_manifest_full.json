@@ -6540,30 +6540,30 @@
         {
           "id": "emergency_abscess_overview",
           "type": "treatment_overview_rich",
-          "title": "Support for dental abscesses and infections",
-          "copy": "Swelling, throbbing pain, or a bad taste can indicate infection. We act quickly to ease discomfort, manage the infection, and protect surrounding teeth and tissues.",
+          "title": "Dental abscess and infection",
+          "copy": "A dental abscess is an infection that can build pressure and cause significant pain, swelling, or a bad taste.\n\nSometimes symptoms come and go, but the underlying infection usually needs proper assessment and treatment. Leaving it can allow the infection to spread and can make the tooth harder to save.\n\nIf you have facial swelling, difficulty swallowing, fever, or you feel generally unwell, seek urgent advice and contact us as soon as possible.",
           "bullets": [
-            "Rapid assessment and drainage where appropriate",
-            "Medication guidance tailored to you",
-            "Advice on reducing pressure and irritation",
-            "Follow-up to complete definitive treatment"
+            "Assess the cause and how urgent it is",
+            "Reduce pain and pressure safely",
+            "Treat infection appropriately (not just symptoms)",
+            "Plan the most sensible long-term fix"
           ]
         },
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "A dental abscess is a build-up of infection, often caused by a deep cavity, a crack in a tooth, or gum disease. It can present as throbbing pain, swelling, a bad taste, tenderness to bite on, or sometimes very little pain but increasing facial swelling. The priority is diagnosis and safe stabilisation: we examine the area, assess the tooth and surrounding gum, and take X-rays if needed to find the source. Treatment may involve draining infection where appropriate, cleaning the tooth, placing a dressing, or planning root canal treatment or extraction. We’ll also explain when antibiotics help — and when they don’t — and what symptoms require urgent attention."
+          "copy": "Infections can start quietly — sometimes as a dull ache, sometimes as sensitivity, and sometimes with no pain until swelling appears.\n\nAn abscess can come from the tooth nerve, from gum disease, or from a crack or deep decay letting bacteria in.\n\nIf you’re unsure whether it’s an emergency, call us. We can advise on urgency and what to do while you’re waiting to be seen."
         },
         {
           "id": "emergency_abscess_symptoms",
           "type": "features",
-          "title": "What you might notice",
+          "title": "Common signs",
           "items": [
-            "Swelling of the gum or face",
-            "Persistent or throbbing pain",
-            "Bad taste or discharge",
-            "Fever or feeling unwell",
-            "Difficulty biting or opening"
+            "Throbbing toothache or pain that wakes you",
+            "Swelling of the gum, face, or jaw",
+            "A bad taste, pus, or a spot on the gum that drains",
+            "Pain on biting or a tooth that feels raised",
+            "Fever, feeling unwell, or swollen glands (seek urgent advice)"
           ]
         },
         {
@@ -6571,26 +6571,26 @@
           "type": "steps",
           "title": "What to do now",
           "items": [
-            "Call us urgently so we can arrange appropriate care",
-            "Avoid pressing on the swelling and keep the area clean",
-            "Rinse gently with warm salty water to reduce surface bacteria",
-            "Use pharmacy pain relief if suitable and stay hydrated",
-            "Seek immediate help if swelling affects breathing or vision"
+            "Contact us promptly so we can advise urgency and book the right appointment",
+            "Use normal pain relief if needed and safe for you (follow the packet guidance)",
+            "Warm salt-water rinses can help comfort (do not apply heat to facial swelling)",
+            "Avoid chewing on that side and stick to softer foods",
+            "If you develop facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help"
           ]
         },
         {
           "id": "emergency_abscess_importance",
           "type": "copy-block",
-          "title": "Why swift treatment matters",
-          "copy": "Infections can spread and become more serious if left untreated. Early drainage or medication reduces pain and helps protect your overall health.",
+          "title": "Why it needs proper assessment",
+          "copy": "Infections are not always solved by antibiotics alone. Antibiotics may be appropriate in certain situations, but the source of the infection usually needs treating.\n\nThat might mean draining the infection, cleaning and sealing the tooth with root canal treatment, treating gum infection, or removing a tooth that cannot be saved.\n\nOur job is to assess the cause, explain the realistic options, and help you get stable quickly — then plan longer-term care calmly.",
           "label": "Act early"
         },
         {
           "id": "emergency_abscess_options",
           "type": "treatment_media_feature",
           "label": "What we can do",
-          "title": "Reduce infection and protect the tooth",
-          "copy": "We may drain the infection, adjust or open the tooth to relieve pressure, prescribe antibiotics when clinically appropriate, and plan root canal treatment or other care to resolve the cause.",
+          "title": "Possible treatments",
+          "copy": "Treatment depends on where the infection is coming from and how advanced it is.\n\nOptions may include local measures to relieve pressure, root canal treatment to save a tooth, periodontal (gum) treatment, or extraction where the tooth cannot be predictably restored.\n\nIf antibiotics are needed, we’ll explain why, what they can and can’t do, and what follow-up is required.",
           "mediaHint": "Gentle relief"
         },
         {
@@ -6606,15 +6606,15 @@
           "faqs": [
             {
               "question": "Do I always need antibiotics?",
-              "answer": "Not every abscess requires antibiotics. We assess you in person to decide the best approach, which may include drainage or other treatment."
+              "answer": "Sometimes antibiotics are necessary, especially if there is spreading swelling or you are unwell. But an abscess usually needs the source treated as well — for example drainage, root canal treatment, gum treatment, or extraction. We’ll advise what’s appropriate after assessment."
             },
             {
               "question": "Will the swelling go away on its own?",
-              "answer": "Swelling often needs professional care. Contact us if you notice it, especially if pain or fever is present."
+              "answer": "Symptoms can ease if an abscess drains, but the infection often remains and can flare again. Leaving it can increase risk of spread and reduce the chance of saving the tooth. It’s safest to get it assessed."
             },
             {
               "question": "Can I work or travel after treatment?",
-              "answer": "We will advise based on the procedure performed and how you feel. Many people can return to routine with simple aftercare guidance."
+              "answer": "Facial swelling can be serious. Contact us urgently. If you have fever, difficulty swallowing, or breathing problems, seek urgent medical help immediately (A&E / 999) and then update us as soon as you can."
             }
           ]
         },
