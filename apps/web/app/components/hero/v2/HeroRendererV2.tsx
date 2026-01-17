@@ -228,6 +228,11 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 animation-iteration-count: infinite;
                 transform-origin: center;
                 will-change: transform;
+                opacity: 0;
+                transition: opacity 220ms ease;
+              }
+              .hero-renderer-v2 .hero-surface-layer.hero-surface--motion[data-motion-ready="true"] {
+                opacity: var(--hero-motion-target-opacity, 0);
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
@@ -326,6 +331,26 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
         }}
       >
         <HeroV2StyleBlock layout={layout} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              if (typeof window === 'undefined') return;
+              const selector = '.hero-renderer-v2 .hero-surface--motion';
+              const videos = Array.from(document.querySelectorAll(selector));
+              const markReady = (video) => {
+                if (!(video instanceof HTMLVideoElement)) return;
+                if (video.dataset.motionReady === 'true') return;
+                video.dataset.motionReady = 'true';
+              };
+              videos.forEach((video) => {
+                if (!(video instanceof HTMLVideoElement)) return;
+                if (video.readyState >= 2) markReady(video);
+                video.addEventListener('canplay', () => markReady(video), { once: true });
+                video.addEventListener('loadeddata', () => markReady(video), { once: true });
+              });
+            })();`,
+          }}
+        />
         {children}
       </BaseChampagneSurface>
     </div>
@@ -523,7 +548,8 @@ export async function buildHeroV2Model({
     const resolvedOpacity = entry.opacity ?? undefined;
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
-      style.opacity = resolvedOpacity;
+      (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${resolvedOpacity}`;
+      style.opacity = 0;
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");

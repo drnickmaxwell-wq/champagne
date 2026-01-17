@@ -243,7 +243,9 @@ export async function HeroRenderer({
     const tunedBlend = applyBlendTuning(resolvedBlend as CSSProperties["mixBlendMode"] | undefined);
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
-      style.opacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", resolvedOpacity, tunedBlend));
+      const tunedOpacity = resolveMotionOpacity(applyOpacityTuning(id ?? "", resolvedOpacity, tunedBlend));
+      (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${tunedOpacity ?? 0}`;
+      style.opacity = 0;
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
@@ -978,6 +980,11 @@ export async function HeroRenderer({
               animation-iteration-count: infinite;
               transform-origin: center;
               will-change: transform;
+              opacity: 0;
+              transition: opacity 220ms ease;
+            }
+            .hero-renderer .hero-surface-layer.hero-surface--motion[data-motion-ready="true"] {
+              opacity: var(--hero-motion-target-opacity, 0);
             }
             .hero-renderer .hero-surface--motion.hero-surface--caustics {
               --hero-motion-x: -1.1%;
@@ -1042,6 +1049,26 @@ export async function HeroRenderer({
               }
             }
           `,
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(() => {
+            if (typeof window === 'undefined') return;
+            const selector = '.hero-renderer .hero-surface--motion';
+            const videos = Array.from(document.querySelectorAll(selector));
+            const markReady = (video) => {
+              if (!(video instanceof HTMLVideoElement)) return;
+              if (video.dataset.motionReady === 'true') return;
+              video.dataset.motionReady = 'true';
+            };
+            videos.forEach((video) => {
+              if (!(video instanceof HTMLVideoElement)) return;
+              if (video.readyState >= 2) markReady(video);
+              video.addEventListener('canplay', () => markReady(video), { once: true });
+              video.addEventListener('loadeddata', () => markReady(video), { once: true });
+            });
+          })();`,
         }}
       />
 
