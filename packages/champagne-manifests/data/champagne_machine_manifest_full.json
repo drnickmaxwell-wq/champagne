@@ -3107,7 +3107,7 @@
           "type": "copy-block",
           "title": "Raising concerns",
           "label": "Overview",
-          "copy": "We take concerns seriously and aim to resolve problems fairly and promptly. If you’re unhappy with any aspect of care or service, we encourage you to tell us as soon as possible so we can listen, investigate, and agree next steps. Complaints can be raised in person, by phone, or in writing. We may ask for details to help us understand what happened and what outcome you’re seeking. If you remain dissatisfied after our response, we can explain other routes available, including relevant external bodies where appropriate."
+          "copy": "If something hasn’t felt right, we want to know.\n\nWe take complaints seriously and we aim to resolve concerns fairly, calmly, and as quickly as possible.\n\nIf you feel able, please raise the issue with us directly first. Most concerns can be resolved promptly once we understand what has happened and what you’re worried about."
         },
         {
           "id": "legal_terms",
@@ -3115,23 +3115,23 @@
           "items": [
             {
               "title": "What this page covers",
-              "copy": "Overview of how we handle concerns and the general steps involved in our complaints process."
+              "copy": "This page explains how to raise a concern or complaint about care you have received, and how we handle it.\n\nIt is not a substitute for clinical advice. If you have pain, swelling, trauma, or an urgent problem, please contact the practice so we can help you quickly."
             },
             {
               "title": "Key points in plain English",
-              "copy": "Summary of how we listen, review, and respond to feedback or complaints."
+              "copy": "- Tell us what happened and what outcome you’re hoping for.\n- We will listen, review what we can, and respond clearly.\n- If we need time to investigate properly, we will tell you the expected timescales.\n- You can raise concerns in writing, by email, or by speaking to the team."
             },
             {
               "title": "Your choices and controls",
-              "copy": "How you can raise a concern, provide details, and let us know your preferred outcome."
+              "copy": "You can bring someone with you to support you if you prefer.\n\nIf you would like your complaint handled by a specific person, let us know and we will do our best to accommodate this, depending on availability and the nature of the concern.\n\nWe keep complaints confidential and handle them in line with professional and legal obligations."
             },
             {
               "title": "How to contact us",
-              "copy": "Contact routes for sharing a concern or following up on a complaint."
+              "copy": "The best first step is to contact the practice directly so we can understand the issue and try to resolve it.\n\nIf you prefer to put things in writing, email is often the clearest way to set out what happened and what you would like us to do next."
             },
             {
               "title": "Updates to this page",
-              "copy": "Note that we may revise this information to reflect current complaints handling practices."
+              "copy": "We may update this page from time to time to reflect how we operate or changes in guidance.\n\nThe current version will always be available on this page."
             }
           ]
         }
