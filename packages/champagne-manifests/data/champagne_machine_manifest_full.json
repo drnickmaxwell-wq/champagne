@@ -2744,7 +2744,7 @@
           "id": "contact_intro_copy",
           "type": "copy-block",
           "title": "Contact St Mary’s House Dental Care",
-          "copy": "Getting in touch should feel straightforward.\n\nWhether you’re looking to book an appointment, ask a question, or talk something through before deciding what to do next, our team will guide you calmly and clearly.\n\nThere’s no obligation to proceed with treatment just by contacting us.\n\nAppointments can be arranged by speaking with our reception team.\n\nWhen booking, it’s helpful to let us know what’s prompted you to get in touch, whether you’re experiencing pain or urgency, and if you feel nervous or need extra time.\n\nThis helps us book the right type of appointment and make things easier on the day.\n\nYou don’t need to know exactly what treatment you’re looking for before contacting us.\n\nMany patients get in touch simply to ask a question, understand their options, or find out what an initial appointment involves.\n\nWe’re happy to talk things through before anything is decided.\n\nIf it’s been a while since you last saw a dentist, or if you feel anxious about getting in touch, you’re not alone.\n\nWe’ll take things at your pace and focus on understanding where you’re starting from, rather than rushing you into decisions.\n\nOnce you’ve been in touch, we’ll confirm the next steps, explain what to expect at your visit, and answer any immediate questions.\n\nIf something isn’t urgent, we’ll tell you. If it is, we’ll help you arrange appropriate care.",
+          "copy": "Getting in touch should feel straightforward.\n\nWhether you’d like to arrange an appointment, ask a question, or talk something through before deciding what to do next, our team will help guide you calmly and clearly.\n\nThere’s no obligation to proceed with treatment simply by contacting us. Many people get in touch because they want to understand their options, what an initial appointment involves, or whether something sounds urgent.\n\nWe’re a private dental practice based in Shoreham-by-Sea, and we see patients with a wide range of concerns — from routine check-ups to more complex dental problems.\n\nIf you feel unsure, or it’s been a while since you last saw a dentist, that’s very common. Let us know when you contact us and we can take things at a pace that feels manageable.",
           "label": "Contact"
         },
         {
@@ -2752,9 +2752,9 @@
           "type": "feature-list",
           "title": "Practice details",
           "items": [
-            "Direct phone and email links will be published here",
-            "Location, parking, and access notes stay front and center",
-            "Secure messaging will route through the portal"
+            "Phone, email and opening hours are shown below",
+            "If you’re unsure which appointment you need, tell us what’s been happening",
+            "For urgent dental problems, it’s best to telephone the practice during opening hours"
           ],
           "label": "Details"
         },
@@ -2763,10 +2763,10 @@
           "type": "feature-grid",
           "title": "Contact methods",
           "items": [
-            "Phone: placeholder",
-            "Email: placeholder",
-            "Address: placeholder",
-            "Opening hours: placeholder"
+            "Phone",
+            "Email",
+            "Address",
+            "Opening hours"
           ],
           "label": "Contact methods"
         },
@@ -2774,7 +2774,7 @@
           "id": "contact_form_placeholder",
           "type": "copy-block",
           "title": "How to contact us",
-          "copy": "You’re welcome to contact the practice by phone or via the enquiry form.\n\nIf your enquiry is straightforward, our reception team can usually help immediately. If it’s more clinical or needs a dentist’s input, we’ll make sure it’s passed on appropriately.\n\nWe aim to respond promptly during normal opening hours.",
+          "copy": "You’re welcome to contact the practice by phone or by using the enquiry form on this page.\n\nIf your question is straightforward, our reception team can usually help directly. If it’s more clinical, we’ll make sure it’s passed to the right person.\n\nMessages are read during normal opening hours and we aim to respond as promptly as we can. Email and online enquiries aren’t suitable for urgent dental problems.\n\nAny information provided before an appointment is general in nature and can’t replace a clinical assessment. Treatment recommendations, where appropriate, are only made after we’ve seen you and discussed your individual circumstances.",
           "label": "Contact form"
         },
         {
