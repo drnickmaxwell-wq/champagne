@@ -3149,19 +3149,20 @@
           "id": "blog_intro_copy",
           "type": "copy-block",
           "title": "Practice insights",
-          "copy": "Here you’ll find updates and practical guidance from the St Mary’s House Dental Care team — written to help you make sense of common dental concerns and the options available. We’ll cover topics like prevention, hygiene, restorative dentistry, cosmetic choices, and how planning and technology support safer, more predictable treatment. Articles are informational and can’t replace personalised advice, but they can give you a clearer starting point. If a post raises questions about your own teeth or gums, we’re happy to talk it through at an appointment.",
+          "copy": "This is where we share practical notes and clinical insights from the practice.\n\nMost posts are written to help you make sense of common dental concerns, what tends to cause them, and what sensible next steps usually look like. From time to time we’ll also explain how planning, scanning and modern materials can make treatment more predictable.\n\nEverything here is general information. It can be a useful starting point, but it can’t replace advice tailored to you after an examination. If something you read here raises questions about your own teeth or gums, we’re happy to talk it through at an appointment.\n\n---",
           "label": "Insights"
         },
         {
           "id": "blog_placeholder_features",
           "type": "feature-list",
-          "title": "Latest insights (coming soon)",
+          "title": "What we write about",
           "items": [
-            "Clinical updates and technology notes",
-            "Preventive tips from the team",
-            "Practice news and patient experience stories"
+            "Prevention and looking after teeth and gums between visits",
+            "Common problems we see (tooth wear, sensitivity, gum issues) and what they can mean",
+            "Treatment planning: what an assessment involves and why stages matter",
+            "Technology and materials — what they help with, and where the limits are"
           ],
-          "label": "Coming soon"
+          "label": "Topics"
         }
       ],
       "surface": "champagne/surface/editorial"
