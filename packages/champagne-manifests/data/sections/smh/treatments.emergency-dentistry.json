@@ -10,7 +10,7 @@
       "order": 10,
       "seoRole": "hero",
       "title": "Emergency dentistry",
-      "body": "If you’re in pain, have swelling, or you’ve damaged a tooth, the first job is to work out what’s urgent and what’s fixable — calmly.\n\nEmergency care is usually about stabilising the situation: getting you comfortable, reducing risk, and planning the right longer-term repair.\n\nIf you’re unsure whether you need to be seen quickly, contact us and we’ll guide you.",
+      "body": "A dental emergency is any situation where pain, swelling, trauma, or infection needs prompt assessment.\n\nNot all urgent dental problems look the same, and not all require the same response. Our role is to assess the situation, relieve pain where possible, and decide what treatment is needed to stabilise the problem safely.\n\nIf you are unsure whether your situation counts as an emergency, contacting the practice for advice is appropriate.",
       "bullets": [
         "Assess what’s happening and how urgent it is",
         "Settle pain and stabilise the problem safely",
@@ -24,7 +24,7 @@
       "seoRole": "supporting",
       "label": "Introduction",
       "title": "How we handle dental emergencies",
-      "body": "Dental problems rarely arrive at a convenient time.\n\nWe’ll listen to what’s happening, ask a few focused questions, and advise whether it sounds urgent. If you need to be seen, we’ll aim to book the right type of appointment rather than squeeze you into the wrong slot.\n\nIf there are signs of a serious spreading infection (rapid facial swelling, fever, difficulty swallowing, or breathing problems), seek urgent medical help immediately (A&E / 999) and then let us know as soon as you can."
+      "body": "If you are experiencing dental pain or swelling, contact the practice as soon as you can during opening hours so we can advise on the next steps.\n\nWe will ask about your symptoms and may offer advice, an urgent appointment, or referral depending on the situation. Outside normal hours, guidance will be provided on how to access appropriate care.\n\nIf swelling affects breathing, swallowing, or causes rapidly worsening symptoms, urgent medical attention may be required."
     },
     {
       "instanceId": "emergency_dentistry_triage",
@@ -137,12 +137,8 @@
       "title": "When urgent care may not be necessary",
       "faqs": [
         {
-          "question": "When urgent care may not be necessary",
-          "answer": "Some issues can wait a short time — for example, a small chip with no pain, a lost filling that isn’t sensitive, or mild sensitivity that settles quickly.\n\nIf you’re unsure, it’s still worth contacting us. We can help you work out whether it sounds urgent, and what to do while you’re waiting."
-        },
-        {
-          "question": "Questions and reassurance",
-          "answer": "If you’re anxious, tell us. We’ll take things step-by-step, explain what we’re doing, and keep the plan simple.\n\nEmergency dentistry isn’t about pressure-selling or starting big treatment on the spot. It’s about getting you safe, comfortable, and clear on the next sensible step."
+          "question": "Is toothache an emergency?",
+          "answer": "Toothache can have many causes. Some require urgent care, while others can be managed safely with advice and planned treatment."
         }
       ]
     },
@@ -155,7 +151,7 @@
       "body": "Contact us for advice or an emergency appointment.",
       "ctas": [
         {
-          "label": "Call the practice",
+          "label": "Contact the practice for urgent advice",
           "href": "/contact",
           "preset": "primary"
         },

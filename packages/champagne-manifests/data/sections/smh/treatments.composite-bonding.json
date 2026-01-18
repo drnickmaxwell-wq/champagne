@@ -24,7 +24,7 @@
       "seoRole": "supporting",
       "label": "Introduction",
       "title": "Conservative improvements, well planned",
-      "body": "Composite bonding uses tooth-coloured resin to improve shape, close small gaps, repair chips, or soften uneven edges. It can often be done with minimal drilling, making it a conservative option when the bite and enamel are suitable. We begin with an assessment of wear, staining, gum health and bite forces, because those factors determine how predictable bonding will be over time. For some patients, whitening or aligner straightening first can improve the final result and reduce the amount of composite needed. If bonding is a good fit, we’ll explain what it can achieve, how it’s maintained, and what to expect with polishing and repairs."
+      "body": "Composite bonding is a conservative cosmetic treatment used to improve the appearance of teeth by carefully adding tooth-coloured resin to the surface.\n\nIt is commonly used to adjust shape, close small gaps, or repair minor chips. Because it involves minimal or no removal of natural tooth structure, it is often considered a lower-intervention option compared with other cosmetic treatments.\n\nWhether composite bonding is appropriate depends on your teeth, bite, and expectations, which we assess before recommending treatment."
     },
     {
       "instanceId": "composite_indications",
@@ -84,10 +84,9 @@
       "seoRole": "supporting",
       "title": "Longevity & maintenance",
       "items": [
-        "Professional polishing restores gloss and smoothness without replacing the whole restoration",
-        "Small chips or edge wear can usually be touched up chairside to extend lifespan",
-        "Night guards help protect edges if you clench or grind, reducing fracture risk",
-        "Coffee, tea, red wine, and smoking increase staining; hygiene visits and mindful habits keep colour stable"
+        "Composite bonding is not permanent. Over time, the material can wear, stain, or chip, particularly at the edges.",
+        "Longevity varies between individuals and depends on factors such as bite forces, habits, and oral hygiene. Maintenance or repair may be required in the future.",
+        "We discuss realistic expectations and ongoing care before treatment begins."
       ]
     },
     {
@@ -172,7 +171,7 @@
       "body": "We assess your teeth, review bite forces, and explain whether composite bonding, veneers, whitening, or aligners best fit your goals.",
       "ctas": [
         {
-          "label": "Cosmetic Assessment",
+          "label": "Discuss whether composite bonding is right for you",
           "href": "/contact",
           "preset": "primary"
         },
