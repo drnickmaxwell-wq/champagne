@@ -3,6 +3,8 @@ import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMod
 import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroSurfaceStackV2 } from "./HeroV2Client";
 
+const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+
 export interface HeroRendererV2Props {
   mode?: HeroMode;
   treatmentSlug?: string;
@@ -322,6 +324,8 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
         dangerouslySetInnerHTML={{
           __html: `(() => {
             if (typeof window === 'undefined') return;
+            const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
+            if (!HERO_V2_DEBUG) return;
             const logStacking = () => {
               const content = document.querySelector('.hero-renderer-v2 .hero-content');
               const surface = document.querySelector('.hero-renderer-v2 [data-surface-id="hero.contentFrame"]');
@@ -361,6 +365,8 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
         dangerouslySetInnerHTML={{
           __html: `(() => {
             if (typeof window === 'undefined') return;
+            const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
+            if (!HERO_V2_DEBUG) return;
             if (window.__heroV2CompositingLogInstalled) return;
             window.__heroV2CompositingLogInstalled = true;
             const getCompositingData = (label, element) => {
@@ -517,6 +523,7 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
           dangerouslySetInnerHTML={{
             __html: `(() => {
               if (typeof window === 'undefined') return;
+              const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
               const selector = '.hero-renderer-v2 .hero-surface--motion';
               const getEverRevealed = () => window.__heroMotionEverRevealed === true;
               const setEverRevealed = () => {
@@ -545,12 +552,14 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
                 const target = resolveTargetOpacity(video);
                 if (target === null || Number.isNaN(target)) return;
                 video.style.opacity = String(target);
-                console.groupCollapsed("HERO_V2_MOTION_REVEAL", {
-                  id: video.dataset.surfaceId || "unknown",
-                  target,
-                  time: performance.now(),
-                });
-                console.groupEnd();
+                if (HERO_V2_DEBUG) {
+                  console.groupCollapsed("HERO_V2_MOTION_REVEAL", {
+                    id: video.dataset.surfaceId || "unknown",
+                    target,
+                    time: performance.now(),
+                  });
+                  console.groupEnd();
+                }
               };
               const reveal = (video) => {
                 if (!(video instanceof HTMLVideoElement)) return;
