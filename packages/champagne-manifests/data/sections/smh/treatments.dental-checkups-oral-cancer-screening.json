@@ -1,0 +1,225 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-checkups-oral-cancer-screening",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "dental_checkups_intro",
+      "componentId": "copy-block",
+      "order": 10,
+      "seoRole": "hero",
+      "label": "Overview",
+      "title": "Gentle check-ups with attentive screening",
+      "body": "We keep routine exams unhurried, explaining what we see and what it means for your mouth. We include a visual oral cancer screening at every routine exam."
+    },
+    {
+      "instanceId": "dental_checkups_what_to_expect",
+      "componentId": "feature-list",
+      "order": 20,
+      "seoRole": "supporting",
+      "label": "Check-up steps",
+      "title": "What happens at a check-up",
+      "items": [
+        "Conversation about any changes, sensitivities, or goals",
+        "Visual review of teeth, gums, bite, and soft tissues",
+        "Periodontal charting or pocket checks when helpful",
+        "Scale and polish or tailored hygiene guidance",
+        "Clear explanation of findings with options for next steps"
+      ]
+    },
+    {
+      "instanceId": "dental_checkups_digital_imaging",
+      "componentId": "feature-list",
+      "order": 30,
+      "seoRole": "supporting",
+      "label": "Imaging",
+      "title": "Digital x-rays and imaging",
+      "items": [
+        "Low-dose digital x-rays when clinically indicated",
+        "Intraoral photos to track changes and share progress",
+        "Guidance on why and when imaging is recommended",
+        "Results explained in plain language with time for questions"
+      ]
+    },
+    {
+      "instanceId": "dental_checkups_who_benefits",
+      "componentId": "feature-list",
+      "order": 40,
+      "seoRole": "supporting",
+      "label": "Who it's for",
+      "title": "Who benefits from regular exams",
+      "items": [
+        "Families building steady preventative habits",
+        "Adults managing fillings, crowns, or implants",
+        "Patients with gum sensitivity or dry mouth",
+        "Anyone noticing changes in bite, comfort, or soft tissues"
+      ]
+    },
+    {
+      "instanceId": "dental_checkups_frequency",
+      "componentId": "copy-block",
+      "order": 50,
+      "seoRole": "supporting",
+      "label": "Frequency",
+      "title": "How often to book",
+      "body": "Most people stay on track with 6-monthly visits. If you have higher decay or gum risk, recent treatment, or are in active orthodontic care, we may agree a shorter cadence. We explain any recommendations so you know why timing matters."
+    },
+    {
+      "instanceId": "dental_checkups_worried",
+      "componentId": "copy-block",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "Support",
+      "title": "If something is worrying you",
+      "body": "If you notice ulcers that do not settle, new lumps, persistent soreness, or changes to your mouth or throat, contact us promptly. We will arrange a calm assessment, share what we can see, and signpost to further investigation if needed."
+    },
+    {
+      "instanceId": "dental_checkups_oral_cancer_screening_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Stay on track between check-ups",
+      "body": "Keep hygiene, preventative care, and family visits on a steady rhythm.",
+      "ctas": [
+        {
+          "label": "Hygiene and gum care",
+          "href": "/treatments/periodontal-gum-care",
+          "preset": "secondary"
+        },
+        {
+          "label": "Preventative & general dentistry",
+          "href": "/treatments/preventative-and-general-dentistry",
+          "preset": "secondary"
+        },
+        {
+          "label": "Children’s dental care",
+          "href": "/treatments/childrens-dentistry",
+          "preset": "secondary"
+        },
+        {
+          "label": "Senior smile care",
+          "href": "/treatments/senior-mature-smile-care",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "dental_checkups_faq",
+      "componentId": "treatment_faq_block",
+      "order": 80,
+      "seoRole": "faq",
+      "label": "FAQ",
+      "title": "Questions about check-ups",
+      "faqs": [
+        {
+          "question": "Do I need x-rays every time?",
+          "answer": "Not always. We follow clinical guidance and your risk profile to decide when x-rays are useful. We will explain the reason, dose, and what we are looking for before taking them."
+        },
+        {
+          "question": "Will you tell me if you see anything concerning?",
+          "answer": "Yes. We talk you through any changes, explain what is normal, and outline next steps if we spot something that needs a closer look."
+        },
+        {
+          "question": "How long does a routine exam take?",
+          "answer": "Allow around 30 minutes so we can review your mouth carefully, capture notes or images, and leave time for your questions."
+        },
+        {
+          "question": "Can I combine a check-up with hygiene?",
+          "answer": "Often yes. We can align appointments so you have your check-up and hygiene visit together when schedules allow."
+        }
+      ]
+    },
+    {
+      "instanceId": "dental_checkups_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "title": "Arrange your routine dental check-up",
+      "body": "Book a calm examination with oral cancer screening included. Tell us if you would like a slower pace or extra reassurance.",
+      "ctas": [
+        {
+          "label": "Arrange a routine check-up",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Support for anxious visitors",
+          "href": "/treatments/nervous-patients",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

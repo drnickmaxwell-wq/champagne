@@ -1,0 +1,195 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.knocked-out-tooth",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "emergency_avulsion_overview",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Knocked-out tooth",
+      "body": "A knocked-out adult tooth can sometimes be saved, but timing and handling matter.\n\nIf you can get advice immediately, bring the tooth with you and avoid touching the root. If it’s safe to do so, gentle first aid can improve the chances of a good outcome — but it isn’t always possible in real life, especially after an accident.\n\nCall us straight away so we can guide you on what to do next and how urgently you need to be seen.",
+      "bullets": [
+        "Act quickly — time matters",
+        "Handle the tooth carefully (avoid the root)",
+        "Keep it moist and protected",
+        "Get assessed promptly for the best chance of stabilisation"
+      ]
+    },
+    {
+      "instanceId": "treatment.heroIntro",
+      "componentId": "copy-block",
+      "order": 20,
+      "seoRole": "supporting",
+      "body": "Having a tooth knocked out is frightening — and it often happens alongside a fall, collision, or sports injury.\n\nIf the tooth is an adult tooth, there may be a chance of replantation depending on timing and what’s happened to the tooth and socket.\n\nIf you’re unsure whether it’s a baby tooth or an adult tooth, or there are other injuries, call us and we’ll guide you to the safest next step."
+    },
+    {
+      "instanceId": "emergency_avulsion_symptoms",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "Common signs",
+      "items": [
+        "A tooth completely out of the mouth",
+        "Bleeding from the socket or gum",
+        "Pain, swelling, or a cut lip/cheek alongside the injury",
+        "A tooth that feels loose or displaced after impact"
+      ]
+    },
+    {
+      "instanceId": "emergency_avulsion_steps",
+      "componentId": "steps",
+      "order": 40,
+      "seoRole": "supporting",
+      "title": "What to do now",
+      "items": [
+        "Check for head injury, heavy bleeding, or breathing problems and seek urgent medical help if needed",
+        "Find the tooth, pick it up by the crown (not the root), and avoid scrubbing it",
+        "If it’s dirty, rinse gently for a few seconds with milk or saline (avoid disinfectants)",
+        "Keep it moist: ideally in milk, saline, or inside the cheek if safe (not in water)",
+        "Call us immediately so we can advise urgency and prepare for assessment"
+      ]
+    },
+    {
+      "instanceId": "emergency_avulsion_importance",
+      "componentId": "copy-block",
+      "order": 50,
+      "seoRole": "supporting",
+      "label": "Act quickly",
+      "title": "Why speed matters",
+      "body": "The tissues that help an adult tooth reattach can be damaged quickly if the tooth dries out or is handled roughly.\n\nEven with prompt care, replantation isn’t always possible or successful — but early assessment usually gives the best chance of stabilising the situation and planning next steps.\n\nWe’ll also check for associated injuries, fractures, and whether nearby teeth have been damaged or loosened."
+    },
+    {
+      "instanceId": "emergency_avulsion_options",
+      "componentId": "treatment_media_feature",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "What we can do",
+      "title": "Possible treatments",
+      "body": "Treatment depends on whether the tooth is an adult tooth, how long it has been out, how it has been stored, and the condition of the socket and surrounding bone.\n\nOptions may include careful replantation and stabilisation (splinting) where appropriate, monitoring healing, and follow-up assessment. In some situations, replacement options are discussed if replantation isn’t possible.\n\nWe’ll explain the likely risks, the aftercare required, and what long-term maintenance might involve.",
+      "mediaHint": "Stabilisation and healing"
+    },
+    {
+      "instanceId": "emergency_knocked_out_tooth_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "emergency_avulsion_faq",
+      "componentId": "treatment_faq_block",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Knocked-out tooth FAQs",
+      "faqs": [
+        {
+          "question": "Can a baby tooth be replanted?",
+          "answer": "Usually no. Baby (primary) teeth are not normally replanted because doing so can damage the developing adult tooth underneath. If you’re unsure whether it’s a baby or adult tooth, call us and we’ll advise quickly."
+        },
+        {
+          "question": "What if the tooth looks damaged?",
+          "answer": "If the tooth is broken, cracked, or has obvious contamination, replantation may be less suitable — but it depends on the situation. Keep the tooth safe and moist, avoid touching the root, and contact us so we can assess what’s realistic."
+        },
+        {
+          "question": "Do I need a tetanus check?",
+          "answer": "If the injury involved a dirty wound, soil, or a cut that may have been contaminated, a tetanus check may be sensible. If you’re unsure, contact your GP, NHS 111, or urgent care for advice — and still contact us so we can deal with the dental side promptly."
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_avulsion_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "title": "Call immediately about a knocked-out tooth",
+      "body": "We will guide you on safe handling and prepare to see you right away.",
+      "ctas": [
+        {
+          "label": "Call now",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

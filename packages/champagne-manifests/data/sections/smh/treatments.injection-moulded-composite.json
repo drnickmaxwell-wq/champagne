@@ -1,0 +1,196 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.injection-moulded-composite",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "injection_intro",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Injection-moulded composite for guided precision",
+      "body": "Injection moulded composite is a digitally planned approach to cosmetic bonding. We design the smile change first, create a custom guide, and deliver the composite through it so widths, edges, and symmetry follow the plan without unnecessary drilling.",
+      "bullets": [
+        "Digitally designed smile plan agreed before treatment",
+        "Custom guide helps composite follow planned shapes",
+        "Minimal tooth preparation to keep treatment reversible"
+      ]
+    },
+    {
+      "instanceId": "injection_use_cases",
+      "componentId": "features",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "Where injection-moulded composite is useful",
+      "items": [
+        "Smile widening with controlled arch form",
+        "Lengthening worn or uneven incisal edges",
+        "Closing small gaps and managing black triangles",
+        "Improving symmetry when several teeth are treated together",
+        "Providing predictable edge positions after orthodontic alignment"
+      ]
+    },
+    {
+      "instanceId": "injection_digital_planning",
+      "componentId": "treatment_media_feature",
+      "order": 30,
+      "seoRole": "supporting",
+      "label": "Digital design",
+      "title": "Digitally planned, guide-delivered composite",
+      "body": "We start with scans and photographs, map proposed changes with digital smile design, and share previews where helpful. A guide is produced from this plan so the composite is placed and finished against a defined blueprint, keeping the process controlled and repeatable while still relying on clinician judgement.",
+      "mediaHint": "Digital smile design, guide fabrication, and preview mock-ups"
+    },
+    {
+      "instanceId": "injection_vs_freehand",
+      "componentId": "features",
+      "order": 40,
+      "seoRole": "supporting",
+      "title": "Injection moulding and freehand composite",
+      "items": [
+        "Freehand composite bonding remains excellent for single teeth and nuanced texture work",
+        "Injection moulding is chosen when symmetry and edge positions must match across several teeth",
+        "Guide-based delivery reduces guesswork without removing the need for skilled finishing",
+        "Both techniques sit within our cosmetic bonding toolkit and are selected case by case"
+      ]
+    },
+    {
+      "instanceId": "injection_reversibility",
+      "componentId": "features",
+      "order": 50,
+      "seoRole": "supporting",
+      "title": "Reversibility, repairs, and maintenance",
+      "items": [
+        "Composite placement is additive and generally keeps drilling minimal",
+        "Repairs or refinements can usually be made without starting again",
+        "Regular hygiene, polishing, and mindful diet choices help maintain gloss and shade",
+        "Longevity is discussed at consultation so you know how to look after guided composite work"
+      ]
+    },
+    {
+      "instanceId": "injection_vs_veneers",
+      "componentId": "features",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Injection-moulded composite and veneers",
+      "items": [
+        "Porcelain veneers may offer greater long-term surface durability",
+        "Injection-moulded composite is reversible and often suited to staged cosmetic treatment",
+        "Patients considering veneers can trial digitally planned shapes with composite first",
+        "Upgrades to porcelain or digitally designed 3D veneers remain available later if appropriate"
+      ]
+    },
+    {
+      "instanceId": "injection_candidates",
+      "componentId": "features",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Who benefits from guided composite bonding",
+      "items": [
+        "Patients wanting precision changes with minimal intervention",
+        "People weighing veneers but preferring a reversible option",
+        "Those seeking digitally planned outcomes after whitening or orthodontic alignment",
+        "Detail-oriented patients who value predictable symmetry"
+      ]
+    },
+    {
+      "instanceId": "injection_moulded_composite_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 80,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "injection_next_steps",
+      "componentId": "treatment_closing_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "title": "Plan an injection-moulded composite consultation",
+      "body": "We review your teeth, discuss how composite bonding, veneers, whitening, or alignment fit together, and build a guided plan that matches your goals.",
+      "ctas": [
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Full smile makeover",
+          "href": "/treatments/full-smile-makeover",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

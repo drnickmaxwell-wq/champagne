@@ -1,0 +1,196 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.broken-chipped-cracked-teeth",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "emergency_chipped_overview",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Broken, chipped or cracked teeth",
+      "body": "If you’ve chipped a tooth, cracked a corner, or something feels sharp or painful, it’s worth getting it checked promptly.\n\nSome problems look small but involve deeper cracks or exposed dentine, which can lead to sensitivity, infection, or a larger fracture.\n\nWe’ll assess what’s happened, explain what we can see, and recommend the least invasive repair that keeps the tooth stable.",
+      "bullets": [
+        "Quick smoothing to prevent cuts to cheeks or tongue",
+        "Temporary coverings where needed",
+        "Assessment for structural stability",
+        "Clear plan for lasting repairs"
+      ]
+    },
+    {
+      "instanceId": "treatment.heroIntro",
+      "componentId": "copy-block",
+      "order": 20,
+      "seoRole": "supporting",
+      "body": "Teeth can chip or crack for lots of reasons — biting something hard, an old filling giving way, grinding, or an accident.\n\nSometimes it’s mainly cosmetic. Sometimes it’s an early warning that the tooth is under stress.\n\nIf you’re unsure, we’d rather you call and ask. We can advise whether it sounds urgent and what to do in the meantime."
+    },
+    {
+      "instanceId": "emergency_chipped_symptoms",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "Common signs",
+      "items": [
+        "A sharp edge that catches your tongue or floss",
+        "Pain on biting or when you release the bite",
+        "Sensitivity to cold, sweet foods, or air",
+        "A visible crack, chip, or missing corner/filling",
+        "Swelling, a bad taste, or persistent throbbing pain"
+      ]
+    },
+    {
+      "instanceId": "emergency_chipped_steps",
+      "componentId": "steps",
+      "order": 40,
+      "seoRole": "supporting",
+      "title": "What to do now",
+      "items": [
+        "Avoid chewing on that side and stick to softer foods",
+        "Keep the area clean with gentle brushing and warm salt-water rinses",
+        "If a sharp edge is cutting you, cover it temporarily with sugar-free gum or dental wax",
+        "Use your normal pain relief if needed and safe for you (follow the packet guidance)",
+        "Call us so we can advise timing and book the right appointment"
+      ]
+    },
+    {
+      "instanceId": "emergency_chipped_importance",
+      "componentId": "copy-block",
+      "order": 50,
+      "seoRole": "supporting",
+      "label": "Protect the tooth",
+      "title": "Why it’s worth checking",
+      "body": "A chip or crack isn’t always an emergency, but it can change quickly.\n\nSmall fractures can spread, and exposed dentine can become very sensitive. In some cases, cracks allow bacteria to reach the nerve, leading to infection.\n\nSeeing you early gives us more conservative options — and helps prevent the problem turning into a bigger repair."
+    },
+    {
+      "instanceId": "emergency_chipped_options",
+      "componentId": "treatment_media_feature",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "What we can do",
+      "title": "Possible treatments",
+      "body": "Treatment depends on where the crack is, how deep it goes, and how much tooth is missing.\n\nOptions may include smoothing a sharp edge, a bonded repair (composite), replacing or reshaping an old filling, or protecting the tooth with an onlay or crown.\n\nIf the nerve is involved, root canal treatment may be needed — but we only recommend that when it’s clearly indicated.",
+      "mediaHint": "Restorative options"
+    },
+    {
+      "instanceId": "emergency_broken_chipped_teeth_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "emergency_chipped_faq",
+      "componentId": "treatment_faq_block",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Cracked tooth FAQs",
+      "faqs": [
+        {
+          "question": "Can a chipped tooth wait?",
+          "answer": "Sometimes a small chip can wait a short time, but it’s best to get advice. Chips can expose dentine, increase sensitivity, or develop into a larger fracture. Call us and we’ll guide you on timing."
+        },
+        {
+          "question": "Will I need a crown straight away?",
+          "answer": "Not always. We usually start with the least invasive repair that keeps the tooth stable. That may be smoothing, a bonded repair, or replacing a filling. A crown or onlay is recommended when the tooth needs extra protection."
+        },
+        {
+          "question": "Is it safe to keep eating?",
+          "answer": "Try to avoid chewing on the affected side until we’ve assessed the tooth. Softer foods and careful cleaning help. If biting triggers sharp pain, stop and contact us as that can suggest a deeper crack."
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_chipped_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "title": "Book care for a chipped or cracked tooth",
+      "body": "We will protect the tooth, relieve sensitivity, and plan the right repair.",
+      "ctas": [
+        {
+          "label": "Call for an emergency visit",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

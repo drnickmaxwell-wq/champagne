@@ -1,0 +1,283 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.emergency-dentistry",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "emergency_dentistry_overview",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Emergency dentistry",
+      "body": "If you’re in pain, have swelling, or you’ve damaged a tooth, the first job is to work out what’s urgent and what’s fixable — calmly.\n\nEmergency care is usually about stabilising the situation: getting you comfortable, reducing risk, and planning the right longer-term repair.\n\nIf you’re unsure whether you need to be seen quickly, contact us and we’ll guide you.",
+      "bullets": [
+        "Assess what’s happening and how urgent it is",
+        "Settle pain and stabilise the problem safely",
+        "Explain the next step and the longer-term plan"
+      ]
+    },
+    {
+      "instanceId": "emergency_dentistry_intro_prose",
+      "componentId": "copy-block",
+      "order": 20,
+      "seoRole": "supporting",
+      "label": "Introduction",
+      "title": "How we handle dental emergencies",
+      "body": "Dental problems rarely arrive at a convenient time.\n\nWe’ll listen to what’s happening, ask a few focused questions, and advise whether it sounds urgent. If you need to be seen, we’ll aim to book the right type of appointment rather than squeeze you into the wrong slot.\n\nIf there are signs of a serious spreading infection (rapid facial swelling, fever, difficulty swallowing, or breathing problems), seek urgent medical help immediately (A&E / 999) and then let us know as soon as you can."
+    },
+    {
+      "instanceId": "emergency_dentistry_triage",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "Common reasons people contact us urgently",
+      "items": [
+        "Severe toothache or pain that is worsening or disrupting sleep",
+        "Swelling of the gum, face, or jaw",
+        "A broken, cracked, or sharply chipped tooth",
+        "A crown, veneer, or filling that has come out and is painful or sharp",
+        "Dental trauma after an accident (loose, displaced, or knocked-out tooth)"
+      ]
+    },
+    {
+      "instanceId": "emergency_dentistry_steps",
+      "componentId": "steps",
+      "order": 40,
+      "seoRole": "supporting",
+      "title": "What to do right now",
+      "items": [
+        "Contact us with a short description of what’s happened, where the pain is, and how long it has been going on",
+        "Use normal pain relief if safe for you (follow the packet guidance) and avoid chewing on the painful side",
+        "If you develop facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help"
+      ]
+    },
+    {
+      "instanceId": "emergency_dentistry_topics",
+      "componentId": "cta",
+      "order": 50,
+      "seoRole": "supporting",
+      "title": "Common emergency situations",
+      "ctas": [
+        {
+          "label": "Emergency dental appointments",
+          "href": "/treatments/emergency-dental-appointments",
+          "preset": "secondary"
+        },
+        {
+          "label": "Severe toothache & dental pain",
+          "href": "/treatments/severe-toothache-dental-pain",
+          "preset": "secondary"
+        },
+        {
+          "label": "Dental abscess & infection",
+          "href": "/treatments/dental-abscess-infection",
+          "preset": "secondary"
+        },
+        {
+          "label": "Broken, chipped or cracked teeth",
+          "href": "/treatments/broken-chipped-cracked-teeth",
+          "preset": "secondary"
+        },
+        {
+          "label": "Knocked-out (avulsed) tooth",
+          "href": "/treatments/knocked-out-tooth",
+          "preset": "secondary"
+        },
+        {
+          "label": "Lost crowns, veneers & fillings",
+          "href": "/treatments/lost-crowns-veneers-fillings",
+          "preset": "secondary"
+        },
+        {
+          "label": "Dental trauma & accidents",
+          "href": "/treatments/dental-trauma-accidents",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_dentistry_support",
+      "componentId": "treatment_media_feature",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "Common emergency situations",
+      "title": "What you can expect at an emergency visit",
+      "body": "We’ll focus on diagnosis and stabilisation.\n\nThat usually means an examination (and X-rays if needed), clear explanation of what we can see, and the least invasive step that reduces pain and risk. Sometimes that’s a temporary measure with a planned follow-up. Sometimes it’s a definitive repair — it depends on the tooth and the cause.\n\nWe’ll explain costs and options before anything starts, so you can make a clear decision under pressure.",
+      "mediaHint": "Calm, stepwise care"
+    },
+    {
+      "instanceId": "emergency_dentistry_next_steps",
+      "componentId": "cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "After an emergency visit",
+      "body": "Following emergency care, further treatment may be recommended to address the underlying cause.\n\nWe’ll explain any findings clearly and discuss whether monitoring, further investigation, or planned treatment is appropriate.\n\nYou’ll have time to consider options once the immediate situation has settled.",
+      "ctas": [
+        {
+          "label": "Book a check-up",
+          "href": "/dental-checkups-oral-cancer-screening",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_dentistry_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 80,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "emergency_dentistry_faq",
+      "componentId": "treatment_faq_block",
+      "order": 90,
+      "seoRole": "faq",
+      "title": "When urgent care may not be necessary",
+      "faqs": [
+        {
+          "question": "When urgent care may not be necessary",
+          "answer": "Some issues can wait a short time — for example, a small chip with no pain, a lost filling that isn’t sensitive, or mild sensitivity that settles quickly.\n\nIf you’re unsure, it’s still worth contacting us. We can help you work out whether it sounds urgent, and what to do while you’re waiting."
+        },
+        {
+          "question": "Questions and reassurance",
+          "answer": "If you’re anxious, tell us. We’ll take things step-by-step, explain what we’re doing, and keep the plan simple.\n\nEmergency dentistry isn’t about pressure-selling or starting big treatment on the spot. It’s about getting you safe, comfortable, and clear on the next sensible step."
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_dentistry_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 100,
+      "seoRole": "cta",
+      "title": "Call for emergency dental care",
+      "body": "Contact us for advice or an emergency appointment.",
+      "ctas": [
+        {
+          "label": "Call the practice",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "See emergency options",
+          "href": "/treatments",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_full_inventory",
+      "componentId": "routing_cards",
+      "order": 110,
+      "seoRole": "supporting",
+      "label": "Full list",
+      "title": "Emergency Dentistry — full treatment list",
+      "items": [
+        {
+          "title": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry"
+        },
+        {
+          "title": "Emergency dental appointments",
+          "href": "/treatments/emergency-dental-appointments"
+        },
+        {
+          "title": "Dental abscess & infection",
+          "href": "/treatments/dental-abscess-infection"
+        },
+        {
+          "title": "Severe toothache & dental pain",
+          "href": "/treatments/severe-toothache-dental-pain"
+        },
+        {
+          "title": "Dental trauma & accidents",
+          "href": "/treatments/dental-trauma-accidents"
+        },
+        {
+          "title": "Broken, chipped or cracked teeth",
+          "href": "/treatments/broken-chipped-cracked-teeth"
+        },
+        {
+          "title": "Knocked-out (avulsed) tooth",
+          "href": "/treatments/knocked-out-tooth"
+        },
+        {
+          "title": "Lost crowns, veneers & fillings",
+          "href": "/treatments/lost-crowns-veneers-fillings"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

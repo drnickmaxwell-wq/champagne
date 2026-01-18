@@ -1,0 +1,268 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.composite-bonding",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "composite_intro",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Composite bonding for measured smile refinement",
+      "body": "Composite bonding (also called cosmetic bonding or dental bonding) uses layered resin to rebuild edges and balance shapes with minimal drilling. We preserve enamel wherever possible, plan conservatively, and explain how wear and staining can be managed over time.",
+      "bullets": [
+        "Tooth-preserving contouring with light surface preparation",
+        "Resins layered to match shade, translucency, and texture",
+        "Calm appointment pacing with time for review before final polishing"
+      ]
+    },
+    {
+      "instanceId": "composite_bonding_intro_prose",
+      "componentId": "copy-block",
+      "order": 20,
+      "seoRole": "supporting",
+      "label": "Introduction",
+      "title": "Conservative improvements, well planned",
+      "body": "Composite bonding uses tooth-coloured resin to improve shape, close small gaps, repair chips, or soften uneven edges. It can often be done with minimal drilling, making it a conservative option when the bite and enamel are suitable. We begin with an assessment of wear, staining, gum health and bite forces, because those factors determine how predictable bonding will be over time. For some patients, whitening or aligner straightening first can improve the final result and reduce the amount of composite needed. If bonding is a good fit, we’ll explain what it can achieve, how it’s maintained, and what to expect with polishing and repairs."
+    },
+    {
+      "instanceId": "composite_indications",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "What composite bonding can and can’t do",
+      "items": [
+        "Adds volume to close small gaps, soften edges, and refine proportions without drilling healthy enamel",
+        "Repairs chipped or worn incisal edges; larger fractures or weakened teeth may need onlays or crowns",
+        "Helps smooth minor rotations and asymmetry, but major crowding still needs aligners or orthodontics",
+        "Can mask shade variations to a degree, yet deep discolouration often responds better to whitening or veneers",
+        "Composite will pick up surface stain and light wear; expect periodic polishing to keep results fresh"
+      ]
+    },
+    {
+      "instanceId": "composite_digital_planning",
+      "componentId": "treatment_media_feature",
+      "order": 40,
+      "seoRole": "supporting",
+      "label": "Digital planning",
+      "title": "Digitally planned and guided bonding",
+      "body": "We start with 3D scans and photographs, design the proposed changes digitally, and share mock-ups so you can preview the direction. Guided placement and finishing maps keep the resin precise and consistent, and set up injection moulding when it is the safest choice.",
+      "mediaHint": "Digital smile planning and mock-up visuals"
+    },
+    {
+      "instanceId": "composite_injection_moulding",
+      "componentId": "treatment_overview_rich",
+      "order": 50,
+      "seoRole": "supporting",
+      "title": "Injection moulding technique",
+      "body": "Injection moulded composite uses digital design and silicone or printed keys to deliver resin through a precise guide. It keeps edge lengths, embrasures, and widths consistent, improves symmetry across multiple teeth, and reduces chairside guesswork.",
+      "bullets": [
+        "Digital scans and wax-ups map planned tooth shapes before treatment",
+        "Silicone keys or printed guides control resin volume for repeatable placement",
+        "Predictable edge lengths and contact points with fewer mid-appointment adjustments",
+        "Efficient when treating several teeth together or refining symmetry after orthodontics"
+      ]
+    },
+    {
+      "instanceId": "composite_comparisons",
+      "componentId": "features",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "How composite bonding fits with other options",
+      "items": [
+        "When colour is the main concern, dentist-led whitening is usually recommended before bonding so shades align",
+        "If teeth are rotated or crowded, aligners or other orthodontic treatment can set the foundation before cosmetic bonding",
+        "For larger shape changes or durability, porcelain veneers or digitally designed 3D veneers may be more appropriate",
+        "Composite bonding often forms part of an Align → Bleach → Composite pathway, with veneers reserved for specific needs"
+      ]
+    },
+    {
+      "instanceId": "composite_lifespan",
+      "componentId": "features",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Longevity & maintenance",
+      "items": [
+        "Professional polishing restores gloss and smoothness without replacing the whole restoration",
+        "Small chips or edge wear can usually be touched up chairside to extend lifespan",
+        "Night guards help protect edges if you clench or grind, reducing fracture risk",
+        "Coffee, tea, red wine, and smoking increase staining; hygiene visits and mindful habits keep colour stable"
+      ]
+    },
+    {
+      "instanceId": "composite_not_suited",
+      "componentId": "features",
+      "order": 80,
+      "seoRole": "supporting",
+      "title": "When bonding isn’t the best choice",
+      "items": [
+        "Heavy bites or active clenching with limited space may need occlusal therapy or guards first",
+        "Severe wear or bite collapse often requires orthodontics, onlays, or veneers for stability",
+        "Deep discolouration or large colour jumps are better addressed with whitening or porcelain coverage",
+        "Insufficient enamel or untreated gum disease must be managed before cosmetic bonding is planned"
+      ]
+    },
+    {
+      "instanceId": "composite_bonding_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 90,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit.",
+      "ctas": [
+        {
+          "label": "Plan a bonding consultation",
+          "href": "/contact"
+        },
+        {
+          "label": "Teeth whitening",
+          "href": "/treatments/teeth-whitening"
+        },
+        {
+          "label": "Veneers",
+          "href": "/treatments/veneers"
+        }
+      ]
+    },
+    {
+      "instanceId": "composite_faq",
+      "componentId": "treatment_faq_block",
+      "order": 100,
+      "seoRole": "faq",
+      "title": "Composite bonding FAQs",
+      "faqs": [
+        {
+          "question": "How long does composite bonding last?",
+          "answer": "With regular hygiene visits, polishing, and a night guard if you clench, many cases stay stable for several years before refreshes are needed."
+        },
+        {
+          "question": "Can composite bonding be repaired?",
+          "answer": "Yes. Chips or edge wear can usually be smoothed and re-layered without removing the rest of the bonding, keeping treatment conservative."
+        },
+        {
+          "question": "How do I maintain bonded teeth?",
+          "answer": "Use non-abrasive toothpaste, attend hygienist visits for polishing, minimise staining foods and smoking, and wear a night guard if advised."
+        },
+        {
+          "question": "Is composite bonding suitable for everyone?",
+          "answer": "Suitability depends on bite forces, enamel quality, and goals. We may recommend whitening, aligners, or veneers instead if the bite is heavy or colour change needed is significant."
+        }
+      ]
+    },
+    {
+      "instanceId": "composite_candidates",
+      "componentId": "features",
+      "order": 110,
+      "seoRole": "supporting",
+      "title": "Who composite bonding suits best",
+      "items": [
+        "Patients wanting cosmetic improvement without irreversible drilling",
+        "Those planning staged care such as whitening or orthodontic alignment before final bonding",
+        "People exploring a cost-effective step before considering porcelain veneers",
+        "Patients who value reversible changes and measured maintenance"
+      ]
+    },
+    {
+      "instanceId": "composite_next_steps",
+      "componentId": "treatment_closing_cta",
+      "order": 120,
+      "seoRole": "cta",
+      "title": "Book a Cosmetic Assessment",
+      "body": "We assess your teeth, review bite forces, and explain whether composite bonding, veneers, whitening, or aligners best fit your goals.",
+      "ctas": [
+        {
+          "label": "Cosmetic Assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Veneers",
+          "href": "/treatments/veneers",
+          "preset": "secondary"
+        },
+        {
+          "label": "Teeth whitening",
+          "href": "/treatments/teeth-whitening",
+          "preset": "secondary"
+        },
+        {
+          "label": "Clear aligners",
+          "href": "/treatments/clear-aligners",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}
