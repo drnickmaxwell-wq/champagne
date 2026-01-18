@@ -126,6 +126,8 @@ const defaultZFor = (id: string) => {
     ["field.dotGrid", 5],
     ["sacred.motion.waveCaustics", 6],
     ["sacred.motion.glassShimmer", 7],
+    ["sacred.motion.particleDrift", 8],
+    ["sacred.motion.goldDust", 9],
     ["overlay.sacredBloom", 8],
     ["overlay.particles", 9],
     ["overlay.filmGrain", 10],
@@ -423,8 +425,15 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
               const header = resolveHeader();
               const main = document.querySelector('main');
               const belowHero = resolveBelowHero(heroRoot);
+              const content = heroRoot?.querySelector('.hero-content') ?? null;
               const textTarget = resolveTextTarget(belowHero || main || document.body);
               const textRect = textTarget ? textTarget.getBoundingClientRect() : null;
+              const resolveZIndexSnapshot = (surfaceId) => {
+                if (!(heroRoot instanceof Element)) return 'missing';
+                const element = heroRoot.querySelector('[data-surface-id="' + surfaceId + '"]');
+                if (!(element instanceof Element)) return 'missing';
+                return window.getComputedStyle(element).zIndex;
+              };
               console.groupCollapsed('HERO_V2_COMPOSITING_DIAGNOSTIC');
               console.log('HERO_V2_COMPOSITING_PHASE', {
                 phase,
@@ -439,6 +448,12 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 getCompositingData('below-hero', belowHero),
               ];
               console.log('HERO_V2_COMPOSITING_DATA', JSON.stringify(compositingData));
+              console.log('HERO_V2_ZINDEX_SNAPSHOT', {
+                phase,
+                content: content instanceof Element ? window.getComputedStyle(content).zIndex : 'missing',
+                'sacred.motion.particleDrift': resolveZIndexSnapshot('sacred.motion.particleDrift'),
+                'sacred.motion.goldDust': resolveZIndexSnapshot('sacred.motion.goldDust'),
+              });
               if (textTarget) {
                 console.log(
                   'HERO_V2_TEXT_BOUNDS',
@@ -882,8 +897,11 @@ export async function buildHeroV2Model({
   const usedZIndexes = new Set<number>();
   const resolveZIndex = (id: string, candidate?: number | string | null) => {
     let resolved = coerceZ(candidate) ?? defaultZFor(id);
-    while (usedZIndexes.has(resolved)) {
-      resolved += 1;
+    const allowDuplicate = id === "sacred.motion.particleDrift" || id === "sacred.motion.goldDust";
+    if (!allowDuplicate) {
+      while (usedZIndexes.has(resolved)) {
+        resolved += 1;
+      }
     }
     usedZIndexes.add(resolved);
     return resolved;
