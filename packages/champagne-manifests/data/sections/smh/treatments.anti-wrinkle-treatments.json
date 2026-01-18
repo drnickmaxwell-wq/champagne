@@ -171,7 +171,7 @@
       "strapline": "Explore whether prescription anti-wrinkle treatment is right for you with a prescriber who favours careful dosing and clear follow-up.",
       "ctas": [
         {
-          "label": "Plan a clinician-led anti wrinkle treatments review",
+          "label": "Arrange a consultation to discuss anti-wrinkle treatments",
           "href": "/treatments/anti-wrinkle-treatments",
           "variant": "primary"
         },
@@ -221,7 +221,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led anti wrinkle treatments review",
+      "label": "Arrange a consultation to discuss anti-wrinkle treatments",
       "href": "/contact"
     },
     "secondary_intent": {

@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Teeth whitening",
       "title": "Teeth whitening in Shoreham-by-Sea",
-      "body": "Teeth whitening lightens natural tooth colour using peroxide-based gels, either with custom trays at home or, in selected cases, an in-practice approach. Whitening works high standards when the teeth and gums are healthy, so we begin with an assessment to check for decay, leaking fillings, gum inflammation, and causes of sensitivity. We’ll explain what shade change is realistic for your starting colour and how to keep results stable with sensible top-ups. Whitening does not change the colour of crowns, veneers or fillings, so we’ll plan around existing dental work and discuss options if you want a more even overall result.",
+      "body": "Teeth whitening is a treatment designed to lighten the natural colour of your teeth. It does not change the structure of the teeth, but works by breaking down stains that have built up over time.\n\nWhitening can be effective, but results vary between individuals. The starting shade of your teeth, the type of staining present, and your general oral health all influence how much lightening is possible.\n\nBefore considering whitening, it’s important to understand what it can and cannot achieve. A proper assessment helps ensure the treatment is suitable and expectations are realistic.",
       "bullets": [
         "Custom-fit trays made from digital scans",
         "UK-permitted gels prescribed and supervised by your dentist",
@@ -21,7 +21,7 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led teeth whitening review",
+          "label": "Find out if teeth whitening is suitable for you",
           "href": "/contact",
           "preset": "primary"
         },
@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Home whitening vs over-the-counter",
       "title": "Measured change with custom trays and follow-up",
-      "body": "Home whitening uses lab-made trays and dentist-prescribed gels to keep progress gradual and comfortable. Over-the-counter strips and pens cannot be customised to your enamel, so shade changes are less predictable and can irritate gums.",
+      "body": "Professional whitening uses regulated whitening gels that penetrate the tooth surface and break down stain molecules.\n\nThis process lightens the tooth from within rather than removing enamel. When used correctly under dental supervision, it is a controlled and predictable treatment.\n\nOver-the-counter products may appear similar but are limited in strength and effectiveness under UK regulations.",
       "bullets": [
         "Custom trays from digital scans for sealed, even gel placement",
         "Planned, gradual whitening with check-ins to review comfort",
@@ -73,7 +73,7 @@
       "seoRole": "supporting",
       "eyebrow": "Sensitivity management",
       "title": "Protocols that keep whitening comfortable",
-      "body": "We stage whitening in planned blocks, use desensitising pastes or gels, and pause treatment if symptoms persist. Your dentist adjusts wear times or gel selection so comfort leads the plan.",
+      "body": "Not everyone is suitable for teeth whitening.\n\nHealthy teeth and gums are essential before treatment. Whitening does not change the colour of fillings, crowns, or veneers, which can affect the final appearance if these are present on visible teeth.\n\nWe assess your oral health, existing dental work, and the cause of discolouration before recommending whitening. In some cases, alternative treatments may be more appropriate.",
       "mediaHint": "Staged whitening plan"
     },
     {
@@ -84,7 +84,7 @@
       "seoRole": "supporting",
       "eyebrow": "Whitening as part of ABC dentistry",
       "title": "Align → Bleach → Composite or veneers",
-      "body": "We set the sequence so shade and shape work together. Teeth are aligned first if needed, whitening sets the baseline shade, then composite bonding or veneers are matched to that colour. This order avoids mismatched restorations and keeps future maintenance straightforward.",
+      "body": "Teeth whitening can lighten natural tooth colour, but it cannot produce a specific shade on demand.\n\nSome types of staining respond better than others, and results are gradual rather than instant. Whitening also does not permanently prevent future staining, so maintenance may be required.\n\nUnderstanding these limits helps avoid disappointment and supports long-term satisfaction with the result.",
       "bullets": [
         "Aligners or orthodontics establish positions before shade work",
         "Whitening locks in a natural shade to match future composites or veneers",
@@ -109,19 +109,15 @@
       "faqs": [
         {
           "question": "Is dentist-led whitening safe?",
-          "answer": "Yes. Whitening is only started after a clinical assessment and uses UK-permitted gels in custom trays to protect enamel and gums."
+          "answer": "Yes. Whitening starts after a clinical assessment and uses UK-regulated gels in custom trays to protect enamel and gums."
         },
         {
           "question": "What if my teeth feel sensitive?",
-          "answer": "We use staged wear times, desensitising toothpaste or gels, and can pause treatment until symptoms settle. Your dentist adapts the plan if sensitivity persists."
+          "answer": "Sensitivity can happen. We adjust wear times, use desensitising toothpaste or gels, and pause treatment if symptoms persist."
         },
         {
           "question": "How long do results last?",
-          "answer": "Results are maintained with good hygiene, mindful diet, and scheduled top-ups. We advise when to refresh so shade stays stable without over-whitening."
-        },
-        {
-          "question": "Do I need top-ups?",
-          "answer": "Top-ups are planned around your exams or hygiene visits and use your existing trays. They are only recommended when clinically appropriate to keep shade balanced."
+          "answer": "Whitening results vary, but many people find results last months to years depending on habits, maintenance, and individual response."
         }
       ]
     },
@@ -133,7 +129,7 @@
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
       "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after routine hygiene (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "body": "Professional whitening is usually carried out using custom-made trays worn at home, sometimes combined with in-practice treatment depending on individual needs.\n\nYour dentist will explain the available options, how they work, and what level of change is realistic for you before any treatment begins.",
       "bullets": [
         "Appropriate when you want to explore supervised teeth whitening options and expectations.",
         "Often follows Routine hygiene (/treatments/preventative-and-general-dentistry); Aligner or brace completion (/treatments/orthodontics).",
@@ -151,7 +147,7 @@
       "strapline": "Plan a calm, dentist-led whitening routine or pair it with wider smile design.",
       "ctas": [
         {
-          "label": "Plan a clinician-led teeth whitening review",
+          "label": "Find out if teeth whitening is suitable for you",
           "href": "/treatments/teeth-whitening",
           "preset": "primary"
         },
@@ -228,7 +224,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led teeth whitening review",
+      "label": "Find out if teeth whitening is suitable for you",
       "href": "/contact"
     },
     "secondary_intent": {
