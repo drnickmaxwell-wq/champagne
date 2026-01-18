@@ -357,6 +357,125 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
           })();`,
         }}
       />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(() => {
+            if (typeof window === 'undefined') return;
+            if (window.__heroV2CompositingLogInstalled) return;
+            window.__heroV2CompositingLogInstalled = true;
+            const getCompositingData = (label, element) => {
+              if (!(element instanceof Element)) {
+                return { label, found: false };
+              }
+              const style = window.getComputedStyle(element);
+              const rect = element.getBoundingClientRect();
+              const backdropFilter = style.backdropFilter || style.getPropertyValue('backdrop-filter');
+              const webkitBackdropFilter = style.getPropertyValue('-webkit-backdrop-filter');
+              return {
+                label,
+                found: true,
+                tagName: element.tagName.toLowerCase(),
+                className: element.getAttribute('class'),
+                transform: style.transform,
+                filter: style.filter,
+                backdropFilter,
+                webkitBackdropFilter,
+                willChange: style.willChange,
+                contain: style.contain,
+                isolation: style.isolation,
+                rect: {
+                  width: rect.width,
+                  height: rect.height,
+                },
+              };
+            };
+            const resolveHeader = () =>
+              document.querySelector('header') ||
+              document.querySelector('[data-header]') ||
+              document.querySelector('[data-nav]') ||
+              document.querySelector('nav');
+            const resolveBelowHero = (heroRoot) => {
+              if (!(heroRoot instanceof Element)) return null;
+              const sibling = heroRoot.nextElementSibling;
+              if (sibling) return sibling;
+              const parent = heroRoot.parentElement;
+              if (!parent) return null;
+              const children = Array.from(parent.children);
+              const heroIndex = children.indexOf(heroRoot);
+              return heroIndex >= 0 ? children[heroIndex + 1] ?? null : null;
+            };
+            const resolveTextTarget = (root) => {
+              if (!(root instanceof Element)) return null;
+              return (
+                root.querySelector('.hero-content h1, .hero-content h2, .hero-content p') ||
+                root.querySelector('h1, h2, h3, p, span')
+              );
+            };
+            const logCompositing = (phase) => {
+              const heroRoot = document.querySelector('.hero-renderer-v2[data-hero-root="true"]');
+              const surfaceStack = heroRoot?.querySelector('.hero-surface-stack') ?? null;
+              const header = resolveHeader();
+              const main = document.querySelector('main');
+              const belowHero = resolveBelowHero(heroRoot);
+              const textTarget = resolveTextTarget(belowHero || main || document.body);
+              const textRect = textTarget ? textTarget.getBoundingClientRect() : null;
+              console.groupCollapsed('HERO_V2_COMPOSITING_DIAGNOSTIC');
+              console.log('HERO_V2_COMPOSITING_PHASE', {
+                phase,
+                time: performance.now(),
+                path: window.location.pathname,
+              });
+              const compositingData = [
+                getCompositingData('hero-root', heroRoot),
+                getCompositingData('hero-surface-stack', surfaceStack),
+                getCompositingData('header-or-nav', header),
+                getCompositingData('main', main),
+                getCompositingData('below-hero', belowHero),
+              ];
+              console.log('HERO_V2_COMPOSITING_DATA', JSON.stringify(compositingData));
+              if (textTarget) {
+                console.log(
+                  'HERO_V2_TEXT_BOUNDS',
+                  JSON.stringify({
+                    tagName: textTarget.tagName.toLowerCase(),
+                    className: textTarget.getAttribute('class'),
+                    width: textRect?.width,
+                    height: textRect?.height,
+                  }),
+                );
+              } else {
+                console.log('HERO_V2_TEXT_BOUNDS', JSON.stringify({ missing: true }));
+              }
+              console.groupEnd();
+            };
+            const scheduleLog = (phase) => {
+              requestAnimationFrame(() => logCompositing(phase));
+            };
+            const logNavigation = (phase) => {
+              logCompositing(phase);
+              scheduleLog(\`\${phase}-frame\`);
+              window.setTimeout(() => logCompositing(\`\${phase}-settled\`), 1400);
+            };
+            const wrapHistory = (method) => {
+              const original = history[method];
+              if (typeof original !== 'function') return;
+              history[method] = function (...args) {
+                const result = original.apply(this, args);
+                logNavigation(\`nav-\${method}\`);
+                return result;
+              };
+            };
+            wrapHistory('pushState');
+            wrapHistory('replaceState');
+            window.addEventListener('popstate', () => logNavigation('nav-popstate'));
+            if (document.readyState === 'loading') {
+              window.addEventListener('load', () => logCompositing('initial'), { once: true });
+            } else {
+              logCompositing('initial');
+            }
+          })();`,
+        }}
+      />
     </>
   );
 }

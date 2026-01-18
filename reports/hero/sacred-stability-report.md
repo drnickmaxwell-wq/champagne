@@ -135,3 +135,64 @@ rm -f reports/hero/sacred-stability-report.md
 git checkout -- apps/web/app/components/hero/v2/HeroRendererV2.tsx \
   reports/hero/sacred-stability-report.md
 ```
+
+---
+
+## Phase 5 — Compositing Isolation Audit (2026-01-18)
+
+### Phase 1 evidence capture (V2, compositing diagnostics)
+**Runtime flags:** `NEXT_PUBLIC_HERO_ENGINE=v2`
+
+**Commands:**
+```bash
+NEXT_PUBLIC_HERO_ENGINE=v2 pnpm --filter web dev --hostname 0.0.0.0 --port 3000
+node - <<'NODE'
+const fs = require('fs');
+const path = require('path');
+const { chromium } = require('playwright');
+
+const outputPath = path.join(process.cwd(), 'reports/hero/hero-v2-compositing-logs.txt');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  const logs = [];
+  page.on('console', (msg) => {
+    const text = msg.text();
+    if (text.includes('HERO_V2_COMPOSITING') || text.includes('HERO_V2_TEXT_BOUNDS')) {
+      logs.push(`${msg.type()}: ${text}`);
+    }
+  });
+  await page.goto('http://localhost:3000/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(2500);
+  await page.goto('http://localhost:3000/contact', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(2500);
+  await page.goto('http://localhost:3000/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(2500);
+  await browser.close();
+  fs.writeFileSync(outputPath, logs.join('\n'));
+  console.log(`Wrote logs to ${outputPath}`);
+})();
+NODE
+```
+
+### Phase 1 results (computed styles)
+Across initial load, navigation, frame, and settled phases, computed styles for header/nav, main, and below-hero wrapper reported **no compositing properties** (`transform: none`, `filter: none`, `backdrop-filter: none`, `will-change: auto`, `contain: none`, `isolation: auto`).
+
+Representative entry (home `/`, nav-settled):
+```
+HERO_V2_COMPOSITING_DATA [
+  {"label":"hero-root","transform":"none","filter":"none","backdropFilter":"none","willChange":"auto","contain":"none","isolation":"auto"},
+  {"label":"hero-surface-stack","transform":"none","filter":"none","backdropFilter":"none","willChange":"auto","contain":"none","isolation":"auto"},
+  {"label":"header-or-nav","transform":"none","filter":"none","backdropFilter":"none","willChange":"auto","contain":"none","isolation":"auto"},
+  {"label":"main","transform":"none","filter":"none","backdropFilter":"none","willChange":"auto","contain":"none","isolation":"auto"},
+  {"label":"below-hero","found":false}
+]
+```
+
+### Phase 3 text bounds confirmation
+Logged `HERO_V2_TEXT_BOUNDS` remained consistent across phases during nav loop:
+- `width: 857.625`, `height: 86` for the first detected text target.
+
+### Stop condition
+No compositing properties were found outside the hero root; **Phase 2 isolation changes were not applied** per directive.
