@@ -127,7 +127,7 @@ const defaultZFor = (id: string) => {
     ["overlay.sacredBloom", 8],
     ["overlay.particles", 9],
     ["overlay.filmGrain", 10],
-    ["hero.contentFrame", 11],
+    ["hero.contentFrame", 9],
   ]);
   return defaults.get(id) ?? 100;
 };
@@ -191,9 +191,10 @@ type HeroV2FrameProps = {
 
 function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] }) {
   return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
               .hero-renderer-v2 {
                 position: relative;
                 color: var(--text-high);
@@ -211,6 +212,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
               .hero-renderer-v2 .hero-surface-stack {
                 position: absolute;
                 inset: 0;
+                z-index: 0;
               }
               .hero-renderer-v2 .hero-layer,
               .hero-renderer-v2 .hero-surface-layer {
@@ -263,7 +265,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
               }
               .hero-renderer-v2 .hero-content {
                 position: relative;
-                z-index: 10;
+                z-index: 50;
                 display: grid;
                 gap: 1rem;
                 max-width: ${layout.maxWidth ? `${layout.maxWidth}px` : "960px"};
@@ -314,8 +316,48 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 }
               }
             `,
-      }}
-    />
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(() => {
+            if (typeof window === 'undefined') return;
+            const logStacking = () => {
+              const content = document.querySelector('.hero-renderer-v2 .hero-content');
+              const surface = document.querySelector('.hero-renderer-v2 [data-surface-id="hero.contentFrame"]');
+              const contentZ = content ? window.getComputedStyle(content).zIndex : 'missing';
+              const surfaceZ = surface ? window.getComputedStyle(surface).zIndex : 'missing';
+              let hit = { tag: 'missing', surfaceId: null, className: null };
+              if (content instanceof HTMLElement) {
+                const rect = content.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const topEl = document.elementFromPoint(centerX, centerY);
+                if (topEl) {
+                  hit = {
+                    tag: topEl.tagName.toLowerCase(),
+                    surfaceId: topEl.getAttribute('data-surface-id'),
+                    className: topEl.getAttribute('class'),
+                  };
+                }
+              }
+              console.groupCollapsed('HERO_V2_STACK_DIAGNOSTIC');
+              console.log('HERO_V2_STACK_DATA', {
+                contentZIndex: contentZ,
+                surfaceZIndex: surfaceZ,
+                elementFromPoint: hit,
+              });
+              console.groupEnd();
+            };
+            if (document.readyState === 'loading') {
+              window.addEventListener('load', () => requestAnimationFrame(logStacking), { once: true });
+            } else {
+              requestAnimationFrame(logStacking);
+            }
+          })();`,
+        }}
+      />
+    </>
   );
 }
 
@@ -538,6 +580,10 @@ export async function buildHeroV2Model({
   const isDeniedVideo = (path?: string) => path && videoDenylist.some((item) => path.includes(item));
   const gradient = surfaces.gradient?.trim() || "var(--smh-gradient)";
   const motionEntries = surfaces.motion ?? [];
+  const motionAllowlist = process.env.NEXT_PUBLIC_HERO_MOTION_ALLOWLIST?.split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const hasMotionAllowlist = Boolean(motionAllowlist?.length);
   const prmEnabled = prm ?? runtime.flags.prm;
   const videoEntry = surfaces.video;
   const heroVideoActive = Boolean(!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path));
@@ -546,6 +592,10 @@ export async function buildHeroV2Model({
   const filteredMotionEntries = motionEntries.filter((entry) => {
     if (isDeniedVideo(entry.path)) return false;
     if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
+    if (hasMotionAllowlist) {
+      if (!entry.id) return false;
+      return motionAllowlist?.includes(entry.id) ?? false;
+    }
     return true;
   });
   const motionCausticsActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--caustics"));
