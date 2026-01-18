@@ -100,3 +100,38 @@ git checkout -- apps/web/app/components/hero/v2/HeroRendererV2.tsx \
   apps/web/app/components/hero/v2/HeroV2Client.tsx
 rm -f reports/hero/sacred-stability-report.md
 ```
+
+---
+
+## Phase 4 — Stacking Diagnostics + Motion Allowlist (2026-01-18)
+
+### Phase 1 evidence capture (logging added)
+- Added `HERO_V2_STACK_DIAGNOSTIC` logging in `HeroV2StyleBlock` to record computed z-index values for `.hero-content`, `[data-surface-id="hero.contentFrame"]`, and `elementFromPoint` at the content center. **Ref:** `apps/web/app/components/hero/v2/HeroRendererV2.tsx:L192-L359`.
+- Raised content stacking and pinned surface stack under content (`.hero-surface-stack { z-index: 0; }` and `.hero-content { z-index: 50; }`). **Ref:** `apps/web/app/components/hero/v2/HeroRendererV2.tsx:L212-L274`.
+- Lowered default `hero.contentFrame` z-index from **11 → 9** in `defaultZFor()`. **Ref:** `apps/web/app/components/hero/v2/HeroRendererV2.tsx:L118-L132`.
+
+### Phase 4 runtime results (home `/` with `NEXT_PUBLIC_HERO_ENGINE=v2`)
+- **Command used:** `node - <<'NODE' ...` (Playwright Chromium eval on `/`).
+- **Before patch (simulated by restoring pre-change z-index values in the browser):**
+  - `contentZIndex`: `10`
+  - `surfaceZIndex`: `11`
+  - `surfaceStackZIndex`: `auto`
+  - `elementFromPoint`: `{ tag: "h1", surfaceId: null, className: null }`
+- **After patch computed values:**
+  - `contentZIndex`: `50`
+  - `surfaceZIndex`: `11`
+  - `surfaceStackZIndex`: `0`
+  - `elementFromPoint`: `{ tag: "h1", surfaceId: null, className: null }`
+- **Interpretation:** `elementFromPoint` hits headline content at the hero center in both cases; the patch still enforces content-over-surface ordering via explicit z-index values.
+
+### Motion allowlist (safe ladder)
+- Added `NEXT_PUBLIC_HERO_MOTION_ALLOWLIST` support to filter motion layers when set (comma-separated ids). **Ref:** `apps/web/app/components/hero/v2/HeroRendererV2.tsx:L577-L606`.
+- Example usage:
+  - `NEXT_PUBLIC_HERO_MOTION_ALLOWLIST=sacred.motion.waveCaustics`
+  - `NEXT_PUBLIC_HERO_MOTION_ALLOWLIST=sacred.motion.waveCaustics,sacred.motion.glassShimmer`
+
+### Rollback (exact commands)
+```bash
+git checkout -- apps/web/app/components/hero/v2/HeroRendererV2.tsx \
+  reports/hero/sacred-stability-report.md
+```
