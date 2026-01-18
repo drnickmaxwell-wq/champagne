@@ -21,6 +21,7 @@ function HeroSurfaceStackV2Base({
   bloomEnabled,
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
+  const pathname = usePathname();
 
   useEffect(() => {
     const stackId = instanceId.current;
@@ -140,6 +141,132 @@ function HeroSurfaceStackV2Base({
       console.groupEnd();
     };
   }, []);
+
+  useEffect(() => {
+    const logTruth = () => {
+      const heroRoot = document.querySelector("[data-hero-root=\"true\"]");
+      const heroMount =
+        heroRoot?.closest(".hero-renderer-v2") ?? heroRoot?.closest("[data-hero-engine]") ?? heroRoot;
+      const surfaceElements = heroMount
+        ? Array.from(heroMount.querySelectorAll<HTMLElement>("[data-surface-id]"))
+        : [];
+      const surfaces = surfaceElements.map((element) => {
+        const styles = getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+        const dataset = Object.fromEntries(Object.entries(element.dataset));
+        const video = element instanceof HTMLVideoElement ? element : null;
+        return {
+          surfaceId: element.dataset.surfaceId ?? "unknown",
+          tagName: element.tagName.toLowerCase(),
+          computed: {
+            zIndex: styles.zIndex,
+            opacity: styles.opacity,
+            mixBlendMode: styles.mixBlendMode,
+            filter: styles.filter,
+            transform: styles.transform,
+            willChange: styles.willChange,
+          },
+          rect: {
+            x: rect.x,
+            y: rect.y,
+            width: rect.width,
+            height: rect.height,
+          },
+          video: video
+            ? {
+                currentSrc: video.currentSrc,
+                readyState: video.readyState,
+                paused: video.paused,
+                currentTime: video.currentTime,
+              }
+            : null,
+          dataset,
+        };
+      });
+      console.log("HERO_V2_TRUTH_SURFACES", {
+        pathname,
+        scrollY: window.scrollY,
+        heroMountFound: Boolean(heroMount),
+        surfaceCount: surfaces.length,
+        surfaces,
+      });
+
+      const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
+      if (content) {
+        const contentStyles = getComputedStyle(content);
+        const rect = content.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const topElement = document.elementFromPoint(centerX, centerY) as HTMLElement | null;
+        console.log("HERO_V2_TRUTH_CONTENT", {
+          pathname,
+          scrollY: window.scrollY,
+          computed: {
+            zIndex: contentStyles.zIndex,
+            opacity: contentStyles.opacity,
+            visibility: contentStyles.visibility,
+            mixBlendMode: contentStyles.mixBlendMode,
+            filter: contentStyles.filter,
+            transform: contentStyles.transform,
+          },
+          rect: {
+            x: rect.x,
+            y: rect.y,
+            width: rect.width,
+            height: rect.height,
+          },
+          topElement: topElement
+            ? {
+                tagName: topElement.tagName.toLowerCase(),
+                className: topElement.className,
+                surfaceId: topElement.dataset?.surfaceId ?? null,
+              }
+            : null,
+        });
+      } else {
+        console.log("HERO_V2_TRUTH_CONTENT", {
+          pathname,
+          scrollY: window.scrollY,
+          found: false,
+        });
+      }
+
+      const heroContainer = heroRoot?.closest("[data-hero-engine]") ?? heroRoot;
+      const belowHero = heroContainer?.nextElementSibling ?? heroRoot?.nextElementSibling;
+      const main = document.querySelector("main") as HTMLElement | null;
+      console.log("HERO_V2_TRUTH_BG", {
+        pathname,
+        scrollY: window.scrollY,
+        documentElement: document.documentElement
+          ? {
+              backgroundColor: getComputedStyle(document.documentElement).backgroundColor,
+              backgroundImage: getComputedStyle(document.documentElement).backgroundImage,
+            }
+          : "NOT_FOUND",
+        body: document.body
+          ? {
+              backgroundColor: getComputedStyle(document.body).backgroundColor,
+              backgroundImage: getComputedStyle(document.body).backgroundImage,
+            }
+          : "NOT_FOUND",
+        main: main
+          ? {
+              backgroundColor: getComputedStyle(main).backgroundColor,
+              backgroundImage: getComputedStyle(main).backgroundImage,
+            }
+          : "NOT_FOUND",
+        belowHero: belowHero
+          ? {
+              backgroundColor: getComputedStyle(belowHero as HTMLElement).backgroundColor,
+              backgroundImage: getComputedStyle(belowHero as HTMLElement).backgroundImage,
+            }
+          : "NOT_FOUND",
+      });
+    };
+
+    const timeoutId = window.setTimeout(logTruth, 1500);
+    return () => window.clearTimeout(timeoutId);
+  }, [pathname]);
 
   return (
     <>
