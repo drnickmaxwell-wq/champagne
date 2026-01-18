@@ -152,6 +152,7 @@ const resolveBackgroundGlue = (url?: string) => {
 
 const resolveBackgroundImage = (url?: string) => (url ? `url("${url}")` : undefined);
 const resolvedGlueManifest = heroGlueManifest as GlueManifest;
+let motionEverRevealed = false;
 
 function HeroFallback() {
   return (
@@ -319,6 +320,10 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
 }
 
 export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2FrameProps) {
+  if (typeof window !== "undefined" && (window as typeof window & { __heroMotionEverRevealed?: boolean }).__heroMotionEverRevealed) {
+    motionEverRevealed = true;
+  }
+
   return (
     <div
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
@@ -352,12 +357,9 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
             __html: `(() => {
               if (typeof window === 'undefined') return;
               const selector = '.hero-renderer-v2 .hero-surface--motion';
-              const isDev = ${process.env.NODE_ENV !== "production" ? "true" : "false"};
-              const warnOnce = () => {
-                if (!isDev) return;
-                if (window.__heroMotionWarned) return;
-                window.__heroMotionWarned = true;
-                console.warn('[hero] Motion layer still hidden after 1400ms, forcing target opacity.');
+              const getEverRevealed = () => window.__heroMotionEverRevealed === true;
+              const setEverRevealed = () => {
+                window.__heroMotionEverRevealed = true;
               };
               const resolveTargetOpacity = (video) => {
                 if (!(video instanceof HTMLVideoElement)) return null;
@@ -382,32 +384,34 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
                 const target = resolveTargetOpacity(video);
                 if (target === null || Number.isNaN(target)) return;
                 video.style.opacity = String(target);
+                console.groupCollapsed("HERO_V2_MOTION_REVEAL", {
+                  id: video.dataset.surfaceId || "unknown",
+                  target,
+                  time: performance.now(),
+                });
+                console.groupEnd();
               };
-              const reveal = (video, fallbackId) => {
+              const reveal = (video) => {
                 if (!(video instanceof HTMLVideoElement)) return;
                 if (video.dataset.motionReady === 'true') return;
-                if (fallbackId) window.clearTimeout(fallbackId);
                 video.dataset.motionReady = 'true';
                 applyTargetOpacity(video);
+                setEverRevealed();
               };
               const initVideo = (video) => {
                 if (!(video instanceof HTMLVideoElement)) return;
                 if (video.dataset.motionInit === 'true') return;
                 video.dataset.motionInit = 'true';
+                if (getEverRevealed()) {
+                  applyTargetOpacity(video);
+                  video.dataset.motionReady = 'true';
+                  return;
+                }
                 video.preload = 'auto';
-                const fallbackId = window.setTimeout(() => reveal(video, fallbackId), 1200);
-                if (video.readyState >= 2) reveal(video, fallbackId);
-                video.addEventListener('loadeddata', () => reveal(video, fallbackId), { once: true });
-                video.addEventListener('canplay', () => reveal(video, fallbackId), { once: true });
-                video.addEventListener('playing', () => reveal(video, fallbackId), { once: true });
-                window.setTimeout(() => {
-                  if (!(video instanceof HTMLVideoElement)) return;
-                  const currentOpacity = Number.parseFloat(window.getComputedStyle(video).opacity || '0');
-                  if (currentOpacity <= 0.01) {
-                    applyTargetOpacity(video);
-                    warnOnce();
-                  }
-                }, 1400);
+                if (video.readyState >= 2) reveal(video);
+                video.addEventListener('loadeddata', () => reveal(video), { once: true });
+                video.addEventListener('canplay', () => reveal(video), { once: true });
+                video.addEventListener('playing', () => reveal(video), { once: true });
               };
               const init = () => {
                 Array.from(document.querySelectorAll(selector)).forEach(initVideo);
@@ -617,11 +621,12 @@ export async function buildHeroV2Model({
     const resolvedBlend = entry.blendMode ?? undefined;
     const resolvedOpacity = entry.opacity ?? undefined;
     let targetOpacity: number | null = null;
+    const allowMotionGate = !motionEverRevealed;
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
       targetOpacity = resolvedOpacity;
       (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${resolvedOpacity}`;
-      style.opacity = 0;
+      style.opacity = allowMotionGate ? 0 : resolvedOpacity;
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
