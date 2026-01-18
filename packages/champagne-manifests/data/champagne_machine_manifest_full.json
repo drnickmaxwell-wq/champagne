@@ -2867,12 +2867,12 @@
           "type": "copy-block",
           "title": "Care downloads",
           "label": "Overview",
-          "copy": "Post-operative and care instructions are provided as needed and kept in straightforward formats. Patients can request copies or confirm the right guidance through the team. If you need a copy of any documents, please contact the practice and we can provide them in a suitable format."
+          "copy": "The documents on this page are provided to support your care with us.\n\nThey may include aftercare guidance, treatment information, and practical notes that are useful before or after an appointment. Not every document will apply to everyone, and some information is only relevant in certain situations.\n\nIf you’ve been given a specific document by the team, you can usually find it here. If you’re unsure which information applies to you, or if something isn’t clear, we’re always happy to help explain.\n\nWritten guidance is helpful, but it can’t replace a proper conversation or clinical assessment. If something doesn’t feel right, or you have concerns following treatment, it’s important to contact the practice rather than relying only on written information.\n\nThe documents here are reviewed from time to time, so you may notice updates as guidance changes.\n\n---"
         },
         {
           "id": "downloads_contact_cta",
           "type": "treatment_closing_cta",
-          "title": "Contact for access",
+          "title": "Questions about your aftercare?",
           "ctas": [
             {
               "label": "Contact the practice",
