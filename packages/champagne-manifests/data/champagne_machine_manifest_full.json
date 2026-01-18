@@ -6432,7 +6432,7 @@
           "id": "emergency_pain_overview",
           "type": "treatment_overview_rich",
           "title": "Severe toothache and dental pain",
-          "copy": "Severe toothache is your body’s way of saying something needs attention.\n\nPain can come from decay, infection, cracks, gum problems, grinding, or a filling or crown that’s failed. The pattern and triggers of pain help us narrow down the cause.\n\nWe’ll assess what’s going on, explain what we can see, and recommend the most sensible way to settle pain and protect the tooth.",
+          "copy": "Severe toothache can feel urgent, and it’s hard to think about anything else. Here in Shoreham-by-Sea, we see how quickly pain can disrupt sleep, eating, and work.\n\nPain relief can help you cope, but it doesn’t fix the underlying cause. Toothache can come from decay, infection, cracks, gum problems, grinding, or a filling or crown that’s failed.\n\nWe’ll assess what’s going on, explain what we can see, and recommend the most sensible way to settle pain and protect the tooth.",
           "bullets": [
             "Identify the cause of pain",
             "Relieve discomfort safely",
@@ -6443,7 +6443,7 @@
         {
           "id": "treatment.heroIntro",
           "type": "copy-block",
-          "copy": "Toothache can range from mild twinges to severe, throbbing pain that disrupts sleep.\n\nSometimes pain eases temporarily, but that doesn’t always mean the problem has gone away. If pain is persistent, worsening, or triggered by biting, heat, or cold, it’s worth getting checked.\n\nIf you have rapid facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help immediately (A&E / 999) and then let us know as soon as you can."
+          "copy": "Toothache can range from mild twinges to severe, throbbing pain that disrupts sleep. If it’s persistent, worsening, or triggered by biting, heat, or cold, it’s worth getting checked even if it comes and goes.\n\nWe can talk through what’s happening and advise timing. If pain is getting worse, you notice swelling, fever, a bad taste, or you cannot open your mouth comfortably, call us promptly.\n\nIf you have rapid facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help immediately (A&E / 999) and then let us know as soon as you can."
         },
         {
           "id": "emergency_pain_symptoms",
@@ -6473,7 +6473,7 @@
           "id": "emergency_pain_importance",
           "type": "copy-block",
           "title": "Why assessment matters",
-          "copy": "Pain often means the tooth or surrounding tissues are under stress.\n\nLeaving toothache can allow decay or infection to progress, making treatment more involved. Early assessment usually gives more conservative options and better comfort.\n\nOur aim is to diagnose the cause accurately, settle pain, and help you avoid repeat flare-ups.",
+          "copy": "Pain often means the tooth or surrounding tissues are under stress.\n\nPainkillers and temporary measures can take the edge off, but they cannot resolve infection, nerve damage, or structural problems such as cracks or failed restorations. The safest route is a proper assessment so the right treatment is chosen for you.\n\nOur aim is to diagnose the cause accurately, settle pain, and help you avoid repeat flare-ups.",
           "label": "Prompt relief"
         },
         {
@@ -6481,7 +6481,7 @@
           "type": "treatment_media_feature",
           "label": "What we can do",
           "title": "Possible treatments",
-          "copy": "Treatment depends on the cause of pain.\n\nOptions may include replacing or repairing a filling, root canal treatment to treat infection inside the tooth, gum treatment, adjusting the bite, or in some cases removing a tooth that can’t be predictably saved.\n\nWe’ll explain the findings and the pros and cons of each option before anything is done.",
+          "copy": "At an emergency appointment we start with an assessment, look for the cause, and confirm a diagnosis with any checks or X-rays needed.\n\nWhere appropriate we provide immediate stabilisation to relieve pain and protect the tooth. Not all treatment is completed in one visit, so we’ll outline the next stages and timing.\n\nOptions may include replacing or repairing a filling, root canal treatment to treat infection inside the tooth, gum treatment, adjusting the bite, or in some cases removing a tooth that can’t be predictably saved.\n\nWe’ll explain the findings and the pros and cons of each option before anything is done.",
           "mediaHint": "Comfort-first care"
         },
         {
