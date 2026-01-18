@@ -6,6 +6,8 @@ import type { CSSProperties, Ref } from "react";
 import { BloomDriver } from "./BloomDriver";
 import type { HeroSurfaceStackModel } from "./HeroRendererV2";
 
+const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+
 type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
 };
@@ -24,6 +26,7 @@ function HeroSurfaceStackV2Base({
   const pathname = usePathname();
 
   useEffect(() => {
+    if (!HERO_V2_DEBUG) return;
     const stackId = instanceId.current;
     console.groupCollapsed("HERO_V2_MOUNT");
     console.log("HERO_V2_MOUNT_DATA", { id: stackId, pathname: window.location.pathname });
@@ -143,6 +146,7 @@ function HeroSurfaceStackV2Base({
   }, []);
 
   useEffect(() => {
+    if (!HERO_V2_DEBUG) return;
     const logTruth = () => {
       const heroRoot = document.querySelector("[data-hero-root=\"true\"]");
       const heroMount =
@@ -393,6 +397,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
     const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
     const fadeEl = fadeRef.current;
     if (!content || !fadeEl) return;
+    if (!HERO_V2_DEBUG) return;
     const logState = () => {
       const styles = getComputedStyle(content);
       const fadeStyles = getComputedStyle(fadeEl);

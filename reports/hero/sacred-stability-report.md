@@ -196,3 +196,16 @@ Logged `HERO_V2_TEXT_BOUNDS` remained consistent across phases during nav loop:
 
 ### Stop condition
 No compositing properties were found outside the hero root; **Phase 2 isolation changes were not applied** per directive.
+
+---
+
+### Hero V2 debug log gating (2025-02-14)
+- Gated HERO_V2_MOUNT*, HERO_V2_STACK*, HERO_V2_COMPOSITING*, HERO_V2_TEXT_BOUNDS*, HERO_V2_MOTION_EVENT*, and HERO_V2_TRUTH_* console logs behind a single flag in HeroRendererV2 and HeroV2Client.
+- Enable logs with: `NEXT_PUBLIC_HERO_DEBUG=1` (i.e., `const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === '1';`).
+
+Rollback commands:
+```
+git restore apps/web/app/components/hero/v2/HeroRendererV2.tsx \
+  apps/web/app/components/hero/v2/HeroV2Client.tsx \
+  reports/hero/sacred-stability-report.md
+```
