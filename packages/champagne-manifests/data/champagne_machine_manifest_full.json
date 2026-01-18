@@ -5803,7 +5803,7 @@
           "id": "full_smile_makeover_overview_rich",
           "type": "treatment_overview_rich",
           "title": "Smile makeovers guided by a shared plan",
-          "copy": "We map veneers, whitening, aligners, or restorations into one coordinated plan with clear checkpoints.",
+          "copy": "A full smile makeover is a way of looking at your teeth together, rather than treating individual problems in isolation. People often come to us with a mix of concerns — how their teeth look, how they function, or how they’ve changed over time.\n\nRather than jumping straight to treatment, we start by understanding what matters to you and what’s realistically achievable. In many cases, there is more than one way forward. Some options are simpler and more conservative, while others are more involved and take longer.\n\nOur role is to help you understand those options clearly, including their limits, so you can decide what feels right for you.\n\n---",
           "bullets": [
             "Plan designed from scans and photos",
             "Sequence options reviewed together",
@@ -5815,7 +5815,7 @@
           "type": "treatment_media_feature",
           "label": "Plan canvas",
           "title": "Preview the makeover path",
-          "copy": "A visual map shows phases, materials, and timing so you know what happens when.",
+          "copy": "Planning is the most important part of any smile makeover. This usually involves careful examination, photographs, scans, and discussion, rather than making quick decisions.\n\nThis stage helps us see how your teeth fit together, where changes may be helpful, and where they may not be appropriate. It also allows time to talk through expectations and agree a plan that makes sense before any treatment starts.\n\n---",
           "mediaHint": "Smile plan canvas"
         },
         {
@@ -5823,19 +5823,19 @@
           "type": "treatment_tools_trio",
           "label": "Planning tools",
           "title": "Tools that keep complex plans clear",
-          "copy": "Each tool keeps the makeover coordinated and transparent.",
+          "copy": "A full smile makeover is usually built up in stages. Each stage has a purpose, and not every stage is needed for every person. The aim is to move forward in a controlled way, rather than trying to do everything at once.\n\nSome stages focus on creating space or alignment, others on improving appearance or repairing wear. We plan these steps carefully so that earlier treatment supports what comes later.\n\n---",
           "items": [
             {
               "title": "Digital smile design",
-              "description": "Aligns proportions and material choices before we start."
+              "description": "We start by understanding your concerns, examining your teeth and bite, and discussing what you’d like to change. This helps identify which problems need addressing first and which can be left alone."
             },
             {
               "title": "Phase timeline",
-              "description": "Lays out aligner, veneer, or whitening steps with review points."
+              "description": "Where needed, early treatment may focus on alignment, bite position, or stabilising the teeth. These steps often make later cosmetic or restorative work more predictable."
             },
             {
               "title": "Photo and scan tracking",
-              "description": "We log progress to keep adjustments on-plan."
+              "description": "Final stages may involve improving shape, colour, or repairing damage. The exact treatments depend on the plan agreed earlier and are tailored to your individual situation."
             }
           ]
         },
@@ -5843,7 +5843,7 @@
           "id": "full_smile_makeover_clinician_insight",
           "type": "clinician_insight",
           "label": "Clinician insight",
-          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
+          "quote": "A full smile makeover isn’t a single treatment. It’s a way of planning several treatments together so they work well as a whole.\n\nWhat that involves varies from person to person. For some, it may focus on alignment and tooth position. For others, it may involve whitening, bonding, veneers or restorative work to address wear, damage or long-standing problems.\n\nThe most important part is the assessment and planning stage. We take time to understand what’s bothering you, examine your teeth and bite carefully, and look at what is realistically achievable. In many cases, treatment is staged over time rather than rushed.\n\nNot everyone needs a full smile makeover. Sometimes smaller, simpler steps can make a meaningful difference. Part of our role is helping you understand the options, the limitations, and what makes sense for you in the long term.",
           "attribution": "Clinical team",
           "role": "Smile design"
         },
@@ -5854,15 +5854,15 @@
           "title": "Makeover journeys",
           "stories": [
             {
-              "summary": "Combined aligners and whitening with clear checkpoints.",
+              "summary": "“I wanted to improve how my teeth looked, but I was nervous about doing too much. We talked through different options and took things step by step, which made the whole process feel manageable.”",
               "name": "Case P"
             },
             {
-              "summary": "Reviewed veneer mock-ups before printing finals.",
+              "summary": "“My teeth had worn over time and I wasn’t sure what could realistically be done. The planning stage helped me understand what was possible and what wasn’t, before deciding how far to go.”",
               "name": "Case Q"
             },
             {
-              "summary": "Tracked each phase with photos to stay aligned to the plan.",
+              "summary": "“I didn’t want anything rushed. Having time to think things through and spread treatment out made a big difference to how comfortable I felt.”",
               "name": "Case R"
             }
           ]
@@ -5871,7 +5871,7 @@
           "id": "full_smile_makeover_mid_cta",
           "type": "treatment_mid_cta",
           "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "strapline": "If you’re considering a full smile makeover, the first step is a conversation. An assessment allows us to look at your teeth properly and talk through whether this approach makes sense for you."
         },
         {
           "id": "full_smile_makeover_faq",
@@ -5880,16 +5880,24 @@
           "title": "Smile makeover questions",
           "faqs": [
             {
-              "question": "How is the plan built?",
-              "answer": "We combine scans, photos, and goals to set phases for alignment, whitening, and restorations."
+              "question": "Who is a full smile makeover for?",
+              "answer": "It may be suitable for people with several concerns they’d like to address together, such as worn, discoloured, misaligned or damaged teeth. An assessment is needed to see whether this approach is appropriate."
             },
             {
-              "question": "Can we adjust along the way?",
-              "answer": "Checkpoints let us refine timing or materials while staying on-plan."
+              "question": "What treatments might be involved?",
+              "answer": "Depending on your needs, this could include orthodontic treatment, whitening, bonding, veneers, crowns or other restorative work. Not every treatment is needed for every person."
             },
             {
-              "question": "How do I follow the phases?",
-              "answer": "A shared roadmap outlines what happens next and when review visits are scheduled."
+              "question": "How long does it take?",
+              "answer": "Timeframes vary. Some treatment plans take a few months, while others are staged over a longer period. We’ll talk this through during planning so you know what to expect."
+            },
+            {
+              "question": "Are there alternatives?",
+              "answer": "Yes. In many cases, more limited treatment can still improve appearance or function. We’ll discuss alternatives and the likely trade-offs."
+            },
+            {
+              "question": "How long do results last?",
+              "answer": "Longevity depends on the treatments used, how your teeth are looked after, and factors such as grinding or diet. Ongoing care and maintenance are important."
             }
           ]
         },
@@ -5897,7 +5905,7 @@
           "id": "full_smile_makeover_closing_cta",
           "type": "treatment_closing_cta",
           "title": "Plan a full smile makeover",
-          "strapline": "Book a planning session or preview a digital roadmap.",
+          "strapline": "A consultation is an opportunity to ask questions, understand your options, and decide what feels right for you, without any obligation to proceed.",
           "ctas": [
             {
               "label": "Book a planning session",
