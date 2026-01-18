@@ -1,0 +1,198 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.full-smile-makeover",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "full_smile_makeover_overview_rich",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Smile makeovers guided by a shared plan",
+      "body": "A full smile makeover is a way of looking at your teeth together, rather than treating individual problems in isolation. People often come to us with a mix of concerns — how their teeth look, how they function, or how they’ve changed over time.\n\nRather than jumping straight to treatment, we start by understanding what matters to you and what’s realistically achievable. In many cases, there is more than one way forward. Some options are simpler and more conservative, while others are more involved and take longer.\n\nOur role is to help you understand those options clearly, including their limits, so you can decide what feels right for you.\n\n---",
+      "bullets": [
+        "Plan designed from scans and photos",
+        "Sequence options reviewed together",
+        "Checkpoints keep outcomes aligned"
+      ]
+    },
+    {
+      "instanceId": "full_smile_makeover_media_feature",
+      "componentId": "treatment_media_feature",
+      "order": 20,
+      "seoRole": "supporting",
+      "label": "Plan canvas",
+      "title": "Preview the makeover path",
+      "body": "Planning is the most important part of any smile makeover. This usually involves careful examination, photographs, scans, and discussion, rather than making quick decisions.\n\nThis stage helps us see how your teeth fit together, where changes may be helpful, and where they may not be appropriate. It also allows time to talk through expectations and agree a plan that makes sense before any treatment starts.\n\n---",
+      "mediaHint": "Smile plan canvas"
+    },
+    {
+      "instanceId": "full_smile_makeover_tools_trio",
+      "componentId": "treatment_tools_trio",
+      "order": 30,
+      "seoRole": "supporting",
+      "label": "Planning tools",
+      "title": "Tools that keep complex plans clear",
+      "body": "A full smile makeover is usually built up in stages. Each stage has a purpose, and not every stage is needed for every person. The aim is to move forward in a controlled way, rather than trying to do everything at once.\n\nSome stages focus on creating space or alignment, others on improving appearance or repairing wear. We plan these steps carefully so that earlier treatment supports what comes later.\n\n---",
+      "items": [
+        {
+          "title": "Digital smile design",
+          "description": "We start by understanding your concerns, examining your teeth and bite, and discussing what you’d like to change. This helps identify which problems need addressing first and which can be left alone."
+        },
+        {
+          "title": "Phase timeline",
+          "description": "Where needed, early treatment may focus on alignment, bite position, or stabilising the teeth. These steps often make later cosmetic or restorative work more predictable."
+        },
+        {
+          "title": "Photo and scan tracking",
+          "description": "Final stages may involve improving shape, colour, or repairing damage. The exact treatments depend on the plan agreed earlier and are tailored to your individual situation."
+        }
+      ]
+    },
+    {
+      "instanceId": "full_smile_makeover_clinician_insight",
+      "componentId": "clinician_insight",
+      "order": 40,
+      "seoRole": "supporting",
+      "label": "Clinician insight"
+    },
+    {
+      "instanceId": "full_smile_makeover_patient_stories",
+      "componentId": "patient_stories_rail",
+      "order": 50,
+      "seoRole": "supporting",
+      "label": "Patient stories",
+      "title": "Makeover journeys"
+    },
+    {
+      "instanceId": "full_smile_makeover_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "If you’re considering a full smile makeover, the first step is a conversation. An assessment allows us to look at your teeth properly and talk through whether this approach makes sense for you."
+    },
+    {
+      "instanceId": "full_smile_makeover_faq",
+      "componentId": "treatment_faq_block",
+      "order": 70,
+      "seoRole": "faq",
+      "label": "FAQ",
+      "title": "Smile makeover questions",
+      "faqs": [
+        {
+          "question": "Who is a full smile makeover for?",
+          "answer": "It may be suitable for people with several concerns they’d like to address together, such as worn, discoloured, misaligned or damaged teeth. An assessment is needed to see whether this approach is appropriate."
+        },
+        {
+          "question": "What treatments might be involved?",
+          "answer": "Depending on your needs, this could include orthodontic treatment, whitening, bonding, veneers, crowns or other restorative work. Not every treatment is needed for every person."
+        },
+        {
+          "question": "How long does it take?",
+          "answer": "Timeframes vary. Some treatment plans take a few months, while others are staged over a longer period. We’ll talk this through during planning so you know what to expect."
+        },
+        {
+          "question": "Are there alternatives?",
+          "answer": "Yes. In many cases, more limited treatment can still improve appearance or function. We’ll discuss alternatives and the likely trade-offs."
+        },
+        {
+          "question": "How long do results last?",
+          "answer": "Longevity depends on the treatments used, how your teeth are looked after, and factors such as grinding or diet. Ongoing care and maintenance are important."
+        }
+      ]
+    },
+    {
+      "instanceId": "full_smile_makeover_closing_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 80,
+      "seoRole": "cta",
+      "title": "Plan a full smile makeover",
+      "body": "A consultation is an opportunity to ask questions, understand your options, and decide what feels right for you, without any obligation to proceed.",
+      "ctas": [
+        {
+          "label": "Book a planning session",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Digital smile design",
+          "href": "/treatments/digital-smile-design",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

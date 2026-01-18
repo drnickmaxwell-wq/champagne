@@ -73,6 +73,26 @@ import type { ChampagneCTARelationship } from "@champagne/cta";
 import sectionLayoutPolynucleotides from "../data/sections/smh/treatments.polynucleotides.json";
 import sectionLayoutTherapeuticInjectables from "../data/sections/smh/treatments.therapeutic-facial-injectables.json";
 import sectionLayoutTmjDisorderTreatment from "../data/sections/smh/treatments.tmj-disorder-treatment.json";
+import sectionLayoutDentalCheckupsOralCancerScreening from "../data/sections/smh/treatments.dental-checkups-oral-cancer-screening.json";
+import sectionLayoutImplantRetainedDenturesSingular from "../data/sections/smh/treatments.implant-retained-dentures.json";
+import sectionLayoutImplantConsultationSingular from "../data/sections/smh/treatments.implant-consultation.json";
+import sectionLayoutSinusLift from "../data/sections/smh/treatments.sinus-lift.json";
+import sectionLayoutTeethInADaySingular from "../data/sections/smh/treatments.teeth-in-a-day.json";
+import sectionLayoutSedationForImplantsSingular from "../data/sections/smh/treatments.sedation-for-implants.json";
+import sectionLayoutFailedImplantReplacementSingular from "../data/sections/smh/treatments.failed-implant-replacement.json";
+import sectionLayoutImplantAftercareSingular from "../data/sections/smh/treatments.implant-aftercare.json";
+import sectionLayoutCompositeBonding from "../data/sections/smh/treatments.composite-bonding.json";
+import sectionLayoutInjectionMouldedComposite from "../data/sections/smh/treatments.injection-moulded-composite.json";
+import sectionLayoutFullSmileMakeover from "../data/sections/smh/treatments.full-smile-makeover.json";
+import sectionLayoutEmergencyDentistry from "../data/sections/smh/treatments.emergency-dentistry.json";
+import sectionLayoutEmergencyDentalAppointments from "../data/sections/smh/treatments.emergency-dental-appointments.json";
+import sectionLayoutSevereToothacheDentalPain from "../data/sections/smh/treatments.severe-toothache-dental-pain.json";
+import sectionLayoutDentalAbscessInfection from "../data/sections/smh/treatments.dental-abscess-infection.json";
+import sectionLayoutBrokenChippedCrackedTeeth from "../data/sections/smh/treatments.broken-chipped-cracked-teeth.json";
+import sectionLayoutKnockedOutTooth from "../data/sections/smh/treatments.knocked-out-tooth.json";
+import sectionLayoutLostCrownsVeneersFillings from "../data/sections/smh/treatments.lost-crowns-veneers-fillings.json";
+import sectionLayoutDentalTraumaAccidents from "../data/sections/smh/treatments.dental-trauma-accidents.json";
+import sectionLayoutToothWearBrokenTeeth from "../data/sections/smh/treatments.tooth-wear-broken-teeth.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -369,6 +389,26 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutTherapeuticInjectables as ChampagneSectionLayout,
   sectionLayoutEndodonticsRootCanal as ChampagneSectionLayout,
   sectionLayoutExtractionsOralSurgery as ChampagneSectionLayout,
+  sectionLayoutDentalCheckupsOralCancerScreening as ChampagneSectionLayout,
+  sectionLayoutImplantRetainedDenturesSingular as ChampagneSectionLayout,
+  sectionLayoutImplantConsultationSingular as ChampagneSectionLayout,
+  sectionLayoutSinusLift as ChampagneSectionLayout,
+  sectionLayoutTeethInADaySingular as ChampagneSectionLayout,
+  sectionLayoutSedationForImplantsSingular as ChampagneSectionLayout,
+  sectionLayoutFailedImplantReplacementSingular as ChampagneSectionLayout,
+  sectionLayoutImplantAftercareSingular as ChampagneSectionLayout,
+  sectionLayoutCompositeBonding as ChampagneSectionLayout,
+  sectionLayoutInjectionMouldedComposite as ChampagneSectionLayout,
+  sectionLayoutFullSmileMakeover as ChampagneSectionLayout,
+  sectionLayoutEmergencyDentistry as ChampagneSectionLayout,
+  sectionLayoutEmergencyDentalAppointments as ChampagneSectionLayout,
+  sectionLayoutSevereToothacheDentalPain as ChampagneSectionLayout,
+  sectionLayoutDentalAbscessInfection as ChampagneSectionLayout,
+  sectionLayoutBrokenChippedCrackedTeeth as ChampagneSectionLayout,
+  sectionLayoutKnockedOutTooth as ChampagneSectionLayout,
+  sectionLayoutLostCrownsVeneersFillings as ChampagneSectionLayout,
+  sectionLayoutDentalTraumaAccidents as ChampagneSectionLayout,
+  sectionLayoutToothWearBrokenTeeth as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;

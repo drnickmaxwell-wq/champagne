@@ -1,0 +1,196 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-abscess-infection",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "emergency_abscess_overview",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Dental abscess and infection",
+      "body": "A dental abscess is an infection that can build pressure and cause significant pain, swelling, or a bad taste.\n\nSometimes symptoms come and go, but the underlying infection usually needs proper assessment and treatment. Leaving it can allow the infection to spread and can make the tooth harder to save.\n\nIf you have facial swelling, difficulty swallowing, fever, or you feel generally unwell, seek urgent advice and contact us as soon as possible.",
+      "bullets": [
+        "Assess the cause and how urgent it is",
+        "Reduce pain and pressure safely",
+        "Treat infection appropriately (not just symptoms)",
+        "Plan the most sensible long-term fix"
+      ]
+    },
+    {
+      "instanceId": "treatment.heroIntro",
+      "componentId": "copy-block",
+      "order": 20,
+      "seoRole": "supporting",
+      "body": "Infections can start quietly — sometimes as a dull ache, sometimes as sensitivity, and sometimes with no pain until swelling appears.\n\nAn abscess can come from the tooth nerve, from gum disease, or from a crack or deep decay letting bacteria in.\n\nIf you’re unsure whether it’s an emergency, call us. We can advise on urgency and what to do while you’re waiting to be seen."
+    },
+    {
+      "instanceId": "emergency_abscess_symptoms",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "Common signs",
+      "items": [
+        "Throbbing toothache or pain that wakes you",
+        "Swelling of the gum, face, or jaw",
+        "A bad taste, pus, or a spot on the gum that drains",
+        "Pain on biting or a tooth that feels raised",
+        "Fever, feeling unwell, or swollen glands (seek urgent advice)"
+      ]
+    },
+    {
+      "instanceId": "emergency_abscess_steps",
+      "componentId": "steps",
+      "order": 40,
+      "seoRole": "supporting",
+      "title": "What to do now",
+      "items": [
+        "Contact us promptly so we can advise urgency and book the right appointment",
+        "Use normal pain relief if needed and safe for you (follow the packet guidance)",
+        "Warm salt-water rinses can help comfort (do not apply heat to facial swelling)",
+        "Avoid chewing on that side and stick to softer foods",
+        "If you develop facial swelling, fever, difficulty swallowing, or breathing problems, seek urgent medical help"
+      ]
+    },
+    {
+      "instanceId": "emergency_abscess_importance",
+      "componentId": "copy-block",
+      "order": 50,
+      "seoRole": "supporting",
+      "label": "Act early",
+      "title": "Why it needs proper assessment",
+      "body": "Infections are not always solved by antibiotics alone. Antibiotics may be appropriate in certain situations, but the source of the infection usually needs treating.\n\nThat might mean draining the infection, cleaning and sealing the tooth with root canal treatment, treating gum infection, or removing a tooth that cannot be saved.\n\nOur job is to assess the cause, explain the realistic options, and help you get stable quickly — then plan longer-term care calmly."
+    },
+    {
+      "instanceId": "emergency_abscess_options",
+      "componentId": "treatment_media_feature",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "What we can do",
+      "title": "Possible treatments",
+      "body": "Treatment depends on where the infection is coming from and how advanced it is.\n\nOptions may include local measures to relieve pressure, root canal treatment to save a tooth, periodontal (gum) treatment, or extraction where the tooth cannot be predictably restored.\n\nIf antibiotics are needed, we’ll explain why, what they can and can’t do, and what follow-up is required.",
+      "mediaHint": "Gentle relief"
+    },
+    {
+      "instanceId": "emergency_dental_abscess_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "emergency_abscess_faq",
+      "componentId": "treatment_faq_block",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Infection FAQs",
+      "faqs": [
+        {
+          "question": "Do I always need antibiotics?",
+          "answer": "Sometimes antibiotics are necessary, especially if there is spreading swelling or you are unwell. But an abscess usually needs the source treated as well — for example drainage, root canal treatment, gum treatment, or extraction. We’ll advise what’s appropriate after assessment."
+        },
+        {
+          "question": "Will the swelling go away on its own?",
+          "answer": "Symptoms can ease if an abscess drains, but the infection often remains and can flare again. Leaving it can increase risk of spread and reduce the chance of saving the tooth. It’s safest to get it assessed."
+        },
+        {
+          "question": "Can I work or travel after treatment?",
+          "answer": "Facial swelling can be serious. Contact us urgently. If you have fever, difficulty swallowing, or breathing problems, seek urgent medical help immediately (A&E / 999) and then update us as soon as you can."
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_abscess_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "title": "Get help for swelling or infection",
+      "body": "Call now so we can assess and relieve the infection safely.",
+      "ctas": [
+        {
+          "label": "Call the practice",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

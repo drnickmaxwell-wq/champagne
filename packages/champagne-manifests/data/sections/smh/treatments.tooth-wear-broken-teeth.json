@@ -1,0 +1,229 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.tooth-wear-broken-teeth",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "tooth_wear_overview",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Tooth wear and erosion",
+      "body": "Tooth wear refers to the gradual loss of tooth structure over time.\n\nIt’s a common issue and often develops slowly, meaning many people don’t notice it until changes in shape, sensitivity, or appearance become more obvious.\n\nAt St Mary’s House Dental Care, tooth wear is managed thoughtfully, with an emphasis on understanding why it’s happening before deciding how to treat it.",
+      "bullets": [
+        "Tooth wear refers to the gradual loss of tooth structure over time",
+        "It often develops slowly before changes become more obvious",
+        "Care focuses on understanding why it’s happening before deciding how to treat it"
+      ]
+    },
+    {
+      "instanceId": "tooth_wear_causes",
+      "componentId": "features",
+      "order": 20,
+      "seoRole": "supporting",
+      "title": "Common causes",
+      "items": [
+        "Factors contributing to tooth wear can include acidic foods or drinks, reflux, dry mouth, clenching or grinding, bite relationships, and lifestyle habits",
+        "Often, tooth wear results from a combination of influences rather than a single cause"
+      ]
+    },
+    {
+      "instanceId": "tooth_wear_symptoms",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "Different types of tooth wear",
+      "items": [
+        "Tooth wear can occur for different reasons",
+        "Erosion is caused by acids softening the tooth surface",
+        "Attrition is wear from tooth-to-tooth contact, often linked to clenching or grinding",
+        "Abrasion involves mechanical wear, such as from brushing habits",
+        "More than one type of wear is often present at the same time"
+      ]
+    },
+    {
+      "instanceId": "tooth_wear_assessment",
+      "componentId": "treatment_media_feature",
+      "order": 40,
+      "seoRole": "supporting",
+      "label": "Assessment",
+      "title": "Why careful assessment matters",
+      "body": "Understanding the cause and pattern of wear helps guide appropriate management.\n\nAssessment may include examining how teeth meet, looking for signs of muscle activity, reviewing diet and habits, and checking for changes over time.\n\nNot all wear requires immediate treatment, but monitoring is important.",
+      "mediaHint": "Photos, scans, and bite map overlay"
+    },
+    {
+      "instanceId": "tooth_wear_treatment_ladder",
+      "componentId": "features",
+      "order": 50,
+      "seoRole": "supporting",
+      "title": "Management and prevention",
+      "items": [
+        "Management often begins with prevention",
+        "This may include monitoring, protective appliances such as night guards, dietary advice, and targeted dental treatment where appropriate.",
+        "Often, more than one measure is used together, depending on how wear is progressing",
+        "The aim is to slow or stop progression before considering restorative treatment"
+      ]
+    },
+    {
+      "instanceId": "tooth_wear_process",
+      "componentId": "treatment_overview_rich",
+      "order": 60,
+      "seoRole": "supporting",
+      "title": "When treatment may be needed",
+      "body": "If tooth wear is advanced or causing functional or comfort issues, treatment may be discussed.\n\nOptions can range from simple protective measures to restorative approaches designed to rebuild worn surfaces.\n\nAny proposed treatment is planned carefully and staged where possible.",
+      "bullets": [
+        "Treatment is considered when wear affects comfort or function",
+        "Options range from protective measures to restorations",
+        "Plans are staged and tailored to the individual"
+      ]
+    },
+    {
+      "instanceId": "tooth_wear_timelines",
+      "componentId": "treatment_media_feature",
+      "order": 70,
+      "seoRole": "supporting",
+      "label": "Long-term outlook",
+      "title": "Long-term outlook",
+      "body": "Tooth wear is usually a long-term consideration rather than a quick fix.\n\nOngoing review helps ensure that teeth remain comfortable and functional, and that any intervention remains appropriate as circumstances change.",
+      "mediaHint": "Calm scheduling map"
+    },
+    {
+      "instanceId": "tooth_wear_broken_teeth_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 80,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "tooth_wear_faq",
+      "componentId": "treatment_faq_block",
+      "order": 90,
+      "seoRole": "faq",
+      "title": "Questions and reassurance",
+      "faqs": [
+        {
+          "question": "What if I’m unsure about what tooth wear means for me?",
+          "answer": "Learning that your teeth are wearing can be concerning.\n\nIf you’re unsure what it means for you, we encourage you to ask. Understanding the situation clearly helps avoid unnecessary treatment and supports sensible long-term decisions."
+        }
+      ]
+    },
+    {
+      "instanceId": "tooth_wear_closing",
+      "componentId": "treatment_closing_cta",
+      "order": 100,
+      "seoRole": "cta",
+      "title": "Plan a calm review for tooth wear or broken edges",
+      "body": "Contact us to discuss concerns about tooth wear and appropriate next steps.",
+      "ctas": [
+        {
+          "label": "Book a tooth wear assessment",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "TMJ & Jaw Care",
+          "href": "/treatments/tmj-jaw-comfort",
+          "preset": "secondary"
+        },
+        {
+          "label": "Night guards (occlusal splints)",
+          "href": "/treatments/night-guards-occlusal-splints",
+          "preset": "ghost"
+        },
+        {
+          "label": "Dental Crowns",
+          "href": "/treatments/dental-crowns",
+          "preset": "ghost"
+        },
+        {
+          "label": "Inlays & Onlays",
+          "href": "/treatments/inlays-onlays",
+          "preset": "ghost"
+        },
+        {
+          "label": "Composite Bonding",
+          "href": "/treatments/composite-bonding",
+          "preset": "ghost"
+        },
+        {
+          "label": "Nervous Patients",
+          "href": "/treatments/nervous-patients",
+          "preset": "ghost"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

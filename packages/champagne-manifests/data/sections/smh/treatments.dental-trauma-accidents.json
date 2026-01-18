@@ -1,0 +1,196 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-trauma-accidents",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "emergency_trauma_overview",
+      "componentId": "treatment_overview_rich",
+      "order": 10,
+      "seoRole": "hero",
+      "title": "Care after dental trauma or accidents",
+      "body": "Falls, sports injuries, or other accidents can affect teeth and soft tissues. We provide calm assessment, stop bleeding, protect damaged areas, and outline any further treatment.",
+      "bullets": [
+        "Gentle checks for teeth, gums, and jaw",
+        "Advice on cleaning and swelling control",
+        "Temporary stabilisation if needed",
+        "Clear next steps for definitive care"
+      ]
+    },
+    {
+      "instanceId": "treatment.heroIntro",
+      "componentId": "copy-block",
+      "order": 20,
+      "seoRole": "supporting",
+      "body": "Dental trauma can range from chipped enamel to displaced or loosened teeth, fractures, and injuries to gums or supporting bone. What matters most is prompt assessment: we check tooth stability, nerve response, bite changes and soft tissue injury, and take X-rays to rule out hidden fractures. Treatment might include smoothing or repairing a chip, splinting a tooth, dressing an exposed nerve, or planning follow-up care if the tooth’s nerve is at risk. We’ll also advise on pain control and what to avoid while the area heals. If a tooth has been knocked out, time is critical — see that page for immediate steps."
+    },
+    {
+      "instanceId": "emergency_trauma_symptoms",
+      "componentId": "features",
+      "order": 30,
+      "seoRole": "supporting",
+      "title": "What you might notice",
+      "items": [
+        "Bleeding from gums or lips",
+        "Loose or displaced teeth",
+        "Chips, cracks, or fractures",
+        "Cuts inside the mouth",
+        "Jaw soreness after impact"
+      ]
+    },
+    {
+      "instanceId": "emergency_trauma_steps",
+      "componentId": "steps",
+      "order": 40,
+      "seoRole": "supporting",
+      "title": "What to do now",
+      "items": [
+        "If bleeding, apply gentle pressure with a clean cloth or gauze",
+        "Rinse with cool water to clear debris",
+        "Save any tooth fragments or restorations",
+        "Use a cold compress on the outside of the cheek to reduce swelling",
+        "Contact us promptly; seek urgent medical help if you suspect other injuries"
+      ]
+    },
+    {
+      "instanceId": "emergency_trauma_importance",
+      "componentId": "copy-block",
+      "order": 50,
+      "seoRole": "supporting",
+      "label": "Early checks",
+      "title": "Why prompt assessment helps",
+      "body": "Early evaluation lets us stabilise teeth, check for hidden fractures, and plan repairs before complications develop. It also helps us coordinate with medical teams if needed."
+    },
+    {
+      "instanceId": "emergency_trauma_options",
+      "componentId": "treatment_media_feature",
+      "order": 60,
+      "seoRole": "supporting",
+      "label": "What we can do",
+      "title": "Stabilise and plan recovery",
+      "body": "Treatment may include smoothing edges, splinting loose teeth, placing temporary coverings, prescribing medication, or coordinating imaging and follow-up restorative care.",
+      "mediaHint": "Staged recovery"
+    },
+    {
+      "instanceId": "emergency_dental_trauma_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 70,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "emergency_trauma_faq",
+      "componentId": "treatment_faq_block",
+      "order": 80,
+      "seoRole": "faq",
+      "title": "Trauma FAQs",
+      "faqs": [
+        {
+          "question": "Do I need X-rays after an accident?",
+          "answer": "We will advise after examining the area. Imaging helps check for fractures or root damage that are not visible."
+        },
+        {
+          "question": "What if a tooth feels loose?",
+          "answer": "Keep it clean, avoid wiggling it, and contact us. We may splint it to nearby teeth while it heals."
+        },
+        {
+          "question": "Can you help with mouth cuts?",
+          "answer": "Yes. We assess soft tissue injuries, clean the area, and advise if medical attention or stitches are needed."
+        }
+      ]
+    },
+    {
+      "instanceId": "emergency_trauma_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "title": "Arrange care after dental trauma",
+      "body": "We will check for hidden issues, stabilise your teeth, and guide recovery.",
+      "ctas": [
+        {
+          "label": "Call for urgent care",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.sinus-lift",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "treatment.heroIntro",
+      "componentId": "treatment.heroIntro",
+      "order": 10,
+      "seoRole": "hero"
+    },
+    {
+      "instanceId": "treatment.trustSignals",
+      "componentId": "treatment.trustSignals",
+      "order": 20,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "treatment.whatAreImplants",
+      "componentId": "treatment.whatAreImplants",
+      "order": 30,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "treatment.whoIsItFor",
+      "componentId": "treatment.whoIsItFor",
+      "order": 40,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "treatment.processTimeline",
+      "componentId": "treatment.processTimeline",
+      "order": 50,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "treatment.technology",
+      "componentId": "treatment.technology",
+      "order": 60,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "treatment.aftercareRisks",
+      "componentId": "treatment.aftercareRisks",
+      "order": 70,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "implants_sinus_lift_mid_cta",
+      "componentId": "treatment_mid_cta",
+      "order": 80,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "body": "Compare connected steps and plan the next visit."
+    },
+    {
+      "instanceId": "treatment.faq",
+      "componentId": "treatment.faq",
+      "order": 90,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "treatment.cta",
+      "componentId": "treatment.cta",
+      "order": 100,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "sinus_lift_closing_cta",
+      "componentId": "treatment_closing_cta",
+      "order": 110,
+      "seoRole": "cta",
+      "title": "Discuss sinus lift care",
+      "body": "Check if a sinus lift is needed before your implant placement.",
+      "ctas": [
+        {
+          "label": "Book a sinus lift consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Implant dentistry",
+          "href": "/treatments/implants",
+          "preset": "secondary"
+        },
+        {
+          "label": "Teeth In A Day",
+          "href": "/treatments/teeth-in-a-day",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Root canal therapy",
+        "href": "/treatments/endodontics-root-canal"
+      },
+      {
+        "label": "Tooth wear repairs",
+        "href": "/treatments/inlays-onlays"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Routine maintenance",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Whitening after restoration",
+        "href": "/treatments/teeth-whitening"
+      },
+      {
+        "label": "Night guards for protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Gum stability",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Smile design planning",
+        "href": "/treatments/digital-smile-design"
+      },
+      {
+        "label": "Managing clenching and grinding",
+        "href": "/treatments/bruxism-and-jaw-clenching"
+      },
+      {
+        "label": "Night-time protection",
+        "href": "/treatments/night-guards-occlusal-splints"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led dental crowns review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like Tooth wear repairs",
+      "href": "/treatments/inlays-onlays"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Root canal therapy",
+      "href": "/treatments/endodontics-root-canal"
+    }
+  },
+  "clinical_focus": [
+    "Full-coverage restorations for cracked and heavily restored teeth",
+    "Scan-guided margin and occlusion design for predictable fit"
+  ],
+  "typical_case_type": [
+    "Posterior teeth following root canal therapy needing reinforcement",
+    "Fractured cusps or extensive failing restorations requiring coverage"
+  ],
+  "planning_considerations": [
+    "Crack mapping, remaining dentine thickness, and parafunctional risk",
+    "Material selection matched to aesthetic zone and occlusal load",
+    "Bite protection planning, including splinting where indicated"
+  ]
+}
