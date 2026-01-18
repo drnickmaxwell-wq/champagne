@@ -22,6 +22,125 @@ function HeroSurfaceStackV2Base({
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
 
+  useEffect(() => {
+    const stackId = instanceId.current;
+    console.groupCollapsed("HERO_V2_MOUNT");
+    console.log("HERO_V2_MOUNT_DATA", { id: stackId, pathname: window.location.pathname });
+    console.groupEnd();
+
+    const logBackgrounds = () => {
+      const heroRoot = document.querySelector("[data-hero-root=\"true\"]");
+      const heroContainer = heroRoot?.closest("[data-hero-engine]") ?? heroRoot;
+      const belowHero = heroContainer?.nextElementSibling ?? heroRoot?.nextElementSibling;
+      const payload = {
+        documentElement: document.documentElement ? getComputedStyle(document.documentElement).backgroundColor : "NOT_FOUND",
+        body: document.body ? getComputedStyle(document.body).backgroundColor : "NOT_FOUND",
+        main: document.querySelector("main")
+          ? getComputedStyle(document.querySelector("main") as HTMLElement).backgroundColor
+          : "NOT_FOUND",
+        belowHero: belowHero ? getComputedStyle(belowHero as HTMLElement).backgroundColor : "NOT_FOUND",
+      };
+      console.groupCollapsed("HERO_V2_BACKGROUND_SOURCES");
+      console.log("HERO_V2_BACKGROUND_SOURCES_DATA", payload);
+      console.groupEnd();
+    };
+
+    const logContentVisibility = () => {
+      const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
+      if (!content) {
+        console.groupCollapsed("HERO_V2_CONTENT_VISIBILITY");
+        console.log("HERO_V2_CONTENT_VISIBILITY_DATA", { found: false });
+        console.groupEnd();
+        return;
+      }
+      const styles = getComputedStyle(content);
+      const rect = content.getBoundingClientRect();
+      console.groupCollapsed("HERO_V2_CONTENT_VISIBILITY");
+      console.log("HERO_V2_CONTENT_VISIBILITY_DATA", {
+        found: true,
+        opacity: styles.opacity,
+        visibility: styles.visibility,
+        zIndex: styles.zIndex,
+        rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height },
+      });
+      console.groupEnd();
+    };
+
+    const logMotionInit = () => {
+      const videos = Array.from(
+        document.querySelectorAll<HTMLVideoElement>(".hero-renderer-v2 .hero-surface--motion"),
+      );
+      if (videos.length === 0) {
+        console.groupCollapsed("HERO_V2_MOTION_INIT");
+        console.log("HERO_V2_MOTION_INIT_DATA", { found: false });
+        console.groupEnd();
+        return;
+      }
+      videos.forEach((video) => {
+        const styles = getComputedStyle(video);
+        console.groupCollapsed("HERO_V2_MOTION_INIT");
+        console.log("HERO_V2_MOTION_INIT_DATA", {
+          id: video.dataset.surfaceId ?? "unknown",
+          opacity: styles.opacity,
+          visibility: styles.visibility,
+          zIndex: styles.zIndex,
+          opacityIsZero: Number.parseFloat(styles.opacity || "0") <= 0.01,
+        });
+        console.groupEnd();
+      });
+    };
+
+    const logFrame = () => {
+      logBackgrounds();
+      logContentVisibility();
+      logMotionInit();
+    };
+    const frameId = requestAnimationFrame(logFrame);
+
+    const videos = Array.from(
+      document.querySelectorAll<HTMLVideoElement>(".hero-renderer-v2 .hero-surface--motion"),
+    );
+    const events: Array<keyof HTMLMediaElementEventMap> = [
+      "loadeddata",
+      "canplay",
+      "playing",
+      "waiting",
+      "stalled",
+      "error",
+    ];
+    const handlers = new Map<HTMLVideoElement, Map<string, EventListener>>();
+    videos.forEach((video) => {
+      const videoHandlers = new Map<string, EventListener>();
+      events.forEach((eventName) => {
+        const handler = () => {
+          console.groupCollapsed("HERO_V2_MOTION_EVENT");
+          console.log("HERO_V2_MOTION_EVENT_DATA", {
+            id: video.dataset.surfaceId ?? "unknown",
+            event: eventName,
+            time: performance.now(),
+            readyState: video.readyState,
+          });
+          console.groupEnd();
+        };
+        video.addEventListener(eventName, handler);
+        videoHandlers.set(eventName, handler);
+      });
+      handlers.set(video, videoHandlers);
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      handlers.forEach((videoHandlers, video) => {
+        videoHandlers.forEach((handler, eventName) => {
+          video.removeEventListener(eventName, handler);
+        });
+      });
+      console.groupCollapsed("HERO_V2_UNMOUNT");
+      console.log("HERO_V2_UNMOUNT_DATA", { id: stackId, pathname: window.location.pathname });
+      console.groupEnd();
+    };
+  }, []);
+
   return (
     <>
       {bloomEnabled ? <BloomDriver /> : null}
@@ -126,6 +245,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const fadeRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -142,6 +262,35 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
     return () => cancelAnimationFrame(id);
   }, [pathname, prefersReducedMotion]);
 
+  useEffect(() => {
+    const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
+    const fadeEl = fadeRef.current;
+    if (!content || !fadeEl) return;
+    const logState = () => {
+      const styles = getComputedStyle(content);
+      const fadeStyles = getComputedStyle(fadeEl);
+      const rect = content.getBoundingClientRect();
+      console.groupCollapsed("HERO_V2_CONTENT_FADE_STATE");
+      console.log("HERO_V2_CONTENT_FADE_STATE_DATA", {
+        pathname,
+        isVisible,
+        prefersReducedMotion,
+        opacity: styles.opacity,
+        fadeOpacity: fadeStyles.opacity,
+        visibility: styles.visibility,
+        zIndex: styles.zIndex,
+        rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height },
+      });
+      console.groupEnd();
+    };
+    const frameId = requestAnimationFrame(logState);
+    const timeoutId = window.setTimeout(logState, 80);
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [pathname, isVisible, prefersReducedMotion]);
+
   const style: CSSProperties = {
     opacity: prefersReducedMotion ? 1 : isVisible ? 1 : 0,
     transition: prefersReducedMotion ? "none" : "opacity 220ms ease",
@@ -149,7 +298,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
   };
 
   return (
-    <div style={style} data-v2-content-fade="true">
+    <div ref={fadeRef} style={style} data-v2-content-fade="true">
       {children}
     </div>
   );
