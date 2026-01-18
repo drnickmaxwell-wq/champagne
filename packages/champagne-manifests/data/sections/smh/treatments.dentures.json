@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Dentures & tooth replacement",
       "title": "Dentures",
-      "body": "Dentures are removable appliances designed to replace missing teeth and support everyday function.\n\nThey can restore appearance, support speech and chewing, and help maintain facial structure where teeth have been lost over time.\n\nAt St Mary’s House Dental Care, dentures are planned carefully, with a focus on comfort, function, and realistic expectations.",
+      "body": "Dentures are removable appliances used to replace missing teeth and restore basic function, appearance, and comfort.\n\nThey are one of several options for managing tooth loss and can be appropriate in many situations, particularly where fixed solutions are not suitable or preferred. The right approach depends on your oral health, expectations, and day-to-day needs.\n\nUnderstanding what dentures can realistically provide — and where their limits are — helps you decide whether they fit your life, not just your mouth.",
       "bullets": [
         "Removable appliances designed to replace missing teeth.",
         "Support appearance, speech, and chewing.",
@@ -21,7 +21,7 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led dentures review",
+          "label": "Discuss denture options at a consultation",
           "href": "/contact",
           "preset": "primary"
         },
@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Types of dentures",
       "title": "Types of dentures",
-      "body": "There are different types of dentures available, depending on how many teeth are being replaced and how they’re supported.\n\nOptions may include partial dentures that fit around remaining teeth or full dentures that replace all teeth in an arch.\n\nWe’ll explain the differences clearly so you understand what each option can and can’t do.",
+      "body": "Dentures are custom-made prosthetic teeth that sit on the gums and are designed to be removed for cleaning.\n\nThey may replace some teeth (partial dentures) or all teeth in one or both jaws (full dentures). Modern dentures are designed to look natural and fit as comfortably as possible, but they remain removable appliances rather than fixed teeth.\n\nYour dentist will explain which type may be appropriate based on your mouth, bite, and existing teeth.",
       "bullets": [
         "Partial dentures fit around remaining teeth for targeted replacement.",
         "Full dentures replace all teeth in an arch.",
@@ -72,9 +72,9 @@
       "eyebrow": "When dentures may be considered",
       "title": "When dentures may be considered",
       "items": [
-        "Recommended when several teeth are missing or other replacement options are not suitable.",
-        "Used as a long-term solution or as part of a staged plan while other treatment is considered.",
-        "We explain why dentures are suggested and what alternatives may exist."
+        "Dentures may be suitable for people who have lost several or all of their teeth, particularly where bone levels, medical history, or personal preference make other treatments less appropriate.",
+        "They can also be used as a temporary or transitional solution while longer-term options are considered. Suitability is assessed on an individual basis, taking into account comfort, stability, and expected function.",
+        "We will discuss alternatives where appropriate so you can make a balanced, informed choice."
       ]
     },
     {
@@ -101,7 +101,7 @@
       "seoRole": "supporting",
       "eyebrow": "Comfort and adjustment",
       "title": "Comfort and adjustment",
-      "body": "It’s normal for dentures to take time to get used to.\n\nSome initial soreness or changes in speech can occur, and adjustments are often part of the process.\n\nWe’ll review fit and comfort and make refinements as needed. It’s common for denture treatment to be staged, allowing time for adaptation and refinement rather than aiming for perfection on day one."
+      "body": "Wearing dentures usually involves an adjustment period. Speech, eating, and comfort can feel different at first, and it takes time for the mouth and muscles to adapt.\n\nDentures are designed to improve function, but they do not feel or behave exactly like natural teeth. Regular reviews and adjustments are often needed to maintain comfort as the mouth changes over time.\n\nWe guide you through this process and provide advice to help you adapt gradually and comfortably."
     },
     {
       "instanceId": "dentures-aftercare",
@@ -112,9 +112,9 @@
       "eyebrow": "Looking after dentures",
       "title": "Looking after dentures",
       "items": [
-        "Regular cleaning and care keep dentures comfortable and hygienic.",
-        "We explain how to clean them properly, when to remove them, and how to look after the supporting tissues.",
-        "Routine reviews help ensure dentures continue to fit well over time."
+        "Dentures need daily cleaning and regular checks to keep them fitting well and to protect the health of the gums underneath.",
+        "They should be removed for cleaning and usually at night to allow the tissues to rest. Over time, changes in the gums and jaw can affect fit, even if the dentures themselves are undamaged.",
+        "Routine reviews help catch small issues early, before comfort or fit becomes a problem."
       ]
     },
     {
@@ -135,6 +135,10 @@
         {
           "question": "What if I’m unsure what to expect?",
           "answer": "Considering dentures can raise questions or concerns, particularly if you’ve never worn them before. If you’re unsure what to expect or whether dentures are right for you, we encourage you to ask. Clear understanding supports better long-term decisions."
+        },
+        {
+          "question": "How long do dentures last?",
+          "answer": "Dentures can last several years, but their lifespan varies depending on fit, use, and changes in the mouth. Regular reviews help determine when adjustment or replacement is needed."
         }
       ]
     },
@@ -164,7 +168,7 @@
       "body": "Contact us to discuss whether dentures are appropriate for you.",
       "ctas": [
         {
-          "label": "Plan a clinician-led dentures review",
+          "label": "Discuss denture options at a consultation",
           "href": "/treatments/dentures",
           "preset": "primary"
         },
@@ -214,7 +218,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led dentures review",
+      "label": "Discuss denture options at a consultation",
       "href": "/contact"
     },
     "secondary_intent": {

@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Chrome dentures",
       "title": "Chrome cobalt partial dentures",
-      "body": "Slim, durable chrome frameworks designed to share bite forces gently while keeping speech and taste clear.",
+      "body": "Chrome dentures are removable partial dentures made with a thin metal framework that supports replacement teeth.\n\nThey are used where precision, stability, and longevity matter — particularly when several natural teeth remain and can help support the denture. Chrome dentures are not simply an upgraded version of acrylic dentures; they are a different design approach with specific advantages and responsibilities.\n\nUnderstanding how they work, and when they are appropriate, is essential before deciding whether this option suits you.",
       "bullets": [
         "Thinner metal bases for a less bulky feel",
         "Precision clasps planned around healthy teeth",
@@ -21,7 +21,7 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led chrome dentures review",
+          "label": "Discuss whether chrome dentures are suitable for you",
           "href": "/contact",
           "preset": "primary"
         },
@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What they are",
       "title": "Chrome cobalt partial dentures designed for stability",
-      "body": "Chrome dentures use a custom metal framework to support replacement teeth while keeping the base slim. We plan clasp positions, tooth shade, and bite with you, then test comfort before finishing.",
+      "body": "Chrome dentures use a rigid metal framework, usually made from cobalt chrome, which fits closely around the remaining teeth and gums.\n\nThis framework allows the denture to be thinner and more precisely fitted than acrylic alternatives. The design relies on existing teeth for support and stability, using carefully planned clasps or rests.\n\nBecause of this precision, chrome dentures require careful planning and accurate impressions to function well.",
       "bullets": [
         "Detailed assessment of supporting teeth and gums",
         "Framework design to distribute forces evenly",
@@ -74,11 +74,9 @@
       "eyebrow": "Who they suit",
       "title": "For people wanting slimmer partials",
       "items": [
-        "Patients with enough healthy teeth to support a framework",
-        "Those wanting a less bulky feel than acrylic partials",
-        "People seeking long-lasting metal strength",
-        "Patients open to staged fittings for precision",
-        "Wearers exploring stability before considering implants"
+        "Chrome dentures are typically suitable for people who still have several healthy teeth that can support the framework.",
+        "They may not be appropriate where remaining teeth are unstable, heavily restored, or at risk of further loss. In these situations, other options may be more predictable.",
+        "We assess the condition of the remaining teeth carefully, as the long-term success of a chrome denture depends on their health."
       ]
     },
     {
@@ -107,7 +105,7 @@
       "seoRole": "supporting",
       "eyebrow": "Materials & fit",
       "title": "Rigid support with careful design",
-      "body": "We use cobalt-chrome frameworks for strength and slimness, adding tooth-coloured clasps where appropriate. Bite adjustments, fit check sprays, and gentle clasp tuning help balance stability without overloading teeth."
+      "body": "Chrome dentures are designed to fit precisely and can feel more secure than simpler removable dentures.\n\nHowever, they are still removable appliances and require an adjustment period. Because the framework is rigid, pressure points can occur if fit or bite changes over time.\n\nRegular reviews are important to ensure comfort and to protect the supporting teeth."
     },
     {
       "instanceId": "chrome-dentures-aftercare",
@@ -118,11 +116,9 @@
       "eyebrow": "Aftercare & considerations",
       "title": "Keeping chrome dentures comfortable",
       "items": [
-        "Daily cleaning to protect teeth, gums, and metal surfaces",
-        "Careful insertion and removal to protect clasps",
-        "Regular checks so supporting teeth stay healthy",
-        "Advice on managing expected movement with removable options",
-        "Discussion of implant stabilisation if you want extra hold"
+        "Chrome dentures require daily cleaning and careful handling to maintain both the denture and the teeth supporting it.",
+        "The metal framework itself is durable, but changes in the mouth can affect fit over time. Ongoing maintenance and monitoring are essential to avoid damage to the remaining teeth.",
+        "We discuss these long-term considerations before treatment so expectations are clear from the outset."
       ]
     },
     {
@@ -143,6 +139,10 @@
         {
           "question": "Will metal show when I smile?",
           "answer": "We design clasp positions and tooth shades to stay discreet. In some cases we can use tooth-coloured clasps; we’ll show you options before fitting."
+        },
+        {
+          "question": "Are chrome dentures better than acrylic?",
+          "answer": "They are different rather than better. Chrome dentures offer greater rigidity and precision but rely more heavily on the health of the remaining teeth."
         },
         {
           "question": "Are chrome dentures heavy?",
@@ -185,7 +185,7 @@
       "body": "Book a consultation to design a chrome framework that balances strength, discretion, and fit. If you later want added stability, we can discuss implant-retained options gently.",
       "ctas": [
         {
-          "label": "Plan a clinician-led chrome dentures review",
+          "label": "Discuss whether chrome dentures are suitable for you",
           "href": "/treatments/chrome-dentures",
           "preset": "primary"
         },
@@ -235,7 +235,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led chrome dentures review",
+      "label": "Discuss whether chrome dentures are suitable for you",
       "href": "/contact"
     },
     "secondary_intent": {

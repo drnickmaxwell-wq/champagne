@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Implant-retained dentures FAQs",
-      "body": "Implant-retained dentures can offer improved stability compared to conventional dentures, but they are not the same as fixed teeth.\n\nThese FAQs address common questions about how they work, who they may suit, and what day-to-day life is like, so you can understand whether this option makes sense for you.\n\nThey are often considered a middle ground between conventional dentures and fully fixed implant teeth.",
+      "body": "Implant-retained dentures are dentures that are stabilised using dental implants placed in the jaw.\n\nThey are designed for people who find conventional dentures unstable or uncomfortable, but who are not suitable for — or do not want — fully fixed implant teeth. This approach sits between standard removable dentures and fixed implant solutions.\n\nUnderstanding what implant-retained dentures can and cannot do helps you decide whether they are an appropriate step for your needs.",
       "bullets": [
         "Dentures that don’t slip or lift",
         "Fewer implants than full fixed bridges",
@@ -21,7 +21,7 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led implant retained dentures review",
+          "label": "Discuss implant-retained denture options at a consultation",
           "href": "/contact",
           "variant": "primary"
         },
@@ -55,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "HOW IT WORKS",
       "title": "How implant-retained dentures work",
-      "body": "Implant-retained dentures use a small number of implants to help stabilise a denture, making it more secure, more comfortable, and easier to manage day-to-day. This approach improves stability while keeping maintenance manageable. They are often considered a middle ground between conventional dentures and fully fixed implant teeth.",
+      "body": "Implant-retained dentures use a small number of dental implants to help anchor a removable denture more securely.\n\nThe denture clips or attaches onto the implants, improving stability compared with a traditional denture that rests on the gums alone. The denture is still removable for cleaning and maintenance.\n\nThis combination of implants and a removable denture aims to improve comfort and function without the complexity of a fully fixed solution.",
       "mediaHint": "Implant-stabilised denture planning and placement"
     },
     {
@@ -66,10 +66,9 @@
       "seoRole": "primaryContent",
       "title": "Who may benefit",
       "items": [
-        "Struggle with loose lower dentures",
-        "Want better stability without extensive surgery",
-        "Prefer a removable option for cleaning",
-        "Assessment is essential to confirm suitability."
+        "Implant-retained dentures may be suitable for people who struggle with loose dentures and have sufficient bone to support implants.",
+        "They may not be appropriate where medical conditions, smoking, bone levels, or oral health make implant placement unsuitable. Cost and ongoing maintenance are also important considerations.",
+        "We assess suitability carefully and will discuss alternatives if another approach is likely to be more appropriate."
       ]
     },
     {
@@ -80,9 +79,9 @@
       "seoRole": "primaryContent",
       "title": "Typically",
       "items": [
-        "A small number of implants are placed",
-        "The denture is designed to clip or locate onto them",
-        "The denture can still be removed for cleaning"
+        "Treatment involves placing dental implants, allowing time for healing, and then fitting a denture designed to attach securely to those implants.",
+        "This is a staged process that takes place over several months rather than a single appointment. During this time, temporary solutions may be used.",
+        "We explain each stage clearly so you understand the timescales, commitments, and likely outcomes before treatment begins."
       ]
     },
     {
@@ -92,7 +91,7 @@
       "order": 60,
       "seoRole": "supporting",
       "title": "Digital planning for predictable outcomes",
-      "body": "CBCT imaging, digital planning, and implant positioning are coordinated with the dental lab to deliver stable, accurately fitting dentures.",
+      "body": "Compared with conventional dentures, implant-retained dentures are usually more stable, particularly during eating and speaking.\n\nBecause some of the support comes from implants, there is often less reliance on suction or muscle control alone. However, they remain removable appliances and do not feel the same as natural teeth or fixed implant restorations.\n\nThis difference is important to understand when considering expectations and long-term comfort.",
       "items": [
         "3D CBCT imaging",
         "Guided implant placement",
@@ -107,11 +106,9 @@
       "seoRole": "supporting",
       "title": "Aftercare, healing, and long-term care",
       "items": [
-        "What to expect after implant placement",
-        "Cleaning and maintenance guidance",
-        "Review schedule",
-        "Balanced risks: soreness, swelling, implant integration",
-        "Smoking and health considerations, discussed responsibly"
+        "Implant-retained dentures require daily cleaning and regular professional review to maintain both the denture and the implants supporting it.",
+        "Although implants are not affected by decay, the surrounding gums and bone can be. Long-term success depends on good oral hygiene and ongoing maintenance.",
+        "We discuss these responsibilities in detail so you understand what is involved beyond the initial treatment."
       ]
     },
     {
@@ -131,6 +128,10 @@
         {
           "question": "How are they cleaned and maintained?",
           "answer": "Cleaning involves removing the denture, cleaning it thoroughly, and cleaning around the implants in the mouth.\n\nWe’ll explain practical techniques and review them regularly to help prevent problems.\n\nAttachments and components may need periodic replacement as part of normal maintenance."
+        },
+        {
+          "question": "Are implant-retained dentures the same as fixed teeth?",
+          "answer": "No. They are removable dentures that are stabilised by implants, not permanently fixed teeth."
         },
         {
           "question": "How many implants are needed?",
@@ -189,7 +190,7 @@
       "strapline": "Our role is to help you choose a solution that improves comfort and function, fits your lifestyle, and can be maintained long-term. Sometimes the simpler option is the better one.",
       "ctas": [
         {
-          "label": "Plan a clinician-led implant retained dentures review",
+          "label": "Discuss implant-retained denture options at a consultation",
           "href": "/treatments/implant-retained-dentures",
           "variant": "primary"
         },
@@ -239,7 +240,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led implant retained dentures review",
+      "label": "Discuss implant-retained denture options at a consultation",
       "href": "/contact"
     },
     "secondary_intent": {
