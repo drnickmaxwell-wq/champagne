@@ -729,6 +729,10 @@ export async function HeroRenderer({
         }
       : null;
 
+  const hasHeroContent = Boolean(
+    content.eyebrow || content.headline || content.subheadline || content.cta || content.secondaryCta,
+  );
+
   const resolveVsInlineScript =
     process.env.NODE_ENV !== "production" ? (
       <script
@@ -929,7 +933,6 @@ export async function HeroRenderer({
         minHeight: "72vh",
         display: "grid",
         alignItems: layout.contentAlign === "center" ? "center" : "stretch",
-        overflow: "hidden",
         backgroundImage: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
@@ -963,11 +966,18 @@ export async function HeroRenderer({
             .hero-renderer .hero-surface-stack {
               position: absolute;
               inset: 0;
+              overflow: hidden;
             }
             .hero-renderer .hero-layer,
             .hero-renderer .hero-surface-layer {
               position: absolute;
               inset: 0;
+            }
+            .hero-renderer .hero-copy-layer {
+              position: relative;
+              z-index: 20;
+              pointer-events: auto;
+              display: grid;
             }
             .hero-renderer .hero-surface-layer.hero-surface--wave-backdrop {
               background-image: var(--hero-wave-background-desktop);
@@ -1073,80 +1083,6 @@ export async function HeroRenderer({
           `,
         }}
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-            if (typeof window === 'undefined') return;
-            const selector = '.hero-renderer .hero-surface--motion';
-            const isDev = ${process.env.NODE_ENV !== "production" ? "true" : "false"};
-            const warnOnce = () => {
-              if (!isDev) return;
-              if (window.__heroMotionWarned) return;
-              window.__heroMotionWarned = true;
-              console.warn('[hero] Motion layer still hidden after 1400ms, forcing target opacity.');
-            };
-            const resolveTargetOpacity = (video) => {
-              if (!(video instanceof HTMLVideoElement)) return null;
-              const dataValue = video.dataset.motionTargetOpacity;
-              if (dataValue) {
-                const parsed = Number.parseFloat(dataValue);
-                if (!Number.isNaN(parsed)) return parsed;
-              }
-              const inlineValue = video.style.getPropertyValue('--hero-motion-target-opacity');
-              const computedValue = window.getComputedStyle(video).getPropertyValue('--hero-motion-target-opacity');
-              const source = inlineValue || computedValue;
-              if (source) {
-                const parsed = Number.parseFloat(source);
-                if (!Number.isNaN(parsed)) {
-                  video.dataset.motionTargetOpacity = String(parsed);
-                  return parsed;
-                }
-              }
-              return null;
-            };
-            const applyTargetOpacity = (video) => {
-              const target = resolveTargetOpacity(video);
-              if (target === null || Number.isNaN(target)) return;
-              video.style.opacity = String(target);
-            };
-            const reveal = (video, fallbackId) => {
-              if (!(video instanceof HTMLVideoElement)) return;
-              if (video.dataset.motionReady === 'true') return;
-              if (fallbackId) window.clearTimeout(fallbackId);
-              video.dataset.motionReady = 'true';
-              applyTargetOpacity(video);
-            };
-            const initVideo = (video) => {
-              if (!(video instanceof HTMLVideoElement)) return;
-              if (video.dataset.motionInit === 'true') return;
-              video.dataset.motionInit = 'true';
-              video.preload = 'auto';
-              const fallbackId = window.setTimeout(() => reveal(video, fallbackId), 1200);
-              if (video.readyState >= 2) reveal(video, fallbackId);
-              video.addEventListener('loadeddata', () => reveal(video, fallbackId), { once: true });
-              video.addEventListener('canplay', () => reveal(video, fallbackId), { once: true });
-              video.addEventListener('playing', () => reveal(video, fallbackId), { once: true });
-              window.setTimeout(() => {
-                if (!(video instanceof HTMLVideoElement)) return;
-                const currentOpacity = Number.parseFloat(window.getComputedStyle(video).opacity || '0');
-                if (currentOpacity <= 0.01) {
-                  applyTargetOpacity(video);
-                  warnOnce();
-                }
-              }, 1400);
-            };
-            const init = () => {
-              Array.from(document.querySelectorAll(selector)).forEach(initVideo);
-            };
-            init();
-            const start = Date.now();
-            const intervalId = window.setInterval(() => {
-              init();
-              if (Date.now() - start > 2000) window.clearInterval(intervalId);
-            }, 250);
-          })();`,
-        }}
-      />
 
       <div
         aria-hidden
@@ -1213,62 +1149,67 @@ export async function HeroRenderer({
 
       </div>
 
-      <div
-        className="hero-content"
-        style={{
-          justifyItems: layout.contentAlign === "center" ? "center" : "start",
-          textAlign: layout.contentAlign === "center" ? "center" : "start",
-        }}
-      >
-        {content.eyebrow && (
-          <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
-            {content.eyebrow}
-          </span>
-        )}
-        {content.headline && (
-          <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
-            {content.headline}
-          </h1>
-        )}
-        {content.subheadline && (
-          <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
-            {content.subheadline}
-          </p>
-        )}
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          {content.cta && (
-            <a
-              href={content.cta.href}
-              style={{
-                padding: "0.9rem 1.6rem",
-                borderRadius: "var(--radius-md)",
-                background: "var(--surface-gold-soft)",
-                color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold)",
-                textDecoration: "none",
-                boxShadow: "var(--shadow-soft)",
-              }}
-            >
-              {content.cta.label}
-            </a>
-          )}
-          {content.secondaryCta && (
-            <a
-              href={content.secondaryCta.href}
-              style={{
-                padding: "0.9rem 1.2rem",
-                borderRadius: "var(--radius-md)",
-                background: "var(--surface-ink-soft)",
-                color: "var(--text-high)",
-                border: "1px solid var(--champagne-keyline-gold)",
-                textDecoration: "none",
-              }}
-            >
-              {content.secondaryCta.label}
-            </a>
-          )}
+      {hasHeroContent ? (
+        <div
+          className="hero-copy-layer"
+          style={{
+            justifyItems: layout.contentAlign === "center" ? "center" : "start",
+            textAlign: layout.contentAlign === "center" ? "center" : "start",
+            pointerEvents: "auto",
+          }}
+        >
+          <div className="hero-content">
+            {content.eyebrow && (
+              <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
+                {content.eyebrow}
+              </span>
+            )}
+            {content.headline && (
+              <h1 style={{ fontSize: "clamp(2.2rem, 3.2vw, 3rem)", lineHeight: 1.05 }}>
+                {content.headline}
+              </h1>
+            )}
+            {content.subheadline && (
+              <p style={{ color: "var(--text-medium)", fontSize: "1.08rem", lineHeight: 1.6, maxWidth: "820px" }}>
+                {content.subheadline}
+              </p>
+            )}
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+              {content.cta && (
+                <a
+                  href={content.cta.href}
+                  style={{
+                    padding: "0.9rem 1.6rem",
+                    borderRadius: "var(--radius-md)",
+                    background: "var(--surface-gold-soft)",
+                    color: "var(--text-high)",
+                    border: "1px solid var(--champagne-keyline-gold)",
+                    textDecoration: "none",
+                    boxShadow: "var(--shadow-soft)",
+                  }}
+                >
+                  {content.cta.label}
+                </a>
+              )}
+              {content.secondaryCta && (
+                <a
+                  href={content.secondaryCta.href}
+                  style={{
+                    padding: "0.9rem 1.2rem",
+                    borderRadius: "var(--radius-md)",
+                    background: "var(--surface-ink-soft)",
+                    color: "var(--text-high)",
+                    border: "1px solid var(--champagne-keyline-gold)",
+                    textDecoration: "none",
+                  }}
+                >
+                  {content.secondaryCta.label}
+                </a>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+      ) : null}
       {resolveVsInlineScript}
     </BaseChampagneSurface>
   );

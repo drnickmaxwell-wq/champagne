@@ -148,6 +148,7 @@ export function HeroDebugClientPanel() {
   const [surfaceIds, setSurfaceIds] = useState<string[]>([]);
   const [telemetryDump, setTelemetryDump] = useState<TelemetryDump | null>(null);
   const [telemetryCopyStatus, setTelemetryCopyStatus] = useState<string | null>(null);
+  const [copyProofStatus, setCopyProofStatus] = useState<string | null>(null);
   const manifestGlue = useMemo(() => (heroGlueManifest as GlueManifest).modes?.[v2Mode] ?? {}, [v2Mode]);
 
   const updateQueryParam = (key: string, value: string | null) => {
@@ -438,6 +439,31 @@ export function HeroDebugClientPanel() {
       setTelemetryCopyStatus("Copy failed.");
       console.error("Telemetry copy failed", error);
     }
+  };
+
+  const handleCopyProof = () => {
+    if (typeof window === "undefined") return;
+    const heroContent = document.querySelector<HTMLElement>(".hero-content");
+    const cta = heroContent?.querySelector<HTMLAnchorElement>("a[href]") ?? null;
+    const computed = heroContent ? window.getComputedStyle(heroContent) : null;
+    const rect = heroContent?.getBoundingClientRect();
+    const ctaRect = cta?.getBoundingClientRect();
+    const point = ctaRect
+      ? { x: ctaRect.left + ctaRect.width / 2, y: ctaRect.top + ctaRect.height / 2 }
+      : null;
+    const elementAtPoint = point ? document.elementFromPoint(point.x, point.y) : null;
+    const isClickable = Boolean(elementAtPoint && cta && (elementAtPoint === cta || cta.contains(elementAtPoint)));
+    const payload = {
+      exists: Boolean(heroContent),
+      rect: rect ? { width: rect.width, height: rect.height } : null,
+      opacity: computed?.opacity ?? null,
+      ctaHref: cta?.getAttribute("href") ?? null,
+      elementFromPoint: elementAtPoint ? `${elementAtPoint.tagName.toLowerCase()}.${elementAtPoint.className}` : null,
+      clickable: isClickable,
+    };
+
+    console.log("[Hero Copy Proof]", payload);
+    setCopyProofStatus(heroContent ? "Proof logged to console." : "Hero content not found.");
   };
 
   return (
@@ -982,6 +1008,20 @@ export function HeroDebugClientPanel() {
           </button>
           <button
             type="button"
+            onClick={handleCopyProof}
+            style={{
+              padding: "0.55rem 0.9rem",
+              borderRadius: "var(--radius-md)",
+              border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+              background: "var(--surface-ink-soft)",
+              color: "var(--text-high)",
+              fontWeight: 600,
+            }}
+          >
+            Log hero copy proof
+          </button>
+          <button
+            type="button"
             onClick={handleCopyTelemetry}
             disabled={!telemetryDump}
             style={{
@@ -997,7 +1037,7 @@ export function HeroDebugClientPanel() {
             Copy JSON
           </button>
           <span style={{ color: "var(--text-medium)" }}>
-            {telemetryCopyStatus ?? "Exports separate arrays by renderer root."}
+            {copyProofStatus ?? telemetryCopyStatus ?? "Exports separate arrays by renderer root."}
           </span>
         </div>
         <pre
