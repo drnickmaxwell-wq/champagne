@@ -2901,7 +2901,29 @@
         },
         {
           "id": "legal_terms",
-          "type": "accordion"
+          "type": "accordion",
+          "items": [
+            {
+              "title": "What information we collect",
+              "copy": "We may collect information you provide when you contact us or book an appointment (for example, name, contact details and appointment-related information). When you use the website, it may also collect limited technical information needed for it to function properly."
+            },
+            {
+              "title": "Why we use it",
+              "copy": "We use personal information to manage appointments, respond to enquiries, provide dental care where appropriate, and meet legal and professional obligations."
+            },
+            {
+              "title": "Who we share it with",
+              "copy": "We do not sell personal data. We only share information when it’s necessary for care, administration, or legal reasons, and we aim to share the minimum needed."
+            },
+            {
+              "title": "How long we keep it",
+              "copy": "Information is kept only for as long as required for clinical, legal or regulatory reasons. Retention can differ depending on what the information relates to."
+            },
+            {
+              "title": "Your rights",
+              "copy": "You have rights under UK data protection law, including the right to access your information and request corrections. If you have questions or would like to exercise your rights, please contact the practice."
+            }
+          ]
         }
       ],
       "surface": "champagne/surface/legal"
@@ -3011,24 +3033,24 @@
           "type": "accordion",
           "items": [
             {
-              "title": "What this page covers",
-              "copy": "Brief outline of our approach to website accessibility and the areas we review."
+              "title": "Our approach",
+              "copy": "We aim to make the website as usable as possible for as many people as possible. Accessibility is an ongoing process, and we review clarity, navigation and compatibility as the site evolves."
             },
             {
-              "title": "Key points in plain English",
-              "copy": "Summary of practical measures and improvements we consider for accessibility."
+              "title": "What you can do on your side",
+              "copy": "Many people improve readability using browser or device settings (text size, zoom, contrast modes, reader modes, and voice control). If you’d like help finding those settings, let us know."
             },
             {
-              "title": "Your choices and controls",
-              "copy": "Ways you can adjust your experience, such as browser settings or assistive tools."
+              "title": "Known limitations",
+              "copy": "Some third-party tools, embedded media, or older documents may not meet every accessibility standard in every situation. If you find something that isn’t working for you, we want to know so we can look at alternatives."
             },
             {
-              "title": "How to contact us",
-              "copy": "How to share accessibility feedback or request information in alternative formats."
+              "title": "Alternative formats",
+              "copy": "If you need information in a different format, we can usually provide it or talk it through. Contact the practice and tell us what would help."
             },
             {
-              "title": "Updates to this page",
-              "copy": "Indication that accessibility information may be updated as improvements are made."
+              "title": "Feedback and updates",
+              "copy": "We act on feedback where we reasonably can. This page may be updated as improvements are made."
             }
           ]
         }
