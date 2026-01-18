@@ -21,7 +21,6 @@
     "surfaces": {
       "gradient": "gradient.base",
       "waveMask": { "desktop": "mask.waveHeader", "mobile": "mask.waveHeader.mobile" },
-      "background": { "desktop": "field.waveBackdrop", "mobile": "field.waveBackdrop" },
       "overlays": { "dots": "field.dotGrid", "field": "field.waveRings" },
       "particles": "overlay.particlesPrimary",
       "grain": { "desktop": "overlay.filmGrain.desktop", "mobile": "overlay.filmGrain.mobile" },
