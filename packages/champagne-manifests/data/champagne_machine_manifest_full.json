@@ -10182,7 +10182,7 @@
     },
     "polynucleotides": {
       "id": "polynucleotides",
-      "label": "Polynucleotide treatments to support skin quality",
+      "label": "Polynucleotides (skin quality support)",
       "path": "/treatments/polynucleotides",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
@@ -10211,8 +10211,8 @@
         {
           "id": "polynucleotides_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Related facial therapeutics",
+          "strapline": "Compare options that support hydration, texture, and natural-looking skin quality — with clear advice on suitability."
         },
         {
           "id": "treatment.faq"
@@ -10223,21 +10223,21 @@
         {
           "id": "polynucleotides_closing_cta",
           "type": "treatment_closing_cta",
-          "title": "Explore polynucleotide therapy",
-          "strapline": "Support skin quality and repair with doctor-led polynucleotide care.",
+          "title": "Polynucleotides consultation",
+          "strapline": "Polynucleotides are used to support skin quality over time — often focusing on texture, hydration, and a healthier-looking finish rather than dramatic ‘instant’ change.\n\nWe’ll talk through your goals, assess what’s realistic, and recommend a plan only if it’s appropriate, subtle, and safe.",
           "ctas": [
             {
-              "label": "Book a polynucleotide review",
+              "label": "Book a polynucleotides consultation",
               "href": "/contact",
               "preset": "primary"
             },
             {
-              "label": "Facial therapeutics",
+              "label": "Skin boosters",
               "href": "/treatments/skin-boosters",
               "preset": "secondary"
             },
             {
-              "label": "Facial therapeutics",
+              "label": "Dermal fillers",
               "href": "/treatments/dermal-fillers",
               "preset": "secondary"
             }
