@@ -5843,7 +5843,7 @@
           "id": "full_smile_makeover_clinician_insight",
           "type": "clinician_insight",
           "label": "Clinician insight",
-          "quote": "A clear roadmap means every stage—alignment, colour, restorations—stays coordinated and calm.",
+          "quote": "A full smile makeover isn’t a single treatment. It’s a way of planning several treatments together so they work well as a whole.\n\nWhat that involves varies from person to person. For some, it may focus on alignment and tooth position. For others, it may involve whitening, bonding, veneers or restorative work to address wear, damage or long-standing problems.\n\nThe most important part is the assessment and planning stage. We take time to understand what’s bothering you, examine your teeth and bite carefully, and look at what is realistically achievable. In many cases, treatment is staged over time rather than rushed.\n\nNot everyone needs a full smile makeover. Sometimes smaller, simpler steps can make a meaningful difference. Part of our role is helping you understand the options, the limitations, and what makes sense for you in the long term.",
           "attribution": "Clinical team",
           "role": "Smile design"
         },
@@ -5880,16 +5880,24 @@
           "title": "Smile makeover questions",
           "faqs": [
             {
-              "question": "How is the plan built?",
-              "answer": "We combine scans, photos, and goals to set phases for alignment, whitening, and restorations."
+              "question": "Who is a full smile makeover for?",
+              "answer": "It may be suitable for people with several concerns they’d like to address together, such as worn, discoloured, misaligned or damaged teeth. An assessment is needed to see whether this approach is appropriate."
             },
             {
-              "question": "Can we adjust along the way?",
-              "answer": "Checkpoints let us refine timing or materials while staying on-plan."
+              "question": "What treatments might be involved?",
+              "answer": "Depending on your needs, this could include orthodontic treatment, whitening, bonding, veneers, crowns or other restorative work. Not every treatment is needed for every person."
             },
             {
-              "question": "How do I follow the phases?",
-              "answer": "A shared roadmap outlines what happens next and when review visits are scheduled."
+              "question": "How long does it take?",
+              "answer": "Timeframes vary. Some treatment plans take a few months, while others are staged over a longer period. We’ll talk this through during planning so you know what to expect."
+            },
+            {
+              "question": "Are there alternatives?",
+              "answer": "Yes. In many cases, more limited treatment can still improve appearance or function. We’ll discuss alternatives and the likely trade-offs."
+            },
+            {
+              "question": "How long do results last?",
+              "answer": "Longevity depends on the treatments used, how your teeth are looked after, and factors such as grinding or diet. Ongoing care and maintenance are important."
             }
           ]
         },
