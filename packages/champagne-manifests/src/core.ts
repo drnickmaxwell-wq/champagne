@@ -51,6 +51,8 @@ import sectionLayoutPeriodontalGumCare from "../data/sections/smh/treatments.per
 import sectionLayoutBruxismJawClenching from "../data/sections/smh/treatments.bruxism-and-jaw-clenching.json";
 import sectionLayoutHomeTeethWhitening from "../data/sections/smh/treatments.home-teeth-whitening.json";
 import sectionLayoutChildrensDentistry from "../data/sections/smh/treatments.childrens-dentistry.json";
+import sectionLayoutEndodonticsRootCanal from "../data/sections/smh/treatments.endodontics-root-canal.json";
+import sectionLayoutExtractionsOralSurgery from "../data/sections/smh/treatments.extractions-and-oral-surgery.json";
 import sectionLayoutNervousPatients from "../data/sections/smh/treatments.nervous-patients.json";
 import sectionLayoutSedationDentistry from "../data/sections/smh/treatments.sedation-dentistry.json";
 import sectionLayoutPreventativeGeneralDentistry from "../data/sections/smh/treatments.preventative-and-general-dentistry.json";
@@ -365,6 +367,8 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutSkinBoosters as ChampagneSectionLayout,
   sectionLayoutPolynucleotides as ChampagneSectionLayout,
   sectionLayoutTherapeuticInjectables as ChampagneSectionLayout,
+  sectionLayoutEndodonticsRootCanal as ChampagneSectionLayout,
+  sectionLayoutExtractionsOralSurgery as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;
