@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Acrylic dentures",
       "title": "Acrylic dentures in Shoreham-by-Sea",
-      "body": "Versatile full and partial acrylic dentures with staged try-ins, clear hygiene guidance, and space to refine comfort before you commit.",
+      "body": "Acrylic dentures are removable dentures made from a lightweight acrylic material and are commonly used to replace missing teeth.\n\nThey are often chosen because they are adaptable, cost-effective, and suitable in a wide range of clinical situations. Like all dentures, they involve compromise, and understanding how they function in everyday life is key to deciding whether they are the right option for you.\n\nBefore any recommendation is made, we focus on how acrylic dentures would fit your mouth, your expectations, and your day-to-day needs.",
       "bullets": [
         "Staged try-ins to refine bite and appearance",
         "Colour and tooth shape tailored to your smile",
@@ -21,7 +21,7 @@
       ],
       "ctas": [
         {
-          "label": "Plan a clinician-led acrylic dentures review",
+          "label": "Discuss acrylic denture options at a consultation",
           "href": "/contact",
           "preset": "primary"
         },
@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What they are",
       "title": "Custom acrylic dentures with staged checks",
-      "body": "Acrylic dentures use moulded bases and custom teeth to restore your smile. We design colour, shape, and bite, then test how they feel before finishing so you get a balanced result.",
+      "body": "Acrylic dentures are custom-made dentures constructed primarily from acrylic resin. They can replace some teeth (partial dentures) or all teeth in an upper or lower jaw.\n\nBecause acrylic is relatively easy to adjust, these dentures are often used where flexibility is important — for example, when the mouth is still changing or when a simpler solution is appropriate.\n\nThey are removable and rely on the shape of the gums, remaining teeth, and muscle control for support.",
       "bullets": [
         "Impressions or scans to capture your bite",
         "Wax or printed try-ins to check speech and fit",
@@ -74,11 +74,10 @@
       "eyebrow": "Who they suit",
       "title": "Adaptable for many smiles",
       "items": [
-        "First-time denture wearers wanting a gentle start",
-        "People replacing older dentures that feel loose or worn",
-        "Those needing partials while keeping remaining teeth",
-        "Patients wanting a cost-effective option with room to adjust",
-        "Wearers exploring stability before considering implants"
+        "Acrylic dentures may be used as a long-term solution or as a temporary step while other treatment options are considered.",
+        "They are commonly used when teeth have been lost recently, when bone or gum levels are changing, or when more complex treatments are not suitable.",
+        "In some cases, they provide a practical way to restore function while keeping future options open.",
+        "Your dentist will explain why acrylic dentures are being considered in your particular case."
       ]
     },
     {
@@ -107,7 +106,7 @@
       "seoRole": "supporting",
       "eyebrow": "Materials & fit",
       "title": "Lightweight bases with clinician-guided adjustments",
-      "body": "We use polished acrylic bases, fit check sprays, and bite balancing to reduce rocking and sore spots. If you need more grip, we talk through soft liners, careful adhesive use, or implant stabilisation when appropriate."
+      "body": "Wearing acrylic dentures usually involves an adjustment period. They can feel bulky at first, and eating or speaking may take time to feel natural again.\n\nOver time, many people adapt well, but acrylic dentures do not behave like fixed teeth. Stability and comfort depend on fit, muscle control, and the shape of the supporting tissues.\n\nFollow-up appointments are important to adjust the fit and address any pressure areas as your mouth adapts."
     },
     {
       "instanceId": "acrylic-dentures-aftercare",
@@ -118,11 +117,9 @@
       "eyebrow": "Aftercare & considerations",
       "title": "Looking after acrylic dentures",
       "items": [
-        "Daily cleaning to protect acrylic surfaces and gums",
-        "Night-time care and safe storage routines",
-        "Relines planned if fit changes with healing or time",
-        "Advice on avoiding warping or fractures",
-        "Realistic chat about movement on lower dentures"
+        "Acrylic dentures need daily cleaning to remove plaque and food debris and to protect the health of the gums.",
+        "They should be removed for cleaning and usually overnight to allow the tissues to rest. Acrylic can wear or change fit over time as the mouth changes, even if the denture itself appears intact.",
+        "Regular reviews help ensure comfort is maintained and allow small adjustments to be made when needed."
       ]
     },
     {
@@ -142,15 +139,11 @@
       "faqs": [
         {
           "question": "How long do acrylic dentures last?",
-          "answer": "With good care they can last several years, but relines or replacements may be needed as gums reshape or if teeth wear. We outline expected review points."
+          "answer": "Acrylic dentures can last several years, but changes in the mouth often mean they need adjustment or replacement over time."
         },
         {
           "question": "Will they feel bulky?",
           "answer": "Acrylic bases are slightly thicker than chrome. We slim areas where safe and stage try-ins to balance strength with comfort."
-        },
-        {
-          "question": "Can they break?",
-          "answer": "Like any acrylic, drops or grinding can cause fractures. We cover how to protect them and what repairs or remakes might involve."
         },
         {
           "question": "Do I need adhesive?",
@@ -185,7 +178,7 @@
       "body": "Book a consultation to shape your acrylic dentures with clear expectations on fit, maintenance, and future stabilisation options.",
       "ctas": [
         {
-          "label": "Plan a clinician-led acrylic dentures review",
+          "label": "Discuss acrylic denture options at a consultation",
           "href": "/treatments/acrylic-dentures",
           "preset": "primary"
         },
@@ -235,7 +228,7 @@
   },
   "cta_intents": {
     "primary_intent": {
-      "label": "Plan a clinician-led acrylic dentures review",
+      "label": "Discuss acrylic denture options at a consultation",
       "href": "/contact"
     },
     "secondary_intent": {
