@@ -12,6 +12,12 @@ type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
 };
 
+const isHeroTruthEnabled = () => {
+  if (typeof window === "undefined") return false;
+  const params = new URLSearchParams(window.location.search);
+  return params.get("heroTruth") === "1";
+};
+
 function HeroSurfaceStackV2Base({
   surfaceVars,
   prmEnabled,
@@ -27,6 +33,7 @@ function HeroSurfaceStackV2Base({
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
+    if (isHeroTruthEnabled()) return;
     const stackId = instanceId.current;
     console.groupCollapsed("HERO_V2_MOUNT");
     console.log("HERO_V2_MOUNT_DATA", { id: stackId, pathname: window.location.pathname });
@@ -147,6 +154,7 @@ function HeroSurfaceStackV2Base({
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
+    if (isHeroTruthEnabled()) return;
     const logTruth = () => {
       const heroRoot = document.querySelector("[data-hero-root=\"true\"]");
       const heroMount =
@@ -270,6 +278,81 @@ function HeroSurfaceStackV2Base({
 
     const timeoutId = window.setTimeout(logTruth, 1500);
     return () => window.clearTimeout(timeoutId);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isHeroTruthEnabled()) return;
+    const heroRoot =
+      document.querySelector(".hero-renderer-v2") ?? document.querySelector("[data-hero-engine=\"v2\"]");
+    if (!heroRoot) {
+      console.log("HERO_V2_TRUTH_SURFACES", [{ exists: false }]);
+      console.log("HERO_V2_TRUTH_CONTENT", { exists: false });
+      console.log("HERO_V2_TRUTH_BG", { exists: false });
+      return;
+    }
+
+    const surfaceElements = Array.from(heroRoot.querySelectorAll<HTMLElement>("[data-surface-id]"));
+    const surfaces = surfaceElements.map((element) => {
+      const styles = getComputedStyle(element);
+      const maskImage = styles.maskImage !== "none" ? styles.maskImage : styles.webkitMaskImage;
+      return {
+        id: element.dataset.surfaceId ?? "unknown",
+        role: element.dataset.surfaceRole ?? null,
+        opacity: styles.opacity,
+        mixBlendMode: styles.mixBlendMode,
+        zIndex: styles.zIndex,
+        backgroundImage: styles.backgroundImage,
+        maskImage,
+        isVideo: element instanceof HTMLVideoElement,
+      };
+    });
+    console.log("HERO_V2_TRUTH_SURFACES", surfaces);
+
+    const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
+    if (content) {
+      const contentStyles = getComputedStyle(content);
+      console.log("HERO_V2_TRUTH_CONTENT", {
+        exists: true,
+        zIndex: contentStyles.zIndex,
+        opacity: contentStyles.opacity,
+        transform: contentStyles.transform,
+        filter: contentStyles.filter,
+        pointerEvents: contentStyles.pointerEvents,
+      });
+    } else {
+      console.log("HERO_V2_TRUTH_CONTENT", { exists: false });
+    }
+
+    const surfaceIds = [
+      "gradient.base",
+      "field.waveBackdrop",
+      "mask.waveHeader",
+      "field.waveRings",
+      "field.dotGrid",
+      "overlay.particles",
+      "overlay.filmGrain",
+    ];
+    const backgroundPayload = surfaceIds.reduce<Record<string, {
+      opacity: string;
+      mixBlendMode: string;
+      zIndex: string;
+      backgroundImage: string;
+      maskImage: string;
+    }>>((acc, id) => {
+      const element = heroRoot.querySelector<HTMLElement>(`[data-surface-id="${id}"]`);
+      if (!element) return acc;
+      const styles = getComputedStyle(element);
+      const maskImage = styles.maskImage !== "none" ? styles.maskImage : styles.webkitMaskImage;
+      acc[id] = {
+        opacity: styles.opacity,
+        mixBlendMode: styles.mixBlendMode,
+        zIndex: styles.zIndex,
+        backgroundImage: styles.backgroundImage,
+        maskImage,
+      };
+      return acc;
+    }, {});
+    console.log("HERO_V2_TRUTH_BG", backgroundPayload);
   }, [pathname]);
 
   return (
@@ -398,6 +481,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
     const fadeEl = fadeRef.current;
     if (!content || !fadeEl) return;
     if (!HERO_V2_DEBUG) return;
+    if (isHeroTruthEnabled()) return;
     const logState = () => {
       const styles = getComputedStyle(content);
       const fadeStyles = getComputedStyle(fadeEl);
