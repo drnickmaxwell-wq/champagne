@@ -10,7 +10,7 @@
       "order": 10,
       "seoRole": "hero",
       "title": "Composite bonding for measured smile refinement",
-      "body": "Composite bonding (also called cosmetic bonding or dental bonding) uses layered resin to rebuild edges and balance shapes with minimal drilling. We preserve enamel wherever possible, plan conservatively, and explain how wear and staining can be managed over time.",
+      "body": "Composite bonding, sometimes called dental bonding, uses tooth-coloured resin in layers to rebuild edges and refine shape with minimal drilling. We aim to preserve enamel wherever possible, plan conservatively, and explain how wear and staining are managed over time.",
       "bullets": [
         "Tooth-preserving contouring with light surface preparation",
         "Resins layered to match shade, translucency, and texture",
@@ -24,7 +24,7 @@
       "seoRole": "supporting",
       "label": "Introduction",
       "title": "Conservative improvements, well planned",
-      "body": "Composite bonding is a conservative cosmetic treatment used to improve the appearance of teeth by carefully adding tooth-coloured resin to the surface.\n\nIt is commonly used to adjust shape, close small gaps, or repair minor chips. Because it involves minimal or no removal of natural tooth structure, it is often considered a lower-intervention option compared with other cosmetic treatments.\n\nWhether composite bonding is appropriate depends on your teeth, bite, and expectations, which we assess before recommending treatment."
+      "body": "Composite bonding is a conservative cosmetic treatment that improves the appearance of teeth by adding tooth-coloured resin in controlled layers.\n\nIt is commonly used to refine shape, close small gaps, or repair minor chips. Because it usually involves little or no removal of natural tooth structure, it is a lower-intervention option than treatments that require more preparation.\n\nSuitability depends on the condition of your teeth, your bite, and what you want to achieve. We assess these carefully before recommending treatment."
     },
     {
       "instanceId": "composite_indications",
@@ -45,7 +45,7 @@
       "seoRole": "supporting",
       "label": "Digital planning",
       "title": "Digitally planned and guided bonding",
-      "body": "We start with 3D scans and photographs, design the proposed changes digitally, and share mock-ups so you can preview the direction. Guided placement and finishing maps keep the resin precise and consistent, and set up injection moulding when it is the safest choice.",
+      "body": "We begin with 3D scans and clinical photographs, then design the proposed changes digitally. We share mock-ups so you can preview the direction. Guided placement and finishing maps help keep the resin precise and consistent, and support injection moulding when it offers the safest level of control.",
       "mediaHint": "Digital smile planning and mock-up visuals"
     },
     {
@@ -54,7 +54,7 @@
       "order": 50,
       "seoRole": "supporting",
       "title": "Injection moulding technique",
-      "body": "Injection moulded composite uses digital design and silicone or printed keys to deliver resin through a precise guide. It keeps edge lengths, embrasures, and widths consistent, improves symmetry across multiple teeth, and reduces chairside guesswork.",
+      "body": "Injection moulded composite uses a digital design and silicone or printed guides to place resin accurately. This helps keep edge lengths, embrasures, and tooth widths consistent, improves symmetry across multiple teeth, and reduces variation during placement.",
       "bullets": [
         "Digital scans and wax-ups map planned tooth shapes before treatment",
         "Silicone keys or printed guides control resin volume for repeatable placement",
@@ -130,19 +130,19 @@
       "faqs": [
         {
           "question": "How long does composite bonding last?",
-          "answer": "Composite bonding can last for years, but it is not permanent. Wear, staining, and small chips can occur, and maintenance may be needed over time."
+          "answer": "Composite bonding can last for several years, but it is not permanent. Over time the material can wear, stain, or chip, and maintenance may be needed."
         },
         {
           "question": "Can composite bonding be repaired?",
-          "answer": "Yes. Chips or edge wear can usually be smoothed and re-layered without removing the rest of the bonding, keeping treatment conservative."
+          "answer": "Yes. Chips or edge wear can usually be repaired by smoothing and adding new resin, without removing the rest of the bonding."
         },
         {
           "question": "Is composite bonding better than veneers?",
-          "answer": "It depends on your teeth, bite, and goals. Bonding is more conservative, while veneers can provide longer-term durability or larger shape changes. We explain which option fits your situation."
+          "answer": "It depends on your teeth, your bite, and your goals. Bonding is more conservative, while veneers can offer greater durability or larger shape changes. We explain which option is most appropriate for your situation."
         },
         {
           "question": "Does composite bonding damage teeth?",
-          "answer": "Bonding is usually carried out with minimal or no removal of tooth structure. We assess your enamel and bite first to ensure it is appropriate."
+          "answer": "Bonding is usually carried out with minimal or no removal of tooth structure. We assess your enamel and bite beforehand to ensure it is suitable."
         }
       ]
     },
