@@ -36,13 +36,18 @@
   },
   "particles": {
     "overlay.particlesPrimary": { "asset": "sacred.particles.home", "blendMode": "screen", "opacity": 0.17 },
+    "overlay.particles": { "asset": "sacred.particles.home", "blendMode": "screen", "opacity": 0.17 },
     "overlay.particlesGold": { "asset": "sacred.particles.gold", "blendMode": "screen", "opacity": 0.18 },
     "overlay.particlesMagenta": { "asset": "sacred.particles.magenta", "blendMode": "screen", "opacity": 0.18 },
     "overlay.particlesTeal": { "asset": "sacred.particles.teal", "blendMode": "screen", "opacity": 0.18 }
   },
   "grain": {
     "overlay.filmGrain.desktop": { "asset": "sacred.grain.desktop", "blendMode": "overlay", "opacity": 0.08, "prmSafe": true },
-    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "overlay", "opacity": 0.08, "prmSafe": true }
+    "overlay.filmGrain.mobile": { "asset": "sacred.grain.mobile", "blendMode": "overlay", "opacity": 0.08, "prmSafe": true },
+    "overlay.filmGrain": {
+      "desktop": { "asset": "sacred.grain.desktop", "blendMode": "overlay", "opacity": 0.08, "prmSafe": true },
+      "mobile": { "asset": "sacred.grain.mobile", "blendMode": "overlay", "opacity": 0.08, "prmSafe": true }
+    }
   },
   "motion": {
     "overlay.caustics": {
@@ -56,6 +61,30 @@
       "blendMode": "soft-light",
       "opacity": 0.19,
       "className": "hero-surface--glass-shimmer"
+    },
+    "sacred.motion.waveCaustics": {
+      "asset": "sacred.motion.waveCaustics",
+      "blendMode": "screen",
+      "opacity": 0.21,
+      "className": "hero-surface--caustics"
+    },
+    "sacred.motion.glassShimmer": {
+      "asset": "sacred.motion.glassShimmer",
+      "blendMode": "soft-light",
+      "opacity": 0.19,
+      "className": "hero-surface--glass-shimmer"
+    },
+    "sacred.motion.goldDust": {
+      "asset": "sacred.motion.goldDust",
+      "blendMode": "soft-light",
+      "opacity": 0.15,
+      "className": "hero-surface--gold-dust"
+    },
+    "sacred.motion.particleDrift": {
+      "asset": "sacred.motion.particleDrift",
+      "blendMode": "screen",
+      "opacity": 0.10,
+      "className": "hero-surface--particles-drift"
     },
     "overlay.goldDustDrift": {
       "asset": "sacred.motion.goldDust",
