@@ -60,7 +60,7 @@
       "seoRole": "supporting",
       "label": "Act early",
       "title": "Why it needs proper assessment",
-      "body": "Infections are not always solved by antibiotics alone. Antibiotics may be appropriate in certain situations, but the source of the infection usually needs treating.\n\nThat might mean draining the infection, cleaning and sealing the tooth with root canal treatment, treating gum infection, or removing a tooth that cannot be saved.\n\nOur job is to assess the cause, explain the realistic options, and help you get stable quickly — then plan longer-term care calmly."
+      "body": "Infections are not always solved by antibiotics alone. Antibiotics can be appropriate in some situations, but the source of infection usually still needs treating.\n\nThat might mean draining the infection, cleaning and sealing the tooth with root canal treatment, treating gum infection, or removing a tooth that cannot be saved.\n\nOur job is to assess the cause, explain the realistic options, and help you stabilise quickly — then plan longer-term care in a calm, sensible way."
     },
     {
       "instanceId": "emergency_abscess_options",
@@ -69,7 +69,7 @@
       "seoRole": "supporting",
       "label": "What we can do",
       "title": "Possible treatments",
-      "body": "Treatment depends on where the infection is coming from and how advanced it is.\n\nOptions may include local measures to relieve pressure, root canal treatment to save a tooth, periodontal (gum) treatment, or extraction where the tooth cannot be predictably restored.\n\nIf antibiotics are needed, we’ll explain why, what they can and can’t do, and what follow-up is required.",
+      "body": "Treatment depends on where the infection is coming from and how advanced it is.\n\nOptions may include local measures to relieve pressure, root canal treatment to try to save a tooth, periodontal (gum) treatment, or extraction when the tooth cannot be predictably restored.\n\nIf antibiotics are needed, we’ll explain why, what they can and can’t do, and what follow-up is required.",
       "mediaHint": "Gentle relief"
     },
     {
@@ -78,7 +78,7 @@
       "order": 70,
       "seoRole": "supporting",
       "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "body": "See related care options and plan what happens next."
     },
     {
       "instanceId": "emergency_abscess_faq",
