@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Dental hygiene",
-      "title": "A calm hygiene appointment to steady gums and keep your smile fresh",
-      "body": "Hygiene visits focus on removing plaque and hardened tartar, checking gum health, and giving you practical guidance you can actually follow at home.\n\nWe take a clinician-led approach, explaining what we see around the gumline and between teeth, then tailoring the clean and advice to your needs.\n\nAppointments are paced gently, with options for sensitive areas or anxious visitors.",
+      "title": "Dental hygiene appointments",
+      "body": "Dental hygiene appointments are about maintaining stability, not just polishing teeth.\n\nIn practice, they play a central role in keeping gums healthy, supporting the teeth over time, and preventing small issues from becoming larger ones. A hygiene visit isn’t cosmetic maintenance — it’s clinical care focused on reducing risk and keeping things stable.\n\nRegular hygiene care, combined with good daily habits, is one of the most reliable ways to protect your teeth and gums in the long term.",
       "bullets": [
         "Gentle scaling and polishing with gum health checks",
         "Tailored advice for brushing, interdental cleaning, and sensitivity",
@@ -53,8 +53,8 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "What happens in a hygiene visit",
-      "title": "Cleaning, gum checks, and practical guidance",
-      "body": "We start by listening to any concerns, then review gum health and areas that tend to trap plaque. Cleaning is gentle and methodical, with a focus on comfort and clarity.",
+      "title": "What happens at a hygiene appointment",
+      "body": "A hygiene appointment involves careful cleaning around the teeth and gums, focusing on areas that are difficult to manage with brushing alone.\n\nWe remove plaque and hardened deposits, particularly below the gum line where inflammation tends to develop. Attention is given to areas that show repeated build-up, as patterns matter more than isolated findings.\n\nTime is also spent discussing techniques, habits, or recurring problem areas, so daily cleaning is more effective between visits.",
       "bullets": [
         "Gum measurements and bleeding checks where indicated",
         "Targeted scaling to remove plaque and tartar above and below the gumline",
@@ -101,8 +101,8 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Comfort & tools",
-      "title": "Modern instruments with a gentle touch",
-      "body": "We use ultrasonic scalers, fine hand instruments, and airflow-style polishing to remove build-up efficiently while keeping you comfortable.",
+      "title": "Why hygiene matters",
+      "body": "Most gum problems don’t start suddenly. They build quietly over time.\n\nHygiene care helps interrupt that process by keeping inflammation down and allowing the gums to stay stable. When this is done consistently, it reduces the likelihood of gum disease progressing and helps protect the bone that supports the teeth.\n\nIt’s a practical, preventative approach that supports almost everything else we do in dentistry.",
       "mediaHint": "Airflow-style polishing and gentle scaling"
     },
     {
@@ -156,20 +156,20 @@
       "title": "Questions about hygiene appointments",
       "faqs": [
         {
+          "question": "Does hygiene treatment hurt?",
+          "answer": "Most hygiene appointments are comfortable, but it depends on what we need to clean and how inflamed the gums are at the time. If areas are tender, we can slow down, use numbing where appropriate, and focus on making it manageable — not heroic."
+        },
+        {
+          "question": "Is a hygiene appointment “just a clean”?",
+          "answer": "It’s a professional clean, yes — but the purpose is clinical. The goal is to reduce inflammation and risk around the gums, and to keep things stable long-term, not simply to make teeth look shiny."
+        },
+        {
           "question": "How long does a hygiene appointment take?",
-          "answer": "Most visits take around 30–45 minutes, depending on build-up and how much time you want for questions."
+          "answer": "It depends on what needs doing and whether it’s routine maintenance or a heavier clean. We’ll tell you what we recommend and why, so you know what to expect before we start."
         },
         {
-          "question": "Will my teeth feel sensitive afterwards?",
-          "answer": "Some people notice mild sensitivity for a day or two, especially if there was heavy tartar. We can adjust techniques and suggest soothing options."
-        },
-        {
-          "question": "Do you use airflow polishing, and is it suitable for me?",
-          "answer": "We use airflow-style polishing when it is appropriate. We check for sensitivities, restorations, and gum health first so it stays comfortable."
-        },
-        {
-          "question": "How often should I book hygiene visits?",
-          "answer": "Intervals vary. If you have gum concerns, implants, or a history of inflammation, we may suggest shorter gaps. We’ll explain the reasoning clearly."
+          "question": "How often should I book a hygiene appointment?",
+          "answer": "There isn’t one perfect interval for everyone. We base it on your gum history, build-up patterns, medical factors, and how stable things look over time — and we’ll adjust it if your mouth changes."
         }
       ]
     },
@@ -180,8 +180,8 @@
       "order": 100,
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
-      "title": "Where hygiene fits in your plan",
-      "body": "Hygiene is often the steady baseline alongside routine check-ups and gum care, keeping small issues from becoming bigger ones.",
+      "title": "How often should I attend?",
+      "body": "How often you need hygiene appointments depends on your individual risk rather than a fixed schedule.\n\nSome people maintain stability with infrequent visits, while others benefit from closer monitoring due to gum history, medical factors, or patterns of plaque build-up. What matters is responding to how your mouth behaves over time.\n\nWe recommend intervals based on what we see clinically, and adjust them if things change.",
       "bullets": [
         "Often paired with Routine check-ups (/treatments/preventative-and-general-dentistry) for a full oral health review.",
         "Helpful before or after gum care reviews (/treatments/periodontal-gum-care) when inflammation needs ongoing control.",
@@ -200,7 +200,7 @@
       "body": "Tell us about sensitivity or anxiety and we’ll tailor the pace. We can combine hygiene with a routine check-up if that helps.",
       "ctas": [
         {
-          "label": "Book a dental hygiene appointment",
+          "label": "Arrange a dental hygiene appointment",
           "href": "/contact?topic=hygiene",
           "preset": "primary"
         },
