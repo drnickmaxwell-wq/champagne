@@ -819,7 +819,7 @@ export function HeroDebugClientPanel() {
           <div style={{ display: "grid", gap: "0.5rem" }}>
             <strong>V2</strong>
             <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
-              <div className={heroClassName} style={layerOpacityVars}>
+              <div className={heroClassName} style={layerOpacityVars} data-hero-renderer="v2" data-hero-root="true">
                 <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
                   <HeroRendererV2
                     key={`${heroRenderKey}-v2`}
@@ -842,7 +842,11 @@ export function HeroDebugClientPanel() {
           <div
             className={heroClassName}
             style={layerOpacityVars}
-            {...(viewMode === "v1" ? { "data-hero-renderer": "v1", "data-hero-root": "true" } : {})}
+            {...(viewMode === "v1"
+              ? { "data-hero-renderer": "v1", "data-hero-root": "true" }
+              : viewMode === "v2"
+                ? { "data-hero-renderer": "v2", "data-hero-root": "true" }
+                : {})}
           >
             <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
               {viewMode === "v2" ? (

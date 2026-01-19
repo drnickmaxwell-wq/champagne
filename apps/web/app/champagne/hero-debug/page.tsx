@@ -1,10 +1,10 @@
 import { HeroDebugClientPanel } from "./HeroDebugClientPanel";
-import { HeroMount } from "../../_components/HeroMount";
 import { HeroDebugModePanel, type DebugMode } from "./HeroDebugModePanel";
 
 type HeroDebugPageProps = {
   searchParams?: Promise<{
     mode?: string;
+    overrides?: string;
   }>;
 };
 
@@ -13,6 +13,8 @@ const resolveMode = (mode?: string): DebugMode => (mode === "home" ? "home" : "m
 export default async function HeroDebugPage({ searchParams }: HeroDebugPageProps) {
   const resolvedParams = await searchParams;
   const mode = resolveMode(resolvedParams?.mode);
+  const overridesEnabled = resolvedParams?.overrides === "1";
+  const homeIframeSrc = `/?heroTruth=1&heroDebug=1${overridesEnabled ? "&overrides=1" : ""}`;
   return (
     <div
       className="hero-debug-page"
@@ -54,15 +56,15 @@ export default async function HeroDebugPage({ searchParams }: HeroDebugPageProps
 
       <HeroDebugModePanel mode={mode} />
 
-      <div className="hero-debug-hero-shell">
+      <div className="hero-debug-hero-shell" data-hero-debug-viewport={mode}>
         {mode === "home" ? (
-          <div data-hero-debug-viewport="home">
-            <HeroMount pageCategory="home" />
-          </div>
+          <iframe
+            title="Homepage hero viewport"
+            src={homeIframeSrc}
+            style={{ width: "100%", height: "100%", border: "none" }}
+          />
         ) : (
-          <div data-hero-debug-viewport="matcher">
-            <HeroDebugClientPanel />
-          </div>
+          <HeroDebugClientPanel />
         )}
       </div>
     </div>
