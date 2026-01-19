@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-type DebugMode = "matcher" | "home";
+export type DebugMode = "matcher" | "home";
 type OverrideEntry = { opacity: number };
 type OverrideMap = Record<string, OverrideEntry>;
 
@@ -19,7 +20,7 @@ type SurfaceTelemetry = {
 };
 
 const MODE_STORAGE_KEY = "champagne.hero.debug.mode";
-const OVERRIDES_STORAGE_KEY = "champagne.hero.debug.overrides";
+const OVERRIDES_STORAGE_BASE_KEY = "champagne.hero.debug.overrides";
 
 const surfaceOverrideControls: SurfaceOverrideControl[] = [
   { id: "field.waveRings", label: "Field · Wave Rings", max: 0.35, step: 0.01 },
@@ -33,9 +34,9 @@ const clampValue = (value: number, max: number) => Math.min(max, Math.max(0, val
 const isDebugMode = (value: string | null): value is DebugMode =>
   value === "matcher" || value === "home";
 
-const readOverrides = (): OverrideMap => {
+const readOverrides = (mode: DebugMode): OverrideMap => {
   if (typeof window === "undefined") return {};
-  const raw = window.localStorage.getItem(OVERRIDES_STORAGE_KEY);
+  const raw = window.localStorage.getItem(`${OVERRIDES_STORAGE_BASE_KEY}.${mode}`);
   if (!raw) return {};
   try {
     const parsed = JSON.parse(raw) as OverrideMap;
@@ -46,13 +47,13 @@ const readOverrides = (): OverrideMap => {
   }
 };
 
-const writeOverrides = (overrides: OverrideMap) => {
+const writeOverrides = (mode: DebugMode, overrides: OverrideMap) => {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(OVERRIDES_STORAGE_KEY, JSON.stringify(overrides));
+  window.localStorage.setItem(`${OVERRIDES_STORAGE_BASE_KEY}.${mode}`, JSON.stringify(overrides));
 };
 
-const getSurfaceRoot = (mode: DebugMode) =>
-  document.querySelector<HTMLElement>(`[data-hero-debug-surface-root="${mode}"]`);
+const getViewport = (mode: DebugMode) =>
+  document.querySelector<HTMLElement>(`[data-hero-debug-viewport="${mode}"]`);
 
 const setRootMode = (mode: DebugMode) => {
   const root = document.querySelector<HTMLElement>("[data-hero-debug-root]");
@@ -61,9 +62,9 @@ const setRootMode = (mode: DebugMode) => {
   }
 };
 
-const applyOverridesToRoot = (root: HTMLElement | null, overrides: OverrideMap) => {
-  if (!root) return;
-  const nodes = Array.from(root.querySelectorAll<HTMLElement>("[data-surface-id]"));
+const applyOverridesToViewport = (viewport: HTMLElement | null, overrides: OverrideMap) => {
+  if (!viewport) return;
+  const nodes = Array.from(viewport.querySelectorAll<HTMLElement>("[data-surface-id]"));
   nodes.forEach((node) => {
     const surfaceId = node.getAttribute("data-surface-id");
     if (!surfaceId) return;
@@ -87,10 +88,10 @@ const applyOverridesToRoot = (root: HTMLElement | null, overrides: OverrideMap) 
   });
 };
 
-const collectSurfaceTelemetry = (root: HTMLElement | null): Record<string, SurfaceTelemetry> => {
+const collectSurfaceTelemetry = (viewport: HTMLElement | null): Record<string, SurfaceTelemetry> => {
   const telemetry: Record<string, SurfaceTelemetry> = {};
   surfaceOverrideControls.forEach((control) => {
-    const element = root?.querySelector<HTMLElement>(`[data-surface-id="${control.id}"]`) ?? null;
+    const element = viewport?.querySelector<HTMLElement>(`[data-surface-id="${control.id}"]`) ?? null;
     if (!element) {
       telemetry[control.id] = {
         computedOpacity: "missing",
@@ -107,18 +108,20 @@ const collectSurfaceTelemetry = (root: HTMLElement | null): Record<string, Surfa
   return telemetry;
 };
 
-const installHeroTruthTable = () => {
+const installHeroDebugDump = () => {
   if (typeof window === "undefined") return;
-  if ((window as typeof window & { __HERO_V2_TRUTH_TABLE?: () => void }).__HERO_V2_TRUTH_TABLE) return;
-  (window as typeof window & { __HERO_V2_TRUTH_TABLE?: () => void }).__HERO_V2_TRUTH_TABLE = () => {
+  const debugWindow = window as typeof window & { __heroDebugDump?: () => void };
+  if (debugWindow.__heroDebugDump) return;
+  debugWindow.__heroDebugDump = () => {
     const root = document.querySelector<HTMLElement>('[data-hero-debug-root="true"]');
     const activeMode = root?.dataset.heroDebugMode === "home" ? "home" : "matcher";
-    const heroRoot = getSurfaceRoot(activeMode);
-    if (!heroRoot) {
+    const viewport = getViewport(activeMode);
+    if (!viewport) {
       console.warn("Hero debug: no active hero root detected.");
       return;
     }
-    const surfaceElements = Array.from(heroRoot.querySelectorAll<HTMLElement>("[data-surface-id]"));
+    const activeOverrides = readOverrides(activeMode);
+    const surfaceElements = Array.from(viewport.querySelectorAll<HTMLElement>("[data-surface-id]"));
     const rows = surfaceElements.map((element) => {
       const styles = window.getComputedStyle(element);
       return {
@@ -128,14 +131,22 @@ const installHeroTruthTable = () => {
         zIndex: styles.zIndex,
       };
     });
-    console.groupCollapsed("HERO_DEBUG_TRUTH_TABLE");
+    console.groupCollapsed("HERO_DEBUG_DUMP");
+    console.log("mode", activeMode);
+    console.log("overrides", activeOverrides);
     console.table(rows);
     console.groupEnd();
   };
 };
 
-export function HeroDebugModePanel() {
-  const [mode, setMode] = useState<DebugMode>("matcher");
+type HeroDebugModePanelProps = {
+  mode: DebugMode;
+  hasModeParam: boolean;
+};
+
+export function HeroDebugModePanel({ mode, hasModeParam }: HeroDebugModePanelProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [overridesAllowed, setOverridesAllowed] = useState(true);
   const [overrideValues, setOverrideValues] = useState<Record<string, number>>(() =>
     surfaceOverrideControls.reduce<Record<string, number>>((acc, control) => {
@@ -160,27 +171,24 @@ export function HeroDebugModePanel() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    installHeroTruthTable();
+    installHeroDebugDump();
     const params = new URLSearchParams(window.location.search);
-    const queryMode = params.get("mode");
     const overridesParam = params.get("overrides");
     const overridesOff = overridesParam === "off";
     setOverridesAllowed(!overridesOff);
 
-    let nextMode: DebugMode = "matcher";
-    if (isDebugMode(queryMode)) {
-      nextMode = queryMode;
-    } else {
+    if (!hasModeParam) {
       const storedMode = window.localStorage.getItem(MODE_STORAGE_KEY);
-      if (isDebugMode(storedMode)) {
-        nextMode = storedMode;
+      if (isDebugMode(storedMode) && storedMode !== mode) {
+        const nextParams = new URLSearchParams(searchParams?.toString());
+        nextParams.set("mode", storedMode);
+        router.replace(`/champagne/hero-debug?${nextParams.toString()}`);
+        return;
       }
     }
-    setMode(nextMode);
-    setRootMode(nextMode);
 
     if (!overridesOff) {
-      const storedOverrides = readOverrides();
+      const storedOverrides = readOverrides(mode);
       setOverrideValues((prev) => {
         const next = { ...prev };
         surfaceOverrideControls.forEach((control) => {
@@ -205,42 +213,40 @@ export function HeroDebugModePanel() {
         }, {}),
       );
     }
+
+    window.localStorage.setItem(MODE_STORAGE_KEY, mode);
+    setRootMode(mode);
     setInitialized(true);
-  }, []);
+  }, [hasModeParam, mode, router, searchParams]);
 
   useEffect(() => {
     if (!initialized) return;
     setRootMode(mode);
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(MODE_STORAGE_KEY, mode);
-    }
   }, [initialized, mode]);
 
   useEffect(() => {
     if (!initialized) return;
-    const matcherRoot = getSurfaceRoot("matcher");
-    const homeRoot = getSurfaceRoot("home");
-    applyOverridesToRoot(matcherRoot, {});
-    applyOverridesToRoot(homeRoot, {});
+    const viewport = getViewport(mode);
+    applyOverridesToViewport(viewport, {});
 
     if (!overridesAllowed) {
-      setTelemetry(collectSurfaceTelemetry(getSurfaceRoot(mode)));
+      setTelemetry(collectSurfaceTelemetry(viewport));
       return;
     }
 
-    applyOverridesToRoot(getSurfaceRoot(mode), activeOverrides);
-    writeOverrides(activeOverrides);
-    setTelemetry(collectSurfaceTelemetry(getSurfaceRoot(mode)));
+    applyOverridesToViewport(viewport, activeOverrides);
+    writeOverrides(mode, activeOverrides);
+    setTelemetry(collectSurfaceTelemetry(viewport));
   }, [activeOverrides, initialized, mode, overridesAllowed]);
 
   useEffect(() => {
     if (!initialized) return;
-    const root = getSurfaceRoot(mode);
-    if (!root) return;
+    const viewport = getViewport(mode);
+    if (!viewport) return;
     const observer = new MutationObserver(() => {
-      setTelemetry(collectSurfaceTelemetry(root));
+      setTelemetry(collectSurfaceTelemetry(viewport));
     });
-    observer.observe(root, {
+    observer.observe(viewport, {
       subtree: true,
       childList: true,
       attributes: true,
@@ -260,7 +266,11 @@ export function HeroDebugModePanel() {
               name="hero-debug-mode"
               value="matcher"
               checked={mode === "matcher"}
-              onChange={() => setMode("matcher")}
+              onChange={() => {
+                const params = new URLSearchParams(searchParams?.toString());
+                params.set("mode", "matcher");
+                router.replace(`/champagne/hero-debug?${params.toString()}`);
+              }}
             />
             <span>Matcher Mode (Playwright)</span>
           </label>
@@ -270,7 +280,11 @@ export function HeroDebugModePanel() {
               name="hero-debug-mode"
               value="home"
               checked={mode === "home"}
-              onChange={() => setMode("home")}
+              onChange={() => {
+                const params = new URLSearchParams(searchParams?.toString());
+                params.set("mode", "home");
+                router.replace(`/champagne/hero-debug?${params.toString()}`);
+              }}
             />
             <span>Homepage Mode (Real Home Hero)</span>
           </label>
@@ -299,10 +313,10 @@ export function HeroDebugModePanel() {
                   return acc;
                 }, {}),
               );
-              writeOverrides({});
-              const root = getSurfaceRoot(mode);
-              applyOverridesToRoot(root, {});
-              setTelemetry(collectSurfaceTelemetry(root));
+              writeOverrides(mode, {});
+              const viewport = getViewport(mode);
+              applyOverridesToViewport(viewport, {});
+              setTelemetry(collectSurfaceTelemetry(viewport));
             }}
             disabled={!overridesAllowed}
             style={{
@@ -328,7 +342,7 @@ export function HeroDebugModePanel() {
                 key={control.id}
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "minmax(160px, 1fr) minmax(160px, 1fr) auto minmax(180px, 1.5fr) 4.5rem",
+                  gridTemplateColumns: "minmax(160px, 1fr) minmax(140px, 1fr) auto minmax(180px, 1.5fr) 4.5rem",
                   gap: "0.75rem",
                   alignItems: "center",
                 }}
@@ -374,12 +388,26 @@ export function HeroDebugModePanel() {
                   }}
                 />
                 <span style={{ textAlign: "right", fontVariantNumeric: "tabular-nums", color: "var(--text-medium)" }}>
-                  {enabled && overridesAllowed ? value.toFixed(2) : "—"}
+                  {value.toFixed(2)}
                 </span>
               </div>
             );
           })}
         </div>
+        <textarea
+          readOnly
+          rows={6}
+          value={JSON.stringify(activeOverrides, null, 2)}
+          style={{
+            width: "100%",
+            padding: "0.75rem 1rem",
+            borderRadius: "var(--radius-md)",
+            border: "1px solid var(--champagne-keyline-gold, var(--surface-ink-soft))",
+            background: "var(--surface-ink-soft)",
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.9rem",
+          }}
+        />
       </div>
     </div>
   );

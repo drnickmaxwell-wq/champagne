@@ -1,13 +1,23 @@
 import { HeroDebugClientPanel } from "./HeroDebugClientPanel";
 import { HeroMount } from "../../_components/HeroMount";
-import { HeroDebugModePanel } from "./HeroDebugModePanel";
+import { HeroDebugModePanel, type DebugMode } from "./HeroDebugModePanel";
 
-export default function HeroDebugPage() {
+type HeroDebugPageProps = {
+  searchParams?: Promise<{
+    mode?: string;
+  }>;
+};
+
+const resolveMode = (mode?: string): DebugMode => (mode === "home" ? "home" : "matcher");
+
+export default async function HeroDebugPage({ searchParams }: HeroDebugPageProps) {
+  const resolvedParams = await searchParams;
+  const mode = resolveMode(resolvedParams?.mode);
   return (
     <div
       className="hero-debug-page"
       data-hero-debug-root="true"
-      data-hero-debug-mode="matcher"
+      data-hero-debug-mode={mode}
       style={{
         display: "grid",
         gap: "1.5rem",
@@ -30,9 +40,6 @@ export default function HeroDebugPage() {
             .hero-debug-panel th, .hero-debug-panel td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid color-mix(in srgb, var(--champagne-keyline-gold, var(--surface-ink-soft)) 50%, transparent); }
             .hero-debug-panel th { letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-medium); font-size: 0.8rem; }
             .hero-debug-hero-shell { position: relative; min-height: 72vh; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--champagne-keyline-gold, var(--surface-ink-soft)); background: color-mix(in srgb, var(--bg-ink) 80%, transparent); }
-            .hero-debug-hero-mode { display: none; }
-            .hero-debug-page[data-hero-debug-mode="matcher"] [data-hero-debug-mode="matcher"],
-            .hero-debug-page[data-hero-debug-mode="home"] [data-hero-debug-mode="home"] { display: block; }
           `,
         }}
       />
@@ -45,15 +52,18 @@ export default function HeroDebugPage() {
         </p>
       </header>
 
-      <HeroDebugModePanel />
+      <HeroDebugModePanel mode={mode} hasModeParam={Boolean(resolvedParams?.mode)} />
 
       <div className="hero-debug-hero-shell">
-        <div className="hero-debug-hero-mode" data-hero-debug-mode="matcher" data-hero-debug-surface-root="matcher">
-          <HeroDebugClientPanel />
-        </div>
-        <div className="hero-debug-hero-mode" data-hero-debug-mode="home" data-hero-debug-surface-root="home">
-          <HeroMount pageCategory="home" />
-        </div>
+        {mode === "home" ? (
+          <div data-hero-debug-viewport="home">
+            <HeroMount pageCategory="home" />
+          </div>
+        ) : (
+          <div data-hero-debug-viewport="matcher">
+            <HeroDebugClientPanel />
+          </div>
+        )}
       </div>
     </div>
   );
