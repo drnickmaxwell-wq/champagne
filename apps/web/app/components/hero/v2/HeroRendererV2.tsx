@@ -368,6 +368,54 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
           __html: `(() => {
             if (typeof window === 'undefined') return;
             const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
+            const params = new URLSearchParams(window.location.search);
+            const heroTruthEnabled = params.get('heroTruth') === '1';
+            if (!HERO_V2_DEBUG && !heroTruthEnabled) return;
+            const logTruthTable = () => {
+              const heroRoot = document.querySelector('.hero-renderer-v2[data-hero-root="true"]');
+              if (!heroRoot) {
+                console.groupCollapsed('HERO_V2_TRUTH_TABLE');
+                console.log('HERO_V2_TRUTH_TABLE_DATA', { found: false });
+                console.groupEnd();
+                return;
+              }
+              const surfaceElements = Array.from(heroRoot.querySelectorAll('[data-surface-id]'));
+              const rows = surfaceElements.map((element) => {
+                const styles = window.getComputedStyle(element);
+                const isVideo = element instanceof HTMLVideoElement;
+                const currentSrc = isVideo ? element.currentSrc : null;
+                return {
+                  id: element.getAttribute('data-surface-id') ?? 'unknown',
+                  opacity: styles.opacity,
+                  mixBlendMode: styles.mixBlendMode,
+                  zIndex: styles.zIndex,
+                  backgroundImage: currentSrc || styles.backgroundImage,
+                  filter: styles.filter,
+                  visibility: styles.visibility,
+                  display: styles.display,
+                };
+              });
+              console.groupCollapsed('HERO_V2_TRUTH_TABLE');
+              console.table(rows);
+              const content = heroRoot.querySelector('.hero-content');
+              const contentZIndex = content ? window.getComputedStyle(content).zIndex : 'missing';
+              console.log('HERO_V2_TRUTH_CONTENT_ZINDEX', contentZIndex);
+              console.groupEnd();
+            };
+            const schedule = () => window.setTimeout(logTruthTable, 1500);
+            if (document.readyState === 'loading') {
+              window.addEventListener('load', schedule, { once: true });
+            } else {
+              schedule();
+            }
+          })();`,
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(() => {
+            if (typeof window === 'undefined') return;
+            const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
             if (!HERO_V2_DEBUG) return;
             if (window.__heroV2CompositingLogInstalled) return;
             window.__heroV2CompositingLogInstalled = true;
