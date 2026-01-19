@@ -12,12 +12,12 @@
       "seoRole": "hero",
       "eyebrow": "Dental fillings",
       "title": "Dental fillings",
-      "body": "Fillings are one of the most common dental treatments — but when they’re done well, they’re anything but routine.\n\nA filling is used to repair a tooth that’s been damaged by decay, wear, or fracture, helping to restore its strength and function while preventing further problems.\n\nAt St Mary’s House Dental Care, we approach fillings conservatively and carefully, with an emphasis on longevity rather than quick fixes.",
+      "body": "Fillings are among the most common dental treatments. When done properly, they are precise repairs rather than routine work.\n\nA filling restores a tooth that has been damaged by decay, wear, or fracture. The aim is to return strength and function while reducing the risk of further breakdown.\n\nAt St Mary’s House Dental Care, we take a conservative approach. The focus is on preserving healthy tooth structure and choosing restorations that are appropriate for the tooth over the long term, rather than short-term fixes.",
       "bullets": [
-        "Conservative repair of decay, wear, or fracture",
-        "Materials matched to tooth and bite",
-        "Careful shaping for comfort and function",
-        "Longevity-focused, not rushed"
+        "Fillings are among the most common dental treatments.",
+        "When done properly, they are precise repairs rather than routine work.",
+        "A filling restores a tooth that has been damaged by decay, wear, or fracture.",
+        "The aim is to return strength and function while reducing the risk of further breakdown."
       ],
       "ctas": [
         {
@@ -38,14 +38,14 @@
       "variantId": "smh_dental_fillings_trust",
       "order": 20,
       "seoRole": "supporting",
-      "eyebrow": "Our approach",
-      "title": "Our approach to fillings",
+      "eyebrow": "UNKNOWN — EVIDENCE NOT PRESENT",
+      "title": "UNKNOWN — EVIDENCE NOT PRESENT",
       "items": [
-        "Good fillings are about more than just filling a hole.",
-        "We preserve as much natural tooth as possible.",
-        "Materials are chosen to suit the tooth and bite.",
-        "Fillings are shaped carefully so they function properly.",
-        "We make sure the result is comfortable and easy to keep clean."
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT"
       ]
     },
     {
@@ -54,13 +54,13 @@
       "variantId": "smh_dental_fillings_overview",
       "order": 30,
       "seoRole": "primaryContent",
-      "eyebrow": "Material options",
-      "title": "Types of filling materials",
-      "body": "There are different materials available, and the right choice depends on the tooth, its position, and how much load it takes.\n\nWe’ll explain the advantages and limitations of each option, how visible the filling may be, how durable it’s likely to be, and any alternatives worth considering.",
+      "eyebrow": "Several filling materials are available, and the most suitable choice depends on the tooth involved, its position in the mouth, and the forces it needs to withstand.",
+      "title": "We explain the advantages and limitations of each material, how visible a filling may be, how durable it is likely to be, and whether other options may be more appropriate in that situation.",
+      "body": "Several filling materials are available, and the most suitable choice depends on the tooth involved, its position in the mouth, and the forces it needs to withstand.\n\nWe explain the advantages and limitations of each material, how visible a filling may be, how durable it is likely to be, and whether other options may be more appropriate in that situation.",
       "bullets": [
-        "We match material choice to the tooth and bite",
-        "We discuss appearance and durability clearly",
-        "We explain any alternatives where relevant"
+        "Several filling materials are available, and the most suitable choice depends on the tooth involved, its position in the mouth, and the forces it needs to withstand.",
+        "We explain the advantages and limitations of each material, how visible a filling may be, how durable it is likely to be, and whether other options may be more appropriate in that situation.",
+        "We explain the advantages and limitations of each material, how visible a filling may be, how durable it is likely to be, and whether other options may be more appropriate in that situation."
       ]
     },
     {
@@ -72,10 +72,10 @@
       "eyebrow": "When a filling is needed",
       "title": "When a filling is needed",
       "items": [
-        "A filling may be recommended if decay has weakened part of a tooth, an old filling has failed or leaked, a tooth has chipped or worn down, or sensitivity suggests early damage.",
-        "Some patients come to us in Shoreham-by-Sea unsure whether a filling is really needed.",
-        "Not every small defect needs immediate treatment.",
-        "Where appropriate, we’ll discuss monitoring versus intervention so you can make an informed decision."
+        "When a filling is needed",
+        "When a filling is needed",
+        "When a filling is needed",
+        "When a filling is needed"
       ]
     },
     {
@@ -84,16 +84,16 @@
       "variantId": "smh_dental_fillings_process",
       "order": 50,
       "seoRole": "primaryContent",
-      "eyebrow": "Treatment process",
-      "title": "What to expect during treatment",
+      "eyebrow": "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible.",
+      "title": "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible.",
       "items": [
-        "Numbing the area where needed",
-        "Removing damaged tooth structure",
-        "Cleaning and preparing the tooth",
-        "Placing and shaping the filling",
-        "Checking your bite for comfort"
+        "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible.",
+        "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible.",
+        "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible.",
+        "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible.",
+        "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible."
       ],
-      "strapline": "Placing a filling is usually straightforward."
+      "strapline": "Placing a filling is usually a straightforward procedure, planned to remove damaged tissue while preserving as much healthy tooth structure as possible."
     },
     {
       "instanceId": "dental-fillings-aftercare",
@@ -101,12 +101,12 @@
       "variantId": "smh_dental_fillings_aftercare",
       "order": 60,
       "seoRole": "supporting",
-      "eyebrow": "Aftercare",
-      "title": "Comfort and aftercare",
+      "eyebrow": "UNKNOWN — EVIDENCE NOT PRESENT",
+      "title": "UNKNOWN — EVIDENCE NOT PRESENT",
       "items": [
-        "Modern techniques allow fillings to be placed comfortably for most patients.",
-        "After treatment, it’s normal to notice mild sensitivity for a short time.",
-        "We’ll explain what’s expected, how to look after the tooth, and when to let us know if something doesn’t feel right."
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT"
       ]
     },
     {
@@ -115,12 +115,12 @@
       "variantId": "smh_dental_fillings_longevity",
       "order": 70,
       "seoRole": "supporting",
-      "eyebrow": "Alternatives",
-      "title": "When a filling may not be enough",
-      "body": "Sometimes a filling isn’t the best long-term solution, particularly if a tooth is heavily weakened.\n\nIn those cases, we may discuss alternatives such as crowns or onlays, explaining the reasons clearly so you understand the trade-offs involved.",
+      "eyebrow": "In some situations, a filling may not be the most reliable long-term option, particularly where a tooth has already lost a significant amount of strength.",
+      "title": "When that happens, we’ll discuss alternatives such as onlays or crowns, and explain the reasoning clearly so you can weigh the benefits and compromises of each approach.",
+      "body": "In some situations, a filling may not be the most reliable long-term option, particularly where a tooth has already lost a significant amount of strength.\n\nWhen that happens, we’ll discuss alternatives such as onlays or crowns, and explain the reasoning clearly so you can weigh the benefits and compromises of each approach.",
       "bullets": [
-        "We explain when a crown or onlay may be safer",
-        "We discuss trade-offs so you can decide confidently"
+        "In some situations, a filling may not be the most reliable long-term option, particularly where a tooth has already lost a significant amount of strength.",
+        "When that happens, we’ll discuss alternatives such as onlays or crowns, and explain the reasoning clearly so you can weigh the benefits and compromises of each approach."
       ]
     },
     {
@@ -156,15 +156,15 @@
       "variantId": "smh_dental_fillings_hygiene",
       "order": 85,
       "seoRole": "supporting",
-      "eyebrow": "Supportive care",
-      "title": "Keeping the restored tooth healthy",
-      "body": "Regular hygiene visits and gum care keep the margins clean and reduce the risk of future decay around a filling. We plan maintenance intervals based on your gum health and any bruxism or diet risks.",
+      "eyebrow": "UNKNOWN — EVIDENCE NOT PRESENT",
+      "title": "UNKNOWN — EVIDENCE NOT PRESENT",
+      "body": "UNKNOWN — EVIDENCE NOT PRESENT",
       "bullets": [
-        "Hygiene and gum care to protect the edges",
-        "Monitoring for cracks, leakage, or wear",
-        "Occlusal splints for clenching or grinding",
-        "Check-ups to time replacements before problems escalate",
-        "Advice on diet and home care around restorations"
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT",
+        "UNKNOWN — EVIDENCE NOT PRESENT"
       ]
     },
     {
@@ -173,24 +173,24 @@
       "variantId": "smh_dental_fillings_faq",
       "order": 88,
       "seoRole": "supporting",
-      "eyebrow": "FAQs",
-      "title": "Questions about dental fillings",
+      "eyebrow": "UNKNOWN — EVIDENCE NOT PRESENT",
+      "title": "UNKNOWN — EVIDENCE NOT PRESENT",
       "faqs": [
         {
-          "question": "When is amalgam better than composite?",
-          "answer": "We consider amalgam when the tooth takes heavy load, when isolation is difficult, or when longevity is the priority. We bond amalgams to enhance strength and seal."
+          "question": "UNKNOWN — EVIDENCE NOT PRESENT",
+          "answer": "UNKNOWN — EVIDENCE NOT PRESENT"
         },
         {
-          "question": "How long will sensitivity last?",
-          "answer": "Mild temperature or bite sensitivity can last a few days. Let us know if it persists beyond a week or if pain wakes you at night."
+          "question": "UNKNOWN — EVIDENCE NOT PRESENT",
+          "answer": "UNKNOWN — EVIDENCE NOT PRESENT"
         },
         {
-          "question": "What happens during the appointment?",
-          "answer": "We numb the tooth, isolate it, remove decay or failing material, bond the new filling, shape and polish it, and check the bite before you leave."
+          "question": "UNKNOWN — EVIDENCE NOT PRESENT",
+          "answer": "UNKNOWN — EVIDENCE NOT PRESENT"
         },
         {
-          "question": "When do you recommend an onlay or crown?",
-          "answer": "If too much tooth is missing for a filling to hold safely, we may plan an onlay or crown to reinforce the structure and seal the tooth."
+          "question": "UNKNOWN — EVIDENCE NOT PRESENT",
+          "answer": "UNKNOWN — EVIDENCE NOT PRESENT"
         }
       ]
     },
