@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Dental fillings",
       "title": "Dental fillings",
-      "body": "Fillings are one of the most common dental treatments — but when they’re done well, they’re anything but routine.\n\nA filling is used to repair a tooth that’s been damaged by decay, wear, or fracture, helping to restore its strength and function while preventing further problems.\n\nAt St Mary’s House Dental Care, we approach fillings conservatively and carefully, with an emphasis on longevity rather than quick fixes.",
+      "body": "Fillings are among the most common dental treatments, but when they’re done well they rely on careful judgement rather than routine work.\n\nA filling repairs a tooth affected by decay, wear, or fracture, restoring strength and function and reducing the risk of further breakdown.\n\nAt St Mary’s House Dental Care, we take a conservative approach, protecting healthy tooth structure and focusing on longevity rather than short-term fixes.\n",
       "bullets": [
         "Conservative repair of decay, wear, or fracture",
         "Materials matched to tooth and bite",
@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Material options",
       "title": "Types of filling materials",
-      "body": "There are different materials available, and the right choice depends on the tooth, its position, and how much load it takes.\n\nWe’ll explain the advantages and limitations of each option, how visible the filling may be, how durable it’s likely to be, and any alternatives worth considering.",
+      "body": "Different materials can be used for fillings, and the most suitable choice depends on which tooth is involved, where it sits in the mouth, and the forces it needs to withstand.\n\nWe’ll talk through the benefits and limitations of each option, how noticeable it may be, how durable it is likely to be, and any alternatives that may be worth considering.\n",
       "bullets": [
         "We match material choice to the tooth and bite",
         "We discuss appearance and durability clearly",
@@ -117,7 +117,7 @@
       "seoRole": "supporting",
       "eyebrow": "Alternatives",
       "title": "When a filling may not be enough",
-      "body": "Sometimes a filling isn’t the best long-term solution, particularly if a tooth is heavily weakened.\n\nIn those cases, we may discuss alternatives such as crowns or onlays, explaining the reasons clearly so you understand the trade-offs involved.",
+      "body": "A filling is not always the most reliable long-term option, particularly when a tooth has been significantly weakened.\n\nIf that applies, we may discuss options such as an onlay or crown, and explain the reasons clearly so you understand the trade-offs involved.\n",
       "bullets": [
         "We explain when a crown or onlay may be safer",
         "We discuss trade-offs so you can decide confidently"
@@ -158,7 +158,7 @@
       "seoRole": "supporting",
       "eyebrow": "Supportive care",
       "title": "Keeping the restored tooth healthy",
-      "body": "Regular hygiene visits and gum care keep the margins clean and reduce the risk of future decay around a filling. We plan maintenance intervals based on your gum health and any bruxism or diet risks.",
+      "body": "Regular hygiene visits and good gum care help keep the margins clean and reduce the risk of new decay developing around a filling.\n\nWe set maintenance intervals based on gum health, any clenching or grinding, and diet-related risks.\n",
       "bullets": [
         "Hygiene and gum care to protect the edges",
         "Monitoring for cracks, leakage, or wear",
@@ -178,19 +178,19 @@
       "faqs": [
         {
           "question": "When is amalgam better than composite?",
-          "answer": "We consider amalgam when the tooth takes heavy load, when isolation is difficult, or when longevity is the priority. We bond amalgams to enhance strength and seal."
+          "answer": "We consider amalgam when a tooth carries heavy biting forces, when it is difficult to keep the area dry during placement, or when longevity is the main priority. Where appropriate, we bond amalgam to improve strength and the seal.\n"
         },
         {
           "question": "How long will sensitivity last?",
-          "answer": "Mild temperature or bite sensitivity can last a few days. Let us know if it persists beyond a week or if pain wakes you at night."
+          "answer": "Mild sensitivity to temperature or biting can last for a few days. Let us know if it continues beyond a week, or if the pain is severe or wakes you at night.\n"
         },
         {
           "question": "What happens during the appointment?",
-          "answer": "We numb the tooth, isolate it, remove decay or failing material, bond the new filling, shape and polish it, and check the bite before you leave."
+          "answer": "We numb the tooth where needed, isolate it, remove decay or any failing material, then place and bond the filling. We shape and polish it carefully and check your bite before you leave.\n"
         },
         {
           "question": "When do you recommend an onlay or crown?",
-          "answer": "If too much tooth is missing for a filling to hold safely, we may plan an onlay or crown to reinforce the structure and seal the tooth."
+          "answer": "If there isn’t enough healthy tooth left for a filling to hold securely, we may recommend an onlay or crown to support the tooth and create a more reliable seal.\n"
         }
       ]
     },
