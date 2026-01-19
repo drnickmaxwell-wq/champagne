@@ -56,7 +56,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "How we work",
       "title": "Scan → Design → Print/Mill → Fit",
-      "body": "Your pathway is mapped in advance: we capture a precise scan, design collaboratively, produce the restoration in-house, and refine it chairside with the clinician who planned it.",
+      "body": "3D and digital dentistry refers to the way we plan, design, and carry out dental treatment using detailed digital scans rather than relying only on traditional impressions and estimates.\n\nFor patients, this means we can see your teeth, bite, and jaw in far greater detail before treatment starts. Digital scans allow us to plan carefully, explain options clearly, and reduce guesswork at every stage.\n\nThis technology supports safer planning, clearer communication, and more predictable outcomes. It does not replace clinical judgement or experience — it supports it.",
       "bullets": [
         "Intraoral scan and photography for reference",
         "Digital design preview with space to adjust shape and bite",
@@ -75,11 +75,9 @@
       "eyebrow": "Who benefits",
       "title": "Patients who want predictable, visual planning",
       "items": [
-        "Those who prefer seeing a design preview before committing",
-        "Implant and restorative cases needing precise fit with staged checks",
-        "Patients needing faster turnarounds without sacrificing clinician oversight",
-        "People seeking digital guards or dentures with comfort-first fit",
-        "Anyone wanting honest guidance on when to choose ceramics instead"
+        "From a patient point of view, digital dentistry is mainly about clarity and confidence.",
+        "You are able to see proposed treatment plans, understand why a particular approach is recommended, and ask informed questions before decisions are made. Planning happens in advance, which often reduces adjustments, remakes, or surprises later on.",
+        "For many treatments, digital workflows also allow for fewer appointments and more accurate fitting restorations, although this depends on the type of care involved."
       ]
     },
     {
@@ -91,12 +89,9 @@
       "eyebrow": "Your digital pathway",
       "title": "Clear checkpoints from scan to maintenance",
       "items": [
-        "Digital consultation with intraoral scan",
-        "Design review with your clinician",
-        "In-house print or mill based on the plan",
-        "Fit, bite checks, and hand finishing",
-        "Follow-up to confirm comfort and stability",
-        "Maintenance and review schedule agreed"
+        "We use 3D and digital planning across a wide range of treatments, including crowns and bridges, dental implants, orthodontic aligners, and more complex restorative work.",
+        "Not every treatment requires digital planning, and it is not used automatically. We recommend it when it adds clarity, accuracy, or safety to your care.",
+        "Your dentist will explain whether digital planning is appropriate for your situation and why."
       ],
       "strapline": "Timelines vary by case complexity; we share ranges and review points upfront."
     },
@@ -108,7 +103,7 @@
       "seoRole": "supporting",
       "eyebrow": "What we can make in-house",
       "title": "Precision outputs, clinician-reviewed",
-      "body": "We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays—all produced under the treating clinician's oversight."
+      "body": "Instead of taking physical moulds, we use digital scanners and imaging to build a precise three-dimensional picture of your teeth and mouth.\n\nThese scans are used to plan treatments such as crowns, implants, aligners, or complex restorations. Because the information is visual, we can show you what we see and talk through options in a way that is easier to understand.\n\nDigital planning helps us check spacing, bite relationships, and fit before treatment begins, rather than discovering issues part-way through."
     },
     {
       "instanceId": "digital-dentistry-aftercare",
@@ -119,11 +114,9 @@
       "eyebrow": "Aftercare & considerations",
       "title": "Long-term fit backed by maintenance",
       "items": [
-        "Printed restorations include guidance on wear limits and review intervals",
-        "Occlusion and bite are rechecked after settling to reduce adjustments",
-        "Material choices explained, including when ceramics provide more durability",
-        "Clear cleaning instructions to protect surfaces and soft tissue",
-        "Implant-related prints come with hygiene and torque check plans"
+        "Digital imaging allows us to assess structures that are difficult to judge by eye alone, such as tooth position below the gum or bone levels around teeth.",
+        "When X-ray-based scans are used, they are prescribed carefully and only when clinically justified. We follow UK radiation guidelines and always balance benefit against exposure.",
+        "Digital tools support careful planning, but they do not replace clinical checks, consent discussions, or hands-on assessment."
       ]
     },
     {

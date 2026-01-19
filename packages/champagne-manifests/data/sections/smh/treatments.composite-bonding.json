@@ -24,7 +24,7 @@
       "seoRole": "supporting",
       "label": "Introduction",
       "title": "Conservative improvements, well planned",
-      "body": "Composite bonding uses tooth-coloured resin to improve shape, close small gaps, repair chips, or soften uneven edges. It can often be done with minimal drilling, making it a conservative option when the bite and enamel are suitable. We begin with an assessment of wear, staining, gum health and bite forces, because those factors determine how predictable bonding will be over time. For some patients, whitening or aligner straightening first can improve the final result and reduce the amount of composite needed. If bonding is a good fit, we’ll explain what it can achieve, how it’s maintained, and what to expect with polishing and repairs."
+      "body": "Composite bonding is a conservative cosmetic treatment used to improve the appearance of teeth by carefully adding tooth-coloured resin to the surface.\n\nIt is commonly used to adjust shape, close small gaps, or repair minor chips. Because it involves minimal or no removal of natural tooth structure, it is often considered a lower-intervention option compared with other cosmetic treatments.\n\nWhether composite bonding is appropriate depends on your teeth, bite, and expectations, which we assess before recommending treatment."
     },
     {
       "instanceId": "composite_indications",
@@ -33,11 +33,9 @@
       "seoRole": "supporting",
       "title": "What composite bonding can and can’t do",
       "items": [
-        "Adds volume to close small gaps, soften edges, and refine proportions without drilling healthy enamel",
-        "Repairs chipped or worn incisal edges; larger fractures or weakened teeth may need onlays or crowns",
-        "Helps smooth minor rotations and asymmetry, but major crowding still needs aligners or orthodontics",
-        "Can mask shade variations to a degree, yet deep discolouration often responds better to whitening or veneers",
-        "Composite will pick up surface stain and light wear; expect periodic polishing to keep results fresh"
+        "Composite bonding uses a resin material that is shaped directly onto the tooth and then hardened using a curing light.",
+        "The material is colour-matched to your natural teeth and blended carefully so the result looks subtle rather than artificial. The process relies on careful shaping and finishing rather than laboratory fabrication.",
+        "Bonding is typically completed in a single visit for each area treated."
       ]
     },
     {
@@ -84,10 +82,9 @@
       "seoRole": "supporting",
       "title": "Longevity & maintenance",
       "items": [
-        "Professional polishing restores gloss and smoothness without replacing the whole restoration",
-        "Small chips or edge wear can usually be touched up chairside to extend lifespan",
-        "Night guards help protect edges if you clench or grind, reducing fracture risk",
-        "Coffee, tea, red wine, and smoking increase staining; hygiene visits and mindful habits keep colour stable"
+        "Composite bonding is not permanent. Over time, the material can wear, stain, or chip, particularly at the edges.",
+        "Longevity varies between individuals and depends on factors such as bite forces, habits, and oral hygiene. Maintenance or repair may be required in the future.",
+        "We discuss realistic expectations and ongoing care before treatment begins."
       ]
     },
     {
@@ -97,10 +94,9 @@
       "seoRole": "supporting",
       "title": "When bonding isn’t the best choice",
       "items": [
-        "Heavy bites or active clenching with limited space may need occlusal therapy or guards first",
-        "Severe wear or bite collapse often requires orthodontics, onlays, or veneers for stability",
-        "Deep discolouration or large colour jumps are better addressed with whitening or porcelain coverage",
-        "Insufficient enamel or untreated gum disease must be managed before cosmetic bonding is planned"
+        "Composite bonding is best suited to patients with healthy teeth and gums who want small to moderate cosmetic changes.",
+        "It may not be suitable where there is heavy tooth wear, active grinding, or where larger structural changes are required. In these cases, alternative treatments may provide more predictable long-term results.",
+        "We will discuss suitability openly so you can make an informed decision."
       ]
     },
     {
@@ -109,10 +105,10 @@
       "order": 90,
       "seoRole": "supporting",
       "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit.",
+      "body": "Discuss whether composite bonding is right for you",
       "ctas": [
         {
-          "label": "Plan a bonding consultation",
+          "label": "Discuss whether composite bonding is right for you",
           "href": "/contact"
         },
         {
@@ -134,19 +130,19 @@
       "faqs": [
         {
           "question": "How long does composite bonding last?",
-          "answer": "With regular hygiene visits, polishing, and a night guard if you clench, many cases stay stable for several years before refreshes are needed."
+          "answer": "Composite bonding can last for years, but it is not permanent. Wear, staining, and small chips can occur, and maintenance may be needed over time."
         },
         {
           "question": "Can composite bonding be repaired?",
           "answer": "Yes. Chips or edge wear can usually be smoothed and re-layered without removing the rest of the bonding, keeping treatment conservative."
         },
         {
-          "question": "How do I maintain bonded teeth?",
-          "answer": "Use non-abrasive toothpaste, attend hygienist visits for polishing, minimise staining foods and smoking, and wear a night guard if advised."
+          "question": "Is composite bonding better than veneers?",
+          "answer": "It depends on your teeth, bite, and goals. Bonding is more conservative, while veneers can provide longer-term durability or larger shape changes. We explain which option fits your situation."
         },
         {
-          "question": "Is composite bonding suitable for everyone?",
-          "answer": "Suitability depends on bite forces, enamel quality, and goals. We may recommend whitening, aligners, or veneers instead if the bite is heavy or colour change needed is significant."
+          "question": "Does composite bonding damage teeth?",
+          "answer": "Bonding is usually carried out with minimal or no removal of tooth structure. We assess your enamel and bite first to ensure it is appropriate."
         }
       ]
     },

@@ -11,7 +11,7 @@
       "seoRole": "hero",
       "label": "Overview",
       "title": "Gentle check-ups with attentive screening",
-      "body": "We keep routine exams unhurried, explaining what we see and what it means for your mouth. We include a visual oral cancer screening at every routine exam."
+      "body": "Dental check-ups are not just about teeth. They are an opportunity to assess your overall oral health, identify early changes, and discuss concerns before they become more complex.\n\nAs part of a routine examination, we also look for signs of oral cancer and other soft tissue conditions. These checks are visual and hands-on, and are carried out carefully at each visit.\n\nFor most people, nothing unusual is found. The value lies in consistency and familiarity — knowing what is normal for you, and noticing when something changes."
     },
     {
       "instanceId": "dental_checkups_what_to_expect",
@@ -21,11 +21,9 @@
       "label": "Check-up steps",
       "title": "What happens at a check-up",
       "items": [
-        "Conversation about any changes, sensitivities, or goals",
-        "Visual review of teeth, gums, bite, and soft tissues",
-        "Periodontal charting or pocket checks when helpful",
-        "Scale and polish or tailored hygiene guidance",
-        "Clear explanation of findings with options for next steps"
+        "A dental check-up involves examining your teeth, gums, bite, and existing dental work.",
+        "We look for early signs of decay, gum disease, wear, or fracture, and assess how restorations are functioning over time. X-rays may be recommended where clinically justified to see areas that cannot be assessed visually.",
+        "Time is also set aside to discuss symptoms, habits, or changes you’ve noticed, so care can be tailored rather than routine."
       ]
     },
     {
@@ -80,7 +78,7 @@
       "order": 70,
       "seoRole": "supporting",
       "title": "Stay on track between check-ups",
-      "body": "Keep hygiene, preventative care, and family visits on a steady rhythm.",
+      "body": "Arrange a routine dental check-up",
       "ctas": [
         {
           "label": "Hygiene and gum care",
@@ -121,8 +119,8 @@
           "answer": "Yes. We talk you through any changes, explain what is normal, and outline next steps if we spot something that needs a closer look."
         },
         {
-          "question": "How long does a routine exam take?",
-          "answer": "Allow around 30 minutes so we can review your mouth carefully, capture notes or images, and leave time for your questions."
+          "question": "How often should I book a check-up?",
+          "answer": "The right timing depends on your oral health and risk factors. Many people attend every six months, but some need more frequent visits and others less."
         },
         {
           "question": "Can I combine a check-up with hygiene?",

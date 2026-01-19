@@ -12,7 +12,7 @@
       "seoRole": "hero",
       "eyebrow": "Facial therapeutics",
       "title": "Prescription anti-wrinkle treatments",
-      "body": "Measured doses of prescription-only medicine to soften expression lines when clinically appropriate, planned by a prescriber who prioritises natural movement and safety.",
+      "body": "Anti-wrinkle treatments are used to soften the appearance of certain facial lines by temporarily relaxing specific muscles that contribute to them over time.\n\nThese treatments are medical procedures and should be approached carefully. A thorough consultation is essential to assess suitability, discuss expectations, and explain how treatment works.\n\nOur focus is on subtle, natural-looking outcomes that respect facial balance rather than dramatic change.",
       "bullets": [
         "Assessment of facial movement and medical history before prescribing",
         "Conservative dosing tailored to your goals and muscle activity",
@@ -42,7 +42,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Consultation & prescribing",
       "title": "We prescribe only when treatment is appropriate",
-      "body": "Your consultation covers muscle activity, skin quality, and medical history. We discuss whether anti-wrinkle medicine suits you, outline benefits and limitations, and agree areas such as frown lines, forehead, or crow’s feet only if safe to do so.",
+      "body": "Anti-wrinkle treatments do not treat all types of facial lines and will not replace skin care, volume treatments, or surgical options where these are more appropriate.\n\nAs with any medical procedure, there are risks and possible side effects. These are discussed in full during consultation.\n\nTreatment is only provided following appropriate assessment, discussion, and informed consent.",
       "bullets": [
         "Full medical history, medicines, and contraindication checks",
         "Facial mapping to balance doses and avoid brow or lid heaviness",
@@ -59,10 +59,9 @@
       "eyebrow": "Who it helps",
       "title": "For suitable patients seeking gentle softening",
       "items": [
-        "Adults with dynamic lines caused by repeated movement where muscle relaxation is appropriate",
-        "Patients wanting a measured, non-frozen finish with clear review points",
-        "Not for anyone pregnant, breastfeeding, or with contraindicated medical conditions",
-        "Those preferring prescription-led care with clear routes to reverse or pause treatment"
+        "Suitability depends on individual facial anatomy, medical history, and personal goals.",
+        "Anti-wrinkle treatments may not be appropriate for everyone. Certain medical conditions, medications, or life stages can affect whether treatment is advised.",
+        "We carry out a full medical consultation before recommending any treatment and will advise honestly if it is not suitable — including when doing nothing is the better option."
       ]
     },
     {
@@ -74,10 +73,9 @@
       "eyebrow": "Your pathway",
       "title": "Consult, prescribe, treat, and review",
       "items": [
-        "Consultation: medical history, facial movement assessment, and suitability checks",
-        "Prescription & treatment: carefully placed micro-injections aligned to agreed areas",
-        "Review: follow-up (often around 2–3 weeks) to assess effect and adjust only if appropriate",
-        "Maintenance: safe intervals between appointments to avoid over-treatment"
+        "Anti-wrinkle treatments work by reducing muscle activity in targeted areas of the face. This can soften lines that form through repeated facial movement.",
+        "The effect is temporary and develops gradually over several days. Treatment does not stop the ageing process, but it can soften the appearance of certain lines for a limited period.",
+        "Your practitioner will explain which areas may benefit and what level of change is realistic."
       ],
       "strapline": "Results are temporary and depend on your response. We avoid high doses or rushed top-ups to protect facial function."
     },
@@ -101,10 +99,9 @@
       "eyebrow": "Aftercare & risks",
       "title": "Clear guidance and prompt escalation routes",
       "items": [
-        "Avoid heavy exercise, rubbing, or lying flat for the recommended period post-treatment",
-        "Mild redness, pinprick marks, or headaches can occur; bruising is possible",
-        "Rare risks like eyelid or brow heaviness are explained with advice on what to do if they appear",
-        "Direct contact details for the clinic if you have concerns between visits"
+        "Treatment appointments are typically brief and involve carefully placed injections in specific facial muscles.",
+        "Results are not immediate and usually develop over several days. Effects are temporary and gradually wear off, meaning repeat treatment may be required to maintain the result.",
+        "We explain the process, aftercare, and potential risks before treatment begins so you can make an informed decision."
       ]
     },
     {
@@ -124,11 +121,11 @@
       "faqs": [
         {
           "question": "How long do results last?",
-          "answer": "Effects typically build over several days and may last up to 3–4 months, depending on your metabolism and dose."
+          "answer": "Results develop gradually and wear off over time. The duration varies between individuals, and we discuss realistic expectations during consultation."
         },
         {
-          "question": "Can treatment be adjusted?",
-          "answer": "Yes. We schedule a review to check balance and can adjust doses only if clinically appropriate."
+          "question": "Will I look frozen?",
+          "answer": "Our approach focuses on careful assessment and conservative dosing. The aim is a softer appearance while maintaining natural facial movement."
         },
         {
           "question": "Does it hurt?",
