@@ -30,7 +30,7 @@
     "gradient.base": "var(--smh-gradient)"
   },
   "overlays": {
-    "field.waveRings": { "asset": "sacred.wave.overlay.field", "blendMode": "soft-light", "opacity": 0.16, "prmSafe": true },
+    "field.waveRings": { "asset": "sacred.wave.overlay.field", "blendMode": "soft-light", "opacity": 0.20, "prmSafe": true },
     "field.dotGrid": { "asset": "sacred.wave.overlay.dots", "blendMode": "soft-light", "opacity": 0.1, "prmSafe": true },
     "overlay.lighting": { "blendMode": "soft-light", "opacity": 0, "prmSafe": true }
   },
