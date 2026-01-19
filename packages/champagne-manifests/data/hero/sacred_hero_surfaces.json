@@ -31,7 +31,7 @@
   },
   "overlays": {
     "field.waveRings": { "asset": "sacred.wave.overlay.field", "blendMode": "soft-light", "opacity": 0.18, "prmSafe": true },
-    "field.dotGrid": { "asset": "sacred.wave.overlay.dots", "blendMode": "soft-light", "opacity": 0.07, "prmSafe": true },
+    "field.dotGrid": { "asset": "sacred.wave.overlay.dots", "blendMode": "soft-light", "opacity": 0.055, "prmSafe": true },
     "overlay.lighting": { "blendMode": "soft-light", "opacity": 0.04, "prmSafe": true }
   },
   "particles": {
