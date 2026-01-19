@@ -31,9 +31,6 @@ const surfaceOverrideControls: SurfaceOverrideControl[] = [
 
 const clampValue = (value: number, max: number) => Math.min(max, Math.max(0, value));
 
-const isDebugMode = (value: string | null): value is DebugMode =>
-  value === "matcher" || value === "home";
-
 const readOverrides = (mode: DebugMode): OverrideMap => {
   if (typeof window === "undefined") return {};
   const raw = window.localStorage.getItem(`${OVERRIDES_STORAGE_BASE_KEY}.${mode}`);
@@ -120,19 +117,22 @@ const installHeroDebugDump = () => {
       console.warn("Hero debug: no active hero root detected.");
       return;
     }
-    const activeOverrides = readOverrides(activeMode);
+    const params = new URLSearchParams(window.location.search);
+    const overridesEnabled = params.get("overrides") === "1";
+    const activeOverrides = overridesEnabled ? readOverrides(activeMode) : {};
     const surfaceElements = Array.from(viewport.querySelectorAll<HTMLElement>("[data-surface-id]"));
     const rows = surfaceElements.map((element) => {
       const styles = window.getComputedStyle(element);
       return {
         id: element.getAttribute("data-surface-id") ?? "unknown",
         opacity: styles.opacity,
-        mixBlendMode: styles.mixBlendMode,
+        blendMode: styles.mixBlendMode,
         zIndex: styles.zIndex,
       };
     });
     console.groupCollapsed("HERO_DEBUG_DUMP");
     console.log("mode", activeMode);
+    console.log("overridesEnabled", overridesEnabled);
     console.log("overrides", activeOverrides);
     console.table(rows);
     console.groupEnd();
@@ -141,13 +141,12 @@ const installHeroDebugDump = () => {
 
 type HeroDebugModePanelProps = {
   mode: DebugMode;
-  hasModeParam: boolean;
 };
 
-export function HeroDebugModePanel({ mode, hasModeParam }: HeroDebugModePanelProps) {
+export function HeroDebugModePanel({ mode }: HeroDebugModePanelProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [overridesAllowed, setOverridesAllowed] = useState(true);
+  const [overridesAllowed, setOverridesAllowed] = useState(false);
   const [overrideValues, setOverrideValues] = useState<Record<string, number>>(() =>
     surfaceOverrideControls.reduce<Record<string, number>>((acc, control) => {
       acc[control.id] = control.max;
@@ -174,20 +173,10 @@ export function HeroDebugModePanel({ mode, hasModeParam }: HeroDebugModePanelPro
     installHeroDebugDump();
     const params = new URLSearchParams(window.location.search);
     const overridesParam = params.get("overrides");
-    const overridesOff = overridesParam === "off";
-    setOverridesAllowed(!overridesOff);
+    const overridesEnabled = overridesParam === "1";
+    setOverridesAllowed(overridesEnabled);
 
-    if (!hasModeParam) {
-      const storedMode = window.localStorage.getItem(MODE_STORAGE_KEY);
-      if (isDebugMode(storedMode) && storedMode !== mode) {
-        const nextParams = new URLSearchParams(searchParams?.toString());
-        nextParams.set("mode", storedMode);
-        router.replace(`/champagne/hero-debug?${nextParams.toString()}`);
-        return;
-      }
-    }
-
-    if (!overridesOff) {
+    if (overridesEnabled) {
       const storedOverrides = readOverrides(mode);
       setOverrideValues((prev) => {
         const next = { ...prev };
@@ -217,7 +206,7 @@ export function HeroDebugModePanel({ mode, hasModeParam }: HeroDebugModePanelPro
     window.localStorage.setItem(MODE_STORAGE_KEY, mode);
     setRootMode(mode);
     setInitialized(true);
-  }, [hasModeParam, mode, router, searchParams]);
+  }, [mode]);
 
   useEffect(() => {
     if (!initialized) return;
@@ -291,7 +280,7 @@ export function HeroDebugModePanel({ mode, hasModeParam }: HeroDebugModePanelPro
         </div>
         <p style={{ margin: 0, color: "var(--text-medium)" }}>
           Query overrides: <strong>?mode=matcher</strong> or <strong>?mode=home</strong>. Add{" "}
-          <strong>&amp;overrides=off</strong> for a pristine baseline.
+          <strong>&amp;overrides=1</strong> to enable overrides.
         </p>
       </div>
 
@@ -301,7 +290,7 @@ export function HeroDebugModePanel({ mode, hasModeParam }: HeroDebugModePanelPro
             <h3 style={{ margin: 0 }}>Surface Override Lab</h3>
             <p style={{ margin: 0, color: "var(--text-medium)" }}>
               Overrides are scoped to the active hero render mode.
-              {!overridesAllowed ? " Overrides disabled via ?overrides=off." : ""}
+              {!overridesAllowed ? " Overrides disabled until ?overrides=1 is present." : ""}
             </p>
           </div>
           <button

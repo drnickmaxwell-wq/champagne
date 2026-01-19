@@ -52,7 +52,7 @@ export default async function HeroDebugPage({ searchParams }: HeroDebugPageProps
         </p>
       </header>
 
-      <HeroDebugModePanel mode={mode} hasModeParam={Boolean(resolvedParams?.mode)} />
+      <HeroDebugModePanel mode={mode} />
 
       <div className="hero-debug-hero-shell">
         {mode === "home" ? (
