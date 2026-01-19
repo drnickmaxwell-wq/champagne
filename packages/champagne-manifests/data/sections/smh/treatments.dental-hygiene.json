@@ -1,0 +1,261 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.dental-hygiene",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "hygiene-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_dental_hygiene_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Dental hygiene",
+      "title": "A calm hygiene appointment to steady gums and keep your smile fresh",
+      "body": "Hygiene visits focus on removing plaque and hardened tartar, checking gum health, and giving you practical guidance you can actually follow at home.\n\nWe take a clinician-led approach, explaining what we see around the gumline and between teeth, then tailoring the clean and advice to your needs.\n\nAppointments are paced gently, with options for sensitive areas or anxious visitors.",
+      "bullets": [
+        "Gentle scaling and polishing with gum health checks",
+        "Tailored advice for brushing, interdental cleaning, and sensitivity",
+        "Clear intervals so you know when to return and why"
+      ],
+      "ctas": [
+        {
+          "label": "Book a dental hygiene appointment",
+          "href": "/contact?topic=hygiene",
+          "preset": "primary"
+        },
+        {
+          "label": "Learn about gum care",
+          "href": "/treatments/periodontal-gum-care",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "hygiene-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_dental_hygiene_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why hygiene matters",
+      "title": "Consistent hygiene keeps treatment conservative",
+      "items": [
+        "Regular hygiene reduces inflammation and helps prevent gum disease",
+        "Professional cleaning reaches areas brushing alone misses",
+        "Tailored intervals keep implants, crowns, and fillings stable",
+        "Clear advice keeps stain, breath, and sensitivity concerns under control"
+      ]
+    },
+    {
+      "instanceId": "hygiene-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental_hygiene_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What happens in a hygiene visit",
+      "title": "Cleaning, gum checks, and practical guidance",
+      "body": "We start by listening to any concerns, then review gum health and areas that tend to trap plaque. Cleaning is gentle and methodical, with a focus on comfort and clarity.",
+      "bullets": [
+        "Gum measurements and bleeding checks where indicated",
+        "Targeted scaling to remove plaque and tartar above and below the gumline",
+        "Polishing and advice on home care tools that suit your mouth"
+      ]
+    },
+    {
+      "instanceId": "hygiene-who",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_dental_hygiene_who",
+      "order": 40,
+      "seoRole": "supporting",
+      "eyebrow": "Who this supports",
+      "title": "Patients who benefit most from regular hygiene",
+      "items": [
+        "People noticing bleeding gums, tenderness, or bad breath",
+        "Patients with implants, crowns, or bridges who need careful maintenance",
+        "Anyone prone to staining from tea, coffee, or smoking",
+        "Those managing dry mouth, orthodontic appliances, or dexterity challenges"
+      ]
+    },
+    {
+      "instanceId": "hygiene-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_dental_hygiene_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your hygiene pathway",
+      "title": "A clear, paced visit",
+      "items": [
+        "Discussion of concerns and areas you want us to focus on",
+        "Gum health review and plaque assessment",
+        "Gentle scaling above and below the gumline",
+        "Polishing or airflow-style stain removal where suitable",
+        "Home care coaching on brushing, interdental cleaning, and sensitivity",
+        "Agreed recall interval based on your gum risk and history"
+      ],
+      "strapline": "We keep things unhurried so you can stay comfortable and ask questions."
+    },
+    {
+      "instanceId": "hygiene-technology",
+      "componentId": "treatment.technology",
+      "variantId": "smh_dental_hygiene_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Comfort & tools",
+      "title": "Modern instruments with a gentle touch",
+      "body": "We use ultrasonic scalers, fine hand instruments, and airflow-style polishing to remove build-up efficiently while keeping you comfortable.",
+      "mediaHint": "Airflow-style polishing and gentle scaling"
+    },
+    {
+      "instanceId": "hygiene-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_dental_hygiene_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare",
+      "title": "What to expect after your appointment",
+      "items": [
+        "Mild sensitivity can happen and usually settles within a day or two",
+        "Gums may look healthier quickly as inflammation settles",
+        "Avoid strong staining foods or drinks for the rest of the day if we polish",
+        "Follow the home care plan so results last longer"
+      ]
+    },
+    {
+      "instanceId": "dental-hygiene-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "variantId": "smh_dental_hygiene_mid_cta",
+      "order": 80,
+      "seoRole": "supporting",
+      "title": "Related care to explore",
+      "strapline": "Compare connected steps and plan the next visit.",
+      "ctas": [
+        {
+          "label": "Preventative & general dentistry",
+          "href": "/treatments/preventative-and-general-dentistry",
+          "preset": "secondary"
+        },
+        {
+          "label": "Periodontal & gum care",
+          "href": "/treatments/periodontal-gum-care",
+          "preset": "secondary"
+        },
+        {
+          "label": "Dental check-ups",
+          "href": "/treatments/dental-checkups-oral-cancer-screening",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "hygiene-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_dental_hygiene_faq",
+      "order": 90,
+      "seoRole": "faq",
+      "eyebrow": "Hygiene FAQs",
+      "title": "Questions about hygiene appointments",
+      "faqs": [
+        {
+          "question": "How long does a hygiene appointment take?",
+          "answer": "Most visits take around 30–45 minutes, depending on build-up and how much time you want for questions."
+        },
+        {
+          "question": "Will my teeth feel sensitive afterwards?",
+          "answer": "Some people notice mild sensitivity for a day or two, especially if there was heavy tartar. We can adjust techniques and suggest soothing options."
+        },
+        {
+          "question": "Do you use airflow polishing, and is it suitable for me?",
+          "answer": "We use airflow-style polishing when it is appropriate. We check for sensitivities, restorations, and gum health first so it stays comfortable."
+        },
+        {
+          "question": "How often should I book hygiene visits?",
+          "answer": "Intervals vary. If you have gum concerns, implants, or a history of inflammation, we may suggest shorter gaps. We’ll explain the reasoning clearly."
+        }
+      ]
+    },
+    {
+      "instanceId": "dental-hygiene-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_dental_hygiene_decision_clarity",
+      "order": 100,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "Where hygiene fits in your plan",
+      "body": "Hygiene is often the steady baseline alongside routine check-ups and gum care, keeping small issues from becoming bigger ones.",
+      "bullets": [
+        "Often paired with Routine check-ups (/treatments/preventative-and-general-dentistry) for a full oral health review.",
+        "Helpful before or after gum care reviews (/treatments/periodontal-gum-care) when inflammation needs ongoing control.",
+        "Supports long-term maintenance for implants and restorations (/treatments/implants-aftercare).",
+        "If you’re nervous, we can pace visits and discuss support (/treatments/nervous-patients)."
+      ]
+    },
+    {
+      "instanceId": "hygiene-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_dental_hygiene_cta",
+      "order": 110,
+      "seoRole": "cta",
+      "eyebrow": "Next steps",
+      "title": "Book a calm dental hygiene appointment",
+      "body": "Tell us about sensitivity or anxiety and we’ll tailor the pace. We can combine hygiene with a routine check-up if that helps.",
+      "ctas": [
+        {
+          "label": "Book a dental hygiene appointment",
+          "href": "/contact?topic=hygiene",
+          "preset": "primary"
+        },
+        {
+          "label": "Preventative & general dentistry",
+          "href": "/treatments/preventative-and-general-dentistry",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Routine check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Gum care reviews",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Gum care support",
+        "href": "/treatments/periodontal-gum-care"
+      },
+      {
+        "label": "Implant aftercare",
+        "href": "/treatments/implants-aftercare"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Nervous patients",
+        "href": "/treatments/nervous-patients"
+      },
+      {
+        "label": "Preventative dentistry",
+        "href": "/treatments/preventative-and-general-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a dental hygiene appointment",
+      "href": "/contact?topic=hygiene"
+    },
+    "secondary_intent": {
+      "label": "Learn about gum care",
+      "href": "/treatments/periodontal-gum-care"
+    },
+    "reassurance_intent": {
+      "label": "Review routine check-ups",
+      "href": "/treatments/preventative-and-general-dentistry"
+    }
+  }
+}
