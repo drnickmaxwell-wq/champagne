@@ -20,31 +20,36 @@
       "instanceId": "treatment.whatAreImplants",
       "componentId": "treatment.whatAreImplants",
       "order": 30,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "body": "Implant-retained dentures are dentures that are stabilised using dental implants placed in the jaw.\n\nThey are designed for people who find conventional dentures unstable or uncomfortable, but who are not suitable for — or do not want — fully fixed implant teeth. This approach sits between standard removable dentures and fixed implant solutions.\n\nUnderstanding what implant-retained dentures can and cannot do helps you decide whether they are an appropriate step for your needs."
     },
     {
       "instanceId": "treatment.whoIsItFor",
       "componentId": "treatment.whoIsItFor",
       "order": 40,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "body": "Implant-retained dentures use a small number of dental implants to help anchor a removable denture more securely.\n\nThe denture clips or attaches onto the implants, improving stability compared with a traditional denture that rests on the gums alone. The denture is still removable for cleaning and maintenance.\n\nThis combination of implants and a removable denture aims to improve comfort and function without the complexity of a fully fixed solution."
     },
     {
       "instanceId": "treatment.processTimeline",
       "componentId": "treatment.processTimeline",
       "order": 50,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "body": "Compared with conventional dentures, implant-retained dentures are usually more stable, particularly during eating and speaking.\n\nBecause some of the support comes from implants, there is often less reliance on suction or muscle control alone. However, they remain removable appliances and do not feel the same as natural teeth or fixed implant restorations.\n\nThis difference is important to understand when considering expectations and long-term comfort."
     },
     {
       "instanceId": "treatment.technology",
       "componentId": "treatment.technology",
       "order": 60,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "body": "Implant-retained dentures may be suitable for people who struggle with loose dentures and have sufficient bone to support implants.\n\nThey may not be appropriate where medical conditions, smoking, bone levels, or oral health make implant placement unsuitable. Cost and ongoing maintenance are also important considerations.\n\nWe assess suitability carefully and will discuss alternatives if another approach is likely to be more appropriate."
     },
     {
       "instanceId": "treatment.aftercareRisks",
       "componentId": "treatment.aftercareRisks",
       "order": 70,
-      "seoRole": "supporting"
+      "seoRole": "supporting",
+      "body": "Treatment involves placing dental implants, allowing time for healing, and then fitting a denture designed to attach securely to those implants.\n\nThis is a staged process that takes place over several months rather than a single appointment. During this time, temporary solutions may be used.\n\nWe explain each stage clearly so you understand the timescales, commitments, and likely outcomes before treatment begins."
     },
     {
       "instanceId": "implant_retained_dentures_mid_cta",
@@ -52,7 +57,7 @@
       "order": 80,
       "seoRole": "supporting",
       "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "body": "Discuss implant-retained denture options at a consultation"
     },
     {
       "instanceId": "treatment.faq",

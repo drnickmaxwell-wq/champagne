@@ -27,7 +27,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "What to expect during treatment",
       "title": "What to expect during treatment",
-      "body": "If a splint is recommended, we’ll take impressions or digital scans to ensure an accurate fit.\n\nOnce fitted, we’ll explain how and when to wear it, how to clean it, and what to expect initially. Review appointments allow us to check comfort, fit, and effectiveness.",
+      "body": "Night guards and occlusal splints are used to protect teeth and manage risk when the bite is under strain.\n\nThey don’t “cure” grinding or clenching. Their role is more practical than that: to reduce damage, improve comfort, and help keep things stable over time when forces are higher than the teeth can comfortably tolerate.\n\nUsed appropriately, they form part of a longer-term management plan rather than a one-off fix.",
       "bullets": [
         "We’ll take impressions or digital scans to ensure an accurate fit.",
         "We’ll explain how and when to wear it, how to clean it, and what to expect initially.",
@@ -43,8 +43,9 @@
       "eyebrow": "When a night guard or splint may be recommended",
       "title": "When a night guard or splint may be recommended",
       "items": [
-        "A splint may be suggested if there are signs or symptoms such as excessive tooth wear, fractured fillings or crowns, jaw or facial muscle discomfort, morning headaches, or clenching and grinding habits.",
-        "Sometimes a splint is recommended to protect teeth. In other cases, it helps us understand how the bite and jaw are behaving over time."
+        "Night guards are often recommended for people who show signs of tooth wear, repeated fractures, jaw discomfort, or muscle tension linked to clenching or grinding.",
+        "They’re also used when we see patterns that suggest ongoing risk, even if symptoms are mild. In other words, the decision isn’t based on one sore morning — it’s based on what the teeth and bite are telling us over time.",
+        "They are not appropriate for everyone, and they are not a substitute for addressing underlying dental or bite issues where those exist."
       ]
     },
     {
@@ -71,10 +72,9 @@
       "eyebrow": "Different types of splints",
       "title": "Different types of splints",
       "items": [
-        "There are different types of splints, each designed for a specific purpose.",
-        "Some are intended primarily to protect teeth from wear. Others are used to help stabilise the bite, reduce muscle strain, or assess how the jaw is functioning.",
-        "We’ll explain which type is being recommended and what role it plays in your overall care.",
-        "The design and thickness of a splint matter, and the right choice depends on your symptoms and findings."
+        "A night guard is a custom-made appliance that fits over the teeth and is usually worn during sleep. Occlusal splints are similar appliances, sometimes designed for more specific bite control or daytime use.",
+        "They work by altering how the teeth contact each other and by spreading biting forces more evenly. This can reduce wear, chipping, muscle fatigue, and joint strain.",
+        "The design matters. A well-made appliance is planned around your bite, not selected off the shelf."
       ]
     },
     {
@@ -86,9 +86,9 @@
       "eyebrow": "Comfort and adjustment",
       "title": "Comfort and adjustment",
       "items": [
-        "It’s normal for a splint to feel unfamiliar at first.",
-        "Most patients adapt quickly, but we’ll review how it feels and functions. Any discomfort, pressure, or changes in bite should be reported so adjustments can be made.",
-        "The goal is comfort and protection, not tolerance."
+        "Wearing a night guard usually involves a short adjustment period. It may feel unfamiliar at first, and some people notice changes in how their bite feels when the appliance is removed in the morning.",
+        "The aim is comfort and protection, not forcing the jaw into a new position. We review how the appliance is working and make adjustments if needed.",
+        "Used properly, it should feel supportive rather than intrusive."
       ]
     },
     {
@@ -99,7 +99,7 @@
       "seoRole": "supporting",
       "eyebrow": "Questions and next steps",
       "title": "Questions and next steps",
-      "body": "If you’re unsure whether a night guard or splint is necessary, we encourage you to ask.\n\nUnderstanding why an appliance has been recommended — and what it can and can’t achieve — is key to making an informed decision.",
+      "body": "Night guards are a management tool, not a permanent solution to the cause of grinding.\n\nThey need to be checked periodically, as both the appliance and the bite can change over time. Wear on the guard often tells us useful information about ongoing forces.\n\nIn some cases, additional treatment or investigation is needed. In others, long-term use of a well-maintained appliance is an effective way of protecting the teeth and supporting comfort.",
       "bullets": [
         "If you’re unsure whether a night guard or splint is necessary, we encourage you to ask.",
         "Understanding why an appliance has been recommended — and what it can and can’t achieve — is key to making an informed decision."
@@ -121,8 +121,8 @@
       "title": "Night guard questions answered",
       "faqs": [
         {
-          "question": "Who should consider an occlusal splint?",
-          "answer": "They are recommended for patients with clenching, grinding, headaches from jaw tension, or restorations that need protection. We confirm suitability after examining your bite and joints."
+          "question": "Will a night guard stop grinding?",
+          "answer": "A night guard protects the teeth and helps manage damage from grinding, but it does not cure the habit itself. We use it as part of a longer-term management plan."
         },
         {
           "question": "Are there alternatives if I do not want a splint?",
@@ -130,7 +130,7 @@
         },
         {
           "question": "How long will my splint last?",
-          "answer": "Durability depends on grinding forces, material choice, and care. We advise expected replacement intervals and check fit at reviews so we can refresh before wear reduces protection."
+          "answer": "Durability depends on grinding forces, material choice, and care. We monitor wear at reviews and advise when replacement is needed without making fixed promises."
         },
         {
           "question": "How do I look after the splint?",
