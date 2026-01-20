@@ -576,10 +576,10 @@ export function HeroV2Frame({
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
-      data-hero-id={heroId ?? ""}
-      data-variant-id={variantId ?? ""}
-      data-particles-path={particlesPath ?? ""}
-      data-particles-opacity={particlesOpacity ?? ""}
+      data-hero-id={heroId || undefined}
+      data-variant-id={variantId || undefined}
+      data-particles-path={particlesPath || undefined}
+      data-particles-opacity={particlesOpacity !== undefined ? `${particlesOpacity}` : undefined}
       style={rootStyle}
     >
       <BaseChampagneSurface
