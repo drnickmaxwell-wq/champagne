@@ -6293,7 +6293,8 @@
           }
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_dental_appointments": {
       "id": "emergency_dental_appointments",
@@ -6401,7 +6402,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_severe_toothache": {
       "id": "emergency_severe_toothache",
@@ -6510,7 +6512,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_dental_abscess": {
       "id": "emergency_dental_abscess",
@@ -6619,7 +6622,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_broken_chipped_teeth": {
       "id": "emergency_broken_chipped_teeth",
@@ -6728,7 +6732,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_knocked_out_tooth": {
       "id": "emergency_knocked_out_tooth",
@@ -6836,7 +6841,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_lost_crowns": {
       "id": "emergency_lost_crowns",
@@ -6945,7 +6951,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "emergency_dental_trauma": {
       "id": "emergency_dental_trauma",
@@ -7054,7 +7061,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.emergency"
     },
     "3d_dentistry_and_technology": {
       "id": "3d_dentistry_and_technology",

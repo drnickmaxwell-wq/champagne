@@ -212,6 +212,7 @@ export interface ChampagneHeroManifest {
 
 const heroFamilyMap: Record<string, string> = {
   "treatments.implants": "hero.treatment.implants",
+  "treatments.emergency": "hero.treatment.emergency",
 };
 
 function resolveHeroFamily(heroFamily?: string): string | undefined {

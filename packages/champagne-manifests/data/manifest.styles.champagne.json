@@ -143,6 +143,11 @@
       "motion": "steady",
       "cta": "call-office"
     },
+    "hero.treatment.emergency": {
+      "palette": "noir",
+      "motion": "steady",
+      "cta": "call-office"
+    },
     "periodontal_health_hero_v1": {
       "palette": "platinum",
       "motion": "calm",
