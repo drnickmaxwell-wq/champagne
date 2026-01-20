@@ -941,6 +941,14 @@ export async function buildHeroV2Model({
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
   };
 
+  if (process.env.NODE_ENV !== "production") {
+    console.info("HeroRendererV2 particles debug", {
+      resolvedVariantId: runtime.variant?.id,
+      resolvedParticlesPath: particlesPath,
+      resolvedParticlesOpacity: particlesOpacity,
+    });
+  }
+
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
     : undefined;
