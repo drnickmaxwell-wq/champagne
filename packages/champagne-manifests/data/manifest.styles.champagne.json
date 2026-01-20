@@ -18,6 +18,11 @@
       "motion": "precision",
       "cta": "book_implants"
     },
+    "hero.treatment.implants": {
+      "palette": "platinum",
+      "motion": "precision",
+      "cta": "book_implants"
+    },
     "veneers_gilded_hero_v2": {
       "palette": "gilded",
       "motion": "sweep",
@@ -134,6 +139,11 @@
       "cta": "book-consultation"
     },
     "emergency_support_hero_v1": {
+      "palette": "noir",
+      "motion": "steady",
+      "cta": "call-office"
+    },
+    "hero.treatment.emergency": {
       "palette": "noir",
       "motion": "steady",
       "cta": "call-office"

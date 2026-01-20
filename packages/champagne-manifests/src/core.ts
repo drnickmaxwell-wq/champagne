@@ -124,6 +124,7 @@ export interface ChampagnePageManifest {
   id?: string;
   path?: string;
   hero?: string | Record<string, unknown>;
+  heroFamily?: string;
   sections?: ChampagnePageSection[] | string[];
   surface?: string;
   category?: string;

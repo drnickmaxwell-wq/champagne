@@ -66,6 +66,24 @@
       }
     },
     {
+      "id": "treatment.implants",
+      "label": "Treatment family: implants",
+      "energyMode": "calm",
+      "surfaces": {
+        "particles": "overlay.particlesGold",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "treatment.emergency",
+      "label": "Treatment family: emergency",
+      "energyMode": "steady",
+      "surfaces": {
+        "particles": "overlay.particlesTeal",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.particlesDrift"]
+      }
+    },
+    {
       "id": "hero_aligners",
       "label": "Treatment: aligners",
       "treatmentSlug": "spark-aligners",
