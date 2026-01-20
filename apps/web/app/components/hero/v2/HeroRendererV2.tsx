@@ -971,9 +971,12 @@ export async function buildHeroV2Model({
 
   if (process.env.NODE_ENV !== "production") {
     console.info("HeroRendererV2 particles debug", {
+      heroId: runtime.id,
       resolvedVariantId: runtime.variant?.id,
       resolvedParticlesPath,
       resolvedParticlesOpacity,
+      surfaceParticles: surfaceVars["--hero-particles" as keyof CSSProperties],
+      surfaceParticlesOpacity: surfaceVars["--hero-particles-opacity" as keyof CSSProperties],
     });
   }
 
