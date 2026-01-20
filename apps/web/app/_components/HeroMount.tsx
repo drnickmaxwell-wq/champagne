@@ -22,6 +22,17 @@ export async function HeroMount(props: HeroRendererProps) {
   if (useV2) {
     const v2Props = props as HeroRendererV2Props;
     const model = await buildHeroV2Model(props);
+    if (process.env.NODE_ENV !== "production") {
+      const pathname = props.treatmentSlug ? `/treatments/${props.treatmentSlug}` : undefined;
+      console.info("HERO_V2_MOUNT_TRACE", {
+        pathname,
+        mode: props.mode,
+        heroId: model?.surfaceStack.heroId,
+        variantId: model?.surfaceStack.variantId,
+        particlesPath: model?.surfaceStack.particlesPath,
+        particlesOpacity: model?.surfaceStack.particlesOpacity,
+      });
+    }
 
     return (
       <div
