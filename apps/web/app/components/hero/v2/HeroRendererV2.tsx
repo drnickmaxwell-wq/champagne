@@ -175,6 +175,39 @@ const normalizeHeroPathname = (path?: string) => {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 };
 
+const resolveParticlesPath = (entry?: {
+  path?: string;
+  id?: string;
+  asset?: unknown;
+}) => {
+  if (!entry) return undefined;
+  if (entry.path) return entry.path;
+  if (entry.asset && typeof entry.asset === "object") {
+    const asset = entry.asset as { id?: string; path?: string };
+    if (asset.path) return asset.path;
+    if (asset.id) return ensureHeroAssetPath(asset.id);
+  }
+  if (entry.id) return ensureHeroAssetPath(entry.id);
+  return undefined;
+};
+
+const resolveParticlesOpacity = (entry?: {
+  opacity?: number;
+  particlesOpacity?: number;
+  assetOpacity?: number;
+  asset?: unknown;
+}) => {
+  if (!entry) return undefined;
+  if (entry.opacity !== undefined) return entry.opacity;
+  if (entry.particlesOpacity !== undefined) return entry.particlesOpacity;
+  if (entry.assetOpacity !== undefined) return entry.assetOpacity;
+  if (entry.asset && typeof entry.asset === "object" && "opacity" in entry.asset) {
+    const assetOpacity = (entry.asset as { opacity?: number }).opacity;
+    if (assetOpacity !== undefined) return assetOpacity;
+  }
+  return undefined;
+};
+
 function HeroFallback() {
   return (
     <BaseChampagneSurface
@@ -820,25 +853,27 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   const heroVideoActive = Boolean(!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path));
   const runtimeParticles = (runtime as { particles?: { path?: string; opacity?: number } }).particles;
   const runtimeParticlesPath =
-    runtime.surfaces?.particles?.path ??
-    runtime.surfaces?.particles?.asset?.path ??
-    runtimeParticles?.path;
+    resolveParticlesPath(runtime.surfaces?.particles) ??
+    resolveParticlesPath(runtimeParticles);
   const runtimeParticlesOpacity =
-    runtime.surfaces?.particles?.opacity ??
-    runtimeParticles?.opacity;
+    resolveParticlesOpacity(runtime.surfaces?.particles) ??
+    resolveParticlesOpacity(runtimeParticles);
   const fallbackParticlesPath = "/assets/champagne/particles/home-hero-particles.webp";
   const resolvedParticlesPath = runtimeParticlesPath ?? fallbackParticlesPath;
-  const resolvedParticlesOpacity = runtimeParticlesPath ? runtimeParticlesOpacity : (runtimeParticlesOpacity ?? 0.14);
+  const resolvedParticlesOpacity = runtimeParticlesOpacity ?? 0.14;
   const particlesAssetAvailable = Boolean(resolvedParticlesPath);
-  const filteredMotionEntries = motionEntries.filter((entry) => {
-    if (isDeniedVideo(entry.path)) return false;
-    if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
-    if (hasMotionAllowlist) {
-      if (!entry.id) return false;
-      return motionAllowlist?.includes(entry.id) ?? false;
-    }
-    return true;
-  });
+  const shouldShowMotion = !prmEnabled;
+  const filteredMotionEntries = shouldShowMotion
+    ? motionEntries.filter((entry) => {
+        if (isDeniedVideo(entry.path)) return false;
+        if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
+        if (hasMotionAllowlist) {
+          if (!entry.id) return false;
+          return motionAllowlist?.includes(entry.id) ?? false;
+        }
+        return true;
+      })
+    : [];
   const motionCausticsActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--caustics"));
   const motionShimmerActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--glass-shimmer"));
   const motionGoldDustActive = filteredMotionEntries.some((entry) => entry.className?.includes("hero-surface--gold-dust"));
@@ -988,18 +1023,6 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     ["--hero-particles-opacity" as string]: shouldShowParticles ? resolvedParticlesOpacity : undefined,
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
   };
-
-  if (process.env.NODE_ENV !== "production") {
-    console.info("HeroRendererV2 particles debug", {
-      pathname: resolvedPathname,
-      heroId: runtime.id,
-      resolvedVariantId: runtime.variant?.id,
-      resolvedParticlesPath,
-      resolvedParticlesOpacity,
-      surfaceParticles: surfaceVars["--hero-particles" as keyof CSSProperties],
-      surfaceParticlesOpacity: surfaceVars["--hero-particles-opacity" as keyof CSSProperties],
-    });
-  }
 
   const diagnosticOutlineStyle: CSSProperties | undefined = diagnosticBoost
     ? { outline: "1px solid var(--champagne-keyline-gold, var(--accentGold_soft))", outlineOffset: "-1px" }
@@ -1326,6 +1349,18 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
       path: entry.path as string,
       style,
     }));
+
+  if (process.env.NODE_ENV !== "production") {
+    console.info("HERO_V2_RESOLVE_PROOF", {
+      pathname: resolvedPathname,
+      heroId: runtime.id,
+      variantId: runtime.variant?.id,
+      particlesPath: resolvedParticlesPath,
+      particlesOpacity: resolvedParticlesOpacity,
+      motionCount: motionLayers.length,
+      prm: prmEnabled,
+    });
+  }
 
   const heroVideo = !prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path)
     ? {
