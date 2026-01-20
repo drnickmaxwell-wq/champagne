@@ -819,15 +819,16 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   const videoEntry = surfaces.video;
   const heroVideoActive = Boolean(!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path));
   const runtimeParticles = (runtime as { particles?: { path?: string; opacity?: number } }).particles;
-  const resolvedParticlesPath =
+  const runtimeParticlesPath =
     runtime.surfaces?.particles?.path ??
     runtime.surfaces?.particles?.asset?.path ??
-    runtimeParticles?.path ??
-    "/assets/champagne/particles/home-hero-particles.webp";
-  const resolvedParticlesOpacity =
+    runtimeParticles?.path;
+  const runtimeParticlesOpacity =
     runtime.surfaces?.particles?.opacity ??
-    runtimeParticles?.opacity ??
-    0.14;
+    runtimeParticles?.opacity;
+  const fallbackParticlesPath = "/assets/champagne/particles/home-hero-particles.webp";
+  const resolvedParticlesPath = runtimeParticlesPath ?? fallbackParticlesPath;
+  const resolvedParticlesOpacity = runtimeParticlesPath ? runtimeParticlesOpacity : (runtimeParticlesOpacity ?? 0.14);
   const particlesAssetAvailable = Boolean(resolvedParticlesPath);
   const filteredMotionEntries = motionEntries.filter((entry) => {
     if (isDeniedVideo(entry.path)) return false;
@@ -990,6 +991,7 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 
   if (process.env.NODE_ENV !== "production") {
     console.info("HeroRendererV2 particles debug", {
+      pathname: resolvedPathname,
       heroId: runtime.id,
       resolvedVariantId: runtime.variant?.id,
       resolvedParticlesPath,

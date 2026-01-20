@@ -35,13 +35,23 @@ function HeroSurfaceStackV2Base({
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") return;
-    console.log("HERO_V2_STACK_VARS", {
-      pathname,
-      heroId,
-      variantId,
-      particles: surfaceVars["--hero-particles" as keyof CSSProperties],
-      particlesOpacity: surfaceVars["--hero-particles-opacity" as keyof CSSProperties],
-    });
+    const stackElement = document.querySelector(".hero-surface-stack") as HTMLElement | null;
+    const resolvedParticles = surfaceVars["--hero-particles" as keyof CSSProperties];
+    const resolvedParticlesOpacity = surfaceVars["--hero-particles-opacity" as keyof CSSProperties];
+    const logComputed = () => {
+      const computed = stackElement ? getComputedStyle(stackElement) : null;
+      console.info("HERO_V2_STACK_VARS", {
+        pathname,
+        heroId,
+        variantId,
+        particlesPath: resolvedParticles,
+        particlesOpacity: resolvedParticlesOpacity,
+        computedParticles: computed?.getPropertyValue("--hero-particles")?.trim() ?? null,
+        computedParticlesOpacity: computed?.getPropertyValue("--hero-particles-opacity")?.trim() ?? null,
+      });
+    };
+    const frameId = requestAnimationFrame(logComputed);
+    return () => cancelAnimationFrame(frameId);
   }, [heroId, pathname, surfaceVars, variantId]);
 
   useEffect(() => {
