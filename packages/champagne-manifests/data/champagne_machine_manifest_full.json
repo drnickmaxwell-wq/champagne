@@ -10,6 +10,10 @@
       "path": "/",
       "category": "hub",
       "hero": "sacred_home_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "default"
+      },
       "ctas": {
         "heroCTAs": [
           "book-consultation",
@@ -1806,6 +1810,10 @@
       "path": "/treatments/implants",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "treatment.implants",
+        "variantId": "treatment.implants"
+      },
       "intro": "Stable, natural-looking implant restorations with calm planning and follow-up.",
       "sections": [
         {
@@ -6073,6 +6081,10 @@
       "path": "/treatments/emergency-dentistry",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "treatment.emergency",
+        "variantId": "treatment.emergency"
+      },
       "sections": [
         {
           "id": "emergency_dentistry_overview",
