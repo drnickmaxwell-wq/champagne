@@ -54,6 +54,7 @@ export type HeroV2MotionLayerModel = {
   className?: string;
   path: string;
   style: CSSProperties;
+  targetOpacity?: number | null;
 };
 
 export type HeroV2SacredBloomModel = {
@@ -86,6 +87,7 @@ export type HeroSurfaceStackModel = {
     path: string;
     poster?: string;
     style: CSSProperties;
+    targetOpacity?: number | null;
   };
   sacredBloom?: HeroV2SacredBloomModel;
 };
@@ -292,7 +294,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 animation-iteration-count: infinite;
                 transform-origin: center;
                 will-change: transform;
-                opacity: 0;
+                opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
                 transition: opacity 220ms ease;
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
@@ -654,6 +656,7 @@ export function HeroV2Frame({
           ["--glass-opacity" as string]: 0,
           ["--champagne-sheen-alpha" as string]: 0,
           ["--champagne-glass-bg" as string]: "",
+          ["--hero-motion-default-opacity" as string]: prm ? "0" : "0.2",
           backdropFilter: "none",
           WebkitBackdropFilter: "none",
         }}
@@ -960,11 +963,14 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     let targetOpacity: number | null = null;
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
-      targetOpacity = resolvedOpacity;
-      (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${resolvedOpacity}`;
-      style.opacity = prmEnabled ? 0 : resolvedOpacity;
+      targetOpacity = prmEnabled ? 0 : resolvedOpacity;
+      (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${targetOpacity}`;
+      (style as CSSProperties & Record<string, string>)["--hero-motion-opacity"] = `${targetOpacity}`;
     } else {
-      style.opacity = 0;
+      if (prmEnabled) {
+        (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = "0";
+        (style as CSSProperties & Record<string, string>)["--hero-motion-opacity"] = "0";
+      }
       if (id) noteMissing(id, "opacity", "motion");
     }
 
@@ -1323,12 +1329,15 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     },
   };
 
-  const { style: heroVideoStyle } = resolveMotionStyle(videoEntry ?? undefined, "motion.heroVideo");
+  const { style: heroVideoStyle, targetOpacity: heroVideoTargetOpacity } = resolveMotionStyle(
+    videoEntry ?? undefined,
+    "motion.heroVideo",
+  );
 
   const motionEntriesWithStyles = filteredMotionEntries.map((entry, index) => {
-    const { style } = resolveMotionStyle(entry, entry.id ?? `motion-${index}`);
+    const { style, targetOpacity } = resolveMotionStyle(entry, entry.id ?? `motion-${index}`);
 
-    return { entry, style };
+    return { entry, style, targetOpacity };
   });
 
   const layers: HeroV2SurfaceLayerModel[] = surfaceStack.map((layer) => {
@@ -1353,11 +1362,12 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 
   const motionLayers: HeroV2MotionLayerModel[] = motionEntriesWithStyles
     .filter(({ entry }) => Boolean(entry.id && entry.path))
-    .map(({ entry, style }) => ({
+    .map(({ entry, style, targetOpacity }) => ({
       id: entry.id as string,
       className: entry.className,
       path: entry.path as string,
       style,
+      targetOpacity,
     }));
 
   const heroVideo = !prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path)
@@ -1365,6 +1375,7 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
         path: videoEntry.path,
         poster: surfaces.background?.desktop?.path,
         style: heroVideoStyle,
+        targetOpacity: heroVideoTargetOpacity,
       }
     : undefined;
 
