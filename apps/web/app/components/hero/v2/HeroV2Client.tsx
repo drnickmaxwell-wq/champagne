@@ -403,6 +403,11 @@ function HeroSurfaceStackV2Base({
             preload="metadata"
             poster={heroVideo.poster}
             data-surface-id="motion.heroVideo"
+            data-motion-target-opacity={
+              heroVideo.targetOpacity !== undefined && heroVideo.targetOpacity !== null
+                ? `${heroVideo.targetOpacity}`
+                : undefined
+            }
             style={heroVideo.style}
           >
             <source src={heroVideo.path} />
@@ -420,6 +425,9 @@ function HeroSurfaceStackV2Base({
               muted
               preload="metadata"
               data-surface-id={entry.id}
+              data-motion-target-opacity={
+                entry.targetOpacity !== undefined && entry.targetOpacity !== null ? `${entry.targetOpacity}` : undefined
+              }
               style={entry.style}
             >
               <source src={entry.path} />
