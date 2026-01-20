@@ -538,8 +538,11 @@ export function getMainNavItems(): NavItem[] {
 
 export function getPageManifestBySlug(slug: string): ChampagnePageManifest | undefined {
   const normalizedSlug = normalizeSlug(slug);
+  const collections = normalizedSlug.startsWith("/treatments/")
+    ? [champagneMachineManifest.treatments ?? {}, champagneMachineManifest.pages ?? {}]
+    : pageCollections;
 
-  for (const collection of pageCollections) {
+  for (const collection of collections) {
     const match = Object.values(collection).find((entry) => entry.path === normalizedSlug);
     if (match) return match;
   }
