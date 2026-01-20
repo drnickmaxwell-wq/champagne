@@ -165,7 +165,6 @@ const resolveBackgroundGlue = (url?: string) => {
 
 const resolveBackgroundImage = (url?: string) => (url ? `url("${url}")` : undefined);
 const resolvedGlueManifest = heroGlueManifest as GlueManifest;
-let motionEverRevealed = false;
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -620,10 +619,6 @@ export function HeroV2Frame({
   debug,
   children,
 }: HeroV2FrameProps) {
-  if (typeof window !== "undefined" && (window as typeof window & { __heroMotionEverRevealed?: boolean }).__heroMotionEverRevealed) {
-    motionEverRevealed = true;
-  }
-
   const dataAttributes = debug
     ? {
         "data-hero-id": heroId || undefined,
@@ -963,12 +958,11 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     const resolvedBlend = entry.blendMode ?? undefined;
     const resolvedOpacity = entry.opacity ?? undefined;
     let targetOpacity: number | null = null;
-    const allowMotionGate = !motionEverRevealed;
 
     if (resolvedOpacity !== undefined && resolvedOpacity !== null) {
       targetOpacity = resolvedOpacity;
       (style as CSSProperties & Record<string, string>)["--hero-motion-target-opacity"] = `${resolvedOpacity}`;
-      style.opacity = allowMotionGate ? 0 : resolvedOpacity;
+      style.opacity = prmEnabled ? 0 : resolvedOpacity;
     } else {
       style.opacity = 0;
       if (id) noteMissing(id, "opacity", "motion");
@@ -1456,6 +1450,23 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       isActive = false;
     };
   }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    if (!model) return;
+    const logOpacity = () => {
+      const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
+      const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
+      console.info("HERO_V2_MOTION_OPACITY_PROOF", {
+        pathname: pathnameKey,
+        prm: model.surfaceStack.prmEnabled,
+        motionCount: model.surfaceStack.motionLayers.length,
+        firstMotionOpacity: computedOpacity,
+      });
+    };
+    const frameId = requestAnimationFrame(logOpacity);
+    return () => cancelAnimationFrame(frameId);
+  }, [debugEnabled, model, pathnameKey]);
 
   if (!model) return <HeroFallback />;
 
