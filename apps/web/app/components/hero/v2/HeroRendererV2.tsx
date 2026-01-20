@@ -827,11 +827,11 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   } = props;
   const bloomDebug = typeof window !== "undefined" && window.location.search.includes("bloomDebug=1");
   let runtime: Awaited<ReturnType<typeof getHeroRuntime>> | null = null;
-  const resolvedPathname = normalizeHeroPathname(pageSlugOrPath);
-  const isTreatmentPath = resolvedPathname.startsWith("/treatments/");
-  const isHomePath = resolvedPathname === "/";
+  const pathnameKey = normalizeHeroPathname(pageSlugOrPath);
+  const isTreatmentPath = pathnameKey.startsWith("/treatments/");
+  const isHomePath = pathnameKey === "/";
   const runtimeMode: HeroMode = isTreatmentPath ? "treatment" : "home";
-  const runtimeTreatmentSlug = isTreatmentPath ? resolvedPathname.split("/")[2] || undefined : undefined;
+  const runtimeTreatmentSlug = isTreatmentPath ? pathnameKey.split("/")[2] || undefined : undefined;
   const resolvedPageCategory =
     pageCategory ?? (runtimeMode === "home" ? "home" : runtimeMode === "treatment" ? "treatment" : undefined);
 
@@ -1409,7 +1409,8 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 }
 
 export function HeroRendererV2(props: HeroRendererV2Props) {
-  const pathname = usePathname();
+  const rawPathname = usePathname();
+  const pathnameKey = normalizeHeroPathname(rawPathname);
   const {
     mode,
     treatmentSlug,
@@ -1430,14 +1431,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     setDebugEnabled(params.has("heroDebug"));
-  }, [pathname]);
+  }, [rawPathname]);
 
   useEffect(() => {
     let isActive = true;
     void buildHeroV2Model({
       mode,
       treatmentSlug,
-      pageSlugOrPath: pathname,
+      pageSlugOrPath: pathnameKey,
       debug: debugEnabled,
       prm,
       timeOfDay,
@@ -1454,14 +1455,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => {
       isActive = false;
     };
-  }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathname, prm, timeOfDay, treatmentSlug]);
+  }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
 
   if (!model) return <HeroFallback />;
 
   const resolvedRootStyle = { ...rootStyle, ...model.surfaceStack.surfaceVars };
   const motionCount = model.surfaceStack.motionLayers.length;
   const overlayData = {
-    pathname,
+    pathname: pathnameKey,
     heroId: model.surfaceStack.heroId ?? "",
     variantId: model.surfaceStack.variantId ?? "",
     particlesPath: model.surfaceStack.particlesPath ?? "",
