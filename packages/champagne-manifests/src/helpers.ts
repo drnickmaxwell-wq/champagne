@@ -211,8 +211,8 @@ export interface ChampagneHeroManifest {
 }
 
 const heroFamilyMap: Record<string, string> = {
-  "treatments.implants": "hero.treatment.implants",
-  "treatments.emergency": "hero.treatment.emergency",
+  "treatments.implants": "treatment.implants",
+  "treatments.emergency": "treatment.emergency",
 };
 
 function resolveHeroFamily(heroFamily?: string): string | undefined {
@@ -229,15 +229,15 @@ function getHeroPresetFromStyles(heroId: string): Record<string, unknown> | unde
 
 export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest | undefined {
   const pageManifest = getPageManifestBySlug(heroIdOrPageSlug);
-  if (pageManifest?.hero) {
-    return normalizeHeroManifest(pageManifest.hero, pageManifest.path);
-  }
-
   if (pageManifest?.heroFamily) {
     const resolvedHeroId = resolveHeroFamily(pageManifest.heroFamily);
     if (resolvedHeroId) {
       return normalizeHeroManifest({ id: resolvedHeroId }, pageManifest.path);
     }
+  }
+
+  if (pageManifest?.hero) {
+    return normalizeHeroManifest(pageManifest.hero, pageManifest.path);
   }
 
   if (pageManifest) {
