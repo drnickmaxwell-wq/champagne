@@ -27,22 +27,13 @@ function HeroSurfaceStackV2Base({
   sacredBloom,
   surfaceRef,
   bloomEnabled,
-  heroId,
-  variantId,
+  heroId: _heroId,
+  variantId: _variantId,
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (process.env.NODE_ENV === "production") return;
-    console.log("HERO_V2_STACK_VARS", {
-      pathname,
-      heroId,
-      variantId,
-      particles: surfaceVars["--hero-particles" as keyof CSSProperties],
-      particlesOpacity: surfaceVars["--hero-particles-opacity" as keyof CSSProperties],
-    });
-  }, [heroId, pathname, surfaceVars, variantId]);
+  void pathname;
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
