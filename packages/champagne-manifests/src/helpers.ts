@@ -207,6 +207,7 @@ export function getCTAIntentLabels(): Record<string, string> {
 export interface ChampagneHeroManifest {
   id: string;
   sourcePagePath?: string;
+  variantId?: string;
   preset?: string | Record<string, unknown>;
 }
 
@@ -229,6 +230,14 @@ function getHeroPresetFromStyles(heroId: string): Record<string, unknown> | unde
 
 export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest | undefined {
   const pageManifest = getPageManifestBySlug(heroIdOrPageSlug);
+  const heroBinding = pageManifest?.heroBinding;
+  if (heroBinding?.heroId) {
+    return normalizeHeroManifest(
+      { id: heroBinding.heroId, variantId: heroBinding.variantId },
+      pageManifest?.path,
+    );
+  }
+
   if (pageManifest?.heroFamily) {
     const resolvedHeroId = resolveHeroFamily(pageManifest.heroFamily);
     if (resolvedHeroId) {
@@ -284,10 +293,12 @@ function normalizeHeroManifest(
   path?: string,
 ): ChampagneHeroManifest {
   const heroId = typeof hero === "string" ? hero : (hero.id as string | undefined) ?? "";
+  const variantId = typeof hero === "string" ? undefined : (hero.variantId as string | undefined);
   const styledPreset = typeof hero === "string" ? getHeroPresetFromStyles(hero) : hero;
   return {
     id: heroId || path || "",
     sourcePagePath: path,
+    variantId,
     preset: styledPreset,
   };
 }

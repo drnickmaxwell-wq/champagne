@@ -3,6 +3,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode, type Ref } from "react";
 import { usePathname } from "next/navigation";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import { getPageManifest } from "@champagne/manifests";
 import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
@@ -81,6 +82,8 @@ export type HeroSurfaceStackModel = {
   bloomEnabled: boolean;
   heroId?: string;
   variantId?: string;
+  boundHeroId?: string;
+  boundVariantId?: string;
   particlesPath?: string;
   particlesOpacity?: number;
   heroVideo?: {
@@ -832,17 +835,22 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   const runtimeTreatmentSlug = isTreatmentPath ? pathnameKey.split("/")[2] || undefined : undefined;
   const resolvedPageCategory =
     pageCategory ?? (runtimeMode === "home" ? "home" : runtimeMode === "treatment" ? "treatment" : undefined);
+  const pageManifest = getPageManifest(pathnameKey);
+  const boundHeroId = pageManifest?.heroBinding?.heroId;
+  const boundVariantId = pageManifest?.heroBinding?.variantId;
+  const runtimeVariantOverride = boundVariantId ?? boundHeroId;
+  const resolvedTreatmentSlug = runtimeVariantOverride ? undefined : runtimeTreatmentSlug;
 
   try {
     runtime = await getHeroRuntime({
       mode: runtimeMode,
-      treatmentSlug: runtimeTreatmentSlug,
+      treatmentSlug: resolvedTreatmentSlug,
       prm,
       timeOfDay,
       particles,
       filmGrain,
       pageCategory: resolvedPageCategory,
-      variantId: runtimeMode === "home" ? "default" : undefined,
+      variantId: runtimeVariantOverride ?? (runtimeMode === "home" ? "default" : undefined),
     });
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
@@ -851,6 +859,16 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   }
 
   if (!runtime) return null;
+
+  if (process.env.NODE_ENV !== "production" && (boundHeroId || boundVariantId)) {
+    console.info("HERO_BINDING_PROOF", {
+      pathname: pathnameKey,
+      boundHeroId: boundHeroId ?? null,
+      boundVariantId: boundVariantId ?? null,
+      resolvedHeroId: runtime.id ?? null,
+      resolvedVariantId: runtime.variant?.id ?? null,
+    });
+  }
 
   const { content, surfaces, layout, filmGrain: filmGrainSettings } = runtime;
   const bloomEnabled = Boolean(runtime.variant?.allowedSurfaces?.includes("overlay.sacredBloom"));
@@ -1399,6 +1417,8 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     bloomEnabled,
     heroId: runtime.id,
     variantId: runtime.variant?.id,
+    boundHeroId,
+    boundVariantId,
     particlesPath: resolvedParticlesPath,
     particlesOpacity: resolvedParticlesOpacity,
     heroVideo,
@@ -1487,6 +1507,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     pathname: pathnameKey,
     heroId: model.surfaceStack.heroId ?? "",
     variantId: model.surfaceStack.variantId ?? "",
+    boundHeroId: model.surfaceStack.boundHeroId ?? "",
+    boundVariantId: model.surfaceStack.boundVariantId ?? "",
     particlesPath: model.surfaceStack.particlesPath ?? "",
     particlesOpacity: model.surfaceStack.particlesOpacity ?? "",
     motionCount,
@@ -1526,7 +1548,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
             whiteSpace: "pre",
           }}
         >
-          {`pathname: ${overlayData.pathname}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
+          {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
         </div>
       ) : null}
       <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...model.surfaceStack} />
