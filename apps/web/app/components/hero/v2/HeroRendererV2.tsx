@@ -893,6 +893,8 @@ export async function buildHeroV2Model({
   const overlayFieldUrl = resolveAssetUrl(surfaces.overlays?.field);
   const overlayDotsUrl = resolveAssetUrl(surfaces.overlays?.dots);
   const particlesUrl = resolveAssetUrl(surfaces.particles);
+  const particlesPath = particlesUrl ?? "/assets/champagne/particles/home-hero-particles.webp";
+  const particlesOpacity = particleOpacity ?? 0.14;
   const grainUrlDesktop = resolveAssetUrl(surfaces.grain?.desktop);
   const grainUrlMobile = resolveAssetUrl(surfaces.grain?.mobile);
   const sacredBloomUrl = "/assets/champagne/textures/wave-light-overlay.webp";
@@ -928,14 +930,14 @@ export async function buildHeroV2Model({
     ["--hero-wave-background-mobile" as string]: waveBackdropUrlMobile ? resolveBackgroundImage(waveBackdropUrlMobile) : undefined,
     ["--hero-overlay-field" as string]: overlayFieldUrl ? resolveBackgroundImage(overlayFieldUrl) : undefined,
     ["--hero-overlay-dots" as string]: overlayDotsUrl ? resolveBackgroundImage(overlayDotsUrl) : undefined,
-    ["--hero-particles" as string]: shouldShowParticles && particlesUrl ? resolveBackgroundImage(particlesUrl) : undefined,
+    ["--hero-particles" as string]: shouldShowParticles ? resolveBackgroundImage(particlesPath) : undefined,
     ["--hero-grain-desktop" as string]: grainUrlDesktop ? resolveBackgroundImage(grainUrlDesktop) : undefined,
     ["--hero-grain-mobile" as string]: grainUrlMobile ? resolveBackgroundImage(grainUrlMobile) : undefined,
     ["--hero-film-grain-opacity" as string]: shouldShowGrain ? grainOpacity : undefined,
     ["--hero-film-grain-blend" as string]: shouldShowGrain
       ? ((surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined)
       : undefined,
-    ["--hero-particles-opacity" as string]: shouldShowParticles ? particleOpacity : undefined,
+    ["--hero-particles-opacity" as string]: shouldShowParticles ? particlesOpacity : undefined,
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
   };
 
