@@ -73,6 +73,10 @@ export type HeroSurfaceStackModel = {
   layers: HeroV2SurfaceLayerModel[];
   motionLayers: HeroV2MotionLayerModel[];
   bloomEnabled: boolean;
+  heroId?: string;
+  variantId?: string;
+  particlesPath?: string;
+  particlesOpacity?: number;
   heroVideo?: {
     path: string;
     poster?: string;
@@ -190,6 +194,10 @@ type HeroV2FrameProps = {
   layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
   gradient: string;
   rootStyle?: CSSProperties;
+  heroId?: string;
+  variantId?: string;
+  particlesPath?: string;
+  particlesOpacity?: number;
   children: ReactNode;
 };
 
@@ -549,7 +557,16 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
   );
 }
 
-export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2FrameProps) {
+export function HeroV2Frame({
+  layout,
+  gradient,
+  rootStyle,
+  heroId,
+  variantId,
+  particlesPath,
+  particlesOpacity,
+  children,
+}: HeroV2FrameProps) {
   if (typeof window !== "undefined" && (window as typeof window & { __heroMotionEverRevealed?: boolean }).__heroMotionEverRevealed) {
     motionEverRevealed = true;
   }
@@ -559,6 +576,10 @@ export function HeroV2Frame({ layout, gradient, rootStyle, children }: HeroV2Fra
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
+      data-hero-id={heroId ?? ""}
+      data-variant-id={variantId ?? ""}
+      data-particles-path={particlesPath ?? ""}
+      data-particles-opacity={particlesOpacity ?? ""}
       style={rootStyle}
     >
       <BaseChampagneSurface
@@ -778,8 +799,17 @@ export async function buildHeroV2Model({
   const prmEnabled = prm ?? runtime.flags.prm;
   const videoEntry = surfaces.video;
   const heroVideoActive = Boolean(!prmEnabled && videoEntry?.path && !isDeniedVideo(videoEntry.path));
-  const particleOpacity = surfaces.particles?.opacity;
-  const particlesAssetAvailable = Boolean(surfaces.particles?.path || surfaces.particles?.asset?.id);
+  const runtimeParticles = (runtime as { particles?: { path?: string; opacity?: number } }).particles;
+  const resolvedParticlesPath =
+    runtime.surfaces?.particles?.path ??
+    runtime.surfaces?.particles?.asset?.path ??
+    runtimeParticles?.path ??
+    "/assets/champagne/particles/home-hero-particles.webp";
+  const resolvedParticlesOpacity =
+    runtime.surfaces?.particles?.opacity ??
+    runtimeParticles?.opacity ??
+    0.14;
+  const particlesAssetAvailable = Boolean(resolvedParticlesPath);
   const filteredMotionEntries = motionEntries.filter((entry) => {
     if (isDeniedVideo(entry.path)) return false;
     if (heroVideoActive && entry.id?.toLowerCase().includes("fallback")) return false;
@@ -823,7 +853,7 @@ export async function buildHeroV2Model({
 
   const grainOpacity = surfaces.grain?.desktop?.opacity;
   const grainAssetAvailable = Boolean(surfaces.grain?.desktop || surfaces.grain?.mobile);
-  const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && particleOpacity === undefined;
+  const particlesGovernanceMissing = particles !== false && particlesAssetAvailable && resolvedParticlesOpacity === undefined;
   const grainGovernanceMissing = filmGrain !== false && grainAssetAvailable && grainOpacity === undefined;
   const shouldShowGrain = Boolean(
     !grainGovernanceMissing && filmGrain !== false && (filmGrainSettings?.enabled ?? false) && grainAssetAvailable,
@@ -892,9 +922,7 @@ export async function buildHeroV2Model({
   const waveBackdropUrlMobile = resolveAssetUrl(surfaces.background?.mobile);
   const overlayFieldUrl = resolveAssetUrl(surfaces.overlays?.field);
   const overlayDotsUrl = resolveAssetUrl(surfaces.overlays?.dots);
-  const particlesUrl = resolveAssetUrl(surfaces.particles);
-  const particlesPath = particlesUrl ?? "/assets/champagne/particles/home-hero-particles.webp";
-  const particlesOpacity = particleOpacity ?? 0.14;
+  const particlesUrl = resolvedParticlesPath;
   const grainUrlDesktop = resolveAssetUrl(surfaces.grain?.desktop);
   const grainUrlMobile = resolveAssetUrl(surfaces.grain?.mobile);
   const sacredBloomUrl = "/assets/champagne/textures/wave-light-overlay.webp";
@@ -930,22 +958,22 @@ export async function buildHeroV2Model({
     ["--hero-wave-background-mobile" as string]: waveBackdropUrlMobile ? resolveBackgroundImage(waveBackdropUrlMobile) : undefined,
     ["--hero-overlay-field" as string]: overlayFieldUrl ? resolveBackgroundImage(overlayFieldUrl) : undefined,
     ["--hero-overlay-dots" as string]: overlayDotsUrl ? resolveBackgroundImage(overlayDotsUrl) : undefined,
-    ["--hero-particles" as string]: shouldShowParticles ? resolveBackgroundImage(particlesPath) : undefined,
+    ["--hero-particles" as string]: shouldShowParticles ? resolveBackgroundImage(resolvedParticlesPath) : undefined,
     ["--hero-grain-desktop" as string]: grainUrlDesktop ? resolveBackgroundImage(grainUrlDesktop) : undefined,
     ["--hero-grain-mobile" as string]: grainUrlMobile ? resolveBackgroundImage(grainUrlMobile) : undefined,
     ["--hero-film-grain-opacity" as string]: shouldShowGrain ? grainOpacity : undefined,
     ["--hero-film-grain-blend" as string]: shouldShowGrain
       ? ((surfaces.grain?.desktop?.blendMode as CSSProperties["mixBlendMode"]) ?? undefined)
       : undefined,
-    ["--hero-particles-opacity" as string]: shouldShowParticles ? particlesOpacity : undefined,
+    ["--hero-particles-opacity" as string]: shouldShowParticles ? resolvedParticlesOpacity : undefined,
     ["--hero-caustics-overlay" as string]: "url(/assets/champagne/textures/wave-light-overlay.webp)",
   };
 
   if (process.env.NODE_ENV !== "production") {
     console.info("HeroRendererV2 particles debug", {
       resolvedVariantId: runtime.variant?.id,
-      resolvedParticlesPath: particlesPath,
-      resolvedParticlesOpacity: particlesOpacity,
+      resolvedParticlesPath,
+      resolvedParticlesOpacity,
     });
   }
 
@@ -1301,6 +1329,10 @@ export async function buildHeroV2Model({
     layers,
     motionLayers,
     bloomEnabled,
+    heroId: runtime.id,
+    variantId: runtime.variant?.id,
+    particlesPath: resolvedParticlesPath,
+    particlesOpacity: resolvedParticlesOpacity,
     heroVideo,
     sacredBloom: sacredBloomModel,
   };
@@ -1318,8 +1350,18 @@ export async function HeroRendererV2(props: HeroRendererV2Props) {
 
   if (!model) return <HeroFallback />;
 
+  const rootStyle = { ...props.rootStyle, ...model.surfaceStack.surfaceVars };
+
   return (
-    <HeroV2Frame layout={model.layout} gradient={model.gradient} rootStyle={props.rootStyle}>
+    <HeroV2Frame
+      layout={model.layout}
+      gradient={model.gradient}
+      rootStyle={rootStyle}
+      heroId={model.surfaceStack.heroId}
+      variantId={model.surfaceStack.variantId}
+      particlesPath={model.surfaceStack.particlesPath}
+      particlesOpacity={model.surfaceStack.particlesOpacity}
+    >
       <HeroSurfaceStackV2 surfaceRef={props.surfaceRef} {...model.surfaceStack} />
       <HeroContentV2 content={model.content} layout={model.layout} />
     </HeroV2Frame>
