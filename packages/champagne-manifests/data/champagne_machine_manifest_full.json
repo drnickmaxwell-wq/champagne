@@ -1996,7 +1996,8 @@
           }
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "veneers": {
       "id": "veneers",
@@ -3885,7 +3886,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_multiple_teeth": {
       "id": "implants_multiple_teeth",
@@ -3951,7 +3953,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_full_arch": {
       "id": "implants_full_arch",
@@ -4017,7 +4020,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implant_retained_dentures": {
       "id": "implant_retained_dentures",
@@ -4083,7 +4087,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_consultation": {
       "id": "implants_consultation",
@@ -4149,7 +4154,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_bone_grafting": {
       "id": "implants_bone_grafting",
@@ -4215,7 +4221,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_sinus_lift": {
       "id": "implants_sinus_lift",
@@ -4281,7 +4288,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_teeth_in_a_day": {
       "id": "implants_teeth_in_a_day",
@@ -4347,7 +4355,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_sedation": {
       "id": "implants_sedation",
@@ -4479,7 +4488,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "implants_aftercare": {
       "id": "implants_aftercare",
@@ -4545,7 +4555,8 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
     },
     "3d_implant_restorations": {
       "id": "3d_implant_restorations",
@@ -10294,7 +10305,8 @@
         "treatment.aftercareRisks",
         "treatment.faq",
         "treatment.cta"
-      ]
+      ],
+      "heroFamily": "treatments.implants"
     },
     "veneers": {
       "path": "/treatments/veneers",

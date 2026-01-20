@@ -210,6 +210,15 @@ export interface ChampagneHeroManifest {
   preset?: string | Record<string, unknown>;
 }
 
+const heroFamilyMap: Record<string, string> = {
+  "treatments.implants": "hero.treatment.implants",
+};
+
+function resolveHeroFamily(heroFamily?: string): string | undefined {
+  if (!heroFamily) return undefined;
+  return heroFamilyMap[heroFamily];
+}
+
 function getHeroPresetFromStyles(heroId: string): Record<string, unknown> | undefined {
   const styles = champagneStylesManifest as ChampagneStylesManifest;
   const preset = styles.heroes?.[heroId];
@@ -221,6 +230,13 @@ export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest
   const pageManifest = getPageManifestBySlug(heroIdOrPageSlug);
   if (pageManifest?.hero) {
     return normalizeHeroManifest(pageManifest.hero, pageManifest.path);
+  }
+
+  if (pageManifest?.heroFamily) {
+    const resolvedHeroId = resolveHeroFamily(pageManifest.heroFamily);
+    if (resolvedHeroId) {
+      return normalizeHeroManifest({ id: resolvedHeroId }, pageManifest.path);
+    }
   }
 
   if (pageManifest) {
