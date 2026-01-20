@@ -27,32 +27,13 @@ function HeroSurfaceStackV2Base({
   sacredBloom,
   surfaceRef,
   bloomEnabled,
-  heroId,
-  variantId,
+  heroId: _heroId,
+  variantId: _variantId,
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (process.env.NODE_ENV === "production") return;
-    const stackElement = document.querySelector(".hero-surface-stack") as HTMLElement | null;
-    const resolvedParticles = surfaceVars["--hero-particles" as keyof CSSProperties];
-    const resolvedParticlesOpacity = surfaceVars["--hero-particles-opacity" as keyof CSSProperties];
-    const logComputed = () => {
-      const computed = stackElement ? getComputedStyle(stackElement) : null;
-      console.info("HERO_V2_STACK_VARS", {
-        pathname,
-        heroId,
-        variantId,
-        particlesPath: resolvedParticles,
-        particlesOpacity: resolvedParticlesOpacity,
-        computedParticles: computed?.getPropertyValue("--hero-particles")?.trim() ?? null,
-        computedParticlesOpacity: computed?.getPropertyValue("--hero-particles-opacity")?.trim() ?? null,
-      });
-    };
-    const frameId = requestAnimationFrame(logComputed);
-    return () => cancelAnimationFrame(frameId);
-  }, [heroId, pathname, surfaceVars, variantId]);
+  void pathname;
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
