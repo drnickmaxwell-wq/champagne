@@ -18,6 +18,11 @@
       "motion": "precision",
       "cta": "book_implants"
     },
+    "hero.treatment.implants": {
+      "palette": "platinum",
+      "motion": "precision",
+      "cta": "book_implants"
+    },
     "veneers_gilded_hero_v2": {
       "palette": "gilded",
       "motion": "sweep",
