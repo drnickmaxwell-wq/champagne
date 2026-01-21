@@ -3,7 +3,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode, type Ref } from "react";
 import { usePathname } from "next/navigation";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
-import { getPageManifest } from "@champagne/manifests";
+import { getHeroBindingForPathnameKey } from "@champagne/manifests/src/helpers";
 import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
@@ -835,9 +835,9 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   const runtimeTreatmentSlug = isTreatmentPath ? pathnameKey.split("/")[2] || undefined : undefined;
   const resolvedPageCategory =
     pageCategory ?? (runtimeMode === "home" ? "home" : runtimeMode === "treatment" ? "treatment" : undefined);
-  const pageManifest = getPageManifest(pathnameKey);
-  const boundHeroId = pageManifest?.heroBinding?.heroId;
-  const boundVariantId = pageManifest?.heroBinding?.variantId;
+  const heroBinding = getHeroBindingForPathnameKey(pathnameKey);
+  const boundHeroId = heroBinding?.heroId;
+  const boundVariantId = heroBinding?.variantId;
   const runtimeVariantOverride = boundVariantId ?? boundHeroId;
   const resolvedTreatmentSlug = runtimeVariantOverride ? undefined : runtimeTreatmentSlug;
 
