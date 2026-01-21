@@ -9,6 +9,76 @@ import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
+const heroV2ModelPropsKeyCache = new Map<string, string>();
+const heroV2ModelPromiseCache = new Map<string, Promise<HeroV2Model | null>>();
+
+const buildHeroV2PropsKey = ({
+  prm,
+  timeOfDay,
+  particles,
+  filmGrain,
+  diagnosticBoost,
+  pageCategory,
+  glueVars,
+  debugEnabled,
+}: {
+  prm?: boolean;
+  timeOfDay?: HeroTimeOfDay;
+  particles?: boolean;
+  filmGrain?: boolean;
+  diagnosticBoost?: boolean;
+  pageCategory?: HeroRendererV2Props["pageCategory"];
+  glueVars?: HeroRendererV2Props["glueVars"];
+  debugEnabled?: boolean;
+}) => {
+  const glueVarsPresence = glueVars ? "1" : "0";
+  return [
+    `prm:${prm ?? "auto"}`,
+    `time:${timeOfDay ?? "auto"}`,
+    `particles:${particles ?? "auto"}`,
+    `grain:${filmGrain ?? "auto"}`,
+    `diag:${diagnosticBoost ?? false}`,
+    `page:${pageCategory ?? "auto"}`,
+    `glue:${glueVarsPresence}`,
+    `debug:${debugEnabled ?? false}`,
+  ].join("|");
+};
+
+const getOrBuildHeroV2Model = (
+  pathnameKey: string,
+  propsKey: string,
+  props: HeroRendererV2Props & { debug?: boolean },
+) => {
+  const cacheKey = `${pathnameKey}::${propsKey}`;
+  const cachedPromise = heroV2ModelPromiseCache.get(cacheKey);
+  if (cachedPromise) return cachedPromise;
+  const promise = buildHeroV2Model(props).then((nextModel) => {
+    if (nextModel) {
+      heroV2ModelCache.set(pathnameKey, nextModel);
+      heroV2ModelPropsKeyCache.set(pathnameKey, propsKey);
+    }
+    heroV2ModelPromiseCache.delete(cacheKey);
+    return nextModel;
+  });
+  heroV2ModelPromiseCache.set(cacheKey, promise);
+  return promise;
+};
+
+export const prefetchHeroV2ModelForPath = (path: string) => {
+  const pathnameKey = normalizeHeroPathname(path);
+  const propsKey = buildHeroV2PropsKey({});
+  const cacheKey = `${pathnameKey}::${propsKey}`;
+  const cacheHitModel = heroV2ModelCache.has(pathnameKey);
+  const cacheHitPromise = heroV2ModelPromiseCache.has(cacheKey);
+
+  if (process.env.NODE_ENV !== "production") {
+    console.info("HERO_V2_PREFETCH", { href: path, pathnameKey, cacheHitModel, cacheHitPromise });
+  }
+
+  void getOrBuildHeroV2Model(pathnameKey, propsKey, {
+    pageSlugOrPath: pathnameKey,
+  });
+};
 
 export interface HeroRendererV2Props {
   mode?: HeroMode;
@@ -1475,12 +1545,29 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     let isActive = true;
+    const propsKey = buildHeroV2PropsKey({
+      prm,
+      timeOfDay,
+      particles,
+      filmGrain,
+      diagnosticBoost,
+      pageCategory,
+      glueVars,
+      debugEnabled,
+    });
     const cached = heroV2ModelCache.get(pathnameKey);
-    if (cached && !currentModelRef.current) {
-      setCurrentModel(cached);
-      setCurrentModelKey(pathnameKey);
+    const cachedPropsKey = heroV2ModelPropsKeyCache.get(pathnameKey);
+    if (cached && cachedPropsKey === propsKey) {
+      if (!currentModelRef.current || currentModelKey !== pathnameKey) {
+        setCurrentModel(cached);
+        setCurrentModelKey(pathnameKey);
+      }
+      return () => {
+        isActive = false;
+      };
     }
-    void buildHeroV2Model({
+
+    void getOrBuildHeroV2Model(pathnameKey, propsKey, {
       mode,
       treatmentSlug,
       pageSlugOrPath: pathnameKey,
@@ -1495,7 +1582,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
-      heroV2ModelCache.set(pathnameKey, nextModel);
       setCurrentModel(nextModel);
       setCurrentModelKey(pathnameKey);
     });
@@ -1503,7 +1589,20 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => {
       isActive = false;
     };
-  }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
+  }, [
+    currentModelKey,
+    debugEnabled,
+    diagnosticBoost,
+    filmGrain,
+    glueVars,
+    mode,
+    pageCategory,
+    particles,
+    pathnameKey,
+    prm,
+    timeOfDay,
+    treatmentSlug,
+  ]);
 
   useEffect(() => {
     if (!debugEnabled) return;
