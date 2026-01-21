@@ -120,11 +120,17 @@ export interface ChampagnePageCTAConfig {
   [key: string]: unknown;
 }
 
+export interface ChampagneHeroBinding {
+  heroId: string;
+  variantId?: string;
+}
+
 export interface ChampagnePageManifest {
   id?: string;
   path?: string;
   hero?: string | Record<string, unknown>;
   heroFamily?: string;
+  heroBinding?: ChampagneHeroBinding;
   sections?: ChampagnePageSection[] | string[];
   surface?: string;
   category?: string;

@@ -12,6 +12,7 @@ import type {
   ChampagneSectionFxDefaultsManifest,
   ChampagneSectionPrmDefaultsManifest,
   ChampagneStylesManifest,
+  ChampagneHeroBinding,
 } from "./core";
 import {
   champagneMachineManifest,
@@ -55,6 +56,33 @@ export function getAllPages(): ChampagnePageManifest[] {
   const pages = champagneMachineManifest.pages ?? {};
   const treatments = champagneMachineManifest.treatments ?? {};
   return [...Object.values(pages), ...Object.values(treatments)];
+}
+
+export function normalizeRouteKey(input: string): string {
+  if (!input) return "/";
+  const trimmed = input.split("#")[0]?.split("?")[0]?.trim();
+  if (!trimmed) return "/";
+  let normalized = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+  if (normalized.length > 1 && normalized.endsWith("/")) {
+    normalized = normalized.slice(0, -1);
+  }
+  return normalized.toLowerCase();
+}
+
+function getHeroBindingMap(): Map<string, ChampagneHeroBinding> {
+  const map = new Map<string, ChampagneHeroBinding>();
+  for (const page of getAllPages()) {
+    if (!page.path) continue;
+    const binding = page.heroBinding;
+    if (!binding?.heroId) continue;
+    map.set(normalizeRouteKey(page.path), binding);
+  }
+  return map;
+}
+
+export function getHeroBindingForPathnameKey(pathnameKey: string): ChampagneHeroBinding | null {
+  const binding = getHeroBindingMap().get(normalizeRouteKey(pathnameKey));
+  return binding ?? null;
 }
 
 export function getPageManifest(pageSlug: string): ChampagnePageManifest | undefined {
@@ -207,6 +235,7 @@ export function getCTAIntentLabels(): Record<string, string> {
 export interface ChampagneHeroManifest {
   id: string;
   sourcePagePath?: string;
+  variantId?: string;
   preset?: string | Record<string, unknown>;
 }
 
@@ -229,6 +258,14 @@ function getHeroPresetFromStyles(heroId: string): Record<string, unknown> | unde
 
 export function getHeroManifest(heroIdOrPageSlug: string): ChampagneHeroManifest | undefined {
   const pageManifest = getPageManifestBySlug(heroIdOrPageSlug);
+  const heroBinding = pageManifest?.heroBinding;
+  if (heroBinding?.heroId) {
+    return normalizeHeroManifest(
+      { id: heroBinding.heroId, variantId: heroBinding.variantId },
+      pageManifest?.path,
+    );
+  }
+
   if (pageManifest?.heroFamily) {
     const resolvedHeroId = resolveHeroFamily(pageManifest.heroFamily);
     if (resolvedHeroId) {
@@ -284,10 +321,12 @@ function normalizeHeroManifest(
   path?: string,
 ): ChampagneHeroManifest {
   const heroId = typeof hero === "string" ? hero : (hero.id as string | undefined) ?? "";
+  const variantId = typeof hero === "string" ? undefined : (hero.variantId as string | undefined);
   const styledPreset = typeof hero === "string" ? getHeroPresetFromStyles(hero) : hero;
   return {
     id: heroId || path || "",
     sourcePagePath: path,
+    variantId,
     preset: styledPreset,
   };
 }
