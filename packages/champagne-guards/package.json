@@ -16,7 +16,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint .",
-    "guard:hero": "node scripts/guard-hero.mjs",
+    "guard:hero": "pnpm run guard:hero-core && pnpm run guard:sacred-hero-lock",
+    "guard:hero-core": "node scripts/guard-hero.mjs",
+    "guard:sacred-hero-lock": "node scripts/guard-sacred-hero-lock.mjs",
     "guard:rogue-hex": "node scripts/guard-rogue-hex.mjs",
     "guard:canon": "node scripts/guard-canon.mjs",
     "guard:hero-freeze": "node scripts/guard-hero-freeze.mjs",

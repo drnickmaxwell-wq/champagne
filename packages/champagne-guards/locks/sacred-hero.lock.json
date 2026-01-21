@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "sha256": "sha256:ab4316bb1015dab25c85bcda0d93235ce1185ddad933bc5752a853c0cd6a639d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json",
+      "sha256": "sha256:b4904fc8cb8bc414d21e0813734d4d5879aa6a304891edd63f30aebbb8aacd5d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      "sha256": "sha256:a59b02189fc45b05336bf5721c22bf82066e6afaa3a670c8bedbaa74e2d1e3cd"
+    }
+  ]
+}
