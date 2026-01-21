@@ -1,8 +1,5 @@
-"use client";
-
 import { getMainNavItems } from "@champagne/manifests";
-import Link from "next/link";
-import { prefetchHeroV2ModelForPath } from "../hero/v2/HeroRendererV2";
+import { NavPrefetchLink } from "./NavPrefetchLink";
 
 export function Header() {
   const navItems = getMainNavItems();
@@ -14,25 +11,18 @@ export function Header() {
   return (
     <header className="border-b" style={headerStyle}>
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="text-lg font-semibold tracking-tight text-[var(--text-high)]"
-          onMouseEnter={() => prefetchHeroV2ModelForPath("/")}
-          onFocus={() => prefetchHeroV2ModelForPath("/")}
-        >
+        <NavPrefetchLink href="/" className="text-lg font-semibold tracking-tight text-[var(--text-high)]">
           St Mary&apos;s House Dental
-        </Link>
+        </NavPrefetchLink>
         <nav className="flex items-center gap-4 text-sm text-[var(--text-medium)]">
           {navItems.map((item) => (
-            <Link
+            <NavPrefetchLink
               key={item.href}
               href={item.href}
               className="rounded px-2 py-1 transition hover:bg-[color-mix(in_srgb,var(--bg-ink)_82%,transparent)] hover:text-[var(--text-high)]"
-              onMouseEnter={() => prefetchHeroV2ModelForPath(item.href)}
-              onFocus={() => prefetchHeroV2ModelForPath(item.href)}
             >
               {item.label}
-            </Link>
+            </NavPrefetchLink>
           ))}
         </nav>
       </div>
