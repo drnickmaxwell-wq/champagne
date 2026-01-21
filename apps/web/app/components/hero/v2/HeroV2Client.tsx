@@ -32,6 +32,9 @@ function HeroSurfaceStackV2Base({
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
   const pathname = usePathname();
+  const handleVideoReady = (event: React.SyntheticEvent<HTMLVideoElement>) => {
+    event.currentTarget.dataset.ready = "true";
+  };
 
   void pathname;
 
@@ -403,11 +406,14 @@ function HeroSurfaceStackV2Base({
             preload="metadata"
             poster={heroVideo.poster}
             data-surface-id="motion.heroVideo"
+            data-ready="false"
             data-motion-target-opacity={
               heroVideo.targetOpacity !== undefined && heroVideo.targetOpacity !== null
                 ? `${heroVideo.targetOpacity}`
                 : undefined
             }
+            onLoadedData={handleVideoReady}
+            onCanPlay={handleVideoReady}
             style={heroVideo.style}
           >
             <source src={heroVideo.path} />
@@ -425,9 +431,12 @@ function HeroSurfaceStackV2Base({
               muted
               preload="metadata"
               data-surface-id={entry.id}
+              data-ready="false"
               data-motion-target-opacity={
                 entry.targetOpacity !== undefined && entry.targetOpacity !== null ? `${entry.targetOpacity}` : undefined
               }
+              onLoadedData={handleVideoReady}
+              onCanPlay={handleVideoReady}
               style={entry.style}
             >
               <source src={entry.path} />

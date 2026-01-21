@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties, type ReactNode, type Ref } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import { getHeroBindingForPathnameKey } from "@champagne/manifests/src/helpers";
 import heroGlueManifest from "./heroGlue.manifest.json";
@@ -302,6 +302,9 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 will-change: transform;
                 opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
                 transition: opacity 220ms ease;
+              }
+              .hero-renderer-v2 .hero-surface--motion[data-ready!="true"] {
+                opacity: 0 !important;
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
@@ -1447,6 +1450,7 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 
 export function HeroRendererV2(props: HeroRendererV2Props) {
   const rawPathname = usePathname();
+  const searchParams = useSearchParams();
   const pathnameKey = normalizeHeroPathname(rawPathname);
   const {
     mode,
@@ -1462,13 +1466,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     surfaceRef,
   } = props;
   const [model, setModel] = useState<HeroV2Model | null>(null);
-  const [debugEnabled, setDebugEnabled] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    setDebugEnabled(params.has("heroDebug"));
-  }, [rawPathname]);
+  const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
   useEffect(() => {
     let isActive = true;
