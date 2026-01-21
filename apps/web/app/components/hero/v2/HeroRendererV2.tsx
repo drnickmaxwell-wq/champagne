@@ -8,6 +8,7 @@ import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+const heroV2ModelCache = new Map<string, HeroV2Model>();
 
 export interface HeroRendererV2Props {
   mode?: HeroMode;
@@ -84,6 +85,8 @@ export type HeroSurfaceStackModel = {
   variantId?: string;
   boundHeroId?: string;
   boundVariantId?: string;
+  effectiveHeroId?: string;
+  effectiveVariantId?: string;
   particlesPath?: string;
   particlesOpacity?: number;
   heroVideo?: {
@@ -840,6 +843,7 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
   const boundVariantId = heroBinding?.variantId;
   const runtimeVariantOverride = boundVariantId ?? boundHeroId;
   const resolvedTreatmentSlug = runtimeVariantOverride ? undefined : runtimeTreatmentSlug;
+  const bindingMatched = Boolean(runtimeVariantOverride);
 
   try {
     runtime = await getHeroRuntime({
@@ -860,13 +864,19 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 
   if (!runtime) return null;
 
+  const effectiveHeroId = boundHeroId ?? runtime.id;
+  const effectiveVariantId = boundVariantId ?? runtime.variant?.id;
+
   if (process.env.NODE_ENV !== "production" && (boundHeroId || boundVariantId)) {
     console.info("HERO_BINDING_PROOF", {
       pathname: pathnameKey,
       boundHeroId: boundHeroId ?? null,
       boundVariantId: boundVariantId ?? null,
+      effectiveHeroId: effectiveHeroId ?? null,
+      effectiveVariantId: effectiveVariantId ?? null,
       resolvedHeroId: runtime.id ?? null,
       resolvedVariantId: runtime.variant?.id ?? null,
+      bindingMatched,
     });
   }
 
@@ -1415,10 +1425,12 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     layers,
     motionLayers,
     bloomEnabled,
-    heroId: runtime.id,
-    variantId: runtime.variant?.id,
+    heroId: effectiveHeroId,
+    variantId: effectiveVariantId,
     boundHeroId,
     boundVariantId,
+    effectiveHeroId,
+    effectiveVariantId,
     particlesPath: resolvedParticlesPath,
     particlesOpacity: resolvedParticlesOpacity,
     heroVideo,
@@ -1460,6 +1472,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     let isActive = true;
+    const cached = heroV2ModelCache.get(pathnameKey);
+    if (cached) {
+      setModel(cached);
+    }
     void buildHeroV2Model({
       mode,
       treatmentSlug,
@@ -1474,6 +1490,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       glueVars,
     }).then((nextModel) => {
       if (!isActive) return;
+      if (!nextModel) return;
+      heroV2ModelCache.set(pathnameKey, nextModel);
       setModel(nextModel);
     });
 
@@ -1509,6 +1527,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     variantId: model.surfaceStack.variantId ?? "",
     boundHeroId: model.surfaceStack.boundHeroId ?? "",
     boundVariantId: model.surfaceStack.boundVariantId ?? "",
+    effectiveHeroId: model.surfaceStack.effectiveHeroId ?? "",
+    effectiveVariantId: model.surfaceStack.effectiveVariantId ?? "",
     particlesPath: model.surfaceStack.particlesPath ?? "",
     particlesOpacity: model.surfaceStack.particlesOpacity ?? "",
     motionCount,
@@ -1548,7 +1568,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
             whiteSpace: "pre",
           }}
         >
-          {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
+          {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
         </div>
       ) : null}
       <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...model.surfaceStack} />
