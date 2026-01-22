@@ -93,6 +93,7 @@ export interface HeroRendererV2Props {
   surfaceRef?: Ref<HTMLDivElement>;
   pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
   rootStyle?: CSSProperties;
+  navShieldActive?: boolean;
   onModelReady?: (payload: { pathnameKey: string }) => void;
   glueVars?: Partial<{
     waveRingsSize: string;
@@ -1535,6 +1536,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     glueVars,
     rootStyle,
     surfaceRef,
+    navShieldActive,
     onModelReady,
   } = props;
   const [currentModelState, setCurrentModelState] = useState<{ model: HeroV2Model; pathnameKey: string } | null>(() => {
@@ -1599,6 +1601,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (!isActive) return;
       if (!nextModel) return;
       const nextState = { model: nextModel, pathnameKey };
+      onModelReady?.({ pathnameKey });
       heroV2LastGoodModelState = nextState;
       setCurrentModelState(nextState);
       setIsTransitioning(false);
@@ -1620,6 +1623,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     prm,
     timeOfDay,
     treatmentSlug,
+    onModelReady,
   ]);
 
   useEffect(() => {
@@ -1657,12 +1661,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     currentModelState?.pathnameKey !== pathnameKey;
 
   useEffect(() => {
-    if (!onModelReady) return;
-    if (!contentMatchesPath) return;
-    onModelReady({ pathnameKey });
-  }, [contentMatchesPath, onModelReady, pathnameKey]);
-
-  useEffect(() => {
     if (!debugEnabled) return;
     console.info("HERO_V2_NAV_PROOF", {
       pathnameKey,
@@ -1673,11 +1671,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       frameMinHeight: resolvedFrameMinHeight,
       isTransitioning,
       showingLastGood,
+      navShieldActive,
     });
   }, [
     contentMatchesPath,
     currentModelState,
     debugEnabled,
+    navShieldActive,
     pathnameKey,
     resolvedFrameMinHeight,
     isTransitioning,
