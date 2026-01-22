@@ -725,7 +725,7 @@ export function HeroV2Frame({
           display: "grid",
           alignItems: layout.contentAlign === "center" ? "center" : "stretch",
           overflow: "hidden",
-          background: "var(--hero-gradient, var(--smh-gradient))",
+          background: "var(--smh-gradient)",
           boxShadow: "none",
           borderRadius: 0,
           ["--hero-gradient" as string]: gradient,
@@ -1532,18 +1532,20 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     rootStyle,
     surfaceRef,
   } = props;
-  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
-  const [currentModelKey, setCurrentModelKey] = useState<string | null>(null);
+  const [currentModelState, setCurrentModelState] = useState<{ model: HeroV2Model; pathnameKey: string } | null>(null);
   const currentModelRef = useRef<HeroV2Model | null>(null);
-  const lastGoodModelRef = useRef<HeroV2Model | null>(null);
+  const lastGoodSurfaceStackRef = useRef<HeroSurfaceStackModel | null>(null);
+  const lastGoodGradientRef = useRef<string | null>(null);
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
   useEffect(() => {
-    currentModelRef.current = currentModel;
-    if (currentModel) {
-      lastGoodModelRef.current = currentModel;
+    const nextModel = currentModelState?.model ?? null;
+    currentModelRef.current = nextModel;
+    if (nextModel) {
+      lastGoodSurfaceStackRef.current = nextModel.surfaceStack;
+      lastGoodGradientRef.current = nextModel.gradient;
     }
-  }, [currentModel]);
+  }, [currentModelState]);
 
   useEffect(() => {
     let isActive = true;
@@ -1560,9 +1562,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const cached = heroV2ModelCache.get(pathnameKey);
     const cachedPropsKey = heroV2ModelPropsKeyCache.get(pathnameKey);
     if (cached && cachedPropsKey === propsKey) {
-      if (!currentModelRef.current || currentModelKey !== pathnameKey) {
-        setCurrentModel(cached);
-        setCurrentModelKey(pathnameKey);
+      if (!currentModelRef.current || currentModelState?.pathnameKey !== pathnameKey) {
+        setCurrentModelState({ model: cached, pathnameKey });
       }
       return () => {
         isActive = false;
@@ -1584,15 +1585,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
-      setCurrentModel(nextModel);
-      setCurrentModelKey(pathnameKey);
+      setCurrentModelState({ model: nextModel, pathnameKey });
     });
 
     return () => {
       isActive = false;
     };
   }, [
-    currentModelKey,
+    currentModelState?.pathnameKey,
     debugEnabled,
     diagnosticBoost,
     filmGrain,
@@ -1608,57 +1608,77 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     if (!debugEnabled) return;
-    if (!currentModel) return;
+    if (!currentModelState?.model) return;
     const logOpacity = () => {
       const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
       const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
       console.info("HERO_V2_MOTION_OPACITY_PROOF", {
         pathname: pathnameKey,
-        prm: currentModel.surfaceStack.prmEnabled,
-        motionCount: currentModel.surfaceStack.motionLayers.length,
+        prm: currentModelState.model.surfaceStack.prmEnabled,
+        motionCount: currentModelState.model.surfaceStack.motionLayers.length,
         firstMotionOpacity: computedOpacity,
       });
     };
     const frameId = requestAnimationFrame(logOpacity);
     return () => cancelAnimationFrame(frameId);
-  }, [currentModel, debugEnabled, pathnameKey]);
+  }, [currentModelState, debugEnabled, pathnameKey]);
 
-  const resolvedModel = currentModel ?? lastGoodModelRef.current;
-  if (!resolvedModel) {
+  const resolvedSurfaceStack = currentModelState?.model.surfaceStack ?? lastGoodSurfaceStackRef.current;
+  const resolvedGradient = currentModelState?.model.gradient ?? lastGoodGradientRef.current ?? "var(--smh-gradient)";
+  const resolvedLayout: HeroV2Model["layout"] =
+    currentModelState?.model.layout ??
+    ({
+      contentAlign: "center",
+      maxWidth: 960,
+      padding: "clamp(2rem, 4vw, 3.5rem)",
+      verticalOffset: "0px",
+    } as HeroV2Model["layout"]);
+  const contentMatchesPath = currentModelState?.pathnameKey === pathnameKey;
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    console.info("HERO_V2_NAV_PROOF", {
+      pathnameKey,
+      hasCurrentModel: Boolean(currentModelState?.model),
+      hasLastGoodSurfaces: Boolean(lastGoodSurfaceStackRef.current),
+      contentMatchesPath,
+    });
+  }, [contentMatchesPath, currentModelState, debugEnabled, pathnameKey]);
+
+  if (!resolvedSurfaceStack) {
     if (process.env.NODE_ENV !== "production") {
       console.info("HERO_V2_FALLBACK_RENDER", { pathnameKey, reason: "no-model-and-no-lastGoodModel" });
     }
     return <HeroFallback />;
   }
 
-  const resolvedRootStyle = { ...rootStyle, ...resolvedModel.surfaceStack.surfaceVars };
-  const motionCount = resolvedModel.surfaceStack.motionLayers.length;
-  const isModelForCurrentRoute = currentModelKey === pathnameKey;
+  const resolvedRootStyle = { ...rootStyle, ...resolvedSurfaceStack.surfaceVars };
+  const motionCount = resolvedSurfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
-    heroId: resolvedModel.surfaceStack.heroId ?? "",
-    variantId: resolvedModel.surfaceStack.variantId ?? "",
-    boundHeroId: resolvedModel.surfaceStack.boundHeroId ?? "",
-    boundVariantId: resolvedModel.surfaceStack.boundVariantId ?? "",
-    effectiveHeroId: resolvedModel.surfaceStack.effectiveHeroId ?? "",
-    effectiveVariantId: resolvedModel.surfaceStack.effectiveVariantId ?? "",
-    particlesPath: resolvedModel.surfaceStack.particlesPath ?? "",
-    particlesOpacity: resolvedModel.surfaceStack.particlesOpacity ?? "",
+    heroId: resolvedSurfaceStack.heroId ?? "",
+    variantId: resolvedSurfaceStack.variantId ?? "",
+    boundHeroId: resolvedSurfaceStack.boundHeroId ?? "",
+    boundVariantId: resolvedSurfaceStack.boundVariantId ?? "",
+    effectiveHeroId: resolvedSurfaceStack.effectiveHeroId ?? "",
+    effectiveVariantId: resolvedSurfaceStack.effectiveVariantId ?? "",
+    particlesPath: resolvedSurfaceStack.particlesPath ?? "",
+    particlesOpacity: resolvedSurfaceStack.particlesOpacity ?? "",
     motionCount,
-    prm: resolvedModel.surfaceStack.prmEnabled,
+    prm: resolvedSurfaceStack.prmEnabled,
   };
 
   return (
     <HeroV2Frame
-      layout={resolvedModel.layout}
-      gradient={resolvedModel.gradient}
+      layout={resolvedLayout}
+      gradient={resolvedGradient}
       rootStyle={resolvedRootStyle}
-      heroId={resolvedModel.surfaceStack.heroId}
-      variantId={resolvedModel.surfaceStack.variantId}
-      particlesPath={resolvedModel.surfaceStack.particlesPath}
-      particlesOpacity={resolvedModel.surfaceStack.particlesOpacity}
+      heroId={resolvedSurfaceStack.heroId}
+      variantId={resolvedSurfaceStack.variantId}
+      particlesPath={resolvedSurfaceStack.particlesPath}
+      particlesOpacity={resolvedSurfaceStack.particlesOpacity}
       motionCount={motionCount}
-      prm={resolvedModel.surfaceStack.prmEnabled}
+      prm={resolvedSurfaceStack.prmEnabled}
       debug={debugEnabled}
     >
       {debugEnabled ? (
@@ -1684,10 +1704,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
         </div>
       ) : null}
-      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...resolvedModel.surfaceStack} />
-      <HeroContentFade forceHidden={!isModelForCurrentRoute}>
-        <HeroContentV2 content={resolvedModel.content} layout={resolvedModel.layout} />
-      </HeroContentFade>
+      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...resolvedSurfaceStack} />
+      {contentMatchesPath && currentModelState?.model ? (
+        <HeroContentFade>
+          <HeroContentV2 content={currentModelState.model.content} layout={currentModelState.model.layout} />
+        </HeroContentFade>
+      ) : null}
     </HeroV2Frame>
   );
 }
