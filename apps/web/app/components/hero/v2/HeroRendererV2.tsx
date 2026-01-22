@@ -8,7 +8,6 @@ import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
-const HERO_FRAME_MIN_HEIGHT = "56vh";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 
 export interface HeroRendererV2Props {
@@ -224,7 +223,6 @@ function HeroFallback() {
       disableInternalOverlays
       style={{
         background: "var(--smh-gradient)",
-        minHeight: HERO_FRAME_MIN_HEIGHT,
         display: "grid",
         alignItems: "center",
         padding: "clamp(2rem, 5vw, 3.5rem)",
@@ -271,7 +269,6 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                   backdrop-filter: none !important;
                   -webkit-backdrop-filter: none !important;
                   --hero-motion-duration: 42s;
-                  min-height: ${HERO_FRAME_MIN_HEIGHT};
                 }
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
@@ -357,7 +354,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                   padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
                 }
                 .hero-renderer-v2 {
-                  min-height: ${HERO_FRAME_MIN_HEIGHT};
+                  min-height: 68vh;
                 }
               }
               @media (prefers-reduced-motion: reduce) {
@@ -643,21 +640,18 @@ export function HeroV2Frame({
       }
     : {};
 
-  const frameStyle: CSSProperties = { minHeight: HERO_FRAME_MIN_HEIGHT, ...rootStyle };
-
   return (
     <div
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
-      style={frameStyle}
+      style={rootStyle}
       {...dataAttributes}
     >
       <BaseChampagneSurface
         variant="plain"
         disableInternalOverlays
         style={{
-          minHeight: HERO_FRAME_MIN_HEIGHT,
           display: "grid",
           alignItems: layout.contentAlign === "center" ? "center" : "stretch",
           overflow: "hidden",
@@ -1569,11 +1563,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     console.info("HERO_V2_TRANSITION_PROOF", {
       pathnameKey,
       isTransitioning,
-      hasLastGoodModel: Boolean(lastGoodModel),
-      showing: showingModel?.surfaceStack?.effectiveHeroId,
+      showingHeroId: showingModel?.surfaceStack?.effectiveHeroId,
       contentVisible: showContent,
     });
-  }, [isTransitioning, lastGoodModel, pathnameKey, showContent, showingModel]);
+  }, [isTransitioning, pathnameKey, showContent, showingModel]);
 
   const resolvedModel = showingModel ?? lastGoodModel ?? currentModel;
 
