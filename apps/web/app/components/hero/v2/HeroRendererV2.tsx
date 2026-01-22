@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import { getHeroBindingForPathnameKey } from "@champagne/manifests/src/helpers";
 import heroGlueManifest from "./heroGlue.manifest.json";
@@ -1450,7 +1450,6 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 
 export function HeroRendererV2(props: HeroRendererV2Props) {
   const rawPathname = usePathname();
-  const searchParams = useSearchParams();
   const pathnameKey = normalizeHeroPathname(rawPathname);
   const {
     mode,
@@ -1468,12 +1467,17 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [debugEnabled, setDebugEnabled] = useState(false);
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const transitionRef = useRef<{ timeoutId: number | null; rafId: number | null }>({
     timeoutId: null,
     rafId: null,
   });
-  const debugEnabled = searchParams?.has("heroDebug") ?? false;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setDebugEnabled(new URLSearchParams(window.location.search).has("heroDebug"));
+  }, [rawPathname]);
 
   useEffect(() => {
     currentModelRef.current = currentModel;
