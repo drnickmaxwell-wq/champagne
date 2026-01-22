@@ -11,7 +11,8 @@ const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 const heroV2ModelPropsKeyCache = new Map<string, string>();
 const heroV2ModelPromiseCache = new Map<string, Promise<HeroV2Model | null>>();
-let heroV2LastGoodModelState: { model: HeroV2Model; pathnameKey: string } | null = null;
+let heroV2LastGoodModel: HeroV2Model | null = null;
+let heroV2LastGoodPathnameKey: string | null = null;
 
 const buildHeroV2PropsKey = ({
   prm,
@@ -57,7 +58,8 @@ const getOrBuildHeroV2Model = (
     if (nextModel) {
       heroV2ModelCache.set(pathnameKey, nextModel);
       heroV2ModelPropsKeyCache.set(pathnameKey, propsKey);
-      heroV2LastGoodModelState = { model: nextModel, pathnameKey };
+      heroV2LastGoodModel = nextModel;
+      heroV2LastGoodPathnameKey = pathnameKey;
     }
     heroV2ModelPromiseCache.delete(cacheKey);
     return nextModel;
@@ -1539,24 +1541,24 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     navShieldActive,
     onModelReady,
   } = props;
-  const [currentModelState, setCurrentModelState] = useState<{ model: HeroV2Model; pathnameKey: string } | null>(() => {
-    const cached = heroV2ModelCache.get(pathnameKey);
-    if (cached) return { model: cached, pathnameKey };
-    return heroV2LastGoodModelState;
+  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(() => heroV2ModelCache.get(pathnameKey) ?? heroV2LastGoodModel);
+  const [currentModelPathnameKey, setCurrentModelPathnameKey] = useState<string | null>(() => {
+    if (heroV2ModelCache.has(pathnameKey)) return pathnameKey;
+    return heroV2LastGoodPathnameKey;
   });
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showingLastGood, setShowingLastGood] = useState(false);
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const lastKnownFrameMinHeightRef = useRef<string>("56vh");
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
   useEffect(() => {
-    const nextModel = currentModelState?.model ?? null;
-    currentModelRef.current = nextModel;
-    if (nextModel) {
-      const modelMinHeight = (nextModel.layout as { minHeight?: string }).minHeight;
+    currentModelRef.current = currentModel;
+    if (currentModel) {
+      const modelMinHeight = (currentModel.layout as { minHeight?: string }).minHeight;
       lastKnownFrameMinHeightRef.current = modelMinHeight || "56vh";
     }
-  }, [currentModelState]);
+  }, [currentModel]);
 
   useEffect(() => {
     let isActive = true;
@@ -1573,10 +1575,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const cached = heroV2ModelCache.get(pathnameKey);
     const cachedPropsKey = heroV2ModelPropsKeyCache.get(pathnameKey);
     if (cached && cachedPropsKey === propsKey) {
-      if (!currentModelRef.current || currentModelState?.pathnameKey !== pathnameKey) {
-        const nextState = { model: cached, pathnameKey };
-        heroV2LastGoodModelState = nextState;
-        setCurrentModelState(nextState);
+      if (!currentModelRef.current || currentModelPathnameKey !== pathnameKey) {
+        heroV2LastGoodModel = cached;
+        heroV2LastGoodPathnameKey = pathnameKey;
+        setCurrentModel(cached);
+        setCurrentModelPathnameKey(pathnameKey);
+        setShowingLastGood(false);
         setIsTransitioning(false);
       }
       return () => {
@@ -1584,6 +1588,11 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       };
     }
 
+    if (heroV2LastGoodModel) {
+      setCurrentModel(heroV2LastGoodModel);
+      setCurrentModelPathnameKey(heroV2LastGoodPathnameKey);
+      setShowingLastGood(true);
+    }
     setIsTransitioning(true);
     void getOrBuildHeroV2Model(pathnameKey, propsKey, {
       mode,
@@ -1600,10 +1609,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
-      const nextState = { model: nextModel, pathnameKey };
       onModelReady?.({ pathnameKey });
-      heroV2LastGoodModelState = nextState;
-      setCurrentModelState(nextState);
+      heroV2LastGoodModel = nextModel;
+      heroV2LastGoodPathnameKey = pathnameKey;
+      setCurrentModel(nextModel);
+      setCurrentModelPathnameKey(pathnameKey);
+      setShowingLastGood(false);
       setIsTransitioning(false);
     });
 
@@ -1611,7 +1622,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       isActive = false;
     };
   }, [
-    currentModelState?.pathnameKey,
+    currentModelPathnameKey,
     debugEnabled,
     diagnosticBoost,
     filmGrain,
@@ -1628,45 +1639,41 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     if (!debugEnabled) return;
-    if (!currentModelState?.model) return;
+    if (!currentModel) return;
     const logOpacity = () => {
       const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
       const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
       console.info("HERO_V2_MOTION_OPACITY_PROOF", {
         pathname: pathnameKey,
-        prm: currentModelState.model.surfaceStack.prmEnabled,
-        motionCount: currentModelState.model.surfaceStack.motionLayers.length,
+        prm: currentModel.surfaceStack.prmEnabled,
+        motionCount: currentModel.surfaceStack.motionLayers.length,
         firstMotionOpacity: computedOpacity,
       });
     };
     const frameId = requestAnimationFrame(logOpacity);
     return () => cancelAnimationFrame(frameId);
-  }, [currentModelState, debugEnabled, pathnameKey]);
+  }, [currentModel, debugEnabled, pathnameKey]);
 
-  const resolvedSurfaceStack = currentModelState?.model.surfaceStack ?? heroV2LastGoodModelState?.model.surfaceStack;
-  const resolvedGradient = currentModelState?.model.gradient ?? heroV2LastGoodModelState?.model.gradient ?? "var(--smh-gradient)";
+  const resolvedSurfaceStack = currentModel?.surfaceStack ?? heroV2LastGoodModel?.surfaceStack;
+  const resolvedGradient = currentModel?.gradient ?? heroV2LastGoodModel?.gradient ?? "var(--smh-gradient)";
   const resolvedFrameMinHeight = lastKnownFrameMinHeightRef.current;
   const resolvedLayout: HeroV2Model["layout"] =
-    currentModelState?.model.layout ??
+    currentModel?.layout ??
     ({
       contentAlign: "center",
       maxWidth: 960,
       padding: "clamp(2rem, 4vw, 3.5rem)",
       verticalOffset: "0px",
     } as HeroV2Model["layout"]);
-  const contentMatchesPath = currentModelState?.pathnameKey === pathnameKey;
-  const showingLastGood =
-    Boolean(heroV2LastGoodModelState?.model) &&
-    currentModelState?.model === heroV2LastGoodModelState?.model &&
-    currentModelState?.pathnameKey !== pathnameKey;
+  const contentMatchesPath = currentModelPathnameKey === pathnameKey;
 
   useEffect(() => {
     if (!debugEnabled) return;
     console.info("HERO_V2_NAV_PROOF", {
       pathnameKey,
-      hasCurrentModel: Boolean(currentModelState?.model),
-      hasLastGoodSurfaces: Boolean(heroV2LastGoodModelState?.model.surfaceStack),
-      hasLastGoodModel: Boolean(heroV2LastGoodModelState?.model),
+      hasCurrentModel: Boolean(currentModel),
+      hasLastGoodSurfaces: Boolean(heroV2LastGoodModel?.surfaceStack),
+      hasLastGoodModel: Boolean(heroV2LastGoodModel),
       contentMatchesPath,
       frameMinHeight: resolvedFrameMinHeight,
       isTransitioning,
@@ -1675,7 +1682,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     });
   }, [
     contentMatchesPath,
-    currentModelState,
+    currentModel,
     debugEnabled,
     navShieldActive,
     pathnameKey,
@@ -1684,14 +1691,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     showingLastGood,
   ]);
 
-  if (!resolvedSurfaceStack && !heroV2LastGoodModelState?.model) {
+  if (!resolvedSurfaceStack && !heroV2LastGoodModel) {
     if (process.env.NODE_ENV !== "production") {
       console.info("HERO_V2_FALLBACK_RENDER", { pathnameKey, reason: "no-model-and-no-lastGoodModel" });
     }
     return <HeroFallback minHeight={resolvedFrameMinHeight} />;
   }
 
-  const resolvedSurface = resolvedSurfaceStack ?? heroV2LastGoodModelState?.model.surfaceStack;
+  const resolvedSurface = resolvedSurfaceStack ?? heroV2LastGoodModel?.surfaceStack;
   if (!resolvedSurface) {
     return <HeroFallback minHeight={resolvedFrameMinHeight} />;
   }
@@ -1762,9 +1769,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           transition: "opacity 220ms ease",
         }}
       />
-      {contentMatchesPath && currentModelState?.model ? (
+      {contentMatchesPath && currentModel ? (
         <HeroContentFade>
-          <HeroContentV2 content={currentModelState.model.content} layout={currentModelState.model.layout} />
+          <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
         </HeroContentFade>
       ) : null}
     </HeroV2Frame>
