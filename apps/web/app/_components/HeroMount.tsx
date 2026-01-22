@@ -13,19 +13,16 @@ export function HeroMount() {
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") return;
-    const id = instanceId.current;
-    console.info("HERO_MOUNT_PERSIST_PROOF", { id });
-    return () => {
-      console.info("HERO_MOUNT_UNMOUNT_PROOF", { id });
-    };
-  }, []);
+    console.info("HERO_MOUNT_PERSIST_PROOF", {
+      instanceId: instanceId.current,
+      pathname,
+      time: Date.now(),
+    });
+  }, [pathname]);
 
   useLayoutEffect(() => {
     pathnameRef.current = pathname;
     setShieldPhase("arming");
-    if (process.env.NODE_ENV !== "production") {
-      console.info("HERO_V2_SHIELD_PROOF", { pathname, shieldActive: true, event: "activate" });
-    }
     queueMicrotask(() => {
       setShieldPhase("active");
     });
@@ -101,13 +98,6 @@ export function HeroMount() {
           navShieldActive={shieldPhase !== "clearing"}
           onModelReady={({ pathnameKey }) => {
             if (pathnameKey !== pathnameRef.current) return;
-            if (process.env.NODE_ENV !== "production") {
-              console.info("HERO_V2_SHIELD_PROOF", {
-                pathname: pathnameRef.current,
-                shieldActive: false,
-                event: "clear",
-              });
-            }
             setShieldPhase("clearing");
           }}
         />
