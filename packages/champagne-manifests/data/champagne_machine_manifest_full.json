@@ -50,7 +50,7 @@
           "type": "copy-block",
           "label": "Who we are",
           "title": "Dentistry designed for clarity, comfort, and long-term confidence",
-          "copy": "At St Mary\u2019s House Dental, care is built around thoughtful planning, calm delivery, and respect for every patient\u2019s circumstances.\n\nWe provide general, restorative, implant, orthodontic, and aesthetic dentistry with a focus on predictability rather than pressure. Appointments are unhurried, explanations are clear, and treatment decisions are made collaboratively \u2014 not often rushed.\n\nWhether you need routine care, complex restorative work, or guidance through multiple options, our role is to help you understand what\u2019s possible and choose what feels right for you."
+          "copy": "Care at St Mary\u2019s House is built around time, explanation, and respect for every patient\u2019s circumstances.\n\nWe provide general, restorative, implant, orthodontic, and aesthetic dentistry, but we don\u2019t rush decisions or push treatment. Appointments are unhurried, explanations are clear, and choices are made collaboratively.\n\nMany of our patients tell us they feel listened to here. That matters to us."
         },
         {
           "id": "home_authority",
@@ -69,7 +69,7 @@
           "type": "copy-block",
           "label": "Clinical philosophy",
           "title": "Care that values planning as much as precision",
-          "copy": "Good dentistry is rarely about a single procedure. It\u2019s about understanding bite, function, health, aesthetics, and long-term stability \u2014 and planning accordingly.\n\nWe take a conservative, evidence-led approach, using modern diagnostics and digital planning to reduce uncertainty and avoid unnecessary treatment. Where care becomes complex, we slow things down, map out options clearly, and proceed step by step with your comfort and understanding at the centre."
+          "copy": "Good dentistry isn\u2019t just about a single procedure. It\u2019s about understanding bite, function, health, aesthetics, and long-term stability \u2014 and planning accordingly.\n\nWe take a conservative, evidence-led approach. When care becomes complex or irreversible \u2014 implants, extractions, root canal treatment, veneers, larger restorative plans \u2014 we slow things down, map out options clearly, and proceed step by step with your comfort and understanding at the centre."
         },
         {
           "id": "home_treatment_hub",
@@ -98,7 +98,7 @@
           "type": "copy-block",
           "label": "Complex & multidisciplinary care",
           "title": "Structured care for complex situations",
-          "copy": "Many patients come to us after years of piecemeal dentistry, unresolved problems, or uncertainty about what should happen next. These cases need structure, not speed.\n\nOur approach brings different disciplines together \u2014 restorative, orthodontic, implant, and digital planning \u2014 so treatment is sequenced sensibly and reviewed carefully. This reduces risk, improves outcomes, and gives you a clearer sense of where you\u2019re heading before anything irreversible begins."
+          "copy": "Many patients come to us after years of piecemeal dentistry, unresolved problems, or uncertainty about what should happen next. These cases need structure, not speed.\n\nOur approach brings disciplines together \u2014 restorative, orthodontic, implant, and digital planning \u2014 so treatment is sequenced sensibly and reviewed carefully. For missing teeth, that may include implant-supported restorations or implant-retained dentures, planned with stability, comfort, and ease of maintenance in mind.\n\nThe aim is a clearer path forward before anything irreversible begins."
         },
         {
           "id": "home_treatment_routing",
@@ -173,7 +173,7 @@
           "type": "media",
           "label": "Tech & tools",
           "title": "Technology that keeps planning clear",
-          "copy": "Diagnostics, digital planning, and visual previews stay visible on the Champagne canvas so you can see each step before it begins."
+          "copy": "Diagnostics, digital planning, and 3D workflows help you see the steps before they happen \u2014 particularly for implants and complex restorative work \u2014 so decisions feel clearer and more predictable."
         },
         {
           "id": "home_patient_stories",
