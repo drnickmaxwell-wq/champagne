@@ -284,14 +284,14 @@ const resolveParticlesOpacity = (entry?: {
   return undefined;
 };
 
-function HeroFallback() {
+function HeroFallback({ minHeight }: { minHeight: string }) {
   return (
     <BaseChampagneSurface
       variant="inkGlass"
       disableInternalOverlays
       style={{
         background: "var(--smh-gradient)",
-        minHeight: "48vh",
+        minHeight,
         display: "grid",
         alignItems: "center",
         padding: "clamp(2rem, 5vw, 3.5rem)",
@@ -338,6 +338,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 --hero-motion-duration: 42s;
+                min-height: 56vh;
               }
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
@@ -1536,6 +1537,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const lastGoodSurfaceStackRef = useRef<HeroSurfaceStackModel | null>(null);
   const lastGoodGradientRef = useRef<string | null>(null);
+  const lastKnownFrameMinHeightRef = useRef<string>("56vh");
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
   useEffect(() => {
@@ -1544,6 +1546,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (nextModel) {
       lastGoodSurfaceStackRef.current = nextModel.surfaceStack;
       lastGoodGradientRef.current = nextModel.gradient;
+      const modelMinHeight = (nextModel.layout as { minHeight?: string }).minHeight;
+      lastKnownFrameMinHeightRef.current = modelMinHeight || "56vh";
     }
   }, [currentModelState]);
 
@@ -1625,6 +1629,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   const resolvedSurfaceStack = currentModelState?.model.surfaceStack ?? lastGoodSurfaceStackRef.current;
   const resolvedGradient = currentModelState?.model.gradient ?? lastGoodGradientRef.current ?? "var(--smh-gradient)";
+  const resolvedFrameMinHeight = lastKnownFrameMinHeightRef.current;
   const resolvedLayout: HeroV2Model["layout"] =
     currentModelState?.model.layout ??
     ({
@@ -1642,17 +1647,18 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       hasCurrentModel: Boolean(currentModelState?.model),
       hasLastGoodSurfaces: Boolean(lastGoodSurfaceStackRef.current),
       contentMatchesPath,
+      frameMinHeight: resolvedFrameMinHeight,
     });
-  }, [contentMatchesPath, currentModelState, debugEnabled, pathnameKey]);
+  }, [contentMatchesPath, currentModelState, debugEnabled, pathnameKey, resolvedFrameMinHeight]);
 
   if (!resolvedSurfaceStack) {
     if (process.env.NODE_ENV !== "production") {
       console.info("HERO_V2_FALLBACK_RENDER", { pathnameKey, reason: "no-model-and-no-lastGoodModel" });
     }
-    return <HeroFallback />;
+    return <HeroFallback minHeight={resolvedFrameMinHeight} />;
   }
 
-  const resolvedRootStyle = { ...rootStyle, ...resolvedSurfaceStack.surfaceVars };
+  const resolvedRootStyle = { minHeight: resolvedFrameMinHeight, ...rootStyle, ...resolvedSurfaceStack.surfaceVars };
   const motionCount = resolvedSurfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
