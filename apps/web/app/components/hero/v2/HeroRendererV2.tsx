@@ -11,6 +11,7 @@ const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 const heroV2ModelPropsKeyCache = new Map<string, string>();
 const heroV2ModelPromiseCache = new Map<string, Promise<HeroV2Model | null>>();
+let heroV2LastGoodModelState: { model: HeroV2Model; pathnameKey: string } | null = null;
 
 const buildHeroV2PropsKey = ({
   prm,
@@ -56,6 +57,7 @@ const getOrBuildHeroV2Model = (
     if (nextModel) {
       heroV2ModelCache.set(pathnameKey, nextModel);
       heroV2ModelPropsKeyCache.set(pathnameKey, propsKey);
+      heroV2LastGoodModelState = { model: nextModel, pathnameKey };
     }
     heroV2ModelPromiseCache.delete(cacheKey);
     return nextModel;
@@ -1533,10 +1535,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     rootStyle,
     surfaceRef,
   } = props;
-  const [currentModelState, setCurrentModelState] = useState<{ model: HeroV2Model; pathnameKey: string } | null>(null);
+  const [currentModelState, setCurrentModelState] = useState<{ model: HeroV2Model; pathnameKey: string } | null>(() => {
+    const cached = heroV2ModelCache.get(pathnameKey);
+    if (cached) return { model: cached, pathnameKey };
+    return heroV2LastGoodModelState;
+  });
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const currentModelRef = useRef<HeroV2Model | null>(null);
-  const lastGoodSurfaceStackRef = useRef<HeroSurfaceStackModel | null>(null);
-  const lastGoodGradientRef = useRef<string | null>(null);
   const lastKnownFrameMinHeightRef = useRef<string>("56vh");
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
@@ -1544,8 +1549,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const nextModel = currentModelState?.model ?? null;
     currentModelRef.current = nextModel;
     if (nextModel) {
-      lastGoodSurfaceStackRef.current = nextModel.surfaceStack;
-      lastGoodGradientRef.current = nextModel.gradient;
       const modelMinHeight = (nextModel.layout as { minHeight?: string }).minHeight;
       lastKnownFrameMinHeightRef.current = modelMinHeight || "56vh";
     }
@@ -1567,13 +1570,17 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const cachedPropsKey = heroV2ModelPropsKeyCache.get(pathnameKey);
     if (cached && cachedPropsKey === propsKey) {
       if (!currentModelRef.current || currentModelState?.pathnameKey !== pathnameKey) {
-        setCurrentModelState({ model: cached, pathnameKey });
+        const nextState = { model: cached, pathnameKey };
+        heroV2LastGoodModelState = nextState;
+        setCurrentModelState(nextState);
+        setIsTransitioning(false);
       }
       return () => {
         isActive = false;
       };
     }
 
+    setIsTransitioning(true);
     void getOrBuildHeroV2Model(pathnameKey, propsKey, {
       mode,
       treatmentSlug,
@@ -1589,7 +1596,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
-      setCurrentModelState({ model: nextModel, pathnameKey });
+      const nextState = { model: nextModel, pathnameKey };
+      heroV2LastGoodModelState = nextState;
+      setCurrentModelState(nextState);
+      setIsTransitioning(false);
     });
 
     return () => {
@@ -1627,8 +1637,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => cancelAnimationFrame(frameId);
   }, [currentModelState, debugEnabled, pathnameKey]);
 
-  const resolvedSurfaceStack = currentModelState?.model.surfaceStack ?? lastGoodSurfaceStackRef.current;
-  const resolvedGradient = currentModelState?.model.gradient ?? lastGoodGradientRef.current ?? "var(--smh-gradient)";
+  const resolvedSurfaceStack = currentModelState?.model.surfaceStack ?? heroV2LastGoodModelState?.model.surfaceStack;
+  const resolvedGradient = currentModelState?.model.gradient ?? heroV2LastGoodModelState?.model.gradient ?? "var(--smh-gradient)";
   const resolvedFrameMinHeight = lastKnownFrameMinHeightRef.current;
   const resolvedLayout: HeroV2Model["layout"] =
     currentModelState?.model.layout ??
@@ -1639,39 +1649,58 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       verticalOffset: "0px",
     } as HeroV2Model["layout"]);
   const contentMatchesPath = currentModelState?.pathnameKey === pathnameKey;
+  const showingLastGood =
+    Boolean(heroV2LastGoodModelState?.model) &&
+    currentModelState?.model === heroV2LastGoodModelState?.model &&
+    currentModelState?.pathnameKey !== pathnameKey;
 
   useEffect(() => {
     if (!debugEnabled) return;
     console.info("HERO_V2_NAV_PROOF", {
       pathnameKey,
       hasCurrentModel: Boolean(currentModelState?.model),
-      hasLastGoodSurfaces: Boolean(lastGoodSurfaceStackRef.current),
+      hasLastGoodSurfaces: Boolean(heroV2LastGoodModelState?.model.surfaceStack),
+      hasLastGoodModel: Boolean(heroV2LastGoodModelState?.model),
       contentMatchesPath,
       frameMinHeight: resolvedFrameMinHeight,
+      isTransitioning,
+      showingLastGood,
     });
-  }, [contentMatchesPath, currentModelState, debugEnabled, pathnameKey, resolvedFrameMinHeight]);
+  }, [
+    contentMatchesPath,
+    currentModelState,
+    debugEnabled,
+    pathnameKey,
+    resolvedFrameMinHeight,
+    isTransitioning,
+    showingLastGood,
+  ]);
 
-  if (!resolvedSurfaceStack) {
+  if (!resolvedSurfaceStack && !heroV2LastGoodModelState?.model) {
     if (process.env.NODE_ENV !== "production") {
       console.info("HERO_V2_FALLBACK_RENDER", { pathnameKey, reason: "no-model-and-no-lastGoodModel" });
     }
     return <HeroFallback minHeight={resolvedFrameMinHeight} />;
   }
 
-  const resolvedRootStyle = { minHeight: resolvedFrameMinHeight, ...rootStyle, ...resolvedSurfaceStack.surfaceVars };
-  const motionCount = resolvedSurfaceStack.motionLayers.length;
+  const resolvedSurface = resolvedSurfaceStack ?? heroV2LastGoodModelState?.model.surfaceStack;
+  if (!resolvedSurface) {
+    return <HeroFallback minHeight={resolvedFrameMinHeight} />;
+  }
+  const resolvedRootStyle = { minHeight: resolvedFrameMinHeight, ...rootStyle, ...resolvedSurface.surfaceVars };
+  const motionCount = resolvedSurface.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
-    heroId: resolvedSurfaceStack.heroId ?? "",
-    variantId: resolvedSurfaceStack.variantId ?? "",
-    boundHeroId: resolvedSurfaceStack.boundHeroId ?? "",
-    boundVariantId: resolvedSurfaceStack.boundVariantId ?? "",
-    effectiveHeroId: resolvedSurfaceStack.effectiveHeroId ?? "",
-    effectiveVariantId: resolvedSurfaceStack.effectiveVariantId ?? "",
-    particlesPath: resolvedSurfaceStack.particlesPath ?? "",
-    particlesOpacity: resolvedSurfaceStack.particlesOpacity ?? "",
+    heroId: resolvedSurface.heroId ?? "",
+    variantId: resolvedSurface.variantId ?? "",
+    boundHeroId: resolvedSurface.boundHeroId ?? "",
+    boundVariantId: resolvedSurface.boundVariantId ?? "",
+    effectiveHeroId: resolvedSurface.effectiveHeroId ?? "",
+    effectiveVariantId: resolvedSurface.effectiveVariantId ?? "",
+    particlesPath: resolvedSurface.particlesPath ?? "",
+    particlesOpacity: resolvedSurface.particlesOpacity ?? "",
     motionCount,
-    prm: resolvedSurfaceStack.prmEnabled,
+    prm: resolvedSurface.prmEnabled,
   };
 
   return (
@@ -1679,12 +1708,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       layout={resolvedLayout}
       gradient={resolvedGradient}
       rootStyle={resolvedRootStyle}
-      heroId={resolvedSurfaceStack.heroId}
-      variantId={resolvedSurfaceStack.variantId}
-      particlesPath={resolvedSurfaceStack.particlesPath}
-      particlesOpacity={resolvedSurfaceStack.particlesOpacity}
+      heroId={resolvedSurface.heroId}
+      variantId={resolvedSurface.variantId}
+      particlesPath={resolvedSurface.particlesPath}
+      particlesOpacity={resolvedSurface.particlesOpacity}
       motionCount={motionCount}
-      prm={resolvedSurfaceStack.prmEnabled}
+      prm={resolvedSurface.prmEnabled}
       debug={debugEnabled}
     >
       {debugEnabled ? (
@@ -1710,7 +1739,21 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
         </div>
       ) : null}
-      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...resolvedSurfaceStack} />
+      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...resolvedSurface} />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 40,
+          pointerEvents: "none",
+          background: "color-mix(in srgb, var(--surface-ink) 35%, transparent)",
+          backdropFilter: "blur(6px)",
+          WebkitBackdropFilter: "blur(6px)",
+          opacity: isTransitioning ? 1 : 0,
+          transition: "opacity 220ms ease",
+        }}
+      />
       {contentMatchesPath && currentModelState?.model ? (
         <HeroContentFade>
           <HeroContentV2 content={currentModelState.model.content} layout={currentModelState.model.layout} />
