@@ -8,6 +8,7 @@ import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+const HERO_FRAME_MIN_HEIGHT = "56vh";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 
 export interface HeroRendererV2Props {
@@ -223,7 +224,7 @@ function HeroFallback() {
       disableInternalOverlays
       style={{
         background: "var(--smh-gradient)",
-        minHeight: "48vh",
+        minHeight: HERO_FRAME_MIN_HEIGHT,
         display: "grid",
         alignItems: "center",
         padding: "clamp(2rem, 5vw, 3.5rem)",
@@ -264,13 +265,14 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
       <style
         dangerouslySetInnerHTML={{
           __html: `
-              .hero-renderer-v2 {
-                position: relative;
-                color: var(--text-high);
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-                --hero-motion-duration: 42s;
-              }
+                .hero-renderer-v2 {
+                  position: relative;
+                  color: var(--text-high);
+                  backdrop-filter: none !important;
+                  -webkit-backdrop-filter: none !important;
+                  --hero-motion-duration: 42s;
+                  min-height: ${HERO_FRAME_MIN_HEIGHT};
+                }
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
                 background: none !important;
@@ -355,7 +357,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                   padding: ${layout.padding ?? "clamp(2rem, 4vw, 3.5rem)"};
                 }
                 .hero-renderer-v2 {
-                  min-height: 68vh;
+                  min-height: ${HERO_FRAME_MIN_HEIGHT};
                 }
               }
               @media (prefers-reduced-motion: reduce) {
@@ -641,19 +643,21 @@ export function HeroV2Frame({
       }
     : {};
 
+  const frameStyle: CSSProperties = { minHeight: HERO_FRAME_MIN_HEIGHT, ...rootStyle };
+
   return (
     <div
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
-      style={rootStyle}
+      style={frameStyle}
       {...dataAttributes}
     >
       <BaseChampagneSurface
         variant="plain"
         disableInternalOverlays
         style={{
-          minHeight: "72vh",
+          minHeight: HERO_FRAME_MIN_HEIGHT,
           display: "grid",
           alignItems: layout.contentAlign === "center" ? "center" : "stretch",
           overflow: "hidden",
@@ -1465,14 +1469,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     surfaceRef,
   } = props;
   const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
-  const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
+  const [lastGoodModel, setLastGoodModel] = useState<HeroV2Model | null>(null);
+  const [showingModel, setShowingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [debugEnabled, setDebugEnabled] = useState(false);
-  const currentModelRef = useRef<HeroV2Model | null>(null);
-  const transitionRef = useRef<{ timeoutId: number | null; rafId: number | null }>({
-    timeoutId: null,
-    rafId: null,
-  });
+  const [showContent, setShowContent] = useState(false);
+  const lastGoodModelRef = useRef<HeroV2Model | null>(null);
+  const transitionRef = useRef<{ rafId: number | null }>({ rafId: null });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -1480,15 +1483,31 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [rawPathname]);
 
   useEffect(() => {
-    currentModelRef.current = currentModel;
-  }, [currentModel]);
+    lastGoodModelRef.current = lastGoodModel;
+  }, [lastGoodModel]);
+
+  useEffect(() => {
+    setIsTransitioning(true);
+    setShowContent(false);
+    if (lastGoodModelRef.current) {
+      setShowingModel(lastGoodModelRef.current);
+    }
+    if (transitionRef.current.rafId) {
+      cancelAnimationFrame(transitionRef.current.rafId);
+      transitionRef.current.rafId = null;
+    }
+  }, [pathnameKey]);
 
   useEffect(() => {
     let isActive = true;
     const transitionState = transitionRef.current;
     const cached = heroV2ModelCache.get(pathnameKey);
-    if (cached && !currentModelRef.current) {
+    if (cached && !lastGoodModelRef.current) {
       setCurrentModel(cached);
+      setLastGoodModel(cached);
+      setShowingModel(cached);
+      setShowContent(true);
+      setIsTransitioning(false);
     }
     void buildHeroV2Model({
       mode,
@@ -1506,26 +1525,17 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (!isActive) return;
       if (!nextModel) return;
       heroV2ModelCache.set(pathnameKey, nextModel);
-      if (!currentModelRef.current) {
-        setCurrentModel(nextModel);
-        return;
-      }
-      setIncomingModel(nextModel);
-      setIsTransitioning(false);
+      setCurrentModel(nextModel);
+      setLastGoodModel(nextModel);
+      setShowingModel(nextModel);
       if (transitionState.rafId) {
         cancelAnimationFrame(transitionState.rafId);
       }
       transitionState.rafId = requestAnimationFrame(() => {
-        setIsTransitioning(true);
-      });
-      if (transitionState.timeoutId) {
-        window.clearTimeout(transitionState.timeoutId);
-      }
-      transitionState.timeoutId = window.setTimeout(() => {
-        setCurrentModel(nextModel);
-        setIncomingModel(null);
+        if (!isActive) return;
+        setShowContent(true);
         setIsTransitioning(false);
-      }, 240);
+      });
     });
 
     return () => {
@@ -1533,10 +1543,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (transitionState.rafId) {
         cancelAnimationFrame(transitionState.rafId);
         transitionState.rafId = null;
-      }
-      if (transitionState.timeoutId) {
-        window.clearTimeout(transitionState.timeoutId);
-        transitionState.timeoutId = null;
       }
     };
   }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
@@ -1558,40 +1564,48 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => cancelAnimationFrame(frameId);
   }, [currentModel, debugEnabled, pathnameKey]);
 
-  if (!currentModel) return <HeroFallback />;
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") return;
+    console.info("HERO_V2_TRANSITION_PROOF", {
+      pathnameKey,
+      isTransitioning,
+      hasLastGoodModel: Boolean(lastGoodModel),
+      showing: showingModel?.surfaceStack?.effectiveHeroId,
+      contentVisible: showContent,
+    });
+  }, [isTransitioning, lastGoodModel, pathnameKey, showContent, showingModel]);
 
-  const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
-  const motionCount = currentModel.surfaceStack.motionLayers.length;
+  const resolvedModel = showingModel ?? lastGoodModel ?? currentModel;
+
+  if (!resolvedModel) return <HeroFallback />;
+
+  const resolvedRootStyle = { ...rootStyle, ...resolvedModel.surfaceStack.surfaceVars };
+  const motionCount = resolvedModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
-    heroId: currentModel.surfaceStack.heroId ?? "",
-    variantId: currentModel.surfaceStack.variantId ?? "",
-    boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
-    boundVariantId: currentModel.surfaceStack.boundVariantId ?? "",
-    effectiveHeroId: currentModel.surfaceStack.effectiveHeroId ?? "",
-    effectiveVariantId: currentModel.surfaceStack.effectiveVariantId ?? "",
-    particlesPath: currentModel.surfaceStack.particlesPath ?? "",
-    particlesOpacity: currentModel.surfaceStack.particlesOpacity ?? "",
+    heroId: resolvedModel.surfaceStack.heroId ?? "",
+    variantId: resolvedModel.surfaceStack.variantId ?? "",
+    boundHeroId: resolvedModel.surfaceStack.boundHeroId ?? "",
+    boundVariantId: resolvedModel.surfaceStack.boundVariantId ?? "",
+    effectiveHeroId: resolvedModel.surfaceStack.effectiveHeroId ?? "",
+    effectiveVariantId: resolvedModel.surfaceStack.effectiveVariantId ?? "",
+    particlesPath: resolvedModel.surfaceStack.particlesPath ?? "",
+    particlesOpacity: resolvedModel.surfaceStack.particlesOpacity ?? "",
     motionCount,
-    prm: currentModel.surfaceStack.prmEnabled,
-  };
-  const surfaceWrapperBaseStyle: CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    transition: "opacity 220ms ease",
+    prm: resolvedModel.surfaceStack.prmEnabled,
   };
 
   return (
     <HeroV2Frame
-      layout={currentModel.layout}
-      gradient={currentModel.gradient}
+      layout={resolvedModel.layout}
+      gradient={resolvedModel.gradient}
       rootStyle={resolvedRootStyle}
-      heroId={currentModel.surfaceStack.heroId}
-      variantId={currentModel.surfaceStack.variantId}
-      particlesPath={currentModel.surfaceStack.particlesPath}
-      particlesOpacity={currentModel.surfaceStack.particlesOpacity}
+      heroId={resolvedModel.surfaceStack.heroId}
+      variantId={resolvedModel.surfaceStack.variantId}
+      particlesPath={resolvedModel.surfaceStack.particlesPath}
+      particlesOpacity={resolvedModel.surfaceStack.particlesOpacity}
       motionCount={motionCount}
-      prm={currentModel.surfaceStack.prmEnabled}
+      prm={resolvedModel.surfaceStack.prmEnabled}
       debug={debugEnabled}
     >
       {debugEnabled ? (
@@ -1617,26 +1631,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
         </div>
       ) : null}
-      <div
-        style={{
-          ...surfaceWrapperBaseStyle,
-          opacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
-        }}
-      >
-        <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
-      </div>
-      {incomingModel ? (
-        <div
-          style={{
-            ...surfaceWrapperBaseStyle,
-            opacity: isTransitioning ? 1 : 0,
-          }}
-        >
-          <HeroSurfaceStackV2 {...incomingModel.surfaceStack} />
-        </div>
-      ) : null}
-      <HeroContentFade>
-        <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
+      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...resolvedModel.surfaceStack} />
+      <HeroContentFade forceHidden={!showContent}>
+        <HeroContentV2 content={resolvedModel.content} layout={resolvedModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
   );

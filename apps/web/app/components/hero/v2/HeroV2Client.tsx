@@ -474,9 +474,10 @@ export const HeroSurfaceStackV2 = memo(HeroSurfaceStackV2Base);
 
 type HeroContentFadeProps = {
   children: ReactNode;
+  forceHidden?: boolean;
 };
 
-export function HeroContentFade({ children }: HeroContentFadeProps) {
+export function HeroContentFade({ children, forceHidden }: HeroContentFadeProps) {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -529,8 +530,8 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
   }, [pathname, isVisible, prefersReducedMotion]);
 
   const style: CSSProperties = {
-    opacity: prefersReducedMotion ? 1 : isVisible ? 1 : 0,
-    transition: prefersReducedMotion ? "none" : "opacity 220ms ease",
+    opacity: forceHidden ? 0 : prefersReducedMotion ? 1 : isVisible ? 1 : 0,
+    transition: forceHidden || prefersReducedMotion ? "none" : "opacity 220ms ease",
     willChange: "opacity",
   };
 
