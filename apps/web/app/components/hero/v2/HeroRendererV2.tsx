@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties, type ReactNode, type Ref } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
 import { usePathname } from "next/navigation";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import heroGlueManifest from "./heroGlue.manifest.json";
@@ -1382,10 +1382,21 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     rootStyle,
     surfaceRef,
   } = props;
-  const [model, setModel] = useState<HeroV2Model | null>(null);
+  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
+  const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const currentModelRef = useRef<HeroV2Model | null>(null);
+
+  void incomingModel;
+
+  useEffect(() => {
+    currentModelRef.current = currentModel;
+  }, [currentModel]);
 
   useEffect(() => {
     let isActive = true;
+    setIsTransitioning(true);
+    setIncomingModel(null);
     void buildHeroV2Model({
       mode,
       treatmentSlug,
@@ -1399,7 +1410,16 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       glueVars,
     }).then((nextModel) => {
       if (!isActive) return;
-      setModel(nextModel);
+      if (!nextModel) return;
+      if (!currentModelRef.current) {
+        setCurrentModel(nextModel);
+        setIsTransitioning(false);
+        return;
+      }
+      setIncomingModel(nextModel);
+      setCurrentModel(nextModel);
+      setIncomingModel(null);
+      setIsTransitioning(false);
     });
 
     return () => {
@@ -1409,33 +1429,43 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") return;
-    if (!model) return;
     console.info("HERO_V2_MOUNT_TRACE", {
       pathname,
-      heroId: model.surfaceStack.heroId,
-      variantId: model.surfaceStack.variantId,
-      particlesPath: model.surfaceStack.particlesPath,
-      particlesOpacity: model.surfaceStack.particlesOpacity,
+      heroId: currentModel?.surfaceStack.heroId ?? null,
+      variantId: currentModel?.surfaceStack.variantId ?? null,
+      particlesPath: currentModel?.surfaceStack.particlesPath ?? null,
+      particlesOpacity: currentModel?.surfaceStack.particlesOpacity ?? null,
     });
-  }, [model, pathname]);
+  }, [currentModel, pathname]);
 
-  if (!model) return <HeroFallback />;
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") return;
+    console.info("HERO_V2_TRANSITION_PROOF", {
+      pathnameKey: pathname,
+      hasCurrentModel: Boolean(currentModel),
+      isTransitioning,
+      prm: currentModel?.surfaceStack.prmEnabled ?? false,
+      motionCount: currentModel?.surfaceStack.motionLayers.length ?? 0,
+    });
+  }, [currentModel, isTransitioning, pathname]);
 
-  const resolvedRootStyle = { ...rootStyle, ...model.surfaceStack.surfaceVars };
+  if (!currentModel) return <HeroFallback />;
+
+  const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
 
   return (
     <HeroV2Frame
-      layout={model.layout}
-      gradient={model.gradient}
+      layout={currentModel.layout}
+      gradient={currentModel.gradient}
       rootStyle={resolvedRootStyle}
-      heroId={model.surfaceStack.heroId}
-      variantId={model.surfaceStack.variantId}
-      particlesPath={model.surfaceStack.particlesPath}
-      particlesOpacity={model.surfaceStack.particlesOpacity}
+      heroId={currentModel.surfaceStack.heroId}
+      variantId={currentModel.surfaceStack.variantId}
+      particlesPath={currentModel.surfaceStack.particlesPath}
+      particlesOpacity={currentModel.surfaceStack.particlesOpacity}
     >
-      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...model.surfaceStack} />
-      <HeroContentFade>
-        <HeroContentV2 content={model.content} layout={model.layout} />
+      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+      <HeroContentFade forceHidden={isTransitioning}>
+        <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
   );
