@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { HeroRenderer, type HeroRendererProps } from "../components/hero/HeroRenderer";
 import { HeroRendererV2 } from "../components/hero/v2/HeroRendererV2";
@@ -8,6 +8,8 @@ import { HeroRendererV2 } from "../components/hero/v2/HeroRendererV2";
 export function HeroMount() {
   const pathname = usePathname() ?? "/";
   const instanceId = useRef(`hero-mount-${Math.random().toString(36).slice(2, 10)}`);
+  const [isNavShieldActive, setIsNavShieldActive] = useState(false);
+  const [isNavShieldVisible, setIsNavShieldVisible] = useState(false);
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") return;
@@ -17,6 +19,24 @@ export function HeroMount() {
       console.info("HERO_MOUNT_UNMOUNT_PROOF", { id });
     };
   }, []);
+
+  useLayoutEffect(() => {
+    setIsNavShieldActive(true);
+    setIsNavShieldVisible(true);
+    if (process.env.NODE_ENV !== "production") {
+      console.info("HERO_V2_SHIELD_PROOF", { pathname, shieldActive: true, event: "activate" });
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isNavShieldActive && isNavShieldVisible) {
+      const timeoutId = window.setTimeout(() => {
+        setIsNavShieldVisible(false);
+      }, 220);
+      return () => window.clearTimeout(timeoutId);
+    }
+    return;
+  }, [isNavShieldActive, isNavShieldVisible]);
 
   let pageCategory: HeroRendererProps["pageCategory"];
   let mode: HeroRendererProps["mode"];
@@ -66,8 +86,33 @@ export function HeroMount() {
         data-hero-engine="v2"
         data-hero-flag={rawFlag ?? ""}
         data-hero-flag-normalized={normalized}
+        style={{ position: "relative" }}
       >
-        <HeroRendererV2 {...resolvedProps} />
+        {isNavShieldVisible ? (
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              minHeight: "56vh",
+              pointerEvents: "none",
+              zIndex: 60,
+              background: "color-mix(in srgb, var(--surface-ink) 35%, transparent)",
+              opacity: isNavShieldActive ? 1 : 0,
+              transition: "opacity 220ms ease",
+            }}
+          />
+        ) : null}
+        <HeroRendererV2
+          {...resolvedProps}
+          onModelReady={({ pathnameKey }) => {
+            if (pathnameKey !== pathname) return;
+            if (process.env.NODE_ENV !== "production") {
+              console.info("HERO_V2_SHIELD_PROOF", { pathname, shieldActive: false, event: "clear" });
+            }
+            setIsNavShieldActive(false);
+          }}
+        />
       </div>
     );
   }

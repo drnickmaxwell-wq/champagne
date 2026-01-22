@@ -93,6 +93,7 @@ export interface HeroRendererV2Props {
   surfaceRef?: Ref<HTMLDivElement>;
   pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
   rootStyle?: CSSProperties;
+  onModelReady?: (payload: { pathnameKey: string }) => void;
   glueVars?: Partial<{
     waveRingsSize: string;
     waveRingsRepeat: string;
@@ -1534,6 +1535,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     glueVars,
     rootStyle,
     surfaceRef,
+    onModelReady,
   } = props;
   const [currentModelState, setCurrentModelState] = useState<{ model: HeroV2Model; pathnameKey: string } | null>(() => {
     const cached = heroV2ModelCache.get(pathnameKey);
@@ -1653,6 +1655,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     Boolean(heroV2LastGoodModelState?.model) &&
     currentModelState?.model === heroV2LastGoodModelState?.model &&
     currentModelState?.pathnameKey !== pathnameKey;
+
+  useEffect(() => {
+    if (!onModelReady) return;
+    if (!contentMatchesPath) return;
+    onModelReady({ pathnameKey });
+  }, [contentMatchesPath, onModelReady, pathnameKey]);
 
   useEffect(() => {
     if (!debugEnabled) return;
