@@ -27,12 +27,12 @@
       "order": 20,
       "seoRole": "supporting",
       "eyebrow": "Why patients trust us",
-      "title": "Calm, evidence-led implant care",
+      "title": "Evidence-led implant care, explained clearly",
       "items": [
         "Clinician-led, planning-first — We prioritise diagnosis, stability and long-term maintenance, not rushed sales dentistry.",
         "Digital assessment where appropriate — Scans and 3D planning can help us assess bone, bite and space, and reduce uncertainty.",
         "Guided surgery where appropriate — When suitable, we design and 3D print surgical guides to help transfer the plan accurately to the mouth.",
-        "Calm, transparent care — You’ll get a clear explanation of benefits, risks and alternatives, with time to decide.",
+        "Clear, transparent care — We explain benefits, risks and alternatives, and give you time to decide.",
         "Local follow-up and aftercare — Implant health is a long game, and reviews plus hygiene support matter."
       ]
     },
@@ -44,7 +44,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Planning-first implants",
       "title": "Why planning matters with implants",
-      "body": "Dental implants are a brilliant option for many people — but they’re not a “one size fits all” treatment. The outcome depends on bone levels, gum health, bite forces, space, and the position of neighbouring teeth.\n\nOur approach is to plan the tooth first and the implant second. Where appropriate, we use 3D imaging and digital planning so we can choose implant position and angulation that supports a natural-looking, cleanable final crown.",
+      "body": "Dental implants can be a suitable option for many people — but they are not a “one size fits all” treatment. Outcomes depend on bone levels, gum health, bite forces, space, and the position of neighbouring teeth.\n\nOur approach is to plan the tooth first and the implant second. Where appropriate, we use 3D imaging and digital planning to choose implant position and angulation that supports a cleanable, well-supported final crown.\n",
       "bullets": [
         "Confirm suitability before committing",
         "Reduce surprises during surgery",
@@ -209,7 +209,7 @@
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
       "title": "A clear way to decide",
-      "body": "Implants can be an excellent solution — but the “best” choice depends on your priorities: fixed vs removable, speed vs staged healing, and what’s maintainable long-term.\n\nAt your assessment we’ll answer three practical questions:",
+      "body": "Implants can be a suitable solution — but the right choice depends on your priorities: fixed versus removable options, speed versus staged healing, and what can be maintained long-term.\n\nAt your assessment we’ll answer three practical questions:\n",
       "bullets": [
         "Are implants sensible and safe in your mouth?",
         "What are the realistic options (and alternatives)?",
