@@ -1468,6 +1468,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [contentRouteId, setContentRouteId] = useState<string | null>(null);
   const [pendingPromise, setPendingPromise] = useState<Promise<HeroV2Model | null> | null>(null);
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const pendingPromiseRef = useRef<Promise<HeroV2Model | null> | null>(null);
@@ -1479,37 +1480,72 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
   const logNavStable = useCallback((payload: {
     pathnameKey: string;
+    contentRouteId: string | null;
+    heroKey: string;
     hasCurrentModel: boolean;
     swapped: boolean;
     hasPendingPromise?: boolean;
+    waitingForContentSwap?: boolean;
   }) => {
     if (process.env.NODE_ENV === "production") return;
-    console.info("HERO_V2_NAV_STABLE", payload);
+    console.info("HERO_V2_SYNC_PROOF", payload);
   }, []);
+  const heroKey = normalizeHeroPathname(contentRouteId ?? pathnameKey);
+  const waitingForContentSwap = pathnameKey !== heroKey;
 
   useEffect(() => {
     currentModelRef.current = currentModel;
   }, [currentModel]);
 
   useEffect(() => {
+    if (typeof document === "undefined") return;
+    let isActive = true;
+    const resolveRouteId = () => {
+      const el = document.querySelector("[data-page-builder][data-route-id]") as HTMLElement | null;
+      return el?.dataset.routeId ?? null;
+    };
+    const updateRouteId = () => {
+      if (!isActive) return;
+      setContentRouteId(resolveRouteId());
+    };
+    updateRouteId();
+    const observer = new MutationObserver(() => {
+      updateRouteId();
+    });
+    observer.observe(document.body, {
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["data-route-id"],
+    });
+    return () => {
+      isActive = false;
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     let isActive = true;
     const requestId = requestIdRef.current + 1;
     requestIdRef.current = requestId;
     const transitionState = transitionRef.current;
-    const cached = heroV2ModelCache.get(pathnameKey);
+    const cached = heroV2ModelCache.get(heroKey);
     if (cached && !currentModelRef.current) {
       setCurrentModel(cached);
     }
     logNavStable({
       pathnameKey,
+      contentRouteId,
+      heroKey,
       hasCurrentModel: Boolean(currentModelRef.current),
       swapped: false,
       hasPendingPromise: Boolean(pendingPromiseRef.current),
+      waitingForContentSwap,
     });
+    if (waitingForContentSwap) return;
     const buildPromise = buildHeroV2Model({
       mode,
       treatmentSlug,
-      pageSlugOrPath: pathnameKey,
+      pageSlugOrPath: heroKey,
       debug: debugEnabled,
       prm,
       timeOfDay,
@@ -1529,10 +1565,16 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setPendingPromise(null);
       }
       if (!nextModel) return;
-      heroV2ModelCache.set(pathnameKey, nextModel);
+      heroV2ModelCache.set(heroKey, nextModel);
       if (!currentModelRef.current) {
         setCurrentModel(nextModel);
-        logNavStable({ pathnameKey, hasCurrentModel: true, swapped: true });
+        logNavStable({
+          pathnameKey,
+          contentRouteId,
+          heroKey,
+          hasCurrentModel: true,
+          swapped: true,
+        });
         return;
       }
       setIncomingModel(nextModel);
@@ -1550,7 +1592,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setCurrentModel(nextModel);
         setIncomingModel(null);
         setIsTransitioning(false);
-        logNavStable({ pathnameKey, hasCurrentModel: true, swapped: true });
+        logNavStable({
+          pathnameKey,
+          contentRouteId,
+          heroKey,
+          hasCurrentModel: true,
+          swapped: true,
+        });
       }, 240);
     });
 
@@ -1570,6 +1618,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       }
     };
   }, [
+    contentRouteId,
     debugEnabled,
     diagnosticBoost,
     filmGrain,
@@ -1579,9 +1628,11 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     pageCategory,
     particles,
     pathnameKey,
+    heroKey,
     prm,
     timeOfDay,
     treatmentSlug,
+    waitingForContentSwap,
   ]);
 
   useEffect(() => {
@@ -1608,6 +1659,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const hasPendingPromise = Boolean(pendingPromise);
   const overlayData = {
     pathname: pathnameKey,
+    contentRouteId: contentRouteId ?? "",
+    heroKey,
     heroId: currentModel.surfaceStack.heroId ?? "",
     variantId: currentModel.surfaceStack.variantId ?? "",
     boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
@@ -1619,6 +1672,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     motionCount,
     prm: currentModel.surfaceStack.prmEnabled,
     pendingPromise: hasPendingPromise,
+    waitingForContentSwap,
   };
   const surfaceWrapperBaseStyle: CSSProperties = {
     position: "absolute",
@@ -1659,7 +1713,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
             whiteSpace: "pre",
           }}
         >
-          {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}\npendingPromise: ${overlayData.pendingPromise}`}
+          {`pathname: ${overlayData.pathname}\ncontentRouteId: ${overlayData.contentRouteId}\nheroKey: ${overlayData.heroKey}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}\npendingPromise: ${overlayData.pendingPromise}\nwaitingForContentSwap: ${overlayData.waitingForContentSwap}`}
         </div>
       ) : null}
       <div
