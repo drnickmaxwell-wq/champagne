@@ -45,13 +45,6 @@ export interface HeroV2Model {
   };
 }
 
-function toStablePathKey(pathname: string) {
-  const p = (pathname || "/").split("?")[0].split("#")[0];
-  if (!p) return "/";
-  if (p.length > 1 && p.endsWith("/")) return p.slice(0, -1);
-  return p;
-}
-
 function computeV2GlueModel(opts: {
   mode?: HeroMode;
   treatmentSlug?: string;
@@ -149,7 +142,7 @@ export function HeroContentV2(_props: HeroRendererV2Props) {
   return null;
 }
 
-export function HeroRendererV2(props: HeroRendererV2Props) {
+export function HeroRendererV2(_props: HeroRendererV2Props) {
   // NOTE: deterministic mount architecture:
   // - model is built server-side via buildHeroV2Model (HeroMount.tsx)
   // - this component is a rendering facade only
