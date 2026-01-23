@@ -85,7 +85,7 @@
         {
           "id": "home_care_pathway",
           "type": "steps",
-          "title": "How care flows with Champagne",
+          "title": "How care works here",
           "items": [
             "Share goals and capture scans for a precise baseline",
             "Preview options with visual planning and simple language",
@@ -179,7 +179,7 @@
           "id": "home_patient_stories",
           "type": "patient_stories_rail",
           "label": "Patient stories",
-          "title": "Journeys through Champagne care",
+          "title": "Patient journeys",
           "stories": [
             {
               "summary": "Mapped a bonding plan that stayed gentle on enamel.",
@@ -199,8 +199,8 @@
           "id": "home_google_reviews",
           "type": "google_reviews",
           "label": "Google Reviews",
-          "title": "Reviews from patients who chose Champagne care",
-          "strapline": "Calm, gentle visits reflected in recent Google feedback.",
+          "title": "Google reviews",
+          "strapline": "Live Google reviews shown as they appear on Google — open, current, and unfiltered.",
           "rating": 4.9,
           "reviewCount": "120+ Google reviews",
           "reviews": [
@@ -246,7 +246,7 @@
           "id": "home_locality_nap",
           "type": "copy-block",
           "label": "Locality",
-          "title": "Champagne dental care in Shoreham-by-Sea",
+          "title": "Private dental care in Shoreham-by-Sea",
           "copy": "Local practice presence with clear directions and responsive contact routes for new and returning patients.",
           "items": [
             "Practice: Champagne Dental, Shoreham-by-Sea",
@@ -266,7 +266,7 @@
           "type": "map",
           "label": "Map",
           "title": "Where to find the practice",
-          "copy": "Map embed coming soon. Until then, use the contact page for step-by-step directions or parking tips.",
+          "copy": "St Mary’s House Dental Care is located in Shoreham-by-Sea and is easy to reach from Lancing, Southwick, Worthing, and Brighton.\n\nClear directions and parking information are available, and you can open our location directly in Google Maps if you’re planning your visit.\n\nIf you need directions or parking information, just ask — our reception team can advise.",
           "mediaHint": "Shoreham-by-Sea map placeholder"
         },
         {
