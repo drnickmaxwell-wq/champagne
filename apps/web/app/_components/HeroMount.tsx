@@ -22,6 +22,7 @@ export function HeroMount(props: HeroRendererProps) {
         data-hero-engine="v2"
         data-hero-flag={rawFlag ?? ""}
         data-hero-flag-normalized={normalized}
+        style={{ minHeight: "72vh" }}
       >
         <HeroRendererV2 {...v2Props} />
       </div>
@@ -33,6 +34,7 @@ export function HeroMount(props: HeroRendererProps) {
       data-hero-engine="v1"
       data-hero-flag={rawFlag ?? ""}
       data-hero-flag-normalized={normalized}
+      style={{ minHeight: "72vh" }}
     >
       <Renderer {...props} />
     </div>
