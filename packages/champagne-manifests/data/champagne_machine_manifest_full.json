@@ -300,16 +300,28 @@
           "title": "Questions about the practice",
           "faqs": [
             {
-              "question": "What happens at the first visit?",
-              "answer": "We listen to goals, capture scans or photos if helpful, and outline options with straightforward next steps."
+              "question": "I’m nervous about dental treatment. Is that a problem?",
+              "answer": "Not at all. Many people feel anxious about dental visits, and we’re used to working at a pace that feels comfortable. We explain what’s happening before we do anything, check in as we go, and adjust if you need a pause."
             },
             {
-              "question": "Do you show previews before treatment?",
-              "answer": "Whenever possible we use visual planning so you can see movement, shaping, or shade shifts before committing."
+              "question": "Will treatment hurt?",
+              "answer": "Comfort is always taken seriously. Local anaesthetic is used when needed, and nothing is rushed. Most patients are surprised by how manageable treatment feels when things are explained and done calmly."
             },
             {
-              "question": "How do payments work?",
-              "answer": "We share estimates early, support staged payments, and provide receipts or documentation you may need."
+              "question": "Do I have to decide on treatment straight away?",
+              "answer": "No. In many cases, the first appointment is about understanding what’s going on and discussing options. You’re never expected to decide on the spot."
+            },
+            {
+              "question": "Do you do implants and complex restorative work?",
+              "answer": "Yes. We place and restore implants and also help patients who already have implants. Where treatment is complex or irreversible, planning and explanation come first so decisions are made carefully."
+            },
+            {
+              "question": "What if I just want advice or a second opinion?",
+              "answer": "That’s fine. Some patients come to us simply to understand their situation better before deciding what to do next. We’re happy to help with that."
+            },
+            {
+              "question": "Do you treat older patients?",
+              "answer": "Yes. Many of our patients are older and value a calmer, more considered approach. Continuity, explanation, and comfort are especially important in long-term care."
             }
           ]
         },
