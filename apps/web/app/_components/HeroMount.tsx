@@ -1,11 +1,11 @@
 import { HeroRenderer } from "../components/hero/HeroRenderer";
 import {
-  buildHeroV2Model,
   HeroContentV2,
   HeroRendererV2,
   HeroV2Frame,
   type HeroRendererV2Props,
 } from "../components/hero/v2/HeroRendererV2";
+import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
 import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 
