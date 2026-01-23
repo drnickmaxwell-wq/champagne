@@ -7,6 +7,7 @@ import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+const HERO_SWAP_FADE = process.env.NEXT_PUBLIC_HERO_SWAP_FADE === "1";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 
 export interface HeroRendererV2Props {
@@ -738,12 +739,22 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     surfaceRef,
   } = props;
   const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
+  const [prevModel, setPrevModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isCrossfading, setIsCrossfading] = useState(false);
+  const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
   const currentModelRef = useRef<HeroV2Model | null>(null);
-  const transitionRef = useRef<{ timeoutId: number | null; rafId: number | null }>({
+  const transitionRef = useRef<{
+    timeoutId: number | null;
+    rafId: number | null;
+    crossfadeTimeoutId: number | null;
+    crossfadeRafId: number | null;
+  }>({
     timeoutId: null,
     rafId: null,
+    crossfadeTimeoutId: null,
+    crossfadeRafId: null,
   });
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
@@ -778,6 +789,28 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setCurrentModel(nextModel);
         return;
       }
+      if (HERO_SWAP_FADE) {
+        if (transitionState.crossfadeRafId) {
+          cancelAnimationFrame(transitionState.crossfadeRafId);
+        }
+        if (transitionState.crossfadeTimeoutId) {
+          window.clearTimeout(transitionState.crossfadeTimeoutId);
+        }
+        setIncomingModel(null);
+        setIsTransitioning(false);
+        setPrevModel(currentModelRef.current);
+        setCurrentModel(nextModel);
+        setIsCrossfading(true);
+        setCrossfadeOpacity(0);
+        transitionState.crossfadeRafId = requestAnimationFrame(() => {
+          setCrossfadeOpacity(1);
+        });
+        transitionState.crossfadeTimeoutId = window.setTimeout(() => {
+          setPrevModel(null);
+          setIsCrossfading(false);
+        }, 200);
+        return;
+      }
       setIncomingModel(nextModel);
       setIsTransitioning(false);
       if (transitionState.rafId) {
@@ -805,6 +838,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (transitionState.timeoutId) {
         window.clearTimeout(transitionState.timeoutId);
         transitionState.timeoutId = null;
+      }
+      if (transitionState.crossfadeRafId) {
+        cancelAnimationFrame(transitionState.crossfadeRafId);
+        transitionState.crossfadeRafId = null;
+      }
+      if (transitionState.crossfadeTimeoutId) {
+        window.clearTimeout(transitionState.crossfadeTimeoutId);
+        transitionState.crossfadeTimeoutId = null;
       }
     };
   }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
@@ -848,6 +889,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     inset: 0,
     transition: "opacity 220ms ease",
   };
+  const crossfadeWrapperStyle: CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    transition: "opacity 200ms ease-out",
+    pointerEvents: "none",
+  };
 
   return (
     <HeroV2Frame
@@ -885,24 +932,47 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           {`pathname: ${overlayData.pathname}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}`}
         </div>
       ) : null}
-      <div
-        style={{
-          ...surfaceWrapperBaseStyle,
-          opacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
-        }}
-      >
-        <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
-      </div>
-      {incomingModel ? (
-        <div
-          style={{
-            ...surfaceWrapperBaseStyle,
-            opacity: isTransitioning ? 1 : 0,
-          }}
-        >
-          <HeroSurfaceStackV2 {...incomingModel.surfaceStack} />
-        </div>
-      ) : null}
+      {prevModel ? (
+        <>
+          <div
+            style={{
+              ...crossfadeWrapperStyle,
+              opacity: 1,
+            }}
+          >
+            <HeroSurfaceStackV2 {...prevModel.surfaceStack} />
+          </div>
+          <div
+            style={{
+              ...crossfadeWrapperStyle,
+              opacity: isCrossfading ? crossfadeOpacity : 1,
+            }}
+          >
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+          </div>
+        </>
+      ) : (
+        <>
+          <div
+            style={{
+              ...surfaceWrapperBaseStyle,
+              opacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
+            }}
+          >
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+          </div>
+          {incomingModel ? (
+            <div
+              style={{
+                ...surfaceWrapperBaseStyle,
+                opacity: isTransitioning ? 1 : 0,
+              }}
+            >
+              <HeroSurfaceStackV2 {...incomingModel.surfaceStack} />
+            </div>
+          ) : null}
+        </>
+      )}
       <HeroContentFade>
         <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
       </HeroContentFade>
