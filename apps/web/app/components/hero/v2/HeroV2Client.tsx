@@ -32,6 +32,29 @@ function HeroSurfaceStackV2Base({
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
   const pathname = usePathname();
+  const logEnabled = process.env.NODE_ENV !== "production" || HERO_V2_DEBUG;
+  const logVideoEvent = (
+    eventName: keyof HTMLMediaElementEventMap,
+    video: HTMLVideoElement,
+    surfaceId: string,
+  ) => {
+    if (!logEnabled) return;
+    if (typeof window !== "undefined") {
+      (window as Window & {
+        ___heroV2LastVideoEvent?: { surfaceId?: string; event?: string };
+      }).___heroV2LastVideoEvent = { surfaceId, event: eventName };
+    }
+    console.info("HERO_V2_VIDEO_EVT", {
+      pathname: typeof window !== "undefined" ? window.location.pathname : pathname,
+      surfaceId,
+      event: eventName,
+      t: performance.now(),
+      readyState: video.readyState,
+      networkState: video.networkState,
+      currentTime: video.currentTime,
+      paused: video.paused,
+    });
+  };
   const handleVideoReady = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     event.currentTarget.dataset.ready = "true";
   };
@@ -412,8 +435,18 @@ function HeroSurfaceStackV2Base({
                 ? `${heroVideo.targetOpacity}`
                 : undefined
             }
-            onLoadedData={handleVideoReady}
-            onCanPlay={handleVideoReady}
+            onLoadedData={(event) => {
+              handleVideoReady(event);
+              logVideoEvent("loadeddata", event.currentTarget, "motion.heroVideo");
+            }}
+            onCanPlay={(event) => {
+              handleVideoReady(event);
+              logVideoEvent("canplay", event.currentTarget, "motion.heroVideo");
+            }}
+            onPlaying={(event) => logVideoEvent("playing", event.currentTarget, "motion.heroVideo")}
+            onWaiting={(event) => logVideoEvent("waiting", event.currentTarget, "motion.heroVideo")}
+            onStalled={(event) => logVideoEvent("stalled", event.currentTarget, "motion.heroVideo")}
+            onError={(event) => logVideoEvent("error", event.currentTarget, "motion.heroVideo")}
             style={heroVideo.style}
           >
             <source src={heroVideo.path} />
@@ -435,8 +468,18 @@ function HeroSurfaceStackV2Base({
               data-motion-target-opacity={
                 entry.targetOpacity !== undefined && entry.targetOpacity !== null ? `${entry.targetOpacity}` : undefined
               }
-              onLoadedData={handleVideoReady}
-              onCanPlay={handleVideoReady}
+              onLoadedData={(event) => {
+                handleVideoReady(event);
+                logVideoEvent("loadeddata", event.currentTarget, entry.id);
+              }}
+              onCanPlay={(event) => {
+                handleVideoReady(event);
+                logVideoEvent("canplay", event.currentTarget, entry.id);
+              }}
+              onPlaying={(event) => logVideoEvent("playing", event.currentTarget, entry.id)}
+              onWaiting={(event) => logVideoEvent("waiting", event.currentTarget, entry.id)}
+              onStalled={(event) => logVideoEvent("stalled", event.currentTarget, entry.id)}
+              onError={(event) => logVideoEvent("error", event.currentTarget, entry.id)}
               style={entry.style}
             >
               <source src={entry.path} />

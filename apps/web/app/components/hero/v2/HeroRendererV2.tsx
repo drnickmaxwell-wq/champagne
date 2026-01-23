@@ -1478,6 +1478,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const rawPathname = usePathname();
   const searchParams = useSearchParams();
   const pathnameKey = normalizeHeroPathname(rawPathname);
+  const instanceIdRef = useRef(`v2r-${Math.random().toString(36).slice(2, 10)}`);
   const {
     mode,
     treatmentSlug,
@@ -1500,11 +1501,23 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const pendingPromiseRef = useRef<Promise<HeroV2Model | null> | null>(null);
   const requestIdRef = useRef(0);
+  const pathnameKeyRef = useRef(pathnameKey);
+  const buildSeqRef = useRef(0);
+  const lastBuildMsRef = useRef<number | null>(null);
+  const lastBuildSeqStartedRef = useRef<number | null>(null);
+  const lastBuildSeqAppliedRef = useRef<number | null>(null);
+  const lastNavFromRef = useRef<string | null>(null);
+  const lastNavToRef = useRef<string | null>(pathnameKey);
+  const lastNavTimeRef = useRef<number>(performance.now());
+  const fallbackLoggedForPathRef = useRef<string | null>(null);
+  const fallbackStartRef = useRef<number | null>(null);
+  const fallbackDurationMsRef = useRef<number | null>(null);
   const transitionRef = useRef<{ timeoutId: number | null; rafId: number | null }>({
     timeoutId: null,
     rafId: null,
   });
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
+  const logEnabled = process.env.NODE_ENV !== "production" || HERO_V2_DEBUG;
   const logNavStable = useCallback((payload: {
     pathnameKey: string;
     contentRouteId: string | null;
@@ -1518,15 +1531,69 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     didTimeout?: boolean;
     pendingSwap?: boolean;
   }) => {
-    if (process.env.NODE_ENV === "production") return;
+    if (!logEnabled) return;
     console.info("HERO_V2_ATOMIC_SWAP_PROOF", payload);
-  }, []);
+  }, [logEnabled]);
+
+  useEffect(() => {
+    if (!logEnabled) return;
+    const instanceId = instanceIdRef.current;
+    console.info("HERO_V2_LIFECYCLE", {
+      instanceId,
+      event: "mount",
+      time: performance.now(),
+    });
+    return () => {
+      console.info("HERO_V2_LIFECYCLE", {
+        instanceId,
+        event: "unmount",
+        time: performance.now(),
+      });
+    };
+  }, [logEnabled]);
+
+  useEffect(() => {
+    if (!logEnabled) return;
+    if (lastNavFromRef.current === null) {
+      lastNavFromRef.current = pathnameKey;
+      lastNavToRef.current = pathnameKey;
+      lastNavTimeRef.current = performance.now();
+      return;
+    }
+    if (lastNavFromRef.current === pathnameKey) return;
+    console.info("HERO_V2_NAV", {
+      instanceId: instanceIdRef.current,
+      from: lastNavFromRef.current,
+      to: pathnameKey,
+      time: performance.now(),
+    });
+    lastNavFromRef.current = lastNavToRef.current;
+    lastNavToRef.current = pathnameKey;
+    lastNavTimeRef.current = performance.now();
+    fallbackLoggedForPathRef.current = null;
+    fallbackStartRef.current = null;
+    fallbackDurationMsRef.current = null;
+  }, [logEnabled, pathnameKey]);
+
+  useEffect(() => {
+    pathnameKeyRef.current = pathnameKey;
+  }, [pathnameKey]);
   const heroKey = normalizeHeroPathname(contentRouteId ?? pathnameKey);
   const waitingForContentSwap = pathnameKey !== heroKey;
 
   useEffect(() => {
     currentModelRef.current = currentModel;
-  }, [currentModel]);
+    if (!logEnabled) return;
+    if (currentModel && fallbackStartRef.current !== null) {
+      const duration = performance.now() - fallbackStartRef.current;
+      fallbackDurationMsRef.current = Math.round(duration);
+      console.info("HERO_V2_FALLBACK_DURATION", {
+        instanceId: instanceIdRef.current,
+        ms: Math.round(duration),
+      });
+      fallbackStartRef.current = null;
+    }
+  }, [currentModel, logEnabled]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -1574,6 +1641,18 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       pendingSwap,
     });
     if (waitingForContentSwap) return;
+    const buildSeq = buildSeqRef.current + 1;
+    buildSeqRef.current = buildSeq;
+    lastBuildSeqStartedRef.current = buildSeq;
+    const buildStart = performance.now();
+    if (logEnabled) {
+      console.info("HERO_V2_BUILD_START", {
+        instanceId: instanceIdRef.current,
+        pathnameKey,
+        buildSeq,
+        time: buildStart,
+      });
+    }
     const buildPromise = buildHeroV2Model({
       mode,
       treatmentSlug,
@@ -1590,8 +1669,30 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     pendingPromiseRef.current = buildPromise;
     setPendingPromise(buildPromise);
     void buildPromise.then(async (nextModel) => {
+      const buildMs = Math.round(performance.now() - buildStart);
+      lastBuildMsRef.current = buildMs;
+      if (logEnabled) {
+        console.info("HERO_V2_BUILD_DONE", {
+          instanceId: instanceIdRef.current,
+          pathnameKey,
+          buildSeq,
+          ms: buildMs,
+          nextHeroId: nextModel?.surfaceStack?.heroId,
+          nextVariantId: nextModel?.surfaceStack?.variantId,
+        });
+      }
       if (!isActive) return;
-      if (requestId !== requestIdRef.current) return;
+      if (requestId !== requestIdRef.current) {
+        if (logEnabled) {
+          console.warn("HERO_V2_BUILD_STALE", {
+            instanceId: instanceIdRef.current,
+            buildSeq,
+            finishedFor: pathnameKey,
+            currentPathnameKey: pathnameKeyRef.current,
+          });
+        }
+        return;
+      }
       if (pendingPromiseRef.current === buildPromise) {
         pendingPromiseRef.current = null;
         setPendingPromise(null);
@@ -1633,6 +1734,15 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (!currentModelRef.current) {
         setPendingSwap(false);
         setCurrentModel(nextModel);
+        lastBuildSeqAppliedRef.current = buildSeq;
+        if (logEnabled) {
+          console.info("HERO_V2_BUILD_APPLY", {
+            instanceId: instanceIdRef.current,
+            pathnameKey,
+            buildSeq,
+            msSinceNav: Math.round(performance.now() - lastNavTimeRef.current),
+          });
+        }
         logNavStable({
           pathnameKey,
           contentRouteId,
@@ -1662,6 +1772,15 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setIncomingModel(null);
         setIsTransitioning(false);
         setPendingSwap(false);
+        lastBuildSeqAppliedRef.current = buildSeq;
+        if (logEnabled) {
+          console.info("HERO_V2_BUILD_APPLY", {
+            instanceId: instanceIdRef.current,
+            pathnameKey,
+            buildSeq,
+            msSinceNav: Math.round(performance.now() - lastNavTimeRef.current),
+          });
+        }
         logNavStable({
           pathnameKey,
           contentRouteId,
@@ -1698,6 +1817,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     diagnosticBoost,
     filmGrain,
     glueVars,
+    logEnabled,
     logNavStable,
     mode,
     pageCategory,
@@ -1728,15 +1848,48 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => cancelAnimationFrame(frameId);
   }, [currentModel, debugEnabled, pathnameKey]);
 
-  if (!currentModel) return <HeroFallback />;
+  if (!currentModel) {
+    if (logEnabled) {
+      const alreadyLogged = fallbackLoggedForPathRef.current === pathnameKey;
+      if (!alreadyLogged) {
+        fallbackLoggedForPathRef.current = pathnameKey;
+        fallbackStartRef.current = performance.now();
+        console.warn("HERO_V2_FALLBACK_RENDER", {
+          instanceId: instanceIdRef.current,
+          pathnameKey,
+          time: performance.now(),
+          reason: "model-null",
+        });
+      }
+    }
+    return <HeroFallback />;
+  }
 
   const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
   const motionCount = currentModel.surfaceStack.motionLayers.length;
+  const motionVideoCount = currentModel.surfaceStack.motionLayers.length + (currentModel.surfaceStack.heroVideo?.path ? 1 : 0);
   const hasPendingPromise = Boolean(pendingPromise);
+  const lastVideoEventSeen =
+    typeof window !== "undefined" && "___heroV2LastVideoEvent" in window
+      ? (window as Window & {
+          ___heroV2LastVideoEvent?: { surfaceId?: string; event?: string };
+        }).___heroV2LastVideoEvent
+      : undefined;
   const overlayData = {
     pathname: pathnameKey,
     contentRouteId: contentRouteId ?? "",
     heroKey,
+    instanceId: instanceIdRef.current,
+    lastNavFrom: lastNavFromRef.current ?? "",
+    latestBuildSeqStarted: lastBuildSeqStartedRef.current ?? "",
+    latestBuildSeqApplied: lastBuildSeqAppliedRef.current ?? "",
+    fallbackRenderedThisNav: fallbackLoggedForPathRef.current === pathnameKey,
+    fallbackDurationMs: fallbackDurationMsRef.current ?? "",
+    lastBuildMs: lastBuildMsRef.current ?? "",
+    motionVideoCount,
+    lastVideoEventSeen: lastVideoEventSeen
+      ? `${lastVideoEventSeen.surfaceId ?? "unknown"}:${lastVideoEventSeen.event ?? "unknown"}`
+      : "",
     heroId: currentModel.surfaceStack.heroId ?? "",
     variantId: currentModel.surfaceStack.variantId ?? "",
     boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
@@ -1790,7 +1943,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
             whiteSpace: "pre",
           }}
         >
-      {`pathname: ${overlayData.pathname}\ncontentRouteId: ${overlayData.contentRouteId}\nheroKey: ${overlayData.heroKey}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}\npendingPromise: ${overlayData.pendingPromise}\nwaitingForContentSwap: ${overlayData.waitingForContentSwap}\npendingSwap: ${overlayData.pendingSwap}`}
+          {`instanceId: ${overlayData.instanceId}\npathname: ${overlayData.pathname}\nlastNav: ${overlayData.lastNavFrom} -> ${overlayData.pathname}\ncontentRouteId: ${overlayData.contentRouteId}\nheroKey: ${overlayData.heroKey}\nlatestBuildSeqStarted: ${overlayData.latestBuildSeqStarted}\nlatestBuildSeqApplied: ${overlayData.latestBuildSeqApplied}\nlastBuildMs: ${overlayData.lastBuildMs}\nfallbackRenderedThisNav: ${overlayData.fallbackRenderedThisNav}\nfallbackDurationMs: ${overlayData.fallbackDurationMs}\nmotionVideoCount: ${overlayData.motionVideoCount}\nlastVideoEventSeen: ${overlayData.lastVideoEventSeen}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}\npendingPromise: ${overlayData.pendingPromise}\nwaitingForContentSwap: ${overlayData.waitingForContentSwap}\npendingSwap: ${overlayData.pendingSwap}`}
         </div>
       ) : null}
       <div
