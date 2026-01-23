@@ -41,7 +41,7 @@
         {
           "id": "home_intro_positioning",
           "type": "copy-block",
-          "title": "Dentistry with calm precision",
+          "title": "Dentistry planned carefully, delivered properly",
           "label": "Overview",
           "copy": "St Mary\u2019s House Dental Care is a long-established private practice in Shoreham-by-Sea. We focus on careful planning, calm delivery, and dentistry that makes sense for the long term.\n\nWe look after everyday oral health and also support complex cases involving tooth wear, missing teeth, implant-supported restorations, heavily restored mouths, and bite-related problems.\n\nAppointments are structured so you understand what we\u2019ve found, what it means, and what your realistic options are. If you\u2019re anxious, short on time, or simply want things explained properly, we\u2019ll take a measured approach and agree the next step together."
         },
@@ -50,7 +50,7 @@
           "type": "copy-block",
           "label": "Who we are",
           "title": "Dentistry designed for clarity, comfort, and long-term confidence",
-          "copy": "Care at St Mary\u2019s House is built around time, explanation, and respect for every patient\u2019s circumstances.\n\nWe provide general, restorative, implant, orthodontic, and aesthetic dentistry, but we don\u2019t rush decisions or push treatment. Appointments are unhurried, explanations are clear, and choices are made collaboratively.\n\nMany of our patients tell us they feel listened to here. That matters to us."
+          "copy": "Care at St Mary\u2019s House is built around time, explanation, and respect for every patient\u2019s circumstances.\n\nWe provide general, restorative, implant, orthodontic, and aesthetic dentistry, but we don\u2019t rush decisions or push treatment. Appointments are unhurried, explanations are clear, and choices are made collaboratively."
         },
         {
           "id": "home_authority",
@@ -240,16 +240,16 @@
           "type": "copy-block",
           "label": "Local trust & continuity",
           "title": "Established care for Shoreham-by-Sea and surrounding communities",
-          "copy": "We\u2019ve cared for generations of patients from Shoreham-by-Sea, Lancing, Southwick, Worthing, and Brighton. Many stay with us for years \u2014 not because they need ongoing treatment, but because they value consistency and trust.\n\nDentistry works high standards when your dentist knows your history, priorities, and concerns. Our aim is to provide that continuity, whether you\u2019re visiting for routine care or planning something more involved."
+          "copy": "We\u2019ve cared for patients from Shoreham-by-Sea and surrounding towns for many years. Many stay with us long-term \u2014 not because they need ongoing treatment, but because they value consistency and knowing who is looking after them.\n\nDentistry works best when your dentist understands your history, priorities, and concerns. That continuity matters whether you\u2019re visiting for routine care, managing dental wear over time, or planning something more involved."
         },
         {
           "id": "home_locality_nap",
           "type": "copy-block",
           "label": "Locality",
           "title": "Private dental care in Shoreham-by-Sea",
-          "copy": "Local practice presence with clear directions and responsive contact routes for new and returning patients.",
+          "copy": "A long-established Shoreham-by-Sea dental practice for patients who value experience, continuity, and well-planned care.",
           "items": [
-            "Practice: Champagne Dental, Shoreham-by-Sea",
+            "Practice: St Mary\u2019s House Dental Care, Shoreham-by-Sea",
             "Address area: Central Shoreham-by-Sea near the River Adur",
             "Phone: Reach the team through the contact page for a call-back"
           ],
@@ -305,7 +305,7 @@
             },
             {
               "question": "Will treatment hurt?",
-              "answer": "Comfort is always taken seriously. Local anaesthetic is used when needed, and nothing is rushed. Most patients are surprised by how manageable treatment feels when things are explained and done calmly."
+              "answer": "Comfort is always taken seriously. Local anaesthetic is used when needed, and nothing is rushed. Most patients are surprised by how manageable treatment feels when things are explained clearly and done at a measured pace."
             },
             {
               "question": "Do I have to decide on treatment straight away?",
@@ -333,7 +333,7 @@
           "faqs": [
             {
               "question": "Do you help with directions or parking?",
-              "answer": "Yes\u2014call or message ahead and we will outline nearby parking options and the high standards entrance to use."
+              "answer": "Yes \u2014 call or message ahead and we can outline nearby parking options and the easiest way to enter the practice."
             },
             {
               "question": "Can I start with a phone discussion?",
