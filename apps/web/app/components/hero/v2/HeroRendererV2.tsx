@@ -173,6 +173,32 @@ const resolveBackgroundGlue = (url?: string) => {
 
 const resolveBackgroundImage = (url?: string) => (url ? `url("${url}")` : undefined);
 const resolvedGlueManifest = heroGlueManifest as GlueManifest;
+const backgroundUrlRegex = /url\(([^)]+)\)/g;
+
+const extractUrlFromBackgroundImage = (value?: string | null) => {
+  if (!value) return null;
+  const match = value.match(backgroundUrlRegex);
+  if (!match || match.length === 0) return null;
+  const first = match[0] ?? "";
+  const inner = first.replace(/^url\((.*)\)$/, "$1").trim();
+  if (!inner) return null;
+  return inner.replace(/^['"]|['"]$/g, "");
+};
+
+const extractUrlsFromBackgroundImage = (value?: string | null) => {
+  if (!value) return [];
+  const urls: string[] = [];
+  const matches = value.matchAll(backgroundUrlRegex);
+  for (const match of matches) {
+    const raw = match[1]?.trim();
+    if (!raw) continue;
+    const cleaned = raw.replace(/^['"]|['"]$/g, "");
+    if (cleaned) urls.push(cleaned);
+  }
+  if (urls.length > 0) return urls;
+  const fallback = extractUrlFromBackgroundImage(value);
+  return fallback ? [fallback] : [];
+};
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -1469,6 +1495,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [contentRouteId, setContentRouteId] = useState<string | null>(null);
+  const [pendingSwap, setPendingSwap] = useState(false);
   const [pendingPromise, setPendingPromise] = useState<Promise<HeroV2Model | null> | null>(null);
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const pendingPromiseRef = useRef<Promise<HeroV2Model | null> | null>(null);
@@ -1486,9 +1513,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     swapped: boolean;
     hasPendingPromise?: boolean;
     waitingForContentSwap?: boolean;
+    imageCount?: number;
+    swapDelayedMs?: number;
+    didTimeout?: boolean;
+    pendingSwap?: boolean;
   }) => {
     if (process.env.NODE_ENV === "production") return;
-    console.info("HERO_V2_SYNC_PROOF", payload);
+    console.info("HERO_V2_ATOMIC_SWAP_PROOF", payload);
   }, []);
   const heroKey = normalizeHeroPathname(contentRouteId ?? pathnameKey);
   const waitingForContentSwap = pathnameKey !== heroKey;
@@ -1540,6 +1571,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       swapped: false,
       hasPendingPromise: Boolean(pendingPromiseRef.current),
       waitingForContentSwap,
+      pendingSwap,
     });
     if (waitingForContentSwap) return;
     const buildPromise = buildHeroV2Model({
@@ -1557,7 +1589,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     });
     pendingPromiseRef.current = buildPromise;
     setPendingPromise(buildPromise);
-    void buildPromise.then((nextModel) => {
+    void buildPromise.then(async (nextModel) => {
       if (!isActive) return;
       if (requestId !== requestIdRef.current) return;
       if (pendingPromiseRef.current === buildPromise) {
@@ -1565,8 +1597,41 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setPendingPromise(null);
       }
       if (!nextModel) return;
+      const preloadStart = performance.now();
+      const preloadUrls = new Set<string>();
+      nextModel.surfaceStack.layers.forEach((layer) => {
+        const backgroundImage = layer.style?.backgroundImage;
+        extractUrlsFromBackgroundImage(backgroundImage).forEach((url) => preloadUrls.add(url));
+      });
+      if (nextModel.surfaceStack.particlesPath) {
+        preloadUrls.add(nextModel.surfaceStack.particlesPath);
+      }
+      const imageCount = preloadUrls.size;
+      let timeoutHit = false;
+      if (imageCount > 0) {
+        setPendingSwap(true);
+        const preloadPromises = Array.from(preloadUrls).map(
+          (url) =>
+            new Promise<void>((resolve) => {
+              const img = new Image();
+              img.onload = () => resolve();
+              img.onerror = () => resolve();
+              img.src = url;
+            }),
+        );
+        const timeoutPromise = new Promise<void>((resolve) => {
+          window.setTimeout(() => {
+            timeoutHit = true;
+            resolve();
+          }, 1200);
+        });
+        await Promise.race([Promise.all(preloadPromises), timeoutPromise]);
+      }
+      if (!isActive) return;
       heroV2ModelCache.set(heroKey, nextModel);
+      const swapDelayedMs = Math.round(performance.now() - preloadStart);
       if (!currentModelRef.current) {
+        setPendingSwap(false);
         setCurrentModel(nextModel);
         logNavStable({
           pathnameKey,
@@ -1574,6 +1639,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           heroKey,
           hasCurrentModel: true,
           swapped: true,
+          imageCount,
+          swapDelayedMs,
+          didTimeout: timeoutHit,
+          pendingSwap: false,
         });
         return;
       }
@@ -1592,18 +1661,24 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setCurrentModel(nextModel);
         setIncomingModel(null);
         setIsTransitioning(false);
+        setPendingSwap(false);
         logNavStable({
           pathnameKey,
           contentRouteId,
           heroKey,
           hasCurrentModel: true,
           swapped: true,
+          imageCount,
+          swapDelayedMs,
+          didTimeout: timeoutHit,
+          pendingSwap: false,
         });
       }, 240);
     });
 
     return () => {
       isActive = false;
+      setPendingSwap(false);
       if (pendingPromiseRef.current === buildPromise) {
         pendingPromiseRef.current = null;
         setPendingPromise(null);
@@ -1633,6 +1708,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     timeOfDay,
     treatmentSlug,
     waitingForContentSwap,
+    pendingSwap,
   ]);
 
   useEffect(() => {
@@ -1673,6 +1749,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     prm: currentModel.surfaceStack.prmEnabled,
     pendingPromise: hasPendingPromise,
     waitingForContentSwap,
+    pendingSwap,
   };
   const surfaceWrapperBaseStyle: CSSProperties = {
     position: "absolute",
@@ -1713,7 +1790,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
             whiteSpace: "pre",
           }}
         >
-          {`pathname: ${overlayData.pathname}\ncontentRouteId: ${overlayData.contentRouteId}\nheroKey: ${overlayData.heroKey}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}\npendingPromise: ${overlayData.pendingPromise}\nwaitingForContentSwap: ${overlayData.waitingForContentSwap}`}
+      {`pathname: ${overlayData.pathname}\ncontentRouteId: ${overlayData.contentRouteId}\nheroKey: ${overlayData.heroKey}\nboundHeroId: ${overlayData.boundHeroId}\nboundVariantId: ${overlayData.boundVariantId}\neffectiveHeroId: ${overlayData.effectiveHeroId}\neffectiveVariantId: ${overlayData.effectiveVariantId}\nheroId: ${overlayData.heroId}\nvariantId: ${overlayData.variantId}\nparticlesPath: ${overlayData.particlesPath}\nparticlesOpacity: ${overlayData.particlesOpacity}\nmotionCount: ${overlayData.motionCount}\nprm: ${overlayData.prm}\npendingPromise: ${overlayData.pendingPromise}\nwaitingForContentSwap: ${overlayData.waitingForContentSwap}\npendingSwap: ${overlayData.pendingSwap}`}
         </div>
       ) : null}
       <div
@@ -1734,7 +1811,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           <HeroSurfaceStackV2 {...incomingModel.surfaceStack} />
         </div>
       ) : null}
-      <HeroContentFade>
+      <HeroContentFade forceHidden={pendingSwap}>
         <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
