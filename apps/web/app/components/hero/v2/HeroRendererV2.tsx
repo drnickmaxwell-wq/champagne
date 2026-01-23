@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
 import { BaseChampagneSurface, ensureHeroAssetPath, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import { getHeroBindingForPathnameKey } from "@champagne/manifests/src/helpers";
 import heroGlueManifest from "./heroGlue.manifest.json";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
-const heroV2ModelCache = new Map<string, HeroV2Model>();
 
 export interface HeroRendererV2Props {
   mode?: HeroMode;
@@ -1449,12 +1447,11 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
 }
 
 export function HeroRendererV2(props: HeroRendererV2Props) {
-  const rawPathname = usePathname();
-  const searchParams = useSearchParams();
-  const pathnameKey = normalizeHeroPathname(rawPathname);
   const {
     mode,
     treatmentSlug,
+    pageSlugOrPath,
+    debug,
     prm,
     timeOfDay,
     particles,
@@ -1465,6 +1462,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     rootStyle,
     surfaceRef,
   } = props;
+  const pathnameKeyRef = useRef(normalizeHeroPathname(pageSlugOrPath));
   const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -1473,7 +1471,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     timeoutId: null,
     rafId: null,
   });
-  const debugEnabled = searchParams?.has("heroDebug") ?? false;
+  const debugEnabled = debug ?? false;
 
   useEffect(() => {
     currentModelRef.current = currentModel;
@@ -1482,14 +1480,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   useEffect(() => {
     let isActive = true;
     const transitionState = transitionRef.current;
-    const cached = heroV2ModelCache.get(pathnameKey);
-    if (cached && !currentModelRef.current) {
-      setCurrentModel(cached);
-    }
     void buildHeroV2Model({
       mode,
       treatmentSlug,
-      pageSlugOrPath: pathnameKey,
+      pageSlugOrPath: pathnameKeyRef.current,
       debug: debugEnabled,
       prm,
       timeOfDay,
@@ -1501,7 +1495,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
-      heroV2ModelCache.set(pathnameKey, nextModel);
       if (!currentModelRef.current) {
         setCurrentModel(nextModel);
         return;
@@ -1535,7 +1528,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         transitionState.timeoutId = null;
       }
     };
-  }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
+  }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, prm, timeOfDay, treatmentSlug]);
 
   useEffect(() => {
     if (!debugEnabled) return;
@@ -1544,7 +1537,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
       const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
       console.info("HERO_V2_MOTION_OPACITY_PROOF", {
-        pathname: pathnameKey,
+        pathname: pathnameKeyRef.current,
         prm: currentModel.surfaceStack.prmEnabled,
         motionCount: currentModel.surfaceStack.motionLayers.length,
         firstMotionOpacity: computedOpacity,
@@ -1552,14 +1545,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     };
     const frameId = requestAnimationFrame(logOpacity);
     return () => cancelAnimationFrame(frameId);
-  }, [currentModel, debugEnabled, pathnameKey]);
+  }, [currentModel, debugEnabled]);
 
   if (!currentModel) return <HeroFallback />;
 
   const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
   const motionCount = currentModel.surfaceStack.motionLayers.length;
   const overlayData = {
-    pathname: pathnameKey,
+    pathname: pathnameKeyRef.current,
     heroId: currentModel.surfaceStack.heroId ?? "",
     variantId: currentModel.surfaceStack.variantId ?? "",
     boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
