@@ -750,11 +750,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     rafId: number | null;
     crossfadeTimeoutId: number | null;
     crossfadeRafId: number | null;
+    crossfadeRafId2: number | null;
   }>({
     timeoutId: null,
     rafId: null,
     crossfadeTimeoutId: null,
     crossfadeRafId: null,
+    crossfadeRafId2: null,
   });
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
@@ -793,6 +795,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         if (transitionState.crossfadeRafId) {
           cancelAnimationFrame(transitionState.crossfadeRafId);
         }
+        if (transitionState.crossfadeRafId2) {
+          cancelAnimationFrame(transitionState.crossfadeRafId2);
+        }
         if (transitionState.crossfadeTimeoutId) {
           window.clearTimeout(transitionState.crossfadeTimeoutId);
         }
@@ -803,12 +808,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         setIsCrossfading(true);
         setCrossfadeOpacity(0);
         transitionState.crossfadeRafId = requestAnimationFrame(() => {
-          setCrossfadeOpacity(1);
+          transitionState.crossfadeRafId2 = requestAnimationFrame(() => {
+            setCrossfadeOpacity(1);
+          });
         });
         transitionState.crossfadeTimeoutId = window.setTimeout(() => {
           setPrevModel(null);
           setIsCrossfading(false);
-        }, 200);
+        }, 380);
         return;
       }
       setIncomingModel(nextModel);
@@ -842,6 +849,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (transitionState.crossfadeRafId) {
         cancelAnimationFrame(transitionState.crossfadeRafId);
         transitionState.crossfadeRafId = null;
+      }
+      if (transitionState.crossfadeRafId2) {
+        cancelAnimationFrame(transitionState.crossfadeRafId2);
+        transitionState.crossfadeRafId2 = null;
       }
       if (transitionState.crossfadeTimeoutId) {
         window.clearTimeout(transitionState.crossfadeTimeoutId);
@@ -892,7 +903,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const crossfadeWrapperStyle: CSSProperties = {
     position: "absolute",
     inset: 0,
-    transition: "opacity 200ms ease-out",
+    transition: "opacity 360ms ease-in-out",
+    background: "var(--hero-gradient, var(--smh-gradient))",
     pointerEvents: "none",
   };
 
@@ -937,7 +949,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           <div
             style={{
               ...crossfadeWrapperStyle,
-              opacity: 1,
+              opacity: isCrossfading ? 1 - crossfadeOpacity : 0,
             }}
           >
             <HeroSurfaceStackV2 {...prevModel.surfaceStack} />
