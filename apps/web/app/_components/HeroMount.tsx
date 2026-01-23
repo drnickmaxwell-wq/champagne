@@ -22,19 +22,25 @@ export async function HeroMount(props: HeroRendererProps) {
   if (useV2) {
     const v2Props = props as HeroRendererV2Props;
 
-    const model = await buildHeroV2Model({
-      mode: v2Props.mode,
-      treatmentSlug: v2Props.treatmentSlug,
-      pageSlugOrPath: v2Props.pageSlugOrPath ?? "/",
-      debug: v2Props.debug,
-      prm: v2Props.prm,
-      timeOfDay: v2Props.timeOfDay,
-      particles: v2Props.particles,
-      filmGrain: v2Props.filmGrain,
-      diagnosticBoost: v2Props.diagnosticBoost,
-      pageCategory: v2Props.pageCategory,
-      glueVars: v2Props.glueVars,
-    });
+    let model: Awaited<ReturnType<typeof buildHeroV2Model>> = null;
+
+    try {
+      model = await buildHeroV2Model({
+        mode: v2Props.mode,
+        treatmentSlug: v2Props.treatmentSlug,
+        pageSlugOrPath: v2Props.pageSlugOrPath ?? "/",
+        debug: v2Props.debug,
+        prm: v2Props.prm,
+        timeOfDay: v2Props.timeOfDay,
+        particles: v2Props.particles,
+        filmGrain: v2Props.filmGrain,
+        diagnosticBoost: v2Props.diagnosticBoost,
+        pageCategory: v2Props.pageCategory,
+        glueVars: v2Props.glueVars,
+      });
+    } catch {
+      model = null;
+    }
 
     return (
       <div
