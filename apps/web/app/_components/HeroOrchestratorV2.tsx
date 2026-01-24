@@ -110,7 +110,7 @@ export function HeroOrchestratorV2() {
       return;
     }
     setMountNode(document.getElementById("hero-v2-orchestrator-root"));
-  }, [pathnameKey, shouldRender]);
+  }, [shouldRender]);
 
   useEffect(() => {
     currentModelRef.current = currentModel;

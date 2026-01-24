@@ -36,9 +36,7 @@ export async function HeroMount(props: HeroRendererProps) {
           data-hero-persist-flag={persistFlag ?? ""}
           data-hero-persist-flag-normalized={persistNormalized}
           style={{ minHeight: "72vh" }}
-        >
-          <div id="hero-v2-orchestrator-root" />
-        </div>
+        />
       );
     }
 
