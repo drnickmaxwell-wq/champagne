@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode, type ReactPortal } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type ReactPortal } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import {
   HeroContentV2,
@@ -45,7 +45,10 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
     rootStyle,
     surfaceRef,
   } = props;
-  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(() => {
+    if (typeof document === "undefined") return null;
+    return document.getElementById("hero-v2-orchestrator-root");
+  });
   const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
   const [prevModel, setPrevModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
@@ -69,7 +72,7 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
   });
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setPortalRoot(document.getElementById("hero-v2-orchestrator-root"));
   }, []);
 
@@ -177,12 +180,10 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
     };
   }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
 
-  if (!portalRoot) return null;
-
   const displayModel = currentModel ?? lastGoodModelRef.current;
 
   if (!displayModel) {
-    return createPortal(<HeroFallback />, portalRoot);
+    return portalRoot ? createPortal(<HeroFallback />, portalRoot) : <HeroFallback />;
   }
 
   const resolvedRootStyle = { ...rootStyle, ...displayModel.surfaceStack.surfaceVars };
@@ -213,7 +214,7 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
     pointerEvents: "none" as const,
   };
 
-  return createPortal(
+  const heroFrame = (
     <HeroV2Frame
       layout={displayModel.layout}
       gradient={displayModel.gradient}
@@ -294,7 +295,8 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
       <HeroContentFade>
         <HeroContentV2 content={displayModel.content} layout={displayModel.layout} />
       </HeroContentFade>
-    </HeroV2Frame>,
-    portalRoot,
+    </HeroV2Frame>
   );
+
+  return portalRoot ? createPortal(heroFrame, portalRoot) : heroFrame;
 }
