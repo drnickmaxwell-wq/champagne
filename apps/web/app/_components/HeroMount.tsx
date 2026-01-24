@@ -16,10 +16,32 @@ export async function HeroMount(props: HeroRendererProps) {
     .replace(/^"(.*)"$/, "$1")
     .replace(/^'(.*)'$/, "$1")
     .toLowerCase();
+  const persistFlag = process.env.NEXT_PUBLIC_HERO_PERSIST;
+  const persistNormalized = (persistFlag ?? "")
+    .trim()
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1")
+    .toLowerCase();
   const useV2 = normalized === "v2";
+  const usePersistentMount = useV2 && persistNormalized === "1";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
 
   if (useV2) {
+    if (usePersistentMount) {
+      return (
+        <div
+          data-hero-engine="v2"
+          data-hero-flag={rawFlag ?? ""}
+          data-hero-flag-normalized={normalized}
+          data-hero-persist-flag={persistFlag ?? ""}
+          data-hero-persist-flag-normalized={persistNormalized}
+          style={{ minHeight: "72vh" }}
+        >
+          <div id="hero-v2-orchestrator-root" />
+        </div>
+      );
+    }
+
     const v2Props = props as HeroRendererV2Props;
     const v2Model = await buildHeroV2Model(v2Props);
     return (

@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import "./globals.css";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
+import { HeroOrchestratorV2 } from "./_components/HeroOrchestratorV2";
 import { HeroMount } from "./_components/HeroMount";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { getPageManifest } from "@champagne/manifests";
@@ -55,6 +56,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en">
       <body className="min-h-screen antialiased">
         <div className="flex min-h-screen flex-col">
+          <HeroOrchestratorV2 />
           <div className="sticky top-0 z-50">
             <Header />
           </div>
