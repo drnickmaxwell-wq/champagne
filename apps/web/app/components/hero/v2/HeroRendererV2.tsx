@@ -14,6 +14,8 @@ export interface HeroRendererV2Props {
   mode?: HeroMode;
   treatmentSlug?: string;
   pageSlugOrPath?: string;
+  initialModel?: HeroV2Model | null;
+  initialPathnameKey?: string;
   debug?: boolean;
   prm?: boolean;
   timeOfDay?: HeroTimeOfDay;
@@ -737,14 +739,17 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     glueVars,
     rootStyle,
     surfaceRef,
+    initialModel,
+    initialPathnameKey,
   } = props;
-  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
+  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(() => initialModel ?? null);
   const [prevModel, setPrevModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isCrossfading, setIsCrossfading] = useState(false);
   const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
-  const currentModelRef = useRef<HeroV2Model | null>(null);
+  const currentModelRef = useRef<HeroV2Model | null>(initialModel ?? null);
+  const didSkipInitialBuildRef = useRef(false);
   const transitionRef = useRef<{
     timeoutId: number | null;
     rafId: number | null;
@@ -765,11 +770,36 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [currentModel]);
 
   useEffect(() => {
+    if (!initialModel) return;
+    const seedKey = normalizeHeroPathname(initialPathnameKey ?? "");
+    if (seedKey !== pathnameKey) return;
+    heroV2ModelCache.set(seedKey, initialModel);
+  }, [initialModel, initialPathnameKey, pathnameKey]);
+
+  useEffect(() => {
     let isActive = true;
     const transitionState = transitionRef.current;
     const cached = heroV2ModelCache.get(pathnameKey);
+    const isFirstBuildPass = !didSkipInitialBuildRef.current;
+    didSkipInitialBuildRef.current = true;
     if (cached && !currentModelRef.current) {
       setCurrentModel(cached);
+    }
+    if (isFirstBuildPass && currentModelRef.current && cached) {
+      const currentEffectiveHeroId = currentModelRef.current.surfaceStack.effectiveHeroId;
+      const cachedEffectiveHeroId = cached.surfaceStack.effectiveHeroId;
+      const currentEffectiveVariantId = currentModelRef.current.surfaceStack.effectiveVariantId;
+      const cachedEffectiveVariantId = cached.surfaceStack.effectiveVariantId;
+      const hasEffectiveHeroId = Boolean(currentEffectiveHeroId && cachedEffectiveHeroId);
+      const hasEffectiveVariantId = Boolean(currentEffectiveVariantId && cachedEffectiveVariantId);
+      const isCacheMatch =
+        currentModelRef.current === cached ||
+        (hasEffectiveHeroId &&
+          currentEffectiveHeroId === cachedEffectiveHeroId &&
+          (!hasEffectiveVariantId || currentEffectiveVariantId === cachedEffectiveVariantId));
+      if (isCacheMatch) {
+        return;
+      }
     }
     void buildHeroV2Model({
       mode,

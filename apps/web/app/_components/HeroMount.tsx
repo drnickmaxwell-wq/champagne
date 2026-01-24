@@ -18,6 +18,13 @@ export async function HeroMount(props: HeroRendererProps) {
     .replace(/^'(.*)'$/, "$1")
     .toLowerCase();
   const useV2 = normalized === "v2";
+  const rawPersistFlag = process.env.NEXT_PUBLIC_HERO_V2_PERSIST;
+  const normalizedPersist = (rawPersistFlag ?? "")
+    .trim()
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1")
+    .toLowerCase();
+  const persistV2 = normalizedPersist === "1";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
 
   if (useV2) {
@@ -43,7 +50,13 @@ export async function HeroMount(props: HeroRendererProps) {
         data-hero-flag-normalized={normalized}
         style={{ minHeight: "72vh" }}
       >
-        {v2Model ? (
+        {persistV2 ? (
+          <HeroRendererV2
+            {...v2PropsWithPath}
+            initialModel={v2Model}
+            initialPathnameKey={v2PropsWithPath.pageSlugOrPath}
+          />
+        ) : v2Model ? (
           <HeroV2Frame
             layout={v2Model.layout}
             gradient={v2Model.gradient}
