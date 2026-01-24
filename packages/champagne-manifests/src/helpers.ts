@@ -144,7 +144,7 @@ function collectTreatmentEntries(): ChampagneTreatmentPage[] {
     });
   }
 
-  const hubExtras = ["/dental-checkups-oral-cancer-screening"]
+  const hubExtras = ["/treatments/dental-checkups-oral-cancer-screening"]
     .map((path) => getPageManifestBySlug(path))
     .filter((entry): entry is ChampagnePageManifest => Boolean(entry?.path));
 
