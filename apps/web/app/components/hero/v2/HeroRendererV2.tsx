@@ -14,8 +14,6 @@ export interface HeroRendererV2Props {
   mode?: HeroMode;
   treatmentSlug?: string;
   pageSlugOrPath?: string;
-  initialModel?: HeroV2Model | null;
-  initialPathnameKey?: string;
   debug?: boolean;
   prm?: boolean;
   timeOfDay?: HeroTimeOfDay;
@@ -739,10 +737,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     glueVars,
     rootStyle,
     surfaceRef,
-    initialModel,
-    initialPathnameKey,
   } = props;
-  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(() => initialModel ?? null);
+  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
   const [prevModel, setPrevModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -767,12 +763,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   useEffect(() => {
     currentModelRef.current = currentModel;
   }, [currentModel]);
-
-  useEffect(() => {
-    if (!initialModel) return;
-    const seedKey = normalizeHeroPathname(initialPathnameKey ?? pathnameKey);
-    heroV2ModelCache.set(seedKey, initialModel);
-  }, [initialModel, initialPathnameKey, pathnameKey]);
 
   useEffect(() => {
     let isActive = true;
