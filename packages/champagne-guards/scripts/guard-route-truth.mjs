@@ -122,6 +122,13 @@ function collectStringLeaves(value, currentPath = "$", results = []) {
 }
 
 function containsSlugPath(value, slug) {
+  if (!value || typeof value !== "string" || !slug) {
+    return false;
+  }
+  if (slug === "/") {
+    const normalized = normalizeSlug(value);
+    return normalized === "/";
+  }
   if (!value.includes("/")) {
     return false;
   }
