@@ -29,17 +29,15 @@ export async function HeroMount(props: HeroRendererProps) {
     const v2Props = props as HeroRendererV2Props;
     if (persistEnabled) {
       return (
-        <>
-          <div
-            data-hero-engine="v2"
-            data-hero-flag={rawFlag ?? ""}
-            data-hero-flag-normalized={normalized}
-            style={{ minHeight: "72vh" }}
-          >
-            <div id="hero-v2-orchestrator-root" />
-          </div>
+        <div
+          data-hero-engine="v2"
+          data-hero-flag={rawFlag ?? ""}
+          data-hero-flag-normalized={normalized}
+          style={{ minHeight: "72vh" }}
+        >
+          <div id="hero-v2-orchestrator-root" />
           <HeroOrchestratorV2 {...v2Props} />
-        </>
+        </div>
       );
     }
     const v2Model = await buildHeroV2Model(v2Props);

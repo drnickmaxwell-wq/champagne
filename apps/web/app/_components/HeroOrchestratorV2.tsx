@@ -53,6 +53,7 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
   const [isCrossfading, setIsCrossfading] = useState(false);
   const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
   const currentModelRef = useRef<HeroV2Model | null>(null);
+  const lastGoodModelRef = useRef<HeroV2Model | null>(null);
   const transitionRef = useRef<{
     timeoutId: number | null;
     rafId: number | null;
@@ -74,6 +75,9 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     currentModelRef.current = currentModel;
+    if (currentModel) {
+      lastGoodModelRef.current = currentModel;
+    }
   }, [currentModel]);
 
   useEffect(() => {
@@ -175,24 +179,26 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
 
   if (!portalRoot) return null;
 
-  if (!currentModel) {
+  const displayModel = currentModel ?? lastGoodModelRef.current;
+
+  if (!displayModel) {
     return createPortal(<HeroFallback />, portalRoot);
   }
 
-  const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
-  const motionCount = currentModel.surfaceStack.motionLayers.length;
+  const resolvedRootStyle = { ...rootStyle, ...displayModel.surfaceStack.surfaceVars };
+  const motionCount = displayModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
-    heroId: currentModel.surfaceStack.heroId ?? "",
-    variantId: currentModel.surfaceStack.variantId ?? "",
-    boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
-    boundVariantId: currentModel.surfaceStack.boundVariantId ?? "",
-    effectiveHeroId: currentModel.surfaceStack.effectiveHeroId ?? "",
-    effectiveVariantId: currentModel.surfaceStack.effectiveVariantId ?? "",
-    particlesPath: currentModel.surfaceStack.particlesPath ?? "",
-    particlesOpacity: currentModel.surfaceStack.particlesOpacity ?? "",
+    heroId: displayModel.surfaceStack.heroId ?? "",
+    variantId: displayModel.surfaceStack.variantId ?? "",
+    boundHeroId: displayModel.surfaceStack.boundHeroId ?? "",
+    boundVariantId: displayModel.surfaceStack.boundVariantId ?? "",
+    effectiveHeroId: displayModel.surfaceStack.effectiveHeroId ?? "",
+    effectiveVariantId: displayModel.surfaceStack.effectiveVariantId ?? "",
+    particlesPath: displayModel.surfaceStack.particlesPath ?? "",
+    particlesOpacity: displayModel.surfaceStack.particlesOpacity ?? "",
     motionCount,
-    prm: currentModel.surfaceStack.prmEnabled,
+    prm: displayModel.surfaceStack.prmEnabled,
   };
   const surfaceWrapperBaseStyle = {
     position: "absolute" as const,
@@ -209,15 +215,15 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
 
   return createPortal(
     <HeroV2Frame
-      layout={currentModel.layout}
-      gradient={currentModel.gradient}
+      layout={displayModel.layout}
+      gradient={displayModel.gradient}
       rootStyle={resolvedRootStyle}
-      heroId={currentModel.surfaceStack.heroId}
-      variantId={currentModel.surfaceStack.variantId}
-      particlesPath={currentModel.surfaceStack.particlesPath}
-      particlesOpacity={currentModel.surfaceStack.particlesOpacity}
+      heroId={displayModel.surfaceStack.heroId}
+      variantId={displayModel.surfaceStack.variantId}
+      particlesPath={displayModel.surfaceStack.particlesPath}
+      particlesOpacity={displayModel.surfaceStack.particlesOpacity}
       motionCount={motionCount}
-      prm={currentModel.surfaceStack.prmEnabled}
+      prm={displayModel.surfaceStack.prmEnabled}
       debug={debugEnabled}
     >
       {debugEnabled ? (
@@ -260,7 +266,7 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
               opacity: isCrossfading ? crossfadeOpacity : 1,
             }}
           >
-            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...displayModel.surfaceStack} />
           </div>
         </>
       ) : (
@@ -271,7 +277,7 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
               opacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
             }}
           >
-            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...displayModel.surfaceStack} />
           </div>
           {incomingModel ? (
             <div
@@ -286,7 +292,7 @@ export function HeroOrchestratorV2(props: HeroRendererV2Props) {
         </>
       )}
       <HeroContentFade>
-        <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
+        <HeroContentV2 content={displayModel.content} layout={displayModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>,
     portalRoot,
