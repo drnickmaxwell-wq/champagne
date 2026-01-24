@@ -1,0 +1,2990 @@
+{
+  "schema": "CHAMPAGNE_CONTENT_SOURCE_MAP_V1",
+  "generatedAt": "2026-01-24T19:11:59.777Z",
+  "repoRootAssumed": "/workspace/champagne",
+  "inputs": {
+    "machineManifest": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "brandManifest": "packages/champagne-manifests/data/manifest.public.brand.json",
+    "treatmentJourneys": "packages/champagne-manifests/data/sections/smh/treatment_journeys.json",
+    "routeTruthLedger": "reports/structure/route-truth-ledger.v1.json"
+  },
+  "stats": {
+    "totalRoutes": 108,
+    "bySourceType": {
+      "machine_manifest_inline_sections": 99,
+      "dynamic_route_builder_resolved": 4,
+      "unknown": 5
+    },
+    "unknownCount": 5
+  },
+  "routes": [
+    {
+      "route": "/",
+      "routeId": "home",
+      "pageKey": "home",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/home"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/home/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/home",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/[page]",
+      "routeId": "[page]",
+      "pageKey": null,
+      "sourceType": "dynamic_route_builder_resolved",
+      "evidence": {
+        "why": "dynamic route resolved via builder",
+        "files": [
+          {
+            "path": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+            "kind": "codeResolver",
+            "pointers": [
+              "ChampagnePageBuilder"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/about",
+      "routeId": "about",
+      "pageKey": "about",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/about"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/about/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/about",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/blog",
+      "routeId": "blog",
+      "pageKey": "blog",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/blog"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/blog/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/blog",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/champagne/hero-asset-lab",
+      "routeId": "champagne.hero-asset-lab",
+      "pageKey": null,
+      "sourceType": "unknown",
+      "evidence": {
+        "why": "page file exists outside manifest inventory",
+        "files": [
+          {
+            "path": "apps/web/app/champagne/hero-asset-lab/page.tsx",
+            "kind": "unknown",
+            "pointers": [
+              "page.tsx"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/champagne/hero-debug",
+      "routeId": "champagne.hero-debug",
+      "pageKey": null,
+      "sourceType": "unknown",
+      "evidence": {
+        "why": "page file exists outside manifest inventory",
+        "files": [
+          {
+            "path": "apps/web/app/champagne/hero-debug/page.tsx",
+            "kind": "unknown",
+            "pointers": [
+              "page.tsx"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/champagne/hero-lab",
+      "routeId": "champagne.hero-lab",
+      "pageKey": null,
+      "sourceType": "unknown",
+      "evidence": {
+        "why": "page file exists outside manifest inventory",
+        "files": [
+          {
+            "path": "apps/web/app/champagne/hero-lab/page.tsx",
+            "kind": "unknown",
+            "pointers": [
+              "page.tsx"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/champagne/hero-preview",
+      "routeId": "champagne.hero-preview",
+      "pageKey": null,
+      "sourceType": "unknown",
+      "evidence": {
+        "why": "page file exists outside manifest inventory",
+        "files": [
+          {
+            "path": "apps/web/app/champagne/hero-preview/page.tsx",
+            "kind": "unknown",
+            "pointers": [
+              "page.tsx"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/champagne/sections-debug",
+      "routeId": "champagne.sections-debug",
+      "pageKey": null,
+      "sourceType": "unknown",
+      "evidence": {
+        "why": "page file exists outside manifest inventory",
+        "files": [
+          {
+            "path": "apps/web/app/champagne/sections-debug/page.tsx",
+            "kind": "unknown",
+            "pointers": [
+              "page.tsx"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/contact",
+      "routeId": "contact",
+      "pageKey": "contact",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/contact"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/contact/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/contact",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/dental-checkups-oral-cancer-screening",
+      "routeId": "dental_checkups_oral_cancer_screening",
+      "pageKey": "dental_checkups_oral_cancer_screening",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_checkups_oral_cancer_screening"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_checkups_oral_cancer_screening/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dental_checkups_oral_cancer_screening",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/downloads",
+      "routeId": "downloads",
+      "pageKey": "downloads",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/downloads"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/downloads/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/downloads",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/fees",
+      "routeId": "fees",
+      "pageKey": "fees",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/fees"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/fees/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/fees",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/finance",
+      "routeId": "finance",
+      "pageKey": "finance",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/finance"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/finance/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/finance",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/legal/[slug]",
+      "routeId": "legal.[slug]",
+      "pageKey": null,
+      "sourceType": "dynamic_route_builder_resolved",
+      "evidence": {
+        "why": "dynamic route resolved via builder",
+        "files": [
+          {
+            "path": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+            "kind": "codeResolver",
+            "pointers": [
+              "ChampagnePageBuilder"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/legal/accessibility",
+      "routeId": "accessibility",
+      "pageKey": "accessibility",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/accessibility"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/accessibility/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/accessibility",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/legal/complaints",
+      "routeId": "complaints",
+      "pageKey": "complaints",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/complaints"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/complaints/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/complaints",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/legal/cookies",
+      "routeId": "cookies",
+      "pageKey": "cookies",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/cookies"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/cookies/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/cookies",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/legal/privacy",
+      "routeId": "privacy",
+      "pageKey": "privacy",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/privacy"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/privacy/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/privacy",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/legal/terms",
+      "routeId": "terms",
+      "pageKey": "terms",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/terms"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/terms/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/terms",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/newsletter",
+      "routeId": "newsletter",
+      "pageKey": "newsletter",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/newsletter"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/newsletter/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/newsletter",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/patient-portal",
+      "routeId": "patient_portal",
+      "pageKey": "patient_portal",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/patient_portal"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/patient_portal/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/patient_portal",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/practice-plan",
+      "routeId": "practice_plan",
+      "pageKey": "practice_plan",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/practice_plan"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/practice_plan/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/practice_plan",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/smile-gallery",
+      "routeId": "smile_gallery",
+      "pageKey": "smile_gallery",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/smile_gallery"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/smile_gallery/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/smile_gallery",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/team",
+      "routeId": "team",
+      "pageKey": "team",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/team",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/team/[slug]",
+      "routeId": "team.[slug]",
+      "pageKey": null,
+      "sourceType": "dynamic_route_builder_resolved",
+      "evidence": {
+        "why": "dynamic route resolved via builder",
+        "files": [
+          {
+            "path": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+            "kind": "codeResolver",
+            "pointers": [
+              "ChampagnePageBuilder"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/team/nick-maxwell",
+      "routeId": "team_nick_maxwell",
+      "pageKey": "team_nick_maxwell",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team_nick_maxwell"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team_nick_maxwell/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/team_nick_maxwell",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/team/sara-burden",
+      "routeId": "team_sara_burden",
+      "pageKey": "team_sara_burden",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team_sara_burden"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team_sara_burden/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/team_sara_burden",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/team/sylvia-krafft",
+      "routeId": "team_sylvia_krafft",
+      "pageKey": "team_sylvia_krafft",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team_sylvia_krafft"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/team_sylvia_krafft/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/team_sylvia_krafft",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/technology",
+      "routeId": "technology_hub",
+      "pageKey": "technology_hub",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/technology_hub"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/technology_hub/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/technology_hub",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments",
+      "routeId": "treatments_hub",
+      "pageKey": "treatments_hub",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/treatments_hub"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/treatments_hub/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/treatments_hub",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/[slug]",
+      "routeId": "treatments.[slug]",
+      "pageKey": null,
+      "sourceType": "dynamic_route_builder_resolved",
+      "evidence": {
+        "why": "dynamic treatments route resolved via getTreatmentManifest",
+        "files": [
+          {
+            "path": "apps/web/app/treatments/[slug]/page.tsx",
+            "kind": "codeResolver",
+            "pointers": [
+              "resolveTreatment"
+            ]
+          },
+          {
+            "path": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+            "kind": "codeResolver",
+            "pointers": [
+              "ChampagnePageBuilder"
+            ]
+          }
+        ],
+        "machineManifestPath": null,
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "routeId": "treatments.3d-dentistry-and-technology",
+      "pageKey": "3d_dentistry_and_technology",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_dentistry_and_technology"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_dentistry_and_technology/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/3d_dentistry_and_technology",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/3d-digital-dentistry",
+      "routeId": "treatments.3d-digital-dentistry",
+      "pageKey": "technology_digital_dentistry",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/technology_digital_dentistry"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/technology_digital_dentistry/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/technology_digital_dentistry",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/3d-implant-restorations",
+      "routeId": "treatments.3d-implant-restorations",
+      "pageKey": "3d_implant_restorations",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_implant_restorations"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_implant_restorations/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/3d_implant_restorations",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/3d-printed-dentures",
+      "routeId": "treatments.3d-printed-dentures",
+      "pageKey": "printed_dentures_3d",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/printed_dentures_3d"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/printed_dentures_3d/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/printed_dentures_3d",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/3d-printed-veneers",
+      "routeId": "treatments.3d-printed-veneers",
+      "pageKey": "3d_printed_veneers",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_printed_veneers"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_printed_veneers/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/3d_printed_veneers",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/3d-printing-lab",
+      "routeId": "treatments.3d-printing-lab",
+      "pageKey": "3d_printing_lab",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_printing_lab"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/3d_printing_lab/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/3d_printing_lab",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/acrylic-dentures",
+      "routeId": "treatments.acrylic-dentures",
+      "pageKey": "acrylic_dentures",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/acrylic_dentures"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/acrylic_dentures/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/acrylic_dentures",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/anti-wrinkle-treatments",
+      "routeId": "treatments.anti-wrinkle-treatments",
+      "pageKey": "anti_wrinkle_treatments",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/anti_wrinkle_treatments"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/anti_wrinkle_treatments/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/anti_wrinkle_treatments",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/broken-chipped-cracked-teeth",
+      "routeId": "treatments.broken-chipped-cracked-teeth",
+      "pageKey": "emergency_broken_chipped_teeth",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_broken_chipped_teeth"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_broken_chipped_teeth/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_broken_chipped_teeth",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/bruxism-and-jaw-clenching",
+      "routeId": "treatments.bruxism-and-jaw-clenching",
+      "pageKey": "bruxism_jaw_clenching",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/bruxism_jaw_clenching"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/bruxism_jaw_clenching/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/bruxism_jaw_clenching",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/cbct-3d-scanning",
+      "routeId": "treatments.cbct-3d-scanning",
+      "pageKey": "cbct_3d_scanning",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/cbct_3d_scanning"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/cbct_3d_scanning/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/cbct_3d_scanning",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/childrens-dentistry",
+      "routeId": "treatments.childrens-dentistry",
+      "pageKey": "childrens_dentistry",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/childrens_dentistry"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/childrens_dentistry/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/childrens_dentistry",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/chrome-dentures",
+      "routeId": "treatments.chrome-dentures",
+      "pageKey": "chrome_dentures",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/chrome_dentures"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/chrome_dentures/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/chrome_dentures",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/clear-aligners",
+      "routeId": "treatments.clear-aligners",
+      "pageKey": "clear_aligners",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/clear_aligners"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/clear_aligners/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/clear_aligners",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "routeId": "treatments.clear-aligners-spark",
+      "pageKey": "clear_aligners_spark",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/clear_aligners_spark"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/clear_aligners_spark/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/clear_aligners_spark",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/composite-bonding",
+      "routeId": "treatments.composite-bonding",
+      "pageKey": "composite_bonding",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/composite_bonding"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/composite_bonding/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/composite_bonding",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-abscess-infection",
+      "routeId": "treatments.dental-abscess-infection",
+      "pageKey": "emergency_dental_abscess",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dental_abscess"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dental_abscess/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_dental_abscess",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-bridges",
+      "routeId": "treatments.dental-bridges",
+      "pageKey": "dental_bridges",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_bridges"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_bridges/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dental_bridges",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-checkups-oral-cancer-screening",
+      "routeId": "treatments.dental-checkups-oral-cancer-screening",
+      "pageKey": "dental_checkups_oral_cancer_screening_treatments",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_checkups_oral_cancer_screening_treatments"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_checkups_oral_cancer_screening_treatments/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dental_checkups_oral_cancer_screening_treatments",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-crowns",
+      "routeId": "treatments.dental-crowns",
+      "pageKey": "dental_crowns",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_crowns"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_crowns/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dental_crowns",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-fillings",
+      "routeId": "treatments.dental-fillings",
+      "pageKey": "dental_fillings",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_fillings"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_fillings/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dental_fillings",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-retainers",
+      "routeId": "treatments.dental-retainers",
+      "pageKey": "dental_retainers",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_retainers"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dental_retainers/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dental_retainers",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dental-trauma-accidents",
+      "routeId": "treatments.dental-trauma-accidents",
+      "pageKey": "emergency_dental_trauma",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dental_trauma"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dental_trauma/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_dental_trauma",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dentures",
+      "routeId": "treatments.dentures",
+      "pageKey": "dentures",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dentures"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dentures/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dentures",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/dermal-fillers",
+      "routeId": "treatments.dermal-fillers",
+      "pageKey": "dermal_fillers",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dermal_fillers"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/dermal_fillers/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/dermal_fillers",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/digital-smile-design",
+      "routeId": "treatments.digital-smile-design",
+      "pageKey": "digital_smile_design",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/digital_smile_design"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/digital_smile_design/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/digital_smile_design",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/emergency-dental-appointments",
+      "routeId": "treatments.emergency-dental-appointments",
+      "pageKey": "emergency_dental_appointments",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dental_appointments"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dental_appointments/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_dental_appointments",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "routeId": "treatments.emergency-dentistry",
+      "pageKey": "emergency_dentistry",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dentistry"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_dentistry/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_dentistry",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/endodontics-root-canal",
+      "routeId": "treatments.endodontics-root-canal",
+      "pageKey": "endodontics_root_canal",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/endodontics_root_canal"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/endodontics_root_canal/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/endodontics_root_canal",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/extractions-and-oral-surgery",
+      "routeId": "treatments.extractions-and-oral-surgery",
+      "pageKey": "extractions_and_oral_surgery",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/extractions_and_oral_surgery"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/extractions_and_oral_surgery/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/extractions_and_oral_surgery",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/facial-aesthetics",
+      "routeId": "treatments.facial-aesthetics",
+      "pageKey": "facial_aesthetics",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/facial_aesthetics"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/facial_aesthetics/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/facial_aesthetics",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/facial-pain-and-headache",
+      "routeId": "treatments.facial-pain-and-headache",
+      "pageKey": "facial_pain_headache",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/facial_pain_headache"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/facial_pain_headache/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/facial_pain_headache",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/facial-therapeutics",
+      "routeId": "treatments.facial-therapeutics",
+      "pageKey": "facial_therapeutics",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/facial_therapeutics"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/facial_therapeutics/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/facial_therapeutics",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/failed-implant-replacement",
+      "routeId": "treatments.failed-implant-replacement",
+      "pageKey": "implants_failed_replacement",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_failed_replacement"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_failed_replacement/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_failed_replacement",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/fixed-braces",
+      "routeId": "treatments.fixed-braces",
+      "pageKey": "fixed_braces",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/fixed_braces"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/fixed_braces/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/fixed_braces",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/full-smile-makeover",
+      "routeId": "treatments.full-smile-makeover",
+      "pageKey": "full_smile_makeover",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/full_smile_makeover"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/full_smile_makeover/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/full_smile_makeover",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/home-teeth-whitening",
+      "routeId": "treatments.home-teeth-whitening",
+      "pageKey": "home_teeth_whitening",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/home_teeth_whitening"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/home_teeth_whitening/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/home_teeth_whitening",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implant-aftercare",
+      "routeId": "treatments.implant-aftercare",
+      "pageKey": "implants_aftercare",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_aftercare"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_aftercare/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_aftercare",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implant-consultation",
+      "routeId": "treatments.implant-consultation",
+      "pageKey": "implants_consultation",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_consultation"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_consultation/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_consultation",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implant-retained-dentures",
+      "routeId": "treatments.implant-retained-dentures",
+      "pageKey": "implant_retained_dentures",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implant_retained_dentures"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implant_retained_dentures/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implant_retained_dentures",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implants",
+      "routeId": "treatments.implants",
+      "pageKey": "implants",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implants-bone-grafting",
+      "routeId": "treatments.implants-bone-grafting",
+      "pageKey": "implants_bone_grafting",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_bone_grafting"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_bone_grafting/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_bone_grafting",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implants-full-arch",
+      "routeId": "treatments.implants-full-arch",
+      "pageKey": "implants_full_arch",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_full_arch"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_full_arch/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_full_arch",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implants-multiple-teeth",
+      "routeId": "treatments.implants-multiple-teeth",
+      "pageKey": "implants_multiple_teeth",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_multiple_teeth"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_multiple_teeth/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_multiple_teeth",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/implants-single-tooth",
+      "routeId": "treatments.implants-single-tooth",
+      "pageKey": "implants_single_tooth",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_single_tooth"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_single_tooth/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_single_tooth",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/injection-moulded-composite",
+      "routeId": "treatments.injection-moulded-composite",
+      "pageKey": "injection_moulded_composite",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/injection_moulded_composite"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/injection_moulded_composite/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/injection_moulded_composite",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/inlays-onlays",
+      "routeId": "treatments.inlays-onlays",
+      "pageKey": "inlays_onlays",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/inlays_onlays"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/inlays_onlays/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/inlays_onlays",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/knocked-out-tooth",
+      "routeId": "treatments.knocked-out-tooth",
+      "pageKey": "emergency_knocked_out_tooth",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_knocked_out_tooth"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_knocked_out_tooth/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_knocked_out_tooth",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/lost-crowns-veneers-fillings",
+      "routeId": "treatments.lost-crowns-veneers-fillings",
+      "pageKey": "emergency_lost_crowns",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_lost_crowns"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_lost_crowns/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_lost_crowns",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/mouthguards-and-retainers",
+      "routeId": "treatments.mouthguards-and-retainers",
+      "pageKey": "mouthguards_and_retainers",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/mouthguards_and_retainers"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/mouthguards_and_retainers/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/mouthguards_and_retainers",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/nervous-patients",
+      "routeId": "treatments.nervous-patients",
+      "pageKey": "nervous_patients",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/nervous_patients"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/nervous_patients/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/nervous_patients",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/night-guards-occlusal-splints",
+      "routeId": "treatments.night-guards-occlusal-splints",
+      "pageKey": "night_guards_occlusal_splints",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/night_guards_occlusal_splints"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/night_guards_occlusal_splints/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/night_guards_occlusal_splints",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/orthodontics",
+      "routeId": "treatments.orthodontics",
+      "pageKey": "orthodontics",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/orthodontics"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/orthodontics/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/orthodontics",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/painless-numbing-the-wand",
+      "routeId": "treatments.painless-numbing-the-wand",
+      "pageKey": "painless_numbing_the_wand",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/painless_numbing_the_wand"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/painless_numbing_the_wand/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/painless_numbing_the_wand",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/peek-partial-dentures",
+      "routeId": "treatments.peek-partial-dentures",
+      "pageKey": "peek_partial_dentures",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/peek_partial_dentures"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/peek_partial_dentures/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/peek_partial_dentures",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/periodontal-gum-care",
+      "routeId": "treatments.periodontal-gum-care",
+      "pageKey": "periodontal_gum_care",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/periodontal_gum_care"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/periodontal_gum_care/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/periodontal_gum_care",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/polynucleotides",
+      "routeId": "treatments.polynucleotides",
+      "pageKey": "polynucleotides",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/polynucleotides"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/polynucleotides/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/polynucleotides",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "routeId": "treatments.preventative-and-general-dentistry",
+      "pageKey": "preventative_and_general_dentistry",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/preventative_and_general_dentistry"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/preventative_and_general_dentistry/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/preventative_and_general_dentistry",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "routeId": "treatments.sedation-dentistry",
+      "pageKey": "sedation_dentistry",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/sedation_dentistry"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/sedation_dentistry/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/sedation_dentistry",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/sedation-for-implants",
+      "routeId": "treatments.sedation-for-implants",
+      "pageKey": "implants_sedation",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_sedation"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_sedation/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_sedation",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/senior-mature-smile-care",
+      "routeId": "treatments.senior-mature-smile-care",
+      "pageKey": "senior_mature_smile_care",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/senior_mature_smile_care"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/senior_mature_smile_care/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/senior_mature_smile_care",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/severe-toothache-dental-pain",
+      "routeId": "treatments.severe-toothache-dental-pain",
+      "pageKey": "emergency_severe_toothache",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_severe_toothache"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/emergency_severe_toothache/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/emergency_severe_toothache",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/sinus-lift",
+      "routeId": "treatments.sinus-lift",
+      "pageKey": "implants_sinus_lift",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_sinus_lift"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_sinus_lift/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_sinus_lift",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/skin-boosters",
+      "routeId": "treatments.skin-boosters",
+      "pageKey": "skin_boosters",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/skin_boosters"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/skin_boosters/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/skin_boosters",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/sports-mouthguards",
+      "routeId": "treatments.sports-mouthguards",
+      "pageKey": "sports_mouthguards",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/sports_mouthguards"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/sports_mouthguards/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/sports_mouthguards",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/teeth-in-a-day",
+      "routeId": "treatments.teeth-in-a-day",
+      "pageKey": "implants_teeth_in_a_day",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_teeth_in_a_day"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/implants_teeth_in_a_day/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/implants_teeth_in_a_day",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/teeth-whitening",
+      "routeId": "treatments.teeth-whitening",
+      "pageKey": "whitening_hub",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_hub"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_hub/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/whitening_hub",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/teeth-whitening-faqs",
+      "routeId": "treatments.teeth-whitening-faqs",
+      "pageKey": "whitening_faq",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_faq"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_faq/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/whitening_faq",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/therapeutic-facial-injectables",
+      "routeId": "treatments.therapeutic-facial-injectables",
+      "pageKey": "therapeutic_facial_injectables",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/therapeutic_facial_injectables"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/therapeutic_facial_injectables/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/therapeutic_facial_injectables",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/tmj-disorder-treatment",
+      "routeId": "treatments.tmj-disorder-treatment",
+      "pageKey": "tmj_disorder_treatment",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/tmj_disorder_treatment"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/tmj_disorder_treatment/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/tmj_disorder_treatment",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/tmj-jaw-comfort",
+      "routeId": "treatments.tmj-jaw-comfort",
+      "pageKey": "tmj_jaw_comfort",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/tmj_jaw_comfort"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/tmj_jaw_comfort/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/tmj_jaw_comfort",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/tooth-wear-broken-teeth",
+      "routeId": "treatments.tooth-wear-broken-teeth",
+      "pageKey": "tooth_wear_broken_teeth",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/tooth_wear_broken_teeth"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/tooth_wear_broken_teeth/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/tooth_wear_broken_teeth",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/veneers",
+      "routeId": "treatments.veneers",
+      "pageKey": "veneers",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/veneers"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/veneers/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/veneers",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/whitening-sensitive-teeth",
+      "routeId": "treatments.whitening-sensitive-teeth",
+      "pageKey": "whitening_sensitivity",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_sensitivity"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_sensitivity/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/whitening_sensitivity",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/treatments/whitening-top-ups",
+      "routeId": "treatments.whitening-top-ups",
+      "pageKey": "whitening_topups",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_topups"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/whitening_topups/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/whitening_topups",
+        "brandManifestPath": null
+      },
+      "notes": []
+    },
+    {
+      "route": "/video-consultation",
+      "routeId": "video_consultation",
+      "pageKey": "video_consultation",
+      "sourceType": "machine_manifest_inline_sections",
+      "evidence": {
+        "why": "inline keys: sections",
+        "files": [
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/video_consultation"
+            ]
+          },
+          {
+            "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+            "kind": "machineManifest",
+            "pointers": [
+              "/pages/video_consultation/sections"
+            ]
+          }
+        ],
+        "machineManifestPath": "/pages/video_consultation",
+        "brandManifestPath": null
+      },
+      "notes": []
+    }
+  ]
+}
