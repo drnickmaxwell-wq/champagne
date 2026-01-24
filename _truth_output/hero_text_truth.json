@@ -1,0 +1,1267 @@
+[
+  {
+    "route": "/",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/home/label",
+    "currentText": "Home",
+    "fingerprint": {
+      "charCount": 4,
+      "startsWith": "Home",
+      "endsWith": "Home"
+    }
+  },
+  {
+    "route": "/",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/hero/sacred_hero_base.json",
+    "jsonPointer": "/content/eyebrow",
+    "currentText": "Champagne Dentistry",
+    "fingerprint": {
+      "charCount": 19,
+      "startsWith": "Champagne Dentistry",
+      "endsWith": "Champagne Dentistry"
+    }
+  },
+  {
+    "route": "/",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/hero/sacred_hero_base.json",
+    "jsonPointer": "/content/headline",
+    "currentText": "Advanced cosmetic dentistry crafted with calm precision.",
+    "fingerprint": {
+      "charCount": 56,
+      "startsWith": "Advanced cosmetic dentist",
+      "endsWith": "fted with calm precision."
+    }
+  },
+  {
+    "route": "/",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/hero/sacred_hero_base.json",
+    "jsonPointer": "/content/subheadline",
+    "currentText": "Digital workflows, gentle clinicians, and beautifully layered studio light for confident smiles.",
+    "fingerprint": {
+      "charCount": 96,
+      "startsWith": "Digital workflows, gentle",
+      "endsWith": "ght for confident smiles."
+    }
+  },
+  {
+    "route": "/about",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/about/label",
+    "currentText": "About",
+    "fingerprint": {
+      "charCount": 5,
+      "startsWith": "About",
+      "endsWith": "About"
+    }
+  },
+  {
+    "route": "/blog",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/blog/label",
+    "currentText": "Blog",
+    "fingerprint": {
+      "charCount": 4,
+      "startsWith": "Blog",
+      "endsWith": "Blog"
+    }
+  },
+  {
+    "route": "/contact",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/contact/label",
+    "currentText": "Contact",
+    "fingerprint": {
+      "charCount": 7,
+      "startsWith": "Contact",
+      "endsWith": "Contact"
+    }
+  },
+  {
+    "route": "/dental-checkups-oral-cancer-screening",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_checkups_oral_cancer_screening/description",
+    "currentText": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening.",
+    "fingerprint": {
+      "charCount": 89,
+      "startsWith": "Routine dental exams with",
+      "endsWith": "and reassuring screening."
+    }
+  },
+  {
+    "route": "/dental-checkups-oral-cancer-screening",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_checkups_oral_cancer_screening/label",
+    "currentText": "Dental Check-Ups & Oral Cancer Screening",
+    "fingerprint": {
+      "charCount": 40,
+      "startsWith": "Dental Check-Ups & Oral C",
+      "endsWith": "s & Oral Cancer Screening"
+    }
+  },
+  {
+    "route": "/downloads",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/downloads/label",
+    "currentText": "Downloads",
+    "fingerprint": {
+      "charCount": 9,
+      "startsWith": "Downloads",
+      "endsWith": "Downloads"
+    }
+  },
+  {
+    "route": "/fees",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/fees/label",
+    "currentText": "Fees",
+    "fingerprint": {
+      "charCount": 4,
+      "startsWith": "Fees",
+      "endsWith": "Fees"
+    }
+  },
+  {
+    "route": "/finance",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/finance/description",
+    "currentText": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
+    "fingerprint": {
+      "charCount": 120,
+      "startsWith": "Finance pathways with Tab",
+      "endsWith": "ility is confirmed later."
+    }
+  },
+  {
+    "route": "/finance",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/finance/label",
+    "currentText": "Finance",
+    "fingerprint": {
+      "charCount": 7,
+      "startsWith": "Finance",
+      "endsWith": "Finance"
+    }
+  },
+  {
+    "route": "/legal/accessibility",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/accessibility/label",
+    "currentText": "Accessibility",
+    "fingerprint": {
+      "charCount": 13,
+      "startsWith": "Accessibility",
+      "endsWith": "Accessibility"
+    }
+  },
+  {
+    "route": "/legal/complaints",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/complaints/label",
+    "currentText": "Complaints",
+    "fingerprint": {
+      "charCount": 10,
+      "startsWith": "Complaints",
+      "endsWith": "Complaints"
+    }
+  },
+  {
+    "route": "/legal/cookies",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/cookies/label",
+    "currentText": "Cookies",
+    "fingerprint": {
+      "charCount": 7,
+      "startsWith": "Cookies",
+      "endsWith": "Cookies"
+    }
+  },
+  {
+    "route": "/legal/privacy",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/privacy/label",
+    "currentText": "Privacy Policy",
+    "fingerprint": {
+      "charCount": 14,
+      "startsWith": "Privacy Policy",
+      "endsWith": "Privacy Policy"
+    }
+  },
+  {
+    "route": "/legal/terms",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/terms/label",
+    "currentText": "Website terms",
+    "fingerprint": {
+      "charCount": 13,
+      "startsWith": "Website terms",
+      "endsWith": "Website terms"
+    }
+  },
+  {
+    "route": "/newsletter",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/newsletter/label",
+    "currentText": "Newsletter",
+    "fingerprint": {
+      "charCount": 10,
+      "startsWith": "Newsletter",
+      "endsWith": "Newsletter"
+    }
+  },
+  {
+    "route": "/patient-portal",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/patient_portal/description",
+    "currentText": "Secure portal experience overview while the live connection is prepared.",
+    "fingerprint": {
+      "charCount": 72,
+      "startsWith": "Secure portal experience ",
+      "endsWith": "e connection is prepared."
+    }
+  },
+  {
+    "route": "/patient-portal",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/patient_portal/label",
+    "currentText": "Patient portal",
+    "fingerprint": {
+      "charCount": 14,
+      "startsWith": "Patient portal",
+      "endsWith": "Patient portal"
+    }
+  },
+  {
+    "route": "/practice-plan",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/practice_plan/description",
+    "currentText": "Membership overview covering what is included, how to join, and how it supports routine care.",
+    "fingerprint": {
+      "charCount": 93,
+      "startsWith": "Membership overview cover",
+      "endsWith": "it supports routine care."
+    }
+  },
+  {
+    "route": "/practice-plan",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/practice_plan/label",
+    "currentText": "Practice Plan",
+    "fingerprint": {
+      "charCount": 13,
+      "startsWith": "Practice Plan",
+      "endsWith": "Practice Plan"
+    }
+  },
+  {
+    "route": "/smile-gallery",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/smile_gallery/label",
+    "currentText": "Smile gallery",
+    "fingerprint": {
+      "charCount": 13,
+      "startsWith": "Smile gallery",
+      "endsWith": "Smile gallery"
+    }
+  },
+  {
+    "route": "/team",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team/label",
+    "currentText": "Team",
+    "fingerprint": {
+      "charCount": 4,
+      "startsWith": "Team",
+      "endsWith": "Team"
+    }
+  },
+  {
+    "route": "/team/nick-maxwell",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team_nick_maxwell/label",
+    "currentText": "Dr Nick Maxwell",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "Dr Nick Maxwell",
+      "endsWith": "Dr Nick Maxwell"
+    }
+  },
+  {
+    "route": "/team/nick-maxwell",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team_nick_maxwell/title",
+    "currentText": "Dr Nick Maxwell",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "Dr Nick Maxwell",
+      "endsWith": "Dr Nick Maxwell"
+    }
+  },
+  {
+    "route": "/team/sara-burden",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team_sara_burden/label",
+    "currentText": "Sara Burden",
+    "fingerprint": {
+      "charCount": 11,
+      "startsWith": "Sara Burden",
+      "endsWith": "Sara Burden"
+    }
+  },
+  {
+    "route": "/team/sara-burden",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team_sara_burden/title",
+    "currentText": "Sara Burden",
+    "fingerprint": {
+      "charCount": 11,
+      "startsWith": "Sara Burden",
+      "endsWith": "Sara Burden"
+    }
+  },
+  {
+    "route": "/team/sylvia-krafft",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team_sylvia_krafft/label",
+    "currentText": "Dr Sylvia Krafft",
+    "fingerprint": {
+      "charCount": 16,
+      "startsWith": "Dr Sylvia Krafft",
+      "endsWith": "Dr Sylvia Krafft"
+    }
+  },
+  {
+    "route": "/team/sylvia-krafft",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/team_sylvia_krafft/title",
+    "currentText": "Dr Sylvia Krafft",
+    "fingerprint": {
+      "charCount": 16,
+      "startsWith": "Dr Sylvia Krafft",
+      "endsWith": "Dr Sylvia Krafft"
+    }
+  },
+  {
+    "route": "/technology",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/technology_hub/label",
+    "currentText": "Technology",
+    "fingerprint": {
+      "charCount": 10,
+      "startsWith": "Technology",
+      "endsWith": "Technology"
+    }
+  },
+  {
+    "route": "/treatments",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/treatments_hub/label",
+    "currentText": "Treatments hub",
+    "fingerprint": {
+      "charCount": 14,
+      "startsWith": "Treatments hub",
+      "endsWith": "Treatments hub"
+    }
+  },
+  {
+    "route": "/treatments/3d-dentistry-and-technology",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/3d_dentistry_and_technology/label",
+    "currentText": "3D dentistry & technology",
+    "fingerprint": {
+      "charCount": 25,
+      "startsWith": "3D dentistry & technology",
+      "endsWith": "3D dentistry & technology"
+    }
+  },
+  {
+    "route": "/treatments/3d-digital-dentistry",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/technology_digital_dentistry/label",
+    "currentText": "3D & digital dentistry",
+    "fingerprint": {
+      "charCount": 22,
+      "startsWith": "3D & digital dentistry",
+      "endsWith": "3D & digital dentistry"
+    }
+  },
+  {
+    "route": "/treatments/3d-implant-restorations",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/3d_implant_restorations/label",
+    "currentText": "3D implant restorations",
+    "fingerprint": {
+      "charCount": 23,
+      "startsWith": "3D implant restorations",
+      "endsWith": "3D implant restorations"
+    }
+  },
+  {
+    "route": "/treatments/3d-printed-dentures",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/printed_dentures_3d/label",
+    "currentText": "3D printed dentures",
+    "fingerprint": {
+      "charCount": 19,
+      "startsWith": "3D printed dentures",
+      "endsWith": "3D printed dentures"
+    }
+  },
+  {
+    "route": "/treatments/3d-printed-veneers",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/3d_printed_veneers/label",
+    "currentText": "3D printed veneers",
+    "fingerprint": {
+      "charCount": 18,
+      "startsWith": "3D printed veneers",
+      "endsWith": "3D printed veneers"
+    }
+  },
+  {
+    "route": "/treatments/3d-printing-lab",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/3d_printing_lab/label",
+    "currentText": "3D printing lab",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "3D printing lab",
+      "endsWith": "3D printing lab"
+    }
+  },
+  {
+    "route": "/treatments/acrylic-dentures",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/acrylic_dentures/label",
+    "currentText": "Acrylic dentures",
+    "fingerprint": {
+      "charCount": 16,
+      "startsWith": "Acrylic dentures",
+      "endsWith": "Acrylic dentures"
+    }
+  },
+  {
+    "route": "/treatments/anti-wrinkle-treatments",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/anti_wrinkle_treatments/label",
+    "currentText": "Anti-wrinkle treatments",
+    "fingerprint": {
+      "charCount": 23,
+      "startsWith": "Anti-wrinkle treatments",
+      "endsWith": "Anti-wrinkle treatments"
+    }
+  },
+  {
+    "route": "/treatments/broken-chipped-cracked-teeth",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_broken_chipped_teeth/label",
+    "currentText": "Broken, chipped or cracked teeth",
+    "fingerprint": {
+      "charCount": 32,
+      "startsWith": "Broken, chipped or cracke",
+      "endsWith": " chipped or cracked teeth"
+    }
+  },
+  {
+    "route": "/treatments/bruxism-and-jaw-clenching",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/bruxism_jaw_clenching/label",
+    "currentText": "Bruxism (grinding) and jaw clenching",
+    "fingerprint": {
+      "charCount": 36,
+      "startsWith": "Bruxism (grinding) and ja",
+      "endsWith": "inding) and jaw clenching"
+    }
+  },
+  {
+    "route": "/treatments/cbct-3d-scanning",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/cbct_3d_scanning/label",
+    "currentText": "CBCT / 3D scanning",
+    "fingerprint": {
+      "charCount": 18,
+      "startsWith": "CBCT / 3D scanning",
+      "endsWith": "CBCT / 3D scanning"
+    }
+  },
+  {
+    "route": "/treatments/childrens-dentistry",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/childrens_dentistry/label",
+    "currentText": "Children’s dentistry",
+    "fingerprint": {
+      "charCount": 20,
+      "startsWith": "Children’s dentistry",
+      "endsWith": "Children’s dentistry"
+    }
+  },
+  {
+    "route": "/treatments/chrome-dentures",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/chrome_dentures/label",
+    "currentText": "Chrome dentures",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "Chrome dentures",
+      "endsWith": "Chrome dentures"
+    }
+  },
+  {
+    "route": "/treatments/clear-aligners",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/clear_aligners/label",
+    "currentText": "Clear Aligners in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 33,
+      "startsWith": "Clear Aligners in Shoreha",
+      "endsWith": "igners in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/clear-aligners-spark",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/clear_aligners_spark/label",
+    "currentText": "Spark clear aligners in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 39,
+      "startsWith": "Spark clear aligners in S",
+      "endsWith": "igners in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/composite-bonding",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/composite_bonding/label",
+    "currentText": "Composite bonding",
+    "fingerprint": {
+      "charCount": 17,
+      "startsWith": "Composite bonding",
+      "endsWith": "Composite bonding"
+    }
+  },
+  {
+    "route": "/treatments/dental-abscess-infection",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_dental_abscess/label",
+    "currentText": "Dental abscess & infection",
+    "fingerprint": {
+      "charCount": 26,
+      "startsWith": "Dental abscess & infectio",
+      "endsWith": "ental abscess & infection"
+    }
+  },
+  {
+    "route": "/treatments/dental-bridges",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_bridges/description",
+    "currentText": "Fixed replacements for missing teeth planned with careful case selection and maintenance.",
+    "fingerprint": {
+      "charCount": 89,
+      "startsWith": "Fixed replacements for mi",
+      "endsWith": "election and maintenance."
+    }
+  },
+  {
+    "route": "/treatments/dental-bridges",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_bridges/label",
+    "currentText": "Dental bridges",
+    "fingerprint": {
+      "charCount": 14,
+      "startsWith": "Dental bridges",
+      "endsWith": "Dental bridges"
+    }
+  },
+  {
+    "route": "/treatments/dental-checkups-oral-cancer-screening",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_checkups_oral_cancer_screening_treatments/description",
+    "currentText": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening.",
+    "fingerprint": {
+      "charCount": 89,
+      "startsWith": "Routine dental exams with",
+      "endsWith": "and reassuring screening."
+    }
+  },
+  {
+    "route": "/treatments/dental-checkups-oral-cancer-screening",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_checkups_oral_cancer_screening_treatments/label",
+    "currentText": "Dental Check-Ups & Oral Cancer Screening",
+    "fingerprint": {
+      "charCount": 40,
+      "startsWith": "Dental Check-Ups & Oral C",
+      "endsWith": "s & Oral Cancer Screening"
+    }
+  },
+  {
+    "route": "/treatments/dental-crowns",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_crowns/description",
+    "currentText": "Protective, tooth-preserving crowns planned with digital scans and calm appointments.",
+    "fingerprint": {
+      "charCount": 85,
+      "startsWith": "Protective, tooth-preserv",
+      "endsWith": "ns and calm appointments."
+    }
+  },
+  {
+    "route": "/treatments/dental-crowns",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_crowns/label",
+    "currentText": "Dental crowns",
+    "fingerprint": {
+      "charCount": 13,
+      "startsWith": "Dental crowns",
+      "endsWith": "Dental crowns"
+    }
+  },
+  {
+    "route": "/treatments/dental-fillings",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_fillings/label",
+    "currentText": "Dental fillings",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "Dental fillings",
+      "endsWith": "Dental fillings"
+    }
+  },
+  {
+    "route": "/treatments/dental-retainers",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dental_retainers/label",
+    "currentText": "Retainers",
+    "fingerprint": {
+      "charCount": 9,
+      "startsWith": "Retainers",
+      "endsWith": "Retainers"
+    }
+  },
+  {
+    "route": "/treatments/dental-trauma-accidents",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_dental_trauma/label",
+    "currentText": "Dental trauma & accidents",
+    "fingerprint": {
+      "charCount": 25,
+      "startsWith": "Dental trauma & accidents",
+      "endsWith": "Dental trauma & accidents"
+    }
+  },
+  {
+    "route": "/treatments/dentures",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dentures/label",
+    "currentText": "Dentures & tooth replacement",
+    "fingerprint": {
+      "charCount": 28,
+      "startsWith": "Dentures & tooth replacem",
+      "endsWith": "tures & tooth replacement"
+    }
+  },
+  {
+    "route": "/treatments/dermal-fillers",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/dermal_fillers/label",
+    "currentText": "Dermal fillers",
+    "fingerprint": {
+      "charCount": 14,
+      "startsWith": "Dermal fillers",
+      "endsWith": "Dermal fillers"
+    }
+  },
+  {
+    "route": "/treatments/digital-smile-design",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/digital_smile_design/label",
+    "currentText": "Digital smile design",
+    "fingerprint": {
+      "charCount": 20,
+      "startsWith": "Digital smile design",
+      "endsWith": "Digital smile design"
+    }
+  },
+  {
+    "route": "/treatments/emergency-dental-appointments",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_dental_appointments/label",
+    "currentText": "Emergency dental appointments",
+    "fingerprint": {
+      "charCount": 29,
+      "startsWith": "Emergency dental appointm",
+      "endsWith": "gency dental appointments"
+    }
+  },
+  {
+    "route": "/treatments/emergency-dentistry",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_dentistry/label",
+    "currentText": "Emergency dentistry",
+    "fingerprint": {
+      "charCount": 19,
+      "startsWith": "Emergency dentistry",
+      "endsWith": "Emergency dentistry"
+    }
+  },
+  {
+    "route": "/treatments/endodontics-root-canal",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/endodontics_root_canal/label",
+    "currentText": "Endodontics & root canal care",
+    "fingerprint": {
+      "charCount": 29,
+      "startsWith": "Endodontics & root canal ",
+      "endsWith": "dontics & root canal care"
+    }
+  },
+  {
+    "route": "/treatments/extractions-and-oral-surgery",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/extractions_and_oral_surgery/label",
+    "currentText": "Extractions & oral surgery",
+    "fingerprint": {
+      "charCount": 26,
+      "startsWith": "Extractions & oral surger",
+      "endsWith": "xtractions & oral surgery"
+    }
+  },
+  {
+    "route": "/treatments/facial-aesthetics",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/facial_aesthetics/label",
+    "currentText": "Facial aesthetics",
+    "fingerprint": {
+      "charCount": 17,
+      "startsWith": "Facial aesthetics",
+      "endsWith": "Facial aesthetics"
+    }
+  },
+  {
+    "route": "/treatments/facial-pain-and-headache",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/facial_pain_headache/label",
+    "currentText": "Facial pain and headache pathways",
+    "fingerprint": {
+      "charCount": 33,
+      "startsWith": "Facial pain and headache ",
+      "endsWith": "ain and headache pathways"
+    }
+  },
+  {
+    "route": "/treatments/facial-therapeutics",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/facial_therapeutics/label",
+    "currentText": "Facial therapeutics in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 38,
+      "startsWith": "Facial therapeutics in Sh",
+      "endsWith": "eutics in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/failed-implant-replacement",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_failed_replacement/label",
+    "currentText": "Failed implant replacement in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 45,
+      "startsWith": "Failed implant replacemen",
+      "endsWith": "cement in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/fixed-braces",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/fixed_braces/label",
+    "currentText": "Fixed braces",
+    "fingerprint": {
+      "charCount": 12,
+      "startsWith": "Fixed braces",
+      "endsWith": "Fixed braces"
+    }
+  },
+  {
+    "route": "/treatments/full-smile-makeover",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/full_smile_makeover/label",
+    "currentText": "Full smile makeover",
+    "fingerprint": {
+      "charCount": 19,
+      "startsWith": "Full smile makeover",
+      "endsWith": "Full smile makeover"
+    }
+  },
+  {
+    "route": "/treatments/home-teeth-whitening",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/home_teeth_whitening/label",
+    "currentText": "Home teeth whitening",
+    "fingerprint": {
+      "charCount": 20,
+      "startsWith": "Home teeth whitening",
+      "endsWith": "Home teeth whitening"
+    }
+  },
+  {
+    "route": "/treatments/implant-aftercare",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_aftercare/label",
+    "currentText": "Implant aftercare & recovery in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 47,
+      "startsWith": "Implant aftercare & recov",
+      "endsWith": "covery in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/implant-consultation",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_consultation/label",
+    "currentText": "Implant consultation & planning in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 50,
+      "startsWith": "Implant consultation & pl",
+      "endsWith": "anning in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/implant-retained-dentures",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implant_retained_dentures/label",
+    "currentText": "Implant-retained dentures",
+    "fingerprint": {
+      "charCount": 25,
+      "startsWith": "Implant-retained dentures",
+      "endsWith": "Implant-retained dentures"
+    }
+  },
+  {
+    "route": "/treatments/implants",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants/intro",
+    "currentText": "Stable, natural-looking implant restorations with calm planning and follow-up.",
+    "fingerprint": {
+      "charCount": 78,
+      "startsWith": "Stable, natural-looking i",
+      "endsWith": "m planning and follow-up."
+    }
+  },
+  {
+    "route": "/treatments/implants",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants/label",
+    "currentText": "Dental Implants in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 34,
+      "startsWith": "Dental Implants in Shoreh",
+      "endsWith": "plants in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/implants-bone-grafting",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_bone_grafting/label",
+    "currentText": "Bone grafting for dental implants",
+    "fingerprint": {
+      "charCount": 33,
+      "startsWith": "Bone grafting for dental ",
+      "endsWith": "fting for dental implants"
+    }
+  },
+  {
+    "route": "/treatments/implants-full-arch",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_full_arch/label",
+    "currentText": "Full arch implant rehabilitation",
+    "fingerprint": {
+      "charCount": 32,
+      "startsWith": "Full arch implant rehabil",
+      "endsWith": "ch implant rehabilitation"
+    }
+  },
+  {
+    "route": "/treatments/implants-multiple-teeth",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_multiple_teeth/label",
+    "currentText": "Multiple teeth implant options",
+    "fingerprint": {
+      "charCount": 30,
+      "startsWith": "Multiple teeth implant op",
+      "endsWith": "ple teeth implant options"
+    }
+  },
+  {
+    "route": "/treatments/implants-single-tooth",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_single_tooth/label",
+    "currentText": "Single-tooth dental implants in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 47,
+      "startsWith": "Single-tooth dental impla",
+      "endsWith": "plants in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/injection-moulded-composite",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/injection_moulded_composite/label",
+    "currentText": "Injection-moulded composite",
+    "fingerprint": {
+      "charCount": 27,
+      "startsWith": "Injection-moulded composi",
+      "endsWith": "jection-moulded composite"
+    }
+  },
+  {
+    "route": "/treatments/inlays-onlays",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/inlays_onlays/label",
+    "currentText": "Inlays & onlays",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "Inlays & onlays",
+      "endsWith": "Inlays & onlays"
+    }
+  },
+  {
+    "route": "/treatments/knocked-out-tooth",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_knocked_out_tooth/label",
+    "currentText": "Knocked-out (avulsed) tooth",
+    "fingerprint": {
+      "charCount": 27,
+      "startsWith": "Knocked-out (avulsed) too",
+      "endsWith": "ocked-out (avulsed) tooth"
+    }
+  },
+  {
+    "route": "/treatments/lost-crowns-veneers-fillings",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_lost_crowns/label",
+    "currentText": "Lost crowns, veneers & fillings",
+    "fingerprint": {
+      "charCount": 31,
+      "startsWith": "Lost crowns, veneers & fi",
+      "endsWith": "rowns, veneers & fillings"
+    }
+  },
+  {
+    "route": "/treatments/mouthguards-and-retainers",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/mouthguards_and_retainers/label",
+    "currentText": "Mouthguards and retainers",
+    "fingerprint": {
+      "charCount": 25,
+      "startsWith": "Mouthguards and retainers",
+      "endsWith": "Mouthguards and retainers"
+    }
+  },
+  {
+    "route": "/treatments/nervous-patients",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/nervous_patients/label",
+    "currentText": "Nervous patients",
+    "fingerprint": {
+      "charCount": 16,
+      "startsWith": "Nervous patients",
+      "endsWith": "Nervous patients"
+    }
+  },
+  {
+    "route": "/treatments/night-guards-occlusal-splints",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/night_guards_occlusal_splints/label",
+    "currentText": "Night guards (occlusal splints)",
+    "fingerprint": {
+      "charCount": 31,
+      "startsWith": "Night guards (occlusal sp",
+      "endsWith": "guards (occlusal splints)"
+    }
+  },
+  {
+    "route": "/treatments/orthodontics",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/orthodontics/label",
+    "currentText": "Orthodontics",
+    "fingerprint": {
+      "charCount": 12,
+      "startsWith": "Orthodontics",
+      "endsWith": "Orthodontics"
+    }
+  },
+  {
+    "route": "/treatments/painless-numbing-the-wand",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/painless_numbing_the_wand/label",
+    "currentText": "The Wand numbing system",
+    "fingerprint": {
+      "charCount": 23,
+      "startsWith": "The Wand numbing system",
+      "endsWith": "The Wand numbing system"
+    }
+  },
+  {
+    "route": "/treatments/peek-partial-dentures",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/peek_partial_dentures/label",
+    "currentText": "PEEK partial dentures",
+    "fingerprint": {
+      "charCount": 21,
+      "startsWith": "PEEK partial dentures",
+      "endsWith": "PEEK partial dentures"
+    }
+  },
+  {
+    "route": "/treatments/periodontal-gum-care",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/periodontal_gum_care/label",
+    "currentText": "Gum disease",
+    "fingerprint": {
+      "charCount": 11,
+      "startsWith": "Gum disease",
+      "endsWith": "Gum disease"
+    }
+  },
+  {
+    "route": "/treatments/polynucleotides",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/polynucleotides/label",
+    "currentText": "Polynucleotides (skin quality support)",
+    "fingerprint": {
+      "charCount": 38,
+      "startsWith": "Polynucleotides (skin qua",
+      "endsWith": "es (skin quality support)"
+    }
+  },
+  {
+    "route": "/treatments/preventative-and-general-dentistry",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/preventative_and_general_dentistry/label",
+    "currentText": "Preventative & general dentistry",
+    "fingerprint": {
+      "charCount": 32,
+      "startsWith": "Preventative & general de",
+      "endsWith": "ative & general dentistry"
+    }
+  },
+  {
+    "route": "/treatments/sedation-dentistry",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/sedation_dentistry/label",
+    "currentText": "Sedation dentistry",
+    "fingerprint": {
+      "charCount": 18,
+      "startsWith": "Sedation dentistry",
+      "endsWith": "Sedation dentistry"
+    }
+  },
+  {
+    "route": "/treatments/sedation-for-implants",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_sedation/label",
+    "currentText": "Sedation for dental implant treatment in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 56,
+      "startsWith": "Sedation for dental impla",
+      "endsWith": "atment in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/senior-mature-smile-care",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/senior_mature_smile_care/description",
+    "currentText": "Comfort-first dentistry for later life, focusing on gum health, dry mouth, worn or heavily filled teeth, and realistic tooth replacement options.\n\nWe’ll look at what’s changing, what’s stable, and what would genuinely improve day-to-day comfort and confidence — without over-treating.",
+    "fingerprint": {
+      "charCount": 284,
+      "startsWith": "Comfort-first dentistry f",
+      "endsWith": " — without over-treating."
+    }
+  },
+  {
+    "route": "/treatments/senior-mature-smile-care",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/senior_mature_smile_care/label",
+    "currentText": "Senior and mature smile care",
+    "fingerprint": {
+      "charCount": 28,
+      "startsWith": "Senior and mature smile c",
+      "endsWith": "ior and mature smile care"
+    }
+  },
+  {
+    "route": "/treatments/severe-toothache-dental-pain",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/emergency_severe_toothache/label",
+    "currentText": "Severe toothache & dental pain",
+    "fingerprint": {
+      "charCount": 30,
+      "startsWith": "Severe toothache & dental",
+      "endsWith": "e toothache & dental pain"
+    }
+  },
+  {
+    "route": "/treatments/sinus-lift",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_sinus_lift/label",
+    "currentText": "Sinus lift for dental implants in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 49,
+      "startsWith": "Sinus lift for dental imp",
+      "endsWith": "plants in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/skin-boosters",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/skin_boosters/label",
+    "currentText": "Skin boosters (hydration and elasticity)",
+    "fingerprint": {
+      "charCount": 40,
+      "startsWith": "Skin boosters (hydration ",
+      "endsWith": "hydration and elasticity)"
+    }
+  },
+  {
+    "route": "/treatments/sports-mouthguards",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/sports_mouthguards/label",
+    "currentText": "Sports mouthguards",
+    "fingerprint": {
+      "charCount": 18,
+      "startsWith": "Sports mouthguards",
+      "endsWith": "Sports mouthguards"
+    }
+  },
+  {
+    "route": "/treatments/teeth-in-a-day",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/implants_teeth_in_a_day/label",
+    "currentText": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 42,
+      "startsWith": "Teeth-in-a-Day implants i",
+      "endsWith": "plants in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/teeth-whitening",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/whitening_hub/label",
+    "currentText": "Teeth whitening",
+    "fingerprint": {
+      "charCount": 15,
+      "startsWith": "Teeth whitening",
+      "endsWith": "Teeth whitening"
+    }
+  },
+  {
+    "route": "/treatments/teeth-whitening-faqs",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/whitening_faq/label",
+    "currentText": "Teeth whitening FAQs",
+    "fingerprint": {
+      "charCount": 20,
+      "startsWith": "Teeth whitening FAQs",
+      "endsWith": "Teeth whitening FAQs"
+    }
+  },
+  {
+    "route": "/treatments/therapeutic-facial-injectables",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/therapeutic_facial_injectables/label",
+    "currentText": "Therapeutic facial injectables",
+    "fingerprint": {
+      "charCount": 30,
+      "startsWith": "Therapeutic facial inject",
+      "endsWith": "peutic facial injectables"
+    }
+  },
+  {
+    "route": "/treatments/tmj-disorder-treatment",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/tmj_disorder_treatment/label",
+    "currentText": "TMJ disorder treatment",
+    "fingerprint": {
+      "charCount": 22,
+      "startsWith": "TMJ disorder treatment",
+      "endsWith": "TMJ disorder treatment"
+    }
+  },
+  {
+    "route": "/treatments/tmj-jaw-comfort",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/tmj_jaw_comfort/label",
+    "currentText": "Jaw joint (TMJ) comfort",
+    "fingerprint": {
+      "charCount": 23,
+      "startsWith": "Jaw joint (TMJ) comfort",
+      "endsWith": "Jaw joint (TMJ) comfort"
+    }
+  },
+  {
+    "route": "/treatments/tooth-wear-broken-teeth",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/tooth_wear_broken_teeth/label",
+    "currentText": "Tooth Wear & Broken Teeth",
+    "fingerprint": {
+      "charCount": 25,
+      "startsWith": "Tooth Wear & Broken Teeth",
+      "endsWith": "Tooth Wear & Broken Teeth"
+    }
+  },
+  {
+    "route": "/treatments/veneers",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/veneers/label",
+    "currentText": "Dental veneers in Shoreham-by-Sea",
+    "fingerprint": {
+      "charCount": 33,
+      "startsWith": "Dental veneers in Shoreha",
+      "endsWith": "eneers in Shoreham-by-Sea"
+    }
+  },
+  {
+    "route": "/treatments/whitening-sensitive-teeth",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/whitening_sensitivity/label",
+    "currentText": "Sensitive teeth & whitening",
+    "fingerprint": {
+      "charCount": 27,
+      "startsWith": "Sensitive teeth & whiteni",
+      "endsWith": "nsitive teeth & whitening"
+    }
+  },
+  {
+    "route": "/treatments/whitening-top-ups",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/whitening_topups/label",
+    "currentText": "Whitening top-ups & maintenance",
+    "fingerprint": {
+      "charCount": 31,
+      "startsWith": "Whitening top-ups & maint",
+      "endsWith": "ing top-ups & maintenance"
+    }
+  },
+  {
+    "route": "/video-consultation",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/video_consultation/description",
+    "currentText": "Tele-dentistry guidance with clear expectations on what can be handled remotely and when to visit in person.",
+    "fingerprint": {
+      "charCount": 108,
+      "startsWith": "Tele-dentistry guidance w",
+      "endsWith": " when to visit in person."
+    }
+  },
+  {
+    "route": "/video-consultation",
+    "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "jsonPointer": "/pages/video_consultation/label",
+    "currentText": "Video Consultation",
+    "fingerprint": {
+      "charCount": 18,
+      "startsWith": "Video Consultation",
+      "endsWith": "Video Consultation"
+    }
+  }
+]

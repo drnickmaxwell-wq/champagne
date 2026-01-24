@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-01-24T10:58:13.438386Z",
+  "gitCommit": "ae79984d79faf92ce87e5afe21607d80c419ec8a",
+  "packageManager": "pnpm",
+  "workspaceRoot": "/workspace/champagne",
+  "keyFiles": [
+    {
+      "filePath": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "sha256": "223d3da58049b7c82e3366640c08ccce2d3840f47c9b2e230cac7860368d09e5",
+      "bytes": 442713
+    },
+    {
+      "filePath": "/workspace/champagne/packages/champagne-manifests/data/manifest.public.brand.json",
+      "sha256": "37e941de4cd2b33057895ac74c168af2bb1d4f2d0e5aacbdb047a5805e522be2",
+      "bytes": 4468
+    },
+    {
+      "filePath": "/workspace/champagne/packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "sha256": "ab4316bb1015dab25c85bcda0d93235ce1185ddad933bc5752a853c0cd6a639d",
+      "bytes": 1597
+    },
+    {
+      "filePath": "/workspace/champagne/packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      "sha256": "a59b02189fc45b05336bf5721c22bf82066e6afaa3a670c8bedbaa74e2d1e3cd",
+      "bytes": 5830
+    },
+    {
+      "filePath": "/workspace/champagne/packages/champagne-cta/src/CTARegistry.ts",
+      "sha256": "d77dc36fa638b1a4d64f8d7450c7623c36ef5236adf58bb4505a15dff307a1a9",
+      "bytes": 4530
+    }
+  ]
+}
