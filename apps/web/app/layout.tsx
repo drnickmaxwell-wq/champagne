@@ -57,7 +57,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="min-h-screen antialiased">
         <div className="flex min-h-screen flex-col">
           <HeroOrchestratorV2 />
-          <div id="hero-v2-orchestrator-root" />
+          <div
+            id="hero-v2-orchestrator-root"
+            style={{
+              position: "absolute",
+              inset: 0,
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          />
           <div className="sticky top-0 z-50">
             <Header />
           </div>
