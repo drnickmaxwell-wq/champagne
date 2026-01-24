@@ -102,6 +102,18 @@ const treatmentRouteIds = new Set(
     .filter(Boolean)
 );
 
+const treatmentJourneysPayload = JSON.stringify(treatmentJourneys);
+
+function treatmentJourneysContainSlug(slug) {
+  if (!slug) {
+    return false;
+  }
+  if (slug === "/") {
+    return treatmentJourneysPayload.includes("\"/\"");
+  }
+  return treatmentJourneysPayload.includes(slug);
+}
+
 const errors = [];
 
 redirectRules.forEach((rule, index) => {
@@ -147,6 +159,10 @@ redirectRules.forEach((rule, index) => {
     errors.push(`❌ Treatment journeys still reference FROM slug "${fromSlug}" (${fromRouteId}).`);
   }
 
+  if (treatmentJourneysContainSlug(fromSlug)) {
+    errors.push(`❌ Treatment journeys still contain FROM slug "${fromSlug}".`);
+  }
+
   const legacySlugs = Array.isArray(rule?.legacySlugs)
     ? rule.legacySlugs
     : Array.isArray(rule?.legacy_slugs)
@@ -167,6 +183,9 @@ redirectRules.forEach((rule, index) => {
       errors.push(
         `❌ Treatment journeys still reference legacy slug "${legacySlug}" (${legacyRouteId}).`
       );
+    }
+    if (treatmentJourneysContainSlug(legacySlug)) {
+      errors.push(`❌ Treatment journeys still contain legacy slug "${legacySlug}".`);
     }
   });
 });
