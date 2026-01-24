@@ -117,7 +117,7 @@ const normalizeHeroPathname = (path?: string) => {
 };
 
 
-function HeroFallback() {
+export function HeroFallback() {
   return (
     <BaseChampagneSurface
       variant="inkGlass"

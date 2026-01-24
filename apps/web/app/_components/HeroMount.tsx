@@ -8,6 +8,7 @@ import {
 import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
 import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
+import { HeroOrchestratorV2 } from "./HeroOrchestratorV2";
 
 export async function HeroMount(props: HeroRendererProps) {
   const rawFlag = process.env.NEXT_PUBLIC_HERO_ENGINE;
@@ -17,10 +18,30 @@ export async function HeroMount(props: HeroRendererProps) {
     .replace(/^'(.*)'$/, "$1")
     .toLowerCase();
   const useV2 = normalized === "v2";
+  const persistFlag = (process.env.NEXT_PUBLIC_HERO_PERSIST ?? "")
+    .trim()
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1");
+  const persistEnabled = persistFlag === "1";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
 
   if (useV2) {
     const v2Props = props as HeroRendererV2Props;
+    if (persistEnabled) {
+      return (
+        <>
+          <div
+            data-hero-engine="v2"
+            data-hero-flag={rawFlag ?? ""}
+            data-hero-flag-normalized={normalized}
+            style={{ minHeight: "72vh" }}
+          >
+            <div id="hero-v2-orchestrator-root" />
+          </div>
+          <HeroOrchestratorV2 {...v2Props} />
+        </>
+      );
+    }
     const v2Model = await buildHeroV2Model(v2Props);
     return (
       <div
