@@ -42,7 +42,7 @@
     { "slug": "/video-consultation", "hero": "contact_calm_hero_v1", "category": "utility" },
     { "slug": "/finance", "hero": "contact_calm_hero_v1", "category": "utility" },
     { "slug": "/practice-plan", "hero": "contact_calm_hero_v1", "category": "utility" },
-    { "slug": "/dental-checkups-oral-cancer-screening", "hero": "contact_calm_hero_v1", "category": "site" },
+    { "slug": "/treatments/dental-checkups-oral-cancer-screening", "hero": "contact_calm_hero_v1", "category": "site" },
     { "slug": "/contact", "hero": "contact_friendly_hero", "category": "utility" },
     { "slug": "/legal/privacy", "hero": "legal_simple_banner", "category": "legal" }
   ],

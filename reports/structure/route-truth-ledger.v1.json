@@ -1,0 +1,1490 @@
+{
+  "generatedAt": "2026-01-24T13:58:43.615684+00:00",
+  "repoCommit": "472bad0b4eb1dab426c78d7df97b142e128711e7",
+  "machineManifestPath": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+  "smhDir": "packages/champagne-manifests/data/sections/smh",
+  "totals": {
+    "pagesInMachineManifest": 103,
+    "routesWithSmhLayout": 79,
+    "routesWithInlineSections": 24,
+    "routesWithDefaultFallback": 0,
+    "orphanSmhLayouts": 2,
+    "duplicateIntentGroups": 1
+  },
+  "routes": [
+    {
+      "path": "/",
+      "pageId": "home",
+      "pageType": null,
+      "routeId": "home",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/home/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"home\", path \"/\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/about",
+      "pageId": "about",
+      "pageType": null,
+      "routeId": "about",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/about/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"about\", path \"/about\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/blog",
+      "pageId": "blog",
+      "pageType": null,
+      "routeId": "blog",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/blog/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"blog\", path \"/blog\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/contact",
+      "pageId": "contact",
+      "pageType": null,
+      "routeId": "contact",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/contact/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"contact\", path \"/contact\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/dental-checkups-oral-cancer-screening",
+      "pageId": "dental_checkups_oral_cancer_screening",
+      "pageType": null,
+      "routeId": "dental-checkups-oral-cancer-screening",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/dental_checkups_oral_cancer_screening/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dental_checkups_oral_cancer_screening\", path \"/dental-checkups-oral-cancer-screening\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/downloads",
+      "pageId": "downloads",
+      "pageType": null,
+      "routeId": "downloads",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/downloads/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"downloads\", path \"/downloads\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/fees",
+      "pageId": "fees",
+      "pageType": null,
+      "routeId": "fees",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/fees/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"fees\", path \"/fees\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/finance",
+      "pageId": "finance",
+      "pageType": null,
+      "routeId": "finance",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/finance/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"finance\", path \"/finance\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/legal/accessibility",
+      "pageId": "accessibility",
+      "pageType": null,
+      "routeId": "legal.accessibility",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/accessibility/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"accessibility\", path \"/legal/accessibility\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/legal/complaints",
+      "pageId": "complaints",
+      "pageType": null,
+      "routeId": "legal.complaints",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/complaints/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"complaints\", path \"/legal/complaints\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/legal/cookies",
+      "pageId": "cookies",
+      "pageType": null,
+      "routeId": "legal.cookies",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/cookies/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"cookies\", path \"/legal/cookies\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/legal/privacy",
+      "pageId": "privacy",
+      "pageType": null,
+      "routeId": "legal.privacy",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/privacy/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"privacy\", path \"/legal/privacy\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/legal/terms",
+      "pageId": "terms",
+      "pageType": null,
+      "routeId": "legal.terms",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/terms/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"terms\", path \"/legal/terms\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/newsletter",
+      "pageId": "newsletter",
+      "pageType": null,
+      "routeId": "newsletter",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/newsletter/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"newsletter\", path \"/newsletter\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/patient-portal",
+      "pageId": "patient_portal",
+      "pageType": null,
+      "routeId": "patient-portal",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/patient_portal/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"patient_portal\", path \"/patient-portal\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/practice-plan",
+      "pageId": "practice_plan",
+      "pageType": null,
+      "routeId": "practice-plan",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/practice_plan/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"practice_plan\", path \"/practice-plan\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/smile-gallery",
+      "pageId": "smile_gallery",
+      "pageType": null,
+      "routeId": "smile-gallery",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/smile_gallery/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"smile_gallery\", path \"/smile-gallery\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/team",
+      "pageId": "team",
+      "pageType": null,
+      "routeId": "team",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/team/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"team\", path \"/team\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/team/nick-maxwell",
+      "pageId": "team_nick_maxwell",
+      "pageType": null,
+      "routeId": "team.nick-maxwell",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/team_nick_maxwell/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"team_nick_maxwell\", path \"/team/nick-maxwell\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/team/sara-burden",
+      "pageId": "team_sara_burden",
+      "pageType": null,
+      "routeId": "team.sara-burden",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/team_sara_burden/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"team_sara_burden\", path \"/team/sara-burden\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/team/sylvia-krafft",
+      "pageId": "team_sylvia_krafft",
+      "pageType": null,
+      "routeId": "team.sylvia-krafft",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/team_sylvia_krafft/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"team_sylvia_krafft\", path \"/team/sylvia-krafft\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/technology",
+      "pageId": "technology_hub",
+      "pageType": null,
+      "routeId": "technology",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/technology_hub/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"technology_hub\", path \"/technology\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/treatments",
+      "pageId": "treatments_hub",
+      "pageType": null,
+      "routeId": "treatments",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/treatments_hub/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"treatments_hub\", path \"/treatments\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    },
+    {
+      "path": "/treatments/3d-dentistry-and-technology",
+      "pageId": "3d_dentistry_and_technology",
+      "pageType": null,
+      "routeId": "treatments.3d-dentistry-and-technology",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.3d-dentistry-and-technology.json",
+      "inlineSectionsPointer": "/pages/3d_dentistry_and_technology/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"3d_dentistry_and_technology\", path \"/treatments/3d-dentistry-and-technology\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/3d-digital-dentistry",
+      "pageId": "technology_digital_dentistry",
+      "pageType": null,
+      "routeId": "treatments.3d-digital-dentistry",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.3d-digital-dentistry.json",
+      "inlineSectionsPointer": "/pages/technology_digital_dentistry/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"technology_digital_dentistry\", path \"/treatments/3d-digital-dentistry\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/3d-implant-restorations",
+      "pageId": "3d_implant_restorations",
+      "pageType": null,
+      "routeId": "treatments.3d-implant-restorations",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.3d-implant-restorations.json",
+      "inlineSectionsPointer": "/pages/3d_implant_restorations/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"3d_implant_restorations\", path \"/treatments/3d-implant-restorations\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/3d-printed-dentures",
+      "pageId": "printed_dentures_3d",
+      "pageType": null,
+      "routeId": "treatments.3d-printed-dentures",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.3d-printed-dentures.json",
+      "inlineSectionsPointer": "/pages/printed_dentures_3d/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"printed_dentures_3d\", path \"/treatments/3d-printed-dentures\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/3d-printed-veneers",
+      "pageId": "3d_printed_veneers",
+      "pageType": null,
+      "routeId": "treatments.3d-printed-veneers",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.3d-printed-veneers.json",
+      "inlineSectionsPointer": "/pages/3d_printed_veneers/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"3d_printed_veneers\", path \"/treatments/3d-printed-veneers\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/3d-printing-lab",
+      "pageId": "3d_printing_lab",
+      "pageType": null,
+      "routeId": "treatments.3d-printing-lab",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.3d-printing-lab.json",
+      "inlineSectionsPointer": "/pages/3d_printing_lab/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"3d_printing_lab\", path \"/treatments/3d-printing-lab\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/acrylic-dentures",
+      "pageId": "acrylic_dentures",
+      "pageType": null,
+      "routeId": "treatments.acrylic-dentures",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.acrylic-dentures.json",
+      "inlineSectionsPointer": "/pages/acrylic_dentures/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"acrylic_dentures\", path \"/treatments/acrylic-dentures\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/anti-wrinkle-treatments",
+      "pageId": "anti_wrinkle_treatments",
+      "pageType": null,
+      "routeId": "treatments.anti-wrinkle-treatments",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.anti-wrinkle-treatments.json",
+      "inlineSectionsPointer": "/pages/anti_wrinkle_treatments/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"anti_wrinkle_treatments\", path \"/treatments/anti-wrinkle-treatments\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/broken-chipped-cracked-teeth",
+      "pageId": "emergency_broken_chipped_teeth",
+      "pageType": null,
+      "routeId": "treatments.broken-chipped-cracked-teeth",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.broken-chipped-cracked-teeth.json",
+      "inlineSectionsPointer": "/pages/emergency_broken_chipped_teeth/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_broken_chipped_teeth\", path \"/treatments/broken-chipped-cracked-teeth\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/bruxism-and-jaw-clenching",
+      "pageId": "bruxism_jaw_clenching",
+      "pageType": null,
+      "routeId": "treatments.bruxism-and-jaw-clenching",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.bruxism-and-jaw-clenching.json",
+      "inlineSectionsPointer": "/pages/bruxism_jaw_clenching/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"bruxism_jaw_clenching\", path \"/treatments/bruxism-and-jaw-clenching\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/cbct-3d-scanning",
+      "pageId": "cbct_3d_scanning",
+      "pageType": null,
+      "routeId": "treatments.cbct-3d-scanning",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.cbct-3d-scanning.json",
+      "inlineSectionsPointer": "/pages/cbct_3d_scanning/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"cbct_3d_scanning\", path \"/treatments/cbct-3d-scanning\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/childrens-dentistry",
+      "pageId": "childrens_dentistry",
+      "pageType": null,
+      "routeId": "treatments.childrens-dentistry",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.childrens-dentistry.json",
+      "inlineSectionsPointer": "/pages/childrens_dentistry/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"childrens_dentistry\", path \"/treatments/childrens-dentistry\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/chrome-dentures",
+      "pageId": "chrome_dentures",
+      "pageType": null,
+      "routeId": "treatments.chrome-dentures",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.chrome-dentures.json",
+      "inlineSectionsPointer": "/pages/chrome_dentures/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"chrome_dentures\", path \"/treatments/chrome-dentures\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/clear-aligners",
+      "pageId": "clear_aligners",
+      "pageType": null,
+      "routeId": "treatments.clear-aligners",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners.json",
+      "inlineSectionsPointer": "/pages/clear_aligners/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"clear_aligners\", path \"/treatments/clear-aligners\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/clear-aligners",
+      "pageId": "clear_aligners",
+      "pageType": null,
+      "routeId": "treatments.clear-aligners",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners.json",
+      "inlineSectionsPointer": "/treatments/clear_aligners/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"clear_aligners\", path \"/treatments/clear-aligners\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/clear-aligners-spark",
+      "pageId": "clear_aligners_spark",
+      "pageType": null,
+      "routeId": "treatments.clear-aligners-spark",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners-spark.json",
+      "inlineSectionsPointer": "/pages/clear_aligners_spark/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"clear_aligners_spark\", path \"/treatments/clear-aligners-spark\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/composite-bonding",
+      "pageId": "composite_bonding",
+      "pageType": null,
+      "routeId": "treatments.composite-bonding",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.composite-bonding.json",
+      "inlineSectionsPointer": "/pages/composite_bonding/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"composite_bonding\", path \"/treatments/composite-bonding\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-abscess-infection",
+      "pageId": "emergency_dental_abscess",
+      "pageType": null,
+      "routeId": "treatments.dental-abscess-infection",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-abscess-infection.json",
+      "inlineSectionsPointer": "/pages/emergency_dental_abscess/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_dental_abscess\", path \"/treatments/dental-abscess-infection\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-bridges",
+      "pageId": "dental_bridges",
+      "pageType": null,
+      "routeId": "treatments.dental-bridges",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-bridges.json",
+      "inlineSectionsPointer": "/pages/dental_bridges/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dental_bridges\", path \"/treatments/dental-bridges\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-checkups-oral-cancer-screening",
+      "pageId": "dental_checkups_oral_cancer_screening_treatments",
+      "pageType": null,
+      "routeId": "treatments.dental-checkups-oral-cancer-screening",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-checkups-oral-cancer-screening.json",
+      "inlineSectionsPointer": "/pages/dental_checkups_oral_cancer_screening_treatments/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dental_checkups_oral_cancer_screening_treatments\", path \"/treatments/dental-checkups-oral-cancer-screening\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-crowns",
+      "pageId": "dental_crowns",
+      "pageType": null,
+      "routeId": "treatments.dental-crowns",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-crowns.json",
+      "inlineSectionsPointer": "/pages/dental_crowns/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dental_crowns\", path \"/treatments/dental-crowns\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-fillings",
+      "pageId": "dental_fillings",
+      "pageType": null,
+      "routeId": "treatments.dental-fillings",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-fillings.json",
+      "inlineSectionsPointer": "/pages/dental_fillings/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dental_fillings\", path \"/treatments/dental-fillings\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-retainers",
+      "pageId": "dental_retainers",
+      "pageType": null,
+      "routeId": "treatments.dental-retainers",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-retainers.json",
+      "inlineSectionsPointer": "/pages/dental_retainers/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dental_retainers\", path \"/treatments/dental-retainers\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dental-trauma-accidents",
+      "pageId": "emergency_dental_trauma",
+      "pageType": null,
+      "routeId": "treatments.dental-trauma-accidents",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dental-trauma-accidents.json",
+      "inlineSectionsPointer": "/pages/emergency_dental_trauma/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_dental_trauma\", path \"/treatments/dental-trauma-accidents\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dentures",
+      "pageId": "dentures",
+      "pageType": null,
+      "routeId": "treatments.dentures",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dentures.json",
+      "inlineSectionsPointer": "/pages/dentures/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dentures\", path \"/treatments/dentures\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/dermal-fillers",
+      "pageId": "dermal_fillers",
+      "pageType": null,
+      "routeId": "treatments.dermal-fillers",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.dermal-fillers.json",
+      "inlineSectionsPointer": "/pages/dermal_fillers/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"dermal_fillers\", path \"/treatments/dermal-fillers\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/digital-smile-design",
+      "pageId": "digital_smile_design",
+      "pageType": null,
+      "routeId": "treatments.digital-smile-design",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.digital-smile-design.json",
+      "inlineSectionsPointer": "/pages/digital_smile_design/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"digital_smile_design\", path \"/treatments/digital-smile-design\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/emergency-dental-appointments",
+      "pageId": "emergency_dental_appointments",
+      "pageType": null,
+      "routeId": "treatments.emergency-dental-appointments",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dental-appointments.json",
+      "inlineSectionsPointer": "/pages/emergency_dental_appointments/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_dental_appointments\", path \"/treatments/emergency-dental-appointments\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/emergency-dentistry",
+      "pageId": "emergency_dentistry",
+      "pageType": null,
+      "routeId": "treatments.emergency-dentistry",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json",
+      "inlineSectionsPointer": "/pages/emergency_dentistry/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_dentistry\", path \"/treatments/emergency-dentistry\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/endodontics-root-canal",
+      "pageId": "endodontics_root_canal",
+      "pageType": null,
+      "routeId": "treatments.endodontics-root-canal",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.endodontics-root-canal.json",
+      "inlineSectionsPointer": "/pages/endodontics_root_canal/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"endodontics_root_canal\", path \"/treatments/endodontics-root-canal\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/extractions-and-oral-surgery",
+      "pageId": "extractions_and_oral_surgery",
+      "pageType": null,
+      "routeId": "treatments.extractions-and-oral-surgery",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.extractions-and-oral-surgery.json",
+      "inlineSectionsPointer": "/pages/extractions_and_oral_surgery/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"extractions_and_oral_surgery\", path \"/treatments/extractions-and-oral-surgery\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/facial-aesthetics",
+      "pageId": "facial_aesthetics",
+      "pageType": null,
+      "routeId": "treatments.facial-aesthetics",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.facial-aesthetics.json",
+      "inlineSectionsPointer": "/pages/facial_aesthetics/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"facial_aesthetics\", path \"/treatments/facial-aesthetics\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/facial-pain-and-headache",
+      "pageId": "facial_pain_headache",
+      "pageType": null,
+      "routeId": "treatments.facial-pain-and-headache",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.facial-pain-and-headache.json",
+      "inlineSectionsPointer": "/pages/facial_pain_headache/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"facial_pain_headache\", path \"/treatments/facial-pain-and-headache\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/facial-therapeutics",
+      "pageId": "facial_therapeutics",
+      "pageType": null,
+      "routeId": "treatments.facial-therapeutics",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.facial-therapeutics.json",
+      "inlineSectionsPointer": "/pages/facial_therapeutics/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"facial_therapeutics\", path \"/treatments/facial-therapeutics\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/failed-implant-replacement",
+      "pageId": "implants_failed_replacement",
+      "pageType": null,
+      "routeId": "treatments.failed-implant-replacement",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-failed-replacement.json",
+      "inlineSectionsPointer": "/pages/implants_failed_replacement/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_failed_replacement\", path \"/treatments/failed-implant-replacement\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/fixed-braces",
+      "pageId": "fixed_braces",
+      "pageType": null,
+      "routeId": "treatments.fixed-braces",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.fixed-braces.json",
+      "inlineSectionsPointer": "/pages/fixed_braces/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"fixed_braces\", path \"/treatments/fixed-braces\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/fixed-braces",
+      "pageId": "fixed_braces",
+      "pageType": null,
+      "routeId": "treatments.fixed-braces",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.fixed-braces.json",
+      "inlineSectionsPointer": "/treatments/fixed_braces/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"fixed_braces\", path \"/treatments/fixed-braces\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/full-smile-makeover",
+      "pageId": "full_smile_makeover",
+      "pageType": null,
+      "routeId": "treatments.full-smile-makeover",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.full-smile-makeover.json",
+      "inlineSectionsPointer": "/pages/full_smile_makeover/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"full_smile_makeover\", path \"/treatments/full-smile-makeover\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/home-teeth-whitening",
+      "pageId": "home_teeth_whitening",
+      "pageType": null,
+      "routeId": "treatments.home-teeth-whitening",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.home-teeth-whitening.json",
+      "inlineSectionsPointer": "/pages/home_teeth_whitening/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"home_teeth_whitening\", path \"/treatments/home-teeth-whitening\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implant-aftercare",
+      "pageId": "implants_aftercare",
+      "pageType": null,
+      "routeId": "treatments.implant-aftercare",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-aftercare.json",
+      "inlineSectionsPointer": "/pages/implants_aftercare/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_aftercare\", path \"/treatments/implant-aftercare\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implant-consultation",
+      "pageId": "implants_consultation",
+      "pageType": null,
+      "routeId": "treatments.implant-consultation",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-consultation.json",
+      "inlineSectionsPointer": "/pages/implants_consultation/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_consultation\", path \"/treatments/implant-consultation\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implant-retained-dentures",
+      "pageId": "implant_retained_dentures",
+      "pageType": null,
+      "routeId": "treatments.implant-retained-dentures",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-retained-dentures.json",
+      "inlineSectionsPointer": "/pages/implant_retained_dentures/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implant_retained_dentures\", path \"/treatments/implant-retained-dentures\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implants",
+      "pageId": "implants",
+      "pageType": null,
+      "routeId": "treatments.implants",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+      "inlineSectionsPointer": "/pages/implants/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants\", path \"/treatments/implants\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implants",
+      "pageId": "implants",
+      "pageType": null,
+      "routeId": "treatments.implants",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+      "inlineSectionsPointer": "/treatments/implants/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants\", path \"/treatments/implants\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implants-bone-grafting",
+      "pageId": "implants_bone_grafting",
+      "pageType": null,
+      "routeId": "treatments.implants-bone-grafting",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-bone-grafting.json",
+      "inlineSectionsPointer": "/pages/implants_bone_grafting/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_bone_grafting\", path \"/treatments/implants-bone-grafting\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implants-full-arch",
+      "pageId": "implants_full_arch",
+      "pageType": null,
+      "routeId": "treatments.implants-full-arch",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-full-arch.json",
+      "inlineSectionsPointer": "/pages/implants_full_arch/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_full_arch\", path \"/treatments/implants-full-arch\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implants-multiple-teeth",
+      "pageId": "implants_multiple_teeth",
+      "pageType": null,
+      "routeId": "treatments.implants-multiple-teeth",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-multiple-teeth.json",
+      "inlineSectionsPointer": "/pages/implants_multiple_teeth/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_multiple_teeth\", path \"/treatments/implants-multiple-teeth\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/implants-single-tooth",
+      "pageId": "implants_single_tooth",
+      "pageType": null,
+      "routeId": "treatments.implants-single-tooth",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.implants-single-tooth.json",
+      "inlineSectionsPointer": "/pages/implants_single_tooth/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_single_tooth\", path \"/treatments/implants-single-tooth\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/injection-moulded-composite",
+      "pageId": "injection_moulded_composite",
+      "pageType": null,
+      "routeId": "treatments.injection-moulded-composite",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.injection-moulded-composite.json",
+      "inlineSectionsPointer": "/pages/injection_moulded_composite/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"injection_moulded_composite\", path \"/treatments/injection-moulded-composite\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/inlays-onlays",
+      "pageId": "inlays_onlays",
+      "pageType": null,
+      "routeId": "treatments.inlays-onlays",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.inlays-onlays.json",
+      "inlineSectionsPointer": "/pages/inlays_onlays/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"inlays_onlays\", path \"/treatments/inlays-onlays\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/knocked-out-tooth",
+      "pageId": "emergency_knocked_out_tooth",
+      "pageType": null,
+      "routeId": "treatments.knocked-out-tooth",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.knocked-out-tooth.json",
+      "inlineSectionsPointer": "/pages/emergency_knocked_out_tooth/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_knocked_out_tooth\", path \"/treatments/knocked-out-tooth\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/lost-crowns-veneers-fillings",
+      "pageId": "emergency_lost_crowns",
+      "pageType": null,
+      "routeId": "treatments.lost-crowns-veneers-fillings",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.lost-crowns-veneers-fillings.json",
+      "inlineSectionsPointer": "/pages/emergency_lost_crowns/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_lost_crowns\", path \"/treatments/lost-crowns-veneers-fillings\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/mouthguards-and-retainers",
+      "pageId": "mouthguards_and_retainers",
+      "pageType": null,
+      "routeId": "treatments.mouthguards-and-retainers",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.mouthguards-and-retainers.json",
+      "inlineSectionsPointer": "/pages/mouthguards_and_retainers/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"mouthguards_and_retainers\", path \"/treatments/mouthguards-and-retainers\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/nervous-patients",
+      "pageId": "nervous_patients",
+      "pageType": null,
+      "routeId": "treatments.nervous-patients",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.nervous-patients.json",
+      "inlineSectionsPointer": "/pages/nervous_patients/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"nervous_patients\", path \"/treatments/nervous-patients\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/night-guards-occlusal-splints",
+      "pageId": "night_guards_occlusal_splints",
+      "pageType": null,
+      "routeId": "treatments.night-guards-occlusal-splints",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.night-guards-occlusal-splints.json",
+      "inlineSectionsPointer": "/pages/night_guards_occlusal_splints/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"night_guards_occlusal_splints\", path \"/treatments/night-guards-occlusal-splints\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/orthodontics",
+      "pageId": "orthodontics",
+      "pageType": null,
+      "routeId": "treatments.orthodontics",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.orthodontics.json",
+      "inlineSectionsPointer": "/pages/orthodontics/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"orthodontics\", path \"/treatments/orthodontics\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/painless-numbing-the-wand",
+      "pageId": "painless_numbing_the_wand",
+      "pageType": null,
+      "routeId": "treatments.painless-numbing-the-wand",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.painless-numbing-the-wand.json",
+      "inlineSectionsPointer": "/pages/painless_numbing_the_wand/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"painless_numbing_the_wand\", path \"/treatments/painless-numbing-the-wand\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/peek-partial-dentures",
+      "pageId": "peek_partial_dentures",
+      "pageType": null,
+      "routeId": "treatments.peek-partial-dentures",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.peek-partial-dentures.json",
+      "inlineSectionsPointer": "/pages/peek_partial_dentures/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"peek_partial_dentures\", path \"/treatments/peek-partial-dentures\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/periodontal-gum-care",
+      "pageId": "periodontal_gum_care",
+      "pageType": null,
+      "routeId": "treatments.periodontal-gum-care",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.periodontal-gum-care.json",
+      "inlineSectionsPointer": "/pages/periodontal_gum_care/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"periodontal_gum_care\", path \"/treatments/periodontal-gum-care\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/polynucleotides",
+      "pageId": "polynucleotides",
+      "pageType": null,
+      "routeId": "treatments.polynucleotides",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.polynucleotides.json",
+      "inlineSectionsPointer": "/pages/polynucleotides/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"polynucleotides\", path \"/treatments/polynucleotides\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/preventative-and-general-dentistry",
+      "pageId": "preventative_and_general_dentistry",
+      "pageType": null,
+      "routeId": "treatments.preventative-and-general-dentistry",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.preventative-and-general-dentistry.json",
+      "inlineSectionsPointer": "/pages/preventative_and_general_dentistry/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"preventative_and_general_dentistry\", path \"/treatments/preventative-and-general-dentistry\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/sedation-dentistry",
+      "pageId": "sedation_dentistry",
+      "pageType": null,
+      "routeId": "treatments.sedation-dentistry",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.sedation-dentistry.json",
+      "inlineSectionsPointer": "/pages/sedation_dentistry/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"sedation_dentistry\", path \"/treatments/sedation-dentistry\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/sedation-for-implants",
+      "pageId": "implants_sedation",
+      "pageType": null,
+      "routeId": "treatments.sedation-for-implants",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.sedation-for-implants.json",
+      "inlineSectionsPointer": "/pages/implants_sedation/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_sedation\", path \"/treatments/sedation-for-implants\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/senior-mature-smile-care",
+      "pageId": "senior_mature_smile_care",
+      "pageType": null,
+      "routeId": "treatments.senior-mature-smile-care",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.senior-mature-smile-care.json",
+      "inlineSectionsPointer": "/pages/senior_mature_smile_care/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"senior_mature_smile_care\", path \"/treatments/senior-mature-smile-care\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/severe-toothache-dental-pain",
+      "pageId": "emergency_severe_toothache",
+      "pageType": null,
+      "routeId": "treatments.severe-toothache-dental-pain",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.severe-toothache-dental-pain.json",
+      "inlineSectionsPointer": "/pages/emergency_severe_toothache/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"emergency_severe_toothache\", path \"/treatments/severe-toothache-dental-pain\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/sinus-lift",
+      "pageId": "implants_sinus_lift",
+      "pageType": null,
+      "routeId": "treatments.sinus-lift",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.sinus-lift.json",
+      "inlineSectionsPointer": "/pages/implants_sinus_lift/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_sinus_lift\", path \"/treatments/sinus-lift\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/skin-boosters",
+      "pageId": "skin_boosters",
+      "pageType": null,
+      "routeId": "treatments.skin-boosters",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.skin-boosters.json",
+      "inlineSectionsPointer": "/pages/skin_boosters/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"skin_boosters\", path \"/treatments/skin-boosters\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/sports-mouthguards",
+      "pageId": "sports_mouthguards",
+      "pageType": null,
+      "routeId": "treatments.sports-mouthguards",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.sports-mouthguards.json",
+      "inlineSectionsPointer": "/pages/sports_mouthguards/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"sports_mouthguards\", path \"/treatments/sports-mouthguards\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/teeth-in-a-day",
+      "pageId": "implants_teeth_in_a_day",
+      "pageType": null,
+      "routeId": "treatments.teeth-in-a-day",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.teeth-in-a-day.json",
+      "inlineSectionsPointer": "/pages/implants_teeth_in_a_day/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"implants_teeth_in_a_day\", path \"/treatments/teeth-in-a-day\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/teeth-whitening",
+      "pageId": "whitening_hub",
+      "pageType": null,
+      "routeId": "treatments.teeth-whitening",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.teeth-whitening.json",
+      "inlineSectionsPointer": "/pages/whitening_hub/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"whitening_hub\", path \"/treatments/teeth-whitening\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/teeth-whitening-faqs",
+      "pageId": "whitening_faq",
+      "pageType": null,
+      "routeId": "treatments.teeth-whitening-faqs",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.teeth-whitening-faqs.json",
+      "inlineSectionsPointer": "/pages/whitening_faq/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"whitening_faq\", path \"/treatments/teeth-whitening-faqs\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/therapeutic-facial-injectables",
+      "pageId": "therapeutic_facial_injectables",
+      "pageType": null,
+      "routeId": "treatments.therapeutic-facial-injectables",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.therapeutic-facial-injectables.json",
+      "inlineSectionsPointer": "/pages/therapeutic_facial_injectables/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"therapeutic_facial_injectables\", path \"/treatments/therapeutic-facial-injectables\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/tmj-disorder-treatment",
+      "pageId": "tmj_disorder_treatment",
+      "pageType": null,
+      "routeId": "treatments.tmj-disorder-treatment",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.tmj-disorder-treatment.json",
+      "inlineSectionsPointer": "/pages/tmj_disorder_treatment/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"tmj_disorder_treatment\", path \"/treatments/tmj-disorder-treatment\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/tmj-jaw-comfort",
+      "pageId": "tmj_jaw_comfort",
+      "pageType": null,
+      "routeId": "treatments.tmj-jaw-comfort",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.tmj-jaw-comfort.json",
+      "inlineSectionsPointer": "/pages/tmj_jaw_comfort/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"tmj_jaw_comfort\", path \"/treatments/tmj-jaw-comfort\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/tooth-wear-broken-teeth",
+      "pageId": "tooth_wear_broken_teeth",
+      "pageType": null,
+      "routeId": "treatments.tooth-wear-broken-teeth",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.tooth-wear-broken-teeth.json",
+      "inlineSectionsPointer": "/pages/tooth_wear_broken_teeth/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"tooth_wear_broken_teeth\", path \"/treatments/tooth-wear-broken-teeth\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/veneers",
+      "pageId": "veneers",
+      "pageType": null,
+      "routeId": "treatments.veneers",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.veneers.json",
+      "inlineSectionsPointer": "/pages/veneers/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"veneers\", path \"/treatments/veneers\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/veneers",
+      "pageId": "veneers",
+      "pageType": null,
+      "routeId": "treatments.veneers",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.veneers.json",
+      "inlineSectionsPointer": "/treatments/veneers/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"veneers\", path \"/treatments/veneers\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/whitening-sensitive-teeth",
+      "pageId": "whitening_sensitivity",
+      "pageType": null,
+      "routeId": "treatments.whitening-sensitive-teeth",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.whitening-sensitive-teeth.json",
+      "inlineSectionsPointer": "/pages/whitening_sensitivity/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"whitening_sensitivity\", path \"/treatments/whitening-sensitive-teeth\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/treatments/whitening-top-ups",
+      "pageId": "whitening_topups",
+      "pageType": null,
+      "routeId": "treatments.whitening-top-ups",
+      "sectionSource": "smh_layout",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.whitening-top-ups.json",
+      "inlineSectionsPointer": "/pages/whitening_topups/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"whitening_topups\", path \"/treatments/whitening-top-ups\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": true
+      }
+    },
+    {
+      "path": "/video-consultation",
+      "pageId": "video_consultation",
+      "pageType": null,
+      "routeId": "video-consultation",
+      "sectionSource": "inline_manifest",
+      "smhLayoutPath": null,
+      "inlineSectionsPointer": "/pages/video_consultation/sections",
+      "evidence": {
+        "manifestSnippet": "pageId \"video_consultation\", path \"/video-consultation\", sections: present",
+        "coreResolverSnippet": "if (sectionLayout) return buildSectionsFromLayout(sectionLayout); if (pageManifest?.sections) return pageManifest.sections; if (defaultEntry) return buildSectionsFromDefaults(defaultEntry);",
+        "smhFileExists": false
+      }
+    }
+  ],
+  "orphans": [
+    {
+      "routeId": "treatments.aligners",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.aligners.json",
+      "whyOrphan": "SMH layout exists but no matching path in machine manifest pages[]",
+      "evidence": {
+        "smhSnippet": "routeId: \"treatments.aligners\", pageType: \"treatment\"",
+        "manifestSearchEvidence": "No page path resolves to routeId \"treatments.aligners\" (0 matches)."
+      }
+    },
+    {
+      "routeId": "treatments.hub-directory",
+      "smhLayoutPath": "packages/champagne-manifests/data/sections/smh/treatments.hub-directory.json",
+      "whyOrphan": "SMH layout exists but no matching path in machine manifest pages[]",
+      "evidence": {
+        "smhSnippet": "routeId: \"treatments.hub-directory\", pageType: \"hub\"",
+        "manifestSearchEvidence": "No page path resolves to routeId \"treatments.hub-directory\" (0 matches)."
+      }
+    }
+  ],
+  "duplicateIntents": [
+    {
+      "baseSlug": "dental-checkups-oral-cancer-screening",
+      "paths": [
+        "/dental-checkups-oral-cancer-screening",
+        "/treatments/dental-checkups-oral-cancer-screening"
+      ],
+      "evidence": {
+        "manifestPathsSnippet": "paths: \"/dental-checkups-oral-cancer-screening\", \"/treatments/dental-checkups-oral-cancer-screening\""
+      }
+    }
+  ]
+}
