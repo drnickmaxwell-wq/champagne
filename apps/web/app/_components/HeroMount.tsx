@@ -1,4 +1,5 @@
 import { HeroRenderer } from "../components/hero/HeroRenderer";
+import { HeroOrchestratorV2 } from "./HeroOrchestratorV2";
 import {
   HeroContentV2,
   HeroRendererV2,
@@ -18,6 +19,7 @@ export async function HeroMount(props: HeroRendererProps) {
     .toLowerCase();
   const useV2 = normalized === "v2";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
+  const persistV2 = process.env.NEXT_PUBLIC_HERO_PERSIST === "1";
 
   if (useV2) {
     const v2Props = props as HeroRendererV2Props;
@@ -29,7 +31,9 @@ export async function HeroMount(props: HeroRendererProps) {
         data-hero-flag-normalized={normalized}
         style={{ minHeight: "72vh" }}
       >
-        {v2Model ? (
+        {persistV2 && v2Model ? (
+          <HeroOrchestratorV2 initialModel={v2Model} {...v2Props} />
+        ) : v2Model ? (
           <HeroV2Frame
             layout={v2Model.layout}
             gradient={v2Model.gradient}
