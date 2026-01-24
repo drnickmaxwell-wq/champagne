@@ -102,19 +102,45 @@ const treatmentRouteIds = new Set(
     .filter(Boolean)
 );
 
-const treatmentJourneysPayload = JSON.stringify(treatmentJourneys);
+function collectStringLeaves(value, currentPath = "$", results = []) {
+  if (typeof value === "string") {
+    results.push({ path: currentPath, value });
+    return results;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) => {
+      collectStringLeaves(entry, `${currentPath}[${index}]`, results);
+    });
+    return results;
+  }
+  if (value && typeof value === "object") {
+    Object.entries(value).forEach(([key, entry]) => {
+      collectStringLeaves(entry, `${currentPath}.${key}`, results);
+    });
+  }
+  return results;
+}
 
-function treatmentJourneysContainSlug(slug) {
-  if (!slug) {
+function containsSlugPath(value, slug) {
+  if (!value.includes("/")) {
     return false;
   }
-  if (slug === "/") {
-    return treatmentJourneysPayload.includes("\"/\"");
+  let index = value.indexOf(slug);
+  while (index !== -1) {
+    const before = index === 0 || value[index - 1] === "/";
+    const afterIndex = index + slug.length;
+    const afterChar = value[afterIndex];
+    const after = afterIndex === value.length || afterChar === "/" || afterChar === "?" || afterChar === "#";
+    if (before && after) {
+      return true;
+    }
+    index = value.indexOf(slug, index + 1);
   }
-  return treatmentJourneysPayload.includes(slug);
+  return false;
 }
 
 const errors = [];
+const treatmentStringLeaves = collectStringLeaves(treatmentJourneys);
 
 redirectRules.forEach((rule, index) => {
   const fromRaw = rule?.from ?? rule?.fromPath ?? rule?.source ?? rule?.legacy;
@@ -159,10 +185,6 @@ redirectRules.forEach((rule, index) => {
     errors.push(`❌ Treatment journeys still reference FROM slug "${fromSlug}" (${fromRouteId}).`);
   }
 
-  if (treatmentJourneysContainSlug(fromSlug)) {
-    errors.push(`❌ Treatment journeys still contain FROM slug "${fromSlug}".`);
-  }
-
   const legacySlugs = Array.isArray(rule?.legacySlugs)
     ? rule.legacySlugs
     : Array.isArray(rule?.legacy_slugs)
@@ -172,6 +194,25 @@ redirectRules.forEach((rule, index) => {
     : Array.isArray(rule?.legacy)
     ? rule.legacy
     : [];
+
+  const forbiddenSlugs = [fromSlug, ...legacySlugs.map(normalizeSlug)].filter(Boolean);
+
+  treatmentStringLeaves.forEach(({ path: foundPath, value }) => {
+    forbiddenSlugs.forEach((slug) => {
+      const normalizedValue = normalizeSlug(value);
+      if (normalizedValue && normalizedValue === slug) {
+        errors.push(
+          `❌ Treatment journeys contain forbidden slug "${slug}" for redirect ${fromSlug} -> ${toSlug} at ${foundPath}.`
+        );
+        return;
+      }
+      if (containsSlugPath(value, slug)) {
+        errors.push(
+          `❌ Treatment journeys contain forbidden slug "${slug}" for redirect ${fromSlug} -> ${toSlug} at ${foundPath}.`
+        );
+      }
+    });
+  });
 
   legacySlugs.forEach((legacyRaw) => {
     const legacySlug = normalizeSlug(legacyRaw);
@@ -183,9 +224,6 @@ redirectRules.forEach((rule, index) => {
       errors.push(
         `❌ Treatment journeys still reference legacy slug "${legacySlug}" (${legacyRouteId}).`
       );
-    }
-    if (treatmentJourneysContainSlug(legacySlug)) {
-      errors.push(`❌ Treatment journeys still contain legacy slug "${legacySlug}".`);
     }
   });
 });
