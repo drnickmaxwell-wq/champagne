@@ -387,7 +387,7 @@
         },
         "tertiary": {
           "label": "See general dentistry support",
-          "href": "/treatments/general-dentistry"
+          "href": "/treatments/preventative-and-general-dentistry"
         }
       },
       "cta_plan": {
@@ -521,7 +521,7 @@
         "secondary_intent": "prevention_info",
         "mid_page_cta": {
           "label": "See general dentistry repairs",
-          "href": "/treatments/general-dentistry"
+          "href": "/treatments/preventative-and-general-dentistry"
         }
       },
       "cta_targets": {
@@ -531,7 +531,7 @@
         },
         "secondary": {
           "label": "Plan general dentistry review",
-          "href": "/treatments/general-dentistry"
+          "href": "/treatments/preventative-and-general-dentistry"
         },
         "tertiary": {
           "label": "Help for children",
