@@ -7,6 +7,7 @@ import { BloomDriver } from "./BloomDriver";
 import type { HeroSurfaceStackModel } from "./HeroRendererV2";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+const HERO_CONTENT_FADE_ENABLED = process.env.NEXT_PUBLIC_HERO_CONTENT_FADE !== "0";
 
 type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
@@ -492,6 +493,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
 
   useEffect(() => {
     if (prefersReducedMotion) return;
+    if (!HERO_CONTENT_FADE_ENABLED) return;
     setIsVisible(false);
     const id = requestAnimationFrame(() => setIsVisible(true));
     return () => cancelAnimationFrame(id);
