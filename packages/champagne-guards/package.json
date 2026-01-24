@@ -32,6 +32,8 @@
     "guard:token-binding": "node scripts/guard-token-binding.mjs",
     "guard:smh-treatment-layouts": "node scripts/guard-smh-treatment-layouts.mjs",
     "guard:route-truth": "node scripts/guard-route-truth.mjs",
+    "export:content-ledger": "node scripts/export-route-content-ledger.mjs --all",
+    "export:content-ledger:route": "node scripts/export-route-content-ledger.mjs --route",
     "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:token-binding && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:route-truth && pnpm run guard:no-_imports-runtime && pnpm run guard:brand-structure && pnpm run guard:no-book && pnpm run guard:cta-single-terminal && pnpm run guard:cta-contract && pnpm run guard:smh-treatment-layouts"
   },
   "dependencies": {
