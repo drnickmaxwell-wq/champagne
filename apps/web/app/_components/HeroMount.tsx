@@ -11,17 +11,40 @@ import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 
 export async function HeroMount(props: HeroRendererProps) {
   const rawFlag = process.env.NEXT_PUBLIC_HERO_ENGINE;
+  const rawPersistFlag = process.env.NEXT_PUBLIC_HERO_V2_PERSIST;
   const normalized = (rawFlag ?? "")
     .trim()
     .replace(/^"(.*)"$/, "$1")
     .replace(/^'(.*)'$/, "$1")
     .toLowerCase();
+  const normalizedPersistFlag = (rawPersistFlag ?? "")
+    .trim()
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1")
+    .toLowerCase();
   const useV2 = normalized === "v2";
+  const usePersist = normalizedPersistFlag === "1";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
 
   if (useV2) {
     const v2Props = props as HeroRendererV2Props;
     const v2Model = await buildHeroV2Model(v2Props);
+    if (usePersist) {
+      return (
+        <div
+          data-hero-engine="v2"
+          data-hero-flag={rawFlag ?? ""}
+          data-hero-flag-normalized={normalized}
+          style={{ minHeight: "72vh" }}
+        >
+          <HeroRendererV2
+            {...v2Props}
+            initialModel={v2Model}
+            initialPathnameKey={v2Props.pageSlugOrPath}
+          />
+        </div>
+      );
+    }
     return (
       <div
         data-hero-engine="v2"
