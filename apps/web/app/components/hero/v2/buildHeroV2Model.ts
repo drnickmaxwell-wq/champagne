@@ -254,6 +254,25 @@ export async function buildHeroV2Model(props: HeroRendererV2Props): Promise<Hero
     }
   }
 
+  if (!runtime) {
+    try {
+      runtime = await getHeroRuntime({
+        mode: "home",
+        treatmentSlug: undefined,
+        prm,
+        timeOfDay,
+        particles,
+        filmGrain,
+        pageCategory: "home",
+        variantId: "default",
+      });
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        console.error("Hero runtime failed (sacred fallback)", error);
+      }
+    }
+  }
+
   if (!runtime) return null;
 
   const effectiveHeroId = boundHeroId ?? runtime.id;
