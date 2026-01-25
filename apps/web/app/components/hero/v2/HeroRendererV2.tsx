@@ -14,6 +14,8 @@ export interface HeroRendererV2Props {
   mode?: HeroMode;
   treatmentSlug?: string;
   pageSlugOrPath?: string;
+  initialModel?: HeroV2Model | null;
+  initialPathnameKey?: string;
   debug?: boolean;
   prm?: boolean;
   timeOfDay?: HeroTimeOfDay;
@@ -156,6 +158,7 @@ type HeroV2FrameProps = {
   motionCount?: number;
   prm?: boolean;
   debug?: boolean;
+  debugPathnameKey?: string;
   children: ReactNode;
 };
 
@@ -529,6 +532,7 @@ export function HeroV2Frame({
   motionCount,
   prm,
   debug,
+  debugPathnameKey,
   children,
 }: HeroV2FrameProps) {
   const dataAttributes = debug
@@ -539,6 +543,7 @@ export function HeroV2Frame({
         "data-particles-opacity": particlesOpacity !== undefined ? `${particlesOpacity}` : undefined,
         "data-motion-count": motionCount !== undefined ? `${motionCount}` : undefined,
         "data-prm": prm !== undefined ? `${prm}` : undefined,
+        "data-hero-pathname-key": debugPathnameKey || undefined,
       }
     : {};
 
@@ -737,8 +742,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     glueVars,
     rootStyle,
     surfaceRef,
+    initialModel,
+    initialPathnameKey,
   } = props;
-  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(null);
+  const [currentModel, setCurrentModel] = useState<HeroV2Model | null>(() => initialModel ?? null);
   const [prevModel, setPrevModel] = useState<HeroV2Model | null>(null);
   const [incomingModel, setIncomingModel] = useState<HeroV2Model | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -758,6 +765,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     crossfadeRafId: null,
     crossfadeRafId2: null,
   });
+  const hasSeededRef = useRef(false);
+  const firstBuildRef = useRef(true);
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
   useEffect(() => {
@@ -765,9 +774,36 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [currentModel]);
 
   useEffect(() => {
+    if (hasSeededRef.current) return;
+    hasSeededRef.current = true;
+    if (!initialModel) return;
+    const seedKey = normalizeHeroPathname(initialPathnameKey ?? "");
+    if (seedKey !== pathnameKey) return;
+    heroV2ModelCache.set(pathnameKey, initialModel);
+  }, [initialModel, initialPathnameKey, pathnameKey]);
+
+  useEffect(() => {
     let isActive = true;
     const transitionState = transitionRef.current;
     const cached = heroV2ModelCache.get(pathnameKey);
+    if (firstBuildRef.current) {
+      firstBuildRef.current = false;
+      if (currentModelRef.current && cached) {
+        const currentSurface = currentModelRef.current.surfaceStack;
+        const cachedSurface = cached.surfaceStack;
+        const matchesCache =
+          currentModelRef.current === cached ||
+          (currentSurface.effectiveHeroId &&
+            cachedSurface.effectiveHeroId &&
+            currentSurface.effectiveHeroId === cachedSurface.effectiveHeroId &&
+            currentSurface.effectiveVariantId === cachedSurface.effectiveVariantId);
+        if (matchesCache) {
+          return () => {
+            isActive = false;
+          };
+        }
+      }
+    }
     if (cached && !currentModelRef.current) {
       setCurrentModel(cached);
     }
@@ -920,6 +956,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       motionCount={motionCount}
       prm={currentModel.surfaceStack.prmEnabled}
       debug={debugEnabled}
+      debugPathnameKey={debugEnabled ? pathnameKey : undefined}
     >
       {debugEnabled ? (
         <div
