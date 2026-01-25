@@ -1,0 +1,2020 @@
+{
+  "schema": "SMH_HERO_ROUTING_CONTRACT_V1",
+  "generatedAt": "2026-01-25T13:16:46.588Z",
+  "inputs": [
+    {
+      "path": "apps/web/app/layout.tsx",
+      "sha256": "9ab3ac54f9e72f5e8a47826a2eae2a2d9a934dc869545a830940580927ecc87c"
+    },
+    {
+      "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "sha256": "5dc12c5f296496bf6ee13f6fdc8853ceacb66641e734a55bceb9d57ac98cc7de"
+    },
+    {
+      "path": "packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+      "sha256": "5c3c82bbcd45d7317010f33b34441002b404a28cc228622c645497590ce850ff"
+    },
+    {
+      "path": "apps/web/app/components/hero/v2/buildHeroV2Model.ts",
+      "sha256": "349805a2af909d85d2a27bf992e19e42e362f2f22d411752788e3da3aa6be57b"
+    },
+    {
+      "path": "packages/champagne-manifests/src/helpers.ts",
+      "sha256": "3b64787183a90e0f7e0845fc9d89be6657359d41ec3a313dcc10f0c57861a6fc"
+    }
+  ],
+  "summary": {
+    "totalRoutes": 103,
+    "heroBindingCount": 5,
+    "treatmentGroupsCount": 9,
+    "categoryCounts": {
+      "hub": 5,
+      "editorial": 2,
+      "utility": 9,
+      "site": 2,
+      "legal": 5,
+      "profile": 3,
+      "technology": 1,
+      "treatment": 73,
+      "undefined": 3
+    }
+  },
+  "routes": [
+    {
+      "id": "home",
+      "path": "/",
+      "manifestCategory": "hub",
+      "layoutDerived": {
+        "pageCategory": "home"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "default"
+      },
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "default",
+        "selectionMode": "bindingOverride",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "manifestCategory": "hub",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "blog",
+      "path": "/blog",
+      "manifestCategory": "editorial",
+      "layoutDerived": {
+        "pageCategory": "editorial"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.editorial_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "contact",
+      "path": "/contact",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "dental_checkups_oral_cancer_screening",
+      "path": "/dental-checkups-oral-cancer-screening",
+      "manifestCategory": "site",
+      "layoutDerived": {
+        "pageCategory": "site"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "downloads",
+      "path": "/downloads",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "fees",
+      "path": "/fees",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "finance",
+      "path": "/finance",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "accessibility",
+      "path": "/legal/accessibility",
+      "manifestCategory": "legal",
+      "layoutDerived": {
+        "pageCategory": "legal"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "complaints",
+      "path": "/legal/complaints",
+      "manifestCategory": "legal",
+      "layoutDerived": {
+        "pageCategory": "legal"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "cookies",
+      "path": "/legal/cookies",
+      "manifestCategory": "legal",
+      "layoutDerived": {
+        "pageCategory": "legal"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "privacy",
+      "path": "/legal/privacy",
+      "manifestCategory": "legal",
+      "layoutDerived": {
+        "pageCategory": "legal"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "terms",
+      "path": "/legal/terms",
+      "manifestCategory": "legal",
+      "layoutDerived": {
+        "pageCategory": "legal"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "newsletter",
+      "path": "/newsletter",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "patient_portal",
+      "path": "/patient-portal",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "practice_plan",
+      "path": "/practice-plan",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "smile_gallery",
+      "path": "/smile-gallery",
+      "manifestCategory": "editorial",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "team",
+      "path": "/team",
+      "manifestCategory": "hub",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "default"
+      },
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "bindingOverride",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "team_nick_maxwell",
+      "path": "/team/nick-maxwell",
+      "manifestCategory": "profile",
+      "layoutDerived": {
+        "pageCategory": "profile"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "team_sara_burden",
+      "path": "/team/sara-burden",
+      "manifestCategory": "profile",
+      "layoutDerived": {
+        "pageCategory": "profile"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "team_sylvia_krafft",
+      "path": "/team/sylvia-krafft",
+      "manifestCategory": "profile",
+      "layoutDerived": {
+        "pageCategory": "profile"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "technology_hub",
+      "path": "/technology",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "treatments_hub",
+      "path": "/treatments",
+      "manifestCategory": "hub",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "default"
+      },
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "bindingOverride",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    },
+    {
+      "id": "3d_dentistry_and_technology",
+      "path": "/treatments/3d-dentistry-and-technology",
+      "manifestCategory": "technology",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "3d-dentistry-and-technology"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "technology_digital_dentistry",
+      "path": "/treatments/3d-digital-dentistry",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "3d-digital-dentistry"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "3d_implant_restorations",
+      "path": "/treatments/3d-implant-restorations",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "3d-implant-restorations"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "printed_dentures_3d",
+      "path": "/treatments/3d-printed-dentures",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "3d-printed-dentures"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "3d_printed_veneers",
+      "path": "/treatments/3d-printed-veneers",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "3d-printed-veneers"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "3d_printing_lab",
+      "path": "/treatments/3d-printing-lab",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "3d-printing-lab"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "acrylic_dentures",
+      "path": "/treatments/acrylic-dentures",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "acrylic-dentures"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "anti_wrinkle_treatments",
+      "path": "/treatments/anti-wrinkle-treatments",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "anti-wrinkle-treatments"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_broken_chipped_teeth",
+      "path": "/treatments/broken-chipped-cracked-teeth",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "broken-chipped-cracked-teeth"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "bruxism_jaw_clenching",
+      "path": "/treatments/bruxism-and-jaw-clenching",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "bruxism-and-jaw-clenching"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "cbct_3d_scanning",
+      "path": "/treatments/cbct-3d-scanning",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "cbct-3d-scanning"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "childrens_dentistry",
+      "path": "/treatments/childrens-dentistry",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "childrens-dentistry"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "chrome_dentures",
+      "path": "/treatments/chrome-dentures",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "chrome-dentures"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "clear_aligners",
+      "path": "/treatments/clear-aligners",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "clear-aligners"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "clear_aligners",
+      "path": "/treatments/clear-aligners",
+      "manifestCategory": null,
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "clear-aligners"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "clear_aligners_spark",
+      "path": "/treatments/clear-aligners-spark",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "clear-aligners-spark"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "composite_bonding",
+      "path": "/treatments/composite-bonding",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "composite-bonding"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_dental_abscess",
+      "path": "/treatments/dental-abscess-infection",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-abscess-infection"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dental_bridges",
+      "path": "/treatments/dental-bridges",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-bridges"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dental_checkups_oral_cancer_screening_treatments",
+      "path": "/treatments/dental-checkups-oral-cancer-screening",
+      "manifestCategory": "site",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-checkups-oral-cancer-screening"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dental_crowns",
+      "path": "/treatments/dental-crowns",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-crowns"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dental_fillings",
+      "path": "/treatments/dental-fillings",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-fillings"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dental_retainers",
+      "path": "/treatments/dental-retainers",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-retainers"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_dental_trauma",
+      "path": "/treatments/dental-trauma-accidents",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dental-trauma-accidents"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dentures",
+      "path": "/treatments/dentures",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dentures"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "dermal_fillers",
+      "path": "/treatments/dermal-fillers",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "dermal-fillers"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "digital_smile_design",
+      "path": "/treatments/digital-smile-design",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "digital-smile-design"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_dental_appointments",
+      "path": "/treatments/emergency-dental-appointments",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "emergency-dental-appointments"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_dentistry",
+      "path": "/treatments/emergency-dentistry",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "emergency-dentistry"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": {
+        "heroId": "treatment.emergency",
+        "variantId": "treatment.emergency"
+      },
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "bindingOverride",
+        "predictedVariantId": "treatment.emergency"
+      },
+      "notes": []
+    },
+    {
+      "id": "endodontics_root_canal",
+      "path": "/treatments/endodontics-root-canal",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "endodontics-root-canal"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "extractions_and_oral_surgery",
+      "path": "/treatments/extractions-and-oral-surgery",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "extractions-and-oral-surgery"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "facial_aesthetics",
+      "path": "/treatments/facial-aesthetics",
+      "manifestCategory": "hub",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "facial-aesthetics"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "facial_pain_headache",
+      "path": "/treatments/facial-pain-and-headache",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "facial-pain-and-headache"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "facial_therapeutics",
+      "path": "/treatments/facial-therapeutics",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "facial-therapeutics"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_failed_replacement",
+      "path": "/treatments/failed-implant-replacement",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "failed-implant-replacement"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "fixed_braces",
+      "path": "/treatments/fixed-braces",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "fixed-braces"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "fixed_braces",
+      "path": "/treatments/fixed-braces",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "fixed-braces"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "full_smile_makeover",
+      "path": "/treatments/full-smile-makeover",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "full-smile-makeover"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "home_teeth_whitening",
+      "path": "/treatments/home-teeth-whitening",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "home-teeth-whitening"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_aftercare",
+      "path": "/treatments/implant-aftercare",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implant-aftercare"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_consultation",
+      "path": "/treatments/implant-consultation",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implant-consultation"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implant_retained_dentures",
+      "path": "/treatments/implant-retained-dentures",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implant-retained-dentures"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants",
+      "path": "/treatments/implants",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implants"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": {
+        "heroId": "treatment.implants",
+        "variantId": "treatment.implants"
+      },
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "bindingOverride",
+        "predictedVariantId": "treatment.implants"
+      },
+      "notes": []
+    },
+    {
+      "id": "implants",
+      "path": "/treatments/implants",
+      "manifestCategory": null,
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implants"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": {
+        "heroId": "treatment.implants",
+        "variantId": "treatment.implants"
+      },
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "bindingOverride",
+        "predictedVariantId": "treatment.implants"
+      },
+      "notes": []
+    },
+    {
+      "id": "implants_bone_grafting",
+      "path": "/treatments/implants-bone-grafting",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implants-bone-grafting"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_full_arch",
+      "path": "/treatments/implants-full-arch",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implants-full-arch"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_multiple_teeth",
+      "path": "/treatments/implants-multiple-teeth",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implants-multiple-teeth"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_single_tooth",
+      "path": "/treatments/implants-single-tooth",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "implants-single-tooth"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "injection_moulded_composite",
+      "path": "/treatments/injection-moulded-composite",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "injection-moulded-composite"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "inlays_onlays",
+      "path": "/treatments/inlays-onlays",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "inlays-onlays"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_knocked_out_tooth",
+      "path": "/treatments/knocked-out-tooth",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "knocked-out-tooth"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_lost_crowns",
+      "path": "/treatments/lost-crowns-veneers-fillings",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "lost-crowns-veneers-fillings"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "mouthguards_and_retainers",
+      "path": "/treatments/mouthguards-and-retainers",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "mouthguards-and-retainers"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "nervous_patients",
+      "path": "/treatments/nervous-patients",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "nervous-patients"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "night_guards_occlusal_splints",
+      "path": "/treatments/night-guards-occlusal-splints",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "night-guards-occlusal-splints"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "orthodontics",
+      "path": "/treatments/orthodontics",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "orthodontics"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "painless_numbing_the_wand",
+      "path": "/treatments/painless-numbing-the-wand",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "painless-numbing-the-wand"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "peek_partial_dentures",
+      "path": "/treatments/peek-partial-dentures",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "peek-partial-dentures"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "periodontal_gum_care",
+      "path": "/treatments/periodontal-gum-care",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "periodontal-gum-care"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "polynucleotides",
+      "path": "/treatments/polynucleotides",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "polynucleotides"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "preventative_and_general_dentistry",
+      "path": "/treatments/preventative-and-general-dentistry",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "preventative-and-general-dentistry"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "sedation_dentistry",
+      "path": "/treatments/sedation-dentistry",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "sedation-dentistry"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_sedation",
+      "path": "/treatments/sedation-for-implants",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "sedation-for-implants"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "senior_mature_smile_care",
+      "path": "/treatments/senior-mature-smile-care",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "senior-mature-smile-care"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "emergency_severe_toothache",
+      "path": "/treatments/severe-toothache-dental-pain",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "severe-toothache-dental-pain"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_sinus_lift",
+      "path": "/treatments/sinus-lift",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "sinus-lift"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "skin_boosters",
+      "path": "/treatments/skin-boosters",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "skin-boosters"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "sports_mouthguards",
+      "path": "/treatments/sports-mouthguards",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "sports-mouthguards"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "implants_teeth_in_a_day",
+      "path": "/treatments/teeth-in-a-day",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "teeth-in-a-day"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "whitening_hub",
+      "path": "/treatments/teeth-whitening",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "teeth-whitening"
+      },
+      "isTreatmentGroupHub": true,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "whitening_faq",
+      "path": "/treatments/teeth-whitening-faqs",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "teeth-whitening-faqs"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "therapeutic_facial_injectables",
+      "path": "/treatments/therapeutic-facial-injectables",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "therapeutic-facial-injectables"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "tmj_disorder_treatment",
+      "path": "/treatments/tmj-disorder-treatment",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "tmj-disorder-treatment"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "tmj_jaw_comfort",
+      "path": "/treatments/tmj-jaw-comfort",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "tmj-jaw-comfort"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "tooth_wear_broken_teeth",
+      "path": "/treatments/tooth-wear-broken-teeth",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "tooth-wear-broken-teeth"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "veneers",
+      "path": "/treatments/veneers",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "veneers"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "veneers",
+      "path": "/treatments/veneers",
+      "manifestCategory": null,
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "veneers"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "whitening_sensitivity",
+      "path": "/treatments/whitening-sensitive-teeth",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "whitening-sensitive-teeth"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "whitening_topups",
+      "path": "/treatments/whitening-top-ups",
+      "manifestCategory": "treatment",
+      "layoutDerived": {
+        "pageCategory": "treatment",
+        "mode": "treatment",
+        "treatmentSlug": "whitening-top-ups"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
+        "selectionMode": "treatmentSlugMatch",
+        "predictedVariantId": null
+      },
+      "notes": [
+        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+      ]
+    },
+    {
+      "id": "video_consultation",
+      "path": "/video-consultation",
+      "manifestCategory": "utility",
+      "layoutDerived": {
+        "pageCategory": "utility"
+      },
+      "isTreatmentGroupHub": false,
+      "heroBinding": null,
+      "runtimeSelectionPrediction": {
+        "mappedVariantIdFromCategory": "hero.variant.utility_v1",
+        "selectionMode": "defaultFallback",
+        "predictedVariantId": "default"
+      },
+      "notes": []
+    }
+  ]
+}
