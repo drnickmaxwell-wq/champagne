@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
 import { HeroMount } from "./_components/HeroMount";
+import { HeroPersistentSubtree } from "./components/hero/v2/HeroV2Client";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
@@ -18,6 +19,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const requestUrl = headersList.get("next-url") ?? "";
   const isPublicPage = !requestUrl.startsWith("/champagne/");
   const isHeroEnabled = isBrandHeroEnabled();
+  const heroPersistFlag = process.env.NEXT_PUBLIC_HERO_V2_PERSIST;
+  const heroPersistNormalized = (heroPersistFlag ?? "")
+    .trim()
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1")
+    .toLowerCase();
+  const heroPersistEnabled = heroPersistNormalized === "1";
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
 
@@ -60,11 +68,21 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </div>
           <main className="flex-1 px-6 py-10">
             {isPublicPage && isHeroEnabled && (
-              <HeroMount
-                mode={mode}
-                treatmentSlug={treatmentSlug}
-                pageCategory={pageCategory}
-              />
+              heroPersistEnabled ? (
+                <HeroPersistentSubtree enabled={heroPersistEnabled}>
+                  <HeroMount
+                    mode={mode}
+                    treatmentSlug={treatmentSlug}
+                    pageCategory={pageCategory}
+                  />
+                </HeroPersistentSubtree>
+              ) : (
+                <HeroMount
+                  mode={mode}
+                  treatmentSlug={treatmentSlug}
+                  pageCategory={pageCategory}
+                />
+              )
             )}
             {children}
           </main>

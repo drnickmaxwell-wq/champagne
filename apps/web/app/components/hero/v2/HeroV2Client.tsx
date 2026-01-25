@@ -13,6 +13,29 @@ type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
 };
 
+export function HeroPersistentSubtree({
+  enabled,
+  children,
+}: {
+  enabled: boolean;
+  children: ReactNode;
+}) {
+  const [lastChildren, setLastChildren] = useState<ReactNode>(children);
+
+  useEffect(() => {
+    if (!enabled) return;
+    if (children !== null && children !== undefined) {
+      setLastChildren(children);
+    }
+  }, [children, enabled]);
+
+  if (!enabled) {
+    return <>{children}</>;
+  }
+
+  return <>{lastChildren}</>;
+}
+
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
   const trimmed = path.trim();
