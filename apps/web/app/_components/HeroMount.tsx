@@ -6,7 +6,7 @@ import {
   type HeroRendererV2Props,
 } from "../components/hero/v2/HeroRendererV2";
 import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
-import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
+import { HeroContentFade, HeroSurfaceStackV2, HeroV2StableShell } from "../components/hero/v2/HeroV2Client";
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 import { headers } from "next/headers";
 
@@ -55,6 +55,13 @@ export async function HeroMount(props: HeroRendererProps) {
     const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
     const pathnameKey = normalizeHeroPathname(pathname);
+    const persistRawFlag = process.env.NEXT_PUBLIC_HERO_V2_PERSIST;
+    const persistNormalized = (persistRawFlag ?? "")
+      .trim()
+      .replace(/^"(.*)"$/, "$1")
+      .replace(/^'(.*)'$/, "$1")
+      .toLowerCase();
+    const usePersistentShell = persistNormalized === "1";
     const heroIdentityKey =
       v2Model?.surfaceStack.variantId ??
       v2Model?.surfaceStack.heroId ??
@@ -75,7 +82,15 @@ export async function HeroMount(props: HeroRendererProps) {
         style={{ minHeight: "72vh" }}
         {...heroDebugAttributes}
       >
-        {v2Model ? (
+        {usePersistentShell ? (
+          <HeroV2StableShell
+            model={v2Model}
+            pathnameKey={pathnameKey}
+            debugEnabled={heroDebugEnabled}
+            surfaceRef={v2PropsWithPath.surfaceRef}
+            rootStyle={v2PropsWithPath.rootStyle}
+          />
+        ) : v2Model ? (
           <HeroV2Frame
             layout={v2Model.layout}
             gradient={v2Model.gradient}
@@ -88,10 +103,7 @@ export async function HeroMount(props: HeroRendererProps) {
             prm={v2Model.surfaceStack.prmEnabled}
             debug={v2PropsWithPath.debug}
           >
-            <HeroSurfaceStackV2
-              surfaceRef={v2PropsWithPath.surfaceRef}
-              {...v2Model.surfaceStack}
-            />
+            <HeroSurfaceStackV2 surfaceRef={v2PropsWithPath.surfaceRef} {...v2Model.surfaceStack} />
             <HeroContentFade>
               <HeroContentV2 content={v2Model.content} layout={v2Model.layout} />
             </HeroContentFade>

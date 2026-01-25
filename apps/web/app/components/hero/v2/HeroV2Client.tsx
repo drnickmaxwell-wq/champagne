@@ -4,7 +4,7 @@ import { memo, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { CSSProperties, Ref } from "react";
 import { BloomDriver } from "./BloomDriver";
-import type { HeroSurfaceStackModel } from "./HeroRendererV2";
+import { HeroContentV2, HeroV2Frame, type HeroSurfaceStackModel, type HeroV2Model } from "./HeroRendererV2";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const HERO_CONTENT_FADE_ENABLED = process.env.NEXT_PUBLIC_HERO_CONTENT_FADE !== "0";
@@ -609,4 +609,58 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
       {children}
     </div>
   );
+}
+
+type HeroV2StableShellProps = {
+  model: HeroV2Model | null;
+  pathnameKey: string;
+  debugEnabled?: boolean;
+  surfaceRef?: Ref<HTMLDivElement>;
+  rootStyle?: CSSProperties;
+};
+
+export function HeroV2StableShell({
+  model,
+  pathnameKey,
+  debugEnabled = false,
+  surfaceRef,
+  rootStyle,
+}: HeroV2StableShellProps) {
+  const [lastGoodModel, setLastGoodModel] = useState<HeroV2Model | null>(() => model ?? null);
+
+  useEffect(() => {
+    if (model) {
+      setLastGoodModel(model);
+    }
+  }, [model, pathnameKey]);
+
+  if (!lastGoodModel) {
+    return null;
+  }
+
+  const content = (
+    <HeroV2Frame
+      layout={lastGoodModel.layout}
+      gradient={lastGoodModel.gradient}
+      rootStyle={{ ...rootStyle, ...lastGoodModel.surfaceStack.surfaceVars }}
+      heroId={lastGoodModel.surfaceStack.heroId}
+      variantId={lastGoodModel.surfaceStack.variantId}
+      particlesPath={lastGoodModel.surfaceStack.particlesPath}
+      particlesOpacity={lastGoodModel.surfaceStack.particlesOpacity}
+      motionCount={lastGoodModel.surfaceStack.motionLayers.length}
+      prm={lastGoodModel.surfaceStack.prmEnabled}
+      debug={debugEnabled}
+    >
+      <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...lastGoodModel.surfaceStack} />
+      <HeroContentFade>
+        <HeroContentV2 content={lastGoodModel.content} layout={lastGoodModel.layout} />
+      </HeroContentFade>
+    </HeroV2Frame>
+  );
+
+  if (debugEnabled) {
+    return <>{content}</>;
+  }
+
+  return content;
 }
