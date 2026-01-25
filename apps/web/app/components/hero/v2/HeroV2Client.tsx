@@ -13,11 +13,78 @@ type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
 };
 
+const normalizeHeroPathname = (path?: string) => {
+  if (!path) return "/";
+  const trimmed = path.trim();
+  if (!trimmed) return "/";
+  const normalized = trimmed.split("?")[0]?.split("#")[0] ?? "/";
+  if (!normalized) return "/";
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
+};
+
+const isHeroNavDebugEnabled = () => {
+  if (typeof window === "undefined") return false;
+  const params = new URLSearchParams(window.location.search);
+  const value = params.get("heroDebug");
+  return value === "1" || value === "true" || params.has("heroDebug");
+};
+
 const isHeroTruthEnabled = () => {
   if (typeof window === "undefined") return false;
   const params = new URLSearchParams(window.location.search);
   return params.get("heroTruth") === "1";
 };
+
+function HeroNavDebugProbe() {
+  const pathname = usePathname();
+  const pathnameKey = normalizeHeroPathname(pathname);
+  const pathnameKeyRef = useRef(pathnameKey);
+  const prevPathnameKeyRef = useRef<string | null>(null);
+  const heroDebugEnabled = isHeroNavDebugEnabled();
+
+  useEffect(() => {
+    pathnameKeyRef.current = pathnameKey;
+  }, [pathnameKey]);
+
+  useEffect(() => {
+    if (!heroDebugEnabled) return;
+    console.info("[HeroDebug] mount", { pathnameKey: pathnameKeyRef.current });
+    return () => {
+      console.info("[HeroDebug] unmount", { pathnameKey: pathnameKeyRef.current });
+    };
+  }, [heroDebugEnabled]);
+
+  useEffect(() => {
+    if (!heroDebugEnabled) return;
+    const prevPathnameKey = prevPathnameKeyRef.current;
+    if (prevPathnameKey && prevPathnameKey !== pathnameKey) {
+      console.info("[HeroDebug] route", { pathnameKey, prevPathnameKey });
+    }
+    prevPathnameKeyRef.current = pathnameKey;
+
+    const heroMount =
+      document.querySelector<HTMLElement>("[data-hero-engine=\"v2\"]") ??
+      document.querySelector<HTMLElement>("[data-hero-engine]");
+    const heroRenderer =
+      heroMount?.querySelector<HTMLElement>(".hero-renderer-v2[data-hero-root=\"true\"]") ??
+      document.querySelector<HTMLElement>(".hero-renderer-v2[data-hero-root=\"true\"]");
+
+    const heroEngine = heroMount?.dataset.heroEngine;
+    const heroVariantId = heroRenderer?.dataset.variantId;
+    const heroIdentityKey = heroMount?.dataset.heroIdentityKey;
+    const hasModel = heroMount?.dataset.heroHasModel === "1";
+
+    console.info("[HeroDebug] state", {
+      pathnameKey,
+      heroEngine,
+      heroVariantId,
+      heroIdentityKey,
+      hasModel,
+    });
+  }, [heroDebugEnabled, pathnameKey]);
+
+  return null;
+}
 
 function HeroSurfaceStackV2Base({
   surfaceVars,
@@ -365,6 +432,7 @@ function HeroSurfaceStackV2Base({
 
   return (
     <>
+      <HeroNavDebugProbe />
       {bloomEnabled ? <BloomDriver /> : null}
       <div
         aria-hidden
