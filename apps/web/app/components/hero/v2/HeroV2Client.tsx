@@ -20,20 +20,17 @@ export function HeroPersistentSubtree({
   enabled: boolean;
   children: ReactNode;
 }) {
-  const [lastChildren, setLastChildren] = useState<ReactNode>(children);
-
-  useEffect(() => {
-    if (!enabled) return;
-    if (children !== null && children !== undefined) {
-      setLastChildren(children);
-    }
-  }, [children, enabled]);
+  const lastRef = useRef<ReactNode>(children);
 
   if (!enabled) {
     return <>{children}</>;
   }
 
-  return <>{lastChildren}</>;
+  if (children !== null && children !== undefined) {
+    lastRef.current = children;
+  }
+
+  return <>{lastRef.current}</>;
 }
 
 const normalizeHeroPathname = (path?: string) => {
