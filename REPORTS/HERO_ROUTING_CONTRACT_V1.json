@@ -1,6 +1,6 @@
 {
   "schema": "SMH_HERO_ROUTING_CONTRACT_V1",
-  "generatedAt": "2026-01-25T13:16:46.588Z",
+  "generatedAt": "2026-01-25T13:35:12.296Z",
   "inputs": [
     {
       "path": "apps/web/app/layout.tsx",
@@ -57,6 +57,7 @@
         "selectionMode": "bindingOverride",
         "predictedVariantId": "default"
       },
+      "heroIdentityKey": "binding:default",
       "notes": []
     },
     {
@@ -70,9 +71,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -86,9 +88,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.editorial_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.editorial_v1"
       },
+      "heroIdentityKey": "category:hero.variant.editorial_v1",
       "notes": []
     },
     {
@@ -102,9 +105,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -118,9 +122,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -134,9 +139,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -150,9 +156,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -166,9 +173,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -182,9 +190,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -198,9 +207,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -214,9 +224,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -230,9 +241,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -246,9 +258,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -262,9 +275,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -278,9 +292,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -294,9 +309,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -310,9 +326,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -332,6 +349,7 @@
         "selectionMode": "bindingOverride",
         "predictedVariantId": "default"
       },
+      "heroIdentityKey": "binding:default",
       "notes": []
     },
     {
@@ -345,9 +363,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -361,9 +380,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -377,9 +397,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.marketing_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.marketing_v1"
       },
+      "heroIdentityKey": "category:hero.variant.marketing_v1",
       "notes": []
     },
     {
@@ -393,9 +414,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     },
     {
@@ -415,6 +437,7 @@
         "selectionMode": "bindingOverride",
         "predictedVariantId": "default"
       },
+      "heroIdentityKey": "binding:default",
       "notes": []
     },
     {
@@ -430,11 +453,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -450,11 +474,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -470,11 +495,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -490,11 +516,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -510,11 +537,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -530,11 +558,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -550,11 +579,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -570,11 +600,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -590,11 +621,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -610,11 +642,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -630,11 +663,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -650,11 +684,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -670,11 +705,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -690,11 +726,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -710,11 +747,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -730,11 +768,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -750,11 +789,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -770,11 +810,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -790,11 +831,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -810,11 +852,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -830,11 +873,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -850,11 +894,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -870,11 +915,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -890,11 +936,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -910,11 +957,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -930,11 +978,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -950,11 +999,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -970,11 +1020,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -996,6 +1047,7 @@
         "selectionMode": "bindingOverride",
         "predictedVariantId": "treatment.emergency"
       },
+      "heroIdentityKey": "binding:treatment.emergency",
       "notes": []
     },
     {
@@ -1011,11 +1063,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1031,11 +1084,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1051,11 +1105,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1071,11 +1126,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1091,11 +1147,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1111,11 +1168,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1131,11 +1189,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1151,11 +1210,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1171,11 +1231,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1191,11 +1252,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1211,11 +1273,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1231,11 +1294,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1251,11 +1315,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1277,6 +1342,7 @@
         "selectionMode": "bindingOverride",
         "predictedVariantId": "treatment.implants"
       },
+      "heroIdentityKey": "binding:treatment.implants",
       "notes": []
     },
     {
@@ -1298,6 +1364,7 @@
         "selectionMode": "bindingOverride",
         "predictedVariantId": "treatment.implants"
       },
+      "heroIdentityKey": "binding:treatment.implants",
       "notes": []
     },
     {
@@ -1313,11 +1380,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1333,11 +1401,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1353,11 +1422,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1373,11 +1443,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1393,11 +1464,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1413,11 +1485,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1433,11 +1506,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1453,11 +1527,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1473,11 +1548,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1493,11 +1569,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1513,11 +1590,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1533,11 +1611,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1553,11 +1632,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1573,11 +1653,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1593,11 +1674,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1613,11 +1695,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1633,11 +1716,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1653,11 +1737,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1673,11 +1758,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1693,11 +1779,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1713,11 +1800,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1733,11 +1821,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1753,11 +1842,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1773,11 +1863,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1793,11 +1884,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1813,11 +1905,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1833,11 +1926,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1853,11 +1947,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1873,11 +1968,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1893,11 +1989,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1913,11 +2010,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1933,11 +2031,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1953,11 +2052,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1973,11 +2073,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -1993,11 +2094,12 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.treatment_v1",
-        "selectionMode": "treatmentSlugMatch",
-        "predictedVariantId": null
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.treatment_v1"
       },
+      "heroIdentityKey": "category:hero.variant.treatment_v1",
       "notes": [
-        "variant id depends on manifest treatmentSlug match; no explicit variant id available from inputs"
+        "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches"
       ]
     },
     {
@@ -2011,9 +2113,10 @@
       "heroBinding": null,
       "runtimeSelectionPrediction": {
         "mappedVariantIdFromCategory": "hero.variant.utility_v1",
-        "selectionMode": "defaultFallback",
-        "predictedVariantId": "default"
+        "selectionMode": "categoryMapped",
+        "predictedVariantId": "hero.variant.utility_v1"
       },
+      "heroIdentityKey": "category:hero.variant.utility_v1",
       "notes": []
     }
   ]

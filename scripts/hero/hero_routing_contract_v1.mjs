@@ -159,34 +159,37 @@ const main = () => {
       const boundVariantId = heroBinding?.variantId ?? null;
       const runtimeVariantOverride = boundVariantId ?? boundHeroId;
 
-      const isTreatmentPath = pathKey.startsWith("/treatments/");
-      const runtimeMode = isTreatmentPath ? "treatment" : "home";
-      const runtimeTreatmentSlug = isTreatmentPath ? pathKey.split("/")[2] || undefined : undefined;
-      const resolvedPageCategory =
-        layoutDerived.pageCategory ??
-        (runtimeMode === "home" ? "home" : runtimeMode === "treatment" ? "treatment" : undefined);
-      const resolvedTreatmentSlug = runtimeVariantOverride ? undefined : runtimeTreatmentSlug;
-      const optionsVariantId = runtimeVariantOverride ?? (runtimeMode === "home" ? "default" : undefined);
-      const mappedVariantIdFromCategory = resolveVariantIdForCategory(resolvedPageCategory ?? runtimeMode);
+      const derivedMode =
+        layoutDerived.mode ??
+        (layoutDerived.pageCategory === "treatment" ? "treatment" : layoutDerived.pageCategory === "home" ? "home" : "home");
+      const derivedTreatmentSlug = layoutDerived.treatmentSlug;
+      const mappedVariantIdFromCategory = resolveVariantIdForCategory(layoutDerived.pageCategory ?? derivedMode);
 
-      let selectionMode = "defaultFallback";
-      if (runtimeVariantOverride) {
+      let selectionMode = "unknown";
+      if (heroBinding) {
         selectionMode = "bindingOverride";
-      } else if (optionsVariantId === "default" && runtimeMode === "home") {
-        selectionMode = "defaultFallback";
-      } else if (!optionsVariantId && resolvedTreatmentSlug) {
-        selectionMode = "treatmentSlugMatch";
       } else if (mappedVariantIdFromCategory) {
         selectionMode = "categoryMapped";
+      } else if (derivedMode === "treatment" && derivedTreatmentSlug) {
+        selectionMode = "treatmentSlugMatch";
       }
 
       let predictedVariantId = null;
       if (selectionMode === "bindingOverride") {
         predictedVariantId = runtimeVariantOverride ?? null;
-      } else if (selectionMode === "defaultFallback") {
-        predictedVariantId = "default";
       } else if (selectionMode === "categoryMapped") {
         predictedVariantId = mappedVariantIdFromCategory ?? null;
+      } else if (selectionMode === "treatmentSlugMatch") {
+        predictedVariantId = null;
+      }
+
+      let heroIdentityKey = "unknown";
+      if (selectionMode === "bindingOverride") {
+        heroIdentityKey = `binding:${runtimeVariantOverride ?? "unknown"}`;
+      } else if (selectionMode === "categoryMapped") {
+        heroIdentityKey = `category:${mappedVariantIdFromCategory ?? "unknown"}`;
+      } else if (selectionMode === "treatmentSlugMatch") {
+        heroIdentityKey = `treatmentSlug:${derivedTreatmentSlug ?? "unknown"}`;
       }
 
       const notes = [];
@@ -196,12 +199,7 @@ const main = () => {
       if (!layoutDerived.pageCategory) {
         notes.push("layout-derived pageCategory is undefined; category mapping uses runtime mode fallback");
       }
-      if (
-        selectionMode === "categoryMapped" &&
-        runtimeMode === "treatment" &&
-        resolvedTreatmentSlug &&
-        mappedVariantIdFromCategory
-      ) {
+      if (selectionMode === "categoryMapped" && derivedMode === "treatment" && derivedTreatmentSlug) {
         notes.push(
           "treatment route uses category-mapped variant; HeroRuntime may fallback to base if mapped variant treatmentSlug mismatches",
         );
@@ -222,6 +220,7 @@ const main = () => {
           selectionMode,
           predictedVariantId,
         },
+        heroIdentityKey,
         notes,
       };
     })
