@@ -383,6 +383,10 @@
       "path": "/treatments",
       "category": "hub",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "default"
+      },
       "sections": [
         {
           "id": "treatments_hub_intro_v2",
@@ -2378,6 +2382,10 @@
       "path": "/team",
       "category": "hub",
       "hero": "team_preview_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "default"
+      },
       "sections": [
         {
           "id": "team_intro_copy",
