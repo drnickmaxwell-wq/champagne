@@ -26,6 +26,13 @@ export async function HeroMount(props: HeroRendererProps) {
     .replace(/^"(.*)"$/, "$1")
     .replace(/^'(.*)'$/, "$1")
     .toLowerCase();
+  const persistFlag = process.env.NEXT_PUBLIC_HERO_V2_PERSIST;
+  const persistNormalized = (persistFlag ?? "")
+    .trim()
+    .replace(/^"(.*)"$/, "$1")
+    .replace(/^'(.*)'$/, "$1")
+    .toLowerCase();
+  const persistEnabled = persistNormalized === "1";
   const useV2 = normalized === "v2";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
 
@@ -54,6 +61,9 @@ export async function HeroMount(props: HeroRendererProps) {
     const v2Props = props as HeroRendererV2Props;
     const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
+    if (persistEnabled && !v2Model) {
+      return null;
+    }
     const pathnameKey = normalizeHeroPathname(pathname);
     const heroIdentityKey =
       v2Model?.surfaceStack.variantId ??
