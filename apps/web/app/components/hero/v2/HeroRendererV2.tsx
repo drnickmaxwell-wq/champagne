@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import { BaseChampagneSurface } from "@champagne/hero";
+import type { HeroMode, HeroRuntimeConfig, HeroTimeOfDay } from "@champagne/hero";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
 
@@ -100,8 +101,8 @@ export type HeroSurfaceStackModel = {
 
 export type HeroV2Model = {
   gradient: string;
-  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
-  content: Awaited<ReturnType<typeof getHeroRuntime>>["content"];
+  layout: HeroRuntimeConfig["layout"];
+  content: HeroRuntimeConfig["content"];
   surfaceStack: HeroSurfaceStackModel;
 };
 
@@ -146,7 +147,7 @@ function HeroFallback() {
 }
 
 type HeroV2FrameProps = {
-  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
+  layout: HeroRuntimeConfig["layout"];
   gradient: string;
   rootStyle?: CSSProperties;
   heroId?: string;
@@ -159,7 +160,7 @@ type HeroV2FrameProps = {
   children: ReactNode;
 };
 
-function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] }) {
+function HeroV2StyleBlock({ layout }: { layout: HeroRuntimeConfig["layout"] }) {
   return (
     <>
       <style
@@ -547,7 +548,7 @@ export function HeroV2Frame({
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
-      style={rootStyle}
+      style={{ ...rootStyle, background: "var(--hero-gradient, var(--smh-gradient))" }}
       {...dataAttributes}
     >
       <BaseChampagneSurface
@@ -658,8 +659,8 @@ export function HeroContentV2({
   content,
   layout,
 }: {
-  content: Awaited<ReturnType<typeof getHeroRuntime>>["content"];
-  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
+  content: HeroRuntimeConfig["content"];
+  layout: HeroRuntimeConfig["layout"];
 }) {
   return (
     <div
@@ -745,6 +746,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [isCrossfading, setIsCrossfading] = useState(false);
   const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
   const currentModelRef = useRef<HeroV2Model | null>(null);
+  const crossfadeOpacityRef = useRef(crossfadeOpacity);
+  const isCrossfadingRef = useRef(isCrossfading);
   const transitionRef = useRef<{
     timeoutId: number | null;
     rafId: number | null;
@@ -758,11 +761,33 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     crossfadeRafId: null,
     crossfadeRafId2: null,
   });
-  const debugEnabled = searchParams?.has("heroDebug") ?? false;
+  const debugParam = searchParams?.get("heroDebug");
+  const debugEnabled = debugParam === "1" || debugParam === "true";
 
   useEffect(() => {
     currentModelRef.current = currentModel;
   }, [currentModel]);
+
+  useEffect(() => {
+    crossfadeOpacityRef.current = crossfadeOpacity;
+  }, [crossfadeOpacity]);
+
+  useEffect(() => {
+    isCrossfadingRef.current = isCrossfading;
+  }, [isCrossfading]);
+
+  const getWrapperOpacities = useCallback(() => {
+    if (prevModel) {
+      return {
+        currentOpacity: isCrossfading ? crossfadeOpacity : 1,
+        prevOpacity: isCrossfading ? 1 - crossfadeOpacity : 0,
+      };
+    }
+    return {
+      currentOpacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
+      prevOpacity: incomingModel ? (isTransitioning ? 1 : 0) : 0,
+    };
+  }, [crossfadeOpacity, incomingModel, isCrossfading, isTransitioning, prevModel]);
 
   useEffect(() => {
     let isActive = true;
@@ -860,6 +885,53 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       }
     };
   }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    const { currentOpacity, prevOpacity } = getWrapperOpacities();
+    console.info("[HeroFlashProbe] nav", {
+      pathnameKey,
+      isCrossfading,
+      crossfadeOpacity,
+      currentOpacity,
+      prevOpacity,
+    });
+  }, [
+    crossfadeOpacity,
+    debugEnabled,
+    getWrapperOpacities,
+    incomingModel,
+    isCrossfading,
+    isTransitioning,
+    pathnameKey,
+    prevModel,
+  ]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    if (!isCrossfading) return;
+    let rafId = 0;
+    let logged = false;
+    const start = performance.now();
+    const tick = () => {
+      const currentOpacity = crossfadeOpacityRef.current;
+      const prevOpacity = 1 - crossfadeOpacityRef.current;
+      if (!logged && currentOpacity < 0.05 && prevOpacity < 0.05) {
+        console.info("[HeroFlashProbe] bothTransparent", {
+          pathnameKey,
+          currentOpacity,
+          prevOpacity,
+          time: performance.now(),
+        });
+        logged = true;
+      }
+      if (performance.now() - start < 450 && isCrossfadingRef.current) {
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [debugEnabled, isCrossfading, pathnameKey]);
 
   useEffect(() => {
     if (!debugEnabled) return;
