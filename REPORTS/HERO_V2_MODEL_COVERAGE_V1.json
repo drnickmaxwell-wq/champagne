@@ -1,0 +1,1851 @@
+{
+  "schema": "HERO_V2_MODEL_COVERAGE_V1",
+  "generatedAt": "2026-01-26T07:38:45.310Z",
+  "inputs": [
+    {
+      "path": "/workspace/champagne/packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "sha256": "5dc12c5f296496bf6ee13f6fdc8853ceacb66641e734a55bceb9d57ac98cc7de"
+    },
+    {
+      "path": "/workspace/champagne/apps/web/app/components/hero/v2/buildHeroV2Model.ts",
+      "sha256": "349805a2af909d85d2a27bf992e19e42e362f2f22d411752788e3da3aa6be57b"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "pathnameKey": "/",
+      "manifestCategory": "hub",
+      "derived": {
+        "mode": "home",
+        "pageCategory": "home"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/about",
+      "pathnameKey": "/about",
+      "manifestCategory": "hub",
+      "derived": {
+        "pageCategory": "hub"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/blog",
+      "pathnameKey": "/blog",
+      "manifestCategory": "editorial",
+      "derived": {
+        "pageCategory": "editorial"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/contact",
+      "pathnameKey": "/contact",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/dental-checkups-oral-cancer-screening",
+      "pathnameKey": "/dental-checkups-oral-cancer-screening",
+      "manifestCategory": "site",
+      "derived": {
+        "pageCategory": "site"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/downloads",
+      "pathnameKey": "/downloads",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/fees",
+      "pathnameKey": "/fees",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/finance",
+      "pathnameKey": "/finance",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/legal/accessibility",
+      "pathnameKey": "/legal/accessibility",
+      "manifestCategory": "legal",
+      "derived": {
+        "pageCategory": "legal"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/legal/complaints",
+      "pathnameKey": "/legal/complaints",
+      "manifestCategory": "legal",
+      "derived": {
+        "pageCategory": "legal"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/legal/cookies",
+      "pathnameKey": "/legal/cookies",
+      "manifestCategory": "legal",
+      "derived": {
+        "pageCategory": "legal"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/legal/privacy",
+      "pathnameKey": "/legal/privacy",
+      "manifestCategory": "legal",
+      "derived": {
+        "pageCategory": "legal"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/legal/terms",
+      "pathnameKey": "/legal/terms",
+      "manifestCategory": "legal",
+      "derived": {
+        "pageCategory": "legal"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/newsletter",
+      "pathnameKey": "/newsletter",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/patient-portal",
+      "pathnameKey": "/patient-portal",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/practice-plan",
+      "pathnameKey": "/practice-plan",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/smile-gallery",
+      "pathnameKey": "/smile-gallery",
+      "manifestCategory": "editorial",
+      "derived": {
+        "pageCategory": "editorial"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/team",
+      "pathnameKey": "/team",
+      "manifestCategory": "hub",
+      "derived": {
+        "pageCategory": "hub"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/team/nick-maxwell",
+      "pathnameKey": "/team/nick-maxwell",
+      "manifestCategory": "profile",
+      "derived": {
+        "pageCategory": "profile"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/team/sara-burden",
+      "pathnameKey": "/team/sara-burden",
+      "manifestCategory": "profile",
+      "derived": {
+        "pageCategory": "profile"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/team/sylvia-krafft",
+      "pathnameKey": "/team/sylvia-krafft",
+      "manifestCategory": "profile",
+      "derived": {
+        "pageCategory": "profile"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/technology",
+      "pathnameKey": "/technology",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments",
+      "pathnameKey": "/treatments",
+      "manifestCategory": "hub",
+      "derived": {
+        "pageCategory": "hub"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/3d-dentistry-and-technology",
+      "pathnameKey": "/treatments/3d-dentistry-and-technology",
+      "manifestCategory": "technology",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "3d-dentistry-and-technology",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/3d-digital-dentistry",
+      "pathnameKey": "/treatments/3d-digital-dentistry",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "3d-digital-dentistry",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/3d-implant-restorations",
+      "pathnameKey": "/treatments/3d-implant-restorations",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "3d-implant-restorations",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/3d-printed-dentures",
+      "pathnameKey": "/treatments/3d-printed-dentures",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "3d-printed-dentures",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/3d-printed-veneers",
+      "pathnameKey": "/treatments/3d-printed-veneers",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "3d-printed-veneers",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/3d-printing-lab",
+      "pathnameKey": "/treatments/3d-printing-lab",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "3d-printing-lab",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/acrylic-dentures",
+      "pathnameKey": "/treatments/acrylic-dentures",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "acrylic-dentures",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/anti-wrinkle-treatments",
+      "pathnameKey": "/treatments/anti-wrinkle-treatments",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "anti-wrinkle-treatments",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/broken-chipped-cracked-teeth",
+      "pathnameKey": "/treatments/broken-chipped-cracked-teeth",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "broken-chipped-cracked-teeth",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/bruxism-and-jaw-clenching",
+      "pathnameKey": "/treatments/bruxism-and-jaw-clenching",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "bruxism-and-jaw-clenching",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/cbct-3d-scanning",
+      "pathnameKey": "/treatments/cbct-3d-scanning",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "cbct-3d-scanning",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/childrens-dentistry",
+      "pathnameKey": "/treatments/childrens-dentistry",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "childrens-dentistry",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/chrome-dentures",
+      "pathnameKey": "/treatments/chrome-dentures",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "chrome-dentures",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/clear-aligners",
+      "pathnameKey": "/treatments/clear-aligners",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "clear-aligners",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/clear-aligners-spark",
+      "pathnameKey": "/treatments/clear-aligners-spark",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "clear-aligners-spark",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/composite-bonding",
+      "pathnameKey": "/treatments/composite-bonding",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "composite-bonding",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-abscess-infection",
+      "pathnameKey": "/treatments/dental-abscess-infection",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-abscess-infection",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-bridges",
+      "pathnameKey": "/treatments/dental-bridges",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-bridges",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-checkups-oral-cancer-screening",
+      "pathnameKey": "/treatments/dental-checkups-oral-cancer-screening",
+      "manifestCategory": "site",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-checkups-oral-cancer-screening",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-crowns",
+      "pathnameKey": "/treatments/dental-crowns",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-crowns",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-fillings",
+      "pathnameKey": "/treatments/dental-fillings",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-fillings",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-retainers",
+      "pathnameKey": "/treatments/dental-retainers",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-retainers",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dental-trauma-accidents",
+      "pathnameKey": "/treatments/dental-trauma-accidents",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dental-trauma-accidents",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dentures",
+      "pathnameKey": "/treatments/dentures",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dentures",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/dermal-fillers",
+      "pathnameKey": "/treatments/dermal-fillers",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "dermal-fillers",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/digital-smile-design",
+      "pathnameKey": "/treatments/digital-smile-design",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "digital-smile-design",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/emergency-dental-appointments",
+      "pathnameKey": "/treatments/emergency-dental-appointments",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "emergency-dental-appointments",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/emergency-dentistry",
+      "pathnameKey": "/treatments/emergency-dentistry",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "emergency-dentistry",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "treatment.emergency",
+        "variantId": "treatment.emergency",
+        "motionCount": 3,
+        "particlesPath": "/assets/champagne/particles/particles-teal.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/endodontics-root-canal",
+      "pathnameKey": "/treatments/endodontics-root-canal",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "endodontics-root-canal",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/extractions-and-oral-surgery",
+      "pathnameKey": "/treatments/extractions-and-oral-surgery",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "extractions-and-oral-surgery",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/facial-aesthetics",
+      "pathnameKey": "/treatments/facial-aesthetics",
+      "manifestCategory": "hub",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "facial-aesthetics",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/facial-pain-and-headache",
+      "pathnameKey": "/treatments/facial-pain-and-headache",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "facial-pain-and-headache",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/facial-therapeutics",
+      "pathnameKey": "/treatments/facial-therapeutics",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "facial-therapeutics",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/failed-implant-replacement",
+      "pathnameKey": "/treatments/failed-implant-replacement",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "failed-implant-replacement",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/fixed-braces",
+      "pathnameKey": "/treatments/fixed-braces",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "fixed-braces",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/full-smile-makeover",
+      "pathnameKey": "/treatments/full-smile-makeover",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "full-smile-makeover",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/home-teeth-whitening",
+      "pathnameKey": "/treatments/home-teeth-whitening",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "home-teeth-whitening",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implant-aftercare",
+      "pathnameKey": "/treatments/implant-aftercare",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implant-aftercare",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implant-consultation",
+      "pathnameKey": "/treatments/implant-consultation",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implant-consultation",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implant-retained-dentures",
+      "pathnameKey": "/treatments/implant-retained-dentures",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implant-retained-dentures",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implants",
+      "pathnameKey": "/treatments/implants",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implants",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "treatment.implants",
+        "variantId": "treatment.implants",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/particles-gold.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implants-bone-grafting",
+      "pathnameKey": "/treatments/implants-bone-grafting",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implants-bone-grafting",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implants-full-arch",
+      "pathnameKey": "/treatments/implants-full-arch",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implants-full-arch",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implants-multiple-teeth",
+      "pathnameKey": "/treatments/implants-multiple-teeth",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implants-multiple-teeth",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/implants-single-tooth",
+      "pathnameKey": "/treatments/implants-single-tooth",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "implants-single-tooth",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/injection-moulded-composite",
+      "pathnameKey": "/treatments/injection-moulded-composite",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "injection-moulded-composite",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/inlays-onlays",
+      "pathnameKey": "/treatments/inlays-onlays",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "inlays-onlays",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/knocked-out-tooth",
+      "pathnameKey": "/treatments/knocked-out-tooth",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "knocked-out-tooth",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/lost-crowns-veneers-fillings",
+      "pathnameKey": "/treatments/lost-crowns-veneers-fillings",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "lost-crowns-veneers-fillings",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/mouthguards-and-retainers",
+      "pathnameKey": "/treatments/mouthguards-and-retainers",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "mouthguards-and-retainers",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/nervous-patients",
+      "pathnameKey": "/treatments/nervous-patients",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "nervous-patients",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/night-guards-occlusal-splints",
+      "pathnameKey": "/treatments/night-guards-occlusal-splints",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "night-guards-occlusal-splints",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/orthodontics",
+      "pathnameKey": "/treatments/orthodontics",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "orthodontics",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/painless-numbing-the-wand",
+      "pathnameKey": "/treatments/painless-numbing-the-wand",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "painless-numbing-the-wand",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/peek-partial-dentures",
+      "pathnameKey": "/treatments/peek-partial-dentures",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "peek-partial-dentures",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/periodontal-gum-care",
+      "pathnameKey": "/treatments/periodontal-gum-care",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "periodontal-gum-care",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/polynucleotides",
+      "pathnameKey": "/treatments/polynucleotides",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "polynucleotides",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/preventative-and-general-dentistry",
+      "pathnameKey": "/treatments/preventative-and-general-dentistry",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "preventative-and-general-dentistry",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/sedation-dentistry",
+      "pathnameKey": "/treatments/sedation-dentistry",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "sedation-dentistry",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/sedation-for-implants",
+      "pathnameKey": "/treatments/sedation-for-implants",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "sedation-for-implants",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/senior-mature-smile-care",
+      "pathnameKey": "/treatments/senior-mature-smile-care",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "senior-mature-smile-care",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/severe-toothache-dental-pain",
+      "pathnameKey": "/treatments/severe-toothache-dental-pain",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "severe-toothache-dental-pain",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/sinus-lift",
+      "pathnameKey": "/treatments/sinus-lift",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "sinus-lift",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/skin-boosters",
+      "pathnameKey": "/treatments/skin-boosters",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "skin-boosters",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/sports-mouthguards",
+      "pathnameKey": "/treatments/sports-mouthguards",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "sports-mouthguards",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/teeth-in-a-day",
+      "pathnameKey": "/treatments/teeth-in-a-day",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "teeth-in-a-day",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/teeth-whitening",
+      "pathnameKey": "/treatments/teeth-whitening",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "teeth-whitening",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/teeth-whitening-faqs",
+      "pathnameKey": "/treatments/teeth-whitening-faqs",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "teeth-whitening-faqs",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/therapeutic-facial-injectables",
+      "pathnameKey": "/treatments/therapeutic-facial-injectables",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "therapeutic-facial-injectables",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/tmj-disorder-treatment",
+      "pathnameKey": "/treatments/tmj-disorder-treatment",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "tmj-disorder-treatment",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/tmj-jaw-comfort",
+      "pathnameKey": "/treatments/tmj-jaw-comfort",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "tmj-jaw-comfort",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/tooth-wear-broken-teeth",
+      "pathnameKey": "/treatments/tooth-wear-broken-teeth",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "tooth-wear-broken-teeth",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/veneers",
+      "pathnameKey": "/treatments/veneers",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "veneers",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/whitening-sensitive-teeth",
+      "pathnameKey": "/treatments/whitening-sensitive-teeth",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "whitening-sensitive-teeth",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/treatments/whitening-top-ups",
+      "pathnameKey": "/treatments/whitening-top-ups",
+      "manifestCategory": "treatment",
+      "derived": {
+        "mode": "treatment",
+        "treatmentSlug": "whitening-top-ups",
+        "pageCategory": "treatment"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": null,
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    },
+    {
+      "path": "/video-consultation",
+      "pathnameKey": "/video-consultation",
+      "manifestCategory": "utility",
+      "derived": {
+        "pageCategory": "utility"
+      },
+      "model": {
+        "isNull": false,
+        "heroId": "sacred-home-hero",
+        "variantId": "default",
+        "motionCount": 4,
+        "particlesPath": "/assets/champagne/particles/home-hero-particles.webp"
+      },
+      "flashRisk": false,
+      "notes": []
+    }
+  ],
+  "notes": []
+}
