@@ -543,13 +543,28 @@ export const HeroSurfaceStackV2 = memo(HeroSurfaceStackV2Base);
 
 type HeroContentFadeProps = {
   children: ReactNode;
+  heroId?: string;
+  variantId?: string;
+  effectiveHeroId?: string;
+  effectiveVariantId?: string;
 };
 
-export function HeroContentFade({ children }: HeroContentFadeProps) {
-  const pathname = usePathname();
+export function HeroContentFade({
+  children,
+  heroId,
+  variantId,
+  effectiveHeroId,
+  effectiveVariantId,
+}: HeroContentFadeProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const fadeRef = useRef<HTMLDivElement | null>(null);
+  const heroIdentityKey =
+    effectiveHeroId && effectiveVariantId
+      ? `${effectiveHeroId}::${effectiveVariantId}`
+      : heroId && variantId
+        ? `${heroId}::${variantId}`
+        : "unknown";
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -565,7 +580,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
     setIsVisible(false);
     const id = requestAnimationFrame(() => setIsVisible(true));
     return () => cancelAnimationFrame(id);
-  }, [pathname, prefersReducedMotion]);
+  }, [heroIdentityKey, prefersReducedMotion]);
 
   useEffect(() => {
     const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
@@ -579,7 +594,6 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
       const rect = content.getBoundingClientRect();
       console.groupCollapsed("HERO_V2_CONTENT_FADE_STATE");
       console.log("HERO_V2_CONTENT_FADE_STATE_DATA", {
-        pathname,
         isVisible,
         prefersReducedMotion,
         opacity: styles.opacity,
@@ -596,7 +610,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
       cancelAnimationFrame(frameId);
       window.clearTimeout(timeoutId);
     };
-  }, [pathname, isVisible, prefersReducedMotion]);
+  }, [heroIdentityKey, isVisible, prefersReducedMotion]);
 
   const style: CSSProperties = {
     opacity: prefersReducedMotion ? 1 : isVisible ? 1 : 0,

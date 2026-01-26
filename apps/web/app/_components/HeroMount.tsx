@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { HeroRenderer } from "../components/hero/HeroRenderer";
 import {
   HeroContentV2,
@@ -8,7 +12,6 @@ import {
 import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
 import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
-import { headers } from "next/headers";
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -19,7 +22,9 @@ const normalizeHeroPathname = (path?: string) => {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 };
 
-export async function HeroMount(props: HeroRendererProps) {
+export function HeroMount(props: HeroRendererProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const rawFlag = process.env.NEXT_PUBLIC_HERO_ENGINE;
   const normalized = (rawFlag ?? "")
     .trim()
@@ -28,33 +33,42 @@ export async function HeroMount(props: HeroRendererProps) {
     .toLowerCase();
   const useV2 = normalized === "v2";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
+  const [v2Model, setV2Model] = useState<Awaited<ReturnType<typeof buildHeroV2Model>>>(null);
+  const v2Props = props as HeroRendererV2Props;
+  const v2PropsWithPath = useMemo(
+    () => ({ ...v2Props, pageSlugOrPath: pathname ?? "/" }),
+    [v2Props, pathname],
+  );
+
+  const heroDebugEnabled = useMemo(() => {
+    const heroDebugValue = searchParams?.get("heroDebug");
+    return heroDebugValue === "1" || heroDebugValue === "true" || searchParams?.has("heroDebug");
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (!useV2) return;
+    let active = true;
+    buildHeroV2Model(v2PropsWithPath)
+      .then((model) => {
+        if (active) {
+          setV2Model(model);
+        }
+      })
+      .catch((error) => {
+        if (process.env.NODE_ENV !== "production") {
+          console.error("Hero runtime failed", error);
+        }
+        if (active) {
+          setV2Model(null);
+        }
+      });
+    return () => {
+      active = false;
+    };
+  }, [useV2, v2PropsWithPath]);
 
   if (useV2) {
-    const headersList = await headers();
-    const requestUrl = headersList.get("next-url") ?? "";
-    let pathname = "/";
-    let heroDebugEnabled = false;
-
-    if (requestUrl) {
-      try {
-        const url = new URL(requestUrl, "http://localhost");
-        pathname = url.pathname || "/";
-        const heroDebugValue = url.searchParams.get("heroDebug");
-        heroDebugEnabled =
-          heroDebugValue === "1" || heroDebugValue === "true" || url.searchParams.has("heroDebug");
-      } catch {
-        pathname = requestUrl.split("?")[0] || "/";
-        const query = requestUrl.split("?")[1] ?? "";
-        const params = new URLSearchParams(query);
-        const heroDebugValue = params.get("heroDebug");
-        heroDebugEnabled = heroDebugValue === "1" || heroDebugValue === "true" || params.has("heroDebug");
-      }
-    }
-
-    const v2Props = props as HeroRendererV2Props;
-    const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
-    const v2Model = await buildHeroV2Model(v2PropsWithPath);
-    const pathnameKey = normalizeHeroPathname(pathname);
+    const pathnameKey = normalizeHeroPathname(pathname ?? "/");
     const heroIdentityKey =
       v2Model?.surfaceStack.variantId ??
       v2Model?.surfaceStack.heroId ??
@@ -92,7 +106,12 @@ export async function HeroMount(props: HeroRendererProps) {
               surfaceRef={v2PropsWithPath.surfaceRef}
               {...v2Model.surfaceStack}
             />
-            <HeroContentFade>
+            <HeroContentFade
+              heroId={v2Model.surfaceStack.heroId}
+              variantId={v2Model.surfaceStack.variantId}
+              effectiveHeroId={v2Model.surfaceStack.effectiveHeroId}
+              effectiveVariantId={v2Model.surfaceStack.effectiveVariantId}
+            >
               <HeroContentV2 content={v2Model.content} layout={v2Model.layout} />
             </HeroContentFade>
           </HeroV2Frame>
