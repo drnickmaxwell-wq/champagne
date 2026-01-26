@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import { BaseChampagneSurface } from "@champagne/hero";
+import type { HeroMode, HeroTimeOfDay, getHeroRuntime } from "@champagne/hero";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
 
@@ -116,6 +117,15 @@ const normalizeHeroPathname = (path?: string) => {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 };
 
+const isHeroV2ModelReady = (model: HeroV2Model | null) =>
+  Boolean(
+    model &&
+      model.surfaceStack &&
+      model.surfaceStack.surfaceVars &&
+      model.layout &&
+      model.content &&
+      typeof model.gradient === "string",
+  );
 
 function HeroFallback() {
   return (
@@ -156,6 +166,7 @@ type HeroV2FrameProps = {
   motionCount?: number;
   prm?: boolean;
   debug?: boolean;
+  hasModel?: boolean;
   children: ReactNode;
 };
 
@@ -529,6 +540,7 @@ export function HeroV2Frame({
   motionCount,
   prm,
   debug,
+  hasModel,
   children,
 }: HeroV2FrameProps) {
   const dataAttributes = debug
@@ -547,6 +559,7 @@ export function HeroV2Frame({
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
+      data-hero-has-model={hasModel ? "1" : "0"}
       style={rootStyle}
       {...dataAttributes}
     >
@@ -745,6 +758,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [isCrossfading, setIsCrossfading] = useState(false);
   const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
   const currentModelRef = useRef<HeroV2Model | null>(null);
+  const lastGoodModelRef = useRef<HeroV2Model | null>(null);
   const transitionRef = useRef<{
     timeoutId: number | null;
     rafId: number | null;
@@ -762,6 +776,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     currentModelRef.current = currentModel;
+    if (isHeroV2ModelReady(currentModel)) {
+      lastGoodModelRef.current = currentModel;
+    }
   }, [currentModel]);
 
   useEffect(() => {
@@ -863,14 +880,15 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     if (!debugEnabled) return;
-    if (!currentModel) return;
+    const renderModel = isHeroV2ModelReady(currentModel) ? currentModel : lastGoodModelRef.current;
+    if (!renderModel) return;
     const logOpacity = () => {
       const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
       const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
       console.info("HERO_V2_MOTION_OPACITY_PROOF", {
         pathname: pathnameKey,
-        prm: currentModel.surfaceStack.prmEnabled,
-        motionCount: currentModel.surfaceStack.motionLayers.length,
+        prm: renderModel.surfaceStack.prmEnabled,
+        motionCount: renderModel.surfaceStack.motionLayers.length,
         firstMotionOpacity: computedOpacity,
       });
     };
@@ -878,22 +896,23 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => cancelAnimationFrame(frameId);
   }, [currentModel, debugEnabled, pathnameKey]);
 
-  if (!currentModel) return <HeroFallback />;
+  const renderModel = isHeroV2ModelReady(currentModel) ? currentModel : lastGoodModelRef.current;
+  if (!renderModel) return <HeroFallback />;
 
-  const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
-  const motionCount = currentModel.surfaceStack.motionLayers.length;
+  const resolvedRootStyle = { ...rootStyle, ...renderModel.surfaceStack.surfaceVars };
+  const motionCount = renderModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
-    heroId: currentModel.surfaceStack.heroId ?? "",
-    variantId: currentModel.surfaceStack.variantId ?? "",
-    boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
-    boundVariantId: currentModel.surfaceStack.boundVariantId ?? "",
-    effectiveHeroId: currentModel.surfaceStack.effectiveHeroId ?? "",
-    effectiveVariantId: currentModel.surfaceStack.effectiveVariantId ?? "",
-    particlesPath: currentModel.surfaceStack.particlesPath ?? "",
-    particlesOpacity: currentModel.surfaceStack.particlesOpacity ?? "",
+    heroId: renderModel.surfaceStack.heroId ?? "",
+    variantId: renderModel.surfaceStack.variantId ?? "",
+    boundHeroId: renderModel.surfaceStack.boundHeroId ?? "",
+    boundVariantId: renderModel.surfaceStack.boundVariantId ?? "",
+    effectiveHeroId: renderModel.surfaceStack.effectiveHeroId ?? "",
+    effectiveVariantId: renderModel.surfaceStack.effectiveVariantId ?? "",
+    particlesPath: renderModel.surfaceStack.particlesPath ?? "",
+    particlesOpacity: renderModel.surfaceStack.particlesOpacity ?? "",
     motionCount,
-    prm: currentModel.surfaceStack.prmEnabled,
+    prm: renderModel.surfaceStack.prmEnabled,
   };
   const surfaceWrapperBaseStyle: CSSProperties = {
     position: "absolute",
@@ -910,16 +929,17 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   return (
     <HeroV2Frame
-      layout={currentModel.layout}
-      gradient={currentModel.gradient}
+      layout={renderModel.layout}
+      gradient={renderModel.gradient}
       rootStyle={resolvedRootStyle}
-      heroId={currentModel.surfaceStack.heroId}
-      variantId={currentModel.surfaceStack.variantId}
-      particlesPath={currentModel.surfaceStack.particlesPath}
-      particlesOpacity={currentModel.surfaceStack.particlesOpacity}
+      heroId={renderModel.surfaceStack.heroId}
+      variantId={renderModel.surfaceStack.variantId}
+      particlesPath={renderModel.surfaceStack.particlesPath}
+      particlesOpacity={renderModel.surfaceStack.particlesOpacity}
       motionCount={motionCount}
-      prm={currentModel.surfaceStack.prmEnabled}
+      prm={renderModel.surfaceStack.prmEnabled}
       debug={debugEnabled}
+      hasModel={Boolean(renderModel)}
     >
       {debugEnabled ? (
         <div
@@ -960,7 +980,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
               opacity: isCrossfading ? crossfadeOpacity : 1,
             }}
           >
-            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...renderModel.surfaceStack} />
           </div>
         </>
       ) : (
@@ -971,7 +991,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
               opacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
             }}
           >
-            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...renderModel.surfaceStack} />
           </div>
           {incomingModel ? (
             <div
@@ -986,7 +1006,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         </>
       )}
       <HeroContentFade>
-        <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
+        <HeroContentV2 content={renderModel.content} layout={renderModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
   );
