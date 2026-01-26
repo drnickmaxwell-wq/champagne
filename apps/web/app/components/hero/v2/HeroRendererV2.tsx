@@ -761,6 +761,19 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const debugEnabled = searchParams?.has("heroDebug") ?? false;
 
   useEffect(() => {
+    console.log("[HERO_V2_DIAG] MOUNT", {
+      time: performance.now(),
+      path: window.location.pathname,
+    });
+
+    return () => {
+      console.log("[HERO_V2_DIAG] UNMOUNT", {
+        time: performance.now(),
+      });
+    };
+  }, []);
+
+  useEffect(() => {
     currentModelRef.current = currentModel;
   }, [currentModel]);
 
