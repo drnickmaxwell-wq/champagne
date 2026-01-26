@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
+import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
@@ -9,6 +10,27 @@ import { buildHeroV2Model } from "./buildHeroV2Model";
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const HERO_SWAP_FADE = process.env.NEXT_PUBLIC_HERO_SWAP_FADE === "1";
 const heroV2ModelCache = new Map<string, HeroV2Model>();
+
+function isInternalHref(href?: string) {
+  if (!href) return false;
+  const trimmed = href.trim();
+  if (!trimmed) return false;
+  const lower = trimmed.toLowerCase();
+  if (
+    lower.startsWith("mailto:") ||
+    lower.startsWith("tel:") ||
+    lower.startsWith("http:") ||
+    lower.startsWith("https:")
+  ) {
+    return false;
+  }
+  if (trimmed.startsWith("#")) return false;
+  if (!trimmed.startsWith("/")) return false;
+  if (trimmed.startsWith("//")) return false;
+  if (trimmed.startsWith("/api")) return false;
+  if (trimmed.startsWith("/assets")) return false;
+  return true;
+}
 
 export interface HeroRendererV2Props {
   mode?: HeroMode;
@@ -685,37 +707,68 @@ export function HeroContentV2({
         </p>
       )}
       <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-        {content.cta && (
-          <a
-            href={content.cta.href}
-            style={{
-              padding: "0.9rem 1.6rem",
-              borderRadius: "var(--radius-md)",
-              background: "var(--surface-gold-soft)",
-              color: "var(--text-high)",
-              border: "1px solid var(--champagne-keyline-gold)",
-              textDecoration: "none",
-              boxShadow: "var(--shadow-soft)",
-            }}
-          >
-            {content.cta.label}
-          </a>
-        )}
-        {content.secondaryCta && (
-          <a
-            href={content.secondaryCta.href}
-            style={{
-              padding: "0.9rem 1.2rem",
-              borderRadius: "var(--radius-md)",
-              background: "var(--surface-ink-soft)",
-              color: "var(--text-high)",
-              border: "1px solid var(--champagne-keyline-gold)",
-              textDecoration: "none",
-            }}
-          >
-            {content.secondaryCta.label}
-          </a>
-        )}
+        {content.cta &&
+          (isInternalHref(content.cta.href) ? (
+            <Link
+              href={content.cta.href}
+              style={{
+                padding: "0.9rem 1.6rem",
+                borderRadius: "var(--radius-md)",
+                background: "var(--surface-gold-soft)",
+                color: "var(--text-high)",
+                border: "1px solid var(--champagne-keyline-gold)",
+                textDecoration: "none",
+                boxShadow: "var(--shadow-soft)",
+              }}
+            >
+              {content.cta.label}
+            </Link>
+          ) : (
+            <a
+              href={content.cta.href}
+              style={{
+                padding: "0.9rem 1.6rem",
+                borderRadius: "var(--radius-md)",
+                background: "var(--surface-gold-soft)",
+                color: "var(--text-high)",
+                border: "1px solid var(--champagne-keyline-gold)",
+                textDecoration: "none",
+                boxShadow: "var(--shadow-soft)",
+              }}
+            >
+              {content.cta.label}
+            </a>
+          ))}
+        {content.secondaryCta &&
+          (isInternalHref(content.secondaryCta.href) ? (
+            <Link
+              href={content.secondaryCta.href}
+              style={{
+                padding: "0.9rem 1.2rem",
+                borderRadius: "var(--radius-md)",
+                background: "var(--surface-ink-soft)",
+                color: "var(--text-high)",
+                border: "1px solid var(--champagne-keyline-gold)",
+                textDecoration: "none",
+              }}
+            >
+              {content.secondaryCta.label}
+            </Link>
+          ) : (
+            <a
+              href={content.secondaryCta.href}
+              style={{
+                padding: "0.9rem 1.2rem",
+                borderRadius: "var(--radius-md)",
+                background: "var(--surface-ink-soft)",
+                color: "var(--text-high)",
+                border: "1px solid var(--champagne-keyline-gold)",
+                textDecoration: "none",
+              }}
+            >
+              {content.secondaryCta.label}
+            </a>
+          ))}
       </div>
     </div>
   );
