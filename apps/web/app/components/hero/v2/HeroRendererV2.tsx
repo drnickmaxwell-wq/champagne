@@ -882,12 +882,16 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (!debugEnabled) return;
     const logTransitionOpacity = () => {
       const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
-      const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
+      const computedStyle = firstMotion ? getComputedStyle(firstMotion) : null;
       console.info("HERO_V2_NAV_MOTION_OPACITY_PROOF", {
         pathname: pathnameKey,
         dataReady: firstMotion?.dataset.ready ?? null,
         motionReady: firstMotion?.dataset.motionReady ?? null,
-        firstMotionOpacity: computedOpacity,
+        firstMotionOpacity: computedStyle?.opacity ?? null,
+        firstMotionTransform: computedStyle?.transform ?? null,
+        firstMotionAnimationName: computedStyle?.animationName ?? null,
+        firstMotionAnimationDuration: computedStyle?.animationDuration ?? null,
+        firstMotionAnimationDelay: computedStyle?.animationDelay ?? null,
       });
     };
     const timeoutId = window.setTimeout(() => requestAnimationFrame(logTransitionOpacity), 0);
