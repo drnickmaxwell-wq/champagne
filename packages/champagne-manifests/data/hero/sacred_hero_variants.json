@@ -10,6 +10,42 @@
       }
     },
     {
+      "id": "hero.variant.treatment_v1",
+      "label": "Category: treatment v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.editorial_v1",
+      "label": "Category: editorial v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.utility_v1",
+      "label": "Category: utility v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.marketing_v1",
+      "label": "Category: marketing v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
       "id": "day",
       "label": "Daylight shimmer",
       "timeOfDay": "day",

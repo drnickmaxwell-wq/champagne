@@ -385,7 +385,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "default"
+        "variantId": "hero.variant.treatment_v1"
       },
       "sections": [
         {
@@ -2029,6 +2029,10 @@
       "path": "/treatments/veneers",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -2119,6 +2123,10 @@
       "path": "/treatments/clear-aligners",
       "category": "treatment",
       "hero": "clear_aligners_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -2197,6 +2205,10 @@
       "path": "/treatments/clear-aligners-spark",
       "category": "treatment",
       "hero": "clear_aligners_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -2263,6 +2275,10 @@
       "path": "/treatments/fixed-braces",
       "category": "treatment",
       "hero": "orthodontics_balanced_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -2306,6 +2322,10 @@
       "path": "/smile-gallery",
       "category": "editorial",
       "hero": "smile_gallery_placeholder_hero",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.editorial_v1"
+      },
       "sections": [
         {
           "id": "smile_gallery_intro_copy",
@@ -2344,6 +2364,10 @@
       "path": "/about",
       "category": "hub",
       "hero": "about_story_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.marketing_v1"
+      },
       "sections": [
         {
           "id": "practice_overview_authority_frame",
@@ -2384,7 +2408,7 @@
       "hero": "team_preview_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "default"
+        "variantId": "hero.variant.marketing_v1"
       },
       "sections": [
         {
@@ -2515,6 +2539,10 @@
       "path": "/team/nick-maxwell",
       "category": "profile",
       "hero": "team_preview_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.marketing_v1"
+      },
       "sections": [
         {
           "id": "profile_video_spotlight",
@@ -2575,6 +2603,10 @@
       "path": "/team/sylvia-krafft",
       "category": "profile",
       "hero": "team_preview_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.marketing_v1"
+      },
       "sections": [
         {
           "id": "profile_video_spotlight",
@@ -2635,6 +2667,10 @@
       "path": "/team/sara-burden",
       "category": "profile",
       "hero": "team_preview_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.marketing_v1"
+      },
       "sections": [
         {
           "id": "profile_video_spotlight",
@@ -2694,6 +2730,10 @@
       "path": "/fees",
       "category": "utility",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "fees_overview",
@@ -2768,6 +2808,10 @@
       "path": "/contact",
       "category": "utility",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "contact_intro_copy",
@@ -2860,6 +2904,10 @@
       "path": "/newsletter",
       "category": "utility",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "newsletter_intro_copy",
@@ -2890,6 +2938,10 @@
       "path": "/downloads",
       "category": "utility",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "downloads_intro_copy",
@@ -2920,6 +2972,10 @@
       "path": "/legal/privacy",
       "category": "legal",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "legal_intro",
@@ -2963,6 +3019,10 @@
       "path": "/legal/cookies",
       "category": "legal",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "legal_intro",
@@ -3006,6 +3066,10 @@
       "path": "/legal/terms",
       "category": "legal",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "legal_intro",
@@ -3049,6 +3113,10 @@
       "path": "/legal/accessibility",
       "category": "legal",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "legal_intro",
@@ -3092,6 +3160,10 @@
       "path": "/legal/complaints",
       "category": "legal",
       "hero": "legal_simple_banner",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "legal_intro",
@@ -3135,6 +3207,10 @@
       "path": "/blog",
       "category": "editorial",
       "hero": "blog_intro_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.editorial_v1"
+      },
       "sections": [
         {
           "id": "blog_intro_copy",
@@ -3164,6 +3240,10 @@
       "path": "/patient-portal",
       "category": "utility",
       "hero": "patient_portal_placeholder_hero",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "description": "Secure portal experience overview while the live connection is prepared.",
       "sections": [
         {
@@ -3208,6 +3288,10 @@
       "path": "/video-consultation",
       "category": "utility",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "description": "Tele-dentistry guidance with clear expectations on what can be handled remotely and when to visit in person.",
       "ctas": {
         "heroCTAs": [
@@ -3304,6 +3388,10 @@
       "path": "/finance",
       "category": "utility",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
       "ctas": {
         "heroCTAs": [
@@ -3408,6 +3496,10 @@
       "path": "/technology",
       "category": "utility",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "sections": [
         {
           "id": "technology_hub_routing",
@@ -3481,6 +3573,10 @@
       "path": "/practice-plan",
       "category": "utility",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.utility_v1"
+      },
       "description": "Membership overview covering what is included, how to join, and how it supports routine care.",
       "ctas": {
         "heroCTAs": [
@@ -3718,6 +3814,10 @@
       "category": "site",
       "description": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening.",
       "hero": "contact_calm_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "dental_checkups_intro",
@@ -3856,6 +3956,10 @@
       "path": "/treatments/implants-single-tooth",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -3923,6 +4027,10 @@
       "path": "/treatments/implants-multiple-teeth",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -3990,6 +4098,10 @@
       "path": "/treatments/implants-full-arch",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4057,6 +4169,10 @@
       "path": "/treatments/implant-retained-dentures",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4124,6 +4240,10 @@
       "path": "/treatments/implant-consultation",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4191,6 +4311,10 @@
       "path": "/treatments/implants-bone-grafting",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4258,6 +4382,10 @@
       "path": "/treatments/sinus-lift",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4325,6 +4453,10 @@
       "path": "/treatments/teeth-in-a-day",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4392,6 +4524,10 @@
       "path": "/treatments/sedation-for-implants",
       "category": "treatment",
       "hero": "implants_variant_hero_v3",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4458,6 +4594,10 @@
       "path": "/treatments/failed-implant-replacement",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4525,6 +4665,10 @@
       "path": "/treatments/implant-aftercare",
       "category": "treatment",
       "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4592,6 +4736,10 @@
       "path": "/treatments/3d-implant-restorations",
       "category": "treatment",
       "hero": "implant_restorations_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4658,6 +4806,10 @@
       "path": "/treatments/3d-printed-veneers",
       "category": "treatment",
       "hero": "printed_veneers_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -4724,6 +4876,10 @@
       "path": "/treatments/composite-bonding",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "composite_intro",
@@ -4899,6 +5055,10 @@
       "path": "/treatments/injection-moulded-composite",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "injection_intro",
@@ -5009,6 +5169,10 @@
       "description": "Fixed replacements for missing teeth planned with careful case selection and maintenance.",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -5079,6 +5243,10 @@
       "description": "Protective, tooth-preserving crowns planned with digital scans and calm appointments.",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "dental_crowns_intro_prose",
@@ -5222,6 +5390,10 @@
       "path": "/treatments/teeth-whitening",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "whitening_hero_intro",
@@ -5356,6 +5528,10 @@
       "path": "/treatments/home-teeth-whitening",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "home_whitening_hero_intro",
@@ -5472,6 +5648,10 @@
       "path": "/treatments/whitening-top-ups",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "whitening_topups_hero_intro",
@@ -5564,6 +5744,10 @@
       "path": "/treatments/whitening-sensitive-teeth",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "whitening_sensitivity_hero_intro",
@@ -5654,6 +5838,10 @@
       "path": "/treatments/teeth-whitening-faqs",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "whitening_faqs_hero_intro",
@@ -5727,6 +5915,10 @@
       "path": "/treatments/orthodontics",
       "category": "treatment",
       "hero": "orthodontics_balanced_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -5837,6 +6029,10 @@
       "path": "/treatments/full-smile-makeover",
       "category": "treatment",
       "hero": "full_smile_makeover_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "full_smile_makeover_overview_rich",
@@ -5967,6 +6163,10 @@
       "path": "/treatments/3d-digital-dentistry",
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -6334,6 +6534,10 @@
       "path": "/treatments/emergency-dental-appointments",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_appointments_overview",
@@ -6443,6 +6647,10 @@
       "path": "/treatments/severe-toothache-dental-pain",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_pain_overview",
@@ -6553,6 +6761,10 @@
       "path": "/treatments/dental-abscess-infection",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_abscess_overview",
@@ -6663,6 +6875,10 @@
       "path": "/treatments/broken-chipped-cracked-teeth",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_chipped_overview",
@@ -6773,6 +6989,10 @@
       "path": "/treatments/knocked-out-tooth",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_avulsion_overview",
@@ -6882,6 +7102,10 @@
       "path": "/treatments/lost-crowns-veneers-fillings",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_crown_overview",
@@ -6992,6 +7216,10 @@
       "path": "/treatments/dental-trauma-accidents",
       "category": "treatment",
       "hero": "emergency_support_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "emergency_trauma_overview",
@@ -7102,6 +7330,10 @@
       "path": "/treatments/3d-dentistry-and-technology",
       "category": "technology",
       "hero": "treatment_tech_focus_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment_overview_copy"
@@ -7150,6 +7382,10 @@
       "path": "/treatments/cbct-3d-scanning",
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7216,6 +7452,10 @@
       "path": "/treatments/digital-smile-design",
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7282,6 +7522,10 @@
       "path": "/treatments/3d-printing-lab",
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7348,6 +7592,10 @@
       "path": "/treatments/inlays-onlays",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7414,6 +7662,10 @@
       "path": "/treatments/dental-fillings",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7480,6 +7732,10 @@
       "path": "/treatments/dentures",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7546,6 +7802,10 @@
       "path": "/treatments/acrylic-dentures",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7612,6 +7872,10 @@
       "path": "/treatments/chrome-dentures",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7678,6 +7942,10 @@
       "path": "/treatments/peek-partial-dentures",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7744,6 +8012,10 @@
       "path": "/treatments/3d-printed-dentures",
       "category": "treatment",
       "hero": "treatment_tech_focus_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7810,6 +8082,10 @@
       "path": "/treatments/night-guards-occlusal-splints",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7917,6 +8193,10 @@
       "path": "/treatments/sports-mouthguards",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -7977,6 +8257,10 @@
       "path": "/treatments/dental-retainers",
       "category": "treatment",
       "hero": "orthodontics_balanced_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -8037,6 +8321,10 @@
       "path": "/treatments/preventative-and-general-dentistry",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "preventative-general-hero",
@@ -8325,6 +8613,10 @@
       "path": "/treatments/childrens-dentistry",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "childrens-dentistry-hero",
@@ -8532,6 +8824,10 @@
       "path": "/treatments/periodontal-gum-care",
       "category": "treatment",
       "hero": "periodontal_health_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "periodontal-hero",
@@ -8715,6 +9011,10 @@
       "path": "/treatments/endodontics-root-canal",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "endodontics-root-canal-hero",
@@ -8893,6 +9193,10 @@
       "path": "/treatments/extractions-and-oral-surgery",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "extractions-oral-surgery-hero",
@@ -9081,6 +9385,10 @@
       "path": "/treatments/senior-mature-smile-care",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment_overview_copy"
@@ -9129,6 +9437,10 @@
       "path": "/treatments/tmj-jaw-comfort",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9192,6 +9504,10 @@
       "path": "/treatments/nervous-patients",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro",
@@ -9293,6 +9609,10 @@
       "path": "/treatments/sedation-dentistry",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9356,6 +9676,10 @@
       "path": "/treatments/painless-numbing-the-wand",
       "category": "treatment",
       "hero": "painless_wand_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9419,6 +9743,10 @@
       "path": "/treatments/tooth-wear-broken-teeth",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "tooth_wear_overview",
@@ -9559,6 +9887,10 @@
       "path": "/treatments/facial-therapeutics",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9680,6 +10012,10 @@
       "path": "/treatments/bruxism-and-jaw-clenching",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9746,6 +10082,10 @@
       "path": "/treatments/facial-pain-and-headache",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9812,6 +10152,10 @@
       "path": "/treatments/tmj-disorder-treatment",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9878,6 +10222,10 @@
       "path": "/treatments/therapeutic-facial-injectables",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -9947,6 +10295,10 @@
       "path": "/treatments/facial-aesthetics",
       "category": "hub",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -10010,6 +10362,10 @@
       "path": "/treatments/anti-wrinkle-treatments",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -10076,6 +10432,10 @@
       "path": "/treatments/dermal-fillers",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -10142,6 +10502,10 @@
       "path": "/treatments/skin-boosters",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -10208,6 +10572,10 @@
       "path": "/treatments/polynucleotides",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
@@ -10274,6 +10642,10 @@
       "path": "/treatments/mouthguards-and-retainers",
       "category": "treatment",
       "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
       "sections": [
         {
           "id": "treatment.heroIntro"
