@@ -19,6 +19,87 @@
       }
     },
     {
+      "id": "hero.variant.group.01_v1",
+      "label": "Group: 01 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.02_v1",
+      "label": "Group: 02 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.03_v1",
+      "label": "Group: 03 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.04_v1",
+      "label": "Group: 04 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.05_v1",
+      "label": "Group: 05 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.06_v1",
+      "label": "Group: 06 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.07_v1",
+      "label": "Group: 07 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.08_v1",
+      "label": "Group: 08 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
+      "id": "hero.variant.group.09_v1",
+      "label": "Group: 09 v1",
+      "tone": "night",
+      "surfaces": {
+        "particles": "overlay.particlesPrimary",
+        "motion": ["overlay.caustics", "overlay.glassShimmer", "overlay.goldDustDrift", "overlay.particlesDrift"]
+      }
+    },
+    {
       "id": "hero.variant.editorial_v1",
       "label": "Category: editorial v1",
       "tone": "night",
