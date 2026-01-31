@@ -205,7 +205,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 transition: opacity 220ms ease;
               }
               .hero-renderer-v2 .hero-surface--motion[data-ready!="true"] {
-                opacity: 0 !important;
+                opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
@@ -877,6 +877,22 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const frameId = requestAnimationFrame(logOpacity);
     return () => cancelAnimationFrame(frameId);
   }, [currentModel, debugEnabled, pathnameKey]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    const logTransitionOpacity = () => {
+      const firstMotion = document.querySelector(".hero-renderer-v2 .hero-surface--motion") as HTMLElement | null;
+      const computedOpacity = firstMotion ? getComputedStyle(firstMotion).opacity : null;
+      console.info("HERO_V2_NAV_MOTION_OPACITY_PROOF", {
+        pathname: pathnameKey,
+        dataReady: firstMotion?.dataset.ready ?? null,
+        motionReady: firstMotion?.dataset.motionReady ?? null,
+        firstMotionOpacity: computedOpacity,
+      });
+    };
+    const timeoutId = window.setTimeout(() => requestAnimationFrame(logTransitionOpacity), 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [debugEnabled, pathnameKey]);
 
   if (!currentModel) return <HeroFallback />;
 
