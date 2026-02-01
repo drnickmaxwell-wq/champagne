@@ -1,0 +1,93 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Book CBCT or 3D scanning
+Plan diagnostic imaging for implants, orthodontics, and restorative work.
+Schedule a scan appointment
+Implant dentistry
+Explore digital smile design
+
+=== SECTION: treatment.heroIntro ===
+CBCT / 3D scanning
+CBCT and 3D dental scanning
+Three-dimensional scanning allows us to see dental structures in more detail than traditional two-dimensional X-rays.
+
+CBCT (cone beam computed tomography) provides a 3D view of teeth, bone, nerves, and surrounding anatomy. It’s used selectively, when additional information genuinely helps with diagnosis or planning.
+
+At St Mary’s House Dental Care, CBCT scanning is used to support careful decision-making — not as a routine step for every patient.
+Three-dimensional detail beyond standard X-rays
+Shows teeth, bone, nerves, and surrounding anatomy
+Used selectively when extra information helps
+Supports careful decision-making, not routine scanning
+Plan a clinician-led cbct 3d scanning review
+Consider alternatives like implants
+
+=== SECTION: treatment.trustSignals ===
+When CBCT is used
+When CBCT scanning may be recommended
+
+=== SECTION: treatment.consultationOverview ===
+What CBCT shows
+What 3D scanning shows that standard X-rays don’t
+Unlike traditional X-rays, CBCT scans show structures in three dimensions.
+
+This can help us assess bone thickness and shape, the position of nerves and sinuses, the extent of infection or fractures, and how teeth relate to surrounding structures.
+
+Having this information upfront helps reduce uncertainty and improve planning accuracy.
+Assess bone thickness and shape
+See the position of nerves and sinuses
+Review the extent of infection or fractures
+Understand how teeth relate to surrounding structures
+Reduce uncertainty and improve planning accuracy
+
+=== SECTION: treatment.whoIsItFor ===
+Planning and safety
+
+=== SECTION: treatment.processTimeline ===
+What to expect
+What to expect during a scan
+A CBCT scan is quick and non-invasive.
+
+=== SECTION: treatment.technology ===
+How results are used
+How scan results are used
+Scan results are used to support diagnosis and planning — not to replace clinical judgement.
+
+They may help confirm whether treatment is appropriate, refine the proposed approach, or highlight situations where an alternative plan is safer.
+
+We’ll explain what the scan shows and how it influences recommendations.
+
+=== SECTION: treatment.aftercareRisks ===
+When CBCT isn’t needed
+When a CBCT scan isn’t needed
+
+=== SECTION: treatment.faq ===
+Questions or concerns
+Understanding when scanning is needed
+Why might a CBCT scan be recommended?
+CBCT scanning is advised when standard X-rays don’t provide enough information, such as implant planning, complex extractions, impacted teeth, or ongoing symptoms after root treatment.
+Do I need a CBCT scan for every problem?
+Not every dental problem requires 3D imaging. If standard X-rays and clinical examination provide sufficient information, a CBCT scan won’t be recommended.
+How are scan results used?
+Results support diagnosis and planning, helping confirm whether treatment is appropriate, refine the proposed approach, or highlight when an alternative plan is safer.
+Can I ask about radiation and safety?
+Yes. We follow UK guidance on justification and exposure, use settings that minimise dose, and are happy to discuss radiation levels before proceeding.
+What happens during the scan?
+You’ll stand or sit still while the scanner rotates briefly around your head. The scan takes seconds and is non-invasive, with no contact or discomfort.
+
+=== SECTION: treatment.consultationOverview ===
+Questions or concerns
+If you’re unsure why a CBCT scan has been suggested, or whether it’s necessary, we encourage you to ask.
+
+Understanding the reason for any investigation is an important part of informed decision-making.
+We explain why a scan may be helpful in your case
+You can ask about alternatives and whether it is necessary
+
+=== SECTION: treatment.cta ===
+Next steps
+Book a 3D scan with clinician guidance
+Contact us if you’d like to discuss whether 3D scanning is appropriate for you.
+Plan a clinician-led cbct 3d scanning review
+Consider alternatives like implants

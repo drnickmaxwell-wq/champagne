@@ -1,0 +1,92 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Plan therapeutic facial care
+Manage jaw tension, migraines, or facial pain with medical oversight.
+Book a therapeutic review
+TMJ disorder
+Facial pain & headaches
+
+=== SECTION: routing_cards ===
+Facial treatments
+Full list
+Anti-wrinkle treatments
+Dermal fillers
+Facial aesthetics
+Facial pain & headache
+Therapeutic facial injectables
+
+=== SECTION: treatment.heroIntro ===
+Facial therapeutics
+Clinical care for jaw tension, facial pain, and therapeutic injectables
+Assessment-led support for clenching, bruxism, tension headaches, and TMJ-related discomfort. Therapeutic injectables are used when clinically indicated, after conservative steps and informed consent.
+Full medical review before any intervention, including medicines and contraindications
+Pathways across clenching relief, facial pain management, and TMJ symptom support
+Measured dosing and clear safety guidance for any prescription injectable care
+
+=== SECTION: treatment.trustSignals ===
+Clinical safeguards
+Medical assessment, conservative first
+
+=== SECTION: treatment.consultationOverview ===
+Consultation & suitability
+Understand symptoms before choosing a pathway
+We explore jaw tightness, clenching, headaches, and TMJ clicks or locking. Examination may include muscle palpation, bite assessment, and range-of-motion checks. We discuss conservative measures first and explain when therapeutic injectables are appropriate.
+Medical history, medication review, and contraindication screening
+Jaw and muscle assessment with attention to wear facets and trigger points
+Advice on self-care, guards, or physiotherapy signposting before medication
+Clear explanation of benefits, limits, and follow-up for any injectable treatment
+Safety guidance on when to seek urgent care if pain, swelling, or locking escalates
+
+=== SECTION: treatment.whoIsItFor ===
+Who it helps
+Patients needing clinically led relief
+
+=== SECTION: treatment.processTimeline ===
+Your pathway
+Assess, stabilise, treat, and review
+Treatment proceeds only when safe and clinically justified. Timelines depend on response to conservative steps and any prescribed injectables.
+
+=== SECTION: treatment.technology ===
+Products & protocols
+Regulated medicines, sterile technique, and documented dosing
+Prescription-only medicines are sourced through regulated pharmacies, stored appropriately, and administered with anatomical mapping. Notes cover batch numbers, sites, and doses so subsequent visits remain safe and traceable.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & risks
+Practical guidance and escalation points
+
+=== SECTION: treatment.trustSignals ===
+Clinical pathways
+Explore focused treatment routes
+
+=== SECTION: treatment.faq ===
+Facial therapeutics FAQs
+Common questions
+Do I need a consultation before any treatment?
+Yes. We only proceed after a clinical assessment that reviews your medical history, medicines, and symptoms, then confirms whether conservative care or injectables are appropriate.
+Are therapeutic injectables the same as cosmetic toxin treatments?
+No. Here they are used for symptom relief in carefully selected muscles, not for cosmetic aims. Doses, targets, and follow-up are chosen for function and comfort.
+What if conservative steps are enough?
+If self-care, guards, or physiotherapy resolve symptoms, we continue monitoring without injectables. Medicine is only added when clinically beneficial.
+When should I seek urgent care?
+Contact us or emergency services if you notice jaw locking, severe swelling, breathing changes, or visual symptoms after any facial treatment.
+Who delivers the treatment?
+A prescriber trained in facial anatomy, complication management, and escalation pathways carries out your care and remains available for review.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after facial aesthetics consultation (/treatments/facial-aesthetics) so the plan stays safe and measured.
+Appropriate when you want to learn about therapeutic injectables for functional or pain-related concerns.
+Often follows Facial aesthetics consultation (/treatments/facial-aesthetics); Facial pain assessment (/treatments/facial-pain-and-headache).
+Alternatives we balance: Anti-wrinkle treatments (/treatments/anti-wrinkle-treatments); Dermal fillers (/treatments/dermal-fillers).
+Next steps we plan for: Therapeutic injectables (/treatments/therapeutic-facial-injectables); Skin boosters (/treatments/skin-boosters); Polynucleotide therapy (/treatments/polynucleotides).
+
+=== SECTION: treatment.cta ===
+Book a clinical facial therapeutics consultation
+Discuss jaw tension, facial pain, or therapeutic injectables with a prescriber who prioritises safety and conservative care first.
+Plan a clinician-led facial therapeutics review
+Consider alternatives like Therapeutic injectables

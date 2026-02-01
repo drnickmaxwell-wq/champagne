@@ -1,0 +1,83 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Review 3D implant restorations
+See how digital workflows improve fit, aesthetics, and durability.
+Book a digital implant review
+CBCT / 3D scanning
+Implant dentistry
+
+=== SECTION: treatment.heroIntro ===
+3D implant restorations
+3D planned implant restorations
+Digitally mapped crowns and bridges that align with your implant position, soft tissue, and bite for a calm, precise fit.
+Scans and CBCT data guide emergence profiles
+Digital occlusion checks reduce chairside adjustments
+Printed or milled restorations with clinician oversight
+Porcelain still recommended when longevity demands it
+Plan a clinician-led 3d implant restorations review
+Consider alternatives like Digital smile refinement
+
+=== SECTION: treatment.trustSignals ===
+Why patients choose this
+Restorations built with clinical controls
+
+=== SECTION: treatment.consultationOverview ===
+What it is
+Digital workflows for stable implant crowns and bridges
+We merge scans, CBCT data, and bite records to design implant restorations that follow your tissue profile and occlusion. Printing or milling is used according to the indication, with porcelain or lab ceramics recommended when they high standards support longevity.
+Emergence profiles shaped to your gumline
+Contacts mapped to balance forces and hygiene
+Materials chosen for strength, wear, and shade
+Chairside adjustments planned before your fit visit
+Clear maintenance guidance after placement
+
+=== SECTION: treatment.whoIsItFor ===
+Who it helps
+Implant patients wanting precision and predictability
+
+=== SECTION: treatment.processTimeline ===
+Your pathway
+Plan, preview, fit, and review
+We explain timelines and when staged upgrades to ceramics might be recommended.
+
+=== SECTION: treatment.technology ===
+Technology
+Scans, CBCT insight, and guided finishing
+We combine intraoral scans, CBCT imaging when indicated, and digital occlusion mapping to shape restorations before they reach the mouth. Materials are selected for their regulated indications and finished under clinician supervision.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & considerations
+Protecting your restoration
+
+=== SECTION: treatment.faq ===
+Implant restoration FAQs
+Planning, fit, and materials
+Can I see the design before it is made?
+Yes. We share digital previews and, where useful, printed mock-ups so you can understand contours and contacts.
+Do you often print these restorations?
+We select printing, milling, or lab ceramics based on strength, aesthetics, and your long-term needs. Porcelain or hybrid ceramics may be recommended for higher-load cases.
+How do you check the bite?
+We map contacts digitally and verify them at the fit appointment, making measured refinements to protect the implant and surrounding teeth.
+What follow-up is needed?
+You’ll have scheduled reviews to monitor tissues, contacts, and wear. We also outline home care to keep the restoration clean.
+Are the materials regulated?
+Yes. We use regulated dental materials selected for their intended indications and explain their maintenance and lifespan.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after implant placement (/treatments/implants) so the plan stays safe and measured.
+Appropriate when you want to explore how 3d planning supports implant restorations and fit.
+Often follows Implant placement (/treatments/implants); Implant consultation (/treatments/implants-consultation).
+Alternatives we balance: CBCT verification (/treatments/cbct-3d-scanning); Sedation support (/treatments/implants-sedation).
+Next steps we plan for: Crown and bridge fitting (/treatments/dental-crowns); Hygiene and maintenance (/treatments/implants-aftercare); Digital smile refinement (/treatments/digital-smile-design).
+
+=== SECTION: treatment.cta ===
+Next steps
+Plan your implant restoration with clarity
+Book a consultation to review digital designs, material choices, and whether in-house or lab-made options high standards suit your long-term goals.
+Plan a clinician-led 3d implant restorations review
+Consider alternatives like Hygiene and maintenance
