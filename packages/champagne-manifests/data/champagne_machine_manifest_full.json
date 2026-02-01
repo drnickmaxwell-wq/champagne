@@ -385,7 +385,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.02_v1"
       },
       "sections": [
         {
@@ -2031,7 +2031,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.05_v1"
       },
       "sections": [
         {
@@ -2125,7 +2125,7 @@
       "hero": "clear_aligners_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.04_v1"
       },
       "sections": [
         {
@@ -2207,7 +2207,7 @@
       "hero": "clear_aligners_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.07_v1"
       },
       "sections": [
         {
@@ -2277,7 +2277,7 @@
       "hero": "orthodontics_balanced_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.06_v1"
       },
       "sections": [
         {
@@ -3816,7 +3816,7 @@
       "hero": "contact_calm_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.01_v1"
       },
       "sections": [
         {
@@ -3958,7 +3958,7 @@
       "hero": "hero.treatment.implants",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.09_v1"
       },
       "sections": [
         {
@@ -5245,7 +5245,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.02_v1"
       },
       "sections": [
         {
@@ -5392,7 +5392,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.05_v1"
       },
       "sections": [
         {
@@ -5917,7 +5917,7 @@
       "hero": "orthodontics_balanced_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.04_v1"
       },
       "sections": [
         {
@@ -6165,7 +6165,7 @@
       "hero": "treatment_tech_focus_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.07_v1"
       },
       "sections": [
         {
@@ -8084,7 +8084,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.06_v1"
       },
       "sections": [
         {
@@ -8323,7 +8323,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.01_v1"
       },
       "sections": [
         {
@@ -9889,7 +9889,7 @@
       "hero": "treatment_neutral_hero_v1",
       "heroBinding": {
         "heroId": "sacred-home-hero",
-        "variantId": "hero.variant.treatment_v1"
+        "variantId": "hero.variant.group.09_v1"
       },
       "sections": [
         {
