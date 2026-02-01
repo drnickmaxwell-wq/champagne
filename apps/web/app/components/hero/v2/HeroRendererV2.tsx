@@ -140,6 +140,9 @@ const resolveHeroIdentityKey = (model: HeroV2Model | null, mode?: HeroMode) => {
   return `${heroId}::${variantId}::${modeKey}`;
 };
 
+const isFullyBuiltModel = (model: HeroV2Model | null) =>
+  Boolean(model?.surfaceStack.effectiveHeroId && model?.surfaceStack.effectiveVariantId);
+
 
 function HeroFallback() {
   return (
@@ -770,8 +773,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [isCrossfading, setIsCrossfading] = useState(false);
   const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
   const [heroIdentityKey, setHeroIdentityKey] = useState<string | null>(null);
+  const [lastGoodIdentityKey, setLastGoodIdentityKey] = useState<string | null>(null);
   const currentModelRef = useRef<HeroV2Model | null>(null);
   const heroIdentityKeyRef = useRef<string | null>(null);
+  const lastGoodModelRef = useRef<HeroV2Model | null>(null);
   const transitionRef = useRef<{
     timeoutId: number | null;
     rafId: number | null;
@@ -792,7 +797,31 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const nextIdentity = resolveHeroIdentityKey(currentModel, mode);
     heroIdentityKeyRef.current = nextIdentity;
     setHeroIdentityKey(nextIdentity);
+
+    if (isFullyBuiltModel(currentModel)) {
+      lastGoodModelRef.current = currentModel;
+      setLastGoodIdentityKey(nextIdentity);
+    }
   }, [currentModel, mode]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    const hasModel = Boolean(currentModel);
+    const hasLastGoodModel = Boolean(lastGoodModelRef.current);
+    const resolvedIdentity = resolveHeroIdentityKey(currentModel, mode);
+    const decision = hasModel
+      ? "RENDER_CURRENT"
+      : hasLastGoodModel
+        ? "RENDER_LAST_GOOD"
+        : "RENDER_CURRENT";
+    console.info("HERO_V2_ROUTE_STATE", {
+      pathnameKey,
+      heroIdentityKey: resolvedIdentity ?? lastGoodIdentityKey ?? "",
+      hasModel,
+      hasLastGoodModel,
+      decision,
+    });
+  }, [debugEnabled, pathnameKey, currentModel, mode, lastGoodIdentityKey]);
 
   useEffect(() => {
     let isActive = true;
@@ -819,16 +848,23 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       const nextIdentityKey = resolveHeroIdentityKey(nextModel, mode);
       const currentIdentityKey = heroIdentityKeyRef.current;
       const shouldTransition = nextIdentityKey !== currentIdentityKey;
+      const hasLastGoodModel = Boolean(lastGoodModelRef.current);
+      const isNextFullyBuilt = isFullyBuiltModel(nextModel);
       if (debugEnabled) {
         console.info("HERO_V2_TRANSITION_DECISION", {
           pathnameKey,
           heroIdentityKey: nextIdentityKey,
-          transition: shouldTransition ? "TRANSITION" : "SKIP_SAME_IDENTITY",
+          hasModel: Boolean(currentModelRef.current),
+          hasLastGoodModel,
+          decision: shouldTransition ? "SWAP_TO_INCOMING" : "RENDER_CURRENT",
         });
       }
       heroV2ModelCache.set(pathnameKey, nextModel);
       if (!currentModelRef.current) {
         setCurrentModel(nextModel);
+        return;
+      }
+      if (!isNextFullyBuilt) {
         return;
       }
       if (!shouldTransition) {
@@ -943,22 +979,25 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => window.clearTimeout(timeoutId);
   }, [debugEnabled, pathnameKey]);
 
-  if (!currentModel) return <HeroFallback />;
+  const resolvedModel = isFullyBuiltModel(currentModel)
+    ? currentModel
+    : lastGoodModelRef.current ?? currentModel;
+  if (!resolvedModel) return <HeroFallback />;
 
-  const resolvedRootStyle = { ...rootStyle, ...currentModel.surfaceStack.surfaceVars };
-  const motionCount = currentModel.surfaceStack.motionLayers.length;
+  const resolvedRootStyle = { ...rootStyle, ...resolvedModel.surfaceStack.surfaceVars };
+  const motionCount = resolvedModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
-    heroId: currentModel.surfaceStack.heroId ?? "",
-    variantId: currentModel.surfaceStack.variantId ?? "",
-    boundHeroId: currentModel.surfaceStack.boundHeroId ?? "",
-    boundVariantId: currentModel.surfaceStack.boundVariantId ?? "",
-    effectiveHeroId: currentModel.surfaceStack.effectiveHeroId ?? "",
-    effectiveVariantId: currentModel.surfaceStack.effectiveVariantId ?? "",
-    particlesPath: currentModel.surfaceStack.particlesPath ?? "",
-    particlesOpacity: currentModel.surfaceStack.particlesOpacity ?? "",
+    heroId: resolvedModel.surfaceStack.heroId ?? "",
+    variantId: resolvedModel.surfaceStack.variantId ?? "",
+    boundHeroId: resolvedModel.surfaceStack.boundHeroId ?? "",
+    boundVariantId: resolvedModel.surfaceStack.boundVariantId ?? "",
+    effectiveHeroId: resolvedModel.surfaceStack.effectiveHeroId ?? "",
+    effectiveVariantId: resolvedModel.surfaceStack.effectiveVariantId ?? "",
+    particlesPath: resolvedModel.surfaceStack.particlesPath ?? "",
+    particlesOpacity: resolvedModel.surfaceStack.particlesOpacity ?? "",
     motionCount,
-    prm: currentModel.surfaceStack.prmEnabled,
+    prm: resolvedModel.surfaceStack.prmEnabled,
   };
   const surfaceWrapperBaseStyle: CSSProperties = {
     position: "absolute",
@@ -975,15 +1014,15 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   return (
     <HeroV2Frame
-      layout={currentModel.layout}
-      gradient={currentModel.gradient}
+      layout={resolvedModel.layout}
+      gradient={resolvedModel.gradient}
       rootStyle={resolvedRootStyle}
-      heroId={currentModel.surfaceStack.heroId}
-      variantId={currentModel.surfaceStack.variantId}
-      particlesPath={currentModel.surfaceStack.particlesPath}
-      particlesOpacity={currentModel.surfaceStack.particlesOpacity}
+      heroId={resolvedModel.surfaceStack.heroId}
+      variantId={resolvedModel.surfaceStack.variantId}
+      particlesPath={resolvedModel.surfaceStack.particlesPath}
+      particlesOpacity={resolvedModel.surfaceStack.particlesOpacity}
       motionCount={motionCount}
-      prm={currentModel.surfaceStack.prmEnabled}
+      prm={resolvedModel.surfaceStack.prmEnabled}
       debug={debugEnabled}
     >
       {debugEnabled ? (
@@ -1036,7 +1075,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
               opacity: 1,
             }}
           >
-            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
+            <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...resolvedModel.surfaceStack} />
           </div>
           {incomingModel ? (
             <div
@@ -1050,8 +1089,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           ) : null}
         </>
       )}
-      <HeroContentFade heroIdentityKey={heroIdentityKey}>
-        <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
+      <HeroContentFade heroIdentityKey={heroIdentityKey ?? lastGoodIdentityKey}>
+        <HeroContentV2 content={resolvedModel.content} layout={resolvedModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
   );
