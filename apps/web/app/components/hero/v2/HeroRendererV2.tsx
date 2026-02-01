@@ -758,11 +758,34 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     crossfadeRafId: null,
     crossfadeRafId2: null,
   });
-  const debugEnabled = searchParams?.has("heroDebug") ?? false;
+  const debugEnabled = searchParams?.get("heroDebug") === "1";
 
   useEffect(() => {
     currentModelRef.current = currentModel;
   }, [currentModel]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    const modelSnapshot = currentModelRef.current;
+    const heroIdentityKey =
+      modelSnapshot?.surfaceStack.variantId ??
+      modelSnapshot?.surfaceStack.heroId ??
+      (modelSnapshot?.surfaceStack.boundVariantId
+        ? `binding:${modelSnapshot.surfaceStack.boundVariantId}`
+        : undefined) ??
+      (pageCategory ? `category:${pageCategory}` : undefined);
+    const heroId = modelSnapshot?.surfaceStack.heroId ?? "undefined";
+    const variantId = modelSnapshot?.surfaceStack.variantId ?? "undefined";
+    const hasModel = Boolean(modelSnapshot);
+    const renderedMode = hasModel ? "FRAME" : "FALLBACK";
+    const cssInjected = document.querySelector(".hero-renderer-v2 style") ? "yes" : "no";
+    const timeMs = Math.round(performance.now());
+    console.info(
+      `[HERO_DIAG] t=${timeMs} path=${pathnameKey} hasModel=${hasModel} identity=${
+        heroIdentityKey ?? "undefined"
+      } heroId=${heroId} variantId=${variantId} render=${renderedMode} css=${cssInjected}`,
+    );
+  }, [debugEnabled, pageCategory, pathnameKey]);
 
   useEffect(() => {
     let isActive = true;
@@ -771,6 +794,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (cached && !currentModelRef.current) {
       setCurrentModel(cached);
     }
+    const buildStart = performance.now();
     void buildHeroV2Model({
       mode,
       treatmentSlug,
@@ -786,6 +810,15 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
+      if (debugEnabled) {
+        const readyTime = performance.now();
+        const startTime = Math.round(buildStart);
+        const readyMs = Math.round(readyTime);
+        const deltaMs = Math.round(readyTime - buildStart);
+        console.info(
+          `[HERO_DIAG_MODEL] path=${pathnameKey} start=${startTime} ready=${readyMs} dt=${deltaMs}`,
+        );
+      }
       heroV2ModelCache.set(pathnameKey, nextModel);
       if (!currentModelRef.current) {
         setCurrentModel(nextModel);
