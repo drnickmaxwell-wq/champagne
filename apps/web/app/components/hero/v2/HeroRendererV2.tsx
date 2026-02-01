@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { BaseChampagneSurface, getHeroRuntime, type HeroMode, type HeroTimeOfDay } from "@champagne/hero";
+import { BaseChampagneSurface } from "@champagne/hero";
+import type { getHeroRuntime, HeroMode, HeroTimeOfDay } from "@champagne/hero";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
 
@@ -116,6 +117,29 @@ const normalizeHeroPathname = (path?: string) => {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 };
 
+const fallbackLayout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] = {
+  contentAlign: "start",
+  maxWidth: 960,
+  padding: "clamp(2rem, 4vw, 3.5rem)",
+  verticalOffset: "0px",
+};
+
+const resolveHeroIdentityKey = (model: HeroV2Model | null, mode?: HeroMode) => {
+  if (!model) return null;
+  const heroId =
+    model.surfaceStack.effectiveHeroId ??
+    model.surfaceStack.heroId ??
+    model.surfaceStack.boundHeroId ??
+    "unknown";
+  const variantId =
+    model.surfaceStack.effectiveVariantId ??
+    model.surfaceStack.variantId ??
+    model.surfaceStack.boundVariantId ??
+    "default";
+  const modeKey = mode ?? "auto";
+  return `${heroId}::${variantId}::${modeKey}`;
+};
+
 
 function HeroFallback() {
   return (
@@ -130,6 +154,7 @@ function HeroFallback() {
         padding: "clamp(2rem, 5vw, 3.5rem)",
       }}
     >
+      <HeroV2StyleBlock layout={fallbackLayout} />
       <div style={{ display: "grid", gap: "0.75rem", maxWidth: "960px" }}>
         <span style={{ letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-medium)" }}>
           Champagne Dentistry
@@ -744,7 +769,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isCrossfading, setIsCrossfading] = useState(false);
   const [crossfadeOpacity, setCrossfadeOpacity] = useState(1);
+  const [heroIdentityKey, setHeroIdentityKey] = useState<string | null>(null);
   const currentModelRef = useRef<HeroV2Model | null>(null);
+  const heroIdentityKeyRef = useRef<string | null>(null);
   const transitionRef = useRef<{
     timeoutId: number | null;
     rafId: number | null;
@@ -762,7 +789,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     currentModelRef.current = currentModel;
-  }, [currentModel]);
+    const nextIdentity = resolveHeroIdentityKey(currentModel, mode);
+    heroIdentityKeyRef.current = nextIdentity;
+    setHeroIdentityKey(nextIdentity);
+  }, [currentModel, mode]);
 
   useEffect(() => {
     let isActive = true;
@@ -786,9 +816,24 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }).then((nextModel) => {
       if (!isActive) return;
       if (!nextModel) return;
+      const nextIdentityKey = resolveHeroIdentityKey(nextModel, mode);
+      const currentIdentityKey = heroIdentityKeyRef.current;
+      const shouldTransition = nextIdentityKey !== currentIdentityKey;
+      if (debugEnabled) {
+        console.info("HERO_V2_TRANSITION_DECISION", {
+          pathnameKey,
+          heroIdentityKey: nextIdentityKey,
+          transition: shouldTransition ? "TRANSITION" : "SKIP_SAME_IDENTITY",
+        });
+      }
       heroV2ModelCache.set(pathnameKey, nextModel);
       if (!currentModelRef.current) {
         setCurrentModel(nextModel);
+        return;
+      }
+      if (!shouldTransition) {
+        setHeroIdentityKey(nextIdentityKey);
+        heroIdentityKeyRef.current = nextIdentityKey;
         return;
       }
       if (HERO_SWAP_FADE) {
@@ -988,7 +1033,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           <div
             style={{
               ...surfaceWrapperBaseStyle,
-              opacity: incomingModel ? (isTransitioning ? 0 : 1) : 1,
+              opacity: 1,
             }}
           >
             <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...currentModel.surfaceStack} />
@@ -1005,7 +1050,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
           ) : null}
         </>
       )}
-      <HeroContentFade>
+      <HeroContentFade heroIdentityKey={heroIdentityKey}>
         <HeroContentV2 content={currentModel.content} layout={currentModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>

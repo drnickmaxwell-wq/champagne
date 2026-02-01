@@ -543,9 +543,10 @@ export const HeroSurfaceStackV2 = memo(HeroSurfaceStackV2Base);
 
 type HeroContentFadeProps = {
   children: ReactNode;
+  heroIdentityKey?: string | null;
 };
 
-export function HeroContentFade({ children }: HeroContentFadeProps) {
+export function HeroContentFade({ children, heroIdentityKey }: HeroContentFadeProps) {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -562,10 +563,11 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (!HERO_CONTENT_FADE_ENABLED) return;
+    if (!heroIdentityKey) return;
     setIsVisible(false);
     const id = requestAnimationFrame(() => setIsVisible(true));
     return () => cancelAnimationFrame(id);
-  }, [pathname, prefersReducedMotion]);
+  }, [heroIdentityKey, prefersReducedMotion]);
 
   useEffect(() => {
     const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
@@ -580,6 +582,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
       console.groupCollapsed("HERO_V2_CONTENT_FADE_STATE");
       console.log("HERO_V2_CONTENT_FADE_STATE_DATA", {
         pathname,
+        heroIdentityKey,
         isVisible,
         prefersReducedMotion,
         opacity: styles.opacity,
@@ -596,7 +599,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
       cancelAnimationFrame(frameId);
       window.clearTimeout(timeoutId);
     };
-  }, [pathname, isVisible, prefersReducedMotion]);
+  }, [pathname, heroIdentityKey, isVisible, prefersReducedMotion]);
 
   const style: CSSProperties = {
     opacity: prefersReducedMotion ? 1 : isVisible ? 1 : 0,
