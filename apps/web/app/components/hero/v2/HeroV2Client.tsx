@@ -25,8 +25,7 @@ const normalizeHeroPathname = (path?: string) => {
 const isHeroNavDebugEnabled = () => {
   if (typeof window === "undefined") return false;
   const params = new URLSearchParams(window.location.search);
-  const value = params.get("heroDebug");
-  return value === "1" || value === "true" || params.has("heroDebug");
+  return params.get("heroDebug") === "1";
 };
 
 const isHeroTruthEnabled = () => {
@@ -83,6 +82,26 @@ function HeroNavDebugProbe() {
     });
   }, [heroDebugEnabled, pathnameKey]);
 
+  useEffect(() => {
+    if (!heroDebugEnabled) return;
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as Element | null;
+      const anchor = target?.closest("a");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href");
+      if (!href) return;
+      const url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin) return;
+      const navType = event.defaultPrevented && anchor.hasAttribute("data-nextjs-link") ? "client" : null;
+      const navSuffix = navType ? ` nav=${navType}` : "";
+      console.info(
+        `[HERO_DIAG_NAV] href=${url.pathname}${url.search} defaultPrevented=${event.defaultPrevented}${navSuffix}`,
+      );
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, [heroDebugEnabled]);
+
   return null;
 }
 
@@ -100,11 +119,31 @@ function HeroSurfaceStackV2Base({
 }: HeroSurfaceStackV2Props) {
   const instanceId = useRef(`v2-stack-${Math.random().toString(36).slice(2, 10)}`);
   const pathname = usePathname();
+  const pathnameKey = normalizeHeroPathname(pathname);
+  const heroDebugEnabled = isHeroNavDebugEnabled();
+  const mediaLogCountRef = useRef(0);
+  const navStartRef = useRef(0);
   const handleVideoReady = (event: React.SyntheticEvent<HTMLVideoElement>) => {
+    const wasReady = event.currentTarget.dataset.ready === "true";
+    if (!wasReady && heroDebugEnabled && mediaLogCountRef.current < 10) {
+      const elapsed = Math.round(performance.now() - navStartRef.current);
+      console.info(
+        `[HERO_DIAG_MEDIA] path=${pathnameKey} layer=${
+          event.currentTarget.dataset.surfaceId ?? "unknown"
+        } event=${event.type} dt=${elapsed}`,
+      );
+      mediaLogCountRef.current += 1;
+    }
     event.currentTarget.dataset.ready = "true";
   };
 
   void pathname;
+
+  useEffect(() => {
+    if (!heroDebugEnabled) return;
+    navStartRef.current = performance.now();
+    mediaLogCountRef.current = 0;
+  }, [heroDebugEnabled, pathnameKey]);
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
