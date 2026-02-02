@@ -168,10 +168,14 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
           __html: `
               .hero-renderer-v2 {
                 position: relative;
+                min-height: 72vh;
                 color: var(--text-high);
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 --hero-motion-duration: 42s;
+                contain: layout paint;
+                overflow: hidden;
+                font-size: 1rem;
               }
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(1),
               .hero-renderer-v2.hero-optical-isolation > div[aria-hidden]:nth-of-type(2) {
