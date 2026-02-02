@@ -1,0 +1,26 @@
+{
+  "scope": {
+    "requested": "/content",
+    "observed": null,
+    "notes": "Content directory not found in repository"
+  },
+  "canon_dependencies": {
+    "hard_banned_phrase_list": {
+      "status": "missing",
+      "notes": "No hard-banned phrase list found in available canon sources"
+    },
+    "voice_canon_rules": {
+      "status": "present",
+      "source": "packages/champagne-canon/canon/ai/champagne-ai-tone-engine.md"
+    }
+  },
+  "summary": {
+    "files_evaluated": 0,
+    "classification": "blocked",
+    "reasons": [
+      "Missing hard-banned phrase list",
+      "No /content directory to evaluate"
+    ]
+  },
+  "files": []
+}
