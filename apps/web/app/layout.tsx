@@ -13,15 +13,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="min-h-screen antialiased">
-        <div className="flex min-h-screen flex-col">
-          <div className="sticky top-0 z-50">
-            <Header />
+        <div className="min-h-screen" style={{ backgroundColor: "var(--surface-1)" }}>
+          <div className="flex min-h-screen flex-col">
+            <div className="sticky top-0 z-50">
+              <Header />
+            </div>
+            <main className="flex-1 px-6 py-10">
+              <HeroGate />
+              {children}
+            </main>
+            <Footer />
           </div>
-          <main className="flex-1 px-6 py-10">
-            <HeroGate />
-            {children}
-          </main>
-          <Footer />
         </div>
       </body>
     </html>
