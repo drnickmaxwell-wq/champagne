@@ -741,6 +741,8 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   } = props;
   const [renderModel, setRenderModel] = useState<HeroV2Model | null>(() => lastResolvedHeroV2Model);
   const renderModelRef = useRef<HeroV2Model | null>(lastResolvedHeroV2Model);
+  const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
+  const visualReadyRef = useRef(false);
   const debugEnabled = searchParams?.get("heroDebug") === "1";
 
   useEffect(() => {
@@ -749,6 +751,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       lastResolvedHeroV2Model = renderModel;
     }
   }, [renderModel]);
+
+  useEffect(() => {
+    visualReadyRef.current = isHeroVisuallyReady;
+  }, [isHeroVisuallyReady]);
 
   useEffect(() => {
     if (!debugEnabled) return;
@@ -851,10 +857,64 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => window.clearTimeout(timeoutId);
   }, [debugEnabled, pathnameKey]);
 
+  useEffect(() => {
+    const modelSnapshot = renderModelRef.current ?? lastResolvedHeroV2Model;
+    if (!modelSnapshot) {
+      setIsHeroVisuallyReady(false);
+      return;
+    }
+    setIsHeroVisuallyReady(false);
+    if (modelSnapshot.surfaceStack.prmEnabled) {
+      setIsHeroVisuallyReady(true);
+      return;
+    }
+    const root = document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
+    if (!(root instanceof HTMLElement)) return;
+    const motionVideos = Array.from(root.querySelectorAll<HTMLVideoElement>(".hero-surface--motion"));
+    if (motionVideos.length === 0) {
+      setIsHeroVisuallyReady(true);
+      return;
+    }
+    let remaining = motionVideos.length;
+    let isActive = true;
+    const frameCallbacks = new Map<HTMLVideoElement, number>();
+    const markReady = () => {
+      if (!isActive) return;
+      remaining -= 1;
+      if (remaining <= 0) {
+        setIsHeroVisuallyReady(true);
+      }
+    };
+    const onPlaying = () => markReady();
+    const onTimeUpdate = () => markReady();
+    motionVideos.forEach((video) => {
+      if ("requestVideoFrameCallback" in video && typeof video.requestVideoFrameCallback === "function") {
+        const id = video.requestVideoFrameCallback(() => markReady());
+        frameCallbacks.set(video, id);
+      }
+      video.addEventListener("playing", onPlaying, { once: true });
+      video.addEventListener("timeupdate", onTimeUpdate, { once: true });
+    });
+    return () => {
+      isActive = false;
+      motionVideos.forEach((video) => {
+        video.removeEventListener("playing", onPlaying);
+        video.removeEventListener("timeupdate", onTimeUpdate);
+        const callbackId = frameCallbacks.get(video);
+        if (callbackId !== undefined && "cancelVideoFrameCallback" in video) {
+          video.cancelVideoFrameCallback(callbackId);
+        }
+      });
+    };
+  }, [pathnameKey, renderModel]);
+
   const activeModel = renderModel ?? lastResolvedHeroV2Model;
   if (!activeModel) return <HeroFallback />;
 
   const resolvedRootStyle = { ...rootStyle, ...activeModel.surfaceStack.surfaceVars };
+  const gatedRootStyle = isHeroVisuallyReady
+    ? resolvedRootStyle
+    : { ...resolvedRootStyle, opacity: 0, visibility: "hidden" as const };
   const motionCount = activeModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
@@ -874,7 +934,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     <HeroV2Frame
       layout={activeModel.layout}
       gradient={activeModel.gradient}
-      rootStyle={resolvedRootStyle}
+      rootStyle={gatedRootStyle}
       heroId={activeModel.surfaceStack.heroId}
       variantId={activeModel.surfaceStack.variantId}
       particlesPath={activeModel.surfaceStack.particlesPath}
