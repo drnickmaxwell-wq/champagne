@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useRef, useState, type ReactNode } from "react";
+import { memo, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { CSSProperties, Ref } from "react";
 import { BloomDriver } from "./BloomDriver";
@@ -11,6 +11,7 @@ const HERO_CONTENT_FADE_ENABLED = process.env.NEXT_PUBLIC_HERO_CONTENT_FADE !== 
 
 type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
+  heroIdentityKey?: string;
 };
 
 const normalizeHeroPathname = (path?: string) => {
@@ -114,6 +115,7 @@ function HeroSurfaceStackV2Base({
   sacredBloom,
   surfaceRef,
   bloomEnabled,
+  heroIdentityKey,
   heroId: _heroId,
   variantId: _variantId,
 }: HeroSurfaceStackV2Props) {
@@ -123,7 +125,8 @@ function HeroSurfaceStackV2Base({
   const heroDebugEnabled = isHeroNavDebugEnabled();
   const mediaLogCountRef = useRef(0);
   const navStartRef = useRef(0);
-  const handleVideoReady = (event: React.SyntheticEvent<HTMLVideoElement>) => {
+  const identityRef = useRef<string | null>(null);
+  const handleVideoReady = useCallback((event: React.SyntheticEvent<HTMLVideoElement>) => {
     const wasReady = event.currentTarget.dataset.ready === "true";
     if (!wasReady && heroDebugEnabled && mediaLogCountRef.current < 10) {
       const elapsed = Math.round(performance.now() - navStartRef.current);
@@ -135,7 +138,65 @@ function HeroSurfaceStackV2Base({
       mediaLogCountRef.current += 1;
     }
     event.currentTarget.dataset.ready = "true";
-  };
+  }, [heroDebugEnabled, pathnameKey]);
+  const buildMotionNodes = useCallback(() => {
+    const nodes: ReactNode[] = [];
+    if (!prmEnabled && heroVideo?.path) {
+      nodes.push(
+        <video
+          key="motion.heroVideo"
+          className="hero-surface-layer hero-surface--motion"
+          autoPlay
+          playsInline
+          loop
+          muted
+          preload="metadata"
+          poster={heroVideo.poster}
+          data-surface-id="motion.heroVideo"
+          data-ready="false"
+          data-motion-target-opacity={
+            heroVideo.targetOpacity !== undefined && heroVideo.targetOpacity !== null
+              ? `${heroVideo.targetOpacity}`
+              : undefined
+          }
+          onLoadedData={handleVideoReady}
+          onCanPlay={handleVideoReady}
+          style={heroVideo.style}
+        >
+          <source src={heroVideo.path} />
+        </video>,
+      );
+    }
+
+    if (!prmEnabled) {
+      motionLayers.forEach((entry) => {
+        nodes.push(
+          <video
+            key={entry.id}
+            className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
+            autoPlay
+            playsInline
+            loop
+            muted
+            preload="metadata"
+            data-surface-id={entry.id}
+            data-ready="false"
+            data-motion-target-opacity={
+              entry.targetOpacity !== undefined && entry.targetOpacity !== null ? `${entry.targetOpacity}` : undefined
+            }
+            onLoadedData={handleVideoReady}
+            onCanPlay={handleVideoReady}
+            style={entry.style}
+          >
+            <source src={entry.path} />
+          </video>,
+        );
+      });
+    }
+
+    return nodes;
+  }, [handleVideoReady, heroVideo, motionLayers, prmEnabled]);
+  const [motionNodes, setMotionNodes] = useState<ReactNode[]>(() => buildMotionNodes());
 
   void pathname;
 
@@ -144,6 +205,19 @@ function HeroSurfaceStackV2Base({
     navStartRef.current = performance.now();
     mediaLogCountRef.current = 0;
   }, [heroDebugEnabled, pathnameKey]);
+
+  useEffect(() => {
+    const nextIdentity = heroIdentityKey ?? null;
+    const identityChanged = identityRef.current !== nextIdentity;
+    if (identityChanged) {
+      identityRef.current = nextIdentity;
+      setMotionNodes(buildMotionNodes());
+    } else if (prmEnabled && motionNodes.length > 0) {
+      setMotionNodes([]);
+    } else if (!prmEnabled && motionNodes.length === 0) {
+      setMotionNodes(buildMotionNodes());
+    }
+  }, [buildMotionNodes, heroIdentityKey, prmEnabled, motionNodes.length]);
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
@@ -504,52 +578,7 @@ function HeroSurfaceStackV2Base({
           />
         ))}
 
-        {!prmEnabled && heroVideo?.path && (
-          <video
-            className="hero-surface-layer hero-surface--motion"
-            autoPlay
-            playsInline
-            loop
-            muted
-            preload="metadata"
-            poster={heroVideo.poster}
-            data-surface-id="motion.heroVideo"
-            data-ready="false"
-            data-motion-target-opacity={
-              heroVideo.targetOpacity !== undefined && heroVideo.targetOpacity !== null
-                ? `${heroVideo.targetOpacity}`
-                : undefined
-            }
-            onLoadedData={handleVideoReady}
-            onCanPlay={handleVideoReady}
-            style={heroVideo.style}
-          >
-            <source src={heroVideo.path} />
-          </video>
-        )}
-
-        {!prmEnabled &&
-          motionLayers.map((entry) => (
-            <video
-              key={entry.id}
-              className={`hero-surface-layer hero-surface--motion${entry.className ? ` ${entry.className}` : ""}`}
-              autoPlay
-              playsInline
-              loop
-              muted
-              preload="metadata"
-              data-surface-id={entry.id}
-              data-ready="false"
-              data-motion-target-opacity={
-                entry.targetOpacity !== undefined && entry.targetOpacity !== null ? `${entry.targetOpacity}` : undefined
-              }
-              onLoadedData={handleVideoReady}
-              onCanPlay={handleVideoReady}
-              style={entry.style}
-            >
-              <source src={entry.path} />
-            </video>
-          ))}
+        {motionNodes}
 
         {bloomEnabled && sacredBloom ? (
           <div

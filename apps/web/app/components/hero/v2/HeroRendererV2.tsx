@@ -856,6 +856,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   const resolvedRootStyle = { ...rootStyle, ...activeModel.surfaceStack.surfaceVars };
   const motionCount = activeModel.surfaceStack.motionLayers.length;
+  const heroIdentityKey =
+    activeModel.surfaceStack.variantId ??
+    activeModel.surfaceStack.heroId ??
+    (activeModel.surfaceStack.boundVariantId
+      ? `binding:${activeModel.surfaceStack.boundVariantId}`
+      : undefined) ??
+    (pageCategory ? `category:${pageCategory}` : undefined);
   const overlayData = {
     pathname: pathnameKey,
     heroId: activeModel.surfaceStack.heroId ?? "",
@@ -907,7 +914,11 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         </div>
       ) : null}
       <div style={{ position: "absolute", inset: 0 }}>
-        <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...activeModel.surfaceStack} />
+        <HeroSurfaceStackV2
+          surfaceRef={surfaceRef}
+          heroIdentityKey={heroIdentityKey}
+          {...activeModel.surfaceStack}
+        />
       </div>
       <HeroContentFade>
         <HeroContentV2 content={activeModel.content} layout={activeModel.layout} />
