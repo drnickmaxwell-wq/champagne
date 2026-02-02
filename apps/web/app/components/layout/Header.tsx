@@ -4,8 +4,8 @@ import Link from "next/link";
 export function Header() {
   const navItems = getMainNavItems();
   const headerStyle = {
-    borderBottom: "1px solid var(--bg-ink)",
-    background: "var(--bg-ink)",
+    borderBottom: "1px solid color-mix(in srgb, var(--bg-ink) 72%, transparent)",
+    background: "color-mix(in srgb, var(--bg-ink) 78%, transparent)",
   } as const;
 
   return (
