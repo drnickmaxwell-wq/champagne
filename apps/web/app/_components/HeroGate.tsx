@@ -42,15 +42,15 @@ export async function HeroGate() {
     pageCategory = (manifest as { category?: string })?.category;
   }
 
-  if (!isPublicPage || !isHeroEnabled) {
-    return null;
-  }
-
   return (
-    <HeroMount
-      mode={mode}
-      treatmentSlug={treatmentSlug}
-      pageCategory={pageCategory}
-    />
+    <div data-hero-shell>
+      {isPublicPage && isHeroEnabled ? (
+        <HeroMount
+          mode={mode}
+          treatmentSlug={treatmentSlug}
+          pageCategory={pageCategory}
+        />
+      ) : null}
+    </div>
   );
 }
