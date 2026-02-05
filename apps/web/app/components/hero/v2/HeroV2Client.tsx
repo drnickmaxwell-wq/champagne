@@ -578,7 +578,23 @@ function HeroSurfaceStackV2Base({
   );
 }
 
-export const HeroSurfaceStackV2 = memo(HeroSurfaceStackV2Base);
+const surfaceStackSignature = (props: HeroSurfaceStackV2Props) => {
+  const layerSig = props.layers
+    .map((layer) => `${layer.id}|${layer.className}|${layer.style?.opacity ?? ""}|${layer.style?.zIndex ?? ""}`)
+    .join(";");
+  const motionSig = props.motionLayers
+    .map((layer) => `${layer.id}|${layer.path}|${layer.targetOpacity ?? ""}`)
+    .join(";");
+  const heroVideoSig = props.heroVideo
+    ? `${props.heroVideo.path}|${props.heroVideo.poster ?? ""}|${props.heroVideo.targetOpacity ?? ""}`
+    : "none";
+  return `${props.prmEnabled}|${props.bloomEnabled}|${heroVideoSig}|${layerSig}|${motionSig}`;
+};
+
+export const HeroSurfaceStackV2 = memo(HeroSurfaceStackV2Base, (prev, next) => {
+  if (prev.surfaceRef !== next.surfaceRef) return false;
+  return surfaceStackSignature(prev) === surfaceStackSignature(next);
+});
 
 type HeroContentFadeProps = {
   children: ReactNode;
