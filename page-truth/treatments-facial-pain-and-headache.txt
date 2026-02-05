@@ -1,0 +1,79 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Find relief from facial pain
+Combine dental, TMJ, and therapeutic approaches to manage headaches.
+Book a pain assessment
+TMJ & jaw care
+Explore therapeutic injectables
+
+=== SECTION: treatment.heroIntro ===
+Facial pain & headaches
+Clinical assessment for facial pain and tension headaches
+We investigate dental, muscular, and TMJ-related causes of facial pain. The focus is on identifying triggers, protecting teeth and joints, and coordinating care when medical input is needed.
+Structured symptom history to separate dental, muscular, and neurological causes
+Jaw, bite, and muscle examination with imaging referral when indicated
+Clear escalation guidance if red-flag symptoms appear
+
+=== SECTION: treatment.trustSignals ===
+Clinical safeguards
+Assessment before treatment
+
+=== SECTION: treatment.consultationOverview ===
+What to expect
+We listen, examine, and plan next steps
+Your visit covers detailed symptom mapping, examination of teeth, muscles, and TMJ range, and discussion of conservative measures. If findings suggest non-dental causes, we help you access the right medical pathway.
+Pain history including duration, triggers, and relieving factors
+Assessment of bite, soft tissues, and nerve distribution
+Consider guards, desensitising care, or physiotherapy for muscular causes
+When needed, referral letters for GP, neurology, or imaging
+Safety netting advice with clear signs that need urgent attention
+
+=== SECTION: treatment.whoIsItFor ===
+Who we help
+Patients with persistent facial discomfort
+
+=== SECTION: treatment.processTimeline ===
+Your pathway
+Assess, stabilise, and coordinate
+We prioritise safe, reversible measures and coordinate with medical colleagues when needed.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare
+Keep symptoms under review
+
+=== SECTION: treatment.trustSignals ===
+Related pathways
+Linked support options
+
+=== SECTION: treatment.faq ===
+Facial pain FAQs
+Common questions
+Do all facial pains need dental treatment?
+Not necessarily. We identify whether the cause is dental, muscular, joint-related, or medical. If dentistry is unlikely to help, we signpost you to the right clinician.
+Will I need scans?
+Imaging is arranged when examination suggests joint changes, sinus involvement, or other causes that need further investigation.
+What if I already wear a guard?
+We review its fit and condition, adjust where needed, and update your plan if symptoms persist.
+Are medicines prescribed?
+Short courses or topical agents may be suggested when appropriate, but we focus on reversible measures first and coordinate with your GP if prescription medicines are needed.
+When should I seek urgent care?
+Escalate quickly if you notice swelling, fever, spreading redness, visual changes, or sudden difficulty opening your mouth.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after routine dental review (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.
+Appropriate when you want to understand dental and muscular factors that may contribute to facial pain or headaches.
+Often follows Routine dental review (/treatments/preventative-and-general-dentistry); Clenching and grinding checks (/treatments/bruxism-and-jaw-clenching).
+Alternatives we balance: Sedation support (/treatments/sedation-dentistry); Periodontal stability (/treatments/periodontal-gum-care).
+Next steps we plan for: TMJ disorder treatment (/treatments/tmj-disorder-treatment); Occlusal splints (/treatments/night-guards-occlusal-splints); Jaw comfort exercises (/treatments/tmj-jaw-comfort).
+
+=== SECTION: treatment.cta ===
+Next steps
+Book a facial pain consultation
+Discuss headaches, jaw discomfort, or facial pain with a clinician who prioritises safe diagnosis and conservative care.
+Plan a clinician-led facial pain and headache review
+Consider alternatives like TMJ disorder treatment

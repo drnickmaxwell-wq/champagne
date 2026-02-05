@@ -1,0 +1,77 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Plan sedation for dental care
+Match IV, oral, or inhalation sedation to the treatment you need.
+Book a sedation consultation
+See support for nervous patients
+Comfort dentistry
+
+=== SECTION: treatment.heroIntro ===
+Sedation dentistry
+Sedation support for calmer dental visits
+Sedation can help patients who struggle with anxiety, a strong gag reflex, or longer procedures. It supports relaxation while you remain responsive and monitored throughout treatment. Sedation is not a substitute for good communication or local anaesthetic — it’s an additional tool used when appropriate. We assess suitability in advance by reviewing medical history and explaining what sedation can and cannot do. Safety and predictability are central, so sedation is planned rather than used routinely. If sedation is suitable, we’ll discuss preparation, aftercare and how it fits alongside the treatment you need.
+Options for anxious patients and complex care
+Helps manage strong gag reflexes and jaw tension
+Planned with your clinician after a full assessment
+Plan a clinician-led sedation dentistry review
+Consider alternatives like Oral surgery planning
+
+=== SECTION: treatment.trustSignals ===
+Why patients choose our approach
+Clinician-led, safety-first sedation
+
+=== SECTION: treatment.consultationOverview ===
+How we decide together
+Consultation, suitability, then a tailored plan
+You’ll meet a clinician to discuss your concerns—anxiety, gag reflex, jaw tension, or the need for a longer visit. We review your health, medications, and previous experiences before advising on sedation or alternative calming support.
+Medical history, airway, and medication review
+Discuss when sedation helps—long treatments, complex care, or severe anxiety
+Explain what to expect, including escorts and fasting if required
+Share options for non-sedation support (calming environments, comfort tech like The Wand)
+Agree next steps, including links to implant or emergency care if relevant
+
+=== SECTION: treatment.whoIsItFor ===
+Who it can help
+Suitable for specific needs
+
+=== SECTION: treatment.processTimeline ===
+What to expect
+Clear steps from consult to recovery
+Times vary by procedure; we share ranges and confirm who should accompany you home.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & safety
+Recover with clear guidance
+
+=== SECTION: treatment.faq ===
+Sedation FAQs
+Common questions answered
+Is sedation right for everyone?
+Not always. We review your medical history, medications, and needs first. If it isn’t suitable, we can use other calming support and comfort tech.
+Will I be asleep?
+Sedation aims to relax you while keeping you responsive. It is not general anaesthesia; you’ll be monitored throughout and recovery is supervised.
+Can I use sedation for longer implant or restorative treatments?
+Yes when appropriate. We’ll discuss suitability, coordination with your implant or complex care plan, and any extra recovery time.
+What if I have a strong gag reflex?
+Sedation can help reduce gagging, and we combine it with techniques like gentle numbing and paced breaks.
+How should I prepare?
+We provide written guidance on fasting (if needed), medication timing, and arranging an escort. You’ll also receive contact details if questions arise.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after nervous patient care (/treatments/nervous-patients) so the plan stays safe and measured.
+Appropriate when you want to understand sedation options available during dental treatment.
+Often follows Nervous patient care (/treatments/nervous-patients); Oral surgery planning (/treatments/extractions-and-oral-surgery).
+Alternatives we balance: Comfort-first numbing (/treatments/painless-numbing-the-wand); Aftercare planning (/treatments/implants-aftercare).
+Next steps we plan for: Implant treatments with sedation (/treatments/implants-sedation); Teeth in a day pathways (/treatments/implants-teeth-in-a-day); Gum therapy support (/treatments/periodontal-gum-care).
+
+=== SECTION: treatment.cta ===
+Next steps
+Talk through sedation calmly first
+Book a consultation to discuss sedation, nervous patient support, or comfort options like The Wand before planning treatment.
+Plan a clinician-led sedation dentistry review
+Consider alternatives like Oral surgery planning

@@ -23,7 +23,8 @@
     "guard:all": "pnpm --filter @champagne/guards guard:all",
     "hero:fit:sacred": "node scripts/hero_fit_sacred.mjs",
     "hero:match:sacred": "pnpm exec playwright install --with-deps chromium && node scripts/hero_match_sacred.mjs",
-    "verify": "node scripts/verify-token-purity.cjs && pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web"
+    "verify": "node scripts/verify-token-purity.cjs && pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web",
+    "export:page-truth": "node scripts/export-page-truth.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",

@@ -1,0 +1,83 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Plan with 3D technology
+See how scans, printing, and guided workflows shape your treatment plan.
+Book a digital planning review
+CBCT / 3D scanning
+Visit the 3D printing lab
+
+=== SECTION: treatment.heroIntro ===
+3D dentistry & technology
+3D dentistry & technology in Shoreham-by-Sea
+Clinician-led digital workflows that start with precise scanning and end with carefully finished restorations made in-house.
+Intraoral scanning for accurate, comfortable records
+Digital smile design with clinician oversight
+In-house print and mill workflows for tighter control
+Refinement and finishing guided by the treating dentist
+Plan a clinician-led 3d dentistry and technology review
+Consider alternatives like CBCT scanning
+
+=== SECTION: treatment.trustSignals ===
+Why patients trust our digital workflow
+Calm, clinician-led control
+
+=== SECTION: treatment.consultationOverview ===
+How we work
+Scan → Design → Print/Mill → Fit
+Your pathway is mapped in advance: we capture a precise scan, design collaboratively, produce the restoration in-house, and refine it chairside with the clinician who planned it.
+Intraoral scan and photography for reference
+Digital design preview with space to adjust shape and bite
+In-house 3D print or mill with controlled materials
+Try-in, fit, and tinting under clinician supervision
+Final adjustments with maintenance guidance
+
+=== SECTION: treatment.whoIsItFor ===
+Who benefits
+Patients who want predictable, visual planning
+
+=== SECTION: treatment.processTimeline ===
+Your digital pathway
+Clear checkpoints from scan to maintenance
+Timelines vary by case complexity; we share ranges and review points upfront.
+
+=== SECTION: treatment.technology ===
+What we can make in-house
+Precision outputs, clinician-reviewed
+We design and fabricate 3D printed veneers (a conservative, cost-effective option with porcelain still the longevity gold standard), implant restorations with planned torque and maintenance, characterised dentures, digitally designed mouth guards, and digitally planned inlays/onlays—all produced under the treating clinician's oversight.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & considerations
+Long-term fit backed by maintenance
+
+=== SECTION: treatment.faq ===
+Digital dentistry FAQs
+Answers before you choose
+When do you recommend porcelain instead of printing?
+We recommend porcelain for cases needing maximum longevity, high gloss, or colour stability. Printed options are useful for provisional stages or conservative veneers when appropriate.
+How fast can printed dentures or guards be ready?
+Digital scanning and in-house production shorten turnaround times; we share a range after your assessment and schedule fit appointments accordingly.
+Do printed implant restorations need different maintenance?
+We pair them with occlusion checks, hygiene plans, and torque reviews. You’ll know the follow-up cadence before treatment begins.
+Can designs be adjusted after I see the preview?
+Yes. We review shape, bite, and shade options with you, then adjust the plan before production.
+What about repairs or remakes?
+Digital files let us reproduce or adjust quickly if needed, with clinician review to avoid repeating issues.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after routine care (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.
+Appropriate when you want to understand how digital tools support diagnosis and treatment planning across dentistry.
+Often follows Routine care (/treatments/preventative-and-general-dentistry); Implant consultation (/treatments/implants-consultation).
+Alternatives we balance: 3D implant restorations (/treatments/3d-implant-restorations); Aligner planning (/treatments/aligners).
+Next steps we plan for: CBCT scanning (/treatments/cbct-3d-scanning); Digital smile design (/treatments/digital-smile-design); 3D printing lab (/treatments/3d-printing-lab).
+
+=== SECTION: treatment.cta ===
+Next steps
+See your options digitally before you commit
+Book a calm digital consultation or ask about 3D printed options tailored to your case.
+Plan a clinician-led 3d dentistry and technology review
+Consider alternatives like CBCT scanning

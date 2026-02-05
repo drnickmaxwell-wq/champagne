@@ -1,0 +1,854 @@
+{
+  "summary": {
+    "FREEZE": 5,
+    "POLISH": 39,
+    "REWRITE": 55
+  },
+  "pages": [
+    {
+      "route": "/",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "St Mary\u2019s House Dental Care is a long-established private practice in Shoreham-by-Sea. We focus on careful planning, calm delivery, and dentistry that makes sense for the long term."
+    },
+    {
+      "route": "/about",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "We work in a calm, clinician-led way: careful assessment, clear explanation, and treatment planned for long-term stability rather than quick fixes."
+    },
+    {
+      "route": "/blog",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Everything here is general information. It can be a useful starting point, but it can\u2019t replace advice tailored to you after an examination. If something you read here raises questions about your own teeth or gums, we\u2019re happy to talk it through at an appointment."
+    },
+    {
+      "route": "/contact",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Contact St Mary\u2019s House Dental Care"
+    },
+    {
+      "route": "/dental-checkups-oral-cancer-screening",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "If you notice ulcers that do not settle, new lumps, persistent soreness, or changes to your mouth or throat, contact us promptly. We will arrange a calm assessment, share what we can see, and signpost to further investigation if needed."
+    },
+    {
+      "route": "/downloads",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Care downloads"
+    },
+    {
+      "route": "/fees",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "This approach supports safe, well-planned care that is tailored to you \u2014 not simply completed quickly."
+    },
+    {
+      "route": "/finance",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Finance support without pressure"
+    },
+    {
+      "route": "/legal/accessibility",
+      "category": "FREEZE",
+      "reasons": [
+        "Compliance/utility copy is direct and intent-specific.",
+        "No hard-banned phrases detected."
+      ],
+      "excerpt": "Accessibility on our website"
+    },
+    {
+      "route": "/legal/complaints",
+      "category": "FREEZE",
+      "reasons": [
+        "Compliance/utility copy is direct and intent-specific.",
+        "No hard-banned phrases detected."
+      ],
+      "excerpt": "Raising concerns"
+    },
+    {
+      "route": "/legal/cookies",
+      "category": "FREEZE",
+      "reasons": [
+        "Compliance/utility copy is direct and intent-specific.",
+        "No hard-banned phrases detected."
+      ],
+      "excerpt": "Cookies and website tools"
+    },
+    {
+      "route": "/legal/privacy",
+      "category": "FREEZE",
+      "reasons": [
+        "Compliance/utility copy is direct and intent-specific.",
+        "No hard-banned phrases detected."
+      ],
+      "excerpt": "Privacy and your information"
+    },
+    {
+      "route": "/legal/terms",
+      "category": "FREEZE",
+      "reasons": [
+        "Compliance/utility copy is direct and intent-specific.",
+        "No hard-banned phrases detected."
+      ],
+      "excerpt": "Using this website"
+    },
+    {
+      "route": "/newsletter",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Newsletter updates"
+    },
+    {
+      "route": "/patient-portal",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Our patient portal is designed to keep key information in one secure place \u2014 helping you stay organised before, during and after appointments. Depending on what you\u2019re using it for, the portal may include appointment details, forms, messages, treatment plans, and helpful aftercare information. If you\u2019re not sure whether the portal is relevant for your situation, our team can guide you. We also keep communication simple: if you prefer to speak to us directly, you can always call the practice. The portal is an optional support tool, built around clarity and convenience rather than complexity."
+    },
+    {
+      "route": "/practice-plan",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "A dental practice plan is designed to help patients look after their oral health on an ongoing basis, rather than focusing only on treatment when problems arise."
+    },
+    {
+      "route": "/smile-gallery",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"transform\"."
+      ],
+      "excerpt": "Smile transformations, simplified"
+    },
+    {
+      "route": "/team",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "At St Mary\u2019s House Dental Care, we\u2019re a small, experienced team who work together every day \u2014 not a rotating cast. That continuity matters. It affects communication, planning, and how calmly care is delivered."
+    },
+    {
+      "route": "/team/nick-maxwell",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "I\u2019ve been practising dentistry since 1998 and have spent much of my career focused on the kind of dentistry that needs calm judgment: complex restorative work, aesthetic planning, bite stability, and carefully selected implant and orthodontic cases."
+    },
+    {
+      "route": "/team/sara-burden",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Profile video placeholder"
+    },
+    {
+      "route": "/team/sylvia-krafft",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Profile video placeholder"
+    },
+    {
+      "route": "/technology",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Explore our technology"
+    },
+    {
+      "route": "/treatments",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Same-day advice for pain, swelling, or trauma with calm next steps."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Book a calm digital consultation or ask about 3D printed options tailored to your case."
+    },
+    {
+      "route": "/treatments/3d-digital-dentistry",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Book a calm digital consultation or ask about 3D printed options tailored to your case."
+    },
+    {
+      "route": "/treatments/3d-implant-restorations",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/3d-printed-dentures",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/3d-printed-veneers",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/3d-printing-lab",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/acrylic-dentures",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Colour and tooth shape tailored to your smile"
+    },
+    {
+      "route": "/treatments/anti-wrinkle-treatments",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Conservative dosing tailored to your goals and muscle activity"
+    },
+    {
+      "route": "/treatments/broken-chipped-cracked-teeth",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"leading\"."
+      ],
+      "excerpt": "Small fractures can spread, and exposed dentine can become very sensitive. In some cases, cracks allow bacteria to reach the nerve, leading to infection."
+    },
+    {
+      "route": "/treatments/bruxism-and-jaw-clenching",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/cbct-3d-scanning",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/childrens-dentistry",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Appropriate when you want to understand how routine and preventive care is tailored for children."
+    },
+    {
+      "route": "/treatments/chrome-dentures",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Slim, durable chrome frameworks designed to share bite forces gently while keeping speech and taste clear."
+    },
+    {
+      "route": "/treatments/clear-aligners",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Clear aligners with clear diagnosis"
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/composite-bonding",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Calm appointment pacing with time for review before final polishing"
+    },
+    {
+      "route": "/treatments/dental-abscess-infection",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Dental abscess and infection"
+    },
+    {
+      "route": "/treatments/dental-bridges",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/dental-checkups-oral-cancer-screening",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "If you notice ulcers that do not settle, new lumps, persistent soreness, or changes to your mouth or throat, contact us promptly. We will arrange a calm assessment, share what we can see, and signpost to further investigation if needed."
+    },
+    {
+      "route": "/treatments/dental-crowns",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Designed to preserve healthy tooth where possible"
+    },
+    {
+      "route": "/treatments/dental-fillings",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Plan a calm filling appointment"
+    },
+    {
+      "route": "/treatments/dental-retainers",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/dental-trauma-accidents",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Falls, sports injuries, or other accidents can affect teeth and soft tissues. We provide calm assessment, stop bleeding, protect damaged areas, and outline any further treatment."
+    },
+    {
+      "route": "/treatments/dentures",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Dentures are removable appliances designed to replace missing teeth and support everyday function."
+    },
+    {
+      "route": "/treatments/dermal-fillers",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related facial aesthetics"
+    },
+    {
+      "route": "/treatments/digital-smile-design",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/emergency-dental-appointments",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Tell us. We\u2019ll take a calm, step-by-step approach: clear explanation, breaks if you need them, and a plan that feels manageable. Emergency dentistry isn\u2019t about rushing you \u2014 it\u2019s about getting you safe and comfortable."
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Emergency dentistry"
+    },
+    {
+      "route": "/treatments/endodontics-root-canal",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Save painful teeth with calm, precise endodontics"
+    },
+    {
+      "route": "/treatments/extractions-and-oral-surgery",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Calm assessments that explain when extraction is the safest route"
+    },
+    {
+      "route": "/treatments/facial-aesthetics",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Explore facial aesthetics options"
+    },
+    {
+      "route": "/treatments/facial-pain-and-headache",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/facial-therapeutics",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/failed-implant-replacement",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Procedures are carried out with local anaesthetic and a calm pace. We also discuss comfort options tailored to your needs."
+    },
+    {
+      "route": "/treatments/fixed-braces",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Costs vary with case complexity, brace material, and appointment frequency. After assessing your teeth we provide a tailored estimate and payment options."
+    },
+    {
+      "route": "/treatments/full-smile-makeover",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Final stages may involve improving shape, colour, or repairing damage. The exact treatments depend on the plan agreed earlier and are tailored to your individual situation."
+    },
+    {
+      "route": "/treatments/home-teeth-whitening",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Home whitening uses custom-made trays and professional whitening gel to gradually brighten your teeth in a controlled way. The benefit of the home approach is precision: the trays are tailored to your teeth, the gel is used in measured doses, and you can pace treatment to manage sensitivity. We\u2019ll check your teeth and gums first, because untreated decay, gum disease or exposed roots can make whitening uncomfortable and unpredictable. If you have existing restorations on the front teeth, we\u2019ll explain how whitening affects the natural tooth but not the restorations, and how we can plan any replacements afterwards if needed for a balanced look."
+    },
+    {
+      "route": "/treatments/implant-aftercare",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Attend routine reviews and cleans, follow tailored hygiene advice, and avoid habits that overload the area."
+    },
+    {
+      "route": "/treatments/implant-consultation",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "A calm, structured consultation designed to assess suitability, discuss options, and build a clear plan \u2014 including likely timelines and fees \u2014 before you decide anything."
+    },
+    {
+      "route": "/treatments/implant-retained-dentures",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Many implant-retained dentures are designed to be removed for daily cleaning while staying secure during eating and speaking. Suitability depends on your specific plan."
+    },
+    {
+      "route": "/treatments/implants",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Planning first, surgery second"
+    },
+    {
+      "route": "/treatments/implants-bone-grafting",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/implants-full-arch",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Costs are confirmed after a full assessment and tailored plan, with finance options discussed so you understand the investment before starting."
+    },
+    {
+      "route": "/treatments/implants-multiple-teeth",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/implants-single-tooth",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/injection-moulded-composite",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Injection-moulded composite for guided precision"
+    },
+    {
+      "route": "/treatments/inlays-onlays",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Material selection tailored to the bite and location"
+    },
+    {
+      "route": "/treatments/knocked-out-tooth",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Knocked-out tooth"
+    },
+    {
+      "route": "/treatments/lost-crowns-veneers-fillings",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Lost crowns, veneers or fillings"
+    },
+    {
+      "route": "/treatments/mouthguards-and-retainers",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/nervous-patients",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "We take a calm, practical approach: clear explanations, gentle pacing, and treatment planned in stages when that makes things easier."
+    },
+    {
+      "route": "/treatments/night-guards-occlusal-splints",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Night guards and occlusal splints are custom-made appliances designed to protect teeth and reduce strain on the jaw."
+    },
+    {
+      "route": "/treatments/orthodontics",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/painless-numbing-the-wand",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/peek-partial-dentures",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/periodontal-gum-care",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "This may involve professional cleaning, tailored oral hygiene advice, and regular monitoring."
+    },
+    {
+      "route": "/treatments/polynucleotides",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Protocols tailored to delicate areas such as under-eye skin when appropriate"
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Prevention plans tailored to your enamel, gums, and lifestyle"
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Consultation, suitability, then a tailored plan"
+    },
+    {
+      "route": "/treatments/sedation-for-implants",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Review conscious sedation options to keep implant visits calm."
+    },
+    {
+      "route": "/treatments/senior-mature-smile-care",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Balance comfort, function, and appearance with a tailored plan \u2014 paced to suit you."
+    },
+    {
+      "route": "/treatments/severe-toothache-dental-pain",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Our aim is to get you comfortable first. We use effective local anaesthetic and we work in a calm, step-by-step way. If you\u2019re anxious, tell us \u2014 pacing, breaks, and clear explanation make a big difference."
+    },
+    {
+      "route": "/treatments/sinus-lift",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/skin-boosters",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Skin boosters are designed to improve hydration, texture, and elasticity with subtle, natural-looking change over time."
+    },
+    {
+      "route": "/treatments/sports-mouthguards",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Protect teeth during sport with tailored guards and annual reviews."
+    },
+    {
+      "route": "/treatments/teeth-in-a-day",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/teeth-whitening",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "A measured plan tailored to your smile"
+    },
+    {
+      "route": "/treatments/teeth-whitening-faqs",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Ask your questions in person and receive a tailored whitening plan."
+    },
+    {
+      "route": "/treatments/therapeutic-facial-injectables",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Related care to explore"
+    },
+    {
+      "route": "/treatments/tmj-disorder-treatment",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Only in selected cases after conservative steps. Doses are tailored to relieve muscle overactivity rather than cosmetic aims."
+    },
+    {
+      "route": "/treatments/tmj-jaw-comfort",
+      "category": "REWRITE",
+      "reasons": [
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Compare connected options and choose the calm next step."
+    },
+    {
+      "route": "/treatments/tooth-wear-broken-teeth",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\".",
+        "Uses \"calm\" more than once (limit is once per page)."
+      ],
+      "excerpt": "Plans are staged and tailored to the individual"
+    },
+    {
+      "route": "/treatments/veneers",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Natural-looking smiles tailored to your face"
+    },
+    {
+      "route": "/treatments/whitening-sensitive-teeth",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"designed to\"."
+      ],
+      "excerpt": "Designed to be tolerable for sensitive teeth"
+    },
+    {
+      "route": "/treatments/whitening-top-ups",
+      "category": "REWRITE",
+      "reasons": [
+        "Contains hard-banned phrase: \"tailored\"."
+      ],
+      "excerpt": "Top-up cadence tailored to coffee, wine, or lifestyle factors"
+    },
+    {
+      "route": "/video-consultation",
+      "category": "POLISH",
+      "reasons": [
+        "Tone is mostly clinical and informative but could be tighter sentence-by-sentence.",
+        "Intent is clear but some phrasing can be more decision-focused."
+      ],
+      "excerpt": "Remote guidance with a clinician"
+    }
+  ]
+}

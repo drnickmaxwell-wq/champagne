@@ -1,0 +1,83 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Use the 3D printing lab for your care
+See how printed guides, models, and mock-ups support predictable results.
+Book a 3D lab consult
+3D printed dentures
+3D implant restorations
+
+=== SECTION: treatment.heroIntro ===
+3D printing lab
+In-house 3D printing for restorative dentistry
+A clinician-led printing lab producing guides, provisionals, guards, and restorations with controlled materials and timelines.
+Scans feed directly into our print workflows
+Trial prints for verification before final fit
+Materials selected for their intended indications
+Option to escalate to lab ceramics when required
+Plan a clinician-led 3d printing lab review
+Consider alternatives like 3D printed dentures
+
+=== SECTION: treatment.trustSignals ===
+Why patients value this
+Quality controlled, clinician directed
+
+=== SECTION: treatment.consultationOverview ===
+What we make
+Printed guides, provisionals, and protective devices
+Our in-house lab produces restorative guides, try-in veneers, implant provisionals, dentures, and mouth guards under clinician oversight. Porcelain and lab ceramics remain the standard when long-term aesthetics and wear demand it.
+Printed mock-ups for veneers and smile previews
+Guides and provisionals for implant and restorative work
+3D printed dentures with hand-finished detail
+Digitally designed mouth guards
+Clear pathways to lab ceramics where they serve high standards
+
+=== SECTION: treatment.whoIsItFor ===
+Who it helps
+Patients needing precise, timely printed solutions
+
+=== SECTION: treatment.processTimeline ===
+Your pathway
+Scan, design, print, and fit
+We explain timelines upfront, including when external lab work is the better choice.
+
+=== SECTION: treatment.technology ===
+Technology
+Integrated scan-to-print workflows
+Scans flow into design software and calibrated printers, with finishing guided by the clinical team to protect accuracy and comfort. Materials are chosen for the indication and verified before fit.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & considerations
+Keeping printed devices performing
+
+=== SECTION: treatment.faq ===
+3D printing lab FAQs
+Safety, materials, and suitability
+Are printed devices as strong as lab ceramics?
+Printed materials are selected for specific indications and can be very durable. For certain long-term aesthetic or high-load cases, lab ceramics may still be recommended.
+How fast can items be produced?
+In-house control shortens turnaround. We share expected timelines and confirm when external lab work is needed.
+Do you keep records of the designs?
+Yes. We store digital files so remakes or adjustments follow the original plan without guesswork.
+What materials do you use?
+We use regulated dental-grade resins and materials suitable for their intended use and explain maintenance requirements.
+Can I upgrade later?
+Absolutely. We outline when transitioning to ceramic or metal alternatives benefits longevity or aesthetics.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after digital smile design (/treatments/digital-smile-design) so the plan stays safe and measured.
+Appropriate when you want to see how in-house 3d printing supports models, guides, and provisional work.
+Often follows Digital smile design (/treatments/digital-smile-design); 3D dentistry and technology (/treatments/3d-dentistry-and-technology).
+Alternatives we balance: Digital implant planning (/treatments/3d-digital-dentistry); Implant consultation (/treatments/implants-consultation).
+Next steps we plan for: 3D printed dentures (/treatments/3d-printed-dentures); 3D printed veneers (/treatments/3d-printed-veneers); Implant restorations (/treatments/3d-implant-restorations).
+
+=== SECTION: treatment.cta ===
+Next steps
+See what our 3D printing lab can make for you
+Book a digital consultation to review whether in-house printing, provisional work, or lab ceramics will high standards support your treatment.
+Plan a clinician-led 3d printing lab review
+Consider alternatives like 3D printed dentures

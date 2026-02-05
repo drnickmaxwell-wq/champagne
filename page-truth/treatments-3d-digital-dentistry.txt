@@ -1,0 +1,102 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+See how digital dentistry supports care
+Explore scanning, guided planning, and 3D printing for precise treatments.
+Book a digital dentistry consult
+CBCT / 3D scanning
+Explore 3D printing lab
+
+=== SECTION: routing_cards ===
+3D & Digital Dentistry — full treatment list
+Full list
+3D & digital dentistry
+CBCT / 3D scanning
+Digital smile design
+3D printing lab
+3D implant restorations
+3D printed dentures
+3D printed veneers
+
+=== SECTION: treatment.heroIntro ===
+Digital dentistry
+3D & Digital Dentistry in Shoreham-by-Sea
+Clinician-led digital workflows that start with precise scanning and end with carefully finished restorations made in-house.
+Intraoral scanning for accurate, comfortable records
+Digital smile design with clinician oversight
+In-house print and mill workflows for tighter control
+Refinement and finishing guided by the treating dentist
+Plan a clinician-led 3d digital dentistry review
+Consider alternatives like CBCT scanning
+
+=== SECTION: treatment.trustSignals ===
+Why patients trust our digital workflow
+Calm, clinician-led control
+
+=== SECTION: treatment.consultationOverview ===
+How we work
+Scan → Design → Print/Mill → Fit
+3D and digital dentistry refers to the way we plan, design, and carry out dental treatment using detailed digital scans rather than relying only on traditional impressions and estimates.
+
+For patients, this means we can see your teeth, bite, and jaw in far greater detail before treatment starts. Digital scans allow us to plan carefully, explain options clearly, and reduce guesswork at every stage.
+
+This technology supports safer planning, clearer communication, and more predictable outcomes. It does not replace clinical judgement or experience — it supports it.
+Intraoral scan and photography for reference
+Digital design preview with space to adjust shape and bite
+In-house 3D print or mill with controlled materials
+Try-in, fit, and tinting under clinician supervision
+Final adjustments with maintenance guidance
+
+=== SECTION: treatment.whoIsItFor ===
+Who benefits
+Patients who want predictable, visual planning
+
+=== SECTION: treatment.processTimeline ===
+Your digital pathway
+Clear checkpoints from scan to maintenance
+Timelines vary by case complexity; we share ranges and review points upfront.
+
+=== SECTION: treatment.technology ===
+What we can make in-house
+Precision outputs, clinician-reviewed
+Instead of taking physical moulds, we use digital scanners and imaging to build a precise three-dimensional picture of your teeth and mouth.
+
+These scans are used to plan treatments such as crowns, implants, aligners, or complex restorations. Because the information is visual, we can show you what we see and talk through options in a way that is easier to understand.
+
+Digital planning helps us check spacing, bite relationships, and fit before treatment begins, rather than discovering issues part-way through.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & considerations
+Long-term fit backed by maintenance
+
+=== SECTION: treatment.faq ===
+Digital dentistry FAQs
+Answers before you choose
+When do you recommend porcelain instead of printing?
+We recommend porcelain for cases needing maximum longevity, high gloss, or colour stability. Printed options are useful for provisional stages or conservative veneers when appropriate.
+How fast can printed dentures or guards be ready?
+Digital scanning and in-house production shorten turnaround times; we share a range after your assessment and schedule fit appointments accordingly.
+Do printed implant restorations need different maintenance?
+We pair them with occlusion checks, hygiene plans, and torque reviews. You’ll know the follow-up cadence before treatment begins.
+Can designs be adjusted after I see the preview?
+Yes. We review shape, bite, and shade options with you, then adjust the plan before production.
+What about repairs or remakes?
+Digital files let us reproduce or adjust quickly if needed, with clinician review to avoid repeating issues.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after routine care (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.
+Appropriate when you want to learn how 3d digital workflows shape assessments and restorative planning.
+Often follows Routine care (/treatments/preventative-and-general-dentistry); Implant consultation (/treatments/implants-consultation).
+Alternatives we balance: 3D implant restorations (/treatments/3d-implant-restorations); Aligner planning (/treatments/aligners).
+Next steps we plan for: CBCT scanning (/treatments/cbct-3d-scanning); Digital smile design (/treatments/digital-smile-design); 3D printing lab (/treatments/3d-printing-lab).
+
+=== SECTION: treatment.cta ===
+Next steps
+See your options digitally before you commit
+Book a calm digital consultation or ask about 3D printed options tailored to your case.
+Plan a clinician-led 3d digital dentistry review
+Consider alternatives like CBCT scanning

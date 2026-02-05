@@ -1,0 +1,83 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Plan 3D printed dentures
+See how printed try-ins speed up fit, comfort, and aesthetics.
+Book a printed denture consult
+Compare acrylic dentures
+Implant-retained dentures
+
+=== SECTION: treatment.heroIntro ===
+3D printed dentures
+3D printed dentures in Shoreham-by-Sea
+Digitally designed dentures with controlled fit, gum characterisation, and faster turnaround from our in-house lab.
+Digital scans for accurate impressions
+In-house printing for quicker iterations
+Gum tinting and characterisation available
+Clinician-led fit and occlusion checks
+Plan a clinician-led 3d printed dentures review
+Consider alternatives like Implant-retained dentures
+
+=== SECTION: treatment.trustSignals ===
+Why patients choose our digital dentures
+Comfort, fit, and clinical oversight
+
+=== SECTION: treatment.consultationOverview ===
+What they are
+Digitally planned dentures with faster feedback loops
+3D printed dentures use digital scans and design software to map tooth position, bite, and gum contour. The digital file lets us adjust fit and aesthetics quickly while keeping the treating clinician in control.
+Scanned records replace most impressions
+Design preview for tooth position and smile
+Try-ins to refine comfort and occlusion
+Printed bases and teeth with gum characterisation
+Adjustments and relines supported by stored files
+
+=== SECTION: treatment.whoIsItFor ===
+Who it helps
+Patients needing stability and a predictable fit
+
+=== SECTION: treatment.processTimeline ===
+Your pathway
+Digitally staged from scan to fit
+We outline timelines and review points before we begin.
+
+=== SECTION: treatment.technology ===
+Technology
+Scans, design software, and calibrated printers
+High-accuracy scanners and calibrated printers help us achieve consistent fit and colour. Designs stay on file so adjustments or remakes are efficient and clinician-reviewed.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare & considerations
+Keeping your dentures stable
+
+=== SECTION: treatment.faq ===
+Denture FAQs
+Clarity before you proceed
+How fast can 3D printed dentures be made?
+Turnaround is typically faster than traditional methods because scanning and in-house printing reduce lab transit. We confirm timelines after your assessment.
+Will they feel different to traditional dentures?
+Digital design aims for improved comfort and retention. We plan try-ins and adjustments to ensure the fit is right for you.
+Can colours be customised?
+Yes. We offer gum characterisation and tooth shades guided by your clinician to keep results natural.
+What if I need a reline or repair?
+Stored digital files let us reprint or adjust efficiently, with the clinician checking bite and pressure points to avoid repeating issues.
+Are printed dentures right for everyone?
+Not often. We’ll advise if a different material or lab-made option is more appropriate based on your bite, bone support, and aesthetic goals.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after extractions and oral surgery (/treatments/extractions-and-oral-surgery) so the plan stays safe and measured.
+Appropriate when you want to understand whether 3d printed dentures are appropriate and how they are made.
+Often follows Extractions and oral surgery (/treatments/extractions-and-oral-surgery); Gum health management (/treatments/periodontal-gum-care).
+Alternatives we balance: Senior smile care (/treatments/senior-mature-smile-care); Comfort sedation (/treatments/sedation-dentistry).
+Next steps we plan for: Implant-retained dentures (/treatments/implants-retained-dentures); Implant consultation (/treatments/implants-consultation); Aftercare and hygiene (/treatments/implants-aftercare).
+
+=== SECTION: treatment.cta ===
+Next steps
+Plan digital dentures with clinician oversight
+Book a consultation to see how digital scanning and in-house printing could support a comfortable, stable denture fit.
+Plan a clinician-led 3d printed dentures review
+Consider alternatives like Implant-retained dentures

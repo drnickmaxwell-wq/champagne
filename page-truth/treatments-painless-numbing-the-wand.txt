@@ -1,0 +1,77 @@
+=== SECTION: treatment_mid_cta ===
+Related care to explore
+Compare connected steps and plan the next visit.
+
+=== SECTION: treatment_closing_cta ===
+Experience gentle anaesthesia
+See how The Wand provides precise, comfortable numbing.
+Book a gentle appointment
+Sedation dentistry
+Nervous patients
+
+=== SECTION: treatment.heroIntro ===
+Comfort dentistry
+Gentle numbing with The Wand
+Computer-assisted delivery keeps anaesthetic steady and precise, helping patients who dislike needles or pressure stay comfortable.
+Fine control to reduce sudden pressure
+Mapped numbing around the treatment area
+Useful for nervous patients or longer visits
+Plan a clinician-led painless numbing the wand review
+Consider alternatives like Sedation dentistry
+
+=== SECTION: treatment.trustSignals ===
+Why patients feel calmer
+Comfort-first numbing
+
+=== SECTION: treatment.consultationOverview ===
+What happens
+We plan comfort before treatment begins
+Your clinician will explain the process, where numbing is needed, and how The Wand keeps flow steady. We discuss your comfort preferences, including options for anxious patients or those with a strong gag reflex.
+Review treatment plan and where numbing is required
+Talk through needle concerns and how we pace the start
+Set expectations for pressure, taste, or warmth
+Combine with other comfort support or sedation when suitable
+Share what to do if you need emergency care before your visit
+
+=== SECTION: treatment.whoIsItFor ===
+Who benefits
+Designed for patients who want gentle numbing
+
+=== SECTION: treatment.processTimeline ===
+During your visit
+A calm start to treatment
+We tailor timings to the procedure and check comfort before moving forward.
+
+=== SECTION: treatment.aftercareRisks ===
+Aftercare
+What to expect once you’re numb
+
+=== SECTION: treatment.faq ===
+The Wand FAQs
+Common comfort questions
+How is The Wand different from a syringe?
+It uses computer-controlled flow and slim tips to deliver anaesthetic steadily, reducing sudden pressure.
+Will it make my appointment longer?
+The start may be slower to prioritise comfort, but it’s planned into your appointment time.
+Can it be combined with sedation?
+Yes, when suitable. We discuss whether sedation dentistry or other calming support is appropriate first.
+Is it safe for emergency visits?
+Yes, we can use it in emergency care when time allows. You’ll still receive standard safety checks.
+What if I still feel nervous?
+Tell us. We can pause, adjust, or explore additional calming options, including referrals to nervous patient resources.
+
+=== SECTION: treatment.consultationOverview ===
+Decision clarity
+When this fits and what else to consider
+In our clinic we usually stage this after nervous patient pathway (/treatments/nervous-patients) so the plan stays safe and measured.
+Appropriate when you want to learn how the wand delivers local anaesthetic more comfortably.
+Often follows Nervous patient pathway (/treatments/nervous-patients); Routine dental visits (/treatments/preventative-and-general-dentistry).
+Alternatives we balance: Gentle orthodontic care (/treatments/orthodontics); Comfort during implants (/treatments/implants-sedation).
+Next steps we plan for: Sedation dentistry (/treatments/sedation-dentistry); Gum treatment support (/treatments/periodontal-gum-care); Oral surgery (/treatments/extractions-and-oral-surgery).
+
+=== SECTION: treatment.cta ===
+Next steps
+Choose gentler numbing for your visit
+Book a comfort consult to see if The Wand or other calming options suit your treatment—whether routine care, restorative work, or implants.
+Plan a clinician-led painless numbing the wand review
+Consider alternatives like Sedation dentistry

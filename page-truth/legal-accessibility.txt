@@ -1,0 +1,16 @@
+=== SECTION: copy-block ===
+Accessibility on our website
+Overview
+We want our website to be usable for as many people as possible. Accessibility is an ongoing process, and we aim to improve readability, navigation, and compatibility with assistive technologies over time. If you find any part of the site difficult to use — for example, problems with contrast, text size, forms, or keyboard navigation — please let us know. Where possible, we can provide information in an alternative format and record feedback for future improvements.
+
+=== SECTION: accordion ===
+Our approach
+We aim to make the website as usable as possible for as many people as possible. Accessibility is an ongoing process, and we review clarity, navigation and compatibility as the site evolves.
+What you can do on your side
+Many people improve readability using browser or device settings (text size, zoom, contrast modes, reader modes, and voice control). If you’d like help finding those settings, let us know.
+Known limitations
+Some third-party tools, embedded media, or older documents may not meet every accessibility standard in every situation. If you find something that isn’t working for you, we want to know so we can look at alternatives.
+Alternative formats
+If you need information in a different format, we can usually provide it or talk it through. Contact the practice and tell us what would help.
+Feedback and updates
+We act on feedback where we reasonably can. This page may be updated as improvements are made.
