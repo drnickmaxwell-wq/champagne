@@ -392,8 +392,8 @@
           "id": "treatments_hub_intro_v2",
           "type": "copy-block",
           "label": "Overview",
-          "title": "Find treatments by locked groups",
-          "copy": "Start with brief guidance, then open the eight director-defined groups. Each card shows up to five featured pathways and keeps the rest hidden until you choose View all."
+          "title": "Find treatments by treatment groups",
+          "copy": "Start with brief guidance, then open the eight treatment groups. Each card shows up to five featured pathways and keeps the rest hidden until you choose View all."
         },
         {
           "id": "treatments_hub_wayfinding",
@@ -401,7 +401,7 @@
           "label": "How to use this hub",
           "title": "Use the grouped navigation",
           "items": [
-            "Eight director-defined groups keep menus, journeys, and CTAs consistent.",
+            "Eight treatment groups keep menus, care pathways, and CTAs consistent.",
             "Each group shows up to five featured treatments with a clear \"View all treatments in this group\" link.",
             "Full inventories stay hidden until you expand the group card or follow its hub page."
           ]
@@ -419,7 +419,7 @@
             },
             {
               "title": "Emergency dentistry and urgent relief",
-              "description": "Same-day advice for pain, swelling, or trauma with calm next steps.",
+              "description": "Same-day advice for pain, swelling, or trauma with clear next steps.",
               "href": "/treatments/emergency-dentistry"
             },
             {
@@ -453,7 +453,7 @@
           "id": "treatments_hub_directory_intro",
           "type": "copy-block",
           "label": "Browse by group",
-          "title": "Browse treatments by locked groups",
+          "title": "Browse treatments by treatment groups",
           "copy": "Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap \"View all treatments in this group.\""
         },
         {
@@ -599,8 +599,8 @@
           "id": "treatments_hub_reviews",
           "type": "google_reviews",
           "label": "Reviews",
-          "title": "What patients say about Champagne care",
-          "strapline": "Read patient feedback from the home reviews section to see how calm pacing and clear explanations feel in practice.",
+          "title": "What patients say",
+          "strapline": "Read patient feedback from the home reviews section to see how measured pacing and clear explanations feel in practice.",
           "rating": 4.9,
           "reviewCount": "120+ Google reviews",
           "reviews": [
