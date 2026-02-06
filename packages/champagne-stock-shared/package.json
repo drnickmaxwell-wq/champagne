@@ -1,0 +1,15 @@
+{
+  "name": "@champagne/stock-shared",
+  "private": true,
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo 'skipping lint'"
+  },
+  "dependencies": {
+    "zod": "^3.25.76"
+  }
+}

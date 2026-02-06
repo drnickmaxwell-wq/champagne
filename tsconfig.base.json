@@ -17,6 +17,8 @@
       "@champagne/cta": ["packages/champagne-cta/src"],
       "@champagne/canon": ["packages/champagne-canon/src"],
       "@champagne/3d": ["packages/champagne-3d/src"],
+      "@champagne/stock-shared": ["packages/champagne-stock-shared/src"],
+      "@champagne/stock-db": ["packages/champagne-stock-db/src"],
       "next": ["apps/web/node_modules/next"],
       "next/*": ["apps/web/node_modules/next/*"]
     },
