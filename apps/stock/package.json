@@ -1,0 +1,7 @@
+{
+  "name": "stock",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'skipping lint'"
+  }
+}

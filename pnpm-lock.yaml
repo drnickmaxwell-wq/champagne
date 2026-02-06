@@ -86,6 +86,12 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
+  apps/ops-api:
+    dependencies:
+      '@champagne/stock-db':
+        specifier: workspace:0.0.1
+        version: link:../../packages/champagne-stock-db
+
   apps/portal:
     dependencies:
       next:
@@ -110,6 +116,8 @@ importers:
       typescript:
         specifier: ^5.6.0
         version: 5.9.3
+
+  apps/stock: {}
 
   apps/web:
     dependencies:

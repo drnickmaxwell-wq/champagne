@@ -1,0 +1,11 @@
+{
+  "name": "ops-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "echo 'skipping lint'"
+  },
+  "dependencies": {
+    "@champagne/stock-db": "workspace:0.0.1"
+  }
+}
