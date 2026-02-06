@@ -91,10 +91,22 @@ importers:
       '@champagne/stock-db':
         specifier: workspace:0.0.1
         version: link:../../packages/champagne-stock-db
+      '@champagne/stock-shared':
+        specifier: workspace:0.0.1
+        version: link:../../packages/champagne-stock-shared
+      pg:
+        specifier: ^8.13.1
+        version: 8.18.0
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
     devDependencies:
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.3
+      '@types/pg':
+        specifier: ^8.11.10
+        version: 8.16.0
       typescript:
         specifier: ^5.6.0
         version: 5.9.3
@@ -257,7 +269,7 @@ importers:
     dependencies:
       drizzle-orm:
         specifier: ^0.44.4
-        version: 0.44.7(pg@8.18.0)
+        version: 0.44.7(@types/pg@8.16.0)(pg@8.18.0)
       pg:
         specifier: ^8.13.1
         version: 8.18.0
@@ -900,6 +912,9 @@ packages:
 
   '@types/node@24.10.3':
     resolution: {integrity: sha512-gqkrWUsS8hcm0r44yn7/xZeV1ERva/nLgrLxFRUGb7aoNMIJfZJ3AC261zDQuOAKC7MiXai1WCpYc48jAHoShQ==}
+
+  '@types/pg@8.16.0':
+    resolution: {integrity: sha512-RmhMd/wD+CF8Dfo+cVIy3RR5cl8CyfXQ0tGgW6XBL8L4LM/UTEbNXYRbLwU6w+CgrKBNbrQWt4FUtTfaU5jSYQ==}
 
   '@types/react@19.2.7':
     resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
@@ -2886,6 +2901,12 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
+  '@types/pg@8.16.0':
+    dependencies:
+      '@types/node': 24.10.3
+      pg-protocol: 1.11.0
+      pg-types: 2.2.0
+
   '@types/react@19.2.7':
     dependencies:
       csstype: 3.2.3
@@ -3264,8 +3285,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.7(pg@8.18.0):
+  drizzle-orm@0.44.7(@types/pg@8.16.0)(pg@8.18.0):
     optionalDependencies:
+      '@types/pg': 8.16.0
       pg: 8.18.0
 
   dunder-proto@1.0.1:
