@@ -3,7 +3,7 @@ import { firefox } from "playwright";
 import sharp from "sharp";
 
 const BASE_URL = process.env.HERO_BURST_BASE_URL ?? "http://127.0.0.1:3000";
-const OUT_PREFIX = "/tmp/hero_burst_03";
+const OUT_PREFIX = "/tmp/hero_burst_04";
 const BURST_MS = [0, 16, 33, 50, 75, 100, 150, 200, 300, 450, 600, 800, 1000, 1250, 1500];
 const NAV_STRIP_DELTA_LUMA_THRESHOLD = 12;
 const NAV_STRIP_DELTA_ALPHA_THRESHOLD = -20;
@@ -87,7 +87,8 @@ const collectFrameData = async (page) =>
 
     const header = document.querySelector("header");
     const headerBottom = header?.getBoundingClientRect().bottom ?? 96;
-    const sampleY = Math.min(window.innerHeight - 2, Math.max(2, Math.round(headerBottom + 12)));
+    const insideHeaderY = Math.min(window.innerHeight - 2, Math.max(2, Math.round(headerBottom - 2)));
+    const belowHeaderY = Math.min(window.innerHeight - 2, Math.max(2, Math.round(headerBottom + 12)));
 
     const stack = document.querySelector(".hero-renderer-v2 .hero-surface-stack");
     const stackRect = stack instanceof HTMLElement ? stack.getBoundingClientRect() : null;
@@ -121,7 +122,8 @@ const collectFrameData = async (page) =>
     return {
       viewport: { width: window.innerWidth, height: window.innerHeight },
       headerBottom,
-      sampleY,
+      insideHeaderY,
+      belowHeaderY,
       hero: {
         exists: hero instanceof HTMLElement,
         rect: heroRect
@@ -132,7 +134,8 @@ const collectFrameData = async (page) =>
               height: heroRect.height,
             }
           : null,
-        coversSampleY: Boolean(heroRect && sampleY >= heroRect.top && sampleY <= heroRect.bottom),
+        coversInsideHeaderY: Boolean(heroRect && insideHeaderY >= heroRect.top && insideHeaderY <= heroRect.bottom),
+        coversBelowHeaderY: Boolean(heroRect && belowHeaderY >= heroRect.top && belowHeaderY <= heroRect.bottom),
       },
       stack: {
         exists: stack instanceof HTMLElement,
@@ -158,21 +161,29 @@ const collectFrameData = async (page) =>
   });
 
 const triggerTransition = async (page, to) => {
-  const navLink = page.locator(`a[href="${to}"]`).first();
-  if (await navLink.count()) {
-    try {
-      await navLink.click({ timeout: 3000, noWaitAfter: true });
-      return "click";
-    } catch (error) {
-      // fallback to direct route transition in diagnostics mode
-    }
+  const escaped = to.replace("/", "\\/");
+  const urlPattern = new RegExp(`${escaped}(\\?|$)`);
+  const link = page.locator(`header a[href="${to}"]`).first();
+  if (await link.count()) {
+    await link.scrollIntoViewIfNeeded();
+    await Promise.all([
+      page.waitForURL(urlPattern, { timeout: 10000 }),
+      link.click({ timeout: 5000, noWaitAfter: true }),
+    ]);
+    return "link-click";
   }
 
-  await page.evaluate((href) => {
-    window.history.pushState(null, "", href);
-    window.dispatchEvent(new PopStateEvent("popstate"));
-  }, to);
-  return "history-push";
+  const altLink = page.locator(`header [data-nav-to="${to}"]`).first();
+  if (await altLink.count()) {
+    await altLink.scrollIntoViewIfNeeded();
+    await Promise.all([
+      page.waitForURL(urlPattern, { timeout: 10000 }),
+      altLink.click({ timeout: 5000, noWaitAfter: true }),
+    ]);
+    return "link-click";
+  }
+
+  throw new Error("Nav click failed: cannot reproduce App Router navigation in this run.");
 };
 
 const run = async () => {
@@ -181,6 +192,12 @@ const run = async () => {
 
   const createdPaths = [];
   const tableRows = [];
+  const warmRoutes = Array.from(new Set(transitions.flatMap((item) => [item.from, item.to])));
+
+  for (const route of warmRoutes) {
+    await page.goto(`${BASE_URL}${route}`, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.waitForTimeout(400);
+  }
 
   for (const transition of transitions) {
     await page.goto(`${BASE_URL}${transition.from}`, { waitUntil: "domcontentloaded" });
@@ -188,7 +205,8 @@ const run = async () => {
 
     const navMethod = await triggerTransition(page, transition.to);
     const clickStart = Date.now();
-    let baselineMetric = null;
+    let baselineInside = null;
+    let baselineBelow = null;
 
     for (const ms of BURST_MS) {
       const elapsed = Date.now() - clickStart;
@@ -215,22 +233,43 @@ const run = async () => {
         },
       });
 
-      const stripRect = {
-        left: Math.max(0, Math.floor((frameData.viewport.width - Math.min(600, frameData.viewport.width)) / 2)),
-        top: Math.max(0, Math.min(frameData.viewport.height - 2, Math.floor(frameData.sampleY - 1))),
-        width: Math.min(600, frameData.viewport.width),
+      const stripWidth = Math.min(600, frameData.viewport.width);
+      const stripLeft = Math.max(0, Math.floor((frameData.viewport.width - stripWidth) / 2));
+
+      const stripRectInside = {
+        left: stripLeft,
+        top: Math.max(0, Math.min(frameData.viewport.height - 2, Math.floor(frameData.insideHeaderY - 1))),
+        width: stripWidth,
         height: 2,
       };
 
-      const strip = await sampleStripMetrics(pngPath, stripRect);
-      if (!baselineMetric) {
-        baselineMetric = strip;
+      const stripRectBelow = {
+        left: stripLeft,
+        top: Math.max(0, Math.min(frameData.viewport.height - 2, Math.floor(frameData.belowHeaderY - 1))),
+        width: stripWidth,
+        height: 2,
+      };
+
+      const stripInside = await sampleStripMetrics(pngPath, stripRectInside);
+      const stripBelow = await sampleStripMetrics(pngPath, stripRectBelow);
+      if (!baselineInside) {
+        baselineInside = stripInside;
+      }
+      if (!baselineBelow) {
+        baselineBelow = stripBelow;
       }
 
-      const deltaLuma = strip.meanLuma - baselineMetric.meanLuma;
-      const deltaA = strip.meanA - baselineMetric.meanA;
-      const flashCandidate =
-        Math.abs(deltaLuma) > NAV_STRIP_DELTA_LUMA_THRESHOLD || deltaA < NAV_STRIP_DELTA_ALPHA_THRESHOLD;
+      const deltaLumaInside = stripInside.meanLuma - baselineInside.meanLuma;
+      const deltaAInside = stripInside.meanA - baselineInside.meanA;
+      const flashInside =
+        Math.abs(deltaLumaInside) > NAV_STRIP_DELTA_LUMA_THRESHOLD ||
+        deltaAInside < NAV_STRIP_DELTA_ALPHA_THRESHOLD;
+
+      const deltaLumaBelow = stripBelow.meanLuma - baselineBelow.meanLuma;
+      const deltaABelow = stripBelow.meanA - baselineBelow.meanA;
+      const flashBelow =
+        Math.abs(deltaLumaBelow) > NAV_STRIP_DELTA_LUMA_THRESHOLD ||
+        deltaABelow < NAV_STRIP_DELTA_ALPHA_THRESHOLD;
 
       await fs.writeFile(
         jsonPath,
@@ -239,19 +278,35 @@ const run = async () => {
             transition,
             ms,
             frameData,
-            stripRect,
-            navStripMetric: {
-              present: flashCandidate,
-              varianceLuma: strip.varianceLuma,
-              meanLuma: strip.meanLuma,
-              meanA: strip.meanA,
-              meanRGB: { r: strip.meanR, g: strip.meanG, b: strip.meanB },
-              deltaLuma: Number(deltaLuma.toFixed(2)),
-              deltaA: Number(deltaA.toFixed(2)),
+            stripRectInside,
+            stripRectBelow,
+            navStripMetricInsideHeader: {
+              present: flashInside,
+              varianceLuma: stripInside.varianceLuma,
+              meanLuma: stripInside.meanLuma,
+              meanA: stripInside.meanA,
+              meanRGB: { r: stripInside.meanR, g: stripInside.meanG, b: stripInside.meanB },
+              deltaLuma: Number(deltaLumaInside.toFixed(2)),
+              deltaA: Number(deltaAInside.toFixed(2)),
+            },
+            navStripMetricBelowHeader: {
+              present: flashBelow,
+              varianceLuma: stripBelow.varianceLuma,
+              meanLuma: stripBelow.meanLuma,
+              meanA: stripBelow.meanA,
+              meanRGB: { r: stripBelow.meanR, g: stripBelow.meanG, b: stripBelow.meanB },
+              deltaLuma: Number(deltaLumaBelow.toFixed(2)),
+              deltaA: Number(deltaABelow.toFixed(2)),
             },
             baseline: {
-              meanLuma: baselineMetric.meanLuma,
-              meanA: baselineMetric.meanA,
+              insideHeader: {
+                meanLuma: baselineInside.meanLuma,
+                meanA: baselineInside.meanA,
+              },
+              belowHeader: {
+                meanLuma: baselineBelow.meanLuma,
+                meanA: baselineBelow.meanA,
+              },
             },
           },
           null,
@@ -266,12 +321,14 @@ const run = async () => {
         transition: transition.label,
         navMethod,
         t_ms: ms,
-        flashCandidate,
-        meanLuma: strip.meanLuma,
-        deltaLuma: Number(deltaLuma.toFixed(2)),
-        meanA: strip.meanA,
-        deltaA: Number(deltaA.toFixed(2)),
-        heroCoversSampleY: frameData.hero.coversSampleY,
+        flashInsideHeader: flashInside,
+        deltaLumaInside: Number(deltaLumaInside.toFixed(2)),
+        deltaAInside: Number(deltaAInside.toFixed(2)),
+        heroCoversInside: frameData.hero.coversInsideHeaderY,
+        flashBelowHeader: flashBelow,
+        deltaLumaBelow: Number(deltaLumaBelow.toFixed(2)),
+        deltaABelow: Number(deltaABelow.toFixed(2)),
+        heroCoversBelow: frameData.hero.coversBelowHeaderY,
       });
     }
   }
