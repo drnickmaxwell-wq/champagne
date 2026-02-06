@@ -745,9 +745,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   } = props;
   const [renderModel, setRenderModel] = useState<HeroV2Model | null>(() => lastResolvedHeroV2Model);
   const renderModelRef = useRef<HeroV2Model | null>(lastResolvedHeroV2Model);
-  const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
-  const visualReadyRef = useRef(false);
+  const readyByIdentityRef = useRef<Record<string, boolean>>({});
+  const lastIdentityRef = useRef<string>("");
   const debugEnabled = searchParams?.get("heroDebug") === "1";
+  const modelSnapshot = renderModel ?? lastResolvedHeroV2Model;
+  const heroIdentityKey = `${modelSnapshot?.surfaceStack.heroId ?? ""}|${
+    modelSnapshot?.surfaceStack.variantId ?? ""
+  }|${modelSnapshot?.surfaceStack.boundVariantId ?? ""}|${pageCategory ?? ""}`;
+  const isHeroVisuallyReady = readyByIdentityRef.current[heroIdentityKey] === true;
 
   useEffect(() => {
     renderModelRef.current = renderModel;
@@ -757,8 +762,12 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [renderModel]);
 
   useEffect(() => {
-    visualReadyRef.current = isHeroVisuallyReady;
-  }, [isHeroVisuallyReady]);
+    if (lastIdentityRef.current && lastIdentityRef.current !== heroIdentityKey) {
+      // do NOT carry readiness across different hero identities
+      // allow the normal gating path for new identity
+    }
+    lastIdentityRef.current = heroIdentityKey;
+  }, [heroIdentityKey]);
 
   useEffect(() => {
     if (!debugEnabled) return;
@@ -864,19 +873,17 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   useEffect(() => {
     const modelSnapshot = renderModelRef.current ?? lastResolvedHeroV2Model;
     if (!modelSnapshot) {
-      setIsHeroVisuallyReady(false);
       return;
     }
-    setIsHeroVisuallyReady(false);
     if (modelSnapshot.surfaceStack.prmEnabled) {
-      setIsHeroVisuallyReady(true);
+      readyByIdentityRef.current[heroIdentityKey] = true;
       return;
     }
     const root = document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
     if (!(root instanceof HTMLElement)) return;
     const motionVideos = Array.from(root.querySelectorAll<HTMLVideoElement>(".hero-surface--motion"));
     if (motionVideos.length === 0) {
-      setIsHeroVisuallyReady(true);
+      readyByIdentityRef.current[heroIdentityKey] = true;
       return;
     }
     let remaining = motionVideos.length;
@@ -886,7 +893,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (!isActive) return;
       remaining -= 1;
       if (remaining <= 0) {
-        setIsHeroVisuallyReady(true);
+        readyByIdentityRef.current[heroIdentityKey] = true;
       }
     };
     const onPlaying = () => markReady();
@@ -910,7 +917,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         }
       });
     };
-  }, [pathnameKey, renderModel]);
+  }, [heroIdentityKey, renderModel]);
 
   const activeModel = renderModel ?? lastResolvedHeroV2Model;
   if (!activeModel) return <HeroFallback />;
