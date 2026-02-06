@@ -5,8 +5,7 @@ import sharp from "sharp";
 const BASE_URL = process.env.HERO_BURST_BASE_URL ?? "http://127.0.0.1:3000";
 const OUT_PREFIX = "/tmp/hero_burst_02";
 const BURST_MS = [0, 16, 33, 50, 75, 100, 150, 200, 300, 450, 600, 800, 1000, 1250, 1500];
-const NAV_STRIP_WIDTH = 200;
-const NAV_STRIP_HEIGHT = 1;
+const NAV_STRIP_VARIANCE_THRESHOLD = 8;
 
 const transitions = [
   { from: "/about", to: "/treatments", label: "about-to-treatments" },
@@ -16,7 +15,7 @@ const transitions = [
 
 const sanitize = (value) => value.replace(/[^a-z0-9-]/gi, "_");
 
-const clipClass = (value) => {
+const clipText = (value) => {
   if (!value) return "";
   return String(value).replace(/\s+/g, " ").trim().slice(0, 120);
 };
@@ -49,19 +48,22 @@ const sampleStripVariance = async (pngPath, stripRect) => {
 
   const mean = values.reduce((sum, v) => sum + v, 0) / values.length;
   const variance = values.reduce((sum, v) => sum + (v - mean) ** 2, 0) / values.length;
-  return { present: variance > 8, variance: Number(variance.toFixed(2)) };
+  return {
+    present: variance > NAV_STRIP_VARIANCE_THRESHOLD,
+    variance: Number(variance.toFixed(2)),
+  };
 };
 
 const collectFrameData = async (page) =>
   page.evaluate(() => {
-    const clipClassInner = (value) => {
+    const clipTextInner = (value) => {
       if (!value) return "";
       return String(value).replace(/\s+/g, " ").trim().slice(0, 120);
     };
 
     const header = document.querySelector("header");
     const headerBottom = header?.getBoundingClientRect().bottom ?? 96;
-    const sampleY = Math.min(window.innerHeight - 1, Math.floor(headerBottom + 12));
+    const sampleY = Math.min(window.innerHeight - 2, Math.max(2, Math.round(headerBottom + 12)));
 
     const stack = document.querySelector(".hero-renderer-v2 .hero-surface-stack");
     const stackRect = stack instanceof HTMLElement ? stack.getBoundingClientRect() : null;
@@ -75,7 +77,7 @@ const collectFrameData = async (page) =>
         const style = getComputedStyle(node);
         stackAncestors.push({
           tagName: node.tagName,
-          className: clipClassInner(node.className),
+          className: clipTextInner(node.className),
           opacity: style.opacity,
           transform: style.transform,
           filter: style.filter,
@@ -88,8 +90,9 @@ const collectFrameData = async (page) =>
       }
     }
 
-    const sampleXs = Array.from({ length: 20 }, (_, idx) =>
-      Math.round((idx / 19) * Math.max(0, window.innerWidth - 1)),
+    const sampleCount = 20;
+    const sampleXs = Array.from({ length: sampleCount }, (_, idx) =>
+      Math.round((idx + 1) * (window.innerWidth / (sampleCount + 1))),
     );
 
     const navBandSamples = sampleXs.map((x) => {
@@ -121,7 +124,7 @@ const collectFrameData = async (page) =>
         const aStyle = getComputedStyle(node);
         ancestors.push({
           tagName: node.tagName,
-          className: clipClassInner(node.className),
+          className: clipTextInner(node.className),
           id: node.id || null,
           heroEngine: node.getAttribute("data-hero-engine"),
           surfaceId: node.getAttribute("data-surface-id"),
@@ -140,8 +143,8 @@ const collectFrameData = async (page) =>
         x,
         y: sampleY,
         tagName: target.tagName,
-        id: target.id || null,
-        className: clipClassInner(target.className),
+        id: target.id ? clipTextInner(target.id) : null,
+        className: clipTextInner(target.className),
         heroEngine: target.getAttribute("data-hero-engine"),
         surfaceId: target.getAttribute("data-surface-id"),
         backgroundColor: style.backgroundColor,
@@ -182,6 +185,44 @@ const collectFrameData = async (page) =>
     };
   });
 
+const summarizeTopElement = (samples) => {
+  const counts = new Map();
+  for (const sample of samples) {
+    const tag = sample?.tagName ?? "NONE";
+    const id = sample?.id ? `#${sample.id}` : "";
+    const cls = sample?.className ? `.${sample.className.replace(/\s+/g, ".")}` : "";
+    const key = `${tag}${id}${cls}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  let top = "NONE";
+  let topCount = -1;
+  for (const [key, count] of counts.entries()) {
+    if (count > topCount) {
+      top = key;
+      topCount = count;
+    }
+  }
+  return top;
+};
+
+const triggerTransition = async (page, to) => {
+  const navLink = page.locator(`a[href="${to}"]`).first();
+  if (await navLink.count()) {
+    try {
+      await navLink.click({ timeout: 3000, noWaitAfter: true });
+      return "click";
+    } catch (error) {
+      // fallback to direct route transition in diagnostics mode
+    }
+  }
+
+  await page.evaluate((href) => {
+    window.history.pushState(null, "", href);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  }, to);
+  return "history-push";
+};
+
 const run = async () => {
   const browser = await firefox.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -193,7 +234,7 @@ const run = async () => {
     await page.goto(`${BASE_URL}${transition.from}`, { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(600);
 
-    await page.click(`a[href="${transition.to}"]`, { noWaitAfter: true });
+    const navMethod = await triggerTransition(page, transition.to);
     const clickStart = Date.now();
 
     for (const ms of BURST_MS) {
@@ -210,7 +251,7 @@ const run = async () => {
 
       await page.screenshot({ path: pngPath, fullPage: false });
 
-      const cropHeight = Math.min(300, frameData.viewport.height);
+      const cropHeight = Math.min(400, frameData.viewport.height);
       await page.screenshot({
         path: cropPath,
         clip: {
@@ -221,27 +262,33 @@ const run = async () => {
         },
       });
 
-      await fs.writeFile(jsonPath, JSON.stringify({ transition, ms, frameData }, null, 2), "utf8");
-
-      createdPaths.push(pngPath, cropPath, jsonPath);
-
       const stripRect = {
-        left: Math.max(0, Math.floor((frameData.viewport.width - NAV_STRIP_WIDTH) / 2)),
-        top: Math.max(0, Math.min(frameData.viewport.height - NAV_STRIP_HEIGHT, Math.floor(frameData.sampleY))),
-        width: Math.min(NAV_STRIP_WIDTH, frameData.viewport.width),
-        height: NAV_STRIP_HEIGHT,
+        left: Math.max(0, Math.floor((frameData.viewport.width - Math.min(600, frameData.viewport.width)) / 2)),
+        top: Math.max(0, Math.min(frameData.viewport.height - 2, Math.floor(frameData.sampleY - 1))),
+        width: Math.min(600, frameData.viewport.width),
+        height: 2,
       };
 
       const strip = await sampleStripVariance(pngPath, stripRect);
-      const representative = frameData.navBandSamples[Math.floor(frameData.navBandSamples.length / 2)] ?? null;
+      const topElementSummary = summarizeTopElement(frameData.navBandSamples);
+      const representative = frameData.navBandSamples.find((item) => item?.backgroundColor) ?? null;
+
+      await fs.writeFile(
+        jsonPath,
+        JSON.stringify({ transition, ms, frameData, stripRect, navStripMetric: strip, topElementSummary }, null, 2),
+        "utf8",
+      );
+
+      createdPaths.push(pngPath, cropPath, jsonPath);
 
       tableRows.push({
         transition: transition.label,
-        ms,
+        navMethod,
+        t_ms: ms,
         navStripPixelsPresent: strip.present,
-        variance: strip.variance,
-        topElementAtSampleY: representative ? `${representative.tagName ?? "NONE"}.${representative.className ?? ""}` : "NONE",
+        "topElement(tag#id.class)": topElementSummary,
         bgColor: representative?.backgroundColor ?? "NONE",
+        variance: strip.variance,
       });
     }
   }
@@ -251,6 +298,7 @@ const run = async () => {
   console.log("Created files:");
   createdPaths.forEach((filePath) => console.log(filePath));
 
+  console.log(`\nnavStripPixelsPresent threshold: variance > ${NAV_STRIP_VARIANCE_THRESHOLD}`);
   console.log("\nNav-band pixel table:");
   console.table(tableRows);
 };
