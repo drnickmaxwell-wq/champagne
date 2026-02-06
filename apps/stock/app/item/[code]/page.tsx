@@ -1,4 +1,5 @@
-import type { StockItem } from "@champagne/stock-shared";
+import Link from "next/link";
+import { fetchScan } from "../../lib/ops-api";
 
 type ItemPageProps = {
   params: {
@@ -6,22 +7,19 @@ type ItemPageProps = {
   };
 };
 
-const demoItem: StockItem = {
-  code: "DEMO-001",
-  name: "Sample Item",
-  quantity: 0
-};
-
-export default function ItemPage({ params }: ItemPageProps) {
-  const isDemo = params.code === demoItem.code;
-  const item = isDemo ? demoItem : { ...demoItem, code: params.code };
+export default async function ItemPage({ params }: ItemPageProps) {
+  const result = await fetchScan(params.code);
 
   return (
     <section>
-      <h1>Item</h1>
-      <p>Code: {item.code}</p>
-      <p>Name: {item.name}</p>
-      <p>Quantity on hand: {item.quantity}</p>
+      <h1>Item: {params.code}</h1>
+      <pre>{JSON.stringify(result, null, 2)}</pre>
+      <p>
+        <Link href="/scan">Back to scan</Link>
+      </p>
+      <p>
+        <Link href="/reorder">View reorder list</Link>
+      </p>
     </section>
   );
 }
