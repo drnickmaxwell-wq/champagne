@@ -1,0 +1,22 @@
+{
+  "name": "@champagne/stock-db",
+  "private": true,
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo 'skipping lint'",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node src/migrate.mjs",
+    "db:seed": "node src/seed.mjs"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.44.4",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.4"
+  }
+}
