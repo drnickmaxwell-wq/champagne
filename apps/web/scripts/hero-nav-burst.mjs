@@ -3,7 +3,7 @@ import { firefox } from "playwright";
 import sharp from "sharp";
 
 const BASE_URL = process.env.HERO_BURST_BASE_URL ?? "http://127.0.0.1:3000";
-const OUT_PREFIX = "/tmp/hero_burst_05";
+const OUT_PREFIX = "/tmp/hero_burst_06";
 const BURST_MS = [0, 16, 33, 50, 75, 100, 150, 200, 300, 450, 600, 800, 1000, 1250, 1500];
 const NAV_STRIP_DELTA_LUMA_THRESHOLD = 12;
 const NAV_STRIP_DELTA_ALPHA_THRESHOLD = -20;
@@ -93,18 +93,47 @@ const collectFrameData = async (page) =>
     const stackRect = stack instanceof HTMLElement ? stack.getBoundingClientRect() : null;
     const stackStyle = stack instanceof HTMLElement ? getComputedStyle(stack) : null;
 
-    const heroSelectors = ['[data-hero-engine]', ".hero-root", ".hero-surface-stack"];
+    const heroSelectors = [".hero-surface-stack", ".hero-root", "[data-hero-engine]"];
+    const heroCandidates = heroSelectors.map((selector) => {
+      const node = document.querySelector(selector);
+      if (!(node instanceof HTMLElement)) {
+        return { selector, exists: false, rect: null };
+      }
+      const rect = node.getBoundingClientRect();
+      return {
+        selector,
+        exists: true,
+        rect: {
+          left: rect.left,
+          top: rect.top,
+          width: rect.width,
+          height: rect.height,
+        },
+      };
+    });
+
     let hero = null;
     let heroSelector = "NONE";
-    for (const selector of heroSelectors) {
-      const node = document.querySelector(selector);
-      if (node) {
-        hero = node;
-        heroSelector = selector;
+    for (const candidate of heroCandidates) {
+      if (candidate.exists) {
+        heroSelector = candidate.selector;
+        hero = document.querySelector(candidate.selector);
         break;
       }
     }
+
     const heroRect = hero instanceof HTMLElement ? hero.getBoundingClientRect() : null;
+    const heroStyle =
+      hero instanceof HTMLElement
+        ? {
+            position: getComputedStyle(hero).position,
+            top: getComputedStyle(hero).top,
+            left: getComputedStyle(hero).left,
+            zIndex: getComputedStyle(hero).zIndex,
+            transform: getComputedStyle(hero).transform,
+            filter: getComputedStyle(hero).filter,
+          }
+        : null;
 
     const clampY = (value) => Math.min(window.innerHeight - 2, Math.max(2, Math.round(value)));
     const bandHeaderY = clampY(headerBottom - 2);
@@ -154,6 +183,8 @@ const collectFrameData = async (page) =>
       hero: {
         exists: hero instanceof HTMLElement,
         selector: heroSelector,
+        style: heroStyle,
+        candidates: heroCandidates,
         rect: heroRect
           ? {
               left: heroRect.left,
@@ -421,6 +452,8 @@ const run = async () => {
         navMethod,
         t_ms: ms,
         heroSelectorMatched: frameData.hero.selector,
+        heroPosition: frameData.hero.style?.position ?? null,
+        heroZIndex: frameData.hero.style?.zIndex ?? null,
         heroTop: frameData.hero.rect ? Math.round(frameData.hero.rect.top) : null,
         heroBottom: frameData.hero.rect ? Math.round(frameData.hero.rect.top + frameData.hero.rect.height) : null,
         headerBottom: frameData.headerRect ? Math.round(frameData.headerRect.bottom) : null,
