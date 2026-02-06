@@ -1,10 +1,11 @@
 import fs from "node:fs/promises";
-import { firefox } from "playwright";
+import { chromium } from "playwright";
 import sharp from "sharp";
 
 const BASE_URL = process.env.HERO_BURST_BASE_URL ?? "http://127.0.0.1:3000";
-const OUT_PREFIX = "/tmp/hero_burst_07";
-const BURST_MS = [0, 16, 33, 50, 75, 100, 150, 200, 300, 450, 600, 800, 1000, 1250, 1500];
+const OUT_PREFIX = "/tmp/hero_burst_chrome_build_01";
+const MICRO_BURST_MS = Array.from({ length: 33 }, (_, index) => index * 8);
+const BURST_MS = [...MICRO_BURST_MS, 300, 450, 600, 800, 1000, 1250, 1500];
 const NAV_STRIP_DELTA_LUMA_THRESHOLD = 12;
 const NAV_STRIP_DELTA_ALPHA_THRESHOLD = -20;
 const TRANSITION_TIMEOUT_MS = 240000;
@@ -271,7 +272,7 @@ const triggerTransition = async (page, to) => {
 };
 
 const run = async () => {
-  const browser = await firefox.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
   const safeGoto = async (url, label) => {
