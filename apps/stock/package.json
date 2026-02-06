@@ -2,7 +2,10 @@
   "name": "stock",
   "private": true,
   "scripts": {
-    "lint": "echo 'skipping lint'"
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "echo 'skipping lint'",
+    "start": "next start"
   },
   "dependencies": {
     "@champagne/stock-shared": "workspace:0.0.1",
