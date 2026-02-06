@@ -8,5 +8,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "echo 'skipping lint'"
+  },
+  "dependencies": {
+    "zod": "^3.25.76"
   }
 }

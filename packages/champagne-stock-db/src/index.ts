@@ -9,3 +9,5 @@ export async function getHealthStatus(): Promise<HealthStatus> {
     checkedAt: new Date().toISOString()
   };
 }
+
+export * from "./schema";
