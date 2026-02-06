@@ -146,6 +146,56 @@ const server = createServer(async (request, response) => {
     }
   }
 
+  if (request.method === "GET" && url.pathname === "/reorder") {
+    try {
+      const result = await pool.query(
+        "SELECT p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint, p.unit_label, p.pack_size_units, COALESCE(SUM(si.qty_remaining), 0) AS available_units FROM products p LEFT JOIN stock_instances si ON si.product_id = p.id AND si.tenant_id = p.tenant_id WHERE p.tenant_id = $1 GROUP BY p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint, p.unit_label, p.pack_size_units",
+        [TENANT_ID]
+      );
+
+      if (result.rowCount === 0) {
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(JSON.stringify([]));
+        return;
+      }
+
+      const suggestions = result.rows
+        .map((row) => {
+          const availableUnits = Number(row.available_units);
+          const minLevelUnits = Number(row.min_level_units);
+          const maxLevelUnits = Number(row.max_level_units);
+
+          if (availableUnits >= minLevelUnits) {
+            return null;
+          }
+
+          const suggestedOrderUnits = Math.max(0, maxLevelUnits - availableUnits);
+
+          return {
+            product_id: row.id,
+            name: row.name,
+            variant: row.variant ?? null,
+            available_units: availableUnits,
+            min_level_units: minLevelUnits,
+            max_level_units: maxLevelUnits,
+            suggested_order_units: suggestedOrderUnits,
+            supplier_hint: row.supplier_hint ?? null,
+            unit_label: row.unit_label,
+            pack_size_units: Number(row.pack_size_units)
+          };
+        })
+        .filter((item) => item !== null);
+
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(suggestions));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to load reorder suggestions." }));
+      return;
+    }
+  }
+
   response.writeHead(404, { "content-type": "application/json" });
   response.end(JSON.stringify({ error: "Not found" }));
 });
