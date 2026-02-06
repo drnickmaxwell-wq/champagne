@@ -1,18 +1,13 @@
-import type { ReorderRequest } from "@champagne/stock-shared";
+import { fetchReorder } from "../lib/ops-api";
 
-const draftRequest: ReorderRequest = {
-  itemCode: "DEMO-001",
-  requestedBy: "ops-demo",
-  quantity: 1
-};
+export default async function ReorderPage() {
+  const result = await fetchReorder();
 
-export default function ReorderPage() {
   return (
     <section>
       <h1>Reorder</h1>
-      <p>Item: {draftRequest.itemCode}</p>
-      <p>Quantity: {draftRequest.quantity}</p>
-      <p>Requested by: {draftRequest.requestedBy}</p>
+      <pre>{JSON.stringify(result, null, 2)}</pre>
+      <p>Flat list for now; supplier grouping later.</p>
     </section>
   );
 }
