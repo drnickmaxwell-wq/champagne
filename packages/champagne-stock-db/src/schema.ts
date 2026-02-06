@@ -53,20 +53,19 @@ export const stockInstances = pgTable("stock_instances", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 
-export const qrCodes = pgTable(
-  "qr_codes",
-  {
-    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-    tenantId: uuid("tenant_id").notNull().references(() => tenants.id),
-    code: text("code").notNull(),
-    type: text("type").notNull(),
-    targetId: uuid("target_id").notNull(),
-    printedLabelText: text("printed_label_text"),
-    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow()
-  },
-  (table) => ({
-    tenantCodeUnique: uniqueIndex("qr_codes_tenant_code_unique").on(table.tenantId, table.code)
-  })
+export const qrCodes = pgTable("qr_codes", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  tenantId: uuid("tenant_id").notNull().references(() => tenants.id),
+  code: text("code").notNull(),
+  type: text("type").notNull(),
+  targetId: uuid("target_id").notNull(),
+  printedLabelText: text("printed_label_text"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow()
+});
+
+export const qrCodesTenantCodeUnique = uniqueIndex("qr_codes_tenant_code_unique").on(
+  qrCodes.tenantId,
+  qrCodes.code
 );
 
 export const events = pgTable("events", {
