@@ -3,9 +3,10 @@ import { firefox } from "playwright";
 import sharp from "sharp";
 
 const BASE_URL = process.env.HERO_BURST_BASE_URL ?? "http://127.0.0.1:3000";
-const OUT_PREFIX = "/tmp/hero_burst_02";
+const OUT_PREFIX = "/tmp/hero_burst_03";
 const BURST_MS = [0, 16, 33, 50, 75, 100, 150, 200, 300, 450, 600, 800, 1000, 1250, 1500];
-const NAV_STRIP_VARIANCE_THRESHOLD = 8;
+const NAV_STRIP_DELTA_LUMA_THRESHOLD = 12;
+const NAV_STRIP_DELTA_ALPHA_THRESHOLD = -20;
 
 const transitions = [
   { from: "/about", to: "/treatments", label: "about-to-treatments" },
@@ -15,17 +16,21 @@ const transitions = [
 
 const sanitize = (value) => value.replace(/[^a-z0-9-]/gi, "_");
 
-const clipText = (value) => {
-  if (!value) return "";
-  return String(value).replace(/\s+/g, " ").trim().slice(0, 120);
-};
-
-const sampleStripVariance = async (pngPath, stripRect) => {
+const sampleStripMetrics = async (pngPath, stripRect) => {
   const image = sharp(pngPath);
   const metadata = await image.metadata();
   const width = metadata.width ?? 0;
   const height = metadata.height ?? 0;
-  if (!width || !height) return { present: false, variance: 0 };
+  if (!width || !height) {
+    return {
+      meanR: 0,
+      meanG: 0,
+      meanB: 0,
+      meanA: 0,
+      meanLuma: 0,
+      varianceLuma: 0,
+    };
+  }
 
   const left = Math.max(0, Math.floor(stripRect.left));
   const top = Math.max(0, Math.floor(stripRect.top));
@@ -37,20 +42,39 @@ const sampleStripVariance = async (pngPath, stripRect) => {
     .raw()
     .toBuffer({ resolveWithObject: true });
 
-  const values = [];
-  for (let x = 0; x < sampleWidth; x += Math.max(1, Math.floor(sampleWidth / 20))) {
-    const idx = x * raw.info.channels;
-    const r = raw.data[idx] ?? 0;
-    const g = raw.data[idx + 1] ?? 0;
-    const b = raw.data[idx + 2] ?? 0;
-    values.push((r + g + b) / 3);
+  const channels = raw.info.channels;
+  const pixelCount = sampleWidth * sampleHeight;
+  let sumR = 0;
+  let sumG = 0;
+  let sumB = 0;
+  let sumA = 0;
+  const lumaValues = new Array(pixelCount);
+  for (let i = 0, p = 0; i < raw.data.length; i += channels, p += 1) {
+    const r = raw.data[i] ?? 0;
+    const g = raw.data[i + 1] ?? 0;
+    const b = raw.data[i + 2] ?? 0;
+    const a = channels > 3 ? raw.data[i + 3] ?? 255 : 255;
+    sumR += r;
+    sumG += g;
+    sumB += b;
+    sumA += a;
+    lumaValues[p] = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   }
 
-  const mean = values.reduce((sum, v) => sum + v, 0) / values.length;
-  const variance = values.reduce((sum, v) => sum + (v - mean) ** 2, 0) / values.length;
+  const meanR = sumR / pixelCount;
+  const meanG = sumG / pixelCount;
+  const meanB = sumB / pixelCount;
+  const meanA = sumA / pixelCount;
+  const meanLuma = lumaValues.reduce((sum, v) => sum + v, 0) / lumaValues.length;
+  const varianceLuma =
+    lumaValues.reduce((sum, v) => sum + (v - meanLuma) ** 2, 0) / lumaValues.length;
   return {
-    present: variance > NAV_STRIP_VARIANCE_THRESHOLD,
-    variance: Number(variance.toFixed(2)),
+    meanR: Number(meanR.toFixed(2)),
+    meanG: Number(meanG.toFixed(2)),
+    meanB: Number(meanB.toFixed(2)),
+    meanA: Number(meanA.toFixed(2)),
+    meanLuma: Number(meanLuma.toFixed(2)),
+    varianceLuma: Number(varianceLuma.toFixed(2)),
   };
 };
 
@@ -68,6 +92,10 @@ const collectFrameData = async (page) =>
     const stack = document.querySelector(".hero-renderer-v2 .hero-surface-stack");
     const stackRect = stack instanceof HTMLElement ? stack.getBoundingClientRect() : null;
     const stackStyle = stack instanceof HTMLElement ? getComputedStyle(stack) : null;
+
+    const hero =
+      document.querySelector(".hero-surface-stack") ?? document.querySelector('[data-hero-engine="v2"]');
+    const heroRect = hero instanceof HTMLElement ? hero.getBoundingClientRect() : null;
 
     const stackAncestors = [];
     if (stack instanceof HTMLElement) {
@@ -90,77 +118,22 @@ const collectFrameData = async (page) =>
       }
     }
 
-    const sampleCount = 20;
-    const sampleXs = Array.from({ length: sampleCount }, (_, idx) =>
-      Math.round((idx + 1) * (window.innerWidth / (sampleCount + 1))),
-    );
-
-    const navBandSamples = sampleXs.map((x) => {
-      const target = document.elementFromPoint(x, sampleY);
-      if (!(target instanceof HTMLElement)) {
-        return {
-          x,
-          y: sampleY,
-          tagName: null,
-          id: null,
-          className: null,
-          heroEngine: null,
-          surfaceId: null,
-          backgroundColor: null,
-          opacity: null,
-          transform: null,
-          filter: null,
-          contain: null,
-          contentVisibility: null,
-          ancestors: [],
-        };
-      }
-
-      const style = getComputedStyle(target);
-      const ancestors = [];
-      let node = target.parentElement;
-      let i = 0;
-      while (node && i < 5) {
-        const aStyle = getComputedStyle(node);
-        ancestors.push({
-          tagName: node.tagName,
-          className: clipTextInner(node.className),
-          id: node.id || null,
-          heroEngine: node.getAttribute("data-hero-engine"),
-          surfaceId: node.getAttribute("data-surface-id"),
-          backgroundColor: aStyle.backgroundColor,
-          opacity: aStyle.opacity,
-          transform: aStyle.transform,
-          filter: aStyle.filter,
-          contain: aStyle.contain,
-          contentVisibility: aStyle.contentVisibility,
-        });
-        node = node.parentElement;
-        i += 1;
-      }
-
-      return {
-        x,
-        y: sampleY,
-        tagName: target.tagName,
-        id: target.id ? clipTextInner(target.id) : null,
-        className: clipTextInner(target.className),
-        heroEngine: target.getAttribute("data-hero-engine"),
-        surfaceId: target.getAttribute("data-surface-id"),
-        backgroundColor: style.backgroundColor,
-        opacity: style.opacity,
-        transform: style.transform,
-        filter: style.filter,
-        contain: style.contain,
-        contentVisibility: style.contentVisibility,
-        ancestors,
-      };
-    });
-
     return {
       viewport: { width: window.innerWidth, height: window.innerHeight },
       headerBottom,
       sampleY,
+      hero: {
+        exists: hero instanceof HTMLElement,
+        rect: heroRect
+          ? {
+              left: heroRect.left,
+              top: heroRect.top,
+              width: heroRect.width,
+              height: heroRect.height,
+            }
+          : null,
+        coversSampleY: Boolean(heroRect && sampleY >= heroRect.top && sampleY <= heroRect.bottom),
+      },
       stack: {
         exists: stack instanceof HTMLElement,
         rect: stackRect
@@ -181,29 +154,8 @@ const collectFrameData = async (page) =>
           : null,
         ancestors: stackAncestors,
       },
-      navBandSamples,
     };
   });
-
-const summarizeTopElement = (samples) => {
-  const counts = new Map();
-  for (const sample of samples) {
-    const tag = sample?.tagName ?? "NONE";
-    const id = sample?.id ? `#${sample.id}` : "";
-    const cls = sample?.className ? `.${sample.className.replace(/\s+/g, ".")}` : "";
-    const key = `${tag}${id}${cls}`;
-    counts.set(key, (counts.get(key) ?? 0) + 1);
-  }
-  let top = "NONE";
-  let topCount = -1;
-  for (const [key, count] of counts.entries()) {
-    if (count > topCount) {
-      top = key;
-      topCount = count;
-    }
-  }
-  return top;
-};
 
 const triggerTransition = async (page, to) => {
   const navLink = page.locator(`a[href="${to}"]`).first();
@@ -236,6 +188,7 @@ const run = async () => {
 
     const navMethod = await triggerTransition(page, transition.to);
     const clickStart = Date.now();
+    let baselineMetric = null;
 
     for (const ms of BURST_MS) {
       const elapsed = Date.now() - clickStart;
@@ -269,13 +222,41 @@ const run = async () => {
         height: 2,
       };
 
-      const strip = await sampleStripVariance(pngPath, stripRect);
-      const topElementSummary = summarizeTopElement(frameData.navBandSamples);
-      const representative = frameData.navBandSamples.find((item) => item?.backgroundColor) ?? null;
+      const strip = await sampleStripMetrics(pngPath, stripRect);
+      if (!baselineMetric) {
+        baselineMetric = strip;
+      }
+
+      const deltaLuma = strip.meanLuma - baselineMetric.meanLuma;
+      const deltaA = strip.meanA - baselineMetric.meanA;
+      const flashCandidate =
+        Math.abs(deltaLuma) > NAV_STRIP_DELTA_LUMA_THRESHOLD || deltaA < NAV_STRIP_DELTA_ALPHA_THRESHOLD;
 
       await fs.writeFile(
         jsonPath,
-        JSON.stringify({ transition, ms, frameData, stripRect, navStripMetric: strip, topElementSummary }, null, 2),
+        JSON.stringify(
+          {
+            transition,
+            ms,
+            frameData,
+            stripRect,
+            navStripMetric: {
+              present: flashCandidate,
+              varianceLuma: strip.varianceLuma,
+              meanLuma: strip.meanLuma,
+              meanA: strip.meanA,
+              meanRGB: { r: strip.meanR, g: strip.meanG, b: strip.meanB },
+              deltaLuma: Number(deltaLuma.toFixed(2)),
+              deltaA: Number(deltaA.toFixed(2)),
+            },
+            baseline: {
+              meanLuma: baselineMetric.meanLuma,
+              meanA: baselineMetric.meanA,
+            },
+          },
+          null,
+          2,
+        ),
         "utf8",
       );
 
@@ -285,10 +266,12 @@ const run = async () => {
         transition: transition.label,
         navMethod,
         t_ms: ms,
-        navStripPixelsPresent: strip.present,
-        "topElement(tag#id.class)": topElementSummary,
-        bgColor: representative?.backgroundColor ?? "NONE",
-        variance: strip.variance,
+        flashCandidate,
+        meanLuma: strip.meanLuma,
+        deltaLuma: Number(deltaLuma.toFixed(2)),
+        meanA: strip.meanA,
+        deltaA: Number(deltaA.toFixed(2)),
+        heroCoversSampleY: frameData.hero.coversSampleY,
       });
     }
   }
@@ -298,7 +281,9 @@ const run = async () => {
   console.log("Created files:");
   createdPaths.forEach((filePath) => console.log(filePath));
 
-  console.log(`\nnavStripPixelsPresent threshold: variance > ${NAV_STRIP_VARIANCE_THRESHOLD}`);
+  console.log(
+    `\nflashCandidate thresholds: abs(deltaLuma) > ${NAV_STRIP_DELTA_LUMA_THRESHOLD} OR deltaA < ${NAV_STRIP_DELTA_ALPHA_THRESHOLD}`,
+  );
   console.log("\nNav-band pixel table:");
   console.table(tableRows);
 };
