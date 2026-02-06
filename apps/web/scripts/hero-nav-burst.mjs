@@ -97,9 +97,10 @@ const collectFrameData = async (page) =>
     const heroCandidates = heroSelectors.map((selector) => {
       const node = document.querySelector(selector);
       if (!(node instanceof HTMLElement)) {
-        return { selector, exists: false, rect: null };
+        return { selector, exists: false, rect: null, style: null };
       }
       const rect = node.getBoundingClientRect();
+      const style = getComputedStyle(node);
       return {
         selector,
         exists: true,
@@ -108,6 +109,14 @@ const collectFrameData = async (page) =>
           top: rect.top,
           width: rect.width,
           height: rect.height,
+        },
+        style: {
+          position: style.position,
+          top: style.top,
+          left: style.left,
+          zIndex: style.zIndex,
+          transform: style.transform,
+          filter: style.filter,
         },
       };
     });
@@ -447,13 +456,26 @@ const run = async () => {
 
       createdPaths.push(pngPath, cropPath, jsonPath);
 
+      const candidateRectsSummary = frameData.hero.candidates
+        .map((candidate) => {
+          if (!candidate.exists || !candidate.rect) {
+            return `${candidate.selector}:none`;
+          }
+          const top = Math.round(candidate.rect.top);
+          const bottom = Math.round(candidate.rect.top + candidate.rect.height);
+          return `${candidate.selector}:${top}-${bottom}`;
+        })
+        .join(" | ");
+
       tableRows.push({
         transition: transition.label,
         navMethod,
         t_ms: ms,
-        heroSelectorMatched: frameData.hero.selector,
-        heroPosition: frameData.hero.style?.position ?? null,
-        heroZIndex: frameData.hero.style?.zIndex ?? null,
+        matchedSelector: frameData.hero.selector,
+        matchedPosition: frameData.hero.style?.position ?? null,
+        matchedZ: frameData.hero.style?.zIndex ?? null,
+        matchedTop: frameData.hero.rect ? Math.round(frameData.hero.rect.top) : null,
+        candidateRectsSummary,
         heroTop: frameData.hero.rect ? Math.round(frameData.hero.rect.top) : null,
         heroBottom: frameData.hero.rect ? Math.round(frameData.hero.rect.top + frameData.hero.rect.height) : null,
         headerBottom: frameData.headerRect ? Math.round(frameData.headerRect.bottom) : null,
