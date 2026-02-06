@@ -3,10 +3,11 @@ import { firefox } from "playwright";
 import sharp from "sharp";
 
 const BASE_URL = process.env.HERO_BURST_BASE_URL ?? "http://127.0.0.1:3000";
-const OUT_PREFIX = "/tmp/hero_burst_06";
+const OUT_PREFIX = "/tmp/hero_burst_07";
 const BURST_MS = [0, 16, 33, 50, 75, 100, 150, 200, 300, 450, 600, 800, 1000, 1250, 1500];
 const NAV_STRIP_DELTA_LUMA_THRESHOLD = 12;
 const NAV_STRIP_DELTA_ALPHA_THRESHOLD = -20;
+const TRANSITION_TIMEOUT_MS = 240000;
 
 const transitions = [
   { from: "/about", to: "/treatments", label: "about-to-treatments" },
@@ -147,6 +148,7 @@ const collectFrameData = async (page) =>
     const clampY = (value) => Math.min(window.innerHeight - 2, Math.max(2, Math.round(value)));
     const bandHeaderY = clampY(headerBottom - 2);
     const bandJustBelowY = clampY(headerBottom + 12);
+    const gapBandY = heroRect ? clampY((headerBottom + heroRect.top) / 2) : clampY(headerBottom + 12);
     let bandInsideHeroY = null;
     if (heroRect) {
       const insideRaw = Math.max(headerBottom + 12, heroRect.top + 8);
@@ -187,6 +189,7 @@ const collectFrameData = async (page) =>
       bands: {
         header: bandHeaderY,
         below: bandJustBelowY,
+        gap: gapBandY,
         insideHero: bandInsideHeroY,
       },
       hero: {
@@ -237,21 +240,31 @@ const triggerTransition = async (page, to) => {
   const link = page.locator(`header a[href="${to}"]`).first();
   if (await link.count()) {
     await link.scrollIntoViewIfNeeded();
-    await Promise.all([
-      page.waitForURL(urlPattern, { timeout: 10000 }),
-      link.click({ timeout: 5000, noWaitAfter: true }),
-    ]);
-    return "link-click";
+    try {
+      await Promise.all([
+        page.waitForURL(urlPattern, { timeout: 10000 }),
+        link.click({ timeout: 5000, noWaitAfter: true }),
+      ]);
+      return "link-click";
+    } catch (error) {
+      await page.waitForTimeout(500);
+      return "link-click-timeout";
+    }
   }
 
   const altLink = page.locator(`header [data-nav-to="${to}"]`).first();
   if (await altLink.count()) {
     await altLink.scrollIntoViewIfNeeded();
-    await Promise.all([
-      page.waitForURL(urlPattern, { timeout: 10000 }),
-      altLink.click({ timeout: 5000, noWaitAfter: true }),
-    ]);
-    return "link-click";
+    try {
+      await Promise.all([
+        page.waitForURL(urlPattern, { timeout: 10000 }),
+        altLink.click({ timeout: 5000, noWaitAfter: true }),
+      ]);
+      return "link-click";
+    } catch (error) {
+      await page.waitForTimeout(500);
+      return "link-click-timeout";
+    }
   }
 
   throw new Error("Nav click failed: cannot reproduce App Router navigation in this run.");
@@ -261,23 +274,38 @@ const run = async () => {
   const browser = await firefox.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
+  const safeGoto = async (url, label) => {
+    try {
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+      return true;
+    } catch (error) {
+      console.warn(`Navigation timeout for ${label}: ${url}`);
+      return false;
+    }
+  };
+
   const createdPaths = [];
   const tableRows = [];
   const baselinePaths = [];
   const warmRoutes = Array.from(new Set(transitions.flatMap((item) => [item.from, item.to])));
 
   for (const route of warmRoutes) {
-    await page.goto(`${BASE_URL}${route}`, { waitUntil: "domcontentloaded", timeout: 60000 });
-    await page.waitForTimeout(400);
+    const ok = await safeGoto(`${BASE_URL}${route}`, `warm:${route}`);
+    if (ok) {
+      await page.waitForTimeout(400);
+    }
   }
 
   for (const transition of transitions) {
-    await page.goto(`${BASE_URL}${transition.from}`, { waitUntil: "domcontentloaded" });
+    const ok = await safeGoto(`${BASE_URL}${transition.from}`, `start:${transition.label}`);
+    if (!ok) {
+      continue;
+    }
     await page.waitForTimeout(250);
 
     const baselineFrame = await collectFrameData(page);
     const baselinePath = `${OUT_PREFIX}_${sanitize(transition.label)}_baseline.png`;
-    await page.screenshot({ path: baselinePath, fullPage: false });
+    await page.screenshot({ path: baselinePath, fullPage: false, timeout: 120000 });
     baselinePaths.push(baselinePath);
 
     const stripWidth = Math.min(600, baselineFrame.viewport.width);
@@ -291,6 +319,12 @@ const run = async () => {
     const baselineStripRectBelow = {
       left: stripLeft,
       top: Math.max(0, Math.min(baselineFrame.viewport.height - 2, Math.floor(baselineFrame.bands.below - 1))),
+      width: stripWidth,
+      height: 2,
+    };
+    const baselineStripRectGap = {
+      left: stripLeft,
+      top: Math.max(0, Math.min(baselineFrame.viewport.height - 2, Math.floor(baselineFrame.bands.gap - 1))),
       width: stripWidth,
       height: 2,
     };
@@ -309,15 +343,22 @@ const run = async () => {
 
     const baselineHeader = await sampleStripMetrics(baselinePath, baselineStripRectHeader);
     const baselineBelow = await sampleStripMetrics(baselinePath, baselineStripRectBelow);
+    const baselineGap = await sampleStripMetrics(baselinePath, baselineStripRectGap);
     const baselineInside = baselineStripRectInside
       ? await sampleStripMetrics(baselinePath, baselineStripRectInside)
       : null;
 
     const navMethod = await triggerTransition(page, transition.to);
     const clickStart = Date.now();
+    let timedOut = false;
 
     for (const ms of BURST_MS) {
       const elapsed = Date.now() - clickStart;
+      if (elapsed > TRANSITION_TIMEOUT_MS) {
+        console.warn(`Transition timeout exceeded (${TRANSITION_TIMEOUT_MS}ms) for ${transition.label}`);
+        timedOut = true;
+        break;
+      }
       const waitMs = Math.max(0, ms - elapsed);
       if (waitMs > 0) await page.waitForTimeout(waitMs);
 
@@ -328,7 +369,7 @@ const run = async () => {
       const cropPath = `${base}.crop.png`;
       const jsonPath = `${base}.json`;
 
-      await page.screenshot({ path: pngPath, fullPage: false });
+      await page.screenshot({ path: pngPath, fullPage: false, timeout: 120000 });
 
       const cropHeight = Math.min(400, frameData.viewport.height);
       await page.screenshot({
@@ -339,6 +380,7 @@ const run = async () => {
           width: frameData.viewport.width,
           height: cropHeight,
         },
+        timeout: 120000,
       });
 
       const stripWidth = Math.min(600, frameData.viewport.width);
@@ -358,6 +400,13 @@ const run = async () => {
         height: 2,
       };
 
+      const stripRectGap = {
+        left: stripLeft,
+        top: Math.max(0, Math.min(frameData.viewport.height - 2, Math.floor(frameData.bands.gap - 1))),
+        width: stripWidth,
+        height: 2,
+      };
+
       const stripRectInside =
         frameData.bands.insideHero !== null
           ? {
@@ -370,6 +419,7 @@ const run = async () => {
 
       const stripHeader = await sampleStripMetrics(pngPath, stripRectHeader);
       const stripBelow = await sampleStripMetrics(pngPath, stripRectBelow);
+      const stripGap = await sampleStripMetrics(pngPath, stripRectGap);
       const stripInside = stripRectInside ? await sampleStripMetrics(pngPath, stripRectInside) : null;
 
       const deltaLumaHeader = stripHeader.meanLuma - baselineHeader.meanLuma;
@@ -383,6 +433,11 @@ const run = async () => {
       const flashBelow =
         Math.abs(deltaLumaBelow) > NAV_STRIP_DELTA_LUMA_THRESHOLD ||
         deltaABelow < NAV_STRIP_DELTA_ALPHA_THRESHOLD;
+
+      const deltaLumaGap = stripGap.meanLuma - baselineGap.meanLuma;
+      const deltaAGap = stripGap.meanA - baselineGap.meanA;
+      const flashGapBand =
+        Math.abs(deltaLumaGap) > NAV_STRIP_DELTA_LUMA_THRESHOLD || deltaAGap < NAV_STRIP_DELTA_ALPHA_THRESHOLD;
 
       const deltaLumaInside = stripInside ? stripInside.meanLuma - baselineInside.meanLuma : null;
       const deltaAInside = stripInside ? stripInside.meanA - baselineInside.meanA : null;
@@ -420,6 +475,15 @@ const run = async () => {
               deltaLuma: Number(deltaLumaBelow.toFixed(2)),
               deltaA: Number(deltaABelow.toFixed(2)),
             },
+            navStripMetricGapBand: {
+              present: flashGapBand,
+              varianceLuma: stripGap.varianceLuma,
+              meanLuma: stripGap.meanLuma,
+              meanA: stripGap.meanA,
+              meanRGB: { r: stripGap.meanR, g: stripGap.meanG, b: stripGap.meanB },
+              deltaLuma: Number(deltaLumaGap.toFixed(2)),
+              deltaA: Number(deltaAGap.toFixed(2)),
+            },
             navStripMetricInsideHero: stripInside
               ? {
                   present: flashInside,
@@ -439,6 +503,10 @@ const run = async () => {
               belowHeader: {
                 meanLuma: baselineBelow.meanLuma,
                 meanA: baselineBelow.meanA,
+              },
+              gapBand: {
+                meanLuma: baselineGap.meanLuma,
+                meanA: baselineGap.meanA,
               },
               insideHero: baselineInside
                 ? {
@@ -479,6 +547,10 @@ const run = async () => {
         heroTop: frameData.hero.rect ? Math.round(frameData.hero.rect.top) : null,
         heroBottom: frameData.hero.rect ? Math.round(frameData.hero.rect.top + frameData.hero.rect.height) : null,
         headerBottom: frameData.headerRect ? Math.round(frameData.headerRect.bottom) : null,
+        gapBandY: Math.round(frameData.bands.gap),
+        flashGapBand,
+        deltaLumaGap: Number(deltaLumaGap.toFixed(2)),
+        deltaAGap: Number(deltaAGap.toFixed(2)),
         meanLumaHeader: stripHeader.meanLuma,
         deltaLumaHeader: Number(deltaLumaHeader.toFixed(2)),
         meanAHeader: stripHeader.meanA,
@@ -497,6 +569,10 @@ const run = async () => {
         flashInsideHero: flashInside,
         heroCoversInsideHero: frameData.hero.coversInsideHeroBand,
       });
+    }
+
+    if (timedOut) {
+      continue;
     }
   }
 
