@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "lib": ["es2022"],
+    "types": ["node"],
+    "paths": {
+      "@champagne/stock-db": ["../../packages/champagne-stock-db/src"],
+      "@champagne/stock-shared": ["../../packages/champagne-stock-shared/src"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

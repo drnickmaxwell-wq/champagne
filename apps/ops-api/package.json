@@ -1,0 +1,18 @@
+{
+  "name": "ops-api",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "lint": "echo 'skipping lint'"
+  },
+  "dependencies": {
+    "@champagne/stock-db": "workspace:0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.6.0"
+  }
+}
