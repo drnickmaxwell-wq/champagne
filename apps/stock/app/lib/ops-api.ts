@@ -72,6 +72,10 @@ export const fetchReorder = async (): Promise<ApiResult<unknown>> => {
   return requestJson(buildUrl("/reorder"));
 };
 
+export const fetchHealth = async (): Promise<ApiResult<unknown>> => {
+  return requestJson(buildUrl("/health"));
+};
+
 export const postEvent = async (
   payload: EventInput
 ): Promise<ApiResult<unknown>> => {

@@ -51,9 +51,18 @@ export default function EventActionPanel({
   const [statusMessage, setStatusMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [lastActionMessage, setLastActionMessage] = useState("");
 
   const canWithdraw = EventTypeSchema.options.includes("WITHDRAW");
   const canReceive = EventTypeSchema.options.includes("RECEIVE");
+
+  const clampQtyInput = (value: string) => {
+    const parsed = Number.parseInt(value, 10);
+    if (!Number.isFinite(parsed)) {
+      return "1";
+    }
+    return String(Math.max(1, parsed));
+  };
 
   const handleEvent = async (eventType: EventType) => {
     if (submitting) {
@@ -61,13 +70,14 @@ export default function EventActionPanel({
     }
     setStatusMessage("");
     setErrorMessage("");
-    const qtyNumber = Number(qtyInput);
+    const qtyNumber = Number.parseInt(qtyInput, 10);
+    const clampedQty = Number.isFinite(qtyNumber) ? Math.max(1, qtyNumber) : 1;
     if (!Number.isFinite(qtyNumber) || qtyNumber <= 0) {
-      setErrorMessage("Quantity must be a positive number.");
-      return;
+      setQtyInput(String(clampedQty));
     }
 
-    const qtyDeltaUnits = eventType === "WITHDRAW" ? -qtyNumber : qtyNumber;
+    const qtyDeltaUnits =
+      eventType === "WITHDRAW" ? -clampedQty : clampedQty;
     setSubmitting(true);
     const result = await postEvent({
       eventType,
@@ -87,6 +97,9 @@ export default function EventActionPanel({
     const updatedSuffix =
       updatedQty === null ? "" : ` Updated remaining: ${updatedQty}.`;
     setStatusMessage(`Event recorded.${updatedSuffix}`);
+    setLastActionMessage(
+      `Last action: ${eventType} x${clampedQty} at ${new Date().toLocaleString()}`
+    );
     onEventSuccess?.();
   };
 
@@ -102,23 +115,46 @@ export default function EventActionPanel({
         id="event-qty"
         type="number"
         min="1"
+        step="1"
         value={qtyInput}
-        onChange={(event) => setQtyInput(event.target.value)}
+        disabled={submitting}
+        onChange={(event) => setQtyInput(clampQtyInput(event.target.value))}
       />
       <div>
         {canWithdraw ? (
-          <button type="button" onClick={() => handleEvent("WITHDRAW")}>
+          <button
+            type="button"
+            onClick={() => handleEvent("WITHDRAW")}
+            disabled={submitting}
+          >
             Withdraw
           </button>
         ) : null}
         {canReceive ? (
-          <button type="button" onClick={() => handleEvent("RECEIVE")}>
+          <button
+            type="button"
+            onClick={() => handleEvent("RECEIVE")}
+            disabled={submitting}
+          >
             Receive
           </button>
         ) : null}
       </div>
-      {statusMessage ? <p>{statusMessage}</p> : null}
-      {errorMessage ? <p>{errorMessage}</p> : null}
+      {statusMessage ? (
+        <p role="status">
+          <strong>Success:</strong> {statusMessage}
+        </p>
+      ) : null}
+      {errorMessage ? (
+        <p role="alert">
+          <strong>Error:</strong> {errorMessage}
+        </p>
+      ) : null}
+      {lastActionMessage ? (
+        <p role="status">
+          <strong>{lastActionMessage}</strong>
+        </p>
+      ) : null}
     </div>
   );
 }
