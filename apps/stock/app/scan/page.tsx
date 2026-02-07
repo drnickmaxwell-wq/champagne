@@ -10,6 +10,7 @@ import Card from "../components/ui/Card";
 import DisclosureCard from "../components/ui/DisclosureCard";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import { FieldList, FieldRow } from "../components/ui/FieldList";
+import LoadingLine from "../components/ui/LoadingLine";
 import PageShell from "../components/ui/PageShell";
 import { PrimaryActions } from "../components/ui/PrimaryActions";
 import StatusLine from "../components/ui/StatusLine";
@@ -34,12 +35,15 @@ export default function ScanPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [lastActionMessage, setLastActionMessage] = useState("");
+  const [opsUnreachable, setOpsUnreachable] = useState(false);
+  const [manualFocus, setManualFocus] = useState(false);
   const [opsStatus, setOpsStatus] = useState<"ok" | "offline" | "unknown">(
     "unknown"
   );
 
   const checkOpsStatus = useCallback(async () => {
     const result = await fetchHealth();
+    setOpsUnreachable(result.status === 0);
     setOpsStatus(result.ok ? "ok" : "offline");
   }, []);
 
@@ -57,9 +61,13 @@ export default function ScanPage() {
   const loadScan = useCallback(async (code: string) => {
     setLoading(true);
     setErrorMessage("");
+    setOpsUnreachable(false);
     const result = await fetchScan(code);
     setLoading(false);
     if (!result.ok) {
+      if (result.status === 0) {
+        setOpsUnreachable(true);
+      }
       setErrorMessage(resolveErrorMessage(result.data));
       setScanResult(null);
       return;
@@ -77,15 +85,22 @@ export default function ScanPage() {
 
   const handleDetected = useCallback(
     (code: string) => {
+      const normalized = code.trim().toUpperCase();
       setCameraOpen(false);
-      setScanCode(code);
-      void loadScan(code);
+      setScanCode(normalized);
+      setManualFocus(false);
+      void loadScan(normalized);
     },
     [loadScan]
   );
 
   const handleStop = useCallback(() => {
     setCameraOpen(false);
+  }, []);
+
+  const handleCameraUnavailable = useCallback(() => {
+    setCameraOpen(false);
+    setManualFocus(true);
   }, []);
 
   const parsedScan = ScanResponseSchema.safeParse(scanResult);
@@ -127,7 +142,11 @@ export default function ScanPage() {
       <Card title="Camera scan">
         {cameraOpen ? (
           <>
-            <Scanner onDetected={handleDetected} onStop={handleStop} />
+            <Scanner
+              onDetected={handleDetected}
+              onStop={handleStop}
+              onUnavailable={handleCameraUnavailable}
+            />
             <PrimaryActions>
               <button type="button" onClick={() => setCameraOpen(false)}>
                 Stop camera
@@ -145,18 +164,27 @@ export default function ScanPage() {
       <Card title="Manual entry">
         <ScanForm
           defaultCode={scanCode}
+          disabled={loading}
+          autoFocus={manualFocus}
           onSubmitCode={(code) => {
             setScanCode(code);
             void loadScan(code);
           }}
         />
       </Card>
-      {loading ? (
-        <FeedbackCard title="Loading" role="status" message="Loading scan result..." />
-      ) : null}
-      {errorMessage ? (
-        <FeedbackCard title="Error" role="alert" message={errorMessage} />
-      ) : null}
+      <div className="stock-feedback-region" aria-live="polite">
+        {loading ? <LoadingLine label="Working..." /> : null}
+        {opsUnreachable ? (
+          <FeedbackCard
+            title="Ops API unreachable"
+            role="alert"
+            message="Unable to reach ops-api. Check network or service status."
+          />
+        ) : null}
+        {errorMessage ? (
+          <FeedbackCard title="Error" role="alert" message={errorMessage} />
+        ) : null}
+      </div>
       {scanData ? (
         <Card title="Result">
           {scanData.result === "UNMATCHED" ? (
@@ -251,6 +279,9 @@ export default function ScanPage() {
             productId={actionTarget.productId}
             stockInstanceId={actionTarget.stockInstanceId}
             locationId={actionTarget.locationId ?? null}
+            locationName={
+              scanData && "location" in scanData ? scanData.location?.name ?? null : null
+            }
             onEventSuccess={() => {
               if (scanCode.length > 0) {
                 void loadScan(scanCode);

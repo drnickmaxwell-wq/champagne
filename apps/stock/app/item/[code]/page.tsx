@@ -9,6 +9,7 @@ import Card from "../../components/ui/Card";
 import DisclosureCard from "../../components/ui/DisclosureCard";
 import FeedbackCard from "../../components/ui/FeedbackCard";
 import { FieldList, FieldRow } from "../../components/ui/FieldList";
+import LoadingLine from "../../components/ui/LoadingLine";
 import PageShell from "../../components/ui/PageShell";
 import { ActionLink, PrimaryActions } from "../../components/ui/PrimaryActions";
 import StatusLine from "../../components/ui/StatusLine";
@@ -40,6 +41,7 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [lastActionMessage, setLastActionMessage] = useState("");
+  const [opsUnreachable, setOpsUnreachable] = useState(false);
 
   const loadItem = useCallback(async (options?: { refresh?: boolean }) => {
     if (code.length === 0) {
@@ -52,10 +54,14 @@ export default function Page() {
       setLoading(true);
     }
     setErrorMessage("");
+    setOpsUnreachable(false);
     const result = await fetchScan(code);
     setLoading(false);
     setRefreshing(false);
     if (!result.ok) {
+      if (result.status === 0) {
+        setOpsUnreachable(true);
+      }
       setErrorMessage(resolveErrorMessage(result.data));
       setScanResult(null);
       return;
@@ -109,15 +115,20 @@ export default function Page() {
         <StatusLine items={[{ label: "Last action", value: lastActionValue }]} />
       }
     >
-      {loading ? (
-        <FeedbackCard title="Loading" role="status" message="Loading item..." />
-      ) : null}
-      {refreshing ? (
-        <FeedbackCard title="Refreshing" role="status" message="Refreshing..." />
-      ) : null}
-      {errorMessage ? (
-        <FeedbackCard title="Error" role="alert" message={errorMessage} />
-      ) : null}
+      <div className="stock-feedback-region" aria-live="polite">
+        {loading ? <LoadingLine label="Working..." /> : null}
+        {refreshing ? <LoadingLine label="Working..." /> : null}
+        {opsUnreachable ? (
+          <FeedbackCard
+            title="Ops API unreachable"
+            role="alert"
+            message="Unable to reach ops-api. Check network or service status."
+          />
+        ) : null}
+        {errorMessage ? (
+          <FeedbackCard title="Error" role="alert" message={errorMessage} />
+        ) : null}
+      </div>
       <Card title="Primary details">
         {scanData && scanData.result === "UNMATCHED" ? (
           <p>No match found for this code.</p>
@@ -202,6 +213,9 @@ export default function Page() {
             productId={actionTarget.productId}
             stockInstanceId={actionTarget.stockInstanceId}
             locationId={actionTarget.locationId ?? null}
+            locationName={
+              scanData && "location" in scanData ? scanData.location?.name ?? null : null
+            }
             onEventSuccess={() => {
               void loadItem({ refresh: true });
             }}
@@ -215,7 +229,7 @@ export default function Page() {
         </DisclosureCard>
       ) : null}
       <PrimaryActions>
-        <ActionLink href="/scan">Scan another</ActionLink>
+        <ActionLink href="/scan">Scan again</ActionLink>
         <ActionLink href="/reorder">Reorder</ActionLink>
       </PrimaryActions>
     </PageShell>
