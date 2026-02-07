@@ -268,6 +268,7 @@ export default function ScanPage() {
       ) : null}
       <PrimaryActions>
         <ActionLink href="/scan">Scan another</ActionLink>
+        <ActionLink href="/baseline">Baseline (one-time)</ActionLink>
         <ActionLink href="/locations">Locations</ActionLink>
         <ActionLink href="/products">Products</ActionLink>
       </PrimaryActions>

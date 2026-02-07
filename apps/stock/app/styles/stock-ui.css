@@ -435,3 +435,96 @@ main {
   border-radius: calc(var(--stock-radius) - 4px);
   min-height: calc(var(--radius-lg) + var(--radius-sm));
 }
+
+.stock-progress {
+  display: grid;
+  gap: var(--stock-space-1);
+  padding: var(--stock-space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  background: var(--surface-0);
+}
+
+.stock-progress__step {
+  font-weight: 600;
+  color: var(--text-medium);
+}
+
+.stock-progress__step--active {
+  color: var(--text-high);
+}
+
+.stock-location-grid {
+  display: grid;
+  gap: var(--stock-space-2);
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.stock-location-tile {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  padding: var(--stock-space-2);
+  background: var(--surface-0);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  display: grid;
+  gap: var(--stock-space-1);
+  box-shadow: var(--shadow-soft);
+}
+
+.stock-location-tile--active {
+  border-color: var(--text-high);
+}
+
+.stock-location-tile__title {
+  font-weight: 600;
+  color: var(--text-high);
+}
+
+.stock-location-tile__meta {
+  color: var(--text-medium);
+  font-size: 0.9rem;
+}
+
+.stock-location-tile__status {
+  color: var(--text-medium);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stock-completion-grid {
+  display: grid;
+  gap: var(--stock-space-2);
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+.stock-completion-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  padding: var(--stock-space-2);
+  background: var(--surface-0);
+  display: grid;
+  gap: var(--stock-space-1);
+  box-shadow: var(--shadow-soft);
+}
+
+.stock-completion-card__label {
+  color: var(--text-medium);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.stock-completion-card__value {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.stock-list {
+  margin: 0;
+  padding-left: var(--stock-space-3);
+  color: var(--text-medium);
+  display: grid;
+  gap: var(--stock-space-1);
+}
