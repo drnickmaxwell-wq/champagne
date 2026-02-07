@@ -745,14 +745,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   } = props;
   const [renderModel, setRenderModel] = useState<HeroV2Model | null>(() => lastResolvedHeroV2Model);
   const renderModelRef = useRef<HeroV2Model | null>(lastResolvedHeroV2Model);
+  const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
   const readyByIdentityRef = useRef<Record<string, boolean>>({});
-  const lastIdentityRef = useRef<string>("");
   const debugEnabled = searchParams?.get("heroDebug") === "1";
   const modelSnapshot = renderModel ?? lastResolvedHeroV2Model;
   const heroIdentityKey = `${modelSnapshot?.surfaceStack.heroId ?? ""}|${
     modelSnapshot?.surfaceStack.variantId ?? ""
   }|${modelSnapshot?.surfaceStack.boundVariantId ?? ""}|${pageCategory ?? ""}`;
-  const isHeroVisuallyReady = readyByIdentityRef.current[heroIdentityKey] === true;
 
   useEffect(() => {
     renderModelRef.current = renderModel;
@@ -762,11 +761,11 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [renderModel]);
 
   useEffect(() => {
-    if (lastIdentityRef.current && lastIdentityRef.current !== heroIdentityKey) {
-      // do NOT carry readiness across different hero identities
-      // allow the normal gating path for new identity
+    if (readyByIdentityRef.current[heroIdentityKey] === true) {
+      setIsHeroVisuallyReady(true);
+    } else {
+      setIsHeroVisuallyReady(false);
     }
-    lastIdentityRef.current = heroIdentityKey;
   }, [heroIdentityKey]);
 
   useEffect(() => {
@@ -877,6 +876,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     }
     if (modelSnapshot.surfaceStack.prmEnabled) {
       readyByIdentityRef.current[heroIdentityKey] = true;
+      setIsHeroVisuallyReady(true);
       return;
     }
     const root = document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
@@ -884,6 +884,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     const motionVideos = Array.from(root.querySelectorAll<HTMLVideoElement>(".hero-surface--motion"));
     if (motionVideos.length === 0) {
       readyByIdentityRef.current[heroIdentityKey] = true;
+      setIsHeroVisuallyReady(true);
       return;
     }
     let remaining = motionVideos.length;
@@ -894,6 +895,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       remaining -= 1;
       if (remaining <= 0) {
         readyByIdentityRef.current[heroIdentityKey] = true;
+        setIsHeroVisuallyReady(true);
       }
     };
     const onPlaying = () => markReady();
