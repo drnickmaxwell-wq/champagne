@@ -1,0 +1,43 @@
+{
+  "changedFiles": [
+    "apps/chat-ui/app/page.tsx",
+    "apps/chat-ui/components/luxury-chatbot.tsx"
+  ],
+  "beforeAfterSnippets": [
+    {
+      "file": "apps/chat-ui/app/page.tsx",
+      "before": "<span className=\"chat-preview-badge\">Luxury Concierge UI</span>\n<h1 className=\"text-3xl font-semibold\">Champagne Concierge</h1>\n<p className=\"max-w-xl text-sm text-[color:var(--text-medium)]\">\n  The Champagne Concierge runs in your browser while the AI engine handles\n  responses securely. Use the launcher to open the chat window.\n</p>",
+      "after": "<span className=\"chat-preview-badge\">Chat UI Preview</span>\n<h1 className=\"text-3xl font-semibold\">St Mary&apos;s House Chat</h1>\n<p className=\"max-w-xl text-sm text-[color:var(--text-medium)]\">\n  The chat experience runs in your browser while the engine handles responses\n  securely. Use the launcher to open the chat window.\n</p>"
+    },
+    {
+      "file": "apps/chat-ui/app/page.tsx",
+      "before": "The luxury concierge UI is now live. Tap the floating chat button in the lower\nright corner to begin a conversation and preview the luxury experience.",
+      "after": "The chat preview is ready. Tap the floating chat button in the lower right corner\nto begin a conversation and review the chat experience."
+    },
+    {
+      "file": "apps/chat-ui/components/luxury-chatbot.tsx",
+      "before": "Hello! I'm Dr. Marina, your AI concierge at St Mary's House Dental Care. I'm here to help you navigate your dental journey with our luxury coastal practice. How can I assist you today? 🌊",
+      "after": "Hello! I’m the St Mary’s House concierge. I can help with appointments and general questions. How can I help today?"
+    },
+    {
+      "file": "apps/chat-ui/components/luxury-chatbot.tsx",
+      "before": "<h3 className=\"font-semibold\">Dr. Marina</h3>\n<p className=\"text-xs opacity-90\">AI Dental Concierge</p>",
+      "after": "<h3 className=\"font-semibold\">St Mary&apos;s House Concierge</h3>\n<p className=\"text-xs opacity-90\">Care concierge</p>"
+    },
+    {
+      "file": "apps/chat-ui/components/luxury-chatbot.tsx",
+      "before": "technology: \"Tell me about your 3D technology and advanced treatments.\"",
+      "after": "technology: \"Tell me about your technology and treatment options.\""
+    },
+    {
+      "file": "apps/chat-ui/components/luxury-chatbot.tsx",
+      "before": "label=\"Book Appointment\"",
+      "after": "label=\"Book appointment\""
+    },
+    {
+      "file": "apps/chat-ui/components/luxury-chatbot.tsx",
+      "before": "label=\"3D Technology\"",
+      "after": "label=\"Technology\""
+    }
+  ]
+}

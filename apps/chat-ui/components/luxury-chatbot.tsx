@@ -262,7 +262,7 @@ export default function LuxuryChatbot({
         id: "1",
         role: "assistant",
         content:
-          "Hello! I'm Dr. Marina, your AI concierge at St Mary's House Dental Care. I'm here to help you navigate your dental journey with our luxury coastal practice. How can I assist you today? 🌊",
+          "Hello! I’m the St Mary’s House concierge. I can help with appointments and general questions. How can I help today?",
         timestamp: new Date(),
       };
       setMessages([welcomeMessage]);
@@ -395,7 +395,7 @@ export default function LuxuryChatbot({
     const actions = {
       book: "I'd like to book an appointment for a consultation.",
       emergency: "I have a dental emergency and need urgent care.",
-      technology: "Tell me about your 3D technology and advanced treatments.",
+      technology: "Tell me about your technology and treatment options.",
       costs: "What are your treatment costs and payment options?",
     };
 
@@ -474,8 +474,8 @@ export default function LuxuryChatbot({
                     <span className="text-lg">🦷</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold">Dr. Marina</h3>
-                    <p className="text-xs opacity-90">AI Dental Concierge</p>
+                    <h3 className="font-semibold">St Mary&apos;s House Concierge</h3>
+                    <p className="text-xs opacity-90">Care concierge</p>
                   </div>
                 </div>
 
@@ -539,7 +539,7 @@ export default function LuxuryChatbot({
               <div className="flex gap-2 flex-wrap">
                 <QuickActionButton
                   icon={Calendar}
-                  label="Book Appointment"
+                  label="Book appointment"
                   onClick={() => handleQuickAction("book")}
                   color="teal"
                 />
@@ -551,7 +551,7 @@ export default function LuxuryChatbot({
                 />
                 <QuickActionButton
                   icon={Sparkles}
-                  label="3D Technology"
+                  label="Technology"
                   onClick={() => handleQuickAction("technology")}
                   color="purple"
                 />
