@@ -5,15 +5,19 @@ import ScanForm from "./ScanForm";
 import Scanner from "./Scanner";
 import { fetchHealth, fetchScan } from "../lib/ops-api";
 import { ScanResponseSchema } from "@champagne/stock-shared";
-import EventActionPanel from "../components/EventActionPanel";
-import Card from "../components/ui/Card";
-import DisclosureCard from "../components/ui/DisclosureCard";
 import FeedbackCard from "../components/ui/FeedbackCard";
-import { FieldList, FieldRow } from "../components/ui/FieldList";
+import { FieldRow } from "../components/ui/FieldList";
 import LoadingLine from "../components/ui/LoadingLine";
 import PageShell from "../components/ui/PageShell";
 import { PrimaryActions } from "../components/ui/PrimaryActions";
 import StatusLine from "../components/ui/StatusLine";
+import {
+  ActionSection,
+  DebugDisclosure,
+  KeyValueGrid,
+  ScreenHeader,
+  Section
+} from "../components/ui/ScreenKit";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -122,24 +126,28 @@ export default function ScanPage() {
 
   return (
     <PageShell
-      title="Scan"
-      status={
-        <StatusLine
-          items={[
-            { label: "Ops", value: opsLabel },
-            { label: "Last action", value: lastActionValue }
-          ]}
+      header={
+        <ScreenHeader
+          title="Scan"
+          status={
+            <StatusLine
+              items={[
+                { label: "Ops", value: opsLabel },
+                { label: "Last action", value: lastActionValue }
+              ]}
+            />
+          }
+          actions={
+            <PrimaryActions>
+              <button type="button" onClick={() => void checkOpsStatus()}>
+                Retry ops
+              </button>
+            </PrimaryActions>
+          }
         />
       }
-      actions={
-        <PrimaryActions>
-          <button type="button" onClick={() => void checkOpsStatus()}>
-            Retry ops
-          </button>
-        </PrimaryActions>
-      }
     >
-      <Card title="Camera scan">
+      <Section title="Camera scan">
         {cameraOpen ? (
           <>
             <Scanner
@@ -160,8 +168,8 @@ export default function ScanPage() {
             </button>
           </PrimaryActions>
         )}
-      </Card>
-      <Card title="Manual entry">
+      </Section>
+      <Section title="Manual entry">
         <ScanForm
           defaultCode={scanCode}
           disabled={loading}
@@ -171,7 +179,7 @@ export default function ScanPage() {
             void loadScan(code);
           }}
         />
-      </Card>
+      </Section>
       <div className="stock-feedback-region" aria-live="polite">
         {loading ? <LoadingLine label="Working..." /> : null}
         {opsUnreachable ? (
@@ -186,11 +194,11 @@ export default function ScanPage() {
         ) : null}
       </div>
       {scanData ? (
-        <Card title="Result">
+        <Section title="Result">
           {scanData.result === "UNMATCHED" ? (
             <p>No match found for this code.</p>
           ) : (
-            <FieldList>
+            <KeyValueGrid>
               <FieldRow label="Target" value={scanData.result} />
               {scanData.result === "LOCATION" ? (
                 <>
@@ -264,32 +272,32 @@ export default function ScanPage() {
                   />
                 </>
               ) : null}
-            </FieldList>
+            </KeyValueGrid>
           )}
-        </Card>
+        </Section>
       ) : null}
       {scanData ? (
-        <DisclosureCard summary="Debug scan response">
+        <DebugDisclosure summary="Debug scan response">
           <pre>{JSON.stringify(scanData, null, 2)}</pre>
-        </DisclosureCard>
+        </DebugDisclosure>
       ) : null}
       {actionTarget ? (
-        <Card>
-          <EventActionPanel
-            productId={actionTarget.productId}
-            stockInstanceId={actionTarget.stockInstanceId}
-            locationId={actionTarget.locationId ?? null}
-            locationName={
-              scanData && "location" in scanData ? scanData.location?.name ?? null : null
+        <ActionSection
+          productId={actionTarget.productId}
+          stockInstanceId={actionTarget.stockInstanceId}
+          locationId={actionTarget.locationId ?? null}
+          locationName={
+            scanData && "location" in scanData
+              ? scanData.location?.name ?? null
+              : null
+          }
+          onEventSuccess={() => {
+            if (scanCode.length > 0) {
+              void loadScan(scanCode);
             }
-            onEventSuccess={() => {
-              if (scanCode.length > 0) {
-                void loadScan(scanCode);
-              }
-            }}
-            onLastActionMessage={(message) => setLastActionMessage(message)}
-          />
-        </Card>
+          }}
+          onLastActionMessage={(message) => setLastActionMessage(message)}
+        />
       ) : null}
     </PageShell>
   );

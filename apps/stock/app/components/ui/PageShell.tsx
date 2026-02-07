@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
+import { ScreenHeader } from "./ScreenKit";
 
 type PageShellProps = {
-  title: string;
+  title?: string;
   eyebrow?: string;
   subtitle?: string;
   status?: ReactNode;
   actions?: ReactNode;
+  header?: ReactNode;
   children: ReactNode;
 };
 
@@ -15,27 +17,20 @@ export default function PageShell({
   subtitle,
   status,
   actions,
+  header,
   children
 }: PageShellProps) {
   return (
     <section className="stock-page-shell stock-shell">
-      <header className="stock-page-shell__header">
-        {eyebrow ? (
-          <p className="stock-page-shell__eyebrow">
-            {eyebrow}
-          </p>
-        ) : null}
-        <h1 className="stock-page-shell__title">{title}</h1>
-        {subtitle ? (
-          <p className="stock-page-shell__subtitle">{subtitle}</p>
-        ) : null}
-        {status ? (
-          <div className="stock-page-shell__status stock-status">{status}</div>
-        ) : null}
-        {actions ? (
-          <div className="stock-page-shell__actions stock-actions">{actions}</div>
-        ) : null}
-      </header>
+      {header ?? (
+        <ScreenHeader
+          title={title ?? ""}
+          eyebrow={eyebrow}
+          subtitle={subtitle}
+          status={status}
+          actions={actions}
+        />
+      )}
       <div className="stock-page-shell__content">{children}</div>
     </section>
   );
