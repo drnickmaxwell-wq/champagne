@@ -13,6 +13,7 @@ type EventActionPanelProps = {
   stockInstanceId?: string;
   locationId?: string | null;
   onEventSuccess?: () => void;
+  onLastActionMessage?: (message: string) => void;
 };
 
 const resolveErrorMessage = (data: unknown) => {
@@ -45,7 +46,8 @@ export default function EventActionPanel({
   productId,
   stockInstanceId,
   locationId,
-  onEventSuccess
+  onEventSuccess,
+  onLastActionMessage
 }: EventActionPanelProps) {
   const [qtyInput, setQtyInput] = useState("1");
   const [statusMessage, setStatusMessage] = useState("");
@@ -97,9 +99,9 @@ export default function EventActionPanel({
     const updatedSuffix =
       updatedQty === null ? "" : ` Updated remaining: ${updatedQty}.`;
     setStatusMessage(`Event recorded.${updatedSuffix}`);
-    setLastActionMessage(
-      `Last action: ${eventType} x${clampedQty} at ${new Date().toLocaleString()}`
-    );
+    const message = `Last action: ${eventType} x${clampedQty} at ${new Date().toLocaleString()}`;
+    setLastActionMessage(message);
+    onLastActionMessage?.(message);
     onEventSuccess?.();
   };
 

@@ -7,6 +7,10 @@ import {
 } from "@champagne/stock-shared";
 import type { ReorderSuggestion } from "@champagne/stock-shared";
 import { fetchReorder, postEvent } from "../lib/ops-api";
+import Card from "../components/ui/Card";
+import FeedbackCard from "../components/ui/FeedbackCard";
+import PageShell from "../components/ui/PageShell";
+import { PrimaryActions } from "../components/ui/PrimaryActions";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -78,38 +82,45 @@ export default function ReorderPage() {
   };
 
   return (
-    <section>
-      <h1>Reorder</h1>
-      {loading ? <p>Loading suggestions...</p> : null}
-      {statusMessage ? <p>{statusMessage}</p> : null}
-      {errorMessage ? <p>{errorMessage}</p> : null}
-      {suggestions.length === 0 && !loading ? (
-        <p>No reorder suggestions.</p>
+    <PageShell title="Reorder">
+      {loading ? (
+        <FeedbackCard
+          title="Loading"
+          role="status"
+          message="Loading suggestions..."
+        />
       ) : null}
-      <ul>
-        {suggestions.map((suggestion) => (
-          <li key={suggestion.productId}>
-            <strong>{suggestion.name}</strong>
-            {suggestion.variant ? ` (${suggestion.variant})` : ""}
-            <div>
-              <span>Available: {suggestion.availableUnits}</span>
-              <span>Min: {suggestion.minLevelUnits}</span>
-              <span>Suggested: {suggestion.suggestedOrderUnits}</span>
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={() => handleReceive(suggestion)}
-                disabled={!canReceive || suggestion.suggestedOrderUnits <= 0}
-              >
-                Receive (quick +{suggestion.suggestedOrderUnits})
-              </button>
-              {!canReceive ? <span>Receive events not supported.</span> : null}
-            </div>
-          </li>
-        ))}
-      </ul>
+      {statusMessage ? (
+        <FeedbackCard title="Status" role="status" message={statusMessage} />
+      ) : null}
+      {errorMessage ? (
+        <FeedbackCard title="Error" role="alert" message={errorMessage} />
+      ) : null}
+      {suggestions.length === 0 && !loading ? (
+        <FeedbackCard title="Empty" message="No reorder suggestions." />
+      ) : null}
+      {suggestions.map((suggestion) => (
+        <Card key={suggestion.productId}>
+          <strong>{suggestion.name}</strong>
+          {suggestion.variant ? ` (${suggestion.variant})` : ""}
+          <div>
+            <span>Available: {suggestion.availableUnits}</span>
+            <span> Min: {suggestion.minLevelUnits}</span>
+            <span> Suggested: {suggestion.suggestedOrderUnits}</span>
+          </div>
+          <PrimaryActions>
+            <button
+              type="button"
+              onClick={() => handleReceive(suggestion)}
+              disabled={!canReceive || suggestion.suggestedOrderUnits <= 0}
+            >
+              Receive (quick +{suggestion.suggestedOrderUnits})
+            </button>
+            {!canReceive ? <span>Receive events not supported.</span> : null}
+          </PrimaryActions>
+        </Card>
+      ))}
       <p>Flat list for now; supplier grouping later.</p>
-    </section>
+    </PageShell>
   );
 }
