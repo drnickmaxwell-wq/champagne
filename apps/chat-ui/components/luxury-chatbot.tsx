@@ -52,9 +52,12 @@ type LuxuryChatbotProps = {
 
 const REQUEST_TIMEOUT_MS = 8000;
 
+type HandoffPayload = { kind: "handoff"; form: "booking" };
+type ActionPayload = string | HandoffPayload | Record<string, unknown>;
+
 type CardAction =
   | { type: "link"; label: string; href: string }
-  | { type: "postback"; label: string; payload: string };
+  | { type: "postback"; label: string; payload: ActionPayload };
 
 type CardPayload = {
   title?: string;
@@ -126,15 +129,21 @@ const parseJsonPayload = (payload: string): Record<string, unknown> | null => {
   }
 };
 
-const isBookingHandoffPayload = (payload: string) => {
-  if (payload === "BOOKING_REQUEST") {
-    return true;
+const isBookingHandoffPayload = (payload: unknown) => {
+  if (typeof payload === "string") {
+    if (payload === "BOOKING_REQUEST") {
+      return true;
+    }
+    const parsed = parseJsonPayload(payload);
+    if (!parsed) {
+      return false;
+    }
+    return parsed.kind === "handoff" && parsed.form === "booking";
   }
-  const parsed = parseJsonPayload(payload);
-  if (!parsed) {
-    return false;
+  if (isRecord(payload)) {
+    return payload.kind === "handoff" && payload.form === "booking";
   }
-  return parsed.kind === "handoff" && parsed.form === "booking";
+  return false;
 };
 
 const extractTenantIdFromManifest = (value: unknown): string | null => {
@@ -155,7 +164,13 @@ const normalizeAction = (value: unknown): CardAction | null => {
     return null;
   }
   if (value.type === "postback") {
-    if (typeof value.label === "string" && typeof value.payload === "string") {
+    if (typeof value.label !== "string") {
+      return null;
+    }
+    if (typeof value.payload === "string") {
+      return { type: "postback", label: value.label, payload: value.payload };
+    }
+    if (isRecord(value.payload)) {
       return { type: "postback", label: value.label, payload: value.payload };
     }
   }
@@ -321,7 +336,7 @@ function AssistantCards({
   onPostback,
 }: {
   payload: AssistantUiPayload;
-  onPostback: (payload: string) => void;
+  onPostback: (payload: ActionPayload) => void;
 }) {
   if (payload.kind !== "cards") return null;
 
@@ -380,7 +395,7 @@ function MessageBubble({
 }: {
   message: ChatMessage;
   isUser: boolean;
-  onPostback: (payload: string) => void;
+  onPostback: (payload: ActionPayload) => void;
 }) {
   return (
     <motion.div
@@ -689,12 +704,16 @@ export default function LuxuryChatbot({
     sendMessage(actions[action as keyof typeof actions] || action);
   };
 
-  const handlePostback = (payload: string) => {
+  const handlePostback = (payload: ActionPayload) => {
     if (isBookingHandoffPayload(payload)) {
       setIsBookingModalOpen(true);
       return;
     }
-    sendMessage(payload);
+    if (typeof payload === "string") {
+      sendMessage(payload);
+      return;
+    }
+    sendMessage(JSON.stringify(payload));
   };
 
   const toggleVoiceInput = () => {

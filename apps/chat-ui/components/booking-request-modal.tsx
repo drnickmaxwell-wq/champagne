@@ -9,7 +9,7 @@ type BookingRequestModalProps = {
 };
 
 type BookingFormState = {
-  fullName: string;
+  name: string;
   phone: string;
   email: string;
   contactMethod: "phone" | "sms" | "email";
@@ -21,7 +21,7 @@ type BookingFormState = {
 };
 
 const initialFormState = (): BookingFormState => ({
-  fullName: "",
+  name: "",
   phone: "",
   email: "",
   contactMethod: "phone",
@@ -72,7 +72,7 @@ export default function BookingRequestModal({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: formState.fullName,
+          name: formState.name,
           phone: formState.phone,
           email: formState.email || null,
           contactMethod: formState.contactMethod,
@@ -151,12 +151,12 @@ export default function BookingRequestModal({
           <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-xs font-medium text-[color:var(--text-medium)]">
-                Full name
+                Name
               </label>
               <input
                 type="text"
-                value={formState.fullName}
-                onChange={(event) => handleChange("fullName", event.target.value)}
+                value={formState.name}
+                onChange={(event) => handleChange("name", event.target.value)}
                 className="mt-2 w-full rounded-2xl border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 92%, transparent)] px-4 py-2 text-sm text-[color:var(--text-high)] focus:outline-none focus:ring-2 focus:ring-[color:var(--smh-accent-gold)]"
                 required
               />
@@ -231,7 +231,7 @@ export default function BookingRequestModal({
                 required
               />
               <p className="mt-1 text-xs text-[color:var(--text-low)]">
-                Do not include sensitive medical details.
+                Please don’t include sensitive medical details here.
               </p>
             </div>
 

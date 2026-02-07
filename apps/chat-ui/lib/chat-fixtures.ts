@@ -7,7 +7,11 @@ export type ChatUiFixture = {
       body: string;
       actions: Array<
         | { type: "link"; label: string; href: string }
-        | { type: "postback"; label: string; payload: string }
+        | {
+            type: "postback";
+            label: string;
+            payload: string | { kind: "handoff"; form: "booking" };
+          }
       >;
     }>;
   };
@@ -48,7 +52,11 @@ export const chatUiFixtures: Record<string, ChatUiFixture> = {
           title: "Booking request",
           body: "Share your details and preferred time window.",
           actions: [
-            { type: "postback", label: "Request call-back", payload: "BOOKING_REQUEST" },
+            {
+              type: "postback",
+              label: "Request call-back",
+              payload: { kind: "handoff", form: "booking" },
+            },
           ],
         },
       ],
