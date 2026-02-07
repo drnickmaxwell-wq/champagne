@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      framer-motion:
+        specifier: ^11.11.17
+        version: 11.18.2(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      lucide-react:
+        specifier: ^0.468.0
+        version: 0.468.0(react@19.2.1)
     devDependencies:
       '@types/node':
         specifier: ^24.10.1

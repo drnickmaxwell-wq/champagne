@@ -19,11 +19,11 @@ export default function Page() {
         <div className="chat-preview-layout">
           <header className="chat-preview-header">
             <div className="space-y-3">
-              <span className="chat-preview-badge">Luxury Concierge UI</span>
-              <h1 className="text-3xl font-semibold">Champagne Concierge</h1>
+              <span className="chat-preview-badge">Chat UI Preview</span>
+              <h1 className="text-3xl font-semibold">St Mary&apos;s House Chat</h1>
               <p className="max-w-xl text-sm text-[color:var(--text-medium)]">
-                The Champagne Concierge runs in your browser while the AI engine handles
-                responses securely. Use the launcher to open the chat window.
+                The chat experience runs in your browser while the engine handles responses
+                securely. Use the launcher to open the chat window.
               </p>
             </div>
             <div className="flex flex-col items-start gap-3 sm:items-end">
@@ -40,17 +40,17 @@ export default function Page() {
           </header>
           <div className="text-sm text-[color:var(--text-medium)]">
             <p className="mb-3">
-              The luxury concierge UI is now live. Tap the floating chat button in the lower
-              right corner to begin a conversation and preview the luxury experience.
+              The chat preview is ready. Tap the floating chat button in the lower right corner
+              to begin a conversation and review the chat experience.
             </p>
             <ul className="space-y-2 text-[color:var(--text-low)]">
-              <li>• Live engine status and quick actions are preserved.</li>
-              <li>• Responses are streamed from the configured concierge engine.</li>
-              <li>• The booking link remains available for instant scheduling.</li>
+              <li>• Live engine status and quick actions are available.</li>
+              <li>• Responses are streamed from the configured chat engine.</li>
+              <li>• The booking link remains available for scheduling.</li>
             </ul>
           </div>
           <div className="flex items-center justify-center text-sm text-[color:var(--text-low)]">
-            The concierge window appears in the lower-right corner when opened.
+            The chat window appears in the lower-right corner when opened.
           </div>
         </div>
       </div>
