@@ -110,24 +110,28 @@ export default function EventActionPanel({
   }
 
   return (
-    <div>
+    <div className="stock-event-panel">
       <h2>Actions</h2>
-      <label htmlFor="event-qty">Quantity</label>
-      <input
-        id="event-qty"
-        type="number"
-        min="1"
-        step="1"
-        value={qtyInput}
-        disabled={submitting}
-        onChange={(event) => setQtyInput(clampQtyInput(event.target.value))}
-      />
-      <div>
+      <div className="stock-event-panel__field">
+        <label htmlFor="event-qty">Quantity</label>
+        <input
+          id="event-qty"
+          type="number"
+          min="1"
+          step="1"
+          value={qtyInput}
+          disabled={submitting}
+          onChange={(event) => setQtyInput(clampQtyInput(event.target.value))}
+          className="stock-event-panel__input"
+        />
+      </div>
+      <div className="stock-event-panel__actions">
         {canWithdraw ? (
           <button
             type="button"
             onClick={() => handleEvent("WITHDRAW")}
             disabled={submitting}
+            className="stock-event-panel__button"
           >
             Withdraw
           </button>
@@ -137,23 +141,24 @@ export default function EventActionPanel({
             type="button"
             onClick={() => handleEvent("RECEIVE")}
             disabled={submitting}
+            className="stock-event-panel__button"
           >
             Receive
           </button>
         ) : null}
       </div>
       {statusMessage ? (
-        <p role="status">
+        <p role="status" className="stock-event-panel__message">
           <strong>Success:</strong> {statusMessage}
         </p>
       ) : null}
       {errorMessage ? (
-        <p role="alert">
+        <p role="alert" className="stock-event-panel__message">
           <strong>Error:</strong> {errorMessage}
         </p>
       ) : null}
       {lastActionMessage ? (
-        <p role="status">
+        <p role="status" className="stock-event-panel__message">
           <strong>{lastActionMessage}</strong>
         </p>
       ) : null}

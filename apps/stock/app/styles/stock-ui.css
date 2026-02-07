@@ -1,0 +1,138 @@
+.stock-page-shell__header {
+  margin-bottom: 16px;
+}
+
+.stock-page-shell__eyebrow {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.stock-page-shell__title {
+  margin: 4px 0;
+}
+
+.stock-page-shell__subtitle {
+  margin: 0;
+}
+
+.stock-page-shell__status {
+  margin-top: 8px;
+}
+
+.stock-page-shell__actions {
+  margin-top: 12px;
+}
+
+.stock-page-shell__content {
+  display: grid;
+  gap: 16px;
+}
+
+.stock-card {
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stock-card__title {
+  margin-top: 0;
+}
+
+.stock-card__footer {
+  margin-top: 12px;
+}
+
+.stock-field-list {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.stock-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stock-field-label {
+  min-width: 140px;
+  font-weight: 600;
+}
+
+.stock-field-value {
+  margin: 0;
+}
+
+.stock-primary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stock-action-link {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.stock-status-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stock-message-panel {
+  display: grid;
+  gap: 4px;
+}
+
+.stock-disclosure-card {
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stock-disclosure-summary {
+  cursor: pointer;
+}
+
+.stock-disclosure-body {
+  margin-top: 12px;
+}
+
+.stock-event-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.stock-event-panel__field {
+  display: grid;
+  gap: 6px;
+}
+
+.stock-event-panel__input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid currentColor;
+}
+
+.stock-event-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stock-event-panel__button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid currentColor;
+  font-weight: 600;
+}
+
+.stock-event-panel__message {
+  margin: 0;
+}

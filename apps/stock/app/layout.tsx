@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "./styles/stock-ui.css";
 
 export const metadata = {
   title: "Champagne Stock",

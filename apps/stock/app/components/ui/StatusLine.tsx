@@ -15,7 +15,7 @@ export default function StatusLine({ items }: StatusLineProps) {
     return null;
   }
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+    <div className="stock-status-line">
       {visibleItems.map((item) => (
         <span key={item.label}>
           {item.label}: {item.value}

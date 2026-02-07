@@ -5,20 +5,14 @@ type DisclosureCardProps = {
   children: ReactNode;
 };
 
-const cardStyle = {
-  border: "1px solid currentColor",
-  borderRadius: "12px",
-  padding: "16px"
-} as const;
-
 export default function DisclosureCard({
   summary,
   children
 }: DisclosureCardProps) {
   return (
-    <details style={cardStyle}>
-      <summary style={{ cursor: "pointer" }}>{summary}</summary>
-      <div style={{ marginTop: "12px" }}>{children}</div>
+    <details className="stock-disclosure-card">
+      <summary className="stock-disclosure-summary">{summary}</summary>
+      <div className="stock-disclosure-body">{children}</div>
     </details>
   );
 }
