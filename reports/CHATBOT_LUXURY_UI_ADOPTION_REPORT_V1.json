@@ -1,0 +1,37 @@
+{
+  "copiedFiles": [
+    {
+      "source": "_imports/champagne-hero/code/fx-system/components/ai/luxury-chatbot.tsx",
+      "destination": "apps/chat-ui/components/luxury-chatbot.tsx"
+    },
+    {
+      "source": "_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts",
+      "destination": "apps/chat-ui/lib/brand/chat-ui.ts"
+    },
+    {
+      "source": "_imports/champagne-hero/code/fx-system/styles/ai/chat-preview.css",
+      "destination": "apps/chat-ui/styles/chat-preview.css"
+    },
+    {
+      "source": "_imports/champagne-hero/code/fx-system/public/brand/chat-ui.json",
+      "destination": "apps/chat-ui/public/brand/chat-ui.json"
+    }
+  ],
+  "changedFiles": [
+    "apps/chat-ui/app/layout.tsx",
+    "apps/chat-ui/app/page.tsx",
+    "apps/chat-ui/components/luxury-chatbot.tsx",
+    "apps/chat-ui/lib/brand/chat-ui.ts",
+    "apps/chat-ui/package.json",
+    "apps/chat-ui/public/brand/chat-ui.json",
+    "apps/chat-ui/styles/chat-preview.css",
+    "reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json"
+  ],
+  "importsChanged": false,
+  "notes": [
+    "Replaced the placeholder concierge UI with the luxury chatbot component while keeping the Dentally booking CTA intact.",
+    "Mapped the runtime concierge engine calls to the existing /health and /v1/converse endpoints used by the placeholder wiring, including timeout handling.",
+    "Introduced local easing constants and removed _imports-only dependencies so the component compiles inside apps/chat-ui.",
+    "Added global chat-preview styles and public manifest assets under apps/chat-ui to match the luxury UI presentation."
+  ]
+}

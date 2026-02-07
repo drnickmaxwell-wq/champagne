@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "panel": {
+    "bg": "var(--smh-bg)",
+    "glass": "var(--champagne-glass-bg, color-mix(in oklab, var(--smh-bg) 65%, var(--ink) 35%))",
+    "border": "var(--smh-accent-gold)"
+  },
+  "accent": {
+    "color": "var(--smh-accent-gold)",
+    "ring": "oklab(from var(--smh-accent-gold) 0.8 0 0 / 0.4)"
+  },
+  "gradient": {
+    "css": "linear-gradient(135deg, var(--smh-primary-magenta) 0%, var(--smh-primary-teal) 60%, var(--smh-accent-gold) 100%)"
+  },
+  "motion": {
+    "particles": { "enabled": false },
+    "glassShimmer": { "enabled": false }
+  }
+}
