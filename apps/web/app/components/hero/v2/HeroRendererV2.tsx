@@ -210,7 +210,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 transition: opacity 220ms ease;
               }
               .hero-renderer-v2 .hero-surface--motion[data-ready!="true"] {
-                opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
+                opacity: 0;
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
