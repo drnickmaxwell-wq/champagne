@@ -789,7 +789,21 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (cached) {
       setRenderModel(cached);
     }
+    const retainedModel = renderModelRef.current ?? lastResolvedHeroV2Model;
+    if (debugEnabled) {
+      console.info(
+        `[HERO_V2_NAV_RETAIN] path=${pathnameKey} retained=${Boolean(retainedModel)} identity=${
+          retainedModel?.surfaceStack.variantId ??
+          retainedModel?.surfaceStack.heroId ??
+          retainedModel?.surfaceStack.boundVariantId ??
+          "unknown"
+        }`,
+      );
+    }
     const buildStart = performance.now();
+    if (debugEnabled) {
+      console.info(`[HERO_V2_NAV_BUILD_START] path=${pathnameKey} start=${Math.round(buildStart)}`);
+    }
     void buildHeroV2Model({
       mode,
       treatmentSlug,
@@ -812,6 +826,14 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         const deltaMs = Math.round(readyTime - buildStart);
         console.info(
           `[HERO_DIAG_MODEL] path=${pathnameKey} start=${startTime} ready=${readyMs} dt=${deltaMs}`,
+        );
+        console.info(
+          `[HERO_V2_NAV_MODEL_COMMIT] path=${pathnameKey} ready=${readyMs} identity=${
+            nextModel.surfaceStack.variantId ??
+            nextModel.surfaceStack.heroId ??
+            nextModel.surfaceStack.boundVariantId ??
+            "unknown"
+          }`,
         );
       }
       heroV2ModelCache.set(pathnameKey, nextModel);
@@ -867,7 +889,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       setIsHeroVisuallyReady(false);
       return;
     }
-    setIsHeroVisuallyReady(false);
     if (modelSnapshot.surfaceStack.prmEnabled) {
       setIsHeroVisuallyReady(true);
       return;
@@ -910,7 +931,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         }
       });
     };
-  }, [pathnameKey, renderModel]);
+  }, [renderModel]);
 
   const activeModel = renderModel ?? lastResolvedHeroV2Model;
   if (!activeModel) return <HeroFallback />;
