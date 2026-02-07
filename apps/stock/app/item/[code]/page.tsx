@@ -210,6 +210,7 @@ export default function Page() {
       ) : null}
       <PrimaryActions>
         <ActionLink href="/scan">Scan again</ActionLink>
+        <ActionLink href="/locations">Locations</ActionLink>
         <ActionLink href="/reorder">Reorder</ActionLink>
         <ActionLink href="/products">Products</ActionLink>
       </PrimaryActions>

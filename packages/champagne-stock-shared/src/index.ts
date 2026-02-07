@@ -20,6 +20,31 @@ export const EventTypeSchema = z.enum([
 ]);
 export type EventType = z.infer<typeof EventTypeSchema>;
 
+export const LocationTypeSchema = z.enum([
+  "CUPBOARD",
+  "SURGERY",
+  "STORAGE",
+  "EMERGENCY",
+  "OTHER"
+]);
+export type LocationType = z.infer<typeof LocationTypeSchema>;
+
+export const LocationSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: LocationTypeSchema
+});
+export type Location = z.infer<typeof LocationSchema>;
+
+export const LocationCreateInputSchema = z.object({
+  name: z.string().min(1),
+  type: LocationTypeSchema
+});
+export type LocationCreateInput = z.infer<typeof LocationCreateInputSchema>;
+
+export const LocationUpdateInputSchema = LocationCreateInputSchema.partial();
+export type LocationUpdateInput = z.infer<typeof LocationUpdateInputSchema>;
+
 export const EventInputSchema = z.object({
   ts: z.string().datetime().optional(),
   eventType: EventTypeSchema,

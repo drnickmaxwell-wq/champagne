@@ -1,10 +1,14 @@
 import {
   EventInputSchema,
+  LocationCreateInputSchema,
+  LocationUpdateInputSchema,
   ProductCreateInputSchema,
   ProductUpdateInputSchema
 } from "@champagne/stock-shared";
 import type {
   EventInput,
+  LocationCreateInput,
+  LocationUpdateInput,
   ProductCreateInput,
   ProductUpdateInput
 } from "@champagne/stock-shared";
@@ -107,6 +111,10 @@ export const fetchProducts = async (): Promise<ApiResult<unknown>> => {
   return requestJson(buildUrl("/products"));
 };
 
+export const fetchLocations = async (): Promise<ApiResult<unknown>> => {
+  return requestJson(buildUrl("/locations"));
+};
+
 export const postProduct = async (
   payload: ProductCreateInput
 ): Promise<ApiResult<unknown>> => {
@@ -120,6 +128,25 @@ export const postProduct = async (
   }
 
   return requestJson(buildUrl("/products"), {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(parsed.data)
+  });
+};
+
+export const postLocation = async (
+  payload: LocationCreateInput
+): Promise<ApiResult<unknown>> => {
+  const parsed = LocationCreateInputSchema.safeParse(payload);
+  if (!parsed.success) {
+    return {
+      ok: false,
+      status: 0,
+      data: { message: "Invalid location details. Please check the inputs." }
+    };
+  }
+
+  return requestJson(buildUrl("/locations"), {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(parsed.data)
@@ -140,6 +167,26 @@ export const patchProduct = async (
   }
 
   return requestJson(buildUrl(`/products/${productId}`), {
+    method: "PATCH",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(parsed.data)
+  });
+};
+
+export const patchLocation = async (
+  locationId: string,
+  payload: LocationUpdateInput
+): Promise<ApiResult<unknown>> => {
+  const parsed = LocationUpdateInputSchema.safeParse(payload);
+  if (!parsed.success) {
+    return {
+      ok: false,
+      status: 0,
+      data: { message: "Invalid location update. Please check the inputs." }
+    };
+  }
+
+  return requestJson(buildUrl(`/locations/${locationId}`), {
     method: "PATCH",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(parsed.data)

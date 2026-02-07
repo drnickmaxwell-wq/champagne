@@ -5,11 +5,16 @@ import {
   getHealthStatus,
   getScanResult,
   createProduct,
+  createLocation,
+  listLocations,
   listProducts,
+  updateLocation,
   updateProduct
 } from "@champagne/stock-db";
 import {
   EventInputSchema,
+  LocationCreateInputSchema,
+  LocationUpdateInputSchema,
   ProductCreateInputSchema,
   ProductUpdateInputSchema
 } from "@champagne/stock-shared";
@@ -69,6 +74,14 @@ const parseProductUpdatePayload = (body: unknown) => {
   return ProductUpdateInputSchema.safeParse(body);
 };
 
+const parseLocationCreatePayload = (body: unknown) => {
+  return LocationCreateInputSchema.safeParse(body);
+};
+
+const parseLocationUpdatePayload = (body: unknown) => {
+  return LocationUpdateInputSchema.safeParse(body);
+};
+
 const server = createServer(async (request, response) => {
   const url = new URL(request.url ?? "/", `http://${request.headers.host ?? "localhost"}`);
 
@@ -94,6 +107,19 @@ const server = createServer(async (request, response) => {
     } catch (error) {
       response.writeHead(500, { "content-type": "application/json" });
       response.end(JSON.stringify({ error: "Failed to load products." }));
+      return;
+    }
+  }
+
+  if (request.method === "GET" && url.pathname === "/locations") {
+    try {
+      const locations = await listLocations(pool, tenantId);
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(locations));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to load locations." }));
       return;
     }
   }
@@ -127,6 +153,39 @@ const server = createServer(async (request, response) => {
     } catch (error) {
       response.writeHead(500, { "content-type": "application/json" });
       response.end(JSON.stringify({ error: "Failed to create product." }));
+      return;
+    }
+  }
+
+  if (request.method === "POST" && url.pathname === "/locations") {
+    let body: unknown;
+
+    try {
+      body = await readJsonBody(request);
+    } catch {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Invalid JSON body." }));
+      return;
+    }
+
+    const parsed = parseLocationCreatePayload(body);
+
+    if (!parsed.success) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(
+        JSON.stringify({ error: "Invalid payload.", details: parsed.error.flatten() })
+      );
+      return;
+    }
+
+    try {
+      const location = await createLocation(pool, tenantId, parsed.data);
+      response.writeHead(201, { "content-type": "application/json" });
+      response.end(JSON.stringify(location));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to create location." }));
       return;
     }
   }
@@ -179,6 +238,58 @@ const server = createServer(async (request, response) => {
     } catch (error) {
       response.writeHead(500, { "content-type": "application/json" });
       response.end(JSON.stringify({ error: "Failed to update product." }));
+      return;
+    }
+  }
+
+  if (request.method === "PATCH" && url.pathname.startsWith("/locations/")) {
+    const pathSegments = url.pathname.split("/");
+    const locationId = pathSegments[2] ?? "";
+    if (pathSegments.length !== 3 || locationId.length === 0) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Location id is required." }));
+      return;
+    }
+
+    let body: unknown;
+
+    try {
+      body = await readJsonBody(request);
+    } catch {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Invalid JSON body." }));
+      return;
+    }
+
+    const parsed = parseLocationUpdatePayload(body);
+
+    if (!parsed.success) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(
+        JSON.stringify({ error: "Invalid payload.", details: parsed.error.flatten() })
+      );
+      return;
+    }
+
+    if (Object.keys(parsed.data).length === 0) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "No updates provided." }));
+      return;
+    }
+
+    try {
+      const location = await updateLocation(pool, tenantId, locationId, parsed.data);
+      if (!location) {
+        response.writeHead(404, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: "Location not found." }));
+        return;
+      }
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(location));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to update location." }));
       return;
     }
   }

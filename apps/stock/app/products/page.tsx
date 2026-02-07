@@ -584,6 +584,7 @@ export default function ProductsPage() {
       <PrimaryActions>
         <ActionLink href="/scan">Scan</ActionLink>
         <ActionLink href="/reorder">Reorder</ActionLink>
+        <ActionLink href="/locations">Locations</ActionLink>
       </PrimaryActions>
 
       <DebugDisclosure summary="Technical details (for troubleshooting only)">
