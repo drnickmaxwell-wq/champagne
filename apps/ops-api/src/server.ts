@@ -5,12 +5,23 @@ import { Pool } from "pg";
 import { z } from "zod";
 
 const port = Number(process.env.PORT ?? 4001);
-const connectionString = process.env.DATABASE_URL;
-const TENANT_ID = "00000000-0000-0000-0000-000000000000";
 
-if (!connectionString) {
-  throw new Error("DATABASE_URL is required for ops-api.");
-}
+const requireEnv = (name: string): string => {
+  const value = process.env[name];
+  if (typeof value === "string" && value.trim() !== "") {
+    return value;
+  }
+  throw new Error(`Missing required env: ${name}`);
+};
+
+const optionalEnv = (name: string, fallback: string): string => {
+  const value = process.env[name];
+  return typeof value === "string" && value.trim() !== "" ? value : fallback;
+};
+
+const connectionString = requireEnv("STOCK_DATABASE_URL");
+// Dev fallback only; override STOCK_TENANT_ID in real environments.
+const tenantId = optionalEnv("STOCK_TENANT_ID", "dev-tenant");
 
 const pool = new Pool({ connectionString });
 
@@ -103,7 +114,7 @@ const server = createServer(async (request, response) => {
       if (payload.stock_instance_id) {
         const updateResult = await client.query(
           "UPDATE stock_instances SET qty_remaining = qty_remaining + $1 WHERE id = $2 AND tenant_id = $3 RETURNING id",
-          [payload.qty_delta_units, payload.stock_instance_id, TENANT_ID]
+          [payload.qty_delta_units, payload.stock_instance_id, tenantId]
         );
 
         if (updateResult.rowCount === 0) {
@@ -119,7 +130,7 @@ const server = createServer(async (request, response) => {
       const insertResult = await client.query(
         "INSERT INTO events (tenant_id, ts, user_id, location_id, product_id, stock_instance_id, event_type, qty_delta_units, meta_json) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id",
         [
-          TENANT_ID,
+          tenantId,
           eventTs,
           payload.user_id ?? null,
           payload.location_id ?? null,
@@ -150,7 +161,7 @@ const server = createServer(async (request, response) => {
     try {
       const result = await pool.query(
         "SELECT p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint, p.unit_label, p.pack_size_units, COALESCE(SUM(si.qty_remaining), 0) AS available_units FROM products p LEFT JOIN stock_instances si ON si.product_id = p.id AND si.tenant_id = p.tenant_id WHERE p.tenant_id = $1 GROUP BY p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint, p.unit_label, p.pack_size_units",
-        [TENANT_ID]
+        [tenantId]
       );
 
       if (result.rowCount === 0) {
