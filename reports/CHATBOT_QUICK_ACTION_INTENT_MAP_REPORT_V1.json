@@ -1,0 +1,12 @@
+{
+  "changedFiles": ["apps/chat-ui/components/luxury-chatbot.tsx"],
+  "quickActions": [
+    {"label": "Book appointment", "message": "book appointment"},
+    {"label": "Emergency", "message": "emergency"},
+    {"label": "Fees", "message": "fees"},
+    {"label": "Technology", "message": "technology"},
+    {"label": "Implants", "message": "implants"},
+    {"label": "Whitening", "message": "whitening"}
+  ],
+  "note": "Quick action labels and intent messages were updated to deterministic lowercase keywords; no other behavior changed."
+}

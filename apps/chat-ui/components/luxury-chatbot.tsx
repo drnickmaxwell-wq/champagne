@@ -393,10 +393,12 @@ export default function LuxuryChatbot({
 
   const handleQuickAction = (action: string) => {
     const actions = {
-      book: "I'd like to book an appointment for a consultation.",
-      emergency: "I have a dental emergency and need urgent care.",
-      technology: "Tell me about your technology and treatment options.",
-      costs: "What are your treatment costs and payment options?",
+      book: "book appointment",
+      emergency: "emergency",
+      fees: "fees",
+      technology: "technology",
+      implants: "implants",
+      whitening: "whitening",
     };
 
     sendMessage(actions[action as keyof typeof actions] || action);
@@ -550,16 +552,28 @@ export default function LuxuryChatbot({
                   color="pink"
                 />
                 <QuickActionButton
+                  icon={DollarSign}
+                  label="Fees"
+                  onClick={() => handleQuickAction("fees")}
+                  color="yellow"
+                />
+                <QuickActionButton
                   icon={Sparkles}
                   label="Technology"
                   onClick={() => handleQuickAction("technology")}
                   color="purple"
                 />
                 <QuickActionButton
-                  icon={DollarSign}
-                  label="Costs"
-                  onClick={() => handleQuickAction("costs")}
-                  color="yellow"
+                  icon={Sparkles}
+                  label="Implants"
+                  onClick={() => handleQuickAction("implants")}
+                  color="teal"
+                />
+                <QuickActionButton
+                  icon={Sparkles}
+                  label="Whitening"
+                  onClick={() => handleQuickAction("whitening")}
+                  color="pink"
                 />
               </div>
             </div>
