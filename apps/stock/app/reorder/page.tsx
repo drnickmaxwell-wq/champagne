@@ -94,7 +94,7 @@ export default function ReorderPage() {
       return;
     }
     setStatusMessage(
-      `Received ${suggestion.suggestedOrderUnits} → Reorder list`
+      `Received ${suggestion.suggestedOrderUnits} -> Reorder list`
     );
     void loadReorder();
   };

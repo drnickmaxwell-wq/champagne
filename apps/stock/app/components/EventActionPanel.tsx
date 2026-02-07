@@ -112,7 +112,7 @@ export default function EventActionPanel({
       : "Inventory";
     const updatedSuffix =
       updatedQty === null ? "" : ` (Remaining ${updatedQty})`;
-    setStatusMessage(`${verb} ${clampedQty} → ${locationLabel}${updatedSuffix}`);
+    setStatusMessage(`${verb} ${clampedQty} -> ${locationLabel}${updatedSuffix}`);
     const message = `Last action: ${eventType} x${clampedQty} at ${new Date().toLocaleString()}`;
     setLastActionMessage(message);
     onLastActionMessage?.(message);
@@ -123,8 +123,12 @@ export default function EventActionPanel({
     return null;
   }
 
+  const lastActionValue = lastActionMessage || "Last action: none yet";
+
   return (
-    <div className="stock-event-panel">
+    <div
+      className={`stock-event-panel${submitting ? " stock-event-panel--busy" : ""}`}
+    >
       <h2 className="stock-event-panel__title">Actions</h2>
       <div className="stock-event-panel__field">
         <label htmlFor="event-qty" className="stock-event-panel__label">
@@ -138,7 +142,7 @@ export default function EventActionPanel({
             disabled={submitting}
             aria-label="Decrease quantity"
           >
-            −
+            -
           </button>
           <input
             id="event-qty"
@@ -183,31 +187,31 @@ export default function EventActionPanel({
           </button>
         ) : null}
       </div>
-      {statusMessage ? (
-        <p
-          role="status"
-          className="stock-event-panel__message stock-event-panel__message--success"
-        >
-          <strong>Success:</strong> {statusMessage}
-        </p>
-      ) : null}
-      {submitting ? <LoadingLine label="Working..." /> : null}
-      {errorMessage ? (
-        <p
-          role="alert"
-          className="stock-event-panel__message stock-event-panel__message--error"
-        >
-          <strong>Error:</strong> {errorMessage}
-        </p>
-      ) : null}
-      {lastActionMessage ? (
+      <div className="stock-event-panel__messages" aria-live="polite">
+        {statusMessage ? (
+          <p
+            role="status"
+            className="stock-event-panel__message stock-event-panel__message--success"
+          >
+            <strong>Success:</strong> {statusMessage}
+          </p>
+        ) : null}
+        {submitting ? <LoadingLine label="Working..." /> : null}
+        {errorMessage ? (
+          <p
+            role="alert"
+            className="stock-event-panel__message stock-event-panel__message--error"
+          >
+            <strong>Error:</strong> {errorMessage}
+          </p>
+        ) : null}
         <p
           role="status"
           className="stock-event-panel__message stock-event-panel__message--neutral"
         >
-          <strong>{lastActionMessage}</strong>
+          <strong>{lastActionValue}</strong>
         </p>
-      ) : null}
+      </div>
     </div>
   );
 }

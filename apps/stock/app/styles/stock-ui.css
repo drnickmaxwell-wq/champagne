@@ -159,6 +159,7 @@ main {
   transition: transform 160ms ease, box-shadow 160ms ease;
   cursor: pointer;
   font: inherit;
+  min-height: calc(var(--radius-lg) + var(--radius-sm));
 }
 
 .stock-action-link--secondary,
@@ -271,6 +272,11 @@ main {
   gap: var(--stock-space-2);
 }
 
+.stock-event-panel--busy .stock-stepper,
+.stock-event-panel--busy .stock-event-panel__actions {
+  opacity: 0.7;
+}
+
 .stock-event-panel__title {
   margin: 0;
   font-size: 1.2rem;
@@ -287,12 +293,13 @@ main {
 }
 
 .stock-event-panel__input {
-  padding: var(--stock-space-1) calc(var(--stock-space-1) + 2px);
+  padding: var(--stock-space-2);
   border-radius: calc(var(--stock-radius) - 4px);
   border: 1px solid var(--border-subtle);
   color: var(--text-high);
   background: var(--surface-0);
   font: inherit;
+  min-height: calc(var(--radius-lg) + var(--radius-sm));
 }
 
 .stock-event-panel__input:focus-visible {
@@ -301,17 +308,23 @@ main {
 }
 
 .stock-event-panel__actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: var(--stock-space-2);
 }
 
 .stock-event-panel__button {
   padding: var(--stock-space-2) var(--stock-space-3);
+  width: 100%;
 }
 
 .stock-event-panel__button:focus-visible {
   outline-offset: 2px;
+}
+
+.stock-event-panel__messages {
+  display: grid;
+  gap: var(--stock-space-1);
 }
 
 .stock-event-panel__message {
@@ -392,12 +405,13 @@ main {
 
 .stock-form__input {
   flex: 1 1 12rem;
-  padding: var(--stock-space-1) calc(var(--stock-space-1) + 2px);
+  padding: var(--stock-space-2);
   border-radius: calc(var(--stock-radius) - 4px);
   border: 1px solid var(--border-subtle);
   color: var(--text-high);
   background: var(--surface-0);
   font: inherit;
+  min-height: calc(var(--radius-lg) + var(--radius-sm));
 }
 
 .stock-form__button {
@@ -414,4 +428,5 @@ main {
   min-width: calc(var(--radius-sm) * 3);
   padding: var(--stock-space-1) var(--stock-space-2);
   border-radius: calc(var(--stock-radius) - 4px);
+  min-height: calc(var(--radius-lg) + var(--radius-sm));
 }
