@@ -1,0 +1,87 @@
+{
+  "repoName": "champagne",
+  "defaultBranch": null,
+  "topLevelPaths": [
+    ".git",
+    ".gitattributes",
+    ".github",
+    ".gitignore",
+    ".npmrc",
+    "AGENTS.md",
+    "CTA_ROUTE_AUDIT.md",
+    "CTA_WIRING_REPORT.md",
+    "HOMEPAGE_MANIFEST_TRUTH.md",
+    "HOMEPAGE_SECTION_DIFF.json",
+    "HOMEPAGE_SECTION_PROMOTION_REPORT.md",
+    "HUB_STATUS_REPORT.md",
+    "OCCLUSAL_SPLINTS_CORRECTION_REPORT.md",
+    "PHASE3_RECEIPTS.md",
+    "REPORTS",
+    "RUNTIME_PAGE_COVERAGE_REPORT.md",
+    "RUNTIME_SECTION_REGISTRY_REPORT.md",
+    "SEO_STACK_CHANGELOG.md",
+    "_champagne-extraction",
+    "_imports",
+    "_truth_output",
+    "apps",
+    "content-scope",
+    "docs",
+    "eslint.config.mjs",
+    "node_modules",
+    "package.json",
+    "packages",
+    "page-truth",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
+    "public",
+    "reference",
+    "reports",
+    "scripts",
+    "tests",
+    "tsconfig.base.json",
+    "update_treatment_journeys.py"
+  ],
+  "workspaceSignals": {
+    "pnpmWorkspaceYaml": true,
+    "turboJson": false,
+    "nxJson": false
+  },
+  "chatUiEvidence": {
+    "existingChatUiPaths": [
+      "apps/chat-ui",
+      "node_modules/.pnpm/node_modules/chat-ui",
+      "node_modules/.pnpm/playwright-core@1.57.0/node_modules/playwright-core/lib/server/recorder/chat.js",
+      "reports/chatbot",
+      "reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+      "reports/chatbot/PHASE_0E_CHATBOT_BACKEND_CONTRACT.md",
+      "_imports/champagne-hero/code/fx-system/components/ai/luxury-chatbot.tsx",
+      "_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts",
+      "_imports/champagne-hero/code/fx-system/styles/ai/chat-preview.css",
+      "_imports/champagne-hero/code/fx-system/public/brand/chat-ui.json"
+    ],
+    "existingEmbedPoints": [
+      "apps/stock/app/layout.tsx",
+      "apps/web/app/layout.tsx",
+      "apps/chat-ui/app/layout.tsx",
+      "apps/portal/app/layout.tsx",
+      "_imports/champagne-hero/code/hero-engine/app/preview/(with-shell)/hero-gilded/layout.tsx",
+      "_imports/code/hero-engine/app/preview/(with-shell)/champagne-skin/hero-gilded/layout.tsx"
+    ],
+    "existingDesignTokensPaths": [
+      "packages/champagne-tokens",
+      "packages/champagne-tokens/styles",
+      "packages/champagne-tokens/src"
+    ]
+  },
+  "bookingLinkEvidence": {
+    "anyExistingDentallyLinkOccurrences": []
+  },
+  "deploymentNotes": {
+    "vercelAppRoot": null
+  },
+  "notes": [
+    "defaultBranch not visible from local git metadata (no origin/HEAD).",
+    "No files matched portal.dental or dentally search.",
+    "No vercel configuration files found."
+  ]
+}
