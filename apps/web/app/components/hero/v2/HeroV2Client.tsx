@@ -582,9 +582,10 @@ export const HeroSurfaceStackV2 = memo(HeroSurfaceStackV2Base);
 
 type HeroContentFadeProps = {
   children: ReactNode;
+  contentKey?: string | null;
 };
 
-export function HeroContentFade({ children }: HeroContentFadeProps) {
+export function HeroContentFade({ children, contentKey }: HeroContentFadeProps) {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -604,7 +605,7 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
     setIsVisible(false);
     const id = requestAnimationFrame(() => setIsVisible(true));
     return () => cancelAnimationFrame(id);
-  }, [pathname, prefersReducedMotion]);
+  }, [contentKey, prefersReducedMotion]);
 
   useEffect(() => {
     const content = document.querySelector(".hero-renderer-v2 .hero-content") as HTMLElement | null;
