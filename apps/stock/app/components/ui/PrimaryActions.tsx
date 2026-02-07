@@ -11,7 +11,7 @@ type ActionLinkProps = {
 };
 
 export function PrimaryActions({ children }: PrimaryActionsProps) {
-  return <div className="stock-primary-actions">{children}</div>;
+  return <div className="stock-primary-actions stock-actions">{children}</div>;
 }
 
 export function ActionLink({ href, children }: ActionLinkProps) {

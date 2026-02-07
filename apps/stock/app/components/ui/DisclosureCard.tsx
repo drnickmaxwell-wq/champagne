@@ -10,7 +10,7 @@ export default function DisclosureCard({
   children
 }: DisclosureCardProps) {
   return (
-    <details className="stock-disclosure-card">
+    <details className="stock-disclosure-card stock-disclosure">
       <summary className="stock-disclosure-summary">{summary}</summary>
       <div className="stock-disclosure-body">{children}</div>
     </details>
