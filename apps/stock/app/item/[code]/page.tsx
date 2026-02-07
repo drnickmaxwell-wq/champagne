@@ -4,15 +4,19 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchScan } from "../../lib/ops-api";
 import { ScanResponseSchema } from "@champagne/stock-shared";
-import EventActionPanel from "../../components/EventActionPanel";
-import Card from "../../components/ui/Card";
-import DisclosureCard from "../../components/ui/DisclosureCard";
 import FeedbackCard from "../../components/ui/FeedbackCard";
-import { FieldList, FieldRow } from "../../components/ui/FieldList";
+import { FieldRow } from "../../components/ui/FieldList";
 import LoadingLine from "../../components/ui/LoadingLine";
 import PageShell from "../../components/ui/PageShell";
 import { ActionLink, PrimaryActions } from "../../components/ui/PrimaryActions";
 import StatusLine from "../../components/ui/StatusLine";
+import {
+  ActionSection,
+  DebugDisclosure,
+  KeyValueGrid,
+  ScreenHeader,
+  Section
+} from "../../components/ui/ScreenKit";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -43,37 +47,40 @@ export default function Page() {
   const [lastActionMessage, setLastActionMessage] = useState("");
   const [opsUnreachable, setOpsUnreachable] = useState(false);
 
-  const loadItem = useCallback(async (options?: { refresh?: boolean }) => {
-    if (code.length === 0) {
-      return;
-    }
-    const isRefresh = options?.refresh ?? false;
-    if (isRefresh) {
-      setRefreshing(true);
-    } else {
-      setLoading(true);
-    }
-    setErrorMessage("");
-    setOpsUnreachable(false);
-    const result = await fetchScan(code);
-    setLoading(false);
-    setRefreshing(false);
-    if (!result.ok) {
-      if (result.status === 0) {
-        setOpsUnreachable(true);
+  const loadItem = useCallback(
+    async (options?: { refresh?: boolean }) => {
+      if (code.length === 0) {
+        return;
       }
-      setErrorMessage(resolveErrorMessage(result.data));
-      setScanResult(null);
-      return;
-    }
-    const parsed = ScanResponseSchema.safeParse(result.data);
-    if (!parsed.success) {
-      setErrorMessage("Unexpected scan response.");
-      setScanResult(null);
-      return;
-    }
-    setScanResult(parsed.data);
-  }, [code]);
+      const isRefresh = options?.refresh ?? false;
+      if (isRefresh) {
+        setRefreshing(true);
+      } else {
+        setLoading(true);
+      }
+      setErrorMessage("");
+      setOpsUnreachable(false);
+      const result = await fetchScan(code);
+      setLoading(false);
+      setRefreshing(false);
+      if (!result.ok) {
+        if (result.status === 0) {
+          setOpsUnreachable(true);
+        }
+        setErrorMessage(resolveErrorMessage(result.data));
+        setScanResult(null);
+        return;
+      }
+      const parsed = ScanResponseSchema.safeParse(result.data);
+      if (!parsed.success) {
+        setErrorMessage("Unexpected scan response.");
+        setScanResult(null);
+        return;
+      }
+      setScanResult(parsed.data);
+    },
+    [code]
+  );
 
   useEffect(() => {
     void loadItem();
@@ -108,11 +115,17 @@ export default function Page() {
 
   return (
     <PageShell
-      eyebrow="Item"
-      title={code}
-      subtitle={`Resolved target: ${targetType}`}
-      status={
-        <StatusLine items={[{ label: "Last action", value: lastActionValue }]} />
+      header={
+        <ScreenHeader
+          eyebrow="Item"
+          title={code}
+          subtitle={`Resolved target: ${targetType}`}
+          status={
+            <StatusLine
+              items={[{ label: "Last action", value: lastActionValue }]}
+            />
+          }
+        />
       }
     >
       <div className="stock-feedback-region" aria-live="polite">
@@ -129,12 +142,12 @@ export default function Page() {
           <FeedbackCard title="Error" role="alert" message={errorMessage} />
         ) : null}
       </div>
-      <Card title="Primary details">
+      <Section title="Primary details">
         {scanData && scanData.result === "UNMATCHED" ? (
           <p>No match found for this code.</p>
         ) : null}
         {showDetails ? (
-          <FieldList>
+          <KeyValueGrid>
             {scanData?.result === "LOCATION" ? (
               <>
                 <FieldRow label="Location" value={scanData.name} />
@@ -158,7 +171,10 @@ export default function Page() {
                   label="Batch"
                   value={scanData.stockInstance.batchNumber}
                 />
-                <FieldRow label="Expiry" value={scanData.stockInstance.expiryDate} />
+                <FieldRow
+                  label="Expiry"
+                  value={scanData.stockInstance.expiryDate}
+                />
                 <FieldRow
                   label="Qty remaining"
                   value={scanData.stockInstance.qtyRemaining}
@@ -204,29 +220,29 @@ export default function Page() {
                 />
               </>
             ) : null}
-          </FieldList>
+          </KeyValueGrid>
         ) : null}
-      </Card>
+      </Section>
       {actionTarget ? (
-        <Card>
-          <EventActionPanel
-            productId={actionTarget.productId}
-            stockInstanceId={actionTarget.stockInstanceId}
-            locationId={actionTarget.locationId ?? null}
-            locationName={
-              scanData && "location" in scanData ? scanData.location?.name ?? null : null
-            }
-            onEventSuccess={() => {
-              void loadItem({ refresh: true });
-            }}
-            onLastActionMessage={(message) => setLastActionMessage(message)}
-          />
-        </Card>
+        <ActionSection
+          productId={actionTarget.productId}
+          stockInstanceId={actionTarget.stockInstanceId}
+          locationId={actionTarget.locationId ?? null}
+          locationName={
+            scanData && "location" in scanData
+              ? scanData.location?.name ?? null
+              : null
+          }
+          onEventSuccess={() => {
+            void loadItem({ refresh: true });
+          }}
+          onLastActionMessage={(message) => setLastActionMessage(message)}
+        />
       ) : null}
       {scanData ? (
-        <DisclosureCard summary="Debug scan response">
+        <DebugDisclosure summary="Debug scan response">
           <pre>{JSON.stringify(scanData, null, 2)}</pre>
-        </DisclosureCard>
+        </DebugDisclosure>
       ) : null}
       <PrimaryActions>
         <ActionLink href="/scan">Scan again</ActionLink>

@@ -7,11 +7,11 @@ import {
 } from "@champagne/stock-shared";
 import type { ReorderSuggestion } from "@champagne/stock-shared";
 import { fetchReorder, postEvent } from "../lib/ops-api";
-import Card from "../components/ui/Card";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import LoadingLine from "../components/ui/LoadingLine";
 import PageShell from "../components/ui/PageShell";
 import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
+import { ScreenHeader, Section } from "../components/ui/ScreenKit";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -100,7 +100,7 @@ export default function ReorderPage() {
   };
 
   return (
-    <PageShell title="Reorder">
+    <PageShell header={<ScreenHeader title="Reorder" />}>
       <div className="stock-feedback-region" aria-live="polite">
         {loading ? <LoadingLine label="Working..." /> : null}
         {submittingId ? <LoadingLine label="Working..." /> : null}
@@ -122,7 +122,7 @@ export default function ReorderPage() {
         <FeedbackCard title="Empty" message="No reorder suggestions." />
       ) : null}
       {suggestions.map((suggestion) => (
-        <Card key={suggestion.productId}>
+        <Section key={suggestion.productId}>
           <strong>{suggestion.name}</strong>
           {suggestion.variant ? ` (${suggestion.variant})` : ""}
           <div>
@@ -144,7 +144,7 @@ export default function ReorderPage() {
             </button>
             {!canReceive ? <span>Receive events not supported.</span> : null}
           </PrimaryActions>
-        </Card>
+        </Section>
       ))}
       <p>Flat list for now; supplier grouping later.</p>
       <PrimaryActions>
