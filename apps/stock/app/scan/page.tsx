@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ScanForm from "./ScanForm";
 import Scanner from "./Scanner";
-import { fetchScan } from "../lib/ops-api";
+import { fetchHealth, fetchScan } from "../lib/ops-api";
 import { ScanResponseSchema } from "@champagne/stock-shared";
 import EventActionPanel from "../components/EventActionPanel";
 
@@ -26,6 +26,25 @@ export default function ScanPage() {
   const [scanResult, setScanResult] = useState<unknown>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [opsStatus, setOpsStatus] = useState<"ok" | "offline" | "unknown">(
+    "unknown"
+  );
+
+  const checkOpsStatus = useCallback(async () => {
+    const result = await fetchHealth();
+    setOpsStatus(result.ok ? "ok" : "offline");
+  }, []);
+
+  useEffect(() => {
+    void checkOpsStatus();
+    if (typeof window === "undefined") {
+      return;
+    }
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    if (mediaQuery.matches) {
+      setCameraOpen(true);
+    }
+  }, [checkOpsStatus]);
 
   const loadScan = useCallback(async (code: string) => {
     setLoading(true);
@@ -77,20 +96,37 @@ export default function ScanPage() {
   return (
     <section>
       <h1>Scan</h1>
-      <ScanForm
-        defaultCode={scanCode}
-        onSubmitCode={(code) => {
-          setScanCode(code);
-          void loadScan(code);
-        }}
-      />
-      {cameraOpen ? (
-        <Scanner onDetected={handleDetected} onStop={handleStop} />
-      ) : (
-        <button type="button" onClick={() => setCameraOpen(true)}>
-          Use camera
+      <div>
+        <p>Ops: {opsStatus === "ok" ? "OK" : "Offline"}</p>
+        <button type="button" onClick={() => void checkOpsStatus()}>
+          Retry
         </button>
-      )}
+      </div>
+      <div>
+        <h2>Camera scan</h2>
+        {cameraOpen ? (
+          <>
+            <Scanner onDetected={handleDetected} onStop={handleStop} />
+            <button type="button" onClick={() => setCameraOpen(false)}>
+              Stop camera
+            </button>
+          </>
+        ) : (
+          <button type="button" onClick={() => setCameraOpen(true)}>
+            Use camera
+          </button>
+        )}
+      </div>
+      <div>
+        <h2>Manual entry</h2>
+        <ScanForm
+          defaultCode={scanCode}
+          onSubmitCode={(code) => {
+            setScanCode(code);
+            void loadScan(code);
+          }}
+        />
+      </div>
       {loading ? <p>Loading scan result...</p> : null}
       {errorMessage ? <p>{errorMessage}</p> : null}
       {scanData ? (
