@@ -1,25 +1,5 @@
 import { z } from "zod";
 
-export type StockScanStatus = "idle" | "active" | "paused";
-
-export type StockScanSession = {
-  id: string;
-  status: StockScanStatus;
-  startedAt: string;
-};
-
-export type StockItem = {
-  code: string;
-  name: string;
-  quantity: number;
-};
-
-export type ReorderRequest = {
-  itemCode: string;
-  quantity: number;
-  requestedBy: string;
-};
-
 export const StockClassSchema = z.enum([
   "CONSUMABLE",
   "IMPLANT",
@@ -40,23 +20,79 @@ export const EventTypeSchema = z.enum([
 ]);
 export type EventType = z.infer<typeof EventTypeSchema>;
 
+export const EventInputSchema = z.object({
+  ts: z.string().datetime().optional(),
+  eventType: EventTypeSchema,
+  qtyDeltaUnits: z.number().int(),
+  userId: z.string().uuid().optional(),
+  locationId: z.string().uuid().optional(),
+  productId: z.string().uuid().optional(),
+  stockInstanceId: z.string().uuid().optional(),
+  meta: z.record(z.unknown()).optional()
+});
+export type EventInput = z.infer<typeof EventInputSchema>;
+
+export const ProductSummarySchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  variant: z.string().nullable(),
+  stockClass: StockClassSchema,
+  unitLabel: z.string(),
+  packSizeUnits: z.number().int().positive(),
+  minLevelUnits: z.number().int().nonnegative(),
+  maxLevelUnits: z.number().int().positive(),
+  defaultWithdrawUnits: z.number().int().positive(),
+  supplierHint: z.string().nullable()
+});
+export type ProductSummary = z.infer<typeof ProductSummarySchema>;
+
+export const StockInstanceSnapshotSchema = z.object({
+  id: z.string(),
+  productId: z.string(),
+  locationId: z.string().nullable(),
+  batchNumber: z.string().nullable(),
+  expiryDate: z.string().nullable(),
+  qtyReceived: z.number().int().nonnegative(),
+  qtyRemaining: z.number().int().nonnegative(),
+  status: z.string()
+});
+export type StockInstanceSnapshot = z.infer<typeof StockInstanceSnapshotSchema>;
+
+export const ScanLocationProductSchema = z.object({
+  productId: z.string(),
+  name: z.string(),
+  variant: z.string().nullable(),
+  unitLabel: z.string(),
+  availableUnits: z.number().int().nonnegative(),
+  minLevelUnits: z.number().int().nonnegative(),
+  maxLevelUnits: z.number().int().nonnegative(),
+  lowStock: z.boolean()
+});
+export type ScanLocationProduct = z.infer<typeof ScanLocationProductSchema>;
+
 export const ScanResponseSchema = z.discriminatedUnion("result", [
   z.object({
     result: z.literal("LOCATION"),
     locationId: z.string(),
     name: z.string(),
-    locationType: z.string()
+    locationType: z.string(),
+    products: z.array(ScanLocationProductSchema)
   }),
   z.object({
     result: z.literal("STOCK_INSTANCE"),
-    stockInstanceId: z.string(),
-    productId: z.string(),
-    locationId: z.string()
+    stockInstance: StockInstanceSnapshotSchema,
+    product: ProductSummarySchema,
+    location: z
+      .object({
+        id: z.string(),
+        name: z.string(),
+        type: z.string()
+      })
+      .nullable()
   }),
   z.object({
     result: z.literal("PRODUCT_WITHDRAW"),
-    productId: z.string(),
-    defaultWithdrawUnits: z.number().int().nonnegative()
+    product: ProductSummarySchema
   }),
   z.object({
     result: z.literal("UNMATCHED"),
@@ -67,10 +103,20 @@ export type ScanResponse = z.infer<typeof ScanResponseSchema>;
 
 export const ReorderSuggestionSchema = z.object({
   productId: z.string(),
-  currentUnits: z.number().int().nonnegative(),
-  suggestedUnits: z.number().int().positive(),
+  name: z.string(),
+  variant: z.string().nullable(),
+  availableUnits: z.number().int().nonnegative(),
   minLevelUnits: z.number().int().nonnegative(),
   maxLevelUnits: z.number().int().positive(),
-  reason: z.string()
+  suggestedOrderUnits: z.number().int().nonnegative(),
+  supplierHint: z.string().nullable(),
+  unitLabel: z.string(),
+  packSizeUnits: z.number().int().positive()
 });
 export type ReorderSuggestion = z.infer<typeof ReorderSuggestionSchema>;
+
+export const EventResponseSchema = z.object({
+  eventId: z.string(),
+  stockInstance: StockInstanceSnapshotSchema.nullable()
+});
+export type EventResponse = z.infer<typeof EventResponseSchema>;

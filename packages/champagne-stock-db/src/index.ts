@@ -11,3 +11,4 @@ export async function getHealthStatus(): Promise<HealthStatus> {
 }
 
 export * from "./schema";
+export * from "./stockOps";
