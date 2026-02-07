@@ -14,6 +14,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { chatUiFixtures } from "../lib/chat-fixtures";
 
 const easeOutCubic: [number, number, number, number] = [0.215, 0.61, 0.355, 1];
 const easeInOutCubic: [number, number, number, number] = [0.645, 0.045, 0.355, 1];
@@ -25,6 +26,7 @@ type ConversationResult = {
   conversationId: string | null;
   content: string;
   confidence?: "high" | "medium" | "low" | number | null;
+  ui?: unknown;
 };
 
 type EmotionAnalysis = {
@@ -39,6 +41,7 @@ type ChatMessage = {
   timestamp: Date;
   emotion?: EmotionAnalysis;
   confidence?: "high" | "medium" | "low" | null;
+  ui?: AssistantUiPayload;
 };
 
 type LuxuryChatbotProps = {
@@ -47,6 +50,149 @@ type LuxuryChatbotProps = {
 };
 
 const REQUEST_TIMEOUT_MS = 8000;
+
+type CardAction =
+  | { type: "link"; label: string; href: string }
+  | { type: "postback"; label: string; payload: string };
+
+type CardPayload = {
+  title?: string;
+  body: string;
+  actions: CardAction[];
+};
+
+type AssistantUiPayload = {
+  kind: "cards";
+  cards: CardPayload[];
+};
+
+type ParsedAssistantContent = {
+  content: string;
+  ui?: AssistantUiPayload;
+};
+
+const UI_MARKER = "UI:";
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+const extractFirstJsonObject = (value: string) => {
+  const startIndex = value.indexOf("{");
+  if (startIndex === -1) {
+    return null;
+  }
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let index = startIndex; index < value.length; index += 1) {
+    const char = value[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (char === "\\") {
+      escaped = true;
+      continue;
+    }
+    if (char === "\"") {
+      inString = !inString;
+      continue;
+    }
+    if (inString) {
+      continue;
+    }
+    if (char === "{") {
+      depth += 1;
+    } else if (char === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        return value.slice(startIndex, index + 1);
+      }
+    }
+  }
+  return null;
+};
+
+const normalizeAction = (value: unknown): CardAction | null => {
+  if (!isRecord(value) || typeof value.type !== "string") {
+    return null;
+  }
+  if (value.type === "link") {
+    if (typeof value.label === "string" && typeof value.href === "string") {
+      return { type: "link", label: value.label, href: value.href };
+    }
+    return null;
+  }
+  if (value.type === "postback") {
+    if (typeof value.label === "string" && typeof value.payload === "string") {
+      return { type: "postback", label: value.label, payload: value.payload };
+    }
+  }
+  return null;
+};
+
+const normalizeCardsPayload = (value: unknown): AssistantUiPayload | null => {
+  if (!isRecord(value) || value.kind !== "cards" || !Array.isArray(value.cards)) {
+    return null;
+  }
+  const cards = value.cards
+    .map((card) => {
+      if (!isRecord(card) || typeof card.body !== "string") {
+        return null;
+      }
+      const actions = Array.isArray(card.actions)
+        ? card.actions.map(normalizeAction).filter(Boolean)
+        : [];
+      return {
+        title: typeof card.title === "string" ? card.title : undefined,
+        body: card.body,
+        actions: actions as CardAction[],
+      };
+    })
+    .filter(Boolean) as CardPayload[];
+
+  if (cards.length === 0) {
+    return null;
+  }
+  return { kind: "cards", cards };
+};
+
+const parseUiBlockFromContent = (content: string): ParsedAssistantContent => {
+  const markerIndex = content.indexOf(UI_MARKER);
+  if (markerIndex === -1) {
+    return { content };
+  }
+  const textPart = content.slice(0, markerIndex).trimEnd();
+  const afterMarker = content.slice(markerIndex + UI_MARKER.length).trim();
+  const jsonPayload = extractFirstJsonObject(afterMarker);
+  if (!jsonPayload) {
+    return { content };
+  }
+  try {
+    const parsed = JSON.parse(jsonPayload);
+    const ui = normalizeCardsPayload(parsed);
+    if (!ui) {
+      return { content };
+    }
+    return { content: textPart, ui };
+  } catch {
+    return { content };
+  }
+};
+
+const resolveAssistantContent = (data: ConversationResult): ParsedAssistantContent => {
+  const resolvedContent =
+    typeof data.content === "string" && data.content.trim().length > 0
+      ? data.content
+      : "No content returned.";
+
+  const directUi = normalizeCardsPayload(data.ui);
+  if (directUi) {
+    return { content: resolvedContent, ui: directUi };
+  }
+
+  return parseUiBlockFromContent(resolvedContent);
+};
 
 function resolveConfidenceLabel(confidence: ConversationResult["confidence"]) {
   if (typeof confidence === "string") {
@@ -139,7 +285,72 @@ function EmotionIndicator({ emotion }: { emotion?: EmotionAnalysis }) {
   );
 }
 
-function MessageBubble({ message, isUser }: { message: ChatMessage; isUser: boolean }) {
+function AssistantCards({
+  payload,
+  onPostback,
+}: {
+  payload: AssistantUiPayload;
+  onPostback: (payload: string) => void;
+}) {
+  if (payload.kind !== "cards") return null;
+
+  return (
+    <div className="mt-3 space-y-3">
+      {payload.cards.map((card, index) => (
+        <div
+          key={`${card.title ?? "card"}-${index}`}
+          className="rounded-2xl border border-[color:color-mix(in oklab,var(--smh-accent-gold) 16%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 92%, transparent)] px-3 py-3 shadow-sm"
+        >
+          {card.title ? (
+            <p className="text-sm font-semibold text-[color:var(--text-high)] mb-1">
+              {card.title}
+            </p>
+          ) : null}
+          <p className="text-sm text-[color:var(--text-medium)] leading-relaxed">
+            {card.body}
+          </p>
+          {card.actions.length > 0 ? (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {card.actions.map((action, actionIndex) => {
+                if (action.type === "link") {
+                  return (
+                    <a
+                      key={`${action.label}-${actionIndex}`}
+                      href={action.href}
+                      className="rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 84%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
+                    >
+                      {action.label}
+                    </a>
+                  );
+                }
+                return (
+                  <button
+                    key={`${action.label}-${actionIndex}`}
+                    type="button"
+                    onClick={() => onPostback(action.payload)}
+                    className="rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 86%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
+                  >
+                    {action.label}
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function MessageBubble({
+  message,
+  isUser,
+  onPostback,
+}: {
+  message: ChatMessage;
+  isUser: boolean;
+  onPostback: (payload: string) => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.8 }}
@@ -156,7 +367,12 @@ function MessageBubble({ message, isUser }: { message: ChatMessage; isUser: bool
               : "lux-chat-assistant-bubble mr-4 text-[color:var(--chat-text)]"
           }`}
         >
-          <p className="text-sm leading-relaxed">{message.content}</p>
+          {message.content.trim().length > 0 ? (
+            <p className="text-sm leading-relaxed">{message.content}</p>
+          ) : null}
+          {!isUser && message.ui ? (
+            <AssistantCards payload={message.ui} onPostback={onPostback} />
+          ) : null}
           <div
             className={`text-xs mt-2 ${
               isUser ? "lux-chat-user-meta" : "lux-chat-assistant-meta"
@@ -234,6 +450,8 @@ export default function LuxuryChatbot({
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const hasInjectedFixture = useRef(false);
+  const fixtureMode = process.env.NEXT_PUBLIC_CHATBOT_UI_FIXTURE ?? "";
 
   useEffect(() => {
     onStatusChange?.(engineStatus);
@@ -268,6 +486,28 @@ export default function LuxuryChatbot({
       setMessages([welcomeMessage]);
     }
   }, [isOpen, messages.length]);
+
+  useEffect(() => {
+    if (!isOpen || hasInjectedFixture.current) {
+      return;
+    }
+    const fixture = chatUiFixtures[fixtureMode];
+    if (!fixture) {
+      return;
+    }
+    const uiPayload = normalizeCardsPayload(fixture.ui);
+
+    const fixtureMessage: ChatMessage = {
+      id: `fixture-${fixtureMode}`,
+      role: "assistant",
+      content: fixture.content,
+      timestamp: new Date(),
+      ui: uiPayload ?? undefined,
+    };
+
+    setMessages((prev) => [...prev, fixtureMessage]);
+    hasInjectedFixture.current = true;
+  }, [fixtureMode, isOpen]);
 
   useEffect(() => {
     const maxAttempts = 3;
@@ -352,15 +592,13 @@ export default function LuxuryChatbot({
       }
 
       const data = (await response.json()) as ConversationResult;
-      const resolvedContent =
-        typeof data.content === "string" && data.content.trim().length > 0
-          ? data.content
-          : "No content returned.";
+      const resolvedMessage = resolveAssistantContent(data);
 
       const assistantMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: resolvedContent,
+        content: resolvedMessage.content,
+        ui: resolvedMessage.ui,
         timestamp: new Date(),
         confidence: resolveConfidenceLabel(data.confidence),
       };
@@ -510,6 +748,7 @@ export default function LuxuryChatbot({
                   key={message.id}
                   message={message}
                   isUser={message.role === "user"}
+                  onPostback={sendMessage}
                 />
               ))}
 
