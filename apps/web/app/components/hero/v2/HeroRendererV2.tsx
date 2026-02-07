@@ -160,7 +160,7 @@ type HeroV2FrameProps = {
   children: ReactNode;
 };
 
-function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] }) {
+function HeroV2StyleBlockClient({ layout }: { layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] }) {
   return (
     <>
       <style
@@ -523,7 +523,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
   );
 }
 
-export function HeroV2Frame({
+function HeroV2FrameClient({
   layout,
   gradient,
   rootStyle,
@@ -576,83 +576,7 @@ export function HeroV2Frame({
           WebkitBackdropFilter: "none",
         }}
       >
-        <HeroV2StyleBlock layout={layout} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(() => {
-              if (typeof window === 'undefined') return;
-              const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
-              const selector = '.hero-renderer-v2 .hero-surface--motion';
-              const getEverRevealed = () => window.__heroMotionEverRevealed === true;
-              const setEverRevealed = () => {
-                window.__heroMotionEverRevealed = true;
-              };
-              const resolveTargetOpacity = (video) => {
-                if (!(video instanceof HTMLVideoElement)) return null;
-                const dataValue = video.dataset.motionTargetOpacity;
-                if (dataValue) {
-                  const parsed = Number.parseFloat(dataValue);
-                  if (!Number.isNaN(parsed)) return parsed;
-                }
-                const inlineValue = video.style.getPropertyValue('--hero-motion-target-opacity');
-                const computedValue = window.getComputedStyle(video).getPropertyValue('--hero-motion-target-opacity');
-                const source = inlineValue || computedValue;
-                if (source) {
-                  const parsed = Number.parseFloat(source);
-                  if (!Number.isNaN(parsed)) {
-                    video.dataset.motionTargetOpacity = String(parsed);
-                    return parsed;
-                  }
-                }
-                return null;
-              };
-              const applyTargetOpacity = (video) => {
-                const target = resolveTargetOpacity(video);
-                if (target === null || Number.isNaN(target)) return;
-                video.style.opacity = String(target);
-                if (HERO_V2_DEBUG) {
-                  console.groupCollapsed("HERO_V2_MOTION_REVEAL", {
-                    id: video.dataset.surfaceId || "unknown",
-                    target,
-                    time: performance.now(),
-                  });
-                  console.groupEnd();
-                }
-              };
-              const reveal = (video) => {
-                if (!(video instanceof HTMLVideoElement)) return;
-                if (video.dataset.motionReady === 'true') return;
-                video.dataset.motionReady = 'true';
-                applyTargetOpacity(video);
-                setEverRevealed();
-              };
-              const initVideo = (video) => {
-                if (!(video instanceof HTMLVideoElement)) return;
-                if (video.dataset.motionInit === 'true') return;
-                video.dataset.motionInit = 'true';
-                if (getEverRevealed()) {
-                  applyTargetOpacity(video);
-                  video.dataset.motionReady = 'true';
-                  return;
-                }
-                video.preload = 'auto';
-                if (video.readyState >= 2) reveal(video);
-                video.addEventListener('loadeddata', () => reveal(video), { once: true });
-                video.addEventListener('canplay', () => reveal(video), { once: true });
-                video.addEventListener('playing', () => reveal(video), { once: true });
-              };
-              const init = () => {
-                Array.from(document.querySelectorAll(selector)).forEach(initVideo);
-              };
-              init();
-              const start = Date.now();
-              const intervalId = window.setInterval(() => {
-                init();
-                if (Date.now() - start > 2000) window.clearInterval(intervalId);
-              }, 250);
-            })();`,
-          }}
-        />
+        <HeroV2StyleBlockClient layout={layout} />
         {children}
       </BaseChampagneSurface>
     </div>
@@ -932,7 +856,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   };
 
   return (
-    <HeroV2Frame
+    <HeroV2FrameClient
       layout={activeModel.layout}
       gradient={activeModel.gradient}
       rootStyle={resolvedRootStyle}
@@ -973,7 +897,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       <HeroContentFade>
         <HeroContentV2 content={activeModel.content} layout={activeModel.layout} />
       </HeroContentFade>
-    </HeroV2Frame>
+    </HeroV2FrameClient>
   );
 }
 
