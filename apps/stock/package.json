@@ -2,7 +2,10 @@
   "name": "stock",
   "private": true,
   "scripts": {
-    "lint": "echo 'skipping lint'"
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "echo 'skipping lint'",
+    "start": "next start"
   },
   "dependencies": {
     "@champagne/stock-shared": "workspace:0.0.1",
@@ -15,6 +18,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "eslint": "^9.39.1",
+    "eslint-config-next": "15.5.7",
     "typescript": "^5.6.0"
   }
 }
