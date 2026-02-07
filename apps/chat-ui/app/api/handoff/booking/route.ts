@@ -17,7 +17,7 @@ const rateLimitState: RateLimitState =
   (globalForRateLimit.__handoffRateLimitState = { hits: new Map() });
 
 const BookingRequestSchema = z.object({
-  fullName: z.string().trim().min(1).max(120),
+  name: z.string().trim().min(1).max(120),
   phone: z.string().trim().min(5).max(40),
   email: z.string().trim().email().nullable().optional(),
   contactMethod: z.enum(["phone", "sms", "email"]),
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
   const forwardPayload = {
     requestId,
     tenantId,
-    fullName: parsed.data.fullName,
+    name: parsed.data.name,
     phone: parsed.data.phone,
     email: parsed.data.email ?? undefined,
     contactMethod: parsed.data.contactMethod,

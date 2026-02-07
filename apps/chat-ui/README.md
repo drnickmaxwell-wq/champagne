@@ -24,4 +24,4 @@
    HANDOFF_BOOKING_WEBHOOK_URL=http://localhost:5055 pnpm --filter chat-ui dev
    ```
 
-3. Trigger the booking request modal from a postback action with payload `BOOKING_REQUEST` (or a JSON payload containing `{ "kind": "handoff", "form": "booking" }`) and submit the form.
+3. Trigger the booking request modal from a postback action with payload `BOOKING_REQUEST` (or `{ "kind": "handoff", "form": "booking" }`) and submit the form.
