@@ -340,6 +340,7 @@ export default function LocationsPage() {
 
       <PrimaryActions>
         <ActionLink href="/scan">Scan</ActionLink>
+        <ActionLink href="/baseline">Baseline (one-time)</ActionLink>
         <ActionLink href="/products">Products</ActionLink>
         <ActionLink href="/reorder">Reorder</ActionLink>
       </PrimaryActions>
