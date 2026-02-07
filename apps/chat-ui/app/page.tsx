@@ -15,10 +15,11 @@ const REQUEST_TIMEOUT_MS = 8000;
 
 export default function Page() {
   const [status, setStatus] = useState<EngineStatus>({ state: "checking" });
-  const [input, setInput] = useState("");
-  const [reply, setReply] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [userInput, setUserInput] = useState("");
+  const [lastUserMessage, setLastUserMessage] = useState<string | null>(null);
+  const [lastBotReply, setLastBotReply] = useState<string | null>(null);
+  const [lastError, setLastError] = useState<string | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL;
@@ -72,19 +73,20 @@ export default function Page() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!engineBaseUrl) {
-      setError("Engine URL is not configured.");
+      setLastError("Engine URL is not configured.");
       return;
     }
 
-    const trimmed = input.trim();
+    const trimmed = userInput.trim();
     if (!trimmed) {
-      setError("Please enter a message.");
+      setLastError("Please enter a message.");
       return;
     }
 
-    setIsSubmitting(true);
-    setError(null);
-    setReply(null);
+    setIsSending(true);
+    setLastError(null);
+    setLastUserMessage(trimmed);
+    setLastBotReply(null);
 
     const controller = new AbortController();
     const timeoutId = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
@@ -98,20 +100,25 @@ export default function Page() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+        throw new Error(`Request failed: ${response.status} ${response.statusText}`.trim());
       }
 
       const data = (await response.json()) as ConversationResult;
-      setReply(data.content);
+      const content =
+        typeof data.content === "string" && data.content.trim().length > 0
+          ? data.content
+          : "No content returned.";
+      setLastBotReply(content);
     } catch (fetchError) {
       if (fetchError instanceof DOMException && fetchError.name === "AbortError") {
-        setError("Request timed out. Please try again.");
+        setLastError("Request failed: timeout after 8s.");
       } else {
-        setError("Unable to reach the concierge engine right now.");
+        const message = fetchError instanceof Error ? fetchError.message : "Unknown error.";
+        setLastError(`Request failed: ${message}`);
       }
     } finally {
       window.clearTimeout(timeoutId);
-      setIsSubmitting(false);
+      setIsSending(false);
     }
   };
 
@@ -128,18 +135,18 @@ export default function Page() {
         <div className="flex w-full flex-col gap-3 sm:flex-row">
           <input
             id="chat-input"
-            className="flex-1 rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-2"
+            className="flex-1 rounded-md border bg-[var(--surface-0)] px-3 py-2 text-sm text-[var(--text-high)] caret-[var(--text-high)] outline-none placeholder:text-[var(--text-medium)] focus-visible:ring-2"
             placeholder="Type your question..."
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-            disabled={isSubmitting}
+            value={userInput}
+            onChange={(event) => setUserInput(event.target.value)}
+            disabled={isSending}
           />
           <button
             type="submit"
             className="rounded-md border px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-60"
-            disabled={isSubmitting}
+            disabled={isSending}
           >
-            {isSubmitting ? "Sending..." : "Send"}
+            {isSending ? "Sending..." : "Send"}
           </button>
         </div>
       </form>
@@ -151,8 +158,21 @@ export default function Page() {
       >
         Book an appointment
       </a>
-      {reply ? <p className="max-w-xl text-sm">{reply}</p> : null}
-      {error ? <p className="max-w-xl text-sm">{error}</p> : null}
+      {lastUserMessage ? (
+        <p className="max-w-xl text-sm">
+          <span className="font-medium">You:</span> {lastUserMessage}
+        </p>
+      ) : null}
+      {lastBotReply ? (
+        <p className="max-w-xl text-sm">
+          <span className="font-medium">Engine:</span> {lastBotReply}
+        </p>
+      ) : null}
+      {lastError ? (
+        <p className="max-w-xl text-sm">
+          <span className="font-medium">Error:</span> {lastError}
+        </p>
+      ) : null}
       <p className="text-sm text-neutral-300">{statusLine}</p>
     </main>
   );
