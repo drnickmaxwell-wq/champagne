@@ -8,6 +8,7 @@ type ConversationResult = {
   matched: boolean;
   conversationId: string | null;
   content: string;
+  confidence?: "high" | "medium" | "low" | number | null;
 };
 
 const DENTALLY_BOOKING_URL = "https://st-marys-house-dental-care.portal.dental";
@@ -18,6 +19,7 @@ export default function Page() {
   const [userInput, setUserInput] = useState("");
   const [lastUserMessage, setLastUserMessage] = useState<string | null>(null);
   const [lastBotReply, setLastBotReply] = useState<string | null>(null);
+  const [lastConfidence, setLastConfidence] = useState<"high" | "medium" | "low" | null>(null);
   const [lastError, setLastError] = useState<string | null>(null);
   const [isSending, setIsSending] = useState(false);
 
@@ -69,6 +71,25 @@ export default function Page() {
   const engineBaseUrl = useMemo(() => process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "", []);
 
   const statusLine = status.state === "ok" ? "Engine: online" : "Engine: unreachable";
+  const resolveConfidenceLabel = (confidence: ConversationResult["confidence"]) => {
+    if (typeof confidence === "string") {
+      const normalized = confidence.toLowerCase();
+      if (normalized === "high" || normalized === "medium" || normalized === "low") {
+        return normalized;
+      }
+      return null;
+    }
+    if (typeof confidence === "number") {
+      if (confidence >= 0.75) {
+        return "high";
+      }
+      if (confidence >= 0.45) {
+        return "medium";
+      }
+      return "low";
+    }
+    return null;
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -87,6 +108,7 @@ export default function Page() {
     setLastError(null);
     setLastUserMessage(trimmed);
     setLastBotReply(null);
+    setLastConfidence(null);
 
     const controller = new AbortController();
     const timeoutId = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
@@ -109,6 +131,7 @@ export default function Page() {
           ? data.content
           : "No content returned.";
       setLastBotReply(content);
+      setLastConfidence(resolveConfidenceLabel(data.confidence));
     } catch (fetchError) {
       if (fetchError instanceof DOMException && fetchError.name === "AbortError") {
         setLastError("Request failed: timeout after 8s.");
@@ -135,7 +158,7 @@ export default function Page() {
         <div className="flex w-full flex-col gap-3 sm:flex-row">
           <input
             id="chat-input"
-            className="flex-1 rounded-md border bg-[var(--surface-0)] px-3 py-2 text-sm text-[var(--text-high)] caret-[var(--text-high)] outline-none placeholder:text-[var(--text-medium)] focus-visible:ring-2"
+            className="flex-1 rounded-md border border-[var(--border-subtle)] bg-[var(--surface-0)] px-3 py-2 text-sm text-[var(--text-high)] caret-[var(--text-high)] outline-none placeholder:text-[var(--text-medium)] focus-visible:ring-2 focus-visible:ring-[var(--border-subtle)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-0)]"
             placeholder="Type your question..."
             value={userInput}
             onChange={(event) => setUserInput(event.target.value)}
@@ -143,10 +166,17 @@ export default function Page() {
           />
           <button
             type="submit"
-            className="rounded-md border px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-60"
             disabled={isSending}
           >
-            {isSending ? "Sending..." : "Send"}
+            {isSending ? (
+              <>
+                <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                Sending...
+              </>
+            ) : (
+              "Send"
+            )}
           </button>
         </div>
       </form>
@@ -158,15 +188,28 @@ export default function Page() {
       >
         Book an appointment
       </a>
-      {lastUserMessage ? (
-        <p className="max-w-xl text-sm">
-          <span className="font-medium">You:</span> {lastUserMessage}
-        </p>
-      ) : null}
-      {lastBotReply ? (
-        <p className="max-w-xl text-sm">
-          <span className="font-medium">Engine:</span> {lastBotReply}
-        </p>
+      {lastUserMessage || lastBotReply ? (
+        <div className="flex w-full max-w-xl flex-col gap-3 text-sm">
+          {lastUserMessage ? (
+            <div className="rounded-md border border-[var(--border-subtle)] bg-[var(--surface-1)] px-3 py-2">
+              <div className="font-medium">You:</div>
+              <div>{lastUserMessage}</div>
+            </div>
+          ) : null}
+          {lastBotReply ? (
+            <div className="rounded-md border border-[var(--border-subtle)] bg-[var(--surface-1)] px-3 py-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-medium">Engine:</span>
+                {lastConfidence ? (
+                  <span className="rounded-full border border-[var(--border-subtle)] px-2 py-0.5 text-xs uppercase tracking-wide text-[var(--text-medium)]">
+                    {lastConfidence}
+                  </span>
+                ) : null}
+              </div>
+              <div className="whitespace-pre-wrap text-[var(--text-high)]">{lastBotReply}</div>
+            </div>
+          ) : null}
+        </div>
       ) : null}
       {lastError ? (
         <p className="max-w-xl text-sm">
