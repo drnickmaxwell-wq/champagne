@@ -5,6 +5,8 @@
 | Variable | Required | Description |
 | --- | --- | --- |
 | `HANDOFF_BOOKING_WEBHOOK_URL` | yes | The HTTPS endpoint that receives booking/call-back requests from `/api/handoff/booking`. |
+| `HANDOFF_EMERGENCY_WEBHOOK_URL` | yes | The HTTPS endpoint that receives emergency call-back requests from `/api/handoff/emergency-callback`. |
+| `HANDOFF_NEW_PATIENT_WEBHOOK_URL` | yes | The HTTPS endpoint that receives new patient enquiries from `/api/handoff/new-patient`. |
 | `HANDOFF_RATE_LIMIT_WINDOW_MS` | no | Rate limit window in milliseconds (default: `60000`). |
 | `HANDOFF_RATE_LIMIT_MAX` | no | Max requests per IP per window (default: `5`). |
 
