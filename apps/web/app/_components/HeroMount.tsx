@@ -51,10 +51,15 @@ export async function HeroMount(props: HeroRendererProps) {
       }
     }
 
-    const v2Props = props as HeroRendererV2Props;
-    const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
-    const v2Model = await buildHeroV2Model(v2PropsWithPath);
     const pathnameKey = normalizeHeroPathname(pathname);
+    const v2Props = props as HeroRendererV2Props;
+    const v2PropsWithPath = {
+      ...v2Props,
+      pageSlugOrPath: pathname,
+      pathnameKey,
+      heroDebugEnabled,
+    };
+    const v2Model = await buildHeroV2Model(v2PropsWithPath);
     const heroIdentityKey =
       v2Model?.surfaceStack.variantId ??
       v2Model?.surfaceStack.heroId ??
