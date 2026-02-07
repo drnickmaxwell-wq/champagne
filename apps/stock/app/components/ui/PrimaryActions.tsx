@@ -16,7 +16,7 @@ export function PrimaryActions({ children }: PrimaryActionsProps) {
 
 export function ActionLink({ href, children }: ActionLinkProps) {
   return (
-    <Link href={href} className="stock-action-link">
+    <Link href={href} className="stock-action-link stock-action-link--primary">
       {children}
     </Link>
   );
