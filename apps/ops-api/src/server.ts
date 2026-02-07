@@ -1,8 +1,12 @@
 import { createServer } from "node:http";
-import { getHealthStatus } from "@champagne/stock-db";
-import { EventTypeSchema } from "@champagne/stock-shared";
+import {
+  appendEventAndUpdateQty,
+  computeReorderSuggestions,
+  getHealthStatus,
+  lookupQrCode
+} from "@champagne/stock-db";
+import { EventInputSchema } from "@champagne/stock-shared";
 import { Pool } from "pg";
-import { z } from "zod";
 
 const port = Number(process.env.PORT ?? 4001);
 
@@ -21,32 +25,9 @@ const optionalEnv = (name: string, fallback: string): string => {
 
 const connectionString = requireEnv("STOCK_DATABASE_URL");
 // Dev fallback only; override STOCK_TENANT_ID in real environments.
-const tenantId = optionalEnv("STOCK_TENANT_ID", "dev-tenant");
+const tenantId = optionalEnv("STOCK_TENANT_ID", "00000000-0000-0000-0000-000000000001");
 
 const pool = new Pool({ connectionString });
-
-const EventPayloadSchema = z
-  .object({
-    ts: z.string().datetime().optional(),
-    created_at: z.string().datetime().optional(),
-    event_type: EventTypeSchema,
-    qty_delta_units: z.number().int(),
-    user_id: z.string().uuid().optional(),
-    location_id: z.string().uuid().optional(),
-    product_id: z.string().uuid().optional(),
-    stock_instance_id: z.string().uuid().optional(),
-    meta_json: z.record(z.unknown()).optional()
-  })
-  .superRefine((data, ctx) => {
-    if (!data.ts && !data.created_at) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "ts or created_at is required."
-      });
-    }
-  });
-
-type EventPayload = z.infer<typeof EventPayloadSchema>;
 
 const readJsonBody = async (request: { on: (event: string, cb: (data: any) => void) => void }) => {
   return new Promise<unknown>((resolve, reject) => {
@@ -70,7 +51,7 @@ const readJsonBody = async (request: { on: (event: string, cb: (data: any) => vo
 };
 
 const parseEventPayload = (body: unknown) => {
-  return EventPayloadSchema.safeParse(body);
+  return EventInputSchema.safeParse(body);
 };
 
 const server = createServer(async (request, response) => {
@@ -104,99 +85,105 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const payload: EventPayload = parsed.data;
-    const eventTs = payload.ts ?? payload.created_at;
-    const client = await pool.connect();
-
+    const payload = parsed.data;
+    const eventTs = payload.ts ? new Date(payload.ts) : new Date();
     try {
-      await client.query("BEGIN");
+      const writeResult = await appendEventAndUpdateQty(pool, tenantId, {
+        ts: eventTs,
+        eventType: payload.eventType,
+        qtyDeltaUnits: payload.qtyDeltaUnits,
+        userId: payload.userId,
+        locationId: payload.locationId,
+        productId: payload.productId,
+        stockInstanceId: payload.stockInstanceId,
+        meta: payload.meta
+      });
 
-      if (payload.stock_instance_id) {
-        const updateResult = await client.query(
-          "UPDATE stock_instances SET qty_remaining = qty_remaining + $1 WHERE id = $2 AND tenant_id = $3 RETURNING id",
-          [payload.qty_delta_units, payload.stock_instance_id, tenantId]
+      if (writeResult.status === "NOT_FOUND") {
+        response.writeHead(404, { "content-type": "application/json" });
+        response.end(
+          JSON.stringify({ error: "Stock instance not found.", stockInstanceId: payload.stockInstanceId })
         );
-
-        if (updateResult.rowCount === 0) {
-          await client.query("ROLLBACK");
-          response.writeHead(404, { "content-type": "application/json" });
-          response.end(
-            JSON.stringify({ error: "Stock instance not found.", stock_instance_id: payload.stock_instance_id })
-          );
-          return;
-        }
+        return;
       }
 
-      const insertResult = await client.query(
-        "INSERT INTO events (tenant_id, ts, user_id, location_id, product_id, stock_instance_id, event_type, qty_delta_units, meta_json) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id",
-        [
-          tenantId,
-          eventTs,
-          payload.user_id ?? null,
-          payload.location_id ?? null,
-          payload.product_id ?? null,
-          payload.stock_instance_id ?? null,
-          payload.event_type,
-          payload.qty_delta_units,
-          payload.meta_json ?? null
-        ]
-      );
-
-      await client.query("COMMIT");
-
       response.writeHead(201, { "content-type": "application/json" });
-      response.end(JSON.stringify({ id: insertResult.rows[0]?.id }));
+      response.end(
+        JSON.stringify({
+          eventId: writeResult.eventId,
+          stockInstance: writeResult.stockInstance
+        })
+      );
       return;
     } catch (error) {
-      await client.query("ROLLBACK");
       response.writeHead(500, { "content-type": "application/json" });
       response.end(JSON.stringify({ error: "Failed to write event." }));
       return;
-    } finally {
-      client.release();
+    }
+  }
+
+  if (request.method === "GET" && url.pathname.startsWith("/scan/")) {
+    const code = decodeURIComponent(url.pathname.slice("/scan/".length));
+    if (!code) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Scan code is required." }));
+      return;
+    }
+
+    try {
+      const lookupResult = await lookupQrCode(pool, tenantId, code);
+
+      if (lookupResult.type === "LOCATION") {
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(
+          JSON.stringify({
+            result: "LOCATION",
+            locationId: lookupResult.location.id,
+            name: lookupResult.location.name,
+            locationType: lookupResult.location.type,
+            products: lookupResult.products
+          })
+        );
+        return;
+      }
+
+      if (lookupResult.type === "STOCK_INSTANCE") {
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(
+          JSON.stringify({
+            result: "STOCK_INSTANCE",
+            stockInstance: lookupResult.stockInstance,
+            product: lookupResult.product,
+            location: lookupResult.location
+          })
+        );
+        return;
+      }
+
+      if (lookupResult.type === "PRODUCT_WITHDRAW") {
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(
+          JSON.stringify({
+            result: "PRODUCT_WITHDRAW",
+            product: lookupResult.product
+          })
+        );
+        return;
+      }
+
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify({ result: "UNMATCHED", scannedCode: code }));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to resolve scan code." }));
+      return;
     }
   }
 
   if (request.method === "GET" && url.pathname === "/reorder") {
     try {
-      const result = await pool.query(
-        "SELECT p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint, p.unit_label, p.pack_size_units, COALESCE(SUM(si.qty_remaining), 0) AS available_units FROM products p LEFT JOIN stock_instances si ON si.product_id = p.id AND si.tenant_id = p.tenant_id WHERE p.tenant_id = $1 GROUP BY p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint, p.unit_label, p.pack_size_units",
-        [tenantId]
-      );
-
-      if (result.rowCount === 0) {
-        response.writeHead(200, { "content-type": "application/json" });
-        response.end(JSON.stringify([]));
-        return;
-      }
-
-      const suggestions = result.rows
-        .map((row) => {
-          const availableUnits = Number(row.available_units);
-          const minLevelUnits = Number(row.min_level_units);
-          const maxLevelUnits = Number(row.max_level_units);
-
-          if (availableUnits >= minLevelUnits) {
-            return null;
-          }
-
-          const suggestedOrderUnits = Math.max(0, maxLevelUnits - availableUnits);
-
-          return {
-            product_id: row.id,
-            name: row.name,
-            variant: row.variant ?? null,
-            available_units: availableUnits,
-            min_level_units: minLevelUnits,
-            max_level_units: maxLevelUnits,
-            suggested_order_units: suggestedOrderUnits,
-            supplier_hint: row.supplier_hint ?? null,
-            unit_label: row.unit_label,
-            pack_size_units: Number(row.pack_size_units)
-          };
-        })
-        .filter((item) => item !== null);
-
+      const suggestions = await computeReorderSuggestions(pool, tenantId);
       response.writeHead(200, { "content-type": "application/json" });
       response.end(JSON.stringify(suggestions));
       return;
