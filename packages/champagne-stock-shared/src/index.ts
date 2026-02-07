@@ -46,6 +46,36 @@ export const ProductSummarySchema = z.object({
 });
 export type ProductSummary = z.infer<typeof ProductSummarySchema>;
 
+export const ProductSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  variant: z.string().nullable(),
+  stockClass: StockClassSchema,
+  unitLabel: z.string(),
+  packSizeUnits: z.number().int().positive(),
+  minLevelUnits: z.number().int().nonnegative(),
+  maxLevelUnits: z.number().int().positive(),
+  defaultWithdrawUnits: z.number().int().positive(),
+  supplierHint: z.string().nullable()
+});
+export type Product = z.infer<typeof ProductSchema>;
+
+export const ProductCreateInputSchema = z.object({
+  name: z.string().min(1),
+  variant: z.string().nullable().optional(),
+  stockClass: StockClassSchema,
+  unitLabel: z.string().min(1),
+  packSizeUnits: z.number().int().positive(),
+  minLevelUnits: z.number().int().nonnegative(),
+  maxLevelUnits: z.number().int().positive(),
+  defaultWithdrawUnits: z.number().int().positive(),
+  supplierHint: z.string().nullable().optional()
+});
+export type ProductCreateInput = z.infer<typeof ProductCreateInputSchema>;
+
+export const ProductUpdateInputSchema = ProductCreateInputSchema.partial();
+export type ProductUpdateInput = z.infer<typeof ProductUpdateInputSchema>;
+
 export const StockInstanceSnapshotSchema = z.object({
   id: z.string(),
   productId: z.string(),

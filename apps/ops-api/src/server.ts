@@ -3,9 +3,16 @@ import {
   appendEventAndApplyEffects,
   computeReorder,
   getHealthStatus,
-  getScanResult
+  getScanResult,
+  createProduct,
+  listProducts,
+  updateProduct
 } from "@champagne/stock-db";
-import { EventInputSchema } from "@champagne/stock-shared";
+import {
+  EventInputSchema,
+  ProductCreateInputSchema,
+  ProductUpdateInputSchema
+} from "@champagne/stock-shared";
 import { Pool } from "pg";
 
 const port = Number(process.env.PORT ?? 4001);
@@ -54,6 +61,14 @@ const parseEventPayload = (body: unknown) => {
   return EventInputSchema.safeParse(body);
 };
 
+const parseProductCreatePayload = (body: unknown) => {
+  return ProductCreateInputSchema.safeParse(body);
+};
+
+const parseProductUpdatePayload = (body: unknown) => {
+  return ProductUpdateInputSchema.safeParse(body);
+};
+
 const server = createServer(async (request, response) => {
   const url = new URL(request.url ?? "/", `http://${request.headers.host ?? "localhost"}`);
 
@@ -66,6 +81,104 @@ const server = createServer(async (request, response) => {
     } catch (error) {
       response.writeHead(500, { "content-type": "application/json" });
       response.end(JSON.stringify({ error: "Database unavailable." }));
+      return;
+    }
+  }
+
+  if (request.method === "GET" && url.pathname === "/products") {
+    try {
+      const products = await listProducts(pool, tenantId);
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(products));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to load products." }));
+      return;
+    }
+  }
+
+  if (request.method === "POST" && url.pathname === "/products") {
+    let body: unknown;
+
+    try {
+      body = await readJsonBody(request);
+    } catch {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Invalid JSON body." }));
+      return;
+    }
+
+    const parsed = parseProductCreatePayload(body);
+
+    if (!parsed.success) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(
+        JSON.stringify({ error: "Invalid payload.", details: parsed.error.flatten() })
+      );
+      return;
+    }
+
+    try {
+      const product = await createProduct(pool, tenantId, parsed.data);
+      response.writeHead(201, { "content-type": "application/json" });
+      response.end(JSON.stringify(product));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to create product." }));
+      return;
+    }
+  }
+
+  if (request.method === "PATCH" && url.pathname.startsWith("/products/")) {
+    const pathSegments = url.pathname.split("/");
+    const productId = pathSegments[2] ?? "";
+    if (pathSegments.length !== 3 || productId.length === 0) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Product id is required." }));
+      return;
+    }
+
+    let body: unknown;
+
+    try {
+      body = await readJsonBody(request);
+    } catch {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Invalid JSON body." }));
+      return;
+    }
+
+    const parsed = parseProductUpdatePayload(body);
+
+    if (!parsed.success) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(
+        JSON.stringify({ error: "Invalid payload.", details: parsed.error.flatten() })
+      );
+      return;
+    }
+
+    if (Object.keys(parsed.data).length === 0) {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "No updates provided." }));
+      return;
+    }
+
+    try {
+      const product = await updateProduct(pool, tenantId, productId, parsed.data);
+      if (!product) {
+        response.writeHead(404, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: "Product not found." }));
+        return;
+      }
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(product));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Failed to update product." }));
       return;
     }
   }

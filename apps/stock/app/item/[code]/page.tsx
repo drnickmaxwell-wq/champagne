@@ -211,6 +211,7 @@ export default function Page() {
       <PrimaryActions>
         <ActionLink href="/scan">Scan again</ActionLink>
         <ActionLink href="/reorder">Reorder</ActionLink>
+        <ActionLink href="/products">Products</ActionLink>
       </PrimaryActions>
       {scanData ? (
         <DebugDisclosure summary="Technical details (for troubleshooting only)">

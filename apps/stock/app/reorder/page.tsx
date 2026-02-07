@@ -149,6 +149,7 @@ export default function ReorderPage() {
       <p>Flat list for now; supplier grouping later.</p>
       <PrimaryActions>
         <ActionLink href="/scan">Scan again</ActionLink>
+        <ActionLink href="/products">Products</ActionLink>
       </PrimaryActions>
     </PageShell>
   );

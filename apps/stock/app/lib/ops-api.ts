@@ -1,5 +1,13 @@
-import { EventInputSchema } from "@champagne/stock-shared";
-import type { EventInput } from "@champagne/stock-shared";
+import {
+  EventInputSchema,
+  ProductCreateInputSchema,
+  ProductUpdateInputSchema
+} from "@champagne/stock-shared";
+import type {
+  EventInput,
+  ProductCreateInput,
+  ProductUpdateInput
+} from "@champagne/stock-shared";
 
 type ApiResult<T> = {
   ok: boolean;
@@ -90,6 +98,49 @@ export const postEvent = async (
 
   return requestJson(buildUrl("/events"), {
     method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(parsed.data)
+  });
+};
+
+export const fetchProducts = async (): Promise<ApiResult<unknown>> => {
+  return requestJson(buildUrl("/products"));
+};
+
+export const postProduct = async (
+  payload: ProductCreateInput
+): Promise<ApiResult<unknown>> => {
+  const parsed = ProductCreateInputSchema.safeParse(payload);
+  if (!parsed.success) {
+    return {
+      ok: false,
+      status: 0,
+      data: { message: "Invalid product details. Please check the inputs." }
+    };
+  }
+
+  return requestJson(buildUrl("/products"), {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(parsed.data)
+  });
+};
+
+export const patchProduct = async (
+  productId: string,
+  payload: ProductUpdateInput
+): Promise<ApiResult<unknown>> => {
+  const parsed = ProductUpdateInputSchema.safeParse(payload);
+  if (!parsed.success) {
+    return {
+      ok: false,
+      status: 0,
+      data: { message: "Invalid product update. Please check the inputs." }
+    };
+  }
+
+  return requestJson(buildUrl(`/products/${productId}`), {
+    method: "PATCH",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(parsed.data)
   });

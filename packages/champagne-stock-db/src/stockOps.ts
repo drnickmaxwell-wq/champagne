@@ -88,6 +88,20 @@ export type EventWriteResult = {
   ok: true;
 };
 
+export type ProductCreateInput = {
+  name: string;
+  variant?: string | null;
+  stockClass: string;
+  unitLabel: string;
+  packSizeUnits: number;
+  minLevelUnits: number;
+  maxLevelUnits: number;
+  defaultWithdrawUnits: number;
+  supplierHint?: string | null;
+};
+
+export type ProductUpdateInput = Partial<ProductCreateInput>;
+
 const mapProduct = (row: any): ProductRecord => {
   return {
     id: row.id,
@@ -315,6 +329,112 @@ export async function computeReorder(pool: StockDbPool, tenantId: string) {
       packSizeUnits: Number(row.pack_size_units)
     };
   });
+}
+
+export async function listProducts(pool: StockDbPool, tenantId: string) {
+  const result = await pool.query(
+    `SELECT id, name, variant, stock_class, unit_label, pack_size_units, min_level_units,
+      max_level_units, default_withdraw_units, supplier_hint
+     FROM products
+     WHERE tenant_id = $1
+     ORDER BY name ASC`,
+    [tenantId]
+  );
+
+  return (result.rows as Array<Record<string, unknown>>).map((row) => mapProduct(row));
+}
+
+export async function createProduct(
+  pool: StockDbPool,
+  tenantId: string,
+  payload: ProductCreateInput
+) {
+  const result = await pool.query(
+    `INSERT INTO products (tenant_id, name, variant, stock_class, unit_label, pack_size_units, min_level_units,
+      max_level_units, default_withdraw_units, supplier_hint)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+     RETURNING id, name, variant, stock_class, unit_label, pack_size_units, min_level_units,
+      max_level_units, default_withdraw_units, supplier_hint`,
+    [
+      tenantId,
+      payload.name,
+      payload.variant ?? null,
+      payload.stockClass,
+      payload.unitLabel,
+      payload.packSizeUnits,
+      payload.minLevelUnits,
+      payload.maxLevelUnits,
+      payload.defaultWithdrawUnits,
+      payload.supplierHint ?? null
+    ]
+  );
+
+  if (result.rowCount === 0) {
+    throw new Error("Failed to create product.");
+  }
+
+  return mapProduct(result.rows[0]);
+}
+
+export async function updateProduct(
+  pool: StockDbPool,
+  tenantId: string,
+  productId: string,
+  payload: ProductUpdateInput
+) {
+  const updates: Array<{ column: string; value: unknown }> = [];
+
+  if (payload.name !== undefined) {
+    updates.push({ column: "name", value: payload.name });
+  }
+  if (payload.variant !== undefined) {
+    updates.push({ column: "variant", value: payload.variant ?? null });
+  }
+  if (payload.stockClass !== undefined) {
+    updates.push({ column: "stock_class", value: payload.stockClass });
+  }
+  if (payload.unitLabel !== undefined) {
+    updates.push({ column: "unit_label", value: payload.unitLabel });
+  }
+  if (payload.packSizeUnits !== undefined) {
+    updates.push({ column: "pack_size_units", value: payload.packSizeUnits });
+  }
+  if (payload.minLevelUnits !== undefined) {
+    updates.push({ column: "min_level_units", value: payload.minLevelUnits });
+  }
+  if (payload.maxLevelUnits !== undefined) {
+    updates.push({ column: "max_level_units", value: payload.maxLevelUnits });
+  }
+  if (payload.defaultWithdrawUnits !== undefined) {
+    updates.push({ column: "default_withdraw_units", value: payload.defaultWithdrawUnits });
+  }
+  if (payload.supplierHint !== undefined) {
+    updates.push({ column: "supplier_hint", value: payload.supplierHint ?? null });
+  }
+
+  if (updates.length === 0) {
+    return null;
+  }
+
+  const assignments = updates.map((item, index) => `${item.column} = $${index + 1}`);
+  const values = updates.map((item) => item.value);
+  const tenantIndex = updates.length + 1;
+  const idIndex = updates.length + 2;
+
+  const result = await pool.query(
+    `UPDATE products
+     SET ${assignments.join(", ")}
+     WHERE tenant_id = $${tenantIndex} AND id = $${idIndex}
+     RETURNING id, name, variant, stock_class, unit_label, pack_size_units, min_level_units,
+      max_level_units, default_withdraw_units, supplier_hint`,
+    [...values, tenantId, productId]
+  );
+
+  if (result.rowCount === 0) {
+    return null;
+  }
+
+  return mapProduct(result.rows[0]);
 }
 
 export async function getScanResult(
