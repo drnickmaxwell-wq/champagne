@@ -22,34 +22,52 @@ export default function Page() {
 
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL;
+    const maxAttempts = 3;
+    let isCancelled = false;
+    let retryTimeoutId: number | null = null;
+
     if (!baseUrl) {
       setStatus({ state: "error" });
-      return;
+      return () => undefined;
     }
 
-    fetch(`${baseUrl}/health`, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-        setStatus({ state: "ok" });
-      })
-      .catch(() => {
-        setStatus({ state: "error" });
-      });
+    const checkHealth = (attempt: number) => {
+      setStatus({ state: "checking" });
+      fetch(`${baseUrl}/health`, { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          if (!isCancelled) {
+            setStatus({ state: "ok" });
+          }
+        })
+        .catch(() => {
+          if (isCancelled) {
+            return;
+          }
+          if (attempt >= maxAttempts) {
+            setStatus({ state: "error" });
+            return;
+          }
+          const backoffMs = 500 * 2 ** (attempt - 1);
+          retryTimeoutId = window.setTimeout(() => checkHealth(attempt + 1), backoffMs);
+        });
+    };
+
+    checkHealth(1);
+
+    return () => {
+      isCancelled = true;
+      if (retryTimeoutId !== null) {
+        window.clearTimeout(retryTimeoutId);
+      }
+    };
   }, []);
 
   const engineBaseUrl = useMemo(() => process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "", []);
 
-  const statusLine = (() => {
-    if (status.state === "checking") {
-      return "Engine: checking...";
-    }
-    if (status.state === "ok") {
-      return "Engine: ok";
-    }
-    return "Engine: unreachable";
-  })();
+  const statusLine = status.state === "ok" ? "Engine: online" : "Engine: unreachable";
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
