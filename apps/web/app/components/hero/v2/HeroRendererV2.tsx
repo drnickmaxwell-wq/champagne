@@ -746,6 +746,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [renderModel, setRenderModel] = useState<HeroV2Model | null>(() => lastResolvedHeroV2Model);
   const renderModelRef = useRef<HeroV2Model | null>(lastResolvedHeroV2Model);
   const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
+  const prevHeroVisuallyReadyRef = useRef<boolean | null>(null);
   const readyByIdentityRef = useRef<Record<string, boolean>>({});
   const debugEnabled = searchParams?.get("heroDebug") === "1";
   const modelSnapshot = renderModel ?? lastResolvedHeroV2Model;
@@ -767,6 +768,19 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       setIsHeroVisuallyReady(false);
     }
   }, [heroIdentityKey]);
+
+  useEffect(() => {
+    if (!debugEnabled) return;
+    const prev = prevHeroVisuallyReadyRef.current;
+    if (prev !== isHeroVisuallyReady) {
+      console.log(`[HeroV2 READY] ${prev} -> ${isHeroVisuallyReady}`, {
+        heroIdentityKey,
+        pathnameKey,
+        t: performance.now(),
+      });
+      prevHeroVisuallyReadyRef.current = isHeroVisuallyReady;
+    }
+  }, [debugEnabled, heroIdentityKey, isHeroVisuallyReady, pathnameKey]);
 
   useEffect(() => {
     if (!debugEnabled) return;
@@ -874,9 +888,15 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (!modelSnapshot) {
       return;
     }
+    if (debugEnabled) {
+      console.log("[HeroV2 READY] start", { heroIdentityKey, pathnameKey, t: performance.now() });
+    }
     if (modelSnapshot.surfaceStack.prmEnabled) {
       readyByIdentityRef.current[heroIdentityKey] = true;
       setIsHeroVisuallyReady(true);
+      if (debugEnabled) {
+        console.log("[HeroV2 READY] complete: prm", { heroIdentityKey, pathnameKey, t: performance.now() });
+      }
       return;
     }
     const root = document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
@@ -885,6 +905,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     if (motionVideos.length === 0) {
       readyByIdentityRef.current[heroIdentityKey] = true;
       setIsHeroVisuallyReady(true);
+      if (debugEnabled) {
+        console.log("[HeroV2 READY] complete: no-motion", { heroIdentityKey, pathnameKey, t: performance.now() });
+      }
       return;
     }
     let remaining = motionVideos.length;
@@ -896,6 +919,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       if (remaining <= 0) {
         readyByIdentityRef.current[heroIdentityKey] = true;
         setIsHeroVisuallyReady(true);
+        if (debugEnabled) {
+          console.log("[HeroV2 READY] complete: videos", { heroIdentityKey, pathnameKey, t: performance.now() });
+        }
       }
     };
     const onPlaying = () => markReady();
@@ -919,7 +945,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         }
       });
     };
-  }, [heroIdentityKey, renderModel]);
+  }, [debugEnabled, heroIdentityKey, pathnameKey, renderModel]);
 
   const activeModel = renderModel ?? lastResolvedHeroV2Model;
   if (!activeModel) return <HeroFallback />;

@@ -592,6 +592,11 @@ export function HeroContentFade({ children, identityKey }: HeroContentFadeProps)
   const [isVisible, setIsVisible] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const fadeRef = useRef<HTMLDivElement | null>(null);
+  const pathnameRef = useRef(pathname);
+
+  useEffect(() => {
+    pathnameRef.current = pathname;
+  }, [pathname]);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -604,14 +609,37 @@ export function HeroContentFade({ children, identityKey }: HeroContentFadeProps)
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (!HERO_CONTENT_FADE_ENABLED) return;
+    const debugEnabled = HERO_V2_DEBUG || isHeroNavDebugEnabled();
+    const currentPathname = pathnameRef.current;
     if (contentVisibleByIdentity[triggerKey] === true) {
       setIsVisible(true);
+      if (debugEnabled) {
+        console.log("[HeroV2 FADE] visible=true", {
+          triggerKey,
+          pathname: currentPathname,
+          t: performance.now(),
+        });
+      }
       return;
     }
     setIsVisible(false);
+    if (debugEnabled) {
+      console.log("[HeroV2 FADE] visible=false", {
+        triggerKey,
+        pathname: currentPathname,
+        t: performance.now(),
+      });
+    }
     const id = requestAnimationFrame(() => {
       setIsVisible(true);
       contentVisibleByIdentity[triggerKey] = true;
+      if (debugEnabled) {
+        console.log("[HeroV2 FADE] visible=true", {
+          triggerKey,
+          pathname: currentPathname,
+          t: performance.now(),
+        });
+      }
     });
     return () => cancelAnimationFrame(id);
   }, [triggerKey, prefersReducedMotion]);
