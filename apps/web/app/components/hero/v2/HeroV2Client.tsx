@@ -8,6 +8,7 @@ import type { HeroSurfaceStackModel } from "./HeroRendererV2";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const HERO_CONTENT_FADE_ENABLED = process.env.NEXT_PUBLIC_HERO_CONTENT_FADE !== "0";
+const contentVisibleByIdentity: Record<string, boolean> = {};
 
 type HeroSurfaceStackV2Props = HeroSurfaceStackModel & {
   surfaceRef?: Ref<HTMLDivElement>;
@@ -603,8 +604,15 @@ export function HeroContentFade({ children, identityKey }: HeroContentFadeProps)
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (!HERO_CONTENT_FADE_ENABLED) return;
+    if (contentVisibleByIdentity[triggerKey] === true) {
+      setIsVisible(true);
+      return;
+    }
     setIsVisible(false);
-    const id = requestAnimationFrame(() => setIsVisible(true));
+    const id = requestAnimationFrame(() => {
+      setIsVisible(true);
+      contentVisibleByIdentity[triggerKey] = true;
+    });
     return () => cancelAnimationFrame(id);
   }, [triggerKey, prefersReducedMotion]);
 
