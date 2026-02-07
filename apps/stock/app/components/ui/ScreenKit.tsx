@@ -60,7 +60,7 @@ type ActionSectionProps = ComponentProps<typeof EventActionPanel>;
 
 export function ActionSection(props: ActionSectionProps) {
   return (
-    <Card>
+    <Card className="stock-card--primary">
       <EventActionPanel {...props} />
     </Card>
   );

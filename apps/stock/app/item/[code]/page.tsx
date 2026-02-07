@@ -88,6 +88,10 @@ export default function Page() {
 
   const parsedScan = ScanResponseSchema.safeParse(scanResult);
   const scanData = parsedScan.success ? parsedScan.data : null;
+  const formatProduct = (name: string, variant?: string | null) => {
+    const cleanVariant = variant?.trim() ?? "";
+    return cleanVariant.length ? `${name} (${cleanVariant})` : name;
+  };
   const actionTarget =
     scanData && scanData.result === "STOCK_INSTANCE"
       ? {
@@ -113,6 +117,12 @@ export default function Page() {
   const isUnmatched = scanData?.result === "UNMATCHED";
 
   const lastActionValue = lastActionMessage || "None yet";
+  const locationLabel =
+    scanData && "location" in scanData
+      ? scanData.location?.name ?? "Not set"
+      : scanData?.result === "LOCATION"
+        ? scanData.name
+        : "Not set";
 
   return (
     <PageShell
@@ -146,106 +156,64 @@ export default function Page() {
           <FeedbackCard title="No match" message="No match found for this code." />
         ) : null}
       </div>
-      {showDetails ? (
-        <Section title="Primary details">
-          <KeyValueGrid>
-            {scanData?.result === "LOCATION" ? (
-              <>
-                <FieldRow label="Location" value={scanData.name} />
-                <FieldRow label="Type" value={scanData.locationType} />
-                <FieldRow label="Products" value={scanData.products.length} />
-              </>
-            ) : null}
-            {scanData?.result === "STOCK_INSTANCE" ? (
-              <>
-                <FieldRow label="Product" value={scanData.product.name} />
-                <FieldRow label="Variant" value={scanData.product.variant} />
-                <FieldRow
-                  label="Stock class"
-                  value={scanData.product.stockClass}
-                />
-                <FieldRow
-                  label="Location"
-                  value={scanData.location?.name ?? null}
-                />
-                <FieldRow
-                  label="Batch"
-                  value={scanData.stockInstance.batchNumber}
-                />
-                <FieldRow
-                  label="Expiry"
-                  value={scanData.stockInstance.expiryDate}
-                />
-                <FieldRow
-                  label="Qty remaining"
-                  value={scanData.stockInstance.qtyRemaining}
-                />
-                <FieldRow
-                  label="Qty received"
-                  value={scanData.stockInstance.qtyReceived}
-                />
-                <FieldRow
-                  label="Status"
-                  value={scanData.stockInstance.status}
-                />
-              </>
-            ) : null}
-            {scanData?.result === "PRODUCT_WITHDRAW" ? (
-              <>
-                <FieldRow label="Product" value={scanData.product.name} />
-                <FieldRow label="Variant" value={scanData.product.variant} />
-                <FieldRow
-                  label="Stock class"
-                  value={scanData.product.stockClass}
-                />
-                <FieldRow label="Unit" value={scanData.product.unitLabel} />
-                <FieldRow
-                  label="Pack size"
-                  value={scanData.product.packSizeUnits}
-                />
-                <FieldRow
-                  label="Default withdraw"
-                  value={scanData.product.defaultWithdrawUnits}
-                />
-                <FieldRow
-                  label="Min level"
-                  value={scanData.product.minLevelUnits}
-                />
-                <FieldRow
-                  label="Max level"
-                  value={scanData.product.maxLevelUnits}
-                />
-                <FieldRow
-                  label="Supplier"
-                  value={scanData.product.supplierHint}
-                />
-              </>
-            ) : null}
-          </KeyValueGrid>
-        </Section>
-      ) : null}
       {actionTarget ? (
         <ActionSection
           productId={actionTarget.productId}
           stockInstanceId={actionTarget.stockInstanceId}
           locationId={actionTarget.locationId ?? null}
-          locationName={
-            scanData && "location" in scanData
-              ? scanData.location?.name ?? null
-              : null
-          }
+          locationName={locationLabel}
           onEventSuccess={() => {
             void loadItem({ refresh: true });
           }}
           onLastActionMessage={(message) => setLastActionMessage(message)}
         />
       ) : null}
+      {showDetails ? (
+        <Section title="Summary">
+          <KeyValueGrid>
+            <FieldRow label="Location" value={locationLabel} />
+            {scanData?.result === "LOCATION" ? (
+              <FieldRow label="Products" value={scanData.products.length} />
+            ) : null}
+            {scanData?.result === "STOCK_INSTANCE" ? (
+              <>
+                <FieldRow
+                  label="Product"
+                  value={formatProduct(
+                    scanData.product.name,
+                    scanData.product.variant
+                  )}
+                />
+                <FieldRow
+                  label="Batch"
+                  value={scanData.stockInstance.batchNumber}
+                />
+                {scanData.stockInstance.expiryDate ? (
+                  <FieldRow
+                    label="Expiry"
+                    value={scanData.stockInstance.expiryDate}
+                  />
+                ) : null}
+              </>
+            ) : null}
+            {scanData?.result === "PRODUCT_WITHDRAW" ? (
+              <FieldRow
+                label="Product"
+                value={formatProduct(
+                  scanData.product.name,
+                  scanData.product.variant
+                )}
+              />
+            ) : null}
+          </KeyValueGrid>
+        </Section>
+      ) : null}
       <PrimaryActions>
         <ActionLink href="/scan">Scan again</ActionLink>
         <ActionLink href="/reorder">Reorder</ActionLink>
       </PrimaryActions>
       {scanData ? (
-        <DebugDisclosure summary="Debug scan response">
+        <DebugDisclosure summary="Technical details (for troubleshooting only)">
           <pre>{JSON.stringify(scanData, null, 2)}</pre>
         </DebugDisclosure>
       ) : null}
