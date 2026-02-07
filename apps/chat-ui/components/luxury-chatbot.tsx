@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { chatUiFixtures } from "../lib/chat-fixtures";
 import BookingRequestModal from "./booking-request-modal";
+import EmergencyCallbackModal from "./emergency-callback-modal";
+import NewPatientEnquiryModal from "./new-patient-enquiry-modal";
 
 const easeOutCubic: [number, number, number, number] = [0.215, 0.61, 0.355, 1];
 const easeInOutCubic: [number, number, number, number] = [0.645, 0.045, 0.355, 1];
@@ -52,7 +54,10 @@ type LuxuryChatbotProps = {
 
 const REQUEST_TIMEOUT_MS = 8000;
 
-type HandoffPayload = { kind: "handoff"; form: "booking" };
+type HandoffPayload = {
+  kind: "handoff";
+  form: "booking" | "emergency_callback" | "new_patient";
+};
 type ActionPayload = string | HandoffPayload | Record<string, unknown>;
 
 type CardAction =
@@ -129,19 +134,22 @@ const parseJsonPayload = (payload: string): Record<string, unknown> | null => {
   }
 };
 
-const isBookingHandoffPayload = (payload: unknown) => {
+const isHandoffPayload = (
+  payload: unknown,
+  form: HandoffPayload["form"],
+) => {
   if (typeof payload === "string") {
-    if (payload === "BOOKING_REQUEST") {
+    if (form === "booking" && payload === "BOOKING_REQUEST") {
       return true;
     }
     const parsed = parseJsonPayload(payload);
     if (!parsed) {
       return false;
     }
-    return parsed.kind === "handoff" && parsed.form === "booking";
+    return parsed.kind === "handoff" && parsed.form === form;
   }
   if (isRecord(payload)) {
-    return payload.kind === "handoff" && payload.form === "booking";
+    return payload.kind === "handoff" && payload.form === form;
   }
   return false;
 };
@@ -485,6 +493,8 @@ export default function LuxuryChatbot({
 }: LuxuryChatbotProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isEmergencyModalOpen, setIsEmergencyModalOpen] = useState(false);
+  const [isNewPatientModalOpen, setIsNewPatientModalOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -705,8 +715,16 @@ export default function LuxuryChatbot({
   };
 
   const handlePostback = (payload: ActionPayload) => {
-    if (isBookingHandoffPayload(payload)) {
+    if (isHandoffPayload(payload, "booking")) {
       setIsBookingModalOpen(true);
+      return;
+    }
+    if (isHandoffPayload(payload, "emergency_callback")) {
+      setIsEmergencyModalOpen(true);
+      return;
+    }
+    if (isHandoffPayload(payload, "new_patient")) {
+      setIsNewPatientModalOpen(true);
       return;
     }
     if (typeof payload === "string") {
@@ -939,6 +957,16 @@ export default function LuxuryChatbot({
       <BookingRequestModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
+        tenantId={tenantId}
+      />
+      <EmergencyCallbackModal
+        isOpen={isEmergencyModalOpen}
+        onClose={() => setIsEmergencyModalOpen(false)}
+        tenantId={tenantId}
+      />
+      <NewPatientEnquiryModal
+        isOpen={isNewPatientModalOpen}
+        onClose={() => setIsNewPatientModalOpen(false)}
         tenantId={tenantId}
       />
     </>

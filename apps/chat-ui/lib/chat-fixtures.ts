@@ -10,7 +10,9 @@ export type ChatUiFixture = {
         | {
             type: "postback";
             label: string;
-            payload: string | { kind: "handoff"; form: "booking" };
+            payload:
+              | string
+              | { kind: "handoff"; form: "booking" | "emergency_callback" | "new_patient" };
           }
       >;
     }>;
@@ -56,6 +58,44 @@ export const chatUiFixtures: Record<string, ChatUiFixture> = {
               type: "postback",
               label: "Request call-back",
               payload: { kind: "handoff", form: "booking" },
+            },
+          ],
+        },
+      ],
+    },
+  },
+  emergencyHandoff: {
+    content: "If this is urgent, I can trigger an emergency call-back request.",
+    ui: {
+      kind: "cards",
+      cards: [
+        {
+          title: "Emergency call-back",
+          body: "Share your details and we will call you back quickly.",
+          actions: [
+            {
+              type: "postback",
+              label: "Request emergency call-back",
+              payload: { kind: "handoff", form: "emergency_callback" },
+            },
+          ],
+        },
+      ],
+    },
+  },
+  newPatientHandoff: {
+    content: "New here? I can connect you with our new patient concierge team.",
+    ui: {
+      kind: "cards",
+      cards: [
+        {
+          title: "New patient enquiry",
+          body: "Share your details and what you’re looking for.",
+          actions: [
+            {
+              type: "postback",
+              label: "Start new patient enquiry",
+              payload: { kind: "handoff", form: "new_patient" },
             },
           ],
         },
