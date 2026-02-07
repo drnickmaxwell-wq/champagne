@@ -21,13 +21,15 @@ const ids = {
     compositeA2: "00000000-0000-0000-0000-000000000201",
     compositeA3: "00000000-0000-0000-0000-000000000202",
     compositeC2: "00000000-0000-0000-0000-000000000203",
-    cottonRolls: "00000000-0000-0000-0000-000000000204"
+    cottonRolls: "00000000-0000-0000-0000-000000000204",
+    gloves: "00000000-0000-0000-0000-000000000205"
   },
   stockInstances: {
     compositeA2Batch: "00000000-0000-0000-0000-000000000301",
     compositeA3Batch: "00000000-0000-0000-0000-000000000302",
     compositeC2Batch: "00000000-0000-0000-0000-000000000303",
-    cottonRollsBulk: "00000000-0000-0000-0000-000000000304"
+    cottonRollsBulk: "00000000-0000-0000-0000-000000000304",
+    glovesBin: "00000000-0000-0000-0000-000000000305"
   },
   qrCodes: {
     locationMain: "00000000-0000-0000-0000-000000000401",
@@ -112,6 +114,19 @@ try {
       1200,
       100,
       "Henry Schein"
+    ],
+    [
+      ids.products.gloves,
+      ids.tenantId,
+      "Gloves",
+      "Medium",
+      "CONSUMABLE",
+      "pair",
+      100,
+      200,
+      600,
+      20,
+      "Unigloves"
     ]
   ];
 
@@ -172,6 +187,17 @@ try {
       null,
       500,
       120,
+      "AVAILABLE"
+    ],
+    [
+      ids.stockInstances.glovesBin,
+      ids.tenantId,
+      ids.products.gloves,
+      ids.locations.surgery1,
+      null,
+      null,
+      400,
+      260,
       "AVAILABLE"
     ]
   ];

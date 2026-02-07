@@ -84,15 +84,9 @@ export type EventInsertInput = {
   meta?: Record<string, unknown>;
 };
 
-export type EventWriteResult =
-  | {
-      status: "OK";
-      eventId: string;
-      stockInstance: StockInstanceRecord | null;
-    }
-  | {
-      status: "NOT_FOUND";
-    };
+export type EventWriteResult = {
+  ok: true;
+};
 
 const mapProduct = (row: any): ProductRecord => {
   return {
@@ -236,13 +230,12 @@ export async function lookupQrCode(
   return { type: "UNMATCHED" };
 }
 
-export async function appendEventAndUpdateQty(
+export async function appendEventAndApplyEffects(
   pool: StockDbPool,
   tenantId: string,
   payload: EventInsertInput
 ): Promise<EventWriteResult> {
   const client = await pool.connect();
-  let updatedStock: StockInstanceRecord | null = null;
 
   try {
     await client.query("BEGIN");
@@ -258,10 +251,8 @@ export async function appendEventAndUpdateQty(
 
       if (updateResult.rowCount === 0) {
         await client.query("ROLLBACK");
-        return { status: "NOT_FOUND" };
+        throw new Error("Stock instance not found.");
       }
-
-      updatedStock = mapStockInstance(updateResult.rows[0]);
     }
 
     const insertResult = await client.query(
@@ -283,11 +274,11 @@ export async function appendEventAndUpdateQty(
 
     await client.query("COMMIT");
 
-    return {
-      status: "OK",
-      eventId: insertResult.rows[0]?.id,
-      stockInstance: updatedStock
-    };
+    if (!insertResult.rows[0]?.id) {
+      throw new Error("Failed to insert event.");
+    }
+
+    return { ok: true };
   } catch (error) {
     await client.query("ROLLBACK");
     throw error;
@@ -296,7 +287,7 @@ export async function appendEventAndUpdateQty(
   }
 }
 
-export async function computeReorderSuggestions(pool: StockDbPool, tenantId: string) {
+export async function computeReorder(pool: StockDbPool, tenantId: string) {
   const result = await pool.query(
     `SELECT p.id, p.name, p.variant, p.min_level_units, p.max_level_units, p.supplier_hint,
       p.unit_label, p.pack_size_units, COALESCE(SUM(si.qty_remaining), 0) AS available_units
@@ -324,4 +315,40 @@ export async function computeReorderSuggestions(pool: StockDbPool, tenantId: str
       packSizeUnits: Number(row.pack_size_units)
     };
   });
+}
+
+export async function getScanResult(
+  pool: StockDbPool,
+  tenantId: string,
+  code: string
+) {
+  const lookupResult = await lookupQrCode(pool, tenantId, code);
+
+  if (lookupResult.type === "LOCATION") {
+    return {
+      result: "LOCATION",
+      locationId: lookupResult.location.id,
+      name: lookupResult.location.name,
+      locationType: lookupResult.location.type,
+      products: lookupResult.products
+    };
+  }
+
+  if (lookupResult.type === "STOCK_INSTANCE") {
+    return {
+      result: "STOCK_INSTANCE",
+      stockInstance: lookupResult.stockInstance,
+      product: lookupResult.product,
+      location: lookupResult.location
+    };
+  }
+
+  if (lookupResult.type === "PRODUCT_WITHDRAW") {
+    return {
+      result: "PRODUCT_WITHDRAW",
+      product: lookupResult.product
+    };
+  }
+
+  return { result: "UNMATCHED", scannedCode: code };
 }

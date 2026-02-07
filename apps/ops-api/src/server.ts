@@ -1,9 +1,9 @@
 import { createServer } from "node:http";
 import {
-  appendEventAndUpdateQty,
-  computeReorderSuggestions,
+  appendEventAndApplyEffects,
+  computeReorder,
   getHealthStatus,
-  lookupQrCode
+  getScanResult
 } from "@champagne/stock-db";
 import { EventInputSchema } from "@champagne/stock-shared";
 import { Pool } from "pg";
@@ -58,10 +58,16 @@ const server = createServer(async (request, response) => {
   const url = new URL(request.url ?? "/", `http://${request.headers.host ?? "localhost"}`);
 
   if (request.method === "GET" && url.pathname === "/health") {
-    const health = await getHealthStatus();
-    response.writeHead(200, { "content-type": "application/json" });
-    response.end(JSON.stringify(health));
-    return;
+    try {
+      const health = await getHealthStatus(pool);
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(health));
+      return;
+    } catch (error) {
+      response.writeHead(500, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Database unavailable." }));
+      return;
+    }
   }
 
   if (request.method === "POST" && url.pathname === "/events") {
@@ -88,7 +94,7 @@ const server = createServer(async (request, response) => {
     const payload = parsed.data;
     const eventTs = payload.ts ? new Date(payload.ts) : new Date();
     try {
-      const writeResult = await appendEventAndUpdateQty(pool, tenantId, {
+      await appendEventAndApplyEffects(pool, tenantId, {
         ts: eventTs,
         eventType: payload.eventType,
         qtyDeltaUnits: payload.qtyDeltaUnits,
@@ -99,7 +105,11 @@ const server = createServer(async (request, response) => {
         meta: payload.meta
       });
 
-      if (writeResult.status === "NOT_FOUND") {
+      response.writeHead(201, { "content-type": "application/json" });
+      response.end(JSON.stringify({ ok: true }));
+      return;
+    } catch (error) {
+      if (error instanceof Error && error.message === "Stock instance not found.") {
         response.writeHead(404, { "content-type": "application/json" });
         response.end(
           JSON.stringify({ error: "Stock instance not found.", stockInstanceId: payload.stockInstanceId })
@@ -107,15 +117,6 @@ const server = createServer(async (request, response) => {
         return;
       }
 
-      response.writeHead(201, { "content-type": "application/json" });
-      response.end(
-        JSON.stringify({
-          eventId: writeResult.eventId,
-          stockInstance: writeResult.stockInstance
-        })
-      );
-      return;
-    } catch (error) {
       response.writeHead(500, { "content-type": "application/json" });
       response.end(JSON.stringify({ error: "Failed to write event." }));
       return;
@@ -131,48 +132,9 @@ const server = createServer(async (request, response) => {
     }
 
     try {
-      const lookupResult = await lookupQrCode(pool, tenantId, code);
-
-      if (lookupResult.type === "LOCATION") {
-        response.writeHead(200, { "content-type": "application/json" });
-        response.end(
-          JSON.stringify({
-            result: "LOCATION",
-            locationId: lookupResult.location.id,
-            name: lookupResult.location.name,
-            locationType: lookupResult.location.type,
-            products: lookupResult.products
-          })
-        );
-        return;
-      }
-
-      if (lookupResult.type === "STOCK_INSTANCE") {
-        response.writeHead(200, { "content-type": "application/json" });
-        response.end(
-          JSON.stringify({
-            result: "STOCK_INSTANCE",
-            stockInstance: lookupResult.stockInstance,
-            product: lookupResult.product,
-            location: lookupResult.location
-          })
-        );
-        return;
-      }
-
-      if (lookupResult.type === "PRODUCT_WITHDRAW") {
-        response.writeHead(200, { "content-type": "application/json" });
-        response.end(
-          JSON.stringify({
-            result: "PRODUCT_WITHDRAW",
-            product: lookupResult.product
-          })
-        );
-        return;
-      }
-
+      const scanResult = await getScanResult(pool, tenantId, code);
       response.writeHead(200, { "content-type": "application/json" });
-      response.end(JSON.stringify({ result: "UNMATCHED", scannedCode: code }));
+      response.end(JSON.stringify(scanResult));
       return;
     } catch (error) {
       response.writeHead(500, { "content-type": "application/json" });
@@ -183,7 +145,7 @@ const server = createServer(async (request, response) => {
 
   if (request.method === "GET" && url.pathname === "/reorder") {
     try {
-      const suggestions = await computeReorderSuggestions(pool, tenantId);
+      const suggestions = await computeReorder(pool, tenantId);
       response.writeHead(200, { "content-type": "application/json" });
       response.end(JSON.stringify(suggestions));
       return;
