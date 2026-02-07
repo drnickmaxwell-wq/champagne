@@ -2,10 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-type EngineStatus =
-  | { state: "checking" }
-  | { state: "ok"; message: string }
-  | { state: "error"; message: string };
+type EngineStatus = { state: "checking" } | { state: "ok" } | { state: "error" };
 
 export default function Page() {
   const [status, setStatus] = useState<EngineStatus>({ state: "checking" });
@@ -13,37 +10,20 @@ export default function Page() {
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL;
     if (!baseUrl) {
-      setStatus({ state: "error", message: "Missing NEXT_PUBLIC_CHATBOT_ENGINE_URL" });
+      setStatus({ state: "error" });
       return;
     }
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-    fetch(`${baseUrl}/health`, { signal: controller.signal })
+    fetch(`${baseUrl}/health`, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }
-        return response.json();
+        setStatus({ state: "ok" });
       })
-      .then((data) => {
-        const version = typeof data?.version === "string" ? data.version : null;
-        const message = version ? `OK (${version})` : `OK ${JSON.stringify(data)}`;
-        setStatus({ state: "ok", message });
-      })
-      .catch((error) => {
-        const message = error instanceof Error ? error.message : String(error);
-        setStatus({ state: "error", message });
-      })
-      .finally(() => {
-        clearTimeout(timeoutId);
+      .catch(() => {
+        setStatus({ state: "error" });
       });
-
-    return () => {
-      clearTimeout(timeoutId);
-      controller.abort();
-    };
   }, []);
 
   const statusLine = (() => {
@@ -51,9 +31,9 @@ export default function Page() {
       return "Engine: checking...";
     }
     if (status.state === "ok") {
-      return `Engine: ${status.message}`;
+      return "Engine: ok";
     }
-    return `Engine: unreachable — ${status.message}`;
+    return "Engine: unreachable";
   })();
 
   return (
