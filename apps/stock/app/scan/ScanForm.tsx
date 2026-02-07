@@ -6,9 +6,10 @@ import type { FormEvent } from "react";
 
 type ScanFormProps = {
   defaultCode?: string;
+  onSubmitCode?: (code: string) => void;
 };
 
-export default function ScanForm({ defaultCode = "" }: ScanFormProps) {
+export default function ScanForm({ defaultCode = "", onSubmitCode }: ScanFormProps) {
   const router = useRouter();
   const [code, setCode] = useState(defaultCode);
 
@@ -16,6 +17,10 @@ export default function ScanForm({ defaultCode = "" }: ScanFormProps) {
     event.preventDefault();
     const trimmed = code.trim();
     if (trimmed.length === 0) {
+      return;
+    }
+    if (onSubmitCode) {
+      onSubmitCode(trimmed);
       return;
     }
     router.push(`/item/${encodeURIComponent(trimmed)}`);

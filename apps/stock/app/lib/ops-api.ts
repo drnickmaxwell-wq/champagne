@@ -1,16 +1,25 @@
-const DEFAULT_BASE_URL = "http://localhost:3001";
+import { EventInputSchema } from "@champagne/stock-shared";
+import type { EventInput } from "@champagne/stock-shared";
 
-type ApiResult = {
+type ApiResult<T> = {
   ok: boolean;
   status: number;
-  data: unknown;
+  data: T;
 };
 
 const resolveBaseUrl = () => {
-  const envBase = process.env.STOCK_OPS_API_BASE_URL;
+  const envBase = process.env.NEXT_PUBLIC_OPS_API_BASE_URL;
   const trimmed = envBase ? envBase.trim() : "";
-  const base = trimmed.length > 0 ? trimmed : DEFAULT_BASE_URL;
+  const base = trimmed.length > 0 ? trimmed : "";
   return base.endsWith("/") ? base.slice(0, -1) : base;
+};
+
+const buildUrl = (path: string) => {
+  const baseUrl = resolveBaseUrl();
+  if (baseUrl.length === 0) {
+    return path;
+  }
+  return `${baseUrl}${path}`;
 };
 
 const readResponseBody = async (response: Response) => {
@@ -25,8 +34,18 @@ const readResponseBody = async (response: Response) => {
   }
 };
 
-const requestJson = async (url: string): Promise<ApiResult> => {
-  const response = await fetch(url, { cache: "no-store" });
+const requestJson = async (
+  url: string,
+  init?: RequestInit
+): Promise<ApiResult<unknown>> => {
+  let response: Response;
+
+  try {
+    response = await fetch(url, { cache: "no-store", ...init });
+  } catch {
+    return { ok: false, status: 0, data: { message: "Network error." } };
+  }
+
   const body = await readResponseBody(response);
 
   if (!response.ok) {
@@ -44,13 +63,30 @@ const requestJson = async (url: string): Promise<ApiResult> => {
   };
 };
 
-export const fetchScan = async (code: string): Promise<ApiResult> => {
-  const baseUrl = resolveBaseUrl();
+export const fetchScan = async (code: string): Promise<ApiResult<unknown>> => {
   const safeCode = encodeURIComponent(code);
-  return requestJson(`${baseUrl}/scan/${safeCode}`);
+  return requestJson(buildUrl(`/scan/${safeCode}`));
 };
 
-export const fetchReorder = async (): Promise<ApiResult> => {
-  const baseUrl = resolveBaseUrl();
-  return requestJson(`${baseUrl}/reorder`);
+export const fetchReorder = async (): Promise<ApiResult<unknown>> => {
+  return requestJson(buildUrl("/reorder"));
+};
+
+export const postEvent = async (
+  payload: EventInput
+): Promise<ApiResult<unknown>> => {
+  const parsed = EventInputSchema.safeParse(payload);
+  if (!parsed.success) {
+    return {
+      ok: false,
+      status: 0,
+      data: { message: "Invalid event details. Please check the inputs." }
+    };
+  }
+
+  return requestJson(buildUrl("/events"), {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(parsed.data)
+  });
 };
