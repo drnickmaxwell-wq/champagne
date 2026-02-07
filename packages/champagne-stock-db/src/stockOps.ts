@@ -102,6 +102,13 @@ export type ProductCreateInput = {
 
 export type ProductUpdateInput = Partial<ProductCreateInput>;
 
+export type LocationCreateInput = {
+  name: string;
+  type: string;
+};
+
+export type LocationUpdateInput = Partial<LocationCreateInput>;
+
 const mapProduct = (row: any): ProductRecord => {
   return {
     id: row.id,
@@ -114,6 +121,14 @@ const mapProduct = (row: any): ProductRecord => {
     maxLevelUnits: Number(row.max_level_units),
     defaultWithdrawUnits: Number(row.default_withdraw_units),
     supplierHint: row.supplier_hint ?? null
+  };
+};
+
+const mapLocation = (row: any): LocationRecord => {
+  return {
+    id: row.id,
+    name: row.name,
+    type: row.type
   };
 };
 
@@ -342,6 +357,76 @@ export async function listProducts(pool: StockDbPool, tenantId: string) {
   );
 
   return (result.rows as Array<Record<string, unknown>>).map((row) => mapProduct(row));
+}
+
+export async function listLocations(pool: StockDbPool, tenantId: string) {
+  const result = await pool.query(
+    `SELECT id, name, type
+     FROM locations
+     WHERE tenant_id = $1
+     ORDER BY name ASC`,
+    [tenantId]
+  );
+
+  return (result.rows as Array<Record<string, unknown>>).map((row) => mapLocation(row));
+}
+
+export async function createLocation(
+  pool: StockDbPool,
+  tenantId: string,
+  payload: LocationCreateInput
+) {
+  const result = await pool.query(
+    `INSERT INTO locations (tenant_id, name, type)
+     VALUES ($1,$2,$3)
+     RETURNING id, name, type`,
+    [tenantId, payload.name, payload.type]
+  );
+
+  if (result.rowCount === 0) {
+    throw new Error("Failed to create location.");
+  }
+
+  return mapLocation(result.rows[0]);
+}
+
+export async function updateLocation(
+  pool: StockDbPool,
+  tenantId: string,
+  locationId: string,
+  payload: LocationUpdateInput
+) {
+  const updates: Array<{ column: string; value: unknown }> = [];
+
+  if (payload.name !== undefined) {
+    updates.push({ column: "name", value: payload.name });
+  }
+  if (payload.type !== undefined) {
+    updates.push({ column: "type", value: payload.type });
+  }
+
+  if (updates.length === 0) {
+    return null;
+  }
+
+  const assignments = updates.map((item, index) => `${item.column} = $${index + 1}`);
+  const values = updates.map((item) => item.value);
+  const tenantIndex = updates.length + 1;
+  const idIndex = updates.length + 2;
+
+  const result = await pool.query(
+    `UPDATE locations
+     SET ${assignments.join(", ")}
+     WHERE tenant_id = $${tenantIndex} AND id = $${idIndex}
+     RETURNING id, name, type`,
+    [...values, tenantId, locationId]
+  );
+
+  if (result.rowCount === 0) {
+    return null;
+  }
+
+  return mapLocation(result.rows[0]);
 }
 
 export async function createProduct(
