@@ -39,6 +39,21 @@ export const chatUiFixtures: Record<string, ChatUiFixture> = {
       ],
     },
   },
+  bookingHandoff: {
+    content: "Need a call-back? I can hand this over to our concierge team.",
+    ui: {
+      kind: "cards",
+      cards: [
+        {
+          title: "Booking request",
+          body: "Share your details and preferred time window.",
+          actions: [
+            { type: "postback", label: "Request call-back", payload: "BOOKING_REQUEST" },
+          ],
+        },
+      ],
+    },
+  },
   invalid: {
     content: "This fixture includes a broken UI block.\nUI: {\"kind\": \"cards\"",
   },
