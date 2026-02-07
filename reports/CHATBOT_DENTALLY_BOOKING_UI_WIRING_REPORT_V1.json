@@ -1,0 +1,12 @@
+{
+  "changedFiles": [
+    "apps/chat-ui/app/page.tsx",
+    "reports/CHATBOT_DENTALLY_BOOKING_UI_WIRING_REPORT_V1.json"
+  ],
+  "changes": {
+    "apps/chat-ui/app/page.tsx": {
+      "snippet": "const DENTALLY_BOOKING_URL = \"https://st-marys-house-dental-care.portal.dental\";\n...\n<a\n  className=\"rounded-md border px-4 py-2 text-sm font-medium\"\n  href={DENTALLY_BOOKING_URL}\n  target=\"_blank\"\n  rel=\"noopener noreferrer\"\n>\n  Book an appointment\n</a>"
+    }
+  },
+  "importsChanged": false
+}

@@ -10,6 +10,7 @@ type ConversationResult = {
   content: string;
 };
 
+const DENTALLY_BOOKING_URL = "https://st-marys-house-dental-care.portal.dental";
 const REQUEST_TIMEOUT_MS = 8000;
 
 export default function Page() {
@@ -124,6 +125,14 @@ export default function Page() {
           </button>
         </div>
       </form>
+      <a
+        className="rounded-md border px-4 py-2 text-sm font-medium"
+        href={DENTALLY_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Book an appointment
+      </a>
       {reply ? <p className="max-w-xl text-sm">{reply}</p> : null}
       {error ? <p className="max-w-xl text-sm">{error}</p> : null}
       <p className="text-sm text-neutral-300">{statusLine}</p>
