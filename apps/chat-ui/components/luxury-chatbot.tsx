@@ -15,6 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 import { chatUiFixtures } from "../lib/chat-fixtures";
+import BookingRequestModal from "./booking-request-modal";
 
 const easeOutCubic: [number, number, number, number] = [0.215, 0.61, 0.355, 1];
 const easeInOutCubic: [number, number, number, number] = [0.645, 0.045, 0.355, 1];
@@ -111,6 +112,36 @@ const extractFirstJsonObject = (value: string) => {
     }
   }
   return null;
+};
+
+const parseJsonPayload = (payload: string): Record<string, unknown> | null => {
+  if (!payload.trim().startsWith("{")) {
+    return null;
+  }
+  try {
+    const parsed = JSON.parse(payload);
+    return isRecord(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+};
+
+const isBookingHandoffPayload = (payload: string) => {
+  if (payload === "BOOKING_REQUEST") {
+    return true;
+  }
+  const parsed = parseJsonPayload(payload);
+  if (!parsed) {
+    return false;
+  }
+  return parsed.kind === "handoff" && parsed.form === "booking";
+};
+
+const extractTenantIdFromManifest = (value: unknown): string | null => {
+  if (!isRecord(value) || typeof value.tenantId !== "string") {
+    return null;
+  }
+  return value.tenantId;
 };
 
 const normalizeAction = (value: unknown): CardAction | null => {
@@ -438,6 +469,7 @@ export default function LuxuryChatbot({
   onStatusChange,
 }: LuxuryChatbotProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -447,6 +479,7 @@ export default function LuxuryChatbot({
   >("connected");
   const [lastError, setLastError] = useState<string | null>(null);
   const [engineStatus, setEngineStatus] = useState<EngineStatus>({ state: "checking" });
+  const [tenantId, setTenantId] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -463,6 +496,20 @@ export default function LuxuryChatbot({
       setConnectionStatus("disconnected");
     }
   }, [engineStatus, onStatusChange]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/brand/chat-ui.json", { cache: "force-cache", signal: controller.signal })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((payload) => {
+        const resolvedTenantId = extractTenantIdFromManifest(payload);
+        if (resolvedTenantId) {
+          setTenantId(resolvedTenantId);
+        }
+      })
+      .catch(() => undefined);
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -642,6 +689,14 @@ export default function LuxuryChatbot({
     sendMessage(actions[action as keyof typeof actions] || action);
   };
 
+  const handlePostback = (payload: string) => {
+    if (isBookingHandoffPayload(payload)) {
+      setIsBookingModalOpen(true);
+      return;
+    }
+    sendMessage(payload);
+  };
+
   const toggleVoiceInput = () => {
     setIsListening(!isListening);
   };
@@ -748,7 +803,7 @@ export default function LuxuryChatbot({
                   key={message.id}
                   message={message}
                   isUser={message.role === "user"}
-                  onPostback={sendMessage}
+                  onPostback={handlePostback}
                 />
               ))}
 
@@ -862,6 +917,11 @@ export default function LuxuryChatbot({
           </motion.div>
         )}
       </AnimatePresence>
+      <BookingRequestModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        tenantId={tenantId}
+      />
     </>
   );
 }
