@@ -9,7 +9,7 @@ import FeedbackCard from "../components/ui/FeedbackCard";
 import { FieldRow } from "../components/ui/FieldList";
 import LoadingLine from "../components/ui/LoadingLine";
 import PageShell from "../components/ui/PageShell";
-import { PrimaryActions } from "../components/ui/PrimaryActions";
+import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
 import StatusLine from "../components/ui/StatusLine";
 import {
   ActionSection,
@@ -123,6 +123,7 @@ export default function ScanPage() {
   const opsLabel =
     opsStatus === "ok" ? "OK" : opsStatus === "offline" ? "Offline" : "Unknown";
   const lastActionValue = lastActionMessage || "None yet";
+  const isUnmatched = scanData?.result === "UNMATCHED";
 
   return (
     <PageShell
@@ -147,6 +148,22 @@ export default function ScanPage() {
         />
       }
     >
+      <div className="stock-feedback-region" aria-live="polite">
+        {loading ? <LoadingLine label="Working..." /> : null}
+        {opsUnreachable ? (
+          <FeedbackCard
+            title="Ops API unreachable"
+            role="alert"
+            message="Unable to reach ops-api. Check network or service status."
+          />
+        ) : null}
+        {errorMessage ? (
+          <FeedbackCard title="Error" role="alert" message={errorMessage} />
+        ) : null}
+        {isUnmatched ? (
+          <FeedbackCard title="No match" message="No match found for this code." />
+        ) : null}
+      </div>
       <Section title="Camera scan">
         {cameraOpen ? (
           <>
@@ -180,106 +197,84 @@ export default function ScanPage() {
           }}
         />
       </Section>
-      <div className="stock-feedback-region" aria-live="polite">
-        {loading ? <LoadingLine label="Working..." /> : null}
-        {opsUnreachable ? (
-          <FeedbackCard
-            title="Ops API unreachable"
-            role="alert"
-            message="Unable to reach ops-api. Check network or service status."
-          />
-        ) : null}
-        {errorMessage ? (
-          <FeedbackCard title="Error" role="alert" message={errorMessage} />
-        ) : null}
-      </div>
-      {scanData ? (
+      {scanData && !isUnmatched ? (
         <Section title="Result">
-          {scanData.result === "UNMATCHED" ? (
-            <p>No match found for this code.</p>
-          ) : (
-            <KeyValueGrid>
-              <FieldRow label="Target" value={scanData.result} />
-              {scanData.result === "LOCATION" ? (
-                <>
-                  <FieldRow label="Location" value={scanData.name} />
-                  <FieldRow label="Type" value={scanData.locationType} />
-                  <FieldRow label="Products" value={scanData.products.length} />
-                </>
-              ) : null}
-              {scanData.result === "STOCK_INSTANCE" ? (
-                <>
-                  <FieldRow label="Product" value={scanData.product.name} />
-                  <FieldRow label="Variant" value={scanData.product.variant} />
-                  <FieldRow
-                    label="Stock class"
-                    value={scanData.product.stockClass}
-                  />
-                  <FieldRow
-                    label="Location"
-                    value={scanData.location?.name ?? null}
-                  />
-                  <FieldRow
-                    label="Batch"
-                    value={scanData.stockInstance.batchNumber}
-                  />
-                  <FieldRow
-                    label="Expiry"
-                    value={scanData.stockInstance.expiryDate}
-                  />
-                  <FieldRow
-                    label="Qty remaining"
-                    value={scanData.stockInstance.qtyRemaining}
-                  />
-                  <FieldRow
-                    label="Qty received"
-                    value={scanData.stockInstance.qtyReceived}
-                  />
-                  <FieldRow
-                    label="Status"
-                    value={scanData.stockInstance.status}
-                  />
-                </>
-              ) : null}
-              {scanData.result === "PRODUCT_WITHDRAW" ? (
-                <>
-                  <FieldRow label="Product" value={scanData.product.name} />
-                  <FieldRow label="Variant" value={scanData.product.variant} />
-                  <FieldRow
-                    label="Stock class"
-                    value={scanData.product.stockClass}
-                  />
-                  <FieldRow label="Unit" value={scanData.product.unitLabel} />
-                  <FieldRow
-                    label="Pack size"
-                    value={scanData.product.packSizeUnits}
-                  />
-                  <FieldRow
-                    label="Default withdraw"
-                    value={scanData.product.defaultWithdrawUnits}
-                  />
-                  <FieldRow
-                    label="Min level"
-                    value={scanData.product.minLevelUnits}
-                  />
-                  <FieldRow
-                    label="Max level"
-                    value={scanData.product.maxLevelUnits}
-                  />
-                  <FieldRow
-                    label="Supplier"
-                    value={scanData.product.supplierHint}
-                  />
-                </>
-              ) : null}
-            </KeyValueGrid>
-          )}
+          <KeyValueGrid>
+            <FieldRow label="Target" value={scanData.result} />
+            {scanData.result === "LOCATION" ? (
+              <>
+                <FieldRow label="Location" value={scanData.name} />
+                <FieldRow label="Type" value={scanData.locationType} />
+                <FieldRow label="Products" value={scanData.products.length} />
+              </>
+            ) : null}
+            {scanData.result === "STOCK_INSTANCE" ? (
+              <>
+                <FieldRow label="Product" value={scanData.product.name} />
+                <FieldRow label="Variant" value={scanData.product.variant} />
+                <FieldRow
+                  label="Stock class"
+                  value={scanData.product.stockClass}
+                />
+                <FieldRow
+                  label="Location"
+                  value={scanData.location?.name ?? null}
+                />
+                <FieldRow
+                  label="Batch"
+                  value={scanData.stockInstance.batchNumber}
+                />
+                <FieldRow
+                  label="Expiry"
+                  value={scanData.stockInstance.expiryDate}
+                />
+                <FieldRow
+                  label="Qty remaining"
+                  value={scanData.stockInstance.qtyRemaining}
+                />
+                <FieldRow
+                  label="Qty received"
+                  value={scanData.stockInstance.qtyReceived}
+                />
+                <FieldRow
+                  label="Status"
+                  value={scanData.stockInstance.status}
+                />
+              </>
+            ) : null}
+            {scanData.result === "PRODUCT_WITHDRAW" ? (
+              <>
+                <FieldRow label="Product" value={scanData.product.name} />
+                <FieldRow label="Variant" value={scanData.product.variant} />
+                <FieldRow
+                  label="Stock class"
+                  value={scanData.product.stockClass}
+                />
+                <FieldRow label="Unit" value={scanData.product.unitLabel} />
+                <FieldRow
+                  label="Pack size"
+                  value={scanData.product.packSizeUnits}
+                />
+                <FieldRow
+                  label="Default withdraw"
+                  value={scanData.product.defaultWithdrawUnits}
+                />
+                <FieldRow
+                  label="Min level"
+                  value={scanData.product.minLevelUnits}
+                />
+                <FieldRow
+                  label="Max level"
+                  value={scanData.product.maxLevelUnits}
+                />
+                <FieldRow
+                  label="Supplier"
+                  value={scanData.product.supplierHint}
+                />
+              </>
+            ) : null}
+          </KeyValueGrid>
         </Section>
-      ) : null}
-      {scanData ? (
-        <DebugDisclosure summary="Debug scan response">
-          <pre>{JSON.stringify(scanData, null, 2)}</pre>
-        </DebugDisclosure>
       ) : null}
       {actionTarget ? (
         <ActionSection
@@ -299,6 +294,14 @@ export default function ScanPage() {
           onLastActionMessage={(message) => setLastActionMessage(message)}
         />
       ) : null}
+      {scanData ? (
+        <DebugDisclosure summary="Debug scan response">
+          <pre>{JSON.stringify(scanData, null, 2)}</pre>
+        </DebugDisclosure>
+      ) : null}
+      <PrimaryActions>
+        <ActionLink href="/scan">Scan another</ActionLink>
+      </PrimaryActions>
     </PageShell>
   );
 }

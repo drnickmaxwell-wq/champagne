@@ -110,6 +110,7 @@ export default function Page() {
             : "Unknown"
     : "Unknown";
   const showDetails = scanData && scanData.result !== "UNMATCHED";
+  const isUnmatched = scanData?.result === "UNMATCHED";
 
   const lastActionValue = lastActionMessage || "None yet";
 
@@ -141,12 +142,12 @@ export default function Page() {
         {errorMessage ? (
           <FeedbackCard title="Error" role="alert" message={errorMessage} />
         ) : null}
-      </div>
-      <Section title="Primary details">
-        {scanData && scanData.result === "UNMATCHED" ? (
-          <p>No match found for this code.</p>
+        {isUnmatched ? (
+          <FeedbackCard title="No match" message="No match found for this code." />
         ) : null}
-        {showDetails ? (
+      </div>
+      {showDetails ? (
+        <Section title="Primary details">
           <KeyValueGrid>
             {scanData?.result === "LOCATION" ? (
               <>
@@ -221,8 +222,8 @@ export default function Page() {
               </>
             ) : null}
           </KeyValueGrid>
-        ) : null}
-      </Section>
+        </Section>
+      ) : null}
       {actionTarget ? (
         <ActionSection
           productId={actionTarget.productId}
@@ -239,15 +240,15 @@ export default function Page() {
           onLastActionMessage={(message) => setLastActionMessage(message)}
         />
       ) : null}
+      <PrimaryActions>
+        <ActionLink href="/scan">Scan again</ActionLink>
+        <ActionLink href="/reorder">Reorder</ActionLink>
+      </PrimaryActions>
       {scanData ? (
         <DebugDisclosure summary="Debug scan response">
           <pre>{JSON.stringify(scanData, null, 2)}</pre>
         </DebugDisclosure>
       ) : null}
-      <PrimaryActions>
-        <ActionLink href="/scan">Scan again</ActionLink>
-        <ActionLink href="/reorder">Reorder</ActionLink>
-      </PrimaryActions>
     </PageShell>
   );
 }
