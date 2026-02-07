@@ -1,0 +1,81 @@
+{
+  "documentId": "DENTALLY_PORTAL_BOOKING_CTA_HANDOFF_V1",
+  "status": "authoritative",
+  "createdAt": "2026-02-07",
+  "owner": "Nicko",
+
+  "purpose": {
+    "goal": "Standardise and reuse Dentally Portal booking across all 'Book now' CTAs in the repo",
+    "scope": "UI only",
+    "explicitNonGoals": [
+      "Dentally API booking",
+      "Engine changes",
+      "Chatbot logic",
+      "PHI handling"
+    ]
+  },
+
+  "bookingProvider": {
+    "name": "Dentally Portal",
+    "url": "https://st-marys-house-dental-care.portal.dental",
+    "openBehaviour": {
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  },
+
+  "authoritativeImplementationEvidence": {
+    "repo": "champagne",
+    "alreadyImplementedIn": [
+      "apps/chat-ui/app/page.tsx"
+    ],
+    "verificationReport": "reports/CHATBOT_DENTALLY_BOOKING_UI_WIRING_REPORT_V1.json",
+    "implementationSnippet": {
+      "constant": "const DENTALLY_BOOKING_URL = \"https://st-marys-house-dental-care.portal.dental\";",
+      "usage": "<a href={DENTALLY_BOOKING_URL} target=\"_blank\" rel=\"noopener noreferrer\">"
+    }
+  },
+
+  "instructionsForThisConversation": {
+    "allowedActions": [
+      "Locate existing 'Book', 'Book now', 'Book online', or appointment CTAs",
+      "Wire them to the Dentally Portal booking URL",
+      "Reuse the same constant pattern if appropriate",
+      "Keep changes UI-only"
+    ],
+    "forbiddenActions": [
+      "Modifying chatbot engine",
+      "Adding booking logic",
+      "Adding API calls",
+      "Changing CTA wording unless necessary",
+      "Touching _imports/ reference-only files"
+    ]
+  },
+
+  "preferredPattern": {
+    "description": "External booking handoff via Dentally Portal",
+    "example": {
+      "type": "anchor",
+      "code": "<a href=\"https://st-marys-house-dental-care.portal.dental\" target=\"_blank\" rel=\"noopener noreferrer\">Book now</a>"
+    }
+  },
+
+  "validationRequirements": {
+    "mustNotBreak": [
+      "hero guard",
+      "canon guard",
+      "lint",
+      "verify"
+    ],
+    "testingExpectation": [
+      "CTA opens Dentally Portal in a new tab",
+      "No internal routing used",
+      "No runtime errors"
+    ]
+  },
+
+  "contextNote": {
+    "whyPortalIsUsed": "Portal booking is the approved safe booking method until direct Dentally API booking is introduced",
+    "futureChange": "When API booking is enabled, CTAs may be refactored to route through chatbot or orchestrator instead"
+  }
+}
