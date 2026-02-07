@@ -1,0 +1,11 @@
+{
+  "tenantId": "smh",
+  "practiceName": "St Mary’s House Dental Care",
+  "contact": {
+    "phone": "",
+    "email": "",
+    "address": ""
+  },
+  "openingHours": "",
+  "bookingUrl": "https://st-marys-house-dental-care.portal.dental"
+}
