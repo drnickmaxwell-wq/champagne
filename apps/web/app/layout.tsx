@@ -55,7 +55,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en">
       <body className="min-h-screen antialiased">
         <div className="flex min-h-screen flex-col">
-          <div className="sticky top-0 z-50">
+          <div
+            className="sticky top-0 z-50"
+            style={{
+              transform: "translateZ(0)",
+              willChange: "transform",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              isolation: "isolate",
+            }}
+          >
             <Header />
           </div>
           <main className="flex-1 px-6 py-10">
