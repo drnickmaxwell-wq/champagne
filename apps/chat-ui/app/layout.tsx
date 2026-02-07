@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "../styles/chat-preview.css";
 
 export const metadata: Metadata = {
-  title: "Champagne Concierge UI – Placeholder",
-  description: "Placeholder shell for the chat-ui app in the champagne-core monorepo.",
+  title: "Champagne Concierge UI – Luxury",
+  description: "Luxury concierge UI for the chat-ui app in the champagne-core monorepo.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
