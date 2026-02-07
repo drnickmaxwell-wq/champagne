@@ -26,6 +26,7 @@ main {
   --stock-focus-ring: var(--border-subtle);
   --stock-muted: var(--text-medium);
   --stock-muted-strong: var(--text-low);
+  --stock-spinner: var(--text-high);
   color: var(--text-high);
 }
 
@@ -182,6 +183,15 @@ main {
   outline-offset: 2px;
 }
 
+.stock-action-link:focus-visible,
+.stock-button:focus-visible,
+.stock-event-panel__input:focus-visible,
+.stock-form__input:focus-visible,
+.stock-stepper__button:focus-visible {
+  outline: 2px solid var(--stock-focus-ring);
+  outline-offset: 2px;
+}
+
 .stock-action-link:disabled,
 .stock-button:disabled,
 .stock-event-panel__input:disabled {
@@ -331,4 +341,77 @@ main {
 
 .stock-event-panel__message--neutral {
   background: var(--surface-0);
+}
+
+.stock-feedback-region {
+  display: grid;
+  gap: var(--stock-space-2);
+}
+
+.stock-loading-line {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--stock-space-1);
+  color: var(--text-medium);
+  font-weight: 600;
+}
+
+.stock-loading-line__label {
+  color: var(--text-medium);
+}
+
+.stock-inline-spinner {
+  width: calc(var(--radius-sm) + 6px);
+  height: calc(var(--radius-sm) + 6px);
+  border-radius: 999px;
+  border: 2px solid var(--border-subtle);
+  border-top-color: var(--stock-spinner);
+  animation: stock-spin 0.8s linear infinite;
+}
+
+@keyframes stock-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stock-form {
+  display: grid;
+  gap: var(--stock-space-1);
+}
+
+.stock-form__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--stock-space-2);
+  align-items: center;
+}
+
+.stock-form__input {
+  flex: 1 1 12rem;
+  padding: var(--stock-space-1) calc(var(--stock-space-1) + 2px);
+  border-radius: calc(var(--stock-radius) - 4px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-high);
+  background: var(--surface-0);
+  font: inherit;
+}
+
+.stock-form__button {
+  padding: var(--stock-space-2) var(--stock-space-3);
+}
+
+.stock-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--stock-space-1);
+}
+
+.stock-stepper__button {
+  min-width: calc(var(--radius-sm) * 3);
+  padding: var(--stock-space-1) var(--stock-space-2);
+  border-radius: calc(var(--stock-radius) - 4px);
 }

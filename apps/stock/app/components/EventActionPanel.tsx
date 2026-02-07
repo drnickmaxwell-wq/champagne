@@ -7,11 +7,13 @@ import {
 } from "@champagne/stock-shared";
 import type { EventType } from "@champagne/stock-shared";
 import { postEvent } from "../lib/ops-api";
+import LoadingLine from "./ui/LoadingLine";
 
 type EventActionPanelProps = {
   productId?: string;
   stockInstanceId?: string;
   locationId?: string | null;
+  locationName?: string | null;
   onEventSuccess?: () => void;
   onLastActionMessage?: (message: string) => void;
 };
@@ -46,6 +48,7 @@ export default function EventActionPanel({
   productId,
   stockInstanceId,
   locationId,
+  locationName,
   onEventSuccess,
   onLastActionMessage
 }: EventActionPanelProps) {
@@ -64,6 +67,13 @@ export default function EventActionPanel({
       return "1";
     }
     return String(Math.max(1, parsed));
+  };
+
+  const adjustQty = (delta: number) => {
+    const parsed = Number.parseInt(qtyInput, 10);
+    const base = Number.isFinite(parsed) ? parsed : 1;
+    const next = Math.max(1, base + delta);
+    setQtyInput(String(next));
   };
 
   const handleEvent = async (eventType: EventType) => {
@@ -96,9 +106,13 @@ export default function EventActionPanel({
     }
 
     const updatedQty = resolveUpdatedQty(result.data);
+    const verb = eventType === "WITHDRAW" ? "Withdrew" : "Received";
+    const locationLabel = locationName?.trim().length
+      ? locationName
+      : "Inventory";
     const updatedSuffix =
-      updatedQty === null ? "" : ` Updated remaining: ${updatedQty}.`;
-    setStatusMessage(`Event recorded.${updatedSuffix}`);
+      updatedQty === null ? "" : ` (Remaining ${updatedQty})`;
+    setStatusMessage(`${verb} ${clampedQty} → ${locationLabel}${updatedSuffix}`);
     const message = `Last action: ${eventType} x${clampedQty} at ${new Date().toLocaleString()}`;
     setLastActionMessage(message);
     onLastActionMessage?.(message);
@@ -116,16 +130,36 @@ export default function EventActionPanel({
         <label htmlFor="event-qty" className="stock-event-panel__label">
           Quantity
         </label>
-        <input
-          id="event-qty"
-          type="number"
-          min="1"
-          step="1"
-          value={qtyInput}
-          disabled={submitting}
-          onChange={(event) => setQtyInput(clampQtyInput(event.target.value))}
-          className="stock-event-panel__input"
-        />
+        <div className="stock-stepper">
+          <button
+            type="button"
+            className="stock-button stock-button--secondary stock-stepper__button"
+            onClick={() => adjustQty(-1)}
+            disabled={submitting}
+            aria-label="Decrease quantity"
+          >
+            −
+          </button>
+          <input
+            id="event-qty"
+            type="number"
+            min="1"
+            step="1"
+            value={qtyInput}
+            disabled={submitting}
+            onChange={(event) => setQtyInput(clampQtyInput(event.target.value))}
+            className="stock-event-panel__input"
+          />
+          <button
+            type="button"
+            className="stock-button stock-button--secondary stock-stepper__button"
+            onClick={() => adjustQty(1)}
+            disabled={submitting}
+            aria-label="Increase quantity"
+          >
+            +
+          </button>
+        </div>
       </div>
       <div className="stock-event-panel__actions">
         {canWithdraw ? (
@@ -157,6 +191,7 @@ export default function EventActionPanel({
           <strong>Success:</strong> {statusMessage}
         </p>
       ) : null}
+      {submitting ? <LoadingLine label="Working..." /> : null}
       {errorMessage ? (
         <p
           role="alert"

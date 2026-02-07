@@ -7,9 +7,10 @@ import type { IScannerControls } from "@zxing/browser";
 type ScannerProps = {
   onDetected: (code: string) => void;
   onStop: () => void;
+  onUnavailable?: () => void;
 };
 
-export default function Scanner({ onDetected, onStop }: ScannerProps) {
+export default function Scanner({ onDetected, onStop, onUnavailable }: ScannerProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const controlsRef = useRef<IScannerControls | null>(null);
@@ -65,6 +66,7 @@ export default function Scanner({ onDetected, onStop }: ScannerProps) {
         setErrorMessage("Camera preview is unavailable.");
         setStatusMessage("Camera unavailable.");
         cleanup();
+        onUnavailable?.();
         return;
       }
 
@@ -75,6 +77,7 @@ export default function Scanner({ onDetected, onStop }: ScannerProps) {
         setErrorMessage("Scanner is unavailable.");
         setStatusMessage("Camera unavailable.");
         cleanup();
+        onUnavailable?.();
         return;
       }
 
@@ -94,8 +97,9 @@ export default function Scanner({ onDetected, onStop }: ScannerProps) {
       setErrorMessage("Camera permission was denied or no camera is available.");
       setStatusMessage("Camera unavailable.");
       cleanup();
+      onUnavailable?.();
     }
-  }, [cleanup, handleDetected]);
+  }, [cleanup, handleDetected, onUnavailable]);
 
   const handleStop = useCallback(() => {
     cleanup();
