@@ -12,9 +12,9 @@ export default function MessagePanel({
   role
 }: MessagePanelProps) {
   return (
-    <div role={role}>
-      <strong>{title}</strong>
-      <div>{children}</div>
+    <div role={role} className="stock-message-panel">
+      <strong className="stock-message-panel__title">{title}</strong>
+      <div className="stock-message-panel__body">{children}</div>
     </div>
   );
 }

@@ -18,19 +18,25 @@ export default function PageShell({
   children
 }: PageShellProps) {
   return (
-    <section>
-      <header style={{ marginBottom: "16px" }}>
+    <section className="stock-page-shell">
+      <header className="stock-page-shell__header">
         {eyebrow ? (
-          <p style={{ margin: 0, fontSize: "14px", textTransform: "uppercase" }}>
+          <p className="stock-page-shell__eyebrow">
             {eyebrow}
           </p>
         ) : null}
-        <h1 style={{ margin: "4px 0" }}>{title}</h1>
-        {subtitle ? <p style={{ margin: 0 }}>{subtitle}</p> : null}
-        {status ? <div style={{ marginTop: "8px" }}>{status}</div> : null}
-        {actions ? <div style={{ marginTop: "12px" }}>{actions}</div> : null}
+        <h1 className="stock-page-shell__title">{title}</h1>
+        {subtitle ? (
+          <p className="stock-page-shell__subtitle">{subtitle}</p>
+        ) : null}
+        {status ? (
+          <div className="stock-page-shell__status">{status}</div>
+        ) : null}
+        {actions ? (
+          <div className="stock-page-shell__actions">{actions}</div>
+        ) : null}
       </header>
-      <div style={{ display: "grid", gap: "16px" }}>{children}</div>
+      <div className="stock-page-shell__content">{children}</div>
     </section>
   );
 }
