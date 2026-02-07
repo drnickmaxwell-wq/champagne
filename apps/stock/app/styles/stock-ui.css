@@ -100,6 +100,11 @@ main {
   gap: var(--stock-space-2);
 }
 
+.stock-card--primary {
+  border-width: 2px;
+  background: var(--surface-1);
+}
+
 .stock-card__title {
   margin-top: 0;
   margin-bottom: 0;
