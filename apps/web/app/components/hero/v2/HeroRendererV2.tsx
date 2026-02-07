@@ -916,9 +916,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   if (!activeModel) return <HeroFallback />;
 
   const resolvedRootStyle = { ...rootStyle, ...activeModel.surfaceStack.surfaceVars };
-  const gatedRootStyle = isHeroVisuallyReady
-    ? resolvedRootStyle
-    : { ...resolvedRootStyle, opacity: 0, visibility: "hidden" as const };
   const motionCount = activeModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
@@ -938,7 +935,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     <HeroV2Frame
       layout={activeModel.layout}
       gradient={activeModel.gradient}
-      rootStyle={gatedRootStyle}
+      rootStyle={resolvedRootStyle}
       heroId={activeModel.surfaceStack.heroId}
       variantId={activeModel.surfaceStack.variantId}
       particlesPath={activeModel.surfaceStack.particlesPath}
