@@ -8,9 +8,9 @@
   max-width: 72rem;
   border-radius: 2rem;
   padding: clamp(1.75rem, 4vw, 3rem);
-  background: color-mix(in oklab, var(--smh-bg, #0f172a) 86%, transparent 14%);
+  background: color-mix(in oklab, var(--smh-bg) 86%, transparent 14%);
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 28%, transparent);
-  box-shadow: 0 24px 60px color-mix(in oklab, var(--smh-ink, #0f172a) 16%, transparent);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--smh-ink) 16%, transparent);
   overflow: hidden;
   backdrop-filter: blur(18px);
 }
@@ -21,8 +21,8 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    color-mix(in oklab, var(--smh-bg, #0f172a) 92%, transparent) 0%,
-    color-mix(in oklab, var(--smh-bg, #0f172a) 68%, transparent) 100%
+    color-mix(in oklab, var(--smh-bg) 92%, transparent) 0%,
+    color-mix(in oklab, var(--smh-bg) 68%, transparent) 100%
   );
   opacity: 0.45;
   pointer-events: none;
@@ -69,7 +69,7 @@
   gap: 0.5rem;
   border-radius: 9999px;
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 32%, transparent);
-  background: color-mix(in oklab, var(--smh-bg, #0f172a) 74%, transparent 26%);
+  background: color-mix(in oklab, var(--smh-bg) 74%, transparent 26%);
   color: color-mix(in oklab, var(--chat-text, var(--smh-text)) 86%, transparent 14%);
   font-size: 0.75rem;
   font-weight: 500;
@@ -81,19 +81,19 @@
 
 .lux-chat-user-bubble {
   background-image: var(--smh-gradient);
-  color: var(--smh-white, #ffffff);
-  box-shadow: 0 16px 36px color-mix(in oklab, var(--smh-ink, #0f172a) 18%, transparent);
+  color: var(--smh-white);
+  box-shadow: 0 16px 36px color-mix(in oklab, var(--smh-ink) 18%, transparent);
 }
 
 .lux-chat-assistant-bubble {
   background: color-mix(in oklab, var(--chat-panel-glass, var(--smh-bg)) 86%, transparent 14%);
   backdrop-filter: blur(14px);
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 18%, transparent);
-  box-shadow: 0 12px 24px color-mix(in oklab, var(--smh-ink, #0f172a) 12%, transparent);
+  box-shadow: 0 12px 24px color-mix(in oklab, var(--smh-ink) 12%, transparent);
 }
 
 .lux-chat-user-meta {
-  color: color-mix(in oklab, var(--smh-white, #ffffff) 82%, transparent 18%);
+  color: color-mix(in oklab, var(--smh-white) 82%, transparent 18%);
 }
 
 .lux-chat-assistant-meta {
@@ -103,8 +103,8 @@
 .lux-chat-avatar-user,
 .lux-chat-avatar-assistant {
   background-image: var(--smh-gradient);
-  color: var(--smh-white, #ffffff);
-  box-shadow: 0 6px 16px color-mix(in oklab, var(--smh-ink, #0f172a) 20%, transparent);
+  color: var(--smh-white);
+  box-shadow: 0 6px 16px color-mix(in oklab, var(--smh-ink) 20%, transparent);
 }
 
 .lux-chat-avatar-assistant {
@@ -113,8 +113,8 @@
 
 .lux-chat-quick-action {
   background-image: var(--smh-gradient);
-  color: var(--smh-white, #ffffff);
-  box-shadow: 0 12px 30px color-mix(in oklab, var(--smh-ink, #0f172a) 16%, transparent);
+  color: var(--smh-white);
+  box-shadow: 0 12px 30px color-mix(in oklab, var(--smh-ink) 16%, transparent);
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 24%, transparent);
 }
 
@@ -140,8 +140,8 @@
 
 .lux-chat-launch-button {
   background-image: var(--smh-gradient);
-  color: var(--smh-white, #ffffff);
-  box-shadow: 0 18px 36px color-mix(in oklab, var(--smh-ink, #0f172a) 28%, transparent);
+  color: var(--smh-white);
+  box-shadow: 0 18px 36px color-mix(in oklab, var(--smh-ink) 28%, transparent);
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 20%, transparent);
 }
 
@@ -150,37 +150,49 @@
 }
 
 .lux-chat-window {
-  background: color-mix(in oklab, var(--smh-bg, #0f172a) 92%, transparent 8%);
+  background: color-mix(in oklab, var(--smh-bg) 92%, transparent 8%);
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 20%, transparent);
   backdrop-filter: blur(18px);
-  box-shadow: 0 26px 52px color-mix(in oklab, var(--smh-ink, #0f172a) 24%, transparent);
+  box-shadow: 0 26px 52px color-mix(in oklab, var(--smh-ink) 24%, transparent);
 }
 
 .lux-chat-window-header {
   background-image: var(--smh-gradient);
-  color: var(--smh-white, #ffffff);
+  color: var(--smh-white);
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--smh-accent-gold) 18%, transparent);
 }
 
 .lux-chat-header-sheen {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.28), transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.18), transparent 60%);
+  background: radial-gradient(
+      circle at 20% 20%,
+      color-mix(in oklab, var(--smh-white) 28%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      color-mix(in oklab, var(--smh-white) 18%, transparent),
+      transparent 60%
+    );
   mix-blend-mode: screen;
   opacity: 0.75;
   pointer-events: none;
 }
 
 .lux-chat-scroll-sheen {
-  background: linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--smh-bg, #0f172a) 12%, transparent) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in oklab, var(--smh-bg) 12%, transparent) 100%
+  );
 }
 
 .lux-chat-send-button {
   background-image: var(--smh-gradient);
-  color: var(--smh-white, #ffffff);
+  color: var(--smh-white);
   border: 1px solid color-mix(in oklab, var(--smh-accent-gold) 20%, transparent);
-  box-shadow: 0 12px 24px color-mix(in oklab, var(--smh-ink, #0f172a) 22%, transparent);
+  box-shadow: 0 12px 24px color-mix(in oklab, var(--smh-ink) 22%, transparent);
 }
 
 .lux-chat-send-button:disabled {

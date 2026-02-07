@@ -21,7 +21,7 @@ export default function Page() {
             <div className="space-y-3">
               <span className="chat-preview-badge">Luxury Concierge UI</span>
               <h1 className="text-3xl font-semibold">Champagne Concierge</h1>
-              <p className="max-w-xl text-sm text-neutral-200">
+              <p className="max-w-xl text-sm text-[color:var(--text-medium)]">
                 The Champagne Concierge runs in your browser while the AI engine handles
                 responses securely. Use the launcher to open the chat window.
               </p>
@@ -35,21 +35,21 @@ export default function Page() {
               >
                 Book an appointment
               </a>
-              <span className="text-xs text-neutral-300">{statusLine}</span>
+              <span className="text-xs text-[color:var(--text-low)]">{statusLine}</span>
             </div>
           </header>
-          <div className="text-sm text-neutral-200">
+          <div className="text-sm text-[color:var(--text-medium)]">
             <p className="mb-3">
               The luxury concierge UI is now live. Tap the floating chat button in the lower
               right corner to begin a conversation and preview the luxury experience.
             </p>
-            <ul className="space-y-2 text-neutral-300">
+            <ul className="space-y-2 text-[color:var(--text-low)]">
               <li>• Live engine status and quick actions are preserved.</li>
               <li>• Responses are streamed from the configured concierge engine.</li>
               <li>• The booking link remains available for instant scheduling.</li>
             </ul>
           </div>
-          <div className="flex items-center justify-center text-sm text-neutral-300">
+          <div className="flex items-center justify-center text-sm text-[color:var(--text-low)]">
             The concierge window appears in the lower-right corner when opened.
           </div>
         </div>

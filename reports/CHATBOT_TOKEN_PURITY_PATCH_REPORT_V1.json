@@ -1,0 +1,47 @@
+{
+  "changedFiles": [
+    "apps/chat-ui/app/globals.css",
+    "apps/chat-ui/app/page.tsx",
+    "apps/chat-ui/components/luxury-chatbot.tsx",
+    "apps/chat-ui/public/brand/chat-ui.json",
+    "apps/chat-ui/styles/chat-preview.css",
+    "reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json"
+  ],
+  "tokenSourceUsed": "packages/champagne-tokens/styles/champagne/tokens.css (and imported smh token vars)",
+  "removedColorLiterals": [
+    "#0f172a",
+    "#ffffff",
+    "rgba(255,255,255,0.2)",
+    "rgba(255, 255, 255, 0.28)",
+    "rgba(255, 255, 255, 0.18)",
+    "black"
+  ],
+  "replacements": [
+    {
+      "file": "apps/chat-ui/components/luxury-chatbot.tsx",
+      "before": "fill=\"rgba(255,255,255,0.2)\"",
+      "after": "fill=\"color-mix(in oklab, var(--smh-white) 20%, transparent)\""
+    },
+    {
+      "file": "apps/chat-ui/styles/chat-preview.css",
+      "before": "color-mix(in oklab, var(--smh-bg, #0f172a) 86%, transparent 14%)",
+      "after": "color-mix(in oklab, var(--smh-bg) 86%, transparent 14%)"
+    },
+    {
+      "file": "apps/chat-ui/styles/chat-preview.css",
+      "before": "rgba(255, 255, 255, 0.28)",
+      "after": "color-mix(in oklab, var(--smh-white) 28%, transparent)"
+    },
+    {
+      "file": "apps/chat-ui/public/brand/chat-ui.json",
+      "before": "color-mix(in oklab, var(--smh-bg) 65%, black 35%)",
+      "after": "color-mix(in oklab, var(--smh-bg) 65%, var(--ink) 35%)"
+    },
+    {
+      "file": "apps/chat-ui/app/globals.css",
+      "before": "@apply bg-neutral-950 text-neutral-100",
+      "after": "background-color: var(--bg-ink); color: var(--text-ink-high);"
+    }
+  ],
+  "confirmationImportsUntouched": true
+}

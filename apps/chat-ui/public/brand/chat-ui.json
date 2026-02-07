@@ -2,7 +2,7 @@
   "version": 1,
   "panel": {
     "bg": "var(--smh-bg)",
-    "glass": "var(--champagne-glass-bg, color-mix(in oklab, var(--smh-bg) 65%, black 35%))",
+    "glass": "var(--champagne-glass-bg, color-mix(in oklab, var(--smh-bg) 65%, var(--ink) 35%))",
     "border": "var(--smh-accent-gold)"
   },
   "accent": {

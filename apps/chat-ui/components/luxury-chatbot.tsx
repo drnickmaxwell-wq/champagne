@@ -85,7 +85,7 @@ function FloatingSparkle({ delay = 0 }: { delay?: number }) {
         repeat: Infinity,
         ease: easeOutCubic,
       }}
-      className="absolute text-yellow-400 text-xs pointer-events-none"
+      className="absolute text-[color:var(--brand-gold)] text-xs pointer-events-none"
     >
       ✨
     </motion.div>
@@ -98,15 +98,15 @@ function EmotionIndicator({ emotion }: { emotion?: EmotionAnalysis }) {
   const getEmotionColor = (emotionType: string) => {
     switch (emotionType) {
       case "anxiety":
-        return "text-orange-500";
+        return "text-[color:var(--text-medium)]";
       case "distress":
-        return "text-red-500";
+        return "text-[color:var(--text-high)]";
       case "excitement":
-        return "text-green-500";
+        return "text-[color:var(--text-high)]";
       case "discomfort":
-        return "text-red-400";
+        return "text-[color:var(--text-medium)]";
       default:
-        return "text-blue-500";
+        return "text-[color:var(--text-low)]";
     }
   };
 
@@ -129,7 +129,7 @@ function EmotionIndicator({ emotion }: { emotion?: EmotionAnalysis }) {
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="flex items-center gap-2 text-xs text-gray-500 mb-2"
+      className="flex items-center gap-2 text-xs text-[color:var(--text-medium)] mb-2"
     >
       <span>{getEmotionIcon(emotion.primary)}</span>
       <span className={getEmotionColor(emotion.primary)}>
@@ -432,10 +432,10 @@ export default function LuxuryChatbot({
         <div
           className={`absolute top-2 right-2 w-3 h-3 rounded-full ${
             connectionStatus === "connected"
-              ? "bg-green-400"
+              ? "bg-[color:var(--brand-teal)]"
               : connectionStatus === "connecting"
-                ? "bg-yellow-400"
-                : "bg-red-400"
+                ? "bg-[color:var(--brand-gold)]"
+                : "bg-[color:var(--text-low)]"
           }`}
         />
       </motion.button>
@@ -455,7 +455,7 @@ export default function LuxuryChatbot({
                 <svg viewBox="0 0 400 100" className="w-full h-full">
                   <motion.path
                     d="M0,50 Q100,20 200,50 T400,50 V100 H0 Z"
-                    fill="rgba(255,255,255,0.2)"
+                    fill="color-mix(in oklab, var(--smh-white) 20%, transparent)"
                     animate={{
                       d: [
                         "M0,50 Q100,20 200,50 T400,50 V100 H0 Z",
@@ -470,7 +470,7 @@ export default function LuxuryChatbot({
 
               <div className="relative z-10 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-[color:color-mix(in oklab,var(--smh-white) 20%, transparent)] rounded-full flex items-center justify-center">
                     <span className="text-lg">🦷</span>
                   </div>
                   <div>
@@ -483,10 +483,10 @@ export default function LuxuryChatbot({
                   <div
                     className={`w-2 h-2 rounded-full ${
                       connectionStatus === "connected"
-                        ? "bg-green-300"
+                        ? "bg-[color:var(--brand-teal)]"
                         : connectionStatus === "connecting"
-                          ? "bg-yellow-300"
-                          : "bg-red-300"
+                          ? "bg-[color:var(--brand-gold)]"
+                          : "bg-[color:var(--text-low)]"
                     }`}
                   />
 
@@ -494,7 +494,7 @@ export default function LuxuryChatbot({
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setIsOpen(false)}
-                    className="p-2 hover:bg-white/20 rounded-full transition-colors"
+                    className="p-2 hover:bg-[color:color-mix(in oklab,var(--smh-white) 20%, transparent)] rounded-full transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </motion.button>
@@ -517,14 +517,14 @@ export default function LuxuryChatbot({
                   animate={{ opacity: 1 }}
                   className="flex justify-start mb-4"
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-3 mr-4 shadow-lg">
+                  <div className="bg-[color:color-mix(in oklab,var(--smh-white) 90%, transparent)] backdrop-blur-sm rounded-2xl px-4 py-3 mr-4 shadow-lg">
                     <div className="flex gap-1">
                       {[0, 1, 2].map((i) => (
                         <motion.div
                           key={i}
                           animate={{ scale: [1, 1.2, 1] }}
                           transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.2 }}
-                          className="w-2 h-2 bg-teal-500 rounded-full"
+                          className="w-2 h-2 bg-[color:var(--brand-teal)] rounded-full"
                         />
                       ))}
                     </div>
@@ -535,7 +535,7 @@ export default function LuxuryChatbot({
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="px-4 py-2 bg-[color:color-mix(in oklab,var(--smh-bg, #0f172a) 82%, transparent 18%)]">
+            <div className="px-4 py-2 bg-[color:color-mix(in oklab,var(--smh-bg) 82%, transparent 18%)]">
               <div className="flex gap-2 flex-wrap">
                 <QuickActionButton
                   icon={Calendar}
@@ -564,7 +564,7 @@ export default function LuxuryChatbot({
               </div>
             </div>
 
-            <div className="p-4 bg-[color:color-mix(in oklab,var(--smh-bg, #0f172a) 86%, transparent 14%)] backdrop-blur-sm border-t border-[color:color-mix(in oklab,var(--smh-accent-gold) 26%, transparent)]">
+            <div className="p-4 bg-[color:color-mix(in oklab,var(--smh-bg) 86%, transparent 14%)] backdrop-blur-sm border-t border-[color:color-mix(in oklab,var(--smh-accent-gold) 26%, transparent)]">
               <div className="flex items-center gap-2">
                 <div className="flex-1 relative">
                   <input
@@ -574,7 +574,7 @@ export default function LuxuryChatbot({
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && sendMessage(inputMessage)}
                     placeholder="Type your message..."
-                    className="w-full px-4 py-3 bg-[color:color-mix(in oklab,var(--smh-bg, #0f172a) 94%, transparent 6%)] border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[color:var(--smh-accent-gold)] focus:border-transparent text-sm text-[color:var(--chat-text)]"
+                    className="w-full px-4 py-3 bg-[color:color-mix(in oklab,var(--smh-bg) 94%, transparent 6%)] border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[color:var(--smh-accent-gold)] focus:border-transparent text-sm text-[color:var(--chat-text)]"
                     disabled={isLoading}
                   />
                 </div>
@@ -584,7 +584,9 @@ export default function LuxuryChatbot({
                   whileTap={{ scale: 0.95 }}
                   onClick={toggleVoiceInput}
                   className={`p-3 rounded-full transition-all duration-300 ${
-                    isListening ? "bg-red-500 text-white" : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                    isListening
+                      ? "bg-[color:var(--brand-magenta)] text-[color:var(--smh-white)]"
+                      : "bg-[color:var(--surface-1)] text-[color:var(--text-medium)] hover:bg-[color:var(--surface-2)]"
                   }`}
                 >
                   {isListening ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
@@ -601,7 +603,7 @@ export default function LuxuryChatbot({
                 </motion.button>
               </div>
               {lastError ? (
-                <p className="mt-2 text-xs text-red-200">{lastError}</p>
+                <p className="mt-2 text-xs text-[color:var(--text-ink-medium)]">{lastError}</p>
               ) : null}
             </div>
           </motion.div>

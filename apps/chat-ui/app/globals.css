@@ -4,9 +4,7 @@
 
 html,
 body {
-  @apply bg-neutral-950 text-neutral-100 min-h-screen;
-}
-
-body {
-  @apply antialiased;
+  @apply min-h-screen antialiased;
+  background-color: var(--bg-ink);
+  color: var(--text-ink-high);
 }
