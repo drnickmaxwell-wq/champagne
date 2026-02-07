@@ -348,6 +348,14 @@ function AssistantCards({
 }) {
   if (payload.kind !== "cards") return null;
 
+  const openActionLink = (href: string) => {
+    if (typeof window === "undefined") return;
+    const opened = window.open(href, "_blank", "noopener,noreferrer");
+    if (!opened) {
+      window.location.assign(href);
+    }
+  };
+
   return (
     <div className="mt-3 space-y-3">
       {payload.cards.map((card, index) => (
@@ -368,13 +376,14 @@ function AssistantCards({
               {card.actions.map((action, actionIndex) => {
                 if (action.type === "link") {
                   return (
-                    <a
+                    <button
                       key={`${action.label}-${actionIndex}`}
-                      href={action.href}
+                      type="button"
+                      onClick={() => openActionLink(action.href)}
                       className="rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 84%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
                     >
                       {action.label}
-                    </a>
+                    </button>
                   );
                 }
                 return (
