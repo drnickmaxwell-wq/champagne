@@ -933,6 +933,11 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     motionCount,
     prm: activeModel.surfaceStack.prmEnabled,
   };
+  const heroIdentityKey =
+    activeModel.surfaceStack.variantId ??
+    activeModel.surfaceStack.heroId ??
+    (activeModel.surfaceStack.boundVariantId ? `binding:${activeModel.surfaceStack.boundVariantId}` : undefined) ??
+    (pageCategory ? `category:${pageCategory}` : undefined);
 
   return (
     <HeroV2Frame
@@ -973,7 +978,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       <div style={{ position: "absolute", inset: 0 }}>
         <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...activeModel.surfaceStack} />
       </div>
-      <HeroContentFade>
+      <HeroContentFade identityKey={heroIdentityKey}>
         <HeroContentV2 content={activeModel.content} layout={activeModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
