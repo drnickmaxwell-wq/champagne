@@ -17,8 +17,9 @@ export default function StatusLine({ items }: StatusLineProps) {
   return (
     <div className="stock-status-line">
       {visibleItems.map((item) => (
-        <span key={item.label}>
-          {item.label}: {item.value}
+        <span key={item.label} className="stock-status-line__item">
+          <span className="stock-status-line__item-label">{item.label}</span>
+          <span className="stock-status-line__item-value">{item.value}</span>
         </span>
       ))}
     </div>

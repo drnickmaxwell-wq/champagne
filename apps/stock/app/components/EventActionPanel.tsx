@@ -111,9 +111,11 @@ export default function EventActionPanel({
 
   return (
     <div className="stock-event-panel">
-      <h2>Actions</h2>
+      <h2 className="stock-event-panel__title">Actions</h2>
       <div className="stock-event-panel__field">
-        <label htmlFor="event-qty">Quantity</label>
+        <label htmlFor="event-qty" className="stock-event-panel__label">
+          Quantity
+        </label>
         <input
           id="event-qty"
           type="number"
@@ -131,7 +133,7 @@ export default function EventActionPanel({
             type="button"
             onClick={() => handleEvent("WITHDRAW")}
             disabled={submitting}
-            className="stock-event-panel__button"
+            className="stock-button stock-button--primary stock-event-panel__button"
           >
             Withdraw
           </button>
@@ -141,24 +143,33 @@ export default function EventActionPanel({
             type="button"
             onClick={() => handleEvent("RECEIVE")}
             disabled={submitting}
-            className="stock-event-panel__button"
+            className="stock-button stock-button--primary stock-event-panel__button"
           >
             Receive
           </button>
         ) : null}
       </div>
       {statusMessage ? (
-        <p role="status" className="stock-event-panel__message">
+        <p
+          role="status"
+          className="stock-event-panel__message stock-event-panel__message--success"
+        >
           <strong>Success:</strong> {statusMessage}
         </p>
       ) : null}
       {errorMessage ? (
-        <p role="alert" className="stock-event-panel__message">
+        <p
+          role="alert"
+          className="stock-event-panel__message stock-event-panel__message--error"
+        >
           <strong>Error:</strong> {errorMessage}
         </p>
       ) : null}
       {lastActionMessage ? (
-        <p role="status" className="stock-event-panel__message">
+        <p
+          role="status"
+          className="stock-event-panel__message stock-event-panel__message--neutral"
+        >
           <strong>{lastActionMessage}</strong>
         </p>
       ) : null}
