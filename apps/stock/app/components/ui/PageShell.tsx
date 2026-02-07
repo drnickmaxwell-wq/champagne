@@ -18,7 +18,7 @@ export default function PageShell({
   children
 }: PageShellProps) {
   return (
-    <section className="stock-page-shell">
+    <section className="stock-page-shell stock-shell">
       <header className="stock-page-shell__header">
         {eyebrow ? (
           <p className="stock-page-shell__eyebrow">
@@ -30,10 +30,10 @@ export default function PageShell({
           <p className="stock-page-shell__subtitle">{subtitle}</p>
         ) : null}
         {status ? (
-          <div className="stock-page-shell__status">{status}</div>
+          <div className="stock-page-shell__status stock-status">{status}</div>
         ) : null}
         {actions ? (
-          <div className="stock-page-shell__actions">{actions}</div>
+          <div className="stock-page-shell__actions stock-actions">{actions}</div>
         ) : null}
       </header>
       <div className="stock-page-shell__content">{children}</div>

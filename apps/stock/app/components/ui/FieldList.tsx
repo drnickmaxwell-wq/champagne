@@ -11,7 +11,7 @@ type FieldRowProps = {
 
 export function FieldList({ children }: FieldListProps) {
   return (
-    <dl className="stock-field-list">{children}</dl>
+    <dl className="stock-field-list stock-fieldlist">{children}</dl>
   );
 }
 
