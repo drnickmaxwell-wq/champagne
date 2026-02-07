@@ -92,7 +92,7 @@ export async function HeroMount(props: HeroRendererProps) {
               surfaceRef={v2PropsWithPath.surfaceRef}
               {...v2Model.surfaceStack}
             />
-            <HeroContentFade>
+            <HeroContentFade identityKey={heroIdentityKey}>
               <HeroContentV2 content={v2Model.content} layout={v2Model.layout} />
             </HeroContentFade>
           </HeroV2Frame>
