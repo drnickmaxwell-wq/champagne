@@ -121,6 +121,9 @@ function HeroSurfaceStackV2Base({
   const pathname = usePathname();
   const pathnameKey = normalizeHeroPathname(pathname);
   const heroDebugEnabled = isHeroNavDebugEnabled();
+  const everRevealed =
+    typeof window !== "undefined" &&
+    (window as typeof window & { __heroMotionEverRevealed?: boolean }).__heroMotionEverRevealed === true;
   const mediaLogCountRef = useRef(0);
   const navStartRef = useRef(0);
   const handleVideoReady = (event: React.SyntheticEvent<HTMLVideoElement>) => {
@@ -514,7 +517,7 @@ function HeroSurfaceStackV2Base({
             preload="metadata"
             poster={heroVideo.poster}
             data-surface-id="motion.heroVideo"
-            data-ready="false"
+            data-ready={everRevealed ? "true" : "false"}
             data-motion-target-opacity={
               heroVideo.targetOpacity !== undefined && heroVideo.targetOpacity !== null
                 ? `${heroVideo.targetOpacity}`
@@ -522,7 +525,11 @@ function HeroSurfaceStackV2Base({
             }
             onLoadedData={handleVideoReady}
             onCanPlay={handleVideoReady}
-            style={heroVideo.style}
+            style={
+              everRevealed && heroVideo.targetOpacity !== undefined && heroVideo.targetOpacity !== null
+                ? { ...heroVideo.style, opacity: heroVideo.targetOpacity }
+                : heroVideo.style
+            }
           >
             <source src={heroVideo.path} />
           </video>
@@ -539,13 +546,17 @@ function HeroSurfaceStackV2Base({
               muted
               preload="metadata"
               data-surface-id={entry.id}
-              data-ready="false"
+              data-ready={everRevealed ? "true" : "false"}
               data-motion-target-opacity={
                 entry.targetOpacity !== undefined && entry.targetOpacity !== null ? `${entry.targetOpacity}` : undefined
               }
               onLoadedData={handleVideoReady}
               onCanPlay={handleVideoReady}
-              style={entry.style}
+              style={
+                everRevealed && entry.targetOpacity !== undefined && entry.targetOpacity !== null
+                  ? { ...entry.style, opacity: entry.targetOpacity }
+                  : entry.style
+              }
             >
               <source src={entry.path} />
             </video>
