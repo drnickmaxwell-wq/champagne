@@ -172,6 +172,12 @@ export default function BaselinePage() {
   };
 
   const isUnmatched = scanResult?.result === "UNMATCHED";
+  const isLocationScan = scanResult?.result === "LOCATION";
+  const nonLocationScan = scanResult && scanResult.result !== "LOCATION";
+  const stockInstanceLocationName =
+    scanResult?.result === "STOCK_INSTANCE"
+      ? scanResult.location?.name ?? "Not set"
+      : null;
   const actionTarget =
     scanResult && scanResult.result === "STOCK_INSTANCE"
       ? {
@@ -270,6 +276,12 @@ export default function BaselinePage() {
             {scanError ? (
               <FeedbackCard title="Scan error" message={scanError} />
             ) : null}
+            {nonLocationScan ? (
+              <FeedbackCard
+                title="Not a location QR"
+                message="This is not a location QR. Please scan a location label."
+              />
+            ) : null}
             {recordedMessage ? (
               <FeedbackCard title="Recorded" message={recordedMessage} />
             ) : null}
@@ -315,11 +327,15 @@ export default function BaselinePage() {
             {scanResult && scanResult.result !== "UNMATCHED" ? (
               <Card title="Match summary">
                 <KeyValueGrid>
-                  {scanResult.result === "LOCATION" ? (
-                    <FieldRow label="Location" value={scanResult.name} />
+                  {isLocationScan ? (
+                    <FieldRow
+                      label="Location"
+                      value={`${scanResult.name} (${scanResult.locationId})`}
+                    />
                   ) : null}
                   {scanResult.result === "STOCK_INSTANCE" ? (
                     <>
+                      <FieldRow label="Location" value={stockInstanceLocationName} />
                       <FieldRow
                         label="Product"
                         value={formatProduct(
