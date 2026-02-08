@@ -31,7 +31,14 @@ export async function HeroMount(props: HeroRendererProps) {
     const v2Props = props as HeroRendererV2Props;
     const resolvedPageSlugOrPath =
       v2Props.pageSlugOrPath ?? (v2Props.treatmentSlug ? `/treatments/${v2Props.treatmentSlug}` : "/");
-    const v2PropsWithPath = { ...v2Props, pageSlugOrPath: resolvedPageSlugOrPath };
+    const isTreatmentPath = resolvedPageSlugOrPath.startsWith("/treatments/");
+    const resolvedPageCategory =
+      v2Props.pageCategory === (isTreatmentPath ? "treatment" : "home") ? v2Props.pageCategory : undefined;
+    const v2PropsWithPath = {
+      ...v2Props,
+      pageSlugOrPath: resolvedPageSlugOrPath,
+      pageCategory: resolvedPageCategory,
+    };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
     const pathnameKey = normalizeHeroPathname(v2PropsWithPath.pageSlugOrPath);
     const heroIdentityKey =
