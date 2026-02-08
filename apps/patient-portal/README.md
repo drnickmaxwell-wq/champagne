@@ -33,3 +33,7 @@ Minimal Zone B patient portal UI that proxies chat requests to `patient-ai-servi
 - While signed out, the portal and `/api/converse` respond with **Sign in required**.
 
 > Note: This is a stub authentication flow for boundary testing only. No PHI is stored.
+
+## Stub auth is DEV ONLY
+
+Stub auth is **DEV ONLY**. Replace with real auth before production.
