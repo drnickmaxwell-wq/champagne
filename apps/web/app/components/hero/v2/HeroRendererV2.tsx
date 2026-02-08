@@ -862,7 +862,42 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [debugEnabled, pathnameKey]);
 
   useEffect(() => {
-    const modelSnapshot = renderModelRef.current ?? lastResolvedHeroV2Model;
+    if (!debugEnabled) return;
+    let frameId = 0;
+    let hiddenFrames = 0;
+    let visibilityFlips = 0;
+    let lastVisibility: string | null = null;
+    let minOpacity = 1;
+    const start = performance.now();
+    const sample = () => {
+      const root = document.querySelector<HTMLElement>(".hero-renderer-v2[data-hero-root=\"true\"]");
+      if (root) {
+        const styles = getComputedStyle(root);
+        const opacityValue = Number.parseFloat(styles.opacity || "1");
+        const visibility = styles.visibility || "visible";
+        minOpacity = Math.min(minOpacity, Number.isNaN(opacityValue) ? 1 : opacityValue);
+        if (lastVisibility !== null && visibility !== lastVisibility) {
+          visibilityFlips += 1;
+        }
+        lastVisibility = visibility;
+        if (opacityValue <= 0 || visibility !== "visible") {
+          hiddenFrames += 1;
+        }
+      }
+      if (performance.now() - start < 500) {
+        frameId = requestAnimationFrame(sample);
+        return;
+      }
+      console.info(
+        `[HERO_NAV_VIS_PROBE] path=${pathnameKey} hiddenFrames=${hiddenFrames} minOpacity=${minOpacity} visibilityFlips=${visibilityFlips}`,
+      );
+    };
+    frameId = requestAnimationFrame(sample);
+    return () => cancelAnimationFrame(frameId);
+  }, [debugEnabled, pathnameKey]);
+
+  useEffect(() => {
+    const modelSnapshot = renderModel ?? lastResolvedHeroV2Model;
     if (!modelSnapshot) {
       setIsHeroVisuallyReady(false);
       return;
@@ -910,7 +945,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
         }
       });
     };
-  }, [pathnameKey, renderModel]);
+  }, [renderModel]);
 
   const activeModel = renderModel ?? lastResolvedHeroV2Model;
   if (!activeModel) return <HeroFallback />;
@@ -920,6 +955,13 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     ? resolvedRootStyle
     : { ...resolvedRootStyle, opacity: 0, visibility: "hidden" as const };
   const motionCount = activeModel.surfaceStack.motionLayers.length;
+  const heroIdentityKey =
+    activeModel.surfaceStack.variantId ??
+    activeModel.surfaceStack.heroId ??
+    (activeModel.surfaceStack.boundVariantId
+      ? `binding:${activeModel.surfaceStack.boundVariantId}`
+      : undefined) ??
+    (pageCategory ? `category:${pageCategory}` : undefined);
   const overlayData = {
     pathname: pathnameKey,
     heroId: activeModel.surfaceStack.heroId ?? "",
@@ -973,7 +1015,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       <div style={{ position: "absolute", inset: 0 }}>
         <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...activeModel.surfaceStack} />
       </div>
-      <HeroContentFade>
+      <HeroContentFade contentKey={heroIdentityKey ?? null}>
         <HeroContentV2 content={activeModel.content} layout={activeModel.layout} />
       </HeroContentFade>
     </HeroV2Frame>
