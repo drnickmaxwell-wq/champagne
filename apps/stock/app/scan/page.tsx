@@ -13,7 +13,6 @@ import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
 import StatusLine from "../components/ui/StatusLine";
 import {
   ActionSection,
-  DebugDisclosure,
   KeyValueGrid,
   ScreenHeader,
   Section
@@ -113,6 +112,26 @@ export default function ScanPage() {
     const cleanVariant = variant?.trim() ?? "";
     return cleanVariant.length ? `${name} (${cleanVariant})` : name;
   };
+  const productTitle =
+    scanData &&
+    (scanData.result === "STOCK_INSTANCE" ||
+      scanData.result === "PRODUCT_WITHDRAW")
+      ? formatProduct(scanData.product.name, scanData.product.variant)
+      : null;
+  const scanTitle =
+    scanData?.result === "LOCATION"
+      ? scanData.name
+      : scanData?.result === "UNMATCHED"
+        ? "Unknown code"
+        : productTitle;
+  const scanSubtitle =
+    scanData?.result === "LOCATION"
+      ? "Stock location"
+      : scanData?.result === "STOCK_INSTANCE"
+        ? "Stock instance"
+        : scanData?.result === "PRODUCT_WITHDRAW"
+          ? "Product withdraw"
+          : null;
   const actionTarget =
     scanData && scanData.result === "STOCK_INSTANCE"
       ? {
@@ -134,6 +153,12 @@ export default function ScanPage() {
       : scanData?.result === "LOCATION"
         ? scanData.name
         : "Not set";
+
+  useEffect(() => {
+    if (isUnmatched) {
+      setManualFocus(true);
+    }
+  }, [isUnmatched]);
 
   return (
     <PageShell
@@ -171,7 +196,10 @@ export default function ScanPage() {
           <FeedbackCard title="Error" role="alert" message={errorMessage} />
         ) : null}
         {isUnmatched ? (
-          <FeedbackCard title="No match" message="No match found for this code." />
+          <FeedbackCard
+            title="Unknown code"
+            message="We do not recognise this code yet. Try manual search below."
+          />
         ) : null}
       </div>
       <Section title="Camera scan">
@@ -183,14 +211,22 @@ export default function ScanPage() {
               onUnavailable={handleCameraUnavailable}
             />
             <PrimaryActions>
-              <button type="button" onClick={() => setCameraOpen(false)}>
+              <button
+                type="button"
+                onClick={() => setCameraOpen(false)}
+                className="stock-button stock-button--secondary"
+              >
                 Stop camera
               </button>
             </PrimaryActions>
           </>
         ) : (
           <PrimaryActions>
-            <button type="button" onClick={() => setCameraOpen(true)}>
+            <button
+              type="button"
+              onClick={() => setCameraOpen(true)}
+              className="stock-button stock-button--primary"
+            >
               Use camera
             </button>
           </PrimaryActions>
@@ -207,36 +243,23 @@ export default function ScanPage() {
           }}
         />
       </Section>
-      {actionTarget ? (
-        <ActionSection
-          productId={actionTarget.productId}
-          stockInstanceId={actionTarget.stockInstanceId}
-          locationId={actionTarget.locationId ?? null}
-          locationName={locationLabel}
-          onEventSuccess={() => {
-            if (scanCode.length > 0) {
-              void loadScan(scanCode);
-            }
-          }}
-          onLastActionMessage={(message) => setLastActionMessage(message)}
-        />
-      ) : null}
-      {scanData && !isUnmatched ? (
-        <Section title="Summary">
-          <KeyValueGrid>
-            <FieldRow label="Location" value={locationLabel} />
+      {scanData ? (
+        <Section title="Scan result">
+          <div className="stock-scan-result">
+            {scanSubtitle ? (
+              <p className="stock-scan-result__subtitle">{scanSubtitle}</p>
+            ) : null}
+            {scanTitle ? (
+              <h3 className="stock-scan-result__title">{scanTitle}</h3>
+            ) : null}
             {scanData.result === "LOCATION" ? (
-              <FieldRow label="Products" value={scanData.products.length} />
+              <KeyValueGrid>
+                <FieldRow label="Products" value={scanData.products.length} />
+              </KeyValueGrid>
             ) : null}
             {scanData.result === "STOCK_INSTANCE" ? (
-              <>
-                <FieldRow
-                  label="Product"
-                  value={formatProduct(
-                    scanData.product.name,
-                    scanData.product.variant
-                  )}
-                />
+              <KeyValueGrid>
+                <FieldRow label="Location" value={locationLabel} />
                 <FieldRow
                   label="Batch"
                   value={scanData.stockInstance.batchNumber}
@@ -247,24 +270,63 @@ export default function ScanPage() {
                     value={scanData.stockInstance.expiryDate}
                   />
                 ) : null}
-              </>
+              </KeyValueGrid>
             ) : null}
             {scanData.result === "PRODUCT_WITHDRAW" ? (
-              <FieldRow
-                label="Product"
-                value={formatProduct(
-                  scanData.product.name,
-                  scanData.product.variant
-                )}
-              />
+              <KeyValueGrid>
+                <FieldRow label="Location" value={locationLabel} />
+                <FieldRow
+                  label="Default withdraw"
+                  value={`${scanData.product.defaultWithdrawUnits} ${scanData.product.unitLabel}`}
+                />
+              </KeyValueGrid>
             ) : null}
-          </KeyValueGrid>
+            {scanData.result === "UNMATCHED" ? (
+              <p className="stock-scan-result__message">
+                Unknown code. Use the manual search below to find the item.
+              </p>
+            ) : null}
+            {scanData.result === "LOCATION" ? (
+              <PrimaryActions>
+                <button
+                  type="button"
+                  className="stock-button stock-button--primary"
+                >
+                  View items here
+                </button>
+              </PrimaryActions>
+            ) : null}
+          </div>
         </Section>
       ) : null}
-      {scanData ? (
-        <DebugDisclosure summary="Technical details (for troubleshooting only)">
-          <pre>{JSON.stringify(scanData, null, 2)}</pre>
-        </DebugDisclosure>
+      {actionTarget ? (
+        <ActionSection
+          key={`${actionTarget.productId ?? "none"}-${actionTarget.stockInstanceId ?? "none"}`}
+          productId={actionTarget.productId}
+          stockInstanceId={actionTarget.stockInstanceId}
+          locationId={actionTarget.locationId ?? null}
+          locationName={locationLabel}
+          defaultQuantity={
+            scanData?.result === "PRODUCT_WITHDRAW" ||
+            scanData?.result === "STOCK_INSTANCE"
+              ? scanData.product.defaultWithdrawUnits
+              : undefined
+          }
+          allowedActions={["WITHDRAW"]}
+          onEventSuccess={() => {
+            if (scanCode.length > 0) {
+              void loadScan(scanCode);
+            }
+          }}
+          onLastActionMessage={(message) => setLastActionMessage(message)}
+        />
+      ) : null}
+      {scanData?.result === "STOCK_INSTANCE" ? (
+        <PrimaryActions>
+          <button type="button" className="stock-button stock-button--secondary">
+            Adjust
+          </button>
+        </PrimaryActions>
       ) : null}
       <PrimaryActions>
         <ActionLink href="/scan">Scan another</ActionLink>

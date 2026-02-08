@@ -14,7 +14,6 @@ import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
 import Card from "../components/ui/Card";
 import {
   ActionSection,
-  DebugDisclosure,
   KeyValueGrid,
   ScreenHeader,
   Section
@@ -370,11 +369,6 @@ export default function BaselinePage() {
                   Add next item
                 </button>
               </PrimaryActions>
-            ) : null}
-            {scanResult ? (
-              <DebugDisclosure summary="Technical details (for troubleshooting only)">
-                <pre>{JSON.stringify(scanResult, null, 2)}</pre>
-              </DebugDisclosure>
             ) : null}
           </Section>
 
