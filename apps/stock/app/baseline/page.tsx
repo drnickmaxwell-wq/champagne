@@ -212,6 +212,12 @@ export default function BaselinePage() {
 
       <MessagePanel title="Baseline Mode">
         Use this checklist to confirm every location is ready before daily workflows.
+        <div className="stock-helper">
+          Baseline mode is used once to count everything in this location.
+        </div>
+        <div className="stock-helper">
+          Numbers may look odd for the first week while stock settles.
+        </div>
       </MessagePanel>
       <PrimaryActions>
         <ActionLink href="/scan">Exit baseline</ActionLink>
@@ -306,18 +312,51 @@ export default function BaselinePage() {
             {scanError ? (
               <FeedbackCard title="Scan error" message={scanError} />
             ) : null}
-            {scanResult?.result === "UNMATCHED" ? (
-              <FeedbackCard
-                title="No match"
-                message="No match found for this code."
-              />
-            ) : null}
-            {scanResult?.result === "PRODUCT_WITHDRAW" ||
-            scanResult?.result === "STOCK_INSTANCE" ? (
-              <MessagePanel title="Not a location label" role="alert">
-                Not a location label. Please scan a location QR.
-              </MessagePanel>
-            ) : null}
+            {(() => {
+              if (!scanResult) {
+                return null;
+              }
+
+              switch (scanResult.result) {
+                case "LOCATION":
+                  return null;
+                case "UNMATCHED":
+                  return (
+                    <MessagePanel title="Not a location label" role="alert">
+                      This scan didn’t match a location label. Baseline mode is
+                      only for confirming locations.
+                      <div className="stock-helper">
+                        What to do instead: scan a location QR label from the
+                        shelves or switch to Scan for product activity.
+                      </div>
+                    </MessagePanel>
+                  );
+                case "PRODUCT_WITHDRAW":
+                  return (
+                    <MessagePanel title="Product scan detected" role="alert">
+                      Baseline mode is only for confirming locations, not
+                      products.
+                      <div className="stock-helper">
+                        What to do instead: open Scan to record product
+                        movement, then return here to finish baseline.
+                      </div>
+                    </MessagePanel>
+                  );
+                case "STOCK_INSTANCE":
+                  return (
+                    <MessagePanel title="Stock label detected" role="alert">
+                      Baseline mode is only for confirming locations, not stock
+                      labels.
+                      <div className="stock-helper">
+                        What to do instead: use Scan for stock changes, or scan
+                        a location QR label to continue baseline.
+                      </div>
+                    </MessagePanel>
+                  );
+                default:
+                  return null;
+              }
+            })()}
             <Card title="Camera scan">
               {cameraOpen ? (
                 <>
