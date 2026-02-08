@@ -1,0 +1,18 @@
+{
+  "name": "patient-ai-service",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "dev": "node --loader ts-node/esm src/server.ts",
+    "test": "node --test --loader ts-node/esm src/server.test.ts",
+    "lint": "echo 'skipping lint'"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0"
+  }
+}
