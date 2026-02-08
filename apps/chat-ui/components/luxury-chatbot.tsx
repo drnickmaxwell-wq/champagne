@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -569,7 +569,21 @@ export default function LuxuryChatbot({
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const firstAssistantDelayUsedRef = useRef(false);
+  const firstAssistantTimeoutRef = useRef<number | null>(null);
   const fixtureMode = process.env.NEXT_PUBLIC_CHATBOT_UI_FIXTURE ?? "";
+
+  const enqueueAssistantMessage = useCallback((message: ChatMessage) => {
+    if (!firstAssistantDelayUsedRef.current) {
+      firstAssistantDelayUsedRef.current = true;
+      const delayMs = Math.floor(300 + Math.random() * 301);
+      firstAssistantTimeoutRef.current = window.setTimeout(() => {
+        setMessages((prev) => [...prev, message]);
+      }, delayMs);
+      return;
+    }
+    setMessages((prev) => [...prev, message]);
+  }, []);
 
   useEffect(() => {
     onStatusChange?.(engineStatus);
@@ -608,6 +622,9 @@ export default function LuxuryChatbot({
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
+      if (firstAssistantDelayUsedRef.current) {
+        return;
+      }
       const welcomeMessage: ChatMessage = {
         id: "1",
         role: "assistant",
@@ -615,9 +632,17 @@ export default function LuxuryChatbot({
           "Hello! I’m the St Mary’s House concierge. I can help with appointments and general questions. How can I help today?",
         timestamp: new Date(),
       };
-      setMessages([welcomeMessage]);
+      enqueueAssistantMessage(welcomeMessage);
     }
-  }, [isOpen, messages.length]);
+  }, [enqueueAssistantMessage, isOpen, messages.length]);
+
+  useEffect(() => {
+    return () => {
+      if (firstAssistantTimeoutRef.current !== null) {
+        window.clearTimeout(firstAssistantTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const maxAttempts = 3;
@@ -720,7 +745,7 @@ export default function LuxuryChatbot({
         confidence: resolveConfidenceLabel(data.confidence),
       };
 
-      setMessages((prev) => [...prev, assistantMessage]);
+      enqueueAssistantMessage(assistantMessage);
       setConnectionStatus("connected");
     } catch (error) {
       const errorMessage =
@@ -737,7 +762,7 @@ export default function LuxuryChatbot({
         timestamp: new Date(),
       };
 
-      setMessages((prev) => [...prev, fallbackMessage]);
+      enqueueAssistantMessage(fallbackMessage);
       setLastError(errorMessage);
       setConnectionStatus("disconnected");
     } finally {
