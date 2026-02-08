@@ -449,6 +449,44 @@ main {
   color: var(--stock-muted);
 }
 
+.stock-session-summary__expiring {
+  display: grid;
+  gap: var(--stock-space-1);
+  padding: var(--stock-space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  background: var(--surface-0);
+}
+
+.stock-session-summary__expiring ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--stock-space-1);
+}
+
+.stock-session-summary__expiring li {
+  padding: var(--stock-space-1);
+  border-radius: calc(var(--stock-radius) - 2px);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  color: var(--text-medium);
+}
+
+.stock-lot-list {
+  display: grid;
+  gap: var(--stock-space-2);
+}
+
+.stock-lot-list__item {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  padding: var(--stock-space-2);
+  background: var(--surface-0);
+  box-shadow: var(--shadow-soft);
+}
+
 .stock-progress {
   display: grid;
   gap: var(--stock-space-1);

@@ -37,6 +37,7 @@ import {
   addLocalLot,
   getExpiryStatus,
   getLotsNearExpiry,
+  type ExpiryStatus,
   type LocalStockLot
 } from "../stockLots/localLots";
 
@@ -298,12 +299,24 @@ export default function ScanPage() {
   const registrationDisabled =
     !scanCode || Boolean(existingBinding) || registeredProduct !== null;
   const receiveHref = "/locations";
-  const expiringPreview: ExpiringLotPreview[] = expiringLots.slice(0, 3).map(
-    (lot) => {
+  const expiringLotsWithStatus = expiringLots
+    .map((lot) => {
+      const status = getExpiryStatus(lot.expiryDate);
+      if (status === "unknown") {
+        return null;
+      }
+      return { lot, status };
+    })
+    .filter(
+      (entry): entry is { lot: LocalStockLot; status: Exclude<ExpiryStatus, "unknown"> } =>
+        Boolean(entry)
+    );
+  const expiringPreview: ExpiringLotPreview[] = expiringLotsWithStatus
+    .slice(0, 3)
+    .map(({ lot, status }) => {
       const productName =
         registry.products.find((product) => product.id === lot.productId)?.name ??
         "Unknown product";
-      const status = getExpiryStatus(lot.expiryDate);
       const statusLabel = status === "expired" ? "Expired" : "Near expiry";
       return {
         id: lot.id,
@@ -311,8 +324,7 @@ export default function ScanPage() {
         expiryDate: lot.expiryDate,
         statusLabel
       };
-    }
-  );
+    });
 
   const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -510,7 +522,7 @@ export default function ScanPage() {
         withdrawn={summary.withdrawn}
         locationCount={locationCount}
         currentLocationName={activeLocationName}
-        expiringCount={expiringLots.length}
+        expiringCount={expiringLotsWithStatus.length}
         expiringPreview={expiringPreview}
         onEndSession={endSession}
       />
