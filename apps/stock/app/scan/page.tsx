@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import ScanForm from "./ScanForm";
 import Scanner from "./Scanner";
+import SessionSummary from "./SessionSummary";
+import { useSessionSummary } from "./useSessionSummary";
 import { fetchHealth, fetchScan } from "../lib/ops-api";
 import { ScanResponseSchema } from "@champagne/stock-shared";
 import FeedbackCard from "../components/ui/FeedbackCard";
@@ -43,6 +45,8 @@ export default function ScanPage() {
   const [opsStatus, setOpsStatus] = useState<"ok" | "offline" | "unknown">(
     "unknown"
   );
+  const { summary, locationCount, recordEvent, endSession } =
+    useSessionSummary();
 
   const checkOpsStatus = useCallback(async () => {
     const result = await fetchHealth();
@@ -243,6 +247,12 @@ export default function ScanPage() {
           }}
         />
       </Section>
+      <SessionSummary
+        received={summary.received}
+        withdrawn={summary.withdrawn}
+        locationCount={locationCount}
+        onEndSession={endSession}
+      />
       {scanData ? (
         <Section title="Scan result">
           <div className="stock-scan-result">
@@ -313,7 +323,8 @@ export default function ScanPage() {
               : undefined
           }
           allowedActions={["WITHDRAW"]}
-          onEventSuccess={() => {
+          onEventSuccess={(payload) => {
+            recordEvent(payload);
             if (scanCode.length > 0) {
               void loadScan(scanCode);
             }

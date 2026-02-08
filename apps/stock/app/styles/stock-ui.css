@@ -436,6 +436,19 @@ main {
   min-height: calc(var(--radius-lg) + var(--radius-sm));
 }
 
+.stock-session-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stock-space-2);
+}
+
+.stock-session-summary__eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stock-muted);
+}
+
 .stock-progress {
   display: grid;
   gap: var(--stock-space-1);
