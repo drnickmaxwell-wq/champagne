@@ -45,8 +45,13 @@ export default function ScanPage() {
   const [opsStatus, setOpsStatus] = useState<"ok" | "offline" | "unknown">(
     "unknown"
   );
-  const { summary, locationCount, recordEvent, endSession } =
-    useSessionSummary();
+  const {
+    summary,
+    locationCount,
+    activeLocationName,
+    recordEvent,
+    endSession
+  } = useSessionSummary();
 
   const checkOpsStatus = useCallback(async () => {
     const result = await fetchHealth();
@@ -157,6 +162,12 @@ export default function ScanPage() {
       : scanData?.result === "LOCATION"
         ? scanData.name
         : "Not set";
+  const resolvedLocationName =
+    scanData && "location" in scanData
+      ? scanData.location?.name ?? null
+      : scanData?.result === "LOCATION"
+        ? scanData.name
+        : null;
 
   useEffect(() => {
     if (isUnmatched) {
@@ -251,6 +262,7 @@ export default function ScanPage() {
         received={summary.received}
         withdrawn={summary.withdrawn}
         locationCount={locationCount}
+        currentLocationName={activeLocationName}
         onEndSession={endSession}
       />
       {scanData ? (
@@ -324,7 +336,10 @@ export default function ScanPage() {
           }
           allowedActions={["WITHDRAW"]}
           onEventSuccess={(payload) => {
-            recordEvent(payload);
+            recordEvent({
+              ...payload,
+              locationName: resolvedLocationName
+            });
             if (scanCode.length > 0) {
               void loadScan(scanCode);
             }

@@ -21,6 +21,7 @@ export type EventSuccessPayload = {
   eventType: EventType;
   qty: number;
   locationId: string | null;
+  locationName?: string | null;
 };
 
 const resolveErrorMessage = (data: unknown) => {
@@ -141,7 +142,8 @@ export default function EventActionPanel({
     onEventSuccess?.({
       eventType,
       qty: clampedQty,
-      locationId: outcome.locationId ?? locationId ?? null
+      locationId: outcome.locationId ?? locationId ?? null,
+      locationName: locationName?.trim().length ? locationName : null
     });
   };
 
