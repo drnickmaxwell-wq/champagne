@@ -625,16 +625,9 @@ export default function LuxuryChatbot({
       if (firstAssistantDelayUsedRef.current) {
         return;
       }
-      const welcomeMessage: ChatMessage = {
-        id: "1",
-        role: "assistant",
-        content:
-          "Hello! I’m the St Mary’s House concierge. I can help with appointments and general questions. How can I help today?",
-        timestamp: new Date(),
-      };
-      enqueueAssistantMessage(welcomeMessage);
+      firstAssistantDelayUsedRef.current = true;
     }
-  }, [enqueueAssistantMessage, isOpen, messages.length]);
+  }, [isOpen, messages.length]);
 
   useEffect(() => {
     return () => {
@@ -993,7 +986,7 @@ export default function LuxuryChatbot({
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && sendMessage(inputMessage)}
-                    placeholder="Type your message..."
+                    placeholder="What would you like to understand better?"
                     className="w-full px-4 py-3 bg-[color:color-mix(in oklab,var(--smh-bg) 94%, transparent 6%)] border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[color:var(--smh-accent-gold)] focus:border-transparent text-sm text-[color:var(--chat-text)]"
                     disabled={isLoading}
                   />
