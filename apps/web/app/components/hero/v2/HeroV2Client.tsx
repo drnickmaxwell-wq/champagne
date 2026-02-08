@@ -4,7 +4,7 @@ import { memo, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { CSSProperties, Ref } from "react";
 import { BloomDriver } from "./BloomDriver";
-import type { HeroSurfaceStackModel } from "./HeroRendererV2";
+import type { HeroSurfaceStackModel } from "./HeroRendererV2.types";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
 const HERO_CONTENT_FADE_ENABLED = process.env.NEXT_PUBLIC_HERO_CONTENT_FADE !== "0";
