@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  EventTypeSchema,
-  StockInstanceSnapshotSchema
-} from "@champagne/stock-shared";
+import { EventResponseSchema, EventTypeSchema } from "@champagne/stock-shared";
 import type { EventType } from "@champagne/stock-shared";
 import { postEvent } from "../lib/ops-api";
 import LoadingLine from "./ui/LoadingLine";
@@ -16,8 +13,14 @@ type EventActionPanelProps = {
   locationName?: string | null;
   defaultQuantity?: number;
   allowedActions?: EventType[];
-  onEventSuccess?: () => void;
+  onEventSuccess?: (payload: EventSuccessPayload) => void;
   onLastActionMessage?: (message: string) => void;
+};
+
+export type EventSuccessPayload = {
+  eventType: EventType;
+  qty: number;
+  locationId: string | null;
 };
 
 const resolveErrorMessage = (data: unknown) => {
@@ -33,17 +36,15 @@ const resolveErrorMessage = (data: unknown) => {
   return "Request failed.";
 };
 
-const resolveUpdatedQty = (data: unknown) => {
-  if (data && typeof data === "object") {
-    const candidate = data as Record<string, unknown>;
-    if ("stockInstance" in candidate) {
-      const parsed = StockInstanceSnapshotSchema.safeParse(candidate.stockInstance);
-      if (parsed.success) {
-        return parsed.data.qtyRemaining;
-      }
-    }
+const resolveEventOutcome = (data: unknown) => {
+  const parsed = EventResponseSchema.safeParse(data);
+  if (!parsed.success) {
+    return { updatedQty: null, locationId: null };
   }
-  return null;
+  return {
+    updatedQty: parsed.data.stockInstance?.qtyRemaining ?? null,
+    locationId: parsed.data.stockInstance?.locationId ?? null
+  };
 };
 
 const resolveDefaultQuantity = (value?: number) => {
@@ -126,18 +127,22 @@ export default function EventActionPanel({
       return;
     }
 
-    const updatedQty = resolveUpdatedQty(result.data);
+    const outcome = resolveEventOutcome(result.data);
     const verb = eventType === "WITHDRAW" ? "Withdrew" : "Received";
     const locationLabel = locationName?.trim().length
       ? locationName
       : "Inventory";
     const updatedSuffix =
-      updatedQty === null ? "" : ` (Remaining ${updatedQty})`;
+      outcome.updatedQty === null ? "" : ` (Remaining ${outcome.updatedQty})`;
     setStatusMessage(`${verb} ${clampedQty} -> ${locationLabel}${updatedSuffix}`);
     const message = `Last action: ${eventType} x${clampedQty} at ${new Date().toLocaleString()}`;
     setLastActionMessage(message);
     onLastActionMessage?.(message);
-    onEventSuccess?.();
+    onEventSuccess?.({
+      eventType,
+      qty: clampedQty,
+      locationId: outcome.locationId ?? locationId ?? null
+    });
   };
 
   if (!productId && !stockInstanceId) {
