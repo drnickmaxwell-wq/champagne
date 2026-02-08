@@ -167,21 +167,38 @@ export default function BaselinePage() {
   };
 
   const locationScan = scanResult?.result === "LOCATION" ? scanResult : null;
-  const nonLocationScan = scanResult && scanResult.result !== "LOCATION";
-  const canCompleteStep = Boolean(locationScan);
-  const handleMarkStepComplete = () => {
+  const matchedLocation = useMemo(() => {
     if (!locationScan) {
+      return null;
+    }
+    return locations.find((location) => location.id === locationScan.locationId) ?? null;
+  }, [locationScan, locations]);
+  const matchedLocationId = matchedLocation?.id ?? null;
+  const isActiveLocationMatch = Boolean(
+    matchedLocationId && activeLocationId && matchedLocationId === activeLocationId
+  );
+  const canCompleteStep = Boolean(activeLocationId && (!scanResult || isActiveLocationMatch));
+  const handleMarkStepComplete = () => {
+    if (!activeLocationId || (scanResult && !isActiveLocationMatch)) {
       return;
     }
     setStepComplete(true);
   };
+  const handleUseScannedLocation = useCallback(() => {
+    if (!matchedLocationId) {
+      return;
+    }
+    setSelectedLocationId(matchedLocationId);
+    setActiveLocationId(matchedLocationId);
+    setStepComplete(false);
+  }, [matchedLocationId]);
 
   return (
     <PageShell>
       <ScreenHeader
         eyebrow="Stock"
         title="Baseline setup (one-time)"
-        subtitle="Complete this once to record what exists right now before you start tracking ongoing movement."
+        subtitle="Complete this once to confirm each location before you start tracking ongoing movement."
         status={loading ? <LoadingLine label="Loading" /> : undefined}
         actions={
           <PrimaryActions>
@@ -194,7 +211,7 @@ export default function BaselinePage() {
       />
 
       <MessagePanel title="Baseline Mode">
-        Use this checklist once to capture starting quantities before daily workflows.
+        Use this checklist to confirm every location is ready before daily workflows.
       </MessagePanel>
       <PrimaryActions>
         <ActionLink href="/scan">Exit baseline</ActionLink>
@@ -209,16 +226,16 @@ export default function BaselinePage() {
         <div
           className={`stock-progress__step${currentStep === 2 ? " stock-progress__step--active" : ""}`}
         >
-          Step 2: Add stock
+          Step 2: Confirm location
         </div>
         <div className="stock-progress__step">Step 3: Finish location</div>
       </div>
 
       <MessagePanel title="Safety checks">
         <ul className="stock-list">
-          <li>Baseline is used once to record starting quantities.</li>
-          <li>Do not overcount.</li>
-          <li>Daily use is Withdraw / Receive only.</li>
+          <li>Baseline is location-only. Scan location labels only.</li>
+          <li>No stock events are recorded in baseline mode.</li>
+          <li>Daily use is Withdraw / Receive.</li>
         </ul>
       </MessagePanel>
 
@@ -281,25 +298,25 @@ export default function BaselinePage() {
 
       {activeLocation ? (
         <>
-          <Section title="Step 2: Add stock">
+          <Section title="Step 2: Confirm location">
             <p className="stock-status">
               Confirm the location for <strong>{activeLocation.name}</strong> by
-              scanning the location QR label before marking the step complete.
+              scanning the location QR label, or continue if it already matches.
             </p>
             {scanError ? (
               <FeedbackCard title="Scan error" message={scanError} />
             ) : null}
-            {nonLocationScan ? (
-              <MessagePanel title="Not a location QR" role="alert">
-                This label is not a location. Please scan a location QR
-                (cupboard/surgery).
-              </MessagePanel>
-            ) : null}
             {scanResult?.result === "UNMATCHED" ? (
               <FeedbackCard
                 title="No match"
-                message="No match found for this code. Try another item."
+                message="No match found for this code."
               />
+            ) : null}
+            {scanResult?.result === "PRODUCT_WITHDRAW" ||
+            scanResult?.result === "STOCK_INSTANCE" ? (
+              <MessagePanel title="Not a location label" role="alert">
+                Not a location label. Please scan a location QR.
+              </MessagePanel>
             ) : null}
             <Card title="Camera scan">
               {cameraOpen ? (
@@ -335,14 +352,28 @@ export default function BaselinePage() {
               />
             </Card>
             {locationScan ? (
-              <Card title="Match summary">
-                <KeyValueGrid>
-                  <FieldRow
-                    label="Location"
-                    value={`${locationScan.name} (${locationScan.locationId})`}
-                  />
-                </KeyValueGrid>
-              </Card>
+              matchedLocation ? (
+                <Card title="Match summary">
+                  <KeyValueGrid>
+                    <FieldRow
+                      label="Location"
+                      value={`${locationScan.name} (${locationScan.locationId})`}
+                    />
+                  </KeyValueGrid>
+                  {matchedLocationId !== activeLocationId ? (
+                    <PrimaryActions>
+                      <button type="button" onClick={handleUseScannedLocation}>
+                        Use scanned location
+                      </button>
+                    </PrimaryActions>
+                  ) : null}
+                </Card>
+              ) : (
+                <FeedbackCard
+                  title="Location not found"
+                  message="This location isn’t in the app yet."
+                />
+              )
             ) : null}
             <PrimaryActions>
               <button
@@ -358,7 +389,7 @@ export default function BaselinePage() {
 
           <Section title="Step 3: Finish location">
             <p className="stock-status">
-              When you have recorded everything for this location, mark it as finished.
+              When this location is confirmed, mark it as finished.
             </p>
             <PrimaryActions>
               <button
