@@ -1,0 +1,44 @@
+[
+  {
+    "route": "/treatments/3d-printed-veneers",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.3d-printed-veneers.json",
+    "excerptText": "These are digitally designed veneer restorations created from medical-grade dental resin using high-precision 3D printing. They’re planned from detailed scans and smile design previews, then finished and fitted with a focus on comfort, fit, and a highly conservative approach where clinically appropriate.\n\nSuitability varies — your bite, enamel quality, and long-term goals decide whether a printed resin restoration, ceramic veneer, or another option is the best match.",
+    "note": ""
+  },
+  {
+    "route": "/treatments/implants",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+    "excerptText": "Dr Nick Maxwell leads implant planning and placement at St Mary’s House Dental Care. He holds an MSc in Restorative & Aesthetic Dentistry and a PGDip in Orthodontics & Facial Orthopaedics, and has completed implant surgical training including intensive implant placement training in Cairo (2014).\n\nHe also designs and 3D prints surgical guides for guided implant placement, combining clinical judgement with digital planning where appropriate. The focus is careful case selection, clear communication, and long-term maintainability.",
+    "note": ""
+  },
+  {
+    "route": "/treatments/teeth-in-a-day",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.implants-teeth-in-a-day.json",
+    "excerptText": "In selected cases, it may be possible to place implants and fit a fixed temporary smile on the same day — guided by scans, planning, and suitability.\nCBCT scans, guided positioning, and close coordination with the lab help us judge when immediate loading is appropriate. Every case is planned around stability, bite forces, and how temporary and final restorations will be delivered.",
+    "note": ""
+  },
+  {
+    "route": "/treatments/implants-full-arch",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.implants-full-arch.json",
+    "excerptText": "A full-arch solution secures a custom bridge to a small number of implants (often four to six), giving a fixed alternative to loose dentures. It restores bite stability, supports clearer speech, and feels more comfortable when cleaned and maintained correctly over the long term.\nCBCT imaging, digital impressions, and guided positioning help place implants accurately for the planned bridge. Occlusion reviews and torque-controlled placement support a balanced, comfortable bite.",
+    "note": ""
+  },
+  {
+    "route": "/treatments/cbct-3d-scanning",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.cbct-3d-scanning.json",
+    "excerptText": "Three-dimensional scanning allows us to see dental structures in more detail than traditional two-dimensional X-rays.\n\nCBCT (cone beam computed tomography) provides a 3D view of teeth, bone, nerves, and surrounding anatomy. It’s used selectively, when additional information genuinely helps with diagnosis or planning.\n\nAt St Mary’s House Dental Care, CBCT scanning is used to support careful decision-making — not as a routine step for every patient.",
+    "note": ""
+  },
+  {
+    "route": "/treatments/digital-smile-design",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.digital-smile-design.json",
+    "excerptText": "See planned changes before treatment. We use scans and photography to build a preview you can review calmly with your clinician.\nWe capture scans, photos, and bite data to create a 3D design that shows possible changes to tooth shape, position, and shade. You can review options, including cost-effective printed steps or definitive porcelain plans.",
+    "note": ""
+  },
+  {
+    "route": "/treatments/implant-aftercare",
+    "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.implant-aftercare.json",
+    "excerptText": "Keep implant healing on track\nSchedule reviews, hygiene, and comfort checks after placement.",
+    "note": ""
+  }
+]
