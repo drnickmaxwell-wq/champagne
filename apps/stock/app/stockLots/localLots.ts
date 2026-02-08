@@ -178,18 +178,30 @@ export const getExpiryStatus = (
 
 export const getLotsNearExpiry = (days = 30) => {
   const now = new Date();
+  const today = toUtcStart(now);
+  const cutoff = today + days * 24 * 60 * 60 * 1000;
   return loadLocalLots()
     .map((lot) => {
       const expiryTime = parseExpiryDate(lot.expiryDate);
-      return expiryTime === null ? null : { lot, expiryTime };
+      return { lot, expiryTime };
     })
-    .filter((entry): entry is { lot: LocalStockLot; expiryTime: number } =>
-      Boolean(entry)
-    )
     .filter(({ expiryTime }) => {
-      const today = toUtcStart(now);
-      return expiryTime <= today + days * 24 * 60 * 60 * 1000;
+      if (expiryTime === null) {
+        return true;
+      }
+      return expiryTime <= cutoff;
     })
-    .sort((a, b) => a.expiryTime - b.expiryTime)
+    .sort((a, b) => {
+      if (a.expiryTime === null && b.expiryTime === null) {
+        return 0;
+      }
+      if (a.expiryTime === null) {
+        return 1;
+      }
+      if (b.expiryTime === null) {
+        return -1;
+      }
+      return a.expiryTime - b.expiryTime;
+    })
     .map(({ lot }) => lot);
 };
