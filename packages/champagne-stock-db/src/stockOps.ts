@@ -383,7 +383,8 @@ export async function createLocation(
     [tenantId, payload.name, payload.type]
   );
 
-  if (result.rowCount === 0) {
+  const rowCount = result.rowCount ?? 0;
+  if (rowCount === 0) {
     throw new Error("Failed to create location.");
   }
 
@@ -454,7 +455,8 @@ export async function createProduct(
     ]
   );
 
-  if (result.rowCount === 0) {
+  const productRowCount = result.rowCount ?? 0;
+  if (productRowCount === 0) {
     throw new Error("Failed to create product.");
   }
 
