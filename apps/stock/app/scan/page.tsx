@@ -5,9 +5,22 @@ import ScanForm from "./ScanForm";
 import Scanner from "./Scanner";
 import SessionSummary from "./SessionSummary";
 import { useSessionSummary } from "./useSessionSummary";
+import {
+  categoryOptions,
+  loadLocalBarcodeRegistry,
+  saveLocalBarcodeRegistry,
+  unitTypeOptions
+} from "./localRegistry";
+import type {
+  LocalBarcodeRegistry,
+  LocalProduct,
+  ProductCategory,
+  UnitType
+} from "./localRegistry";
 import { fetchHealth, fetchScan } from "../lib/ops-api";
 import { ScanResponseSchema } from "@champagne/stock-shared";
 import FeedbackCard from "../components/ui/FeedbackCard";
+import Card from "../components/ui/Card";
 import { FieldRow } from "../components/ui/FieldList";
 import LoadingLine from "../components/ui/LoadingLine";
 import StockPageTemplate from "../components/StockPageTemplate";
@@ -33,6 +46,34 @@ const resolveErrorMessage = (data: unknown) => {
   return "Failed to fetch scan result.";
 };
 
+type LocalProductDraft = {
+  name: string;
+  unitType: UnitType;
+  category: ProductCategory;
+  requiresBatchTracking: boolean;
+};
+
+const generateLocalId = () => {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+  return `local-${Date.now().toString(36)}-${Math.random()
+    .toString(36)
+    .slice(2, 8)}`;
+};
+
+const toDisplayCase = (value: string) => {
+  return value
+    .split("-")
+    .map((segment) => {
+      if (!segment.length) {
+        return segment;
+      }
+      return `${segment[0]?.toUpperCase() ?? ""}${segment.slice(1)}`;
+    })
+    .join(" ");
+};
+
 export default function ScanPage() {
   const [cameraOpen, setCameraOpen] = useState(false);
   const [scanCode, setScanCode] = useState("");
@@ -45,6 +86,20 @@ export default function ScanPage() {
   const [opsStatus, setOpsStatus] = useState<"ok" | "offline" | "unknown">(
     "unknown"
   );
+  const [showRegistration, setShowRegistration] = useState(false);
+  const [registrationMessage, setRegistrationMessage] = useState("");
+  const [registeredProduct, setRegisteredProduct] = useState<LocalProduct | null>(
+    null
+  );
+  const [registry, setRegistry] = useState<LocalBarcodeRegistry>(() =>
+    loadLocalBarcodeRegistry()
+  );
+  const [draft, setDraft] = useState<LocalProductDraft>({
+    name: "",
+    unitType: unitTypeOptions[0],
+    category: categoryOptions[0],
+    requiresBatchTracking: false
+  });
   const {
     summary,
     locationCount,
@@ -175,6 +230,70 @@ export default function ScanPage() {
     }
   }, [isUnmatched]);
 
+  useEffect(() => {
+    if (!isUnmatched) {
+      setShowRegistration(false);
+      setRegistrationMessage("");
+      setRegisteredProduct(null);
+      return;
+    }
+    setRegistry(loadLocalBarcodeRegistry());
+    setShowRegistration(false);
+    setRegisteredProduct(null);
+    setRegistrationMessage("");
+  }, [isUnmatched, scanCode]);
+
+  const existingBinding = scanCode
+    ? registry.bindings.find((binding) => binding.barcode === scanCode)
+    : null;
+  const existingProduct = existingBinding
+    ? registry.products.find((product) => product.id === existingBinding.productId)
+    : null;
+  const registrationDisabled =
+    !scanCode || Boolean(existingBinding) || registeredProduct !== null;
+  const receiveHref = "/locations";
+
+  const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (registrationDisabled) {
+      return;
+    }
+    if (!draft.name.trim()) {
+      setRegistrationMessage("Product name is required.");
+      return;
+    }
+    const trimmedName = draft.name.trim();
+    const createdAt = new Date().toISOString();
+    const productId = generateLocalId();
+    const newProduct: LocalProduct = {
+      id: productId,
+      name: trimmedName,
+      unitType: draft.unitType,
+      category: draft.category,
+      requiresBatchTracking: draft.requiresBatchTracking,
+      barcode: scanCode,
+      createdAt
+    };
+    const updatedRegistry: LocalBarcodeRegistry = {
+      version: 1,
+      products: [...registry.products, newProduct],
+      bindings: [
+        ...registry.bindings,
+        { barcode: scanCode, productId, createdAt }
+      ]
+    };
+    saveLocalBarcodeRegistry(updatedRegistry);
+    setRegistry(updatedRegistry);
+    setRegisteredProduct(newProduct);
+    setRegistrationMessage("");
+    setShowRegistration(false);
+    setDraft((prev) => ({
+      ...prev,
+      name: "",
+      requiresBatchTracking: false
+    }));
+  };
+
   return (
     <StockPageTemplate
       header={
@@ -212,8 +331,8 @@ export default function ScanPage() {
         ) : null}
         {isUnmatched ? (
           <FeedbackCard
-            title="Unknown code"
-            message="We do not recognise this code yet. Try manual search below."
+            title="Not recognised"
+            message="This code is not in the system yet."
           />
         ) : null}
       </div>
@@ -305,7 +424,7 @@ export default function ScanPage() {
             ) : null}
             {scanData.result === "UNMATCHED" ? (
               <p className="stock-scan-result__message">
-                Unknown code. Use the manual search below to find the item.
+                Not recognised. Register a new product below.
               </p>
             ) : null}
             {scanData.result === "LOCATION" ? (
@@ -319,6 +438,182 @@ export default function ScanPage() {
               </PrimaryActions>
             ) : null}
           </div>
+        </Section>
+      ) : null}
+      {isUnmatched ? (
+        <Section title="Register product">
+          <Card
+            title={existingBinding ? "Already registered" : "Not recognised"}
+            footer={
+              existingBinding ? (
+                <PrimaryActions>
+                  <ActionLink
+                    href={
+                      existingProduct
+                        ? `/products/local/${existingProduct.id}`
+                        : "/products"
+                    }
+                  >
+                    View product
+                  </ActionLink>
+                </PrimaryActions>
+              ) : (
+                <PrimaryActions>
+                  <button
+                    type="button"
+                    className="stock-button stock-button--primary"
+                    onClick={() => setShowRegistration(true)}
+                  >
+                    Register as a new product
+                  </button>
+                </PrimaryActions>
+              )
+            }
+          >
+            {existingBinding ? (
+              <p>
+                This barcode is already linked to{" "}
+                {existingProduct?.name ?? "a product"}.
+              </p>
+            ) : (
+              <p>Register the product once to keep scanning.</p>
+            )}
+          </Card>
+          {showRegistration && !existingBinding ? (
+            <form className="stock-form" onSubmit={handleRegister}>
+              <div className="stock-form__row">
+                <label className="stock-form__label" htmlFor="local-product-name">
+                  Product name
+                </label>
+                <input
+                  id="local-product-name"
+                  className="stock-form__input"
+                  type="text"
+                  value={draft.name}
+                  onChange={(event) =>
+                    setDraft((prev) => ({
+                      ...prev,
+                      name: event.target.value
+                    }))
+                  }
+                />
+              </div>
+              <div className="stock-form__row">
+                <label className="stock-form__label" htmlFor="local-product-unit">
+                  Unit type
+                </label>
+                <select
+                  id="local-product-unit"
+                  className="stock-form__input"
+                  value={draft.unitType}
+                  onChange={(event) =>
+                    setDraft((prev) => {
+                      const selected =
+                        unitTypeOptions.find(
+                          (option) => option === event.target.value
+                        ) ?? unitTypeOptions[0];
+                      return {
+                        ...prev,
+                        unitType: selected
+                      };
+                    })
+                  }
+                >
+                  {unitTypeOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {toDisplayCase(option)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="stock-form__row">
+                <label
+                  className="stock-form__label"
+                  htmlFor="local-product-category"
+                >
+                  Category
+                </label>
+                <select
+                  id="local-product-category"
+                  className="stock-form__input"
+                  value={draft.category}
+                  onChange={(event) =>
+                    setDraft((prev) => {
+                      const selected =
+                        categoryOptions.find(
+                          (option) => option === event.target.value
+                        ) ?? categoryOptions[0];
+                      return {
+                        ...prev,
+                        category: selected
+                      };
+                    })
+                  }
+                >
+                  {categoryOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {toDisplayCase(option)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="stock-form__row">
+                <label className="stock-form__label" htmlFor="local-product-batch">
+                  Batch &amp; expiry tracking required?
+                </label>
+                <input
+                  id="local-product-batch"
+                  type="checkbox"
+                  checked={draft.requiresBatchTracking}
+                  onChange={(event) =>
+                    setDraft((prev) => ({
+                      ...prev,
+                      requiresBatchTracking: event.target.checked
+                    }))
+                  }
+                />
+              </div>
+              {registrationMessage ? (
+                <FeedbackCard
+                  title="Registration"
+                  message={registrationMessage}
+                />
+              ) : null}
+              <PrimaryActions>
+                <button
+                  type="submit"
+                  className="stock-button stock-button--primary"
+                >
+                  Save product
+                </button>
+                <button
+                  type="button"
+                  className="stock-button stock-button--secondary"
+                  onClick={() => setShowRegistration(false)}
+                >
+                  Cancel
+                </button>
+              </PrimaryActions>
+            </form>
+          ) : null}
+          {registeredProduct ? (
+            <Card
+              title="Product registered"
+              footer={
+                <PrimaryActions>
+                  <ActionLink href={receiveHref}>Go to Locations</ActionLink>
+                  <ActionLink href={`/products/local/${registeredProduct.id}`}>
+                    View product
+                  </ActionLink>
+                </PrimaryActions>
+              }
+            >
+              <p>
+                {registeredProduct.name} is linked to {registeredProduct.barcode}.
+              </p>
+              <p>Add stock by receiving into a location.</p>
+            </Card>
+          ) : null}
         </Section>
       ) : null}
       {actionTarget ? (
