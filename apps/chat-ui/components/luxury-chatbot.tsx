@@ -14,7 +14,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { chatUiFixtures } from "../lib/chat-fixtures";
+import { chatUiFixtures, type ChatUiFixture } from "../lib/chat-fixtures";
 import BookingRequestModal from "./booking-request-modal";
 import EmergencyCallbackModal from "./emergency-callback-modal";
 import NewPatientEnquiryModal from "./new-patient-enquiry-modal";
@@ -67,7 +67,7 @@ type CardAction =
 type CardPayload = {
   title?: string;
   body: string;
-  actions: CardAction[];
+  actions?: CardAction[];
 };
 
 type AssistantUiPayload = {
@@ -78,6 +78,11 @@ type AssistantUiPayload = {
 type ParsedAssistantContent = {
   content: string;
   ui?: AssistantUiPayload;
+};
+
+type ExtractedAssistantUi = {
+  content: string;
+  ui: AssistantUiPayload | null;
 };
 
 const UI_MARKER = "UI:";
@@ -200,7 +205,7 @@ const normalizeCardsPayload = (value: unknown): AssistantUiPayload | null => {
       return {
         title: typeof card.title === "string" ? card.title : undefined,
         body: card.body,
-        actions: actions as CardAction[],
+        actions: actions.length > 0 ? (actions as CardAction[]) : undefined,
       };
     })
     .filter(Boolean) as CardPayload[];
@@ -211,27 +216,38 @@ const normalizeCardsPayload = (value: unknown): AssistantUiPayload | null => {
   return { kind: "cards", cards };
 };
 
-const parseUiBlockFromContent = (content: string): ParsedAssistantContent => {
+const parseUiBlockFromContent = (content: string): ExtractedAssistantUi => {
   const markerIndex = content.indexOf(UI_MARKER);
   if (markerIndex === -1) {
-    return { content };
+    return { content, ui: null };
   }
   const textPart = content.slice(0, markerIndex).trimEnd();
   const afterMarker = content.slice(markerIndex + UI_MARKER.length).trim();
   const jsonPayload = extractFirstJsonObject(afterMarker);
   if (!jsonPayload) {
-    return { content };
+    return { content, ui: null };
   }
   try {
     const parsed = JSON.parse(jsonPayload);
     const ui = normalizeCardsPayload(parsed);
     if (!ui) {
-      return { content };
+      return { content, ui: null };
     }
     return { content: textPart, ui };
   } catch {
-    return { content };
+    return { content, ui: null };
   }
+};
+
+const extractAssistantUi = (
+  content: string,
+  responseUi?: unknown,
+): ExtractedAssistantUi => {
+  const directUi = normalizeCardsPayload(responseUi);
+  if (directUi) {
+    return { content, ui: directUi };
+  }
+  return parseUiBlockFromContent(content);
 };
 
 const resolveAssistantContent = (data: ConversationResult): ParsedAssistantContent => {
@@ -240,12 +256,9 @@ const resolveAssistantContent = (data: ConversationResult): ParsedAssistantConte
       ? data.content
       : "No content returned.";
 
-  const directUi = normalizeCardsPayload(data.ui);
-  if (directUi) {
-    return { content: resolvedContent, ui: directUi };
-  }
+  const { content, ui } = extractAssistantUi(resolvedContent, data.ui);
 
-  return parseUiBlockFromContent(resolvedContent);
+  return { content, ui: ui ?? undefined };
 };
 
 function resolveConfidenceLabel(confidence: ConversationResult["confidence"]) {
@@ -348,13 +361,8 @@ function AssistantCards({
 }) {
   if (payload.kind !== "cards") return null;
 
-  const handleLinkClick = (href: string) => {
-    if (!href) return;
-    const newWindow = window.open(href, "_blank", "noopener,noreferrer");
-    if (!newWindow) {
-      window.location.assign(href);
-    }
-  };
+  const getLinkAriaLabel = (label: string) =>
+    label.trim().length <= 3 ? `Open ${label} link` : undefined;
 
   return (
     <div className="mt-3 space-y-3">
@@ -371,19 +379,19 @@ function AssistantCards({
           <p className="text-sm text-[color:var(--text-medium)] leading-relaxed">
             {card.body}
           </p>
-          {card.actions.length > 0 ? (
+          {card.actions && card.actions.length > 0 ? (
             <div className="mt-3 flex flex-wrap gap-2">
               {card.actions.map((action, actionIndex) => {
                 if (action.type === "link") {
                   return (
-                    <button
+                    <a
                       key={`${action.label}-${actionIndex}`}
-                      type="button"
-                      onClick={() => handleLinkClick(action.href)}
+                      href={action.href}
+                      aria-label={getLinkAriaLabel(action.label)}
                       className="rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 84%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
                     >
                       {action.label}
-                    </button>
+                    </a>
                   );
                 }
                 return (
@@ -463,6 +471,50 @@ function MessageBubble({
   );
 }
 
+function StructuredUiDevFixture({
+  isOpen,
+  fixtureMode,
+  onInject,
+}: {
+  isOpen: boolean;
+  fixtureMode: string;
+  onInject: React.Dispatch<React.SetStateAction<ChatMessage[]>>;
+}) {
+  const hasInjectedFixture = useRef(false);
+
+  useEffect(() => {
+    if (!isOpen || hasInjectedFixture.current || !fixtureMode) {
+      return;
+    }
+
+    const fixtureKeys =
+      fixtureMode === "structured-ui-dev" ? ["cards", "invalid"] : [fixtureMode];
+    const fixtures = fixtureKeys
+      .map((key) => chatUiFixtures[key])
+      .filter(Boolean) as ChatUiFixture[];
+
+    if (fixtures.length === 0) {
+      return;
+    }
+
+    const fixtureMessages: ChatMessage[] = fixtures.map((fixture, index) => {
+      const extracted = extractAssistantUi(fixture.content, fixture.ui);
+      return {
+        id: `fixture-${fixtureKeys[index] ?? index}`,
+        role: "assistant",
+        content: extracted.content,
+        timestamp: new Date(),
+        ui: extracted.ui ?? undefined,
+      };
+    });
+
+    onInject((prev) => [...prev, ...fixtureMessages]);
+    hasInjectedFixture.current = true;
+  }, [fixtureMode, isOpen, onInject]);
+
+  return null;
+}
+
 function QuickActionButton({
   icon: Icon,
   label,
@@ -517,7 +569,6 @@ export default function LuxuryChatbot({
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const hasInjectedFixture = useRef(false);
   const fixtureMode = process.env.NEXT_PUBLIC_CHATBOT_UI_FIXTURE ?? "";
 
   useEffect(() => {
@@ -569,28 +620,6 @@ export default function LuxuryChatbot({
   }, [isOpen, messages.length]);
 
   useEffect(() => {
-    if (!isOpen || hasInjectedFixture.current) {
-      return;
-    }
-    const fixture = chatUiFixtures[fixtureMode];
-    if (!fixture) {
-      return;
-    }
-    const uiPayload = normalizeCardsPayload(fixture.ui);
-
-    const fixtureMessage: ChatMessage = {
-      id: `fixture-${fixtureMode}`,
-      role: "assistant",
-      content: fixture.content,
-      timestamp: new Date(),
-      ui: uiPayload ?? undefined,
-    };
-
-    setMessages((prev) => [...prev, fixtureMessage]);
-    hasInjectedFixture.current = true;
-  }, [fixtureMode, isOpen]);
-
-  useEffect(() => {
     const maxAttempts = 3;
     let isCancelled = false;
     let retryTimeoutId: number | null = null;
@@ -634,18 +663,25 @@ export default function LuxuryChatbot({
     };
   }, [engineBaseUrl]);
 
-  const sendMessage = async (content: string) => {
-    if (!content.trim()) return;
+  const sendMessage = async (
+    content: string,
+    options?: { displayContent?: string; hide?: boolean },
+  ) => {
+    const trimmedContent = content.trim();
+    if (!trimmedContent) return;
 
-    const userMessage: ChatMessage = {
-      id: Date.now().toString(),
-      role: "user",
-      content: content.trim(),
-      timestamp: new Date(),
-    };
+    const displayContent = options?.displayContent ?? trimmedContent;
+    if (!options?.hide) {
+      const userMessage: ChatMessage = {
+        id: Date.now().toString(),
+        role: "user",
+        content: displayContent,
+        timestamp: new Date(),
+      };
 
-    setMessages((prev) => [...prev, userMessage]);
-    setInputMessage("");
+      setMessages((prev) => [...prev, userMessage]);
+      setInputMessage("");
+    }
     setIsLoading(true);
     setLastError(null);
     setConnectionStatus("connecting");
@@ -664,7 +700,7 @@ export default function LuxuryChatbot({
       const response = await fetch(`${engineBaseUrl}/v1/converse`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: content.trim() }),
+        body: JSON.stringify({ text: trimmedContent }),
         signal: controller.signal,
       });
 
@@ -740,7 +776,7 @@ export default function LuxuryChatbot({
       sendMessage(payload);
       return;
     }
-    sendMessage(JSON.stringify(payload));
+    sendMessage(JSON.stringify(payload), { hide: true });
   };
 
   const toggleVoiceInput = () => {
@@ -749,6 +785,11 @@ export default function LuxuryChatbot({
 
   return (
     <>
+      <StructuredUiDevFixture
+        isOpen={isOpen}
+        fixtureMode={fixtureMode}
+        onInject={setMessages}
+      />
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
