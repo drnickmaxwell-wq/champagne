@@ -3,9 +3,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ScanForm from "../scan/ScanForm";
 import Scanner from "../scan/Scanner";
-import { fetchLocations, fetchScan } from "../lib/ops-api";
-import { LocationSchema, ScanResponseSchema } from "@champagne/stock-shared";
-import type { Location, ScanResponse } from "@champagne/stock-shared";
+import {
+  loadLocalBarcodeRegistry,
+  saveLocalBarcodeRegistry
+} from "../scan/localRegistry";
+import type { LocalBarcodeRegistry, LocalProduct } from "../scan/localRegistry";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import { FieldRow } from "../components/ui/FieldList";
 import LoadingLine from "../components/ui/LoadingLine";
@@ -14,67 +16,47 @@ import PageShell from "../components/ui/PageShell";
 import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
 import Card from "../components/ui/Card";
 import { KeyValueGrid, ScreenHeader, Section } from "../components/ui/ScreenKit";
+import {
+  loadBaselineEntries,
+  upsertBaselineEntry
+} from "./localBaseline";
 
-const resolveErrorMessage = (data: unknown) => {
-  if (data && typeof data === "object") {
-    const candidate = data as Record<string, unknown>;
-    if (typeof candidate.message === "string") {
-      return candidate.message;
-    }
-    if (typeof candidate.error === "string") {
-      return candidate.error;
-    }
+const generateLocalId = () => {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
   }
-  return "Failed to load baseline data.";
+  return `baseline-${Date.now().toString(36)}-${Math.random()
+    .toString(36)
+    .slice(2, 8)}`;
+};
+
+type PendingProduct = {
+  id: string;
+  name: string;
+  barcode: string;
+  countedUnits: number;
 };
 
 export default function BaselinePage() {
-  const [locations, setLocations] = useState<Location[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [selectedLocationId, setSelectedLocationId] = useState<string | null>(null);
+  const [registry, setRegistry] = useState<LocalBarcodeRegistry>(() =>
+    loadLocalBarcodeRegistry()
+  );
   const [activeLocationId, setActiveLocationId] = useState<string | null>(null);
-  const [completedLocationIds, setCompletedLocationIds] = useState<string[]>([]);
+  const [activeLocationName, setActiveLocationName] = useState<string | null>(
+    null
+  );
   const [cameraOpen, setCameraOpen] = useState(false);
   const [scanCode, setScanCode] = useState("");
-  const [scanResult, setScanResult] = useState<ScanResponse | null>(null);
-  const [scanError, setScanError] = useState("");
   const [manualFocus, setManualFocus] = useState(false);
-  const [stepComplete, setStepComplete] = useState(false);
-
-  const activeLocation = useMemo(() => {
-    return locations.find((location) => location.id === activeLocationId) ?? null;
-  }, [locations, activeLocationId]);
-
-  const remainingLocations = useMemo(() => {
-    return locations.filter((location) => !completedLocationIds.includes(location.id));
-  }, [locations, completedLocationIds]);
-
-  const currentStep = activeLocationId ? (stepComplete ? 3 : 2) : 1;
-
-  const loadLocations = useCallback(async () => {
-    setLoading(true);
-    setErrorMessage("");
-    const result = await fetchLocations();
-    setLoading(false);
-
-    if (!result.ok) {
-      setErrorMessage(resolveErrorMessage(result.data));
-      return;
-    }
-
-    const parsed = LocationSchema.array().safeParse(result.data);
-    if (!parsed.success) {
-      setErrorMessage("Unexpected locations response.");
-      return;
-    }
-
-    setLocations(parsed.data);
-  }, []);
+  const [pendingProduct, setPendingProduct] = useState<PendingProduct | null>(
+    null
+  );
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    void loadLocations();
-  }, [loadLocations]);
+    setRegistry(loadLocalBarcodeRegistry());
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -86,34 +68,92 @@ export default function BaselinePage() {
     }
   }, []);
 
-  const loadScan = useCallback(async (code: string) => {
-    setScanError("");
-    const result = await fetchScan(code);
-    if (!result.ok) {
-      setScanError(resolveErrorMessage(result.data));
-      setScanResult(null);
-      return;
+  const activeLocationLabel = useMemo(() => {
+    if (!activeLocationId) {
+      return "None";
     }
+    return activeLocationName ?? activeLocationId;
+  }, [activeLocationId, activeLocationName]);
 
-    const parsed = ScanResponseSchema.safeParse(result.data);
-    if (!parsed.success) {
-      setScanError("Unexpected scan response.");
-      setScanResult(null);
-      return;
-    }
+  const resolveProduct = useCallback(
+    (barcode: string) => {
+      const binding = registry.bindings.find(
+        (entry) => entry.barcode === barcode
+      );
+      if (!binding) {
+        return null;
+      }
+      return (
+        registry.products.find((product) => product.id === binding.productId) ??
+        null
+      );
+    },
+    [registry]
+  );
 
-    setScanResult(parsed.data);
+  const handleLocationScan = useCallback((barcode: string) => {
+    setActiveLocationId(barcode);
+    setActiveLocationName(barcode);
+    setPendingProduct(null);
+    setMessage(`Location set to ${barcode}.`);
   }, []);
+
+  const handleProductScan = useCallback(
+    (product: LocalProduct, barcode: string) => {
+      if (!activeLocationId) {
+        setPendingProduct(null);
+        setMessage("Scan a location first");
+        return;
+      }
+      setActiveLocationName((prevName) => {
+        if (prevName && prevName !== activeLocationId) {
+          return prevName;
+        }
+        return prevName ?? activeLocationId;
+      });
+      const existingEntry = loadBaselineEntries().find(
+        (entry) =>
+          entry.locationId === activeLocationId &&
+          entry.productId === product.id
+      );
+      setPendingProduct({
+        id: product.id,
+        name: product.name,
+        barcode,
+        countedUnits: existingEntry?.countedUnits ?? 1
+      });
+      setMessage("");
+    },
+    [activeLocationId]
+  );
+
+  const handleScanCode = useCallback(
+    (code: string) => {
+      const normalized = code.trim().toUpperCase();
+      if (!normalized) {
+        return;
+      }
+      setLoading(true);
+      setScanCode(normalized);
+      setManualFocus(false);
+      const product = resolveProduct(normalized);
+      if (product) {
+        handleProductScan(product, normalized);
+        setLoading(false);
+        return;
+      }
+      handleLocationScan(normalized);
+      setLoading(false);
+    },
+    [handleLocationScan, handleProductScan, resolveProduct]
+  );
 
   const handleDetected = useCallback(
     (code: string) => {
-      const normalized = code.trim().toUpperCase();
       setCameraOpen(false);
-      setScanCode(normalized);
-      setManualFocus(false);
-      void loadScan(normalized);
+      handleScanCode(code);
     },
-    [loadScan]
+    [handleScanCode]
   );
 
   const handleStop = useCallback(() => {
@@ -125,81 +165,65 @@ export default function BaselinePage() {
     setManualFocus(true);
   }, []);
 
-  const handleConfirmLocation = () => {
-    if (!selectedLocationId) {
+  const handleSaveCount = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!pendingProduct || !activeLocationId) {
       return;
     }
-    setActiveLocationId(selectedLocationId);
-    setStepComplete(false);
-    setScanResult(null);
-    setScanCode("");
-    setScanError("");
-  };
-
-  const handleFinishLocation = () => {
-    if (!activeLocationId) {
-      return;
+    const now = new Date().toISOString();
+    const updatedRegistry = loadLocalBarcodeRegistry();
+    const matchedProduct = updatedRegistry.products.find(
+      (product) => product.id === pendingProduct.id
+    );
+    if (matchedProduct && matchedProduct.barcode !== pendingProduct.barcode) {
+      const nextProducts = updatedRegistry.products.map((product) =>
+        product.id === matchedProduct.id
+          ? { ...product, barcode: pendingProduct.barcode }
+          : product
+      );
+      const nextBindings = updatedRegistry.bindings.filter(
+        (binding) => binding.productId !== matchedProduct.id
+      );
+      nextBindings.push({
+        barcode: pendingProduct.barcode,
+        productId: matchedProduct.id,
+        createdAt: now
+      });
+      const nextRegistry: LocalBarcodeRegistry = {
+        version: 1,
+        products: nextProducts,
+        bindings: nextBindings
+      };
+      saveLocalBarcodeRegistry(nextRegistry);
+      setRegistry(nextRegistry);
     }
-    setCompletedLocationIds((prev) => {
-      if (prev.includes(activeLocationId)) {
-        return prev;
-      }
-      return [...prev, activeLocationId];
+    const existingEntry = loadBaselineEntries().find(
+      (entry) =>
+        entry.locationId === activeLocationId &&
+        entry.productId === pendingProduct.id
+    );
+    const entryId = existingEntry?.id ?? generateLocalId();
+    upsertBaselineEntry({
+      id: entryId,
+      locationId: activeLocationId,
+      locationName: activeLocationName ?? undefined,
+      productId: pendingProduct.id,
+      productName: pendingProduct.name,
+      barcode: pendingProduct.barcode,
+      countedUnits: pendingProduct.countedUnits,
+      updatedAt: now
     });
-    setActiveLocationId(null);
-    setSelectedLocationId(null);
-    setStepComplete(false);
-    setScanResult(null);
-    setScanCode("");
-    setScanError("");
+    setMessage(`Saved ${pendingProduct.countedUnits} for ${pendingProduct.name}.`);
+    setPendingProduct(null);
   };
-
-  const handleResetChecklist = () => {
-    setSelectedLocationId(null);
-    setActiveLocationId(null);
-    setCompletedLocationIds([]);
-    setCameraOpen(false);
-    setScanCode("");
-    setScanResult(null);
-    setScanError("");
-    setManualFocus(false);
-    setStepComplete(false);
-  };
-
-  const locationScan = scanResult?.result === "LOCATION" ? scanResult : null;
-  const matchedLocation = useMemo(() => {
-    if (!locationScan) {
-      return null;
-    }
-    return locations.find((location) => location.id === locationScan.locationId) ?? null;
-  }, [locationScan, locations]);
-  const matchedLocationId = matchedLocation?.id ?? null;
-  const isActiveLocationMatch = Boolean(
-    matchedLocationId && activeLocationId && matchedLocationId === activeLocationId
-  );
-  const canCompleteStep = Boolean(activeLocationId && (!scanResult || isActiveLocationMatch));
-  const handleMarkStepComplete = () => {
-    if (!activeLocationId || (scanResult && !isActiveLocationMatch)) {
-      return;
-    }
-    setStepComplete(true);
-  };
-  const handleUseScannedLocation = useCallback(() => {
-    if (!matchedLocationId) {
-      return;
-    }
-    setSelectedLocationId(matchedLocationId);
-    setActiveLocationId(matchedLocationId);
-    setStepComplete(false);
-  }, [matchedLocationId]);
 
   return (
     <PageShell>
       <ScreenHeader
         eyebrow="Stock"
-        title="Baseline setup (one-time)"
-        subtitle="Complete this once to confirm each location before you start tracking ongoing movement."
-        status={loading ? <LoadingLine label="Loading" /> : undefined}
+        title="Baseline count"
+        subtitle="Scan each location, then count every product inside that location."
+        status={loading ? <LoadingLine label="Working" /> : undefined}
         actions={
           <PrimaryActions>
             <ActionLink href="/scan">Scan</ActionLink>
@@ -211,270 +235,118 @@ export default function BaselinePage() {
       />
 
       <MessagePanel title="Baseline Mode">
-        Use this checklist to confirm every location is ready before daily workflows.
+        Baseline mode records the starting count for each product in a location.
         <div className="stock-helper">
-          Baseline mode is used once to count everything in this location.
-        </div>
-        <div className="stock-helper">
-          Numbers may look odd for the first week while stock settles.
+          Scan a location label to set the active location, then scan products.
         </div>
       </MessagePanel>
       <PrimaryActions>
         <ActionLink href="/scan">Exit baseline</ActionLink>
       </PrimaryActions>
 
-      <div className="stock-progress" aria-label="Baseline steps">
-        <div
-          className={`stock-progress__step${currentStep === 1 ? " stock-progress__step--active" : ""}`}
-        >
-          Step 1: Select location
-        </div>
-        <div
-          className={`stock-progress__step${currentStep === 2 ? " stock-progress__step--active" : ""}`}
-        >
-          Step 2: Confirm location
-        </div>
-        <div className="stock-progress__step">Step 3: Finish location</div>
-      </div>
+      <Section title="Active location">
+        <KeyValueGrid>
+          <FieldRow label="Location" value={activeLocationLabel} />
+        </KeyValueGrid>
+        {activeLocationId ? (
+          <PrimaryActions>
+            <ActionLink href={`/baseline/${activeLocationId}`}>
+              Review baseline for this location
+            </ActionLink>
+          </PrimaryActions>
+        ) : null}
+      </Section>
 
-      <MessagePanel title="Safety checks">
-        <ul className="stock-list">
-          <li>Baseline is location-only. Scan location labels only.</li>
-          <li>No stock events are recorded in baseline mode.</li>
-          <li>Daily use is Withdraw / Receive.</li>
-        </ul>
-      </MessagePanel>
-
-      <PrimaryActions>
-        <button
-          type="button"
-          className="stock-button stock-button--secondary"
-          onClick={handleResetChecklist}
-        >
-          Reset checklist
-        </button>
-      </PrimaryActions>
-
-      {errorMessage ? (
-        <FeedbackCard title="Error" role="alert" message={errorMessage} />
+      {message ? (
+        <MessagePanel title="Baseline status" role="status">
+          {message}
+        </MessagePanel>
       ) : null}
 
-      {!activeLocationId ? (
-        <Section title="Step 1: Select a location">
-          {locations.length === 0 && !loading ? (
-            <FeedbackCard
-              title="No locations yet"
-              message="Create a location first, then return to baseline setup."
+      <Section title="Camera scan">
+        {cameraOpen ? (
+          <>
+            <Scanner
+              onDetected={handleDetected}
+              onStop={handleStop}
+              onUnavailable={handleCameraUnavailable}
             />
-          ) : null}
-          <div className="stock-location-grid">
-            {locations.map((location) => {
-              const isSelected = location.id === selectedLocationId;
-              const isCompleted = completedLocationIds.includes(location.id);
-              return (
-                <button
-                  key={location.id}
-                  type="button"
-                  className={`stock-location-tile${isSelected ? " stock-location-tile--active" : ""}`}
-                  onClick={() => setSelectedLocationId(location.id)}
-                >
-                  <div className="stock-location-tile__title">{location.name}</div>
-                  <div className="stock-location-tile__meta">
-                    {location.type}
-                  </div>
-                  {isCompleted ? (
-                    <div className="stock-location-tile__status">Completed</div>
-                  ) : null}
-                </button>
-              );
-            })}
-          </div>
+            <PrimaryActions>
+              <button type="button" onClick={() => setCameraOpen(false)}>
+                Stop camera
+              </button>
+            </PrimaryActions>
+          </>
+        ) : (
           <PrimaryActions>
-            <button
-              type="button"
-              className="stock-button stock-button--primary"
-              onClick={handleConfirmLocation}
-              disabled={!selectedLocationId}
-            >
-              Confirm location
+            <button type="button" onClick={() => setCameraOpen(true)}>
+              Use camera
             </button>
           </PrimaryActions>
+        )}
+      </Section>
+
+      <Section title="Manual entry">
+        <ScanForm
+          defaultCode={scanCode}
+          disabled={loading}
+          autoFocus={manualFocus}
+          onSubmitCode={handleScanCode}
+        />
+      </Section>
+
+      {pendingProduct ? (
+        <Section title="Count for this item">
+          <Card>
+            <KeyValueGrid>
+              <FieldRow label="Product" value={pendingProduct.name} />
+              <FieldRow label="Barcode" value={pendingProduct.barcode} />
+            </KeyValueGrid>
+            <form className="stock-form" onSubmit={handleSaveCount}>
+              <div className="stock-form__row">
+                <label className="stock-form__label" htmlFor="baseline-count">
+                  Counted units
+                </label>
+                <input
+                  id="baseline-count"
+                  className="stock-form__input"
+                  type="number"
+                  min={0}
+                  step={1}
+                  value={pendingProduct.countedUnits}
+                  onChange={(event) =>
+                    setPendingProduct((prev) =>
+                      prev
+                        ? {
+                            ...prev,
+                            countedUnits: Number.isNaN(
+                              event.target.valueAsNumber
+                            )
+                              ? prev.countedUnits
+                              : Math.max(0, event.target.valueAsNumber)
+                          }
+                        : prev
+                    )
+                  }
+                  required
+                />
+              </div>
+              <PrimaryActions>
+                <button
+                  type="submit"
+                  className="stock-button stock-button--primary"
+                >
+                  Save
+                </button>
+              </PrimaryActions>
+            </form>
+          </Card>
         </Section>
       ) : null}
 
-      {activeLocation ? (
-        <>
-          <Section title="Step 2: Confirm location">
-            <p className="stock-status">
-              Confirm the location for <strong>{activeLocation.name}</strong> by
-              scanning the location QR label, or continue if it already matches.
-            </p>
-            {scanError ? (
-              <FeedbackCard title="Scan error" message={scanError} />
-            ) : null}
-            {(() => {
-              if (!scanResult) {
-                return null;
-              }
-
-              switch (scanResult.result) {
-                case "LOCATION":
-                  return null;
-                case "UNMATCHED":
-                  return (
-                    <MessagePanel title="Not a location label" role="alert">
-                      This scan didn’t match a location label. Baseline mode is
-                      only for confirming locations.
-                      <div className="stock-helper">
-                        What to do instead: scan a location QR label from the
-                        shelves or switch to Scan for product activity.
-                      </div>
-                    </MessagePanel>
-                  );
-                case "PRODUCT_WITHDRAW":
-                  return (
-                    <MessagePanel title="Product scan detected" role="alert">
-                      Baseline mode is only for confirming locations, not
-                      products.
-                      <div className="stock-helper">
-                        What to do instead: open Scan to record product
-                        movement, then return here to finish baseline.
-                      </div>
-                    </MessagePanel>
-                  );
-                case "STOCK_INSTANCE":
-                  return (
-                    <MessagePanel title="Stock label detected" role="alert">
-                      Baseline mode is only for confirming locations, not stock
-                      labels.
-                      <div className="stock-helper">
-                        What to do instead: use Scan for stock changes, or scan
-                        a location QR label to continue baseline.
-                      </div>
-                    </MessagePanel>
-                  );
-                default:
-                  return null;
-              }
-            })()}
-            <Card title="Camera scan">
-              {cameraOpen ? (
-                <>
-                  <Scanner
-                    onDetected={handleDetected}
-                    onStop={handleStop}
-                    onUnavailable={handleCameraUnavailable}
-                  />
-                  <PrimaryActions>
-                    <button type="button" onClick={() => setCameraOpen(false)}>
-                      Stop camera
-                    </button>
-                  </PrimaryActions>
-                </>
-              ) : (
-                <PrimaryActions>
-                  <button type="button" onClick={() => setCameraOpen(true)}>
-                    Use camera
-                  </button>
-                </PrimaryActions>
-              )}
-            </Card>
-            <Card title="Manual entry">
-              <ScanForm
-                defaultCode={scanCode}
-                disabled={!activeLocationId}
-                autoFocus={manualFocus}
-                onSubmitCode={(code) => {
-                  setScanCode(code);
-                  void loadScan(code);
-                }}
-              />
-            </Card>
-            {locationScan ? (
-              matchedLocation ? (
-                <Card title="Match summary">
-                  <KeyValueGrid>
-                    <FieldRow
-                      label="Location"
-                      value={`${locationScan.name} (${locationScan.locationId})`}
-                    />
-                  </KeyValueGrid>
-                  {matchedLocationId !== activeLocationId ? (
-                    <PrimaryActions>
-                      <button type="button" onClick={handleUseScannedLocation}>
-                        Use scanned location
-                      </button>
-                    </PrimaryActions>
-                  ) : null}
-                </Card>
-              ) : (
-                <FeedbackCard
-                  title="Location not found"
-                  message="This location isn’t in the app yet."
-                />
-              )
-            ) : null}
-            <PrimaryActions>
-              <button
-                type="button"
-                className="stock-button stock-button--primary"
-                onClick={handleMarkStepComplete}
-                disabled={!canCompleteStep}
-              >
-                Mark this step complete
-              </button>
-            </PrimaryActions>
-          </Section>
-
-          <Section title="Step 3: Finish location">
-            <p className="stock-status">
-              When this location is confirmed, mark it as finished.
-            </p>
-            <PrimaryActions>
-              <button
-                type="button"
-                className="stock-button stock-button--primary"
-                onClick={handleFinishLocation}
-                disabled={!stepComplete}
-              >
-                Finished this location
-              </button>
-            </PrimaryActions>
-          </Section>
-        </>
+      {!pendingProduct && !activeLocationId && scanCode ? (
+        <FeedbackCard title="Missing location" message="Scan a location first." />
       ) : null}
-
-      <Section title="Completion">
-        <div className="stock-completion-grid">
-          <div className="stock-completion-card">
-            <div className="stock-completion-card__label">Completed</div>
-            <div className="stock-completion-card__value">
-              {completedLocationIds.length}
-            </div>
-          </div>
-          <div className="stock-completion-card">
-            <div className="stock-completion-card__label">Remaining</div>
-            <div className="stock-completion-card__value">
-              {remainingLocations.length}
-            </div>
-          </div>
-        </div>
-        {remainingLocations.length > 0 ? (
-          <ul className="stock-list">
-            {remainingLocations.map((location) => (
-              <li key={location.id}>{location.name}</li>
-            ))}
-          </ul>
-        ) : (
-          <FeedbackCard
-            title="All locations complete"
-            message="Baseline setup is finished. You can now manage reorders."
-          />
-        )}
-        <PrimaryActions>
-          <ActionLink href="/reorder">Go to reorder</ActionLink>
-        </PrimaryActions>
-      </Section>
     </PageShell>
   );
 }

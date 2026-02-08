@@ -511,6 +511,12 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 }
 
+.stock-grid {
+  display: grid;
+  gap: var(--stock-space-2);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
 .stock-location-tile {
   border: 1px solid var(--border-subtle);
   border-radius: var(--stock-radius);
