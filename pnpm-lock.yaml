@@ -130,6 +130,8 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
+  apps/patient-ai-service: {}
+
   apps/portal:
     dependencies:
       next:
