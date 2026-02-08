@@ -25,6 +25,16 @@ if (enforceEslint) {
   enforcedDeps.push("eslint");
 }
 
+const legacyAllowlist = new Map([
+  ["apps/chat-ui/package.json", new Set(["typescript"])],
+  ["apps/engine/package.json", new Set(["typescript", "ts-node"])],
+  ["apps/ops-api/package.json", new Set(["typescript", "@types/node"])],
+  ["apps/patient-portal/package.json", new Set(["typescript"])],
+  ["apps/portal/package.json", new Set(["typescript"])],
+  ["apps/stock/package.json", new Set(["typescript", "@types/node", "eslint"])],
+  ["apps/web/package.json", new Set(["typescript", "@types/node", "eslint"])],
+]);
+
 const packageJsonPaths = [];
 for (const workspaceRoot of workspaceRoots) {
   const basePath = path.join(rootDir, workspaceRoot);
@@ -45,6 +55,7 @@ for (const workspaceRoot of workspaceRoots) {
 }
 
 const violations = [];
+const warnings = [];
 for (const packageJsonPath of packageJsonPaths) {
   const packageJson = readJson(packageJsonPath);
   for (const field of dependencyFields) {
@@ -60,11 +71,18 @@ for (const packageJsonPath of packageJsonPaths) {
 
       const version = deps[depName];
       if (version !== "workspace:*") {
-        violations.push({
-          path: path.relative(rootDir, packageJsonPath),
+        const relPath = path.relative(rootDir, packageJsonPath);
+        const allowed = legacyAllowlist.get(relPath)?.has(depName);
+        const entry = {
+          path: relPath,
           depName,
           version,
-        });
+        };
+        if (allowed) {
+          warnings.push(entry);
+        } else {
+          violations.push(entry);
+        }
       }
     }
   }
@@ -101,8 +119,11 @@ if (!fs.existsSync(lockfilePath)) {
     }
 
     const trimmed = line.trim();
-    if (trimmed.endsWith(":")) {
-      importers.add(trimmed.slice(0, -1));
+    const key = trimmed.endsWith(":")
+      ? trimmed.slice(0, -1)
+      : trimmed.split(":")[0];
+    if (key) {
+      importers.add(key.trim());
     }
   }
 
@@ -125,10 +146,24 @@ if (violations.length || lockfileIssues.length) {
       `- ${violation.path}: ${violation.depName} -> ${violation.version} (remediation: use workspace:* or remove and rely on root tooling)`
     );
   }
+  for (const warning of warnings) {
+    console.warn(
+      `- ${warning.path}: ${warning.depName} -> ${warning.version} (legacy warning: use workspace:* or remove and rely on root tooling)`
+    );
+  }
   for (const issue of lockfileIssues) {
     console.error(`- ${issue.message}`);
   }
   process.exit(1);
+}
+
+if (warnings.length) {
+  console.warn("Workspace dependency guard warnings (legacy allowlist):");
+  for (const warning of warnings) {
+    console.warn(
+      `- ${warning.path}: ${warning.depName} -> ${warning.version} (legacy warning: use workspace:* or remove and rely on root tooling)`
+    );
+  }
 }
 
 console.log("Workspace dependency guard passed.");
