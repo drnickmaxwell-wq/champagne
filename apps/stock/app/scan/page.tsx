@@ -19,6 +19,7 @@ import type {
 } from "./localRegistry";
 import { fetchHealth, fetchScan } from "../lib/ops-api";
 import { ScanResponseSchema } from "@champagne/stock-shared";
+import type { EventRequestPayload } from "../components/EventActionPanel";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import Card from "../components/ui/Card";
 import { FieldRow } from "../components/ui/FieldList";
@@ -32,6 +33,12 @@ import {
   ScreenHeader,
   Section
 } from "../components/ui/ScreenKit";
+import {
+  addLocalLot,
+  getExpiryStatus,
+  getLotsNearExpiry,
+  type LocalStockLot
+} from "../stockLots/localLots";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -51,6 +58,29 @@ type LocalProductDraft = {
   unitType: UnitType;
   category: ProductCategory;
   requiresBatchTracking: boolean;
+};
+
+type BatchFormState = {
+  batchNumber: string;
+  expiryDate: string;
+  notes: string;
+};
+
+type PendingBatchEvent = {
+  continueEvent: () => void;
+  productId: string;
+  productName: string;
+  locationId: string | null;
+  locationLabel: string;
+  barcode: string;
+  qty: number;
+};
+
+type ExpiringLotPreview = {
+  id: string;
+  label: string;
+  expiryDate: string;
+  statusLabel: string;
 };
 
 const generateLocalId = () => {
@@ -100,6 +130,16 @@ export default function ScanPage() {
     category: categoryOptions[0],
     requiresBatchTracking: false
   });
+  const [pendingBatch, setPendingBatch] = useState<PendingBatchEvent | null>(
+    null
+  );
+  const [batchForm, setBatchForm] = useState<BatchFormState>({
+    batchNumber: "",
+    expiryDate: "",
+    notes: ""
+  });
+  const [batchError, setBatchError] = useState("");
+  const [expiringLots, setExpiringLots] = useState<LocalStockLot[]>([]);
   const {
     summary,
     locationCount,
@@ -107,6 +147,10 @@ export default function ScanPage() {
     recordEvent,
     endSession
   } = useSessionSummary();
+
+  const refreshExpiringLots = useCallback(() => {
+    setExpiringLots(getLotsNearExpiry(30));
+  }, []);
 
   const checkOpsStatus = useCallback(async () => {
     const result = await fetchHealth();
@@ -116,6 +160,7 @@ export default function ScanPage() {
 
   useEffect(() => {
     void checkOpsStatus();
+    refreshExpiringLots();
     if (typeof window === "undefined") {
       return;
     }
@@ -249,9 +294,25 @@ export default function ScanPage() {
   const existingProduct = existingBinding
     ? registry.products.find((product) => product.id === existingBinding.productId)
     : null;
+  const localProduct = existingProduct;
   const registrationDisabled =
     !scanCode || Boolean(existingBinding) || registeredProduct !== null;
   const receiveHref = "/locations";
+  const expiringPreview: ExpiringLotPreview[] = expiringLots.slice(0, 3).map(
+    (lot) => {
+      const productName =
+        registry.products.find((product) => product.id === lot.productId)?.name ??
+        "Unknown product";
+      const status = getExpiryStatus(lot.expiryDate);
+      const statusLabel = status === "expired" ? "Expired" : "Near expiry";
+      return {
+        id: lot.id,
+        label: productName,
+        expiryDate: lot.expiryDate,
+        statusLabel
+      };
+    }
+  );
 
   const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -293,6 +354,73 @@ export default function ScanPage() {
       requiresBatchTracking: false
     }));
   };
+
+  const resetBatchForm = () => {
+    setBatchForm({
+      batchNumber: "",
+      expiryDate: "",
+      notes: ""
+    });
+    setBatchError("");
+  };
+
+  const handleBatchCancel = () => {
+    setPendingBatch(null);
+    resetBatchForm();
+  };
+
+  const handleBatchSave = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!pendingBatch) {
+      return;
+    }
+    const trimmedBatchNumber = batchForm.batchNumber.trim();
+    const trimmedExpiryDate = batchForm.expiryDate.trim();
+    if (!trimmedBatchNumber || !trimmedExpiryDate) {
+      setBatchError("Batch number and expiry date are required.");
+      return;
+    }
+    const trimmedNotes = batchForm.notes.trim();
+    const lot: LocalStockLot = {
+      id: generateLocalId(),
+      productId: pendingBatch.productId,
+      locationId: pendingBatch.locationId,
+      barcode: pendingBatch.barcode,
+      batchNumber: trimmedBatchNumber,
+      expiryDate: trimmedExpiryDate,
+      notes: trimmedNotes.length ? trimmedNotes : undefined,
+      createdAt: new Date().toISOString()
+    };
+    addLocalLot(lot);
+    refreshExpiringLots();
+    pendingBatch.continueEvent();
+    setPendingBatch(null);
+    resetBatchForm();
+  };
+
+  const handleEventRequest = useCallback(
+    (payload: EventRequestPayload) => {
+      if (payload.eventType !== "RECEIVE") {
+        payload.continue();
+        return;
+      }
+      if (!localProduct?.requiresBatchTracking) {
+        payload.continue();
+        return;
+      }
+      setPendingBatch({
+        continueEvent: payload.continue,
+        productId: localProduct.id,
+        productName: localProduct.name,
+        locationId: payload.locationId,
+        locationLabel: locationLabel,
+        barcode: scanCode,
+        qty: payload.qty
+      });
+      resetBatchForm();
+    },
+    [localProduct, locationLabel, scanCode]
+  );
 
   return (
     <StockPageTemplate
@@ -382,6 +510,8 @@ export default function ScanPage() {
         withdrawn={summary.withdrawn}
         locationCount={locationCount}
         currentLocationName={activeLocationName}
+        expiringCount={expiringLots.length}
+        expiringPreview={expiringPreview}
         onEndSession={endSession}
       />
       {scanData ? (
@@ -616,6 +746,89 @@ export default function ScanPage() {
           ) : null}
         </Section>
       ) : null}
+      {pendingBatch ? (
+        <Section title="Batch details">
+          <KeyValueGrid>
+            <FieldRow label="Product" value={pendingBatch.productName} />
+            <FieldRow label="Location" value={pendingBatch.locationLabel} />
+            <FieldRow label="Barcode" value={pendingBatch.barcode} />
+            <FieldRow label="Quantity" value={pendingBatch.qty} />
+          </KeyValueGrid>
+          <form className="stock-form" onSubmit={handleBatchSave}>
+            <div className="stock-form__row">
+              <label className="stock-form__label" htmlFor="batch-number">
+                Batch number
+              </label>
+              <input
+                id="batch-number"
+                className="stock-form__input"
+                type="text"
+                value={batchForm.batchNumber}
+                onChange={(event) =>
+                  setBatchForm((prev) => ({
+                    ...prev,
+                    batchNumber: event.target.value
+                  }))
+                }
+                required
+              />
+            </div>
+            <div className="stock-form__row">
+              <label className="stock-form__label" htmlFor="batch-expiry">
+                Expiry date
+              </label>
+              <input
+                id="batch-expiry"
+                className="stock-form__input"
+                type="date"
+                value={batchForm.expiryDate}
+                onChange={(event) =>
+                  setBatchForm((prev) => ({
+                    ...prev,
+                    expiryDate: event.target.value
+                  }))
+                }
+                required
+              />
+            </div>
+            <div className="stock-form__row">
+              <label className="stock-form__label" htmlFor="batch-notes">
+                Notes (optional)
+              </label>
+              <input
+                id="batch-notes"
+                className="stock-form__input"
+                type="text"
+                value={batchForm.notes}
+                onChange={(event) =>
+                  setBatchForm((prev) => ({
+                    ...prev,
+                    notes: event.target.value
+                  }))
+                }
+              />
+            </div>
+            {batchError ? (
+              <FeedbackCard title="Batch details" message={batchError} />
+            ) : null}
+            <PrimaryActions>
+              <button
+                type="submit"
+                className="stock-button stock-button--primary"
+              >
+                Save &amp; continue
+              </button>
+              <button
+                type="button"
+                className="stock-button stock-button--secondary"
+                onClick={handleBatchCancel}
+              >
+                Cancel
+              </button>
+            </PrimaryActions>
+          </form>
+        </Section>
+      ) : null}
       {actionTarget ? (
         <ActionSection
           key={`${actionTarget.productId ?? "none"}-${actionTarget.stockInstanceId ?? "none"}`}
@@ -629,7 +842,8 @@ export default function ScanPage() {
               ? scanData.product.defaultWithdrawUnits
               : undefined
           }
-          allowedActions={["WITHDRAW"]}
+          allowedActions={["WITHDRAW", "RECEIVE"]}
+          onEventRequest={handleEventRequest}
           onEventSuccess={(payload) => {
             recordEvent({
               ...payload,

@@ -9,6 +9,13 @@ type SessionSummaryProps = {
   withdrawn: number;
   locationCount: number;
   currentLocationName: string | null;
+  expiringCount?: number;
+  expiringPreview?: {
+    id: string;
+    label: string;
+    expiryDate: string;
+    statusLabel: string;
+  }[];
   onEndSession: () => void;
 };
 
@@ -17,6 +24,8 @@ export default function SessionSummary({
   withdrawn,
   locationCount,
   currentLocationName,
+  expiringCount = 0,
+  expiringPreview = [],
   onEndSession
 }: SessionSummaryProps) {
   const currentLocationLabel =
@@ -30,7 +39,20 @@ export default function SessionSummary({
           <FieldRow label="Withdrawn" value={withdrawn} />
           <FieldRow label="Current location" value={currentLocationLabel} />
           <FieldRow label="Locations touched" value={locationCount} />
+          <FieldRow label="Expiring soon" value={expiringCount} />
         </KeyValueGrid>
+        {expiringPreview.length ? (
+          <div className="stock-session-summary__expiring">
+            <p className="stock-session-summary__eyebrow">Expiring soon</p>
+            <ul>
+              {expiringPreview.map((lot) => (
+                <li key={lot.id}>
+                  {lot.label} — {lot.expiryDate} ({lot.statusLabel})
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         <PrimaryActions>
           <button
             type="button"

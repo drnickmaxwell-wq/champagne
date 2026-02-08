@@ -13,6 +13,7 @@ type EventActionPanelProps = {
   locationName?: string | null;
   defaultQuantity?: number;
   allowedActions?: EventType[];
+  onEventRequest?: (payload: EventRequestPayload) => void;
   onEventSuccess?: (payload: EventSuccessPayload) => void;
   onLastActionMessage?: (message: string) => void;
 };
@@ -22,6 +23,16 @@ export type EventSuccessPayload = {
   qty: number;
   locationId: string | null;
   locationName?: string | null;
+};
+
+export type EventRequestPayload = {
+  eventType: EventType;
+  qty: number;
+  productId?: string;
+  stockInstanceId?: string;
+  locationId: string | null;
+  locationName?: string | null;
+  continue: () => void;
 };
 
 const resolveErrorMessage = (data: unknown) => {
@@ -62,6 +73,7 @@ export default function EventActionPanel({
   locationName,
   defaultQuantity,
   allowedActions,
+  onEventRequest,
   onEventSuccess,
   onLastActionMessage
 }: EventActionPanelProps) {
@@ -99,18 +111,7 @@ export default function EventActionPanel({
     setQtyInput(String(next));
   };
 
-  const handleEvent = async (eventType: EventType) => {
-    if (submitting) {
-      return;
-    }
-    setStatusMessage("");
-    setErrorMessage("");
-    const qtyNumber = Number.parseInt(qtyInput, 10);
-    const clampedQty = Number.isFinite(qtyNumber) ? Math.max(1, qtyNumber) : 1;
-    if (!Number.isFinite(qtyNumber) || qtyNumber <= 0) {
-      setQtyInput(String(clampedQty));
-    }
-
+  const submitEvent = async (eventType: EventType, clampedQty: number) => {
     const qtyDeltaUnits =
       eventType === "WITHDRAW" ? -clampedQty : clampedQty;
     setSubmitting(true);
@@ -145,6 +146,34 @@ export default function EventActionPanel({
       locationId: outcome.locationId ?? locationId ?? null,
       locationName: locationName?.trim().length ? locationName : null
     });
+  };
+
+  const handleEvent = async (eventType: EventType) => {
+    if (submitting) {
+      return;
+    }
+    setStatusMessage("");
+    setErrorMessage("");
+    const qtyNumber = Number.parseInt(qtyInput, 10);
+    const clampedQty = Number.isFinite(qtyNumber) ? Math.max(1, qtyNumber) : 1;
+    if (!Number.isFinite(qtyNumber) || qtyNumber <= 0) {
+      setQtyInput(String(clampedQty));
+    }
+
+    if (onEventRequest) {
+      onEventRequest({
+        eventType,
+        qty: clampedQty,
+        productId,
+        stockInstanceId,
+        locationId: locationId ?? null,
+        locationName,
+        continue: () => void submitEvent(eventType, clampedQty)
+      });
+      return;
+    }
+
+    await submitEvent(eventType, clampedQty);
   };
 
   if (!productId && !stockInstanceId) {
