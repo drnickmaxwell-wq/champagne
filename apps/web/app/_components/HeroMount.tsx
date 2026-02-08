@@ -29,7 +29,9 @@ export async function HeroMount(props: HeroRendererProps) {
 
   if (useV2) {
     const v2Props = props as HeroRendererV2Props;
-    const v2PropsWithPath = { ...v2Props };
+    const resolvedPageSlugOrPath =
+      v2Props.pageSlugOrPath ?? (v2Props.treatmentSlug ? `/treatments/${v2Props.treatmentSlug}` : "/");
+    const v2PropsWithPath = { ...v2Props, pageSlugOrPath: resolvedPageSlugOrPath };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
     const pathnameKey = normalizeHeroPathname(v2PropsWithPath.pageSlugOrPath);
     const heroIdentityKey =
