@@ -150,6 +150,7 @@ type HeroV2FrameProps = {
   layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
   gradient: string;
   rootStyle?: CSSProperties;
+  rootRef?: Ref<HTMLDivElement>;
   heroId?: string;
   variantId?: string;
   particlesPath?: string;
@@ -527,6 +528,7 @@ export function HeroV2Frame({
   layout,
   gradient,
   rootStyle,
+  rootRef,
   heroId,
   variantId,
   particlesPath,
@@ -553,6 +555,7 @@ export function HeroV2Frame({
       data-hero-renderer="v2"
       data-hero-root="true"
       style={rootStyle}
+      ref={rootRef}
       {...dataAttributes}
     >
       <BaseChampagneSurface
@@ -748,6 +751,10 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
   const visualReadyRef = useRef(false);
   const debugEnabled = searchParams?.get("heroDebug") === "1";
+  const heroRootRef = useRef<HTMLElement | null>(null);
+  const heroRootIdentityRef = useRef(new WeakMap<Element, string>());
+  const heroAssetRefMap = useRef(new Map<string, Element>());
+  const heroRootElementRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     renderModelRef.current = renderModel;
@@ -862,6 +869,83 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   }, [debugEnabled, pathnameKey]);
 
   useEffect(() => {
+    if (!debugEnabled) return;
+    console.info(`[HERO_PROBE_ENTER] path=${pathnameKey} debugEnabled=${debugEnabled}`);
+    const refRoot = heroRootElementRef.current;
+    const rootSource = refRoot ? "ref" : "query";
+    const root = refRoot ?? document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
+    console.info(`[HERO_PROBE_ROOT_SRC] path=${pathnameKey} src=${rootSource}`);
+    if (!root) {
+      console.info(`[HERO_PROBE_ROOT_MISSING] path=${pathnameKey}`);
+      return;
+    }
+    if (!(root instanceof HTMLElement)) {
+      const type = Object.prototype.toString.call(root);
+      console.info(`[HERO_PROBE_ROOT_BADTYPE] path=${pathnameKey} type=${type}`);
+      return;
+    }
+
+    const rootMap = heroRootIdentityRef.current;
+    if (!rootMap.has(root)) {
+      rootMap.set(root, `root-${Math.random().toString(36).slice(2, 8)}`);
+    }
+    const previousRoot = heroRootRef.current;
+    const sameRoot = previousRoot === root;
+    console.info(`[HERO_DOM_ID] path=${pathnameKey} sameRoot=${sameRoot}`);
+    heroRootRef.current = root;
+
+    let addedNodes = 0;
+    let removedNodes = 0;
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        addedNodes += mutation.addedNodes.length;
+        removedNodes += mutation.removedNodes.length;
+      });
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    const timeoutId = window.setTimeout(() => {
+      observer.disconnect();
+      console.info(`[HERO_MUTATION] path=${pathnameKey} added=${addedNodes} removed=${removedNodes}`);
+    }, 500);
+
+    const assetMap = heroAssetRefMap.current;
+    const getAssetId = (element: Element, index: number, srcHint?: string) => {
+      const datasetId = element instanceof HTMLElement ? element.dataset.surfaceId ?? element.dataset.assetId : undefined;
+      const role = element.getAttribute("data-role") ?? undefined;
+      const ariaLabel = element.getAttribute("aria-label") ?? undefined;
+      const src = srcHint ?? undefined;
+      return datasetId || role || ariaLabel || src || `${index}`;
+    };
+    const logAsset = (kind: "video" | "canvas" | "img", element: Element, index: number, src: string) => {
+      const id = getAssetId(element, index, src);
+      const key = `${kind}:${id}`;
+      const prev = assetMap.get(key);
+      const sameEl = prev === element;
+      console.info(`[HERO_ASSET_ID] path=${pathnameKey} kind=${kind} id=${id} sameEl=${sameEl} src=${src}`);
+      assetMap.set(key, element);
+    };
+    const videos = Array.from(root.querySelectorAll<HTMLVideoElement>("video"));
+    const canvases = Array.from(root.querySelectorAll<HTMLCanvasElement>("canvas"));
+    const images = Array.from(root.querySelectorAll<HTMLImageElement>("img"));
+    videos.forEach((video, index) => {
+      const src = video.currentSrc || video.getAttribute("src") || "";
+      logAsset("video", video, index, src);
+    });
+    canvases.forEach((canvas, index) => {
+      logAsset("canvas", canvas, index, "canvas");
+    });
+    images.forEach((img, index) => {
+      const src = img.currentSrc || img.getAttribute("src") || "";
+      logAsset("img", img, index, src);
+    });
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeoutId);
+    };
+  }, [debugEnabled, pathnameKey]);
+
+  useEffect(() => {
     const modelSnapshot = renderModelRef.current ?? lastResolvedHeroV2Model;
     if (!modelSnapshot) {
       setIsHeroVisuallyReady(false);
@@ -939,6 +1023,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       layout={activeModel.layout}
       gradient={activeModel.gradient}
       rootStyle={gatedRootStyle}
+      rootRef={heroRootElementRef}
       heroId={activeModel.surfaceStack.heroId}
       variantId={activeModel.surfaceStack.variantId}
       particlesPath={activeModel.surfaceStack.particlesPath}
