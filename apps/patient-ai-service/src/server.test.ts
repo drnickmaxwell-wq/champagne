@@ -5,14 +5,13 @@ import assert from "node:assert/strict";
 import type { AddressInfo } from "node:net";
 import { ConsoleAuditSink, MemoryAuditSink, type AuditSink } from "./audit.js";
 import { createHandler } from "./handler.js";
-import { createToolRegistry } from "./tools.js";
+import type { ToolName } from "./tools/index.js";
 
-const startServer = async (auditSink: AuditSink) => {
+const startServer = async (auditSink: AuditSink, allowTools: ToolName[] = ["getPatientSummary"]) => {
   const server = createServer(
     createHandler({
       auditSink,
-      allowTools: ["readPatientPlanSummary", "listAppointments"],
-      toolRegistry: createToolRegistry(),
+      allowTools,
       now: () => new Date("2025-01-01T00:00:00.000Z"),
       requestIdFactory: () => "req-123"
     })
@@ -64,13 +63,14 @@ test("emits audit record when request is allowed", async () => {
   assert.equal(auditSink.records.length, 1);
   assert.equal(auditSink.records[0]?.outcome, "allow");
   assert.equal(auditSink.records[0]?.patientId, "patient-001");
+  assert.deepEqual(auditSink.records[0]?.toolsUsed, ["getPatientSummary"]);
 
   server.close();
 });
 
 test("denies tool execution when tool is not allowlisted", async () => {
   const auditSink = new MemoryAuditSink();
-  const { server, baseUrl } = await startServer(auditSink);
+  const { server, baseUrl } = await startServer(auditSink, []);
 
   const response = await fetch(`${baseUrl}/v1/converse`, {
     method: "POST",
@@ -79,7 +79,7 @@ test("denies tool execution when tool is not allowlisted", async () => {
       "x-patient-id": "patient-002",
       "x-tenant-id": "tenant-002"
     },
-    body: JSON.stringify({ message: "hello", toolRequest: { name: "exportRecords" } })
+    body: JSON.stringify({ message: "hello" })
   });
 
   assert.equal(response.status, 403);
@@ -117,4 +117,28 @@ test("logs avoid raw message content", async () => {
   } finally {
     console.log = originalLog;
   }
+});
+
+test("returns patient summary reply from tool output", async () => {
+  const auditSink = new MemoryAuditSink();
+  const { server, baseUrl } = await startServer(auditSink);
+
+  const response = await fetch(`${baseUrl}/v1/converse`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-patient-id": "patient-004",
+      "x-tenant-id": "tenant-004"
+    },
+    body: JSON.stringify({ message: "Can I get my next appointment?" })
+  });
+
+  const payload = (await response.json()) as { reply?: string; toolResult?: { patientId?: string } };
+
+  assert.equal(response.status, 200);
+  assert.ok(payload.reply?.includes("patient-004"));
+  assert.ok(payload.reply?.toLowerCase().includes("next appointment"));
+  assert.equal(payload.toolResult?.patientId, "patient-004");
+
+  server.close();
 });

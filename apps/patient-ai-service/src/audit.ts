@@ -8,7 +8,8 @@ export const auditRecordSchema = z.object({
   zone: z.literal("B"),
   action: z.literal("converse"),
   outcome: z.enum(["allow", "deny"]),
-  reason: z.string().min(1).optional()
+  reason: z.string().min(1).optional(),
+  toolsUsed: z.array(z.string().min(1)).optional()
 });
 
 export type AuditOutcome = z.infer<typeof auditRecordSchema>["outcome"];

@@ -2,21 +2,17 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { randomUUID } from "node:crypto";
 import { resolveAuthContext } from "./auth.js";
 import { auditRecordSchema, type AuditOutcome, type AuditSink } from "./audit.js";
-import { isToolAllowed, type ToolName, type ToolRegistry } from "./tools.js";
+import { isToolAllowed, runTool, type PatientSummary, type ToolName } from "./tools/index.js";
 
 export type HandlerDependencies = {
   auditSink: AuditSink;
   allowTools: ToolName[];
-  toolRegistry: ToolRegistry;
   now: () => Date;
   requestIdFactory?: () => string;
 };
 
 type ConverseBody = {
   message?: unknown;
-  toolRequest?: {
-    name?: unknown;
-  };
 };
 
 const json = (response: ServerResponse, status: number, body: Record<string, unknown>) => {
@@ -68,7 +64,11 @@ export const createHandler = (dependencies: HandlerDependencies) => {
       const timestamp = dependencies.now().toISOString();
       let auditWritten = false;
 
-      const writeAudit = async (outcome: AuditOutcome, reason?: string) => {
+      const writeAudit = async (
+        outcome: AuditOutcome,
+        reason?: string,
+        toolsUsed?: string[]
+      ) => {
         if (auditWritten) {
           return;
         }
@@ -81,7 +81,8 @@ export const createHandler = (dependencies: HandlerDependencies) => {
           zone: "B",
           action: "converse",
           outcome,
-          reason
+          reason,
+          toolsUsed
         });
         await dependencies.auditSink.write(record);
       };
@@ -108,41 +109,70 @@ export const createHandler = (dependencies: HandlerDependencies) => {
         return;
       }
 
-      if (body.toolRequest?.name) {
-        const name = String(body.toolRequest.name);
-        if (!isToolAllowed(name, dependencies.allowTools)) {
-          await writeAudit("deny", "Tool not allowed.");
-          json(response, 403, { error: "Tool not allowed.", requestId });
-          return;
-        }
-
-        try {
-          const toolResult = await dependencies.toolRegistry.execute(
-            name as ToolName,
-            authResult.context
-          );
-          await writeAudit("allow");
-          json(response, 200, {
-            requestId,
-            reply: `Echo (Zone B): ${body.message}`,
-            toolResult
-          });
-          return;
-        } catch (error) {
-          await writeAudit("deny", error instanceof Error ? error.message : "Tool execution failed.");
-          json(response, 500, { error: "Tool execution failed.", requestId });
-          return;
-        }
+      const toolName: ToolName = "getPatientSummary";
+      if (!isToolAllowed(toolName, dependencies.allowTools)) {
+        await writeAudit("deny", "Tool not allowed.");
+        json(response, 403, { error: "Tool not allowed.", requestId });
+        return;
       }
 
-      await writeAudit("allow");
+      let toolResult: PatientSummary;
+      try {
+        toolResult = await runTool(toolName, authResult.context);
+      } catch (error) {
+        await writeAudit("deny", error instanceof Error ? error.message : "Tool execution failed.");
+        json(response, 500, { error: "Tool execution failed.", requestId });
+        return;
+      }
+
+      const reply = buildReply(body.message, toolResult);
+      await writeAudit("allow", undefined, [toolName]);
       json(response, 200, {
         requestId,
-        reply: `Echo (Zone B): ${body.message}`
+        reply,
+        toolResult
       });
       return;
     }
 
     json(response, 404, { error: "Not found" });
   };
+};
+
+const isRelatedQuestion = (message: string) => {
+  const normalized = message.toLowerCase();
+  return (
+    normalized.includes("appointment") ||
+    normalized.includes("plan") ||
+    normalized.includes("summary") ||
+    normalized.includes("patient")
+  );
+};
+
+const buildReply = (message: string, summary: PatientSummary) => {
+  if (!isRelatedQuestion(message)) {
+    return `I can share a patient summary for ${summary.patientId}, including next appointment and plan details when available. What would you like to know?`;
+  }
+
+  const lines: string[] = [`Patient ${summary.patientId} summary:`];
+
+  if (summary.nextAppointment) {
+    lines.push(
+      `Next appointment: ${summary.nextAppointment.dateISO} (${summary.nextAppointment.type}).`
+    );
+  }
+
+  if (summary.currentPlanSummary) {
+    lines.push(`Current plan summary: ${summary.currentPlanSummary}`);
+  }
+
+  if (summary.notes) {
+    lines.push(`Notes: ${summary.notes}`);
+  }
+
+  if (lines.length === 1) {
+    lines.push("No additional summary details are available right now.");
+  }
+
+  return lines.join(" ");
 };

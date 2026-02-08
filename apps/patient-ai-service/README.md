@@ -28,29 +28,34 @@ Request body:
 
 ```json
 {
-  "message": "hello",
-  "toolRequest": {
-    "name": "readPatientPlanSummary"
-  }
+  "message": "hello"
 }
 ```
 
-Example response:
+Example response (tool-driven):
 
 ```json
 {
   "requestId": "req-123",
-  "reply": "Echo (Zone B): hello",
+  "reply": "Patient patient-001 summary: Next appointment: 2025-02-03T09:00:00.000Z (hygiene-check). Current plan summary: Routine follow-up plan with focus on preventive care and cleaning.",
   "toolResult": {
-    "name": "readPatientPlanSummary",
-    "data": {
-      "patientId": "patient-001",
-      "summary": "Stubbed care plan summary.",
-      "updatedAt": "2025-01-01T00:00:00.000Z"
-    }
+    "patientId": "patient-001",
+    "nextAppointment": {
+      "dateISO": "2025-02-03T09:00:00.000Z",
+      "type": "hygiene-check"
+    },
+    "currentPlanSummary": "Routine follow-up plan with focus on preventive care and cleaning."
   }
 }
 ```
+
+## Adding the next tool (appointments list)
+
+1. Add the new tool name and data shape in `src/tools/types.ts`.
+2. Implement the stubbed tool in `src/tools/impl/stub.ts` using deterministic logic.
+3. Register the tool in `src/tools/index.ts` and export it from `runTool`.
+4. Allowlist the tool in `src/server.ts` (or tests) and update `/v1/converse` to call it where needed.
+5. Extend tests in `src/server.test.ts` to validate allowlist enforcement and audit metadata.
 
 ## Local development
 
