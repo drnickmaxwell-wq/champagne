@@ -1,112 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type Ref } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { BaseChampagneSurface } from "@champagne/hero";
-import type { HeroMode, HeroTimeOfDay, getHeroRuntime } from "@champagne/hero";
+import type { getHeroRuntime } from "@champagne/hero";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
+import type { HeroRendererV2Props, HeroV2Model } from "./HeroRendererV2.types";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
+
 const heroV2ModelCache = new Map<string, HeroV2Model>();
 let lastResolvedHeroV2Model: HeroV2Model | null = null;
-
-export interface HeroRendererV2Props {
-  mode?: HeroMode;
-  treatmentSlug?: string;
-  pageSlugOrPath?: string;
-  debug?: boolean;
-  prm?: boolean;
-  timeOfDay?: HeroTimeOfDay;
-  particles?: boolean;
-  filmGrain?: boolean;
-  diagnosticBoost?: boolean;
-  surfaceRef?: Ref<HTMLDivElement>;
-  pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
-  rootStyle?: CSSProperties;
-  glueVars?: Partial<{
-    waveRingsSize: string;
-    waveRingsRepeat: string;
-    waveRingsPosition: string;
-    waveRingsImageRendering: string;
-    dotGridSize: string;
-    dotGridRepeat: string;
-    dotGridPosition: string;
-    dotGridImageRendering: string;
-  }>;
-}
-
-export type HeroV2SurfaceLayerModel = {
-  id: string;
-  role?: string;
-  prmSafe?: boolean;
-  className: string;
-  style: CSSProperties;
-  glueMeta?: {
-    source: GlueSource;
-    backgroundSize?: string;
-    backgroundRepeat?: string;
-    backgroundPosition?: string;
-    imageRendering?: string;
-  };
-  contrastFilter?: string;
-};
-
-export type HeroV2MotionLayerModel = {
-  id: string;
-  className?: string;
-  path: string;
-  style: CSSProperties;
-  targetOpacity?: number | null;
-};
-
-export type HeroV2SacredBloomModel = {
-  style: CSSProperties;
-  bloomDebug: boolean;
-  baseOpacity: string;
-  shape?: string;
-  mask?: string;
-  contrastFilter?: string;
-  glueMeta?: {
-    source: GlueSource;
-    backgroundSize?: string;
-    backgroundRepeat?: string;
-    backgroundPosition?: string;
-    imageRendering?: string;
-  };
-};
-
-export type HeroSurfaceStackModel = {
-  surfaceVars: CSSProperties;
-  prmEnabled: boolean;
-  layers: HeroV2SurfaceLayerModel[];
-  motionLayers: HeroV2MotionLayerModel[];
-  bloomEnabled: boolean;
-  heroId?: string;
-  variantId?: string;
-  boundHeroId?: string;
-  boundVariantId?: string;
-  effectiveHeroId?: string;
-  effectiveVariantId?: string;
-  particlesPath?: string;
-  particlesOpacity?: number;
-  heroVideo?: {
-    path: string;
-    poster?: string;
-    style: CSSProperties;
-    targetOpacity?: number | null;
-  };
-  sacredBloom?: HeroV2SacredBloomModel;
-};
-
-export type HeroV2Model = {
-  gradient: string;
-  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
-  content: Awaited<ReturnType<typeof getHeroRuntime>>["content"];
-  surfaceStack: HeroSurfaceStackModel;
-};
-
-type GlueSource = "manifest" | "override" | "none";
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -116,7 +21,6 @@ const normalizeHeroPathname = (path?: string) => {
   if (!normalized) return "/";
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 };
-
 
 function HeroFallback() {
   return (
@@ -162,10 +66,9 @@ type HeroV2FrameProps = {
 
 function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"] }) {
   return (
-    <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `
               .hero-renderer-v2 {
                 position: relative;
                 min-height: 72vh;
@@ -294,236 +197,12 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 }
               }
             `,
-        }}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-            if (typeof window === 'undefined') return;
-            const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
-            if (!HERO_V2_DEBUG) return;
-            const logStacking = () => {
-              const content = document.querySelector('.hero-renderer-v2 .hero-content');
-              const surface = document.querySelector('.hero-renderer-v2 [data-surface-id="hero.contentFrame"]');
-              const contentZ = content ? window.getComputedStyle(content).zIndex : 'missing';
-              const surfaceZ = surface ? window.getComputedStyle(surface).zIndex : 'missing';
-              let hit = { tag: 'missing', surfaceId: null, className: null };
-              if (content instanceof HTMLElement) {
-                const rect = content.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const topEl = document.elementFromPoint(centerX, centerY);
-                if (topEl) {
-                  hit = {
-                    tag: topEl.tagName.toLowerCase(),
-                    surfaceId: topEl.getAttribute('data-surface-id'),
-                    className: topEl.getAttribute('class'),
-                  };
-                }
-              }
-              console.groupCollapsed('HERO_V2_STACK_DIAGNOSTIC');
-              console.log('HERO_V2_STACK_DATA', {
-                contentZIndex: contentZ,
-                surfaceZIndex: surfaceZ,
-                elementFromPoint: hit,
-              });
-              console.groupEnd();
-            };
-            if (document.readyState === 'loading') {
-              window.addEventListener('load', () => requestAnimationFrame(logStacking), { once: true });
-            } else {
-              requestAnimationFrame(logStacking);
-            }
-          })();`,
-        }}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-            if (typeof window === 'undefined') return;
-            const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
-            const params = new URLSearchParams(window.location.search);
-            const heroTruthEnabled = params.get('heroTruth') === '1';
-            if (!HERO_V2_DEBUG && !heroTruthEnabled) return;
-            const logTruthTable = () => {
-              const heroRoot = document.querySelector('.hero-renderer-v2[data-hero-root="true"]');
-              if (!heroRoot) {
-                console.groupCollapsed('HERO_V2_TRUTH_TABLE');
-                console.log('HERO_V2_TRUTH_TABLE_DATA', { found: false });
-                console.groupEnd();
-                return;
-              }
-              const surfaceElements = Array.from(heroRoot.querySelectorAll('[data-surface-id]'));
-              const rows = surfaceElements.map((element) => {
-                const styles = window.getComputedStyle(element);
-                const isVideo = element instanceof HTMLVideoElement;
-                const currentSrc = isVideo ? element.currentSrc : null;
-                return {
-                  id: element.getAttribute('data-surface-id') ?? 'unknown',
-                  opacity: styles.opacity,
-                  mixBlendMode: styles.mixBlendMode,
-                  zIndex: styles.zIndex,
-                  backgroundImage: currentSrc || styles.backgroundImage,
-                  filter: styles.filter,
-                  visibility: styles.visibility,
-                  display: styles.display,
-                };
-              });
-              console.groupCollapsed('HERO_V2_TRUTH_TABLE');
-              console.table(rows);
-              const content = heroRoot.querySelector('.hero-content');
-              const contentZIndex = content ? window.getComputedStyle(content).zIndex : 'missing';
-              console.log('HERO_V2_TRUTH_CONTENT_ZINDEX', contentZIndex);
-              console.groupEnd();
-            };
-            const schedule = () => window.setTimeout(logTruthTable, 1500);
-            if (document.readyState === 'loading') {
-              window.addEventListener('load', schedule, { once: true });
-            } else {
-              schedule();
-            }
-          })();`,
-        }}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-            if (typeof window === 'undefined') return;
-            const HERO_V2_DEBUG = ${HERO_V2_DEBUG ? "true" : "false"};
-            if (!HERO_V2_DEBUG) return;
-            if (window.__heroV2CompositingLogInstalled) return;
-            window.__heroV2CompositingLogInstalled = true;
-            const getCompositingData = (label, element) => {
-              if (!(element instanceof Element)) {
-                return { label, found: false };
-              }
-              const style = window.getComputedStyle(element);
-              const rect = element.getBoundingClientRect();
-              const backdropFilter = style.backdropFilter || style.getPropertyValue('backdrop-filter');
-              const webkitBackdropFilter = style.getPropertyValue('-webkit-backdrop-filter');
-              return {
-                label,
-                found: true,
-                tagName: element.tagName.toLowerCase(),
-                className: element.getAttribute('class'),
-                transform: style.transform,
-                filter: style.filter,
-                backdropFilter,
-                webkitBackdropFilter,
-                willChange: style.willChange,
-                contain: style.contain,
-                isolation: style.isolation,
-                rect: {
-                  width: rect.width,
-                  height: rect.height,
-                },
-              };
-            };
-            const resolveHeader = () =>
-              document.querySelector('header') ||
-              document.querySelector('[data-header]') ||
-              document.querySelector('[data-nav]') ||
-              document.querySelector('nav');
-            const resolveBelowHero = (heroRoot) => {
-              if (!(heroRoot instanceof Element)) return null;
-              const sibling = heroRoot.nextElementSibling;
-              if (sibling) return sibling;
-              const parent = heroRoot.parentElement;
-              if (!parent) return null;
-              const children = Array.from(parent.children);
-              const heroIndex = children.indexOf(heroRoot);
-              return heroIndex >= 0 ? children[heroIndex + 1] ?? null : null;
-            };
-            const resolveTextTarget = (root) => {
-              if (!(root instanceof Element)) return null;
-              return (
-                root.querySelector('.hero-content h1, .hero-content h2, .hero-content p') ||
-                root.querySelector('h1, h2, h3, p, span')
-              );
-            };
-            const logCompositing = (phase) => {
-              const heroRoot = document.querySelector('.hero-renderer-v2[data-hero-root="true"]');
-              const surfaceStack = heroRoot?.querySelector('.hero-surface-stack') ?? null;
-              const header = resolveHeader();
-              const main = document.querySelector('main');
-              const belowHero = resolveBelowHero(heroRoot);
-              const content = heroRoot?.querySelector('.hero-content') ?? null;
-              const textTarget = resolveTextTarget(belowHero || main || document.body);
-              const textRect = textTarget ? textTarget.getBoundingClientRect() : null;
-              const resolveZIndexSnapshot = (surfaceId) => {
-                if (!(heroRoot instanceof Element)) return 'missing';
-                const element = heroRoot.querySelector('[data-surface-id="' + surfaceId + '"]');
-                if (!(element instanceof Element)) return 'missing';
-                return window.getComputedStyle(element).zIndex;
-              };
-              console.groupCollapsed('HERO_V2_COMPOSITING_DIAGNOSTIC');
-              console.log('HERO_V2_COMPOSITING_PHASE', {
-                phase,
-                time: performance.now(),
-                path: window.location.pathname,
-              });
-              const compositingData = [
-                getCompositingData('hero-root', heroRoot),
-                getCompositingData('hero-surface-stack', surfaceStack),
-                getCompositingData('header-or-nav', header),
-                getCompositingData('main', main),
-                getCompositingData('below-hero', belowHero),
-              ];
-              console.log('HERO_V2_COMPOSITING_DATA', JSON.stringify(compositingData));
-              console.log('HERO_V2_ZINDEX_SNAPSHOT', {
-                phase,
-                content: content instanceof Element ? window.getComputedStyle(content).zIndex : 'missing',
-                'sacred.motion.particleDrift': resolveZIndexSnapshot('sacred.motion.particleDrift'),
-                'sacred.motion.goldDust': resolveZIndexSnapshot('sacred.motion.goldDust'),
-              });
-              if (textTarget) {
-                console.log(
-                  'HERO_V2_TEXT_BOUNDS',
-                  JSON.stringify({
-                    tagName: textTarget.tagName.toLowerCase(),
-                    className: textTarget.getAttribute('class'),
-                    width: textRect?.width,
-                    height: textRect?.height,
-                  }),
-                );
-              } else {
-                console.log('HERO_V2_TEXT_BOUNDS', JSON.stringify({ missing: true }));
-              }
-              console.groupEnd();
-            };
-            const scheduleLog = (phase) => {
-              requestAnimationFrame(() => logCompositing(phase));
-            };
-            const logNavigation = (phase) => {
-              logCompositing(phase);
-              scheduleLog(\`\${phase}-frame\`);
-              window.setTimeout(() => logCompositing(\`\${phase}-settled\`), 1400);
-            };
-            const wrapHistory = (method) => {
-              const original = history[method];
-              if (typeof original !== 'function') return;
-              history[method] = function (...args) {
-                const result = original.apply(this, args);
-                logNavigation(\`nav-\${method}\`);
-                return result;
-              };
-            };
-            wrapHistory('pushState');
-            wrapHistory('replaceState');
-            window.addEventListener('popstate', () => logNavigation('nav-popstate'));
-            if (document.readyState === 'loading') {
-              window.addEventListener('load', () => logCompositing('initial'), { once: true });
-            } else {
-              logCompositing('initial');
-            }
-          })();`,
-        }}
-      />
-    </>
+      }}
+    />
   );
 }
 
-export function HeroV2Frame({
+function HeroV2Frame({
   layout,
   gradient,
   rootStyle,
@@ -659,7 +338,7 @@ export function HeroV2Frame({
   );
 }
 
-export function HeroContentV2({
+function HeroContentV2({
   content,
   layout,
 }: {
@@ -725,6 +404,7 @@ export function HeroContentV2({
     </div>
   );
 }
+
 
 export function HeroRendererV2(props: HeroRendererV2Props) {
   const rawPathname = usePathname();
