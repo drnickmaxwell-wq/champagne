@@ -1,0 +1,1464 @@
+{
+  "report": "CHAT_UI_ALLOWED_HOOKS_REPORT_V1",
+  "generated_at": "2026-02-08T17:49:25.112066Z",
+  "policy_sources": [
+    "AGENTS.md"
+  ],
+  "allowed_modification_zones": [
+    "apps/web/app/champagne/hero-preview/**",
+    "apps/web/app/champagne/hero-debug/**",
+    "apps/web/app/champagne/hero-lab/**",
+    "apps/web/app/_components/**",
+    "packages/champagne-guards/**",
+    ".github/workflows/**",
+    "packages/champagne-tokens/styles/**",
+    "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+    "apps/web/app/components/sections/SectionShell.tsx",
+    "packages/champagne-sections/src/Section_TextBlock.tsx",
+    "packages/champagne-sections/src/Section_FeatureList.tsx",
+    "packages/champagne-sections/src/Section_PatientStoriesRail.tsx",
+    "packages/champagne-sections/src/Section_TreatmentOverviewRich.tsx",
+    "packages/champagne-sections/src/Section_TreatmentMediaFeature.tsx",
+    "packages/champagne-sections/src/Section_FAQ.tsx",
+    "packages/champagne-sections/src/Section_TreatmentClosingCTA.tsx",
+    "packages/champagne-sections/src/Section_TreatmentMidCTA.tsx",
+    "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+    "apps/web/app/components/layout/Footer.tsx",
+    "apps/web/app/components/layout/FooterLuxe.module.css",
+    "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+    "scripts/verify-token-purity.cjs",
+    "packages/champagne-sections/src/Section_GoogleReviews.tsx",
+    "packages/champagne-sections/src/Section_TreatmentToolsTrio.tsx",
+    "packages/champagne-sections/src/sections/Section_PeopleGrid.tsx",
+    "packages/champagne-sections/src/Section_MediaBlock.tsx",
+    "packages/champagne-hero/src/BaseChampagneSurface.tsx",
+    "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+    "packages/champagne-hero/src/HeroPreviewDebug.tsx",
+    "AGENTS.md"
+  ],
+  "forbidden_zones": [
+    "packages/champagne-hero/src/HeroAssetRegistry.ts",
+    "packages/champagne-hero/src/hero-engine/HeroConfig.ts",
+    "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts",
+    "packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+    "packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts",
+    "packages/champagne-manifests/data/hero/sacred_*",
+    "apps/web/app/components/hero/HeroRenderer.tsx",
+    "apps/web/app/layout.tsx",
+    "apps/web/app/globals.css",
+    "apps/web/app/components/layout/**"
+  ],
+  "search_results": {
+    "apps_chat_ui_imports": [
+      {
+        "file": "./docs/champagne-import-phase1.md",
+        "line": 29,
+        "text": "- `apps/chat-ui/**`"
+      },
+      {
+        "file": "./pnpm-lock.yaml",
+        "line": 64,
+        "text": "  apps/chat-ui:"
+      },
+      {
+        "file": "./scripts/guard-workspace-deps.mjs",
+        "line": 29,
+        "text": "  [\"apps/chat-ui/package.json\", new Set([\"typescript\"])],"
+      },
+      {
+        "file": "./node_modules/.modules.yaml",
+        "line": 292,
+        "text": "  apps/chat-ui:"
+      },
+      {
+        "file": "./reports/DENTALLY_PORTAL_BOOKING_CTA_HANDOFF_V1.json",
+        "line": 30,
+        "text": "      \"apps/chat-ui/app/page.tsx\""
+      },
+      {
+        "file": "./reports/CHATBOT_QUICK_ACTION_INTENT_MAP_REPORT_V1.json",
+        "line": 2,
+        "text": "  \"changedFiles\": [\"apps/chat-ui/components/luxury-chatbot.tsx\"],"
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 3,
+        "text": "    \"apps/chat-ui/app/globals.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 4,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 5,
+        "text": "    \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 6,
+        "text": "    \"apps/chat-ui/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 7,
+        "text": "    \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 21,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 26,
+        "text": "      \"file\": \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 31,
+        "text": "      \"file\": \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 36,
+        "text": "      \"file\": \"apps/chat-ui/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 41,
+        "text": "      \"file\": \"apps/chat-ui/app/globals.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 5,
+        "text": "      \"destination\": \"apps/chat-ui/components/luxury-chatbot.tsx\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 9,
+        "text": "      \"destination\": \"apps/chat-ui/lib/brand/chat-ui.ts\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 13,
+        "text": "      \"destination\": \"apps/chat-ui/styles/chat-preview.css\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 17,
+        "text": "      \"destination\": \"apps/chat-ui/public/brand/chat-ui.json\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 21,
+        "text": "    \"apps/chat-ui/app/layout.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 22,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 23,
+        "text": "    \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 24,
+        "text": "    \"apps/chat-ui/lib/brand/chat-ui.ts\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 25,
+        "text": "    \"apps/chat-ui/package.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 26,
+        "text": "    \"apps/chat-ui/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 27,
+        "text": "    \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 34,
+        "text": "    \"Introduced local easing constants and removed _imports-only dependencies so the component compiles inside apps/chat-ui.\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 35,
+        "text": "    \"Added global chat-preview styles and public manifest assets under apps/chat-ui to match the luxury UI presentation.\""
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 51,
+        "text": "      \"apps/chat-ui\","
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 65,
+        "text": "      \"apps/chat-ui/app/layout.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 3,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 4,
+        "text": "    \"apps/chat-ui/components/luxury-chatbot.tsx\""
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 8,
+        "text": "      \"file\": \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 13,
+        "text": "      \"file\": \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 18,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 23,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 28,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 33,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 38,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_DENTALLY_BOOKING_UI_WIRING_REPORT_V1.json",
+        "line": 3,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_DENTALLY_BOOKING_UI_WIRING_REPORT_V1.json",
+        "line": 7,
+        "text": "    \"apps/chat-ui/app/page.tsx\": {"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 31,
+        "text": "apps/chat-ui"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 32,
+        "text": "apps/chat-ui/node_modules"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 33,
+        "text": "apps/chat-ui/node_modules/.bin"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 34,
+        "text": "apps/chat-ui/app"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 166,
+        "text": "[ -d apps/chat-ui ] && echo \"apps/chat-ui TRUE\" || echo \"apps/chat-ui FALSE\""
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 172,
+        "text": "apps/chat-ui TRUE"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 185,
+        "text": "apps/chat-ui/app/page.tsx:6:        This is the placeholder shell for the <code>chat-ui</code> app inside the champagne-core monorepo."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 186,
+        "text": "apps/chat-ui/app/layout.tsx:6:  description: \"Placeholder shell for the chat-ui app in the champagne-core monorepo.\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 187,
+        "text": "apps/chat-ui/package.json:2:  \"name\": \"chat-ui\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 189,
+        "text": "pnpm-lock.yaml:51:  apps/chat-ui:"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 202,
+        "text": "docs/champagne-import-phase1.md:29:- `apps/chat-ui/**`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 277,
+        "text": "apps/chat-ui/app/page.tsx:4:      <h1 className=\"text-2xl font-semibold\">Champagne Concierge UI \u2013 Placeholder</h1>"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 278,
+        "text": "apps/chat-ui/app/page.tsx:6:        This is the placeholder shell for the <code>chat-ui</code> app inside the champagne-core monorepo."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 279,
+        "text": "apps/chat-ui/app/layout.tsx:5:  title: \"Champagne Concierge UI \u2013 Placeholder\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 280,
+        "text": "apps/chat-ui/app/layout.tsx:6:  description: \"Placeholder shell for the chat-ui app in the champagne-core monorepo.\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 281,
+        "text": "apps/chat-ui/app/layout.tsx:10:  // NOTE: This UI-only shell for the Champagne Concierge; PHI and chat logs must be handled by the engine service."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 282,
+        "text": "apps/chat-ui/package.json:2:  \"name\": \"chat-ui\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 348,
+        "text": "pnpm-lock.yaml:51:  apps/chat-ui:"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 470,
+        "text": "apps/chat-ui/app/layout.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 471,
+        "text": "apps/chat-ui/app/page.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 472,
+        "text": "apps/chat-ui/package.json"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 488,
+        "text": "- `apps/chat-ui/app/layout.tsx` \u2014 Placeholder app metadata includes `chat-ui` description."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 489,
+        "text": "- `apps/chat-ui/app/page.tsx` \u2014 Placeholder UI copy includes `chat-ui` name."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 490,
+        "text": "- `apps/chat-ui/package.json` \u2014 Package name is `chat-ui`."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 491,
+        "text": "- `docs/champagne-import-phase1.md` \u2014 Docs include `apps/chat-ui/**` in import scope list."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 495,
+        "text": "- `pnpm-lock.yaml` \u2014 Lockfile includes `apps/chat-ui` entry."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 561,
+        "text": "apps/chat-ui/app/layout.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 562,
+        "text": "apps/chat-ui/app/page.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 563,
+        "text": "apps/chat-ui/package.json"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 679,
+        "text": "- `apps/chat-ui/app/layout.tsx` \u2014 Placeholder app metadata references concierge/chat."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 680,
+        "text": "- `apps/chat-ui/app/page.tsx` \u2014 Placeholder UI copy references chat/concierge."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 681,
+        "text": "- `apps/chat-ui/package.json` \u2014 Package metadata for chat-ui."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 682,
+        "text": "- `docs/champagne-import-phase1.md` \u2014 Import plan includes `apps/chat-ui`."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 5,
+        "text": "### apps/chat-ui"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 7,
+        "text": "  - Evidence: \u201cChampagne Concierge UI \u2013 Placeholder\u201d and placeholder shell text.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 9,
+        "text": "  - Evidence: `next` dependency and `next dev/build/start` scripts.\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 11,
+        "text": "  - Evidence: UI-only placeholder description and Next.js runtime configuration.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 41,
+        "text": "- All inspected apps under `/apps` are Next.js UI applications (chat-ui, portal, stock, web). Each is configured as a Next runtime with `next` build/start scripts and/or a UI placeholder page, indicating they are frontend apps and not designed for backend session/state logic.\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011\u3010F:apps/portal/package.json\u2020L4-L18\u3011\u3010F:apps/stock/package.json\u2020L8-L14\u3011\u3010F:apps/web/package.json\u2020L4-L19\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 42,
+        "text": "- UI pages explicitly describe placeholder shells or UI routes, reinforcing frontend scope only (e.g., Concierge UI placeholder, Patient Portal placeholder, Stock Module routes, web page builder).\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/portal/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/stock/app/page.tsx\u2020L1-L16\u3011\u3010F:apps/web/app/page.tsx\u2020L1-L5\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 49,
+        "text": "  - Evidence: all `/apps` inspected are Next.js UI apps configured via Next runtime scripts/dependencies.\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011\u3010F:apps/portal/package.json\u2020L4-L18\u3011\u3010F:apps/stock/package.json\u2020L8-L14\u3011\u3010F:apps/web/package.json\u2020L4-L19\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 5,
+        "text": "### apps/chat-ui is UI-only"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 6,
+        "text": "- `apps/chat-ui/app/page.tsx` renders a placeholder UI shell for the Concierge UI and contains no backend logic."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 7,
+        "text": "  - Evidence: \u201cChampagne Concierge UI \u2013 Placeholder\u201d and placeholder shell copy in the page component.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 17,
+        "text": "- **Evidence for UI scope:** `apps/chat-ui` is a UI placeholder; `apps/web` exposes only a health check API route (no chatbot logic).\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/web/app/api/health/route.ts\u2020L1-L3\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 30,
+        "text": "- **MUST NOT** import or depend on monorepo UI apps (`apps/chat-ui`, `apps/web`, etc.)."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 33,
+        "text": "- **Evidence basis:** Monorepo UI apps are UI-only shells (e.g., `apps/chat-ui`) and `apps/web` API surface is limited to health. Backend responsibilities are intentionally absent from monorepo apps.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/web/app/api/health/route.ts\u2020L1-L3\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 39,
+        "text": "- Present UI placeholders or UI composition (e.g., Concierge UI page).\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011"
+      },
+      {
+        "file": "./node_modules/.pnpm/lock.yaml",
+        "line": 61,
+        "text": "  apps/chat-ui:"
+      }
+    ],
+    "v1_converse": [
+      {
+        "file": "./apps/patient-ai-service/src/server.test.ts",
+        "line": 32,
+        "text": "  const response = await fetch(`${baseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-ai-service/src/server.test.ts",
+        "line": 52,
+        "text": "  const response = await fetch(`${baseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-ai-service/src/server.test.ts",
+        "line": 76,
+        "text": "  const response = await fetch(`${baseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-ai-service/src/server.test.ts",
+        "line": 104,
+        "text": "    const response = await fetch(`${baseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-ai-service/src/server.test.ts",
+        "line": 127,
+        "text": "  const response = await fetch(`${baseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-ai-service/src/server.test.ts",
+        "line": 151,
+        "text": "  const response = await fetch(`${baseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-ai-service/src/handler.ts",
+        "line": 59,
+        "text": "    if (method === \"POST\" && url.pathname === \"/v1/converse\") {"
+      },
+      {
+        "file": "./apps/patient-ai-service/README.md",
+        "line": 8,
+        "text": "- **Authentication required:** `POST /v1/converse` requires `x-patient-id`."
+      },
+      {
+        "file": "./apps/patient-ai-service/README.md",
+        "line": 23,
+        "text": "### `POST /v1/converse`"
+      },
+      {
+        "file": "./apps/patient-ai-service/README.md",
+        "line": 61,
+        "text": "4. Allowlist the tool in `src/server.ts` (or tests) and update `/v1/converse` to call it where needed."
+      },
+      {
+        "file": "./apps/chat-ui/components/luxury-chatbot.tsx",
+        "line": 746,
+        "text": "      const response = await fetch(`${engineBaseUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./apps/patient-portal/app/api/converse/route.ts",
+        "line": 42,
+        "text": "    const upstreamResponse = await fetch(`${serviceUrl}/v1/converse`, {"
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 33,
+        "text": "    \"Mapped the runtime concierge engine calls to the existing /health and /v1/converse endpoints used by the placeholder wiring, including timeout handling.\","
+      }
+    ],
+    "chat_ui_references": [
+      {
+        "file": "./docs/champagne-os/security/champagne-security-todo.md",
+        "line": 13,
+        "text": "  - chat-ui"
+      },
+      {
+        "file": "./docs/champagne-os/security/champagne-security-architecture.md",
+        "line": 26,
+        "text": "### 1.2 chat-ui (Champagne Concierge UI)"
+      },
+      {
+        "file": "./docs/champagne-os/security/champagne-security-architecture.md",
+        "line": 65,
+        "text": "    - chat-ui"
+      },
+      {
+        "file": "./docs/champagne-os/security/champagne-security-architecture.md",
+        "line": 180,
+        "text": "1. User interacts with **chat-ui** (in apps/web or separate)."
+      },
+      {
+        "file": "./docs/champagne-os/security/champagne-security-architecture.md",
+        "line": 187,
+        "text": "4. LLM response returned to engine \u2192 chat-ui \u2192 user."
+      },
+      {
+        "file": "./docs/champagne-os/security/champagne-security-architecture.md",
+        "line": 191,
+        "text": "- chat-ui calling LLM directly from browser."
+      },
+      {
+        "file": "./docs/champagne-import-phase1.md",
+        "line": 29,
+        "text": "- `apps/chat-ui/**`"
+      },
+      {
+        "file": "./pnpm-lock.yaml",
+        "line": 64,
+        "text": "  apps/chat-ui:"
+      },
+      {
+        "file": "./scripts/guard-workspace-deps.mjs",
+        "line": 29,
+        "text": "  [\"apps/chat-ui/package.json\", new Set([\"typescript\"])],"
+      },
+      {
+        "file": "./apps/chat-ui/app/layout.tsx",
+        "line": 7,
+        "text": "  description: \"Luxury concierge UI for the chat-ui app in the champagne-core monorepo.\","
+      },
+      {
+        "file": "./apps/chat-ui/lib/brand/chat-ui.ts",
+        "line": 10,
+        "text": "  const res = await fetch(\"/brand/chat-ui.json\", { cache: \"force-cache\" });"
+      },
+      {
+        "file": "./apps/chat-ui/lib/brand/chat-ui.ts",
+        "line": 11,
+        "text": "  if (!res.ok) throw new Error(\"chat-ui manifest missing\");"
+      },
+      {
+        "file": "./apps/chat-ui/components/luxury-chatbot.tsx",
+        "line": 629,
+        "text": "    fetch(\"/brand/chat-ui.json\", { cache: \"force-cache\", signal: controller.signal })"
+      },
+      {
+        "file": "./apps/chat-ui/README.md",
+        "line": 13,
+        "text": "> Note: the booking request payload includes `tenantId` when present in `/public/brand/chat-ui.json` (`tenantId` field), otherwise `\"default\"` is used."
+      },
+      {
+        "file": "./apps/chat-ui/README.md",
+        "line": 23,
+        "text": "2. Run chat-ui with the webhook environment variable:"
+      },
+      {
+        "file": "./apps/chat-ui/README.md",
+        "line": 26,
+        "text": "   HANDOFF_BOOKING_WEBHOOK_URL=http://localhost:5055 pnpm --filter chat-ui dev"
+      },
+      {
+        "file": "./apps/chat-ui/package.json",
+        "line": 2,
+        "text": "  \"name\": \"chat-ui\","
+      },
+      {
+        "file": "./_imports/code/hero-engine/Manifest_Audit_Report.md",
+        "line": 11,
+        "text": "| `public/brand/chat-ui.json` | Champagne theming manifest for chat UI panels and gradients. |"
+      },
+      {
+        "file": "./_imports/code/hero-engine/Manifest_Audit_Report.md",
+        "line": 55,
+        "text": "### `public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./_imports/code/hero-engine/Manifest_Audit_Report.md",
+        "line": 74,
+        "text": "- **Chat Experience**: `public/brand/chat-ui.json` layers on top of Champagne tokens, tying into phases like `chatbot_ui` in the director control file."
+      },
+      {
+        "file": "./_imports/champagne-hero/manus/notes/reports/Manus_Manifests_Snapshot.json",
+        "line": 1115,
+        "text": "      \"path\": \"public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./_imports/champagne-hero/docs/hero-file-inventory.md",
+        "line": 201,
+        "text": "| 194 | `lib/brand/chat-ui.ts` | `code/fx-system/lib/brand/chat-ui.ts` | `fx-system` | FX / motion / layer stack related code |"
+      },
+      {
+        "file": "./_imports/champagne-hero/docs/hero-file-inventory.md",
+        "line": 253,
+        "text": "| 246 | `public/brand/chat-ui.json` | `code/fx-system/public/brand/chat-ui.json` | `fx-system` | FX / motion / layer stack related code |"
+      },
+      {
+        "file": "./_champagne-extraction/extraction-inventory.md",
+        "line": 450,
+        "text": "- `assets-core/public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./node_modules/.modules.yaml",
+        "line": 292,
+        "text": "  apps/chat-ui:"
+      },
+      {
+        "file": "./node_modules/.modules.yaml",
+        "line": 293,
+        "text": "    chat-ui: private"
+      },
+      {
+        "file": "./_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts",
+        "line": 10,
+        "text": "  const res = await fetch(\"/brand/chat-ui.json\", { cache: \"force-cache\" });"
+      },
+      {
+        "file": "./_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts",
+        "line": 11,
+        "text": "  if (!res.ok) throw new Error(\"chat-ui manifest missing\");"
+      },
+      {
+        "file": "./_imports/champagne-hero/code/fx-system/reports/Manifest_Schema_Check.md",
+        "line": 38,
+        "text": "## public/brand/chat-ui.json"
+      },
+      {
+        "file": "./_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md",
+        "line": 11,
+        "text": "| `public/brand/chat-ui.json` | Champagne theming manifest for chat UI panels and gradients. |"
+      },
+      {
+        "file": "./_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md",
+        "line": 55,
+        "text": "### `public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md",
+        "line": 74,
+        "text": "- **Chat Experience**: `public/brand/chat-ui.json` layers on top of Champagne tokens, tying into phases like `chatbot_ui` in the director control file."
+      },
+      {
+        "file": "./reports/DENTALLY_PORTAL_BOOKING_CTA_HANDOFF_V1.json",
+        "line": 30,
+        "text": "      \"apps/chat-ui/app/page.tsx\""
+      },
+      {
+        "file": "./reports/CHATBOT_QUICK_ACTION_INTENT_MAP_REPORT_V1.json",
+        "line": 2,
+        "text": "  \"changedFiles\": [\"apps/chat-ui/components/luxury-chatbot.tsx\"],"
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 3,
+        "text": "    \"apps/chat-ui/app/globals.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 4,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 5,
+        "text": "    \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 6,
+        "text": "    \"apps/chat-ui/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 7,
+        "text": "    \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 21,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 26,
+        "text": "      \"file\": \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 31,
+        "text": "      \"file\": \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 36,
+        "text": "      \"file\": \"apps/chat-ui/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_TOKEN_PURITY_PATCH_REPORT_V1.json",
+        "line": 41,
+        "text": "      \"file\": \"apps/chat-ui/app/globals.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 5,
+        "text": "      \"destination\": \"apps/chat-ui/components/luxury-chatbot.tsx\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 8,
+        "text": "      \"source\": \"_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 9,
+        "text": "      \"destination\": \"apps/chat-ui/lib/brand/chat-ui.ts\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 13,
+        "text": "      \"destination\": \"apps/chat-ui/styles/chat-preview.css\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 16,
+        "text": "      \"source\": \"_imports/champagne-hero/code/fx-system/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 17,
+        "text": "      \"destination\": \"apps/chat-ui/public/brand/chat-ui.json\""
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 21,
+        "text": "    \"apps/chat-ui/app/layout.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 22,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 23,
+        "text": "    \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 24,
+        "text": "    \"apps/chat-ui/lib/brand/chat-ui.ts\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 25,
+        "text": "    \"apps/chat-ui/package.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 26,
+        "text": "    \"apps/chat-ui/public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 27,
+        "text": "    \"apps/chat-ui/styles/chat-preview.css\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 34,
+        "text": "    \"Introduced local easing constants and removed _imports-only dependencies so the component compiles inside apps/chat-ui.\","
+      },
+      {
+        "file": "./reports/CHATBOT_LUXURY_UI_ADOPTION_REPORT_V1.json",
+        "line": 35,
+        "text": "    \"Added global chat-preview styles and public manifest assets under apps/chat-ui to match the luxury UI presentation.\""
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 51,
+        "text": "      \"apps/chat-ui\","
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 52,
+        "text": "      \"node_modules/.pnpm/node_modules/chat-ui\","
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 58,
+        "text": "      \"_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts\","
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 60,
+        "text": "      \"_imports/champagne-hero/code/fx-system/public/brand/chat-ui.json\""
+      },
+      {
+        "file": "./reports/CHATBOT_UI_REPO_EVIDENCE_V1.json",
+        "line": 65,
+        "text": "      \"apps/chat-ui/app/layout.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 3,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 4,
+        "text": "    \"apps/chat-ui/components/luxury-chatbot.tsx\""
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 8,
+        "text": "      \"file\": \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 13,
+        "text": "      \"file\": \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 18,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 23,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 28,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 33,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_MICROCOPY_CANON_PATCH_REPORT_V1.json",
+        "line": 38,
+        "text": "      \"file\": \"apps/chat-ui/components/luxury-chatbot.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_DENTALLY_BOOKING_UI_WIRING_REPORT_V1.json",
+        "line": 3,
+        "text": "    \"apps/chat-ui/app/page.tsx\","
+      },
+      {
+        "file": "./reports/CHATBOT_DENTALLY_BOOKING_UI_WIRING_REPORT_V1.json",
+        "line": 7,
+        "text": "    \"apps/chat-ui/app/page.tsx\": {"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 31,
+        "text": "apps/chat-ui"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 32,
+        "text": "apps/chat-ui/node_modules"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 33,
+        "text": "apps/chat-ui/node_modules/.bin"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 34,
+        "text": "apps/chat-ui/app"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 166,
+        "text": "[ -d apps/chat-ui ] && echo \"apps/chat-ui TRUE\" || echo \"apps/chat-ui FALSE\""
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 172,
+        "text": "apps/chat-ui TRUE"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 177,
+        "text": "### Search: exact `chat-ui` references"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 180,
+        "text": "rg -n \"chat-ui\" --glob '!**/node_modules/**'"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 184,
+        "text": "_champagne-extraction/extraction-inventory.md:450:- `assets-core/public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 185,
+        "text": "apps/chat-ui/app/page.tsx:6:        This is the placeholder shell for the <code>chat-ui</code> app inside the champagne-core monorepo."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 186,
+        "text": "apps/chat-ui/app/layout.tsx:6:  description: \"Placeholder shell for the chat-ui app in the champagne-core monorepo.\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 187,
+        "text": "apps/chat-ui/package.json:2:  \"name\": \"chat-ui\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 188,
+        "text": "package.json:11:    \"dev:chat-ui\": \"pnpm --filter chat-ui dev\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 189,
+        "text": "pnpm-lock.yaml:51:  apps/chat-ui:"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 190,
+        "text": "_imports/code/hero-engine/Manifest_Audit_Report.md:11:| `public/brand/chat-ui.json` | Champagne theming manifest for chat UI panels and gradients. |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 191,
+        "text": "_imports/code/hero-engine/Manifest_Audit_Report.md:55:### `public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 192,
+        "text": "_imports/code/hero-engine/Manifest_Audit_Report.md:74:- **Chat Experience**: `public/brand/chat-ui.json` layers on top of Champagne tokens, tying into phases like `chatbot_ui` in the director control file."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 193,
+        "text": "_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md:11:| `public/brand/chat-ui.json` | Champagne theming manifest for chat UI panels and gradients. |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 194,
+        "text": "_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md:55:### `public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 195,
+        "text": "_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md:74:- **Chat Experience**: `public/brand/chat-ui.json` layers on top of Champagne tokens, tying into phases like `chatbot_ui` in the director control file."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 196,
+        "text": "_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts:10:  const res = await fetch(\"/brand/chat-ui.json\", { cache: \"force-cache\" });"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 197,
+        "text": "_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts:11:  if (!res.ok) throw new Error(\"chat-ui manifest missing\");"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 198,
+        "text": "_imports/champagne-hero/docs/hero-file-inventory.md:201:| 194 | `lib/brand/chat-ui.ts` | `code/fx-system/lib/brand/chat-ui.ts` | `fx-system` | FX / motion / layer stack related code |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 199,
+        "text": "_imports/champagne-hero/docs/hero-file-inventory.md:253:| 246 | `public/brand/chat-ui.json` | `code/fx-system/public/brand/chat-ui.json` | `fx-system` | FX / motion / layer stack related code |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 200,
+        "text": "_imports/champagne-hero/code/fx-system/reports/Manifest_Schema_Check.md:38:## public/brand/chat-ui.json"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 201,
+        "text": "_imports/champagne-hero/manus/notes/reports/Manus_Manifests_Snapshot.json:1115:      \"path\": \"public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 202,
+        "text": "docs/champagne-import-phase1.md:29:- `apps/chat-ui/**`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 203,
+        "text": "docs/champagne-os/security/champagne-security-todo.md:13:  - chat-ui"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 204,
+        "text": "docs/champagne-os/security/champagne-security-architecture.md:26:### 1.2 chat-ui (Champagne Concierge UI)"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 205,
+        "text": "docs/champagne-os/security/champagne-security-architecture.md:65:    - chat-ui"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 206,
+        "text": "docs/champagne-os/security/champagne-security-architecture.md:180:1. User interacts with **chat-ui** (in apps/web or separate)."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 207,
+        "text": "docs/champagne-os/security/champagne-security-architecture.md:187:4. LLM response returned to engine \u2192 chat-ui \u2192 user."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 208,
+        "text": "docs/champagne-os/security/champagne-security-architecture.md:191:- chat-ui calling LLM directly from browser."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 233,
+        "text": "_champagne-extraction/extraction-inventory.md:450:- `assets-core/public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 277,
+        "text": "apps/chat-ui/app/page.tsx:4:      <h1 className=\"text-2xl font-semibold\">Champagne Concierge UI \u2013 Placeholder</h1>"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 278,
+        "text": "apps/chat-ui/app/page.tsx:6:        This is the placeholder shell for the <code>chat-ui</code> app inside the champagne-core monorepo."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 279,
+        "text": "apps/chat-ui/app/layout.tsx:5:  title: \"Champagne Concierge UI \u2013 Placeholder\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 280,
+        "text": "apps/chat-ui/app/layout.tsx:6:  description: \"Placeholder shell for the chat-ui app in the champagne-core monorepo.\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 281,
+        "text": "apps/chat-ui/app/layout.tsx:10:  // NOTE: This UI-only shell for the Champagne Concierge; PHI and chat logs must be handled by the engine service."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 282,
+        "text": "apps/chat-ui/package.json:2:  \"name\": \"chat-ui\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 283,
+        "text": "package.json:11:    \"dev:chat-ui\": \"pnpm --filter chat-ui dev\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 322,
+        "text": "_imports/code/hero-engine/Manifest_Audit_Report.md:11:| `public/brand/chat-ui.json` | Champagne theming manifest for chat UI panels and gradients. |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 323,
+        "text": "_imports/code/hero-engine/Manifest_Audit_Report.md:55:### `public/brand/chat-ui.json`"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 327,
+        "text": "_imports/code/hero-engine/Manifest_Audit_Report.md:74:- **Chat Experience**: `public/brand/chat-ui.json` layers on top of Champagne tokens, tying into phases like `chatbot_ui` in the director control file."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 348,
+        "text": "pnpm-lock.yaml:51:  apps/chat-ui:"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 352,
+        "text": "_imports/champagne-hero/docs/hero-file-inventory.md:201:| 194 | `lib/brand/chat-ui.ts` | `code/fx-system/lib/brand/chat-ui.ts` | `fx-system` | FX / motion / layer stack related code |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 353,
+        "text": "_imports/champagne-hero/docs/hero-file-inventory.md:253:| 246 | `public/brand/chat-ui.json` | `code/fx-system/public/brand/chat-ui.json` | `fx-system` | FX / motion / layer stack related code |"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 359,
+        "text": "_imports/champagne-hero/manus/notes/reports/Manus_Manifests_Snapshot.json:1115:      \"path\": \"public/brand/chat-ui.json\","
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 456,
+        "text": "### Exact `chat-ui` references (unique files)"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 459,
+        "text": "rg -n \"chat-ui\" --glob '!**/node_modules/**' | awk -F: '{print $1}' | sort -u"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 464,
+        "text": "_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 470,
+        "text": "apps/chat-ui/app/layout.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 471,
+        "text": "apps/chat-ui/app/page.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 472,
+        "text": "apps/chat-ui/package.json"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 481,
+        "text": "- `_champagne-extraction/extraction-inventory.md` \u2014 Inventory references `chat-ui` assets; contains a line mentioning `chat-ui.json` in extraction list."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 482,
+        "text": "- `_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts` \u2014 Helper code references `/brand/chat-ui.json` manifest; mentions `chat-ui` in fetch/error string."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 483,
+        "text": "- `_imports/champagne-hero/code/fx-system/reports/Manifest_Schema_Check.md` \u2014 Report section on `public/brand/chat-ui.json` schema."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 484,
+        "text": "- `_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md` \u2014 Audit report mentions `chat-ui` manifest and chat experience notes."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 485,
+        "text": "- `_imports/champagne-hero/docs/hero-file-inventory.md` \u2014 Inventory table lists chat-ui related files."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 486,
+        "text": "- `_imports/champagne-hero/manus/notes/reports/Manus_Manifests_Snapshot.json` \u2014 Snapshot includes `chat-ui` manifest path."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 487,
+        "text": "- `_imports/code/hero-engine/Manifest_Audit_Report.md` \u2014 Audit report mentions `chat-ui` manifest in hero-engine docs copy."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 488,
+        "text": "- `apps/chat-ui/app/layout.tsx` \u2014 Placeholder app metadata includes `chat-ui` description."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 489,
+        "text": "- `apps/chat-ui/app/page.tsx` \u2014 Placeholder UI copy includes `chat-ui` name."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 490,
+        "text": "- `apps/chat-ui/package.json` \u2014 Package name is `chat-ui`."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 491,
+        "text": "- `docs/champagne-import-phase1.md` \u2014 Docs include `apps/chat-ui/**` in import scope list."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 492,
+        "text": "- `docs/champagne-os/security/champagne-security-architecture.md` \u2014 Security architecture includes `chat-ui` references and flow notes."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 493,
+        "text": "- `docs/champagne-os/security/champagne-security-todo.md` \u2014 Security TODO list includes a `chat-ui` item."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 494,
+        "text": "- `package.json` \u2014 Root scripts include `dev:chat-ui`."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 495,
+        "text": "- `pnpm-lock.yaml` \u2014 Lockfile includes `apps/chat-ui` entry."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 513,
+        "text": "_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 561,
+        "text": "apps/chat-ui/app/layout.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 562,
+        "text": "apps/chat-ui/app/page.tsx"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 563,
+        "text": "apps/chat-ui/package.json"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 624,
+        "text": "- `_champagne-extraction/extraction-inventory.md` \u2014 Contains `chat`/`chat-ui` asset references in extraction inventory."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 631,
+        "text": "- `_imports/champagne-hero/code/fx-system/lib/brand/chat-ui.ts` \u2014 References `chat-ui` manifest in brand helper."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 633,
+        "text": "- `_imports/champagne-hero/code/fx-system/reports/Manifest_Schema_Check.md` \u2014 Contains `chat-ui` manifest schema note."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 649,
+        "text": "- `_imports/champagne-hero/code/hero-engine/Manifest_Audit_Report.md` \u2014 Mentions `chat-ui` and chatbot/concierge references."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 669,
+        "text": "- `_imports/code/hero-engine/Manifest_Audit_Report.md` \u2014 Mentions `chat-ui` and chatbot/concierge references."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 679,
+        "text": "- `apps/chat-ui/app/layout.tsx` \u2014 Placeholder app metadata references concierge/chat."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 680,
+        "text": "- `apps/chat-ui/app/page.tsx` \u2014 Placeholder UI copy references chat/concierge."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 681,
+        "text": "- `apps/chat-ui/package.json` \u2014 Package metadata for chat-ui."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 682,
+        "text": "- `docs/champagne-import-phase1.md` \u2014 Import plan includes `apps/chat-ui`."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 691,
+        "text": "- `docs/champagne-os/security/champagne-security-architecture.md` \u2014 Contains chat-ui and concierge flow notes."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 692,
+        "text": "- `docs/champagne-os/security/champagne-security-todo.md` \u2014 Includes chat-ui/concierge TODOs."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 697,
+        "text": "- `package.json` \u2014 Scripts include chat-ui dev command."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0A_REPO_PROBE.md",
+        "line": 727,
+        "text": "- `pnpm-lock.yaml` \u2014 Lockfile includes chat-ui/orchestrator entries."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 5,
+        "text": "### apps/chat-ui"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 7,
+        "text": "  - Evidence: \u201cChampagne Concierge UI \u2013 Placeholder\u201d and placeholder shell text.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 9,
+        "text": "  - Evidence: `next` dependency and `next dev/build/start` scripts.\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 11,
+        "text": "  - Evidence: UI-only placeholder description and Next.js runtime configuration.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 41,
+        "text": "- All inspected apps under `/apps` are Next.js UI applications (chat-ui, portal, stock, web). Each is configured as a Next runtime with `next` build/start scripts and/or a UI placeholder page, indicating they are frontend apps and not designed for backend session/state logic.\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011\u3010F:apps/portal/package.json\u2020L4-L18\u3011\u3010F:apps/stock/package.json\u2020L8-L14\u3011\u3010F:apps/web/package.json\u2020L4-L19\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 42,
+        "text": "- UI pages explicitly describe placeholder shells or UI routes, reinforcing frontend scope only (e.g., Concierge UI placeholder, Patient Portal placeholder, Stock Module routes, web page builder).\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/portal/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/stock/app/page.tsx\u2020L1-L16\u3011\u3010F:apps/web/app/page.tsx\u2020L1-L5\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 48,
+        "text": "- **Must NOT import or depend on:** any Next.js UI apps under `/apps` (chat-ui, portal, stock, web), or any app-specific runtime code from this monorepo. This avoids coupling to Vercel builds and aligns with the \u201cno shared runtime\u201d constraint."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0C_BACKEND_PLACEMENT.md",
+        "line": 49,
+        "text": "  - Evidence: all `/apps` inspected are Next.js UI apps configured via Next runtime scripts/dependencies.\u3010F:apps/chat-ui/package.json\u2020L4-L18\u3011\u3010F:apps/portal/package.json\u2020L4-L18\u3011\u3010F:apps/stock/package.json\u2020L8-L14\u3011\u3010F:apps/web/package.json\u2020L4-L19\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 5,
+        "text": "### apps/chat-ui is UI-only"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 6,
+        "text": "- `apps/chat-ui/app/page.tsx` renders a placeholder UI shell for the Concierge UI and contains no backend logic."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 7,
+        "text": "  - Evidence: \u201cChampagne Concierge UI \u2013 Placeholder\u201d and placeholder shell copy in the page component.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 17,
+        "text": "- **Evidence for UI scope:** `apps/chat-ui` is a UI placeholder; `apps/web` exposes only a health check API route (no chatbot logic).\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/web/app/api/health/route.ts\u2020L1-L3\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 30,
+        "text": "- **MUST NOT** import or depend on monorepo UI apps (`apps/chat-ui`, `apps/web`, etc.)."
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 33,
+        "text": "- **Evidence basis:** Monorepo UI apps are UI-only shells (e.g., `apps/chat-ui`) and `apps/web` API surface is limited to health. Backend responsibilities are intentionally absent from monorepo apps.\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011\u3010F:apps/web/app/api/health/route.ts\u2020L1-L3\u3011"
+      },
+      {
+        "file": "./reports/chatbot/PHASE_0D_CHATBOT_ARCHITECTURE_LOCK.md",
+        "line": 39,
+        "text": "- Present UI placeholders or UI composition (e.g., Concierge UI page).\u3010F:apps/chat-ui/app/page.tsx\u2020L1-L8\u3011"
+      },
+      {
+        "file": "./package.json",
+        "line": 11,
+        "text": "    \"dev:chat-ui\": \"pnpm --filter chat-ui dev\","
+      },
+      {
+        "file": "./node_modules/.pnpm/lock.yaml",
+        "line": 61,
+        "text": "  apps/chat-ui:"
+      }
+    ]
+  }
+}
