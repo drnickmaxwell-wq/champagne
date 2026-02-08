@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -14,6 +14,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { chatUiFixtures, type ChatUiFixture } from "../lib/chat-fixtures";
 import BookingRequestModal from "./booking-request-modal";
 import EmergencyCallbackModal from "./emergency-callback-modal";
@@ -249,6 +250,20 @@ const extractAssistantUi = (
   }
   return parseUiBlockFromContent(content);
 };
+
+const getRouteSlug = (pathname: string | null): string => {
+  if (!pathname) {
+    return "home";
+  }
+  const trimmedPath = pathname.split("?")[0]?.replace(/\/+$/, "");
+  if (!trimmedPath || trimmedPath === "/") {
+    return "home";
+  }
+  const segments = trimmedPath.split("/").filter(Boolean);
+  return segments[segments.length - 1] ?? "home";
+};
+
+const formatTopic = (slug: string): string => slug.replace(/[-_]+/g, " ").trim();
 
 const resolveAssistantContent = (data: ConversationResult): ParsedAssistantContent => {
   const resolvedContent =
@@ -552,6 +567,7 @@ export default function LuxuryChatbot({
   engineBaseUrl,
   onStatusChange,
 }: LuxuryChatbotProps) {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isEmergencyModalOpen, setIsEmergencyModalOpen] = useState(false);
@@ -571,19 +587,31 @@ export default function LuxuryChatbot({
   const inputRef = useRef<HTMLInputElement>(null);
   const firstAssistantDelayUsedRef = useRef(false);
   const firstAssistantTimeoutRef = useRef<number | null>(null);
+  const firstAssistantPrefaceUsedRef = useRef(false);
   const fixtureMode = process.env.NEXT_PUBLIC_CHATBOT_UI_FIXTURE ?? "";
+  const pageContext = useMemo(() => getRouteSlug(pathname), [pathname]);
+  const pageTopic = useMemo(() => formatTopic(pageContext), [pageContext]);
 
   const enqueueAssistantMessage = useCallback((message: ChatMessage) => {
+    let nextMessage = message;
+    if (message.role === "assistant" && !firstAssistantPrefaceUsedRef.current) {
+      firstAssistantPrefaceUsedRef.current = true;
+      const preface = `You\u2019re currently reading about ${pageTopic}.`;
+      nextMessage = {
+        ...message,
+        content: `${preface}\n\n${message.content}`,
+      };
+    }
     if (!firstAssistantDelayUsedRef.current) {
       firstAssistantDelayUsedRef.current = true;
       const delayMs = Math.floor(300 + Math.random() * 301);
       firstAssistantTimeoutRef.current = window.setTimeout(() => {
-        setMessages((prev) => [...prev, message]);
+        setMessages((prev) => [...prev, nextMessage]);
       }, delayMs);
       return;
     }
-    setMessages((prev) => [...prev, message]);
-  }, []);
+    setMessages((prev) => [...prev, nextMessage]);
+  }, [pageTopic]);
 
   useEffect(() => {
     onStatusChange?.(engineStatus);
@@ -718,7 +746,7 @@ export default function LuxuryChatbot({
       const response = await fetch(`${engineBaseUrl}/v1/converse`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: trimmedContent }),
+        body: JSON.stringify({ text: trimmedContent, pageContext }),
         signal: controller.signal,
       });
 
