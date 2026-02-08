@@ -9,15 +9,11 @@ import type { Location, ScanResponse } from "@champagne/stock-shared";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import { FieldRow } from "../components/ui/FieldList";
 import LoadingLine from "../components/ui/LoadingLine";
+import MessagePanel from "../components/ui/MessagePanel";
 import PageShell from "../components/ui/PageShell";
 import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
 import Card from "../components/ui/Card";
-import {
-  ActionSection,
-  KeyValueGrid,
-  ScreenHeader,
-  Section
-} from "../components/ui/ScreenKit";
+import { KeyValueGrid, ScreenHeader, Section } from "../components/ui/ScreenKit";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -32,11 +28,6 @@ const resolveErrorMessage = (data: unknown) => {
   return "Failed to load baseline data.";
 };
 
-const formatProduct = (name: string, variant?: string | null) => {
-  const cleanVariant = variant?.trim() ?? "";
-  return cleanVariant.length ? `${name} (${cleanVariant})` : name;
-};
-
 export default function BaselinePage() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [loading, setLoading] = useState(false);
@@ -49,7 +40,7 @@ export default function BaselinePage() {
   const [scanResult, setScanResult] = useState<ScanResponse | null>(null);
   const [scanError, setScanError] = useState("");
   const [manualFocus, setManualFocus] = useState(false);
-  const [recordedMessage, setRecordedMessage] = useState("");
+  const [stepComplete, setStepComplete] = useState(false);
 
   const activeLocation = useMemo(() => {
     return locations.find((location) => location.id === activeLocationId) ?? null;
@@ -59,7 +50,7 @@ export default function BaselinePage() {
     return locations.filter((location) => !completedLocationIds.includes(location.id));
   }, [locations, completedLocationIds]);
 
-  const currentStep = activeLocationId ? 2 : 1;
+  const currentStep = activeLocationId ? (stepComplete ? 3 : 2) : 1;
 
   const loadLocations = useCallback(async () => {
     setLoading(true);
@@ -97,7 +88,6 @@ export default function BaselinePage() {
 
   const loadScan = useCallback(async (code: string) => {
     setScanError("");
-    setRecordedMessage("");
     const result = await fetchScan(code);
     if (!result.ok) {
       setScanError(resolveErrorMessage(result.data));
@@ -140,9 +130,9 @@ export default function BaselinePage() {
       return;
     }
     setActiveLocationId(selectedLocationId);
+    setStepComplete(false);
     setScanResult(null);
     setScanCode("");
-    setRecordedMessage("");
     setScanError("");
   };
 
@@ -158,35 +148,33 @@ export default function BaselinePage() {
     });
     setActiveLocationId(null);
     setSelectedLocationId(null);
+    setStepComplete(false);
     setScanResult(null);
     setScanCode("");
-    setRecordedMessage("");
     setScanError("");
   };
 
-  const handleNextItem = () => {
-    setScanResult(null);
+  const handleResetChecklist = () => {
+    setSelectedLocationId(null);
+    setActiveLocationId(null);
+    setCompletedLocationIds([]);
+    setCameraOpen(false);
     setScanCode("");
-    setRecordedMessage("");
+    setScanResult(null);
     setScanError("");
+    setManualFocus(false);
+    setStepComplete(false);
   };
 
-  const isUnmatched = scanResult?.result === "UNMATCHED";
-  const isLocationScan = scanResult?.result === "LOCATION";
+  const locationScan = scanResult?.result === "LOCATION" ? scanResult : null;
   const nonLocationScan = scanResult && scanResult.result !== "LOCATION";
-  const stockInstanceLocationName =
-    scanResult?.result === "STOCK_INSTANCE"
-      ? scanResult.location?.name ?? "Not set"
-      : null;
-  const actionTarget =
-    scanResult && scanResult.result === "STOCK_INSTANCE"
-      ? {
-          productId: scanResult.product.id,
-          stockInstanceId: scanResult.stockInstance.id
-        }
-      : scanResult && scanResult.result === "PRODUCT_WITHDRAW"
-        ? { productId: scanResult.product.id }
-        : null;
+  const canCompleteStep = Boolean(locationScan);
+  const handleMarkStepComplete = () => {
+    if (!locationScan) {
+      return;
+    }
+    setStepComplete(true);
+  };
 
   return (
     <PageShell>
@@ -205,6 +193,13 @@ export default function BaselinePage() {
         }
       />
 
+      <MessagePanel title="Baseline Mode">
+        Use this checklist once to capture starting quantities before daily workflows.
+      </MessagePanel>
+      <PrimaryActions>
+        <ActionLink href="/scan">Exit baseline</ActionLink>
+      </PrimaryActions>
+
       <div className="stock-progress" aria-label="Baseline steps">
         <div
           className={`stock-progress__step${currentStep === 1 ? " stock-progress__step--active" : ""}`}
@@ -218,6 +213,24 @@ export default function BaselinePage() {
         </div>
         <div className="stock-progress__step">Step 3: Finish location</div>
       </div>
+
+      <MessagePanel title="Safety checks">
+        <ul className="stock-list">
+          <li>Baseline is used once to record starting quantities.</li>
+          <li>Do not overcount.</li>
+          <li>Daily use is Withdraw / Receive only.</li>
+        </ul>
+      </MessagePanel>
+
+      <PrimaryActions>
+        <button
+          type="button"
+          className="stock-button stock-button--secondary"
+          onClick={handleResetChecklist}
+        >
+          Reset checklist
+        </button>
+      </PrimaryActions>
 
       {errorMessage ? (
         <FeedbackCard title="Error" role="alert" message={errorMessage} />
@@ -270,22 +283,19 @@ export default function BaselinePage() {
         <>
           <Section title="Step 2: Add stock">
             <p className="stock-status">
-              Recording stock for <strong>{activeLocation.name}</strong>. Scan or
-              enter items and use Receive to record what exists now.
+              Confirm the location for <strong>{activeLocation.name}</strong> by
+              scanning the location QR label before marking the step complete.
             </p>
             {scanError ? (
               <FeedbackCard title="Scan error" message={scanError} />
             ) : null}
             {nonLocationScan ? (
-              <FeedbackCard
-                title="Not a location QR"
-                message="This is not a location QR. Please scan a location label."
-              />
+              <MessagePanel title="Not a location QR" role="alert">
+                This label is not a location. Please scan a location QR
+                (cupboard/surgery).
+              </MessagePanel>
             ) : null}
-            {recordedMessage ? (
-              <FeedbackCard title="Recorded" message={recordedMessage} />
-            ) : null}
-            {isUnmatched ? (
+            {scanResult?.result === "UNMATCHED" ? (
               <FeedbackCard
                 title="No match"
                 message="No match found for this code. Try another item."
@@ -324,68 +334,26 @@ export default function BaselinePage() {
                 }}
               />
             </Card>
-            {scanResult && scanResult.result !== "UNMATCHED" ? (
+            {locationScan ? (
               <Card title="Match summary">
                 <KeyValueGrid>
-                  {isLocationScan ? (
-                    <FieldRow
-                      label="Location"
-                      value={`${scanResult.name} (${scanResult.locationId})`}
-                    />
-                  ) : null}
-                  {scanResult.result === "STOCK_INSTANCE" ? (
-                    <>
-                      <FieldRow label="Location" value={stockInstanceLocationName} />
-                      <FieldRow
-                        label="Product"
-                        value={formatProduct(
-                          scanResult.product.name,
-                          scanResult.product.variant
-                        )}
-                      />
-                      <FieldRow label="Batch" value={scanResult.stockInstance.batchNumber} />
-                      {scanResult.stockInstance.expiryDate ? (
-                        <FieldRow
-                          label="Expiry"
-                          value={scanResult.stockInstance.expiryDate}
-                        />
-                      ) : null}
-                    </>
-                  ) : null}
-                  {scanResult.result === "PRODUCT_WITHDRAW" ? (
-                    <FieldRow
-                      label="Product"
-                      value={formatProduct(
-                        scanResult.product.name,
-                        scanResult.product.variant
-                      )}
-                    />
-                  ) : null}
+                  <FieldRow
+                    label="Location"
+                    value={`${locationScan.name} (${locationScan.locationId})`}
+                  />
                 </KeyValueGrid>
               </Card>
             ) : null}
-            {actionTarget ? (
-              <ActionSection
-                productId={actionTarget.productId}
-                stockInstanceId={actionTarget.stockInstanceId}
-                locationId={activeLocationId}
-                locationName={activeLocation.name}
-                onEventSuccess={() => {
-                  setRecordedMessage("Recorded. Add the next item.");
-                }}
-              />
-            ) : null}
-            {recordedMessage ? (
-              <PrimaryActions>
-                <button
-                  type="button"
-                  className="stock-button stock-button--secondary"
-                  onClick={handleNextItem}
-                >
-                  Add next item
-                </button>
-              </PrimaryActions>
-            ) : null}
+            <PrimaryActions>
+              <button
+                type="button"
+                className="stock-button stock-button--primary"
+                onClick={handleMarkStepComplete}
+                disabled={!canCompleteStep}
+              >
+                Mark this step complete
+              </button>
+            </PrimaryActions>
           </Section>
 
           <Section title="Step 3: Finish location">
@@ -397,6 +365,7 @@ export default function BaselinePage() {
                 type="button"
                 className="stock-button stock-button--primary"
                 onClick={handleFinishLocation}
+                disabled={!stepComplete}
               >
                 Finished this location
               </button>
