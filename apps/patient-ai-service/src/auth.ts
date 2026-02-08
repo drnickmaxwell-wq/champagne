@@ -19,7 +19,7 @@ const readHeader = (request: IncomingMessage, name: string) => {
 
 export const resolveAuthContext = (request: IncomingMessage): AuthResult => {
   const patientId = readHeader(request, "x-patient-id");
-  const tenantId = readHeader(request, "x-tenant-id") ?? "unknown";
+  const tenantId = readHeader(request, "x-tenant-id");
 
   if (typeof patientId !== "string" || patientId.trim().length === 0) {
     return {
@@ -32,11 +32,22 @@ export const resolveAuthContext = (request: IncomingMessage): AuthResult => {
     };
   }
 
+  if (typeof tenantId !== "string" || tenantId.trim().length === 0) {
+    return {
+      ok: false,
+      reason: "Missing tenant id.",
+      context: {
+        patientId: patientId.trim(),
+        tenantId: "unknown"
+      }
+    };
+  }
+
   return {
     ok: true,
     context: {
       patientId: patientId.trim(),
-      tenantId: typeof tenantId === "string" && tenantId.trim() ? tenantId : "unknown"
+      tenantId: tenantId.trim()
     }
   };
 };

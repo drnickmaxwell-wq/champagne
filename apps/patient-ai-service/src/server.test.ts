@@ -3,11 +3,11 @@ import { once } from "node:events";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import type { AddressInfo } from "node:net";
-import { MemoryAuditSink } from "./audit.js";
+import { ConsoleAuditSink, MemoryAuditSink, type AuditSink } from "./audit.js";
 import { createHandler } from "./handler.js";
 import { createToolRegistry } from "./tools.js";
 
-const startServer = async (auditSink: MemoryAuditSink) => {
+const startServer = async (auditSink: AuditSink) => {
   const server = createServer(
     createHandler({
       auditSink,
@@ -26,13 +26,16 @@ const startServer = async (auditSink: MemoryAuditSink) => {
   return { server, baseUrl };
 };
 
-test("returns 401 when auth context is missing", async () => {
+test("returns 401 when patient header is missing", async () => {
   const auditSink = new MemoryAuditSink();
   const { server, baseUrl } = await startServer(auditSink);
 
   const response = await fetch(`${baseUrl}/v1/converse`, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: {
+      "content-type": "application/json",
+      "x-tenant-id": "tenant-001"
+    },
     body: JSON.stringify({ message: "hello" })
   });
 
@@ -84,4 +87,34 @@ test("denies tool execution when tool is not allowlisted", async () => {
   assert.equal(auditSink.records[0]?.outcome, "deny");
 
   server.close();
+});
+
+test("logs avoid raw message content", async () => {
+  const auditSink = new ConsoleAuditSink();
+  const logs: string[] = [];
+  const originalLog = console.log;
+  console.log = (...args: unknown[]) => {
+    logs.push(args.map((entry) => String(entry)).join(" "));
+  };
+
+  try {
+    const { server, baseUrl } = await startServer(auditSink);
+
+    const response = await fetch(`${baseUrl}/v1/converse`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-patient-id": "patient-003",
+        "x-tenant-id": "tenant-003"
+      },
+      body: JSON.stringify({ message: "super secret message" })
+    });
+
+    assert.equal(response.status, 200);
+    assert.equal(logs.some((entry) => entry.includes("super secret message")), false);
+
+    server.close();
+  } finally {
+    console.log = originalLog;
+  }
 });
