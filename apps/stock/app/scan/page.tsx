@@ -8,7 +8,7 @@ import { ScanResponseSchema } from "@champagne/stock-shared";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import { FieldRow } from "../components/ui/FieldList";
 import LoadingLine from "../components/ui/LoadingLine";
-import PageShell from "../components/ui/PageShell";
+import StockPageTemplate from "../components/StockPageTemplate";
 import { ActionLink, PrimaryActions } from "../components/ui/PrimaryActions";
 import StatusLine from "../components/ui/StatusLine";
 import {
@@ -161,7 +161,7 @@ export default function ScanPage() {
   }, [isUnmatched]);
 
   return (
-    <PageShell
+    <StockPageTemplate
       header={
         <ScreenHeader
           title="Scan"
@@ -334,6 +334,6 @@ export default function ScanPage() {
         <ActionLink href="/locations">Locations</ActionLink>
         <ActionLink href="/products">Products</ActionLink>
       </PrimaryActions>
-    </PageShell>
+    </StockPageTemplate>
   );
 }
