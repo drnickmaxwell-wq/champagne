@@ -10,6 +10,10 @@ Governance-first scaffolding for the PHI-enabled Zone B service. This package is
 - **No self-learning:** no storage or memory persistence.
 - **Tool allowlist:** only explicit allowlisted tools can be executed.
 
+## How PMS adapters work
+
+PMS access is routed through a lightweight adapter contract in `src/pms/adapter.ts`. The resolver in `src/pms/index.ts` maps the default tenant (`default`) to the stub adapter and any unconfigured tenant to the null adapter, keeping responses deterministic without adding real integrations. All patient tools call the adapter so auditing can capture which adapter handled the request.
+
 ## Endpoints
 
 ### `GET /health`
@@ -52,7 +56,7 @@ Example response (tool-driven):
 ## Adding the next tool (appointments list)
 
 1. Add the new tool name and data shape in `src/tools/types.ts`.
-2. Implement the stubbed tool in `src/tools/impl/stub.ts` using deterministic logic.
+2. Implement the stubbed PMS data in `src/pms/adapters/stub.ts` using deterministic logic.
 3. Register the tool in `src/tools/index.ts` and export it from `runTool`.
 4. Allowlist the tool in `src/server.ts` (or tests) and update `/v1/converse` to call it where needed.
 5. Extend tests in `src/server.test.ts` to validate allowlist enforcement and audit metadata.

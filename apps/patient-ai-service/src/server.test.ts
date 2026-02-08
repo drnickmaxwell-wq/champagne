@@ -33,7 +33,7 @@ test("returns 401 when patient header is missing", async () => {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-tenant-id": "tenant-001"
+      "x-tenant-id": "default"
     },
     body: JSON.stringify({ message: "hello" })
   });
@@ -54,7 +54,7 @@ test("emits audit record when request is allowed", async () => {
     headers: {
       "content-type": "application/json",
       "x-patient-id": "patient-001",
-      "x-tenant-id": "tenant-001"
+      "x-tenant-id": "default"
     },
     body: JSON.stringify({ message: "hello" })
   });
@@ -64,6 +64,7 @@ test("emits audit record when request is allowed", async () => {
   assert.equal(auditSink.records[0]?.outcome, "allow");
   assert.equal(auditSink.records[0]?.patientId, "patient-001");
   assert.deepEqual(auditSink.records[0]?.toolsUsed, ["getPatientSummary"]);
+  assert.equal(auditSink.records[0]?.pmsAdapter, "stub");
 
   server.close();
 });
@@ -77,7 +78,7 @@ test("denies tool execution when tool is not allowlisted", async () => {
     headers: {
       "content-type": "application/json",
       "x-patient-id": "patient-002",
-      "x-tenant-id": "tenant-002"
+      "x-tenant-id": "default"
     },
     body: JSON.stringify({ message: "hello" })
   });
@@ -105,7 +106,7 @@ test("logs avoid raw message content", async () => {
       headers: {
         "content-type": "application/json",
         "x-patient-id": "patient-003",
-        "x-tenant-id": "tenant-003"
+        "x-tenant-id": "default"
       },
       body: JSON.stringify({ message: "super secret message" })
     });
@@ -128,7 +129,7 @@ test("returns patient summary reply from tool output", async () => {
     headers: {
       "content-type": "application/json",
       "x-patient-id": "patient-004",
-      "x-tenant-id": "tenant-004"
+      "x-tenant-id": "default"
     },
     body: JSON.stringify({ message: "Can I get my next appointment?" })
   });
@@ -139,6 +140,33 @@ test("returns patient summary reply from tool output", async () => {
   assert.ok(payload.reply?.includes("patient-004"));
   assert.ok(payload.reply?.toLowerCase().includes("next appointment"));
   assert.equal(payload.toolResult?.patientId, "patient-004");
+
+  server.close();
+});
+
+test("returns safe reply when adapter has no records", async () => {
+  const auditSink = new MemoryAuditSink();
+  const { server, baseUrl } = await startServer(auditSink);
+
+  const response = await fetch(`${baseUrl}/v1/converse`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-patient-id": "patient-005",
+      "x-tenant-id": "tenant-unknown"
+    },
+    body: JSON.stringify({ message: "Can I get my next appointment?" })
+  });
+
+  const payload = (await response.json()) as { reply?: string; toolResult?: unknown };
+
+  assert.equal(response.status, 200);
+  assert.equal(
+    payload.reply,
+    "Your records aren’t available here yet. The practice can help."
+  );
+  assert.equal(payload.toolResult, null);
+  assert.equal(auditSink.records[0]?.pmsAdapter, "null");
 
   server.close();
 });
