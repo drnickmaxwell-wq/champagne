@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import type { CSSProperties } from "react";
 import { HeroRenderer } from "../../components/hero/HeroRenderer";
-import { HeroRendererV2 } from "../../components/hero/v2/HeroRendererV2";
+import { HeroRendererV2Client } from "../../components/hero/v2/HeroRendererV2Client";
 import heroGlueManifest from "../../components/hero/v2/heroGlue.manifest.json";
 import type { HeroTimeOfDay } from "@champagne/hero";
 import styles from "./heroDebugIsolate.module.css";
@@ -821,7 +821,7 @@ export function HeroDebugClientPanel() {
             <div style={{ position: "relative", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
               <div className={heroClassName} style={layerOpacityVars} data-hero-renderer="v2" data-hero-root="true">
                 <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
-                  <HeroRendererV2
+                  <HeroRendererV2Client
                     key={`${heroRenderKey}-v2`}
                     prm={mockPrm}
                     particles={particles}
@@ -850,7 +850,7 @@ export function HeroDebugClientPanel() {
           >
             <Suspense fallback={<div style={{ padding: "1rem" }}>Loading hero...</div>}>
               {viewMode === "v2" ? (
-                <HeroRendererV2
+                <HeroRendererV2Client
                   key={`${heroRenderKey}-v2`}
                   prm={mockPrm}
                   particles={particles}

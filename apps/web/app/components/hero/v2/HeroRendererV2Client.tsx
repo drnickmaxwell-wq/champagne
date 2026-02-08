@@ -1,108 +1,13 @@
-import { type CSSProperties, type ReactNode, type Ref } from "react";
-import { headers } from "next/headers";
+"use client";
+
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { BaseChampagneSurface } from "@champagne/hero";
-import type { HeroMode, HeroTimeOfDay, getHeroRuntime } from "@champagne/hero";
+import type { getHeroRuntime } from "@champagne/hero";
 import { HeroContentFade, HeroSurfaceStackV2 } from "./HeroV2Client";
 import { buildHeroV2Model } from "./buildHeroV2Model";
+import type { HeroRendererV2Props, HeroV2Model } from "./HeroRendererV2";
 
 const HERO_V2_DEBUG = process.env.NEXT_PUBLIC_HERO_DEBUG === "1";
-
-export interface HeroRendererV2Props {
-  mode?: HeroMode;
-  treatmentSlug?: string;
-  pageSlugOrPath?: string;
-  debug?: boolean;
-  prm?: boolean;
-  timeOfDay?: HeroTimeOfDay;
-  particles?: boolean;
-  filmGrain?: boolean;
-  diagnosticBoost?: boolean;
-  surfaceRef?: Ref<HTMLDivElement>;
-  pageCategory?: "home" | "treatment" | "editorial" | "utility" | "marketing" | string;
-  rootStyle?: CSSProperties;
-  glueVars?: Partial<{
-    waveRingsSize: string;
-    waveRingsRepeat: string;
-    waveRingsPosition: string;
-    waveRingsImageRendering: string;
-    dotGridSize: string;
-    dotGridRepeat: string;
-    dotGridPosition: string;
-    dotGridImageRendering: string;
-  }>;
-}
-
-export type HeroV2SurfaceLayerModel = {
-  id: string;
-  role?: string;
-  prmSafe?: boolean;
-  className: string;
-  style: CSSProperties;
-  glueMeta?: {
-    source: GlueSource;
-    backgroundSize?: string;
-    backgroundRepeat?: string;
-    backgroundPosition?: string;
-    imageRendering?: string;
-  };
-  contrastFilter?: string;
-};
-
-export type HeroV2MotionLayerModel = {
-  id: string;
-  className?: string;
-  path: string;
-  style: CSSProperties;
-  targetOpacity?: number | null;
-};
-
-export type HeroV2SacredBloomModel = {
-  style: CSSProperties;
-  bloomDebug: boolean;
-  baseOpacity: string;
-  shape?: string;
-  mask?: string;
-  contrastFilter?: string;
-  glueMeta?: {
-    source: GlueSource;
-    backgroundSize?: string;
-    backgroundRepeat?: string;
-    backgroundPosition?: string;
-    imageRendering?: string;
-  };
-};
-
-export type HeroSurfaceStackModel = {
-  surfaceVars: CSSProperties;
-  prmEnabled: boolean;
-  layers: HeroV2SurfaceLayerModel[];
-  motionLayers: HeroV2MotionLayerModel[];
-  bloomEnabled: boolean;
-  heroId?: string;
-  variantId?: string;
-  boundHeroId?: string;
-  boundVariantId?: string;
-  effectiveHeroId?: string;
-  effectiveVariantId?: string;
-  particlesPath?: string;
-  particlesOpacity?: number;
-  heroVideo?: {
-    path: string;
-    poster?: string;
-    style: CSSProperties;
-    targetOpacity?: number | null;
-  };
-  sacredBloom?: HeroV2SacredBloomModel;
-};
-
-export type HeroV2Model = {
-  gradient: string;
-  layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
-  content: Awaited<ReturnType<typeof getHeroRuntime>>["content"];
-  surfaceStack: HeroSurfaceStackModel;
-};
-
-type GlueSource = "manifest" | "override" | "none";
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -111,46 +16,6 @@ const normalizeHeroPathname = (path?: string) => {
   const normalized = trimmed.split("?")[0]?.split("#")[0] ?? "/";
   if (!normalized) return "/";
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
-};
-
-const resolveHeroRequest = (requestUrl: string, fallbackPath?: string) => {
-  let pathname = fallbackPath ?? "/";
-  let heroDebugEnabled = false;
-
-  if (requestUrl) {
-    try {
-      const url = new URL(requestUrl, "http://localhost");
-      pathname = url.pathname || "/";
-      const heroDebugValue = url.searchParams.get("heroDebug");
-      heroDebugEnabled =
-        heroDebugValue === "1" || heroDebugValue === "true" || url.searchParams.has("heroDebug");
-    } catch {
-      pathname = requestUrl.split("?")[0] || "/";
-      const query = requestUrl.split("?")[1] ?? "";
-      const params = new URLSearchParams(query);
-      const heroDebugValue = params.get("heroDebug");
-      heroDebugEnabled = heroDebugValue === "1" || heroDebugValue === "true" || params.has("heroDebug");
-    }
-  } else if (fallbackPath) {
-    try {
-      const url = new URL(fallbackPath, "http://localhost");
-      pathname = url.pathname || "/";
-      const heroDebugValue = url.searchParams.get("heroDebug");
-      heroDebugEnabled =
-        heroDebugValue === "1" || heroDebugValue === "true" || url.searchParams.has("heroDebug");
-    } catch {
-      pathname = fallbackPath.split("?")[0] || "/";
-      const query = fallbackPath.split("?")[1] ?? "";
-      const params = new URLSearchParams(query);
-      const heroDebugValue = params.get("heroDebug");
-      heroDebugEnabled = heroDebugValue === "1" || heroDebugValue === "true" || params.has("heroDebug");
-    }
-  }
-
-  return {
-    pathname: normalizeHeroPathname(pathname),
-    heroDebugEnabled,
-  };
 };
 
 function HeroFallback() {
@@ -558,7 +423,7 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
   );
 }
 
-export function HeroV2Frame({
+function HeroV2Frame({
   layout,
   gradient,
   rootStyle,
@@ -694,7 +559,7 @@ export function HeroV2Frame({
   );
 }
 
-export function HeroContentV2({
+function HeroContentV2({
   content,
   layout,
 }: {
@@ -761,42 +626,41 @@ export function HeroContentV2({
   );
 }
 
-export async function HeroRendererV2(props: HeroRendererV2Props) {
-  const headersList = await headers();
-  const requestUrl = headersList.get("next-url") ?? "";
-  const { pathname, heroDebugEnabled } = resolveHeroRequest(requestUrl, props.pageSlugOrPath);
-  const pathnameKey = normalizeHeroPathname(pathname);
-  const {
-    mode,
-    treatmentSlug,
-    prm,
-    timeOfDay,
-    particles,
-    filmGrain,
-    diagnosticBoost,
-    pageCategory,
-    glueVars,
-    rootStyle,
-    surfaceRef,
-  } = props;
-  const debugEnabled = props.debug ?? heroDebugEnabled;
-  const renderModel = await buildHeroV2Model({
-    mode,
-    treatmentSlug,
-    pageSlugOrPath: pathnameKey,
-    debug: debugEnabled,
-    prm,
-    timeOfDay,
-    particles,
-    filmGrain,
-    diagnosticBoost,
-    pageCategory,
-    glueVars,
-  });
+export function HeroRendererV2Client(props: HeroRendererV2Props) {
+  const [renderModel, setRenderModel] = useState<HeroV2Model | null>(null);
+  const mountedRef = useRef(true);
+  const { pageSlugOrPath } = props;
+  const pathnameKey = useMemo(() => {
+    if (pageSlugOrPath) return normalizeHeroPathname(pageSlugOrPath);
+    if (typeof window === "undefined") return "/";
+    return normalizeHeroPathname(window.location.pathname);
+  }, [pageSlugOrPath]);
+  const debugEnabled = useMemo(() => {
+    if (props.debug !== undefined) return props.debug;
+    if (typeof window === "undefined") return false;
+    const params = new URLSearchParams(window.location.search);
+    return params.get("heroDebug") === "1";
+  }, [props.debug]);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    void buildHeroV2Model({
+      ...props,
+      pageSlugOrPath: pathnameKey,
+      debug: debugEnabled,
+    }).then((model) => {
+      if (!mountedRef.current) return;
+      setRenderModel(model);
+    });
+
+    return () => {
+      mountedRef.current = false;
+    };
+  }, [debugEnabled, pathnameKey, props]);
 
   if (!renderModel) return <HeroFallback />;
 
-  const resolvedRootStyle = { ...rootStyle, ...renderModel.surfaceStack.surfaceVars };
+  const resolvedRootStyle = { ...props.rootStyle, ...renderModel.surfaceStack.surfaceVars };
   const motionCount = renderModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
@@ -849,7 +713,7 @@ export async function HeroRendererV2(props: HeroRendererV2Props) {
         </div>
       ) : null}
       <div style={{ position: "absolute", inset: 0 }}>
-        <HeroSurfaceStackV2 surfaceRef={surfaceRef} {...renderModel.surfaceStack} />
+        <HeroSurfaceStackV2 surfaceRef={props.surfaceRef} {...renderModel.surfaceStack} />
       </div>
       <HeroContentFade>
         <HeroContentV2 content={renderModel.content} layout={renderModel.layout} />
@@ -857,5 +721,3 @@ export async function HeroRendererV2(props: HeroRendererV2Props) {
     </HeroV2Frame>
   );
 }
-
-export { buildHeroV2Model } from "./buildHeroV2Model";
