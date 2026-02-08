@@ -14,6 +14,10 @@ const footerStyle = {
 } as const;
 
 export function Footer() {
+  const portalBase = process.env.NEXT_PUBLIC_PORTAL_URL?.trim() || "";
+  const portalHref = portalBase
+    ? `${portalBase.replace(/\/$/, "")}/?intent=login`
+    : "/patient-portal?intent=login";
   const currentYear = new Date().getFullYear();
   const navItems = getMainNavItems();
   const primaryNav = navItems.slice(0, 4);
@@ -121,7 +125,7 @@ export function Footer() {
             <Link className={styles.socialLink} href="/contact" aria-label="Contact us">
               ✉️
             </Link>
-            <Link className={styles.socialLink} href="/patient-portal?intent=login" aria-label="Patient portal">
+            <Link className={styles.socialLink} href={portalHref} aria-label="Patient portal">
               ↗️
             </Link>
             <Link className={styles.socialLink} href="/treatments" aria-label="View treatments">
