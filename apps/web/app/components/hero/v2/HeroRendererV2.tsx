@@ -150,6 +150,7 @@ type HeroV2FrameProps = {
   layout: Awaited<ReturnType<typeof getHeroRuntime>>["layout"];
   gradient: string;
   rootStyle?: CSSProperties;
+  rootRef?: Ref<HTMLDivElement>;
   heroId?: string;
   variantId?: string;
   particlesPath?: string;
@@ -527,6 +528,7 @@ export function HeroV2Frame({
   layout,
   gradient,
   rootStyle,
+  rootRef,
   heroId,
   variantId,
   particlesPath,
@@ -553,6 +555,7 @@ export function HeroV2Frame({
       data-hero-renderer="v2"
       data-hero-root="true"
       style={rootStyle}
+      ref={rootRef}
       {...dataAttributes}
     >
       <BaseChampagneSurface
@@ -751,6 +754,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const heroRootRef = useRef<HTMLElement | null>(null);
   const heroRootIdentityRef = useRef(new WeakMap<Element, string>());
   const heroAssetRefMap = useRef(new Map<string, Element>());
+  const heroRootElementRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     renderModelRef.current = renderModel;
@@ -866,8 +870,20 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     if (!debugEnabled) return;
-    const root = document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
-    if (!(root instanceof HTMLElement)) return;
+    console.info(`[HERO_PROBE_ENTER] path=${pathnameKey} debugEnabled=${debugEnabled}`);
+    const refRoot = heroRootElementRef.current;
+    const rootSource = refRoot ? "ref" : "query";
+    const root = refRoot ?? document.querySelector(".hero-renderer-v2[data-hero-root=\"true\"]");
+    console.info(`[HERO_PROBE_ROOT_SRC] path=${pathnameKey} src=${rootSource}`);
+    if (!root) {
+      console.info(`[HERO_PROBE_ROOT_MISSING] path=${pathnameKey}`);
+      return;
+    }
+    if (!(root instanceof HTMLElement)) {
+      const type = Object.prototype.toString.call(root);
+      console.info(`[HERO_PROBE_ROOT_BADTYPE] path=${pathnameKey} type=${type}`);
+      return;
+    }
 
     const rootMap = heroRootIdentityRef.current;
     if (!rootMap.has(root)) {
@@ -1007,6 +1023,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       layout={activeModel.layout}
       gradient={activeModel.gradient}
       rootStyle={gatedRootStyle}
+      rootRef={heroRootElementRef}
       heroId={activeModel.surfaceStack.heroId}
       variantId={activeModel.surfaceStack.variantId}
       particlesPath={activeModel.surfaceStack.particlesPath}
