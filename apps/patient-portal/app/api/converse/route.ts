@@ -5,8 +5,6 @@ export const runtime = "nodejs";
 
 const DEFAULT_TENANT_ID = "default";
 const PATIENT_COOKIE = "patientId";
-const DEFAULT_SERVICE_URL = "http://localhost:4010";
-
 type ConverseRequest = {
   message?: string;
 };
@@ -31,7 +29,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Message is required." }, { status: 400 });
   }
 
-  const serviceUrl = process.env.PATIENT_AI_SERVICE_URL ?? DEFAULT_SERVICE_URL;
+  const serviceUrl = process.env.PATIENT_AI_SERVICE_URL;
+
+  if (!serviceUrl) {
+    return NextResponse.json(
+      { error: "PATIENT_AI_SERVICE_URL not configured" },
+      { status: 500 }
+    );
+  }
 
   try {
     const upstreamResponse = await fetch(`${serviceUrl}/v1/converse`, {
