@@ -1,13 +1,18 @@
-export type AuditOutcome = "allow" | "deny";
+import { z } from "zod";
 
-export type AuditRecord = {
-  requestId: string;
-  patientId: string;
-  tenantId: string;
-  timestamp: string;
-  action: "converse";
-  outcome: AuditOutcome;
-};
+export const auditRecordSchema = z.object({
+  requestId: z.string().min(1),
+  tenantId: z.string().min(1),
+  patientId: z.string().min(1),
+  ts: z.string().min(1),
+  zone: z.literal("B"),
+  action: z.literal("converse"),
+  outcome: z.enum(["allow", "deny"]),
+  reason: z.string().min(1).optional()
+});
+
+export type AuditOutcome = z.infer<typeof auditRecordSchema>["outcome"];
+export type AuditRecord = z.infer<typeof auditRecordSchema>;
 
 export type AuditSink = {
   write: (record: AuditRecord) => Promise<void> | void;
@@ -15,7 +20,16 @@ export type AuditSink = {
 
 export class ConsoleAuditSink implements AuditSink {
   write(record: AuditRecord) {
-    console.log(JSON.stringify({ audit: record }));
+    console.log(
+      JSON.stringify({
+        audit: {
+          requestId: record.requestId,
+          tenantId: record.tenantId,
+          patientId: record.patientId,
+          outcome: record.outcome
+        }
+      })
+    );
   }
 }
 

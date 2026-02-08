@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { randomUUID } from "node:crypto";
 import { resolveAuthContext } from "./auth.js";
-import type { AuditOutcome, AuditSink } from "./audit.js";
+import { auditRecordSchema, type AuditOutcome, type AuditSink } from "./audit.js";
 import { isToolAllowed, type ToolName, type ToolRegistry } from "./tools.js";
 
 export type HandlerDependencies = {
@@ -20,7 +20,10 @@ type ConverseBody = {
 };
 
 const json = (response: ServerResponse, status: number, body: Record<string, unknown>) => {
-  response.writeHead(status, { "content-type": "application/json" });
+  response.writeHead(status, {
+    "content-type": "application/json",
+    "cache-control": "no-store"
+  });
   response.end(JSON.stringify(body));
 };
 
@@ -63,20 +66,28 @@ export const createHandler = (dependencies: HandlerDependencies) => {
         : requestIdFactory();
       const authResult = resolveAuthContext(request);
       const timestamp = dependencies.now().toISOString();
+      let auditWritten = false;
 
-      const writeAudit = async (outcome: AuditOutcome) => {
-        await dependencies.auditSink.write({
+      const writeAudit = async (outcome: AuditOutcome, reason?: string) => {
+        if (auditWritten) {
+          return;
+        }
+        auditWritten = true;
+        const record = auditRecordSchema.parse({
           requestId,
           patientId: authResult.context.patientId,
           tenantId: authResult.context.tenantId,
-          timestamp,
+          ts: timestamp,
+          zone: "B",
           action: "converse",
-          outcome
+          outcome,
+          reason
         });
+        await dependencies.auditSink.write(record);
       };
 
       if (!authResult.ok) {
-        await writeAudit("deny");
+        await writeAudit("deny", authResult.reason);
         json(response, 401, { error: authResult.reason, requestId });
         return;
       }
@@ -86,13 +97,13 @@ export const createHandler = (dependencies: HandlerDependencies) => {
       try {
         body = (await readJsonBody(request)) as ConverseBody;
       } catch {
-        await writeAudit("deny");
+        await writeAudit("deny", "Invalid JSON body.");
         json(response, 400, { error: "Invalid JSON body.", requestId });
         return;
       }
 
       if (typeof body.message !== "string" || body.message.trim().length === 0) {
-        await writeAudit("deny");
+        await writeAudit("deny", "Message is required.");
         json(response, 400, { error: "Message is required.", requestId });
         return;
       }
@@ -100,19 +111,28 @@ export const createHandler = (dependencies: HandlerDependencies) => {
       if (body.toolRequest?.name) {
         const name = String(body.toolRequest.name);
         if (!isToolAllowed(name, dependencies.allowTools)) {
-          await writeAudit("deny");
+          await writeAudit("deny", "Tool not allowed.");
           json(response, 403, { error: "Tool not allowed.", requestId });
           return;
         }
 
-        const toolResult = await dependencies.toolRegistry.execute(name as ToolName, authResult.context);
-        await writeAudit("allow");
-        json(response, 200, {
-          requestId,
-          reply: `Echo (Zone B): ${body.message}`,
-          toolResult
-        });
-        return;
+        try {
+          const toolResult = await dependencies.toolRegistry.execute(
+            name as ToolName,
+            authResult.context
+          );
+          await writeAudit("allow");
+          json(response, 200, {
+            requestId,
+            reply: `Echo (Zone B): ${body.message}`,
+            toolResult
+          });
+          return;
+        } catch (error) {
+          await writeAudit("deny", error instanceof Error ? error.message : "Tool execution failed.");
+          json(response, 500, { error: "Tool execution failed.", requestId });
+          return;
+        }
       }
 
       await writeAudit("allow");
