@@ -12,7 +12,6 @@ import { ActionLink, PrimaryActions } from "../../components/ui/PrimaryActions";
 import StatusLine from "../../components/ui/StatusLine";
 import {
   ActionSection,
-  DebugDisclosure,
   KeyValueGrid,
   ScreenHeader,
   Section
@@ -215,11 +214,6 @@ export default function Page() {
         <ActionLink href="/reorder">Reorder</ActionLink>
         <ActionLink href="/products">Products</ActionLink>
       </PrimaryActions>
-      {scanData ? (
-        <DebugDisclosure summary="Technical details (for troubleshooting only)">
-          <pre>{JSON.stringify(scanData, null, 2)}</pre>
-        </DebugDisclosure>
-      ) : null}
     </PageShell>
   );
 }

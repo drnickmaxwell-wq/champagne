@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   EventTypeSchema,
   StockInstanceSnapshotSchema
@@ -14,6 +14,8 @@ type EventActionPanelProps = {
   stockInstanceId?: string;
   locationId?: string | null;
   locationName?: string | null;
+  defaultQuantity?: number;
+  allowedActions?: EventType[];
   onEventSuccess?: () => void;
   onLastActionMessage?: (message: string) => void;
 };
@@ -44,22 +46,41 @@ const resolveUpdatedQty = (data: unknown) => {
   return null;
 };
 
+const resolveDefaultQuantity = (value?: number) => {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return 1;
+  }
+  return Math.max(1, Math.floor(value));
+};
+
 export default function EventActionPanel({
   productId,
   stockInstanceId,
   locationId,
   locationName,
+  defaultQuantity,
+  allowedActions,
   onEventSuccess,
   onLastActionMessage
 }: EventActionPanelProps) {
-  const [qtyInput, setQtyInput] = useState("1");
+  const [qtyInput, setQtyInput] = useState(() =>
+    String(resolveDefaultQuantity(defaultQuantity))
+  );
   const [statusMessage, setStatusMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [lastActionMessage, setLastActionMessage] = useState("");
 
-  const canWithdraw = EventTypeSchema.options.includes("WITHDRAW");
-  const canReceive = EventTypeSchema.options.includes("RECEIVE");
+  const canWithdraw = allowedActions
+    ? allowedActions.includes("WITHDRAW")
+    : EventTypeSchema.options.includes("WITHDRAW");
+  const canReceive = allowedActions
+    ? allowedActions.includes("RECEIVE")
+    : EventTypeSchema.options.includes("RECEIVE");
+
+  useEffect(() => {
+    setQtyInput(String(resolveDefaultQuantity(defaultQuantity)));
+  }, [defaultQuantity, productId, stockInstanceId]);
 
   const clampQtyInput = (value: string) => {
     const parsed = Number.parseInt(value, 10);
