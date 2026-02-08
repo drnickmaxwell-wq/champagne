@@ -5,12 +5,14 @@ export type ToolContext = {
   tenantId: string;
 };
 
+export type Appointment = {
+  dateISO: string;
+  type: string;
+};
+
 export type PatientSummary = {
   patientId: string;
-  nextAppointment?: {
-    dateISO: string;
-    type: string;
-  };
+  nextAppointment?: Appointment;
   currentPlanSummary?: string;
   notes?: string;
 };

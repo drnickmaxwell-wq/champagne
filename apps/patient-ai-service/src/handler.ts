@@ -67,7 +67,8 @@ export const createHandler = (dependencies: HandlerDependencies) => {
       const writeAudit = async (
         outcome: AuditOutcome,
         reason?: string,
-        toolsUsed?: string[]
+        toolsUsed?: string[],
+        pmsAdapter?: "stub" | "null"
       ) => {
         if (auditWritten) {
           return;
@@ -82,7 +83,8 @@ export const createHandler = (dependencies: HandlerDependencies) => {
           action: "converse",
           outcome,
           reason,
-          toolsUsed
+          toolsUsed,
+          pmsAdapter
         });
         await dependencies.auditSink.write(record);
       };
@@ -116,17 +118,22 @@ export const createHandler = (dependencies: HandlerDependencies) => {
         return;
       }
 
-      let toolResult: PatientSummary;
+      let toolResult: PatientSummary | null;
+      let pmsAdapterName: "stub" | "null";
       try {
-        toolResult = await runTool(toolName, authResult.context);
+        const toolResponse = await runTool(toolName, authResult.context);
+        toolResult = toolResponse.result;
+        pmsAdapterName = toolResponse.adapterName;
       } catch (error) {
         await writeAudit("deny", error instanceof Error ? error.message : "Tool execution failed.");
         json(response, 500, { error: "Tool execution failed.", requestId });
         return;
       }
 
-      const reply = buildReply(body.message, toolResult);
-      await writeAudit("allow", undefined, [toolName]);
+      const reply = toolResult
+        ? buildReply(body.message, toolResult)
+        : "Your records aren’t available here yet. The practice can help.";
+      await writeAudit("allow", undefined, [toolName], pmsAdapterName);
       json(response, 200, {
         requestId,
         reply,

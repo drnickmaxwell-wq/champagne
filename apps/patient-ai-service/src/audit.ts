@@ -9,7 +9,8 @@ export const auditRecordSchema = z.object({
   action: z.literal("converse"),
   outcome: z.enum(["allow", "deny"]),
   reason: z.string().min(1).optional(),
-  toolsUsed: z.array(z.string().min(1)).optional()
+  toolsUsed: z.array(z.string().min(1)).optional(),
+  pmsAdapter: z.enum(["stub", "null"]).optional()
 });
 
 export type AuditOutcome = z.infer<typeof auditRecordSchema>["outcome"];
