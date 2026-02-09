@@ -403,7 +403,7 @@ function AssistantCards({
                       key={`${action.label}-${actionIndex}`}
                       href={action.href}
                       aria-label={getLinkAriaLabel(action.label)}
-                      className="rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 84%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
+                      className="lux-chat-pill rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 84%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
                     >
                       {action.label}
                     </a>
@@ -414,7 +414,7 @@ function AssistantCards({
                     key={`${action.label}-${actionIndex}`}
                     type="button"
                     onClick={() => onPostback(action.payload)}
-                    className="rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 86%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
+                    className="lux-chat-pill rounded-full border border-[color:color-mix(in oklab,var(--smh-accent-gold) 22%, transparent)] bg-[color:color-mix(in oklab,var(--smh-bg) 86%, transparent)] px-3 py-1.5 text-xs font-medium text-[color:var(--text-high)] transition hover:brightness-105"
                   >
                     {action.label}
                   </button>
@@ -1015,7 +1015,7 @@ export default function LuxuryChatbot({
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && sendMessage(inputMessage)}
                     placeholder="What would you like to understand better?"
-                    className="w-full px-4 py-3 bg-[color:color-mix(in oklab,var(--smh-bg) 94%, transparent 6%)] border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[color:var(--smh-accent-gold)] focus:border-transparent text-sm text-[color:var(--chat-text)]"
+                    className="lux-chat-input w-full px-4 py-3 bg-[color:color-mix(in oklab,var(--smh-bg) 94%, transparent 6%)] border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[color:color-mix(in oklab,var(--smh-accent-gold) 55%, transparent)] focus:border-transparent text-sm text-[color:var(--chat-text)]"
                     disabled={isLoading}
                   />
                 </div>
