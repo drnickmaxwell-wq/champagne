@@ -9,6 +9,12 @@ import { ActionLink, PrimaryActions } from "../../../components/ui/PrimaryAction
 import { FieldRow } from "../../../components/ui/FieldList";
 import { ScreenHeader, Section, KeyValueGrid } from "../../../components/ui/ScreenKit";
 import {
+  buildBaselineSource,
+  buildBaselineVarianceRowsFromLots,
+  startBaselineDraft,
+  type BaselineDraft
+} from "../../baselineDraft";
+import {
   getBaselineForLocation,
   type BaselineCountEntry
 } from "../../localBaseline";
@@ -102,6 +108,7 @@ export default function OrderDraftPage() {
     DRAFT_STATUS.draft
   );
   const [products, setProducts] = useState<LocalProduct[]>([]);
+  const [baselineDraft, setBaselineDraft] = useState<BaselineDraft | null>(null);
 
   const refreshData = useCallback(() => {
     setEntries(getBaselineForLocation(locationId));
@@ -148,6 +155,10 @@ export default function OrderDraftPage() {
       };
     });
   }, [entries, lotCounts, lotsByProduct]);
+
+  const varianceRows = useMemo(() => {
+    return buildBaselineVarianceRowsFromLots(entries, lotsByProduct);
+  }, [entries, lotsByProduct]);
 
   useEffect(() => {
     setSuggestedOrders((prev) => {
@@ -220,6 +231,25 @@ export default function OrderDraftPage() {
     setDraftStatus((current) =>
       transitionDraftStatus(current, { type: DRAFT_STATUS_ACTION.freeze })
     );
+  };
+
+  const handleCreateBaselineDraft = () => {
+    const confirmed = window.confirm(
+      "This creates a draft based on baseline differences. You can edit before ordering."
+    );
+    const source = buildBaselineSource(entries, locationId);
+    const draft = startBaselineDraft(confirmed, source, varianceRows);
+    if (!draft) {
+      return;
+    }
+    setBaselineDraft(draft);
+    setSuggestedOrders(() => {
+      const next: Record<string, number> = {};
+      for (const item of draft.items) {
+        next[item.entryId] = item.suggestedOrder;
+      }
+      return next;
+    });
   };
 
   const handleUnfreezeConfirm = () => {
@@ -358,6 +388,7 @@ export default function OrderDraftPage() {
 
   const isFrozen = draftStatus === DRAFT_STATUS.frozen;
   const statusLabel = isFrozen ? "Frozen" : "Draft";
+  const baselineNote = baselineDraft?.note ?? "Not yet generated";
 
   return (
     <PageShell
@@ -395,6 +426,7 @@ export default function OrderDraftPage() {
               orderSubtotalPence > 0 ? formatCurrency(orderSubtotalPence) : "—"
             }
           />
+          <FieldRow label="Draft origin" value={baselineNote} />
         </KeyValueGrid>
         <p className="stock-order-draft__note">
           {isFrozen
@@ -427,6 +459,51 @@ export default function OrderDraftPage() {
             disabled={rows.length === 0}
           >
             Export CSV
+          </button>
+        </PrimaryActions>
+      </Section>
+
+      <Section title="Baseline variance">
+        {varianceRows.length === 0 ? (
+          <FeedbackCard
+            title="No baseline counts"
+            message="Scan products to add baseline counts for this location."
+          />
+        ) : (
+          <div className="stock-order-table" role="table" aria-label="Baseline variance">
+            <div className="stock-order-table__header" role="row">
+              <span role="columnheader">Product</span>
+              <span role="columnheader">Baseline count</span>
+              <span role="columnheader">Current stock</span>
+              <span role="columnheader">Variance</span>
+            </div>
+            {varianceRows.map((row) => (
+              <div key={row.entry.id} className="stock-order-table__row" role="row">
+                <div role="cell" className="stock-order-table__cell">
+                  <strong>{row.entry.productName}</strong>
+                  <span className="stock-order-table__meta">{row.entry.barcode}</span>
+                </div>
+                <div role="cell" className="stock-order-table__cell">
+                  {row.baselineCount}
+                </div>
+                <div role="cell" className="stock-order-table__cell">
+                  {row.estimatedStock ?? "Not yet tracked"}
+                </div>
+                <div role="cell" className="stock-order-table__cell">
+                  {row.variance ?? "Not yet tracked"}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        <PrimaryActions>
+          <button
+            type="button"
+            className="stock-button stock-button--primary"
+            onClick={handleCreateBaselineDraft}
+            disabled={varianceRows.length === 0}
+          >
+            Create order draft from baseline
           </button>
         </PrimaryActions>
       </Section>
