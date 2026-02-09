@@ -19,7 +19,11 @@ const normalizeHeroPathname = (path?: string) => {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 };
 
-export async function HeroMount(props: HeroRendererProps) {
+type HeroMountProps = HeroRendererProps & {
+  pageSlugOrPath?: string;
+};
+
+export async function HeroMount(props: HeroMountProps) {
   const rawFlag = process.env.NEXT_PUBLIC_HERO_ENGINE;
   const normalized = (rawFlag ?? "")
     .trim()
@@ -32,10 +36,12 @@ export async function HeroMount(props: HeroRendererProps) {
   if (useV2) {
     const headersList = await headers();
     const requestUrl = headersList.get("next-url") ?? "";
-    let pathname = "/";
+    let pathname = props.pageSlugOrPath ?? "/";
     let heroDebugEnabled = false;
 
-    if (requestUrl) {
+    if (props.pageSlugOrPath) {
+      pathname = normalizeHeroPathname(props.pageSlugOrPath);
+    } else if (requestUrl) {
       try {
         const url = new URL(requestUrl, "http://localhost");
         pathname = url.pathname || "/";

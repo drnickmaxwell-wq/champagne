@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { BaseChampagneSurface, ChampagneHeroFrame } from "@champagne/hero";
+import { BaseChampagneSurface, ChampagneHeroFrame, type HeroMode } from "@champagne/hero";
 import {
   champagneMachineManifest,
   getCTASlotsForPage,
@@ -9,6 +9,8 @@ import {
 } from "@champagne/manifests";
 import { ChampagneCTAGroup, resolveCTAList } from "@champagne/cta";
 import { ChampagneSectionRenderer, getSectionStack } from "@champagne/sections";
+import { HeroMount } from "../../_components/HeroMount";
+import { isBrandHeroEnabled } from "../../featureFlags";
 
 export interface ChampagnePageBuilderProps {
   slug: string;
@@ -152,53 +154,94 @@ export function ChampagnePageBuilder({ slug, previewMode = false }: ChampagnePag
   const sections = getSectionStack(pagePath);
   const isTreatmentPage = pagePath.startsWith("/treatments/");
   const shouldRenderBuilderHero = previewMode === true;
+  const isHeroEnabled = isBrandHeroEnabled();
+
+  let pageCategory: string | undefined;
+  let mode: HeroMode | undefined;
+  let treatmentSlug: string | undefined;
+
+  if (pagePath.startsWith("/treatments/")) {
+    mode = "treatment";
+    treatmentSlug = pagePath.split("/")[2] || undefined;
+    pageCategory = "treatment";
+  } else if (pagePath.startsWith("/team/")) {
+    pageCategory = "profile";
+  } else if (pagePath === "/team") {
+    pageCategory = "utility";
+  } else if (pagePath === "/about") {
+    pageCategory = "utility";
+  } else if (pagePath === "/contact") {
+    pageCategory = "utility";
+  } else if (pagePath === "/blog") {
+    pageCategory = "editorial";
+  } else if (pagePath === "/treatments") {
+    pageCategory = "utility";
+  } else if (pagePath === "/fees") {
+    pageCategory = "utility";
+  } else if (pagePath === "/smile-gallery") {
+    pageCategory = "utility";
+  } else if (pagePath === "/") {
+    pageCategory = "home";
+  } else {
+    pageCategory = (manifest as { category?: string })?.category;
+  }
 
   return (
-    <BaseChampagneSurface variant="plain" style={surfaceStyle} disableInternalOverlays>
-      <div style={gridStyle} data-surface="porcelain">
-        {isTreatmentPage && <TreatmentBreadcrumb label={manifest?.label as string | undefined} href={pagePath} />}
-        {shouldRenderBuilderHero && (
-          <div style={{ display: "grid", gap: "0.8rem" }}>
-            <ChampagneHeroFrame
-              heroId={heroId ?? pagePath}
-              preset={heroPreset}
-              headline={heroContent.label}
-              eyebrow={heroContent.eyebrow}
-              strapline={heroContent.strapline}
-              cta={heroCTAs[0] ? { label: heroCTAs[0].label, href: heroCTAs[0].href } : undefined}
-            />
-            {heroCTAs.length > 0 && (
-              <ChampagneCTAGroup
-                ctas={heroCTAs}
-                label="Hero CTAs"
-                defaultVariant="primary"
-                showDebug={previewMode}
-              />
-            )}
-          </div>
-        )}
-        <ChampagneSectionRenderer
-          pageSlug={pagePath}
-          midPageCTAs={midPageCTAs}
-          footerCTAs={footerCTAs}
-          previewMode={previewMode}
+    <>
+      {isHeroEnabled && (
+        <HeroMount
+          mode={mode}
+          treatmentSlug={treatmentSlug}
+          pageCategory={pageCategory}
+          pageSlugOrPath={pagePath}
         />
-        {previewMode && (
-          <DebugPanel
-            path={pagePath}
-            manifestLabel={manifest?.label as string | undefined}
-            heroId={heroId}
-            heroPreset={heroPreset}
-            sectionIds={sections.map((section) => section.id)}
-            ctaSummary={{
-              heroCTAs: heroCTAs.length,
-              midPageCTAs: midPageCTAs.length,
-              footerCTAs: footerCTAs.length,
-            }}
+      )}
+      <BaseChampagneSurface variant="plain" style={surfaceStyle} disableInternalOverlays>
+        <div style={gridStyle} data-surface="porcelain">
+          {isTreatmentPage && <TreatmentBreadcrumb label={manifest?.label as string | undefined} href={pagePath} />}
+          {shouldRenderBuilderHero && (
+            <div style={{ display: "grid", gap: "0.8rem" }}>
+              <ChampagneHeroFrame
+                heroId={heroId ?? pagePath}
+                preset={heroPreset}
+                headline={heroContent.label}
+                eyebrow={heroContent.eyebrow}
+                strapline={heroContent.strapline}
+                cta={heroCTAs[0] ? { label: heroCTAs[0].label, href: heroCTAs[0].href } : undefined}
+              />
+              {heroCTAs.length > 0 && (
+                <ChampagneCTAGroup
+                  ctas={heroCTAs}
+                  label="Hero CTAs"
+                  defaultVariant="primary"
+                  showDebug={previewMode}
+                />
+              )}
+            </div>
+          )}
+          <ChampagneSectionRenderer
+            pageSlug={pagePath}
+            midPageCTAs={midPageCTAs}
+            footerCTAs={footerCTAs}
+            previewMode={previewMode}
           />
-        )}
-      </div>
-    </BaseChampagneSurface>
+          {previewMode && (
+            <DebugPanel
+              path={pagePath}
+              manifestLabel={manifest?.label as string | undefined}
+              heroId={heroId}
+              heroPreset={heroPreset}
+              sectionIds={sections.map((section) => section.id)}
+              ctaSummary={{
+                heroCTAs: heroCTAs.length,
+                midPageCTAs: midPageCTAs.length,
+                footerCTAs: footerCTAs.length,
+              }}
+            />
+          )}
+        </div>
+      </BaseChampagneSurface>
+    </>
   );
 }
 
