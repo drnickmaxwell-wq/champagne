@@ -51,6 +51,14 @@ import {
 import { loadLocalBarcodeRegistry, type LocalProduct } from "../../../scan/localRegistry";
 import { buildOrderDraftCsv, type CsvRow } from "./csv";
 import { buildOrderDraftExport, type OrderDraftExportLineItem } from "./export";
+import {
+  buildEmailOrderPack,
+  buildPhoneOrderPack,
+  buildPortalOrderPack,
+  buildSupplierPackDownload,
+  groupDraftLineItemsBySupplier,
+  type OrderDraftPackLineItem
+} from "./orderPacks";
 
 type DraftRow = {
   entry: BaselineCountEntry;
@@ -353,6 +361,69 @@ export default function OrderDraftPage() {
         packLabel: selectedMeta?.packLabel
       };
     });
+  };
+
+  const buildPackLineItems = (): OrderDraftPackLineItem[] => {
+    return rows.map((row) => {
+      const suggested = suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
+      const selectedMeta = lineSupplierMeta[row.entry.productId];
+      const supplierId = selectedMeta?.supplierId;
+      const catalogItem = supplierId
+        ? findSupplierCatalogItem(supplierId, row.entry.productId, supplierCatalog)
+        : undefined;
+      return {
+        productId: row.entry.productId,
+        productName: row.entry.productName,
+        qtyUnits: suggested,
+        supplierId,
+        supplierSku: selectedMeta?.supplierSku,
+        packLabel: selectedMeta?.packLabel,
+        notes: catalogItem?.notes
+      };
+    });
+  };
+
+  const packLineItems = useMemo(
+    () => buildPackLineItems(),
+    [rows, suggestedOrders, lineSupplierMeta, supplierCatalog]
+  );
+
+  const supplierPacks = useMemo(() => {
+    const packs = groupDraftLineItemsBySupplier(packLineItems);
+    return packs.sort((a, b) => {
+      if (!a.supplierId) {
+        return 1;
+      }
+      if (!b.supplierId) {
+        return -1;
+      }
+      const supplierA = supplierById.get(a.supplierId)?.name ?? a.supplierId;
+      const supplierB = supplierById.get(b.supplierId)?.name ?? b.supplierId;
+      return supplierA.localeCompare(supplierB);
+    });
+  }, [packLineItems, supplierById]);
+
+  const handleCopyPack = useCallback(async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      window.alert("Pack copied to clipboard.");
+    } catch {
+      window.prompt("Copy pack text:", text);
+    }
+  }, []);
+
+  const handleDownloadPack = (filename: string, text: string) => {
+    try {
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      anchor.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      window.alert("Unable to download the pack. Please copy it instead.");
+    }
   };
 
   const handleExportDraft = () => {
@@ -750,6 +821,137 @@ export default function OrderDraftPage() {
         <p className="stock-order-table__helper">
           Supplier SKUs and pack labels are optional. Final quantities are editable.
         </p>
+      </Section>
+
+      <Section title="Supplier order packs">
+        <p className="stock-order-table__helper">
+          Generate supplier-ready packs for phone calls, emails, or portal orders.
+        </p>
+        {supplierPacks.length === 0 ? (
+          <FeedbackCard
+            title="No draft items"
+            message="Add draft quantities to build supplier order packs."
+          />
+        ) : (
+          <div className="stock-pack-grid">
+            {supplierPacks.map((pack) => {
+              const supplier = pack.supplierId
+                ? supplierById.get(pack.supplierId)
+                : undefined;
+              const supplierName = supplier?.name ?? "Unassigned supplier";
+              const orderingMethod = supplier?.orderingMethod ?? "—";
+              const contact = supplier?.contact;
+              const hasContact =
+                Boolean(contact?.phone) ||
+                Boolean(contact?.email) ||
+                Boolean(contact?.portalUrl) ||
+                Boolean(contact?.notes);
+              const emailPack = buildEmailOrderPack({
+                supplierName,
+                items: pack.items
+              });
+              const phonePack = buildPhoneOrderPack({
+                supplierName,
+                items: pack.items
+              });
+              const portalPack = buildPortalOrderPack({
+                supplierName,
+                items: pack.items
+              });
+              const downloadText = buildSupplierPackDownload({
+                supplierName,
+                emailText: emailPack,
+                phoneText: phonePack,
+                portalText: portalPack
+              });
+              const packDisabled = !pack.supplierId;
+              return (
+                <div key={pack.supplierId ?? "unassigned"} className="stock-pack-card">
+                  <div className="stock-pack-card__header">
+                    <div>
+                      <h3 className="stock-pack-card__title">{supplierName}</h3>
+                      <p className="stock-pack-card__meta">
+                        Ordering method: {orderingMethod}
+                      </p>
+                    </div>
+                    {supplier ? (
+                      <div className="stock-pack-card__meta">
+                        <div>{contact?.phone ? `Phone: ${contact.phone}` : null}</div>
+                        <div>{contact?.email ? `Email: ${contact.email}` : null}</div>
+                        <div>
+                          {contact?.portalUrl ? `Portal: ${contact.portalUrl}` : null}
+                        </div>
+                        {contact?.notes ? (
+                          <div>Notes: {contact.notes}</div>
+                        ) : null}
+                        {!hasContact ? (
+                          <ActionLink href="/suppliers">
+                            Add supplier contact details
+                          </ActionLink>
+                        ) : null}
+                      </div>
+                    ) : (
+                      <p className="stock-pack-card__meta">
+                        Assign a supplier to include contact details and enable pack
+                        actions.
+                      </p>
+                    )}
+                  </div>
+                  <ul className="stock-pack-list">
+                    {pack.items.map((item) => (
+                      <li key={`${item.productId}-${item.supplierId ?? "unassigned"}`}>
+                        <strong>{item.productName}</strong> — Qty {item.qtyUnits}
+                        {" — "}
+                        {item.supplierSku ? `SKU: ${item.supplierSku}` : "SKU missing"}
+                        {item.packLabel ? ` — Pack: ${item.packLabel}` : ""}
+                        {item.notes ? ` — Notes: ${item.notes}` : ""}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="stock-pack-actions">
+                    <button
+                      type="button"
+                      className="stock-button stock-button--secondary"
+                      disabled={packDisabled}
+                      onClick={() => handleCopyPack(emailPack)}
+                    >
+                      Copy email order
+                    </button>
+                    <button
+                      type="button"
+                      className="stock-button stock-button--secondary"
+                      disabled={packDisabled}
+                      onClick={() => handleCopyPack(phonePack)}
+                    >
+                      Copy phone script
+                    </button>
+                    <button
+                      type="button"
+                      className="stock-button stock-button--secondary"
+                      disabled={packDisabled}
+                      onClick={() => handleCopyPack(portalPack)}
+                    >
+                      Copy portal checklist
+                    </button>
+                    <button
+                      type="button"
+                      className="stock-button stock-button--primary"
+                      disabled={packDisabled}
+                      onClick={() =>
+                        handleDownloadPack(
+                          `order-pack-${pack.supplierId ?? "unassigned"}.txt`,
+                          downloadText
+                        )
+                      }
+                    >
+                      Download pack (.txt)
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </Section>
 
       <PrimaryActions>
