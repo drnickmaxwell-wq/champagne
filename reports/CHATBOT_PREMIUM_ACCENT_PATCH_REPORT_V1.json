@@ -1,0 +1,33 @@
+{
+  "tokensReferenced": [
+    "--smh-accent-gold",
+    "--smh-ink"
+  ],
+  "filesChanged": [
+    "apps/chat-ui/components/luxury-chatbot.tsx",
+    "apps/chat-ui/styles/chat-preview.css"
+  ],
+  "removedLiterals": [],
+  "snippets": [
+    {
+      "description": "Input focus ring softened with gold mix token",
+      "before": "focus:ring-[color:var(--smh-accent-gold)]",
+      "after": "focus:ring-[color:color-mix(in oklab,var(--smh-accent-gold) 55%, transparent)]"
+    },
+    {
+      "description": "Chat panel top-edge sheen for premium accent",
+      "before": ".lux-chat-window {\n  background: color-mix(in oklab, var(--smh-bg) 92%, transparent 8%);\n}",
+      "after": ".lux-chat-window::before {\n  background: linear-gradient(90deg, transparent 0%, color-mix(in oklab, var(--smh-accent-gold) 45%, transparent) 50%, transparent 100%);\n}"
+    },
+    {
+      "description": "Send button hover/active gold rim",
+      "before": ".lux-chat-send-button {\n  box-shadow: 0 12px 24px color-mix(in oklab, var(--smh-ink) 22%, transparent);\n}",
+      "after": ".lux-chat-send-button:hover {\n  box-shadow: 0 16px 28px color-mix(in oklab, var(--smh-ink) 18%, transparent), 0 0 0 1px color-mix(in oklab, var(--smh-accent-gold) 38%, transparent);\n}"
+    },
+    {
+      "description": "Pill highlight for action chips",
+      "before": "className=\"rounded-full border ...\"",
+      "after": "className=\"lux-chat-pill rounded-full border ...\""
+    }
+  ]
+}
