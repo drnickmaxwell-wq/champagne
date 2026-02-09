@@ -7,6 +7,10 @@ const qaReportPath = path.join(
   repoRoot,
   "reports/CHATBOT_ENGINE_COPY_QA_REPORT_V1.json",
 );
+const contentReadinessReportPath = path.join(
+  repoRoot,
+  "reports/content_readiness_report.json",
+);
 const excerptsReportPath = path.join(
   repoRoot,
   "reports/CHATBOT_PAGE_COPY_EXCERPTS_V1.json",
@@ -18,6 +22,8 @@ const outputReportPath = path.join(
 
 const baseAbsolutePhrases = [
   "best",
+  "most",
+  "right",
   "right option",
   "most suitable",
   "quickest",
@@ -61,6 +67,27 @@ const extractQaPhrases = (qaReport) => {
     }
   };
   visit(qaReport);
+  return Array.from(phrases);
+};
+
+const extractHardBannedPhrases = (contentReport) => {
+  const phrases = new Set();
+  if (!contentReport || typeof contentReport !== "object") {
+    return [];
+  }
+  const pages = Array.isArray(contentReport.pages) ? contentReport.pages : [];
+  for (const page of pages) {
+    const reasons = Array.isArray(page?.reasons) ? page.reasons : [];
+    for (const reason of reasons) {
+      if (typeof reason !== "string") {
+        continue;
+      }
+      const match = reason.match(/hard-banned phrase:\s*\"([^\"]+)\"/i);
+      if (match?.[1]) {
+        phrases.add(match[1]);
+      }
+    }
+  }
   return Array.from(phrases);
 };
 
@@ -117,8 +144,14 @@ const resolveTopic = (document, fallback) => {
 const main = async () => {
   const qaReport = await readJsonIfExists(qaReportPath);
   const qaPhrases = qaReport ? extractQaPhrases(qaReport) : [];
+  const contentReadinessReport = await readJsonIfExists(
+    contentReadinessReportPath,
+  );
+  const readinessPhrases = contentReadinessReport
+    ? extractHardBannedPhrases(contentReadinessReport)
+    : [];
   const absolutePhrases = Array.from(
-    new Set([...baseAbsolutePhrases, ...qaPhrases]),
+    new Set([...baseAbsolutePhrases, ...qaPhrases, ...readinessPhrases]),
   );
   const absolutePhraseRegexes = absolutePhrases.map((phrase) => ({
     phrase,
@@ -197,6 +230,8 @@ const main = async () => {
       absolutePhraseBlocklist: absolutePhrases,
       qaReportLoaded: Boolean(qaReport),
       qaReportPath: qaReportPath,
+      contentReadinessReportLoaded: Boolean(contentReadinessReport),
+      contentReadinessReportPath: contentReadinessReportPath,
       excerptReportLoaded: Array.isArray(excerptsReport),
       excerptReportPath: excerptsReportPath,
       warnOnExcerptMismatch: true,
@@ -215,7 +250,12 @@ const main = async () => {
 
   if (!qaReport) {
     console.warn(
-      `⚠️ QA report missing at ${qaReportPath}; using base phrase list only.`,
+      `⚠️ QA report missing at ${qaReportPath}; using base phrase list plus any canon phrases.`,
+    );
+  }
+  if (!contentReadinessReport) {
+    console.warn(
+      `⚠️ Content readiness report missing at ${contentReadinessReportPath}; hard-banned phrase expansion skipped.`,
     );
   }
   if (!Array.isArray(excerptsReport)) {
