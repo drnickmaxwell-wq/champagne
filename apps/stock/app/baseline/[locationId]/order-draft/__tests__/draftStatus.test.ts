@@ -19,15 +19,8 @@ describe("transitionDraftStatus", () => {
     expect(canEditDraft(DRAFT_STATUS.frozen)).toBe(false);
   });
 
-  it("reenables editing after unfreeze", () => {
-    expect(canEditDraft(DRAFT_STATUS.draft)).toBe(true);
-    expect(
-      canEditDraft(
-        transitionDraftStatus(DRAFT_STATUS.frozen, {
-          type: DRAFT_STATUS_ACTION.unfreeze
-        })
-      )
-    ).toBe(true);
+  it("disables editing when archived", () => {
+    expect(canEditDraft(DRAFT_STATUS.archived)).toBe(false);
   });
 
   it("keeps frozen when freeze is repeated", () => {
@@ -37,10 +30,17 @@ describe("transitionDraftStatus", () => {
     ).toBe(DRAFT_STATUS.frozen);
   });
 
-  it("moves frozen to draft on unfreeze", () => {
+  it("moves frozen to archived on archive", () => {
     const status: DraftStatus = DRAFT_STATUS.frozen;
     expect(
-      transitionDraftStatus(status, { type: DRAFT_STATUS_ACTION.unfreeze })
-    ).toBe(DRAFT_STATUS.draft);
+      transitionDraftStatus(status, { type: DRAFT_STATUS_ACTION.archive })
+    ).toBe(DRAFT_STATUS.archived);
+  });
+
+  it("keeps archived when archive is repeated", () => {
+    const status: DraftStatus = DRAFT_STATUS.archived;
+    expect(
+      transitionDraftStatus(status, { type: DRAFT_STATUS_ACTION.archive })
+    ).toBe(DRAFT_STATUS.archived);
   });
 });

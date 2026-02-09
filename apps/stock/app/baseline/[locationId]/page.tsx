@@ -21,6 +21,8 @@ import {
   upsertBaselineEntry,
   type BaselineCountEntry
 } from "../localBaseline";
+import { DRAFT_STATUS, type DraftStatus } from "../orderDraftStatus";
+import { getOrderDraftStatus } from "../orderDraftStore";
 
 const formatTimestamp = (value: string) => {
   const date = new Date(value);
@@ -42,6 +44,10 @@ export default function BaselineReviewPage() {
   const [entries, setEntries] = useState<BaselineCountEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusMessage, setStatusMessage] = useState("");
+  const [draftStatus, setDraftStatus] = useState<DraftStatus>(
+    DRAFT_STATUS.draft
+  );
+  const [showArchivedDraft, setShowArchivedDraft] = useState(false);
 
   const refreshEntries = useCallback(() => {
     setEntries(getBaselineForLocation(locationId));
@@ -52,10 +58,19 @@ export default function BaselineReviewPage() {
     refreshEntries();
   }, [refreshEntries]);
 
+  useEffect(() => {
+    if (!locationId) {
+      return;
+    }
+    setDraftStatus(getOrderDraftStatus(locationId));
+  }, [locationId]);
+
   const locationName = useMemo(() => {
     const named = entries.find((entry) => entry.locationName)?.locationName;
     return named ?? locationId;
   }, [entries, locationId]);
+
+  const isArchivedDraft = draftStatus === DRAFT_STATUS.archived;
 
   const handleCountChange = (entryId: string, nextValue: number) => {
     setEntries((prev) =>
@@ -125,9 +140,19 @@ export default function BaselineReviewPage() {
           >
             Download CSV
           </button>
-          <ActionLink href={`/baseline/${locationId}/order-draft`}>
-            Draft order list
-          </ActionLink>
+          {isArchivedDraft && !showArchivedDraft ? (
+            <button
+              type="button"
+              className="stock-button stock-button--secondary"
+              onClick={() => setShowArchivedDraft(true)}
+            >
+              View archived draft
+            </button>
+          ) : (
+            <ActionLink href={`/baseline/${locationId}/order-draft`}>
+              Draft order list
+            </ActionLink>
+          )}
           <button
             type="button"
             className="stock-button stock-button--secondary"

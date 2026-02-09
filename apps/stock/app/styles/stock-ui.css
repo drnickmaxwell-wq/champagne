@@ -104,6 +104,10 @@ main {
   background: var(--surface-2);
 }
 
+.stock-status-pill--archived {
+  background: var(--surface-1);
+}
+
 .stock-page-shell__actions,
 .stock-actions {
   margin-top: var(--radius-sm);

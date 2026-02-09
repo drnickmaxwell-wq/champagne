@@ -46,8 +46,13 @@ import {
   DRAFT_STATUS,
   DRAFT_STATUS_ACTION,
   transitionDraftStatus,
-  type DraftStatus
+  type DraftStatus,
+  type DraftStatusAction
 } from "./draftStatus";
+import {
+  getOrderDraftStatus,
+  setOrderDraftStatus
+} from "../../orderDraftStore";
 import { loadLocalBarcodeRegistry, type LocalProduct } from "../../../scan/localRegistry";
 import { buildOrderDraftCsv, type CsvRow } from "./csv";
 import { buildOrderDraftExport, type OrderDraftExportLineItem } from "./export";
@@ -133,9 +138,7 @@ export default function OrderDraftPage() {
   const [lineSupplierMeta, setLineSupplierMeta] = useState<
     Record<string, DraftLineSupplierMeta>
   >({});
-  const [draftStatus, setDraftStatus] = useState<DraftStatus>(
-    DRAFT_STATUS.draft
-  );
+  const [draftStatus, setDraftStatus] = useState<DraftStatus>(DRAFT_STATUS.draft);
   const [products, setProducts] = useState<LocalProduct[]>([]);
   const [baselineDraft, setBaselineDraft] = useState<BaselineDraft | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
@@ -159,6 +162,13 @@ export default function OrderDraftPage() {
     setLoading(false);
     refreshData();
   }, [refreshData]);
+
+  useEffect(() => {
+    if (!locationId) {
+      return;
+    }
+    setDraftStatus(getOrderDraftStatus(locationId));
+  }, [locationId]);
 
   const locationName = useMemo(() => {
     const named = entries.find((entry) => entry.locationName)?.locationName;
@@ -268,20 +278,42 @@ export default function OrderDraftPage() {
     }));
   };
 
+  const applyDraftAction = (action: DraftStatusAction) => {
+    setDraftStatus((current) => {
+      const next = transitionDraftStatus(current, action);
+      if (locationId) {
+        setOrderDraftStatus(locationId, next);
+      }
+      return next;
+    });
+  };
+
   const handleFreezeConfirm = () => {
     if (
       !window.confirm(
-        "Freezing prevents accidental changes. You can unfreeze later."
+        "Freezing prevents further edits. Use this once an order has been placed."
       )
     ) {
       return;
     }
-    setDraftStatus((current) =>
-      transitionDraftStatus(current, { type: DRAFT_STATUS_ACTION.freeze })
-    );
+    applyDraftAction({ type: DRAFT_STATUS_ACTION.freeze });
+  };
+
+  const handleArchiveConfirm = () => {
+    if (
+      !window.confirm(
+        "Archived drafts are kept for records but hidden from daily use."
+      )
+    ) {
+      return;
+    }
+    applyDraftAction({ type: DRAFT_STATUS_ACTION.archive });
   };
 
   const handleCreateBaselineDraft = () => {
+    if (!canEditDraft(draftStatus)) {
+      return;
+    }
     const confirmed = window.confirm(
       "This creates a draft based on baseline differences. You can edit before ordering."
     );
@@ -298,19 +330,6 @@ export default function OrderDraftPage() {
       }
       return next;
     });
-  };
-
-  const handleUnfreezeConfirm = () => {
-    if (
-      !window.confirm(
-        "Freezing prevents accidental changes. You can unfreeze later."
-      )
-    ) {
-      return;
-    }
-    setDraftStatus((current) =>
-      transitionDraftStatus(current, { type: DRAFT_STATUS_ACTION.unfreeze })
-    );
   };
 
   const supplierById = useMemo(() => {
@@ -538,12 +557,14 @@ export default function OrderDraftPage() {
   };
 
   const isFrozen = draftStatus === DRAFT_STATUS.frozen;
-  const statusLabel = isFrozen ? "Frozen" : "Draft";
+  const isArchived = draftStatus === DRAFT_STATUS.archived;
+  const isReadOnly = !canEditDraft(draftStatus);
+  const statusLabel = isArchived ? "Archived" : isFrozen ? "Frozen" : "Draft";
   const baselineNote = baselineDraft?.note ?? "Not yet generated";
 
   return (
     <PageShell
-      className={isFrozen ? "stock-page-shell--frozen" : undefined}
+      className={isReadOnly ? "stock-page-shell--frozen" : undefined}
       header={
         <ScreenHeader
           eyebrow="Order draft"
@@ -551,7 +572,7 @@ export default function OrderDraftPage() {
           subtitle="Compare baseline counts with locally inferred stock to draft a suggested order."
           status={
             <span
-              className={`stock-status-pill${isFrozen ? " stock-status-pill--frozen" : ""}`}
+              className={`stock-status-pill${isFrozen ? " stock-status-pill--frozen" : ""}${isArchived ? " stock-status-pill--archived" : ""}`}
             >
               {statusLabel}
             </span>
@@ -574,10 +595,22 @@ export default function OrderDraftPage() {
           <FieldRow label="Draft origin" value={baselineNote} />
         </KeyValueGrid>
         <p className="stock-order-draft__note">
-          {isFrozen
-            ? "Frozen — edits are locked until you unfreeze."
-            : "Draft — edits stay enabled until you freeze."}
+          {isArchived
+            ? "Archived — hidden from daily use."
+            : isFrozen
+              ? "Frozen — ready for order placement."
+              : "Draft — edits stay enabled until you freeze."}
         </p>
+        {isFrozen ? (
+          <p className="stock-order-draft__note">
+            This draft is frozen and cannot be edited.
+          </p>
+        ) : null}
+        {isArchived ? (
+          <p className="stock-order-draft__note">
+            This draft is archived and cannot be edited.
+          </p>
+        ) : null}
         <p className="stock-order-draft__note">
           This exports the draft as a structured file. No order is placed.
         </p>
@@ -585,15 +618,7 @@ export default function OrderDraftPage() {
           <FeedbackCard title="Export failed" message={exportError} />
         ) : null}
         <PrimaryActions>
-          {isFrozen ? (
-            <button
-              type="button"
-              className="stock-button stock-button--secondary"
-              onClick={handleUnfreezeConfirm}
-            >
-              Unfreeze draft
-            </button>
-          ) : (
+          {canEditDraft(draftStatus) ? (
             <button
               type="button"
               className="stock-button stock-button--secondary"
@@ -602,12 +627,21 @@ export default function OrderDraftPage() {
             >
               Freeze draft
             </button>
-          )}
+          ) : null}
+          {isFrozen ? (
+            <button
+              type="button"
+              className="stock-button stock-button--secondary"
+              onClick={handleArchiveConfirm}
+            >
+              Archive draft
+            </button>
+          ) : null}
           <button
             type="button"
             className="stock-button stock-button--primary"
             onClick={handleExportDraft}
-            disabled={rows.length === 0}
+            disabled={rows.length === 0 || isArchived}
           >
             Export draft
           </button>
@@ -615,7 +649,7 @@ export default function OrderDraftPage() {
             type="button"
             className="stock-button stock-button--secondary"
             onClick={handleExportCsv}
-            disabled={rows.length === 0}
+            disabled={rows.length === 0 || isArchived}
           >
             Export CSV
           </button>
@@ -660,7 +694,7 @@ export default function OrderDraftPage() {
             type="button"
             className="stock-button stock-button--primary"
             onClick={handleCreateBaselineDraft}
-            disabled={varianceRows.length === 0}
+            disabled={varianceRows.length === 0 || isReadOnly}
           >
             Create order draft from baseline
           </button>
@@ -681,7 +715,7 @@ export default function OrderDraftPage() {
               type="number"
               step={1}
               value={threshold}
-              disabled={isFrozen}
+              disabled={isReadOnly}
               onChange={(event) =>
                 handleThresholdChange(event.target.valueAsNumber)
               }
@@ -769,7 +803,7 @@ export default function OrderDraftPage() {
                       min={0}
                       step={1}
                       value={suggested}
-                      disabled={isFrozen}
+                      disabled={isReadOnly}
                       onChange={(event) =>
                         handleSuggestedChange(
                           row.entry.id,
@@ -785,7 +819,7 @@ export default function OrderDraftPage() {
                       <select
                         className="stock-form__input stock-order-table__input"
                         value={selectedSupplierId}
-                        disabled={isFrozen}
+                        disabled={isReadOnly}
                         onChange={(event) =>
                           handleSupplierChange(row.entry.productId, event.target.value)
                         }
@@ -811,7 +845,7 @@ export default function OrderDraftPage() {
                       className="stock-form__input stock-order-table__input"
                       list={skuDatalistId}
                       value={selectedMeta?.supplierSku ?? ""}
-                      disabled={isFrozen || !selectedSupplierId}
+                      disabled={isReadOnly || !selectedSupplierId}
                       placeholder={
                         selectedSupplierId ? "Enter supplier SKU" : "Select supplier"
                       }
@@ -835,7 +869,7 @@ export default function OrderDraftPage() {
                       className="stock-form__input stock-order-table__input"
                       list={packDatalistId}
                       value={selectedMeta?.packLabel ?? ""}
-                      disabled={isFrozen || !selectedSupplierId}
+                      disabled={isReadOnly || !selectedSupplierId}
                       placeholder="Optional pack label"
                       onChange={(event) =>
                         handlePackLabelChange(row.entry.productId, event.target.value)
