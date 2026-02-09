@@ -79,9 +79,7 @@ export const buildBaselineVarianceRowsFromLots = (
     const productLots = lotsByProduct[entry.productId] ?? [];
     const hasEstimate = productLots.length > 0;
     const estimatedStock = hasEstimate ? productLots.length : null;
-    const variance = hasEstimate
-      ? Math.max(0, entry.countedUnits - productLots.length)
-      : null;
+    const variance = hasEstimate ? entry.countedUnits - productLots.length : null;
     return {
       entry,
       baselineCount: entry.countedUnits,

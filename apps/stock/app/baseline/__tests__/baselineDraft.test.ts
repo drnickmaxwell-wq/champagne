@@ -55,15 +55,28 @@ describe("baseline draft helpers", () => {
     ];
     const lotsByProduct = {
       "prod-1": [makeLot(), makeLot({ id: "lot-2" })],
-      "prod-2": []
+      "prod-2": [
+        makeLot({ id: "lot-3", productId: "prod-2" }),
+        makeLot({ id: "lot-4", productId: "prod-2" }),
+        makeLot({ id: "lot-5", productId: "prod-2" }),
+        makeLot({ id: "lot-6", productId: "prod-2" }),
+        makeLot({ id: "lot-7", productId: "prod-2" }),
+        makeLot({ id: "lot-8", productId: "prod-2" }),
+        makeLot({ id: "lot-9", productId: "prod-2" }),
+        makeLot({ id: "lot-10", productId: "prod-2" }),
+        makeLot({ id: "lot-11", productId: "prod-2" }),
+        makeLot({ id: "lot-12", productId: "prod-2" }),
+        makeLot({ id: "lot-13", productId: "prod-2" }),
+        makeLot({ id: "lot-14", productId: "prod-2" })
+      ]
     };
     const source = buildBaselineSource(entries, "loc-1");
     const rows = buildBaselineVarianceRowsFromLots(entries, lotsByProduct);
     const draft = buildBaselineDraft(source, rows);
 
     expect(draft.items).toHaveLength(2);
-    expect(draft.items[0]?.suggestedOrder).toBe(8);
-    expect(draft.items[1]?.suggestedOrder).toBe(0);
+    expect(draft.items[0]?.suggestedOrder).toBe(rows[0]?.variance);
+    expect(draft.items[1]?.suggestedOrder).toBe(rows[1]?.variance);
   });
 
   it("returns null when draft creation is cancelled", () => {
