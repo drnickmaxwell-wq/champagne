@@ -23,9 +23,7 @@ import {
 type SupplierDraft = {
   name: string;
   notes: string;
-  minOrderPence: string;
-  deliveryDays: string;
-  contact: string;
+  active: boolean;
 };
 
 const createSupplierId = () => {
@@ -38,9 +36,7 @@ const createSupplierId = () => {
 const emptyDraft: SupplierDraft = {
   name: "",
   notes: "",
-  minOrderPence: "",
-  deliveryDays: "",
-  contact: ""
+  active: true
 };
 
 const downloadCsv = (filename: string, csv: string) => {
@@ -88,9 +84,7 @@ export default function SuppliersPage() {
       id: createSupplierId(),
       name,
       notes: draft.notes.trim() || undefined,
-      minOrderPence: draft.minOrderPence.trim() || undefined,
-      deliveryDays: draft.deliveryDays.trim() || undefined,
-      contact: draft.contact.trim() || undefined
+      active: draft.active
     };
     const nextStore = upsertSupplier(supplier);
     setStore(nextStore);
@@ -120,7 +114,7 @@ export default function SuppliersPage() {
         <ScreenHeader
           eyebrow="Suppliers"
           title="Offline supplier registry"
-          subtitle="Track preferred suppliers and pricing locally without placing any orders."
+          subtitle="Track preferred suppliers locally without placing any orders."
         />
       }
     >
@@ -137,7 +131,7 @@ export default function SuppliersPage() {
         <KeyValueGrid>
           <FieldRow label="Suppliers" value={store.suppliers.length} />
           <FieldRow
-            label="Supplier product prices"
+            label="Supplier product links"
             value={store.supplierProducts.length}
           />
           <FieldRow label="Storage version" value={store.version} />
@@ -189,38 +183,13 @@ export default function SuppliersPage() {
           </div>
           <div className="stock-form__row">
             <label>
-              Min order (pence)
+              Active
               <input
                 className="stock-form__input"
-                value={draft.minOrderPence}
+                type="checkbox"
+                checked={draft.active}
                 onChange={(event) =>
-                  setDraft((prev) => ({
-                    ...prev,
-                    minOrderPence: event.target.value
-                  }))
-                }
-              />
-            </label>
-            <label>
-              Delivery days
-              <input
-                className="stock-form__input"
-                value={draft.deliveryDays}
-                onChange={(event) =>
-                  setDraft((prev) => ({
-                    ...prev,
-                    deliveryDays: event.target.value
-                  }))
-                }
-              />
-            </label>
-            <label>
-              Contact
-              <input
-                className="stock-form__input"
-                value={draft.contact}
-                onChange={(event) =>
-                  setDraft((prev) => ({ ...prev, contact: event.target.value }))
+                  setDraft((prev) => ({ ...prev, active: event.target.checked }))
                 }
               />
             </label>
@@ -240,7 +209,7 @@ export default function SuppliersPage() {
         {store.suppliers.length === 0 ? (
           <FeedbackCard
             title="No suppliers yet"
-            message="Add a supplier to track offline pricing."
+            message="Add a supplier to track offline availability."
           />
         ) : (
           <div className="stock-grid">
@@ -251,12 +220,8 @@ export default function SuppliersPage() {
                   <KeyValueGrid>
                     <FieldRow label="Products" value={productCount} />
                     <FieldRow
-                      label="Min order"
-                      value={supplier.minOrderPence ?? "—"}
-                    />
-                    <FieldRow
-                      label="Delivery"
-                      value={supplier.deliveryDays ?? "—"}
+                      label="Status"
+                      value={supplier.active ? "Active" : "Inactive"}
                     />
                   </KeyValueGrid>
                   {supplier.notes ? (

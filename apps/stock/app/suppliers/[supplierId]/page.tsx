@@ -18,55 +18,41 @@ import {
   upsertSupplier,
   upsertSupplierProduct,
   type Supplier,
-  type SupplierProduct
+  type SupplierProductLink
 } from "../localSuppliers";
 
 type SupplierDraft = {
   name: string;
   notes: string;
-  minOrderPence: string;
-  deliveryDays: string;
-  contact: string;
+  active: boolean;
 };
 
-type PricingDraft = {
-  supplierSku: string;
-  unitPricePence: string;
+type LinkDraft = {
   packSize: string;
+  packLabel: string;
 };
 
 const toSupplierDraft = (supplier: Supplier): SupplierDraft => {
   return {
     name: supplier.name,
     notes: supplier.notes ?? "",
-    minOrderPence: supplier.minOrderPence ?? "",
-    deliveryDays: supplier.deliveryDays ?? "",
-    contact: supplier.contact ?? ""
+    active: supplier.active
   };
 };
 
-const toPricingDraft = (product: SupplierProduct): PricingDraft => {
+const toLinkDraft = (product: SupplierProductLink): LinkDraft => {
   return {
-    supplierSku: product.supplierSku ?? "",
-    unitPricePence: String(product.unitPricePence),
-    packSize: product.packSize ? String(product.packSize) : ""
+    packSize: String(product.packSize),
+    packLabel: product.packLabel
   };
 };
 
-const parseIntegerInput = (value: string) => {
+const parsePositiveIntegerInput = (value: string) => {
   const parsed = Number.parseInt(value, 10);
   if (!Number.isFinite(parsed)) {
     return null;
   }
-  return Math.max(0, parsed);
-};
-
-const formatCurrency = (valuePence: number) => {
-  const formatter = new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP"
-  });
-  return formatter.format(valuePence / 100);
+  return parsed >= 1 ? parsed : null;
 };
 
 export default function SupplierDetailPage() {
@@ -80,17 +66,16 @@ export default function SupplierDetailPage() {
         : "";
   const [loading, setLoading] = useState(true);
   const [supplier, setSupplier] = useState<Supplier | null>(null);
-  const [supplierProducts, setSupplierProducts] = useState<SupplierProduct[]>([]);
+  const [supplierProducts, setSupplierProducts] = useState<SupplierProductLink[]>([]);
   const [draft, setDraft] = useState<SupplierDraft | null>(null);
-  const [pricingDrafts, setPricingDrafts] = useState<Record<string, PricingDraft>>(
+  const [linkDrafts, setLinkDrafts] = useState<Record<string, LinkDraft>>(
     {}
   );
-  const [newPricing, setNewPricing] = useState<PricingDraft & { productId: string }>(
+  const [newLink, setNewLink] = useState<LinkDraft & { productId: string }>(
     {
       productId: "",
-      supplierSku: "",
-      unitPricePence: "",
-      packSize: ""
+      packSize: "",
+      packLabel: ""
     }
   );
   const [statusMessage, setStatusMessage] = useState("");
@@ -116,10 +101,10 @@ export default function SupplierDetailPage() {
   }, [refreshStore]);
 
   useEffect(() => {
-    setPricingDrafts((prev) => {
-      const next: Record<string, PricingDraft> = { ...prev };
+    setLinkDrafts((prev) => {
+      const next: Record<string, LinkDraft> = { ...prev };
       supplierProducts.forEach((product) => {
-        next[product.productId] = next[product.productId] ?? toPricingDraft(product);
+        next[product.productId] = next[product.productId] ?? toLinkDraft(product);
       });
       return next;
     });
@@ -154,88 +139,77 @@ export default function SupplierDetailPage() {
       id: supplier.id,
       name,
       notes: draft.notes.trim() || undefined,
-      minOrderPence: draft.minOrderPence.trim() || undefined,
-      deliveryDays: draft.deliveryDays.trim() || undefined,
-      contact: draft.contact.trim() || undefined
+      active: draft.active
     };
     upsertSupplier(nextSupplier);
     setStatusMessage("Supplier updated.");
     refreshStore();
   };
 
-  const handlePricingUpdate = (productId: string) => {
+  const handleLinkUpdate = (productId: string) => {
     if (!supplier) {
       return;
     }
-    const draftRow = pricingDrafts[productId];
+    const draftRow = linkDrafts[productId];
     if (!draftRow) {
       return;
     }
-    const unitPricePence = parseIntegerInput(draftRow.unitPricePence);
-    if (unitPricePence === null) {
-      setErrorMessage("Unit price must be a number.");
+    const packSize = parsePositiveIntegerInput(draftRow.packSize);
+    if (!packSize) {
+      setErrorMessage("Pack size must be a number of 1 or more.");
       return;
     }
-    const packSize = draftRow.packSize.trim()
-      ? parseIntegerInput(draftRow.packSize)
-      : null;
-    if (packSize === null && draftRow.packSize.trim()) {
-      setErrorMessage("Pack size must be a number.");
+    const packLabel = draftRow.packLabel.trim();
+    if (!packLabel) {
+      setErrorMessage("Pack label is required.");
       return;
     }
-    const payload: SupplierProduct = {
+    const payload: SupplierProductLink = {
       supplierId: supplier.id,
       productId,
-      supplierSku: draftRow.supplierSku.trim() || undefined,
-      unitPricePence,
-      packSize: packSize ?? undefined,
-      lastUpdatedISO: new Date().toISOString()
+      packSize,
+      packLabel
     };
     upsertSupplierProduct(payload);
-    setStatusMessage("Pricing updated.");
+    setStatusMessage("Supplier link updated.");
     refreshStore();
   };
 
-  const handleAddPricing = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddLink = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!supplier) {
       return;
     }
     setErrorMessage("");
     setStatusMessage("");
-    const productId = newPricing.productId.trim();
+    const productId = newLink.productId.trim();
     if (!productId) {
       setErrorMessage("Select a product.");
       return;
     }
-    const unitPricePence = parseIntegerInput(newPricing.unitPricePence);
-    if (unitPricePence === null) {
-      setErrorMessage("Unit price must be a number.");
+    const packSize = parsePositiveIntegerInput(newLink.packSize);
+    if (!packSize) {
+      setErrorMessage("Pack size must be a number of 1 or more.");
       return;
     }
-    const packSize = newPricing.packSize.trim()
-      ? parseIntegerInput(newPricing.packSize)
-      : null;
-    if (packSize === null && newPricing.packSize.trim()) {
-      setErrorMessage("Pack size must be a number.");
+    const packLabel = newLink.packLabel.trim();
+    if (!packLabel) {
+      setErrorMessage("Pack label is required.");
       return;
     }
-    const payload: SupplierProduct = {
+    const payload: SupplierProductLink = {
       supplierId: supplier.id,
       productId,
-      supplierSku: newPricing.supplierSku.trim() || undefined,
-      unitPricePence,
-      packSize: packSize ?? undefined,
-      lastUpdatedISO: new Date().toISOString()
+      packSize,
+      packLabel
     };
     upsertSupplierProduct(payload);
-    setNewPricing({
+    setNewLink({
       productId: "",
-      supplierSku: "",
-      unitPricePence: "",
-      packSize: ""
+      packSize: "",
+      packLabel: ""
     });
-    setStatusMessage("Pricing added.");
+    setStatusMessage("Supplier link added.");
     refreshStore();
   };
 
@@ -247,7 +221,7 @@ export default function SupplierDetailPage() {
         <ScreenHeader
           eyebrow="Supplier"
           title={supplierName}
-          subtitle="Update supplier details and offline pricing."
+          subtitle="Update supplier details and supply options."
         />
       }
     >
@@ -279,7 +253,7 @@ export default function SupplierDetailPage() {
             <KeyValueGrid>
               <FieldRow label="Supplier ID" value={supplier.id} />
               <FieldRow
-                label="Products priced"
+                label="Products linked"
                 value={supplierProducts.length}
               />
             </KeyValueGrid>
@@ -309,37 +283,14 @@ export default function SupplierDetailPage() {
               </div>
               <div className="stock-form__row">
                 <label>
-                  Min order (pence)
+                  Active
                   <input
                     className="stock-form__input"
-                    value={draft.minOrderPence}
+                    type="checkbox"
+                    checked={draft.active}
                     onChange={(event) =>
                       setDraft((prev) =>
-                        prev ? { ...prev, minOrderPence: event.target.value } : prev
-                      )
-                    }
-                  />
-                </label>
-                <label>
-                  Delivery days
-                  <input
-                    className="stock-form__input"
-                    value={draft.deliveryDays}
-                    onChange={(event) =>
-                      setDraft((prev) =>
-                        prev ? { ...prev, deliveryDays: event.target.value } : prev
-                      )
-                    }
-                  />
-                </label>
-                <label>
-                  Contact
-                  <input
-                    className="stock-form__input"
-                    value={draft.contact}
-                    onChange={(event) =>
-                      setDraft((prev) =>
-                        prev ? { ...prev, contact: event.target.value } : prev
+                        prev ? { ...prev, active: event.target.checked } : prev
                       )
                     }
                   />
@@ -357,39 +308,22 @@ export default function SupplierDetailPage() {
             </form>
           </Section>
 
-          <Section title="Add product pricing">
-            <form className="stock-form" onSubmit={handleAddPricing}>
+          <Section title="Add supplier product link">
+            <form className="stock-form" onSubmit={handleAddLink}>
               <div className="stock-form__row">
                 <label>
                   Product
                   <input
                     className="stock-form__input"
                     list="supplier-product-options"
-                    value={newPricing.productId}
+                    value={newLink.productId}
                     onChange={(event) =>
-                      setNewPricing((prev) => ({
+                      setNewLink((prev) => ({
                         ...prev,
                         productId: event.target.value
                       }))
                     }
                     placeholder="Product ID"
-                    required
-                  />
-                </label>
-                <label>
-                  Unit price (pence)
-                  <input
-                    className="stock-form__input"
-                    type="number"
-                    min="0"
-                    step="1"
-                    value={newPricing.unitPricePence}
-                    onChange={(event) =>
-                      setNewPricing((prev) => ({
-                        ...prev,
-                        unitPricePence: event.target.value
-                      }))
-                    }
                     required
                   />
                 </label>
@@ -400,28 +334,31 @@ export default function SupplierDetailPage() {
                     type="number"
                     min="1"
                     step="1"
-                    value={newPricing.packSize}
+                    value={newLink.packSize}
                     onChange={(event) =>
-                      setNewPricing((prev) => ({
+                      setNewLink((prev) => ({
                         ...prev,
                         packSize: event.target.value
                       }))
                     }
+                    required
                   />
                 </label>
               </div>
               <div className="stock-form__row">
                 <label>
-                  Supplier SKU
+                  Pack label
                   <input
                     className="stock-form__input"
-                    value={newPricing.supplierSku}
+                    value={newLink.packLabel}
                     onChange={(event) =>
-                      setNewPricing((prev) => ({
+                      setNewLink((prev) => ({
                         ...prev,
-                        supplierSku: event.target.value
+                        packLabel: event.target.value
                       }))
                     }
+                    placeholder="Box of 10"
+                    required
                   />
                 </label>
               </div>
@@ -430,7 +367,7 @@ export default function SupplierDetailPage() {
                   type="submit"
                   className="stock-button stock-button--primary stock-form__button"
                 >
-                  Save pricing
+                  Save link
                 </button>
               </div>
             </form>
@@ -443,24 +380,22 @@ export default function SupplierDetailPage() {
             </datalist>
           </Section>
 
-          <Section title="Existing pricing">
+          <Section title="Existing supplier links">
             {supplierProducts.length === 0 ? (
               <FeedbackCard
-                title="No prices yet"
-                message="Add pricing rows to enable order estimates."
+                title="No product links yet"
+                message="Add product links to track pack sizes."
               />
             ) : (
-              <div className="stock-data-table" role="table" aria-label="Supplier pricing">
+              <div className="stock-data-table" role="table" aria-label="Supplier links">
                 <div className="stock-data-table__header" role="row">
                   <span role="columnheader">Product</span>
-                  <span role="columnheader">Unit price</span>
                   <span role="columnheader">Pack size</span>
-                  <span role="columnheader">Supplier SKU</span>
-                  <span role="columnheader">Last updated</span>
+                  <span role="columnheader">Pack label</span>
                   <span role="columnheader">Actions</span>
                 </div>
                 {supplierProducts.map((product) => {
-                  const draftRow = pricingDrafts[product.productId] ?? toPricingDraft(product);
+                  const draftRow = linkDrafts[product.productId] ?? toLinkDraft(product);
                   const productName =
                     knownProducts.find((entry) => entry.id === product.productId)
                       ?.name ?? product.productId;
@@ -474,32 +409,11 @@ export default function SupplierDetailPage() {
                         <input
                           className="stock-form__input stock-data-table__input"
                           type="number"
-                          min="0"
-                          step="1"
-                          value={draftRow.unitPricePence}
-                          onChange={(event) =>
-                            setPricingDrafts((prev) => ({
-                              ...prev,
-                              [product.productId]: {
-                                ...draftRow,
-                                unitPricePence: event.target.value
-                              }
-                            }))
-                          }
-                        />
-                        <span className="stock-order-table__meta">
-                          {formatCurrency(product.unitPricePence)}
-                        </span>
-                      </div>
-                      <div role="cell" className="stock-data-table__cell">
-                        <input
-                          className="stock-form__input stock-data-table__input"
-                          type="number"
                           min="1"
                           step="1"
                           value={draftRow.packSize}
                           onChange={(event) =>
-                            setPricingDrafts((prev) => ({
+                            setLinkDrafts((prev) => ({
                               ...prev,
                               [product.productId]: {
                                 ...draftRow,
@@ -512,26 +426,23 @@ export default function SupplierDetailPage() {
                       <div role="cell" className="stock-data-table__cell">
                         <input
                           className="stock-form__input stock-data-table__input"
-                          value={draftRow.supplierSku}
+                          value={draftRow.packLabel}
                           onChange={(event) =>
-                            setPricingDrafts((prev) => ({
+                            setLinkDrafts((prev) => ({
                               ...prev,
                               [product.productId]: {
                                 ...draftRow,
-                                supplierSku: event.target.value
+                                packLabel: event.target.value
                               }
                             }))
                           }
                         />
                       </div>
                       <div role="cell" className="stock-data-table__cell">
-                        {new Date(product.lastUpdatedISO).toLocaleDateString("en-GB")}
-                      </div>
-                      <div role="cell" className="stock-data-table__cell">
                         <button
                           type="button"
                           className="stock-button stock-button--secondary stock-data-table__button"
-                          onClick={() => handlePricingUpdate(product.productId)}
+                          onClick={() => handleLinkUpdate(product.productId)}
                         >
                           Save row
                         </button>

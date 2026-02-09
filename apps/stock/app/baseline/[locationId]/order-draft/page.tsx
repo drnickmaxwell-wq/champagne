@@ -25,10 +25,10 @@ import {
   type VarianceEstimateSource
 } from "../../varianceConfidence";
 import {
-  getBestSupplierPrice,
   loadSupplierStore,
   type Supplier,
-  type SupplierProduct
+  type SupplierProductLink,
+  type DraftLineSupplierMeta
 } from "../../../suppliers/localSuppliers";
 import {
   canEditDraft,
@@ -80,6 +80,26 @@ const clampNonNegative = (value: number) => {
   return Math.max(0, value);
 };
 
+const buildPackKey = (link: SupplierProductLink) => {
+  return `${link.packSize}::${encodeURIComponent(link.packLabel)}`;
+};
+
+const parsePackKey = (value: string) => {
+  const [sizeRaw, labelRaw] = value.split("::");
+  if (!sizeRaw || !labelRaw) {
+    return null;
+  }
+  const size = Number.parseInt(sizeRaw, 10);
+  if (!Number.isFinite(size) || size < 1) {
+    return null;
+  }
+  const label = decodeURIComponent(labelRaw);
+  if (!label.trim()) {
+    return null;
+  }
+  return { packSize: size, packLabel: label };
+};
+
 export default function OrderDraftPage() {
   const params = useParams();
   const locationParam = params?.locationId;
@@ -100,10 +120,12 @@ export default function OrderDraftPage() {
     {}
   );
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
-  const [supplierProducts, setSupplierProducts] = useState<SupplierProduct[]>([]);
-  const [selectedSuppliers, setSelectedSuppliers] = useState<Record<string, string>>(
-    {}
+  const [supplierProducts, setSupplierProducts] = useState<SupplierProductLink[]>(
+    []
   );
+  const [lineSupplierMeta, setLineSupplierMeta] = useState<
+    Record<string, DraftLineSupplierMeta>
+  >({});
   const [draftStatus, setDraftStatus] = useState<DraftStatus>(
     DRAFT_STATUS.draft
   );
@@ -176,23 +198,6 @@ export default function OrderDraftPage() {
     });
   }, [rows]);
 
-  useEffect(() => {
-    setSelectedSuppliers((prev) => {
-      const next: Record<string, string> = { ...prev };
-      for (const row of rows) {
-        const productId = row.entry.productId;
-        if (next[productId]) {
-          continue;
-        }
-        const best = getBestSupplierPrice(productId, supplierProducts);
-        if (best) {
-          next[productId] = best.supplierId;
-        }
-      }
-      return next;
-    });
-  }, [rows, supplierProducts]);
-
   const handleThresholdChange = (value: number) => {
     if (!canEditDraft(draftStatus)) {
       return;
@@ -214,9 +219,40 @@ export default function OrderDraftPage() {
     if (!canEditDraft(draftStatus)) {
       return;
     }
-    setSelectedSuppliers((prev) => ({
+    setLineSupplierMeta((prev) => ({
       ...prev,
-      [productId]: supplierId
+      [productId]: supplierId ? { supplierId } : {}
+    }));
+  };
+
+  const handlePackChange = (productId: string, packKey: string) => {
+    if (!canEditDraft(draftStatus)) {
+      return;
+    }
+    if (!packKey) {
+      setLineSupplierMeta((prev) => {
+        const current = prev[productId];
+        if (!current) {
+          return prev;
+        }
+        return {
+          ...prev,
+          [productId]: { supplierId: current.supplierId }
+        };
+      });
+      return;
+    }
+    const parsed = parsePackKey(packKey);
+    if (!parsed) {
+      return;
+    }
+    setLineSupplierMeta((prev) => ({
+      ...prev,
+      [productId]: {
+        supplierId: prev[productId]?.supplierId,
+        packLabel: parsed.packLabel,
+        packSize: parsed.packSize
+      }
     }));
   };
 
@@ -265,14 +301,6 @@ export default function OrderDraftPage() {
     );
   };
 
-  const formatCurrency = useCallback((valuePence: number) => {
-    const formatter = new Intl.NumberFormat("en-GB", {
-      style: "currency",
-      currency: "GBP"
-    });
-    return formatter.format(valuePence / 100);
-  }, []);
-
   const supplierById = useMemo(() => {
     const map = new Map<string, Supplier>();
     suppliers.forEach((supplier) => {
@@ -281,16 +309,8 @@ export default function OrderDraftPage() {
     return map;
   }, [suppliers]);
 
-  const supplierProductLookup = useMemo(() => {
-    const map = new Map<string, SupplierProduct>();
-    supplierProducts.forEach((product) => {
-      map.set(`${product.supplierId}:${product.productId}`, product);
-    });
-    return map;
-  }, [supplierProducts]);
-
   const supplierOptionsByProduct = useMemo(() => {
-    const map = new Map<string, SupplierProduct[]>();
+    const map = new Map<string, SupplierProductLink[]>();
     supplierProducts.forEach((product) => {
       const list = map.get(product.productId) ?? [];
       list.push(product);
@@ -298,55 +318,6 @@ export default function OrderDraftPage() {
     });
     return map;
   }, [supplierProducts]);
-
-  const totalsBySupplier = useMemo(() => {
-    const totals = new Map<
-      string,
-      { supplierId: string; supplierName: string; totalPence: number; lineCount: number }
-    >();
-    rows.forEach((row) => {
-      const productId = row.entry.productId;
-      const suggested = suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
-      const supplierId = selectedSuppliers[productId];
-      if (!supplierId) {
-        return;
-      }
-      const pricing = supplierProductLookup.get(`${supplierId}:${productId}`);
-      if (!pricing) {
-        return;
-      }
-      const current = totals.get(supplierId) ?? {
-        supplierId,
-        supplierName: supplierById.get(supplierId)?.name ?? supplierId,
-        totalPence: 0,
-        lineCount: 0
-      };
-      totals.set(supplierId, {
-        ...current,
-        totalPence: current.totalPence + pricing.unitPricePence * suggested,
-        lineCount: current.lineCount + 1
-      });
-    });
-    return Array.from(totals.values()).sort((a, b) =>
-      a.supplierName.localeCompare(b.supplierName)
-    );
-  }, [rows, selectedSuppliers, supplierProductLookup, suggestedOrders, supplierById]);
-
-  const orderSubtotalPence = useMemo(() => {
-    return rows.reduce((total, row) => {
-      const productId = row.entry.productId;
-      const supplierId = selectedSuppliers[productId];
-      if (!supplierId) {
-        return total;
-      }
-      const pricing = supplierProductLookup.get(`${supplierId}:${productId}`);
-      if (!pricing) {
-        return total;
-      }
-      const suggested = suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
-      return total + pricing.unitPricePence * suggested;
-    }, 0);
-  }, [rows, selectedSuppliers, supplierProductLookup, suggestedOrders]);
 
   const handleExport = () => {
     const productLookup = new Map(
@@ -419,12 +390,6 @@ export default function OrderDraftPage() {
           <FieldRow
             label="Threshold"
             value={`Flag when variance ≤ ${threshold}`}
-          />
-          <FieldRow
-            label="Order subtotal"
-            value={
-              orderSubtotalPence > 0 ? formatCurrency(orderSubtotalPence) : "—"
-            }
           />
           <FieldRow label="Draft origin" value={baselineNote} />
         </KeyValueGrid>
@@ -543,31 +508,37 @@ export default function OrderDraftPage() {
               <span role="columnheader">Variance</span>
               <span role="columnheader">Confidence</span>
               <span role="columnheader">Suggested order qty</span>
-              <span role="columnheader">Best unit price</span>
               <span role="columnheader">Selected supplier</span>
-              <span role="columnheader">Line total</span>
+              <span role="columnheader">Pack option</span>
             </div>
             {rows.map((row) => {
               const suggested =
                 suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
               const isFlagged = row.variance <= threshold;
-              const best = getBestSupplierPrice(row.entry.productId, supplierProducts);
-              const bestSupplierName = best
-                ? supplierById.get(best.supplierId)?.name ?? "Unknown"
-                : "—";
               const productSuppliers =
                 supplierOptionsByProduct.get(row.entry.productId) ?? [];
-              const selectedSupplierId = selectedSuppliers[row.entry.productId] ?? "";
+              const selectedMeta = lineSupplierMeta[row.entry.productId];
+              const selectedSupplierId = selectedMeta?.supplierId ?? "";
               const selectedSupplierName = selectedSupplierId
                 ? supplierById.get(selectedSupplierId)?.name ?? selectedSupplierId
                 : "—";
-              const selectedPricing = selectedSupplierId
-                ? supplierProductLookup.get(
-                    `${selectedSupplierId}:${row.entry.productId}`
+              const availableSuppliers = Array.from(
+                new Set(productSuppliers.map((option) => option.supplierId))
+              );
+              const packOptions = selectedSupplierId
+                ? productSuppliers.filter(
+                    (option) => option.supplierId === selectedSupplierId
                   )
-                : undefined;
-              const lineTotal =
-                selectedPricing ? selectedPricing.unitPricePence * suggested : null;
+                : [];
+              const selectedPackKey =
+                selectedMeta?.packLabel && selectedMeta.packSize
+                  ? buildPackKey({
+                      supplierId: selectedSupplierId,
+                      productId: row.entry.productId,
+                      packLabel: selectedMeta.packLabel,
+                      packSize: selectedMeta.packSize
+                    })
+                  : "";
               return (
                 <div
                   key={row.entry.id}
@@ -622,16 +593,6 @@ export default function OrderDraftPage() {
                     />
                   </div>
                   <div role="cell" className="stock-order-table__cell">
-                    {best ? (
-                      <>
-                        <strong>{formatCurrency(best.unitPricePence)}</strong>
-                        <span className="stock-order-table__meta">{bestSupplierName}</span>
-                      </>
-                    ) : (
-                      <span className="stock-order-table__meta">No pricing</span>
-                    )}
-                  </div>
-                  <div role="cell" className="stock-order-table__cell">
                     {productSuppliers.length === 0 ? (
                       <span className="stock-order-table__meta">No suppliers</span>
                     ) : (
@@ -644,12 +605,11 @@ export default function OrderDraftPage() {
                         }
                       >
                         <option value="">Select supplier</option>
-                        {productSuppliers.map((product) => {
+                        {availableSuppliers.map((supplierId) => {
                           const supplierName =
-                            supplierById.get(product.supplierId)?.name ??
-                            product.supplierId;
+                            supplierById.get(supplierId)?.name ?? supplierId;
                           return (
-                            <option key={product.supplierId} value={product.supplierId}>
+                            <option key={supplierId} value={supplierId}>
                               {supplierName}
                             </option>
                           );
@@ -663,40 +623,43 @@ export default function OrderDraftPage() {
                     ) : null}
                   </div>
                   <div role="cell" className="stock-order-table__cell">
-                    {lineTotal !== null ? (
-                      <strong>{formatCurrency(lineTotal)}</strong>
+                    {packOptions.length === 0 ? (
+                      <span className="stock-order-table__meta">No pack options</span>
                     ) : (
-                      <span className="stock-order-table__meta">—</span>
+                      <select
+                        className="stock-form__input stock-order-table__input"
+                        value={selectedPackKey}
+                        disabled={isFrozen || !selectedSupplierId}
+                        onChange={(event) =>
+                          handlePackChange(row.entry.productId, event.target.value)
+                        }
+                      >
+                        <option value="">Select pack size</option>
+                        {packOptions.map((option) => {
+                          const optionLabel = `${option.packLabel} (${option.packSize})`;
+                          const optionKey = buildPackKey(option);
+                          return (
+                            <option key={optionKey} value={optionKey}>
+                              {optionLabel}
+                            </option>
+                          );
+                        })}
+                      </select>
                     )}
+                    {selectedMeta?.packLabel && selectedMeta.packSize ? (
+                      <span className="stock-order-table__meta">
+                        {selectedMeta.packLabel} ({selectedMeta.packSize})
+                      </span>
+                    ) : null}
                   </div>
                 </div>
               );
             })}
           </div>
         )}
-      </Section>
-
-      <Section title="Supplier rollup">
-        {totalsBySupplier.length === 0 ? (
-          <FeedbackCard
-            title="No supplier totals yet"
-            message="Select suppliers on each line to see totals."
-          />
-        ) : (
-          <div className="stock-card">
-            <div className="stock-card__body">
-              <ul className="stock-list">
-                {totalsBySupplier.map((supplierTotal) => (
-                  <li key={supplierTotal.supplierId}>
-                    <strong>{supplierTotal.supplierName}</strong> —{" "}
-                    {formatCurrency(supplierTotal.totalPence)} ({supplierTotal.lineCount}{" "}
-                    lines)
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
+        <p className="stock-order-table__helper">
+          Pack sizes are informational. Final quantities are editable.
+        </p>
       </Section>
 
       <PrimaryActions>

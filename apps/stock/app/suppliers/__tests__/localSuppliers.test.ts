@@ -1,11 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
-  getBestSupplierPrice,
   loadSupplierStore,
+  normalizeDraftLineSupplierMeta,
   upsertSupplier,
   upsertSupplierProduct
 } from "../localSuppliers";
-import type { Supplier, SupplierProduct } from "../localSuppliers";
+import type { Supplier, SupplierProductLink } from "../localSuppliers";
 
 type StorageLike = {
   getItem: (key: string) => string | null;
@@ -51,7 +51,7 @@ describe("loadSupplierStore", () => {
     expect(store.supplierProducts).toEqual([]);
   });
 
-  it("parses valid suppliers and pricing rows", () => {
+  it("parses valid suppliers and product links", () => {
     storage.setItem(
       STORAGE_KEY,
       JSON.stringify({
@@ -61,19 +61,15 @@ describe("loadSupplierStore", () => {
             id: "s-1",
             name: "Stock Co",
             notes: "Primary",
-            minOrderPence: "2500",
-            deliveryDays: "2",
-            contact: "Call store"
+            active: true
           }
         ],
         supplierProducts: [
           {
             supplierId: "s-1",
             productId: "p-1",
-            supplierSku: "SKU-1",
-            unitPricePence: 155,
             packSize: 5,
-            lastUpdatedISO: "2024-03-01T00:00:00.000Z"
+            packLabel: "Box of 5"
           }
         ]
       })
@@ -82,57 +78,80 @@ describe("loadSupplierStore", () => {
     expect(store.suppliers).toHaveLength(1);
     expect(store.suppliers[0]?.name).toBe("Stock Co");
     expect(store.supplierProducts).toHaveLength(1);
-    expect(store.supplierProducts[0]?.unitPricePence).toBe(155);
+    expect(store.supplierProducts[0]?.packSize).toBe(5);
   });
 });
 
 describe("upsertSupplier", () => {
   it("replaces supplier entries by id", () => {
-    const supplier: Supplier = { id: "s-1", name: "Original" };
+    const supplier: Supplier = { id: "s-1", name: "Original", active: true };
     upsertSupplier(supplier);
-    const updated = upsertSupplier({ id: "s-1", name: "Updated" });
+    const updated = upsertSupplier({ id: "s-1", name: "Updated", active: true });
     expect(updated.suppliers).toHaveLength(1);
     expect(updated.suppliers[0]?.name).toBe("Updated");
   });
 });
 
 describe("upsertSupplierProduct", () => {
-  it("replaces pricing rows by supplier + product", () => {
-    const product: SupplierProduct = {
+  it("replaces supplier links by supplier + product", () => {
+    const product: SupplierProductLink = {
       supplierId: "s-1",
       productId: "p-1",
-      unitPricePence: 120,
-      lastUpdatedISO: "2024-01-01T00:00:00.000Z"
+      packSize: 10,
+      packLabel: "Box of 10"
     };
     upsertSupplierProduct(product);
     const updated = upsertSupplierProduct({
       supplierId: "s-1",
       productId: "p-1",
-      unitPricePence: 150,
-      lastUpdatedISO: "2024-02-01T00:00:00.000Z"
+      packSize: 12,
+      packLabel: "Box of 12"
     });
     expect(updated.supplierProducts).toHaveLength(1);
-    expect(updated.supplierProducts[0]?.unitPricePence).toBe(150);
+    expect(updated.supplierProducts[0]?.packLabel).toBe("Box of 12");
   });
 });
 
-describe("getBestSupplierPrice", () => {
-  it("returns the lowest price for a product", () => {
-    const products: SupplierProduct[] = [
-      {
-        supplierId: "s-1",
-        productId: "p-1",
-        unitPricePence: 210,
-        lastUpdatedISO: "2024-01-01T00:00:00.000Z"
-      },
-      {
-        supplierId: "s-2",
-        productId: "p-1",
-        unitPricePence: 180,
-        lastUpdatedISO: "2024-01-02T00:00:00.000Z"
-      }
-    ];
-    const best = getBestSupplierPrice("p-1", products);
-    expect(best?.supplierId).toBe("s-2");
+describe("supplier links", () => {
+  it("allows a product to have multiple suppliers", () => {
+    const supplierA: SupplierProductLink = {
+      supplierId: "s-1",
+      productId: "p-1",
+      packSize: 10,
+      packLabel: "Box of 10"
+    };
+    const supplierB: SupplierProductLink = {
+      supplierId: "s-2",
+      productId: "p-1",
+      packSize: 5,
+      packLabel: "Box of 5"
+    };
+    upsertSupplierProduct(supplierA);
+    const updated = upsertSupplierProduct(supplierB);
+    expect(updated.supplierProducts).toHaveLength(2);
+  });
+});
+
+describe("draft supplier metadata", () => {
+  it("parses draft supplier metadata safely", () => {
+    const meta = normalizeDraftLineSupplierMeta({
+      supplierId: "s-1",
+      packSize: 12,
+      packLabel: "Box of 12"
+    });
+    expect(meta).toEqual({
+      supplierId: "s-1",
+      packSize: 12,
+      packLabel: "Box of 12"
+    });
+  });
+
+  it("keeps metadata even when supplier is missing", () => {
+    const meta = normalizeDraftLineSupplierMeta({
+      supplierId: "missing-supplier",
+      packSize: 8,
+      packLabel: "Tray of 8"
+    });
+    expect(meta.supplierId).toBe("missing-supplier");
   });
 });
