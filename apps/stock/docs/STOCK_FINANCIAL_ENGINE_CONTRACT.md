@@ -1,53 +1,186 @@
-# Stock ↔ Financial Engine Contract (Draft)
+# Stock ↔ Financial Engine Contract (Foundation Only)
 
-## Overview
-This document defines the contract between the Stock System and the external Financial Engine hosted on Railway.
+## A. Purpose
+This document defines the canonical, read-only contract between the Stock app and a future Financial Engine. It specifies the data that Stock could send and receive without introducing any runtime integration, pricing logic, or financial storage inside Stock.
 
-The Financial Engine is the source of cost, pricing, and supplier truth.
-The Stock System remains the source of physical inventory state.
+This contract is informational and forward-looking only. Stock must continue to operate offline-first and independently of any Financial Engine availability or connectivity.
 
-## Direction of Data Flow
+## B. Data entities (definitions, not implementation)
+- **ProductRef**
+  - `id` (string)
+  - `name` (string)
+  - `unitType` (string; e.g., `unit`, `box`, `case`)
+  - `category` (string)
+- **SupplierRef**
+  - `id` (string)
+  - `name` (string)
+- **PackRef**
+  - `packSize` (number; units per pack)
+  - `packLabel` (string; e.g., `box`, `case`)
+- **LocationRef**
+  - `id` (string)
+  - `name` (string)
+- **DraftLineRef**
+  - `productId` (string)
+  - `qtyUnits` (number)
+  - `supplier` (optional `SupplierRef`)
+  - `pack` (optional `PackRef`)
+- **EventRef**
+  - `type` (`RECEIVE` | `WITHDRAW` | `ADJUST` | `BASELINE_COUNT`)
+  - `qtyDeltaUnits` (number; positive or negative)
+  - `timestamp` (ISO-8601 string)
+  - `locationId` (string)
 
-### Stock → Financial Engine
-- Product SKU
-- Batch number (if applicable)
-- Quantity received
-- Timestamp
-- Location ID
-- Event reference ID
+## C. Outbound messages (Stock → Financial Engine)
 
-### Financial Engine → Stock
-- Unit cost
-- Supplier identity
-- Invoice reference
-- Price effective date
-- Cost corrections (non-destructive)
+### 1) `stock.event.v1`
+Stock emits stock movement events, scoped to a tenant and location.
 
-## Identity Mapping
-- Stock SKU ↔ Supplier SKU is many-to-many
-- Mapping is explicit and versioned
-- No automatic inference
+```json
+{
+  "type": "stock.event.v1",
+  "version": "1.0.0",
+  "tenantKey": "tenant_123",
+  "payload": {
+    "event": {
+      "type": "WITHDRAW",
+      "qtyDeltaUnits": -4,
+      "timestamp": "2024-04-12T09:14:22Z",
+      "locationId": "loc_main_cupboard"
+    },
+    "product": {
+      "id": "prod_cotton_rolls",
+      "name": "Cotton Rolls",
+      "unitType": "unit",
+      "category": "consumables"
+    }
+  }
+}
+```
 
-## Batch & Invoice Linking
-- Batch numbers may be linked to one or more invoices
-- Invoice linkage is optional but recommended
-- Historical corrections must not mutate stock history
+### 2) `stock.orderDraft.v1`
+Stock shares a draft order (non-finalized) for enrichment or advisory use. Stock remains the source of truth and does not require any response to function.
 
-## Cost Semantics
-- Cost is advisory to stock system
-- Stock system may compute valuations
-- Financial engine owns authoritative cost reporting
+```json
+{
+  "type": "stock.orderDraft.v1",
+  "version": "1.0.0",
+  "tenantKey": "tenant_123",
+  "payload": {
+    "draftId": "draft_2024_04_12_001",
+    "createdAt": "2024-04-12T10:00:00Z",
+    "lines": [
+      {
+        "productId": "prod_gloves_large",
+        "qtyUnits": 120,
+        "supplier": {
+          "id": "sup_main",
+          "name": "Primary Supplier"
+        },
+        "pack": {
+          "packSize": 10,
+          "packLabel": "box"
+        }
+      }
+    ]
+  }
+}
+```
 
-## Failure Modes
-- Stock must function without financial engine availability
-- Missing cost data must not block stock operations
+### 3) `stock.baselineSnapshot.v1` (optional, counts only)
+Baseline snapshot is optional and strictly counts-only. It must not contain pricing, costs, or any patient data.
 
-## Security & Scope
-- No PHI exchanged
-- No patient identifiers exchanged
-- No treatment identifiers exchanged
+```json
+{
+  "type": "stock.baselineSnapshot.v1",
+  "version": "1.0.0",
+  "tenantKey": "tenant_123",
+  "payload": {
+    "snapshotId": "baseline_2024_04_01",
+    "capturedAt": "2024-04-01T08:30:00Z",
+    "location": {
+      "id": "loc_surgery_1",
+      "name": "Surgery 1"
+    },
+    "counts": [
+      {
+        "productId": "prod_composite_caps",
+        "qtyUnits": 24
+      }
+    ]
+  }
+}
+```
 
-## Future Extensions (Non-binding)
-- Supplier optimisation
-- Margin modelling
-- Treatment cost attribution (via PMS, not stock)
+## D. Inbound messages (Financial Engine → Stock)
+
+### 1) `financial.enrichment.v1` (strictly optional metadata)
+Financial Engine may send enrichment metadata. Stock must not require this data to function or render its UI.
+
+```json
+{
+  "type": "financial.enrichment.v1",
+  "version": "1.0.0",
+  "tenantKey": "tenant_123",
+  "payload": {
+    "productId": "prod_gloves_large",
+    "metadata": {
+      "supplierRef": {
+        "id": "sup_main",
+        "name": "Primary Supplier"
+      },
+      "pack": {
+        "packSize": 10,
+        "packLabel": "box"
+      }
+    }
+  }
+}
+```
+
+### 2) `financial.alerts.v1` (non-blocking)
+Alerts may be shown to staff but must never block Stock workflows.
+
+```json
+{
+  "type": "financial.alerts.v1",
+  "version": "1.0.0",
+  "tenantKey": "tenant_123",
+  "payload": {
+    "alerts": [
+      {
+        "id": "alert_budget_threshold_01",
+        "severity": "info",
+        "message": "Budget threshold exceeded for Q2 (advisory only).",
+        "createdAt": "2024-04-12T11:10:00Z"
+      }
+    ]
+  }
+}
+```
+
+## E. Versioning rules
+- Contract versions use **semver**: `MAJOR.MINOR.PATCH`.
+- **Backward compatibility**: Financial Engine must accept older versions of outbound messages for at least one MAJOR version, and should be tolerant of unknown fields.
+- **Offline-first requirement**: Stock must function fully when the Financial Engine is offline or unavailable; inbound messages are optional and non-blocking.
+
+## F. Forbidden fields (hard bans)
+The following fields must never exist in Stock storage or Stock-originated payloads:
+- `unitPrice`
+- `costPrice`
+- `margin`
+- `supplierPrice`
+- `totalCost`
+- `budgetRemaining`
+- invoice numbers
+- any patient-linked data (PHI)
+
+## G. Security + tenancy notes
+- All messages must include a **tenancy key** (e.g., `tenantKey`) to support future SaaS separation.
+- No patient identifiers or PHI are permitted.
+- Transport/authentication is out of scope; a future Railway-hosted Financial Engine owns those concerns.
+
+## References
+- Stock system canon: `apps/stock/docs/STOCK_SYSTEM_CANON.md`
+- Stock app overview: `apps/stock/README.md`
+- This contract: `apps/stock/docs/STOCK_FINANCIAL_ENGINE_CONTRACT.md`
