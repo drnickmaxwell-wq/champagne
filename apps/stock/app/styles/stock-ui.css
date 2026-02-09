@@ -528,7 +528,10 @@ main {
   grid-template-columns:
     minmax(12rem, 2fr)
     repeat(3, minmax(6rem, 1fr))
-    minmax(10rem, 1fr);
+    minmax(8rem, 1fr)
+    minmax(9rem, 1fr)
+    minmax(10rem, 1fr)
+    minmax(9rem, 1fr);
   align-items: center;
   gap: var(--stock-space-2);
   padding: var(--stock-space-2);
@@ -567,6 +570,46 @@ main {
 
 .stock-order-table__input {
   max-width: 8rem;
+}
+
+.stock-data-table {
+  display: grid;
+  gap: var(--stock-space-2);
+}
+
+.stock-data-table__header,
+.stock-data-table__row {
+  display: grid;
+  grid-template-columns:
+    minmax(12rem, 2fr)
+    repeat(3, minmax(6rem, 1fr))
+    minmax(8rem, 1fr)
+    minmax(8rem, 1fr);
+  align-items: center;
+  gap: var(--stock-space-2);
+  padding: var(--stock-space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  background: var(--surface-0);
+}
+
+.stock-data-table__header {
+  font-weight: 600;
+  color: var(--text-high);
+  background: var(--surface-1);
+}
+
+.stock-data-table__cell {
+  display: grid;
+  gap: var(--stock-space-1);
+}
+
+.stock-data-table__input {
+  max-width: 8rem;
+}
+
+.stock-data-table__button {
+  padding: var(--stock-space-1) var(--stock-space-2);
 }
 
 .stock-location-tile {
