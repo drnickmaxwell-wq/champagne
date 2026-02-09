@@ -1,0 +1,15 @@
+{
+  "pageContextSender": {
+    "filePath": "apps/chat-ui/components/luxury-chatbot.tsx",
+    "description": "LuxuryChatbot posts pageContext in the /v1/converse request body."
+  },
+  "pageContextKey": "pageContext",
+  "slugDerivation": {
+    "helper": "getRouteSlug",
+    "summary": "Uses the current Next.js pathname, drops query params, trims trailing slashes, and returns the last path segment with a fallback to \"home\" for empty or root paths."
+  },
+  "oneTimeAssistantPreface": {
+    "behavior": "The first assistant message is prefaced once with: \"You’re currently reading about {pageTopic}.\"",
+    "trigger": "enqueueAssistantMessage checks firstAssistantPrefaceUsedRef before prepending the preface and marks it used."
+  }
+}
