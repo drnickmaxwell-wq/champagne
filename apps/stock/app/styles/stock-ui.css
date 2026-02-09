@@ -517,6 +517,58 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 }
 
+.stock-order-table {
+  display: grid;
+  gap: var(--stock-space-2);
+}
+
+.stock-order-table__header,
+.stock-order-table__row {
+  display: grid;
+  grid-template-columns:
+    minmax(12rem, 2fr)
+    repeat(3, minmax(6rem, 1fr))
+    minmax(10rem, 1fr);
+  align-items: center;
+  gap: var(--stock-space-2);
+  padding: var(--stock-space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--stock-radius);
+  background: var(--surface-0);
+}
+
+.stock-order-table__header {
+  font-weight: 600;
+  color: var(--text-high);
+  background: var(--surface-1);
+}
+
+.stock-order-table__row--flagged {
+  border-color: var(--text-high);
+  background: var(--surface-1);
+}
+
+.stock-order-table__cell {
+  display: grid;
+  gap: var(--stock-space-1);
+}
+
+.stock-order-table__meta {
+  font-size: 0.85rem;
+  color: var(--text-medium);
+}
+
+.stock-order-table__flag {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-medium);
+}
+
+.stock-order-table__input {
+  max-width: 8rem;
+}
+
 .stock-location-tile {
   border: 1px solid var(--border-subtle);
   border-radius: var(--stock-radius);
