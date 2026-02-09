@@ -13,17 +13,30 @@ import {
 } from "../components/ui/ScreenKit";
 import Card from "../components/ui/Card";
 import {
-  clearSupplierStore,
+  clearSuppliers,
   exportSupplierCsv,
-  loadSupplierStore,
+  loadSuppliers,
+  orderingMethodOptions,
   upsertSupplier,
-  type Supplier
+  type Supplier,
+  type SupplierOrderingMethod
 } from "./localSuppliers";
+import {
+  loadSupplierCatalog,
+  type SupplierCatalogItem
+} from "./localSupplierCatalog";
+import {
+  loadProductSupplierPreferences,
+  type ProductSupplierPreference
+} from "./localSupplierPrefs";
 
 type SupplierDraft = {
   name: string;
+  orderingMethod: SupplierOrderingMethod;
+  phone: string;
+  email: string;
+  portalUrl: string;
   notes: string;
-  active: boolean;
 };
 
 const createSupplierId = () => {
@@ -35,8 +48,11 @@ const createSupplierId = () => {
 
 const emptyDraft: SupplierDraft = {
   name: "",
-  notes: "",
-  active: true
+  orderingMethod: orderingMethodOptions[0] ?? "EMAIL",
+  phone: "",
+  email: "",
+  portalUrl: "",
+  notes: ""
 };
 
 const downloadCsv = (filename: string, csv: string) => {
@@ -50,13 +66,21 @@ const downloadCsv = (filename: string, csv: string) => {
 };
 
 export default function SuppliersPage() {
-  const [store, setStore] = useState(() => loadSupplierStore());
+  const [suppliers, setSuppliers] = useState<Supplier[]>(() => loadSuppliers());
+  const [catalogItems, setCatalogItems] = useState<SupplierCatalogItem[]>(
+    () => loadSupplierCatalog()
+  );
+  const [preferences, setPreferences] = useState<ProductSupplierPreference[]>(
+    () => loadProductSupplierPreferences()
+  );
   const [draft, setDraft] = useState<SupplierDraft>(emptyDraft);
   const [errorMessage, setErrorMessage] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
 
   const refreshStore = useCallback(() => {
-    setStore(loadSupplierStore());
+    setSuppliers(loadSuppliers());
+    setCatalogItems(loadSupplierCatalog());
+    setPreferences(loadProductSupplierPreferences());
   }, []);
 
   useEffect(() => {
@@ -65,11 +89,11 @@ export default function SuppliersPage() {
 
   const supplierProductsBySupplier = useMemo(() => {
     const counts: Record<string, number> = {};
-    store.supplierProducts.forEach((product) => {
-      counts[product.supplierId] = (counts[product.supplierId] ?? 0) + 1;
+    catalogItems.forEach((item) => {
+      counts[item.supplierId] = (counts[item.supplierId] ?? 0) + 1;
     });
     return counts;
-  }, [store.supplierProducts]);
+  }, [catalogItems]);
 
   const handleAddSupplier = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -80,14 +104,22 @@ export default function SuppliersPage() {
       setErrorMessage("Supplier name is required.");
       return;
     }
+    const now = new Date().toISOString();
     const supplier: Supplier = {
       id: createSupplierId(),
       name,
-      notes: draft.notes.trim() || undefined,
-      active: draft.active
+      orderingMethod: draft.orderingMethod,
+      contact: {
+        phone: draft.phone.trim() || undefined,
+        email: draft.email.trim() || undefined,
+        portalUrl: draft.portalUrl.trim() || undefined,
+        notes: draft.notes.trim() || undefined
+      },
+      createdAt: now,
+      updatedAt: now
     };
-    const nextStore = upsertSupplier(supplier);
-    setStore(nextStore);
+    const nextSuppliers = upsertSupplier(supplier);
+    setSuppliers(nextSuppliers);
     setDraft(emptyDraft);
     setStatusMessage("Supplier saved.");
   };
@@ -99,12 +131,12 @@ export default function SuppliersPage() {
     if (!confirmed) {
       return;
     }
-    setStore(clearSupplierStore());
+    setSuppliers(clearSuppliers());
     setStatusMessage("Supplier registry cleared.");
   };
 
   const handleExport = () => {
-    const csv = exportSupplierCsv(store);
+    const csv = exportSupplierCsv(suppliers, catalogItems, preferences);
     downloadCsv("supplier-registry.csv", csv);
   };
 
@@ -129,19 +161,19 @@ export default function SuppliersPage() {
 
       <Section title="Registry status">
         <KeyValueGrid>
-          <FieldRow label="Suppliers" value={store.suppliers.length} />
+          <FieldRow label="Suppliers" value={suppliers.length} />
           <FieldRow
-            label="Supplier product links"
-            value={store.supplierProducts.length}
+            label="Catalog items"
+            value={catalogItems.length}
           />
-          <FieldRow label="Storage version" value={store.version} />
+          <FieldRow label="Preferred suppliers" value={preferences.length} />
         </KeyValueGrid>
         <PrimaryActions>
           <button
             type="button"
             className="stock-button stock-button--primary"
             onClick={handleExport}
-            disabled={store.suppliers.length === 0}
+            disabled={suppliers.length === 0}
           >
             Export CSV
           </button>
@@ -149,7 +181,7 @@ export default function SuppliersPage() {
             type="button"
             className="stock-button stock-button--secondary"
             onClick={handleClear}
-            disabled={store.suppliers.length === 0}
+            disabled={suppliers.length === 0}
           >
             Clear registry
           </button>
@@ -171,25 +203,66 @@ export default function SuppliersPage() {
               />
             </label>
             <label>
-              Notes
+              Ordering method
+              <select
+                className="stock-form__input"
+                value={draft.orderingMethod}
+                onChange={(event) =>
+                  setDraft((prev) => ({
+                    ...prev,
+                    orderingMethod: event.target.value as SupplierOrderingMethod
+                  }))
+                }
+                required
+              >
+                {orderingMethodOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className="stock-form__row">
+            <label>
+              Phone
               <input
                 className="stock-form__input"
-                value={draft.notes}
+                value={draft.phone}
                 onChange={(event) =>
-                  setDraft((prev) => ({ ...prev, notes: event.target.value }))
+                  setDraft((prev) => ({ ...prev, phone: event.target.value }))
+                }
+              />
+            </label>
+            <label>
+              Email
+              <input
+                className="stock-form__input"
+                value={draft.email}
+                onChange={(event) =>
+                  setDraft((prev) => ({ ...prev, email: event.target.value }))
                 }
               />
             </label>
           </div>
           <div className="stock-form__row">
             <label>
-              Active
+              Portal URL
               <input
                 className="stock-form__input"
-                type="checkbox"
-                checked={draft.active}
+                value={draft.portalUrl}
                 onChange={(event) =>
-                  setDraft((prev) => ({ ...prev, active: event.target.checked }))
+                  setDraft((prev) => ({ ...prev, portalUrl: event.target.value }))
+                }
+              />
+            </label>
+            <label>
+              Contact notes
+              <input
+                className="stock-form__input"
+                value={draft.notes}
+                onChange={(event) =>
+                  setDraft((prev) => ({ ...prev, notes: event.target.value }))
                 }
               />
             </label>
@@ -206,26 +279,32 @@ export default function SuppliersPage() {
       </Section>
 
       <Section title="Supplier list">
-        {store.suppliers.length === 0 ? (
+        {suppliers.length === 0 ? (
           <FeedbackCard
             title="No suppliers yet"
             message="Add a supplier to track offline availability."
           />
         ) : (
           <div className="stock-grid">
-            {store.suppliers.map((supplier) => {
+            {suppliers.map((supplier) => {
               const productCount = supplierProductsBySupplier[supplier.id] ?? 0;
               return (
                 <Card key={supplier.id} title={supplier.name}>
                   <KeyValueGrid>
                     <FieldRow label="Products" value={productCount} />
                     <FieldRow
-                      label="Status"
-                      value={supplier.active ? "Active" : "Inactive"}
+                      label="Ordering method"
+                      value={supplier.orderingMethod}
                     />
+                    {supplier.contact.email ? (
+                      <FieldRow label="Email" value={supplier.contact.email} />
+                    ) : null}
+                    {supplier.contact.phone ? (
+                      <FieldRow label="Phone" value={supplier.contact.phone} />
+                    ) : null}
                   </KeyValueGrid>
-                  {supplier.notes ? (
-                    <p className="stock-field-value">{supplier.notes}</p>
+                  {supplier.contact.notes ? (
+                    <p className="stock-field-value">{supplier.contact.notes}</p>
                   ) : null}
                   <PrimaryActions>
                     <Link className="stock-action-link" href={`/suppliers/${supplier.id}`}>

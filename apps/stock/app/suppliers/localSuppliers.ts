@@ -1,57 +1,71 @@
+import type { ProductSupplierPreference } from "./localSupplierPrefs";
+import type { SupplierCatalogItem } from "./localSupplierCatalog";
+
+export const orderingMethodOptions = [
+  "PHONE",
+  "EMAIL",
+  "PORTAL",
+  "REP"
+] as const;
+
+export type SupplierOrderingMethod = (typeof orderingMethodOptions)[number];
+
+export type SupplierContact = {
+  phone?: string;
+  email?: string;
+  portalUrl?: string;
+  notes?: string;
+};
+
 export type Supplier = {
   id: string;
   name: string;
-  notes?: string;
-  active: boolean;
+  orderingMethod: SupplierOrderingMethod;
+  contact: SupplierContact;
+  createdAt: string;
+  updatedAt: string;
 };
 
-export type SupplierProductLink = {
-  supplierId: string;
-  productId: string;
-  packSize: number;
-  packLabel: string;
-};
-
-export type SupplierStore = {
+type SupplierStore = {
   version: 1;
   suppliers: Supplier[];
-  supplierProducts: SupplierProductLink[];
-};
-
-export type DraftLineSupplierMeta = {
-  supplierId?: string;
-  packSize?: number;
-  packLabel?: string;
 };
 
 const STORAGE_KEY = "stock.suppliers.v1";
 
 const emptyStore: SupplierStore = {
   version: 1,
-  suppliers: [],
-  supplierProducts: []
+  suppliers: []
 };
 
 const isRecord = (value: unknown): value is Record<string, unknown> => {
   return typeof value === "object" && value !== null;
 };
 
+const isOrderingMethod = (value: unknown): value is SupplierOrderingMethod => {
+  return (
+    typeof value === "string" &&
+    orderingMethodOptions.some((option) => option === value)
+  );
+};
+
 const parseOptionalString = (value: unknown) => {
   if (value === undefined) {
     return undefined;
   }
-  return typeof value === "string" ? value : undefined;
+  return typeof value === "string" && value.trim() ? value : undefined;
 };
 
-const parsePositiveInteger = (value: unknown) => {
-  if (typeof value !== "number" || !Number.isFinite(value)) {
+const parseContact = (value: unknown): SupplierContact | null => {
+  if (!isRecord(value)) {
     return null;
   }
-  const parsed = Math.floor(value);
-  if (!Number.isInteger(parsed) || parsed < 1) {
-    return null;
-  }
-  return parsed;
+  return {
+    phone: parseOptionalString(value.phone),
+    email: parseOptionalString(value.email),
+    portalUrl: parseOptionalString(value.portalUrl),
+    notes: parseOptionalString(value.notes)
+  };
 };
 
 const parseSuppliers = (value: unknown): Supplier[] => {
@@ -62,148 +76,86 @@ const parseSuppliers = (value: unknown): Supplier[] => {
     if (!isRecord(entry)) {
       return [];
     }
-    const { id, name, notes, active } = entry;
-    if (typeof id !== "string" || typeof name !== "string") {
+    const { id, name, orderingMethod, contact, createdAt, updatedAt } = entry;
+    if (
+      typeof id !== "string" ||
+      typeof name !== "string" ||
+      !isOrderingMethod(orderingMethod) ||
+      typeof createdAt !== "string" ||
+      typeof updatedAt !== "string"
+    ) {
       return [];
     }
-    const parsedNotes = parseOptionalString(notes);
-    const parsedActive = typeof active === "boolean" ? active : true;
+    const parsedContact = parseContact(contact);
+    if (!parsedContact) {
+      return [];
+    }
+    const trimmedName = name.trim();
+    if (!trimmedName) {
+      return [];
+    }
     return [
       {
         id,
-        name,
-        notes: parsedNotes,
-        active: parsedActive
+        name: trimmedName,
+        orderingMethod,
+        contact: parsedContact,
+        createdAt,
+        updatedAt
       }
     ];
   });
 };
 
-const parseSupplierProducts = (value: unknown): SupplierProductLink[] => {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-  return value.flatMap((entry) => {
-    if (!isRecord(entry)) {
-      return [];
-    }
-    const { supplierId, productId, packSize, packLabel } = entry;
-    if (typeof supplierId !== "string" || typeof productId !== "string") {
-      return [];
-    }
-    const parsedPackSize = parsePositiveInteger(packSize);
-    if (!parsedPackSize) {
-      return [];
-    }
-    if (typeof packLabel !== "string" || !packLabel.trim()) {
-      return [];
-    }
-    return [
-      {
-        supplierId,
-        productId,
-        packSize: parsedPackSize,
-        packLabel: packLabel.trim()
-      }
-    ];
-  });
-};
-
-export const loadSupplierStore = (): SupplierStore => {
+export const loadSuppliers = (): Supplier[] => {
   if (typeof window === "undefined") {
-    return emptyStore;
+    return emptyStore.suppliers;
   }
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      return emptyStore;
+      return emptyStore.suppliers;
     }
     const parsed: unknown = JSON.parse(raw);
     if (!isRecord(parsed) || parsed.version !== 1) {
-      return emptyStore;
+      return emptyStore.suppliers;
     }
-    return {
-      version: 1,
-      suppliers: parseSuppliers(parsed.suppliers),
-      supplierProducts: parseSupplierProducts(parsed.supplierProducts)
-    };
+    return parseSuppliers(parsed.suppliers);
   } catch {
-    return emptyStore;
+    return emptyStore.suppliers;
   }
 };
 
-export const saveSupplierStore = (store: SupplierStore) => {
+export const saveSuppliers = (suppliers: Supplier[]) => {
   if (typeof window === "undefined") {
     return;
   }
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  const payload: SupplierStore = {
+    version: 1,
+    suppliers
+  };
+  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
 };
 
 export const upsertSupplier = (supplier: Supplier) => {
-  const store = loadSupplierStore();
-  const index = store.suppliers.findIndex((current) => current.id === supplier.id);
+  const suppliers = loadSuppliers();
+  const index = suppliers.findIndex((current) => current.id === supplier.id);
   const nextSuppliers =
     index >= 0
-      ? store.suppliers.map((current, currentIndex) =>
+      ? suppliers.map((current, currentIndex) =>
           currentIndex === index ? supplier : current
         )
-      : [...store.suppliers, supplier];
-  const nextStore: SupplierStore = {
-    ...store,
-    suppliers: nextSuppliers
-  };
-  saveSupplierStore(nextStore);
-  return nextStore;
+      : [...suppliers, supplier];
+  saveSuppliers(nextSuppliers);
+  return nextSuppliers;
 };
 
-export const upsertSupplierProduct = (product: SupplierProductLink) => {
-  const store = loadSupplierStore();
-  const index = store.supplierProducts.findIndex(
-    (current) =>
-      current.supplierId === product.supplierId &&
-      current.productId === product.productId
-  );
-  const nextProducts =
-    index >= 0
-      ? store.supplierProducts.map((current, currentIndex) =>
-          currentIndex === index ? product : current
-        )
-      : [...store.supplierProducts, product];
-  const nextStore: SupplierStore = {
-    ...store,
-    supplierProducts: nextProducts
-  };
-  saveSupplierStore(nextStore);
-  return nextStore;
-};
-
-export const normalizeDraftLineSupplierMeta = (
-  value: unknown
-): DraftLineSupplierMeta => {
-  if (!isRecord(value)) {
-    return {};
-  }
-  const supplierId =
-    typeof value.supplierId === "string" ? value.supplierId : undefined;
-  const packLabel =
-    typeof value.packLabel === "string" && value.packLabel.trim()
-      ? value.packLabel.trim()
-      : undefined;
-  const packSize =
-    value.packSize !== undefined ? parsePositiveInteger(value.packSize) : null;
-  return {
-    supplierId,
-    packLabel,
-    packSize: packSize ?? undefined
-  };
-};
-
-export const clearSupplierStore = () => {
+export const clearSuppliers = () => {
   if (typeof window === "undefined") {
-    return emptyStore;
+    return emptyStore.suppliers;
   }
   window.localStorage.removeItem(STORAGE_KEY);
-  return emptyStore;
+  return emptyStore.suppliers;
 };
 
 const escapeCsvValue = (value: string | number | undefined) => {
@@ -217,27 +169,40 @@ const escapeCsvValue = (value: string | number | undefined) => {
   return stringValue;
 };
 
-export const exportSupplierCsv = (store: SupplierStore) => {
+export const exportSupplierCsv = (
+  suppliers: Supplier[],
+  catalogItems: SupplierCatalogItem[],
+  preferences: ProductSupplierPreference[]
+) => {
   const rows: Array<Array<string | number>> = [
     [
       "recordType",
       "supplierId",
       "supplierName",
-      "notes",
-      "active",
+      "orderingMethod",
+      "contactPhone",
+      "contactEmail",
+      "contactPortalUrl",
+      "contactNotes",
       "productId",
-      "packSize",
-      "packLabel"
+      "supplierSku",
+      "supplierPackLabel",
+      "mappingNotes",
+      "preferredSupplierId"
     ]
   ];
 
-  store.suppliers.forEach((supplier) => {
+  suppliers.forEach((supplier) => {
     rows.push([
       "supplier",
       supplier.id,
       supplier.name,
-      supplier.notes ?? "",
-      supplier.active ? "true" : "false",
+      supplier.orderingMethod,
+      supplier.contact.phone ?? "",
+      supplier.contact.email ?? "",
+      supplier.contact.portalUrl ?? "",
+      supplier.contact.notes ?? "",
+      "",
       "",
       "",
       "",
@@ -245,15 +210,39 @@ export const exportSupplierCsv = (store: SupplierStore) => {
     ]);
   });
 
-  store.supplierProducts.forEach((product) => {
+  catalogItems.forEach((item) => {
     rows.push([
-      "supplierProduct",
-      product.supplierId,
+      "catalogItem",
+      item.supplierId,
       "",
       "",
-      product.productId,
-      product.packSize,
-      product.packLabel
+      "",
+      "",
+      "",
+      "",
+      item.productId,
+      item.supplierSku,
+      item.supplierPackLabel ?? "",
+      item.notes ?? "",
+      ""
+    ]);
+  });
+
+  preferences.forEach((preference) => {
+    rows.push([
+      "preferredSupplier",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      preference.productId,
+      "",
+      "",
+      "",
+      preference.preferredSupplierId
     ]);
   });
 

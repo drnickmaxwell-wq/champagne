@@ -25,11 +25,22 @@ import {
   type VarianceEstimateSource
 } from "../../varianceConfidence";
 import {
-  loadSupplierStore,
-  type Supplier,
-  type SupplierProductLink,
-  type DraftLineSupplierMeta
+  loadSuppliers,
+  type Supplier
 } from "../../../suppliers/localSuppliers";
+import {
+  loadSupplierCatalog,
+  findSupplierCatalogItem,
+  type SupplierCatalogItem
+} from "../../../suppliers/localSupplierCatalog";
+import {
+  loadProductSupplierPreferences,
+  type ProductSupplierPreference
+} from "../../../suppliers/localSupplierPrefs";
+import {
+  buildDraftLineSupplierMeta,
+  type DraftLineSupplierMeta
+} from "../../../suppliers/supplierResolution";
 import {
   canEditDraft,
   DRAFT_STATUS,
@@ -81,26 +92,6 @@ const clampNonNegative = (value: number) => {
   return Math.max(0, value);
 };
 
-const buildPackKey = (link: SupplierProductLink) => {
-  return `${link.packSize}::${encodeURIComponent(link.packLabel)}`;
-};
-
-const parsePackKey = (value: string) => {
-  const [sizeRaw, labelRaw] = value.split("::");
-  if (!sizeRaw || !labelRaw) {
-    return null;
-  }
-  const size = Number.parseInt(sizeRaw, 10);
-  if (!Number.isFinite(size) || size < 1) {
-    return null;
-  }
-  const label = decodeURIComponent(labelRaw);
-  if (!label.trim()) {
-    return null;
-  }
-  return { packSize: size, packLabel: label };
-};
-
 export default function OrderDraftPage() {
   const params = useParams();
   const locationParam = params?.locationId;
@@ -121,9 +112,12 @@ export default function OrderDraftPage() {
     {}
   );
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
-  const [supplierProducts, setSupplierProducts] = useState<SupplierProductLink[]>(
+  const [supplierCatalog, setSupplierCatalog] = useState<SupplierCatalogItem[]>(
     []
   );
+  const [supplierPreferences, setSupplierPreferences] = useState<
+    ProductSupplierPreference[]
+  >([]);
   const [lineSupplierMeta, setLineSupplierMeta] = useState<
     Record<string, DraftLineSupplierMeta>
   >({});
@@ -142,9 +136,9 @@ export default function OrderDraftPage() {
     );
     setLotCounts(counts);
     setLotsByProduct(lotsLookup);
-    const supplierStore = loadSupplierStore();
-    setSuppliers(supplierStore.suppliers);
-    setSupplierProducts(supplierStore.supplierProducts);
+    setSuppliers(loadSuppliers());
+    setSupplierCatalog(loadSupplierCatalog());
+    setSupplierPreferences(loadProductSupplierPreferences());
     const registry = loadLocalBarcodeRegistry();
     setProducts(registry.products);
   }, [locationId]);
@@ -221,39 +215,43 @@ export default function OrderDraftPage() {
     if (!canEditDraft(draftStatus)) {
       return;
     }
+    const catalogItem = supplierId
+      ? findSupplierCatalogItem(supplierId, productId, supplierCatalog)
+      : undefined;
     setLineSupplierMeta((prev) => ({
       ...prev,
-      [productId]: supplierId ? { supplierId } : {}
+      [productId]: supplierId
+        ? {
+            supplierId,
+            supplierSku: catalogItem?.supplierSku,
+            packLabel: catalogItem?.supplierPackLabel
+          }
+        : {}
     }));
   };
 
-  const handlePackChange = (productId: string, packKey: string) => {
+  const handleSkuChange = (productId: string, supplierSku: string) => {
     if (!canEditDraft(draftStatus)) {
-      return;
-    }
-    if (!packKey) {
-      setLineSupplierMeta((prev) => {
-        const current = prev[productId];
-        if (!current) {
-          return prev;
-        }
-        return {
-          ...prev,
-          [productId]: { supplierId: current.supplierId }
-        };
-      });
-      return;
-    }
-    const parsed = parsePackKey(packKey);
-    if (!parsed) {
       return;
     }
     setLineSupplierMeta((prev) => ({
       ...prev,
       [productId]: {
-        supplierId: prev[productId]?.supplierId,
-        packLabel: parsed.packLabel,
-        packSize: parsed.packSize
+        ...prev[productId],
+        supplierSku: supplierSku.trim() || undefined
+      }
+    }));
+  };
+
+  const handlePackLabelChange = (productId: string, packLabel: string) => {
+    if (!canEditDraft(draftStatus)) {
+      return;
+    }
+    setLineSupplierMeta((prev) => ({
+      ...prev,
+      [productId]: {
+        ...prev[productId],
+        packLabel: packLabel.trim() || undefined
       }
     }));
   };
@@ -311,15 +309,36 @@ export default function OrderDraftPage() {
     return map;
   }, [suppliers]);
 
-  const supplierOptionsByProduct = useMemo(() => {
-    const map = new Map<string, SupplierProductLink[]>();
-    supplierProducts.forEach((product) => {
-      const list = map.get(product.productId) ?? [];
-      list.push(product);
-      map.set(product.productId, list);
+  const supplierCatalogByProduct = useMemo(() => {
+    const map = new Map<string, SupplierCatalogItem[]>();
+    supplierCatalog.forEach((item) => {
+      const list = map.get(item.productId) ?? [];
+      list.push(item);
+      map.set(item.productId, list);
     });
     return map;
-  }, [supplierProducts]);
+  }, [supplierCatalog]);
+
+  useEffect(() => {
+    setLineSupplierMeta((prev) => {
+      const next: Record<string, DraftLineSupplierMeta> = { ...prev };
+      rows.forEach((row) => {
+        const existing = next[row.entry.productId];
+        if (existing) {
+          return;
+        }
+        const meta = buildDraftLineSupplierMeta(
+          row.entry.productId,
+          supplierPreferences,
+          supplierCatalog
+        );
+        if (Object.keys(meta).length > 0) {
+          next[row.entry.productId] = meta;
+        }
+      });
+      return next;
+    });
+  }, [rows, supplierPreferences, supplierCatalog]);
 
   const buildLineItems = (): OrderDraftExportLineItem[] => {
     return rows.map((row) => {
@@ -330,6 +349,7 @@ export default function OrderDraftPage() {
         productName: row.entry.productName,
         qtyUnits: suggested,
         supplierId: selectedMeta?.supplierId,
+        supplierSku: selectedMeta?.supplierSku,
         packLabel: selectedMeta?.packLabel
       };
     });
@@ -570,36 +590,28 @@ export default function OrderDraftPage() {
               <span role="columnheader">Confidence</span>
               <span role="columnheader">Suggested order qty</span>
               <span role="columnheader">Selected supplier</span>
-              <span role="columnheader">Pack option</span>
+              <span role="columnheader">Supplier SKU</span>
+              <span role="columnheader">Pack label</span>
             </div>
             {rows.map((row) => {
               const suggested =
                 suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
               const isFlagged = row.variance <= threshold;
-              const productSuppliers =
-                supplierOptionsByProduct.get(row.entry.productId) ?? [];
               const selectedMeta = lineSupplierMeta[row.entry.productId];
               const selectedSupplierId = selectedMeta?.supplierId ?? "";
               const selectedSupplierName = selectedSupplierId
                 ? supplierById.get(selectedSupplierId)?.name ?? selectedSupplierId
                 : "—";
-              const availableSuppliers = Array.from(
-                new Set(productSuppliers.map((option) => option.supplierId))
-              );
-              const packOptions = selectedSupplierId
-                ? productSuppliers.filter(
+              const catalogOptions =
+                supplierCatalogByProduct.get(row.entry.productId) ?? [];
+              const supplierOptions = suppliers;
+              const supplierCatalogOptions = selectedSupplierId
+                ? catalogOptions.filter(
                     (option) => option.supplierId === selectedSupplierId
                   )
                 : [];
-              const selectedPackKey =
-                selectedMeta?.packLabel && selectedMeta.packSize
-                  ? buildPackKey({
-                      supplierId: selectedSupplierId,
-                      productId: row.entry.productId,
-                      packLabel: selectedMeta.packLabel,
-                      packSize: selectedMeta.packSize
-                    })
-                  : "";
+              const skuDatalistId = `sku-options-${row.entry.id}`;
+              const packDatalistId = `pack-options-${row.entry.id}`;
               return (
                 <div
                   key={row.entry.id}
@@ -654,7 +666,7 @@ export default function OrderDraftPage() {
                     />
                   </div>
                   <div role="cell" className="stock-order-table__cell">
-                    {productSuppliers.length === 0 ? (
+                    {supplierOptions.length === 0 ? (
                       <span className="stock-order-table__meta">No suppliers</span>
                     ) : (
                       <select
@@ -666,12 +678,10 @@ export default function OrderDraftPage() {
                         }
                       >
                         <option value="">Select supplier</option>
-                        {availableSuppliers.map((supplierId) => {
-                          const supplierName =
-                            supplierById.get(supplierId)?.name ?? supplierId;
+                        {supplierOptions.map((supplier) => {
                           return (
-                            <option key={supplierId} value={supplierId}>
-                              {supplierName}
+                            <option key={supplier.id} value={supplier.id}>
+                              {supplier.name}
                             </option>
                           );
                         })}
@@ -684,34 +694,53 @@ export default function OrderDraftPage() {
                     ) : null}
                   </div>
                   <div role="cell" className="stock-order-table__cell">
-                    {packOptions.length === 0 ? (
-                      <span className="stock-order-table__meta">No pack options</span>
-                    ) : (
-                      <select
-                        className="stock-form__input stock-order-table__input"
-                        value={selectedPackKey}
-                        disabled={isFrozen || !selectedSupplierId}
-                        onChange={(event) =>
-                          handlePackChange(row.entry.productId, event.target.value)
-                        }
-                      >
-                        <option value="">Select pack size</option>
-                        {packOptions.map((option) => {
-                          const optionLabel = `${option.packLabel} (${option.packSize})`;
-                          const optionKey = buildPackKey(option);
-                          return (
-                            <option key={optionKey} value={optionKey}>
-                              {optionLabel}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    )}
-                    {selectedMeta?.packLabel && selectedMeta.packSize ? (
+                    <input
+                      className="stock-form__input stock-order-table__input"
+                      list={skuDatalistId}
+                      value={selectedMeta?.supplierSku ?? ""}
+                      disabled={isFrozen || !selectedSupplierId}
+                      placeholder={
+                        selectedSupplierId ? "Enter supplier SKU" : "Select supplier"
+                      }
+                      onChange={(event) =>
+                        handleSkuChange(row.entry.productId, event.target.value)
+                      }
+                    />
+                    {supplierCatalogOptions.length === 0 ? (
                       <span className="stock-order-table__meta">
-                        {selectedMeta.packLabel} ({selectedMeta.packSize})
+                        No mapped SKUs
                       </span>
                     ) : null}
+                    <datalist id={skuDatalistId}>
+                      {supplierCatalogOptions.map((option) => (
+                        <option key={option.id} value={option.supplierSku} />
+                      ))}
+                    </datalist>
+                  </div>
+                  <div role="cell" className="stock-order-table__cell">
+                    <input
+                      className="stock-form__input stock-order-table__input"
+                      list={packDatalistId}
+                      value={selectedMeta?.packLabel ?? ""}
+                      disabled={isFrozen || !selectedSupplierId}
+                      placeholder="Optional pack label"
+                      onChange={(event) =>
+                        handlePackLabelChange(row.entry.productId, event.target.value)
+                      }
+                    />
+                    {selectedMeta?.packLabel ? (
+                      <span className="stock-order-table__meta">
+                        {selectedMeta.packLabel}
+                      </span>
+                    ) : null}
+                    <datalist id={packDatalistId}>
+                      {supplierCatalogOptions
+                        .map((option) => option.supplierPackLabel)
+                        .filter((label): label is string => Boolean(label))
+                        .map((label) => (
+                          <option key={label} value={label} />
+                        ))}
+                    </datalist>
                   </div>
                 </div>
               );
@@ -719,7 +748,7 @@ export default function OrderDraftPage() {
           </div>
         )}
         <p className="stock-order-table__helper">
-          Pack sizes are informational. Final quantities are editable.
+          Supplier SKUs and pack labels are optional. Final quantities are editable.
         </p>
       </Section>
 

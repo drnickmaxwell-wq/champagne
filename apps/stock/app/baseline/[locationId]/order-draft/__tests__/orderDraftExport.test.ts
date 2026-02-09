@@ -9,6 +9,7 @@ describe("buildOrderDraftExport", () => {
         productName: "Gloves",
         qtyUnits: 4,
         supplierId: "sup-1",
+        supplierSku: "SKU-1",
         packLabel: "Box"
       },
       {
@@ -44,6 +45,7 @@ describe("buildOrderDraftExport", () => {
         productName: "Gloves",
         qtyUnits: 4,
         supplierId: "sup-1",
+        supplierSku: "SKU-1",
         packLabel: "Box"
       },
       {
@@ -67,7 +69,8 @@ describe("buildOrderDraftExport", () => {
           productId: "prod-3",
           productName: "Syringe",
           qtyUnits: 1,
-          supplierId: "sup-2"
+          supplierId: "sup-2",
+          supplierSku: "SYR-10"
         }
       ],
       notes: "Generated from baseline scan — Overflow"
@@ -79,7 +82,8 @@ describe("buildOrderDraftExport", () => {
       productId: "prod-3",
       productName: "Syringe",
       qtyUnits: 1,
-      supplierId: "sup-2"
+      supplierId: "sup-2",
+      supplierSku: "SYR-10"
     });
     expect("packLabel" in payload.lineItems[0]).toBe(false);
   });
