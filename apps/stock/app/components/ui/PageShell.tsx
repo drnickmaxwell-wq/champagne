@@ -8,6 +8,7 @@ type PageShellProps = {
   status?: ReactNode;
   actions?: ReactNode;
   header?: ReactNode;
+  className?: string;
   children: ReactNode;
 };
 
@@ -18,10 +19,13 @@ export default function PageShell({
   status,
   actions,
   header,
+  className,
   children
 }: PageShellProps) {
   return (
-    <section className="stock-page-shell stock-shell">
+    <section
+      className={`stock-page-shell stock-shell${className ? ` ${className}` : ""}`}
+    >
       {header ?? (
         <ScreenHeader
           title={title ?? ""}
