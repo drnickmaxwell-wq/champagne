@@ -528,6 +528,7 @@ main {
   grid-template-columns:
     minmax(12rem, 2fr)
     repeat(3, minmax(6rem, 1fr))
+    minmax(9rem, 1fr)
     minmax(8rem, 1fr)
     minmax(9rem, 1fr)
     minmax(10rem, 1fr)
@@ -559,6 +560,19 @@ main {
 .stock-order-table__meta {
   font-size: 0.85rem;
   color: var(--text-medium);
+}
+
+.stock-order-table__helper {
+  margin: 0;
+  color: var(--text-medium);
+  font-size: 0.9rem;
+}
+
+.stock-order-table__badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-high);
 }
 
 .stock-order-table__flag {
