@@ -9,6 +9,7 @@ import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
 import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 import { headers } from "next/headers";
+import { HeroHeaderMountObserver } from "./HeroHeaderMountObserver";
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -17,6 +18,31 @@ const normalizeHeroPathname = (path?: string) => {
   const normalized = trimmed.split("?")[0]?.split("#")[0] ?? "/";
   if (!normalized) return "/";
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
+};
+
+const parseHeroRequest = (requestUrl: string) => {
+  let pathname = "/";
+  let heroDebugEnabled = false;
+
+  if (!requestUrl) {
+    return { pathname, heroDebugEnabled };
+  }
+
+  try {
+    const url = new URL(requestUrl, "http://localhost");
+    pathname = url.pathname || "/";
+    const heroDebugValue = url.searchParams.get("heroDebug");
+    heroDebugEnabled =
+      heroDebugValue === "1" || heroDebugValue === "true" || url.searchParams.has("heroDebug");
+  } catch {
+    pathname = requestUrl.split("?")[0] || "/";
+    const query = requestUrl.split("?")[1] ?? "";
+    const params = new URLSearchParams(query);
+    const heroDebugValue = params.get("heroDebug");
+    heroDebugEnabled = heroDebugValue === "1" || heroDebugValue === "true" || params.has("heroDebug");
+  }
+
+  return { pathname, heroDebugEnabled };
 };
 
 export async function HeroMount(props: HeroRendererProps) {
@@ -28,29 +54,11 @@ export async function HeroMount(props: HeroRendererProps) {
     .toLowerCase();
   const useV2 = normalized === "v2";
   const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
+  const headersList = await headers();
+  const requestUrl = headersList.get("next-url") ?? "";
+  const { pathname, heroDebugEnabled } = parseHeroRequest(requestUrl);
 
   if (useV2) {
-    const headersList = await headers();
-    const requestUrl = headersList.get("next-url") ?? "";
-    let pathname = "/";
-    let heroDebugEnabled = false;
-
-    if (requestUrl) {
-      try {
-        const url = new URL(requestUrl, "http://localhost");
-        pathname = url.pathname || "/";
-        const heroDebugValue = url.searchParams.get("heroDebug");
-        heroDebugEnabled =
-          heroDebugValue === "1" || heroDebugValue === "true" || url.searchParams.has("heroDebug");
-      } catch {
-        pathname = requestUrl.split("?")[0] || "/";
-        const query = requestUrl.split("?")[1] ?? "";
-        const params = new URLSearchParams(query);
-        const heroDebugValue = params.get("heroDebug");
-        heroDebugEnabled = heroDebugValue === "1" || heroDebugValue === "true" || params.has("heroDebug");
-      }
-    }
-
     const v2Props = props as HeroRendererV2Props;
     const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
@@ -75,6 +83,7 @@ export async function HeroMount(props: HeroRendererProps) {
         style={{ minHeight: "72vh" }}
         {...heroDebugAttributes}
       >
+        <HeroHeaderMountObserver enabled={heroDebugEnabled} />
         {v2Model ? (
           <HeroV2Frame
             layout={v2Model.layout}
@@ -110,6 +119,7 @@ export async function HeroMount(props: HeroRendererProps) {
       data-hero-flag-normalized={normalized}
       style={{ minHeight: "72vh" }}
     >
+      <HeroHeaderMountObserver enabled={heroDebugEnabled} />
       <Renderer {...props} />
     </div>
   );
