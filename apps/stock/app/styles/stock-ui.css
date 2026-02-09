@@ -46,6 +46,14 @@ main {
   max-width: 72rem;
 }
 
+.stock-page-shell--frozen {
+  background: var(--surface-1);
+  border-radius: var(--stock-radius);
+  padding: var(--stock-space-3);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
 .stock-page-shell__header {
   margin-bottom: calc(var(--radius-sm) + 4px);
   display: grid;
@@ -77,6 +85,23 @@ main {
   margin-top: calc(var(--radius-sm) - 4px);
   color: var(--text-medium);
   font-size: 0.95rem;
+}
+
+.stock-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--stock-space-1);
+  padding: calc(var(--stock-space-1) * 0.5) var(--stock-space-2);
+  border-radius: 999px;
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-high);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.stock-status-pill--frozen {
+  background: var(--surface-2);
 }
 
 .stock-page-shell__actions,
@@ -566,6 +591,12 @@ main {
   margin: 0;
   color: var(--text-medium);
   font-size: 0.9rem;
+}
+
+.stock-order-draft__note {
+  margin: var(--stock-space-2) 0 0;
+  color: var(--text-medium);
+  font-weight: 600;
 }
 
 .stock-order-table__badge {

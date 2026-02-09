@@ -24,6 +24,10 @@ import {
   type Supplier,
   type SupplierProduct
 } from "../../../suppliers/localSuppliers";
+import {
+  transitionDraftStatus,
+  type DraftStatus
+} from "./draftStatus";
 
 const escapeCsvValue = (value: string | number | undefined) => {
   if (value === undefined || value === null) {
@@ -100,6 +104,7 @@ export default function OrderDraftPage() {
   const [selectedSuppliers, setSelectedSuppliers] = useState<Record<string, string>>(
     {}
   );
+  const [draftStatus, setDraftStatus] = useState<DraftStatus>("draft");
 
   const refreshData = useCallback(() => {
     setEntries(getBaselineForLocation(locationId));
@@ -194,6 +199,18 @@ export default function OrderDraftPage() {
       ...prev,
       [productId]: supplierId
     }));
+  };
+
+  const handleMarkReviewed = () => {
+    setDraftStatus((current) =>
+      transitionDraftStatus(current, { type: "mark-reviewed" })
+    );
+  };
+
+  const handleUnfreeze = () => {
+    setDraftStatus((current) =>
+      transitionDraftStatus(current, { type: "unfreeze" })
+    );
   };
 
   const formatCurrency = useCallback((valuePence: number) => {
@@ -309,7 +326,8 @@ export default function OrderDraftPage() {
         selectedSupplierId,
         selectedSupplierName: selectedSupplier?.name ?? "",
         selectedUnitPricePence: selectedPricing?.unitPricePence ?? "",
-        lineTotalPence
+        lineTotalPence,
+        reviewStatus: draftStatus
       };
     });
     const csvRows = [
@@ -322,6 +340,7 @@ export default function OrderDraftPage() {
         "variance",
         "confidence",
         "suggestedOrderQty",
+        "review_status",
         "bestSupplierId",
         "bestSupplierName",
         "bestUnitPricePence",
@@ -339,6 +358,7 @@ export default function OrderDraftPage() {
         row.variance,
         row.confidence,
         row.suggestedOrderQty,
+        row.reviewStatus,
         row.bestSupplierId,
         row.bestSupplierName,
         row.bestUnitPricePence,
@@ -360,13 +380,24 @@ export default function OrderDraftPage() {
     URL.revokeObjectURL(url);
   };
 
+  const isFrozen = draftStatus === "frozen";
+  const statusLabel = isFrozen ? "Reviewed" : "Draft";
+
   return (
     <PageShell
+      className={isFrozen ? "stock-page-shell--frozen" : undefined}
       header={
         <ScreenHeader
           eyebrow="Order draft"
           title={locationName || "Location"}
           subtitle="Compare baseline counts with locally inferred stock to draft a suggested order."
+          status={
+            <span
+              className={`stock-status-pill${isFrozen ? " stock-status-pill--frozen" : ""}`}
+            >
+              {statusLabel}
+            </span>
+          }
         />
       }
     >
@@ -389,7 +420,30 @@ export default function OrderDraftPage() {
             }
           />
         </KeyValueGrid>
+        {isFrozen ? (
+          <p className="stock-order-draft__note">
+            Reviewed — no automatic changes.
+          </p>
+        ) : null}
         <PrimaryActions>
+          {isFrozen ? (
+            <button
+              type="button"
+              className="stock-button stock-button--secondary"
+              onClick={handleUnfreeze}
+            >
+              Unfreeze for edits
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="stock-button stock-button--secondary"
+              onClick={handleMarkReviewed}
+              disabled={rows.length === 0}
+            >
+              Mark as reviewed
+            </button>
+          )}
           <button
             type="button"
             className="stock-button stock-button--primary"
@@ -504,6 +558,7 @@ export default function OrderDraftPage() {
                       min={0}
                       step={1}
                       value={suggested}
+                      disabled={isFrozen}
                       onChange={(event) =>
                         handleSuggestedChange(
                           row.entry.id,
