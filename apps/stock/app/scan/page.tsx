@@ -876,10 +876,11 @@ export default function ScanPage() {
         </PrimaryActions>
       ) : null}
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
         <ActionLink href="/scan">Scan another</ActionLink>
-        <ActionLink href="/baseline">Baseline (one-time)</ActionLink>
-        <ActionLink href="/locations">Locations</ActionLink>
-        <ActionLink href="/products">Products</ActionLink>
+        <ActionLink href="/reorder">Orders</ActionLink>
+        <ActionLink href="/expiry">Expiry</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
       </PrimaryActions>
     </StockPageTemplate>
   );

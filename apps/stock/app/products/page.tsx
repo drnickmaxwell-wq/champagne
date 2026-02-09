@@ -582,10 +582,10 @@ export default function ProductsPage() {
       })}
 
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href="/scan">Scan</ActionLink>
-        <ActionLink href="/baseline">Baseline (one-time)</ActionLink>
-        <ActionLink href="/reorder">Reorder</ActionLink>
-        <ActionLink href="/locations">Locations</ActionLink>
+        <ActionLink href="/reorder">Orders</ActionLink>
       </PrimaryActions>
 
       <DebugDisclosure summary="Technical details (for troubleshooting only)">

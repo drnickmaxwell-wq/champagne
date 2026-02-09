@@ -208,11 +208,11 @@ export default function Page() {
         </Section>
       ) : null}
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href="/scan">Scan again</ActionLink>
-        <ActionLink href="/baseline">Baseline (one-time)</ActionLink>
-        <ActionLink href="/locations">Locations</ActionLink>
-        <ActionLink href="/reorder">Reorder</ActionLink>
-        <ActionLink href="/products">Products</ActionLink>
+        <ActionLink href="/expiry">Expiry</ActionLink>
+        <ActionLink href="/reorder">Orders</ActionLink>
       </PrimaryActions>
     </PageShell>
   );

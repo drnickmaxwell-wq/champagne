@@ -280,7 +280,7 @@ export default function SupplierDetailPage() {
                 value={supplierProducts.length}
               />
               <FieldRow
-                label="Ordering method"
+                label="How to order"
                 value={supplier.orderingMethod}
               />
             </KeyValueGrid>
@@ -298,7 +298,7 @@ export default function SupplierDetailPage() {
                   />
                 </label>
                 <label>
-                  Ordering method
+                  How to order
                   <select
                     className="stock-form__input"
                     value={draft.orderingMethod}
@@ -556,8 +556,9 @@ export default function SupplierDetailPage() {
       ) : null}
 
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href="/suppliers">Back to suppliers</ActionLink>
-        <ActionLink href="/baseline">Baseline</ActionLink>
         <ActionLink href="/scan">Scan</ActionLink>
       </PrimaryActions>
     </PageShell>

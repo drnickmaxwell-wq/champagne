@@ -146,11 +146,11 @@ export default function BaselineReviewPage() {
               className="stock-button stock-button--secondary"
               onClick={() => setShowArchivedDraft(true)}
             >
-              View archived draft
+              View archived order suggestion
             </button>
           ) : (
             <ActionLink href={`/baseline/${locationId}/order-draft`}>
-              Draft order list
+              Order list
             </ActionLink>
           )}
           <button
@@ -208,10 +208,10 @@ export default function BaselineReviewPage() {
       </Section>
 
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href="/baseline">Back to baseline</ActionLink>
         <ActionLink href="/scan">Scan</ActionLink>
-        <ActionLink href="/products">Products</ActionLink>
-        <ActionLink href="/locations">Locations</ActionLink>
       </PrimaryActions>
     </PageShell>
   );

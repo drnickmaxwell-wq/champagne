@@ -192,8 +192,9 @@ export default function LocalProductPage() {
               <FieldRow label="Barcode" value={product.barcode} />
             </KeyValueGrid>
             <PrimaryActions>
+              <ActionLink href="/">Home</ActionLink>
+              <ActionLink href="/setup">Setup</ActionLink>
               <ActionLink href="/scan">Scan another</ActionLink>
-              <ActionLink href="/products">Products</ActionLink>
             </PrimaryActions>
           </Section>
           <Section title="Suppliers">
@@ -203,7 +204,7 @@ export default function LocalProductPage() {
                 value={preferredSupplier?.name ?? "Not set"}
               />
               <FieldRow
-                label="Ordering method"
+                label="How to order"
                 value={preferredSupplier?.orderingMethod ?? "—"}
               />
             </KeyValueGrid>
