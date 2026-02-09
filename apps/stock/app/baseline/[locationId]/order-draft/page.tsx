@@ -14,6 +14,11 @@ import {
 } from "../../localBaseline";
 import { loadLocalLots, type LocalStockLot } from "../../../stockLots/localLots";
 import {
+  computeVarianceConfidence,
+  type VarianceConfidence,
+  type VarianceEstimateSource
+} from "../../varianceConfidence";
+import {
   getBestSupplierPrice,
   loadSupplierStore,
   type Supplier,
@@ -35,18 +40,29 @@ type DraftRow = {
   entry: BaselineCountEntry;
   estimatedStock: number;
   variance: number;
+  confidence: VarianceConfidence;
 };
 
-const buildLotCounts = (lots: LocalStockLot[], locationId: string) => {
+type LotCounts = {
+  counts: Record<string, number>;
+  lotsByProduct: Record<string, LocalStockLot[]>;
+};
+
+const buildLotCounts = (lots: LocalStockLot[], locationId: string): LotCounts => {
   const counts: Record<string, number> = {};
+  const lotsByProduct: Record<string, LocalStockLot[]> = {};
   for (const lot of lots) {
     if (lot.locationId !== locationId) {
       continue;
     }
     const current = counts[lot.productId] ?? 0;
     counts[lot.productId] = current + 1;
+    if (!lotsByProduct[lot.productId]) {
+      lotsByProduct[lot.productId] = [];
+    }
+    lotsByProduct[lot.productId].push(lot);
   }
-  return counts;
+  return { counts, lotsByProduct };
 };
 
 const normalizeIntegerInput = (value: number, fallback: number) => {
@@ -71,6 +87,9 @@ export default function OrderDraftPage() {
         : "";
   const [entries, setEntries] = useState<BaselineCountEntry[]>([]);
   const [lotCounts, setLotCounts] = useState<Record<string, number>>({});
+  const [lotsByProduct, setLotsByProduct] = useState<
+    Record<string, LocalStockLot[]>
+  >({});
   const [loading, setLoading] = useState(true);
   const [threshold, setThreshold] = useState(0);
   const [suggestedOrders, setSuggestedOrders] = useState<Record<string, number>>(
@@ -84,7 +103,12 @@ export default function OrderDraftPage() {
 
   const refreshData = useCallback(() => {
     setEntries(getBaselineForLocation(locationId));
-    setLotCounts(buildLotCounts(loadLocalLots(), locationId));
+    const { counts, lotsByProduct: lotsLookup } = buildLotCounts(
+      loadLocalLots(),
+      locationId
+    );
+    setLotCounts(counts);
+    setLotsByProduct(lotsLookup);
     const supplierStore = loadSupplierStore();
     setSuppliers(supplierStore.suppliers);
     setSupplierProducts(supplierStore.supplierProducts);
@@ -103,13 +127,23 @@ export default function OrderDraftPage() {
   const rows = useMemo<DraftRow[]>(() => {
     return entries.map((entry) => {
       const estimatedStock = lotCounts[entry.productId] ?? 0;
+      const lotsForProduct = lotsByProduct[entry.productId] ?? [];
+      const hasEstimate = Number.isFinite(estimatedStock);
+      const estimateSource: VarianceEstimateSource =
+        lotsForProduct.length > 0 ? "lots" : "unknown";
       return {
         entry,
         estimatedStock,
-        variance: entry.countedUnits - estimatedStock
+        variance: entry.countedUnits - estimatedStock,
+        confidence: computeVarianceConfidence({
+          baselineExists: true,
+          estimateSource,
+          hasCurrentEstimate: hasEstimate,
+          lots: lotsForProduct
+        })
       };
     });
-  }, [entries, lotCounts]);
+  }, [entries, lotCounts, lotsByProduct]);
 
   useEffect(() => {
     setSuggestedOrders((prev) => {
@@ -267,6 +301,7 @@ export default function OrderDraftPage() {
         baselineCount: row.entry.countedUnits,
         estimatedStock: row.estimatedStock,
         variance: row.variance,
+        confidence: row.confidence.label,
         suggestedOrderQty: suggested,
         bestSupplierId: best?.supplierId ?? "",
         bestSupplierName: best ? supplierById.get(best.supplierId)?.name ?? "" : "",
@@ -285,6 +320,7 @@ export default function OrderDraftPage() {
         "baselineCount",
         "estimatedCurrentStock",
         "variance",
+        "confidence",
         "suggestedOrderQty",
         "bestSupplierId",
         "bestSupplierName",
@@ -301,6 +337,7 @@ export default function OrderDraftPage() {
         row.baselineCount,
         row.estimatedStock,
         row.variance,
+        row.confidence,
         row.suggestedOrderQty,
         row.bestSupplierId,
         row.bestSupplierName,
@@ -365,6 +402,10 @@ export default function OrderDraftPage() {
       </Section>
 
       <Section title="Draft order list">
+        <p className="stock-order-table__helper">
+          Confidence reflects how trustworthy the estimate is based on baseline and
+          local lot data.
+        </p>
         <div className="stock-form__row">
           <label className="stock-form__label" htmlFor="variance-threshold">
             Variance threshold
@@ -392,6 +433,7 @@ export default function OrderDraftPage() {
               <span role="columnheader">Baseline count</span>
               <span role="columnheader">Estimated current stock</span>
               <span role="columnheader">Variance</span>
+              <span role="columnheader">Confidence</span>
               <span role="columnheader">Suggested order qty</span>
               <span role="columnheader">Best unit price</span>
               <span role="columnheader">Selected supplier</span>
@@ -443,6 +485,17 @@ export default function OrderDraftPage() {
                         Flagged
                       </span>
                     ) : null}
+                  </div>
+                  <div role="cell" className="stock-order-table__cell">
+                    <span
+                      className="stock-order-table__badge"
+                      title={row.confidence.helperText}
+                    >
+                      {row.confidence.label}
+                    </span>
+                    <span className="stock-order-table__meta">
+                      {row.confidence.helperText}
+                    </span>
                   </div>
                   <div role="cell" className="stock-order-table__cell">
                     <input
