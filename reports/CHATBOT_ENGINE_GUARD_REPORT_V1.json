@@ -1,17 +1,25 @@
 {
   "report": "CHATBOT_ENGINE_GUARD_REPORT_V1",
-  "generatedAt": "2026-02-08T18:10:11.558Z",
+  "generatedAt": "2026-02-09T12:13:58.996Z",
   "rules": {
     "absolutePhraseBlocklist": [
       "best",
+      "most",
+      "right",
       "right option",
       "most suitable",
       "quickest",
       "right place",
-      "work best"
+      "work best",
+      "tailored",
+      "designed to",
+      "transform",
+      "leading"
     ],
     "qaReportLoaded": false,
     "qaReportPath": "/workspace/champagne/reports/CHATBOT_ENGINE_COPY_QA_REPORT_V1.json",
+    "contentReadinessReportLoaded": true,
+    "contentReadinessReportPath": "/workspace/champagne/reports/content_readiness_report.json",
     "excerptReportLoaded": true,
     "excerptReportPath": "/workspace/champagne/reports/CHATBOT_PAGE_COPY_EXCERPTS_V1.json",
     "warnOnExcerptMismatch": true,
