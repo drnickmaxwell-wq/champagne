@@ -50,6 +50,40 @@ describe("loadSupplierStore", () => {
     expect(store.suppliers).toEqual([]);
     expect(store.supplierProducts).toEqual([]);
   });
+
+  it("parses valid suppliers and pricing rows", () => {
+    storage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        version: 1,
+        suppliers: [
+          {
+            id: "s-1",
+            name: "Stock Co",
+            notes: "Primary",
+            minOrderPence: "2500",
+            deliveryDays: "2",
+            contact: "Call store"
+          }
+        ],
+        supplierProducts: [
+          {
+            supplierId: "s-1",
+            productId: "p-1",
+            supplierSku: "SKU-1",
+            unitPricePence: 155,
+            packSize: 5,
+            lastUpdatedISO: "2024-03-01T00:00:00.000Z"
+          }
+        ]
+      })
+    );
+    const store = loadSupplierStore();
+    expect(store.suppliers).toHaveLength(1);
+    expect(store.suppliers[0]?.name).toBe("Stock Co");
+    expect(store.supplierProducts).toHaveLength(1);
+    expect(store.supplierProducts[0]?.unitPricePence).toBe(155);
+  });
 });
 
 describe("upsertSupplier", () => {
