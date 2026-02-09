@@ -28,17 +28,8 @@ import {
   transitionDraftStatus,
   type DraftStatus
 } from "./draftStatus";
-
-const escapeCsvValue = (value: string | number | undefined) => {
-  if (value === undefined || value === null) {
-    return "";
-  }
-  const stringValue = String(value);
-  if (/[",\n]/.test(stringValue)) {
-    return `"${stringValue.replace(/"/g, '""')}"`;
-  }
-  return stringValue;
-};
+import { loadLocalBarcodeRegistry, type LocalProduct } from "../../../scan/localRegistry";
+import { buildOrderDraftCsv, type CsvRow } from "./csv";
 
 type DraftRow = {
   entry: BaselineCountEntry;
@@ -105,6 +96,7 @@ export default function OrderDraftPage() {
     {}
   );
   const [draftStatus, setDraftStatus] = useState<DraftStatus>("draft");
+  const [products, setProducts] = useState<LocalProduct[]>([]);
 
   const refreshData = useCallback(() => {
     setEntries(getBaselineForLocation(locationId));
@@ -117,6 +109,8 @@ export default function OrderDraftPage() {
     const supplierStore = loadSupplierStore();
     setSuppliers(supplierStore.suppliers);
     setSupplierProducts(supplierStore.supplierProducts);
+    const registry = loadLocalBarcodeRegistry();
+    setProducts(registry.products);
   }, [locationId]);
 
   useEffect(() => {
@@ -297,80 +291,34 @@ export default function OrderDraftPage() {
   }, [rows, selectedSuppliers, supplierProductLookup, suggestedOrders]);
 
   const handleExport = () => {
-    const rowsForCsv = rows.map((row) => {
+    const productLookup = new Map(
+      products.map((product) => [product.id, product])
+    );
+    const rowsForCsv: CsvRow[] = rows.map((row) => {
       const suggested = suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
-      const best = getBestSupplierPrice(row.entry.productId, supplierProducts);
-      const selectedSupplierId =
-        selectedSuppliers[row.entry.productId] ?? best?.supplierId ?? "";
-      const selectedSupplier = selectedSupplierId
-        ? supplierById.get(selectedSupplierId)
-        : undefined;
-      const selectedPricing = selectedSupplierId
-        ? supplierProductLookup.get(
-            `${selectedSupplierId}:${row.entry.productId}`
-          )
-        : undefined;
-      const lineTotalPence = selectedPricing
-        ? selectedPricing.unitPricePence * suggested
-        : 0;
+      const productDetails = productLookup.get(row.entry.productId);
       return {
+        productId: row.entry.productId,
         productName: row.entry.productName,
+        category: productDetails?.category ?? "",
+        locationId,
+        locationName: locationName ?? "",
+        unitType: productDetails?.unitType ?? "",
+        quantity: suggested,
         baselineCount: row.entry.countedUnits,
-        estimatedStock: row.estimatedStock,
-        variance: row.variance,
-        confidence: row.confidence.label,
-        suggestedOrderQty: suggested,
-        bestSupplierId: best?.supplierId ?? "",
-        bestSupplierName: best ? supplierById.get(best.supplierId)?.name ?? "" : "",
-        bestUnitPricePence: best?.unitPricePence ?? "",
-        selectedSupplierId,
-        selectedSupplierName: selectedSupplier?.name ?? "",
-        selectedUnitPricePence: selectedPricing?.unitPricePence ?? "",
-        lineTotalPence,
+        varianceNote: row.confidence.label,
         reviewStatus: draftStatus
       };
     });
-    const csvRows = [
-      [
-        "locationId",
-        "locationName",
-        "product",
-        "baselineCount",
-        "estimatedCurrentStock",
-        "variance",
-        "confidence",
-        "suggestedOrderQty",
-        "review_status",
-        "bestSupplierId",
-        "bestSupplierName",
-        "bestUnitPricePence",
-        "selectedSupplierId",
-        "selectedSupplierName",
-        "selectedUnitPricePence",
-        "lineTotalPence"
-      ],
-      ...rowsForCsv.map((row) => [
-        locationId,
-        locationName ?? "",
-        row.productName,
-        row.baselineCount,
-        row.estimatedStock,
-        row.variance,
-        row.confidence,
-        row.suggestedOrderQty,
-        row.reviewStatus,
-        row.bestSupplierId,
-        row.bestSupplierName,
-        row.bestUnitPricePence,
-        row.selectedSupplierId,
-        row.selectedSupplierName,
-        row.selectedUnitPricePence,
-        row.lineTotalPence
-      ])
-    ];
-    const csv = csvRows
-      .map((row) => row.map((value) => escapeCsvValue(value)).join(","))
-      .join("\n");
+    const csv = buildOrderDraftCsv(
+      {
+        generatedAt: new Date().toISOString(),
+        draftStatus,
+        generatedBy: "stock-app",
+        warning: "Draft only — not an approved purchase order"
+      },
+      rowsForCsv
+    );
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
