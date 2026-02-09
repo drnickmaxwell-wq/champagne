@@ -125,6 +125,9 @@ export default function BaselineReviewPage() {
           >
             Download CSV
           </button>
+          <ActionLink href={`/baseline/${locationId}/order-draft`}>
+            Draft order list
+          </ActionLink>
           <button
             type="button"
             className="stock-button stock-button--secondary"
