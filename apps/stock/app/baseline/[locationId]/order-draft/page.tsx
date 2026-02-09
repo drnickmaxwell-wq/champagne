@@ -39,6 +39,7 @@ import {
 } from "./draftStatus";
 import { loadLocalBarcodeRegistry, type LocalProduct } from "../../../scan/localRegistry";
 import { buildOrderDraftCsv, type CsvRow } from "./csv";
+import { buildOrderDraftExport, type OrderDraftExportLineItem } from "./export";
 
 type DraftRow = {
   entry: BaselineCountEntry;
@@ -131,6 +132,7 @@ export default function OrderDraftPage() {
   );
   const [products, setProducts] = useState<LocalProduct[]>([]);
   const [baselineDraft, setBaselineDraft] = useState<BaselineDraft | null>(null);
+  const [exportError, setExportError] = useState<string | null>(null);
 
   const refreshData = useCallback(() => {
     setEntries(getBaselineForLocation(locationId));
@@ -319,42 +321,87 @@ export default function OrderDraftPage() {
     return map;
   }, [supplierProducts]);
 
-  const handleExport = () => {
-    const productLookup = new Map(
-      products.map((product) => [product.id, product])
-    );
-    const rowsForCsv: CsvRow[] = rows.map((row) => {
+  const buildLineItems = (): OrderDraftExportLineItem[] => {
+    return rows.map((row) => {
       const suggested = suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
-      const productDetails = productLookup.get(row.entry.productId);
+      const selectedMeta = lineSupplierMeta[row.entry.productId];
       return {
         productId: row.entry.productId,
         productName: row.entry.productName,
-        category: productDetails?.category ?? "",
-        locationId,
-        locationName: locationName ?? "",
-        unitType: productDetails?.unitType ?? "",
-        quantity: suggested,
-        baselineCount: row.entry.countedUnits,
-        varianceNote: row.confidence.label,
-        reviewStatus: draftStatus
+        qtyUnits: suggested,
+        supplierId: selectedMeta?.supplierId,
+        packLabel: selectedMeta?.packLabel
       };
     });
-    const csv = buildOrderDraftCsv(
-      {
+  };
+
+  const handleExportDraft = () => {
+    setExportError(null);
+    try {
+      const origin = baselineDraft?.origin ?? "manual";
+      const payload = buildOrderDraftExport({
         generatedAt: new Date().toISOString(),
-        draftStatus,
-        generatedBy: "stock-app",
-        warning: "Draft only — not an approved purchase order"
-      },
-      rowsForCsv
-    );
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `order-draft-${locationId}.csv`;
-    anchor.click();
-    URL.revokeObjectURL(url);
+        draftId: `order-draft-${locationId}-${origin}`,
+        origin,
+        locationId,
+        locationName: locationName || locationId,
+        lineItems: buildLineItems(),
+        notes: baselineDraft?.note
+      });
+      const json = JSON.stringify(payload, null, 2);
+      const blob = new Blob([json], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `order-draft-${locationId}.json`;
+      anchor.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      setExportError("Unable to export the draft. No file was created.");
+    }
+  };
+
+  const handleExportCsv = () => {
+    setExportError(null);
+    try {
+      const productLookup = new Map(
+        products.map((product) => [product.id, product])
+      );
+      const rowsForCsv: CsvRow[] = rows.map((row) => {
+        const suggested = suggestedOrders[row.entry.id] ?? Math.abs(row.variance);
+        const productDetails = productLookup.get(row.entry.productId);
+        return {
+          productId: row.entry.productId,
+          productName: row.entry.productName,
+          category: productDetails?.category ?? "",
+          locationId,
+          locationName: locationName ?? "",
+          unitType: productDetails?.unitType ?? "",
+          quantity: suggested,
+          baselineCount: row.entry.countedUnits,
+          varianceNote: row.confidence.label,
+          reviewStatus: draftStatus
+        };
+      });
+      const csv = buildOrderDraftCsv(
+        {
+          generatedAt: new Date().toISOString(),
+          draftStatus,
+          generatedBy: "stock-app",
+          warning: "Draft only — not an approved purchase order"
+        },
+        rowsForCsv
+      );
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `order-draft-${locationId}.csv`;
+      anchor.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      setExportError("Unable to export the draft. No file was created.");
+    }
   };
 
   const isFrozen = draftStatus === DRAFT_STATUS.frozen;
@@ -398,6 +445,12 @@ export default function OrderDraftPage() {
             ? "Frozen — edits are locked until you unfreeze."
             : "Draft — edits stay enabled until you freeze."}
         </p>
+        <p className="stock-order-draft__note">
+          This exports the draft as a structured file. No order is placed.
+        </p>
+        {exportError ? (
+          <FeedbackCard title="Export failed" message={exportError} />
+        ) : null}
         <PrimaryActions>
           {isFrozen ? (
             <button
@@ -420,7 +473,15 @@ export default function OrderDraftPage() {
           <button
             type="button"
             className="stock-button stock-button--primary"
-            onClick={handleExport}
+            onClick={handleExportDraft}
+            disabled={rows.length === 0}
+          >
+            Export draft
+          </button>
+          <button
+            type="button"
+            className="stock-button stock-button--secondary"
+            onClick={handleExportCsv}
             disabled={rows.length === 0}
           >
             Export CSV
