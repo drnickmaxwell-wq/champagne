@@ -59,6 +59,10 @@ import {
   groupDraftLineItemsBySupplier,
   type OrderDraftPackLineItem
 } from "./orderPacks";
+import {
+  buildSupplierOrderText,
+  buildSupplierOrderViews
+} from "./supplierOrderView";
 
 type DraftRow = {
   entry: BaselineCountEntry;
@@ -403,6 +407,16 @@ export default function OrderDraftPage() {
     });
   }, [packLineItems, supplierById]);
 
+  const supplierOrderViews = useMemo(
+    () => buildSupplierOrderViews(supplierPacks, supplierById),
+    [supplierPacks, supplierById]
+  );
+
+  const supplierOrderText = useMemo(
+    () => buildSupplierOrderText(supplierOrderViews),
+    [supplierOrderViews]
+  );
+
   const handleCopyPack = useCallback(async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -410,6 +424,34 @@ export default function OrderDraftPage() {
     } catch {
       window.prompt("Copy pack text:", text);
     }
+  }, []);
+
+  const escapeHtml = (text: string) => {
+    return text
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
+  };
+
+  const handlePrintSupplierOrder = useCallback((text: string) => {
+    const printWindow = window.open("", "supplier-order-print");
+    if (!printWindow) {
+      window.alert("Unable to open a print window. Please copy the text instead.");
+      return;
+    }
+    printWindow.document.write(`<!doctype html>
+<html>
+  <head>
+    <title>Supplier order</title>
+  </head>
+  <body>
+    <pre style="white-space: pre-wrap; font-family: inherit;">${escapeHtml(text)}</pre>
+  </body>
+</html>`);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
   }, []);
 
   const handleDownloadPack = (filename: string, text: string) => {
@@ -821,6 +863,71 @@ export default function OrderDraftPage() {
         <p className="stock-order-table__helper">
           Supplier SKUs and pack labels are optional. Final quantities are editable.
         </p>
+      </Section>
+
+      <Section title="Supplier view">
+        <p className="stock-order-table__helper">
+          Supplier-ready summary grouped by supplier for calls, emails, or portal
+          entries.
+        </p>
+        <PrimaryActions>
+          <button
+            type="button"
+            className="stock-button stock-button--secondary"
+            onClick={() => handleCopyPack(supplierOrderText)}
+            disabled={supplierOrderViews.length === 0}
+          >
+            Copy supplier order text
+          </button>
+          <button
+            type="button"
+            className="stock-button stock-button--secondary"
+            onClick={() => handlePrintSupplierOrder(supplierOrderText)}
+            disabled={supplierOrderViews.length === 0}
+          >
+            Print supplier order
+          </button>
+        </PrimaryActions>
+        {supplierOrderViews.length === 0 ? (
+          <FeedbackCard
+            title="No draft items"
+            message="Add draft quantities to generate supplier-ready summaries."
+          />
+        ) : (
+          <div className="stock-pack-grid">
+            {supplierOrderViews.map((view) => (
+              <div
+                key={view.supplierId ?? "unassigned"}
+                className="stock-pack-card"
+              >
+                <div className="stock-pack-card__header">
+                  <div>
+                    <h3 className="stock-pack-card__title">{view.supplierName}</h3>
+                    <p className="stock-pack-card__meta">
+                      Ordering method: {view.orderingMethod}
+                    </p>
+                  </div>
+                  <div className="stock-pack-card__meta">
+                    <div>Phone: {view.contact.phone || "Not provided"}</div>
+                    <div>Email: {view.contact.email || "Not provided"}</div>
+                    <div>Portal: {view.contact.portalUrl || "Not provided"}</div>
+                    <div>Notes: {view.contact.notes || "Not provided"}</div>
+                  </div>
+                </div>
+                <ul className="stock-pack-list">
+                  {view.lines.map((item) => (
+                    <li key={`${item.productId}-${view.supplierId ?? "unassigned"}`}>
+                      <strong>{item.productName}</strong> — {item.qtyUnits} units
+                      {item.supplierSku ? ` (SKU ${item.supplierSku})` : ""}
+                      {item.packLabel ? ` (Pack ${item.packLabel})` : ""}
+                      {item.notes ? ` (Notes: ${item.notes})` : ""}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
       </Section>
 
       <Section title="Supplier order packs">
