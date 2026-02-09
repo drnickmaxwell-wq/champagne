@@ -25,6 +25,9 @@ import {
   type SupplierProduct
 } from "../../../suppliers/localSuppliers";
 import {
+  canEditDraft,
+  DRAFT_STATUS,
+  DRAFT_STATUS_ACTION,
   transitionDraftStatus,
   type DraftStatus
 } from "./draftStatus";
@@ -95,7 +98,9 @@ export default function OrderDraftPage() {
   const [selectedSuppliers, setSelectedSuppliers] = useState<Record<string, string>>(
     {}
   );
-  const [draftStatus, setDraftStatus] = useState<DraftStatus>("draft");
+  const [draftStatus, setDraftStatus] = useState<DraftStatus>(
+    DRAFT_STATUS.draft
+  );
   const [products, setProducts] = useState<LocalProduct[]>([]);
 
   const refreshData = useCallback(() => {
@@ -178,10 +183,16 @@ export default function OrderDraftPage() {
   }, [rows, supplierProducts]);
 
   const handleThresholdChange = (value: number) => {
+    if (!canEditDraft(draftStatus)) {
+      return;
+    }
     setThreshold(normalizeIntegerInput(value, 0));
   };
 
   const handleSuggestedChange = (entryId: string, value: number) => {
+    if (!canEditDraft(draftStatus)) {
+      return;
+    }
     setSuggestedOrders((prev) => ({
       ...prev,
       [entryId]: clampNonNegative(normalizeIntegerInput(value, 0))
@@ -189,21 +200,38 @@ export default function OrderDraftPage() {
   };
 
   const handleSupplierChange = (productId: string, supplierId: string) => {
+    if (!canEditDraft(draftStatus)) {
+      return;
+    }
     setSelectedSuppliers((prev) => ({
       ...prev,
       [productId]: supplierId
     }));
   };
 
-  const handleMarkReviewed = () => {
+  const handleFreezeConfirm = () => {
+    if (
+      !window.confirm(
+        "Freezing prevents accidental changes. You can unfreeze later."
+      )
+    ) {
+      return;
+    }
     setDraftStatus((current) =>
-      transitionDraftStatus(current, { type: "mark-reviewed" })
+      transitionDraftStatus(current, { type: DRAFT_STATUS_ACTION.freeze })
     );
   };
 
-  const handleUnfreeze = () => {
+  const handleUnfreezeConfirm = () => {
+    if (
+      !window.confirm(
+        "Freezing prevents accidental changes. You can unfreeze later."
+      )
+    ) {
+      return;
+    }
     setDraftStatus((current) =>
-      transitionDraftStatus(current, { type: "unfreeze" })
+      transitionDraftStatus(current, { type: DRAFT_STATUS_ACTION.unfreeze })
     );
   };
 
@@ -328,8 +356,8 @@ export default function OrderDraftPage() {
     URL.revokeObjectURL(url);
   };
 
-  const isFrozen = draftStatus === "frozen";
-  const statusLabel = isFrozen ? "Reviewed" : "Draft";
+  const isFrozen = draftStatus === DRAFT_STATUS.frozen;
+  const statusLabel = isFrozen ? "Frozen" : "Draft";
 
   return (
     <PageShell
@@ -368,28 +396,28 @@ export default function OrderDraftPage() {
             }
           />
         </KeyValueGrid>
-        {isFrozen ? (
-          <p className="stock-order-draft__note">
-            Reviewed — no automatic changes.
-          </p>
-        ) : null}
+        <p className="stock-order-draft__note">
+          {isFrozen
+            ? "Frozen — edits are locked until you unfreeze."
+            : "Draft — edits stay enabled until you freeze."}
+        </p>
         <PrimaryActions>
           {isFrozen ? (
             <button
               type="button"
               className="stock-button stock-button--secondary"
-              onClick={handleUnfreeze}
+              onClick={handleUnfreezeConfirm}
             >
-              Unfreeze for edits
+              Unfreeze draft
             </button>
           ) : (
             <button
               type="button"
               className="stock-button stock-button--secondary"
-              onClick={handleMarkReviewed}
+              onClick={handleFreezeConfirm}
               disabled={rows.length === 0}
             >
-              Mark as reviewed
+              Freeze draft
             </button>
           )}
           <button
@@ -417,6 +445,7 @@ export default function OrderDraftPage() {
               type="number"
               step={1}
               value={threshold}
+              disabled={isFrozen}
               onChange={(event) =>
                 handleThresholdChange(event.target.valueAsNumber)
               }
@@ -532,6 +561,7 @@ export default function OrderDraftPage() {
                       <select
                         className="stock-form__input stock-order-table__input"
                         value={selectedSupplierId}
+                        disabled={isFrozen}
                         onChange={(event) =>
                           handleSupplierChange(row.entry.productId, event.target.value)
                         }

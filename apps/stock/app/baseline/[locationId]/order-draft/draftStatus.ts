@@ -1,18 +1,33 @@
-export type DraftStatus = "draft" | "frozen";
+export const DRAFT_STATUS = {
+  draft: "draft",
+  frozen: "frozen"
+} as const;
 
-export type DraftStatusAction =
-  | { type: "mark-reviewed" }
-  | { type: "unfreeze" };
+export type DraftStatus = (typeof DRAFT_STATUS)[keyof typeof DRAFT_STATUS];
+
+export const DRAFT_STATUS_ACTION = {
+  freeze: "freeze",
+  unfreeze: "unfreeze"
+} as const;
+
+export type DraftStatusActionType =
+  (typeof DRAFT_STATUS_ACTION)[keyof typeof DRAFT_STATUS_ACTION];
+
+export type DraftStatusAction = { type: DraftStatusActionType };
+
+export const canEditDraft = (status: DraftStatus) => {
+  return status === DRAFT_STATUS.draft;
+};
 
 export const transitionDraftStatus = (
   current: DraftStatus,
   action: DraftStatusAction
 ): DraftStatus => {
   switch (action.type) {
-    case "mark-reviewed":
-      return "frozen";
-    case "unfreeze":
-      return "draft";
+    case DRAFT_STATUS_ACTION.freeze:
+      return DRAFT_STATUS.frozen;
+    case DRAFT_STATUS_ACTION.unfreeze:
+      return DRAFT_STATUS.draft;
     default:
       return current;
   }
