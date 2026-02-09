@@ -24,7 +24,7 @@ const baseRows: CsvRow[] = [
     quantity: 4,
     baselineCount: 10,
     varianceNote: "Low confidence",
-    reviewStatus: "draft"
+    reviewStatus: "DRAFT"
   },
   {
     productId: "prod-2",
@@ -36,7 +36,7 @@ const baseRows: CsvRow[] = [
     quantity: undefined,
     baselineCount: undefined,
     varianceNote: "Check\nlot",
-    reviewStatus: "draft"
+    reviewStatus: "DRAFT"
   }
 ];
 
@@ -50,35 +50,35 @@ const expectMetadata = (csv: string, status: CsvMeta["draftStatus"]) => {
 
 describe("buildOrderDraftCsv", () => {
   it("emits a draft snapshot with metadata and stable columns", () => {
-    const csv = buildOrderDraftCsv(baseMeta("draft"), baseRows);
-    expectMetadata(csv, "draft");
+    const csv = buildOrderDraftCsv(baseMeta("DRAFT"), baseRows);
+    expectMetadata(csv, "DRAFT");
     const lines = csv.split("\n");
     expect(lines[4]).toBe(getOrderDraftCsvColumns().join(","));
     expect(csv).toMatchInlineSnapshot(`
       "# Generated_at: 2024-02-10T12:34:56.000Z
-      # Draft_status: draft
+      # Draft_status: DRAFT
       # Generated_by: stock-app
       # Warning: Draft only — not an approved purchase order
       product_id,product_name,category,location_id,location_name,unit_type,quantity,baseline_count,variance_note,review_status
-      prod-1,"Gloves, Large",consumable,loc-1,Main Shelf,box,4,10,Low confidence,draft
+      prod-1,"Gloves, Large",consumable,loc-1,Main Shelf,box,4,10,Low confidence,DRAFT
       prod-2,"Mask ""N95""",,loc-1,Main Shelf,,,,"Check
-      lot",draft"
+      lot",DRAFT"
     `);
   });
 
   it("emits a frozen snapshot with metadata", () => {
-    const rows = baseRows.map((row) => ({ ...row, reviewStatus: "frozen" }));
-    const csv = buildOrderDraftCsv(baseMeta("frozen"), rows);
-    expectMetadata(csv, "frozen");
+    const rows = baseRows.map((row) => ({ ...row, reviewStatus: "FROZEN" }));
+    const csv = buildOrderDraftCsv(baseMeta("FROZEN"), rows);
+    expectMetadata(csv, "FROZEN");
     expect(csv).toMatchInlineSnapshot(`
       "# Generated_at: 2024-02-10T12:34:56.000Z
-      # Draft_status: frozen
+      # Draft_status: FROZEN
       # Generated_by: stock-app
       # Warning: Draft only — not an approved purchase order
       product_id,product_name,category,location_id,location_name,unit_type,quantity,baseline_count,variance_note,review_status
-      prod-1,"Gloves, Large",consumable,loc-1,Main Shelf,box,4,10,Low confidence,frozen
+      prod-1,"Gloves, Large",consumable,loc-1,Main Shelf,box,4,10,Low confidence,FROZEN
       prod-2,"Mask ""N95""",,loc-1,Main Shelf,,,,"Check
-      lot",frozen"
+      lot",FROZEN"
     `);
   });
 });

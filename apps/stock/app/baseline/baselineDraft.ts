@@ -1,4 +1,5 @@
 import type { BaselineCountEntry } from "./localBaseline";
+import { DRAFT_STATUS, type DraftStatus } from "./orderDraftStatus";
 import type { LocalStockLot } from "../stockLots/localLots";
 
 export type DraftOrigin = "manual" | "baseline";
@@ -28,7 +29,7 @@ export type BaselineDraftItem = {
 };
 
 export type BaselineDraft = {
-  status: "draft";
+  status: DraftStatus;
   origin: DraftOrigin;
   note: string;
   source: BaselineSource;
@@ -96,7 +97,7 @@ export const buildBaselineDraft = (
   origin: DraftOrigin = "baseline"
 ): BaselineDraft => {
   return {
-    status: "draft",
+    status: DRAFT_STATUS.draft,
     origin,
     note: `Generated from baseline scan — ${source.locationName}`,
     source,
