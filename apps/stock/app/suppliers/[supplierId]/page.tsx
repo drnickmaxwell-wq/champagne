@@ -14,45 +14,50 @@ import {
 } from "../../components/ui/ScreenKit";
 import { loadBaselineEntries } from "../../baseline/localBaseline";
 import {
-  loadSupplierStore,
+  loadSuppliers,
+  orderingMethodOptions,
   upsertSupplier,
-  upsertSupplierProduct,
   type Supplier,
-  type SupplierProductLink
+  type SupplierOrderingMethod
 } from "../localSuppliers";
+import {
+  loadSupplierCatalog,
+  upsertSupplierCatalogItem,
+  type SupplierCatalogItem
+} from "../localSupplierCatalog";
 
 type SupplierDraft = {
   name: string;
+  orderingMethod: SupplierOrderingMethod;
+  phone: string;
+  email: string;
+  portalUrl: string;
   notes: string;
-  active: boolean;
 };
 
 type LinkDraft = {
-  packSize: string;
   packLabel: string;
+  supplierSku: string;
+  notes: string;
 };
 
 const toSupplierDraft = (supplier: Supplier): SupplierDraft => {
   return {
     name: supplier.name,
-    notes: supplier.notes ?? "",
-    active: supplier.active
+    orderingMethod: supplier.orderingMethod,
+    phone: supplier.contact.phone ?? "",
+    email: supplier.contact.email ?? "",
+    portalUrl: supplier.contact.portalUrl ?? "",
+    notes: supplier.contact.notes ?? ""
   };
 };
 
-const toLinkDraft = (product: SupplierProductLink): LinkDraft => {
+const toLinkDraft = (product: SupplierCatalogItem): LinkDraft => {
   return {
-    packSize: String(product.packSize),
-    packLabel: product.packLabel
+    supplierSku: product.supplierSku,
+    packLabel: product.supplierPackLabel ?? "",
+    notes: product.notes ?? ""
   };
-};
-
-const parsePositiveIntegerInput = (value: string) => {
-  const parsed = Number.parseInt(value, 10);
-  if (!Number.isFinite(parsed)) {
-    return null;
-  }
-  return parsed >= 1 ? parsed : null;
 };
 
 export default function SupplierDetailPage() {
@@ -66,29 +71,30 @@ export default function SupplierDetailPage() {
         : "";
   const [loading, setLoading] = useState(true);
   const [supplier, setSupplier] = useState<Supplier | null>(null);
-  const [supplierProducts, setSupplierProducts] = useState<SupplierProductLink[]>([]);
+  const [supplierProducts, setSupplierProducts] = useState<SupplierCatalogItem[]>([]);
   const [draft, setDraft] = useState<SupplierDraft | null>(null);
   const [linkDrafts, setLinkDrafts] = useState<Record<string, LinkDraft>>(
     {}
   );
-  const [newLink, setNewLink] = useState<LinkDraft & { productId: string }>(
-    {
-      productId: "",
-      packSize: "",
-      packLabel: ""
-    }
-  );
+  const [newLink, setNewLink] = useState<
+    LinkDraft & { productId: string }
+  >({
+    productId: "",
+    supplierSku: "",
+    packLabel: "",
+    notes: ""
+  });
   const [statusMessage, setStatusMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const refreshStore = useCallback(() => {
-    const store = loadSupplierStore();
-    const currentSupplier = store.suppliers.find(
+    const suppliers = loadSuppliers();
+    const currentSupplier = suppliers.find(
       (entry) => entry.id === supplierId
     );
     setSupplier(currentSupplier ?? null);
     setSupplierProducts(
-      store.supplierProducts.filter((entry) => entry.supplierId === supplierId)
+      loadSupplierCatalog().filter((entry) => entry.supplierId === supplierId)
     );
     setLoading(false);
     if (currentSupplier) {
@@ -104,7 +110,7 @@ export default function SupplierDetailPage() {
     setLinkDrafts((prev) => {
       const next: Record<string, LinkDraft> = { ...prev };
       supplierProducts.forEach((product) => {
-        next[product.productId] = next[product.productId] ?? toLinkDraft(product);
+        next[product.id] = next[product.id] ?? toLinkDraft(product);
       });
       return next;
     });
@@ -135,42 +141,55 @@ export default function SupplierDetailPage() {
       setErrorMessage("Supplier name is required.");
       return;
     }
+    const now = new Date().toISOString();
     const nextSupplier: Supplier = {
       id: supplier.id,
       name,
-      notes: draft.notes.trim() || undefined,
-      active: draft.active
+      orderingMethod: draft.orderingMethod,
+      contact: {
+        phone: draft.phone.trim() || undefined,
+        email: draft.email.trim() || undefined,
+        portalUrl: draft.portalUrl.trim() || undefined,
+        notes: draft.notes.trim() || undefined
+      },
+      createdAt: supplier.createdAt,
+      updatedAt: now
     };
     upsertSupplier(nextSupplier);
     setStatusMessage("Supplier updated.");
     refreshStore();
   };
 
-  const handleLinkUpdate = (productId: string) => {
+  const handleLinkUpdate = (itemId: string) => {
     if (!supplier) {
       return;
     }
-    const draftRow = linkDrafts[productId];
+    const draftRow = linkDrafts[itemId];
     if (!draftRow) {
       return;
     }
-    const packSize = parsePositiveIntegerInput(draftRow.packSize);
-    if (!packSize) {
-      setErrorMessage("Pack size must be a number of 1 or more.");
+    const supplierSku = draftRow.supplierSku.trim();
+    if (!supplierSku) {
+      setErrorMessage("Supplier SKU is required.");
       return;
     }
-    const packLabel = draftRow.packLabel.trim();
-    if (!packLabel) {
-      setErrorMessage("Pack label is required.");
+    const now = new Date().toISOString();
+    const existing = supplierProducts.find((item) => item.id === itemId);
+    if (!existing) {
+      setErrorMessage("Supplier link not found.");
       return;
     }
-    const payload: SupplierProductLink = {
-      supplierId: supplier.id,
-      productId,
-      packSize,
-      packLabel
+    const payload: SupplierCatalogItem = {
+      id: existing.id,
+      supplierId: existing.supplierId,
+      productId: existing.productId,
+      supplierSku,
+      supplierPackLabel: draftRow.packLabel.trim() || undefined,
+      notes: draftRow.notes.trim() || undefined,
+      createdAt: existing.createdAt,
+      updatedAt: now
     };
-    upsertSupplierProduct(payload);
+    upsertSupplierCatalogItem(payload);
     setStatusMessage("Supplier link updated.");
     refreshStore();
   };
@@ -187,27 +206,31 @@ export default function SupplierDetailPage() {
       setErrorMessage("Select a product.");
       return;
     }
-    const packSize = parsePositiveIntegerInput(newLink.packSize);
-    if (!packSize) {
-      setErrorMessage("Pack size must be a number of 1 or more.");
+    const supplierSku = newLink.supplierSku.trim();
+    if (!supplierSku) {
+      setErrorMessage("Supplier SKU is required.");
       return;
     }
-    const packLabel = newLink.packLabel.trim();
-    if (!packLabel) {
-      setErrorMessage("Pack label is required.");
-      return;
-    }
-    const payload: SupplierProductLink = {
+    const now = new Date().toISOString();
+    const payload: SupplierCatalogItem = {
+      id:
+        typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+          ? crypto.randomUUID()
+          : `supplier-link-${Date.now()}`,
       supplierId: supplier.id,
       productId,
-      packSize,
-      packLabel
+      supplierSku,
+      supplierPackLabel: newLink.packLabel.trim() || undefined,
+      notes: newLink.notes.trim() || undefined,
+      createdAt: now,
+      updatedAt: now
     };
-    upsertSupplierProduct(payload);
+    upsertSupplierCatalogItem(payload);
     setNewLink({
       productId: "",
-      packSize: "",
-      packLabel: ""
+      supplierSku: "",
+      packLabel: "",
+      notes: ""
     });
     setStatusMessage("Supplier link added.");
     refreshStore();
@@ -256,6 +279,10 @@ export default function SupplierDetailPage() {
                 label="Products linked"
                 value={supplierProducts.length}
               />
+              <FieldRow
+                label="Ordering method"
+                value={supplier.orderingMethod}
+              />
             </KeyValueGrid>
             <form className="stock-form" onSubmit={(event) => event.preventDefault()}>
               <div className="stock-form__row">
@@ -271,27 +298,77 @@ export default function SupplierDetailPage() {
                   />
                 </label>
                 <label>
-                  Notes
+                  Ordering method
+                  <select
+                    className="stock-form__input"
+                    value={draft.orderingMethod}
+                    onChange={(event) =>
+                      setDraft((prev) =>
+                        prev
+                          ? {
+                              ...prev,
+                              orderingMethod:
+                                event.target.value as SupplierOrderingMethod
+                            }
+                          : prev
+                      )
+                    }
+                    required
+                  >
+                    {orderingMethodOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div className="stock-form__row">
+                <label>
+                  Phone
                   <input
                     className="stock-form__input"
-                    value={draft.notes}
+                    value={draft.phone}
                     onChange={(event) =>
-                      setDraft((prev) => (prev ? { ...prev, notes: event.target.value } : prev))
+                      setDraft((prev) =>
+                        prev ? { ...prev, phone: event.target.value } : prev
+                      )
+                    }
+                  />
+                </label>
+                <label>
+                  Email
+                  <input
+                    className="stock-form__input"
+                    value={draft.email}
+                    onChange={(event) =>
+                      setDraft((prev) =>
+                        prev ? { ...prev, email: event.target.value } : prev
+                      )
                     }
                   />
                 </label>
               </div>
               <div className="stock-form__row">
                 <label>
-                  Active
+                  Portal URL
                   <input
                     className="stock-form__input"
-                    type="checkbox"
-                    checked={draft.active}
+                    value={draft.portalUrl}
                     onChange={(event) =>
                       setDraft((prev) =>
-                        prev ? { ...prev, active: event.target.checked } : prev
+                        prev ? { ...prev, portalUrl: event.target.value } : prev
                       )
+                    }
+                  />
+                </label>
+                <label>
+                  Contact notes
+                  <input
+                    className="stock-form__input"
+                    value={draft.notes}
+                    onChange={(event) =>
+                      setDraft((prev) => (prev ? { ...prev, notes: event.target.value } : prev))
                     }
                   />
                 </label>
@@ -328,17 +405,14 @@ export default function SupplierDetailPage() {
                   />
                 </label>
                 <label>
-                  Pack size
+                  Supplier SKU
                   <input
                     className="stock-form__input"
-                    type="number"
-                    min="1"
-                    step="1"
-                    value={newLink.packSize}
+                    value={newLink.supplierSku}
                     onChange={(event) =>
                       setNewLink((prev) => ({
                         ...prev,
-                        packSize: event.target.value
+                        supplierSku: event.target.value
                       }))
                     }
                     required
@@ -358,7 +432,19 @@ export default function SupplierDetailPage() {
                       }))
                     }
                     placeholder="Box of 10"
-                    required
+                  />
+                </label>
+                <label>
+                  Notes
+                  <input
+                    className="stock-form__input"
+                    value={newLink.notes}
+                    onChange={(event) =>
+                      setNewLink((prev) => ({
+                        ...prev,
+                        notes: event.target.value
+                      }))
+                    }
                   />
                 </label>
               </div>
@@ -384,23 +470,24 @@ export default function SupplierDetailPage() {
             {supplierProducts.length === 0 ? (
               <FeedbackCard
                 title="No product links yet"
-                message="Add product links to track pack sizes."
+                message="Add product links to track supplier SKUs."
               />
             ) : (
               <div className="stock-data-table" role="table" aria-label="Supplier links">
                 <div className="stock-data-table__header" role="row">
                   <span role="columnheader">Product</span>
-                  <span role="columnheader">Pack size</span>
+                  <span role="columnheader">Supplier SKU</span>
                   <span role="columnheader">Pack label</span>
+                  <span role="columnheader">Notes</span>
                   <span role="columnheader">Actions</span>
                 </div>
                 {supplierProducts.map((product) => {
-                  const draftRow = linkDrafts[product.productId] ?? toLinkDraft(product);
+                  const draftRow = linkDrafts[product.id] ?? toLinkDraft(product);
                   const productName =
                     knownProducts.find((entry) => entry.id === product.productId)
                       ?.name ?? product.productId;
                   return (
-                    <div key={product.productId} className="stock-data-table__row" role="row">
+                    <div key={product.id} className="stock-data-table__row" role="row">
                       <div role="cell" className="stock-data-table__cell">
                         <strong>{productName}</strong>
                         <span className="stock-order-table__meta">{product.productId}</span>
@@ -408,16 +495,13 @@ export default function SupplierDetailPage() {
                       <div role="cell" className="stock-data-table__cell">
                         <input
                           className="stock-form__input stock-data-table__input"
-                          type="number"
-                          min="1"
-                          step="1"
-                          value={draftRow.packSize}
+                          value={draftRow.supplierSku}
                           onChange={(event) =>
                             setLinkDrafts((prev) => ({
                               ...prev,
-                              [product.productId]: {
+                              [product.id]: {
                                 ...draftRow,
-                                packSize: event.target.value
+                                supplierSku: event.target.value
                               }
                             }))
                           }
@@ -430,9 +514,24 @@ export default function SupplierDetailPage() {
                           onChange={(event) =>
                             setLinkDrafts((prev) => ({
                               ...prev,
-                              [product.productId]: {
+                              [product.id]: {
                                 ...draftRow,
                                 packLabel: event.target.value
+                              }
+                            }))
+                          }
+                        />
+                      </div>
+                      <div role="cell" className="stock-data-table__cell">
+                        <input
+                          className="stock-form__input stock-data-table__input"
+                          value={draftRow.notes}
+                          onChange={(event) =>
+                            setLinkDrafts((prev) => ({
+                              ...prev,
+                              [product.id]: {
+                                ...draftRow,
+                                notes: event.target.value
                               }
                             }))
                           }
@@ -442,7 +541,7 @@ export default function SupplierDetailPage() {
                         <button
                           type="button"
                           className="stock-button stock-button--secondary stock-data-table__button"
-                          onClick={() => handleLinkUpdate(product.productId)}
+                          onClick={() => handleLinkUpdate(product.id)}
                         >
                           Save row
                         </button>

@@ -1,9 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import type { LocalProduct } from "../../../scan/localRegistry";
 import { loadLocalBarcodeRegistry } from "../../../scan/localRegistry";
+import {
+  loadSuppliers,
+  type Supplier
+} from "../../../suppliers/localSuppliers";
+import {
+  loadSupplierCatalog,
+  upsertSupplierCatalogItem,
+  type SupplierCatalogItem
+} from "../../../suppliers/localSupplierCatalog";
+import {
+  clearProductSupplierPreference,
+  loadProductSupplierPreferences,
+  upsertProductSupplierPreference,
+  type ProductSupplierPreference
+} from "../../../suppliers/localSupplierPrefs";
 import {
   getExpiryStatus,
   getLotsForProduct,
@@ -48,6 +63,26 @@ export default function LocalProductPage() {
         : "";
   const [product, setProduct] = useState<LocalProduct | null>(null);
   const [lots, setLots] = useState<LocalStockLot[]>([]);
+  const [suppliers, setSuppliers] = useState<Supplier[]>([]);
+  const [catalogItems, setCatalogItems] = useState<SupplierCatalogItem[]>([]);
+  const [preferences, setPreferences] = useState<ProductSupplierPreference[]>([]);
+  const [preferredSupplierId, setPreferredSupplierId] = useState("");
+  const [mappingDraft, setMappingDraft] = useState({
+    supplierId: "",
+    supplierSku: "",
+    packLabel: ""
+  });
+
+  const refreshSupplierData = useCallback(() => {
+    const nextSuppliers = loadSuppliers();
+    const nextCatalog = loadSupplierCatalog();
+    const nextPrefs = loadProductSupplierPreferences();
+    setSuppliers(nextSuppliers);
+    setCatalogItems(nextCatalog);
+    setPreferences(nextPrefs);
+    const preference = nextPrefs.find((pref) => pref.productId === id);
+    setPreferredSupplierId(preference?.preferredSupplierId ?? "");
+  }, [id]);
 
   useEffect(() => {
     const registry = loadLocalBarcodeRegistry();
@@ -62,6 +97,71 @@ export default function LocalProductPage() {
     }
     setLots(getLotsForProduct(id));
   }, [id]);
+
+  useEffect(() => {
+    refreshSupplierData();
+  }, [refreshSupplierData]);
+
+  const catalogForProduct = useMemo(() => {
+    return catalogItems.filter((item) => item.productId === id);
+  }, [catalogItems, id]);
+
+  const preferredSupplier = useMemo(() => {
+    return suppliers.find((supplier) => supplier.id === preferredSupplierId);
+  }, [preferredSupplierId, suppliers]);
+
+  const handleSavePreference = () => {
+    if (!id) {
+      return;
+    }
+    const now = new Date().toISOString();
+    if (!preferredSupplierId) {
+      clearProductSupplierPreference(id);
+      refreshSupplierData();
+      return;
+    }
+    const existing =
+      preferences.find((pref) => pref.productId === id) ?? null;
+    upsertProductSupplierPreference({
+      productId: id,
+      preferredSupplierId,
+      createdAt: existing?.createdAt ?? now,
+      updatedAt: now
+    });
+    refreshSupplierData();
+  };
+
+  const handleAddMapping = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!id) {
+      return;
+    }
+    const supplierId = mappingDraft.supplierId.trim();
+    const supplierSku = mappingDraft.supplierSku.trim();
+    if (!supplierId || !supplierSku) {
+      return;
+    }
+    const now = new Date().toISOString();
+    const newItem: SupplierCatalogItem = {
+      id:
+        typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+          ? crypto.randomUUID()
+          : `supplier-catalog-${Date.now()}`,
+      supplierId,
+      productId: id,
+      supplierSku,
+      supplierPackLabel: mappingDraft.packLabel.trim() || undefined,
+      createdAt: now,
+      updatedAt: now
+    };
+    upsertSupplierCatalogItem(newItem);
+    setMappingDraft({
+      supplierId: "",
+      supplierSku: "",
+      packLabel: ""
+    });
+    refreshSupplierData();
+  };
 
   return (
     <PageShell
@@ -95,6 +195,137 @@ export default function LocalProductPage() {
               <ActionLink href="/scan">Scan another</ActionLink>
               <ActionLink href="/products">Products</ActionLink>
             </PrimaryActions>
+          </Section>
+          <Section title="Suppliers">
+            <KeyValueGrid>
+              <FieldRow
+                label="Preferred supplier"
+                value={preferredSupplier?.name ?? "Not set"}
+              />
+              <FieldRow
+                label="Ordering method"
+                value={preferredSupplier?.orderingMethod ?? "—"}
+              />
+            </KeyValueGrid>
+            <form className="stock-form" onSubmit={(event) => event.preventDefault()}>
+              <div className="stock-form__row">
+                <label>
+                  Preferred supplier
+                  <select
+                    className="stock-form__input"
+                    value={preferredSupplierId}
+                    onChange={(event) => setPreferredSupplierId(event.target.value)}
+                  >
+                    <option value="">No preference</option>
+                    {suppliers.map((supplier) => (
+                      <option key={supplier.id} value={supplier.id}>
+                        {supplier.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div className="stock-form__row">
+                <button
+                  type="button"
+                  className="stock-button stock-button--primary stock-form__button"
+                  onClick={handleSavePreference}
+                >
+                  Save preference
+                </button>
+              </div>
+            </form>
+            {catalogForProduct.length === 0 ? (
+              <p>No supplier SKUs mapped yet.</p>
+            ) : (
+              <div className="stock-data-table" role="table" aria-label="Supplier SKUs">
+                <div className="stock-data-table__header" role="row">
+                  <span role="columnheader">Supplier</span>
+                  <span role="columnheader">Supplier SKU</span>
+                  <span role="columnheader">Pack label</span>
+                </div>
+                {catalogForProduct.map((item) => {
+                  const supplierName =
+                    suppliers.find((supplier) => supplier.id === item.supplierId)
+                      ?.name ?? item.supplierId;
+                  return (
+                    <div key={item.id} className="stock-data-table__row" role="row">
+                      <div role="cell" className="stock-data-table__cell">
+                        <strong>{supplierName}</strong>
+                      </div>
+                      <div role="cell" className="stock-data-table__cell">
+                        {item.supplierSku}
+                      </div>
+                      <div role="cell" className="stock-data-table__cell">
+                        {item.supplierPackLabel ?? "—"}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            <form className="stock-form" onSubmit={handleAddMapping}>
+              <div className="stock-form__row">
+                <label>
+                  Supplier
+                  <select
+                    className="stock-form__input"
+                    value={mappingDraft.supplierId}
+                    onChange={(event) =>
+                      setMappingDraft((prev) => ({
+                        ...prev,
+                        supplierId: event.target.value
+                      }))
+                    }
+                    required
+                  >
+                    <option value="">Select supplier</option>
+                    {suppliers.map((supplier) => (
+                      <option key={supplier.id} value={supplier.id}>
+                        {supplier.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Supplier SKU
+                  <input
+                    className="stock-form__input"
+                    value={mappingDraft.supplierSku}
+                    onChange={(event) =>
+                      setMappingDraft((prev) => ({
+                        ...prev,
+                        supplierSku: event.target.value
+                      }))
+                    }
+                    required
+                  />
+                </label>
+              </div>
+              <div className="stock-form__row">
+                <label>
+                  Pack label
+                  <input
+                    className="stock-form__input"
+                    value={mappingDraft.packLabel}
+                    onChange={(event) =>
+                      setMappingDraft((prev) => ({
+                        ...prev,
+                        packLabel: event.target.value
+                      }))
+                    }
+                  />
+                </label>
+              </div>
+              <div className="stock-form__row">
+                <button
+                  type="submit"
+                  className="stock-button stock-button--primary stock-form__button"
+                >
+                  Add supplier SKU
+                </button>
+              </div>
+            </form>
           </Section>
           <Section title="Batch lots">
             {lots.length ? (

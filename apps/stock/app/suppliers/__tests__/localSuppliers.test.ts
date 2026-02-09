@@ -1,11 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import {
-  loadSupplierStore,
-  normalizeDraftLineSupplierMeta,
-  upsertSupplier,
-  upsertSupplierProduct
-} from "../localSuppliers";
-import type { Supplier, SupplierProductLink } from "../localSuppliers";
+import { loadSuppliers, upsertSupplier } from "../localSuppliers";
+import type { Supplier } from "../localSuppliers";
 
 type StorageLike = {
   getItem: (key: string) => string | null;
@@ -43,15 +38,14 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-describe("loadSupplierStore", () => {
+describe("loadSuppliers", () => {
   it("returns empty store for invalid payload", () => {
     storage.setItem(STORAGE_KEY, JSON.stringify({ version: 2, suppliers: [] }));
-    const store = loadSupplierStore();
-    expect(store.suppliers).toEqual([]);
-    expect(store.supplierProducts).toEqual([]);
+    const store = loadSuppliers();
+    expect(store).toEqual([]);
   });
 
-  it("parses valid suppliers and product links", () => {
+  it("parses valid suppliers", () => {
     storage.setItem(
       STORAGE_KEY,
       JSON.stringify({
@@ -60,98 +54,44 @@ describe("loadSupplierStore", () => {
           {
             id: "s-1",
             name: "Stock Co",
-            notes: "Primary",
-            active: true
-          }
-        ],
-        supplierProducts: [
-          {
-            supplierId: "s-1",
-            productId: "p-1",
-            packSize: 5,
-            packLabel: "Box of 5"
+            orderingMethod: "EMAIL",
+            contact: {
+              email: "orders@stock.co"
+            },
+            createdAt: "2024-01-01T00:00:00.000Z",
+            updatedAt: "2024-01-02T00:00:00.000Z"
           }
         ]
       })
     );
-    const store = loadSupplierStore();
-    expect(store.suppliers).toHaveLength(1);
-    expect(store.suppliers[0]?.name).toBe("Stock Co");
-    expect(store.supplierProducts).toHaveLength(1);
-    expect(store.supplierProducts[0]?.packSize).toBe(5);
+    const store = loadSuppliers();
+    expect(store).toHaveLength(1);
+    expect(store[0]?.name).toBe("Stock Co");
+    expect(store[0]?.orderingMethod).toBe("EMAIL");
   });
 });
 
 describe("upsertSupplier", () => {
   it("replaces supplier entries by id", () => {
-    const supplier: Supplier = { id: "s-1", name: "Original", active: true };
+    const supplier: Supplier = {
+      id: "s-1",
+      name: "Original",
+      orderingMethod: "EMAIL",
+      contact: {},
+      createdAt: "2024-01-01T00:00:00.000Z",
+      updatedAt: "2024-01-01T00:00:00.000Z"
+    };
     upsertSupplier(supplier);
-    const updated = upsertSupplier({ id: "s-1", name: "Updated", active: true });
-    expect(updated.suppliers).toHaveLength(1);
-    expect(updated.suppliers[0]?.name).toBe("Updated");
-  });
-});
-
-describe("upsertSupplierProduct", () => {
-  it("replaces supplier links by supplier + product", () => {
-    const product: SupplierProductLink = {
-      supplierId: "s-1",
-      productId: "p-1",
-      packSize: 10,
-      packLabel: "Box of 10"
-    };
-    upsertSupplierProduct(product);
-    const updated = upsertSupplierProduct({
-      supplierId: "s-1",
-      productId: "p-1",
-      packSize: 12,
-      packLabel: "Box of 12"
+    const updated = upsertSupplier({
+      id: "s-1",
+      name: "Updated",
+      orderingMethod: "PHONE",
+      contact: { phone: "555-1234" },
+      createdAt: "2024-01-01T00:00:00.000Z",
+      updatedAt: "2024-01-02T00:00:00.000Z"
     });
-    expect(updated.supplierProducts).toHaveLength(1);
-    expect(updated.supplierProducts[0]?.packLabel).toBe("Box of 12");
-  });
-});
-
-describe("supplier links", () => {
-  it("allows a product to have multiple suppliers", () => {
-    const supplierA: SupplierProductLink = {
-      supplierId: "s-1",
-      productId: "p-1",
-      packSize: 10,
-      packLabel: "Box of 10"
-    };
-    const supplierB: SupplierProductLink = {
-      supplierId: "s-2",
-      productId: "p-1",
-      packSize: 5,
-      packLabel: "Box of 5"
-    };
-    upsertSupplierProduct(supplierA);
-    const updated = upsertSupplierProduct(supplierB);
-    expect(updated.supplierProducts).toHaveLength(2);
-  });
-});
-
-describe("draft supplier metadata", () => {
-  it("parses draft supplier metadata safely", () => {
-    const meta = normalizeDraftLineSupplierMeta({
-      supplierId: "s-1",
-      packSize: 12,
-      packLabel: "Box of 12"
-    });
-    expect(meta).toEqual({
-      supplierId: "s-1",
-      packSize: 12,
-      packLabel: "Box of 12"
-    });
-  });
-
-  it("keeps metadata even when supplier is missing", () => {
-    const meta = normalizeDraftLineSupplierMeta({
-      supplierId: "missing-supplier",
-      packSize: 8,
-      packLabel: "Tray of 8"
-    });
-    expect(meta.supplierId).toBe("missing-supplier");
+    expect(updated).toHaveLength(1);
+    expect(updated[0]?.name).toBe("Updated");
+    expect(updated[0]?.orderingMethod).toBe("PHONE");
   });
 });

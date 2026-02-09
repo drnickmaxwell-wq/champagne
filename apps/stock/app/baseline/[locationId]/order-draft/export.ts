@@ -5,6 +5,7 @@ export type OrderDraftExportLineItem = {
   productName: string;
   qtyUnits: number;
   supplierId?: string;
+  supplierSku?: string;
   packLabel?: string;
 };
 
@@ -52,6 +53,7 @@ export const buildOrderDraftExport = (
       productName: item.productName,
       qtyUnits: item.qtyUnits,
       ...(item.supplierId ? { supplierId: item.supplierId } : {}),
+      ...(item.supplierSku ? { supplierSku: item.supplierSku } : {}),
       ...(item.packLabel ? { packLabel: item.packLabel } : {})
     })),
     ...(params.notes ? { notes: params.notes } : {})
