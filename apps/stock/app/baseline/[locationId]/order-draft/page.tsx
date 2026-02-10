@@ -291,7 +291,7 @@ export default function OrderDraftPage() {
   const handleFreezeConfirm = () => {
     if (
       !window.confirm(
-        "Freezing prevents further edits. Use this once an order has been placed."
+        "Locking prevents further edits. Use this once an order has been placed."
       )
     ) {
       return;
@@ -302,7 +302,7 @@ export default function OrderDraftPage() {
   const handleArchiveConfirm = () => {
     if (
       !window.confirm(
-        "Archived drafts are kept for records but hidden from daily use."
+        "Archived order suggestions are kept for records but hidden from daily use."
       )
     ) {
       return;
@@ -315,7 +315,7 @@ export default function OrderDraftPage() {
       return;
     }
     const confirmed = window.confirm(
-      "This creates a draft based on baseline differences. You can edit before ordering."
+      "This creates an order suggestion from baseline differences. You can edit before ordering."
     );
     const source = buildBaselineSource(entries, locationId);
     const draft = startBaselineDraft(confirmed, source, varianceRows);
@@ -509,7 +509,7 @@ export default function OrderDraftPage() {
       anchor.click();
       URL.revokeObjectURL(url);
     } catch {
-      setExportError("Unable to export the draft. No file was created.");
+      setExportError("Unable to export the order suggestion. No file was created.");
     }
   };
 
@@ -540,7 +540,7 @@ export default function OrderDraftPage() {
           generatedAt: new Date().toISOString(),
           draftStatus,
           generatedBy: "stock-app",
-          warning: "Draft only — not an approved purchase order"
+          warning: "Order suggestion only — not an approved purchase order"
         },
         rowsForCsv
       );
@@ -552,14 +552,14 @@ export default function OrderDraftPage() {
       anchor.click();
       URL.revokeObjectURL(url);
     } catch {
-      setExportError("Unable to export the draft. No file was created.");
+      setExportError("Unable to export the order suggestion. No file was created.");
     }
   };
 
   const isFrozen = draftStatus === DRAFT_STATUS.frozen;
   const isArchived = draftStatus === DRAFT_STATUS.archived;
   const isReadOnly = !canEditDraft(draftStatus);
-  const statusLabel = isArchived ? "Archived" : isFrozen ? "Frozen" : "Draft";
+  const statusLabel = isArchived ? "Archived" : isFrozen ? "Locked" : "Suggestion";
   const baselineNote = baselineDraft?.note ?? "Not yet generated";
 
   return (
@@ -567,9 +567,9 @@ export default function OrderDraftPage() {
       className={isReadOnly ? "stock-page-shell--frozen" : undefined}
       header={
         <ScreenHeader
-          eyebrow="Order draft"
+          eyebrow="Order suggestion"
           title={locationName || "Location"}
-          subtitle="Compare baseline counts with locally inferred stock to draft a suggested order."
+          subtitle="Compare baseline counts with local stock to create an order suggestion."
           status={
             <span
               className={`stock-status-pill${isFrozen ? " stock-status-pill--frozen" : ""}${isArchived ? " stock-status-pill--archived" : ""}`}
@@ -589,30 +589,30 @@ export default function OrderDraftPage() {
           <FieldRow label="Location" value={locationName || "Unknown"} />
           <FieldRow label="Baseline items" value={entries.length} />
           <FieldRow
-            label="Threshold"
-            value={`Flag when variance ≤ ${threshold}`}
+            label="Warning level"
+            value={`Flag when difference ≤ ${threshold}`}
           />
-          <FieldRow label="Draft origin" value={baselineNote} />
+          <FieldRow label="How this was generated" value={baselineNote} />
         </KeyValueGrid>
         <p className="stock-order-draft__note">
           {isArchived
             ? "Archived — hidden from daily use."
             : isFrozen
-              ? "Frozen — ready for order placement."
-              : "Draft — edits stay enabled until you freeze."}
+              ? "Locked — ready for ordering."
+              : "Suggestion — edits stay enabled until you lock."}
         </p>
         {isFrozen ? (
           <p className="stock-order-draft__note">
-            This draft is frozen and cannot be edited.
+            This order suggestion is locked and cannot be edited.
           </p>
         ) : null}
         {isArchived ? (
           <p className="stock-order-draft__note">
-            This draft is archived and cannot be edited.
+            This order suggestion is archived and cannot be edited.
           </p>
         ) : null}
         <p className="stock-order-draft__note">
-          This exports the draft as a structured file. No order is placed.
+          This exports the order suggestion as a structured file. No order is placed.
         </p>
         {exportError ? (
           <FeedbackCard title="Export failed" message={exportError} />
@@ -625,7 +625,7 @@ export default function OrderDraftPage() {
               onClick={handleFreezeConfirm}
               disabled={rows.length === 0}
             >
-              Freeze draft
+              Lock order
             </button>
           ) : null}
           {isFrozen ? (
@@ -634,7 +634,7 @@ export default function OrderDraftPage() {
               className="stock-button stock-button--secondary"
               onClick={handleArchiveConfirm}
             >
-              Archive draft
+              Archive order
             </button>
           ) : null}
           <button
@@ -643,7 +643,7 @@ export default function OrderDraftPage() {
             onClick={handleExportDraft}
             disabled={rows.length === 0 || isArchived}
           >
-            Export draft
+            Export suggestion
           </button>
           <button
             type="button"
@@ -656,19 +656,19 @@ export default function OrderDraftPage() {
         </PrimaryActions>
       </Section>
 
-      <Section title="Baseline variance">
+      <Section title="Stock differences">
         {varianceRows.length === 0 ? (
           <FeedbackCard
             title="No baseline counts"
             message="Scan products to add baseline counts for this location."
           />
         ) : (
-          <div className="stock-order-table" role="table" aria-label="Baseline variance">
+          <div className="stock-order-table" role="table" aria-label="Stock differences">
             <div className="stock-order-table__header" role="row">
               <span role="columnheader">Product</span>
               <span role="columnheader">Baseline count</span>
               <span role="columnheader">Current stock</span>
-              <span role="columnheader">Variance</span>
+              <span role="columnheader">Difference</span>
             </div>
             {varianceRows.map((row) => (
               <div key={row.entry.id} className="stock-order-table__row" role="row">
@@ -696,19 +696,19 @@ export default function OrderDraftPage() {
             onClick={handleCreateBaselineDraft}
             disabled={varianceRows.length === 0 || isReadOnly}
           >
-            Create order draft from baseline
+            Create order suggestion
           </button>
         </PrimaryActions>
       </Section>
 
-      <Section title="Draft order list">
+      <Section title="Order list">
         <p className="stock-order-table__helper">
           Confidence reflects how trustworthy the estimate is based on baseline and
           local lot data.
         </p>
         <div className="stock-form__row">
           <label className="stock-form__label" htmlFor="variance-threshold">
-            Variance threshold
+            Warning level
             <input
               id="variance-threshold"
               className="stock-form__input"
@@ -728,12 +728,12 @@ export default function OrderDraftPage() {
             message="Scan products to add baseline counts for this location."
           />
         ) : (
-          <div className="stock-order-table" role="table" aria-label="Draft order">
+          <div className="stock-order-table" role="table" aria-label="Order list">
             <div className="stock-order-table__header" role="row">
               <span role="columnheader">Product</span>
               <span role="columnheader">Baseline count</span>
               <span role="columnheader">Estimated current stock</span>
-              <span role="columnheader">Variance</span>
+              <span role="columnheader">Difference</span>
               <span role="columnheader">Confidence</span>
               <span role="columnheader">Suggested order qty</span>
               <span role="columnheader">Selected supplier</span>
@@ -781,7 +781,7 @@ export default function OrderDraftPage() {
                     <span>{row.variance}</span>
                     {isFlagged ? (
                       <span className="stock-order-table__flag">
-                        Flagged
+                        Warning
                       </span>
                     ) : null}
                   </div>
@@ -901,8 +901,7 @@ export default function OrderDraftPage() {
 
       <Section title="Supplier view">
         <p className="stock-order-table__helper">
-          Supplier-ready summary grouped by supplier for calls, emails, or portal
-          entries.
+          Order summary grouped by supplier for calls, emails, or online portals.
         </p>
         <PrimaryActions>
           <button
@@ -911,7 +910,7 @@ export default function OrderDraftPage() {
             onClick={() => handleCopyPack(supplierOrderText)}
             disabled={supplierOrderViews.length === 0}
           >
-            Copy supplier order text
+            Copy order summary
           </button>
           <button
             type="button"
@@ -919,13 +918,13 @@ export default function OrderDraftPage() {
             onClick={() => handlePrintSupplierOrder(supplierOrderText)}
             disabled={supplierOrderViews.length === 0}
           >
-            Print supplier order
+            Print order summary
           </button>
         </PrimaryActions>
         {supplierOrderViews.length === 0 ? (
           <FeedbackCard
-            title="No draft items"
-            message="Add draft quantities to generate supplier-ready summaries."
+            title="No order items"
+            message="Add order quantities to generate supplier-ready summaries."
           />
         ) : (
           <div className="stock-pack-grid">
@@ -938,7 +937,7 @@ export default function OrderDraftPage() {
                   <div>
                     <h3 className="stock-pack-card__title">{view.supplierName}</h3>
                     <p className="stock-pack-card__meta">
-                      Ordering method: {view.orderingMethod}
+                      How to order: {view.orderingMethod}
                     </p>
                   </div>
                   <div className="stock-pack-card__meta">
@@ -966,12 +965,12 @@ export default function OrderDraftPage() {
 
       <Section title="Supplier order packs">
         <p className="stock-order-table__helper">
-          Generate supplier-ready packs for phone calls, emails, or portal orders.
+          Ready-to-send packs for phone calls, emails, or online portals.
         </p>
         {supplierPacks.length === 0 ? (
           <FeedbackCard
-            title="No draft items"
-            message="Add draft quantities to build supplier order packs."
+            title="No order items"
+            message="Add order quantities to build supplier order packs."
           />
         ) : (
           <div className="stock-pack-grid">
@@ -1012,7 +1011,7 @@ export default function OrderDraftPage() {
                     <div>
                       <h3 className="stock-pack-card__title">{supplierName}</h3>
                       <p className="stock-pack-card__meta">
-                        Ordering method: {orderingMethod}
+                        How to order: {orderingMethod}
                       </p>
                     </div>
                     {supplier ? (
@@ -1096,11 +1095,12 @@ export default function OrderDraftPage() {
       </Section>
 
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href={`/baseline/${locationId}`}>
           Back to baseline review
         </ActionLink>
         <ActionLink href="/baseline">Back to baseline</ActionLink>
-        <ActionLink href="/suppliers">Suppliers</ActionLink>
         <ActionLink href="/scan">Scan</ActionLink>
       </PrimaryActions>
     </PageShell>

@@ -94,13 +94,13 @@ export default function ReorderPage() {
       return;
     }
     setStatusMessage(
-      `Received ${suggestion.suggestedOrderUnits} -> Reorder list`
+      `Received ${suggestion.suggestedOrderUnits} -> Order list`
     );
     void loadReorder();
   };
 
   return (
-    <PageShell header={<ScreenHeader title="Reorder" />}>
+    <PageShell header={<ScreenHeader title="Orders" />}>
       <div className="stock-feedback-region" aria-live="polite">
         {loading ? <LoadingLine label="Working..." /> : null}
         {submittingId ? <LoadingLine label="Working..." /> : null}
@@ -119,7 +119,7 @@ export default function ReorderPage() {
         ) : null}
       </div>
       {suggestions.length === 0 && !loading ? (
-        <FeedbackCard title="Empty" message="No reorder suggestions." />
+        <FeedbackCard title="Empty" message="No order suggestions yet." />
       ) : null}
       {suggestions.map((suggestion) => (
         <Section key={suggestion.productId}>
@@ -127,7 +127,7 @@ export default function ReorderPage() {
           {suggestion.variant ? ` (${suggestion.variant})` : ""}
           <div>
             <span>Available: {suggestion.availableUnits}</span>
-            <span> Min: {suggestion.minLevelUnits}</span>
+            <span> Minimum: {suggestion.minLevelUnits}</span>
             <span> Suggested: {suggestion.suggestedOrderUnits}</span>
           </div>
           <PrimaryActions>
@@ -148,10 +148,10 @@ export default function ReorderPage() {
       ))}
       <p>Flat list for now; supplier grouping later.</p>
       <PrimaryActions>
+        <ActionLink href="/">Home</ActionLink>
         <ActionLink href="/scan">Scan again</ActionLink>
-        <ActionLink href="/baseline">Baseline (one-time)</ActionLink>
-        <ActionLink href="/locations">Locations</ActionLink>
-        <ActionLink href="/products">Products</ActionLink>
+        <ActionLink href="/expiry">Expiry</ActionLink>
+        <ActionLink href="/setup">Setup</ActionLink>
       </PrimaryActions>
     </PageShell>
   );

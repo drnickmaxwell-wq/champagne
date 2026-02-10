@@ -10,7 +10,7 @@ const baseMeta = (draftStatus: CsvMeta["draftStatus"]): CsvMeta => ({
   generatedAt: "2024-02-10T12:34:56.000Z",
   draftStatus,
   generatedBy: "stock-app",
-  warning: "Draft only — not an approved purchase order"
+  warning: "Order suggestion only — not an approved purchase order"
 });
 
 const baseRows: CsvRow[] = [
@@ -45,7 +45,9 @@ const expectMetadata = (csv: string, status: CsvMeta["draftStatus"]) => {
   expect(lines[0]).toBe(`# Generated_at: 2024-02-10T12:34:56.000Z`);
   expect(lines[1]).toBe(`# Draft_status: ${status}`);
   expect(lines[2]).toBe(`# Generated_by: stock-app`);
-  expect(lines[3]).toBe(`# Warning: Draft only — not an approved purchase order`);
+  expect(lines[3]).toBe(
+    `# Warning: Order suggestion only — not an approved purchase order`
+  );
 };
 
 describe("buildOrderDraftCsv", () => {
@@ -58,7 +60,7 @@ describe("buildOrderDraftCsv", () => {
       "# Generated_at: 2024-02-10T12:34:56.000Z
       # Draft_status: DRAFT
       # Generated_by: stock-app
-      # Warning: Draft only — not an approved purchase order
+      # Warning: Order suggestion only — not an approved purchase order
       product_id,product_name,category,location_id,location_name,unit_type,quantity,baseline_count,variance_note,review_status
       prod-1,"Gloves, Large",consumable,loc-1,Main Shelf,box,4,10,Low confidence,DRAFT
       prod-2,"Mask ""N95""",,loc-1,Main Shelf,,,,"Check
@@ -74,7 +76,7 @@ describe("buildOrderDraftCsv", () => {
       "# Generated_at: 2024-02-10T12:34:56.000Z
       # Draft_status: FROZEN
       # Generated_by: stock-app
-      # Warning: Draft only — not an approved purchase order
+      # Warning: Order suggestion only — not an approved purchase order
       product_id,product_name,category,location_id,location_name,unit_type,quantity,baseline_count,variance_note,review_status
       prod-1,"Gloves, Large",consumable,loc-1,Main Shelf,box,4,10,Low confidence,FROZEN
       prod-2,"Mask ""N95""",,loc-1,Main Shelf,,,,"Check

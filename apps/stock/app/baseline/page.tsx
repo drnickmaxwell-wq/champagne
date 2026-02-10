@@ -226,10 +226,12 @@ export default function BaselinePage() {
         status={loading ? <LoadingLine label="Working" /> : undefined}
         actions={
           <PrimaryActions>
+            <ActionLink href="/">Home</ActionLink>
+            <ActionLink href="/setup">Setup</ActionLink>
             <ActionLink href="/scan">Scan</ActionLink>
             <ActionLink href="/products">Products</ActionLink>
             <ActionLink href="/locations">Locations</ActionLink>
-            <ActionLink href="/reorder">Reorder</ActionLink>
+            <ActionLink href="/reorder">Orders</ActionLink>
           </PrimaryActions>
         }
       />
@@ -241,6 +243,7 @@ export default function BaselinePage() {
         </div>
       </MessagePanel>
       <PrimaryActions>
+        <ActionLink href="/setup">Back to setup</ActionLink>
         <ActionLink href="/scan">Exit baseline</ActionLink>
       </PrimaryActions>
 

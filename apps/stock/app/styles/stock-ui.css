@@ -134,6 +134,21 @@ main {
   background: var(--surface-1);
 }
 
+.stock-card--action {
+  border-width: 2px;
+  background: var(--surface-1);
+}
+
+.stock-card--action .stock-card__title {
+  font-size: 1.35rem;
+}
+
+.stock-dashboard-grid {
+  display: grid;
+  gap: var(--stock-space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 .stock-card__title {
   margin-top: 0;
   margin-bottom: 0;
