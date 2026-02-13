@@ -11,6 +11,7 @@
     "@champagne/stock-shared": "workspace:0.0.1",
     "@zxing/browser": "^0.1.5",
     "next": "15.5.7",
+    "qrcode.react": "^3.1.0",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },

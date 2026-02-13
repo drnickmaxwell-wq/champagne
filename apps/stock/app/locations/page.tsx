@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { QRCodeCanvas } from "qrcode.react";
 import {
   LocationSchema,
   LocationTypeSchema
@@ -190,6 +191,18 @@ export default function LocationsPage() {
     void loadLocations();
   };
 
+  const handleDownload = (id: string) => {
+    const canvas = document.getElementById(`qr-${id}`) as HTMLCanvasElement | null;
+    if (!canvas) {
+      return;
+    }
+    const url = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `location-${id}.png`;
+    link.click();
+  };
+
   return (
     <PageShell
       header={
@@ -334,6 +347,31 @@ export default function LocationsPage() {
                 </button>
               </div>
             </form>
+            <div className="qr-print-area qr-block">
+              <QRCodeCanvas
+                id={`qr-${location.id}`}
+                value={location.id}
+                size={160}
+                level="M"
+                includeMargin
+              />
+              <div className="qr-actions">
+                <button
+                  type="button"
+                  className="stock-button stock-button--secondary"
+                  onClick={() => handleDownload(location.id)}
+                >
+                  Download
+                </button>
+                <button
+                  type="button"
+                  className="stock-button stock-button--secondary"
+                  onClick={() => window.print()}
+                >
+                  Print
+                </button>
+              </div>
+            </div>
           </DisclosureCard>
         ))}
       </Section>

@@ -793,3 +793,35 @@ main {
   display: grid;
   gap: var(--stock-space-1);
 }
+
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--smh-gray-200);
+  border-radius: 8px;
+}
+
+.qr-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .qr-print-area,
+  .qr-print-area * {
+    visibility: visible;
+  }
+
+  .qr-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
