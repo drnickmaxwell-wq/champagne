@@ -149,6 +149,9 @@ export default function SupplierOrdersPage() {
       </Section>
 
       <PrimaryActions>
+        <Link href="/orders/basket" className="stock-action-link stock-action-link--secondary">
+          Basket review
+        </Link>
         <Link href="/reorder" className="stock-action-link stock-action-link--secondary">
           Back to Orders
         </Link>
