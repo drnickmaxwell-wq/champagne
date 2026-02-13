@@ -78,6 +78,12 @@ type PendingBatchEvent = {
   qty: number;
 };
 
+type PendingReceiveConfirm = {
+  continueEvent: () => void;
+  productName: string;
+  qty: number;
+};
+
 type ExpiringLotPreview = {
   id: string;
   label: string;
@@ -137,6 +143,7 @@ export default function ScanPage() {
   const [pendingBatch, setPendingBatch] = useState<PendingBatchEvent | null>(
     null
   );
+  const [pendingReceiveConfirm, setPendingReceiveConfirm] = useState<PendingReceiveConfirm | null>(null);
   const [batchForm, setBatchForm] = useState<BatchFormState>({
     batchNumber: "",
     expiryDate: "",
@@ -413,18 +420,48 @@ export default function ScanPage() {
     resetBatchForm();
   };
 
+  const handleReceiveConfirm = () => {
+    if (!pendingReceiveConfirm) {
+      return;
+    }
+    pendingReceiveConfirm.continueEvent();
+    setPendingReceiveConfirm(null);
+  };
+
+  const handleReceiveCancel = () => {
+    setPendingReceiveConfirm(null);
+  };
+
   const handleEventRequest = useCallback(
     (payload: EventRequestPayload) => {
       if (payload.eventType !== "RECEIVE") {
         payload.continue();
         return;
       }
+
+      const productName =
+        localProduct?.name ||
+        (scanData?.result === "STOCK_INSTANCE" || scanData?.result === "PRODUCT_WITHDRAW"
+          ? formatProduct(scanData.product.name, scanData.product.variant)
+          : "Unknown product");
+      const continueWithOptionalConfirm = () => {
+        if (!receiveMode) {
+          payload.continue();
+          return;
+        }
+        setPendingReceiveConfirm({
+          continueEvent: payload.continue,
+          productName,
+          qty: payload.qty
+        });
+      };
+
       if (!localProduct?.requiresBatchTracking) {
-        payload.continue();
+        continueWithOptionalConfirm();
         return;
       }
       setPendingBatch({
-        continueEvent: payload.continue,
+        continueEvent: continueWithOptionalConfirm,
         productId: localProduct.id,
         productName: localProduct.name,
         locationId: payload.locationId,
@@ -434,7 +471,7 @@ export default function ScanPage() {
       });
       resetBatchForm();
     },
-    [localProduct, locationLabel, scanCode]
+    [localProduct, locationLabel, receiveMode, scanCode, scanData]
   );
 
   return (
@@ -759,6 +796,31 @@ export default function ScanPage() {
               <p>Add stock by receiving into a location.</p>
             </Card>
           ) : null}
+        </Section>
+      ) : null}
+      {pendingReceiveConfirm ? (
+        <Section title="Confirm receive">
+          <p>You're about to mark this as received.</p>
+          <KeyValueGrid>
+            <FieldRow label="Product" value={pendingReceiveConfirm.productName} />
+            <FieldRow label="Quantity" value={pendingReceiveConfirm.qty} />
+          </KeyValueGrid>
+          <PrimaryActions>
+            <button
+              type="button"
+              className="stock-button stock-button--primary"
+              onClick={handleReceiveConfirm}
+            >
+              Confirm receive
+            </button>
+            <button
+              type="button"
+              className="stock-button stock-button--secondary"
+              onClick={handleReceiveCancel}
+            >
+              Cancel
+            </button>
+          </PrimaryActions>
         </Section>
       ) : null}
       {pendingBatch ? (

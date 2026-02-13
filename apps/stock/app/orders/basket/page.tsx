@@ -118,6 +118,11 @@ export default function BasketReviewPage() {
         />
       }
     >
+            <FeedbackCard
+        title="Saved on this device only"
+        message="This basket is stored on this iPad/computer. If you switch device, it won't appear there."
+      />
+
       {statusMessage ? <FeedbackCard title="Status" role="status" message={statusMessage} /> : null}
 
       <Section title="Basket items">
@@ -171,6 +176,8 @@ export default function BasketReviewPage() {
           ))}
         </div>
       </Section>
+
+      <p>Tip: If clipboard copy doesn't work on this device, press and hold to select text.</p>
 
       <PrimaryActions>
         <button
