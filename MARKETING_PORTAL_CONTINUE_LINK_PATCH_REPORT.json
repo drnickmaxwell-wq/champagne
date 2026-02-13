@@ -1,0 +1,35 @@
+{
+  "branch": "fix/marketing-portal-continue-link",
+  "filesModified": [
+    "apps/web/app/patient-portal/page.tsx"
+  ],
+  "behavior": {
+    "whenEnvSet": "Continue links externally to NEXT_PUBLIC_PORTAL_URL with ?intent=<intent>",
+    "whenEnvMissing": "Continue remains disabled"
+  },
+  "commandsRun": [
+    "sed -n '1,220p' apps/web/app/patient-portal/page.tsx",
+    "grep -RIn \"NEXT_PUBLIC_PORTAL_URL\" apps/web/app/patient-portal/page.tsx",
+    "grep -RIn \"patient-ai-service|railway\\.internal\" apps/web/app/patient-portal/page.tsx || true",
+    "pnpm run verify",
+    "pnpm run guard:canon"
+  ],
+  "evidenceSnippets": [
+    {
+      "file": "apps/web/app/patient-portal/page.tsx",
+      "snippet": "const portalBase = process.env.NEXT_PUBLIC_PORTAL_URL?.trim(); const portalHref = buildPortalHref(portalBase, intent);"
+    },
+    {
+      "file": "apps/web/app/patient-portal/page.tsx",
+      "snippet": "const url = new URL(normalizedBase); url.searchParams.set(\"intent\", intent);"
+    },
+    {
+      "file": "apps/web/app/patient-portal/page.tsx",
+      "snippet": "{portalHref ? <a href={portalHref} target=\"_blank\" rel=\"noopener noreferrer\">Continue</a> : <button disabled>Continue</button>}"
+    }
+  ],
+  "testsRun": [
+    "pnpm run verify",
+    "pnpm run guard:canon"
+  ]
+}

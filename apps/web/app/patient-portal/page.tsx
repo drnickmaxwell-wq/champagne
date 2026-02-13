@@ -42,7 +42,21 @@ function normalizeIntent(rawIntent?: string | string[]): PortalIntent {
   return "login";
 }
 
-function IntentLanding({ intent }: { intent: PortalIntent }) {
+function buildPortalHref(portalBase: string | undefined, intent: PortalIntent): string | null {
+  if (!portalBase) return null;
+
+  const normalizedBase = portalBase.replace(/\/+$/, "");
+
+  try {
+    const url = new URL(normalizedBase);
+    url.searchParams.set("intent", intent);
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function IntentLanding({ intent, portalHref }: { intent: PortalIntent; portalHref: string | null }) {
   const copy = INTENT_COPY[intent];
 
   return (
@@ -65,13 +79,22 @@ function IntentLanding({ intent }: { intent: PortalIntent }) {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <button
-              type="button"
-              disabled
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              Continue
-            </button>
+            {portalHref ? (
+              <a
+                href={portalHref}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                Continue
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                Continue
+              </button>
+            )}
             <Link
               href="/contact"
               className="text-sm font-semibold text-neutral-900 underline-offset-4 transition hover:underline"
@@ -106,10 +129,12 @@ function IntentLanding({ intent }: { intent: PortalIntent }) {
 export default async function PatientPortalPage({ searchParams }: { searchParams?: PageSearchParams }) {
   const resolvedParams = (await searchParams) ?? {};
   const intent = normalizeIntent(resolvedParams.intent);
+  const portalBase = process.env.NEXT_PUBLIC_PORTAL_URL?.trim();
+  const portalHref = buildPortalHref(portalBase, intent);
 
   return (
     <>
-      <IntentLanding intent={intent} />
+      <IntentLanding intent={intent} portalHref={portalHref} />
       <ChampagnePageBuilder slug="/patient-portal" />
     </>
   );

@@ -1,0 +1,86 @@
+{
+  "branch": "work",
+  "filesDeleted": [
+    "apps/patient-ai-service/README.md",
+    "apps/patient-ai-service/package.json",
+    "apps/patient-ai-service/src/audit.ts",
+    "apps/patient-ai-service/src/auth.ts",
+    "apps/patient-ai-service/src/handler.ts",
+    "apps/patient-ai-service/src/pms/adapter.ts",
+    "apps/patient-ai-service/src/pms/adapters/null.ts",
+    "apps/patient-ai-service/src/pms/adapters/stub.ts",
+    "apps/patient-ai-service/src/pms/index.test.ts",
+    "apps/patient-ai-service/src/pms/index.ts",
+    "apps/patient-ai-service/src/server.test.ts",
+    "apps/patient-ai-service/src/server.ts",
+    "apps/patient-ai-service/src/tools/impl/stub.ts",
+    "apps/patient-ai-service/src/tools/index.ts",
+    "apps/patient-ai-service/src/tools/types.ts",
+    "apps/patient-ai-service/tsconfig.json",
+    "apps/patient-portal/README.md",
+    "apps/patient-portal/app/api/converse/route.ts",
+    "apps/patient-portal/app/api/session/route.test.cjs",
+    "apps/patient-portal/app/api/session/route.ts",
+    "apps/patient-portal/app/api/session/stub-auth.ts",
+    "apps/patient-portal/app/layout.tsx",
+    "apps/patient-portal/app/page.tsx",
+    "apps/patient-portal/app/portal-shell.tsx",
+    "apps/patient-portal/next-env.d.ts",
+    "apps/patient-portal/next.config.mjs",
+    "apps/patient-portal/package.json",
+    "apps/patient-portal/tsconfig.json",
+    "apps/portal/app/globals.css",
+    "apps/portal/app/layout.tsx",
+    "apps/portal/app/page.tsx",
+    "apps/portal/next-env.d.ts",
+    "apps/portal/next.config.mjs",
+    "apps/portal/package.json",
+    "apps/portal/postcss.config.mjs",
+    "apps/portal/tailwind.config.cjs",
+    "apps/portal/tsconfig.json"
+  ],
+  "filesModified": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "scripts/guard-workspace-deps.mjs",
+    "REMOVE_PHI_APPS_PATCH_REPORT.json"
+  ],
+  "keptMarketingPortalLandingPage": "apps/web/app/patient-portal/page.tsx",
+  "commandsRun": [
+    "pnpm install",
+    "pnpm run guard:workspace-deps",
+    "pnpm run guard:all",
+    "pnpm run verify",
+    "ls -la apps",
+    "test ! -d apps/patient-portal && echo \"OK: apps/patient-portal removed\"",
+    "test ! -d apps/patient-ai-service && echo \"OK: apps/patient-ai-service removed\"",
+    "test ! -d apps/portal && echo \"OK: apps/portal removed\"",
+    "test -f apps/web/app/patient-portal/page.tsx && echo \"OK: marketing /patient-portal page still exists\"",
+    "grep -RIn \"apps/patient-portal\" . || true",
+    "grep -RIn \"apps/patient-ai-service\" . || true",
+    "grep -RIn \"apps/portal\" . || true"
+  ],
+  "grepEvidence": [
+    {
+      "cmd": "grep -RIn \"apps/patient-portal\" . || true",
+      "resultSnippet": "./node_modules/.modules.yaml:364:  apps/patient-portal: ... ./reports/CHAT_UI_ALLOWED_HOOKS_REPORT_V1.json:561: \"file\": \"./apps/patient-portal/app/api/converse/route.ts\""
+    },
+    {
+      "cmd": "grep -RIn \"apps/patient-ai-service\" . || true",
+      "resultSnippet": "./node_modules/.modules.yaml:362:  apps/patient-ai-service: ... ./reports/CHAT_UI_ALLOWED_HOOKS_REPORT_V1.json:506: \"file\": \"./apps/patient-ai-service/src/server.test.ts\""
+    },
+    {
+      "cmd": "grep -RIn \"apps/portal\" . || true",
+      "resultSnippet": "./node_modules/.modules.yaml:366:  apps/portal: ... ./docs/champagne-import-phase1.md:30:- `apps/portal/**`"
+    }
+  ],
+  "testsRun": [
+    "pnpm install",
+    "pnpm run guard:workspace-deps",
+    "pnpm run guard:all",
+    "pnpm run verify"
+  ],
+  "notes": [
+    "Only allowlisted PHI apps deleted; marketing portal page kept; no CTA engine refactor."
+  ]
+}

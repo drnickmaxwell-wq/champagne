@@ -1,0 +1,48 @@
+{
+  "branch": "chore/cta-audit-no-phi-targets",
+  "changesMade": false,
+  "marketingPortalTarget": "/patient-portal",
+  "findings": [],
+  "commandsRun": [
+    "test -f apps/web/app/patient-portal/page.tsx && echo \"OK: marketing /patient-portal page exists\"",
+    "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"/portal\" apps/web packages || true",
+    "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"apps/portal\" . || true",
+    "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"apps/patient-portal\" . || true",
+    "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"patient-ai-service\" . || true",
+    "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"railway\\.internal\" . || true",
+    "pnpm run verify"
+  ],
+  "grepEvidence": [
+    {
+      "cmd": "test -f apps/web/app/patient-portal/page.tsx && echo \"OK: marketing /patient-portal page exists\"",
+      "resultSnippet": "OK: marketing /patient-portal page exists"
+    },
+    {
+      "cmd": "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"/portal\" apps/web packages || true",
+      "resultSnippet": "No source CTA/link target matches found in apps/web or packages (additional output came from apps/web/.next build trace artifacts only)."
+    },
+    {
+      "cmd": "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"apps/portal\" . || true",
+      "resultSnippet": "Matches found only in docs/reports/previous patch report metadata; no live CTA/link targets."
+    },
+    {
+      "cmd": "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"apps/patient-portal\" . || true",
+      "resultSnippet": "Matches found only in reports and previous patch report metadata; no live CTA/link targets."
+    },
+    {
+      "cmd": "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"patient-ai-service\" . || true",
+      "resultSnippet": "Matches found only in reports and previous patch report metadata; no live CTA/link targets."
+    },
+    {
+      "cmd": "grep -RIn --exclude-dir=node_modules --exclude=pnpm-lock.yaml \"railway\\.internal\" . || true",
+      "resultSnippet": "No matches."
+    }
+  ],
+  "testsRun": [
+    "pnpm run verify"
+  ],
+  "notes": [
+    "No refactors. No copy changes. Only exact-match target replacements if required.",
+    "No exact bad CTA/link targets to deleted PHI routes were found, so this is a no-op code patch."
+  ]
+}
