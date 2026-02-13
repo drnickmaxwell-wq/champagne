@@ -29,8 +29,6 @@ const legacyAllowlist = new Map([
   ["apps/chat-ui/package.json", new Set(["typescript"])],
   ["apps/engine/package.json", new Set(["typescript", "ts-node"])],
   ["apps/ops-api/package.json", new Set(["typescript", "@types/node"])],
-  ["apps/patient-portal/package.json", new Set(["typescript"])],
-  ["apps/portal/package.json", new Set(["typescript"])],
   ["apps/stock/package.json", new Set(["typescript", "@types/node", "eslint"])],
   ["apps/web/package.json", new Set(["typescript", "@types/node", "eslint"])],
 ]);

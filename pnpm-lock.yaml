@@ -133,49 +133,6 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
-  apps/patient-ai-service: {}
-
-  apps/patient-portal:
-    dependencies:
-      next:
-        specifier: 15.5.7
-        version: 15.5.7(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
-      react:
-        specifier: 19.2.1
-        version: 19.2.1
-      react-dom:
-        specifier: 19.2.1
-        version: 19.2.1(react@19.2.1)
-    devDependencies:
-      typescript:
-        specifier: ^5.6.0
-        version: 5.9.3
-
-  apps/portal:
-    dependencies:
-      next:
-        specifier: 15.5.7
-        version: 15.5.7(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
-      react:
-        specifier: 19.2.1
-        version: 19.2.1
-      react-dom:
-        specifier: 19.2.1
-        version: 19.2.1(react@19.2.1)
-    devDependencies:
-      autoprefixer:
-        specifier: ^10.4.20
-        version: 10.4.22(postcss@8.5.6)
-      postcss:
-        specifier: ^8.5.6
-        version: 8.5.6
-      tailwindcss:
-        specifier: ^3.4.13
-        version: 3.4.19
-      typescript:
-        specifier: ^5.6.0
-        version: 5.9.3
-
   apps/stock:
     dependencies:
       '@champagne/stock-shared':

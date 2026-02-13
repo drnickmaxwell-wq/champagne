@@ -9,7 +9,6 @@
   "scripts": {
     "dev:web": "pnpm --filter web dev",
     "dev:chat-ui": "pnpm --filter chat-ui dev",
-    "dev:portal": "pnpm --filter portal dev",
     "dev:engine": "pnpm --filter engine dev",
     "dev:all": "pnpm run dev:web",
     "lint": "pnpm -r lint",
