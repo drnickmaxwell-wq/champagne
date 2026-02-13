@@ -825,14 +825,30 @@ main {
     visibility: hidden;
   }
 
-  .qr-printable[data-print-active="true"],
-  .qr-printable[data-print-active="true"] * {
+  .qr-print-scope[data-print-mode="single"] .qr-printable[data-print-active="true"],
+  .qr-print-scope[data-print-mode="single"] .qr-printable[data-print-active="true"] * {
     visibility: visible;
   }
 
-  .qr-printable[data-print-active="true"] {
+  .qr-print-scope[data-print-mode="single"] .qr-printable[data-print-active="true"] {
     position: absolute;
     left: 0;
     top: 0;
+  }
+
+
+  .qr-print-scope[data-print-mode="all"] .stock-disclosure:not([open]) > :not(summary) {
+    display: block;
+  }
+
+  .qr-print-scope[data-print-mode="all"] .qr-printable,
+  .qr-print-scope[data-print-mode="all"] .qr-printable * {
+    visibility: visible;
+  }
+
+  .qr-print-scope[data-print-mode="all"] .qr-printable {
+    position: static;
+    break-inside: avoid;
+    margin-bottom: var(--stock-space-3);
   }
 }

@@ -31,6 +31,8 @@ type LocationDraft = {
   type: LocationType;
 };
 
+type PrintMode = "none" | "single" | "all";
+
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
     const candidate = data as Record<string, unknown>;
@@ -80,6 +82,7 @@ export default function LocationsPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [opsUnreachable, setOpsUnreachable] = useState(false);
   const [printTargetId, setPrintTargetId] = useState<string | null>(null);
+  const [printMode, setPrintMode] = useState<PrintMode>("none");
 
   const updateDraft = (locationId: string, update: Partial<LocationDraft>) => {
     setDrafts((prev) => ({
@@ -130,6 +133,7 @@ export default function LocationsPage() {
 
   useEffect(() => {
     const handleAfterPrint = () => {
+      setPrintMode("none");
       setPrintTargetId(null);
     };
 
@@ -213,8 +217,17 @@ export default function LocationsPage() {
     link.click();
   };
 
-  const handlePrint = (id: string) => {
+  const handlePrintSingle = (id: string) => {
+    setPrintMode("single");
     setPrintTargetId(id);
+    window.setTimeout(() => {
+      window.print();
+    }, 0);
+  };
+
+  const handlePrintAll = () => {
+    setPrintMode("all");
+    setPrintTargetId(null);
     window.setTimeout(() => {
       window.print();
     }, 0);
@@ -301,6 +314,17 @@ export default function LocationsPage() {
       </Section>
 
       <Section title="Current locations">
+        <PrimaryActions>
+          <button
+            type="button"
+            className="stock-button stock-button--secondary"
+            onClick={handlePrintAll}
+            disabled={locations.length === 0}
+          >
+            Print all locations
+          </button>
+        </PrimaryActions>
+        <div className="qr-print-scope" data-print-mode={printMode}>
         {locations.length === 0 && !loading ? (
           <FeedbackCard title="Empty" message="No locations yet." />
         ) : null}
@@ -387,7 +411,7 @@ export default function LocationsPage() {
                 <button
                   type="button"
                   className="stock-button stock-button--secondary"
-                  onClick={() => handlePrint(location.id)}
+                  onClick={() => handlePrintSingle(location.id)}
                 >
                   Print
                 </button>
@@ -395,6 +419,7 @@ export default function LocationsPage() {
             </div>
           </DisclosureCard>
         ))}
+        </div>
       </Section>
 
       <PrimaryActions>
