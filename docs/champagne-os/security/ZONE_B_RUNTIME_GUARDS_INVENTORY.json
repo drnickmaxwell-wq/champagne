@@ -1,0 +1,109 @@
+{
+  "version": "V2",
+  "document": "ZONE_B_RUNTIME_GUARDS_INVENTORY_V2",
+  "scope": "champagne-patient-portal + champagne-patient-ai-service (Railway)",
+  "status": "CURRENT_IMPLEMENTED_STATE",
+  "portal_service": {
+    "name": "champagne-patient-portal",
+    "builder": "Dockerfile",
+    "guards": [
+      {
+        "id": "STUB_AUTH_PRODUCTION_GATE",
+        "type": "runtime_feature_flag",
+        "file": "app/api/session/stub-auth.ts",
+        "env_required": ["STUB_AUTH_ENABLED"],
+        "behavior": "Stub authentication disabled in production unless STUB_AUTH_ENABLED === 'true'.",
+        "risk_mitigated": "Accidental demo auth exposure in production."
+      },
+      {
+        "id": "SHARED_COOKIE_CONSTANT",
+        "type": "code_invariant",
+        "file": "app/api/session/patient-cookie.ts",
+        "behavior": "Single exported PATIENT_COOKIE constant used by all routes.",
+        "risk_mitigated": "Cookie name drift between session, converse, and debug routes."
+      },
+      {
+        "id": "BROWSER_CALLS_SAME_ORIGIN_ONLY",
+        "type": "privacy_boundary_invariant",
+        "file": "app/portal-shell.tsx",
+        "behavior": "Browser calls only same-origin API routes (e.g., /api/converse). No client-side calls to patient-ai base URLs.",
+        "risk_mitigated": "Accidental browser exposure of internal service topology and PHI-capable endpoints."
+      },
+      {
+        "id": "PORTAL_INTERNAL_REQUEST_SIGNING_HMAC",
+        "type": "service_to_service_auth",
+        "file": "app/api/converse/route.ts",
+        "env_required": ["INTERNAL_HMAC_SECRET", "PATIENT_AI_SERVICE_URL"],
+        "behavior": "Portal signs internal requests to patient-ai using HMAC with timestamp + requestId; fails closed if INTERNAL_HMAC_SECRET missing.",
+        "risk_mitigated": "Portal being abused as an unsigned proxy path to patient-ai; replay attacks; accidental future public exposure of patient-ai."
+      },
+      {
+        "id": "ASYNC_COOKIE_API_COMPLIANCE",
+        "type": "framework_invariant",
+        "file": "app/api/converse/route.ts",
+        "behavior": "Uses await cookies() for Next.js 15 compatibility.",
+        "risk_mitigated": "Build/runtime mismatch and type errors."
+      },
+      {
+        "id": "ENV_URL_TRIM_GUARD",
+        "type": "runtime_sanitization",
+        "file": "app/api/_debug/ping-ai/route.ts",
+        "env_used": ["PATIENT_AI_SERVICE_URL"],
+        "behavior": "Trims whitespace from PATIENT_AI_SERVICE_URL before use.",
+        "risk_mitigated": "Invalid URL runtime errors due to trailing newline injection."
+      },
+      {
+        "id": "BROWSER_COOKIE_PERSISTENCE_GUARD",
+        "type": "client_runtime_requirement",
+        "file": "app/portal-shell.tsx",
+        "behavior": "fetch('/api/session', { credentials: 'include' }) ensures Set-Cookie persistence.",
+        "risk_mitigated": "Browser discarding Set-Cookie headers."
+      },
+      {
+        "id": "DOCKERFILE_BUILDER_ENFORCEMENT",
+        "type": "deployment_invariant",
+        "location": "Railway service settings",
+        "behavior": "Builder set to Dockerfile (not Railpack/Nixpacks).",
+        "risk_mitigated": "Silent Railpack build-plan failures."
+      }
+    ]
+  },
+  "patient_ai_service": {
+    "name": "champagne-patient-ai-service",
+    "builder": "Dockerfile",
+    "guards": [
+      {
+        "id": "NO_PUBLIC_DOMAIN",
+        "type": "network_boundary",
+        "location": "Railway networking settings",
+        "behavior": "No public domain generated; service accessible only via railway.internal.",
+        "risk_mitigated": "Direct internet exposure of PHI-capable endpoints."
+      },
+      {
+        "id": "HEALTH_ENDPOINT_ONLY_PUBLIC_CHECK",
+        "type": "operational_readiness",
+        "route": "GET /health",
+        "behavior": "Health endpoint returns 200 for deployment checks.",
+        "risk_mitigated": "Service liveness without exposing PHI routes."
+      },
+      {
+        "id": "INTERNAL_AUTH_HMAC_REQUIRED",
+        "type": "service_to_service_auth",
+        "files": ["src/internalAuth.ts", "src/handler.ts"],
+        "env_required": ["INTERNAL_HMAC_SECRET"],
+        "behavior": "POST /v1/converse requires valid HMAC signature with timestamp + requestId and replay protection; fails closed if INTERNAL_HMAC_SECRET missing. /health remains unauthenticated.",
+        "risk_mitigated": "Unsigned internal calls, replay attacks, and future misconfiguration leading to PHI route exposure."
+      },
+      {
+        "id": "DOCKERFILE_BUILDER_ENFORCEMENT",
+        "type": "deployment_invariant",
+        "location": "Railway service settings",
+        "behavior": "Builder set to Dockerfile.",
+        "risk_mitigated": "Railpack build instability."
+      }
+    ]
+  },
+  "notes": [
+    "Runtime guards are distinct from PR-required CI checks; maintain a separate inventory of GitHub check names per repo for branch rulesets."
+  ]
+}
