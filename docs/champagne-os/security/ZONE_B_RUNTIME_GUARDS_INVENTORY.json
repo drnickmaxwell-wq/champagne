@@ -1,4 +1,5 @@
 {
+  "version": "V2",
   "document": "ZONE_B_RUNTIME_GUARDS_INVENTORY_V2",
   "scope": "champagne-patient-portal + champagne-patient-ai-service (Railway)",
   "status": "CURRENT_IMPLEMENTED_STATE",
