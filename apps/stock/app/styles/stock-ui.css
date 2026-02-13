@@ -798,15 +798,26 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 16px;
+  gap: var(--stock-space-2);
+  padding: var(--stock-space-3);
   border: 1px solid var(--smh-gray-200);
-  border-radius: 8px;
+  border-radius: var(--stock-radius);
+  background: var(--surface-0);
+}
+
+.qr-label {
+  margin: 0;
+  color: var(--text-medium);
+  font-weight: 600;
 }
 
 .qr-actions {
   display: flex;
-  gap: 8px;
+  gap: var(--stock-space-2);
+}
+
+.qr-printable {
+  justify-self: start;
 }
 
 @media print {
@@ -814,12 +825,12 @@ main {
     visibility: hidden;
   }
 
-  .qr-print-area,
-  .qr-print-area * {
+  .qr-printable[data-print-active="true"],
+  .qr-printable[data-print-active="true"] * {
     visibility: visible;
   }
 
-  .qr-print-area {
+  .qr-printable[data-print-active="true"] {
     position: absolute;
     left: 0;
     top: 0;

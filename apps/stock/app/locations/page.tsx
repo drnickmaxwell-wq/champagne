@@ -79,6 +79,7 @@ export default function LocationsPage() {
   const [statusMessage, setStatusMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [opsUnreachable, setOpsUnreachable] = useState(false);
+  const [printTargetId, setPrintTargetId] = useState<string | null>(null);
 
   const updateDraft = (locationId: string, update: Partial<LocationDraft>) => {
     setDrafts((prev) => ({
@@ -126,6 +127,15 @@ export default function LocationsPage() {
   useEffect(() => {
     void loadLocations();
   }, [loadLocations]);
+
+  useEffect(() => {
+    const handleAfterPrint = () => {
+      setPrintTargetId(null);
+    };
+
+    window.addEventListener("afterprint", handleAfterPrint);
+    return () => window.removeEventListener("afterprint", handleAfterPrint);
+  }, []);
 
   const handleCreate = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -201,6 +211,13 @@ export default function LocationsPage() {
     link.href = url;
     link.download = `location-${id}.png`;
     link.click();
+  };
+
+  const handlePrint = (id: string) => {
+    setPrintTargetId(id);
+    window.setTimeout(() => {
+      window.print();
+    }, 0);
   };
 
   return (
@@ -347,7 +364,10 @@ export default function LocationsPage() {
                 </button>
               </div>
             </form>
-            <div className="qr-print-area qr-block">
+            <div
+              className="qr-print-area qr-printable qr-block"
+              data-print-active={printTargetId === location.id ? "true" : "false"}
+            >
               <QRCodeCanvas
                 id={`qr-${location.id}`}
                 value={location.id}
@@ -355,6 +375,7 @@ export default function LocationsPage() {
                 level="M"
                 includeMargin
               />
+              <p className="qr-label">{`${location.name} — ${location.id}`}</p>
               <div className="qr-actions">
                 <button
                   type="button"
@@ -366,7 +387,7 @@ export default function LocationsPage() {
                 <button
                   type="button"
                   className="stock-button stock-button--secondary"
-                  onClick={() => window.print()}
+                  onClick={() => handlePrint(location.id)}
                 >
                   Print
                 </button>
