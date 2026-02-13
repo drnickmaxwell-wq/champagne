@@ -7,6 +7,10 @@ import {
 } from "@champagne/stock-shared";
 import type { ReorderSuggestion } from "@champagne/stock-shared";
 import { fetchReorder, postEvent } from "../lib/ops-api";
+import {
+  loadOrderBasket,
+  upsertOrderBasketItem
+} from "../lib/localStores/orderBasket";
 import FeedbackCard from "../components/ui/FeedbackCard";
 import LoadingLine from "../components/ui/LoadingLine";
 import PageShell from "../components/ui/PageShell";
@@ -33,6 +37,7 @@ export default function ReorderPage() {
   const [loading, setLoading] = useState(false);
   const [opsUnreachable, setOpsUnreachable] = useState(false);
   const [submittingId, setSubmittingId] = useState<string | null>(null);
+  const [basketQuantities, setBasketQuantities] = useState<Record<string, number>>({});
 
   const canReceive = EventTypeSchema.options.includes("RECEIVE");
 
@@ -62,8 +67,25 @@ export default function ReorderPage() {
   }, []);
 
   useEffect(() => {
+    const nextBasket = Object.fromEntries(
+      loadOrderBasket().map((item) => [item.productId, item.qty])
+    );
+    setBasketQuantities(nextBasket);
+
     void loadReorder();
   }, [loadReorder]);
+
+  const handleAddToBasket = (suggestion: ReorderSuggestion) => {
+    upsertOrderBasketItem({
+      productId: suggestion.productId,
+      qty: suggestion.suggestedOrderUnits
+    });
+    setBasketQuantities((prev) => ({
+      ...prev,
+      [suggestion.productId]: suggestion.suggestedOrderUnits
+    }));
+    setStatusMessage(`Added ${suggestion.name} to supplier basket.`);
+  };
 
   const handleReceive = async (suggestion: ReorderSuggestion) => {
     if (!canReceive) {
@@ -142,6 +164,13 @@ export default function ReorderPage() {
             >
               Receive (quick +{suggestion.suggestedOrderUnits})
             </button>
+            <button
+              type="button"
+              onClick={() => handleAddToBasket(suggestion)}
+              disabled={suggestion.suggestedOrderUnits <= 0}
+            >
+              Add to basket ({basketQuantities[suggestion.productId] ?? 0})
+            </button>
             {!canReceive ? <span>Receive events not supported.</span> : null}
           </PrimaryActions>
         </Section>
@@ -151,6 +180,7 @@ export default function ReorderPage() {
         <ActionLink href="/">Home</ActionLink>
         <ActionLink href="/scan">Scan again</ActionLink>
         <ActionLink href="/expiry">Expiry</ActionLink>
+        <ActionLink href="/orders/suppliers">Supplier orders (copy/email)</ActionLink>
         <ActionLink href="/setup">Setup</ActionLink>
       </PrimaryActions>
     </PageShell>
