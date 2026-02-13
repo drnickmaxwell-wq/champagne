@@ -19,6 +19,8 @@ import {
   upsertProductSupplierPreference,
   type ProductSupplierPreference
 } from "../../../suppliers/localSupplierPrefs";
+import { loadLocalSuppliers, type LocalSupplier } from "../../../lib/localStores/suppliers";
+import { clearMapping, getMapping, setMapping } from "../../../lib/localStores/productSupplierMap";
 import {
   getExpiryStatus,
   getLotsForProduct,
@@ -67,6 +69,8 @@ export default function LocalProductPage() {
   const [catalogItems, setCatalogItems] = useState<SupplierCatalogItem[]>([]);
   const [preferences, setPreferences] = useState<ProductSupplierPreference[]>([]);
   const [preferredSupplierId, setPreferredSupplierId] = useState("");
+  const [localSuppliers, setLocalSuppliers] = useState<LocalSupplier[]>([]);
+  const [mappingForm, setMappingForm] = useState({ supplierId: "", supplierSku: "", packSize: "", notes: "" });
   const [mappingDraft, setMappingDraft] = useState({
     supplierId: "",
     supplierSku: "",
@@ -100,7 +104,19 @@ export default function LocalProductPage() {
 
   useEffect(() => {
     refreshSupplierData();
+    setLocalSuppliers(loadLocalSuppliers());
   }, [refreshSupplierData]);
+
+  useEffect(() => {
+    if (!id) return;
+    const existing = getMapping(id);
+    setMappingForm({
+      supplierId: existing?.supplierId ?? "",
+      supplierSku: existing?.supplierSku ?? "",
+      packSize: existing?.packSize ?? "",
+      notes: existing?.notes ?? ""
+    });
+  }, [id]);
 
   const catalogForProduct = useMemo(() => {
     return catalogItems.filter((item) => item.productId === id);
@@ -129,6 +145,22 @@ export default function LocalProductPage() {
       updatedAt: now
     });
     refreshSupplierData();
+  };
+
+  const handleSaveLocalMapping = () => {
+    if (!id || !mappingForm.supplierId.trim()) return;
+    setMapping(id, {
+      supplierId: mappingForm.supplierId.trim(),
+      supplierSku: mappingForm.supplierSku.trim() || undefined,
+      packSize: mappingForm.packSize.trim() || undefined,
+      notes: mappingForm.notes.trim() || undefined
+    });
+  };
+
+  const handleClearLocalMapping = () => {
+    if (!id) return;
+    clearMapping(id);
+    setMappingForm({ supplierId: "", supplierSku: "", packSize: "", notes: "" });
   };
 
   const handleAddMapping = (event: React.FormEvent<HTMLFormElement>) => {
@@ -328,6 +360,71 @@ export default function LocalProductPage() {
               </div>
             </form>
           </Section>
+          <Section title="Supplier mapping (local)">
+            {mappingForm.supplierId ? null : <p>No supplier info saved yet.</p>}
+            <form className="stock-form" onSubmit={(event) => event.preventDefault()}>
+              <div className="stock-form__row">
+                <label>
+                  Supplier
+                  <select
+                    className="stock-form__input"
+                    value={mappingForm.supplierId}
+                    onChange={(event) =>
+                      setMappingForm((prev) => ({ ...prev, supplierId: event.target.value }))
+                    }
+                  >
+                    <option value="">Select supplier</option>
+                    {localSuppliers.map((supplier) => (
+                      <option key={supplier.id} value={supplier.id}>
+                        {supplier.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Supplier SKU
+                  <input
+                    className="stock-form__input"
+                    value={mappingForm.supplierSku}
+                    onChange={(event) =>
+                      setMappingForm((prev) => ({ ...prev, supplierSku: event.target.value }))
+                    }
+                  />
+                </label>
+              </div>
+              <div className="stock-form__row">
+                <label>
+                  Pack size
+                  <input
+                    className="stock-form__input"
+                    value={mappingForm.packSize}
+                    onChange={(event) =>
+                      setMappingForm((prev) => ({ ...prev, packSize: event.target.value }))
+                    }
+                  />
+                </label>
+                <label>
+                  Notes
+                  <input
+                    className="stock-form__input"
+                    value={mappingForm.notes}
+                    onChange={(event) =>
+                      setMappingForm((prev) => ({ ...prev, notes: event.target.value }))
+                    }
+                  />
+                </label>
+              </div>
+              <PrimaryActions>
+                <button type="button" className="stock-button stock-button--primary" onClick={handleSaveLocalMapping}>
+                  Save supplier info
+                </button>
+                <button type="button" className="stock-button stock-button--secondary" onClick={handleClearLocalMapping}>
+                  Clear
+                </button>
+              </PrimaryActions>
+            </form>
+          </Section>
+
           <Section title="Batch lots">
             {lots.length ? (
               <div className="stock-lot-list">

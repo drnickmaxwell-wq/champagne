@@ -13,6 +13,7 @@ type EventActionPanelProps = {
   locationName?: string | null;
   defaultQuantity?: number;
   allowedActions?: EventType[];
+  primaryAction?: EventType;
   onEventRequest?: (payload: EventRequestPayload) => void;
   onEventSuccess?: (payload: EventSuccessPayload) => void;
   onLastActionMessage?: (message: string) => void;
@@ -73,6 +74,7 @@ export default function EventActionPanel({
   locationName,
   defaultQuantity,
   allowedActions,
+  primaryAction,
   onEventRequest,
   onEventSuccess,
   onLastActionMessage
@@ -180,6 +182,13 @@ export default function EventActionPanel({
     return null;
   }
 
+
+  const actionsInOrder: EventType[] = [];
+  if (primaryAction === "RECEIVE" && canReceive) actionsInOrder.push("RECEIVE");
+  if (primaryAction === "WITHDRAW" && canWithdraw) actionsInOrder.push("WITHDRAW");
+  if (canWithdraw && !actionsInOrder.includes("WITHDRAW")) actionsInOrder.push("WITHDRAW");
+  if (canReceive && !actionsInOrder.includes("RECEIVE")) actionsInOrder.push("RECEIVE");
+
   const lastActionValue = lastActionMessage || "Last action: none yet";
 
   return (
@@ -223,26 +232,17 @@ export default function EventActionPanel({
         </div>
       </div>
       <div className="stock-event-panel__actions">
-        {canWithdraw ? (
+        {actionsInOrder.map((action) => (
           <button
+            key={action}
             type="button"
-            onClick={() => handleEvent("WITHDRAW")}
+            onClick={() => handleEvent(action)}
             disabled={submitting}
             className="stock-button stock-button--primary stock-event-panel__button"
           >
-            Withdraw
+            {action === "WITHDRAW" ? "Withdraw" : "Receive"}
           </button>
-        ) : null}
-        {canReceive ? (
-          <button
-            type="button"
-            onClick={() => handleEvent("RECEIVE")}
-            disabled={submitting}
-            className="stock-button stock-button--primary stock-event-panel__button"
-          >
-            Receive
-          </button>
-        ) : null}
+        ))}
       </div>
       <div className="stock-event-panel__messages" aria-live="polite">
         {statusMessage ? (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import ScanForm from "./ScanForm";
 import Scanner from "./Scanner";
 import SessionSummary from "./SessionSummary";
@@ -106,6 +107,8 @@ const toDisplayCase = (value: string) => {
 };
 
 export default function ScanPage() {
+  const pathname = usePathname();
+  const receiveMode = pathname === "/receive";
   const [cameraOpen, setCameraOpen] = useState(false);
   const [scanCode, setScanCode] = useState("");
   const [scanResult, setScanResult] = useState<unknown>(null);
@@ -855,6 +858,7 @@ export default function ScanPage() {
               : undefined
           }
           allowedActions={["WITHDRAW", "RECEIVE"]}
+          primaryAction={receiveMode ? "RECEIVE" : "WITHDRAW"}
           onEventRequest={handleEventRequest}
           onEventSuccess={(payload) => {
             recordEvent({

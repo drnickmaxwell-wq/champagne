@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { QRCodeCanvas } from "qrcode.react";
 import {
   LocationSchema,
   LocationTypeSchema
@@ -24,11 +25,18 @@ import {
   patchLocation,
   postLocation
 } from "../lib/ops-api";
+import { loadLocationNotes, setNote } from "../lib/localStores/locationNotes";
 
 type LocationDraft = {
   name: string;
   type: LocationType;
 };
+
+type PrintMode = "none" | "single" | "all";
+
+const STOCK_PRINT_CLASS = "stock-printing";
+const STOCK_PRINT_SINGLE_CLASS = "stock-printing--single";
+const STOCK_PRINT_ALL_CLASS = "stock-printing--all";
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -78,6 +86,10 @@ export default function LocationsPage() {
   const [statusMessage, setStatusMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [opsUnreachable, setOpsUnreachable] = useState(false);
+  const [printTargetId, setPrintTargetId] = useState<string | null>(null);
+  const [printMode, setPrintMode] = useState<PrintMode>("none");
+  const [notes, setNotes] = useState<Record<string, string>>({});
+  const [noteDrafts, setNoteDrafts] = useState<Record<string, string>>({});
 
   const updateDraft = (locationId: string, update: Partial<LocationDraft>) => {
     setDrafts((prev) => ({
@@ -120,11 +132,79 @@ export default function LocationsPage() {
       });
       return next;
     });
+
+    const loadedNotes = loadLocationNotes();
+    setNotes(loadedNotes);
+    setNoteDrafts((prev) => {
+      const next: Record<string, string> = { ...prev };
+      parsed.data.forEach((location) => {
+        next[location.id] = loadedNotes[location.id] ?? "";
+      });
+      return next;
+    });
   }, []);
 
   useEffect(() => {
     void loadLocations();
   }, [loadLocations]);
+
+  const clearPrintBodyClasses = useCallback(() => {
+    document.body.classList.remove(
+      STOCK_PRINT_CLASS,
+      STOCK_PRINT_SINGLE_CLASS,
+      STOCK_PRINT_ALL_CLASS
+    );
+  }, []);
+
+  const applyPrintBodyClasses = useCallback(
+    (mode: PrintMode) => {
+      clearPrintBodyClasses();
+      if (mode === "none") {
+        return;
+      }
+
+      document.body.classList.add(STOCK_PRINT_CLASS);
+      if (mode === "single") {
+        document.body.classList.add(STOCK_PRINT_SINGLE_CLASS);
+      }
+      if (mode === "all") {
+        document.body.classList.add(STOCK_PRINT_ALL_CLASS);
+      }
+    },
+    [clearPrintBodyClasses]
+  );
+
+  const resetPrintState = useCallback(() => {
+    setPrintMode("none");
+    setPrintTargetId(null);
+    clearPrintBodyClasses();
+  }, [clearPrintBodyClasses]);
+
+  useEffect(() => {
+    applyPrintBodyClasses(printMode);
+    return () => {
+      clearPrintBodyClasses();
+    };
+  }, [applyPrintBodyClasses, clearPrintBodyClasses, printMode]);
+
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      applyPrintBodyClasses(printMode);
+    };
+
+    const handleAfterPrint = () => {
+      resetPrintState();
+    };
+
+    window.addEventListener("beforeprint", handleBeforePrint);
+    window.addEventListener("afterprint", handleAfterPrint);
+
+    return () => {
+      window.removeEventListener("beforeprint", handleBeforePrint);
+      window.removeEventListener("afterprint", handleAfterPrint);
+      clearPrintBodyClasses();
+    };
+  }, [applyPrintBodyClasses, clearPrintBodyClasses, printMode, resetPrintState]);
 
   const handleCreate = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -188,6 +268,48 @@ export default function LocationsPage() {
 
     setStatusMessage("Location updated.");
     void loadLocations();
+  };
+
+  const handleDownload = (id: string) => {
+    const canvas = document.getElementById(`qr-${id}`) as HTMLCanvasElement | null;
+    if (!canvas) {
+      return;
+    }
+    const url = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `location-${id}.png`;
+    link.click();
+  };
+
+  const handlePrintSingle = (id: string) => {
+    setPrintMode("single");
+    setPrintTargetId(id);
+    window.setTimeout(() => {
+      window.print();
+    }, 0);
+  };
+
+  const handlePrintAll = () => {
+    setPrintMode("all");
+    setPrintTargetId(null);
+    window.setTimeout(() => {
+      window.print();
+    }, 0);
+  };
+
+
+  const updateNoteDraft = (locationId: string, value: string) => {
+    setNoteDrafts((prev) => ({
+      ...prev,
+      [locationId]: value
+    }));
+  };
+
+  const handleSaveNote = (locationId: string) => {
+    const nextNotes = setNote(locationId, noteDrafts[locationId] ?? "");
+    setNotes(nextNotes);
+    setStatusMessage("Note saved.");
   };
 
   return (
@@ -271,75 +393,141 @@ export default function LocationsPage() {
       </Section>
 
       <Section title="Current locations">
-        {locations.length === 0 && !loading ? (
-          <FeedbackCard title="Empty" message="No locations yet." />
-        ) : null}
-        {locations.map((location) => (
-          <DisclosureCard
-            key={location.id}
-            summary={`${location.name} (${formatLocationType(location.type)})`}
+        <PrimaryActions>
+          <button
+            type="button"
+            className="stock-button stock-button--secondary"
+            onClick={handlePrintAll}
+            disabled={locations.length === 0}
           >
-            <form
-              className="stock-form"
-              onSubmit={(event) => {
-                event.preventDefault();
-                void handleUpdate(location.id);
-              }}
+            Print all locations
+          </button>
+          <ActionLink href="/setup/locations-pack">Open print pack</ActionLink>
+        </PrimaryActions>
+        <div className="qr-print-scope" data-print-mode={printMode}>
+          {locations.length === 0 && !loading ? (
+            <FeedbackCard title="Empty" message="No locations yet." />
+          ) : null}
+          {locations.map((location) => (
+            <DisclosureCard
+              key={location.id}
+              summary={`${location.name} (${formatLocationType(location.type)})`}
             >
-              <div className="stock-form__row">
-                <label className="stock-form__label">
-                  Name
-                  <input
-                    className="stock-form__input"
-                    name={`locationName-${location.id}`}
-                    value={drafts[location.id]?.name ?? location.name}
-                    onChange={(event) =>
-                      updateDraft(location.id, {
-                        name: event.target.value
-                      })
-                    }
-                    required
-                  />
-                </label>
-              </div>
-              <div className="stock-form__row">
-                <label className="stock-form__label">
-                  Type
-                  <select
-                    className="stock-form__input"
-                    name={`locationType-${location.id}`}
-                    value={drafts[location.id]?.type ?? location.type}
-                    onChange={(event) =>
-                      updateDraft(location.id, {
-                        type: event.target.value as LocationType
-                      })
-                    }
-                    required
+              <form
+                className="stock-form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  void handleUpdate(location.id);
+                }}
+              >
+                <div className="stock-form__row">
+                  <label className="stock-form__label">
+                    Name
+                    <input
+                      className="stock-form__input"
+                      name={`locationName-${location.id}`}
+                      value={drafts[location.id]?.name ?? location.name}
+                      onChange={(event) =>
+                        updateDraft(location.id, {
+                          name: event.target.value
+                        })
+                      }
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="stock-form__row">
+                  <label className="stock-form__label">
+                    Type
+                    <select
+                      className="stock-form__input"
+                      name={`locationType-${location.id}`}
+                      value={drafts[location.id]?.type ?? location.type}
+                      onChange={(event) =>
+                        updateDraft(location.id, {
+                          type: event.target.value as LocationType
+                        })
+                      }
+                      required
+                    >
+                      {locationTypes.map((type) => (
+                        <option key={type} value={type}>
+                          {formatLocationType(type)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+                <div className="stock-form__row">
+                  <label className="stock-form__label">
+                    Notes (optional)
+                    <textarea
+                      className="stock-form__input stock-form__textarea"
+                      name={`locationNote-${location.id}`}
+                      value={noteDrafts[location.id] ?? ""}
+                      onChange={(event) => updateNoteDraft(location.id, event.target.value)}
+                      rows={3}
+                    />
+                  </label>
+                </div>
+                <div className="stock-form__row stock-note-actions">
+                  <button
+                    type="button"
+                    className="stock-button stock-button--secondary"
+                    onClick={() => handleSaveNote(location.id)}
                   >
-                    {locationTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {formatLocationType(type)}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                    Save note
+                  </button>
+                </div>
+                <div className="stock-form__row">
+                  <button
+                    type="submit"
+                    className="stock-button stock-button--primary stock-form__button"
+                    disabled={submittingId === location.id}
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </form>
+              <div
+                className="qr-print-area qr-printable qr-block"
+                data-print-active={printTargetId === location.id ? "true" : "false"}
+              >
+                <QRCodeCanvas
+                  id={`qr-${location.id}`}
+                  value={location.id}
+                  size={160}
+                  level="M"
+                  includeMargin
+                />
+                <p className="qr-label">{`${location.name} — ${location.id}`}</p>
+                {notes[location.id] ? (
+                  <p className="qr-note">{notes[location.id]}</p>
+                ) : null}
+                <div className="qr-actions">
+                  <button
+                    type="button"
+                    className="stock-button stock-button--secondary"
+                    onClick={() => handleDownload(location.id)}
+                  >
+                    Download
+                  </button>
+                  <button
+                    type="button"
+                    className="stock-button stock-button--secondary"
+                    onClick={() => handlePrintSingle(location.id)}
+                  >
+                    Print
+                  </button>
+                </div>
               </div>
-              <div className="stock-form__row">
-                <button
-                  type="submit"
-                  className="stock-button stock-button--primary stock-form__button"
-                  disabled={submittingId === location.id}
-                >
-                  Save changes
-                </button>
-              </div>
-            </form>
-          </DisclosureCard>
-        ))}
+            </DisclosureCard>
+          ))}
+        </div>
       </Section>
 
       <PrimaryActions>
-        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/home">Home</ActionLink>
         <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href="/scan">Scan</ActionLink>
         <ActionLink href="/reorder">Orders</ActionLink>
