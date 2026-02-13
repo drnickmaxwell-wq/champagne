@@ -1,10 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import PageShell from "../components/ui/PageShell";
 import Card from "../components/ui/Card";
+import RoleModeSwitch from "../components/ui/RoleModeSwitch";
+import TenantBanner from "../components/ui/TenantBanner";
 import { ScreenHeader, Section } from "../components/ui/ScreenKit";
 import { PrimaryActions } from "../components/ui/PrimaryActions";
+import { loadRoleMode, type StockRoleMode } from "../lib/localStores/roleMode";
 
 export default function SetupPage() {
+  const [role, setRole] = useState<StockRoleMode>("nurse");
+
+  useEffect(() => {
+    setRole(loadRoleMode());
+  }, []);
+
   return (
     <PageShell
       header={
@@ -12,9 +24,11 @@ export default function SetupPage() {
           eyebrow="Stock"
           title="Setup"
           subtitle="One-off setup tasks and admin screens."
+          actions={<RoleModeSwitch />}
         />
       }
     >
+      <TenantBanner />
       <Section title="Setup tasks">
         <div className="stock-grid">
           <Card
@@ -54,6 +68,18 @@ export default function SetupPage() {
             Set the rooms or storage areas you scan into.
           </Card>
           <Card
+            title="Print location pack"
+            footer={
+              <PrimaryActions>
+                <Link href="/setup/locations-pack" className="stock-action-link">
+                  Open print pack
+                </Link>
+              </PrimaryActions>
+            }
+          >
+            Print all location QR labels in one pack.
+          </Card>
+          <Card
             title="Products"
             footer={
               <PrimaryActions>
@@ -68,9 +94,14 @@ export default function SetupPage() {
         </div>
       </Section>
       <PrimaryActions>
-        <Link href="/" className="stock-action-link stock-action-link--secondary">
+        <Link href="/home" className="stock-action-link stock-action-link--secondary">
           Back to home
         </Link>
+        {role === "nurse" ? (
+          <Link href="/help" className="stock-action-link stock-action-link--secondary">
+            Help
+          </Link>
+        ) : null}
       </PrimaryActions>
     </PageShell>
   );

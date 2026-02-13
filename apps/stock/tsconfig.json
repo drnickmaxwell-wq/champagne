@@ -11,8 +11,12 @@
     "noEmit": true,
     "incremental": true,
     "paths": {
-      "@champagne/stock-shared": ["../../packages/champagne-stock-shared/src"],
-      "@champagne/stock-db": ["../../packages/champagne-stock-db/src"]
+      "@champagne/stock-shared": [
+        "../../packages/champagne-stock-shared/src"
+      ],
+      "@champagne/stock-db": [
+        "../../packages/champagne-stock-db/src"
+      ]
     },
     "plugins": [
       {
@@ -24,7 +28,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "**/*.d.ts"
   ],
   "exclude": [
     "node_modules"

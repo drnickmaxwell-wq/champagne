@@ -25,6 +25,7 @@ import {
   patchLocation,
   postLocation
 } from "../lib/ops-api";
+import { loadLocationNotes, setNote } from "../lib/localStores/locationNotes";
 
 type LocationDraft = {
   name: string;
@@ -87,6 +88,8 @@ export default function LocationsPage() {
   const [opsUnreachable, setOpsUnreachable] = useState(false);
   const [printTargetId, setPrintTargetId] = useState<string | null>(null);
   const [printMode, setPrintMode] = useState<PrintMode>("none");
+  const [notes, setNotes] = useState<Record<string, string>>({});
+  const [noteDrafts, setNoteDrafts] = useState<Record<string, string>>({});
 
   const updateDraft = (locationId: string, update: Partial<LocationDraft>) => {
     setDrafts((prev) => ({
@@ -126,6 +129,16 @@ export default function LocationsPage() {
       const next: Record<string, LocationDraft> = { ...prev };
       parsed.data.forEach((location) => {
         next[location.id] = toDraft(location);
+      });
+      return next;
+    });
+
+    const loadedNotes = loadLocationNotes();
+    setNotes(loadedNotes);
+    setNoteDrafts((prev) => {
+      const next: Record<string, string> = { ...prev };
+      parsed.data.forEach((location) => {
+        next[location.id] = loadedNotes[location.id] ?? "";
       });
       return next;
     });
@@ -285,6 +298,20 @@ export default function LocationsPage() {
     }, 0);
   };
 
+
+  const updateNoteDraft = (locationId: string, value: string) => {
+    setNoteDrafts((prev) => ({
+      ...prev,
+      [locationId]: value
+    }));
+  };
+
+  const handleSaveNote = (locationId: string) => {
+    const nextNotes = setNote(locationId, noteDrafts[locationId] ?? "");
+    setNotes(nextNotes);
+    setStatusMessage("Note saved.");
+  };
+
   return (
     <PageShell
       header={
@@ -375,6 +402,7 @@ export default function LocationsPage() {
           >
             Print all locations
           </button>
+          <ActionLink href="/setup/locations-pack">Open print pack</ActionLink>
         </PrimaryActions>
         <div className="qr-print-scope" data-print-mode={printMode}>
           {locations.length === 0 && !loading ? (
@@ -431,6 +459,27 @@ export default function LocationsPage() {
                   </label>
                 </div>
                 <div className="stock-form__row">
+                  <label className="stock-form__label">
+                    Notes (optional)
+                    <textarea
+                      className="stock-form__input stock-form__textarea"
+                      name={`locationNote-${location.id}`}
+                      value={noteDrafts[location.id] ?? ""}
+                      onChange={(event) => updateNoteDraft(location.id, event.target.value)}
+                      rows={3}
+                    />
+                  </label>
+                </div>
+                <div className="stock-form__row stock-note-actions">
+                  <button
+                    type="button"
+                    className="stock-button stock-button--secondary"
+                    onClick={() => handleSaveNote(location.id)}
+                  >
+                    Save note
+                  </button>
+                </div>
+                <div className="stock-form__row">
                   <button
                     type="submit"
                     className="stock-button stock-button--primary stock-form__button"
@@ -452,6 +501,9 @@ export default function LocationsPage() {
                   includeMargin
                 />
                 <p className="qr-label">{`${location.name} — ${location.id}`}</p>
+                {notes[location.id] ? (
+                  <p className="qr-note">{notes[location.id]}</p>
+                ) : null}
                 <div className="qr-actions">
                   <button
                     type="button"
@@ -475,7 +527,7 @@ export default function LocationsPage() {
       </Section>
 
       <PrimaryActions>
-        <ActionLink href="/">Home</ActionLink>
+        <ActionLink href="/home">Home</ActionLink>
         <ActionLink href="/setup">Setup</ActionLink>
         <ActionLink href="/scan">Scan</ActionLink>
         <ActionLink href="/reorder">Orders</ActionLink>
