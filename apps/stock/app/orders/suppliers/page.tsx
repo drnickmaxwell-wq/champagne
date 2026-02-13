@@ -91,7 +91,10 @@ export default function SupplierOrdersPage() {
         <FeedbackCard title="Print mode" message="Preparing supplier order printout..." />
       ) : null}
       {copyError ? <FeedbackCard title="Copy" role="alert" message={copyError} /> : null}
-      <p>Tip: If clipboard copy doesn't work on this device, press and hold to select text.</p>
+      <FeedbackCard
+        title="Tip"
+        message="Tip: If copy doesn’t work on this device, press and hold to select the text."
+      />
 
       <Section title="Supplier order messages">
         {supplierBlocks.length === 0 ? (

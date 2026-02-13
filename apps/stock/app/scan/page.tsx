@@ -798,12 +798,13 @@ export default function ScanPage() {
           ) : null}
         </Section>
       ) : null}
-      {pendingReceiveConfirm ? (
+      {receiveMode && pendingReceiveConfirm ? (
         <Section title="Confirm receive">
-          <p>You're about to mark this as received.</p>
+          <p>You’re about to mark this as received.</p>
+          <p>Please double-check the product and quantity below, then confirm.</p>
           <KeyValueGrid>
             <FieldRow label="Product" value={pendingReceiveConfirm.productName} />
-            <FieldRow label="Quantity" value={pendingReceiveConfirm.qty} />
+            <FieldRow label="Quantity" value={String(pendingReceiveConfirm.qty)} />
           </KeyValueGrid>
           <PrimaryActions>
             <button
