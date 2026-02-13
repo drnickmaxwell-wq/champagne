@@ -1,25 +1,54 @@
 .shell {
-  width: min(100%, 46rem);
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 62rem);
   margin: 0 auto;
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: clamp(1.25rem, 2.3vw, 1.85rem);
   border-radius: var(--radius-xl);
   border: 1px solid var(--champagne-keyline-gold);
-  background: var(--surface-ink-soft);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   display: grid;
   gap: 1rem;
+  overflow: hidden;
+}
+
+.shell::before,
+.shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.shell::before {
+  background-image: url("/assets/champagne/waves/wave-field.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+}
+
+.shell::after {
+  background-image: url("/assets/champagne/film-grain/film-grain-desktop.webp");
+  background-repeat: repeat;
+  background-size: 420px 420px;
+  opacity: 0.08;
 }
 
 .metaRow {
   display: grid;
-  gap: 0.4rem;
+  gap: 0.32rem;
 }
 
 .label {
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-medium);
+  color: var(--text-low);
 }
 
 .select,
@@ -27,15 +56,19 @@
 .sendButton {
   border-radius: var(--radius-md);
   border: 1px solid var(--champagne-keyline-gold);
-  background: var(--surface-ink);
+  background: var(--surface-ink-soft);
   color: var(--text-high);
   font: inherit;
-  transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+  transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
 }
 
 .select,
 .input {
-  padding: 0.7rem 0.8rem;
+  padding: 0.68rem 0.78rem;
+}
+
+.select {
+  font-size: 0.92rem;
 }
 
 .select:focus-visible,
@@ -57,11 +90,12 @@
   border: 1px solid var(--champagne-keyline-gold);
   background: var(--surface-glass);
   color: var(--text-high);
-  padding: 0.42rem 0.72rem;
+  padding: 0.44rem 0.78rem;
   font: inherit;
-  font-size: 0.92rem;
+  font-size: 0.89rem;
   cursor: pointer;
-  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+  box-shadow: var(--shadow-soft);
+  transition: background-color 220ms ease, transform 220ms ease, border-color 220ms ease;
 }
 
 .quickReply:hover {
@@ -79,8 +113,8 @@
 }
 
 .messages {
-  min-height: 22rem;
-  max-height: 30rem;
+  min-height: clamp(24rem, 52vh, 34rem);
+  max-height: clamp(30rem, 62vh, 40rem);
   overflow-y: auto;
   display: grid;
   gap: 0.75rem;
@@ -90,7 +124,7 @@
 .message {
   border-radius: var(--radius-lg);
   border: 1px solid var(--champagne-keyline-gold);
-  padding: 0.85rem 0.95rem;
+  padding: 0.9rem 1rem;
 }
 
 .user {
@@ -102,54 +136,54 @@
 }
 
 .reveal {
-  animation: assistantReveal 420ms ease both;
+  animation: assistantReveal 460ms ease both;
 }
 
 .role {
   display: block;
   margin-bottom: 0.35rem;
   color: var(--text-medium);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .contentStack {
   display: grid;
-  gap: 0.48rem;
+  gap: 0.52rem;
 }
 
 .lead {
   margin: 0;
-  line-height: 1.52;
+  line-height: 1.5;
   color: var(--text-high);
   font-weight: 600;
-  font-size: 1.01rem;
+  font-size: 1.04rem;
 }
 
 .text {
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.58;
   color: var(--text-high);
 }
 
 .bullet {
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.56;
   color: var(--text-high);
   padding-left: 0.8rem;
 }
 
 .sourceHint {
-  margin: 0.1rem 0 0;
-  line-height: 1.45;
+  margin: 0.12rem 0 0;
+  line-height: 1.42;
   color: var(--text-medium);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
 }
 
 .composer {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.65rem;
 }
 
@@ -184,38 +218,49 @@
   height: 0.4rem;
   border-radius: 999px;
   background: var(--text-medium);
-  animation: calmPulse 2s ease-in-out infinite;
+  animation: calmPulse 2.2s ease-in-out infinite;
 }
 
 .dot:nth-child(2) {
-  animation-delay: 0.25s;
+  animation-delay: 0.28s;
 }
 
 .dot:nth-child(3) {
-  animation-delay: 0.5s;
+  animation-delay: 0.56s;
 }
 
 @keyframes calmPulse {
   0%,
   100% {
-    opacity: 0.28;
+    opacity: 0.3;
     transform: translateY(0);
   }
 
   50% {
-    opacity: 0.78;
-    transform: translateY(-0.08rem);
+    opacity: 0.76;
+    transform: translateY(-0.06rem);
   }
 }
 
 @keyframes assistantReveal {
   from {
     opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(6px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 780px) {
+  .shell {
+    width: min(100%, 100%);
+  }
+
+  .messages {
+    min-height: 21rem;
+    max-height: 30rem;
   }
 }

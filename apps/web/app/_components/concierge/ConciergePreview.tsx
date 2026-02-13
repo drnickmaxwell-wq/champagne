@@ -125,7 +125,7 @@ export function ConciergePreview() {
     <section className={styles.shell} aria-label="Champagne concierge preview chat">
       <div className={styles.metaRow}>
         <label className={styles.label} htmlFor="page-context-sim">
-          Page context simulator (dev)
+          Context simulator
         </label>
         <select
           id="page-context-sim"
