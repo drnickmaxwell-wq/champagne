@@ -89,6 +89,20 @@ export default function SetupPage() {
           >
             Add or update product details and minimum levels.
           </Card>
+          {role === "admin" ? (
+            <Card
+              title="Supplier orders (copy/email)"
+              footer={
+                <PrimaryActions>
+                  <Link href="/orders/suppliers" className="stock-action-link">
+                    Open supplier orders
+                  </Link>
+                </PrimaryActions>
+              }
+            >
+              Copy, download or print supplier-ready order messages.
+            </Card>
+          ) : null}
         </div>
       </Section>
       <PrimaryActions>

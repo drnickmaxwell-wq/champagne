@@ -54,6 +54,9 @@ export default function HomeDashboardPage() {
                 <Link href="/reorder" className="stock-action-link">
                   Orders
                 </Link>
+                <Link href="/orders/suppliers" className="stock-action-link stock-action-link--secondary">
+                  Supplier orders (copy/email)
+                </Link>
               </PrimaryActions>
             }
           >
