@@ -5,7 +5,6 @@ import Link from "next/link";
 import PageShell from "../components/ui/PageShell";
 import Card from "../components/ui/Card";
 import RoleModeSwitch from "../components/ui/RoleModeSwitch";
-import TenantBanner from "../components/ui/TenantBanner";
 import { ScreenHeader, Section } from "../components/ui/ScreenKit";
 import { PrimaryActions } from "../components/ui/PrimaryActions";
 import { loadRoleMode, type StockRoleMode } from "../lib/localStores/roleMode";
@@ -32,7 +31,6 @@ export default function HomeDashboardPage() {
         />
       }
     >
-      <TenantBanner />
       <Section title="Daily actions">
         <div className="stock-dashboard-grid">
           <Card
@@ -60,6 +58,19 @@ export default function HomeDashboardPage() {
             }
           >
             Review and prepare supplier orders.
+          </Card>
+          <Card
+            className="stock-card--action"
+            title="Receive delivery"
+            footer={
+              <PrimaryActions>
+                <Link href="/receive" className="stock-action-link">
+                  Receive delivery
+                </Link>
+              </PrimaryActions>
+            }
+          >
+            Scan delivery items and receive stock in.
           </Card>
           <Card
             className="stock-card--action"
@@ -104,6 +115,21 @@ export default function HomeDashboardPage() {
               }
             >
               Locations, baseline and suppliers.
+            </Card>
+            <Card
+              title="Suppliers"
+              footer={
+                <PrimaryActions>
+                  <Link
+                    href="/setup/suppliers"
+                    className="stock-action-link stock-action-link--secondary"
+                  >
+                    Open suppliers
+                  </Link>
+                </PrimaryActions>
+              }
+            >
+              Save supplier contacts and notes.
             </Card>
             <Card
               title="Print QR setup pack"

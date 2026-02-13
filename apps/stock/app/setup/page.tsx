@@ -5,7 +5,6 @@ import Link from "next/link";
 import PageShell from "../components/ui/PageShell";
 import Card from "../components/ui/Card";
 import RoleModeSwitch from "../components/ui/RoleModeSwitch";
-import TenantBanner from "../components/ui/TenantBanner";
 import { ScreenHeader, Section } from "../components/ui/ScreenKit";
 import { PrimaryActions } from "../components/ui/PrimaryActions";
 import { loadRoleMode, type StockRoleMode } from "../lib/localStores/roleMode";
@@ -28,7 +27,6 @@ export default function SetupPage() {
         />
       }
     >
-      <TenantBanner />
       <Section title="Setup tasks">
         <div className="stock-grid">
           <Card
@@ -47,7 +45,7 @@ export default function SetupPage() {
             title="Suppliers"
             footer={
               <PrimaryActions>
-                <Link href="/suppliers" className="stock-action-link">
+                <Link href="/setup/suppliers" className="stock-action-link">
                   Open suppliers
                 </Link>
               </PrimaryActions>

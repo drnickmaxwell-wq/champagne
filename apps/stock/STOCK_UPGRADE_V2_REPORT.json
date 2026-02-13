@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "filesChanged": [
+    "apps/stock/app/components/EventActionPanel.tsx",
+    "apps/stock/app/components/ui/TenantBanner.tsx",
+    "apps/stock/app/expiry/page.tsx",
+    "apps/stock/app/home/page.tsx",
+    "apps/stock/app/layout.tsx",
+    "apps/stock/app/lib/localStores/expiryActions.ts",
+    "apps/stock/app/lib/localStores/productSupplierMap.ts",
+    "apps/stock/app/lib/localStores/suppliers.ts",
+    "apps/stock/app/products/local/[id]/page.tsx",
+    "apps/stock/app/receive/page.tsx",
+    "apps/stock/app/scan/page.tsx",
+    "apps/stock/app/setup/page.tsx",
+    "apps/stock/app/setup/suppliers/page.tsx",
+    "apps/stock/app/styles/stock-ui.css"
+  ],
+  "routesAdded": [
+    "/receive",
+    "/setup/suppliers"
+  ],
+  "localStoresAdded": [
+    { "key": "stock.suppliers.v1", "file": "apps/stock/app/lib/localStores/suppliers.ts" },
+    { "key": "stock.productSupplierMap.v1", "file": "apps/stock/app/lib/localStores/productSupplierMap.ts" },
+    { "key": "stock.expiryActions.v1", "file": "apps/stock/app/lib/localStores/expiryActions.ts" }
+  ],
+  "invariants": [
+    { "name": "QR payload stays location.id", "result": "PASS", "evidence": ["apps/stock/app/locations/page.tsx:498"] },
+    { "name": "PNG download keeps image/png + location-{id}.png", "result": "PASS", "evidence": ["apps/stock/app/locations/page.tsx:278", "apps/stock/app/locations/page.tsx:281"] },
+    { "name": "No ops-api files changed", "result": "PASS", "evidence": ["git diff --name-only | rg '^apps/ops-api/' returned no matches"] }
+  ],
+  "commandsRun": [
+    "pnpm --filter stock lint",
+    "npm run guard:hero",
+    "npm run guard:canon",
+    "npm run verify",
+    "pnpm --filter stock build"
+  ],
+  "notes": [
+    "Changes are additive in apps/stock only.",
+    "Receive page reuses existing scan flow and promotes RECEIVE action order in UI.",
+    "Tenant banner is rendered globally from stock layout for all stock routes."
+  ]
+}

@@ -15,6 +15,11 @@ import {
   loadExpiryAcknowledgements,
   setAcknowledged
 } from "../lib/localStores/expiryAcknowledgements";
+import {
+  loadExpiryActions,
+  setStatus as setExpiryActionStatus,
+  type ExpiryActionStatus
+} from "../lib/localStores/expiryActions";
 import { getExpiryStatus, getLotsNearExpiry } from "../stockLots/localLots";
 
 const formatStatus = (status: string) => {
@@ -27,11 +32,13 @@ const formatStatus = (status: string) => {
 export default function ExpiryPage() {
   const [locationsById, setLocationsById] = useState<Record<string, string>>({});
   const [acks, setAcks] = useState<Record<string, boolean>>({});
+  const [actions, setActions] = useState<Record<string, { status: ExpiryActionStatus; updatedAt: string; note?: string }>>({});
 
   const expiringLots = useMemo(() => getLotsNearExpiry(30), []);
 
   useEffect(() => {
     setAcks(loadExpiryAcknowledgements());
+    setActions(loadExpiryActions());
   }, []);
 
   useEffect(() => {
@@ -89,6 +96,8 @@ export default function ExpiryPage() {
                       const status = getExpiryStatus(lot.expiryDate);
                       const ackKey = `${lot.id}::${lot.expiryDate}`;
                       const acknowledged = Boolean(acks[ackKey]);
+                      const actionKey = `${lot.id}::${lot.expiryDate}`;
+                      const actionStatus = actions[actionKey]?.status ?? "none";
                       return (
                         <div
                           key={lot.id}
@@ -122,6 +131,32 @@ export default function ExpiryPage() {
                             />
                             Acknowledge
                           </label>
+                          <div className="stock-expiry-item__actions">
+                            <button
+                              type="button"
+                              className="stock-button stock-button--secondary"
+                              onClick={() => setActions(setExpiryActionStatus(lot.id, lot.expiryDate, "quarantine"))}
+                            >
+                              Move to quarantine
+                            </button>
+                            <button
+                              type="button"
+                              className="stock-button stock-button--secondary"
+                              onClick={() => setActions(setExpiryActionStatus(lot.id, lot.expiryDate, "disposed"))}
+                            >
+                              Mark disposed
+                            </button>
+                            <button
+                              type="button"
+                              className="stock-button stock-button--secondary"
+                              onClick={() => setActions(setExpiryActionStatus(lot.id, lot.expiryDate, "none"))}
+                            >
+                              Clear
+                            </button>
+                          </div>
+                          {actionStatus !== "none" ? (
+                            <p className="stock-expiry-item__status">{actionStatus === "quarantine" ? "Quarantine" : "Disposed"}</p>
+                          ) : null}
                         </div>
                       );
                     })}
