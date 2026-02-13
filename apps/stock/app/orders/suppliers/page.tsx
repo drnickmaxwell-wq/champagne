@@ -40,11 +40,15 @@ export default function SupplierOrdersPage() {
   const handleCopy = async (supplierId: string, text: string) => {
     setCopyError("");
     setCopiedSupplierId(null);
+    if (!navigator.clipboard?.writeText) {
+      setCopyError("Clipboard is unavailable on this device. Please copy from the text box manually.");
+      return;
+    }
     try {
       await navigator.clipboard.writeText(text);
       setCopiedSupplierId(supplierId);
     } catch {
-      setCopyError("Could not copy to clipboard on this device.");
+      setCopyError("Could not copy to clipboard. Please copy from the text box manually.");
     }
   };
 
@@ -63,8 +67,13 @@ export default function SupplierOrdersPage() {
   const handlePrint = () => {
     setPrintMode(true);
     window.setTimeout(() => {
+      const reset = () => {
+        setPrintMode(false);
+        window.removeEventListener("afterprint", reset);
+      };
+      window.addEventListener("afterprint", reset, { once: true });
       window.print();
-      setPrintMode(false);
+      window.setTimeout(reset, 1000);
     }, 0);
   };
 
