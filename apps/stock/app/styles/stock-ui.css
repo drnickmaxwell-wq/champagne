@@ -821,33 +821,35 @@ main {
 }
 
 @media print {
-  body * {
-    visibility: hidden;
+  body.stock-printing .stock-page-shell > * {
+    display: none !important;
   }
 
-  .qr-print-scope[data-print-mode="single"] .qr-printable[data-print-active="true"],
-  .qr-print-scope[data-print-mode="single"] .qr-printable[data-print-active="true"] * {
-    visibility: visible;
+  body.stock-printing .stock-page-shell .qr-print-scope {
+    display: grid !important;
+    gap: var(--stock-space-3);
   }
 
-  .qr-print-scope[data-print-mode="single"] .qr-printable[data-print-active="true"] {
-    position: absolute;
-    left: 0;
-    top: 0;
+  body.stock-printing .stock-page-shell .stock-disclosure-summary,
+  body.stock-printing .stock-page-shell .qr-actions {
+    display: none !important;
   }
 
-
-  .qr-print-scope[data-print-mode="all"] .stock-disclosure:not([open]) > :not(summary) {
-    display: block;
+  body.stock-printing .stock-page-shell .qr-printable {
+    display: none !important;
   }
 
-  .qr-print-scope[data-print-mode="all"] .qr-printable,
-  .qr-print-scope[data-print-mode="all"] .qr-printable * {
-    visibility: visible;
+  body.stock-printing.stock-printing--single .stock-page-shell .qr-printable[data-print-active="true"] {
+    display: flex !important;
+    break-inside: avoid;
   }
 
-  .qr-print-scope[data-print-mode="all"] .qr-printable {
-    position: static;
+  body.stock-printing.stock-printing--all .stock-page-shell .stock-disclosure:not([open]) > :not(summary) {
+    display: block !important;
+  }
+
+  body.stock-printing.stock-printing--all .stock-page-shell .qr-printable {
+    display: flex !important;
     break-inside: avoid;
     margin-bottom: var(--stock-space-3);
   }
