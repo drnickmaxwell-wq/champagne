@@ -30,6 +30,7 @@
   background: var(--surface-ink);
   color: var(--text-high);
   font: inherit;
+  transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
 }
 
 .select,
@@ -39,14 +40,47 @@
 
 .select:focus-visible,
 .input:focus-visible,
-.sendButton:focus-visible {
+.sendButton:focus-visible,
+.quickReply:focus-visible {
   outline: 2px solid var(--champagne-keyline-gold);
   outline-offset: 2px;
 }
 
+.quickReplies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quickReply {
+  border-radius: 999px;
+  border: 1px solid var(--champagne-keyline-gold);
+  background: var(--surface-glass);
+  color: var(--text-high);
+  padding: 0.42rem 0.72rem;
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+
+.quickReply:hover {
+  background: var(--surface-ink-soft);
+  transform: translateY(-1px);
+}
+
+.quickReply:active {
+  transform: translateY(0);
+}
+
+.quickReply:disabled {
+  cursor: not-allowed;
+  color: var(--text-low);
+}
+
 .messages {
-  min-height: 20rem;
-  max-height: 28rem;
+  min-height: 22rem;
+  max-height: 30rem;
   overflow-y: auto;
   display: grid;
   gap: 0.75rem;
@@ -67,6 +101,10 @@
   background: var(--surface-glass);
 }
 
+.reveal {
+  animation: assistantReveal 420ms ease both;
+}
+
 .role {
   display: block;
   margin-bottom: 0.35rem;
@@ -76,15 +114,37 @@
   letter-spacing: 0.04em;
 }
 
+.contentStack {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.lead {
+  margin: 0;
+  line-height: 1.52;
+  color: var(--text-high);
+  font-weight: 600;
+  font-size: 1.01rem;
+}
+
 .text {
   margin: 0;
-  white-space: pre-wrap;
   line-height: 1.55;
   color: var(--text-high);
 }
 
-.text::first-line {
-  font-weight: 600;
+.bullet {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--text-high);
+  padding-left: 0.8rem;
+}
+
+.sourceHint {
+  margin: 0.1rem 0 0;
+  line-height: 1.45;
+  color: var(--text-medium);
+  font-size: 0.84rem;
 }
 
 .composer {
@@ -97,6 +157,15 @@
   padding: 0.72rem 1rem;
   cursor: pointer;
   background: var(--surface-glass);
+}
+
+.sendButton:hover {
+  background: var(--surface-ink-soft);
+  transform: translateY(-1px);
+}
+
+.sendButton:active {
+  transform: translateY(0);
 }
 
 .sendButton:disabled {
@@ -115,7 +184,7 @@
   height: 0.4rem;
   border-radius: 999px;
   background: var(--text-medium);
-  animation: calmPulse 1.8s ease-in-out infinite;
+  animation: calmPulse 2s ease-in-out infinite;
 }
 
 .dot:nth-child(2) {
@@ -129,12 +198,24 @@
 @keyframes calmPulse {
   0%,
   100% {
-    opacity: 0.25;
+    opacity: 0.28;
     transform: translateY(0);
   }
 
   50% {
-    opacity: 0.9;
-    transform: translateY(-0.1rem);
+    opacity: 0.78;
+    transform: translateY(-0.08rem);
+  }
+}
+
+@keyframes assistantReveal {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

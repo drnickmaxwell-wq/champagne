@@ -7,7 +7,14 @@ import styles from "./ConciergePreview.module.css";
 type Message = {
   role: "user" | "assistant";
   content: string;
+  id: string;
 };
+
+type MessageBlock =
+  | { type: "lead"; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "sourceHint"; text: string }
+  | { type: "bullet"; text: string };
 
 const PAGE_CONTEXT_OPTIONS = [
   "(none)",
@@ -17,63 +24,101 @@ const PAGE_CONTEXT_OPTIONS = [
   "/treatments/digital-smile-design",
 ] as const;
 
-const ENGINE_BASE_URL = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "http://localhost:5055";
+const QUICK_REPLIES = [
+  "Implant treatment timeline",
+  "What to expect at consult",
+  "Comfort & sedation options",
+  "Financing overview",
+] as const;
 
-function formatReply(content: string): string {
-  return content
-    .split(/\n{2,}/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean)
-    .join("\n\n");
+function buildPreviewReply(text: string, pageContext: string): string {
+  const contextLine = pageContext
+    ? `Context read: ${pageContext}. I can keep recommendations aligned with this journey.`
+    : "Context read: none selected. I can keep guidance neutral and practical.";
+
+  return [
+    "Thank you — I can walk you through this in a calm, step-by-step way.",
+    contextLine,
+    "A typical next step is a consultation with imaging, then a phased plan based on goals and comfort.",
+    "- Clarify suitability and options",
+    "- Outline visit flow and recovery pacing",
+    "- Keep language simple and transparent",
+    "Source hint: Preview UI copy only.",
+    `Your prompt was: ${text}`,
+  ].join("\n\n");
+}
+
+function toMessageBlocks(content: string): MessageBlock[] {
+  const lines = content.split("\n").map((line) => line.trim());
+  const blocks: MessageBlock[] = [];
+  let leadUsed = false;
+
+  for (const line of lines) {
+    if (!line) continue;
+
+    if (line.startsWith("Source hint:")) {
+      blocks.push({ type: "sourceHint", text: line });
+      continue;
+    }
+
+    if (line.startsWith("- ")) {
+      blocks.push({ type: "bullet", text: line.slice(2).trim() });
+      continue;
+    }
+
+    if (!leadUsed) {
+      const match = line.match(/^(.*?[.!?])\s+(.*)$/);
+      if (match) {
+        blocks.push({ type: "lead", text: match[1].trim() });
+        blocks.push({ type: "paragraph", text: match[2].trim() });
+      } else {
+        blocks.push({ type: "lead", text: line });
+      }
+      leadUsed = true;
+      continue;
+    }
+
+    blocks.push({ type: "paragraph", text: line });
+  }
+
+  return blocks;
 }
 
 export function ConciergePreview() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: "seed-assistant",
+      role: "assistant",
+      content:
+        "Welcome to the Champagne Concierge preview. I can simulate premium response cadence and next-step guidance.\n\nChoose a quick reply or type your own prompt to see interaction styling.\n\nSource hint: Preview UI only. No clinical assessment.",
+    },
+  ]);
   const [input, setInput] = useState("");
   const [pageContext, setPageContext] = useState<(typeof PAGE_CONTEXT_OPTIONS)[number]>("(none)");
   const [isLoading, setIsLoading] = useState(false);
 
   const normalizedPageContext = useMemo(() => (pageContext === "(none)" ? "" : pageContext), [pageContext]);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const text = input.trim();
-    if (!text || isLoading) return;
+  const sendPrompt = (text: string) => {
+    const prompt = text.trim();
+    if (!prompt || isLoading) return;
 
+    const idSeed = `${Date.now()}-${Math.random().toString(16).slice(2, 8)}`;
     setInput("");
     setIsLoading(true);
-    setMessages((previous) => [...previous, { role: "user", content: text }]);
 
-    try {
-      const response = await fetch(`${ENGINE_BASE_URL}/v1/converse`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, pageContext: normalizedPageContext }),
-      });
+    setMessages((previous) => [...previous, { id: `${idSeed}-user`, role: "user", content: prompt }]);
 
-      if (!response.ok) throw new Error("Engine request failed");
-
-      const payload = (await response.json()) as { content?: unknown };
-      const reply = typeof payload.content === "string" ? formatReply(payload.content) : "";
-
-      setMessages((previous) => [
-        ...previous,
-        {
-          role: "assistant",
-          content: reply || "I’m having trouble reaching the concierge service right now.",
-        },
-      ]);
-    } catch {
-      setMessages((previous) => [
-        ...previous,
-        {
-          role: "assistant",
-          content: "I’m having trouble reaching the concierge service right now.",
-        },
-      ]);
-    } finally {
+    window.setTimeout(() => {
+      const reply = buildPreviewReply(prompt, normalizedPageContext);
+      setMessages((previous) => [...previous, { id: `${idSeed}-assistant`, role: "assistant", content: reply }]);
       setIsLoading(false);
-    }
+    }, 850);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    sendPrompt(input);
   };
 
   return (
@@ -96,23 +141,61 @@ export function ConciergePreview() {
         </select>
       </div>
 
+      <div className={styles.quickReplies}>
+        {QUICK_REPLIES.map((option) => (
+          <button key={option} type="button" className={styles.quickReply} onClick={() => sendPrompt(option)} disabled={isLoading}>
+            {option}
+          </button>
+        ))}
+      </div>
+
       <div className={styles.messages} aria-live="polite">
-        {messages.length === 0 ? (
-          <article className={`${styles.message} ${styles.assistant}`}>
-            <span className={styles.role}>Concierge</span>
-            <p className={styles.text}>Welcome to the concierge preview. Ask a short question to test response tone.</p>
-          </article>
-        ) : (
-          messages.map((message, index) => (
+        {messages.map((message) => {
+          const blocks = toMessageBlocks(message.content);
+          return (
             <article
-              key={`${message.role}-${index}`}
-              className={`${styles.message} ${message.role === "user" ? styles.user : styles.assistant}`}
+              key={message.id}
+              className={`${styles.message} ${message.role === "user" ? styles.user : styles.assistant} ${
+                message.role === "assistant" ? styles.reveal : ""
+              }`}
             >
               <span className={styles.role}>{message.role === "user" ? "You" : "Concierge"}</span>
-              <p className={styles.text}>{message.content}</p>
+              <div className={styles.contentStack}>
+                {blocks.map((block, index) => {
+                  if (block.type === "lead") {
+                    return (
+                      <p key={`${message.id}-lead-${index}`} className={styles.lead}>
+                        {block.text}
+                      </p>
+                    );
+                  }
+
+                  if (block.type === "sourceHint") {
+                    return (
+                      <p key={`${message.id}-hint-${index}`} className={styles.sourceHint}>
+                        {block.text}
+                      </p>
+                    );
+                  }
+
+                  if (block.type === "bullet") {
+                    return (
+                      <p key={`${message.id}-bullet-${index}`} className={styles.bullet}>
+                        • {block.text}
+                      </p>
+                    );
+                  }
+
+                  return (
+                    <p key={`${message.id}-paragraph-${index}`} className={styles.text}>
+                      {block.text}
+                    </p>
+                  );
+                })}
+              </div>
             </article>
-          ))
-        )}
+          );
+        })}
 
         {isLoading ? (
           <article className={`${styles.message} ${styles.assistant}`}>
