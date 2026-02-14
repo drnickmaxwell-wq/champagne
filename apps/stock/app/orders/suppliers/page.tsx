@@ -40,11 +40,15 @@ export default function SupplierOrdersPage() {
   const handleCopy = async (supplierId: string, text: string) => {
     setCopyError("");
     setCopiedSupplierId(null);
+    if (!navigator.clipboard?.writeText) {
+      setCopyError("Clipboard is unavailable on this device. Please copy from the text box manually.");
+      return;
+    }
     try {
       await navigator.clipboard.writeText(text);
       setCopiedSupplierId(supplierId);
     } catch {
-      setCopyError("Could not copy to clipboard on this device.");
+      setCopyError("Could not copy to clipboard. Please copy from the text box manually.");
     }
   };
 
@@ -63,8 +67,13 @@ export default function SupplierOrdersPage() {
   const handlePrint = () => {
     setPrintMode(true);
     window.setTimeout(() => {
+      const reset = () => {
+        setPrintMode(false);
+        window.removeEventListener("afterprint", reset);
+      };
+      window.addEventListener("afterprint", reset, { once: true });
       window.print();
-      setPrintMode(false);
+      window.setTimeout(reset, 1000);
     }, 0);
   };
 
@@ -82,6 +91,10 @@ export default function SupplierOrdersPage() {
         <FeedbackCard title="Print mode" message="Preparing supplier order printout..." />
       ) : null}
       {copyError ? <FeedbackCard title="Copy" role="alert" message={copyError} /> : null}
+      <FeedbackCard
+        title="Tip"
+        message="Tip: If copy doesn’t work on this device, press and hold to select the text."
+      />
 
       <Section title="Supplier order messages">
         {supplierBlocks.length === 0 ? (
@@ -140,6 +153,9 @@ export default function SupplierOrdersPage() {
       </Section>
 
       <PrimaryActions>
+        <Link href="/orders/basket" className="stock-action-link stock-action-link--secondary">
+          Basket review
+        </Link>
         <Link href="/reorder" className="stock-action-link stock-action-link--secondary">
           Back to Orders
         </Link>

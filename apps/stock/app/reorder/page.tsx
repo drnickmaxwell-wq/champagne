@@ -181,6 +181,7 @@ export default function ReorderPage() {
         <ActionLink href="/scan">Scan again</ActionLink>
         <ActionLink href="/expiry">Expiry</ActionLink>
         <ActionLink href="/orders/suppliers">Supplier orders (copy/email)</ActionLink>
+        <ActionLink href="/orders/basket">Basket review</ActionLink>
         <ActionLink href="/setup">Setup</ActionLink>
       </PrimaryActions>
     </PageShell>
