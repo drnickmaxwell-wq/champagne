@@ -1,0 +1,78 @@
+{
+  "document": "PROJECTION_STRATEGY_V1",
+  "version": "1.0.0",
+  "status": "CANON_LOCKED",
+  "rules": [
+    "Events are the source of truth",
+    "Projections are rebuildable derived views",
+    "No mutable balance table exists without a rebuild path from ledger"
+  ],
+  "storage": {
+    "ledgerTable": "stock_events",
+    "projectionTables": [
+      "projection_inventory_balance",
+      "projection_open_orders",
+      "projection_checkpoints"
+    ],
+    "checkpointKey": "per tenantId + projectionName"
+  },
+  "projectionInventoryBalance": {
+    "name": "InventoryBalance_V1",
+    "inputs": ["STOCK_RECEIVED_V1", "STOCK_CONSUMED_V1", "STOCK_ADJUSTED_V1"],
+    "key": ["tenantId", "locationId", "itemId"],
+    "outputShape": {
+      "tenantId": "string",
+      "locationId": "ULID",
+      "itemId": "ULID",
+      "onHandQty": "number",
+      "lastEventId": "ULID",
+      "lastOccurredAt": "date-time"
+    },
+    "updateRule": "Apply deltas in occurredAt order; if ties, order by eventId ULID lexical",
+    "rebuildRule": "Delete tenant rows for projection, replay all tenant events from genesis"
+  },
+  "projectionOpenOrders": {
+    "name": "OpenOrders_V1",
+    "inputs": [
+      "ORDER_CREATED_V1",
+      "ORDER_ITEM_UPSERTED_V1",
+      "ORDER_SUBMITTED_V1",
+      "ORDER_CANCELLED_V1",
+      "ORDER_RECEIVED_V1"
+    ],
+    "key": ["tenantId", "orderId"],
+    "outputShape": {
+      "tenantId": "string",
+      "orderId": "ULID",
+      "locationId": "ULID",
+      "supplierId": "ULID",
+      "status": "draft|submitted|cancelled|received",
+      "items": [
+        {
+          "itemId": "ULID",
+          "quantity": "number",
+          "unitPricePence": "integer?"
+        }
+      ],
+      "lastEventId": "ULID",
+      "lastOccurredAt": "date-time"
+    },
+    "notes": [
+      "OpenOrders = status in (draft, submitted).",
+      "received/cancelled are retained for audit but excluded from 'open' query by default."
+    ],
+    "rebuildRule": "Delete tenant rows for projection, replay all tenant events from genesis"
+  },
+  "processingModel": {
+    "mode": "inline_on_write_v1",
+    "description": "When an event is appended, projections are updated in the same transaction (or best-effort with retry queue).",
+    "canonicalLock": [
+      "Event append is atomic",
+      "Projection update must be idempotent using lastEventId checkpoint"
+    ]
+  },
+  "apiReadModel": {
+    "inventoryBalance": "GET /v1/projections/inventory-balance?locationId=... (tenant inferred)",
+    "openOrders": "GET /v1/projections/open-orders (tenant inferred)"
+  }
+}

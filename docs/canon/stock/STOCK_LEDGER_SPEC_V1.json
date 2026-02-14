@@ -1,0 +1,284 @@
+{
+  "document": "STOCK_LEDGER_SPEC_V1",
+  "version": "1.0.0",
+  "status": "CANON_LOCKED",
+  "principles": [
+    "Event-first (append-only ledger)",
+    "All state is derived via projections",
+    "Every event is tenant-scoped (tenantId required)",
+    "RBAC enforced server-side",
+    "Non-PHI domain (explicit PHI deny rules)"
+  ],
+  "identifiers": {
+    "tenantId": "string-slug",
+    "userId": "ULID",
+    "locationId": "ULID",
+    "itemId": "ULID",
+    "supplierId": "ULID",
+    "orderId": "ULID",
+    "eventId": "ULID"
+  },
+  "eventEnvelope": {
+    "schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["eventId", "tenantId", "type", "occurredAt", "actor", "correlationId", "payload", "audit"],
+    "properties": {
+      "eventId": { "type": "string", "description": "ULID" },
+      "tenantId": { "type": "string", "minLength": 1 },
+      "type": { "type": "string" },
+      "occurredAt": { "type": "string", "format": "date-time" },
+      "receivedAt": { "type": "string", "format": "date-time" },
+      "schemaVersion": { "type": "string", "const": "1.0.0" },
+      "actor": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["actorType", "actorId"],
+        "properties": {
+          "actorType": { "type": "string", "enum": ["user", "system"] },
+          "actorId": { "type": "string", "description": "userId ULID or 'system'" },
+          "role": { "type": "string", "description": "RBAC role snapshot for audit (non-authoritative)" }
+        }
+      },
+      "correlationId": { "type": "string", "description": "ULID, required across multi-step flows" },
+      "causationId": { "type": "string", "description": "eventId of prior event (optional)" },
+      "idempotencyKey": {
+        "type": "string",
+        "description": "Client-provided key to dedupe accidental retries; tenant-scoped"
+      },
+      "stream": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["streamType", "streamId"],
+        "properties": {
+          "streamType": {
+            "type": "string",
+            "enum": ["tenant", "location", "item", "supplier", "order"]
+          },
+          "streamId": { "type": "string", "description": "ULID or tenantId for tenant stream" }
+        }
+      },
+      "payload": { "type": "object" },
+      "audit": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["requestId", "source", "ipHash", "userAgentHash"],
+        "properties": {
+          "requestId": { "type": "string", "description": "ULID propagated from edge" },
+          "source": { "type": "string", "enum": ["apps/stock", "ops-portal", "system"] },
+          "ipHash": { "type": "string", "description": "Hash only; never raw IP" },
+          "userAgentHash": { "type": "string", "description": "Hash only; never raw UA" },
+          "signatureKeyId": { "type": "string", "description": "Key id used for internal signature (optional)" }
+        }
+      },
+      "integrity": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentHash": { "type": "string", "description": "Hash of canonical JSON bytes for tamper-evidence" }
+        }
+      }
+    }
+  },
+  "eventTypes": [
+    {
+      "type": "LOCATION_CREATED_V1",
+      "streamType": "location",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["locationId", "name"],
+        "properties": {
+          "locationId": { "type": "string" },
+          "name": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    {
+      "type": "SUPPLIER_CREATED_V1",
+      "streamType": "supplier",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["supplierId", "name"],
+        "properties": {
+          "supplierId": { "type": "string" },
+          "name": { "type": "string", "minLength": 1 },
+          "email": { "type": "string" },
+          "phone": { "type": "string" }
+        }
+      }
+    },
+    {
+      "type": "ITEM_CREATED_V1",
+      "streamType": "item",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["itemId", "sku", "name", "unit"],
+        "properties": {
+          "itemId": { "type": "string" },
+          "sku": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "unit": { "type": "string", "enum": ["each", "box", "pack", "ml", "g"] },
+          "defaultReorderPoint": { "type": "number", "minimum": 0 },
+          "defaultReorderQuantity": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    {
+      "type": "ITEM_SUPPLIER_LINKED_V1",
+      "streamType": "item",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["itemId", "supplierId"],
+        "properties": {
+          "itemId": { "type": "string" },
+          "supplierId": { "type": "string" },
+          "supplierSku": { "type": "string" },
+          "lastKnownUnitPricePence": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    {
+      "type": "STOCK_RECEIVED_V1",
+      "streamType": "location",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["locationId", "itemId", "quantity", "reason"],
+        "properties": {
+          "locationId": { "type": "string" },
+          "itemId": { "type": "string" },
+          "quantity": { "type": "number", "exclusiveMinimum": 0 },
+          "reason": { "type": "string", "enum": ["purchase", "return", "transfer_in", "stocktake_adjustment"] },
+          "lotCode": { "type": "string" },
+          "expiryDate": { "type": "string", "format": "date" },
+          "unitPricePence": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    {
+      "type": "STOCK_CONSUMED_V1",
+      "streamType": "location",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["locationId", "itemId", "quantity", "reason"],
+        "properties": {
+          "locationId": { "type": "string" },
+          "itemId": { "type": "string" },
+          "quantity": { "type": "number", "exclusiveMinimum": 0 },
+          "reason": { "type": "string", "enum": ["clinical_use", "wastage", "expired", "transfer_out", "stocktake_adjustment"] }
+        }
+      }
+    },
+    {
+      "type": "STOCK_ADJUSTED_V1",
+      "streamType": "location",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["locationId", "itemId", "delta", "reason"],
+        "properties": {
+          "locationId": { "type": "string" },
+          "itemId": { "type": "string" },
+          "delta": { "type": "number", "description": "Positive or negative adjustment" },
+          "reason": { "type": "string", "minLength": 1 },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    {
+      "type": "ORDER_CREATED_V1",
+      "streamType": "order",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["orderId", "locationId", "supplierId"],
+        "properties": {
+          "orderId": { "type": "string" },
+          "locationId": { "type": "string" },
+          "supplierId": { "type": "string" },
+          "currency": { "type": "string", "const": "GBP" }
+        }
+      }
+    },
+    {
+      "type": "ORDER_ITEM_UPSERTED_V1",
+      "streamType": "order",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["orderId", "itemId", "quantity"],
+        "properties": {
+          "orderId": { "type": "string" },
+          "itemId": { "type": "string" },
+          "quantity": { "type": "number", "exclusiveMinimum": 0 },
+          "unitPricePence": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    {
+      "type": "ORDER_SUBMITTED_V1",
+      "streamType": "order",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["orderId", "submittedVia"],
+        "properties": {
+          "orderId": { "type": "string" },
+          "submittedVia": { "type": "string", "enum": ["email", "portal", "api"] },
+          "supplierReference": { "type": "string" }
+        }
+      }
+    },
+    {
+      "type": "ORDER_CANCELLED_V1",
+      "streamType": "order",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["orderId", "reason"],
+        "properties": {
+          "orderId": { "type": "string" },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    {
+      "type": "ORDER_RECEIVED_V1",
+      "streamType": "order",
+      "payloadSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["orderId", "receivedAt"],
+        "properties": {
+          "orderId": { "type": "string" },
+          "receivedAt": { "type": "string", "format": "date-time" },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  ],
+  "phiBoundary": {
+    "rule": "Any PHI-like fields are rejected at ingestion (400) and never stored.",
+    "denyFieldNames": [
+      "patientId",
+      "nhsNumber",
+      "dateOfBirth",
+      "dob",
+      "email",
+      "phone",
+      "address",
+      "medicalHistory",
+      "allergies",
+      "notesClinical",
+      "treatment",
+      "diagnosis"
+    ],
+    "notes": "Stock domain may store supplier contact details (supplier.email/phone) because this is non-PHI business contact data."
+  }
+}
