@@ -12,6 +12,10 @@ import type {
   ProductCreateInput,
   ProductUpdateInput
 } from "@champagne/stock-shared";
+import {
+  postStockServiceEvent,
+  readStockServiceEvents
+} from "./stock-service-client";
 
 type ApiResult<T> = {
   ok: boolean;
@@ -100,11 +104,26 @@ export const postEvent = async (
     };
   }
 
+  const proxied = await postStockServiceEvent(parsed.data);
+  if (proxied.ok || proxied.status !== 503) {
+    return proxied;
+  }
+
   return requestJson(buildUrl("/events"), {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(parsed.data)
   });
+};
+
+export const fetchEvents = async (query?: URLSearchParams) => {
+  const proxied = await readStockServiceEvents(query);
+  if (proxied.ok || proxied.status !== 503) {
+    return proxied;
+  }
+
+  const search = query && query.size > 0 ? `?${query.toString()}` : "";
+  return requestJson(buildUrl(`/events${search}`));
 };
 
 export const fetchProducts = async (): Promise<ApiResult<unknown>> => {

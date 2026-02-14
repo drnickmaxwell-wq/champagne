@@ -105,3 +105,18 @@ Cannot reach the app / site down:
 - Stock instance: the current quantity of a product at a location.
 - Event: a recorded action such as Receive, Withdraw, Adjust, or Count.
 - Baseline Mode: the one-time walkthrough that confirms locations and marks them finished.
+
+## 12) Service proxy environment variables (Vercel)
+Configure these on the **apps/stock** deployment:
+
+- `STOCK_SERVICE_URL` (server-only)
+- `STOCK_SERVICE_INTERNAL_KEYS` (server-only JSON map of key IDs to base64 secrets)
+- `STOCK_SERVICE_KEY_ID` (server-only; example: `kid1`)
+- `STOCK_SERVICE_SUBJECT` (server-only; example: `apps/stock-proxy`)
+
+Optional browser tenant headers:
+
+- `NEXT_PUBLIC_TENANT_ID`
+- `NEXT_PUBLIC_TENANT_NAME`
+
+If the stock-service proxy env vars are not set, the app keeps the existing local-only fallback behavior.

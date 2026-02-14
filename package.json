@@ -25,7 +25,8 @@
     "hero:match:sacred": "pnpm exec playwright install --with-deps chromium && node scripts/hero_match_sacred.mjs",
     "verify": "node scripts/verify-token-purity.cjs && pnpm run guard:workspace-deps && pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web",
     "export:page-truth": "node scripts/export-page-truth.mjs",
-    "guard:stock-canon": "node scripts/guard-stock-canon.mjs"
+    "guard:stock-canon": "node scripts/guard-stock-canon.mjs",
+    "guard:no-phi-logs-stock": "node scripts/guard-no-phi-logs-stock.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
