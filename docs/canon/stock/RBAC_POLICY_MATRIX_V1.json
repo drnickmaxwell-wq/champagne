@@ -1,0 +1,87 @@
+{
+  "document": "RBAC_POLICY_MATRIX_V1",
+  "version": "1.0.0",
+  "status": "CANON_LOCKED",
+  "roles": ["admin", "nurse", "dentist", "hygienist", "therapist", "system"],
+  "resources": ["events", "projections.inventoryBalance", "projections.openOrders", "catalog.items", "catalog.suppliers", "catalog.locations", "orders"],
+  "actions": [
+    "append",
+    "read",
+    "manage",
+    "create",
+    "submit",
+    "receive",
+    "cancel",
+    "rebuildProjection"
+  ],
+  "policy": [
+    {
+      "role": "admin",
+      "allow": [
+        { "resource": "events", "actions": ["append", "read"] },
+        { "resource": "projections.inventoryBalance", "actions": ["read", "rebuildProjection"] },
+        { "resource": "projections.openOrders", "actions": ["read", "rebuildProjection"] },
+        { "resource": "catalog.items", "actions": ["manage"] },
+        { "resource": "catalog.suppliers", "actions": ["manage"] },
+        { "resource": "catalog.locations", "actions": ["manage"] },
+        { "resource": "orders", "actions": ["create", "submit", "receive", "cancel", "read"] }
+      ]
+    },
+    {
+      "role": "nurse",
+      "allow": [
+        { "resource": "events", "actions": ["append", "read"] },
+        { "resource": "projections.inventoryBalance", "actions": ["read"] },
+        { "resource": "projections.openOrders", "actions": ["read"] },
+        { "resource": "orders", "actions": ["create", "submit", "receive", "cancel", "read"] }
+      ],
+      "deny": [
+        { "resource": "catalog.items", "actions": ["manage"] },
+        { "resource": "catalog.suppliers", "actions": ["manage"] },
+        { "resource": "catalog.locations", "actions": ["manage"] },
+        { "resource": "projections.inventoryBalance", "actions": ["rebuildProjection"] },
+        { "resource": "projections.openOrders", "actions": ["rebuildProjection"] }
+      ]
+    },
+    {
+      "role": "dentist",
+      "allow": [
+        { "resource": "events", "actions": ["append", "read"] },
+        { "resource": "projections.inventoryBalance", "actions": ["read"] },
+        { "resource": "orders", "actions": ["create", "read"] }
+      ],
+      "notes": "Dentist can record consumption/receipts (append events) and view balances; ordering is allowed but submitting/receiving defaults to nurse/admin."
+    },
+    {
+      "role": "hygienist",
+      "allow": [
+        { "resource": "events", "actions": ["append", "read"] },
+        { "resource": "projections.inventoryBalance", "actions": ["read"] }
+      ],
+      "notes": "Hygienist typically records stock consumption and can view balances."
+    },
+    {
+      "role": "therapist",
+      "allow": [
+        { "resource": "events", "actions": ["append", "read"] },
+        { "resource": "projections.inventoryBalance", "actions": ["read"] }
+      ]
+    },
+    {
+      "role": "system",
+      "allow": [
+        { "resource": "events", "actions": ["append", "read"] },
+        { "resource": "projections.inventoryBalance", "actions": ["rebuildProjection", "read"] },
+        { "resource": "projections.openOrders", "actions": ["rebuildProjection", "read"] }
+      ],
+      "notes": "System role is for internal automation only; must be internal-signed."
+    }
+  ],
+  "enforcementRules": {
+    "serverSideMandatory": true,
+    "uiRoleSwitchNonAuthoritative": true,
+    "tenantScoped": true,
+    "locationScopedOptional": true,
+    "future": "Location scoping can be added via claims (allowedLocationIds) without changing role names."
+  }
+}

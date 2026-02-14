@@ -1,0 +1,67 @@
+{
+  "document": "TENANT_HEADER_AND_SIGNATURE_SPEC_V1",
+  "version": "1.0.0",
+  "status": "CANON_LOCKED",
+  "goals": [
+    "Strict tenant isolation at the edge of stock-service",
+    "Prevent header spoofing",
+    "Allow both user-auth calls and internal service-to-service calls"
+  ],
+  "requiredHeadersAllRequests": {
+    "x-tenant-id": "tenantId (string slug)",
+    "x-request-id": "ULID (generated at edge; propagated end-to-end)",
+    "x-timestamp": "ISO-8601 date-time or unix-ms (canonical: unix-ms string)"
+  },
+  "userAuthMode": {
+    "when": "Browser/client calls from apps/stock or ops-portal",
+    "required": {
+      "authorization": "Bearer <JWT>"
+    },
+    "serverChecks": [
+      "JWT valid",
+      "JWT contains tenantId claim AND equals x-tenant-id",
+      "JWT contains userId claim (ULID)",
+      "RBAC role claim present and mapped to allowed actions",
+      "Reject if tenant mismatch (403)"
+    ],
+    "derivedActor": {
+      "actorType": "user",
+      "actorId": "from JWT userId",
+      "role": "from JWT role"
+    }
+  },
+  "internalAuthMode": {
+    "when": "Service-to-service calls (e.g., stock-service -> financial-service, or system automation)",
+    "requiredHeaders": {
+      "x-internal-key-id": "string (key identifier)",
+      "x-internal-signature": "base64(HMAC_SHA256(secretForKeyId, canonicalString))",
+      "x-internal-subject": "string (service name, e.g. 'champagne-stock-service')"
+    },
+    "canonicalString": {
+      "format": "v1:{x-tenant-id}:{x-request-id}:{x-timestamp}:{httpMethod}:{path}:{sha256(bodyBytes)}"
+    },
+    "replayProtection": {
+      "maxSkewSeconds": 300,
+      "idempotencyOptional": true,
+      "note": "Reject if timestamp skew exceeded; optionally store (requestId, tenantId) for short TTL dedupe."
+    },
+    "derivedActor": {
+      "actorType": "system",
+      "actorId": "x-internal-subject",
+      "role": "system"
+    }
+  },
+  "tenantMiddlewareRules": [
+    "Reject missing x-tenant-id (400)",
+    "Reject missing x-request-id (400)",
+    "Reject missing x-timestamp (400)",
+    "Enforce exactly one auth mode: userAuth OR internalAuth (401 if neither; 400 if both)",
+    "For userAuth: enforce JWT tenantId == header tenantId",
+    "For internalAuth: enforce signature valid for (method,path,hash(body),timestamp,tenantId,requestId)",
+    "No cross-tenant queries: all reads are filtered by tenantId from middleware, never from client-supplied params"
+  ],
+  "auditEnvelopeRules": {
+    "requestIdPropagation": "x-request-id copied into event.audit.requestId",
+    "ipAndUa": "Only store hashes; never raw values"
+  }
+}

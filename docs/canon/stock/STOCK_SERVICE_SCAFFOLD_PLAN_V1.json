@@ -1,0 +1,188 @@
+{
+  "document": "STOCK_SERVICE_SCAFFOLD_PLAN_V1",
+  "version": "1.0.0",
+  "status": "CANON_LOCKED",
+  "service": {
+    "name": "champagne-stock-service",
+    "host": "Railway (PER_TENANT_RAILWAY_PROJECT)",
+    "domain": "Non-PHI operations",
+    "runtime": "Node 20 + TypeScript",
+    "database": "Postgres (Railway, per-tenant project)",
+    "noSharedCrossTenantDb": true
+  },
+  "repoLayout": {
+    "root": ".",
+    "folders": [
+      "src",
+      "src/http",
+      "src/middleware",
+      "src/ledger",
+      "src/projections",
+      "src/rbac",
+      "src/audit",
+      "src/crypto",
+      "src/db",
+      "src/types",
+      "migrations",
+      "tests"
+    ],
+    "entrypoints": ["src/server.ts"]
+  },
+  "corePackagesSuggested": {
+    "http": "fastify",
+    "validation": "zod",
+    "db": "postgres (node-postgres) OR kysely",
+    "ids": "ulid",
+    "crypto": "node:crypto",
+    "tests": "node --test"
+  },
+  "databaseSchema": {
+    "tables": [
+      {
+        "name": "stock_events",
+        "columns": [
+          "tenant_id text not null",
+          "event_id text not null",
+          "occurred_at timestamptz not null",
+          "received_at timestamptz not null",
+          "type text not null",
+          "actor_type text not null",
+          "actor_id text not null",
+          "correlation_id text not null",
+          "causation_id text null",
+          "idempotency_key text null",
+          "stream_type text null",
+          "stream_id text null",
+          "payload jsonb not null",
+          "audit jsonb not null",
+          "integrity jsonb null"
+        ],
+        "primaryKey": ["tenant_id", "event_id"],
+        "indexes": [
+          ["tenant_id", "occurred_at"],
+          ["tenant_id", "type"],
+          ["tenant_id", "correlation_id"],
+          ["tenant_id", "idempotency_key"]
+        ],
+        "constraints": [
+          "Unique (tenant_id, idempotency_key) where idempotency_key is not null"
+        ]
+      },
+      {
+        "name": "projection_checkpoints",
+        "columns": [
+          "tenant_id text not null",
+          "projection_name text not null",
+          "last_event_id text not null",
+          "last_occurred_at timestamptz not null",
+          "updated_at timestamptz not null"
+        ],
+        "primaryKey": ["tenant_id", "projection_name"]
+      },
+      {
+        "name": "projection_inventory_balance",
+        "columns": [
+          "tenant_id text not null",
+          "location_id text not null",
+          "item_id text not null",
+          "on_hand_qty numeric not null",
+          "last_event_id text not null",
+          "last_occurred_at timestamptz not null",
+          "updated_at timestamptz not null"
+        ],
+        "primaryKey": ["tenant_id", "location_id", "item_id"]
+      },
+      {
+        "name": "projection_open_orders",
+        "columns": [
+          "tenant_id text not null",
+          "order_id text not null",
+          "location_id text not null",
+          "supplier_id text not null",
+          "status text not null",
+          "items jsonb not null",
+          "last_event_id text not null",
+          "last_occurred_at timestamptz not null",
+          "updated_at timestamptz not null"
+        ],
+        "primaryKey": ["tenant_id", "order_id"]
+      }
+    ]
+  },
+  "httpApi": {
+    "base": "/v1",
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/events",
+        "purpose": "Append one or many events (bulk supported)",
+        "auth": "userAuth or internalAuth",
+        "rbac": "events.append",
+        "notes": [
+          "Server stamps receivedAt",
+          "Validates against STOCK_LEDGER_SPEC_V1",
+          "Rejects PHI deny fields",
+          "Supports idempotencyKey dedupe per tenant"
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/events",
+        "purpose": "Read events for tenant (optional filters: type, correlationId, streamType+streamId, sinceEventId)",
+        "auth": "userAuth or internalAuth",
+        "rbac": "events.read"
+      },
+      {
+        "method": "GET",
+        "path": "/projections/inventory-balance",
+        "purpose": "Read InventoryBalance projection",
+        "auth": "userAuth or internalAuth",
+        "rbac": "projections.inventoryBalance.read"
+      },
+      {
+        "method": "GET",
+        "path": "/projections/open-orders",
+        "purpose": "Read OpenOrders projection",
+        "auth": "userAuth or internalAuth",
+        "rbac": "projections.openOrders.read"
+      },
+      {
+        "method": "POST",
+        "path": "/admin/rebuild-projections",
+        "purpose": "Rebuild projections from ledger (tenant-scoped)",
+        "auth": "internalAuth preferred; userAuth admin allowed",
+        "rbac": "projections.*.rebuildProjection"
+      },
+      {
+        "method": "GET",
+        "path": "/health",
+        "purpose": "Healthcheck (no auth)",
+        "auth": "none"
+      }
+    ]
+  },
+  "auditEnvelopeSpec": {
+    "rule": "Every appended event must include audit envelope fields (requestId, source, ipHash, userAgentHash).",
+    "logging": [
+      "No request bodies logged",
+      "No raw IP/UA logged",
+      "Structured logs may include requestId, tenantId, route, status, durationMs"
+    ]
+  },
+  "phiProtection": {
+    "hardRules": [
+      "Reject payloads containing PHI denyFieldNames",
+      "Reject payloads > maxBodyBytes (default 256KB)",
+      "Reject unknown event types",
+      "No patient identifiers in routes, schemas, or database"
+    ]
+  },
+  "integrationAlignmentWithFinancialService": {
+    "sharedConcepts": ["append-only ledger", "projection checkpoints", "tenant header enforcement", "audit envelope"],
+    "recommendedBridge": [
+      "Option A: Stock service emits 'stock valuation' events into financial-service via internalAuth",
+      "Option B: Financial service periodically queries stock projections via internalAuth and derives KPIs"
+    ],
+    "note": "No cross-service shared DB; only signed HTTP contracts."
+  }
+}
