@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getPageManifest } from "@champagne/manifests";
 import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
+import { ConciergeMotion, type ConciergePanelState } from "./ConciergeMotion";
+import { ConsultationModeLayer } from "./ConsultationModeLayer";
 
 type ConverseCard = {
   title?: string;
@@ -28,7 +30,8 @@ function resolveConciergeEnabled(pathname: string): boolean {
 
 export function ConciergeLayer() {
   const pathname = usePathname() || "/";
-  const [isOpen, setIsOpen] = useState(false);
+  const [panelState, setPanelState] = useState<ConciergePanelState>("closed");
+  const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [input, setInput] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -41,6 +44,36 @@ export function ConciergeLayer() {
   ]);
 
   const conciergeEnabled = useMemo(() => resolveConciergeEnabled(pathname), [pathname]);
+  const isPanelVisible = panelState !== "closed";
+  const isOpenOrTransitioning = panelState !== "closed";
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+      }
+    };
+  }, []);
+
+  const queueStateTransition = (nextState: ConciergePanelState, durationMs: number, settledState: ConciergePanelState) => {
+    if (transitionTimerRef.current) {
+      clearTimeout(transitionTimerRef.current);
+    }
+    setPanelState(nextState);
+    transitionTimerRef.current = setTimeout(() => {
+      setPanelState(settledState);
+      transitionTimerRef.current = null;
+    }, durationMs);
+  };
+
+  const handleToggle = () => {
+    if (panelState === "closed" || panelState === "closing") {
+      queueStateTransition("opening", 420, "open");
+      return;
+    }
+
+    queueStateTransition("closing", 320, "closed");
+  };
 
   const sendMessage = async (rawInput: string) => {
     const text = rawInput.trim();
@@ -120,27 +153,38 @@ export function ConciergeLayer() {
   }
 
   return (
-    <ConciergeShell
-      isOpen={isOpen}
-      isLoading={isLoading}
-      errorMessage={error}
-      inputValue={input}
-      messages={messages}
-      onInputChange={(value) => setInput(value.slice(0, 1200))}
-      onSubmit={() => {
-        void sendMessage(input);
-      }}
-      onToggle={() => setIsOpen((previous) => !previous)}
-      onPostback={(payload) => {
-        setMessages((previous) => [
-          ...previous,
-          {
-            id: `${Date.now()}-postback`,
-            role: "assistant",
-            content: `Postback received (${payload}). Phase 1 handoff placeholder acknowledged.`,
-          },
-        ]);
-      }}
-    />
+    <>
+      <ConsultationModeLayer active={isOpenOrTransitioning} />
+      <ConciergeMotion state={panelState}>
+        {({ panelClassName, keylineTraceClassName, showKeylineTrace }) => (
+          <ConciergeShell
+            isOpen={isPanelVisible}
+            panelState={panelState}
+            panelClassName={panelClassName}
+            keylineTraceClassName={keylineTraceClassName}
+            showKeylineTrace={showKeylineTrace}
+            isLoading={isLoading}
+            errorMessage={error}
+            inputValue={input}
+            messages={messages}
+            onInputChange={(value) => setInput(value.slice(0, 1200))}
+            onSubmit={() => {
+              void sendMessage(input);
+            }}
+            onToggle={handleToggle}
+            onPostback={(payload) => {
+              setMessages((previous) => [
+                ...previous,
+                {
+                  id: `${Date.now()}-postback`,
+                  role: "assistant",
+                  content: `Postback received (${payload}). Phase 1 handoff placeholder acknowledged.`,
+                },
+              ]);
+            }}
+          />
+        )}
+      </ConciergeMotion>
+    </>
   );
 }

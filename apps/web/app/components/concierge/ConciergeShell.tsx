@@ -24,10 +24,14 @@ export type ConciergeMessage = {
 
 type ConciergeShellProps = {
   isOpen: boolean;
+  panelState?: "closed" | "opening" | "open" | "closing";
   isLoading: boolean;
   errorMessage: string | null;
   inputValue: string;
   messages: ConciergeMessage[];
+  panelClassName?: string;
+  keylineTraceClassName?: string;
+  showKeylineTrace?: boolean;
   onInputChange: (value: string) => void;
   onSubmit: () => void;
   onToggle: () => void;
@@ -36,10 +40,14 @@ type ConciergeShellProps = {
 
 export function ConciergeShell({
   isOpen,
+  panelState,
   isLoading,
   errorMessage,
   inputValue,
   messages,
+  panelClassName,
+  keylineTraceClassName,
+  showKeylineTrace,
   onInputChange,
   onSubmit,
   onToggle,
@@ -73,7 +81,12 @@ export function ConciergeShell({
       </button>
 
       {isOpen ? (
-        <aside className={styles.panel} aria-label="Champagne Concierge panel">
+        <aside
+          className={[styles.panel, panelClassName].filter(Boolean).join(" ")}
+          data-state={panelState}
+          aria-label="Champagne Concierge panel"
+        >
+          {showKeylineTrace ? <span aria-hidden="true" className={keylineTraceClassName} /> : null}
           <header className={styles.header}>
             <h2 className={styles.title}>Champagne Concierge</h2>
             <button type="button" onClick={onToggle} className={styles.closeButton} aria-label="Close concierge panel">
