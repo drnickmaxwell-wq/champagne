@@ -87,7 +87,8 @@
   max-width: min(100vw, 680px);
   height: 100dvh;
   max-height: 100dvh;
-  background: var(--surface-glass);
+  background: var(--ink);
+  background: rgb(from var(--ink) r g b / 0.92);
   border-inline-start: 1px solid var(--border-subtle);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -217,7 +218,8 @@
 
 .composer {
   flex: 0 0 auto;
-  background: var(--surface-glass);
+  background: var(--ink);
+  background: rgb(from var(--ink) r g b / 0.92);
   border-top: 1px solid var(--border-subtle);
   padding: 0.9rem 1.2rem;
   display: grid;
