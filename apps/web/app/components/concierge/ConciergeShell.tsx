@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./concierge.module.css";
 import type { IntentStage } from "./_helpers/sessionMemory";
@@ -43,6 +43,36 @@ type ConciergeShellProps = {
     conversationId: string | null;
   };
 };
+
+type QuickPill = {
+  label: string;
+  prompt: string;
+};
+
+const QUICK_PILLS: Record<"implants" | "whitening" | "default", QuickPill[]> = {
+  implants: [
+    { label: "Suitability", prompt: "Am I a suitable candidate for dental implants?" },
+    { label: "Healing time", prompt: "What is the typical healing time for dental implants?" },
+    { label: "Maintenance", prompt: "How do I look after implants long term?" },
+  ],
+  whitening: [
+    { label: "Longevity", prompt: "How long does tooth whitening typically last?" },
+    { label: "Sensitivity", prompt: "Will whitening make my teeth sensitive, and how is that managed?" },
+    { label: "Suitability", prompt: "Am I suitable for tooth whitening?" },
+  ],
+  default: [
+    { label: "Costs & options", prompt: "Can you explain the options and how costs are usually structured?" },
+    { label: "Next steps", prompt: "What are the sensible next steps from here?" },
+    { label: "Timeframes", prompt: "What sort of timeframes are typical for this?" },
+  ],
+};
+
+function resolvePillCategory(pathname: string): keyof typeof QUICK_PILLS {
+  const lowerPath = pathname.toLowerCase();
+  if (lowerPath.includes("implants")) return "implants";
+  if (lowerPath.includes("whitening")) return "whitening";
+  return "default";
+}
 
 const LEAD_SENTENCE_MIN_LENGTH = 80;
 
@@ -109,6 +139,12 @@ export function ConciergeShell({
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const previousOpenRef = useRef(isOpen);
   const [launcherTrace, setLauncherTrace] = useState<"idle" | "open" | "close">("idle");
+
+  const quickPills = useMemo(() => {
+    const currentPath =
+      debugState?.lastSeenPath || (typeof window !== "undefined" ? window.location.pathname : "/");
+    return QUICK_PILLS[resolvePillCategory(currentPath)];
+  }, [debugState?.lastSeenPath]);
 
   useEffect(() => {
     const element = textareaRef.current;
@@ -195,6 +231,20 @@ export function ConciergeShell({
             </header>
 
             <div className={styles.messages} aria-live="polite">
+              <div className={styles.pillsRow} aria-label="Quick prompts">
+                {quickPills.map((pill) => (
+                  <button
+                    key={pill.label}
+                    type="button"
+                    className={styles.pill}
+                    onClick={() => onPostback(pill.prompt)}
+                    disabled={isLoading}
+                  >
+                    {pill.label}
+                  </button>
+                ))}
+              </div>
+
               {messages.map((message) => (
                 <article key={message.id} className={styles.message}>
                   <p className={styles.role}>{message.role === "assistant" ? "Concierge" : "You"}</p>
