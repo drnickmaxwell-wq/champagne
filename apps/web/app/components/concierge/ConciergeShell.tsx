@@ -49,6 +49,33 @@ type QuickPill = {
   prompt: string;
 };
 
+type GuidedSingleStep = {
+  id: "topic" | "goal" | "timing" | "urgency";
+  title: string;
+  type: "single_select";
+  options: { label: string; value: string }[];
+  note?: string;
+};
+
+type GuidedMultiStep = {
+  id: "constraints";
+  title: string;
+  type: "multi_select";
+  options: { label: string; value: string }[];
+  maxSelections?: number;
+  note?: string;
+};
+
+type GuidedStep = GuidedSingleStep | GuidedMultiStep;
+
+type GuidedAnswers = {
+  topic?: string;
+  goal?: string;
+  timing?: string;
+  constraints: string[];
+  urgency?: string;
+};
+
 const QUICK_PILLS: Record<"implants" | "whitening" | "default", QuickPill[]> = {
   implants: [
     { label: "Suitability", prompt: "Am I a suitable candidate for dental implants?" },
@@ -66,6 +93,69 @@ const QUICK_PILLS: Record<"implants" | "whitening" | "default", QuickPill[]> = {
     { label: "Timeframes", prompt: "What sort of timeframes are typical for this?" },
   ],
 };
+
+const GUIDED_STEPS: GuidedStep[] = [
+  {
+    id: "topic",
+    title: "What are you looking to discuss?",
+    type: "single_select",
+    options: [
+      { label: "Implants", value: "implants" },
+      { label: "Whitening", value: "whitening" },
+      { label: "Cosmetic bonding", value: "bonding" },
+      { label: "Invisalign / straightening", value: "orthodontics" },
+      { label: "General check-up", value: "checkup" },
+      { label: "Something else", value: "other" },
+    ],
+  },
+  {
+    id: "goal",
+    title: "What’s your goal?",
+    type: "single_select",
+    options: [
+      { label: "Improve appearance", value: "appearance" },
+      { label: "Improve comfort / function", value: "function" },
+      { label: "Replace missing tooth/teeth", value: "replace_missing" },
+      { label: "Understand options and costs", value: "options_costs" },
+      { label: "Not sure yet", value: "not_sure" },
+    ],
+  },
+  {
+    id: "timing",
+    title: "What’s your timeframe?",
+    type: "single_select",
+    options: [
+      { label: "Just exploring", value: "exploring" },
+      { label: "Next few weeks", value: "weeks" },
+      { label: "Next few months", value: "months" },
+      { label: "As soon as sensible", value: "soon" },
+    ],
+  },
+  {
+    id: "constraints",
+    title: "Any constraints we should keep in mind?",
+    type: "multi_select",
+    options: [
+      { label: "Budget-conscious", value: "budget" },
+      { label: "Prefer minimal appointments", value: "few_visits" },
+      { label: "Anxious about treatment", value: "anxious" },
+      { label: "Prefer the most durable option", value: "durable" },
+      { label: "Prefer the most natural look", value: "natural" },
+    ],
+    maxSelections: 3,
+  },
+  {
+    id: "urgency",
+    title: "Is this urgent?",
+    type: "single_select",
+    options: [
+      { label: "No", value: "no" },
+      { label: "Some discomfort", value: "discomfort" },
+      { label: "Severe pain / swelling", value: "severe" },
+    ],
+    note: "This is not emergency care. If you have severe swelling, breathing difficulty, or feel unwell, seek urgent medical help.",
+  },
+];
 
 function resolvePillCategory(pathname: string): keyof typeof QUICK_PILLS {
   const lowerPath = pathname.toLowerCase();
@@ -186,7 +276,75 @@ export function ConciergeShell({
   const previousOpenRef = useRef(isOpen);
   const [launcherTrace, setLauncherTrace] = useState<"idle" | "open" | "close">("idle");
   const [reflectiveAnswerMode, setReflectiveAnswerMode] = useState<ReflectiveAnswerMode>("clinical");
+  const [guidedActive, setGuidedActive] = useState(false);
+  const [guidedStepIndex, setGuidedStepIndex] = useState(0);
+  const [guidedAnswers, setGuidedAnswers] = useState<GuidedAnswers>({ constraints: [] });
   const hasAssistantMessages = useMemo(() => messages.some((message) => message.role === "assistant"), [messages]);
+  const canStartGuidedConsultation = isEnabled && isOpen && !isLoading;
+  const activeGuidedStep = GUIDED_STEPS[guidedStepIndex];
+
+  const resetGuidedConsultation = () => {
+    setGuidedStepIndex(0);
+    setGuidedAnswers({ constraints: [] });
+  };
+
+  const cancelGuidedConsultation = () => {
+    setGuidedActive(false);
+    resetGuidedConsultation();
+  };
+
+  const composeGuidedPrompt = (answers: GuidedAnswers) => {
+    const constraintsText = answers.constraints.length ? answers.constraints.join(", ") : "none";
+    const severeSafetyLine =
+      answers.urgency === "severe"
+        ? " If you have severe swelling, breathing difficulty, or feel unwell, please seek urgent medical help immediately."
+        : "";
+
+    return `I’d like to discuss: ${answers.topic}. My goal is: ${answers.goal}. Timeframe: ${answers.timing}. Constraints: ${constraintsText}. Urgency: ${answers.urgency}. Please explain the sensible options and typical next steps in a clinician-led way, and suggest what information you’d need at an appointment.${severeSafetyLine}`;
+  };
+
+  const sendGuidedConsultation = (answers: GuidedAnswers) => {
+    onPostback(composeGuidedPrompt(answers));
+    setGuidedActive(false);
+    resetGuidedConsultation();
+  };
+
+  const handleSingleSelect = (step: GuidedSingleStep, value: string) => {
+    const nextAnswers = { ...guidedAnswers, [step.id]: value };
+    setGuidedAnswers(nextAnswers);
+    if (guidedStepIndex === GUIDED_STEPS.length - 1) {
+      sendGuidedConsultation(nextAnswers);
+      return;
+    }
+    setGuidedStepIndex((index) => index + 1);
+  };
+
+  const handleConstraintsToggle = (value: string) => {
+    if (activeGuidedStep.type !== "multi_select") {
+      return;
+    }
+
+    const selections = guidedAnswers.constraints;
+    const exists = selections.includes(value);
+    if (exists) {
+      setGuidedAnswers({ ...guidedAnswers, constraints: selections.filter((item) => item !== value) });
+      return;
+    }
+
+    if ((activeGuidedStep.maxSelections ?? 0) > 0 && selections.length >= (activeGuidedStep.maxSelections ?? 0)) {
+      return;
+    }
+
+    setGuidedAnswers({ ...guidedAnswers, constraints: [...selections, value] });
+  };
+
+  const continueFromConstraints = () => {
+    if (guidedStepIndex === GUIDED_STEPS.length - 1) {
+      sendGuidedConsultation(guidedAnswers);
+      return;
+    }
+    setGuidedStepIndex((index) => index + 1);
+  };
 
   const quickPills = useMemo(() => {
     const currentPath =
@@ -292,6 +450,88 @@ export function ConciergeShell({
                   </button>
                 ))}
               </div>
+
+              {canStartGuidedConsultation ? (
+                <div className={styles.consultationHeader}>
+                  <button
+                    type="button"
+                    className={styles.startConsultationButton}
+                    onClick={() => {
+                      resetGuidedConsultation();
+                      setGuidedActive(true);
+                    }}
+                    disabled={guidedActive}
+                  >
+                    Start a consultation
+                  </button>
+                </div>
+              ) : null}
+
+              {guidedActive ? (
+                <section className={styles.consultationPanel} aria-label="Guided consultation">
+                  <p className={styles.stepMeta}>
+                    Step {guidedStepIndex + 1} of {GUIDED_STEPS.length}
+                  </p>
+                  <p className={styles.stepTitle}>{activeGuidedStep.title}</p>
+                  <p className={styles.stepNote}>Please avoid sharing private medical details here.</p>
+                  <div className={styles.optionGrid}>
+                    {activeGuidedStep.options.map((option) => {
+                      const isSelected =
+                        activeGuidedStep.type === "single_select"
+                          ? guidedAnswers[activeGuidedStep.id] === option.value
+                          : guidedAnswers.constraints.includes(option.value);
+
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          className={`${styles.optionButton} ${isSelected ? styles.optionSelected : ""}`.trim()}
+                          data-selected={isSelected ? "true" : "false"}
+                          onClick={() =>
+                            activeGuidedStep.type === "single_select"
+                              ? handleSingleSelect(activeGuidedStep, option.value)
+                              : handleConstraintsToggle(option.value)
+                          }
+                          disabled={isLoading}
+                        >
+                          {option.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {activeGuidedStep.type === "multi_select" ? (
+                    <p className={styles.meta}>
+                      Select up to {activeGuidedStep.maxSelections}. Current: {guidedAnswers.constraints.length}
+                    </p>
+                  ) : null}
+                  {activeGuidedStep.note ? <p className={styles.meta}>{activeGuidedStep.note}</p> : null}
+
+                  <div className={styles.consultationActions}>
+                    <button type="button" className={styles.consultationActionButton} onClick={cancelGuidedConsultation}>
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.consultationActionButton}
+                      onClick={resetGuidedConsultation}
+                      disabled={isLoading}
+                    >
+                      Reset
+                    </button>
+                    {activeGuidedStep.type === "multi_select" ? (
+                      <button
+                        type="button"
+                        className={styles.consultationPrimaryButton}
+                        onClick={continueFromConstraints}
+                        disabled={isLoading}
+                      >
+                        Continue
+                      </button>
+                    ) : null}
+                  </div>
+                </section>
+              ) : null}
 
               {hasAssistantMessages ? (
                 <div className={styles.modeToggle} role="group" aria-label="Reflective answer mode">

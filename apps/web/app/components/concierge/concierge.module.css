@@ -172,6 +172,161 @@
   opacity: 0.62;
 }
 
+.consultationHeader {
+  display: flex;
+  align-items: center;
+}
+
+.startConsultationButton {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  color: var(--text-medium);
+  border-radius: 999px;
+  padding: 0.35rem 0.72rem;
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.startConsultationButton:hover,
+.startConsultationButton:focus-visible {
+  border-color: color-mix(in srgb, var(--border-subtle) 76%, var(--text-high));
+  color: var(--text-high);
+  outline: none;
+}
+
+.startConsultationButton:active {
+  border-color: var(--champagne-keyline-gold);
+}
+
+.startConsultationButton:disabled {
+  opacity: 0.62;
+  cursor: not-allowed;
+}
+
+.consultationPanel {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.stepMeta,
+.stepTitle,
+.stepNote {
+  margin: 0;
+}
+
+.stepMeta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-low);
+}
+
+.stepTitle {
+  color: var(--text-high);
+  font-size: 0.95rem;
+}
+
+.stepNote {
+  color: var(--text-medium);
+  font-size: 0.78rem;
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.optionButton {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-0);
+  color: var(--text-medium);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.58rem;
+  text-align: left;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.optionButton:hover,
+.optionButton:focus-visible {
+  border-color: color-mix(in srgb, var(--border-subtle) 76%, var(--text-high));
+  color: var(--text-high);
+  outline: none;
+}
+
+.optionButton[data-selected="true"] {
+  border-color: color-mix(in srgb, var(--border-subtle) 70%, var(--text-high));
+  background: var(--surface-2);
+  color: var(--text-high);
+}
+
+.optionSelected {
+  border-color: color-mix(in srgb, var(--border-subtle) 70%, var(--text-high));
+  background: var(--surface-2);
+  color: var(--text-high);
+}
+
+.optionButton:active {
+  border-color: var(--champagne-keyline-gold);
+}
+
+.consultationActions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.consultationActionButton,
+.consultationPrimaryButton {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.62rem;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.consultationActionButton {
+  background: var(--surface-0);
+  color: var(--text-medium);
+}
+
+.consultationPrimaryButton {
+  background: var(--surface-2);
+  color: var(--text-high);
+}
+
+.consultationActionButton:hover,
+.consultationActionButton:focus-visible,
+.consultationPrimaryButton:hover,
+.consultationPrimaryButton:focus-visible {
+  border-color: color-mix(in srgb, var(--border-subtle) 76%, var(--text-high));
+  color: var(--text-high);
+  outline: none;
+}
+
+.consultationActionButton:active,
+.consultationPrimaryButton:active {
+  border-color: var(--champagne-keyline-gold);
+}
+
+.consultationActionButton:disabled,
+.consultationPrimaryButton:disabled {
+  opacity: 0.62;
+  cursor: not-allowed;
+}
+
 
 .modeToggle {
   display: inline-flex;
@@ -417,5 +572,9 @@
 
   .panel {
     width: min(100vw, 680px);
+  }
+
+  .optionGrid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
