@@ -108,6 +108,25 @@
   animation: conciergePanelIn 320ms cubic-bezier(0.2, 0.74, 0.24, 1) both;
 }
 
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 120% at 50% 32%,
+    color-mix(in srgb, var(--surface-2) 18%, transparent) 0%,
+    color-mix(in srgb, var(--champagne-keyline-gold) 6%, transparent) 38%,
+    transparent 72%
+  );
+  opacity: 0;
+}
+
+.panel[data-bloom="true"]::before {
+  animation: conciergeBloom 2400ms cubic-bezier(0.22, 0.7, 0.18, 1);
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -301,6 +320,11 @@
     animation: none;
     transform: none;
   }
+
+  .panel[data-bloom="true"]::before {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 @keyframes conciergeOverlayIn {
@@ -331,6 +355,24 @@
   }
 
   to {
+    opacity: 0;
+  }
+}
+
+@keyframes conciergeBloom {
+  0% {
+    opacity: 0;
+  }
+
+  28% {
+    opacity: 0.28;
+  }
+
+  55% {
+    opacity: 0.24;
+  }
+
+  100% {
     opacity: 0;
   }
 }
