@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./concierge.module.css";
 import type { IntentStage } from "./_helpers/sessionMemory";
@@ -106,9 +106,23 @@ export function ConciergeShell({
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const launcherRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLElement | null>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const previousOpenRef = useRef(isOpen);
+  const previousMessagesLengthRef = useRef(messages.length);
   const [launcherTrace, setLauncherTrace] = useState<"idle" | "open" | "close">("idle");
+
+  const triggerBloom = useCallback(() => {
+    const panelElement = panelRef.current;
+    if (!panelElement) {
+      return;
+    }
+
+    panelElement.removeAttribute("data-bloom");
+    window.requestAnimationFrame(() => {
+      panelElement.setAttribute("data-bloom", "true");
+    });
+  }, []);
 
   useEffect(() => {
     const element = textareaRef.current;
@@ -125,6 +139,7 @@ export function ConciergeShell({
       const activeElement = document.activeElement;
       lastFocusedRef.current = activeElement instanceof HTMLElement ? activeElement : null;
       setLauncherTrace("open");
+      triggerBloom();
     }
 
     if (wasOpen && !isOpen) {
@@ -137,7 +152,39 @@ export function ConciergeShell({
     }
 
     previousOpenRef.current = isOpen;
+  }, [isOpen, triggerBloom]);
+
+  useEffect(() => {
+    const panelElement = panelRef.current;
+    if (!panelElement) {
+      return;
+    }
+
+    const handleAnimationEnd = (event: AnimationEvent) => {
+      if (event.animationName !== "conciergeBloom") {
+        return;
+      }
+
+      panelElement.removeAttribute("data-bloom");
+    };
+
+    panelElement.addEventListener("animationend", handleAnimationEnd);
+    return () => {
+      panelElement.removeEventListener("animationend", handleAnimationEnd);
+    };
   }, [isOpen]);
+
+  useEffect(() => {
+    const previousLength = previousMessagesLengthRef.current;
+    const hasAppendedMessage = messages.length > previousLength;
+    const latestMessage = messages[messages.length - 1];
+
+    if (hasAppendedMessage && latestMessage?.role === "assistant") {
+      triggerBloom();
+    }
+
+    previousMessagesLengthRef.current = messages.length;
+  }, [messages, triggerBloom]);
 
   useEffect(() => {
     if (launcherTrace === "idle") return;
@@ -186,7 +233,7 @@ export function ConciergeShell({
       {isEnabled && isOpen ? (
         <>
           <div className={styles.overlay} aria-hidden="true" onClick={onClose} />
-          <aside className={styles.panel} aria-label="Champagne Concierge panel">
+          <aside ref={panelRef} className={styles.panel} aria-label="Champagne Concierge panel">
             <header className={styles.header}>
               <h2 className={styles.title}>Champagne Concierge</h2>
               <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close concierge panel">
