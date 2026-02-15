@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./concierge.module.css";
 import type { IntentStage } from "./_helpers/sessionMemory";
@@ -67,6 +67,7 @@ export function ConciergeShell({
   const launcherRef = useRef<HTMLButtonElement | null>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const previousOpenRef = useRef(isOpen);
+  const [launcherTrace, setLauncherTrace] = useState<"idle" | "open" | "close">("idle");
 
   useEffect(() => {
     const element = textareaRef.current;
@@ -82,6 +83,7 @@ export function ConciergeShell({
     if (!wasOpen && isOpen) {
       const activeElement = document.activeElement;
       lastFocusedRef.current = activeElement instanceof HTMLElement ? activeElement : null;
+      setLauncherTrace("open");
     }
 
     if (wasOpen && !isOpen) {
@@ -90,10 +92,23 @@ export function ConciergeShell({
       } else {
         lastFocusedRef.current?.focus();
       }
+      setLauncherTrace("close");
     }
 
     previousOpenRef.current = isOpen;
   }, [isOpen]);
+
+  useEffect(() => {
+    if (launcherTrace === "idle") return;
+
+    const timeoutId = window.setTimeout(() => {
+      setLauncherTrace("idle");
+    }, 420);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [launcherTrace]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -118,6 +133,7 @@ export function ConciergeShell({
           ref={launcherRef}
           type="button"
           className={styles.launcher}
+          data-trace={launcherTrace}
           onClick={onToggle}
           aria-label={isOpen ? "Close Champagne Concierge" : "Open Champagne Concierge"}
           aria-expanded={isOpen}
