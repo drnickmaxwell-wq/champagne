@@ -61,7 +61,9 @@
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
+  min-height: 0;
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .header {
@@ -167,12 +169,9 @@
 
 .composer {
   flex: 0 0 auto;
-  position: sticky;
-  bottom: 0;
   background: var(--surface-glass);
   border-top: 1px solid var(--border-subtle);
   padding: 0.9rem 1.2rem;
-  padding-bottom: max(0.9rem, env(safe-area-inset-bottom));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.6rem;
