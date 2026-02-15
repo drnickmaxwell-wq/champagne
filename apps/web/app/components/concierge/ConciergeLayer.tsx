@@ -1,9 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getPageManifest } from "@champagne/manifests";
 import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
+import {
+  classifyIntentStage,
+  getSessionState,
+  setIntentStage,
+  setSessionSummary,
+  updateVisitedPath,
+} from "./_helpers/sessionMemory";
 
 type ConverseCard = {
   title?: string;
@@ -18,8 +25,6 @@ type ConverseResponse = {
     cards?: ConverseCard[];
   };
 };
-
-const ENGINE_BASE_URL = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "";
 
 function resolveConciergeEnabled(pathname: string): boolean {
   const manifest = getPageManifest(pathname) as { conciergeEnabled?: boolean } | undefined;
@@ -39,8 +44,13 @@ export function ConciergeLayer() {
       content: "Welcome. Ask anything about this page and I will keep guidance focused.",
     },
   ]);
+  const [sessionState, setSessionState] = useState(() => getSessionState());
 
   const conciergeEnabled = useMemo(() => resolveConciergeEnabled(pathname), [pathname]);
+
+  useEffect(() => {
+    setSessionState(updateVisitedPath(pathname));
+  }, [pathname]);
 
   const sendMessage = async (rawInput: string) => {
     const text = rawInput.trim();
@@ -51,18 +61,18 @@ export function ConciergeLayer() {
     setError(null);
     setMessages((previous) => [...previous, { id: `${idSeed}-user`, role: "user", content: text }]);
 
-    if (!ENGINE_BASE_URL) {
-      setError("Concierge engine is unavailable right now.");
-      return;
-    }
+    const intentStage = classifyIntentStage(text);
+    setIntentStage(intentStage);
+    setSessionSummary(text);
+    setSessionState(getSessionState());
 
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${ENGINE_BASE_URL}/v1/converse`, {
+      const response = await fetch("/api/converse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, pageContext: pathname }),
+        body: JSON.stringify({ text, pageContext: { pathname: window.location.pathname } }),
       });
 
       if (!response.ok) {
@@ -141,6 +151,15 @@ export function ConciergeLayer() {
           },
         ]);
       }}
+      debugState={
+        process.env.NODE_ENV !== "production"
+          ? {
+              lastSeenPath: sessionState.lastSeenPath,
+              visitedPathsCount: sessionState.visitedPaths.length,
+              intentStage: sessionState.intentStage,
+            }
+          : undefined
+      }
     />
   );
 }
