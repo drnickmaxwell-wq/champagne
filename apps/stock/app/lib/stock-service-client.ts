@@ -92,3 +92,28 @@ export const readStockServiceEvents = async (query?: URLSearchParams) => {
   const search = query && query.size > 0 ? `?${query.toString()}` : "";
   return requestProxy(`/api/stock/events/read${search}`);
 };
+
+export const decodeQr = async (payload: string) => {
+  const query = new URLSearchParams({ payload });
+  const result = await requestProxy(`/api/stock/qr/decode?${query.toString()}`);
+
+  if (!result.ok) {
+    return {
+      ok: false,
+      errorCode:
+        result.data &&
+        typeof result.data === "object" &&
+        "errorCode" in result.data &&
+        typeof result.data.errorCode === "string"
+          ? result.data.errorCode
+          : "DECODE_FAILED"
+    };
+  }
+
+  return (result.data ?? { ok: false, errorCode: "EMPTY_RESPONSE" }) as {
+    ok: boolean;
+    type?: string;
+    id?: string;
+    errorCode?: string;
+  };
+};

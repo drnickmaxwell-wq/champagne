@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import ScanForm from "./ScanForm";
 import Scanner from "./Scanner";
 import SessionSummary from "./SessionSummary";
@@ -41,6 +41,17 @@ import {
   type ExpiryStatus,
   type LocalStockLot
 } from "../stockLots/localLots";
+import { decodeQr } from "../lib/stock-service-client";
+
+const LOCAL_ONLY_STORAGE_KEY = "stock.localOnlyMode";
+
+const isLocalOnlyModeEnabled = () => {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.localStorage.getItem(LOCAL_ONLY_STORAGE_KEY) === "true";
+};
 
 const resolveErrorMessage = (data: unknown) => {
   if (data && typeof data === "object") {
@@ -113,6 +124,7 @@ const toDisplayCase = (value: string) => {
 };
 
 export default function ScanPage() {
+  const router = useRouter();
   const pathname = usePathname();
   const receiveMode = pathname === "/receive";
   const [cameraOpen, setCameraOpen] = useState(false);
@@ -150,6 +162,7 @@ export default function ScanPage() {
     notes: ""
   });
   const [batchError, setBatchError] = useState("");
+  const [decodeErrorCode, setDecodeErrorCode] = useState("");
   const [expiringLots, setExpiringLots] = useState<LocalStockLot[]>([]);
   const {
     summary,
@@ -212,9 +225,40 @@ export default function ScanPage() {
       setCameraOpen(false);
       setScanCode(normalized);
       setManualFocus(false);
-      void loadScan(normalized);
+
+      if (isLocalOnlyModeEnabled()) {
+        void loadScan(normalized);
+        return;
+      }
+
+      setDecodeErrorCode("");
+      setLoading(true);
+      setErrorMessage("");
+      setOpsUnreachable(false);
+      void decodeQr(normalized)
+        .then((decoded) => {
+          if (decoded.ok && decoded.type === "ITEM" && decoded.id) {
+            router.push(`/receive?itemId=${encodeURIComponent(decoded.id)}`);
+            return;
+          }
+
+          if (decoded.ok && decoded.type === "ORDER" && decoded.id) {
+            router.push(`/orders/basket?orderRefId=${encodeURIComponent(decoded.id)}`);
+            return;
+          }
+
+          setDecodeErrorCode(decoded.errorCode ?? "DECODE_FAILED");
+          setScanResult(null);
+        })
+        .catch(() => {
+          setDecodeErrorCode("DECODE_FAILED");
+          setScanResult(null);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     },
-    [loadScan]
+    [loadScan, router]
   );
 
   const handleStop = useCallback(() => {
@@ -509,6 +553,30 @@ export default function ScanPage() {
         {errorMessage ? (
           <FeedbackCard title="Error" role="alert" message={errorMessage} />
         ) : null}
+        {decodeErrorCode ? (
+          <FeedbackCard
+            title="Scan decode failed"
+            role="alert"
+            message={
+              <>
+                <p>Error code: {decodeErrorCode}</p>
+                <PrimaryActions>
+                  <button
+                    type="button"
+                    className="stock-button stock-button--secondary"
+                    onClick={() => {
+                      setDecodeErrorCode("");
+                      setManualFocus(true);
+                      setCameraOpen(true);
+                    }}
+                  >
+                    Scan again
+                  </button>
+                </PrimaryActions>
+              </>
+            }
+          />
+        ) : null}
         {isUnmatched ? (
           <FeedbackCard
             title="Not recognised"
@@ -553,7 +621,7 @@ export default function ScanPage() {
           autoFocus={manualFocus}
           onSubmitCode={(code) => {
             setScanCode(code);
-            void loadScan(code);
+            handleDetected(code);
           }}
         />
       </Section>
