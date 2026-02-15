@@ -1,4 +1,5 @@
 .root {
+  --concierge-keyline: var(--champagne-keyline-gold);
   position: fixed;
   inset-inline-end: 0;
   top: 0;
@@ -22,8 +23,8 @@
   justify-content: center;
   min-width: 8.5rem;
   border: 1px solid var(--border);
-  border-color: color-mix(in srgb, var(--border) 70%, var(--ink) 30%);
-  background-color: color-mix(in srgb, var(--ink) 8%, transparent);
+  border-color: color-mix(in srgb, var(--border) 70%, var(--concierge-keyline) 30%);
+  background-color: color-mix(in srgb, var(--ink) 76%, transparent);
   color: var(--text-high);
   border-radius: var(--radius-md);
   padding: 0.56rem 0.9rem;
@@ -40,15 +41,15 @@
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  border: 1px solid var(--champagne-keyline-gold);
+  border: 1px solid var(--concierge-keyline);
   opacity: 0;
   pointer-events: none;
 }
 
 .launcher:hover,
 .launcher:focus-visible {
-  border-color: color-mix(in srgb, var(--border) 60%, var(--text-high));
-  background-color: color-mix(in srgb, var(--ink) 14%, transparent);
+  border-color: color-mix(in srgb, var(--border) 56%, var(--concierge-keyline) 44%);
+  background-color: color-mix(in srgb, var(--ink) 82%, transparent);
   color: var(--text-high);
   outline: none;
 }
@@ -88,8 +89,8 @@
   max-width: min(100vw, 680px);
   height: 100dvh;
   max-height: 100dvh;
-  background: color-mix(in srgb, var(--ink) 78%, transparent);
-  border-inline-start: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--ink) 76%, transparent);
+  border-inline-start: 1px solid color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: var(--shadow-soft);
@@ -220,8 +221,8 @@
 
 .composer {
   flex: 0 0 auto;
-  background: color-mix(in srgb, var(--ink) 74%, transparent);
-  border-top: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--ink) 76%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
   padding: 0.9rem 1.2rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
