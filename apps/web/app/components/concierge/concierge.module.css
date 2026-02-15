@@ -42,6 +42,16 @@
   font-size: 0.72rem;
 }
 
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--surface-ink) 18%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  animation: conciergeOverlayIn 180ms ease-out forwards;
+}
+
 .panel {
   pointer-events: auto;
   position: fixed;
@@ -55,13 +65,16 @@
   height: 100dvh;
   max-height: 100dvh;
   background: var(--surface-glass);
-  border-inline-start: 1px solid var(--champagne-keyline-gold);
+  border-inline-start: 1px solid var(--border-subtle);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
+  min-height: 0;
   overflow: hidden;
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+  animation: conciergePanelIn 220ms ease-out;
 }
 
 .header {
@@ -167,12 +180,9 @@
 
 .composer {
   flex: 0 0 auto;
-  position: sticky;
-  bottom: 0;
   background: var(--surface-glass);
   border-top: 1px solid var(--border-subtle);
   padding: 0.9rem 1.2rem;
-  padding-bottom: max(0.9rem, env(safe-area-inset-bottom));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.6rem;
@@ -208,6 +218,39 @@
 
 .error {
   color: var(--text-low);
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .panel {
+    animation: none;
+  }
+}
+
+@keyframes conciergeOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes conciergePanelIn {
+  from {
+    opacity: 0;
+    transform: translateX(0.85rem);
+    border-inline-start-color: var(--champagne-keyline-gold);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    border-inline-start-color: var(--border-subtle);
+  }
 }
 
 @media (max-width: 860px) {
