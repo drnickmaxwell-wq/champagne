@@ -18,6 +18,7 @@ export type ConciergeSessionState = {
   intentStage: IntentStage;
   topicHints: string[];
   pageSignals: Record<string, PageSignal>;
+  conversationId: string | null;
 };
 
 const DEFAULT_STATE: ConciergeSessionState = {
@@ -26,6 +27,7 @@ const DEFAULT_STATE: ConciergeSessionState = {
   intentStage: "BROWSE",
   topicHints: [],
   pageSignals: {},
+  conversationId: null,
 };
 
 function getStorage(): Storage | null {
@@ -94,6 +96,9 @@ function parseSessionState(raw: string | null): ConciergeSessionState {
       intentStage: isIntentStage(parsed.intentStage) ? parsed.intentStage : DEFAULT_STATE.intentStage,
       topicHints,
       pageSignals,
+      conversationId: typeof parsed.conversationId === "string" && parsed.conversationId.trim().length > 0
+        ? parsed.conversationId.trim()
+        : null,
     };
   } catch {
     return { ...DEFAULT_STATE };
@@ -161,6 +166,17 @@ export function setIntentStage(stage: IntentStage): ConciergeSessionState {
 
 export function getIntentStage(): IntentStage {
   return getSessionState().intentStage;
+}
+
+export function setConversationId(conversationId: string | null): ConciergeSessionState {
+  const state = getSessionState();
+
+  return saveSessionState({
+    ...state,
+    conversationId: typeof conversationId === "string" && conversationId.trim().length > 0
+      ? conversationId.trim()
+      : null,
+  });
 }
 
 function isSafeTopicToken(token: string): boolean {

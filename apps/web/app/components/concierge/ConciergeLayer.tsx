@@ -7,6 +7,7 @@ import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
 import {
   classifyIntentStage,
   getSessionState,
+  setConversationId,
   setIntentStage,
   updateVisitedPath,
 } from "./_helpers/sessionMemory";
@@ -18,6 +19,7 @@ type ConverseCard = {
 };
 
 type ConverseResponse = {
+  conversationId?: string;
   content?: string;
   ui?: {
     kind?: string;
@@ -62,6 +64,7 @@ export function ConciergeLayer() {
     },
   ]);
   const [sessionState, setSessionState] = useState(() => getSessionState());
+  const [conversationId, setConversationIdState] = useState<string | null>(() => getSessionState().conversationId);
 
   const conciergeEnabled = useMemo(() => resolveConciergeEnabled(pathname), [pathname]);
 
@@ -74,6 +77,8 @@ export function ConciergeLayer() {
       setDebugEnabled(resolveDebugToggle());
     }
   }, []);
+
+  const closePanel = () => setIsOpen(false);
 
   const sendMessage = async (rawInput: string) => {
     const text = rawInput.trim();
@@ -112,6 +117,12 @@ export function ConciergeLayer() {
       }
 
       const payload = (await response.json()) as ConverseResponse;
+      if (typeof payload.conversationId === "string" && payload.conversationId.trim().length > 0) {
+        const nextConversationId = payload.conversationId.trim();
+        setConversationIdState(nextConversationId);
+        setSessionState(setConversationId(nextConversationId));
+      }
+
       const cards = payload.ui?.kind === "cards" && Array.isArray(payload.ui.cards)
         ? payload.ui.cards.map((card, cardIndex) => ({
             id: `${idSeed}-card-${cardIndex}`,
@@ -158,12 +169,9 @@ export function ConciergeLayer() {
     }
   };
 
-  if (!conciergeEnabled) {
-    return null;
-  }
-
   return (
     <ConciergeShell
+      isEnabled={conciergeEnabled}
       isOpen={isOpen}
       isLoading={isLoading}
       errorMessage={error}
@@ -174,6 +182,7 @@ export function ConciergeLayer() {
         void sendMessage(input);
       }}
       onToggle={() => setIsOpen((previous) => !previous)}
+      onClose={closePanel}
       onPostback={(payload) => {
         setMessages((previous) => [
           ...previous,
@@ -191,6 +200,7 @@ export function ConciergeLayer() {
               visitedPathsCount: sessionState.visitedPaths.length,
               intentStage: sessionState.intentStage,
               topicHints: sessionState.topicHints,
+              conversationId,
             }
           : undefined
       }

@@ -4,6 +4,7 @@ import {
   CONCIERGE_SESSION_STORAGE_KEY,
   deriveTopicHintsFromPathname,
   getSessionState,
+  setConversationId,
   setIntentStage,
   updateVisitedPath,
 } from "./sessionMemory";
@@ -138,5 +139,14 @@ describe("session storage state", () => {
   it("stores state under concierge session key", () => {
     updateVisitedPath("/treatment");
     expect(window.sessionStorage.getItem(CONCIERGE_SESSION_STORAGE_KEY)).not.toBeNull();
+  });
+
+  it("stores conversationId in session-only storage", () => {
+    setConversationId("conv_123");
+
+    expect(getSessionState().conversationId).toBe("conv_123");
+
+    setConversationId(null);
+    expect(getSessionState().conversationId).toBeNull();
   });
 });
