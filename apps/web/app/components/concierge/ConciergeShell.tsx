@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 import styles from "./concierge.module.css";
 import type { IntentStage } from "./_helpers/sessionMemory";
 
@@ -74,45 +74,91 @@ function resolvePillCategory(pathname: string): keyof typeof QUICK_PILLS {
   return "default";
 }
 
-const LEAD_SENTENCE_MIN_LENGTH = 80;
+type ReflectiveAnswerMode = "simple" | "clinical" | "bullet";
 
-function splitLeadSentence(content: string) {
-  if (content.length < LEAD_SENTENCE_MIN_LENGTH) {
-    return null;
+type FormattedAssistantContent = {
+  kind: "text" | "bullet";
+  content: ReactNode;
+};
+
+const REFLECTIVE_MODES: { mode: ReflectiveAnswerMode; label: string }[] = [
+  { mode: "simple", label: "Simple" },
+  { mode: "clinical", label: "Clinical" },
+  { mode: "bullet", label: "Bullet" },
+];
+
+const MIN_LENGTH_FOR_TRANSFORM = 120;
+
+function splitIntoSentencesConservative(content: string) {
+  const trimmed = content.trim();
+  if (!trimmed) {
+    return [];
   }
 
-  const boundaryMatch = content.match(/[.!?](?=\s)/);
-  if (boundaryMatch?.index === undefined) {
-    return null;
-  }
-
-  const boundaryIndex = boundaryMatch.index + boundaryMatch[0].length;
-  const lead = content.slice(0, boundaryIndex);
-  const remainder = content.slice(boundaryIndex);
-
-  if (!remainder.trim()) {
-    return null;
-  }
-
-  return { lead, remainder };
+  return trimmed
+    .split(/(?<=[.?!])(?:\s+|\n+)/)
+    .map((unit) => unit.trim())
+    .filter(Boolean);
 }
 
-function renderMessageContent(message: ConciergeMessage) {
+function formatAssistantContent(content: string, mode: ReflectiveAnswerMode): FormattedAssistantContent {
+  if (mode === "clinical") {
+    return { kind: "text", content };
+  }
+
+  if (content.trim().length < MIN_LENGTH_FOR_TRANSFORM) {
+    return { kind: "text", content };
+  }
+
+  const sentenceUnits = splitIntoSentencesConservative(content);
+  if (sentenceUnits.length < 3) {
+    return { kind: "text", content };
+  }
+
+  if (mode === "bullet") {
+    if (sentenceUnits.length < 2) {
+      return { kind: "text", content };
+    }
+
+    return {
+      kind: "bullet",
+      content: (
+        <ul className={styles.bulletList}>
+          {sentenceUnits.map((unit, index) => (
+            <li key={`${index}-${unit.slice(0, 32)}`} className={styles.bulletItem}>
+              {unit}
+            </li>
+          ))}
+        </ul>
+      ),
+    };
+  }
+
+  const paragraphs: string[] = [];
+  for (let index = 0; index < sentenceUnits.length; index += 2) {
+    paragraphs.push(sentenceUnits.slice(index, index + 2).join(" "));
+  }
+
+  return {
+    kind: "text",
+    content: (
+      <>
+        {paragraphs.map((paragraph, index) => (
+          <span key={`${index}-${paragraph.slice(0, 32)}`} className={styles.simpleParagraph}>
+            {paragraph}
+          </span>
+        ))}
+      </>
+    ),
+  };
+}
+
+function renderMessageContent(message: ConciergeMessage, mode: ReflectiveAnswerMode): FormattedAssistantContent {
   if (message.role !== "assistant") {
-    return message.content;
+    return { kind: "text", content: message.content };
   }
 
-  const splitContent = splitLeadSentence(message.content);
-  if (!splitContent) {
-    return message.content;
-  }
-
-  return (
-    <>
-      <span className={styles.leadSentence}>{splitContent.lead}</span>
-      <span className={styles.restSentence}>{splitContent.remainder}</span>
-    </>
-  );
+  return formatAssistantContent(message.content, mode);
 }
 
 export function ConciergeShell({
@@ -139,6 +185,8 @@ export function ConciergeShell({
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const previousOpenRef = useRef(isOpen);
   const [launcherTrace, setLauncherTrace] = useState<"idle" | "open" | "close">("idle");
+  const [reflectiveAnswerMode, setReflectiveAnswerMode] = useState<ReflectiveAnswerMode>("clinical");
+  const hasAssistantMessages = useMemo(() => messages.some((message) => message.role === "assistant"), [messages]);
 
   const quickPills = useMemo(() => {
     const currentPath =
@@ -245,43 +293,68 @@ export function ConciergeShell({
                 ))}
               </div>
 
-              {messages.map((message) => (
-                <article key={message.id} className={styles.message}>
-                  <p className={styles.role}>{message.role === "assistant" ? "Concierge" : "You"}</p>
-                  <p className={styles.content}>{renderMessageContent(message)}</p>
+              {hasAssistantMessages ? (
+                <div className={styles.modeToggle} role="group" aria-label="Reflective answer mode">
+                  {REFLECTIVE_MODES.map((item) => (
+                    <button
+                      key={item.mode}
+                      type="button"
+                      className={styles.modeOption}
+                      data-active={reflectiveAnswerMode === item.mode ? "true" : "false"}
+                      aria-pressed={reflectiveAnswerMode === item.mode}
+                      onClick={() => setReflectiveAnswerMode(item.mode)}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
 
-                  {message.cards?.length ? (
-                    <ul className={styles.cardList}>
-                      {message.cards.map((card) => (
-                        <li key={card.id} className={styles.card}>
-                          {card.title ? <p className={styles.cardTitle}>{card.title}</p> : null}
-                          {card.description ? <p className={styles.cardDescription}>{card.description}</p> : null}
-                          {card.actions?.length ? (
-                            <div className={styles.cardActions}>
-                              {card.actions.map((action) =>
-                                action.type === "link" ? (
-                                  <a key={`${card.id}-${action.label}`} href={action.href} className={styles.actionButton}>
-                                    {action.label}
-                                  </a>
-                                ) : (
-                                  <button
-                                    key={`${card.id}-${action.label}`}
-                                    type="button"
-                                    className={styles.actionButton}
-                                    onClick={() => onPostback(action.payload)}
-                                  >
-                                    {action.label}
-                                  </button>
-                                ),
-                              )}
-                            </div>
-                          ) : null}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </article>
-              ))}
+              {messages.map((message) => {
+                const renderedContent = renderMessageContent(message, reflectiveAnswerMode);
+
+                return (
+                  <article key={message.id} className={styles.message}>
+                    <p className={styles.role}>{message.role === "assistant" ? "Concierge" : "You"}</p>
+                    {renderedContent.kind === "bullet" ? (
+                      <div className={styles.content}>{renderedContent.content}</div>
+                    ) : (
+                      <p className={styles.content}>{renderedContent.content}</p>
+                    )}
+
+                    {message.cards?.length ? (
+                      <ul className={styles.cardList}>
+                        {message.cards.map((card) => (
+                          <li key={card.id} className={styles.card}>
+                            {card.title ? <p className={styles.cardTitle}>{card.title}</p> : null}
+                            {card.description ? <p className={styles.cardDescription}>{card.description}</p> : null}
+                            {card.actions?.length ? (
+                              <div className={styles.cardActions}>
+                                {card.actions.map((action) =>
+                                  action.type === "link" ? (
+                                    <a key={`${card.id}-${action.label}`} href={action.href} className={styles.actionButton}>
+                                      {action.label}
+                                    </a>
+                                  ) : (
+                                    <button
+                                      key={`${card.id}-${action.label}`}
+                                      type="button"
+                                      className={styles.actionButton}
+                                      onClick={() => onPostback(action.payload)}
+                                    >
+                                      {action.label}
+                                    </button>
+                                  ),
+                                )}
+                              </div>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </article>
+                );
+              })}
 
               {isLoading ? <p className={styles.meta}>Thinking…</p> : null}
               {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
