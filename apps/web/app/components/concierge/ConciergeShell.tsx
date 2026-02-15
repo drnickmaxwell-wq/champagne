@@ -24,6 +24,7 @@ export type ConciergeMessage = {
 };
 
 type ConciergeShellProps = {
+  isEnabled: boolean;
   isOpen: boolean;
   isLoading: boolean;
   errorMessage: string | null;
@@ -32,16 +33,19 @@ type ConciergeShellProps = {
   onInputChange: (value: string) => void;
   onSubmit: () => void;
   onToggle: () => void;
+  onClose: () => void;
   onPostback: (payload: string) => void;
   debugState?: {
     lastSeenPath: string;
     visitedPathsCount: number;
     intentStage: IntentStage;
     topicHints: string[];
+    conversationId: string | null;
   };
 };
 
 export function ConciergeShell({
+  isEnabled,
   isOpen,
   isLoading,
   errorMessage,
@@ -50,6 +54,7 @@ export function ConciergeShell({
   onInputChange,
   onSubmit,
   onToggle,
+  onClose,
   onPostback,
   debugState,
 }: ConciergeShellProps) {
@@ -59,6 +64,9 @@ export function ConciergeShell({
   };
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const launcherRef = useRef<HTMLButtonElement | null>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
+  const previousOpenRef = useRef(isOpen);
 
   useEffect(() => {
     const element = textareaRef.current;
@@ -68,94 +76,133 @@ export function ConciergeShell({
     element.style.height = `${Math.min(element.scrollHeight, lineHeight * 3)}px`;
   }, [inputValue]);
 
+  useEffect(() => {
+    const wasOpen = previousOpenRef.current;
+
+    if (!wasOpen && isOpen) {
+      const activeElement = document.activeElement;
+      lastFocusedRef.current = activeElement instanceof HTMLElement ? activeElement : null;
+    }
+
+    if (wasOpen && !isOpen) {
+      if (launcherRef.current) {
+        launcherRef.current.focus();
+      } else {
+        lastFocusedRef.current?.focus();
+      }
+    }
+
+    previousOpenRef.current = isOpen;
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   return (
-    <div className={styles.root} data-open={isOpen ? "true" : "false"}>
-      <button
-        type="button"
-        className={styles.launcher}
-        onClick={onToggle}
-        aria-label={isOpen ? "Close Champagne Concierge" : "Open Champagne Concierge"}
-        aria-expanded={isOpen}
-      >
-        <span className={styles.launcherText}>Concierge</span>
-      </button>
+    <div className={styles.root} data-open={isOpen ? "true" : "false"} data-enabled={isEnabled ? "true" : "false"}>
+      {isEnabled ? (
+        <button
+          ref={launcherRef}
+          type="button"
+          className={styles.launcher}
+          onClick={onToggle}
+          aria-label={isOpen ? "Close Champagne Concierge" : "Open Champagne Concierge"}
+          aria-expanded={isOpen}
+        >
+          <span className={styles.launcherText}>Concierge</span>
+        </button>
+      ) : null}
 
-      {isOpen ? (
+      {isEnabled && isOpen ? (
         <>
-          <div className={styles.overlay} aria-hidden="true" />
+          <div className={styles.overlay} aria-hidden="true" onClick={onClose} />
           <aside className={styles.panel} aria-label="Champagne Concierge panel">
-          <header className={styles.header}>
-            <h2 className={styles.title}>Champagne Concierge</h2>
-            <button type="button" onClick={onToggle} className={styles.closeButton} aria-label="Close concierge panel">
-              ✕
-            </button>
-          </header>
+            <header className={styles.header}>
+              <h2 className={styles.title}>Champagne Concierge</h2>
+              <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close concierge panel">
+                ✕
+              </button>
+            </header>
 
-          <div className={styles.messages} aria-live="polite">
-            {messages.map((message) => (
-              <article key={message.id} className={styles.message}>
-                <p className={styles.role}>{message.role === "assistant" ? "Concierge" : "You"}</p>
-                <p className={styles.content}>{message.content}</p>
+            <div className={styles.messages} aria-live="polite">
+              {messages.map((message) => (
+                <article key={message.id} className={styles.message}>
+                  <p className={styles.role}>{message.role === "assistant" ? "Concierge" : "You"}</p>
+                  <p className={styles.content}>{message.content}</p>
 
-                {message.cards?.length ? (
-                  <ul className={styles.cardList}>
-                    {message.cards.map((card) => (
-                      <li key={card.id} className={styles.card}>
-                        {card.title ? <p className={styles.cardTitle}>{card.title}</p> : null}
-                        {card.description ? <p className={styles.cardDescription}>{card.description}</p> : null}
-                        {card.actions?.length ? (
-                          <div className={styles.cardActions}>
-                            {card.actions.map((action) =>
-                              action.type === "link" ? (
-                                <a key={`${card.id}-${action.label}`} href={action.href} className={styles.actionButton}>
-                                  {action.label}
-                                </a>
-                              ) : (
-                                <button
-                                  key={`${card.id}-${action.label}`}
-                                  type="button"
-                                  className={styles.actionButton}
-                                  onClick={() => onPostback(action.payload)}
-                                >
-                                  {action.label}
-                                </button>
-                              ),
-                            )}
-                          </div>
-                        ) : null}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </article>
-            ))}
+                  {message.cards?.length ? (
+                    <ul className={styles.cardList}>
+                      {message.cards.map((card) => (
+                        <li key={card.id} className={styles.card}>
+                          {card.title ? <p className={styles.cardTitle}>{card.title}</p> : null}
+                          {card.description ? <p className={styles.cardDescription}>{card.description}</p> : null}
+                          {card.actions?.length ? (
+                            <div className={styles.cardActions}>
+                              {card.actions.map((action) =>
+                                action.type === "link" ? (
+                                  <a key={`${card.id}-${action.label}`} href={action.href} className={styles.actionButton}>
+                                    {action.label}
+                                  </a>
+                                ) : (
+                                  <button
+                                    key={`${card.id}-${action.label}`}
+                                    type="button"
+                                    className={styles.actionButton}
+                                    onClick={() => onPostback(action.payload)}
+                                  >
+                                    {action.label}
+                                  </button>
+                                ),
+                              )}
+                            </div>
+                          ) : null}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
+              ))}
 
-            {isLoading ? <p className={styles.meta}>Thinking…</p> : null}
-            {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
-            {debugState ? (
-              <div>
-                <p className={styles.meta}>Debug · lastSeenPath: {debugState.lastSeenPath}</p>
-                <p className={styles.meta}>Debug · visitedPaths: {debugState.visitedPathsCount}</p>
-                <p className={styles.meta}>Debug · intentStage: {debugState.intentStage}</p>
-                <p className={styles.meta}>Debug · topicHints: {debugState.topicHints.join(", ") || "none"}</p>
-              </div>
-            ) : null}
-          </div>
+              {isLoading ? <p className={styles.meta}>Thinking…</p> : null}
+              {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
+              {debugState ? (
+                <div>
+                  <p className={styles.meta}>Debug · lastSeenPath: {debugState.lastSeenPath}</p>
+                  <p className={styles.meta}>Debug · visitedPaths: {debugState.visitedPathsCount}</p>
+                  <p className={styles.meta}>Debug · intentStage: {debugState.intentStage}</p>
+                  <p className={styles.meta}>Debug · topicHints: {debugState.topicHints.join(", ") || "none"}</p>
+                  <p className={styles.meta}>Debug · conversationId: {debugState.conversationId ?? "none"}</p>
+                </div>
+              ) : null}
+            </div>
 
-          <form className={styles.composer} onSubmit={handleSubmit}>
-            <textarea
-              ref={textareaRef}
-              className={styles.textarea}
-              rows={1}
-              value={inputValue}
-              onChange={(event) => onInputChange(event.target.value)}
-              placeholder="Ask a question about this page"
-              disabled={isLoading}
-            />
-            <button type="submit" className={styles.sendButton} disabled={isLoading || inputValue.trim().length === 0}>
-              ↗
-            </button>
-          </form>
+            <form className={styles.composer} onSubmit={handleSubmit}>
+              <textarea
+                ref={textareaRef}
+                className={styles.textarea}
+                rows={1}
+                value={inputValue}
+                onChange={(event) => onInputChange(event.target.value)}
+                placeholder="Ask a question about this page"
+                disabled={isLoading}
+              />
+              <button type="submit" className={styles.sendButton} disabled={isLoading || inputValue.trim().length === 0}>
+                ↗
+              </button>
+            </form>
           </aside>
         </>
       ) : null}

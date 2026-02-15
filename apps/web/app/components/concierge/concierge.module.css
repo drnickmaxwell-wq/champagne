@@ -48,7 +48,7 @@
   inset: 0;
   background: color-mix(in srgb, var(--surface-ink) 18%, transparent);
   opacity: 0;
-  pointer-events: none;
+  pointer-events: auto;
   animation: conciergeOverlayIn 180ms ease-out forwards;
 }
 
