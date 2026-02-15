@@ -5,6 +5,7 @@ import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
 import { HeroMount } from "./_components/HeroMount";
 import { isBrandHeroEnabled } from "./featureFlags";
+import { ConciergeLayer } from "./components/concierge/ConciergeLayer";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
 
@@ -70,6 +71,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </main>
           <Footer />
         </div>
+        <ConciergeLayer />
       </body>
     </html>
   );
