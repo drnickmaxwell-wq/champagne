@@ -31,6 +31,7 @@ type ConversationResult = {
   content: string;
   confidence?: "high" | "medium" | "low" | number | null;
   ui?: unknown;
+  debug?: unknown;
 };
 
 type EmotionAnalysis = {
@@ -46,6 +47,7 @@ type ChatMessage = {
   emotion?: EmotionAnalysis;
   confidence?: "high" | "medium" | "low" | null;
   ui?: AssistantUiPayload;
+  debug?: unknown;
 };
 
 type LuxuryChatbotProps = {
@@ -54,6 +56,9 @@ type LuxuryChatbotProps = {
 };
 
 const REQUEST_TIMEOUT_MS = 8000;
+const RATE_LIMIT_COOLDOWN_MS = 20_000;
+const TRIPWIRE_PRIVACY_PREFIX = "Privacy note:";
+const TRIPWIRE_PRIVACY_PHRASE = "please don't include sensitive medical details";
 
 type HandoffPayload = {
   kind: "handoff";
@@ -166,6 +171,28 @@ const extractTenantIdFromManifest = (value: unknown): string | null => {
   }
   return value.tenantId;
 };
+
+const includesStableTripwirePhrase = (value: string) =>
+  value
+    .toLowerCase()
+    .replaceAll("’", "'")
+    .includes(TRIPWIRE_PRIVACY_PHRASE);
+
+const isPrivacyTripwireContent = (value: string) => {
+  const trimmed = value.trim();
+  return (
+    trimmed.startsWith(TRIPWIRE_PRIVACY_PREFIX) ||
+    includesStableTripwirePhrase(trimmed)
+  );
+};
+
+const isRateLimitPayload = (value: unknown) =>
+  isRecord(value) && value.error === "rate limit exceeded";
+
+const isBlockedNetworkError = (error: unknown) =>
+  error instanceof TypeError ||
+  (error instanceof Error &&
+    /failed to fetch|networkerror|load failed/i.test(error.message));
 
 const normalizeAction = (value: unknown): CardAction | null => {
   if (!isRecord(value) || typeof value.type !== "string") {
@@ -432,11 +459,15 @@ function MessageBubble({
   message,
   isUser,
   onPostback,
+  isDevMode,
 }: {
   message: ChatMessage;
   isUser: boolean;
   onPostback: (payload: ActionPayload) => void;
+  isDevMode: boolean;
 }) {
+  const isPrivacyTripwire = !isUser && isPrivacyTripwireContent(message.content);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.8 }}
@@ -454,10 +485,24 @@ function MessageBubble({
           }`}
         >
           {message.content.trim().length > 0 ? (
-            <p className="text-sm leading-relaxed">{message.content}</p>
+            <p
+              className={`text-sm leading-relaxed ${
+                isPrivacyTripwire ? "text-[color:var(--text-medium)] italic" : ""
+              }`}
+            >
+              {message.content}
+            </p>
           ) : null}
-          {!isUser && message.ui ? (
+          {!isUser && message.ui && !isPrivacyTripwire ? (
             <AssistantCards payload={message.ui} onPostback={onPostback} />
+          ) : null}
+          {!isUser && isDevMode && message.debug !== undefined ? (
+            <details className="mt-3 text-xs text-[color:var(--text-medium)]">
+              <summary className="cursor-pointer">Debug payload</summary>
+              <pre className="mt-2 overflow-x-auto rounded-lg border border-[color:var(--border-subtle)] bg-[color:var(--surface-1)] p-2 text-[11px] leading-relaxed text-[color:var(--text-medium)]">
+                {JSON.stringify(message.debug, null, 2)}
+              </pre>
+            </details>
           ) : null}
           <div
             className={`text-xs mt-2 ${
@@ -582,6 +627,9 @@ export default function LuxuryChatbot({
   const [lastError, setLastError] = useState<string | null>(null);
   const [engineStatus, setEngineStatus] = useState<EngineStatus>({ state: "checking" });
   const [tenantId, setTenantId] = useState<string | null>(null);
+  const [debugEnabled, setDebugEnabled] = useState(false);
+  const [cooldownEndsAt, setCooldownEndsAt] = useState<number | null>(null);
+  const [cooldownRemainingSeconds, setCooldownRemainingSeconds] = useState(0);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -589,8 +637,29 @@ export default function LuxuryChatbot({
   const firstAssistantTimeoutRef = useRef<number | null>(null);
   const firstAssistantPrefaceUsedRef = useRef(false);
   const fixtureMode = process.env.NEXT_PUBLIC_CHATBOT_UI_FIXTURE ?? "";
+  const isDevMode = process.env.NODE_ENV !== "production";
   const pageContext = useMemo(() => getRouteSlug(pathname), [pathname]);
   const pageTopic = useMemo(() => formatTopic(pageContext), [pageContext]);
+  const isCooldownActive = cooldownRemainingSeconds > 0;
+
+  useEffect(() => {
+    if (!cooldownEndsAt) {
+      setCooldownRemainingSeconds(0);
+      return;
+    }
+
+    const syncRemaining = () => {
+      const seconds = Math.max(0, Math.ceil((cooldownEndsAt - Date.now()) / 1000));
+      setCooldownRemainingSeconds(seconds);
+      if (seconds === 0) {
+        setCooldownEndsAt(null);
+      }
+    };
+
+    syncRemaining();
+    const intervalId = window.setInterval(syncRemaining, 250);
+    return () => window.clearInterval(intervalId);
+  }, [cooldownEndsAt]);
 
   const enqueueAssistantMessage = useCallback((message: ChatMessage) => {
     let nextMessage = message;
@@ -714,7 +783,7 @@ export default function LuxuryChatbot({
     options?: { displayContent?: string; hide?: boolean },
   ) => {
     const trimmedContent = content.trim();
-    if (!trimmedContent) return;
+    if (!trimmedContent || isCooldownActive) return;
 
     const displayContent = options?.displayContent ?? trimmedContent;
     if (!options?.hide) {
@@ -726,7 +795,6 @@ export default function LuxuryChatbot({
       };
 
       setMessages((prev) => [...prev, userMessage]);
-      setInputMessage("");
     }
     setIsLoading(true);
     setLastError(null);
@@ -745,12 +813,51 @@ export default function LuxuryChatbot({
     try {
       const response = await fetch(`${engineBaseUrl}/v1/converse`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(debugEnabled ? { "x-debug-chat": "1" } : {}),
+        },
         body: JSON.stringify({ text: trimmedContent, pageContext }),
         signal: controller.signal,
       });
 
       if (!response.ok) {
+        if (response.status === 429) {
+          let payload: unknown = null;
+          try {
+            payload = await response.json();
+          } catch {
+            payload = null;
+          }
+          if (isRateLimitPayload(payload)) {
+            const cooldownMessage = `You\u2019ve reached a brief pause limit. Please wait 20 seconds before sending another message.`;
+            setCooldownEndsAt(Date.now() + RATE_LIMIT_COOLDOWN_MS);
+            setLastError(cooldownMessage);
+            enqueueAssistantMessage({
+              id: (Date.now() + 1).toString(),
+              role: "assistant",
+              content: cooldownMessage,
+              timestamp: new Date(),
+            });
+            setConnectionStatus("disconnected");
+            return;
+          }
+        }
+
+        if (response.status === 403) {
+          const blockedMessage =
+            "The concierge is currently unavailable from this origin or network. Please try again from an approved connection.";
+          setLastError(blockedMessage);
+          enqueueAssistantMessage({
+            id: (Date.now() + 1).toString(),
+            role: "assistant",
+            content: blockedMessage,
+            timestamp: new Date(),
+          });
+          setConnectionStatus("disconnected");
+          return;
+        }
+
         throw new Error(`Request failed: ${response.status} ${response.statusText}`.trim());
       }
 
@@ -764,17 +871,23 @@ export default function LuxuryChatbot({
         ui: resolvedMessage.ui,
         timestamp: new Date(),
         confidence: resolveConfidenceLabel(data.confidence),
+        debug: data.debug,
       };
 
       enqueueAssistantMessage(assistantMessage);
+      if (!options?.hide) {
+        setInputMessage("");
+      }
       setConnectionStatus("connected");
     } catch (error) {
       const errorMessage =
         error instanceof DOMException && error.name === "AbortError"
           ? "Request failed: timeout after 8s."
-          : error instanceof Error
-            ? `Request failed: ${error.message}`
-            : "Request failed: Unknown error.";
+          : isBlockedNetworkError(error)
+            ? "The concierge appears unreachable from this origin or network right now. Please try again when access is available."
+            : error instanceof Error
+              ? `Request failed: ${error.message}`
+              : "Request failed: Unknown error.";
 
       const fallbackMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -937,6 +1050,7 @@ export default function LuxuryChatbot({
                   message={message}
                   isUser={message.role === "user"}
                   onPostback={handlePostback}
+                  isDevMode={isDevMode}
                 />
               ))}
 
@@ -1006,6 +1120,18 @@ export default function LuxuryChatbot({
             </div>
 
             <div className="p-4 bg-[color:color-mix(in oklab,var(--smh-bg) 86%, transparent 14%)] backdrop-blur-sm border-t border-[color:color-mix(in oklab,var(--smh-accent-gold) 26%, transparent)]">
+              {isDevMode ? (
+                <div className="mb-2 flex items-center justify-end">
+                  <label className="inline-flex items-center gap-2 text-xs text-[color:var(--text-medium)]">
+                    <input
+                      type="checkbox"
+                      checked={debugEnabled}
+                      onChange={(event) => setDebugEnabled(event.target.checked)}
+                    />
+                    Developer debug mode
+                  </label>
+                </div>
+              ) : null}
               <div className="flex items-center gap-2">
                 <div className="flex-1 relative">
                   <input
@@ -1016,7 +1142,7 @@ export default function LuxuryChatbot({
                     onKeyPress={(e) => e.key === "Enter" && sendMessage(inputMessage)}
                     placeholder="What would you like to understand better?"
                     className="lux-chat-input w-full px-4 py-3 bg-[color:color-mix(in oklab,var(--smh-bg) 94%, transparent 6%)] border border-[color:color-mix(in oklab,var(--smh-accent-gold) 18%, transparent)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[color:color-mix(in oklab,var(--smh-accent-gold) 55%, transparent)] focus:border-transparent text-sm text-[color:var(--chat-text)]"
-                    disabled={isLoading}
+                    disabled={isLoading || isCooldownActive}
                   />
                 </div>
 
@@ -1037,12 +1163,17 @@ export default function LuxuryChatbot({
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => sendMessage(inputMessage)}
-                  disabled={!inputMessage.trim() || isLoading}
+                  disabled={!inputMessage.trim() || isLoading || isCooldownActive}
                   className="p-3 lux-chat-send-button rounded-full transition-all duration-300"
                 >
                   <Send className="w-5 h-5" />
                 </motion.button>
               </div>
+              {isCooldownActive ? (
+                <p className="mt-2 text-xs text-[color:var(--text-medium)]">
+                  Cooldown active. You can send another message in {cooldownRemainingSeconds}s.
+                </p>
+              ) : null}
               {lastError ? (
                 <p className="mt-2 text-xs text-[color:var(--text-ink-medium)]">{lastError}</p>
               ) : null}
