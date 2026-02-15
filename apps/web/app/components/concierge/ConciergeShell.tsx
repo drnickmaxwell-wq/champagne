@@ -80,7 +80,9 @@ export function ConciergeShell({
       </button>
 
       {isOpen ? (
-        <aside className={styles.panel} aria-label="Champagne Concierge panel">
+        <>
+          <div className={styles.overlay} aria-hidden="true" />
+          <aside className={styles.panel} aria-label="Champagne Concierge panel">
           <header className={styles.header}>
             <h2 className={styles.title}>Champagne Concierge</h2>
             <button type="button" onClick={onToggle} className={styles.closeButton} aria-label="Close concierge panel">
@@ -152,7 +154,8 @@ export function ConciergeShell({
               ↗
             </button>
           </form>
-        </aside>
+          </aside>
+        </>
       ) : null}
     </div>
   );

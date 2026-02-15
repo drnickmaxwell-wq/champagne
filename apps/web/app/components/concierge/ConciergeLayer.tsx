@@ -31,12 +31,30 @@ function resolveConciergeEnabled(pathname: string): boolean {
   return manifest?.conciergeEnabled ?? true;
 }
 
+function resolveDebugToggle(): boolean {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("conciergeDebug") === "1";
+}
+
+function getCalmErrorMessage(status: number): string {
+  if (status === 429) {
+    return "Concierge is a little busy right now. Please try again in a moment.";
+  }
+
+  if (status >= 500) {
+    return "Concierge is briefly unavailable. Please try again shortly.";
+  }
+
+  return "I could not complete that request just now. Please try again.";
+}
+
 export function ConciergeLayer() {
   const pathname = usePathname() || "/";
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [input, setInput] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [debugEnabled, setDebugEnabled] = useState(false);
   const [messages, setMessages] = useState<ConciergeMessage[]>([
     {
       id: "intro",
@@ -51,6 +69,12 @@ export function ConciergeLayer() {
   useEffect(() => {
     setSessionState(updateVisitedPath(pathname));
   }, [pathname]);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production") {
+      setDebugEnabled(resolveDebugToggle());
+    }
+  }, []);
 
   const sendMessage = async (rawInput: string) => {
     const text = rawInput.trim();
@@ -76,7 +100,17 @@ export function ConciergeLayer() {
       });
 
       if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`);
+        const message = getCalmErrorMessage(response.status);
+        setError(message);
+        setMessages((previous) => [
+          ...previous,
+          {
+            id: `${idSeed}-error`,
+            role: "assistant",
+            content: message,
+          },
+        ]);
+        return;
       }
 
       const payload = (await response.json()) as ConverseResponse;
@@ -110,14 +144,15 @@ export function ConciergeLayer() {
           cards,
         },
       ]);
-    } catch (fetchError) {
-      setError(fetchError instanceof Error ? fetchError.message : "Request failed");
+    } catch {
+      const message = "I could not connect just now. Please try again when you are ready.";
+      setError(message);
       setMessages((previous) => [
         ...previous,
         {
           id: `${idSeed}-error`,
           role: "assistant",
-          content: "I could not reach concierge service right now. Please try again.",
+          content: message,
         },
       ]);
     } finally {
@@ -152,7 +187,7 @@ export function ConciergeLayer() {
         ]);
       }}
       debugState={
-        process.env.NODE_ENV !== "production"
+        process.env.NODE_ENV !== "production" && debugEnabled
           ? {
               lastSeenPath: sessionState.lastSeenPath,
               visitedPathsCount: sessionState.visitedPaths.length,
