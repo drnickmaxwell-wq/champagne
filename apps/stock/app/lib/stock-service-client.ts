@@ -8,6 +8,23 @@ type ApiResult<T> = {
 
 const LOCAL_ONLY_STORAGE_KEY = "stock.localOnlyMode";
 
+
+export type ReceiptCreateInput = {
+  receiveEventId: string;
+  itemId: string;
+  locationId?: string;
+  orderRefId?: string;
+  qtyReceived: number;
+  note?: string;
+  receivedAt: string;
+  occurredAt: string;
+  correlationId: string;
+  actor: {
+    id: string;
+    type: string;
+  };
+};
+
 const resolveTenantId = () => {
   const fromEnv = process.env.NEXT_PUBLIC_TENANT_ID?.trim();
   if (fromEnv) {
@@ -116,4 +133,23 @@ export const decodeQr = async (payload: string) => {
     id?: string;
     errorCode?: string;
   };
+};
+
+
+export const createReceipt = async (input: ReceiptCreateInput) => {
+  return requestProxy("/api/stock/receipts", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(input)
+  });
+};
+
+export const fetchReceivedSinceCount = async (locationId?: string) => {
+  const search = new URLSearchParams();
+  if (locationId && locationId.trim().length > 0) {
+    search.set("locationId", locationId.trim());
+  }
+  const query = search.size > 0 ? `?${search.toString()}` : "";
+
+  return requestProxy(`/api/stock/projections/received-since-count${query}`);
 };

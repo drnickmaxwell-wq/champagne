@@ -1,5 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { decodeQr } from "../stock-service-client";
+import {
+  createReceipt,
+  decodeQr,
+  fetchReceivedSinceCount
+} from "../stock-service-client";
 
 type StorageLike = {
   getItem: (key: string) => string | null;
@@ -57,5 +61,50 @@ describe("decodeQr", () => {
 
     expect(result.ok).toBe(false);
     expect(result.errorCode).toBe("DECODE_FAILED");
+  });
+});
+
+describe("receipt helpers", () => {
+  it("posts receipt payload to proxy", async () => {
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await createReceipt({
+      receiveEventId: "01HZX02B7CZ9PV6Q3FY9Y4R5V8",
+      itemId: "item-1",
+      locationId: "loc-1",
+      qtyReceived: 4,
+      receivedAt: "2025-01-01T00:00:00.000Z",
+      occurredAt: "2025-01-01T00:00:00.000Z",
+      correlationId: "01HZX02B7CZ9PV6Q3FY9Y4R5V9",
+      actor: { id: "stock-ui", type: "system" }
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/stock/receipts",
+      expect.objectContaining({ method: "POST" })
+    );
+  });
+
+  it("reads received-since-count projection from proxy", async () => {
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify({ count: 12 }), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await fetchReceivedSinceCount("loc-1");
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/stock/projections/received-since-count?locationId=loc-1",
+      expect.objectContaining({ method: undefined })
+    );
   });
 });
