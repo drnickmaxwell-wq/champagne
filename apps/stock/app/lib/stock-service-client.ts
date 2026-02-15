@@ -25,6 +25,30 @@ export type ReceiptCreateInput = {
   };
 };
 
+export type OrderCreateInput = {
+  orderRefId: string;
+  itemId: string;
+  qtySuggested: number;
+  status?: "OPEN";
+  occurredAt: string;
+  correlationId: string;
+  actor: {
+    id: string;
+    type: string;
+  };
+};
+
+export type OrderEventAppendInput = {
+  orderEventId: string;
+  status: "SENT" | "PARTIAL" | "RECEIVED" | "CANCELLED";
+  occurredAt: string;
+  correlationId: string;
+  actor: {
+    id: string;
+    type: string;
+  };
+};
+
 const resolveTenantId = () => {
   const fromEnv = process.env.NEXT_PUBLIC_TENANT_ID?.trim();
   if (fromEnv) {
@@ -152,4 +176,29 @@ export const fetchReceivedSinceCount = async (locationId?: string) => {
   const query = search.size > 0 ? `?${search.toString()}` : "";
 
   return requestProxy(`/api/stock/projections/received-since-count${query}`);
+};
+
+
+export const fetchOpenOrders = async () => {
+  return requestProxy("/api/stock/projections/open-orders");
+};
+
+export const createOrder = async (input: OrderCreateInput) => {
+  return requestProxy("/api/stock/orders", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(input)
+  });
+};
+
+export const appendOrderEvent = async (
+  orderRefId: string,
+  input: OrderEventAppendInput
+) => {
+  const encoded = encodeURIComponent(orderRefId);
+  return requestProxy(`/api/stock/orders/${encoded}/events`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(input)
+  });
 };

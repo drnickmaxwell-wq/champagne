@@ -113,7 +113,10 @@ export const forwardStockServiceRequest = async ({
     | "/v1/events"
     | "/v1/qr/decode"
     | "/v1/receipts"
-    | "/v1/projections/received-since-count";
+    | "/v1/orders"
+    | "/v1/projections/received-since-count"
+    | "/v1/projections/open-orders"
+    | `/v1/orders/${string}/events`;
   queryString?: string;
   bodyBytes: Uint8Array;
 }) => {

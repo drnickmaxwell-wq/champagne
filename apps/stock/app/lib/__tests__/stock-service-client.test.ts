@@ -1,7 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  appendOrderEvent,
+  createOrder,
   createReceipt,
   decodeQr,
+  fetchOpenOrders,
   fetchReceivedSinceCount
 } from "../stock-service-client";
 
@@ -64,7 +67,7 @@ describe("decodeQr", () => {
   });
 });
 
-describe("receipt helpers", () => {
+describe("stock service lifecycle helpers", () => {
   it("posts receipt payload to proxy", async () => {
     const fetchMock = vi.fn(async () =>
       new Response(JSON.stringify({ ok: true }), {
@@ -105,6 +108,62 @@ describe("receipt helpers", () => {
     expect(fetchMock).toHaveBeenCalledWith(
       "/api/stock/projections/received-since-count?locationId=loc-1",
       expect.objectContaining({ method: undefined })
+    );
+  });
+
+  it("reads open orders projection from proxy", async () => {
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify([]), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await fetchOpenOrders();
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/stock/projections/open-orders",
+      expect.objectContaining({ method: undefined })
+    );
+  });
+
+  it("creates orders and appends order events through proxies", async () => {
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await createOrder({
+      orderRefId: "01HZX02B7CZ9PV6Q3FY9Y4R5VA",
+      itemId: "item-1",
+      qtySuggested: 6,
+      status: "OPEN",
+      occurredAt: "2025-01-01T00:00:00.000Z",
+      correlationId: "01HZX02B7CZ9PV6Q3FY9Y4R5VB",
+      actor: { id: "stock-ui", type: "system" }
+    });
+
+    await appendOrderEvent("order-1", {
+      orderEventId: "01HZX02B7CZ9PV6Q3FY9Y4R5VC",
+      status: "SENT",
+      occurredAt: "2025-01-01T00:00:00.000Z",
+      correlationId: "01HZX02B7CZ9PV6Q3FY9Y4R5VD",
+      actor: { id: "stock-ui", type: "system" }
+    });
+
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      1,
+      "/api/stock/orders",
+      expect.objectContaining({ method: "POST" })
+    );
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      "/api/stock/orders/order-1/events",
+      expect.objectContaining({ method: "POST" })
     );
   });
 });

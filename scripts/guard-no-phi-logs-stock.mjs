@@ -8,7 +8,10 @@ const targetEntries = [
   "apps/stock/app/api/stock/_internal/stockProxy.ts",
   "apps/stock/app/api/stock/receipts",
   "apps/stock/app/api/stock/projections/received-since-count",
-  "apps/stock/app/receive"
+  "apps/stock/app/api/stock/projections/open-orders",
+  "apps/stock/app/api/stock/orders",
+  "apps/stock/app/receive",
+  "apps/stock/app/reorder"
 ];
 
 const failures = [];
@@ -58,6 +61,17 @@ for (const relativePath of targetFiles) {
 
   if (/\bpatient[a-zA-Z0-9_]*\b/i.test(source)) {
     failures.push(`${relativePath}: contains disallowed patient field reference.`);
+  }
+
+  if (/\b(phi|dob|dateOfBirth|nhs|medicalRecord|insuranceNumber)\b/i.test(source)) {
+    failures.push(`${relativePath}: contains disallowed PHI-like keyword.`);
+  }
+
+  if (
+    /(localStorage|sessionStorage)/.test(source) &&
+    /(patient|dob|dateOfBirth|medical|insurance|nhs|phone|email)/i.test(source)
+  ) {
+    failures.push(`${relativePath}: appears to store PHI-like data in browser storage.`);
   }
 
   const lines = source.split("\n");
