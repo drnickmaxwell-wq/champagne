@@ -6,7 +6,7 @@ type ConverseRequest = {
 };
 
 function getEngineBaseUrl(): string {
-  return process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "";
+  return process.env.CHATBOT_ENGINE_URL ?? process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "";
 }
 
 function resolveDebugHeader(request: Request): Record<string, string> {

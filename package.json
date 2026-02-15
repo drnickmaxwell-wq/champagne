@@ -11,6 +11,7 @@
     "dev:engine": "pnpm --filter engine dev",
     "dev:all": "pnpm run dev:web",
     "lint": "pnpm -r lint",
+    "build": "pnpm run build:web",
     "typecheck": "pnpm exec tsc --noEmit -p tsconfig.base.json",
     "build:web": "pnpm --filter web build",
     "guard:hero": "pnpm --filter @champagne/guards guard:hero",
@@ -26,7 +27,8 @@
     "export:page-truth": "node scripts/export-page-truth.mjs",
     "guard:stock-canon": "node scripts/guard-stock-canon.mjs",
     "guard:no-phi-logs-stock": "node scripts/guard-no-phi-logs-stock.mjs",
-    "guard:stock-proxy-no-phi": "node scripts/guard-stock-proxy-no-phi.mjs"
+    "guard:stock-proxy-no-phi": "node scripts/guard-stock-proxy-no-phi.mjs",
+    "guard:concierge-contract": "node scripts/guard-concierge-engine-contract.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
