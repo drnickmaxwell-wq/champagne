@@ -7,7 +7,7 @@ import type { IntentStage } from "./_helpers/sessionMemory";
 
 type ConciergeAction =
   | { type: "link"; label: string; href: string }
-  | { type: "postback"; label: string; payload: string };
+  | { type: "postback"; label: string; payload: string | Record<string, unknown> };
 
 type ConciergeCard = {
   id: string;
@@ -218,7 +218,13 @@ export function ConciergeShell({
                                     key={`${card.id}-${action.label}`}
                                     type="button"
                                     className={styles.actionButton}
-                                    onClick={() => onPostback(action.payload)}
+                                    onClick={() =>
+                                      onPostback(
+                                        typeof action.payload === "string"
+                                          ? action.payload
+                                          : JSON.stringify(action.payload),
+                                      )
+                                    }
                                   >
                                     {action.label}
                                   </button>

@@ -17,7 +17,8 @@ import {
 type ConverseCard = {
   title?: string;
   description?: string;
-  actions?: Array<{ type?: string; label?: string; href?: string; payload?: string }>;
+  body?: string;
+  actions?: Array<{ type?: string; label?: string; href?: string; payload?: unknown }>;
 };
 
 type ConverseResponse = {
@@ -130,20 +131,30 @@ export function ConciergeLayer() {
         ? payload.ui.cards.map((card, cardIndex) => ({
             id: `${idSeed}-card-${cardIndex}`,
             title: card.title,
-            description: card.description,
+            description: card.description ?? card.body ?? "",
             actions: card.actions
               ?.map((action) => {
                 if (action.type === "link" && action.href && action.label) {
                   return { type: "link" as const, href: action.href, label: action.label };
                 }
 
-                if (action.type === "postback" && action.payload && action.label) {
+                if (
+                  action.type === "postback" &&
+                  (typeof action.payload === "string" || (action.payload && typeof action.payload === "object")) &&
+                  action.label
+                ) {
                   return { type: "postback" as const, payload: action.payload, label: action.label };
                 }
 
                 return null;
               })
-              .filter((action): action is { type: "link"; href: string; label: string } | { type: "postback"; payload: string; label: string } => Boolean(action)),
+              .filter(
+                (
+                  action,
+                ): action is
+                  | { type: "link"; href: string; label: string }
+                  | { type: "postback"; payload: string | Record<string, unknown>; label: string } => Boolean(action),
+              ),
           }))
         : undefined;
 
@@ -173,7 +184,31 @@ export function ConciergeLayer() {
   };
 
   const handlePostback = (payload: string) => {
-    const handoffKind = resolveHandoffKind(payload);
+    let normalizedPayload = payload;
+
+    try {
+      const parsed = JSON.parse(payload) as unknown;
+      if (
+        parsed &&
+        typeof parsed === "object" &&
+        "kind" in parsed &&
+        "form" in parsed &&
+        parsed.kind === "handoff" &&
+        (parsed.form === "booking" || parsed.form === "emergency-callback" || parsed.form === "new-patient")
+      ) {
+        const normalizedForm =
+          parsed.form === "emergency-callback"
+            ? "emergency_callback"
+            : parsed.form === "new-patient"
+              ? "new_patient"
+              : "booking";
+        normalizedPayload = JSON.stringify({ kind: "handoff", form: normalizedForm });
+      }
+    } catch {
+      normalizedPayload = payload;
+    }
+
+    const handoffKind = resolveHandoffKind(normalizedPayload);
     if (handoffKind) {
       setActiveHandoff(handoffKind);
       return;
