@@ -131,7 +131,7 @@
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 1rem 1.2rem;
+  padding: 1.25rem 1.25rem 2.25rem;
   display: grid;
   gap: 1rem;
 }
@@ -146,13 +146,15 @@
   color: var(--text-low);
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
 }
 
 .content {
   margin: 0;
   color: var(--text-high);
-  line-height: 1.6;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  max-width: 46ch;
   white-space: pre-wrap;
 }
 
@@ -160,11 +162,11 @@
   display: block;
   color: var(--text-high);
   font-weight: 560;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 .restSentence {
-  color: inherit;
+  color: var(--text-medium);
   font-weight: 400;
 }
 
