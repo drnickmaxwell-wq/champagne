@@ -18,7 +18,7 @@
   z-index: 58;
   pointer-events: none;
   opacity: 0;
-  background: var(--surface-glass);
+  background: color-mix(in srgb, var(--surface-ink) 8%, transparent);
   backdrop-filter: blur(0) saturate(100%);
   -webkit-backdrop-filter: blur(0) saturate(100%);
   transition:
@@ -28,9 +28,9 @@
 }
 
 .consultationLayerOpen {
-  opacity: 0.45;
-  backdrop-filter: blur(4px) saturate(95%);
-  -webkit-backdrop-filter: blur(4px) saturate(95%);
+  opacity: 1;
+  backdrop-filter: blur(3px) saturate(96%);
+  -webkit-backdrop-filter: blur(3px) saturate(96%);
   transition-duration: 420ms;
 }
 
@@ -76,11 +76,20 @@
   max-width: min(100vw, 680px);
   height: 100dvh;
   max-height: 100dvh;
-  background: var(--surface-glass);
-  border-inline-start: 1px solid var(--champagne-keyline-gold);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: var(--shadow-soft);
+  background:
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface-2) 18%, transparent) 0%,
+      color-mix(in srgb, var(--surface-1) 15%, transparent) 58%,
+      color-mix(in srgb, var(--surface-glass) 12%, transparent) 100%
+    ),
+    var(--surface-glass);
+  border-inline-start: 1px solid color-mix(in srgb, var(--champagne-keyline-gold) 12%, var(--border-subtle));
+  backdrop-filter: blur(14px) saturate(110%);
+  -webkit-backdrop-filter: blur(14px) saturate(110%);
+  box-shadow:
+    0 22px 44px color-mix(in srgb, var(--surface-ink) 18%, transparent),
+    0 6px 14px color-mix(in srgb, var(--surface-ink) 10%, transparent);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -107,7 +116,7 @@
 
 .panelClosing {
   opacity: 0;
-  transform: translateX(12px) scale(0.985);
+  transform: translateX(8px) scale(0.995);
   transition-duration: 320ms;
 }
 
@@ -130,11 +139,12 @@
 @keyframes panelEmergence {
   0% {
     opacity: 0;
-    transform: translateX(12px) scale(0.985);
+    transform: translateX(8px) scale(1.015);
   }
 
-  35% {
-    opacity: 0.8;
+  40% {
+    opacity: 0.88;
+    transform: translateX(2px) scale(1.006);
   }
 
   100% {
