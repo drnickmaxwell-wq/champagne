@@ -93,8 +93,21 @@
   max-width: min(100vw, 680px);
   height: 100dvh;
   max-height: 100dvh;
-  background: var(--concierge-panel-bg);
-  border-inline-start: 1px solid var(--concierge-border);
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--ink) 82%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 76%, transparent) 40%,
+      color-mix(in srgb, var(--ink) 74%, transparent) 100%
+    ),
+    linear-gradient(
+      to left,
+      color-mix(in srgb, var(--champagne-keyline-gold) 8%, transparent) 0%,
+      transparent 22%
+    ),
+    color-mix(in srgb, var(--ink) 76%, transparent);
+  border-inline-start: 1px solid
+    color-mix(in srgb, var(--border-subtle) 60%, var(--champagne-keyline-gold) 40%);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: var(--shadow-soft);
