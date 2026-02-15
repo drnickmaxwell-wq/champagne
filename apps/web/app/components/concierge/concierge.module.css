@@ -172,6 +172,49 @@
   opacity: 0.62;
 }
 
+
+.modeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  width: fit-content;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--surface-1);
+  padding: 0.2rem;
+}
+
+.modeOption {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-medium);
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.modeOption[data-active="true"] {
+  background: var(--surface-2);
+  color: var(--text-high);
+}
+
+.modeOption:hover {
+  color: var(--text-high);
+}
+
+.modeOption:focus-visible {
+  outline: 1px solid var(--champagne-keyline-gold);
+  outline-offset: 1px;
+}
+
+.modeOption:active {
+  color: var(--text-high);
+}
+
 .message {
   display: grid;
   gap: 0.35rem;
@@ -190,6 +233,27 @@
   color: var(--text-high);
   line-height: 1.6;
   white-space: pre-wrap;
+}
+
+
+.simpleParagraph {
+  display: block;
+}
+
+.simpleParagraph + .simpleParagraph {
+  margin-top: 0.5rem;
+}
+
+.bulletList {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.bulletItem {
+  color: inherit;
+  line-height: inherit;
 }
 
 .leadSentence {
