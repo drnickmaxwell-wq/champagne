@@ -6,6 +6,17 @@ import { getPageManifest } from "@champagne/manifests";
 import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
 import { ConciergeMotion, type ConciergePanelState } from "./ConciergeMotion";
 import { ConsultationModeLayer } from "./ConsultationModeLayer";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import { getPageManifest } from "@champagne/manifests";
+import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
+import {
+  classifyIntentStage,
+  getSessionState,
+  setIntentStage,
+  setSessionSummary,
+  updateVisitedPath,
+} from "./_helpers/sessionMemory";
 
 type ConverseCard = {
   title?: string;
@@ -20,8 +31,6 @@ type ConverseResponse = {
     cards?: ConverseCard[];
   };
 };
-
-const ENGINE_BASE_URL = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "";
 
 function resolveConciergeEnabled(pathname: string): boolean {
   const manifest = getPageManifest(pathname) as { conciergeEnabled?: boolean } | undefined;
@@ -42,6 +51,7 @@ export function ConciergeLayer() {
       content: "Welcome. Ask anything about this page and I will keep guidance focused.",
     },
   ]);
+  const [sessionState, setSessionState] = useState(() => getSessionState());
 
   const conciergeEnabled = useMemo(() => resolveConciergeEnabled(pathname), [pathname]);
   const isPanelVisible = panelState !== "closed";
@@ -75,6 +85,10 @@ export function ConciergeLayer() {
     queueStateTransition("closing", 320, "closed");
   };
 
+  useEffect(() => {
+    setSessionState(updateVisitedPath(pathname));
+  }, [pathname]);
+
   const sendMessage = async (rawInput: string) => {
     const text = rawInput.trim();
     if (!text || isLoading) return;
@@ -84,18 +98,18 @@ export function ConciergeLayer() {
     setError(null);
     setMessages((previous) => [...previous, { id: `${idSeed}-user`, role: "user", content: text }]);
 
-    if (!ENGINE_BASE_URL) {
-      setError("Concierge engine is unavailable right now.");
-      return;
-    }
+    const intentStage = classifyIntentStage(text);
+    setIntentStage(intentStage);
+    setSessionSummary(text);
+    setSessionState(getSessionState());
 
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${ENGINE_BASE_URL}/v1/converse`, {
+      const response = await fetch("/api/converse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, pageContext: pathname }),
+        body: JSON.stringify({ text, pageContext: { pathname: window.location.pathname } }),
       });
 
       if (!response.ok) {
@@ -186,5 +200,36 @@ export function ConciergeLayer() {
         )}
       </ConciergeMotion>
     </>
+    <ConciergeShell
+      isOpen={isOpen}
+      isLoading={isLoading}
+      errorMessage={error}
+      inputValue={input}
+      messages={messages}
+      onInputChange={(value) => setInput(value.slice(0, 1200))}
+      onSubmit={() => {
+        void sendMessage(input);
+      }}
+      onToggle={() => setIsOpen((previous) => !previous)}
+      onPostback={(payload) => {
+        setMessages((previous) => [
+          ...previous,
+          {
+            id: `${Date.now()}-postback`,
+            role: "assistant",
+            content: `Postback received (${payload}). Phase 1 handoff placeholder acknowledged.`,
+          },
+        ]);
+      }}
+      debugState={
+        process.env.NODE_ENV !== "production"
+          ? {
+              lastSeenPath: sessionState.lastSeenPath,
+              visitedPathsCount: sessionState.visitedPaths.length,
+              intentStage: sessionState.intentStage,
+            }
+          : undefined
+      }
+    />
   );
 }

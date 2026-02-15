@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { FormEvent } from "react";
 import styles from "./concierge.module.css";
+import type { IntentStage } from "./_helpers/sessionMemory";
 
 type ConciergeAction =
   | { type: "link"; label: string; href: string }
@@ -36,6 +37,11 @@ type ConciergeShellProps = {
   onSubmit: () => void;
   onToggle: () => void;
   onPostback: (payload: string) => void;
+  debugState?: {
+    lastSeenPath: string;
+    visitedPathsCount: number;
+    intentStage: IntentStage;
+  };
 };
 
 export function ConciergeShell({
@@ -52,6 +58,7 @@ export function ConciergeShell({
   onSubmit,
   onToggle,
   onPostback,
+  debugState,
 }: ConciergeShellProps) {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -135,6 +142,13 @@ export function ConciergeShell({
 
             {isLoading ? <p className={styles.meta}>Thinking…</p> : null}
             {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
+            {debugState ? (
+              <div>
+                <p className={styles.meta}>Debug · lastSeenPath: {debugState.lastSeenPath}</p>
+                <p className={styles.meta}>Debug · visitedPaths: {debugState.visitedPathsCount}</p>
+                <p className={styles.meta}>Debug · intentStage: {debugState.intentStage}</p>
+              </div>
+            ) : null}
           </div>
 
           <form className={styles.composer} onSubmit={handleSubmit}>
