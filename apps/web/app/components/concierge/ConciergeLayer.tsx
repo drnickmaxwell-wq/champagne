@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getPageManifest } from "@champagne/manifests";
 import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
+import { HandoffModal } from "./_handoff/HandoffModal";
+import { resolveHandoffKind, type HandoffKind } from "./_handoff/postbackRouter";
 import {
   classifyIntentStage,
   getSessionState,
@@ -65,6 +67,7 @@ export function ConciergeLayer() {
   ]);
   const [sessionState, setSessionState] = useState(() => getSessionState());
   const [conversationId, setConversationIdState] = useState<string | null>(() => getSessionState().conversationId);
+  const [activeHandoff, setActiveHandoff] = useState<HandoffKind | null>(null);
 
   const conciergeEnabled = useMemo(() => resolveConciergeEnabled(pathname), [pathname]);
 
@@ -169,41 +172,45 @@ export function ConciergeLayer() {
     }
   };
 
+  const handlePostback = (payload: string) => {
+    const handoffKind = resolveHandoffKind(payload);
+    if (handoffKind) {
+      setActiveHandoff(handoffKind);
+      return;
+    }
+
+    void sendMessage(payload);
+  };
+
   return (
-    <ConciergeShell
-      isEnabled={conciergeEnabled}
-      isOpen={isOpen}
-      isLoading={isLoading}
-      errorMessage={error}
-      inputValue={input}
-      messages={messages}
-      onInputChange={(value) => setInput(value.slice(0, 1200))}
-      onSubmit={() => {
-        void sendMessage(input);
-      }}
-      onToggle={() => setIsOpen((previous) => !previous)}
-      onClose={closePanel}
-      onPostback={(payload) => {
-        setMessages((previous) => [
-          ...previous,
-          {
-            id: `${Date.now()}-postback`,
-            role: "assistant",
-            content: `Postback received (${payload}). Phase 1 handoff placeholder acknowledged.`,
-          },
-        ]);
-      }}
-      debugState={
-        process.env.NODE_ENV !== "production" && debugEnabled
-          ? {
-              lastSeenPath: sessionState.lastSeenPath,
-              visitedPathsCount: sessionState.visitedPaths.length,
-              intentStage: sessionState.intentStage,
-              topicHints: sessionState.topicHints,
-              conversationId,
-            }
-          : undefined
-      }
-    />
+    <>
+      <ConciergeShell
+        isEnabled={conciergeEnabled}
+        isOpen={isOpen}
+        isLoading={isLoading}
+        errorMessage={error}
+        inputValue={input}
+        messages={messages}
+        onInputChange={(value) => setInput(value.slice(0, 1200))}
+        onSubmit={() => {
+          void sendMessage(input);
+        }}
+        onToggle={() => setIsOpen((previous) => !previous)}
+        onClose={closePanel}
+        onPostback={handlePostback}
+        debugState={
+          process.env.NODE_ENV !== "production" && debugEnabled
+            ? {
+                lastSeenPath: sessionState.lastSeenPath,
+                visitedPathsCount: sessionState.visitedPaths.length,
+                intentStage: sessionState.intentStage,
+                topicHints: sessionState.topicHints,
+                conversationId,
+              }
+            : undefined
+        }
+      />
+      {activeHandoff ? <HandoffModal kind={activeHandoff} onClose={() => setActiveHandoff(null)} /> : null}
+    </>
   );
 }
