@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import "./globals.css";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
+import { ConciergeLayer } from "./components/concierge/ConciergeLayer";
 import { HeroMount } from "./_components/HeroMount";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { getPageManifest } from "@champagne/manifests";
@@ -20,6 +21,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const isHeroEnabled = isBrandHeroEnabled();
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
+  const conciergeEnabled = (manifest as { conciergeEnabled?: boolean } | undefined)?.conciergeEnabled ?? true;
 
   let pageCategory: string | undefined;
   let mode: HeroMode | undefined;
@@ -70,6 +72,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </main>
           <Footer />
         </div>
+        <ConciergeLayer enabled={conciergeEnabled} />
       </body>
     </html>
   );
