@@ -192,6 +192,9 @@
   border: 1px solid var(--border-subtle);
   background: var(--surface-1);
   color: var(--text-high);
+  -webkit-text-fill-color: var(--text-high);
+  caret-color: var(--text-high);
+  opacity: 1;
   border-radius: var(--radius-sm);
   min-height: 2.5rem;
   max-height: 6.5rem;
@@ -199,6 +202,12 @@
   padding: 0.6rem 0.7rem;
   font: inherit;
   line-height: 1.5;
+}
+
+.textarea::placeholder {
+  color: var(--text-low);
+  -webkit-text-fill-color: var(--text-low);
+  opacity: 1;
 }
 
 .sendButton {
