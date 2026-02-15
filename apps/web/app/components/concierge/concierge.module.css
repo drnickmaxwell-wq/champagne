@@ -1,5 +1,9 @@
 .root {
   --concierge-keyline: var(--champagne-keyline-gold);
+  --concierge-panel-bg: color-mix(in srgb, var(--ink) 78%, transparent);
+  --concierge-composer-bg: color-mix(in srgb, var(--ink) 76%, transparent);
+  --concierge-launcher-bg: color-mix(in srgb, var(--ink) 68%, transparent);
+  --concierge-border: color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
   position: fixed;
   inset-inline-end: 0;
   top: 0;
@@ -23,8 +27,8 @@
   justify-content: center;
   min-width: 8.5rem;
   border: 1px solid var(--border);
-  border-color: color-mix(in srgb, var(--border) 70%, var(--concierge-keyline) 30%);
-  background-color: color-mix(in srgb, var(--ink) 76%, transparent);
+  border-color: var(--concierge-border);
+  background-color: var(--concierge-launcher-bg);
   color: var(--text-high);
   border-radius: var(--radius-md);
   padding: 0.56rem 0.9rem;
@@ -48,8 +52,8 @@
 
 .launcher:hover,
 .launcher:focus-visible {
-  border-color: color-mix(in srgb, var(--border) 56%, var(--concierge-keyline) 44%);
-  background-color: color-mix(in srgb, var(--ink) 82%, transparent);
+  border-color: color-mix(in srgb, var(--concierge-border) 68%, var(--concierge-keyline) 32%);
+  background-color: color-mix(in srgb, var(--concierge-launcher-bg) 82%, var(--ink) 18%);
   color: var(--text-high);
   outline: none;
 }
@@ -89,8 +93,8 @@
   max-width: min(100vw, 680px);
   height: 100dvh;
   max-height: 100dvh;
-  background: color-mix(in srgb, var(--ink) 76%, transparent);
-  border-inline-start: 1px solid color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
+  background: var(--concierge-panel-bg);
+  border-inline-start: 1px solid var(--concierge-border);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: var(--shadow-soft);
@@ -229,8 +233,8 @@
 
 .composer {
   flex: 0 0 auto;
-  background: color-mix(in srgb, var(--ink) 76%, transparent);
-  border-top: 1px solid color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
+  background: var(--concierge-composer-bg);
+  border-top: 1px solid var(--concierge-border);
   padding: 1rem 1.25rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -266,7 +270,7 @@
 }
 
 .sendButton {
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
+  border: 1px solid var(--concierge-border);
   background: color-mix(in srgb, var(--ink) 80%, transparent);
   color: var(--text-high);
   border-radius: var(--radius-sm);
