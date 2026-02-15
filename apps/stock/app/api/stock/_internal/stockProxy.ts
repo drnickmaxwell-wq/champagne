@@ -109,7 +109,11 @@ export const forwardStockServiceRequest = async ({
 }: {
   request: Request;
   method: "GET" | "POST";
-  path: "/v1/events" | "/v1/qr/decode";
+  path:
+    | "/v1/events"
+    | "/v1/qr/decode"
+    | "/v1/receipts"
+    | "/v1/projections/received-since-count";
   queryString?: string;
   bodyBytes: Uint8Array;
 }) => {

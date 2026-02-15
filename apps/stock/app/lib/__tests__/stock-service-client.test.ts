@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { decodeQr } from "../stock-service-client";
+import { createReceipt, decodeQr, fetchReceivedSinceCount } from "../stock-service-client";
 
 type StorageLike = {
   getItem: (key: string) => string | null;
@@ -27,6 +27,63 @@ beforeEach(() => {
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
+});
+
+
+
+describe("receipt helpers", () => {
+  it("posts createReceipt payload to proxy", async () => {
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify({ ok: true }), {
+        status: 201,
+        headers: { "content-type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await createReceipt({
+      receiveEventId: "01TEST",
+      itemId: "item-1",
+      qtyReceived: 2,
+      receivedAt: "2026-01-01T00:00:00.000Z",
+      correlationId: "01CORR",
+      occurredAt: "2026-01-01T00:00:00.000Z",
+      actor: {
+        actorId: "stock-ui",
+        actorType: "USER"
+      }
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/stock/receipts",
+      expect.objectContaining({
+        method: "POST",
+        headers: expect.objectContaining({
+          "content-type": "application/json",
+          "x-tenant-id": "tenant-test"
+        })
+      })
+    );
+  });
+
+  it("adds location query when fetching projection", async () => {
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify({ count: 4 }), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await fetchReceivedSinceCount("loc-1");
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/stock/projections/received-since-count?locationId=loc-1",
+      expect.objectContaining({
+        headers: expect.objectContaining({ "x-tenant-id": "tenant-test" })
+      })
+    );
+  });
 });
 
 describe("decodeQr", () => {

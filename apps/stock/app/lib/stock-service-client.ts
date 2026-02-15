@@ -117,3 +117,38 @@ export const decodeQr = async (payload: string) => {
     errorCode?: string;
   };
 };
+
+
+export type CreateReceiptInput = {
+  receiveEventId: string;
+  itemId: string;
+  locationId?: string;
+  orderRefId?: string;
+  qtyReceived: number;
+  note?: string;
+  receivedAt: string;
+  correlationId: string;
+  occurredAt: string;
+  actor: {
+    actorId: string;
+    actorType: string;
+  };
+};
+
+export const createReceipt = async (input: CreateReceiptInput) => {
+  return requestProxy("/api/stock/receipts", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(input)
+  });
+};
+
+export const fetchReceivedSinceCount = async (locationId?: string) => {
+  const query = new URLSearchParams();
+  if (locationId?.trim()) {
+    query.set("locationId", locationId.trim());
+  }
+  const search = query.size > 0 ? `?${query.toString()}` : "";
+
+  return requestProxy(`/api/stock/projections/received-since-count${search}`);
+};
