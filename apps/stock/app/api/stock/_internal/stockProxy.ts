@@ -109,7 +109,7 @@ export const forwardStockServiceRequest = async ({
 }: {
   request: Request;
   method: "GET" | "POST";
-  path: "/v1/events";
+  path: "/v1/events" | "/v1/qr/decode";
   queryString?: string;
   bodyBytes: Uint8Array;
 }) => {

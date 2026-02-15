@@ -26,7 +26,8 @@
     "verify": "node scripts/verify-token-purity.cjs && pnpm run guard:workspace-deps && pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web",
     "export:page-truth": "node scripts/export-page-truth.mjs",
     "guard:stock-canon": "node scripts/guard-stock-canon.mjs",
-    "guard:no-phi-logs-stock": "node scripts/guard-no-phi-logs-stock.mjs"
+    "guard:no-phi-logs-stock": "node scripts/guard-no-phi-logs-stock.mjs",
+    "guard:stock-proxy-no-phi": "node scripts/guard-stock-proxy-no-phi.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
