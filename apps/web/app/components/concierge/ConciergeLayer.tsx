@@ -26,8 +26,6 @@ type ConverseResponse = {
   };
 };
 
-const ENGINE_BASE_URL = process.env.NEXT_PUBLIC_CHATBOT_ENGINE_URL ?? "";
-
 function resolveConciergeEnabled(pathname: string): boolean {
   const manifest = getPageManifest(pathname) as { conciergeEnabled?: boolean } | undefined;
   return manifest?.conciergeEnabled ?? true;
@@ -68,15 +66,10 @@ export function ConciergeLayer() {
     setSessionSummary(text);
     setSessionState(getSessionState());
 
-    if (!ENGINE_BASE_URL) {
-      setError("Concierge engine is unavailable right now.");
-      return;
-    }
-
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${ENGINE_BASE_URL}/v1/converse`, {
+      const response = await fetch("/api/converse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, pageContext: { pathname: window.location.pathname } }),
