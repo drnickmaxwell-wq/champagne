@@ -1,0 +1,84 @@
+{
+  "document": "CHAT_UI_PARITY_REAUDIT_REPORT_V1",
+  "status": "MIGRATE_REQUIRED",
+  "findings": [
+    {
+      "id": "Q1",
+      "answer": "YES",
+      "details": [
+        {
+          "filePath": "apps/web/app/components/concierge/ConciergeLayer.tsx",
+          "lineStart": 177,
+          "lineEnd": 185,
+          "summary": "Web concierge postback handler is still a placeholder acknowledgement and does not execute handoff flows."
+        },
+        {
+          "filePath": "apps/chat-ui/components/luxury-chatbot.tsx",
+          "lineStart": 808,
+          "lineEnd": 819,
+          "summary": "chat-ui has concrete postback routing that opens booking, emergency callback, and new-patient modals."
+        },
+        {
+          "filePath": "apps/chat-ui/components/booking-request-modal.tsx",
+          "lineStart": 71,
+          "lineEnd": 86,
+          "summary": "chat-ui booking modal submits to /api/handoff/booking, indicating production handoff form logic remains in chat-ui."
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "answer": "NO",
+      "details": [
+        {
+          "filePath": "apps/web/app/components/concierge/ConciergeLayer.tsx",
+          "lineStart": 115,
+          "lineEnd": 132,
+          "summary": "cards ui.kind payloads are parsed and postback actions are recognized."
+        },
+        {
+          "filePath": "apps/web/app/components/concierge/ConciergeLayer.tsx",
+          "lineStart": 177,
+          "lineEnd": 185,
+          "summary": "onPostback only appends a placeholder message and does not call /api/handoff/booking, /api/handoff/emergency-callback, or /api/handoff/new-patient."
+        },
+        {
+          "filePath": "apps/web/app/api/handoff/booking/route.ts",
+          "lineStart": 18,
+          "lineEnd": 25,
+          "summary": "New booking handoff endpoint exists in web app, but concierge postback handler does not call it."
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "answer": "NO",
+      "details": [
+        {
+          "filePath": "package.json",
+          "lineStart": 10,
+          "lineEnd": 17,
+          "summary": "Root scripts include dev:chat-ui for development while production build path is build:web."
+        },
+        {
+          "filePath": "apps/web/package.json",
+          "lineStart": 10,
+          "lineEnd": 19,
+          "summary": "web app dependencies do not include chat-ui; no runtime import dependency is declared."
+        },
+        {
+          "filePath": "scripts/guard-workspace-deps.mjs",
+          "lineStart": 28,
+          "lineEnd": 34,
+          "summary": "chat-ui appears only in dependency-guard legacy allowlist metadata, not as a production runtime route/import binding."
+        }
+      ]
+    }
+  ],
+  "recommendation": {
+    "delete_apps_chat_ui": false,
+    "migrations_required": [
+      "Wire apps/web concierge onPostback handling to call /api/handoff/booking, /api/handoff/emergency-callback, and /api/handoff/new-patient (or equivalent forms/actions) before deleting apps/chat-ui."
+    ]
+  }
+}
