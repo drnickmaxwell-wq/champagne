@@ -1,9 +1,10 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   classifyIntentStage,
   CONCIERGE_SESSION_STORAGE_KEY,
+  deriveTopicHintsFromPathname,
   getSessionState,
-  sanitizeSessionSummary,
+  setIntentStage,
   updateVisitedPath,
 } from "./sessionMemory";
 
@@ -36,29 +37,11 @@ class MemoryStorage implements Storage {
 }
 
 beforeEach(() => {
+  vi.useRealTimers();
   Object.defineProperty(globalThis, "window", {
     value: { sessionStorage: new MemoryStorage() },
     writable: true,
     configurable: true,
-  });
-});
-
-describe("sanitizeSessionSummary", () => {
-  it("redacts email, phone, and dob patterns", () => {
-    const input = "Contact me at hello@example.com or +1 (415) 555-1212, DOB 08/12/1990";
-    const sanitized = sanitizeSessionSummary(input);
-
-    expect(sanitized).not.toContain("hello@example.com");
-    expect(sanitized).not.toContain("415");
-    expect(sanitized).not.toContain("08/12/1990");
-    expect(sanitized).toContain("[redacted-email]");
-    expect(sanitized).toContain("[redacted-phone]");
-    expect(sanitized).toContain("[redacted-dob]");
-  });
-
-  it("blocks summaries longer than 240 characters", () => {
-    const longSummary = "a".repeat(241);
-    expect(sanitizeSessionSummary(longSummary)).toBe("");
   });
 });
 
@@ -81,7 +64,23 @@ describe("classifyIntentStage", () => {
   });
 });
 
-describe("updateVisitedPath", () => {
+describe("deriveTopicHintsFromPathname", () => {
+  it("derives deterministic hints only from pathname tokens", () => {
+    const hints = deriveTopicHintsFromPathname("/treatments/laser-skin-tightening");
+
+    expect(hints).toEqual(["treatments", "laser", "skin", "tightening"]);
+  });
+
+  it("caps and filters unsafe tokens", () => {
+    const hints = deriveTopicHintsFromPathname("/a/a1/aa-bb-cc-dd-ee-ff-gg-hh-ii-jj-kk-123");
+
+    expect(hints).toHaveLength(10);
+    expect(hints.every((token) => /^[a-z0-9]+$/.test(token))).toBe(true);
+    expect(hints).not.toContain("a");
+  });
+});
+
+describe("session storage state", () => {
   it("dedupes revisits and caps path history at 25", () => {
     for (let index = 0; index < 30; index += 1) {
       updateVisitedPath(`/page-${index}`);
@@ -94,6 +93,46 @@ describe("updateVisitedPath", () => {
     expect(state.visitedPaths.at(-1)).toBe("/page-28");
     expect(state.visitedPaths.filter((path) => path === "/page-28")).toHaveLength(1);
     expect(state.lastSeenPath).toBe("/page-28");
+  });
+
+  it("maintains capped pageSignals keyed by sanitized pathname", () => {
+    vi.useFakeTimers();
+
+    for (let index = 0; index < 30; index += 1) {
+      vi.setSystemTime(new Date(2026, 0, 1, 0, 0, index));
+      updateVisitedPath(`/path-${index}`);
+    }
+
+    vi.setSystemTime(new Date(2026, 0, 1, 0, 1, 0));
+    updateVisitedPath("path-29");
+
+    const state = getSessionState();
+
+    expect(Object.keys(state.pageSignals)).toHaveLength(25);
+    expect(state.pageSignals["/path-29"]?.visits).toBe(2);
+    expect(state.pageSignals["/path-29"]?.lastVisitedAt).toBe(Date.now());
+    expect(state.pageSignals["/path-0"]).toBeUndefined();
+  });
+
+  it("stores only safe page-derived memory fields, never user message text", () => {
+    const userMessage = "This is urgent, my email is private@example.com and phone 415-555-0000";
+
+    updateVisitedPath("/concierge/laser-treatment");
+    setIntentStage(classifyIntentStage(userMessage));
+
+    const rawState = window.sessionStorage.getItem(CONCIERGE_SESSION_STORAGE_KEY);
+    expect(rawState).not.toBeNull();
+    expect(rawState).not.toContain(userMessage);
+    expect(rawState).not.toContain("private@example.com");
+
+    const parsed = JSON.parse(rawState ?? "{}");
+    expect(parsed).toMatchObject({
+      lastSeenPath: "/concierge/laser-treatment",
+      intentStage: "URGENT",
+    });
+    expect(parsed.topicHints).toEqual(["concierge", "laser", "treatment"]);
+    expect(Object.keys(parsed.pageSignals)).toEqual(["/concierge/laser-treatment"]);
+    expect(parsed.sessionSummary).toBeUndefined();
   });
 
   it("stores state under concierge session key", () => {

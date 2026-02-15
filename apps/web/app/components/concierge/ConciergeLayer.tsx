@@ -8,7 +8,6 @@ import {
   classifyIntentStage,
   getSessionState,
   setIntentStage,
-  setSessionSummary,
   updateVisitedPath,
 } from "./_helpers/sessionMemory";
 
@@ -87,7 +86,6 @@ export function ConciergeLayer() {
 
     const intentStage = classifyIntentStage(text);
     setIntentStage(intentStage);
-    setSessionSummary(text);
     setSessionState(getSessionState());
 
     setIsLoading(true);
@@ -192,6 +190,7 @@ export function ConciergeLayer() {
               lastSeenPath: sessionState.lastSeenPath,
               visitedPathsCount: sessionState.visitedPaths.length,
               intentStage: sessionState.intentStage,
+              topicHints: sessionState.topicHints,
             }
           : undefined
       }
