@@ -102,6 +102,31 @@
   animation: conciergePanelIn 320ms cubic-bezier(0.2, 0.74, 0.24, 1) both;
 }
 
+/* DEBUG ONLY - REMOVE */
+.root[data-concierge-debug="1"] .panel {
+  outline: 2px solid magenta;
+  outline-offset: -2px;
+  background: rgba(255, 0, 0, 0.12);
+}
+
+/* DEBUG ONLY - REMOVE */
+.root[data-concierge-debug="1"] .overlay {
+  outline: 2px solid cyan;
+  outline-offset: -2px;
+}
+
+/* DEBUG ONLY - REMOVE */
+.root[data-concierge-debug="1"] .messages {
+  outline: 2px solid lime;
+  outline-offset: -2px;
+}
+
+/* DEBUG ONLY - REMOVE */
+.root[data-concierge-debug="1"] .composer {
+  outline: 2px solid yellow;
+  outline-offset: -2px;
+}
+
 .header {
   display: flex;
   align-items: center;
