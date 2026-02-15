@@ -26,7 +26,6 @@ if (enforceEslint) {
 }
 
 const legacyAllowlist = new Map([
-  ["apps/chat-ui/package.json", new Set(["typescript"])],
   ["apps/engine/package.json", new Set(["typescript", "ts-node"])],
   ["apps/ops-api/package.json", new Set(["typescript", "@types/node"])],
   ["apps/stock/package.json", new Set(["typescript", "@types/node", "eslint"])],
