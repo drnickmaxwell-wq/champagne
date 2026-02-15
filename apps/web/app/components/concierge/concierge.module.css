@@ -1,0 +1,217 @@
+.root {
+  position: fixed;
+  inset-inline-end: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.launcher {
+  pointer-events: auto;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  border: 1px solid var(--border-subtle);
+  border-inline-end: 0;
+  background: var(--surface-glass);
+  color: var(--text-medium);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  padding: 0.75rem 0.4rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  min-height: 7.5rem;
+}
+
+.launcher:hover,
+.launcher:focus-visible {
+  border-color: var(--champagne-keyline-gold);
+  color: var(--text-high);
+  outline: none;
+}
+
+.launcherText {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.panel {
+  pointer-events: auto;
+  position: fixed;
+  inset-inline-end: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: clamp(420px, 40vw, 680px);
+  max-width: min(100vw, 680px);
+  height: 100dvh;
+  max-height: 100dvh;
+  background: var(--surface-glass);
+  border-inline-start: 1px solid var(--champagne-keyline-gold);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-high);
+}
+
+.closeButton {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  color: var(--text-medium);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1rem 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.message {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.role {
+  margin: 0;
+  color: var(--text-low);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.content {
+  margin: 0;
+  color: var(--text-high);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.cardList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.cardTitle,
+.cardDescription {
+  margin: 0;
+}
+
+.cardTitle {
+  color: var(--text-high);
+  font-weight: 600;
+}
+
+.cardDescription {
+  color: var(--text-medium);
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.actionButton {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-2);
+  color: var(--text-high);
+  border-radius: var(--radius-sm);
+  padding: 0.36rem 0.6rem;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.composer {
+  flex: 0 0 auto;
+  position: sticky;
+  bottom: 0;
+  background: var(--surface-glass);
+  border-top: 1px solid var(--border-subtle);
+  padding: 0.9rem 1.2rem;
+  padding-bottom: max(0.9rem, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.6rem;
+}
+
+.textarea {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  color: var(--text-high);
+  border-radius: var(--radius-sm);
+  min-height: 2.5rem;
+  max-height: 6.5rem;
+  resize: none;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  line-height: 1.5;
+}
+
+.sendButton {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-2);
+  color: var(--text-high);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.68rem;
+  cursor: pointer;
+}
+
+.meta,
+.error {
+  margin: 0;
+  color: var(--text-medium);
+}
+
+.error {
+  color: var(--text-low);
+}
+
+@media (max-width: 860px) {
+  .panel {
+    width: min(100vw, 680px);
+  }
+}
