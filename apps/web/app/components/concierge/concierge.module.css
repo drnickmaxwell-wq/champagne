@@ -22,8 +22,9 @@
   justify-content: center;
   min-width: 8.5rem;
   border: 1px solid var(--border);
-  background-color: color-mix(in srgb, var(--surface-glass) 70%, var(--ink) 30%);
-  color: var(--ink);
+  border-color: color-mix(in srgb, var(--border) 70%, var(--ink) 30%);
+  background-color: color-mix(in srgb, var(--ink) 8%, transparent);
+  color: var(--text-high);
   border-radius: var(--radius-md);
   padding: 0.56rem 0.9rem;
   box-shadow: var(--shadow-soft);
