@@ -72,6 +72,24 @@
   color: var(--text-high);
 }
 
+.headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.debugToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  color: var(--text-medium);
+  font-size: 0.75rem;
+}
+
+.debugToggle input {
+  accent-color: var(--champagne-keyline-gold);
+}
+
 .closeButton {
   border: 1px solid var(--border-subtle);
   background: var(--surface-1);
@@ -202,6 +220,22 @@
 
 .error {
   color: var(--text-low);
+}
+
+.debugPanel {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  color: var(--text-medium);
+  padding: 0.5rem 0.65rem;
+}
+
+.debugCode {
+  margin: 0.45rem 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.72rem;
+  color: var(--text-high);
 }
 
 @media (max-width: 860px) {

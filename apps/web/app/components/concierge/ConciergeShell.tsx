@@ -27,10 +27,16 @@ type ConciergeShellProps = {
   isLoading: boolean;
   errorMessage: string | null;
   inputValue: string;
+  isCooldownActive: boolean;
+  cooldownSeconds: number;
+  debugEnabled: boolean;
+  showDebugToggle: boolean;
+  debugPayload: unknown;
   messages: ConciergeMessage[];
   onInputChange: (value: string) => void;
   onSubmit: () => void;
   onToggle: () => void;
+  onDebugToggle: () => void;
   onPostback: (payload: string) => void;
 };
 
@@ -39,10 +45,16 @@ export function ConciergeShell({
   isLoading,
   errorMessage,
   inputValue,
+  isCooldownActive,
+  cooldownSeconds,
+  debugEnabled,
+  showDebugToggle,
+  debugPayload,
   messages,
   onInputChange,
   onSubmit,
   onToggle,
+  onDebugToggle,
   onPostback,
 }: ConciergeShellProps) {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -76,9 +88,17 @@ export function ConciergeShell({
         <aside className={styles.panel} aria-label="Champagne Concierge panel">
           <header className={styles.header}>
             <h2 className={styles.title}>Champagne Concierge</h2>
-            <button type="button" onClick={onToggle} className={styles.closeButton} aria-label="Close concierge panel">
-              ✕
-            </button>
+            <div className={styles.headerActions}>
+              {showDebugToggle ? (
+                <label className={styles.debugToggle}>
+                  <input type="checkbox" checked={debugEnabled} onChange={onDebugToggle} />
+                  Debug
+                </label>
+              ) : null}
+              <button type="button" onClick={onToggle} className={styles.closeButton} aria-label="Close concierge panel">
+                ✕
+              </button>
+            </div>
           </header>
 
           <div className={styles.messages} aria-live="polite">
@@ -122,6 +142,12 @@ export function ConciergeShell({
 
             {isLoading ? <p className={styles.meta}>Thinking…</p> : null}
             {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
+            {showDebugToggle && debugPayload ? (
+              <details className={styles.debugPanel}>
+                <summary>Debug payload</summary>
+                <pre className={styles.debugCode}>{JSON.stringify(debugPayload, null, 2)}</pre>
+              </details>
+            ) : null}
           </div>
 
           <form className={styles.composer} onSubmit={handleSubmit}>
@@ -131,10 +157,14 @@ export function ConciergeShell({
               rows={1}
               value={inputValue}
               onChange={(event) => onInputChange(event.target.value)}
-              placeholder="Ask a question about this page"
-              disabled={isLoading}
+              placeholder={isCooldownActive ? `Please wait ${cooldownSeconds}s…` : "Ask a question about this page"}
+              disabled={isLoading || isCooldownActive}
             />
-            <button type="submit" className={styles.sendButton} disabled={isLoading || inputValue.trim().length === 0}>
+            <button
+              type="submit"
+              className={styles.sendButton}
+              disabled={isLoading || isCooldownActive || inputValue.trim().length === 0}
+            >
               ↗
             </button>
           </form>
