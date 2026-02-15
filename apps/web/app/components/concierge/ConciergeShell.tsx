@@ -37,6 +37,7 @@ type ConciergeShellProps = {
     lastSeenPath: string;
     visitedPathsCount: number;
     intentStage: IntentStage;
+    topicHints: string[];
   };
 };
 
@@ -136,6 +137,7 @@ export function ConciergeShell({
                 <p className={styles.meta}>Debug · lastSeenPath: {debugState.lastSeenPath}</p>
                 <p className={styles.meta}>Debug · visitedPaths: {debugState.visitedPathsCount}</p>
                 <p className={styles.meta}>Debug · intentStage: {debugState.intentStage}</p>
+                <p className={styles.meta}>Debug · topicHints: {debugState.topicHints.join(", ") || "none"}</p>
               </div>
             ) : null}
           </div>
