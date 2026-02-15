@@ -155,6 +155,18 @@
   white-space: pre-wrap;
 }
 
+.leadSentence {
+  display: block;
+  color: var(--text-high);
+  font-weight: 560;
+  margin-bottom: 0.25rem;
+}
+
+.restSentence {
+  color: inherit;
+  font-weight: 400;
+}
+
 .cardList {
   margin: 0;
   padding: 0;

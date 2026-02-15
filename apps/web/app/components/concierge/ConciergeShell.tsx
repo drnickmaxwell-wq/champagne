@@ -44,6 +44,47 @@ type ConciergeShellProps = {
   };
 };
 
+const LEAD_SENTENCE_MIN_LENGTH = 80;
+
+function splitLeadSentence(content: string) {
+  if (content.length < LEAD_SENTENCE_MIN_LENGTH) {
+    return null;
+  }
+
+  const boundaryMatch = content.match(/[.!?](?=\s)/);
+  if (boundaryMatch?.index === undefined) {
+    return null;
+  }
+
+  const boundaryIndex = boundaryMatch.index + boundaryMatch[0].length;
+  const lead = content.slice(0, boundaryIndex);
+  const remainder = content.slice(boundaryIndex);
+
+  if (!remainder.trim()) {
+    return null;
+  }
+
+  return { lead, remainder };
+}
+
+function renderMessageContent(message: ConciergeMessage) {
+  if (message.role !== "assistant") {
+    return message.content;
+  }
+
+  const splitContent = splitLeadSentence(message.content);
+  if (!splitContent) {
+    return message.content;
+  }
+
+  return (
+    <>
+      <span className={styles.leadSentence}>{splitContent.lead}</span>
+      <span className={styles.restSentence}>{splitContent.remainder}</span>
+    </>
+  );
+}
+
 export function ConciergeShell({
   isEnabled,
   isOpen,
@@ -157,7 +198,7 @@ export function ConciergeShell({
               {messages.map((message) => (
                 <article key={message.id} className={styles.message}>
                   <p className={styles.role}>{message.role === "assistant" ? "Concierge" : "You"}</p>
-                  <p className={styles.content}>{message.content}</p>
+                  <p className={styles.content}>{renderMessageContent(message)}</p>
 
                   {message.cards?.length ? (
                     <ul className={styles.cardList}>
