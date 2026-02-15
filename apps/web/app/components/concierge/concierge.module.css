@@ -135,6 +135,43 @@
   gap: 1rem;
 }
 
+.pillsRow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pill {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  color: var(--text-medium);
+  border-radius: 999px;
+  padding: 0.3rem 0.62rem;
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.pill:hover,
+.pill:focus-visible {
+  border-color: color-mix(in srgb, var(--border-subtle) 76%, var(--text-high));
+  color: var(--text-high);
+  outline: none;
+}
+
+.pill:active {
+  background: var(--surface-2);
+  border-color: var(--champagne-keyline-gold);
+}
+
+.pill:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
 .message {
   display: grid;
   gap: 0.35rem;
