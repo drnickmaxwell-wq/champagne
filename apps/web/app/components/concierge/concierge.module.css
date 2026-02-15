@@ -191,9 +191,9 @@
 .textarea {
   border: 1px solid var(--border-subtle);
   background: var(--surface-1);
-  color: var(--text-high);
-  -webkit-text-fill-color: var(--text-high);
-  caret-color: var(--text-high);
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
+  caret-color: var(--ink);
   opacity: 1;
   border-radius: var(--radius-sm);
   min-height: 2.5rem;
@@ -205,8 +205,8 @@
 }
 
 .textarea::placeholder {
-  color: var(--text-low);
-  -webkit-text-fill-color: var(--text-low);
+  color: var(--text-medium);
+  -webkit-text-fill-color: var(--text-medium);
   opacity: 1;
 }
 
