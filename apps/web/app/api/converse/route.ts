@@ -37,6 +37,7 @@ export async function POST(request: Request) {
 
   const upstreamResponse = await fetch(`${engineBaseUrl}/v1/converse`, {
     method: "POST",
+    cache: "no-store",
     headers: {
       "Content-Type": "application/json",
       ...resolveDebugHeader(request),
