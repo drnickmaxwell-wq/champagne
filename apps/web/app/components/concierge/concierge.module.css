@@ -1,8 +1,13 @@
 .root {
   position: fixed;
   inset-inline-end: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   z-index: 60;
   pointer-events: none;
 }
@@ -44,6 +49,7 @@
   top: 0;
   right: 0;
   bottom: 0;
+  left: auto;
   width: clamp(420px, 40vw, 680px);
   max-width: min(100vw, 680px);
   height: 100dvh;
@@ -70,24 +76,6 @@
   margin: 0;
   font-size: 1.05rem;
   color: var(--text-high);
-}
-
-.headerActions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.debugToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.32rem;
-  color: var(--text-medium);
-  font-size: 0.75rem;
-}
-
-.debugToggle input {
-  accent-color: var(--champagne-keyline-gold);
 }
 
 .closeButton {
@@ -184,7 +172,7 @@
   background: var(--surface-glass);
   border-top: 1px solid var(--border-subtle);
   padding: 0.9rem 1.2rem;
-  padding-bottom: calc(0.9rem + env(safe-area-inset-bottom));
+  padding-bottom: max(0.9rem, env(safe-area-inset-bottom));
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.6rem;
@@ -220,22 +208,6 @@
 
 .error {
   color: var(--text-low);
-}
-
-.debugPanel {
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  background: var(--surface-1);
-  color: var(--text-medium);
-  padding: 0.5rem 0.65rem;
-}
-
-.debugCode {
-  margin: 0.45rem 0 0;
-  white-space: pre-wrap;
-  word-break: break-word;
-  font-size: 0.72rem;
-  color: var(--text-high);
 }
 
 @media (max-width: 860px) {
