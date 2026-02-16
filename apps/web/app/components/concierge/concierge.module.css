@@ -1,8 +1,8 @@
 .root {
   --concierge-keyline: var(--champagne-keyline-gold);
-  --concierge-panel-bg: color-mix(in oklab, var(--bg-ink-soft) 84%, var(--surface-glass-deep) 16%);
-  --concierge-composer-bg: color-mix(in srgb, var(--surface-ink-soft) 88%, transparent);
-  --concierge-launcher-bg: color-mix(in srgb, var(--surface-glass) 88%, var(--surface-ink-soft) 12%);
+  --concierge-panel-bg: var(--bg-ink-soft);
+  --concierge-composer-bg: color-mix(in srgb, var(--bg-ink-soft) 88%, transparent);
+  --concierge-launcher-bg: color-mix(in srgb, var(--surface-glass) 88%, var(--bg-ink-soft) 12%);
   --concierge-border: color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
   position: fixed;
   inset-inline-end: 0;
