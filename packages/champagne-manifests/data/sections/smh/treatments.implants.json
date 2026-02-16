@@ -11,8 +11,8 @@
       "order": 10,
       "seoRole": "hero",
       "eyebrow": "Implant dentistry",
-      "title": "Dental implants in Shoreham-by-Sea",
-      "body": "Missing teeth can change how you eat, speak and smile — and it’s not always obvious what the “right” solution is. At St Mary’s House Dental Care, implant care is clinician-led and planning-heavy: we focus on getting the foundations right so you can make a confident decision.\n\nWe’ll talk you through options (implants, bridges, dentures — or sometimes “do nothing yet”), explain the trade-offs, and recommend what’s sensible for your mouth, your health, and your long-term maintenance.",
+      "title": "Planning first, surgery second",
+      "body": "Dental implants replace missing teeth using a small titanium post that supports a crown, bridge, or implant-retained denture. Before surgery, we assess your mouth, review your medical history, and use CBCT imaging and digital scans to map bone, nerves, bite, and the intended tooth shape. This helps us explain suitable options, likely timing, and whether staged steps such as bone grafting or sinus lift assessment may be needed. If implants are not appropriate, we will discuss alternatives such as bridges or removable solutions.",
       "bullets": [
         "Fixed tooth replacement for suitable patients",
         "Planning-first approach (assessment before promises)",
@@ -27,13 +27,12 @@
       "order": 20,
       "seoRole": "supporting",
       "eyebrow": "Why patients trust us",
-      "title": "Evidence-led implant care, explained clearly",
+      "title": "Why patients trust us",
       "items": [
-        "Clinician-led, planning-first — We prioritise diagnosis, stability and long-term maintenance, not rushed sales dentistry.",
-        "Digital assessment where appropriate — Scans and 3D planning can help us assess bone, bite and space, and reduce uncertainty.",
-        "Guided surgery where appropriate — When suitable, we design and 3D print surgical guides to help transfer the plan accurately to the mouth.",
-        "Clear, transparent care — We explain benefits, risks and alternatives, and give you time to decide.",
-        "Local follow-up and aftercare — Implant health is a long game, and reviews plus hygiene support matter."
+        "Experienced implant clinicians — Implant care here is clinician-led and planning-focused, not sales-led.",
+        "CBCT + guided surgery — We plan in 3D and, where appropriate, place implants using guided surgery for accuracy.",
+        "Transparent options — If implants are not right for you, we will explain alternatives clearly.",
+        "High-quality materials — We use established implant systems and restorative materials."
       ]
     },
     {
@@ -43,8 +42,8 @@
       "order": 25,
       "seoRole": "primaryContent",
       "eyebrow": "Planning-first implants",
-      "title": "Why planning matters with implants",
-      "body": "Dental implants can be a suitable option for many people — but they are not a “one size fits all” treatment. Outcomes depend on bone levels, gum health, bite forces, space, and the position of neighbouring teeth.\n\nOur approach is to plan the tooth first and the implant second. Where appropriate, we use 3D imaging and digital planning to choose implant position and angulation that supports a cleanable, well-supported final crown.\n",
+      "title": "A step-by-step approach",
+      "body": "Every implant case is different. Some patients have sufficient bone and space and can proceed without additional stages. Others require phased treatment, for example bone grafting or sinus lift assessment. The consultation is where we outline the safest sequence, expected timings, and costs.\n\nWe also cover practical considerations: appointments, healing periods, aftercare, and long-term maintenance.",
       "bullets": [
         "Confirm suitability before committing",
         "Reduce surprises during surgery",
@@ -61,7 +60,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "Implant basics",
       "title": "What is a dental implant?",
-      "body": "A dental implant is a small post placed into the jawbone to act as a replacement tooth root. Once healed, it supports a restoration — commonly a crown for a single tooth, or a bridge or denture solution for multiple teeth.\n\nImplant treatment is usually staged and depends on healing. We’ll explain what’s involved and what alternatives might suit you better.",
+      "body": "A dental implant is a small titanium post that replaces the root of a missing tooth. Once integrated with the bone, we attach a connector (abutment) followed by a crown, bridge, or denture.\n\nImplants sit in living bone near nerves and sinuses. We plan in 3D to assess bone volume and quality, nerve position in the lower jaw, sinus position in the upper jaw, bite forces and spacing, and final tooth position and shape.",
       "mediaHint": "Implant post with custom crown"
     },
     {
@@ -73,11 +72,11 @@
       "eyebrow": "Who it’s for",
       "title": "Suitability and case selection",
       "items": [
-        "When implants can be a good option — If you have one or more missing teeth and want a fixed solution, implants may be suitable after assessment.",
-        "Bone and gum health matters — Healthy gums and adequate bone are important. If bone is reduced, grafting may sometimes be considered.",
-        "Medical factors — Some medical conditions and medications can affect healing. We’ll take a full history and advise safely.",
-        "Smoking and maintenance — Smoking and inconsistent cleaning can increase risk. We’ll be honest about what improves success.",
-        "Alternatives are sometimes better — In some mouths, a bridge, denture, or a short period of monitoring may be the better choice."
+        "Implants may be suitable if you have one or more missing teeth and want a fixed solution similar to a natural tooth.",
+        "Healthy gums matter — or gum disease should be controlled before treatment.",
+        "You need to be able to maintain excellent oral hygiene for long-term implant health.",
+        "We are cautious in smokers, uncontrolled diabetes, active gum disease, and certain medication or medical histories.",
+        "These factors do not always rule implants out but they do influence planning and risk management."
       ]
     },
     {
@@ -89,14 +88,13 @@
       "eyebrow": "Your implant pathway",
       "title": "Implant treatment, step by step",
       "items": [
-        "1) Consultation & assessment — We examine your teeth and gums, discuss your goals, and check suitability. Scans may be advised.",
-        "2) Planning — If proceeding, we plan tooth position, implant placement and timings. You’ll receive a clear treatment outline.",
-        "3) Implant placement — The implant is placed under local anaesthetic (and sedation options may be discussed where appropriate).",
-        "4) Healing phase — Healing time varies. We’ll guide you on what to expect and how to look after the area.",
-        "5) Final restoration — Once stable, we fit the crown or bridge and check bite, appearance and cleanability.",
-        "6) Reviews & maintenance — Long-term health depends on cleaning and regular reviews — we’ll support you with both."
+        "1) Consultation + planning — We assess your mouth, discuss goals and options, and plan using digital scans and CBCT.",
+        "2) Implant placement — The implant is placed in a planned position, usually under local anaesthetic (sedation options available where appropriate).",
+        "3) Healing + integration — Bone heals around the implant. This typically takes a few months, depending on the case.",
+        "4) Final restoration — We fit the crown, bridge, or denture once the implant is stable.",
+        "5) Maintenance — Implants require ongoing hygiene care and regular reviews."
       ],
-      "strapline": "Timelines vary. Healing time, bone quality, and your medical history guide whether we stage treatment or move more quickly."
+      "strapline": "Timelines vary by healing, bone, and case complexity. We set expectations clearly after planning."
     },
     {
       "instanceId": "implants-technology",
@@ -105,8 +103,8 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Digital planning",
-      "title": "Digital and 3D dentistry for implant care",
-      "body": "Where appropriate, we use digital scans and 3D planning to assess space, bone and bite, and to design implant placement with the final tooth in mind. We also design and 3D print surgical guides to help position implants accurately according to the plan.\n\nDigital tools don’t replace clinical judgement — but used well, they can reduce uncertainty and improve communication.",
+      "title": "CBCT + digital scanning",
+      "body": "We use 3D imaging (CBCT) and digital scans for precise planning. This helps us avoid anatomical structures, confirm available bone, and aim for a predictable final tooth position.\n\nWhere appropriate, guided surgery allows implant placement using a custom surgical guide. This supports accuracy and a controlled procedure.",
       "mediaHint": "In-house printed implant surgical guide"
     },
     {
@@ -115,14 +113,14 @@
       "variantId": "shoreham_implants_guided_benefits",
       "order": 65,
       "seoRole": "supporting",
-      "eyebrow": "Patient benefits",
-      "title": "Benefits of implant treatment",
+      "eyebrow": "Risks to understand",
+      "title": "Important risks we discuss",
       "items": [
-        "Fixed, natural feel — Implants can feel closer to natural teeth than removable options, for suitable cases.",
-        "No need to prepare neighbouring teeth — A single implant crown doesn’t usually require shaping adjacent teeth (unlike some bridge designs).",
-        "Supports bone and function — Replacing a missing root can help maintain function; we’ll explain what’s realistic for your case.",
-        "Designed for cleaning — We plan restorations to be maintainable, because “looks great” isn’t enough without long-term health.",
-        "Clear, honest planning — We explain risks, alternatives, and maintenance so you can decide with confidence."
+        "Infection",
+        "Failure to integrate",
+        "Gum recession",
+        "Peri-implantitis (inflammation around implants)",
+        "Damage to nerves or sinuses is rare, and planning reduces risk."
       ]
     },
     {
@@ -132,12 +130,13 @@
       "order": 70,
       "seoRole": "supporting",
       "eyebrow": "Aftercare & maintenance",
-      "title": "Aftercare that protects long-term health",
+      "title": "Long-term success depends on care",
       "items": [
-        "Cleaning is non-negotiable — Implants need daily cleaning just like teeth, sometimes with specific brushes or interdental aids.",
-        "Regular reviews — We monitor gums, bite and implant stability over time and act early if anything changes.",
-        "Hygiene support — Professional cleaning and coaching can protect long-term implant health.",
-        "Lifestyle factors — Smoking and uncontrolled gum disease increase risk — we’ll help you reduce avoidable problems."
+        "Daily cleaning, including along the gumline.",
+        "Professional hygiene maintenance.",
+        "Managing gum inflammation.",
+        "Avoiding smoking.",
+        "Protecting against heavy bite forces, sometimes with a night guard."
       ]
     },
     {
@@ -156,32 +155,32 @@
       "title": "Common questions about implants",
       "faqs": [
         {
-          "question": "Are dental implants right for everyone?",
-          "answer": "Not always. Suitability depends on gum health, bone levels, bite forces, medical history and maintenance. We confirm this after assessment."
+          "question": "How long do implants last?",
+          "answer": "Many implants last for years. Longevity depends on gum health, hygiene, bite forces, and maintenance."
         },
         {
-          "question": "Does implant treatment hurt?",
-          "answer": "Implant placement is usually done with local anaesthetic. Most people describe post-treatment soreness rather than “pain”. We’ll explain what to expect and how we manage comfort."
+          "question": "Is implant treatment painful?",
+          "answer": "Implants are usually placed under local anaesthetic. Post-operative discomfort is typically manageable with standard pain relief."
         },
         {
           "question": "How long does treatment take?",
-          "answer": "Timings vary. Some cases need staged healing or additional procedures. We’ll give you a realistic timeline once we’ve assessed you."
+          "answer": "Some cases are straightforward. Others require staged steps. We will provide a realistic timeline after planning."
         },
         {
-          "question": "How long do implants last?",
-          "answer": "Many implants function well for a long time, but outcomes depend on factors like cleaning, gum health, smoking, bite forces and general health. We’ll discuss risks and maintenance honestly."
+          "question": "Do I need a CBCT scan?",
+          "answer": "For most implant cases, a CBCT scan is recommended for safe and accurate planning."
         },
         {
-          "question": "What if I don’t have enough bone?",
-          "answer": "Reduced bone doesn’t automatically rule implants out. In some cases, bone grafting may be considered. We’ll explain whether it’s appropriate and the trade-offs."
+          "question": "Can you place implants if I’ve had a tooth missing for a long time?",
+          "answer": "Often yes, although bone changes over time. Planning will determine whether grafting or other steps are needed."
         },
         {
           "question": "What are the alternatives to implants?",
-          "answer": "Depending on your mouth, options may include bridges, dentures, or sometimes doing nothing for a period. We’ll compare pros and cons so you can choose confidently."
+          "answer": "Alternatives may include bridges, dentures, or leaving the space in some cases. We will explain the advantages and limitations during consultation."
         },
         {
-          "question": "How much do implants cost?",
-          "answer": "Costs depend on complexity and the type of restoration. After assessment, we’ll provide clear options and fees so you can decide without pressure."
+          "question": "What if I’m nervous?",
+          "answer": "We provide step-by-step care and can discuss sedation options where appropriate."
         }
       ]
     },
