@@ -12,11 +12,11 @@
       "seoRole": "hero",
       "eyebrow": "IMPLANTS",
       "title": "Sinus lift for dental implants in Shoreham-by-Sea",
-      "body": "A sinus lift is a grafting procedure used in the upper back jaw when the sinus space and bone height limit implant placement. Planning is essential: we use CBCT imaging to measure bone height, assess sinus anatomy, and determine whether a small “internal” lift at the time of implant placement is feasible or whether a staged approach is safer. We’ll talk through expected healing times, how this affects the overall timeline, and what you can expect during recovery. Not every case requires a sinus lift, and not every patient is high standards served by one — we’ll explain alternatives such as shorter implants, different implant positions, or other tooth replacement options where appropriate.",
+      "body": "A sinus lift is a grafting procedure used in the upper back jaw when the sinus space and available bone height limit implant placement. Planning is central. We use CBCT imaging to measure bone levels, assess sinus anatomy, and decide whether a small internal lift can be carried out at the time of implant placement or whether a staged approach is safer. We’ll explain healing times, how this may affect the overall timeline, and what recovery typically involves. Not every case requires a sinus lift. Where it is not appropriate, we discuss alternatives such as shorter implants or different implant positions.",
       "bullets": [
         "Scan-led assessment (no guesswork)",
-        "Only recommended when needed",
-        "Planned, staged approach where appropriate",
+        "Only recommended when clinically necessary",
+        "Staged approach where appropriate",
         "Focus on long-term implant stability"
       ],
       "ctas": [
@@ -55,7 +55,7 @@
       "seoRole": "primaryContent",
       "eyebrow": "WHAT IS A SINUS LIFT?",
       "title": "Creating space for stable upper implants",
-      "body": "Explain simply what a sinus lift involves, why it’s sometimes used for upper back teeth, and that many patients do not need one.",
+      "body": "A sinus lift increases the available bone height in the upper back jaw. The sinus membrane is gently raised and graft material is placed beneath it. This creates the support needed for an implant where natural bone is limited. Many patients do not need this procedure. Imaging determines suitability.",
       "mediaHint": "CBCT-led sinus lift planning"
     },
     {
@@ -66,9 +66,9 @@
       "seoRole": "primaryContent",
       "title": "Who might need a sinus lift?",
       "items": [
-        "Missing upper back teeth for a long time",
+        "Missing upper back teeth for a prolonged period",
         "Reduced bone height beneath the sinus",
-        "Cases where additional support is needed for implant stability",
+        "Situations where added support improves implant stability",
         "Many implant patients don’t require a sinus lift — scans confirm this"
       ]
     },
@@ -97,7 +97,7 @@
       "order": 60,
       "seoRole": "supporting",
       "title": "Digital planning that reduces surprises",
-      "body": "Emphasise diagnostics and planning rather than technical bravado.",
+      "body": "Diagnostics guide decisions at every stage. Imaging and digital planning allow us to assess limitations, choose the safest technique, and sequence treatment realistically.",
       "items": [
         "3D CBCT imaging",
         "Guided planning principles",
@@ -112,10 +112,10 @@
       "seoRole": "supporting",
       "title": "Aftercare, healing, and realistic expectations",
       "items": [
-        "Expected swelling or soreness",
-        "Gentle aftercare guidance",
-        "When to contact the clinic",
-        "Smoking and general health considerations",
+        "Some swelling or soreness is expected",
+        "Gentle aftercare guidance is provided",
+        "Clear advice on when to contact the clinic",
+        "Smoking and general health can affect healing",
         "Healing timelines vary and are reviewed"
       ]
     },
@@ -136,35 +136,35 @@
       "faqs": [
         {
           "question": "Do I often need a sinus lift for upper implants?",
-          "answer": "No. We only advise a sinus lift when scans show it would improve implant stability."
+          "answer": "No. A sinus lift is only advised when scans show it would improve implant stability."
         },
         {
           "question": "Is a sinus lift painful?",
-          "answer": "Treatment is carried out with local anaesthetic. Some soreness afterwards is expected and we support you with guidance."
+          "answer": "Treatment is carried out with local anaesthetic. Some soreness afterwards is normal."
         },
         {
           "question": "How long does healing take?",
-          "answer": "Healing times vary by case and are reviewed at follow-up appointments before moving to implant placement."
+          "answer": "Healing times vary by case and are reviewed before moving to implant placement."
         },
         {
           "question": "Can I have temporary teeth while healing?",
-          "answer": "In many situations we can discuss a temporary option to maintain appearance while healing progresses."
+          "answer": "In many situations, a temporary option can be discussed to maintain appearance during healing."
         },
         {
           "question": "Are there alternatives to a sinus lift?",
-          "answer": "Sometimes shorter implants or angulated approaches may be possible. We review options once scans are assessed."
+          "answer": "Sometimes shorter implants or modified implant positions may be possible. Options are reviewed after imaging."
         },
         {
           "question": "What are the risks?",
-          "answer": "Risks can include swelling, sinus discomfort, or graft healing delays. We explain these and monitor recovery closely."
+          "answer": "Risks may include swelling, sinus discomfort, or delayed graft healing. These are explained and monitored."
         },
         {
           "question": "Will it delay my implant treatment?",
-          "answer": "A healing phase is usually needed before implant placement. Timelines are shared so you know what to expect."
+          "answer": "A healing phase is usually required before implant placement. Timelines are discussed in advance."
         },
         {
           "question": "How much does a sinus lift cost?",
-          "answer": "Costs depend on the complexity and any staged care. After assessment we provide a tailored plan with fees for each step."
+          "answer": "Costs depend on complexity and staging. A written plan with fees is provided after assessment."
         }
       ]
     },
@@ -176,11 +176,11 @@
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
       "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "body": "Sinus lift decisions follow careful implant assessment. Imaging, bone levels, and overall treatment aims determine whether grafting is sensible or whether alternatives provide a safer route.",
       "bullets": [
-        "Often follows Implant consultation (/treatments/implants-consultation); 3D scans (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Sedation dentistry (/treatments/sedation-dentistry); Aftercare and hygiene (/treatments/implants-aftercare).",
-        "Next steps we plan for: Implant placement (/treatments/implants); Teeth in a day (/treatments/implants-teeth-in-a-day); Implant restorations (/treatments/3d-implant-restorations)."
+        "Often considered after implant consultation and 3D imaging",
+        "Alternatives may include shorter implants or adjusted implant positions",
+        "Planning focuses on stability, safety, and long-term maintenance"
       ]
     },
     {
@@ -191,7 +191,7 @@
       "seoRole": "cta",
       "slot": "footer",
       "title": "Unsure whether a sinus lift is needed?",
-      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s necessary — and what isn’t — based on scans.",
+      "strapline": "Book an implant assessment in Shoreham-by-Sea and we’ll explain what’s necessary — and what isn’t — based on imaging.",
       "ctas": [
         {
           "label": "Plan a clinician-led sinus lift review",
