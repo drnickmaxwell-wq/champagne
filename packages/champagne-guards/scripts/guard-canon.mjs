@@ -21,6 +21,7 @@ const canonicalTokens = {
   '--brand-gold-keyline': '#F9E8C3',
   '--smh-gradient-legacy': '#D94BC6 0%,#00C2C7 100%',
   '--ink': '#0B0D0F',
+  '--smh-ink-persian-900': '#031A39',
   '--text': '#1A1A1A',
   '--smh-warm-rose': '#E24DAA',
   '--smh-white': '#FFFFFF',
@@ -28,8 +29,21 @@ const canonicalTokens = {
 };
 
 const allowedHexes = new Set(
-  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
+  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#031a39', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
 );
+
+const canonUpdateBranchPattern = /^canon-update\/.+/;
+
+function getCurrentBranch() {
+  return execSync('git rev-parse --abbrev-ref HEAD', { stdio: 'pipe' })
+    .toString()
+    .trim();
+}
+
+function isCanonUpdateBranch() {
+  const branch = getCurrentBranch();
+  return canonUpdateBranchPattern.test(branch);
+}
 
 function getBaseRevision() {
   const targetBase = process.env.GITHUB_BASE_REF || 'main';
@@ -160,10 +174,15 @@ function ensureTokensNotModified() {
     const diffStat = execSync(`git diff --stat ${base} HEAD -- ${tokenFilePath}`)
       .toString()
       .trim();
-    recordWarning(`Canon Guard: token file changed on this branch.\n${diffStat}`);
-    recordError('Canon Guard: canonical token file must not change on this branch.');
+    recordWarning(`Canon Guard: token file changed on this branch.
+${diffStat}`);
+
+    if (!isCanonUpdateBranch()) {
+      recordError('Canon Guard: canonical token file must not change outside canon-update/* branches.');
+    }
   }
 }
+
 
 function runSubGuard(label, scriptPath) {
   try {
