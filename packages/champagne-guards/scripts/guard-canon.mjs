@@ -21,6 +21,7 @@ const canonicalTokens = {
   '--brand-gold-keyline': '#F9E8C3',
   '--smh-gradient-legacy': '#D94BC6 0%,#00C2C7 100%',
   '--ink': '#0B0D0F',
+  '--smh-ink-persian-900': '#01162F',
   '--text': '#1A1A1A',
   '--smh-warm-rose': '#E24DAA',
   '--smh-white': '#FFFFFF',
@@ -28,7 +29,7 @@ const canonicalTokens = {
 };
 
 const allowedHexes = new Set(
-  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
+  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#01162f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
 );
 
 function getBaseRevision() {
