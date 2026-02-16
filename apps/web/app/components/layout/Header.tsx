@@ -19,7 +19,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded px-2 py-1 transition hover:bg-[color-mix(in_srgb,var(--bg-ink)_82%,transparent)] hover:text-[var(--text-high)]"
+              className="rounded px-2 py-1 transition-none hover:bg-[color-mix(in_srgb,var(--bg-ink)_82%,transparent)] hover:text-[var(--text-high)]"
             >
               {item.label}
             </Link>
