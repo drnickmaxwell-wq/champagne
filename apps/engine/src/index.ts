@@ -28,10 +28,7 @@ server.post("/v1/converse", async (request, reply) => {
   try {
     const content = formatConciergeResponse(rawReply, { prompt: text });
 
-    return reply.send({
-      conversationId: `conv_${Date.now().toString(36)}`,
-      content,
-    });
+    return reply.send({ content });
   } catch {
     return reply.code(422).send({
       error: "response violated concierge language constraints",

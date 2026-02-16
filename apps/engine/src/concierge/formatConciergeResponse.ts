@@ -1,34 +1,30 @@
-const PROHIBITED_PATTERNS: Array<{ pattern: RegExp; replacement: string }> = [
-  { pattern: /\bGreat question!?\s*/gi, replacement: "" },
-  { pattern: /\bAbsolutely!?\s*/gi, replacement: "Yes. " },
-  { pattern: /\bDon['’]?t worry\b[,.!\s]*/gi, replacement: "It is understandable to have concerns. " },
-];
-
-const STRICT_REJECTION_PATTERNS: RegExp[] = [
-  /[\p{Extended_Pictographic}]/u,
-  /!{2,}/,
-];
-
 type FormatConciergeResponseOptions = {
   prompt?: string;
 };
 
+const GENERIC_ASSISTANT_PHRASES: Array<{ pattern: RegExp; replacement: string }> = [
+  { pattern: /\bGreat question!?\s*/gi, replacement: "" },
+  { pattern: /\bAbsolutely!?\s*/gi, replacement: "" },
+  { pattern: /\bDon['’]?t worry\b[,.!\s]*/gi, replacement: "It is understandable to have concerns. " },
+  { pattern: /\bI('m| am) happy to help\b[,.!\s]*/gi, replacement: "" },
+  { pattern: /\bThanks for asking\b[,.!\s]*/gi, replacement: "" },
+];
+
+const SALESY_LANGUAGE: Array<{ pattern: RegExp; replacement: string }> = [
+  { pattern: /\bbest-in-class\b/gi, replacement: "evidence-aligned" },
+  { pattern: /\bworld-?class\b/gi, replacement: "high-standard" },
+  { pattern: /\bexclusive offer\b/gi, replacement: "available option" },
+  { pattern: /\bamazing\b/gi, replacement: "appropriate" },
+  { pattern: /\bperfect\b/gi, replacement: "suitable" },
+];
+
+const QUESTION_MARK_BURST = /\?{2,}/g;
+const EMOJI_PATTERN = /[\p{Extended_Pictographic}]/gu;
+const MAX_SENTENCES_PER_PARAGRAPH = 2;
+const MAX_PARAGRAPHS = 4;
+
 function normalizeWhitespace(value: string): string {
   return value.replace(/\r\n/g, "\n").replace(/[\t ]+/g, " ").trim();
-}
-
-function sanitizeLanguage(rawOutput: string): string {
-  const withoutEmoji = rawOutput.replace(/[\p{Extended_Pictographic}]/gu, "");
-
-  const sanitized = PROHIBITED_PATTERNS.reduce((content, rule) => {
-    return content.replace(rule.pattern, rule.replacement);
-  }, withoutEmoji);
-
-  return sanitized.replace(/!/g, ".").replace(/\s{2,}/g, " ").trim();
-}
-
-function containsStrictViolations(content: string): boolean {
-  return STRICT_REJECTION_PATTERNS.some((pattern) => pattern.test(content));
 }
 
 function splitSentences(content: string): string[] {
@@ -38,35 +34,54 @@ function splitSentences(content: string): string[] {
     .filter(Boolean);
 }
 
+function sanitizeLanguage(rawOutput: string): string {
+  const noEmoji = rawOutput.replace(EMOJI_PATTERN, "");
+
+  const withoutGenericPhrases = GENERIC_ASSISTANT_PHRASES.reduce((content, rule) => {
+    return content.replace(rule.pattern, rule.replacement);
+  }, noEmoji);
+
+  const withoutSalesyLanguage = SALESY_LANGUAGE.reduce((content, rule) => {
+    return content.replace(rule.pattern, rule.replacement);
+  }, withoutGenericPhrases);
+
+  const normalizedQuestions = withoutSalesyLanguage
+    .replace(QUESTION_MARK_BURST, "?")
+    .replace(/\?(?=.*\?)/g, ".");
+
+  return normalizedQuestions
+    .replace(/!/g, ".")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function resolveOrientationLine(content: string, prompt?: string): { orientationLine: string; remaining: string } {
   const sentences = splitSentences(content);
 
   if (sentences.length > 0) {
     const [firstSentence, ...rest] = sentences;
     const orientationLine = firstSentence.endsWith(".") ? firstSentence : `${firstSentence}.`;
-    const remaining = rest.join(" ").trim();
-    return { orientationLine, remaining };
+    return { orientationLine, remaining: rest.join(" ") };
   }
 
-  const promptHint = typeof prompt === "string" ? prompt.toLowerCase() : "";
-
+  const promptHint = (prompt ?? "").toLowerCase();
   if (/cost|price|fee|payment/.test(promptHint)) {
     return {
-      orientationLine: "On cost, the most accurate answer depends on treatment scope and clinical findings.",
+      orientationLine: "On cost, the exact estimate depends on clinical findings and treatment scope.",
       remaining: "",
     };
   }
 
   if (/process|step|timeline|recovery/.test(promptHint)) {
     return {
-      orientationLine: "On process, the plan follows a defined sequence from assessment to follow-up.",
+      orientationLine: "On process, care follows a sequenced plan from assessment to follow-up.",
       remaining: "",
     };
   }
 
   if (/fear|anx|nervous|pain/.test(promptHint)) {
     return {
-      orientationLine: "On comfort, we can adapt the pace and support strategy to your tolerance.",
+      orientationLine: "On comfort, care can be adapted to your tolerance and pace.",
       remaining: "",
     };
   }
@@ -77,22 +92,25 @@ function resolveOrientationLine(content: string, prompt?: string): { orientation
   };
 }
 
-function toParagraphs(content: string): string[] {
+function toStructuredParagraphs(content: string): string[] {
   const sentences = splitSentences(content);
-
   if (sentences.length === 0) {
-    return ["I can provide a more precise answer once you share one key goal and your timeframe."];
+    return [
+      "I can provide a more precise answer when you share one key goal, current symptoms, and preferred timing.",
+      "That context allows a narrower recommendation with clear trade-offs.",
+    ];
   }
 
-  const targetParagraphCount = Math.min(4, Math.max(2, Math.ceil(sentences.length / 2)));
-  const chunkSize = Math.max(1, Math.ceil(sentences.length / targetParagraphCount));
   const paragraphs: string[] = [];
-
-  for (let index = 0; index < sentences.length; index += chunkSize) {
-    paragraphs.push(sentences.slice(index, index + chunkSize).join(" "));
+  for (let index = 0; index < sentences.length; index += MAX_SENTENCES_PER_PARAGRAPH) {
+    paragraphs.push(sentences.slice(index, index + MAX_SENTENCES_PER_PARAGRAPH).join(" "));
   }
 
-  return paragraphs.slice(0, 4);
+  if (paragraphs.length === 1) {
+    paragraphs.push("I can refine this further with one or two details about your goals and timing.");
+  }
+
+  return paragraphs.slice(0, MAX_PARAGRAPHS);
 }
 
 function shouldAddClarifyingVariable(prompt: string | undefined, content: string): boolean {
@@ -100,25 +118,50 @@ function shouldAddClarifyingVariable(prompt: string | undefined, content: string
   return /\b(depends|vary|based on|if |when |typically|may |can )\b/.test(combined);
 }
 
-export function formatConciergeResponse(rawOutput: string, options: FormatConciergeResponseOptions = {}): string {
-  const cleaned = sanitizeLanguage(normalizeWhitespace(rawOutput));
+function buildGuidedNextStep(prompt: string | undefined): string {
+  const promptHint = (prompt ?? "").toLowerCase();
 
-  if (containsStrictViolations(cleaned)) {
-    throw new Error("Response contains prohibited language patterns");
+  if (/cost|price|fee|payment/.test(promptHint)) {
+    return "Next step: choose one option: request a provisional cost range or schedule an assessment to confirm scope.";
   }
 
+  if (/process|step|timeline|recovery/.test(promptHint)) {
+    return "Next step: choose one option: review the typical timeline summary or share your target date for a sequenced plan.";
+  }
+
+  return "Next step: choose one option: share your primary goal or share your preferred timeline.";
+}
+
+function enforceGuidedNextStepGovernance(nextStep: string): string {
+  const normalized = nextStep.replace(/\?{2,}/g, "?").replace(/!/g, ".").trim();
+  const optionMatches = normalized.match(/\bor\b/gi);
+  const optionsCount = optionMatches ? optionMatches.length + 1 : 1;
+
+  if (optionsCount > 2) {
+    const [beforeFirstOr, ...rest] = normalized.split(/\bor\b/i);
+    const secondOption = rest[0] ? rest[0].trim() : "";
+    const clamped = `${beforeFirstOr.trim()} or ${secondOption}`.trim();
+    return clamped.replace(/\?(?=.*\?)/g, ".");
+  }
+
+  return normalized.replace(/\?(?=.*\?)/g, ".");
+}
+
+export function formatConciergeResponse(rawOutput: string, options: FormatConciergeResponseOptions = {}): string {
+  const cleaned = sanitizeLanguage(normalizeWhitespace(rawOutput));
   const { orientationLine, remaining } = resolveOrientationLine(cleaned, options.prompt);
-  const explanationParagraphs = toParagraphs(remaining);
+  const explanationParagraphs = toStructuredParagraphs(remaining);
 
   const sections = [orientationLine, ...explanationParagraphs];
 
   if (shouldAddClarifyingVariable(options.prompt, cleaned)) {
     sections.push(
-      "A key variable is your clinical history and treatment priorities, which can change the exact recommendation.",
+      "A clarifying variable is your clinical history and treatment priorities, which can change the final recommendation.",
     );
   }
 
-  sections.push("Next step: share your primary goal and timing, and I will map the most appropriate path.");
+  const governedNextStep = enforceGuidedNextStepGovernance(buildGuidedNextStep(options.prompt));
+  sections.push(governedNextStep);
 
   return sections.join("\n\n");
 }
