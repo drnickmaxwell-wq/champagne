@@ -38,7 +38,7 @@
       "variantId": "shoreham_implant_consultation_trust",
       "order": 20,
       "seoRole": "supporting",
-      "title": "Planning-led implant care, built around you",
+      "title": "Planning-led implant care, guided by assessment",
       "items": [
         "Time to talk through goals and concerns",
         "CBCT imaging when needed for safe planning",
@@ -56,12 +56,12 @@
       "seoRole": "primaryContent",
       "eyebrow": "THE CONSULTATION",
       "title": "What happens at an implant consultation?",
-      "body": "We assess your mouth, dental history, and medical factors, carry out imaging or CBCT scans if indicated, and map options such as single implants, implant-retained dentures, or full-arch approaches — including staged versus same-day routes where suitable. The focus is understanding and planning, not rushing into treatment.",
+      "body": "We assess your mouth, dental history, and relevant medical factors. Imaging or CBCT scans are arranged when clinically indicated. We then outline options such as single implants, implant-retained dentures, or full-arch approaches — This may include staged or same-day routes where appropriate. The emphasis is on understanding and planning rather than rushing into treatment.",
       "bullets": [
-        "Scan-led planning to understand your starting point",
+        "Scan-led planning to clarify your starting point",
         "Suitability checks for single, multiple, or full-arch implants",
-        "Options explained clearly with pros/cons",
-        "Personalised plan and costed estimate after assessment"
+        "Options explained with benefits and limitations",
+        "Written plan and costed estimate after assessment"
       ],
       "mediaHint": "CBCT-led implant assessment and planning"
     },
@@ -106,7 +106,7 @@
       "order": 60,
       "seoRole": "supporting",
       "title": "Digital planning that reduces surprises",
-      "body": "Scan-led planning helps reduce uncertainties by mapping bone, bite, and restorative needs before treatment begins.",
+      "body": "Scan-led planning reduces uncertainty by mapping bone, bite, and restorative considerations before treatment begins.",
       "items": [
         "3D imaging (CBCT) when appropriate",
         "Digital planning and guided principles",
@@ -119,7 +119,7 @@
       "variantId": "shoreham_implant_consultation_pricing",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Fees, timelines, and choices — explained after assessment",
+      "title": "Fees, timelines, and choices — discussed after assessment",
       "items": [
         "Written plan with options, stages, and estimated costs",
         "CBCT or records only when clinically appropriate",
@@ -159,7 +159,7 @@
         },
         {
           "question": "What are the alternatives to implants?",
-          "answer": "If implants aren’t high standards fit, we talk through alternatives such as bridges or dentures so you can choose confidently."
+          "answer": "If implants are not clinically appropriate, we discuss alternatives such as bridges or dentures so you can make an informed decision."
         },
         {
           "question": "Can I have temporary teeth while healing?",
@@ -167,11 +167,11 @@
         },
         {
           "question": "How long do implants last?",
-          "answer": "Implants are intended as long-term solutions, but longevity depends on bone health, home care, and attending reviews."
+          "answer": "Implants are designed as long-term solutions. Longevity depends on bone health, home care, and regular reviews."
         },
         {
           "question": "How much does an implant consultation cost?",
-          "answer": "Fees are confirmed after we understand your needs and any scans required, with transparent estimates provided in writing."
+          "answer": "Fees are confirmed after assessment and any required scans. Estimates are provided clearly in writing."
         },
         {
           "question": "Will I get a written plan?",
@@ -191,12 +191,12 @@
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
       "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after general and hygiene review (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
+      "body": "This appointment is often arranged after a general and hygiene review (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.",
       "bullets": [
         "Appropriate when you want to confirm implant suitability and map the plan.",
-        "Often follows General and hygiene review (/treatments/preventative-and-general-dentistry); Gum stabilisation (/treatments/periodontal-gum-care); After extractions (/treatments/extractions-and-oral-surgery).",
-        "Alternatives we balance: Sedation options (/treatments/sedation-dentistry); Comfort-focused implant care (/treatments/implants-sedation).",
-        "Next steps we plan for: CBCT and 3D planning (/treatments/cbct-3d-scanning); Single tooth implants (/treatments/implants-single-tooth); Multiple tooth implants (/treatments/implants-multiple-teeth)."
+        "It may follow a general and hygiene review (/treatments/preventative-and-general-dentistry); Gum stabilisation (/treatments/periodontal-gum-care); After extractions (/treatments/extractions-and-oral-surgery).",
+        "Alternatives considered may include sedation options (/treatments/sedation-dentistry); Comfort-focused implant care (/treatments/implants-sedation).",
+        "Next steps may include CBCT imaging and 3D planning (/treatments/cbct-3d-scanning); Single tooth implants (/treatments/implants-single-tooth); Multiple tooth implants (/treatments/implants-multiple-teeth)."
       ]
     },
     {
