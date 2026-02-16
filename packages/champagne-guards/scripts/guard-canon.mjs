@@ -24,12 +24,11 @@ const canonicalTokens = {
   '--text': '#1A1A1A',
   '--smh-warm-rose': '#E24DAA',
   '--smh-white': '#FFFFFF',
-  '--smh-gray-200': '#E5E7EB',
-  '--smh-ink-persian-900': '#01162F'
+  '--smh-gray-200': '#E5E7EB'
 };
 
 const allowedHexes = new Set(
-  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa', '#01162f']
+  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
 );
 
 function getBaseRevision() {
@@ -65,16 +64,6 @@ function recordError(message) {
 
 function recordWarning(message) {
   warnings.push(message);
-}
-
-function getCurrentBranch() {
-  try {
-    return execSync('git rev-parse --abbrev-ref HEAD', { stdio: 'pipe' })
-      .toString()
-      .trim();
-  } catch (error) {
-    return '';
-  }
 }
 
 function ensureHeroGradientUsesToken() {
@@ -162,11 +151,6 @@ function ensureTokenDefinitions() {
 }
 
 function ensureTokensNotModified() {
-  const branch = getCurrentBranch();
-  if (branch.startsWith('canon-update/')) {
-    return;
-  }
-
   const base = getBaseRevision();
   const diffOutput = execSync(`git diff --name-only ${base} HEAD -- ${tokenFilePath}`)
     .toString()

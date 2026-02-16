@@ -10,6 +10,13 @@ import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 import { headers } from "next/headers";
 
+const heroMountIsolationStyle = {
+  minHeight: "72vh",
+  isolation: "isolate" as const,
+  contain: "paint" as const,
+  backfaceVisibility: "hidden" as const,
+};
+
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
   const trimmed = path.trim();
@@ -72,7 +79,7 @@ export async function HeroMount(props: HeroRendererProps) {
         data-hero-engine="v2"
         data-hero-flag={rawFlag ?? ""}
         data-hero-flag-normalized={normalized}
-        style={{ minHeight: "72vh" }}
+        style={heroMountIsolationStyle}
         {...heroDebugAttributes}
       >
         {v2Model ? (
@@ -108,7 +115,7 @@ export async function HeroMount(props: HeroRendererProps) {
       data-hero-engine="v1"
       data-hero-flag={rawFlag ?? ""}
       data-hero-flag-normalized={normalized}
-      style={{ minHeight: "72vh" }}
+      style={heroMountIsolationStyle}
     >
       <Renderer {...props} />
     </div>
