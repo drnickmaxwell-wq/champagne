@@ -1,6 +1,6 @@
 .root {
   --concierge-keyline: var(--champagne-keyline-gold);
-  --concierge-panel-bg: var(--surface-glass);
+  --concierge-panel-bg: color-mix(in srgb, var(--surface-ink-soft) 78%, var(--surface-glass) 22%);
   --concierge-composer-bg: color-mix(in srgb, var(--surface-ink-soft) 88%, transparent);
   --concierge-launcher-bg: color-mix(in srgb, var(--surface-glass) 88%, var(--surface-ink-soft) 12%);
   --concierge-border: color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
