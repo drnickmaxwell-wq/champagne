@@ -1,8 +1,8 @@
 .root {
   --concierge-keyline: var(--champagne-keyline-gold);
-  --concierge-panel-bg: var(--surface-glass);
-  --concierge-composer-bg: color-mix(in srgb, var(--surface-ink-soft) 88%, transparent);
-  --concierge-launcher-bg: color-mix(in srgb, var(--surface-glass) 88%, var(--surface-ink-soft) 12%);
+  --concierge-panel-bg: color-mix(in oklab, color-mix(in oklab, var(--bg-ink) 92%, var(--brand-teal) 8%) 92%, var(--surface-glass-deep));
+  --concierge-composer-bg: color-mix(in srgb, var(--bg-ink-soft) 88%, transparent);
+  --concierge-launcher-bg: color-mix(in srgb, var(--surface-glass) 88%, var(--bg-ink-soft) 12%);
   --concierge-border: color-mix(in srgb, var(--border-subtle) 70%, var(--concierge-keyline) 30%);
   position: fixed;
   inset-inline-end: 0;
@@ -73,7 +73,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: color-mix(in srgb, var(--surface-ink) 18%, var(--surface-0));
+  background: color-mix(in oklab, var(--bg-ink) 22%, transparent);
   backdrop-filter: blur(2px) saturate(0.92);
   -webkit-backdrop-filter: blur(2px) saturate(0.92);
   opacity: 0;
@@ -106,6 +106,27 @@
   transform-origin: right center;
   will-change: transform, opacity;
   animation: conciergePanelIn 320ms cubic-bezier(0.2, 0.74, 0.24, 1) both;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 120% at 50% 32%,
+    color-mix(in srgb, var(--surface-2) 18%, transparent) 0%,
+    color-mix(in oklab, var(--brand-teal) 3%, transparent) 24%,
+    color-mix(in oklab, var(--brand-magenta) 3%, transparent) 32%,
+    color-mix(in srgb, var(--champagne-keyline-gold) 6%, transparent) 38%,
+    transparent 72%
+  );
+  opacity: 0;
+}
+
+.panel[data-bloom="true"]::before {
+  animation: conciergeBloom 2400ms cubic-bezier(0.22, 0.7, 0.18, 1);
 }
 
 .header {
@@ -301,6 +322,11 @@
     animation: none;
     transform: none;
   }
+
+  .panel[data-bloom="true"]::before {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 @keyframes conciergeOverlayIn {
@@ -331,6 +357,24 @@
   }
 
   to {
+    opacity: 0;
+  }
+}
+
+@keyframes conciergeBloom {
+  0% {
+    opacity: 0;
+  }
+
+  28% {
+    opacity: 0.28;
+  }
+
+  55% {
+    opacity: 0.24;
+  }
+
+  100% {
     opacity: 0;
   }
 }

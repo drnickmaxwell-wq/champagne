@@ -106,9 +106,21 @@ export function ConciergeShell({
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const launcherRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const previousOpenRef = useRef(isOpen);
+  const previousBloomOpenRef = useRef(isOpen);
+  const lastAssistantIdTriggeredRef = useRef<string | null>(null);
   const [launcherTrace, setLauncherTrace] = useState<"idle" | "open" | "close">("idle");
+
+  const triggerBloom = () => {
+    const element = panelRef.current;
+    if (!element) return;
+
+    element.removeAttribute("data-bloom");
+    void element.offsetHeight;
+    element.setAttribute("data-bloom", "true");
+  };
 
   useEffect(() => {
     const element = textareaRef.current;
@@ -167,6 +179,41 @@ export function ConciergeShell({
     };
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    const element = panelRef.current;
+    if (!element) return;
+
+    const handleAnimationEnd = (event: AnimationEvent) => {
+      if (event.animationName === "conciergeBloom") {
+        element.removeAttribute("data-bloom");
+      }
+    };
+
+    element.addEventListener("animationend", handleAnimationEnd);
+    return () => {
+      element.removeEventListener("animationend", handleAnimationEnd);
+    };
+  }, []);
+
+  useEffect(() => {
+    const wasOpen = previousBloomOpenRef.current;
+    if (!wasOpen && isOpen) {
+      triggerBloom();
+    }
+    previousBloomOpenRef.current = isOpen;
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const lastMessage = messages[messages.length - 1];
+    if (!lastMessage || lastMessage.role !== "assistant") return;
+    if (lastAssistantIdTriggeredRef.current === lastMessage.id) return;
+
+    lastAssistantIdTriggeredRef.current = lastMessage.id;
+    triggerBloom();
+  }, [isOpen, messages]);
+
   return (
     <div className={styles.root} data-open={isOpen ? "true" : "false"} data-enabled={isEnabled ? "true" : "false"}>
       {isEnabled ? (
@@ -186,7 +233,7 @@ export function ConciergeShell({
       {isEnabled && isOpen ? (
         <>
           <div className={styles.overlay} aria-hidden="true" onClick={onClose} />
-          <aside className={styles.panel} aria-label="Champagne Concierge panel">
+          <aside ref={panelRef} className={styles.panel} aria-label="Champagne Concierge panel">
             <header className={styles.header}>
               <h2 className={styles.title}>Champagne Concierge</h2>
               <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close concierge panel">
