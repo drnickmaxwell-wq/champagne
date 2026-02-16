@@ -38,7 +38,7 @@
       "variantId": "shoreham_implants_aftercare_trust",
       "order": 20,
       "seoRole": "supporting",
-      "title": "Healing support you can rely on",
+      "title": "Ongoing care for long-term stability",
       "items": [
         "Written aftercare instructions tailored to your treatment",
         "Planned follow-ups and reviews",
@@ -55,8 +55,8 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "RECOVERY",
-      "title": "What to expect after implant treatment",
-      "body": "Most people notice expected swelling or soreness for a few days, move to gentle cleaning and a soft diet, and ease back into normal routines as tissues heal. Healing varies by individual and treatment type, and timelines for fitting final teeth can differ — we set clear steps so you know what’s coming.",
+      "title": "Looking after implants over time",
+      "body": "Most patients settle quickly after treatment, move to gentle cleaning and a soft diet, and ease back into normal routines as tissues heal. Responses vary between individuals, and timelines for fitting final teeth can differ — we set clear steps so you know what’s coming.",
       "mediaHint": "Implant healing and maintenance guidance"
     },
     {
@@ -99,7 +99,7 @@
       "variantId": "shoreham_implants_aftercare_technology",
       "order": 60,
       "seoRole": "supporting",
-      "title": "Follow-up and monitoring that protects results",
+      "title": "Reviews to monitor implant health",
       "body": "We keep aftercare grounded in structured reviews, monitoring, and straightforward advice so healing feels predictable.",
       "items": [
         "Planned review schedule",
@@ -113,7 +113,7 @@
       "variantId": "shoreham_implants_aftercare_aftercare",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Comfort, safety, and when to contact us",
+      "title": "What is normal and when to get in touch",
       "items": [
         "Expected: mild bleeding, swelling, soreness",
         "How to protect healing (soft diet guidance, avoid disturbing the area)",
@@ -139,16 +139,16 @@
       "title": "Common questions about implant aftercare",
       "faqs": [
         {
-          "question": "How long does implant healing take?",
-          "answer": "Early settling often takes a couple of weeks, with deeper integration varying by case. We’ll outline your expected checkpoints and review dates."
+          "question": "How often should implants be reviewed?",
+          "answer": "Regular reviews allow us to check stability, bone support, and cleaning access, with deeper integration varying by case. We’ll outline your expected checkpoints and review dates."
         },
         {
           "question": "What can I eat after implant surgery?",
           "answer": "Start with soft, cool foods and avoid chewing directly on the implant site until we confirm it’s appropriate to progress."
         },
         {
-          "question": "How do I clean around the implant?",
-          "answer": "Use gentle brushing and any recommended brushes or rinses, keeping the area clean without disturbing the site. We’ll show you the technique."
+          "question": "Do implants need special cleaning?",
+          "answer": "Daily cleaning is essential. We may recommend interdental brushes or other aids depending on your restoration, keeping the area clean without disturbing the site. We’ll show you the technique."
         },
         {
           "question": "Is swelling normal?",
