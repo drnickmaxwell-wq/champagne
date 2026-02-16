@@ -2,6 +2,7 @@
   "allow": [
     "public/assets/champagne/**",
     "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+    "packages/champagne-tokens/styles/tokens/smh-ink-overrides.css",
     "packages/champagne-tokens/styles/champagne/time-of-day.css",
     "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
     "packages/champagne-hero/src/BaseChampagneSurface.tsx",
