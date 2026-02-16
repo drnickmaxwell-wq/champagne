@@ -14,8 +14,8 @@
   /* Support gradients derived from canon (avoid raw hex outside tokens) */
   --iridescent-gradient: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--brand-teal) 70%, white) 0%,
-    color-mix(in oklab, var(--brand-magenta) 70%, white) 100%
+    color-mix(in oklab, var(--brand-teal) 70%, var(--smh-white)) 0%,
+    color-mix(in oklab, var(--brand-magenta) 70%, var(--smh-white)) 100%
   );
 
   /* Neutrals and text */
@@ -32,7 +32,7 @@
   --smh-primary-magenta: var(--brand-magenta);
   --smh-primary-teal: var(--brand-teal);
   --smh-accent-gold: var(--brand-gold);
-  --smh-accent-gold-soft: color-mix(in srgb, var(--brand-gold) 65%, white 35%);
+  --smh-accent-gold-soft: color-mix(in oklab, var(--brand-gold) 65%, var(--smh-white) 35%);
   --smh-gold: var(--brand-gold);
   --champagne-keyline-gold: var(--brand-gold-keyline);
 
@@ -72,7 +72,7 @@
   --smh-grad-stop1: var(--brand-magenta);
   --smh-grad-stop2: var(--brand-teal);
   --smh-grad-stop3: var(--brand-gold);
-  --smh-gold-shoulder: color-mix(in oklab, var(--brand-gold) 65%, white 35%);
+  --smh-gold-shoulder: color-mix(in oklab, var(--brand-gold) 65%, var(--smh-white) 35%);
   --smh-bg-size: 165% 165%;
   --smh-bg-pos: 18% 38%;
 }

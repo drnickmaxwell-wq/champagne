@@ -1,5 +1,5 @@
 :root[data-theme='dawn'] {
-  --bg-ink: color-mix(in srgb, var(--brand-teal) 15%, white);
+  --bg-ink: color-mix(in oklab, var(--brand-teal) 15%, var(--brand-white));
 }
 
 :root[data-theme='dusk'] {

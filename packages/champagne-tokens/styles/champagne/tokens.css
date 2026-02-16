@@ -4,15 +4,15 @@
   --brand-soft-gold: var(--brand-gold-keyline);
   --smh-ink-navy: color-mix(
     in oklab,
-    color-mix(in oklab, var(--ink) 88%, var(--brand-teal) 12%) 92%,
-    var(--brand-magenta) 8%
+    color-mix(in oklab, var(--ink) 80%, var(--brand-teal) 20%) 96%,
+    var(--brand-magenta) 4%
   );
   --brand-ink: var(--smh-ink-navy);
   --brand-white: var(--smh-white);
 
   --ink-100: var(--ink);
-  --ink-80: color-mix(in srgb, var(--brand-ink) 84%, white);
-  --ink-60: color-mix(in srgb, var(--brand-ink) 64%, white);
+  --ink-80: color-mix(in oklab, var(--brand-ink) 84%, var(--brand-white));
+  --ink-60: color-mix(in oklab, var(--brand-ink) 64%, var(--brand-white));
 
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -29,8 +29,8 @@
   --ink-luxe-shift: color-mix(in oklab, var(--brand-teal) 55%, var(--brand-magenta) 45%);
   --ink-luxe-sheen: color-mix(in oklab, var(--ink-luxe-shift) 88%, var(--brand-gold) 12%);
 
-  --bg-ink: var(--ink-100);
-  --bg-ink-soft: color-mix(in oklab, var(--brand-ink) 90%, var(--ink-luxe-sheen) 10%);
+  --bg-ink: var(--brand-ink);
+  --bg-ink-soft: color-mix(in oklab, var(--brand-ink) 94%, var(--ink-luxe-sheen) 6%);
   --bg: var(--brand-white);
   --surface-0: color-mix(in oklab, var(--brand-white) 96%, var(--brand-soft-gold) 4%);
   --surface-1: color-mix(in oklab, var(--brand-white) 92%, var(--brand-soft-gold) 8%);
@@ -38,12 +38,12 @@
 
   --surface-glass: color-mix(
     in oklab,
-    color-mix(in oklab, var(--brand-ink) 76%, var(--ink-luxe-sheen) 24%) 70%,
+    color-mix(in oklab, var(--brand-ink) 68%, var(--ink-luxe-sheen) 32%) 64%,
     transparent
   );
   --surface-glass-deep: color-mix(
     in oklab,
-    color-mix(in oklab, var(--brand-ink) 84%, var(--ink-luxe-sheen) 16%) 78%,
+    color-mix(in oklab, var(--brand-ink) 78%, var(--ink-luxe-sheen) 22%) 76%,
     transparent
   );
 
