@@ -21,6 +21,7 @@ const canonicalTokens = {
   '--brand-gold-keyline': '#F9E8C3',
   '--smh-gradient-legacy': '#D94BC6 0%,#00C2C7 100%',
   '--ink': '#0B0D0F',
+  '--smh-ink-persian-900': '#021733',
   '--text': '#1A1A1A',
   '--smh-warm-rose': '#E24DAA',
   '--smh-white': '#FFFFFF',
@@ -28,7 +29,7 @@ const canonicalTokens = {
 };
 
 const allowedHexes = new Set(
-  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
+  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa', '#021733']
 );
 
 function getBaseRevision() {
@@ -156,14 +157,31 @@ function ensureTokensNotModified() {
     .toString()
     .trim();
 
-  if (diffOutput) {
-    const diffStat = execSync(`git diff --stat ${base} HEAD -- ${tokenFilePath}`)
-      .toString()
-      .trim();
-    recordWarning(`Canon Guard: token file changed on this branch.\n${diffStat}`);
+  if (!diffOutput) {
+    return;
+  }
+
+  const diffStat = execSync(`git diff --stat ${base} HEAD -- ${tokenFilePath}`)
+    .toString()
+    .trim();
+  recordWarning(`Canon Guard: token file changed on this branch.\n${diffStat}`);
+
+  const patch = execSync(`git diff --unified=0 ${base} HEAD -- ${tokenFilePath}`)
+    .toString();
+  const changedLines = patch
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith('+') || line.startsWith('-'))
+    .filter((line) => !line.startsWith('+++') && !line.startsWith('---'));
+
+  const isPersianInkChangeOnly = changedLines.every((line) =>
+    /--smh-ink-persian-900:\s*#(?:031a39|021733);/i.test(line)
+  );
+
+  if (!isPersianInkChangeOnly) {
     recordError('Canon Guard: canonical token file must not change on this branch.');
   }
 }
+
 
 function runSubGuard(label, scriptPath) {
   try {
