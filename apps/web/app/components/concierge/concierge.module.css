@@ -117,6 +117,8 @@
   background: radial-gradient(
     120% 120% at 50% 32%,
     color-mix(in srgb, var(--surface-2) 18%, transparent) 0%,
+    color-mix(in oklab, var(--brand-teal) 3%, transparent) 24%,
+    color-mix(in oklab, var(--brand-magenta) 3%, transparent) 32%,
     color-mix(in srgb, var(--champagne-keyline-gold) 6%, transparent) 38%,
     transparent 72%
   );
