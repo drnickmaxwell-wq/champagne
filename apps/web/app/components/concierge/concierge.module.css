@@ -73,7 +73,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: color-mix(in srgb, var(--surface-ink) 18%, var(--surface-0));
+  background: color-mix(in srgb, var(--bg-ink) 18%, var(--surface-0));
   backdrop-filter: blur(2px) saturate(0.92);
   -webkit-backdrop-filter: blur(2px) saturate(0.92);
   opacity: 0;
