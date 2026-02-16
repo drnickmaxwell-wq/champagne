@@ -39,7 +39,7 @@
       "order": 20,
       "seoRole": "supporting",
       "eyebrow": "Why patients trust us",
-      "title": "Planned implant care with safety first",
+      "title": "Planning-led implant care with safety first",
       "items": [
         "Cone beam scans and digital models to measure bone and sinus height",
         "Treatment plans that stage grafting and implant placement to protect healing",
@@ -55,8 +55,8 @@
       "order": 30,
       "seoRole": "primaryContent",
       "eyebrow": "WHY BONE GRAFTING?",
-      "title": "Create a stable foundation for implants",
-      "body": "If bone height or width has reduced, adding graft material or lifting the sinus floor can give the implant a secure base. We recommend it only when scans show it will support long-term stability and comfort.",
+      "title": "Creating a stable foundation for implants",
+      "body": "If bone height or width has reduced, grafting or a sinus lift may provide a secure base for an implant. We recommend it only when scans show it will support long-term stability and comfort.",
       "mediaHint": "CBCT-led planning and staged implant care"
     },
     {
@@ -100,8 +100,8 @@
       "order": 60,
       "seoRole": "supporting",
       "eyebrow": "Technology",
-      "title": "Digital planning that reduces surprises",
-      "body": "We pair CBCT imaging with guided surgery principles so grafting and implant placement align. Digital impressions and lab coordination help restorations seat comfortably once healing is complete.",
+      "title": "Digital planning that improves predictability",
+      "body": "We use CBCT imaging and guided surgery principles to align grafting and implant placement. Digital impressions and close lab coordination support accurate, comfortable restorations once healing is complete.",
       "mediaHint": "CBCT planning, guided placement, lab coordination"
     },
     {
@@ -136,7 +136,7 @@
       "title": "Questions about grafting and sinus lifts",
       "faqs": [
         {
-          "question": "Do I often need bone grafting for implants?",
+          "question": "Do I need bone grafting for an implant?",
           "answer": "No. We only recommend grafting when scans show there isn't enough bone to support an implant predictably."
         },
         {
@@ -153,7 +153,7 @@
         },
         {
           "question": "Does grafting hurt?",
-          "answer": "Treatment is carried out with local anaesthetic and careful techniques; some soreness afterwards is normal and we support you with guidance."
+          "answer": "Treatment is carried out with local anaesthetic. Some soreness afterwards is normal. We provide clear aftercare guidance."
         },
         {
           "question": "What affects success?",
@@ -173,11 +173,11 @@
       "seoRole": "supporting",
       "eyebrow": "Decision clarity",
       "title": "When this fits and what else to consider",
-      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "body": "We usually stage this after an implant consultation so the plan remains safe and measured.",
       "bullets": [
         "Appropriate when you want to find out when bone grafting is indicated to support implants.",
-        "Often follows Implant consultation (/treatments/implants-consultation); 3D scans (/treatments/cbct-3d-scanning).",
-        "Alternatives we balance: Sedation dentistry (/treatments/sedation-dentistry); Aftercare and hygiene (/treatments/implants-aftercare).",
+        "Often follows an implant consultation and 3D scanning.",
+        "Alternatives we may discuss include sedation options and ongoing maintenance care.",
         "Next steps we plan for: Implant placement (/treatments/implants); Teeth in a day (/treatments/implants-teeth-in-a-day); Implant restorations (/treatments/3d-implant-restorations)."
       ]
     },
