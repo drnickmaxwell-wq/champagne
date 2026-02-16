@@ -193,7 +193,7 @@ export function ConciergeShell({
     return () => {
       element.removeEventListener("animationend", handleAnimationEnd);
     };
-  }, [isOpen]);
+  }, []);
 
   useEffect(() => {
     const wasOpen = previousBloomOpenRef.current;
