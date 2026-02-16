@@ -35,6 +35,7 @@
   --smh-accent-gold-soft: color-mix(in srgb, var(--brand-gold) 65%, white 35%);
   --smh-gold: var(--brand-gold);
   --champagne-keyline-gold: var(--brand-gold-keyline);
+  --smh-ink-persian-900: #01162F;
 
   /* Surface sizing */
   --smh-surface-bg-size: 165% 165%;

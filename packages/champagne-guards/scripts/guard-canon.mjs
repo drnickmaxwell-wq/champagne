@@ -24,11 +24,12 @@ const canonicalTokens = {
   '--text': '#1A1A1A',
   '--smh-warm-rose': '#E24DAA',
   '--smh-white': '#FFFFFF',
-  '--smh-gray-200': '#E5E7EB'
+  '--smh-gray-200': '#E5E7EB',
+  '--smh-ink-persian-900': '#01162F'
 };
 
 const allowedHexes = new Set(
-  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa']
+  ['#c2185b', '#40c4b4', '#d4af37', '#f9e8c3', '#d94bc6', '#00c2c7', '#0b0d0f', '#1a1a1a', '#ffffff', '#e5e7eb', '#e24daa', '#01162f']
 );
 
 function getBaseRevision() {
