@@ -40,6 +40,12 @@
   isolation: isolate;
 }
 
+@media (prefers-color-scheme: dark) {
+  .launcher {
+    transition: none;
+  }
+}
+
 .launcher::after {
   content: "";
   position: absolute;
@@ -56,6 +62,7 @@
   background-color: color-mix(in srgb, var(--concierge-launcher-bg) 82%, var(--ink) 18%);
   color: var(--text-high);
   outline: none;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
 }
 
 .launcher[data-trace="open"]::after,

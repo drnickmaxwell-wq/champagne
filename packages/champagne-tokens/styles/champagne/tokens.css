@@ -7,7 +7,7 @@
     color-mix(in oklab, var(--ink) 88%, var(--brand-teal) 12%) 92%,
     var(--brand-magenta) 8%
   );
-  --brand-ink: var(--smh-ink-navy);
+  --brand-ink: #071D3A;
   --brand-white: var(--smh-white);
 
   --ink-100: var(--ink);
