@@ -22,6 +22,11 @@ export function BloomDriver() {
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const heroRoot =
+      bloom.closest<HTMLElement>('[data-hero-engine="v2"]') ??
+      bloom.closest<HTMLElement>('.hero-renderer-v2[data-hero-root="true"]') ??
+      document.querySelector<HTMLElement>('.hero-renderer-v2[data-hero-root="true"]') ??
+      document.querySelector<HTMLElement>('[data-hero-engine="v2"]');
 
     if (reduceMotion) {
       bloom.style.opacity = baseOpacity.toFixed(3);
@@ -35,7 +40,12 @@ export function BloomDriver() {
       const minOpacity = baseOpacity * 0.70;
       const maxOpacity = baseOpacity * 1.55;
       const targetOpacity = Math.min(maxOpacity, Math.max(minOpacity, unclampedOpacity));
+      const driveText = drive.toFixed(3);
       bloom.style.opacity = targetOpacity.toFixed(3);
+      if (heroRoot) {
+        heroRoot.style.setProperty("--bloom-drive", driveText);
+        heroRoot.setAttribute("data-bloom-drive", driveText);
+      }
       rafId = window.requestAnimationFrame(tick);
     };
 
