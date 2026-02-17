@@ -209,8 +209,8 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
                 opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
                 transition: opacity 220ms ease;
               }
-              .hero-renderer-v2 .hero-surface--motion[data-ready!="true"] {
-                opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
+              .hero-renderer-v2 .hero-surface--motion:not([data-motion-ready="true"]) {
+                opacity: 0;
               }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
@@ -916,9 +916,6 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   if (!activeModel) return <HeroFallback />;
 
   const resolvedRootStyle = { ...rootStyle, ...activeModel.surfaceStack.surfaceVars };
-  const gatedRootStyle = isHeroVisuallyReady
-    ? resolvedRootStyle
-    : { ...resolvedRootStyle, opacity: 0, visibility: "hidden" as const };
   const motionCount = activeModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
@@ -938,7 +935,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     <HeroV2Frame
       layout={activeModel.layout}
       gradient={activeModel.gradient}
-      rootStyle={gatedRootStyle}
+      rootStyle={resolvedRootStyle}
       heroId={activeModel.surfaceStack.heroId}
       variantId={activeModel.surfaceStack.variantId}
       particlesPath={activeModel.surfaceStack.particlesPath}
