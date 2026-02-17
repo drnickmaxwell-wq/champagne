@@ -70,6 +70,7 @@ export async function HeroMount(props: HeroRendererProps) {
     return (
       <div
         data-hero-engine="v2"
+        data-hero-ready="false"
         data-hero-flag={rawFlag ?? ""}
         data-hero-flag-normalized={normalized}
         style={{ minHeight: "72vh" }}

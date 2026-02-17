@@ -212,6 +212,13 @@ function HeroV2StyleBlock({ layout }: { layout: Awaited<ReturnType<typeof getHer
               .hero-renderer-v2 .hero-surface--motion[data-ready!="true"] {
                 opacity: var(--hero-motion-opacity, var(--hero-motion-default-opacity, 0.2));
               }
+              [data-hero-engine="v2"][data-hero-ready="false"] .hero-renderer-v2 .hero-surface--motion {
+                opacity: 0 !important;
+                pointer-events: none;
+              }
+              [data-hero-engine="v2"][data-hero-ready="true"] .hero-renderer-v2 .hero-surface--motion {
+                transition: opacity 180ms ease;
+              }
               .hero-renderer-v2 .hero-surface--motion.hero-surface--caustics {
                 --hero-motion-x: -1.1%;
                 --hero-motion-y: 0.8%;
