@@ -35,10 +35,7 @@ export function BloomDriver() {
       const minOpacity = baseOpacity * 0.70;
       const maxOpacity = baseOpacity * 1.55;
       const targetOpacity = Math.min(maxOpacity, Math.max(minOpacity, unclampedOpacity));
-      const driveText = drive.toFixed(3);
       bloom.style.opacity = targetOpacity.toFixed(3);
-      document.documentElement.style.setProperty("--bloom-drive", driveText);
-      document.documentElement.setAttribute("data-bloom-drive", driveText);
       rafId = window.requestAnimationFrame(tick);
     };
 
