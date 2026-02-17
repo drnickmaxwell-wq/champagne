@@ -146,6 +146,18 @@ function HeroSurfaceStackV2Base({
   }, [heroDebugEnabled, pathnameKey]);
 
   useEffect(() => {
+    const heroRoot =
+      document.querySelector<HTMLElement>('[data-hero-engine="v2"]') ??
+      document.querySelector<HTMLElement>('[data-hero-engine]');
+    if (!heroRoot) return;
+    heroRoot.setAttribute("data-hero-ready", "false");
+    const frameId = window.requestAnimationFrame(() => {
+      heroRoot.setAttribute("data-hero-ready", "true");
+    });
+    return () => window.cancelAnimationFrame(frameId);
+  }, []);
+
+  useEffect(() => {
     if (!HERO_V2_DEBUG) return;
     if (isHeroTruthEnabled()) return;
     const stackId = instanceId.current;
@@ -522,7 +534,7 @@ function HeroSurfaceStackV2Base({
             }
             onLoadedData={handleVideoReady}
             onCanPlay={handleVideoReady}
-            style={heroVideo.style}
+            style={{ ...heroVideo.style, opacity: 0 }}
           >
             <source src={heroVideo.path} />
           </video>
@@ -545,7 +557,7 @@ function HeroSurfaceStackV2Base({
               }
               onLoadedData={handleVideoReady}
               onCanPlay={handleVideoReady}
-              style={entry.style}
+              style={{ ...entry.style, opacity: 0 }}
             >
               <source src={entry.path} />
             </video>

@@ -70,9 +70,10 @@ export async function HeroMount(props: HeroRendererProps) {
     return (
       <div
         data-hero-engine="v2"
+        data-hero-ready="false"
         data-hero-flag={rawFlag ?? ""}
         data-hero-flag-normalized={normalized}
-        style={{ minHeight: "72vh" }}
+        style={{ minHeight: "72vh", background: "var(--bg-ink, var(--ink))" }}
         {...heroDebugAttributes}
       >
         {v2Model ? (
@@ -108,7 +109,7 @@ export async function HeroMount(props: HeroRendererProps) {
       data-hero-engine="v1"
       data-hero-flag={rawFlag ?? ""}
       data-hero-flag-normalized={normalized}
-      style={{ minHeight: "72vh" }}
+      style={{ minHeight: "72vh", background: "var(--bg-ink, var(--ink))" }}
     >
       <Renderer {...props} />
     </div>
