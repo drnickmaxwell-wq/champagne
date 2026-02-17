@@ -20,8 +20,8 @@ const SALESY_LANGUAGE: Array<{ pattern: RegExp; replacement: string }> = [
 
 const QUESTION_MARK_BURST = /\?{2,}/g;
 const EMOJI_PATTERN = /[\p{Extended_Pictographic}]/gu;
-const MAX_SENTENCES_PER_PARAGRAPH = 2;
 const MAX_PARAGRAPHS = 4;
+const EXPLANATION_SENTENCES_PER_PARAGRAPH = 2;
 
 function normalizeWhitespace(value: string): string {
   return value.replace(/\r\n/g, "\n").replace(/[\t ]+/g, " ").trim();
@@ -102,15 +102,15 @@ function toStructuredParagraphs(content: string): string[] {
   }
 
   const paragraphs: string[] = [];
-  for (let index = 0; index < sentences.length; index += MAX_SENTENCES_PER_PARAGRAPH) {
-    paragraphs.push(sentences.slice(index, index + MAX_SENTENCES_PER_PARAGRAPH).join(" "));
+  for (let index = 0; index < sentences.length; index += EXPLANATION_SENTENCES_PER_PARAGRAPH) {
+    paragraphs.push(sentences.slice(index, index + EXPLANATION_SENTENCES_PER_PARAGRAPH).join(" "));
   }
 
   if (paragraphs.length === 1) {
     paragraphs.push("I can refine this further with one or two details about your goals and timing.");
   }
 
-  return paragraphs.slice(0, MAX_PARAGRAPHS);
+  return paragraphs;
 }
 
 function shouldAddClarifyingVariable(prompt: string | undefined, content: string): boolean {
@@ -151,17 +151,26 @@ export function formatConciergeResponse(rawOutput: string, options: FormatConcie
   const cleaned = sanitizeLanguage(normalizeWhitespace(rawOutput));
   const { orientationLine, remaining } = resolveOrientationLine(cleaned, options.prompt);
   const explanationParagraphs = toStructuredParagraphs(remaining);
+  const nextStep = enforceGuidedNextStepGovernance(buildGuidedNextStep(options.prompt));
 
-  const sections = [orientationLine, ...explanationParagraphs];
+  const clarifyingVariable =
+    "A clarifying variable is your clinical history and treatment priorities, which can change the final recommendation.";
 
-  if (shouldAddClarifyingVariable(options.prompt, cleaned)) {
-    sections.push(
-      "A clarifying variable is your clinical history and treatment priorities, which can change the final recommendation.",
-    );
+  const middleSections: string[] = [...explanationParagraphs];
+  const includeClarifyingVariable = shouldAddClarifyingVariable(options.prompt, cleaned);
+  if (includeClarifyingVariable) {
+    middleSections.push(clarifyingVariable);
   }
 
-  const governedNextStep = enforceGuidedNextStepGovernance(buildGuidedNextStep(options.prompt));
-  sections.push(governedNextStep);
+  const maxMiddleSections = MAX_PARAGRAPHS - 2;
+  let limitedMiddleSections = middleSections;
+  if (middleSections.length > maxMiddleSections) {
+    if (includeClarifyingVariable && maxMiddleSections >= 2) {
+      limitedMiddleSections = [middleSections[0], clarifyingVariable];
+    } else {
+      limitedMiddleSections = middleSections.slice(0, maxMiddleSections);
+    }
+  }
 
-  return sections.join("\n\n");
+  return [orientationLine, ...limitedMiddleSections, nextStep].join("\n\n");
 }

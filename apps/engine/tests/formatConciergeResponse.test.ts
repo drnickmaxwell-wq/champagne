@@ -9,7 +9,7 @@ describe("formatConciergeResponse", () => {
     );
 
     const sections = formatted.split("\n\n");
-    expect(sections.length).toBeGreaterThanOrEqual(4);
+    expect(sections.length).toBeLessThanOrEqual(4);
     expect(sections[0]).toMatch(/^Cost depends on treatment scope\./);
     expect(formatted).toContain("A clarifying variable is your clinical history");
     expect(sections.at(-1)).toMatch(/^Next step: choose one option:/);
@@ -24,8 +24,9 @@ describe("formatConciergeResponse", () => {
     const sections = formatted.split("\n\n");
     const explanationSections = sections.slice(1, -1);
 
-    expect(explanationSections.length).toBeGreaterThanOrEqual(2);
-    expect(explanationSections.length).toBeLessThanOrEqual(4);
+    expect(sections.length).toBeLessThanOrEqual(4);
+    expect(explanationSections.length).toBeGreaterThanOrEqual(1);
+    expect(explanationSections.length).toBeLessThanOrEqual(3);
     expect(sections.at(-1)).toMatch(/^Next step:/);
   });
 
