@@ -20,7 +20,11 @@
 
   /* Neutrals and text */
   --ink:  #0B0D0F;
+  --bg-ink: #071D3A;
   --text: #1A1A1A;
+  --text-high: rgba(255,255,255,0.92);
+  --text-medium: rgba(255,255,255,0.78);
+  --text-low: rgba(255,255,255,0.62);
   --bg:   #FFFFFF;
 
   /* Legacy token aliases (kept for compatibility) */
