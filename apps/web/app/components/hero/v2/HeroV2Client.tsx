@@ -155,7 +155,7 @@ function HeroSurfaceStackV2Base({
       heroRoot.setAttribute("data-hero-ready", "true");
     });
     return () => window.cancelAnimationFrame(frameId);
-  }, [pathnameKey]);
+  }, []);
 
   useEffect(() => {
     if (!HERO_V2_DEBUG) return;
