@@ -1,0 +1,47 @@
+{
+  "Implants": {
+    "hub": "/treatments/implants",
+    "children": [
+      "/treatments/implant-consultation",
+      "/treatments/implants-single-tooth",
+      "/treatments/implants-multiple-teeth",
+      "/treatments/implants-full-arch",
+      "/treatments/implants-bone-grafting",
+      "/treatments/implant-aftercare",
+      "/treatments/sedation-for-implants",
+      "/treatments/implant-retained-dentures",
+      "/treatments/sinus-lift",
+      "/treatments/teeth-in-a-day",
+      "/treatments/failed-implant-replacement"
+    ],
+    "requested_leaf_present": {
+      "/treatments/surgically-guided-implants": false
+    }
+  },
+  "Cosmetic Dentistry": {
+    "hub": "/treatments/cosmetic-dentistry",
+    "children": [
+      "/treatments/veneers",
+      "/treatments/3d-printed-veneers",
+      "/treatments/composite-bonding",
+      "/treatments/injection-moulded-composite",
+      "/treatments/teeth-whitening",
+      "/treatments/digital-smile-design"
+    ]
+  },
+  "Orthodontics": {
+    "service_hub_or_landing": "/treatments/orthodontics",
+    "children": [
+      "/treatments/clear-aligners",
+      "/treatments/clear-aligners-spark",
+      "/treatments/fixed-braces"
+    ],
+    "service_route_alignment": {
+      "generic_service_route": "/treatments/clear-aligners",
+      "brand_leaf_route": "/treatments/clear-aligners-spark",
+      "requested_route_present": {
+        "/treatments/aligners": false
+      }
+    }
+  }
+}
