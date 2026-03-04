@@ -1,33 +1,35 @@
 {
   "document": "CODEX_PACKET_V1",
-  "packet": "PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU",
-  "status": "pass",
-  "authoritative_render_path": [
-    "apps/web/app/treatments/page.tsx",
-    "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
-    "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
-    "packages/champagne-sections/src/SectionRegistry.ts",
-    "packages/champagne-manifests/src/core.ts"
-  ],
-  "authoritative_menu_source": {
-    "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
-    "object": "pages.treatments_hub.sections[id=treatments_hub_all_treatments_index].items",
-    "reason": "No SMH section layout exists for routeId 'treatments', so getSectionStackForPage falls back to pageManifest.sections for /treatments."
-  },
+  "packet": "PACKET_ZONEA_014_SUPPORT_PAGE_METADATA",
+  "status": "completed",
   "changes": {
     "files_modified": [
-      "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "apps/web/app/contact/page.tsx",
+      "apps/web/app/fees/page.tsx",
+      "apps/web/app/team/page.tsx",
+      "apps/web/app/blog/page.tsx",
+      "apps/web/app/treatments/page.tsx",
+      "apps/web/app/(champagne)/smile-gallery/page.tsx",
+      "apps/web/app/patient-portal/page.tsx",
+      "apps/web/app/(site)/[page]/page.tsx"
+    ],
+    "files_added": [
       "HUMAN_REPORT.md",
       "TRUTH_REPORT.json"
     ],
-    "menu_entry_added": {
-      "title": "Surgically guided implants",
-      "href": "/treatments/surgically-guided-implants"
-    },
-    "redirects_added": false
+    "treatments_slug_metadata_touched": false
+  },
+  "acceptance_criteria": {
+    "target_routes_export_metadata": true,
+    "titles_descriptions_route_specific_deterministic": true,
+    "guards_pass": true,
+    "build_pass": true
   },
   "proof": {
-    "pnpm run guard:all": "pass",
-    "pnpm run build:web": "pass"
+    "npm_run_guard_hero": "pass",
+    "npm_run_guard_canon": "pass",
+    "npm_run_verify": "pass",
+    "pnpm_run_guard_all": "pass",
+    "pnpm_run_build_web": "pass"
   }
 }

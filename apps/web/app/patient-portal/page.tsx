@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { getPageManifest } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../(champagne)/_builder/ChampagnePageBuilder";
+
+export function generateMetadata(): Metadata {
+  const manifest = getPageManifest("/patient-portal");
+  const title = manifest?.label ?? "Patient Portal";
+  const description =
+    (manifest as { description?: string; intro?: string } | undefined)?.description ??
+    (manifest as { description?: string; intro?: string } | undefined)?.intro ??
+    "Access the Champagne patient portal.";
+
+  return { title, description };
+}
 
 type PortalIntent = "login" | "video" | "finance" | "upload";
 

@@ -1,27 +1,28 @@
-# HUMAN REPORT
+# PACKET_ZONEA_014_SUPPORT_PAGE_METADATA — Human Report
 
-## Packet
-PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU
+## Mission
+Added minimal route-level metadata exports so support wrapper pages no longer inherit root metadata.
 
-## What was implemented
-- Traced `/treatments` rendering: `apps/web/app/treatments/page.tsx` renders `ChampagnePageBuilder` with `slug="/treatments"`.
-- Verified section resolution path: `ChampagnePageBuilder` -> `ChampagneSectionRenderer` -> `getSectionStack` -> `getSectionStackForPage`.
-- Confirmed `/treatments` uses manifest fallback sections (no `routeId: "treatments"` SMH layout exists), so the authoritative hub menu list is in `packages/champagne-manifests/data/champagne_machine_manifest_full.json` under `pages.treatments_hub.sections`.
-- Added one new entry to the `treatments_hub_all_treatments_index` routing cards list:
-  - title: `Surgically guided implants`
-  - href: `/treatments/surgically-guided-implants`
+## Files Changed
+- `apps/web/app/contact/page.tsx`
+- `apps/web/app/fees/page.tsx`
+- `apps/web/app/team/page.tsx`
+- `apps/web/app/blog/page.tsx`
+- `apps/web/app/treatments/page.tsx`
+- `apps/web/app/(champagne)/smile-gallery/page.tsx`
+- `apps/web/app/patient-portal/page.tsx`
+- `apps/web/app/(site)/[page]/page.tsx`
 
-## Why this list was changed
-- The main user-facing Treatments hub `/treatments` renders the `treatments_hub_all_treatments_index` `routing_cards` items from `pages.treatments_hub.sections` in the machine manifest.
-- This list already contains the implant-related leaf links (e.g., sinus lift, teeth-in-a-day, sedation-for-implants, failed-implant-replacement, implant-aftercare), making it the correct single source to extend.
+## Implementation Notes
+- Added `generateMetadata()` to each listed wrapper route.
+- Metadata resolution uses `getPageManifest(route)` and prefers `label` + `description`/`intro` when present.
+- Added deterministic per-route fallback descriptions.
+- Preserved page rendering logic and wrapper structure.
+- Did **not** modify `/treatments/[slug]` metadata.
 
-## Constraint checks
-- Smallest diff applied (single functional list entry + required report updates).
-- No redirects added.
-- No copy rewrites beyond the single new menu item label.
-- No refactors.
-- No hero/token/theming system changes.
-
-## Proof run
+## Validation
+- `npm run guard:hero` ✅
+- `npm run guard:canon` ✅
+- `npm run verify` ✅
 - `pnpm run guard:all` ✅
 - `pnpm run build:web` ✅
