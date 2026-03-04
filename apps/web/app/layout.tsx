@@ -11,7 +11,7 @@ import type { HeroMode } from "@champagne/hero";
 
 export const metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://stmaryshousedental.co.uk",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://smhdental.co.uk",
   ),
   title: "St Mary’s House Dental – Champagne Core",
   description: "Neutral skeleton for the Champagne Ecosystem marketing site.",
