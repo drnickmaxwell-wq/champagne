@@ -1,0 +1,116 @@
+{
+  "audit_role": "REPO_STRUCTURE_AUDITOR_V1",
+  "mode": "READ-ONLY (analysis intent)",
+  "timestamp_utc": "2026-03-04T00:00:00Z",
+  "checks": {
+    "manifest_file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "layout_registry": "packages/champagne-manifests/src/core.ts",
+    "layout_folder": "packages/champagne-manifests/data/sections/smh/",
+    "route_structure": "apps/web/app/treatments/"
+  },
+  "manifest_targets": {
+    "/treatments/implants": {
+      "status": "found",
+      "manifest_key": "pages.implants",
+      "category": "treatment",
+      "label": "Dental Implants in Shoreham-by-Sea",
+      "hub_signals": {
+        "routing_cards_section_present": true,
+        "routing_cards_id": "implants_full_inventory",
+        "routing_child_count": 12
+      },
+      "block_excerpt": {
+        "path": "/treatments/implants",
+        "heroFamily": "treatments.implants",
+        "surface": "champagne/surface/treatment",
+        "routing_cards_items": [
+          "/treatments/implants",
+          "/treatments/implant-consultation",
+          "/treatments/implants-single-tooth",
+          "/treatments/implants-multiple-teeth",
+          "/treatments/implants-full-arch",
+          "/treatments/implants-bone-grafting",
+          "/treatments/implant-aftercare",
+          "/treatments/sedation-for-implants",
+          "/treatments/sinus-lift",
+          "/treatments/teeth-in-a-day",
+          "/treatments/failed-implant-replacement",
+          "/treatments/implant-retained-dentures"
+        ]
+      }
+    },
+    "/treatments/surgically-guided-implants": {
+      "status": "missing",
+      "manifest_key": null,
+      "notes": "No page/path found in pages or treatments collections."
+    },
+    "/treatments/veneers": {
+      "status": "found",
+      "manifest_key": "pages.veneers",
+      "category": "treatment",
+      "label": "Dental veneers in Shoreham-by-Sea",
+      "block_excerpt": {
+        "path": "/treatments/veneers",
+        "surface": "champagne/surface/treatment"
+      }
+    },
+    "/treatments/aligners": {
+      "status": "missing",
+      "manifest_key": null,
+      "notes": "No /treatments/aligners path; service route is /treatments/clear-aligners."
+    },
+    "/treatments/clear-aligners": {
+      "status": "found",
+      "manifest_key": "pages.clear_aligners",
+      "category": "treatment",
+      "label": "Clear Aligners in Shoreham-by-Sea",
+      "brand_specific": false,
+      "block_excerpt": {
+        "path": "/treatments/clear-aligners",
+        "related_brand_leaf": "/treatments/clear-aligners-spark"
+      }
+    }
+  },
+  "layout_registry_findings": {
+    "champagneSectionLayouts_has_implants": true,
+    "champagneSectionLayouts_has_veneers": true,
+    "champagneSectionLayouts_has_aligners": true,
+    "champagneSectionLayouts_has_clear_aligners": true,
+    "champagneSectionLayouts_has_cosmetic_dentistry": true
+  },
+  "layout_json_presence": {
+    "treatments.implants.json": true,
+    "treatments.veneers.json": true,
+    "treatments.aligners.json": true,
+    "treatments.clear-aligners.json": true,
+    "treatments.surgically-guided-implants.json": false,
+    "treatments.cosmetic-dentistry.json": true
+  },
+  "route_structure": {
+    "framework": "dynamic route via apps/web/app/treatments/[slug]/page.tsx",
+    "direct_folders": [
+      "apps/web/app/treatments/page.tsx",
+      "apps/web/app/treatments/[slug]/page.tsx"
+    ],
+    "resolved_by_manifest": {
+      "implants": true,
+      "surgically-guided-implants": false,
+      "veneers": true,
+      "aligners": false,
+      "clear-aligners": true
+    }
+  },
+  "stop_condition_flags": {
+    "implants_not_hub": false,
+    "aligners_brand_specific": false,
+    "missing_treatment_routes": [
+      "/treatments/surgically-guided-implants",
+      "/treatments/aligners"
+    ]
+  },
+  "safe_checks": {
+    "pnpm_install": "pass",
+    "pnpm_run_guard_all": "pass",
+    "pnpm_run_build_web": "pass"
+  }
+}
