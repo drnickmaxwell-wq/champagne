@@ -1,24 +1,18 @@
-# SUPPORT PAGE METADATA PATCH REPORT
+# TREATMENT ALIAS REDIRECTS REPORT
 
 ## Mission
-Added minimal route-specific metadata exports to support wrapper pages so they no longer inherit root metadata.
+Ensure treatment alias URLs permanently redirect to canonical manifest paths while keeping existing treatment manifest resolution and metadata behavior intact.
 
 ## Files Updated
-- `apps/web/app/contact/page.tsx`
-- `apps/web/app/fees/page.tsx`
-- `apps/web/app/team/page.tsx`
-- `apps/web/app/blog/page.tsx`
-- `apps/web/app/treatments/page.tsx`
-- `apps/web/app/(champagne)/smile-gallery/page.tsx`
-- `apps/web/app/patient-portal/page.tsx`
-- `apps/web/app/(site)/[page]/page.tsx`
+- `apps/web/app/treatments/[slug]/page.tsx`
+- `HUMAN_REPORT.md`
+- `TRUTH_REPORT.json`
 
-## Approach
-- Added `metadata` export for static wrapper pages.
-- Added `generateMetadata` for dynamic `/(site)/[page]` route.
-- Metadata title/description prefer page manifest fields (`label`, `description`, `intro`) with deterministic fallbacks.
-- No changes made to `/treatments/[slug]` metadata.
-- No token/hero changes.
+## Change Summary
+- Added alias resolution via `resolveTreatmentPathAlias` in treatment page resolution.
+- Preserved existing `getTreatmentManifest`-driven manifest lookup and metadata generation.
+- Added permanent redirect in the page handler only when an alias is actually detected and requested path differs from canonical path.
+- Kept canonical treatment routes unchanged.
 
 ## Validation
 - `pnpm run guard:all` ✅
