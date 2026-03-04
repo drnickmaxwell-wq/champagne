@@ -8,6 +8,8 @@ export const dynamic = "force-dynamic";
 
 type PageParams = { slug: string };
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://smhdental.co.uk").replace(/\/$/, "");
+
 async function resolveTreatment(params: Promise<PageParams>) {
   const resolved = await params;
   const requestedPath = `/treatments/${resolved.slug}`;
@@ -67,8 +69,55 @@ export default async function TreatmentPage({
     permanentRedirect(pageSlug);
   }
 
+  const treatmentTitle = manifest.label ?? "Treatment";
+  const treatmentDescription =
+    (manifest as { description?: string; intro?: string }).description ??
+    (manifest as { description?: string; intro?: string }).intro ??
+    "Explore this treatment option.";
+  const canonicalUrl = `${siteUrl}${pageSlug}`;
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: treatmentTitle,
+    description: treatmentDescription,
+    url: canonicalUrl,
+    provider: {
+      "@type": "Dentist",
+      name: "St Mary’s House Dental Care",
+      url: siteUrl,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Treatments",
+        item: `${siteUrl}/treatments`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: treatmentTitle,
+        item: canonicalUrl,
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <ChampagnePageBuilder slug={pageSlug} />
     </>
   );
