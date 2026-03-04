@@ -1,23 +1,15 @@
 {
-  "packet": "PACKET_ZONEA_011_TREATMENT_METADATA_ENRICHMENT",
-  "changed_files": [
-    "apps/web/app/treatments/[slug]/page.tsx",
-    "HUMAN_REPORT.md",
-    "TRUTH_REPORT.json"
-  ],
-  "proof_commands": [
-    {
-      "command": "pnpm run guard:all",
-      "result": "pass"
-    },
-    {
-      "command": "pnpm run build:web",
-      "result": "pass"
-    }
-  ],
-  "stop_conditions": {
-    "single_target_file_plus_reports": "pass",
-    "guard_all_failure": "not_triggered"
+  "packet": "PACKET_ZONEA_013B_CREATE_SURGICALLY_GUIDED_IMPLANTS_LEAF_NO_REDIRECT",
+  "status": "pass",
+  "changes": {
+    "manifest_entry_added": true,
+    "smh_layout_added": true,
+    "core_registration_added": true,
+    "implants_hub_routing_cards_updated": true,
+    "redirects_added": false
   },
-  "commit": "7623a656865ef99f7ecdb79d5b5fb567bf66c7df"
+  "proof": {
+    "pnpm run guard:all": "pass",
+    "pnpm run build:web": "pass"
+  }
 }

@@ -1,0 +1,235 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.surgically-guided-implants",
+  "pageType": "treatment",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "surgically-guided-implants-hero-intro",
+      "componentId": "treatment.heroIntro",
+      "variantId": "shoreham_surgically_guided_implants_intro",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Surgically guided implants",
+      "title": "Surgically Guided Implants in Shoreham-by-Sea",
+      "body": "A dental implant can be one way to replace a single missing tooth without relying on neighbouring teeth, unlike a traditional bridge. Planning starts with the end in mind: we assess the bite, gum shape, bone volume, and the position of adjacent teeth, then use CBCT and digital scans to plan implant placement to support a natural-looking crown. We’ll explain timing options, including immediate placement in selected cases, and discuss factors that affect predictability such as smoking, gum health, and tooth grinding. If an implant isn’t appropriate, we’ll outline alternatives such as a bridge or a removable option and help you choose a stable long-term solution.",
+      "bullets": [
+        "Keep neighbouring teeth untouched while closing a single gap",
+        "Guided placement for accurate, comfortable healing",
+        "Crown shade-matched to blend with surrounding teeth"
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-trust-signals",
+      "componentId": "treatment.trustSignals",
+      "variantId": "shoreham_surgically_guided_implants_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why patients trust us",
+      "title": "Planning that protects the neighbouring teeth",
+      "items": [
+        "CBCT imaging and digital models to map bone and nerve position",
+        "Guided placement designed to avoid pressure on adjacent teeth",
+        "Provisional options and close follow-up with the clinical team"
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-what-are",
+      "componentId": "treatment.whatAreImplants",
+      "variantId": "shoreham_surgically_guided_implants_explainer",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "What is a single-tooth implant?",
+      "title": "A titanium root topped with a custom crown",
+      "body": "One implant post integrates with the jaw and supports a handcrafted crown, restoring the shape, shade, and feel of your missing tooth without touching its neighbours.",
+      "mediaHint": "Single implant post with custom crown"
+    },
+    {
+      "instanceId": "surgically-guided-implants-who-for",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "shoreham_surgically_guided_implants_candidates",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Who it helps",
+      "title": "Designed for single gaps",
+      "items": [
+        "A missing tooth after injury or decay",
+        "Gaps where a bridge would mean drilling healthy teeth",
+        "Front or back teeth where stability and aesthetics matter",
+        "Patients wanting to preserve bone and gum contour"
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "shoreham_surgically_guided_implants_timeline",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your implant pathway",
+      "title": "Clear steps from consult to final crown",
+      "items": [
+        "Consult: discuss your goals, medical history, and smile photos",
+        "Scans: CBCT imaging and digital impressions for precise planning",
+        "Placement: guided implant placement with gentle anaesthetic",
+        "Healing: check-ins to track integration and soft tissue health",
+        "Crown fit: custom crown designed to match nearby teeth",
+        "Review: bite checks and long-term care guidance"
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-technology",
+      "componentId": "treatment.technology",
+      "variantId": "shoreham_surgically_guided_implants_technology",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Technology",
+      "title": "Digital planning for a seamless single crown",
+      "body": "CBCT data, guided surgery sleeves, and close lab collaboration keep the implant precisely positioned and the crown shaded to blend naturally.",
+      "mediaHint": "Guided placement + shade-matched crown"
+    },
+    {
+      "instanceId": "surgically-guided-implants-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "shoreham_surgically_guided_implants_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Aftercare & risks",
+      "title": "Support while your implant settles",
+      "items": [
+        "Advice on cleaning around the implant without stressing the gum",
+        "Diet and activity guidance while healing progresses",
+        "Follow-up appointments to monitor integration and bite",
+        "Clear discussion of risks like soreness, infection, or implant movement"
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "surgically-guided-implants-faq",
+      "componentId": "treatment.faq",
+      "variantId": "shoreham_surgically_guided_implants_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Single implant FAQs",
+      "title": "Common questions about surgically guided implants",
+      "faqs": [
+        {
+          "question": "How long does a single implant take?",
+          "answer": "Many cases take several months from placement to final crown, depending on healing and whether a temporary tooth is needed."
+        },
+        {
+          "question": "Will the implant match my other teeth?",
+          "answer": "We photograph and shade-map the neighbouring teeth so the final crown blends in shape, colour, and texture."
+        },
+        {
+          "question": "Can I have a temporary tooth?",
+          "answer": "We can often provide a provisional solution to maintain your smile while the implant integrates."
+        },
+        {
+          "question": "Does it hurt?",
+          "answer": "Placement uses local anaesthetic and gentle techniques; most patients describe pressure rather than pain, with soreness managed afterwards."
+        },
+        {
+          "question": "How do I care for the implant at home?",
+          "answer": "We show you how to brush and use cleaning aids around the implant to keep the gumline healthy."
+        },
+        {
+          "question": "Am I suitable for an implant?",
+          "answer": "We assess bone levels, gum health, and medical history in Shoreham-by-Sea to confirm if an implant is the safest choice."
+        }
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_surgically-guided-implants_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "When this fits and what else to consider",
+      "body": "In our clinic we usually stage this after implant consultation (/treatments/implants-consultation) so the plan stays safe and measured.",
+      "bullets": [
+        "Appropriate when you want to assess whether a single-tooth implant is appropriate for your missing tooth.",
+        "Often follows Implant consultation (/treatments/implants-consultation); CBCT 3D scanning (/treatments/cbct-3d-scanning).",
+        "Alternatives we balance: Bone grafting (/treatments/implants-bone-grafting); Sedation support (/treatments/implants-sedation).",
+        "Next steps we plan for: Implant restorations (/treatments/3d-implant-restorations); Hygiene and aftercare (/treatments/implants-aftercare); Retained denture options (/treatments/implants-retained-dentures)."
+      ]
+    },
+    {
+      "instanceId": "surgically-guided-implants-cta",
+      "componentId": "treatment.cta",
+      "variantId": "shoreham_surgically_guided_implants_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "slot": "footer",
+      "title": "Ready to explore surgically guided implants?",
+      "strapline": "Book a surgically guided implants consultation in Shoreham-by-Sea.",
+      "ctas": [
+        {
+          "label": "Plan a clinician-led surgically guided implants review",
+          "href": "/treatments/surgically-guided-implants",
+          "variant": "primary"
+        },
+        {
+          "label": "Consider alternatives like CBCT 3D scanning",
+          "href": "/treatments/cbct-3d-scanning",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Implant consultation",
+        "href": "/treatments/implants-consultation"
+      },
+      {
+        "label": "CBCT 3D scanning",
+        "href": "/treatments/cbct-3d-scanning"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Implant restorations",
+        "href": "/treatments/3d-implant-restorations"
+      },
+      {
+        "label": "Hygiene and aftercare",
+        "href": "/treatments/implants-aftercare"
+      },
+      {
+        "label": "Retained denture options",
+        "href": "/treatments/implants-retained-dentures"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Bone grafting",
+        "href": "/treatments/implants-bone-grafting"
+      },
+      {
+        "label": "Sedation support",
+        "href": "/treatments/implants-sedation"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Plan a clinician-led surgically guided implants review",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Consider alternatives like CBCT 3D scanning",
+      "href": "/treatments/cbct-3d-scanning"
+    },
+    "reassurance_intent": {
+      "label": "Map next steps such as Hygiene and aftercare",
+      "href": "/treatments/implants-aftercare"
+    }
+  }
+}
