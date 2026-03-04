@@ -10356,6 +10356,142 @@
       ],
       "surface": "champagne/surface/treatment"
     },
+    "cosmetic_dentistry": {
+      "id": "cosmetic_dentistry",
+      "label": "Cosmetic dentistry",
+      "path": "/treatments/cosmetic-dentistry",
+      "category": "hub",
+      "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
+      "intro": "Cosmetic dentistry options focused on natural-looking improvements, careful planning, and long-term oral health.",
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "cosmetic_dentistry_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Explore cosmetic dentistry options",
+          "strapline": "Review treatment options for improving shape, colour, and smile balance with a measured, clinician-led plan."
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        },
+        {
+          "id": "cosmetic_dentistry_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Cosmetic dentistry consultation",
+          "strapline": "Discuss your goals, understand realistic outcomes, and plan cosmetic treatment in the right order for lasting results.",
+          "ctas": [
+            {
+              "label": "Book a cosmetic consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Veneers",
+              "href": "/treatments/veneers",
+              "preset": "secondary"
+            },
+            {
+              "label": "Composite bonding",
+              "href": "/treatments/composite-bonding",
+              "preset": "secondary"
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
+    "preventive_dentistry": {
+      "id": "preventive_dentistry",
+      "label": "Preventive dentistry",
+      "path": "/treatments/preventive-dentistry",
+      "category": "hub",
+      "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
+      "intro": "Preventive dentistry guidance covering routine maintenance, early intervention, and practical long-term oral health planning.",
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.consultationOverview"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "preventive_dentistry_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Explore preventive dentistry pathways",
+          "strapline": "Build a practical care plan with routine assessments, gum health support, and early treatment where needed."
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        },
+        {
+          "id": "preventive_dentistry_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Preventive dentistry consultation",
+          "strapline": "Get a clear, preventive-first plan designed to protect oral health and reduce avoidable treatment later.",
+          "ctas": [
+            {
+              "label": "Book a preventive consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Preventative & general dentistry",
+              "href": "/treatments/preventative-and-general-dentistry",
+              "preset": "secondary"
+            },
+            {
+              "label": "Children's dentistry",
+              "href": "/treatments/childrens-dentistry",
+              "preset": "secondary"
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment"
+    },
     "anti_wrinkle_treatments": {
       "id": "anti_wrinkle_treatments",
       "label": "Anti-wrinkle treatments",

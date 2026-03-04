@@ -55,6 +55,8 @@ import sectionLayoutEndodonticsRootCanal from "../data/sections/smh/treatments.e
 import sectionLayoutExtractionsOralSurgery from "../data/sections/smh/treatments.extractions-and-oral-surgery.json";
 import sectionLayoutNervousPatients from "../data/sections/smh/treatments.nervous-patients.json";
 import sectionLayoutSedationDentistry from "../data/sections/smh/treatments.sedation-dentistry.json";
+import sectionLayoutCosmeticDentistry from "../data/sections/smh/treatments.cosmetic-dentistry.json";
+import sectionLayoutPreventiveDentistry from "../data/sections/smh/treatments.preventive-dentistry.json";
 import sectionLayoutPreventativeGeneralDentistry from "../data/sections/smh/treatments.preventative-and-general-dentistry.json";
 import sectionLayoutSeniorMatureSmileCare from "../data/sections/smh/treatments.senior-mature-smile-care.json";
 import sectionLayoutTeethWhitening from "../data/sections/smh/treatments.teeth-whitening.json";
@@ -377,6 +379,8 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutChildrensDentistry as ChampagneSectionLayout,
   sectionLayoutNervousPatients as ChampagneSectionLayout,
   sectionLayoutSedationDentistry as ChampagneSectionLayout,
+  sectionLayoutCosmeticDentistry as ChampagneSectionLayout,
+  sectionLayoutPreventiveDentistry as ChampagneSectionLayout,
   sectionLayoutPreventativeGeneralDentistry as ChampagneSectionLayout,
   sectionLayoutSeniorMatureSmileCare as ChampagneSectionLayout,
   sectionLayoutTeethWhitening as ChampagneSectionLayout,
