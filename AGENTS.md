@@ -521,6 +521,31 @@ Scope:
 
 Hard prohibitions remain unchanged.
 
+DIRECTOR_SCOPE_OVERRIDE: SEO_JSONLD_V1
+
+Director-authorized one-time override for structured SEO work.
+
+Allowed files (and only these files):
+- apps/web/app/layout.tsx
+- apps/web/app/treatments/[slug]/page.tsx
+
+Allowed change types:
+- JSON-LD emission only (`<script type="application/ld+json">` payloads).
+- Metadata field updates only (e.g., `metadata`, `generateMetadata`, canonical/OpenGraph/Twitter metadata fields tied to SEO output).
+
+Hard prohibitions remain in force:
+- No token/theming edits.
+- No hero engine/hero renderer/manifests edits.
+- No routing behavior changes.
+- No UI/layout/stack changes.
+- No business logic changes.
+- No page copy/content rewrites.
+- No edits outside the two files listed above.
+
+Expiry / stop condition:
+- This override applies only to PACKET_ZONEA_016_JSONLD_MVP.
+- This override MUST NOT be reused for any later packet without fresh Director re-authorization.
+
 6. Role-Based Authority
 
 Agents operate under declared roles.

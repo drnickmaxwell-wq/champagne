@@ -1,30 +1,26 @@
 {
-  "document": "TRUTH_REPORT",
-  "packet": "PACKET_GUARD_CANON_PATIENT_PORTAL_SSR_PROBE_STABILIZE",
-  "truth": {
-    "patient_portal_probe_present": true,
-    "probe_skipped_by_default": false,
-    "deterministic_readiness_added": true,
-    "readiness_health_endpoint_used": true,
-    "bounded_request_timeout_added": true,
-    "single_retry_on_abort_present": true,
-    "explicit_failure_diagnostics_added": true,
-    "runtime_behavior_changed_outside_guards": false
-  },
-  "files_changed": [
-    "packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs",
+  "packet": "PACKET_ZONEA_015_TREATMENT_ALIAS_REDIRECTS",
+  "status": "completed",
+  "changed_files": [
+    "apps/web/app/treatments/[slug]/page.tsx",
     "HUMAN_REPORT.md",
     "TRUTH_REPORT.json"
   ],
-  "proof": {
-    "pnpm run guard:canon": {
-      "status": "pass"
-    },
-    "pnpm run guard:all": {
-      "status": "pass"
-    },
-    "pnpm run build:web": {
-      "status": "pass"
-    }
-  }
+  "acceptance_criteria": {
+    "alias_requests_permanent_redirect": true,
+    "canonical_pages_unchanged": true,
+    "guards_pass": true,
+    "build_pass": true
+  },
+  "commands": [
+    "pnpm run guard:all",
+    "pnpm run build:web",
+    "npm run guard:hero",
+    "npm run guard:canon",
+    "npm run verify"
+  ],
+  "notes": [
+    "Redirect behavior triggers only when alias is detected.",
+    "No copy/layout metadata rewrites beyond redirect behavior."
+  ]
 }

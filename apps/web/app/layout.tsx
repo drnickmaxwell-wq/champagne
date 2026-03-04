@@ -24,6 +24,21 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const isHeroEnabled = isBrandHeroEnabled();
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
+  const siteUrl = metadata.metadataBase.toString().replace(/\/$/, "");
+
+  const dentistJsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["Dentist", "LocalBusiness"],
+    name: "St Mary’s House Dental Care",
+    url: siteUrl,
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "St Mary’s House Dental Care",
+    url: siteUrl,
+  };
 
   let pageCategory: string | undefined;
   let mode: HeroMode | undefined;
@@ -58,6 +73,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-50">
             <Header />
