@@ -1,11 +1,29 @@
 {
-  "packet": "PACKET_ZONEA_013B_CREATE_SURGICALLY_GUIDED_IMPLANTS_LEAF_NO_REDIRECT",
+  "document": "CODEX_PACKET_V1",
+  "packet": "PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU",
   "status": "pass",
+  "authoritative_render_path": [
+    "apps/web/app/treatments/page.tsx",
+    "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+    "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+    "packages/champagne-sections/src/SectionRegistry.ts",
+    "packages/champagne-manifests/src/core.ts"
+  ],
+  "authoritative_menu_source": {
+    "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "object": "pages.treatments_hub.sections[id=treatments_hub_all_treatments_index].items",
+    "reason": "No SMH section layout exists for routeId 'treatments', so getSectionStackForPage falls back to pageManifest.sections for /treatments."
+  },
   "changes": {
-    "manifest_entry_added": true,
-    "smh_layout_added": true,
-    "core_registration_added": true,
-    "implants_hub_routing_cards_updated": true,
+    "files_modified": [
+      "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "HUMAN_REPORT.md",
+      "TRUTH_REPORT.json"
+    ],
+    "menu_entry_added": {
+      "title": "Surgically guided implants",
+      "href": "/treatments/surgically-guided-implants"
+    },
     "redirects_added": false
   },
   "proof": {

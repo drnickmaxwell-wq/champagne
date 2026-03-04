@@ -1,20 +1,26 @@
 # HUMAN REPORT
 
 ## Packet
-PACKET_ZONEA_013B_CREATE_SURGICALLY_GUIDED_IMPLANTS_LEAF_NO_REDIRECT
+PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU
 
 ## What was implemented
-- Added a new treatment page manifest entry for `/treatments/surgically-guided-implants` in the machine manifest.
-- Added the new route to `implants_full_inventory` routing cards (both `items` and `definition.items`).
-- Added a new SMH section layout file at:
-  - `packages/champagne-manifests/data/sections/smh/treatments.surgically-guided-implants.json`
-- Registered the new layout in `packages/champagne-manifests/src/core.ts` (import + inclusion in `champagneSectionLayouts`).
+- Traced `/treatments` rendering: `apps/web/app/treatments/page.tsx` renders `ChampagnePageBuilder` with `slug="/treatments"`.
+- Verified section resolution path: `ChampagnePageBuilder` -> `ChampagneSectionRenderer` -> `getSectionStack` -> `getSectionStackForPage`.
+- Confirmed `/treatments` uses manifest fallback sections (no `routeId: "treatments"` SMH layout exists), so the authoritative hub menu list is in `packages/champagne-manifests/data/champagne_machine_manifest_full.json` under `pages.treatments_hub.sections`.
+- Added one new entry to the `treatments_hub_all_treatments_index` routing cards list:
+  - title: `Surgically guided implants`
+  - href: `/treatments/surgically-guided-implants`
+
+## Why this list was changed
+- The main user-facing Treatments hub `/treatments` renders the `treatments_hub_all_treatments_index` `routing_cards` items from `pages.treatments_hub.sections` in the machine manifest.
+- This list already contains the implant-related leaf links (e.g., sinus lift, teeth-in-a-day, sedation-for-implants, failed-implant-replacement, implant-aftercare), making it the correct single source to extend.
 
 ## Constraint checks
-- No redirects were introduced.
-- Existing treatment routes were not modified.
-- No UI/hero/token files were changed.
-- Diff is scoped to manifest + new layout JSON + core.ts registration + required report outputs.
+- Smallest diff applied (single functional list entry + required report updates).
+- No redirects added.
+- No copy rewrites beyond the single new menu item label.
+- No refactors.
+- No hero/token/theming system changes.
 
 ## Proof run
 - `pnpm run guard:all` ✅
