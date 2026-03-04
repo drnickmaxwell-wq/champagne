@@ -1,0 +1,62 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.cosmetic-dentistry",
+  "pageType": "hub",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "cosmetic-dentistry-hero",
+      "componentId": "treatment.heroIntro",
+      "order": 10,
+      "seoRole": "hero"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-trust",
+      "componentId": "treatment.trustSignals",
+      "order": 20,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-consult",
+      "componentId": "treatment.consultationOverview",
+      "order": 30,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-who",
+      "componentId": "treatment.whoIsItFor",
+      "order": 40,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-process",
+      "componentId": "treatment.processTimeline",
+      "order": 50,
+      "seoRole": "primaryContent"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-related",
+      "componentId": "treatment.trustSignals",
+      "order": 60,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 70,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-faq",
+      "componentId": "treatment.faq",
+      "order": 80,
+      "seoRole": "faq"
+    },
+    {
+      "instanceId": "cosmetic-dentistry-cta",
+      "componentId": "treatment.cta",
+      "order": 90,
+      "seoRole": "cta"
+    }
+  ]
+}

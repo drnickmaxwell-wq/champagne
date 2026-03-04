@@ -1,29 +1,24 @@
 # HUMAN REPORT
 
 ## Mission
-Added two treatment hub manifest entries so they can resolve through the existing `/treatments/[slug]` route system:
+Register the two new treatment hub slugs in the SMH treatment layout registry so guard enforcement passes:
 - `/treatments/cosmetic-dentistry`
 - `/treatments/preventive-dentistry`
 
-## Template Used
-Both new entries were modeled from the existing working hub entry:
-- `pages.facial_aesthetics` in `packages/champagne-manifests/data/champagne_machine_manifest_full.json`
+## Files Updated
+- `packages/champagne-manifests/src/core.ts`
+  - Added imports for:
+    - `treatments.cosmetic-dentistry.json`
+    - `treatments.preventive-dentistry.json`
+  - Added both imported layout identifiers into `champagneSectionLayouts`.
 
-## What Was Added
-- New page key: `cosmetic_dentistry`
-  - `label`: `Cosmetic dentistry`
-  - `path`: `/treatments/cosmetic-dentistry`
-  - `category`: `hub`
-  - Added short `intro` metadata-style summary
-  - Included valid hub-style sections and minimal CTA links to existing pages (`/contact`, `/treatments/veneers`, `/treatments/composite-bonding`)
+- `packages/champagne-manifests/data/sections/smh/treatments.cosmetic-dentistry.json`
+  - Added new route layout registry file with `routeId: treatments.cosmetic-dentistry`.
 
-- New page key: `preventive_dentistry`
-  - `label`: `Preventive dentistry`
-  - `path`: `/treatments/preventive-dentistry`
-  - `category`: `hub`
-  - Added short `intro` metadata-style summary
-  - Included valid hub-style sections and minimal CTA links to existing pages (`/contact`, `/treatments/preventative-and-general-dentistry`, `/treatments/childrens-dentistry`)
+- `packages/champagne-manifests/data/sections/smh/treatments.preventive-dentistry.json`
+  - Added new route layout registry file with `routeId: treatments.preventive-dentistry`.
 
 ## Notes
-- No routing code, runtime code, or UI components were changed.
-- Only the target manifest file plus this report and the truth report were modified.
+- No routing refactor or UI redesign was performed.
+- Existing manifest hub entries remain unchanged in this follow-up patch.
+- This is the smallest registry wiring change required for `guard:smh-treatment-layouts` to pass.

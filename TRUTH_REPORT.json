@@ -1,20 +1,25 @@
 {
-  "packet": "PACKET_ZONEA_001_ADD_HUB_MANIFEST_ENTRIES_PNPM",
+  "packet": "PACKET_ZONEA_001B_TREATMENT_LAYOUT_REGISTRY",
   "changed_files": [
-    "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "packages/champagne-manifests/src/core.ts",
+    "packages/champagne-manifests/data/sections/smh/treatments.cosmetic-dentistry.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.preventive-dentistry.json",
     "HUMAN_REPORT.md",
     "TRUTH_REPORT.json"
   ],
   "proof": [
     {
+      "command": "pnpm --filter @champagne/guards guard:smh-treatment-layouts",
+      "result": "pass"
+    },
+    {
       "command": "pnpm run guard:all",
-      "result": "fail",
-      "details": "Fails at @champagne/guards guard:smh-treatment-layouts with: cosmetic-dentistry missing import in core.ts; preventive-dentistry missing import in core.ts."
+      "result": "pass"
     },
     {
       "command": "pnpm run build:web",
       "result": "pass"
     }
   ],
-  "commit": "e7448835d702309b028c87ed3ea1ff06e206cd25"
+  "commit": "59351a9f244ed24f95a25b7da6cfe60cb4f32fb1"
 }
