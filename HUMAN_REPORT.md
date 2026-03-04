@@ -1,27 +1,42 @@
-# HUMAN REPORT
+# HUMAN REPORT — Canon Guard Patient-Portal SSR Probe Stabilization
 
-## Packet
-PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU
+## Mission
+Stabilize the patient-portal SSR smoke probe used by `guard:canon`/`guard:all` in CI/container contexts without weakening the guard.
 
-## What was implemented
-- Traced `/treatments` rendering: `apps/web/app/treatments/page.tsx` renders `ChampagnePageBuilder` with `slug="/treatments"`.
-- Verified section resolution path: `ChampagnePageBuilder` -> `ChampagneSectionRenderer` -> `getSectionStack` -> `getSectionStackForPage`.
-- Confirmed `/treatments` uses manifest fallback sections (no `routeId: "treatments"` SMH layout exists), so the authoritative hub menu list is in `packages/champagne-manifests/data/champagne_machine_manifest_full.json` under `pages.treatments_hub.sections`.
-- Added one new entry to the `treatments_hub_all_treatments_index` routing cards list:
-  - title: `Surgically guided implants`
-  - href: `/treatments/surgically-guided-implants`
+## Files changed
+- `packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs`
+- `HUMAN_REPORT.md`
+- `TRUTH_REPORT.json`
 
-## Why this list was changed
-- The main user-facing Treatments hub `/treatments` renders the `treatments_hub_all_treatments_index` `routing_cards` items from `pages.treatments_hub.sections` in the machine manifest.
-- This list already contains the implant-related leaf links (e.g., sinus lift, teeth-in-a-day, sedation-for-implants, failed-implant-replacement, implant-aftercare), making it the correct single source to extend.
+## What changed (smallest-diff guard hardening)
+- Added deterministic readiness sequencing before the probe:
+  - first waits for local `GET /api/health`
+  - if needed, falls back to waiting on `GET /patient-portal?intent=login`
+- Added bounded timeout constants and explicit step tracking:
+  - request timeout (`REQUEST_TIMEOUT_MS`)
+  - readiness timeout (`SERVER_READY_TIMEOUT_MS`)
+  - warmup timeout (`WARMUP_TIMEOUT_MS`)
+- Kept the patient-portal probe mandatory and active (not skipped).
+- Added single-retry behavior for aborts (existing behavior retained and parameterized).
+- Added an explicit warmup request to compile/prime patient-portal SSR before the final smoke assertion.
+- Expanded failure diagnostics to print:
+  - command invoked
+  - probed URL
+  - step where failure occurred
+  - timeout values used
+  - whether server boot was detected
+  - last error string
 
-## Constraint checks
-- Smallest diff applied (single functional list entry + required report updates).
-- No redirects added.
-- No copy rewrites beyond the single new menu item label.
-- No refactors.
-- No hero/token/theming system changes.
+## Why this stabilizes the probe
+The previous probe often hit an abort on the first patient-portal render while Next dev server route compilation was still settling. The new readiness + warmup flow preserves strict SSR verification while reducing nondeterministic startup races.
 
-## Proof run
-- `pnpm run guard:all` ✅
-- `pnpm run build:web` ✅
+## Proof results
+- `pnpm run guard:canon` ✅ pass
+- `pnpm run guard:all` ✅ pass
+- `pnpm run build:web` ✅ pass
+
+## Constraint compliance
+- Probe was **not removed**.
+- Probe is **not skipped by default**.
+- No bypass flags or weakening logic introduced.
+- Changes are localized to guard probe reliability and diagnostics.

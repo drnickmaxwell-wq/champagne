@@ -1,33 +1,30 @@
 {
-  "document": "CODEX_PACKET_V1",
-  "packet": "PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU",
-  "status": "pass",
-  "authoritative_render_path": [
-    "apps/web/app/treatments/page.tsx",
-    "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
-    "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
-    "packages/champagne-sections/src/SectionRegistry.ts",
-    "packages/champagne-manifests/src/core.ts"
+  "document": "TRUTH_REPORT",
+  "packet": "PACKET_GUARD_CANON_PATIENT_PORTAL_SSR_PROBE_STABILIZE",
+  "truth": {
+    "patient_portal_probe_present": true,
+    "probe_skipped_by_default": false,
+    "deterministic_readiness_added": true,
+    "readiness_health_endpoint_used": true,
+    "bounded_request_timeout_added": true,
+    "single_retry_on_abort_present": true,
+    "explicit_failure_diagnostics_added": true,
+    "runtime_behavior_changed_outside_guards": false
+  },
+  "files_changed": [
+    "packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs",
+    "HUMAN_REPORT.md",
+    "TRUTH_REPORT.json"
   ],
-  "authoritative_menu_source": {
-    "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
-    "object": "pages.treatments_hub.sections[id=treatments_hub_all_treatments_index].items",
-    "reason": "No SMH section layout exists for routeId 'treatments', so getSectionStackForPage falls back to pageManifest.sections for /treatments."
-  },
-  "changes": {
-    "files_modified": [
-      "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
-      "HUMAN_REPORT.md",
-      "TRUTH_REPORT.json"
-    ],
-    "menu_entry_added": {
-      "title": "Surgically guided implants",
-      "href": "/treatments/surgically-guided-implants"
-    },
-    "redirects_added": false
-  },
   "proof": {
-    "pnpm run guard:all": "pass",
-    "pnpm run build:web": "pass"
+    "pnpm run guard:canon": {
+      "status": "pass"
+    },
+    "pnpm run guard:all": {
+      "status": "pass"
+    },
+    "pnpm run build:web": {
+      "status": "pass"
+    }
   }
 }
