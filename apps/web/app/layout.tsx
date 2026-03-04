@@ -14,14 +14,8 @@ export const metadata = {
   description: "Neutral skeleton for the Champagne Ecosystem marketing site.",
 };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {  const tokenInitScript = `
-    const root = document.documentElement;
-    root.style.setProperty('--brand-magenta', '#C2185B');
-    root.style.setProperty('--brand-teal', '#40C4B4');
-    root.style.setProperty('--brand-gold', '#D4AF37');
-    root.style.setProperty('--ink', '#0B0D0F');
-    root.style.setProperty('--brand-white', '#FFFFFF');
-  `;  const headersList = await headers();
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const headersList = await headers();
   const requestUrl = headersList.get("next-url") ?? "";
   const isPublicPage = !requestUrl.startsWith("/champagne/");
   const isHeroEnabled = isBrandHeroEnabled();
@@ -60,9 +54,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang="en">
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: tokenInitScript }} />
-      </head>
       <body className="min-h-screen antialiased">
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-50">
