@@ -1,0 +1,97 @@
+{
+  "document": "SEO_STATE_VERIFY_EVIDENCE",
+  "packet": "PACKET_ZONEA_SEO_STATE_VERIFY_READONLY",
+  "generated_from": {
+    "repo": "champagne-main",
+    "cwd": "/workspace/champagne"
+  },
+  "support_pages": {
+    "apps/web/app/contact/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 5]]
+    },
+    "apps/web/app/fees/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 5]]
+    },
+    "apps/web/app/team/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 5]]
+    },
+    "apps/web/app/treatments/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 5]]
+    },
+    "apps/web/app/blog/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 5]]
+    },
+    "apps/web/app/patient-portal/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 138]]
+    },
+    "apps/web/app/(site)/[page]/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 28]]
+    },
+    "apps/web/app/smile-gallery/page.tsx": {
+      "exists": false,
+      "note": "Path not present; repository contains apps/web/app/(champagne)/smile-gallery/page.tsx"
+    },
+    "apps/web/app/(champagne)/smile-gallery/page.tsx": {
+      "defines_metadata": false,
+      "evidence": [[1, 5]]
+    }
+  },
+  "root_metadata_source": {
+    "file": "apps/web/app/layout.tsx",
+    "metadata_export_lines": [12, 18],
+    "fields": ["metadataBase", "title", "description"]
+  },
+  "treatment_slug_metadata": {
+    "file": "apps/web/app/treatments/[slug]/page.tsx",
+    "generateMetadata_lines": [19, 51],
+    "fields": {
+      "title": [35, 35],
+      "description": [36, 36],
+      "alternates.canonical": [37, 39],
+      "openGraph": [40, 44],
+      "twitter": [45, 49]
+    },
+    "description_fallback": {
+      "fallback_literal": [26, 26],
+      "chain": [29, 31],
+      "order": ["manifest.description", "manifest.intro", "fallback literal"]
+    }
+  },
+  "alias_behavior": {
+    "helper_file": "packages/champagne-manifests/src/helpers.ts",
+    "alias_map_lines": [99, 106],
+    "alias_resolution_lines": [174, 184],
+    "slug_route_file": "apps/web/app/treatments/[slug]/page.tsx",
+    "route_resolution_lines": [11, 16],
+    "route_render_lines": [64, 67],
+    "redirect_import_present": false,
+    "redirect_import_evidence": [2, 2],
+    "behavior": "silent_resolve_no_redirect"
+  },
+  "json_ld": {
+    "emitted_in_runtime": false,
+    "search_commands": [
+      "rg -n \"application/ld\\+json|jsonld|JSON-LD|schema.org|ld\\+json\" apps/web packages",
+      "rg -n \"ld\\+json|schema\\.org|@context|@type|dangerouslySetInnerHTML\" apps/web/app packages/champagne-*"
+    ],
+    "schema_file_hits_only": [
+      "packages/champagne-manifests/schema/journey-engine.schema.json:2",
+      "packages/champagne-manifests/schema/media-deck.schema.json:2",
+      "packages/champagne-manifests/schema/section-manifest.schema.json:2"
+    ]
+  },
+  "proof_commands": {
+    "pnpm run guard:all": "fail",
+    "pnpm run build:web": "pass",
+    "npm run guard:hero": "pass",
+    "npm run guard:canon": "fail",
+    "npm run verify": "fail"
+  }
+}

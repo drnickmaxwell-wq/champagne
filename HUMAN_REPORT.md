@@ -1,27 +1,15 @@
-# HUMAN REPORT
+# HUMAN REPORT — Zone-A SEO State Verify (Read-only)
 
-## Packet
-PACKET_ZONEA_013_ADD_SURGICALLY_GUIDED_IMPLANTS_TO_TREATMENTS_MENU
+## Executive summary
+- Support page entrypoints reviewed in scope do not define their own metadata; they inherit root layout metadata unless covered by another route-level metadata source outside this packet scope.
+- `/treatments/[slug]` explicitly defines metadata including canonical, Open Graph, and Twitter fields, with description fallback to `manifest.description -> manifest.intro -> "Explore this treatment option."`.
+- Treatment aliases resolve through manifest helpers and render canonical page content/metadata without explicit redirect.
+- No runtime JSON-LD emission was detected in searched app/package source; only JSON schema definition files were found.
 
-## What was implemented
-- Traced `/treatments` rendering: `apps/web/app/treatments/page.tsx` renders `ChampagnePageBuilder` with `slug="/treatments"`.
-- Verified section resolution path: `ChampagnePageBuilder` -> `ChampagneSectionRenderer` -> `getSectionStack` -> `getSectionStackForPage`.
-- Confirmed `/treatments` uses manifest fallback sections (no `routeId: "treatments"` SMH layout exists), so the authoritative hub menu list is in `packages/champagne-manifests/data/champagne_machine_manifest_full.json` under `pages.treatments_hub.sections`.
-- Added one new entry to the `treatments_hub_all_treatments_index` routing cards list:
-  - title: `Surgically guided implants`
-  - href: `/treatments/surgically-guided-implants`
+## Guard/build status
+- Build passed.
+- Guard/canon path currently fails due to patient-portal SSR smoke timeout/abort in this environment run.
 
-## Why this list was changed
-- The main user-facing Treatments hub `/treatments` renders the `treatments_hub_all_treatments_index` `routing_cards` items from `pages.treatments_hub.sections` in the machine manifest.
-- This list already contains the implant-related leaf links (e.g., sinus lift, teeth-in-a-day, sedation-for-implants, failed-implant-replacement, implant-aftercare), making it the correct single source to extend.
-
-## Constraint checks
-- Smallest diff applied (single functional list entry + required report updates).
-- No redirects added.
-- No copy rewrites beyond the single new menu item label.
-- No refactors.
-- No hero/token/theming system changes.
-
-## Proof run
-- `pnpm run guard:all` ✅
-- `pnpm run build:web` ✅
+## Notes
+- Requested path `apps/web/app/smile-gallery/page.tsx` was not present; active page file is `apps/web/app/(champagne)/smile-gallery/page.tsx`.
+- No runtime files were modified; only audit artifacts were added.
