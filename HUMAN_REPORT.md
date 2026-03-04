@@ -1,42 +1,28 @@
-# HUMAN REPORT — Canon Guard Patient-Portal SSR Probe Stabilization
+# SUPPORT PAGE METADATA PATCH REPORT
 
 ## Mission
-Stabilize the patient-portal SSR smoke probe used by `guard:canon`/`guard:all` in CI/container contexts without weakening the guard.
+Added minimal route-specific metadata exports to support wrapper pages so they no longer inherit root metadata.
 
-## Files changed
-- `packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs`
-- `HUMAN_REPORT.md`
-- `TRUTH_REPORT.json`
+## Files Updated
+- `apps/web/app/contact/page.tsx`
+- `apps/web/app/fees/page.tsx`
+- `apps/web/app/team/page.tsx`
+- `apps/web/app/blog/page.tsx`
+- `apps/web/app/treatments/page.tsx`
+- `apps/web/app/(champagne)/smile-gallery/page.tsx`
+- `apps/web/app/patient-portal/page.tsx`
+- `apps/web/app/(site)/[page]/page.tsx`
 
-## What changed (smallest-diff guard hardening)
-- Added deterministic readiness sequencing before the probe:
-  - first waits for local `GET /api/health`
-  - if needed, falls back to waiting on `GET /patient-portal?intent=login`
-- Added bounded timeout constants and explicit step tracking:
-  - request timeout (`REQUEST_TIMEOUT_MS`)
-  - readiness timeout (`SERVER_READY_TIMEOUT_MS`)
-  - warmup timeout (`WARMUP_TIMEOUT_MS`)
-- Kept the patient-portal probe mandatory and active (not skipped).
-- Added single-retry behavior for aborts (existing behavior retained and parameterized).
-- Added an explicit warmup request to compile/prime patient-portal SSR before the final smoke assertion.
-- Expanded failure diagnostics to print:
-  - command invoked
-  - probed URL
-  - step where failure occurred
-  - timeout values used
-  - whether server boot was detected
-  - last error string
+## Approach
+- Added `metadata` export for static wrapper pages.
+- Added `generateMetadata` for dynamic `/(site)/[page]` route.
+- Metadata title/description prefer page manifest fields (`label`, `description`, `intro`) with deterministic fallbacks.
+- No changes made to `/treatments/[slug]` metadata.
+- No token/hero changes.
 
-## Why this stabilizes the probe
-The previous probe often hit an abort on the first patient-portal render while Next dev server route compilation was still settling. The new readiness + warmup flow preserves strict SSR verification while reducing nondeterministic startup races.
-
-## Proof results
-- `pnpm run guard:canon` ✅ pass
-- `pnpm run guard:all` ✅ pass
-- `pnpm run build:web` ✅ pass
-
-## Constraint compliance
-- Probe was **not removed**.
-- Probe is **not skipped by default**.
-- No bypass flags or weakening logic introduced.
-- Changes are localized to guard probe reliability and diagnostics.
+## Validation
+- `pnpm run guard:all` ✅
+- `pnpm run build:web` ✅
+- `npm run guard:hero` ✅
+- `npm run guard:canon` ✅
+- `npm run verify` ✅

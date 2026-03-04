@@ -1,30 +1,33 @@
 {
-  "document": "TRUTH_REPORT",
-  "packet": "PACKET_GUARD_CANON_PATIENT_PORTAL_SSR_PROBE_STABILIZE",
-  "truth": {
-    "patient_portal_probe_present": true,
-    "probe_skipped_by_default": false,
-    "deterministic_readiness_added": true,
-    "readiness_health_endpoint_used": true,
-    "bounded_request_timeout_added": true,
-    "single_retry_on_abort_present": true,
-    "explicit_failure_diagnostics_added": true,
-    "runtime_behavior_changed_outside_guards": false
-  },
-  "files_changed": [
-    "packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs",
+  "packet": "PACKET_ZONEA_014_SUPPORT_PAGE_METADATA",
+  "status": "completed",
+  "changed_files": [
+    "apps/web/app/contact/page.tsx",
+    "apps/web/app/fees/page.tsx",
+    "apps/web/app/team/page.tsx",
+    "apps/web/app/blog/page.tsx",
+    "apps/web/app/treatments/page.tsx",
+    "apps/web/app/(champagne)/smile-gallery/page.tsx",
+    "apps/web/app/patient-portal/page.tsx",
+    "apps/web/app/(site)/[page]/page.tsx",
     "HUMAN_REPORT.md",
     "TRUTH_REPORT.json"
   ],
-  "proof": {
-    "pnpm run guard:canon": {
-      "status": "pass"
-    },
-    "pnpm run guard:all": {
-      "status": "pass"
-    },
-    "pnpm run build:web": {
-      "status": "pass"
-    }
-  }
+  "acceptance_criteria": {
+    "metadata_exported_per_target": true,
+    "route_specific_deterministic_values": true,
+    "guards_pass": true,
+    "build_pass": true
+  },
+  "commands": [
+    "pnpm run guard:all",
+    "pnpm run build:web",
+    "npm run guard:hero",
+    "npm run guard:canon",
+    "npm run verify"
+  ],
+  "notes": [
+    "No changes to treatments/[slug] metadata.",
+    "No token or hero edits."
+  ]
 }
