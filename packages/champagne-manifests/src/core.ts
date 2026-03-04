@@ -27,6 +27,7 @@ import sectionLayoutFailedImplantReplacement from "../data/sections/smh/treatmen
 import sectionLayoutImplantSedation from "../data/sections/smh/treatments.implants-sedation.json";
 import sectionLayoutImplantSinusLift from "../data/sections/smh/treatments.implants-sinus-lift.json";
 import sectionLayoutSingleImplant from "../data/sections/smh/treatments.implants-single-tooth.json";
+import sectionLayoutSurgicallyGuidedImplants from "../data/sections/smh/treatments.surgically-guided-implants.json";
 import sectionLayoutImplants from "../data/sections/smh/treatments.implants.json";
 import sectionLayoutFixedBraces from "../data/sections/smh/treatments.fixed-braces.json";
 import sectionLayout3DDentistryAndTechnology from "../data/sections/smh/treatments.3d-dentistry-and-technology.json";
@@ -344,6 +345,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutImplantSinusLift as ChampagneSectionLayout,
   sectionLayoutMultiImplant as ChampagneSectionLayout,
   sectionLayoutSingleImplant as ChampagneSectionLayout,
+  sectionLayoutSurgicallyGuidedImplants as ChampagneSectionLayout,
   sectionLayoutFullArchImplants as ChampagneSectionLayout,
   sectionLayoutDentures as ChampagneSectionLayout,
   sectionLayoutAcrylicDentures as ChampagneSectionLayout,

@@ -1945,6 +1945,10 @@
               "href": "/treatments/implant-aftercare"
             },
             {
+              "title": "Surgically Guided Implants in Shoreham-by-Sea",
+              "href": "/treatments/surgically-guided-implants"
+            },
+            {
               "title": "Sedation for implants",
               "href": "/treatments/sedation-for-implants"
             },
@@ -1995,6 +1999,10 @@
               {
                 "title": "Implant aftercare",
                 "href": "/treatments/implant-aftercare"
+              },
+              {
+                "title": "Surgically Guided Implants in Shoreham-by-Sea",
+                "href": "/treatments/surgically-guided-implants"
               },
               {
                 "title": "Sedation for implants",
@@ -4722,6 +4730,77 @@
             {
               "label": "Implant-retained dentures",
               "href": "/treatments/implant-retained-dentures",
+              "preset": "secondary"
+            }
+          ]
+        }
+      ],
+      "surface": "champagne/surface/treatment",
+      "heroFamily": "treatments.implants"
+    },
+    "surgically_guided_implants": {
+      "id": "surgically_guided_implants",
+      "label": "Surgically Guided Implants in Shoreham-by-Sea",
+      "path": "/treatments/surgically-guided-implants",
+      "category": "treatment",
+      "hero": "hero.treatment.implants",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
+      "sections": [
+        {
+          "id": "treatment.heroIntro"
+        },
+        {
+          "id": "treatment.trustSignals"
+        },
+        {
+          "id": "treatment.whatAreImplants"
+        },
+        {
+          "id": "treatment.whoIsItFor"
+        },
+        {
+          "id": "treatment.processTimeline"
+        },
+        {
+          "id": "treatment.technology"
+        },
+        {
+          "id": "treatment.aftercareRisks"
+        },
+        {
+          "id": "surgically_guided_implants_mid_cta",
+          "type": "treatment_mid_cta",
+          "title": "Related care to explore",
+          "strapline": "Compare connected steps and plan the next visit."
+        },
+        {
+          "id": "treatment.faq"
+        },
+        {
+          "id": "treatment.cta"
+        },
+        {
+          "id": "surgically_guided_implants_closing_cta",
+          "type": "treatment_closing_cta",
+          "title": "Surgically Guided Implants in Shoreham-by-Sea",
+          "strapline": "Placeholder content for surgically guided implants treatment page.",
+          "ctas": [
+            {
+              "label": "Book a surgically guided implants consultation",
+              "href": "/contact",
+              "preset": "primary"
+            },
+            {
+              "label": "Implant consultation & planning",
+              "href": "/treatments/implant-consultation",
+              "preset": "secondary"
+            },
+            {
+              "label": "Dental Implants in Shoreham-by-Sea",
+              "href": "/treatments/implants",
               "preset": "secondary"
             }
           ]

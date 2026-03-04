@@ -1,25 +1,21 @@
-# PACKET_ZONEA_011_TREATMENT_METADATA_ENRICHMENT — Human Report
+# HUMAN REPORT
 
-## What changed
-- Updated `apps/web/app/treatments/[slug]/page.tsx` `generateMetadata` to enrich treatment page metadata with:
-  - `alternates.canonical`
-  - `openGraph` (`title`, `description`, `url`)
-  - `twitter` (`card`, `title`, `description`)
-- Preserved missing-manifest behavior exactly: return `{ title: "Treatment not found" }`.
+## Packet
+PACKET_ZONEA_013B_CREATE_SURGICALLY_GUIDED_IMPLANTS_LEAF_NO_REDIRECT
 
-## Description fallback order (exact)
-1. `manifest.description`
-2. `manifest.intro`
-3. `"Explore this treatment option."`
+## What was implemented
+- Added a new treatment page manifest entry for `/treatments/surgically-guided-implants` in the machine manifest.
+- Added the new route to `implants_full_inventory` routing cards (both `items` and `definition.items`).
+- Added a new SMH section layout file at:
+  - `packages/champagne-manifests/data/sections/smh/treatments.surgically-guided-implants.json`
+- Registered the new layout in `packages/champagne-manifests/src/core.ts` (import + inclusion in `champagneSectionLayouts`).
 
-## Canonical path behavior
-- Canonical path is derived from `pageSlug` returned by existing `resolveTreatment(...)`.
-- `pageSlug` already resolves from manifest path when a manifest exists, which aligns with canonical manifest-backed treatment path behavior.
-- No `metadataBase` was added in this packet (intentionally deferred per packet requirement).
+## Constraint checks
+- No redirects were introduced.
+- Existing treatment routes were not modified.
+- No UI/hero/token files were changed.
+- Diff is scoped to manifest + new layout JSON + core.ts registration + required report outputs.
 
-## Why this is the smallest safe diff
-- Single code file changed for runtime behavior.
-- No routing changes.
-- No new dependencies.
-- No refactors to treatment resolution.
-- Added only packet-requested metadata fields.
+## Proof run
+- `pnpm run guard:all` ✅
+- `pnpm run build:web` ✅
