@@ -17,17 +17,36 @@ async function resolveTreatment(params: Promise<PageParams>) {
 }
 
 export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
-  const { manifest } = await resolveTreatment(params);
+  const { manifest, pageSlug } = await resolveTreatment(params);
 
   if (!manifest) {
     return { title: "Treatment not found" };
   }
 
   const fallbackDescription = "Explore this treatment option.";
+  const title = manifest.label ?? "Treatment";
+  const description =
+    (manifest as { description?: string; intro?: string }).description ??
+    (manifest as { description?: string; intro?: string }).intro ??
+    fallbackDescription;
+  const canonicalPath = pageSlug;
 
   return {
-    title: manifest.label ?? "Treatment",
-    description: (manifest as { description?: string }).description ?? fallbackDescription,
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

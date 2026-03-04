@@ -1,24 +1,25 @@
-# HUMAN REPORT
+# PACKET_ZONEA_011_TREATMENT_METADATA_ENRICHMENT — Human Report
 
-## Mission
-Register the two new treatment hub slugs in the SMH treatment layout registry so guard enforcement passes:
-- `/treatments/cosmetic-dentistry`
-- `/treatments/preventive-dentistry`
+## What changed
+- Updated `apps/web/app/treatments/[slug]/page.tsx` `generateMetadata` to enrich treatment page metadata with:
+  - `alternates.canonical`
+  - `openGraph` (`title`, `description`, `url`)
+  - `twitter` (`card`, `title`, `description`)
+- Preserved missing-manifest behavior exactly: return `{ title: "Treatment not found" }`.
 
-## Files Updated
-- `packages/champagne-manifests/src/core.ts`
-  - Added imports for:
-    - `treatments.cosmetic-dentistry.json`
-    - `treatments.preventive-dentistry.json`
-  - Added both imported layout identifiers into `champagneSectionLayouts`.
+## Description fallback order (exact)
+1. `manifest.description`
+2. `manifest.intro`
+3. `"Explore this treatment option."`
 
-- `packages/champagne-manifests/data/sections/smh/treatments.cosmetic-dentistry.json`
-  - Added new route layout registry file with `routeId: treatments.cosmetic-dentistry`.
+## Canonical path behavior
+- Canonical path is derived from `pageSlug` returned by existing `resolveTreatment(...)`.
+- `pageSlug` already resolves from manifest path when a manifest exists, which aligns with canonical manifest-backed treatment path behavior.
+- No `metadataBase` was added in this packet (intentionally deferred per packet requirement).
 
-- `packages/champagne-manifests/data/sections/smh/treatments.preventive-dentistry.json`
-  - Added new route layout registry file with `routeId: treatments.preventive-dentistry`.
-
-## Notes
-- No routing refactor or UI redesign was performed.
-- Existing manifest hub entries remain unchanged in this follow-up patch.
-- This is the smallest registry wiring change required for `guard:smh-treatment-layouts` to pass.
+## Why this is the smallest safe diff
+- Single code file changed for runtime behavior.
+- No routing changes.
+- No new dependencies.
+- No refactors to treatment resolution.
+- Added only packet-requested metadata fields.
