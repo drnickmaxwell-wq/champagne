@@ -1,27 +1,23 @@
 {
   "document": "CODEX_PACKET_V1",
-  "packet": "PACKET_ZONEA_014_SUPPORT_PAGE_METADATA",
+  "packet": "PACKET_ZONEA_015_TREATMENT_ALIAS_REDIRECTS",
   "status": "completed",
   "changes": {
     "files_modified": [
-      "apps/web/app/contact/page.tsx",
-      "apps/web/app/fees/page.tsx",
-      "apps/web/app/team/page.tsx",
-      "apps/web/app/blog/page.tsx",
-      "apps/web/app/treatments/page.tsx",
-      "apps/web/app/(champagne)/smile-gallery/page.tsx",
-      "apps/web/app/patient-portal/page.tsx",
-      "apps/web/app/(site)/[page]/page.tsx"
+      "apps/web/app/treatments/[slug]/page.tsx"
     ],
-    "files_added": [
+    "files_added_or_updated": [
       "HUMAN_REPORT.md",
       "TRUTH_REPORT.json"
     ],
-    "treatments_slug_metadata_touched": false
+    "redirect_behavior": {
+      "alias_to_canonical_permanent": true,
+      "canonical_path_no_redirect": true
+    }
   },
   "acceptance_criteria": {
-    "target_routes_export_metadata": true,
-    "titles_descriptions_route_specific_deterministic": true,
+    "alias_requests_permanent_redirect": true,
+    "canonical_pages_unchanged": true,
     "guards_pass": true,
     "build_pass": true
   },

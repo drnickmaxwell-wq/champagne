@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTreatmentManifest } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
@@ -11,9 +11,10 @@ type PageParams = { slug: string };
 async function resolveTreatment(params: Promise<PageParams>) {
   const resolved = await params;
   const manifest = getTreatmentManifest(resolved.slug);
+  const requestedPath = `/treatments/${resolved.slug}`;
   const pageSlug = manifest?.path ?? `/treatments/${resolved.slug}`;
 
-  return { manifest, pageSlug };
+  return { manifest, pageSlug, requestedPath };
 }
 
 export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
@@ -55,10 +56,14 @@ export default async function TreatmentPage({
 }: {
   params: Promise<PageParams>;
 }) {
-  const { manifest, pageSlug } = await resolveTreatment(params);
+  const { manifest, pageSlug, requestedPath } = await resolveTreatment(params);
 
   if (!manifest) {
     return notFound();
+  }
+
+  if (pageSlug !== requestedPath) {
+    permanentRedirect(pageSlug);
   }
 
   return (

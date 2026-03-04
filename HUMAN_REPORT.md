@@ -1,24 +1,18 @@
-# PACKET_ZONEA_014_SUPPORT_PAGE_METADATA — Human Report
+# PACKET_ZONEA_015_TREATMENT_ALIAS_REDIRECTS — Human Report
 
 ## Mission
-Added minimal route-level metadata exports so support wrapper pages no longer inherit root metadata.
+When a treatment alias URL is requested, return a permanent redirect to the canonical treatment manifest path.
 
 ## Files Changed
-- `apps/web/app/contact/page.tsx`
-- `apps/web/app/fees/page.tsx`
-- `apps/web/app/team/page.tsx`
-- `apps/web/app/blog/page.tsx`
-- `apps/web/app/treatments/page.tsx`
-- `apps/web/app/(champagne)/smile-gallery/page.tsx`
-- `apps/web/app/patient-portal/page.tsx`
-- `apps/web/app/(site)/[page]/page.tsx`
+- `apps/web/app/treatments/[slug]/page.tsx`
 
 ## Implementation Notes
-- Added `generateMetadata()` to each listed wrapper route.
-- Metadata resolution uses `getPageManifest(route)` and prefers `label` + `description`/`intro` when present.
-- Added deterministic per-route fallback descriptions.
-- Preserved page rendering logic and wrapper structure.
-- Did **not** modify `/treatments/[slug]` metadata.
+- Preserved existing treatment manifest resolution (`getTreatmentManifest` + manifest `path` fallback).
+- Added `requestedPath` resolution from incoming route slug.
+- Added redirect behavior in page render path only:
+  - if resolved canonical `pageSlug` differs from requested treatment path, call `permanentRedirect(pageSlug)`.
+- Left canonical rendering unchanged when the requested path already matches canonical.
+- Did not modify treatment metadata field logic beyond existing canonical path usage.
 
 ## Validation
 - `npm run guard:hero` ✅
