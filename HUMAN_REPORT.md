@@ -1,18 +1,23 @@
-# PACKET_ZONEA_015_TREATMENT_ALIAS_REDIRECTS — Human Report
+# PACKET_ZONEA_016_JSONLD_MVP — Human Report
 
 ## Mission
-When a treatment alias URL is requested, return a permanent redirect to the canonical treatment manifest path.
+Added minimal deterministic JSON-LD output for root and treatment pages.
 
 ## Files Changed
+- `apps/web/app/layout.tsx`
 - `apps/web/app/treatments/[slug]/page.tsx`
+- `HUMAN_REPORT.md`
+- `TRUTH_REPORT.json`
 
 ## Implementation Notes
-- Preserved existing treatment manifest resolution (`getTreatmentManifest` + manifest `path` fallback).
-- Added `requestedPath` resolution from incoming route slug.
-- Added redirect behavior in page render path only:
-  - if resolved canonical `pageSlug` differs from requested treatment path, call `permanentRedirect(pageSlug)`.
-- Left canonical rendering unchanged when the requested path already matches canonical.
-- Did not modify treatment metadata field logic beyond existing canonical path usage.
+- Root layout now emits one JSON-LD script with an `@graph` containing:
+  - `LocalBusiness` + `Dentist`
+  - `WebSite`
+- Treatment page now emits two JSON-LD scripts:
+  - `Service` (manifest-based title/description)
+  - `BreadcrumbList` (Home → Treatments → current treatment)
+- Data is deterministic and local-only, using `NEXT_PUBLIC_SITE_URL` fallback to `https://smhdental.co.uk`.
+- No copy/layout stack changes beyond script emission.
 
 ## Validation
 - `npm run guard:hero` ✅

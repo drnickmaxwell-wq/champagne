@@ -9,13 +9,17 @@ import { ConciergeLayer } from "./components/concierge/ConciergeLayer";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://smhdental.co.uk";
+
 export const metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://smhdental.co.uk",
-  ),
+  metadataBase: new URL(siteUrl),
   title: "St Mary’s House Dental – Champagne Core",
   description: "Neutral skeleton for the Champagne Ecosystem marketing site.",
 };
+
+function serializeJsonLd(payload: Record<string, unknown>) {
+  return JSON.stringify(payload).replace(/<\//g, "<\\/");
+}
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const headersList = await headers();
@@ -24,6 +28,24 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const isHeroEnabled = isBrandHeroEnabled();
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
+
+  const rootJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "Dentist"],
+        "@id": `${siteUrl}/#dentist`,
+        name: "St Mary’s House Dental",
+        url: siteUrl,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "St Mary’s House Dental",
+      },
+    ],
+  };
 
   let pageCategory: string | undefined;
   let mode: HeroMode | undefined;
@@ -58,6 +80,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(rootJsonLd) }}
+        />
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-50">
             <Header />

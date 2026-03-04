@@ -1,23 +1,22 @@
 {
   "document": "CODEX_PACKET_V1",
-  "packet": "PACKET_ZONEA_015_TREATMENT_ALIAS_REDIRECTS",
+  "packet": "PACKET_ZONEA_016_JSONLD_MVP",
   "status": "completed",
   "changes": {
     "files_modified": [
-      "apps/web/app/treatments/[slug]/page.tsx"
-    ],
-    "files_added_or_updated": [
+      "apps/web/app/layout.tsx",
+      "apps/web/app/treatments/[slug]/page.tsx",
       "HUMAN_REPORT.md",
       "TRUTH_REPORT.json"
     ],
-    "redirect_behavior": {
-      "alias_to_canonical_permanent": true,
-      "canonical_path_no_redirect": true
+    "jsonld": {
+      "root": ["LocalBusiness", "Dentist", "WebSite"],
+      "treatment": ["Service", "BreadcrumbList"]
     }
   },
   "acceptance_criteria": {
-    "alias_requests_permanent_redirect": true,
-    "canonical_pages_unchanged": true,
+    "root_and_treatment_emit_jsonld_scripts": true,
+    "schema_json_is_deterministic": true,
     "guards_pass": true,
     "build_pass": true
   },
