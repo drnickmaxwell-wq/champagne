@@ -1,17 +1,11 @@
 {
-  "packet": "PACKET_ZONEA_001B_TREATMENT_LAYOUT_REGISTRY",
+  "packet": "PACKET_ZONEA_011_TREATMENT_METADATA_ENRICHMENT",
   "changed_files": [
-    "packages/champagne-manifests/src/core.ts",
-    "packages/champagne-manifests/data/sections/smh/treatments.cosmetic-dentistry.json",
-    "packages/champagne-manifests/data/sections/smh/treatments.preventive-dentistry.json",
+    "apps/web/app/treatments/[slug]/page.tsx",
     "HUMAN_REPORT.md",
     "TRUTH_REPORT.json"
   ],
-  "proof": [
-    {
-      "command": "pnpm --filter @champagne/guards guard:smh-treatment-layouts",
-      "result": "pass"
-    },
+  "proof_commands": [
     {
       "command": "pnpm run guard:all",
       "result": "pass"
@@ -21,5 +15,9 @@
       "result": "pass"
     }
   ],
-  "commit": "59351a9f244ed24f95a25b7da6cfe60cb4f32fb1"
+  "stop_conditions": {
+    "single_target_file_plus_reports": "pass",
+    "guard_all_failure": "not_triggered"
+  },
+  "commit": "7623a656865ef99f7ecdb79d5b5fb567bf66c7df"
 }
