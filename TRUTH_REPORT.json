@@ -1,0 +1,20 @@
+{
+  "packet": "PACKET_ZONEA_001_ADD_HUB_MANIFEST_ENTRIES_PNPM",
+  "changed_files": [
+    "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "HUMAN_REPORT.md",
+    "TRUTH_REPORT.json"
+  ],
+  "proof": [
+    {
+      "command": "pnpm run guard:all",
+      "result": "fail",
+      "details": "Fails at @champagne/guards guard:smh-treatment-layouts with: cosmetic-dentistry missing import in core.ts; preventive-dentistry missing import in core.ts."
+    },
+    {
+      "command": "pnpm run build:web",
+      "result": "pass"
+    }
+  ],
+  "commit": "e7448835d702309b028c87ed3ea1ff06e206cd25"
+}
