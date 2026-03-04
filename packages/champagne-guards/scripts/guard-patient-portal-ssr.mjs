@@ -8,8 +8,12 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), '../../..');
 const port = process.env.PORTAL_SSR_PORT || 4110;
+const SERVER_READY_TIMEOUT_MS = 90000;
+const REQUEST_TIMEOUT_MS = 30000;
+const RETRY_DELAY_MS = 1000;
+const WARMUP_TIMEOUT_MS = 90000;
 
-async function fetchPage(url, timeoutMs = 45000) {
+async function fetchPage(url, timeoutMs = REQUEST_TIMEOUT_MS) {
   const start = Date.now();
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
@@ -23,14 +27,17 @@ async function fetchPage(url, timeoutMs = 45000) {
   }
 }
 
-async function waitForServer(url, totalTimeoutMs = 45000) {
+async function waitForServer(url, totalTimeoutMs = SERVER_READY_TIMEOUT_MS) {
   const start = Date.now();
   let lastError = null;
 
   while (Date.now() - start < totalTimeoutMs) {
     try {
-      await fetchPage(url, 10000);
-      return;
+      const { response } = await fetchPage(url, 10000);
+      if (response.ok || response.status < 500) {
+        return;
+      }
+      lastError = new Error(`Probe readiness returned status ${response.status}`);
     } catch (error) {
       lastError = error;
       await delay(1000);
@@ -39,9 +46,28 @@ async function waitForServer(url, totalTimeoutMs = 45000) {
 
   throw new Error(
     lastError?.message
-      ? `Unable to render patient portal intent page: ${lastError.message}`
-      : 'Unable to render patient portal intent page before timeout.'
+      ? `Readiness timed out: ${lastError.message}`
+      : 'Readiness timed out before probe server became available.'
   );
+}
+
+async function waitForReadiness(baseUrl) {
+  let readinessStep = 'health';
+
+  try {
+    await waitForServer(`${baseUrl}/api/health`);
+    return { bootDetected: true, readinessStep };
+  } catch (healthError) {
+    readinessStep = 'patient-portal';
+    try {
+      await waitForServer(`${baseUrl}/patient-portal?intent=login`);
+      return { bootDetected: true, readinessStep };
+    } catch (error) {
+      throw new Error(
+        `Readiness timed out at step "${readinessStep}" (health error: ${healthError.message}; route error: ${error.message})`
+      );
+    }
+  }
 }
 
 async function fetchWithRetry(url) {
@@ -57,7 +83,7 @@ async function fetchWithRetry(url) {
       if (!isAbort || attempt === attempts) {
         throw error;
       }
-      await delay(1000);
+      await delay(RETRY_DELAY_MS);
     }
   }
 
@@ -66,9 +92,13 @@ async function fetchWithRetry(url) {
 
 let lastTargetUrl = null;
 let runStart = null;
+let currentStep = 'init';
+let bootDetected = false;
+let invokedCommand = '';
 
 async function run() {
   const command = ['--filter', 'web', 'dev', '--hostname', '127.0.0.1', '--port', String(port)];
+  invokedCommand = `pnpm ${command.join(' ')}`;
   console.log(`Starting patient portal SSR probe server on port ${port}...`);
   const dev = spawn('pnpm', command, {
     cwd: repoRoot,
@@ -81,7 +111,17 @@ async function run() {
   runStart = Date.now();
 
   try {
-    await waitForServer(targetUrl);
+    currentStep = 'readiness';
+    const readiness = await waitForReadiness(`http://127.0.0.1:${port}`);
+    bootDetected = readiness.bootDetected;
+
+    currentStep = 'patient-portal-warmup';
+    const warmup = await fetchPage(targetUrl, WARMUP_TIMEOUT_MS);
+    if (!warmup.response.ok) {
+      throw new Error(`Patient portal warmup returned ${warmup.response.status}`);
+    }
+
+    currentStep = 'patient-portal-probe';
     const { response, body } = await fetchWithRetry(targetUrl);
 
     if (!response.ok) {
@@ -124,9 +164,14 @@ async function run() {
 run().catch((error) => {
   const elapsedMs = runStart ? Date.now() - runStart : 0;
   console.error('❌ Patient portal SSR smoke test failed:', error.message);
+  console.error(`❌ Command: ${invokedCommand || 'unknown'}`);
   if (lastTargetUrl) {
     console.error(`❌ URL: ${lastTargetUrl}`);
   }
+  console.error(`❌ Step: ${currentStep}`);
+  console.error(`❌ Timeout(request/readiness/warmup): ${REQUEST_TIMEOUT_MS}ms/${SERVER_READY_TIMEOUT_MS}ms/${WARMUP_TIMEOUT_MS}ms`);
+  console.error(`❌ Server boot detected: ${bootDetected ? 'yes' : 'no'}`);
+  console.error(`❌ Last error: ${error.message}`);
   console.error(`❌ Elapsed: ${elapsedMs}ms`);
   process.exit(1);
 });

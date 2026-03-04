@@ -1,36 +1,30 @@
 {
   "document": "TRUTH_REPORT",
-  "packet": "PACKET_ZONEA_SEO_STATE_VERIFY_READONLY",
+  "packet": "PACKET_GUARD_CANON_PATIENT_PORTAL_SSR_PROBE_STABILIZE",
   "truth": {
-    "support_pages_define_metadata": false,
-    "root_layout_exports_metadata": true,
-    "treatment_slug_generateMetadata_present": true,
-    "treatment_slug_has_canonical": true,
-    "treatment_slug_has_openGraph": true,
-    "treatment_slug_has_twitter": true,
-    "treatment_slug_description_fallback_literal": "Explore this treatment option.",
-    "treatment_aliases_redirect": false,
-    "treatment_aliases_silent_resolve": true,
-    "runtime_json_ld_detected": false
+    "patient_portal_probe_present": true,
+    "probe_skipped_by_default": false,
+    "deterministic_readiness_added": true,
+    "readiness_health_endpoint_used": true,
+    "bounded_request_timeout_added": true,
+    "single_retry_on_abort_present": true,
+    "explicit_failure_diagnostics_added": true,
+    "runtime_behavior_changed_outside_guards": false
   },
+  "files_changed": [
+    "packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs",
+    "HUMAN_REPORT.md",
+    "TRUTH_REPORT.json"
+  ],
   "proof": {
+    "pnpm run guard:canon": {
+      "status": "pass"
+    },
     "pnpm run guard:all": {
-      "status": "fail",
-      "reason": "Canon guard patient portal SSR smoke test aborted"
+      "status": "pass"
     },
     "pnpm run build:web": {
       "status": "pass"
-    },
-    "npm run guard:hero": {
-      "status": "pass"
-    },
-    "npm run guard:canon": {
-      "status": "fail",
-      "reason": "Patient portal SSR smoke test aborted"
-    },
-    "npm run verify": {
-      "status": "fail",
-      "reason": "Transitive guard:all failure at canon guard patient portal SSR smoke"
     }
   }
 }

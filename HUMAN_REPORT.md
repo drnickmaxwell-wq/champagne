@@ -1,15 +1,42 @@
-# HUMAN REPORT — Zone-A SEO State Verify (Read-only)
+# HUMAN REPORT — Canon Guard Patient-Portal SSR Probe Stabilization
 
-## Executive summary
-- Support page entrypoints reviewed in scope do not define their own metadata; they inherit root layout metadata unless covered by another route-level metadata source outside this packet scope.
-- `/treatments/[slug]` explicitly defines metadata including canonical, Open Graph, and Twitter fields, with description fallback to `manifest.description -> manifest.intro -> "Explore this treatment option."`.
-- Treatment aliases resolve through manifest helpers and render canonical page content/metadata without explicit redirect.
-- No runtime JSON-LD emission was detected in searched app/package source; only JSON schema definition files were found.
+## Mission
+Stabilize the patient-portal SSR smoke probe used by `guard:canon`/`guard:all` in CI/container contexts without weakening the guard.
 
-## Guard/build status
-- Build passed.
-- Guard/canon path currently fails due to patient-portal SSR smoke timeout/abort in this environment run.
+## Files changed
+- `packages/champagne-guards/scripts/guard-patient-portal-ssr.mjs`
+- `HUMAN_REPORT.md`
+- `TRUTH_REPORT.json`
 
-## Notes
-- Requested path `apps/web/app/smile-gallery/page.tsx` was not present; active page file is `apps/web/app/(champagne)/smile-gallery/page.tsx`.
-- No runtime files were modified; only audit artifacts were added.
+## What changed (smallest-diff guard hardening)
+- Added deterministic readiness sequencing before the probe:
+  - first waits for local `GET /api/health`
+  - if needed, falls back to waiting on `GET /patient-portal?intent=login`
+- Added bounded timeout constants and explicit step tracking:
+  - request timeout (`REQUEST_TIMEOUT_MS`)
+  - readiness timeout (`SERVER_READY_TIMEOUT_MS`)
+  - warmup timeout (`WARMUP_TIMEOUT_MS`)
+- Kept the patient-portal probe mandatory and active (not skipped).
+- Added single-retry behavior for aborts (existing behavior retained and parameterized).
+- Added an explicit warmup request to compile/prime patient-portal SSR before the final smoke assertion.
+- Expanded failure diagnostics to print:
+  - command invoked
+  - probed URL
+  - step where failure occurred
+  - timeout values used
+  - whether server boot was detected
+  - last error string
+
+## Why this stabilizes the probe
+The previous probe often hit an abort on the first patient-portal render while Next dev server route compilation was still settling. The new readiness + warmup flow preserves strict SSR verification while reducing nondeterministic startup races.
+
+## Proof results
+- `pnpm run guard:canon` ✅ pass
+- `pnpm run guard:all` ✅ pass
+- `pnpm run build:web` ✅ pass
+
+## Constraint compliance
+- Probe was **not removed**.
+- Probe is **not skipped by default**.
+- No bypass flags or weakening logic introduced.
+- Changes are localized to guard probe reliability and diagnostics.
