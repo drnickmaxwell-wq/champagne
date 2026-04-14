@@ -1,14 +1,9 @@
-import { HeroRenderer } from "../components/hero/HeroRenderer";
-import {
-  HeroContentV2,
-  HeroRendererV2,
-  HeroV2Frame,
-  type HeroRendererV2Props,
-} from "../components/hero/v2/HeroRendererV2";
+import { headers } from "next/headers";
+
+import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
 import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
-import type { HeroRendererProps } from "../components/hero/HeroRenderer";
-import { headers } from "next/headers";
+import type { HeroRendererV2Props } from "../components/hero/v2/HeroRendererV2";
 
 const normalizeHeroPathname = (path?: string) => {
   if (!path) return "/";
@@ -27,7 +22,6 @@ export async function HeroMount(props: HeroRendererProps) {
     .replace(/^'(.*)'$/, "$1")
     .toLowerCase();
   const useV2 = normalized === "v2";
-  const Renderer = useV2 ? HeroRendererV2 : HeroRenderer;
 
   if (useV2) {
     const headersList = await headers();
@@ -51,6 +45,7 @@ export async function HeroMount(props: HeroRendererProps) {
       }
     }
 
+    const { HeroContentV2, HeroRendererV2, HeroV2Frame } = await import("../components/hero/v2/HeroRendererV2");
     const v2Props = props as HeroRendererV2Props;
     const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
@@ -103,6 +98,8 @@ export async function HeroMount(props: HeroRendererProps) {
     );
   }
 
+  const { HeroRenderer } = await import("../components/hero/HeroRenderer");
+
   return (
     <div
       data-hero-engine="v1"
@@ -110,7 +107,7 @@ export async function HeroMount(props: HeroRendererProps) {
       data-hero-flag-normalized={normalized}
       style={{ minHeight: "72vh" }}
     >
-      <Renderer {...props} />
+      <HeroRenderer {...props} />
     </div>
   );
 }
