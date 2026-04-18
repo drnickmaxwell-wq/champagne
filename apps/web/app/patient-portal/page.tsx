@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getPageManifest } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../(champagne)/_builder/ChampagnePageBuilder";
+import PatientAiPanel from "./PatientAiPanel";
 
 const manifest = getPageManifest("/patient-portal") as
   | { label?: string; description?: string; intro?: string }
@@ -120,6 +121,8 @@ function IntentLanding({ intent, portalHref }: { intent: PortalIntent; portalHre
             </Link>
           </div>
         </div>
+
+        <PatientAiPanel />
 
         <div className="space-y-2 text-sm text-neutral-600">
           <p className="font-semibold text-neutral-800">Supported intents</p>
