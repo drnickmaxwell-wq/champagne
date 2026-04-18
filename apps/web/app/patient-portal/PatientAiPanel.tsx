@@ -10,6 +10,19 @@ const PROCEDURE_OPTIONS = [
   "Composite filling",
 ] as const;
 
+const portalBase = process.env.NEXT_PUBLIC_PORTAL_URL?.trim() ?? "";
+
+function buildPortalApiUrl(path: string): string | null {
+  if (!portalBase) return null;
+
+  try {
+    const url = new URL(portalBase.replace(/\/+$/, ""));
+    return `${url.toString().replace(/\/+$/, "")}${path}`;
+  } catch {
+    return null;
+  }
+}
+
 function extractAdviceLines(data: unknown): string[] {
   if (typeof data === "string") return [data];
 
@@ -44,8 +57,17 @@ export default function PatientAiPanel() {
     setLoading(true);
     setError("");
 
+    const guidanceUrl = buildPortalApiUrl("/api/patient-ai/guidance");
+
+    if (!guidanceUrl) {
+      setError("Portal API is not configured.");
+      setAdviceLines([]);
+      setLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("/api/patient-ai/guidance", {
+      const response = await fetch(guidanceUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
