@@ -114,80 +114,37 @@
   gap: 0.75rem;
 }
 
-.form {
-  display: grid;
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
-  align-items: center;
+  padding-top: 0.35rem;
 }
 
-.input {
-  width: 100%;
-  border-radius: 0.85rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--border-subtle);
-  background: var(--smh-ink-soft, var(--smh-footer-bg, var(--smh-ink)));
-  color: var(--text-high);
-  outline: none;
-  transition: border-color 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
-    box-shadow 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
-  box-shadow: var(--shadow-soft);
-}
-
-.input::placeholder {
-  color: var(--text-low);
-}
-
-.input:focus-visible {
-  border-color: var(--border-subtle);
-  outline: 2px solid var(--border-subtle);
-  outline-offset: 2px;
-  box-shadow: var(--shadow-soft);
-}
-
-.input[aria-invalid='true'] {
-  border-color: var(--text-high);
-}
-
-.input:disabled {
-  opacity: 0.6;
-}
-
-.button {
+.actionPill {
+  text-decoration: none;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   padding: 0.85rem 1.75rem;
   font-weight: 600;
   color: var(--text-high);
-  cursor: pointer;
   background: var(--smh-ink-soft, var(--smh-footer-bg, var(--smh-ink)));
   transition: transform 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
-    box-shadow 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
+    box-shadow 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    border-color 180ms var(--motion-ease, cubic-bezier(0.4, 0, 0.2, 1));
   box-shadow: var(--shadow-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.button:hover,
-.button:focus-visible {
+.actionPill:hover,
+.actionPill:focus-visible {
   transform: translateY(-1px);
   box-shadow: var(--shadow-soft);
   outline: 2px solid var(--border-subtle);
   outline-offset: 2px;
-}
-
-.button:disabled {
-  opacity: 0.6;
-}
-
-.feedback {
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.feedback[data-status='success'] {
-  color: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 82%, transparent);
-}
-
-.feedback[data-status='error'] {
-  color: color-mix(in oklab, var(--smh-primary-magenta, var(--brand-magenta)) 68%, transparent);
+  border-color: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 45%, transparent);
 }
 
 .legal {
@@ -228,18 +185,4 @@
   background: color-mix(in oklab, var(--smh-accent-gold, var(--brand-gold)) 45%, transparent);
   color: var(--smh-navy-900, var(--smh-ink));
   outline: none;
-}
-
-@media (min-width: 640px) {
-  .form {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .button {
-    align-self: stretch;
-    height: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
 }

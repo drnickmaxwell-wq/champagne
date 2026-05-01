@@ -100,24 +100,20 @@ export function Footer() {
           <div className={styles.newsletter}>
             <p className={styles.heading}>Practice updates</p>
             <p className={styles.copy}>
-              Leave your email if you would like occasional updates on practice news, treatment information, and
-              patient resources.
+              Updates from the practice are shared through service notes, treatment guidance, and direct patient
+              support. This website does not currently offer a newsletter sign-up.
             </p>
-            <div className={styles.form} aria-label="Subscribe to updates" role="form">
-              <label className="sr-only" htmlFor="footer-email">
-                Email address
-              </label>
-              <input
-                id="footer-email"
-                className={styles.input}
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                autoComplete="email"
-              />
-              <button type="button" className={styles.button}>
-                Join list
-              </button>
+            <p className={styles.copy}>
+              If you would like help, or want the team to guide the right next step, please contact the practice
+              directly.
+            </p>
+            <div className={styles.actionRow}>
+              <Link href="/contact" className={styles.actionPill}>
+                Contact the practice
+              </Link>
+              <Link href="/treatments" className={styles.actionPill}>
+                Explore treatments
+              </Link>
             </div>
           </div>
         </div>
