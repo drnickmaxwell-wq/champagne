@@ -1868,8 +1868,8 @@
         {
           "id": "implants_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit.",
+          "title": "Implant options to compare",
+          "strapline": "See how consultation, single-tooth implants, and bridge alternatives can shape the next decision.",
           "ctas": [
             {
               "label": "Book an implant consultation",
@@ -2081,8 +2081,8 @@
         {
           "id": "veneers_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit.",
+          "title": "Ways to plan veneer treatment",
+          "strapline": "Compare smile design, printed veneers, and bonding before deciding what suits your teeth best.",
           "ctas": [
             {
               "label": "Digital smile design",
@@ -2175,8 +2175,8 @@
         {
           "id": "clear_aligners_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Considering clear aligners",
+          "strapline": "Compare aligner routes, monitoring, and retention planning before you book the next step."
         },
         {
           "id": "treatment.faq"
@@ -2247,8 +2247,8 @@
         {
           "id": "clear_aligners_spark_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Considering Spark aligners",
+          "strapline": "Compare Spark with other aligner and brace options before deciding the next assessment."
         },
         {
           "id": "treatment.faq"
@@ -2320,8 +2320,8 @@
         {
           "id": "fixed_braces_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Orthodontic options to compare",
+          "strapline": "Compare fixed braces with aligner routes and retention planning before the next visit."
         },
         {
           "id": "treatment.cta"
@@ -3998,8 +3998,8 @@
         {
           "id": "implants_single_tooth_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Replacing one missing tooth",
+          "strapline": "Compare single-tooth implant planning with bridge alternatives before the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -4069,8 +4069,8 @@
         {
           "id": "implants_multiple_teeth_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Replacing several missing teeth",
+          "strapline": "Compare implant, bridge, and denture-based options before deciding the next stage."
         },
         {
           "id": "treatment.faq"
@@ -4140,8 +4140,8 @@
         {
           "id": "implants_full_arch_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Planning full-arch implant care",
+          "strapline": "Review assessment, temporary teeth, and longer-term maintenance before you commit to the next step."
         },
         {
           "id": "treatment.faq"
@@ -4211,8 +4211,8 @@
         {
           "id": "implant_retained_dentures_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Considering implant-retained dentures",
+          "strapline": "Review how assessment, stability, and maintenance needs shape the next decision."
         },
         {
           "id": "treatment.faq"
@@ -4282,8 +4282,8 @@
         {
           "id": "implants_consultation_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Options before implant treatment",
+          "strapline": "Compare planning, grafting, and replacement pathways before you decide on the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -4353,8 +4353,8 @@
         {
           "id": "implants_bone_grafting_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When grafting may be part of the plan",
+          "strapline": "See how scans, grafting, and implant timing can affect the next decision."
         },
         {
           "id": "treatment.faq"
@@ -4424,8 +4424,8 @@
         {
           "id": "implants_sinus_lift_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Planning before sinus lift treatment",
+          "strapline": "See how scans, grafting, and implant timing are usually sequenced."
         },
         {
           "id": "treatment.faq"
@@ -4495,8 +4495,8 @@
         {
           "id": "implants_teeth_in_a_day_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Planning the stages around same-day teeth",
+          "strapline": "Review how assessment, surgery, temporary teeth, and follow-up care fit together."
         },
         {
           "id": "treatment.faq"
@@ -4566,8 +4566,8 @@
         {
           "id": "implants_sedation_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Planning implant care with sedation",
+          "strapline": "Review how sedation can fit with assessment, surgery, and follow-up visits."
         },
         {
           "id": "treatment.faq"
@@ -4636,8 +4636,8 @@
         {
           "id": "implants_failed_replacement_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When an implant needs review",
+          "strapline": "See how assessment, removal, grafting, or a replacement plan may be sequenced."
         },
         {
           "id": "treatment.faq"
@@ -4707,8 +4707,8 @@
         {
           "id": "implants_aftercare_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Support after implant treatment",
+          "strapline": "Review maintenance visits, hygiene support, and what to monitor as healing settles."
         },
         {
           "id": "treatment.faq"
@@ -4778,8 +4778,8 @@
         {
           "id": "surgically_guided_implants_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Planning guided implant placement",
+          "strapline": "See how scans, surgical guides, and restoration timing can shape the next step."
         },
         {
           "id": "treatment.faq"
@@ -4849,8 +4849,8 @@
         {
           "id": "3d_implant_restorations_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Digital planning around implant restoration",
+          "strapline": "Compare scans, guided planning, and restorative steps before the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -4919,8 +4919,8 @@
         {
           "id": "3d_printed_veneers_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Explore options around printed veneers",
+          "strapline": "Compare complementary treatments and planning steps that often pair well with digitally designed veneer restorations. We’ll always help you choose what fits your bite, lifestyle, and long-term plan."
         },
         {
           "id": "treatment.faq"
@@ -5051,8 +5051,8 @@
         {
           "id": "composite_bonding_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit.",
+          "title": "Before you choose composite bonding",
+          "strapline": "Discuss whether bonding, whitening, or alignment is the right next step for your smile.",
           "ctas": [
             {
               "label": "Plan a bonding consultation",
@@ -5222,8 +5222,8 @@
         {
           "id": "injection_moulded_composite_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Ways to sequence your smile plan",
+          "strapline": "Compare whitening, alignment, and bonding steps before you book the next stage."
         },
         {
           "id": "injection_next_steps",
@@ -5285,8 +5285,8 @@
         {
           "id": "dental_bridges_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Replacing missing teeth with confidence",
+          "strapline": "Compare bridges with implant and denture routes before deciding the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -5351,8 +5351,8 @@
         {
           "id": "dental_crowns_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When a tooth needs fuller coverage",
+          "strapline": "Compare crowns with fillings, onlays, and root canal planning before the next step."
         },
         {
           "id": "dental_crowns_closing_cta",
@@ -5527,8 +5527,8 @@
         {
           "id": "whitening_hub_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Whitening options to compare",
+          "strapline": "Compare home whitening, top-ups, and sensitivity support before you book the next visit."
         },
         {
           "id": "whitening_faq",
@@ -5683,8 +5683,8 @@
         {
           "id": "home_teeth_whitening_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Planning whitening at home",
+          "strapline": "Compare home whitening, top-ups, and sensitivity support before deciding how to start."
         },
         {
           "id": "home_whitening_faq",
@@ -5779,8 +5779,8 @@
         {
           "id": "whitening_topups_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Keeping whitening results steady",
+          "strapline": "Compare top-ups, sensitivity support, and routine reviews before the next visit."
         },
         {
           "id": "whitening_topups_faq",
@@ -5873,7 +5873,7 @@
         {
           "id": "whitening_sensitivity_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Sensitivity-aware whitening options",
           "strapline": "If sensitivity is the main issue, it can help to address the cause first \u2014 such as gum health, tooth wear, or hygiene care \u2014 then decide whether whitening still makes sense."
         },
         {
@@ -5942,8 +5942,8 @@
         {
           "id": "whitening_faq_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Keeping whitening results steady",
+          "strapline": "Compare top-ups, sensitivity support, and routine reviews before the next visit."
         },
         {
           "id": "whitening_faqs_primary",
@@ -6028,8 +6028,8 @@
         {
           "id": "orthodontics_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Orthodontic routes to compare",
+          "strapline": "Compare aligners, Spark, fixed braces, and retention planning before the next assessment."
         },
         {
           "id": "treatment.faq"
@@ -6189,7 +6189,7 @@
         {
           "id": "full_smile_makeover_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Planning a wider smile change",
           "strapline": "If you\u2019re considering a full smile makeover, the first step is a conversation. An assessment allows us to look at your teeth properly and talk through whether this approach makes sense for you."
         },
         {
@@ -6276,8 +6276,8 @@
         {
           "id": "technology_digital_dentistry_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "If you need urgent dental care",
+          "strapline": "See what usually happens first and which follow-up visits may be needed after an emergency appointment."
         },
         {
           "id": "treatment.faq"
@@ -6496,8 +6496,8 @@
         {
           "id": "emergency_dentistry_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Urgent care and follow-up",
+          "strapline": "Contact the Shoreham practice for guidance on urgency, first steps, and what may need to happen after the initial visit."
         },
         {
           "id": "emergency_dentistry_faq",
@@ -6681,8 +6681,8 @@
         {
           "id": "emergency_dental_appointments_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When toothache needs a next step",
+          "strapline": "Review what may follow an urgent assessment, from pain relief through to definitive treatment."
         },
         {
           "id": "emergency_appointments_faq",
@@ -6795,8 +6795,8 @@
         {
           "id": "emergency_severe_toothache_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "After infection is brought under control",
+          "strapline": "Review whether drainage, root canal treatment, extraction, or follow-up care is most likely next."
         },
         {
           "id": "emergency_pain_faq",
@@ -6909,8 +6909,8 @@
         {
           "id": "emergency_dental_abscess_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Repair options after dental damage",
+          "strapline": "See how bonding, crowns, veneers, or an urgent review may fit the next step."
         },
         {
           "id": "emergency_abscess_faq",
@@ -7023,8 +7023,8 @@
         {
           "id": "emergency_broken_chipped_teeth_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "After a knocked-out tooth",
+          "strapline": "See which urgent steps matter first and which follow-up treatments may be discussed once the tooth is reviewed."
         },
         {
           "id": "emergency_chipped_faq",
@@ -7136,8 +7136,8 @@
         {
           "id": "emergency_knocked_out_tooth_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Repair and replacement pathways",
+          "strapline": "See which review, repair, or replacement steps are usually considered after something has come loose."
         },
         {
           "id": "emergency_avulsion_faq",
@@ -7250,8 +7250,8 @@
         {
           "id": "emergency_lost_crowns_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "After dental trauma",
+          "strapline": "Review urgent stabilisation, repair options, and what may need follow-up after the first visit."
         },
         {
           "id": "emergency_crown_faq",
@@ -7364,8 +7364,8 @@
         {
           "id": "emergency_dental_trauma_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Digital planning options to compare",
+          "strapline": "Compare scans, printed restorations, and guided workflows before the next step."
         },
         {
           "id": "emergency_trauma_faq",
@@ -7431,8 +7431,8 @@
         {
           "id": "3d_dentistry_and_technology_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When a scan supports the plan",
+          "strapline": "See how CBCT imaging can guide implant, surgical, or diagnostic next steps."
         },
         {
           "id": "3d_dentistry_and_technology_closing_cta",
@@ -7495,8 +7495,8 @@
         {
           "id": "cbct_3d_scanning_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Preview-led smile planning",
+          "strapline": "Compare smile design, bonding, veneers, and aligner steps before you commit."
         },
         {
           "id": "treatment.faq"
@@ -7565,8 +7565,8 @@
         {
           "id": "digital_smile_design_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "How printed dentistry fits the plan",
+          "strapline": "Compare printed restorations, digital planning, and follow-up steps before the next visit."
         },
         {
           "id": "treatment.faq"
@@ -7635,8 +7635,8 @@
         {
           "id": "3d_printing_lab_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When a filling may not be enough",
+          "strapline": "Compare inlays, onlays, crowns, and root canal planning before the next decision."
         },
         {
           "id": "treatment.faq"
@@ -7705,8 +7705,8 @@
         {
           "id": "inlays_onlays_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When a filling needs extra support",
+          "strapline": "If the tooth is heavily broken down or the nerve is affected, we guide you through the next restorative steps."
         },
         {
           "id": "treatment.faq"
@@ -7778,8 +7778,8 @@
         {
           "id": "dental_fillings_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Denture options to compare",
+          "strapline": "Compare full, partial, acrylic, chrome, and implant-retained routes before the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -7845,8 +7845,8 @@
         {
           "id": "dentures_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Considering acrylic dentures",
+          "strapline": "Compare acrylic, chrome, and implant-retained options before deciding the next step."
         },
         {
           "id": "treatment.faq"
@@ -7915,8 +7915,8 @@
         {
           "id": "acrylic_dentures_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Considering chrome dentures",
+          "strapline": "Compare chrome, acrylic, and implant-retained options before the next review."
         },
         {
           "id": "treatment.faq"
@@ -7985,8 +7985,8 @@
         {
           "id": "chrome_dentures_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Considering PEEK partial dentures",
+          "strapline": "Compare PEEK, chrome, and acrylic options before deciding the next stage."
         },
         {
           "id": "treatment.faq"
@@ -8055,8 +8055,8 @@
         {
           "id": "peek_partial_dentures_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Printed denture pathways",
+          "strapline": "Compare printed, acrylic, chrome, and implant-retained options before the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -8125,8 +8125,8 @@
         {
           "id": "printed_dentures_3d_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Printed denture pathways",
+          "strapline": "Compare printed, acrylic, chrome, and implant-retained options before the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -8192,7 +8192,7 @@
         {
           "id": "night_guards_occlusal_splints_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Protection options to compare",
           "strapline": "Compare connected options for clenching, jaw joint symptoms, and tooth wear \u2014 and choose the calm next step."
         },
         {
@@ -8300,8 +8300,8 @@
         {
           "id": "sports_mouthguards_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Protective options for sport",
+          "strapline": "Compare sports guards, retainers, and night guards before choosing the right protection."
         },
         {
           "id": "treatment.faq"
@@ -8364,8 +8364,8 @@
         {
           "id": "dental_retainers_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Retention options to compare",
+          "strapline": "Compare removable retainers, fixed retainers, and review timing before the next visit."
         },
         {
           "id": "treatment.faq"
@@ -8562,8 +8562,8 @@
         {
           "id": "preventative_and_general_dentistry_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Routine care options to compare",
+          "strapline": "Compare check-ups, hygiene, gum care, and longer-term maintenance before the next appointment."
         },
         {
           "id": "preventative-general-faq",
@@ -8853,8 +8853,8 @@
         {
           "id": "childrens_dentistry_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Support for growing smiles",
+          "strapline": "Compare preventive visits, hygiene support, and orthodontic monitoring before the next step."
         },
         {
           "id": "childrens-dentistry-cta",
@@ -9032,8 +9032,8 @@
         {
           "id": "periodontal_gum_care_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Gum care pathways to compare",
+          "strapline": "Compare hygiene support, periodontal reviews, and longer-term maintenance before the next visit."
         },
         {
           "id": "periodontal-faq",
@@ -9242,8 +9242,8 @@
         {
           "id": "endodontics_root_canal_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When a painful tooth may still be saved",
+          "strapline": "Compare root canal treatment, restoration, or extraction planning before deciding the next step."
         },
         {
           "id": "endodontics-root-canal-cta",
@@ -9433,8 +9433,8 @@
         {
           "id": "extractions_and_oral_surgery_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When extraction may be the safest step",
+          "strapline": "Compare removal, healing, replacement planning, and follow-up care before the next decision."
         },
         {
           "id": "extractions-oral-surgery-cta",
@@ -9486,7 +9486,7 @@
         {
           "id": "senior_mature_smile_care_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Later-life care options to compare",
           "strapline": "Compare connected options and plan the next step calmly."
         },
         {
@@ -9547,7 +9547,7 @@
         {
           "id": "tmj_jaw_comfort_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Jaw comfort options to compare",
           "strapline": "Compare connected options and choose the calm next step."
         },
         {
@@ -9639,8 +9639,8 @@
         {
           "id": "nervous_patients_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Support for nervous patients",
+          "strapline": "Compare gentle appointments, numbing support, and staged treatment planning before the next step."
         },
         {
           "id": "treatment.cta"
@@ -9719,8 +9719,8 @@
         {
           "id": "sedation_dentistry_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "When extra help with comfort may matter",
+          "strapline": "Compare sedation, staged care, and calmer treatment planning before the next appointment."
         },
         {
           "id": "treatment.faq"
@@ -9786,8 +9786,8 @@
         {
           "id": "painless_numbing_the_wand_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Comfort options to compare",
+          "strapline": "Compare gentle numbing, pacing, and supportive treatment planning before the next visit."
         },
         {
           "id": "treatment.faq"
@@ -9905,8 +9905,8 @@
         {
           "id": "tooth_wear_broken_teeth_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Restoring worn or damaged teeth",
+          "strapline": "Compare protective and restorative steps before deciding what to do next."
         },
         {
           "id": "tooth_wear_faq",
@@ -10003,8 +10003,8 @@
         {
           "id": "facial_therapeutics_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Facial therapeutic options to compare",
+          "strapline": "Compare muscle-relaxing, skin-quality, and review pathways before deciding the next step."
         },
         {
           "id": "treatment.faq"
@@ -10125,7 +10125,7 @@
         {
           "id": "bruxism_jaw_clenching_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Jaw strain and tooth wear options",
           "strapline": "Protect worn teeth, reduce jaw strain, and understand the triggers \u2014 with a practical plan."
         },
         {
@@ -10195,8 +10195,8 @@
         {
           "id": "facial_pain_headache_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Facial pain pathways to compare",
+          "strapline": "Compare jaw-joint, clenching, and therapeutic options before planning the next visit."
         },
         {
           "id": "treatment.faq"
@@ -10265,7 +10265,7 @@
         {
           "id": "tmj_disorder_treatment_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "TMJ and jaw-pain options",
           "strapline": "Jaw pain, clicking, headaches, and clenching often overlap \u2014 compare options and choose the calm next step."
         },
         {
@@ -10338,7 +10338,7 @@
         {
           "id": "therapeutic_facial_injectables_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Therapeutic facial options",
           "strapline": "Jaw tension, clenching, facial pain and headaches can overlap \u2014 compare options and choose a calm next step."
         },
         {
@@ -10751,7 +10751,7 @@
         {
           "id": "skin_boosters_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Natural skin-quality options",
           "strapline": "Compare connected options and choose a calm, natural next step."
         },
         {
@@ -10885,7 +10885,7 @@
         {
           "id": "mouthguards_and_retainers_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
+          "title": "Protection options to compare",
           "strapline": "Retainers, sports guards, and night guards do different jobs \u2014 we\u2019ll help you choose what\u2019s appropriate."
         },
         {
@@ -11007,8 +11007,8 @@
         {
           "id": "fixed_braces_mid_cta",
           "type": "treatment_mid_cta",
-          "title": "Related care to explore",
-          "strapline": "Compare connected steps and plan the next visit."
+          "title": "Orthodontic options to compare",
+          "strapline": "Compare fixed braces with aligner routes and retention planning before the next visit."
         },
         {
           "id": "treatment.cta"
