@@ -3,13 +3,48 @@ import { getPageManifest } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../(champagne)/_builder/ChampagnePageBuilder";
 
-const manifest = getPageManifest("/fees") as { label?: string; description?: string; intro?: string } | undefined;
+const PAGE_PATH = "/fees";
+const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
+const manifest = getPageManifest(PAGE_PATH) as { label?: string; description?: string; intro?: string } | undefined;
+const title = manifest?.label ?? "Fees";
+const description = manifest?.description ?? manifest?.intro ?? "Learn about treatment fees and planning.";
 
 export const metadata: Metadata = {
-  title: manifest?.label ?? "Fees",
-  description: manifest?.description ?? manifest?.intro ?? "Learn about treatment fees and planning.",
+  title,
+  description,
+  alternates: {
+    canonical: PAGE_PATH,
+  },
+  openGraph: {
+    title,
+    description,
+    url: PAGE_PATH,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function FeesPage() {
-  return <ChampagnePageBuilder slug="/fees" />;
+  const pageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: `${PRODUCTION_CANONICAL_ORIGIN}${PAGE_PATH}`,
+    isPartOf: {
+      "@id": `${PRODUCTION_CANONICAL_ORIGIN}/#website`,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
+      />
+      <ChampagnePageBuilder slug={PAGE_PATH} />
+    </>
+  );
 }

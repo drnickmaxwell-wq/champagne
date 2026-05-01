@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { headers } from "next/headers";
 import "./globals.css";
@@ -9,12 +10,41 @@ import { ConciergeLayer } from "./components/concierge/ConciergeLayer";
 import { getPageManifest } from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
 
-export const metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://smhdental.co.uk",
-  ),
-  title: "St Mary’s House Dental – Champagne Core",
-  description: "Neutral skeleton for the Champagne Ecosystem marketing site.",
+const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
+const PRACTICE_NAME = "St Mary's House Dental Care";
+const DEFAULT_DESCRIPTION = "Neutral skeleton for the Champagne Ecosystem marketing site.";
+
+function isProductionIndexable() {
+  return process.env.VERCEL_ENV === "production";
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(PRODUCTION_CANONICAL_ORIGIN),
+  title: "St Mary's House Dental - Champagne Core",
+  description: DEFAULT_DESCRIPTION,
+  robots: isProductionIndexable()
+    ? {
+        index: true,
+        follow: true,
+      }
+    : {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+          noimageindex: true,
+          "max-image-preview": "none",
+          "max-snippet": 0,
+        },
+      },
+  openGraph: {
+    type: "website",
+    siteName: PRACTICE_NAME,
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -24,20 +54,24 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const isHeroEnabled = isBrandHeroEnabled();
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
   const manifest = getPageManifest(pathname);
-  const siteUrl = metadata.metadataBase.toString().replace(/\/$/, "");
+  const siteUrl = PRODUCTION_CANONICAL_ORIGIN;
 
   const dentistJsonLd = {
     "@context": "https://schema.org",
     "@type": ["Dentist", "LocalBusiness"],
-    name: "St Mary’s House Dental Care",
+    "@id": `${siteUrl}/#dentist`,
+    name: PRACTICE_NAME,
     url: siteUrl,
+    areaServed: "Shoreham-by-Sea",
   };
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "St Mary’s House Dental Care",
+    "@id": `${siteUrl}/#website`,
+    name: PRACTICE_NAME,
     url: siteUrl,
+    description: DEFAULT_DESCRIPTION,
   };
 
   let pageCategory: string | undefined;

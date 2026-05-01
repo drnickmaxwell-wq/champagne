@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 type PageParams = { slug: string };
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://smhdental.co.uk").replace(/\/$/, "");
+const siteUrl = "https://www.smhdental.co.uk";
 
 async function resolveTreatment(params: Promise<PageParams>) {
   const resolved = await params;
@@ -76,6 +76,16 @@ export default async function TreatmentPage({
     "Explore this treatment option.";
   const canonicalUrl = `${siteUrl}${pageSlug}`;
 
+  const pageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: treatmentTitle,
+    url: canonicalUrl,
+    isPartOf: {
+      "@id": `${siteUrl}/#website`,
+    },
+  };
+
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -84,7 +94,7 @@ export default async function TreatmentPage({
     url: canonicalUrl,
     provider: {
       "@type": "Dentist",
-      name: "St Mary’s House Dental Care",
+      name: "St Mary's House Dental Care",
       url: siteUrl,
     },
   };
@@ -110,6 +120,10 @@ export default async function TreatmentPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}

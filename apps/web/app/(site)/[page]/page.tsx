@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
 
+const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
+
 type PageParams = Promise<{ page: string }>;
 
 function normalizePagePath(page: string): string {
@@ -33,21 +35,49 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   return {
     title,
     description,
+    alternates: {
+      canonical: manifestPath,
+    },
+    openGraph: {
+      title,
+      description,
+      url: manifestPath,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
 export default async function SitePage({ params }: { params: PageParams }) {
   const resolved = await params;
   const pagePath = normalizePagePath(resolved.page);
-  const manifest = getPageManifest(pagePath);
+  const manifest = getPageManifest(pagePath) as { path?: string; label?: string } | undefined;
   const manifestPath = manifest?.path ?? pagePath;
 
   if (!manifestPath || manifestPath.startsWith("/treatments/")) {
     return notFound();
   }
 
+  const title = manifest?.label ?? (manifestPath.replace(/^\//, "") || "Page");
+  const pageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: `${PRODUCTION_CANONICAL_ORIGIN}${manifestPath}`,
+    isPartOf: {
+      "@id": `${PRODUCTION_CANONICAL_ORIGIN}/#website`,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
+      />
       <ChampagnePageBuilder slug={manifestPath} />
     </>
   );
