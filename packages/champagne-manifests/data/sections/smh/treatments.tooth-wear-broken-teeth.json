@@ -93,8 +93,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "Restoring worn or damaged teeth",
+      "body": "Compare protective and restorative steps before deciding what to do next.",
+      "strapline": "Compare protective and restorative steps before deciding what to do next."
     },
     {
       "instanceId": "tooth_wear_faq",

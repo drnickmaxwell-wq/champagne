@@ -56,8 +56,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Discuss implant-retained denture options at a consultation"
+      "title": "Considering implant-retained dentures",
+      "body": "Review how assessment, stability, and maintenance needs shape the next decision.",
+      "strapline": "Review how assessment, stability, and maintenance needs shape the next decision."
     },
     {
       "instanceId": "treatment.faq",

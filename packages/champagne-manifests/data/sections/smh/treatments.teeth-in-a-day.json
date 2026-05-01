@@ -51,8 +51,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "Planning the stages around same-day teeth",
+      "body": "Review how assessment, surgery, temporary teeth, and follow-up care fit together.",
+      "strapline": "Review how assessment, surgery, temporary teeth, and follow-up care fit together."
     },
     {
       "instanceId": "treatment.faq",

@@ -51,8 +51,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "When an implant needs review",
+      "body": "See how assessment, removal, grafting, or a replacement plan may be sequenced.",
+      "strapline": "See how assessment, removal, grafting, or a replacement plan may be sequenced."
     },
     {
       "instanceId": "treatment.faq",

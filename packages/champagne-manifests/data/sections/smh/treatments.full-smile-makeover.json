@@ -70,8 +70,9 @@
       "componentId": "treatment_mid_cta",
       "order": 60,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "If you’re considering a full smile makeover, the first step is a conversation. An assessment allows us to look at your teeth properly and talk through whether this approach makes sense for you."
+      "title": "Planning a wider smile change",
+      "body": "Use a first conversation to compare bonding, veneers, whitening, and alignment before committing to a bigger plan.",
+      "strapline": "Use a first conversation to compare bonding, veneers, whitening, and alignment before committing to a bigger plan."
     },
     {
       "instanceId": "full_smile_makeover_faq",

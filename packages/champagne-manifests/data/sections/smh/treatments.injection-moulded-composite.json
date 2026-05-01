@@ -98,8 +98,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "Ways to sequence your smile plan",
+      "body": "Compare whitening, alignment, and bonding steps before you book the next stage.",
+      "strapline": "Compare whitening, alignment, and bonding steps before you book the next stage."
     },
     {
       "instanceId": "injection_next_steps",

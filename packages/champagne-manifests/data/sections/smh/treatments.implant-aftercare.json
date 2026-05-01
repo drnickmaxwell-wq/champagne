@@ -51,8 +51,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "Support after implant treatment",
+      "body": "Review maintenance visits, hygiene support, and what to monitor as healing settles.",
+      "strapline": "Review maintenance visits, hygiene support, and what to monitor as healing settles."
     },
     {
       "instanceId": "treatment.faq",

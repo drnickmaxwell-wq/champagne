@@ -77,8 +77,9 @@
       "componentId": "treatment_mid_cta",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Review treatment options and plan the next steps."
+      "title": "After infection is brought under control",
+      "body": "Review whether drainage, root canal treatment, extraction, or follow-up care is most likely next.",
+      "strapline": "Review whether drainage, root canal treatment, extraction, or follow-up care is most likely next."
     },
     {
       "instanceId": "emergency_abscess_faq",

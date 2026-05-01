@@ -76,8 +76,9 @@
       "componentId": "treatment_mid_cta",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Understand the immediate steps and plan what happens next."
+      "title": "After a knocked-out tooth",
+      "body": "See which urgent steps matter first and which follow-up treatments may be discussed once the tooth is reviewed.",
+      "strapline": "See which urgent steps matter first and which follow-up treatments may be discussed once the tooth is reviewed."
     },
     {
       "instanceId": "emergency_avulsion_faq",

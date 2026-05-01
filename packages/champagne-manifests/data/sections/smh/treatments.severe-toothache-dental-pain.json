@@ -77,8 +77,9 @@
       "componentId": "treatment_mid_cta",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Understand the likely steps and plan the next visit."
+      "title": "When toothache needs a next step",
+      "body": "Review what may follow an urgent assessment, from pain relief through to definitive treatment.",
+      "strapline": "Review what may follow an urgent assessment, from pain relief through to definitive treatment."
     },
     {
       "instanceId": "emergency_pain_faq",

@@ -77,8 +77,9 @@
       "componentId": "treatment_mid_cta",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "After dental trauma",
+      "body": "Review urgent stabilisation, repair options, and what may need follow-up after the first visit.",
+      "strapline": "Review urgent stabilisation, repair options, and what may need follow-up after the first visit."
     },
     {
       "instanceId": "emergency_trauma_faq",

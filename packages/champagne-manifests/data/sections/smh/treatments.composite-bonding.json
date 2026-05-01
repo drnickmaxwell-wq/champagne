@@ -104,8 +104,9 @@
       "componentId": "treatment_mid_cta",
       "order": 90,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Discuss whether composite bonding is right for you",
+      "title": "Before you choose composite bonding",
+      "body": "Discuss whether bonding, whitening, or alignment is the right next step for your smile.",
+      "strapline": "Discuss whether bonding, whitening, or alignment is the right next step for your smile.",
       "ctas": [
         {
           "label": "Discuss whether composite bonding is right for you",

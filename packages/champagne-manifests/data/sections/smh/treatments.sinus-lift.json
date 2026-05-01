@@ -51,8 +51,9 @@
       "componentId": "treatment_mid_cta",
       "order": 80,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "Planning before sinus lift treatment",
+      "body": "See how scans, grafting, and implant timing are usually sequenced.",
+      "strapline": "See how scans, grafting, and implant timing are usually sequenced."
     },
     {
       "instanceId": "treatment.faq",

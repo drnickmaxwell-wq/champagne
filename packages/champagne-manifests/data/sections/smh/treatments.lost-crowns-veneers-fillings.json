@@ -77,8 +77,9 @@
       "componentId": "treatment_mid_cta",
       "order": 70,
       "seoRole": "supporting",
-      "title": "Related care to explore",
-      "body": "Compare connected steps and plan the next visit."
+      "title": "Repair and replacement pathways",
+      "body": "See which review, repair, or replacement steps are usually considered after something has come loose.",
+      "strapline": "See which review, repair, or replacement steps are usually considered after something has come loose."
     },
     {
       "instanceId": "emergency_crown_faq",
