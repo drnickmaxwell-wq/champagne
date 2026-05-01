@@ -20,7 +20,7 @@ function isProductionIndexable() {
 
 export const metadata: Metadata = {
   metadataBase: new URL(PRODUCTION_CANONICAL_ORIGIN),
-  title: "St Mary's House Dental - Champagne Core",
+  title: "St Mary's House Dental Care | Shoreham-by-Sea Private Dentistry",
   description: DEFAULT_DESCRIPTION,
   robots: isProductionIndexable()
     ? {

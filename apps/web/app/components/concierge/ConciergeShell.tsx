@@ -223,7 +223,7 @@ export function ConciergeShell({
           className={styles.launcher}
           data-trace={launcherTrace}
           onClick={onToggle}
-          aria-label={isOpen ? "Close Champagne Concierge" : "Open Champagne Concierge"}
+          aria-label={isOpen ? "Close Practice Concierge" : "Open Practice Concierge"}
           aria-expanded={isOpen}
         >
           <span className={styles.launcherText}>Concierge</span>
@@ -233,9 +233,9 @@ export function ConciergeShell({
       {isEnabled && isOpen ? (
         <>
           <div className={styles.overlay} aria-hidden="true" onClick={onClose} />
-          <aside ref={panelRef} className={styles.panel} aria-label="Champagne Concierge panel">
+          <aside ref={panelRef} className={styles.panel} aria-label="Practice Concierge panel">
             <header className={styles.header}>
-              <h2 className={styles.title}>Champagne Concierge</h2>
+              <h2 className={styles.title}>Practice Concierge</h2>
               <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close concierge panel">
                 Close
               </button>

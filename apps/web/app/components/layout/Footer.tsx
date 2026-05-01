@@ -85,8 +85,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/newsletter" className={styles.link}>
-                  Newsletter
+                <Link href="/contact" className={styles.link}>
+                  Contact the practice
                 </Link>
               </li>
               <li>
