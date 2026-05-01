@@ -12,7 +12,7 @@ import type { HeroMode } from "@champagne/hero";
 
 const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 const PRACTICE_NAME = "St Mary's House Dental Care";
-const DEFAULT_DESCRIPTION = "Neutral skeleton for the Champagne Ecosystem marketing site.";
+const DEFAULT_DESCRIPTION = "Private dental care in Shoreham-by-Sea, with calm planning and clear patient guidance.";
 
 function isProductionIndexable() {
   return process.env.VERCEL_ENV === "production";

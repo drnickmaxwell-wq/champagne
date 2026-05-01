@@ -266,7 +266,7 @@
           "type": "map",
           "label": "Map",
           "title": "Where to find the practice",
-          "copy": "St Mary’s House Dental Care is located in Shoreham-by-Sea and is easy to reach from Lancing, Southwick, Worthing, and Brighton.\n\nClear directions and parking information are available, and you can open our location directly in Google Maps if you’re planning your visit.\n\nIf you need directions or parking information, just ask — our reception team can advise.",
+          "copy": "St Mary's House Dental Care is located in Shoreham-by-Sea and is easy to reach from Lancing, Southwick, Worthing, and Brighton.\n\nClear directions and parking information are available, and you can open our location directly in Google Maps if you're planning your visit.\n\nIf you need directions or parking information, just ask - our reception team can advise.",
           "mediaHint": "Shoreham-by-Sea map placeholder"
         },
         {
@@ -2560,9 +2560,9 @@
         {
           "id": "profile_video_spotlight",
           "type": "media",
-          "label": "Profile video placeholder",
+          "label": "Clinician introduction video",
           "title": "Video spotlight",
-          "copy": "Reserved for the clinician intro video beneath the hero."
+          "copy": "A short introduction to the clinician and their approach to care."
         },
         {
           "id": "profile_intro",
@@ -2624,9 +2624,9 @@
         {
           "id": "profile_video_spotlight",
           "type": "media",
-          "label": "Profile video placeholder",
+          "label": "Clinician introduction video",
           "title": "Video spotlight",
-          "copy": "Reserved for the clinician intro video beneath the hero."
+          "copy": "A short introduction to the clinician and their approach to care."
         },
         {
           "id": "profile_intro",
@@ -2688,9 +2688,9 @@
         {
           "id": "profile_video_spotlight",
           "type": "media",
-          "label": "Profile video placeholder",
+          "label": "Clinician introduction video",
           "title": "Video spotlight",
-          "copy": "Reserved for the clinician intro video beneath the hero."
+          "copy": "A short introduction to the clinician and their approach to care."
         },
         {
           "id": "profile_intro",
@@ -4791,7 +4791,7 @@
           "id": "surgically_guided_implants_closing_cta",
           "type": "treatment_closing_cta",
           "title": "Surgically Guided Implants in Shoreham-by-Sea",
-          "strapline": "Placeholder content for surgically guided implants treatment page.",
+          "strapline": "Careful planning for surgically guided implants, with clear advice at each stage.",
           "ctas": [
             {
               "label": "Book a surgically guided implants consultation",
