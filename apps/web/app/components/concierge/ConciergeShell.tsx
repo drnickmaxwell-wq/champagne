@@ -237,7 +237,7 @@ export function ConciergeShell({
             <header className={styles.header}>
               <h2 className={styles.title}>Champagne Concierge</h2>
               <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close concierge panel">
-                ✕
+                Close
               </button>
             </header>
 
@@ -286,15 +286,15 @@ export function ConciergeShell({
                 </article>
               ))}
 
-              {isLoading ? <p className={styles.meta}>Thinking…</p> : null}
+              {isLoading ? <p className={styles.meta}>Preparing a reply...</p> : null}
               {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
               {debugState ? (
                 <div>
-                  <p className={styles.meta}>Debug · lastSeenPath: {debugState.lastSeenPath}</p>
-                  <p className={styles.meta}>Debug · visitedPaths: {debugState.visitedPathsCount}</p>
-                  <p className={styles.meta}>Debug · intentStage: {debugState.intentStage}</p>
-                  <p className={styles.meta}>Debug · topicHints: {debugState.topicHints.join(", ") || "none"}</p>
-                  <p className={styles.meta}>Debug · conversationId: {debugState.conversationId ?? "none"}</p>
+                  <p className={styles.meta}>Debug | lastSeenPath: {debugState.lastSeenPath}</p>
+                  <p className={styles.meta}>Debug | visitedPaths: {debugState.visitedPathsCount}</p>
+                  <p className={styles.meta}>Debug | intentStage: {debugState.intentStage}</p>
+                  <p className={styles.meta}>Debug | topicHints: {debugState.topicHints.join(", ") || "none"}</p>
+                  <p className={styles.meta}>Debug | conversationId: {debugState.conversationId ?? "none"}</p>
                 </div>
               ) : null}
             </div>
@@ -306,11 +306,11 @@ export function ConciergeShell({
                 rows={1}
                 value={inputValue}
                 onChange={(event) => onInputChange(event.target.value)}
-                placeholder="Ask a question about this page"
+                placeholder="Ask about treatment options, appointments, or what to do next"
                 disabled={isLoading}
               />
               <button type="submit" className={styles.sendButton} disabled={isLoading || inputValue.trim().length === 0}>
-                ↗
+                Send
               </button>
             </form>
           </aside>

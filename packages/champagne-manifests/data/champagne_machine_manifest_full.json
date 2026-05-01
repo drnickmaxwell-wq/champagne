@@ -3257,13 +3257,13 @@
         "heroId": "sacred-home-hero",
         "variantId": "hero.variant.utility_v1"
       },
-      "description": "Secure portal experience overview while the live connection is prepared.",
+      "description": "Secure portal guidance for patients who have been directed to use online access.",
       "sections": [
         {
           "id": "patient_portal_intro_copy",
           "type": "copy-block",
           "title": "Secure access for patients",
-          "copy": "Our patient portal is designed to keep key information in one secure place \u2014 helping you stay organised before, during and after appointments. Depending on what you\u2019re using it for, the portal may include appointment details, forms, messages, treatment plans, and helpful aftercare information. If you\u2019re not sure whether the portal is relevant for your situation, our team can guide you. We also keep communication simple: if you prefer to speak to us directly, you can always call the practice. The portal is an optional support tool, built around clarity and convenience rather than complexity.",
+          "copy": "If the practice has asked you to use the patient portal, this is the place to continue securely. Depending on your route, you may be able to review appointment details, forms, messages, treatment information, or aftercare guidance.\n\nIf you are unsure whether the portal is the right next step, please contact the team first. We will always explain which route to use and when it makes sense to continue online.",
           "label": "Portal"
         },
         {
@@ -3280,7 +3280,7 @@
         {
           "id": "patient_portal_cta_band",
           "type": "cta",
-          "title": "Check back soon",
+          "title": "Continue with the route you were given",
           "ctas": [
             "portal-login",
             "portal-upload",

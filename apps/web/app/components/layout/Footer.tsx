@@ -29,10 +29,10 @@ export function Footer() {
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div>
-            <p className={styles.heading}>Champagne finish</p>
+            <p className={styles.heading}>Private dental care</p>
             <p className={styles.copy}>
-              Luxe ink gradient with soft particle bloom, tuned for calm reading and brand gold accents. Crafted for
-              the Champagne ecosystem runtime shell.
+              St Mary&apos;s House Dental Care offers carefully planned private dentistry in Shoreham-by-Sea, with
+              patients also visiting from Brighton, Hove, Lancing, Portslade, Worthing, and Southwick.
             </p>
           </div>
 
@@ -98,8 +98,11 @@ export function Footer() {
           </div>
 
           <div className={styles.newsletter}>
-            <p className={styles.heading}>Stay in sync</p>
-            <p className={styles.copy}>Sign up to hear about new treatments and Champagne build milestones.</p>
+            <p className={styles.heading}>Practice updates</p>
+            <p className={styles.copy}>
+              Leave your email if you would like occasional updates on practice news, treatment information, and
+              patient resources.
+            </p>
             <div className={styles.form} aria-label="Subscribe to updates" role="form">
               <label className="sr-only" htmlFor="footer-email">
                 Email address
@@ -120,16 +123,16 @@ export function Footer() {
         </div>
 
         <div className={styles.legal}>
-          <p>© {currentYear} St Mary&apos;s House Dental. Champagne luxe footer promotion.</p>
+          <p>Copyright {currentYear} St Mary&apos;s House Dental Care. Shoreham-by-Sea private dental practice.</p>
           <div className={styles.socialList}>
             <Link className={styles.socialLink} href="/contact" aria-label="Contact us">
-              ✉️
+              Email
             </Link>
             <Link className={styles.socialLink} href={portalHref} aria-label="Patient portal">
-              ↗️
+              Portal
             </Link>
             <Link className={styles.socialLink} href="/treatments" aria-label="View treatments">
-              ✨
+              Care
             </Link>
           </div>
         </div>

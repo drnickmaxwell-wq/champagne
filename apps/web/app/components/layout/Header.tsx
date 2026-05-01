@@ -10,10 +10,13 @@ export function Header() {
 
   return (
     <header className="border-b" style={headerStyle}>
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-[var(--text-high)]">
-          St Mary&apos;s House Dental
-        </Link>
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <div className="min-w-0">
+          <Link href="/" className="text-lg font-semibold tracking-tight text-[var(--text-high)]">
+            St Mary&apos;s House Dental
+          </Link>
+          <p className="mt-1 text-xs text-[var(--text-medium)]">Private dental care in Shoreham-by-Sea</p>
+        </div>
         <nav className="flex items-center gap-4 text-sm text-[var(--text-medium)]">
           {navItems.map((item) => (
             <Link
@@ -24,6 +27,12 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="rounded-full border border-[color:var(--border-subtle)] px-3 py-1.5 text-[var(--text-high)] transition-none hover:bg-[color-mix(in_srgb,var(--bg-ink)_82%,transparent)]"
+          >
+            Arrange a consultation
+          </Link>
         </nav>
       </div>
     </header>

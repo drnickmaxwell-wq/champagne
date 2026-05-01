@@ -24,22 +24,22 @@ type IntentCopy = {
 
 const INTENT_COPY: Record<PortalIntent, IntentCopy> = {
   login: {
-    title: "Sign in",
-    description: "Access your patient records, appointments, and treatment updates.",
+    title: "Patient sign-in",
+    description: "Use the portal sign-in when the practice has invited you to view appointment or treatment details.",
   },
   video: {
     title: "Video consultation",
-    description: "Join or schedule a secure video consultation with the clinical team.",
-    note: "Video visits are rolling out gradually. If you need help scheduling, please contact us.",
+    description: "Use this route when the practice has arranged a secure video consultation with you.",
+    note: "If you need help arranging a video appointment, please contact the team and we will guide you.",
   },
   finance: {
     title: "Finance",
-    description: "Review payment options, manage instalments, and check your plan status.",
-    note: "Finance access is being enabled for patients in phases.",
+    description: "Use this route if the practice has asked you to review payment or plan information securely.",
+    note: "If you are unsure whether finance information is available for your account, please contact the team first.",
   },
   upload: {
     title: "Upload documents",
-    description: "Share medical histories, x-rays, and consent forms securely with the practice.",
+    description: "Send forms or documents securely when the practice has asked you to upload information.",
   },
 };
 
@@ -76,18 +76,16 @@ function IntentLanding({ intent, portalHref }: { intent: PortalIntent; portalHre
       <div className="space-y-6 rounded-2xl border border-neutral-200 bg-white/70 p-8 shadow-sm backdrop-blur">
         <div className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-neutral-600">Patient Portal</p>
-          <h1 className="text-3xl font-semibold tracking-tight text-neutral-900">
-            {`Patient Portal — ${copy.title}`}
-          </h1>
+          <h1 className="text-3xl font-semibold tracking-tight text-neutral-900">{`Patient Portal - ${copy.title}`}</h1>
           <p className="text-lg leading-relaxed text-neutral-700">{copy.description}</p>
           {copy.note ? <p className="text-sm text-neutral-600">{copy.note}</p> : null}
         </div>
 
         <div className="space-y-3 rounded-xl border border-dashed border-neutral-200 bg-white p-6">
-          <p className="text-sm font-medium text-neutral-800">What happens next?</p>
+          <p className="text-sm font-medium text-neutral-800">Before you continue</p>
           <p className="text-sm leading-relaxed text-neutral-700">
-            Continue to the patient portal using the intent below. If the online flow is not yet available
-            for your account, our team will guide you through the next steps.
+            Continue only if the practice has already directed you to use this portal route. If you would prefer to
+            speak to someone first, or you are unsure which route applies, our team can guide you.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -125,7 +123,7 @@ function IntentLanding({ intent, portalHref }: { intent: PortalIntent; portalHre
         <PatientAiPanel />
 
         <div className="space-y-2 text-sm text-neutral-600">
-          <p className="font-semibold text-neutral-800">Supported intents</p>
+          <p className="font-semibold text-neutral-800">Portal routes</p>
           <ul className="grid gap-2 sm:grid-cols-2">
             {Object.entries(INTENT_COPY).map(([key, value]) => (
               <li key={key} className="rounded-lg border border-neutral-200 bg-white px-4 py-3 text-neutral-700">

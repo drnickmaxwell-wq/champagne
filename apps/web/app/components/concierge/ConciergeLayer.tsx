@@ -63,7 +63,8 @@ export function ConciergeLayer() {
     {
       id: "intro",
       role: "assistant",
-      content: "Welcome. Ask anything about this page and I will keep guidance focused.",
+      content:
+        "Welcome. I can help you understand this page, and the practice team will guide the next step if you need personal advice.",
     },
   ]);
   const [sessionState, setSessionState] = useState(() => getSessionState());

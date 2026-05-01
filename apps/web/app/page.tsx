@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import ChampagnePageBuilder from "./(champagne)/_builder/ChampagnePageBuilder";
 
 const PAGE_PATH = "/";
-const PAGE_TITLE = "Home";
-const PAGE_DESCRIPTION = "Neutral skeleton for the Champagne Ecosystem marketing site.";
+const PAGE_TITLE = "Private Dental Care in Shoreham-by-Sea | St Mary's House Dental Care";
+const PAGE_DESCRIPTION =
+  "Private dental care in Shoreham-by-Sea, serving Brighton, Hove, Lancing, Portslade, Worthing, and Southwick with careful planning, clear advice, and long-term care.";
 const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 
 export const metadata: Metadata = {
