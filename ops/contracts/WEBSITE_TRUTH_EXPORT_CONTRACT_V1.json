@@ -1,0 +1,70 @@
+{
+  "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1",
+  "generatedAt": "2026-05-28T18:25:26.967Z",
+  "purpose": "Champagne-side static website truth export contract for the frontier dominance agent repo.",
+  "producer": {
+    "repo": "drnickmaxwell-wq/champagne",
+    "script": "scripts/export-website-truth.mjs",
+    "report": "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"
+  },
+  "requiredReportFile": "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json",
+  "requiredFields": [
+    "routeInventory",
+    "public/private/debug/internal/API route classification",
+    "metadata per route where discoverable",
+    "canonical URL per route where discoverable",
+    "schema emitted per route where discoverable",
+    "sitemap status",
+    "robots status",
+    "treatment manifest inventory",
+    "page text/page truth inventory",
+    "internal link inventory if discoverable",
+    "FAQ block inventory if discoverable",
+    "CTA map if discoverable",
+    "image/media metadata if discoverable",
+    "build/guard status summary if available from reports",
+    "content freshness/review metadata if present",
+    "launch blockers detected"
+  ],
+  "routeClassificationStates": [
+    "public_launch_candidate",
+    "launch_candidate_treatment_review_required",
+    "launch_candidate_support_review_required",
+    "launch_candidate_legal_review_required",
+    "launch_excluded_debug_internal",
+    "launch_excluded_api",
+    "launch_excluded_private_patient_portal"
+  ],
+  "launchSafetyRules": {
+    "neverClaimCleanLaunch": true,
+    "classifyAsLaunchExcluded": [
+      "/champagne/*",
+      "/api/*",
+      "/patient-portal",
+      "hero labs/debug/preview routes"
+    ],
+    "classifyAsReviewRequired": [
+      "treatment pages",
+      "support pages",
+      "legal pages if present"
+    ],
+    "blockersRequiredWhenWeakOrMissing": [
+      "sitemap",
+      "robots",
+      "root metadata",
+      "support metadata"
+    ]
+  },
+  "reportShape": {
+    "version": "string",
+    "generatedAt": "ISO-8601 string",
+    "routeInventory": "array of per-route evidence objects",
+    "sitemapStatus": "object",
+    "robotsStatus": "object",
+    "treatmentManifestInventory": "array",
+    "pageTextInventory": "object",
+    "launchBlockersDetected": "array",
+    "readyForLaunch": "boolean; expected false unless a separate launch audit proves otherwise",
+    "readyForPrReview": "boolean based on export generation completeness, not launch readiness"
+  }
+}
