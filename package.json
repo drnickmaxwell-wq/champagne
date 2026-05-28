@@ -29,7 +29,8 @@
     "guard:stock-canon": "node scripts/guard-stock-canon.mjs",
     "guard:no-phi-logs-stock": "node scripts/guard-no-phi-logs-stock.mjs",
     "guard:stock-proxy-no-phi": "node scripts/guard-stock-proxy-no-phi.mjs",
-    "guard:concierge-contract": "node scripts/guard-concierge-engine-contract.mjs"
+    "guard:concierge-contract": "node scripts/guard-concierge-engine-contract.mjs",
+    "export:website-truth": "node scripts/export-website-truth.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
