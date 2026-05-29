@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-28T18:25:26.967Z",
+  "generatedAt": "2026-05-28T19:10:45.734Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -42,7 +42,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/home.txt",
@@ -92,7 +94,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/[page].txt",
@@ -136,6 +140,8 @@
           "WebSite",
           "WebPage"
         ],
+        "sourceFile": "apps/web/app/(champagne)/about/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -185,6 +191,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/api/converse/route.ts",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -227,6 +235,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/api/handoff/booking/route.ts",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -269,6 +279,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/api/handoff/emergency-callback/route.ts",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -311,6 +323,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/api/handoff/new-patient/route.ts",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -353,6 +367,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/api/health/route.ts",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -397,7 +413,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/blog/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/blog.txt",
@@ -446,6 +464,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/champagne/hero-asset-lab/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -488,6 +508,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/champagne/hero-debug/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -530,6 +552,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/champagne/hero-lab/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -572,6 +596,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/champagne/hero-lab/concierge/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -614,6 +640,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/champagne/hero-preview/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -656,6 +684,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/champagne/sections-debug/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -700,7 +730,9 @@
           "WebSite",
           "ContactPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/contact/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/contact.txt",
@@ -752,6 +784,8 @@
           "WebSite",
           "WebPage"
         ],
+        "sourceFile": "apps/web/app/dental-checkups-oral-cancer-screening/route.ts",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -803,7 +837,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/downloads.txt",
@@ -855,7 +891,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/fees/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/fees.txt",
@@ -906,7 +944,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/finance.txt",
@@ -946,7 +986,7 @@
         "canonicalUrl": null,
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -957,7 +997,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/legal-[slug].txt",
@@ -990,7 +1032,7 @@
         "canonicalUrl": "https://www.smhdental.co.uk/legal/accessibility",
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -1001,7 +1043,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/legal-accessibility.txt",
@@ -1042,7 +1086,7 @@
         "canonicalUrl": "https://www.smhdental.co.uk/legal/complaints",
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -1053,7 +1097,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/legal-complaints.txt",
@@ -1094,7 +1140,7 @@
         "canonicalUrl": "https://www.smhdental.co.uk/legal/cookies",
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -1105,7 +1151,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/legal-cookies.txt",
@@ -1146,7 +1194,7 @@
         "canonicalUrl": "https://www.smhdental.co.uk/legal/privacy",
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/legal/privacy/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -1157,7 +1205,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(champagne)/legal/privacy/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/legal-privacy.txt",
@@ -1198,7 +1248,7 @@
         "canonicalUrl": "https://www.smhdental.co.uk/legal/terms",
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -1209,7 +1259,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/legal-terms.txt",
@@ -1261,7 +1313,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/newsletter.txt",
@@ -1312,6 +1366,8 @@
           "LocalBusiness",
           "WebSite"
         ],
+        "sourceFile": "apps/web/app/patient-portal/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -1363,7 +1419,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/practice-plan.txt",
@@ -1414,6 +1472,8 @@
           "WebSite",
           "WebPage"
         ],
+        "sourceFile": "apps/web/app/(champagne)/smile-gallery/page.tsx",
+        "hasRouteJsonLdScript": false,
         "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
       },
       "pageTruth": {
@@ -1465,7 +1525,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/team/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/team.txt",
@@ -1516,7 +1578,9 @@
           "ProfilePage",
           "Person"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/team/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/team-[slug].txt",
@@ -1561,7 +1625,9 @@
           "ProfilePage",
           "Person"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/team/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/team-nick-maxwell.txt",
@@ -1613,7 +1679,9 @@
           "ProfilePage",
           "Person"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/team/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/team-sara-burden.txt",
@@ -1666,7 +1734,9 @@
           "ProfilePage",
           "Person"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/team/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/team-sylvia-krafft.txt",
@@ -1718,7 +1788,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/technology.txt",
@@ -1770,7 +1842,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments.txt",
@@ -1822,7 +1896,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-[slug].txt",
@@ -1868,7 +1944,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-3d-dentistry-and-technology.txt",
@@ -1922,7 +2000,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-3d-digital-dentistry.txt",
@@ -1976,7 +2056,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-3d-implant-restorations.txt",
@@ -2030,7 +2112,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-3d-printed-dentures.txt",
@@ -2084,7 +2168,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-3d-printed-veneers.txt",
@@ -2138,7 +2224,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-3d-printing-lab.txt",
@@ -2192,7 +2280,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-acrylic-dentures.txt",
@@ -2245,7 +2335,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-anti-wrinkle-treatments.txt",
@@ -2298,7 +2390,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-broken-chipped-cracked-teeth.txt",
@@ -2351,7 +2445,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-bruxism-and-jaw-clenching.txt",
@@ -2405,7 +2501,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-cbct-3d-scanning.txt",
@@ -2459,7 +2557,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-childrens-dentistry.txt",
@@ -2513,7 +2613,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-chrome-dentures.txt",
@@ -2566,7 +2668,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-clear-aligners.txt",
@@ -2620,7 +2724,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-clear-aligners-spark.txt",
@@ -2674,7 +2780,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-composite-bonding.txt",
@@ -2727,7 +2835,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-cosmetic-dentistry.txt",
@@ -2773,7 +2883,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-abscess-infection.txt",
@@ -2827,7 +2939,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-bridges.txt",
@@ -2881,7 +2995,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-checkups-oral-cancer-screening.txt",
@@ -2934,7 +3050,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-crowns.txt",
@@ -2988,7 +3106,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-fillings.txt",
@@ -3041,7 +3161,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-retainers.txt",
@@ -3095,7 +3217,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dental-trauma-accidents.txt",
@@ -3148,7 +3272,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dentures.txt",
@@ -3201,7 +3327,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-dermal-fillers.txt",
@@ -3255,7 +3383,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-digital-smile-design.txt",
@@ -3309,7 +3439,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-emergency-dental-appointments.txt",
@@ -3362,7 +3494,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-emergency-dentistry.txt",
@@ -3416,7 +3550,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-endodontics-root-canal.txt",
@@ -3469,7 +3605,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-extractions-and-oral-surgery.txt",
@@ -3522,7 +3660,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-facial-aesthetics.txt",
@@ -3576,7 +3716,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-facial-pain-and-headache.txt",
@@ -3630,7 +3772,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-facial-therapeutics.txt",
@@ -3684,7 +3828,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-failed-implant-replacement.txt",
@@ -3738,7 +3884,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-fixed-braces.txt",
@@ -3791,7 +3939,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-full-smile-makeover.txt",
@@ -3844,7 +3994,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-home-teeth-whitening.txt",
@@ -3897,7 +4049,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implant-aftercare.txt",
@@ -3950,7 +4104,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implant-consultation.txt",
@@ -4004,7 +4160,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implant-retained-dentures.txt",
@@ -4057,7 +4215,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implants.txt",
@@ -4111,7 +4271,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implants-bone-grafting.txt",
@@ -4165,7 +4327,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implants-full-arch.txt",
@@ -4218,7 +4382,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implants-multiple-teeth.txt",
@@ -4272,7 +4438,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-implants-single-tooth.txt",
@@ -4326,7 +4494,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-injection-moulded-composite.txt",
@@ -4380,7 +4550,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-inlays-onlays.txt",
@@ -4433,7 +4605,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-knocked-out-tooth.txt",
@@ -4487,7 +4661,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-lost-crowns-veneers-fillings.txt",
@@ -4541,7 +4717,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-mouthguards-and-retainers.txt",
@@ -4595,7 +4773,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-nervous-patients.txt",
@@ -4648,7 +4828,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-night-guards-occlusal-splints.txt",
@@ -4701,7 +4883,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-orthodontics.txt",
@@ -4755,7 +4939,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-painless-numbing-the-wand.txt",
@@ -4809,7 +4995,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-peek-partial-dentures.txt",
@@ -4863,7 +5051,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-periodontal-gum-care.txt",
@@ -4916,7 +5106,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-polynucleotides.txt",
@@ -4969,7 +5161,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-preventative-and-general-dentistry.txt",
@@ -5023,7 +5217,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-preventive-dentistry.txt",
@@ -5069,7 +5265,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-sedation-dentistry.txt",
@@ -5122,7 +5320,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-sedation-for-implants.txt",
@@ -5175,7 +5375,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-senior-mature-smile-care.txt",
@@ -5228,7 +5430,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-severe-toothache-dental-pain.txt",
@@ -5281,7 +5485,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-sinus-lift.txt",
@@ -5335,7 +5541,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-skin-boosters.txt",
@@ -5388,7 +5596,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-sports-mouthguards.txt",
@@ -5441,7 +5651,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-surgically-guided-implants.txt",
@@ -5487,7 +5699,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-teeth-in-a-day.txt",
@@ -5541,7 +5755,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-teeth-whitening.txt",
@@ -5595,7 +5811,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-teeth-whitening-faqs.txt",
@@ -5648,7 +5866,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-therapeutic-facial-injectables.txt",
@@ -5702,7 +5922,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-tmj-disorder-treatment.txt",
@@ -5755,7 +5977,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-tmj-jaw-comfort.txt",
@@ -5808,7 +6032,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-tooth-wear-broken-teeth.txt",
@@ -5862,7 +6088,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-veneers.txt",
@@ -5915,7 +6143,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-whitening-sensitive-teeth.txt",
@@ -5968,7 +6198,9 @@
           "Service",
           "BreadcrumbList"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/treatments-whitening-top-ups.txt",
@@ -6019,7 +6251,9 @@
           "WebSite",
           "WebPage"
         ],
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/video-consultation.txt",
@@ -6058,15 +6292,25 @@
       "/patient-portal"
     ],
     "inferredPublicRouteCount": 101,
-    "weakness": "No lastModified/changeFrequency/priority fields discovered in sitemap.ts static export."
+    "hasLastModified": true,
+    "hasChangeFrequency": true,
+    "hasPriority": true,
+    "enriched": true,
+    "weakness": null
   },
   "robotsStatus": {
     "exists": true,
     "sourceFile": "apps/web/app/robots.ts",
     "productionAllowsRoot": true,
+    "productionExplicitDisallows": [
+      "/champagne/",
+      "/api/",
+      "/patient-portal"
+    ],
     "nonProductionDisallowsAll": true,
     "sitemapAdvertised": "https://www.smhdental.co.uk/sitemap.xml",
-    "weakness": "Production robots allows root and does not explicitly disallow /champagne/, /api/, or /patient-portal; launch safety relies on sitemap exclusion and route classification."
+    "hardened": true,
+    "weakness": null
   },
   "treatmentManifestInventory": [
     {
@@ -14136,31 +14380,6 @@
       "severity": "info",
       "message": "This export is an evidence layer only and does not certify clean launch readiness.",
       "evidence": null
-    },
-    {
-      "code": "SITEMAP_WEAK_METADATA",
-      "severity": "warning",
-      "message": "No lastModified/changeFrequency/priority fields discovered in sitemap.ts static export.",
-      "evidence": "apps/web/app/sitemap.ts"
-    },
-    {
-      "code": "ROBOTS_WEAK_EXCLUSIONS",
-      "severity": "warning",
-      "message": "Production robots allows root and does not explicitly disallow /champagne/, /api/, or /patient-portal; launch safety relies on sitemap exclusion and route classification.",
-      "evidence": "apps/web/app/robots.ts"
-    },
-    {
-      "code": "LEGAL_METADATA_WEAK",
-      "severity": "warning",
-      "message": "Legal routes are present but route-specific metadata/canonical/schema was not discovered on the dynamic legal route.",
-      "evidence": [
-        "/legal/[slug]",
-        "/legal/accessibility",
-        "/legal/complaints",
-        "/legal/cookies",
-        "/legal/privacy",
-        "/legal/terms"
-      ]
     },
     {
       "code": "LAUNCH_EXCLUDED_ROUTES_PRESENT",

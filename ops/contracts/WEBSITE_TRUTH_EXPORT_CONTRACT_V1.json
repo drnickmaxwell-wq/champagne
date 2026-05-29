@@ -1,6 +1,6 @@
 {
   "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1",
-  "generatedAt": "2026-05-28T18:25:26.967Z",
+  "generatedAt": "2026-05-28T19:10:45.734Z",
   "purpose": "Champagne-side static website truth export contract for the frontier dominance agent repo.",
   "producer": {
     "repo": "drnickmaxwell-wq/champagne",
@@ -52,7 +52,8 @@
       "sitemap",
       "robots",
       "root metadata",
-      "support metadata"
+      "support metadata",
+      "legal metadata"
     ]
   },
   "reportShape": {

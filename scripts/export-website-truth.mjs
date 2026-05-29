@@ -25,6 +25,14 @@ const readJsonOptional = async (relativePath, fallback) => {
   }
 };
 
+const readTextOptional = async (relativePath, fallback = "") => {
+  try {
+    return await readText(relativePath);
+  } catch {
+    return fallback;
+  }
+};
+
 const writeJson = async (relativePath, value) => {
   const fullPath = path.join(rootDir, relativePath);
   await fs.mkdir(path.dirname(fullPath), { recursive: true });
@@ -117,21 +125,29 @@ const extractRouteMetadata = (route, manifestPage, matchedAppRoute, rootMetadata
   };
 };
 
-const inferSchema = (route, classification) => {
+const inferSchema = (route, classification, matchedAppRoute) => {
   const schemas = ["Dentist", "LocalBusiness", "WebSite"];
+  const sourceFile = matchedAppRoute?.sourceFile ?? null;
+  const sourceMetadata = sourceFile ? metadataSourceByFile.get(sourceFile) : null;
   if (classification.routeFamily === "treatment_detail") {
     schemas.push("WebPage", "Service", "BreadcrumbList");
   } else if (route === "/contact") {
     schemas.push("ContactPage");
   } else if (classification.routeFamily === "team_detail") {
     schemas.push("ProfilePage", "Person");
+  } else if (classification.routeFamily === "legal") {
+    schemas.push("WebPage");
   } else if (classification.publicness === "public") {
     schemas.push("WebPage");
   }
   return {
     discoverable: schemas.length > 0,
     schemaTypes: Array.from(new Set(schemas)),
-    evidence: "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export.",
+    sourceFile,
+    hasRouteJsonLdScript: Boolean(sourceMetadata?.hasJsonLdScript),
+    evidence: sourceMetadata?.hasJsonLdScript
+      ? "Route source contains an application/ld+json script; payload is not rendered by this static export."
+      : "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export.",
   };
 };
 
@@ -231,6 +247,8 @@ const main = async () => {
 
   const sitemapExists = await fileExists("apps/web/app/sitemap.ts");
   const robotsExists = await fileExists("apps/web/app/robots.ts");
+  const sitemapText = await readTextOptional("apps/web/app/sitemap.ts");
+  const robotsText = await readTextOptional("apps/web/app/robots.ts");
   const layoutText = await readText("apps/web/app/layout.tsx");
   const rootMetadataPresent = /export\s+const\s+metadata/.test(layoutText);
 
@@ -294,7 +312,7 @@ const main = async () => {
         pageId: manifestEntry?.pageId ?? null,
         classification,
         metadata: extractRouteMetadata(route, manifestEntry?.page, matchedAppRoute, rootMetadataPresent),
-        schema: inferSchema(route, classification),
+        schema: inferSchema(route, classification, matchedAppRoute),
         pageTruth: {
           file: pageTruthFile,
           exists: false,
@@ -309,23 +327,36 @@ const main = async () => {
   }
 
   const sitemapPublicRoutes = routeInventory.filter((entry) => entry.classification.publicness === "public" && !entry.route.includes("[")).map((entry) => entry.route);
+  const sitemapHasLastModified = /lastModified/.test(sitemapText);
+  const sitemapHasChangeFrequency = /changeFrequency/.test(sitemapText);
+  const sitemapHasPriority = /priority/.test(sitemapText);
+  const sitemapExcludedPrefixes = ["/champagne/", "/api/"].filter((prefix) => sitemapText.includes(prefix));
+  const sitemapExcludedPaths = ["/patient-portal"].filter((excludedPath) => sitemapText.includes(excludedPath));
+  const sitemapEnriched = sitemapExists && sitemapHasChangeFrequency && sitemapHasPriority && sitemapExcludedPrefixes.length === 2 && sitemapExcludedPaths.length === 1;
   const sitemapStatus = {
     exists: sitemapExists,
     sourceFile: sitemapExists ? "apps/web/app/sitemap.ts" : null,
     productionOrigin: siteOrigin,
-    excludesPrefixes: ["/champagne/", "/api/"],
-    excludesPaths: ["/patient-portal"],
+    excludesPrefixes: sitemapExcludedPrefixes,
+    excludesPaths: sitemapExcludedPaths,
     inferredPublicRouteCount: sitemapPublicRoutes.length,
-    weakness: "No lastModified/changeFrequency/priority fields discovered in sitemap.ts static export.",
+    hasLastModified: sitemapHasLastModified,
+    hasChangeFrequency: sitemapHasChangeFrequency,
+    hasPriority: sitemapHasPriority,
+    enriched: sitemapEnriched,
+    weakness: sitemapEnriched ? null : "Sitemap export is missing one or more launch SEO fields or private-route exclusions.",
   };
 
+  const robotsExplicitDisallows = ["/champagne/", "/api/", "/patient-portal"].filter((excludedPath) => robotsText.includes(excludedPath));
   const robotsStatus = {
     exists: robotsExists,
     sourceFile: robotsExists ? "apps/web/app/robots.ts" : null,
-    productionAllowsRoot: robotsExists,
-    nonProductionDisallowsAll: robotsExists,
-    sitemapAdvertised: robotsExists ? `${siteOrigin}/sitemap.xml` : null,
-    weakness: "Production robots allows root and does not explicitly disallow /champagne/, /api/, or /patient-portal; launch safety relies on sitemap exclusion and route classification.",
+    productionAllowsRoot: robotsExists && /allow:\s*["']\/["']/.test(robotsText),
+    productionExplicitDisallows: robotsExplicitDisallows,
+    nonProductionDisallowsAll: robotsExists && /disallow:\s*["']\/["']/.test(robotsText),
+    sitemapAdvertised: robotsExists && robotsText.includes("sitemap.xml") ? `${siteOrigin}/sitemap.xml` : null,
+    hardened: robotsExists && robotsExplicitDisallows.length === 3 && robotsText.includes("process.env.VERCEL_ENV === \"production\"") && robotsText.includes("sitemap.xml"),
+    weakness: robotsExists && robotsExplicitDisallows.length === 3 ? null : "Production robots does not explicitly disallow all internal/private launch-excluded paths.",
   };
 
   const treatmentManifestInventory = manifestRoutes
@@ -374,13 +405,18 @@ const main = async () => {
   const addBlocker = (code, severity, message, evidence) => blockers.push({ code, severity, message, evidence });
   addBlocker("NO_CLEAN_LAUNCH_ASSERTION", "info", "This export is an evidence layer only and does not certify clean launch readiness.", null);
   if (!sitemapExists) addBlocker("SITEMAP_MISSING", "critical", "Sitemap file was not discovered.", "apps/web/app/sitemap.ts");
-  else addBlocker("SITEMAP_WEAK_METADATA", "warning", sitemapStatus.weakness, sitemapStatus.sourceFile);
+  else if (!sitemapStatus.enriched) addBlocker("SITEMAP_WEAK_METADATA", "warning", sitemapStatus.weakness, sitemapStatus.sourceFile);
   if (!robotsExists) addBlocker("ROBOTS_MISSING", "critical", "Robots file was not discovered.", "apps/web/app/robots.ts");
-  else addBlocker("ROBOTS_WEAK_EXCLUSIONS", "warning", robotsStatus.weakness, robotsStatus.sourceFile);
+  else if (!robotsStatus.hardened) addBlocker("ROBOTS_WEAK_EXCLUSIONS", "warning", robotsStatus.weakness, robotsStatus.sourceFile);
   if (!rootMetadataPresent) addBlocker("ROOT_METADATA_MISSING", "critical", "Root metadata export was not discovered.", "apps/web/app/layout.tsx");
-  const legalWeak = routeInventory.filter((entry) => entry.classification.routeFamily === "legal" && !entry.metadata.hasRouteMetadataHook);
+  const legalWeak = routeInventory.filter(
+    (entry) =>
+      entry.classification.routeFamily === "legal" &&
+      !entry.route.includes("[") &&
+      (!entry.metadata.hasRouteMetadataHook || !entry.metadata.canonicalUrl || !entry.schema.hasRouteJsonLdScript),
+  );
   if (legalWeak.length > 0) {
-    addBlocker("LEGAL_METADATA_WEAK", "warning", "Legal routes are present but route-specific metadata/canonical/schema was not discovered on the dynamic legal route.", legalWeak.map((entry) => entry.route));
+    addBlocker("LEGAL_METADATA_WEAK", "warning", "Legal routes are present but route-specific metadata/canonical/schema was not discovered consistently.", legalWeak.map((entry) => ({ route: entry.route, metadata: entry.metadata, schema: entry.schema })));
   }
   const privateRoutes = routeInventory.filter((entry) => entry.classification.publicness !== "public");
   if (privateRoutes.length > 0) {
@@ -485,7 +521,7 @@ const main = async () => {
       neverClaimCleanLaunch: true,
       classifyAsLaunchExcluded: ["/champagne/*", "/api/*", "/patient-portal", "hero labs/debug/preview routes"],
       classifyAsReviewRequired: ["treatment pages", "support pages", "legal pages if present"],
-      blockersRequiredWhenWeakOrMissing: ["sitemap", "robots", "root metadata", "support metadata"],
+      blockersRequiredWhenWeakOrMissing: ["sitemap", "robots", "root metadata", "support metadata", "legal metadata"],
     },
     reportShape: {
       version: "string",

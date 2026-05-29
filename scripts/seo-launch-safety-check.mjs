@@ -29,15 +29,33 @@ if (!robots.includes("process.env.VERCEL_ENV === \"production\"")) {
   fail("robots.ts must only allow indexing for Vercel production");
 }
 if (!robots.includes("disallow: \"/\"")) fail("robots.ts must disallow non-production indexing");
+for (const required of ["/champagne/", "/api/", "/patient-portal"]) {
+  if (!robots.includes(required)) fail(`robots.ts does not explicitly disallow ${required}`);
+}
 if (!robots.includes("sitemap.xml")) fail("robots.ts must advertise sitemap.xml");
-pass("robots.ts production/non-production indexing posture looks safe");
+pass("robots.ts production/non-production indexing posture and private-path disallows look safe");
 
 if (!sitemap.includes(CANONICAL_ORIGIN)) fail("sitemap.ts does not use the production canonical origin");
 for (const required of ["/champagne/", "/api/", "/patient-portal"]) {
   if (!sitemap.includes(required)) fail(`sitemap.ts does not explicitly exclude ${required}`);
 }
 if (!sitemap.includes("getAllPages()")) fail("sitemap.ts must be generated from the canonical page manifest");
-pass("sitemap.ts canonical origin, manifest source, and private-path exclusions look safe");
+for (const required of ["changeFrequency", "priority", "lastModified"]) {
+  if (!sitemap.includes(required)) fail(`sitemap.ts does not include ${required} enrichment`);
+}
+pass("sitemap.ts canonical origin, manifest source, enrichment fields, and private-path exclusions look safe");
+
+const legalRouteFiles = [
+  "apps/web/app/(champagne)/legal/privacy/page.tsx",
+  "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+];
+for (const relativePath of legalRouteFiles) {
+  const legalSource = read(path.join(ROOT, relativePath));
+  if (!legalSource.includes("Metadata")) fail(`${relativePath} does not expose route metadata`);
+  if (!legalSource.includes("canonical")) fail(`${relativePath} does not expose canonical metadata`);
+  if (!legalSource.includes("application/ld+json")) fail(`${relativePath} does not emit JSON-LD schema`);
+}
+pass("legal routes expose metadata, canonical, and JSON-LD schema evidence");
 
 const routeRegex = /\|\s*[^|]+\s*\|\s*[^|]+\s*\|\s*(\/treatments\/[a-z0-9-]+)\s*\|/g;
 const treatmentRoutes = new Set();
