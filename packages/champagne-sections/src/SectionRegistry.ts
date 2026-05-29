@@ -20,7 +20,8 @@ export interface SectionRegistryEntry {
     | "treatment_mid_cta"
     | "treatment_faq_block"
     | "treatment_closing_cta"
-    | "reviews";
+    | "reviews"
+    | "treatment_answer_surface";
   title?: string;
   body?: string;
   eyebrow?: string;
@@ -84,6 +85,7 @@ const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
   treatment_faq_block: "treatment_faq_block",
   faq: "treatment_faq_block",
   treatment_closing_cta: "treatment_closing_cta",
+  treatment_answer_surface: "treatment_answer_surface",
   cta: "treatment_closing_cta",
   google_reviews: "reviews",
   routing_cards: "routing_cards",

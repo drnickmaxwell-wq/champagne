@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-28T19:10:45.734Z",
+  "generatedAt": "2026-05-29T13:45:44.821Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -6324,7 +6324,8 @@
         "variantId": "hero.variant.group.02_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/base"
+      "surface": "champagne/surface/base",
+      "answerSurface": null
     },
     {
       "route": "/treatments/implants",
@@ -6337,7 +6338,21 @@
         "variantId": "treatment.implants"
       },
       "sectionCount": 13,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "example_seed",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/veneers",
@@ -6350,7 +6365,35 @@
         "variantId": "hero.variant.group.05_v1"
       },
       "sectionCount": 13,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/clear-aligners",
@@ -6363,7 +6406,35 @@
         "variantId": "hero.variant.group.04_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/clear-aligners-spark",
@@ -6376,7 +6447,35 @@
         "variantId": "hero.variant.group.07_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/fixed-braces",
@@ -6389,7 +6488,35 @@
         "variantId": "hero.variant.group.06_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-checkups-oral-cancer-screening",
@@ -6402,7 +6529,35 @@
         "variantId": "hero.variant.group.01_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/hub"
+      "surface": "champagne/surface/hub",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implants-single-tooth",
@@ -6415,7 +6570,35 @@
         "variantId": "hero.variant.group.09_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implants-multiple-teeth",
@@ -6428,7 +6611,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implants-full-arch",
@@ -6441,7 +6652,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implant-retained-dentures",
@@ -6454,7 +6693,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implant-consultation",
@@ -6467,7 +6734,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implants-bone-grafting",
@@ -6480,7 +6775,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/sinus-lift",
@@ -6493,7 +6816,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/teeth-in-a-day",
@@ -6506,7 +6857,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/sedation-for-implants",
@@ -6519,7 +6898,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/failed-implant-replacement",
@@ -6532,7 +6939,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/implant-aftercare",
@@ -6545,7 +6980,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/surgically-guided-implants",
@@ -6558,7 +7021,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/3d-implant-restorations",
@@ -6571,7 +7062,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/3d-printed-veneers",
@@ -6584,7 +7103,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/composite-bonding",
@@ -6597,7 +7144,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/injection-moulded-composite",
@@ -6610,7 +7185,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-bridges",
@@ -6623,7 +7226,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-crowns",
@@ -6636,7 +7267,35 @@
         "variantId": "hero.variant.group.02_v1"
       },
       "sectionCount": 7,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/teeth-whitening",
@@ -6649,7 +7308,35 @@
         "variantId": "hero.variant.group.05_v1"
       },
       "sectionCount": 8,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/home-teeth-whitening",
@@ -6662,7 +7349,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 8,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/whitening-top-ups",
@@ -6675,7 +7390,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 6,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/whitening-sensitive-teeth",
@@ -6688,7 +7431,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 6,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/teeth-whitening-faqs",
@@ -6701,7 +7472,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 4,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/orthodontics",
@@ -6714,7 +7513,35 @@
         "variantId": "hero.variant.group.04_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/full-smile-makeover",
@@ -6727,7 +7554,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 8,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/3d-digital-dentistry",
@@ -6740,7 +7595,35 @@
         "variantId": "hero.variant.group.07_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/emergency-dentistry",
@@ -6753,7 +7636,35 @@
         "variantId": "treatment.emergency"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/emergency-dental-appointments",
@@ -6766,7 +7677,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/severe-toothache-dental-pain",
@@ -6779,7 +7718,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-abscess-infection",
@@ -6792,7 +7759,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/broken-chipped-cracked-teeth",
@@ -6805,7 +7800,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/knocked-out-tooth",
@@ -6818,7 +7841,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/lost-crowns-veneers-fillings",
@@ -6831,7 +7882,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-trauma-accidents",
@@ -6844,7 +7923,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/3d-dentistry-and-technology",
@@ -6857,7 +7964,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 5,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/cbct-3d-scanning",
@@ -6870,7 +8005,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/digital-smile-design",
@@ -6883,7 +8046,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/3d-printing-lab",
@@ -6896,7 +8087,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/inlays-onlays",
@@ -6909,7 +8128,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-fillings",
@@ -6922,7 +8169,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dentures",
@@ -6935,7 +8210,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/acrylic-dentures",
@@ -6948,7 +8251,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/chrome-dentures",
@@ -6961,7 +8292,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/peek-partial-dentures",
@@ -6974,7 +8333,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/3d-printed-dentures",
@@ -6987,7 +8374,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/night-guards-occlusal-splints",
@@ -7000,7 +8415,35 @@
         "variantId": "hero.variant.group.06_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/sports-mouthguards",
@@ -7013,7 +8456,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dental-retainers",
@@ -7026,7 +8497,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/preventative-and-general-dentistry",
@@ -7039,7 +8538,35 @@
         "variantId": "hero.variant.group.01_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/childrens-dentistry",
@@ -7052,7 +8579,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/periodontal-gum-care",
@@ -7065,7 +8620,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/endodontics-root-canal",
@@ -7078,7 +8661,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/extractions-and-oral-surgery",
@@ -7091,7 +8702,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/senior-mature-smile-care",
@@ -7104,7 +8743,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 5,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/tmj-jaw-comfort",
@@ -7117,7 +8784,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/nervous-patients",
@@ -7130,7 +8825,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/sedation-dentistry",
@@ -7143,7 +8866,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/painless-numbing-the-wand",
@@ -7156,7 +8907,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/tooth-wear-broken-teeth",
@@ -7169,7 +8948,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/facial-therapeutics",
@@ -7182,7 +8989,35 @@
         "variantId": "hero.variant.group.09_v1"
       },
       "sectionCount": 13,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/bruxism-and-jaw-clenching",
@@ -7195,7 +9030,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/facial-pain-and-headache",
@@ -7208,7 +9071,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/tmj-disorder-treatment",
@@ -7221,7 +9112,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/therapeutic-facial-injectables",
@@ -7234,7 +9153,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 12,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/facial-aesthetics",
@@ -7247,7 +9194,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/cosmetic-dentistry",
@@ -7260,7 +9235,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/preventive-dentistry",
@@ -7273,7 +9276,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 10,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/anti-wrinkle-treatments",
@@ -7286,7 +9317,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/dermal-fillers",
@@ -7299,7 +9358,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/skin-boosters",
@@ -7312,7 +9399,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/polynucleotides",
@@ -7325,7 +9440,35 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 11,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     },
     {
       "route": "/treatments/mouthguards-and-retainers",
@@ -7338,9 +9481,3119 @@
         "variantId": "hero.variant.treatment_v1"
       },
       "sectionCount": 9,
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
     }
   ],
+  "answerSurfaceCoverage": {
+    "framework": "TREATMENT_ANSWER_SURFACE_V1",
+    "requiredSectionIds": [
+      "direct_answer",
+      "what_this_treatment_is",
+      "who_it_is_for",
+      "who_it_may_not_be_suitable_for",
+      "benefits",
+      "risks_and_limitations",
+      "alternatives",
+      "process",
+      "timeline",
+      "aftercare",
+      "cost_fee_logic",
+      "local_shoreham_context",
+      "clinician_expertise",
+      "technology_used",
+      "faq",
+      "related_treatments_internal_links",
+      "last_reviewed_clinical_review",
+      "cta"
+    ],
+    "treatmentRouteCount": 78,
+    "frameworkPresentCount": 1,
+    "completeCount": 1,
+    "exampleSeedRoutes": [
+      "/treatments/implants"
+    ],
+    "routesMissingAnswerSurface": [
+      "/treatments/veneers",
+      "/treatments/clear-aligners",
+      "/treatments/clear-aligners-spark",
+      "/treatments/fixed-braces",
+      "/treatments/dental-checkups-oral-cancer-screening",
+      "/treatments/implants-single-tooth",
+      "/treatments/implants-multiple-teeth",
+      "/treatments/implants-full-arch",
+      "/treatments/implant-retained-dentures",
+      "/treatments/implant-consultation",
+      "/treatments/implants-bone-grafting",
+      "/treatments/sinus-lift",
+      "/treatments/teeth-in-a-day",
+      "/treatments/sedation-for-implants",
+      "/treatments/failed-implant-replacement",
+      "/treatments/implant-aftercare",
+      "/treatments/surgically-guided-implants",
+      "/treatments/3d-implant-restorations",
+      "/treatments/3d-printed-veneers",
+      "/treatments/composite-bonding",
+      "/treatments/injection-moulded-composite",
+      "/treatments/dental-bridges",
+      "/treatments/dental-crowns",
+      "/treatments/teeth-whitening",
+      "/treatments/home-teeth-whitening",
+      "/treatments/whitening-top-ups",
+      "/treatments/whitening-sensitive-teeth",
+      "/treatments/teeth-whitening-faqs",
+      "/treatments/orthodontics",
+      "/treatments/full-smile-makeover",
+      "/treatments/3d-digital-dentistry",
+      "/treatments/emergency-dentistry",
+      "/treatments/emergency-dental-appointments",
+      "/treatments/severe-toothache-dental-pain",
+      "/treatments/dental-abscess-infection",
+      "/treatments/broken-chipped-cracked-teeth",
+      "/treatments/knocked-out-tooth",
+      "/treatments/lost-crowns-veneers-fillings",
+      "/treatments/dental-trauma-accidents",
+      "/treatments/3d-dentistry-and-technology",
+      "/treatments/cbct-3d-scanning",
+      "/treatments/digital-smile-design",
+      "/treatments/3d-printing-lab",
+      "/treatments/inlays-onlays",
+      "/treatments/dental-fillings",
+      "/treatments/dentures",
+      "/treatments/acrylic-dentures",
+      "/treatments/chrome-dentures",
+      "/treatments/peek-partial-dentures",
+      "/treatments/3d-printed-dentures",
+      "/treatments/night-guards-occlusal-splints",
+      "/treatments/sports-mouthguards",
+      "/treatments/dental-retainers",
+      "/treatments/preventative-and-general-dentistry",
+      "/treatments/childrens-dentistry",
+      "/treatments/periodontal-gum-care",
+      "/treatments/endodontics-root-canal",
+      "/treatments/extractions-and-oral-surgery",
+      "/treatments/senior-mature-smile-care",
+      "/treatments/tmj-jaw-comfort",
+      "/treatments/nervous-patients",
+      "/treatments/sedation-dentistry",
+      "/treatments/painless-numbing-the-wand",
+      "/treatments/tooth-wear-broken-teeth",
+      "/treatments/facial-therapeutics",
+      "/treatments/bruxism-and-jaw-clenching",
+      "/treatments/facial-pain-and-headache",
+      "/treatments/tmj-disorder-treatment",
+      "/treatments/therapeutic-facial-injectables",
+      "/treatments/facial-aesthetics",
+      "/treatments/cosmetic-dentistry",
+      "/treatments/preventive-dentistry",
+      "/treatments/anti-wrinkle-treatments",
+      "/treatments/dermal-fillers",
+      "/treatments/skin-boosters",
+      "/treatments/polynucleotides",
+      "/treatments/mouthguards-and-retainers"
+    ],
+    "routesWithMissingSections": [],
+    "routesWithSecondaryGeographyStuffing": [],
+    "entries": [
+      {
+        "route": "/treatments/implants",
+        "pageId": "implants",
+        "label": "Dental Implants in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "example_seed",
+          "exampleSeed": true,
+          "presentSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
+          "secondaryGeographyStuffing": false,
+          "errors": [],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/veneers",
+        "pageId": "veneers",
+        "label": "Dental veneers in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/clear-aligners",
+        "pageId": "clear_aligners",
+        "label": "Clear Aligners in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/clear-aligners-spark",
+        "pageId": "clear_aligners_spark",
+        "label": "Spark clear aligners in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/fixed-braces",
+        "pageId": "fixed_braces",
+        "label": "Fixed braces",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-checkups-oral-cancer-screening",
+        "pageId": "dental_checkups_oral_cancer_screening_treatments",
+        "label": "Dental Check-Ups & Oral Cancer Screening",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implants-single-tooth",
+        "pageId": "implants_single_tooth",
+        "label": "Single-tooth dental implants in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implants-multiple-teeth",
+        "pageId": "implants_multiple_teeth",
+        "label": "Multiple teeth implant options",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implants-full-arch",
+        "pageId": "implants_full_arch",
+        "label": "Full arch implant rehabilitation",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implant-retained-dentures",
+        "pageId": "implant_retained_dentures",
+        "label": "Implant-retained dentures",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implant-consultation",
+        "pageId": "implants_consultation",
+        "label": "Implant consultation & planning in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implants-bone-grafting",
+        "pageId": "implants_bone_grafting",
+        "label": "Bone grafting for dental implants",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/sinus-lift",
+        "pageId": "implants_sinus_lift",
+        "label": "Sinus lift for dental implants in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/teeth-in-a-day",
+        "pageId": "implants_teeth_in_a_day",
+        "label": "Teeth-in-a-Day implants in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/sedation-for-implants",
+        "pageId": "implants_sedation",
+        "label": "Sedation for dental implant treatment in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/failed-implant-replacement",
+        "pageId": "implants_failed_replacement",
+        "label": "Failed implant replacement in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/implant-aftercare",
+        "pageId": "implants_aftercare",
+        "label": "Implant aftercare & recovery in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/surgically-guided-implants",
+        "pageId": "surgically_guided_implants",
+        "label": "Surgically Guided Implants in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/3d-implant-restorations",
+        "pageId": "3d_implant_restorations",
+        "label": "3D implant restorations",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/3d-printed-veneers",
+        "pageId": "3d_printed_veneers",
+        "label": "3D printed veneers",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/composite-bonding",
+        "pageId": "composite_bonding",
+        "label": "Composite bonding",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/injection-moulded-composite",
+        "pageId": "injection_moulded_composite",
+        "label": "Injection-moulded composite",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-bridges",
+        "pageId": "dental_bridges",
+        "label": "Dental bridges",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-crowns",
+        "pageId": "dental_crowns",
+        "label": "Dental crowns",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/teeth-whitening",
+        "pageId": "whitening_hub",
+        "label": "Teeth whitening",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/home-teeth-whitening",
+        "pageId": "home_teeth_whitening",
+        "label": "Home teeth whitening",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/whitening-top-ups",
+        "pageId": "whitening_topups",
+        "label": "Whitening top-ups & maintenance",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/whitening-sensitive-teeth",
+        "pageId": "whitening_sensitivity",
+        "label": "Sensitive teeth & whitening",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/teeth-whitening-faqs",
+        "pageId": "whitening_faq",
+        "label": "Teeth whitening FAQs",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/orthodontics",
+        "pageId": "orthodontics",
+        "label": "Orthodontics",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/full-smile-makeover",
+        "pageId": "full_smile_makeover",
+        "label": "Full smile makeover",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/3d-digital-dentistry",
+        "pageId": "technology_digital_dentistry",
+        "label": "3D & digital dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/emergency-dentistry",
+        "pageId": "emergency_dentistry",
+        "label": "Emergency dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/emergency-dental-appointments",
+        "pageId": "emergency_dental_appointments",
+        "label": "Emergency dental appointments",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/severe-toothache-dental-pain",
+        "pageId": "emergency_severe_toothache",
+        "label": "Severe toothache & dental pain",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-abscess-infection",
+        "pageId": "emergency_dental_abscess",
+        "label": "Dental abscess & infection",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/broken-chipped-cracked-teeth",
+        "pageId": "emergency_broken_chipped_teeth",
+        "label": "Broken, chipped or cracked teeth",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/knocked-out-tooth",
+        "pageId": "emergency_knocked_out_tooth",
+        "label": "Knocked-out (avulsed) tooth",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/lost-crowns-veneers-fillings",
+        "pageId": "emergency_lost_crowns",
+        "label": "Lost crowns, veneers & fillings",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-trauma-accidents",
+        "pageId": "emergency_dental_trauma",
+        "label": "Dental trauma & accidents",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/3d-dentistry-and-technology",
+        "pageId": "3d_dentistry_and_technology",
+        "label": "3D dentistry & technology",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/cbct-3d-scanning",
+        "pageId": "cbct_3d_scanning",
+        "label": "CBCT / 3D scanning",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/digital-smile-design",
+        "pageId": "digital_smile_design",
+        "label": "Digital smile design",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/3d-printing-lab",
+        "pageId": "3d_printing_lab",
+        "label": "3D printing lab",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/inlays-onlays",
+        "pageId": "inlays_onlays",
+        "label": "Inlays & onlays",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-fillings",
+        "pageId": "dental_fillings",
+        "label": "Dental fillings",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dentures",
+        "pageId": "dentures",
+        "label": "Dentures & tooth replacement",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/acrylic-dentures",
+        "pageId": "acrylic_dentures",
+        "label": "Acrylic dentures",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/chrome-dentures",
+        "pageId": "chrome_dentures",
+        "label": "Chrome dentures",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/peek-partial-dentures",
+        "pageId": "peek_partial_dentures",
+        "label": "PEEK partial dentures",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/3d-printed-dentures",
+        "pageId": "printed_dentures_3d",
+        "label": "3D printed dentures",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/night-guards-occlusal-splints",
+        "pageId": "night_guards_occlusal_splints",
+        "label": "Night guards (occlusal splints)",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/sports-mouthguards",
+        "pageId": "sports_mouthguards",
+        "label": "Sports mouthguards",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dental-retainers",
+        "pageId": "dental_retainers",
+        "label": "Retainers",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/preventative-and-general-dentistry",
+        "pageId": "preventative_and_general_dentistry",
+        "label": "Preventative & general dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/childrens-dentistry",
+        "pageId": "childrens_dentistry",
+        "label": "Children’s dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/periodontal-gum-care",
+        "pageId": "periodontal_gum_care",
+        "label": "Gum disease",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/endodontics-root-canal",
+        "pageId": "endodontics_root_canal",
+        "label": "Endodontics & root canal care",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/extractions-and-oral-surgery",
+        "pageId": "extractions_and_oral_surgery",
+        "label": "Extractions & oral surgery",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/senior-mature-smile-care",
+        "pageId": "senior_mature_smile_care",
+        "label": "Senior and mature smile care",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/tmj-jaw-comfort",
+        "pageId": "tmj_jaw_comfort",
+        "label": "Jaw joint (TMJ) comfort",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/nervous-patients",
+        "pageId": "nervous_patients",
+        "label": "Nervous patients",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/sedation-dentistry",
+        "pageId": "sedation_dentistry",
+        "label": "Sedation dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/painless-numbing-the-wand",
+        "pageId": "painless_numbing_the_wand",
+        "label": "The Wand numbing system",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/tooth-wear-broken-teeth",
+        "pageId": "tooth_wear_broken_teeth",
+        "label": "Tooth Wear & Broken Teeth",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/facial-therapeutics",
+        "pageId": "facial_therapeutics",
+        "label": "Facial therapeutics in Shoreham-by-Sea",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/bruxism-and-jaw-clenching",
+        "pageId": "bruxism_jaw_clenching",
+        "label": "Bruxism (grinding) and jaw clenching",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/facial-pain-and-headache",
+        "pageId": "facial_pain_headache",
+        "label": "Facial pain and headache pathways",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/tmj-disorder-treatment",
+        "pageId": "tmj_disorder_treatment",
+        "label": "TMJ disorder treatment",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/therapeutic-facial-injectables",
+        "pageId": "therapeutic_facial_injectables",
+        "label": "Therapeutic facial injectables",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/facial-aesthetics",
+        "pageId": "facial_aesthetics",
+        "label": "Facial aesthetics",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/cosmetic-dentistry",
+        "pageId": "cosmetic_dentistry",
+        "label": "Cosmetic dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/preventive-dentistry",
+        "pageId": "preventive_dentistry",
+        "label": "Preventive dentistry",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/anti-wrinkle-treatments",
+        "pageId": "anti_wrinkle_treatments",
+        "label": "Anti-wrinkle treatments",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/dermal-fillers",
+        "pageId": "dermal_fillers",
+        "label": "Dermal fillers",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/skin-boosters",
+        "pageId": "skin_boosters",
+        "label": "Skin boosters (hydration and elasticity)",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/polynucleotides",
+        "pageId": "polynucleotides",
+        "label": "Polynucleotides (skin quality support)",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
+        "route": "/treatments/mouthguards-and-retainers",
+        "pageId": "mouthguards_and_retainers",
+        "label": "Mouthguards and retainers",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      }
+    ]
+  },
   "pageTextInventory": {
     "pageTruthFiles": 99,
     "pageContentTruthEntries": 5862,
@@ -7348,7 +12601,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 758,
+    "count": 764,
     "links": [
       {
         "from": "/",
@@ -10781,6 +16034,42 @@
         "to": "/treatments/failed-implant-replacement",
         "source": "machine_manifest_page",
         "pointer": "/sections/12/definition/items/12/href"
+      },
+      {
+        "from": "/treatments/implants",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/implants",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/implants",
+        "to": "/treatments/implants-consultation",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/implants",
+        "to": "/treatments/cbct-3d-scanning",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/implants",
+        "to": "/treatments/implants-aftercare",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/implants",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
       },
       {
         "from": "/treatments/implants-bone-grafting",

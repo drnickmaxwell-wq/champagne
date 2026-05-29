@@ -9,6 +9,7 @@ import sectionPageDefaults from "../data/sections/page-type.defaults.json";
 import sectionFxDefaults from "../data/sections/section-fx.defaults.json";
 import sectionPrmDefaults from "../data/sections/section-prm.defaults.json";
 import sectionLibraryData from "../data/sections/section-library.json";
+import type { TreatmentAnswerSurface } from "./answerSurface";
 import sectionLayoutAligners from "../data/sections/smh/treatments.aligners.json";
 import sectionLayoutClearAligners from "../data/sections/smh/treatments.clear-aligners.json";
 import sectionLayoutSparkAligners from "../data/sections/smh/treatments.clear-aligners-spark.json";
@@ -139,6 +140,7 @@ export interface ChampagnePageManifest {
   category?: string;
   label?: string;
   ctas?: ChampagnePageCTAConfig;
+  answerSurface?: TreatmentAnswerSurface;
   [key: string]: unknown;
 }
 

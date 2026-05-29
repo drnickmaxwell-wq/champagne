@@ -203,6 +203,113 @@ const classifyRoute = (route, routeKind, manifestPage) => {
 
 const metadataSourceByFile = new Map();
 
+const treatmentAnswerSurfaceRequiredSectionIds = [
+  "direct_answer",
+  "what_this_treatment_is",
+  "who_it_is_for",
+  "who_it_may_not_be_suitable_for",
+  "benefits",
+  "risks_and_limitations",
+  "alternatives",
+  "process",
+  "timeline",
+  "aftercare",
+  "cost_fee_logic",
+  "local_shoreham_context",
+  "clinician_expertise",
+  "technology_used",
+  "faq",
+  "related_treatments_internal_links",
+  "last_reviewed_clinical_review",
+  "cta",
+];
+
+const defaultSecondaryGeographies = ["Brighton", "Worthing", "Lancing", "Southwick"];
+
+const flattenText = (value) => {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) return value.map(flattenText).join(" ");
+  if (value && typeof value === "object") return Object.values(value).map(flattenText).join(" ");
+  return "";
+};
+
+const countNeedle = (haystack, needle) => {
+  const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return (haystack.match(new RegExp(`\\b${escaped}\\b`, "gi")) ?? []).length;
+};
+
+const validateAnswerSurface = (answerSurface) => {
+  if (!answerSurface || typeof answerSurface !== "object") {
+    return {
+      frameworkPresent: false,
+      valid: false,
+      status: null,
+      exampleSeed: false,
+      presentSectionIds: [],
+      missingSectionIds: [...treatmentAnswerSurfaceRequiredSectionIds],
+      secondaryGeographyMentions: {},
+      secondaryGeographyStuffing: false,
+      errors: ["answerSurface is missing"],
+      warnings: [],
+    };
+  }
+
+  const errors = [];
+  const warnings = [];
+  const sections = Array.isArray(answerSurface.sections) ? answerSurface.sections : [];
+  const sectionIds = sections.map((section) => section?.id).filter(Boolean);
+  const presentSectionIds = treatmentAnswerSurfaceRequiredSectionIds.filter((sectionId) => sectionIds.includes(sectionId));
+  const missingSectionIds = treatmentAnswerSurfaceRequiredSectionIds.filter((sectionId) => !sectionIds.includes(sectionId));
+  const duplicateSectionIds = sectionIds.filter((sectionId, index) => sectionIds.indexOf(sectionId) !== index);
+  const unknownSectionIds = sectionIds.filter((sectionId) => !treatmentAnswerSurfaceRequiredSectionIds.includes(sectionId));
+  const emptySectionIds = sections
+    .filter((section) => section?.id && treatmentAnswerSurfaceRequiredSectionIds.includes(section.id))
+    .filter((section) => {
+      const hasContent = Boolean(
+        section.heading && (
+          section.body ||
+          section.items?.length ||
+          section.faqs?.length ||
+          section.links?.length ||
+          section.ctas?.length ||
+          section.review
+        ),
+      );
+      return !hasContent;
+    })
+    .map((section) => section.id);
+
+  if (answerSurface.version !== "TREATMENT_ANSWER_SURFACE_V1") errors.push("answerSurface.version must be TREATMENT_ANSWER_SURFACE_V1");
+  if (answerSurface.primaryGeography !== "Shoreham-by-Sea") errors.push("answerSurface.primaryGeography must remain Shoreham-by-Sea");
+  if (missingSectionIds.length > 0) errors.push(`Missing answerSurface sections: ${missingSectionIds.join(", ")}`);
+  if (duplicateSectionIds.length > 0) errors.push(`Duplicate answerSurface sections: ${Array.from(new Set(duplicateSectionIds)).join(", ")}`);
+  if (unknownSectionIds.length > 0) errors.push(`Unknown answerSurface sections: ${Array.from(new Set(unknownSectionIds)).join(", ")}`);
+  if (emptySectionIds.length > 0) errors.push(`Empty answerSurface sections: ${emptySectionIds.join(", ")}`);
+
+  const geographies = answerSurface.secondaryGeographies?.length ? answerSurface.secondaryGeographies : defaultSecondaryGeographies;
+  const allText = flattenText(sections);
+  const secondaryGeographyMentions = Object.fromEntries(geographies.map((geography) => [geography, countNeedle(allText, geography)]));
+  const totalSecondaryMentions = Object.values(secondaryGeographyMentions).reduce((total, count) => total + count, 0);
+  const secondaryGeographyStuffing = totalSecondaryMentions > 4 || Object.values(secondaryGeographyMentions).some((count) => count > 2);
+  if (secondaryGeographyStuffing) warnings.push("Secondary geography mentions exceed answer-surface stuffing threshold");
+
+  return {
+    frameworkPresent: true,
+    valid: errors.length === 0,
+    status: answerSurface.status ?? null,
+    exampleSeed: Boolean(answerSurface.exampleSeed),
+    presentSectionIds,
+    missingSectionIds,
+    duplicateSectionIds: Array.from(new Set(duplicateSectionIds)),
+    unknownSectionIds: Array.from(new Set(unknownSectionIds)),
+    emptySectionIds,
+    secondaryGeographyMentions,
+    secondaryGeographyStuffing,
+    errors,
+    warnings,
+  };
+};
+
 const main = async () => {
   const packageJson = await readJsonOptional("package.json", {});
   const liveRoutes = await readJsonOptional("content-scope/live-pages.json", []);
@@ -359,18 +466,63 @@ const main = async () => {
     weakness: robotsExists && robotsExplicitDisallows.length === 3 ? null : "Production robots does not explicitly disallow all internal/private launch-excluded paths.",
   };
 
+  const treatmentRoutesForAnswerSurface = manifestRoutes
+    .filter(({ route }) => route.startsWith("/treatments/"));
+
+  const answerSurfaceEntries = treatmentRoutesForAnswerSurface.map(({ pageId, page, route }) => ({
+    route,
+    pageId,
+    label: page.label ?? null,
+    validation: validateAnswerSurface(page.answerSurface),
+  }));
+
+  const answerSurfaceCoverage = {
+    framework: "TREATMENT_ANSWER_SURFACE_V1",
+    requiredSectionIds: treatmentAnswerSurfaceRequiredSectionIds,
+    treatmentRouteCount: treatmentRoutesForAnswerSurface.length,
+    frameworkPresentCount: answerSurfaceEntries.filter((entry) => entry.validation.frameworkPresent).length,
+    completeCount: answerSurfaceEntries.filter((entry) => entry.validation.valid).length,
+    exampleSeedRoutes: answerSurfaceEntries.filter((entry) => entry.validation.exampleSeed).map((entry) => entry.route),
+    routesMissingAnswerSurface: answerSurfaceEntries
+      .filter((entry) => !entry.validation.frameworkPresent)
+      .map((entry) => entry.route),
+    routesWithMissingSections: answerSurfaceEntries
+      .filter((entry) => entry.validation.frameworkPresent && entry.validation.missingSectionIds.length > 0)
+      .map((entry) => ({ route: entry.route, missingSectionIds: entry.validation.missingSectionIds })),
+    routesWithSecondaryGeographyStuffing: answerSurfaceEntries
+      .filter((entry) => entry.validation.secondaryGeographyStuffing)
+      .map((entry) => ({ route: entry.route, mentions: entry.validation.secondaryGeographyMentions })),
+    entries: answerSurfaceEntries,
+  };
+
   const treatmentManifestInventory = manifestRoutes
     .filter(({ route }) => route === "/treatments" || route.startsWith("/treatments/"))
-    .map(({ pageId, page, route }) => ({
-      route,
-      pageId,
-      label: page.label ?? null,
-      category: page.category ?? null,
-      hero: page.hero ?? null,
-      heroBinding: page.heroBinding ?? null,
-      sectionCount: Array.isArray(page.sections) ? page.sections.length : null,
-      surface: page.surface ?? null,
-    }));
+    .map(({ pageId, page, route }) => {
+      const answerSurfaceValidation = route.startsWith("/treatments/")
+        ? answerSurfaceEntries.find((entry) => entry.route === route)?.validation
+        : null;
+      return {
+        route,
+        pageId,
+        label: page.label ?? null,
+        category: page.category ?? null,
+        hero: page.hero ?? null,
+        heroBinding: page.heroBinding ?? null,
+        sectionCount: Array.isArray(page.sections) ? page.sections.length : null,
+        surface: page.surface ?? null,
+        answerSurface: answerSurfaceValidation
+          ? {
+              frameworkPresent: answerSurfaceValidation.frameworkPresent,
+              valid: answerSurfaceValidation.valid,
+              status: answerSurfaceValidation.status,
+              presentSectionCount: answerSurfaceValidation.presentSectionIds.length,
+              missingSectionIds: answerSurfaceValidation.missingSectionIds,
+              secondaryGeographyMentions: answerSurfaceValidation.secondaryGeographyMentions,
+              secondaryGeographyStuffing: answerSurfaceValidation.secondaryGeographyStuffing,
+            }
+          : null,
+      };
+    });
 
   const pageTextInventory = {
     pageTruthFiles: (await fs.readdir(path.join(rootDir, "page-truth")).catch(() => [])).filter((name) => name.endsWith(".txt")).length,
@@ -451,6 +603,7 @@ const main = async () => {
     sitemapStatus,
     robotsStatus,
     treatmentManifestInventory,
+    answerSurfaceCoverage,
     pageTextInventory,
     internalLinkInventory: {
       count: internalLinks.length,
@@ -499,6 +652,7 @@ const main = async () => {
       "sitemap status",
       "robots status",
       "treatment manifest inventory",
+      "treatment answer-surface coverage and validation",
       "page text/page truth inventory",
       "internal link inventory if discoverable",
       "FAQ block inventory if discoverable",
@@ -530,6 +684,7 @@ const main = async () => {
       sitemapStatus: "object",
       robotsStatus: "object",
       treatmentManifestInventory: "array",
+      answerSurfaceCoverage: "object",
       pageTextInventory: "object",
       launchBlockersDetected: "array",
       readyForLaunch: "boolean; expected false unless a separate launch audit proves otherwise",
