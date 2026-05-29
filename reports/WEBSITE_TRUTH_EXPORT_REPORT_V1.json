@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-29T15:00:58.134Z",
+  "generatedAt": "2026-05-29T15:27:08.594Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -6367,31 +6367,17 @@
       "sectionCount": 13,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -7240,31 +7226,17 @@
       "sectionCount": 8,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -7486,31 +7458,17 @@
       "sectionCount": 8,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -9465,13 +9423,12 @@
       "cta"
     ],
     "treatmentRouteCount": 78,
-    "frameworkPresentCount": 6,
-    "completeCount": 6,
+    "frameworkPresentCount": 9,
+    "completeCount": 9,
     "exampleSeedRoutes": [
       "/treatments/implants"
     ],
     "routesMissingAnswerSurface": [
-      "/treatments/veneers",
       "/treatments/clear-aligners",
       "/treatments/clear-aligners-spark",
       "/treatments/fixed-braces",
@@ -9489,13 +9446,11 @@
       "/treatments/injection-moulded-composite",
       "/treatments/dental-bridges",
       "/treatments/dental-crowns",
-      "/treatments/teeth-whitening",
       "/treatments/home-teeth-whitening",
       "/treatments/whitening-top-ups",
       "/treatments/whitening-sensitive-teeth",
       "/treatments/teeth-whitening-faqs",
       "/treatments/orthodontics",
-      "/treatments/full-smile-makeover",
       "/treatments/3d-digital-dentistry",
       "/treatments/emergency-dentistry",
       "/treatments/emergency-dental-appointments",
@@ -9596,12 +9551,11 @@
         "pageId": "veneers",
         "label": "Dental veneers in Shoreham-by-Sea",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -9621,11 +9575,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -10500,12 +10461,11 @@
         "pageId": "whitening_hub",
         "label": "Teeth whitening",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10525,11 +10485,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -10728,12 +10695,11 @@
         "pageId": "full_smile_makeover",
         "label": "Full smile makeover",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10753,11 +10719,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -12556,7 +12529,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 805,
+    "count": 831,
     "links": [
       {
         "from": "/",
@@ -15763,6 +15736,60 @@
         "pointer": "/sections/7/ctas/1/href"
       },
       {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/clear-aligners",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/3/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/treatments/digital-smile-design",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/full-smile-makeover",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/home-teeth-whitening",
         "to": "/treatments/home-teeth-whitening",
         "source": "machine_manifest_page",
@@ -17149,6 +17176,54 @@
         "pointer": "/sections/7/definition/items/2/href"
       },
       {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/clear-aligners",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/home-teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/treatments/dental-hygiene",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/teeth-whitening",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/teeth-whitening-faqs",
         "to": "/treatments/teeth-whitening-faqs",
         "source": "machine_manifest_page",
@@ -17327,6 +17402,60 @@
         "to": "/treatments/digital-smile-design",
         "source": "machine_manifest_page",
         "pointer": "/sections/12/ctas/2/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/clear-aligners",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/dental-crowns",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/3/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/3d-printed-veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/digital-smile-design",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/veneers",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
       },
       {
         "from": "/treatments/whitening-sensitive-teeth",

@@ -2314,7 +2314,215 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "Porcelain veneers are thin laboratory-made restorations for selected front teeth when assessment confirms the teeth, enamel, bite and gums are suitable. They can refine colour, shape and proportions, but they are not a guaranteed perfect smile and may involve irreversible enamel preparation."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Veneers cover the front surface of teeth to change appearance while preserving as much healthy tooth structure as clinically possible. The plan considers enamel, bite, gum levels, tooth colour, existing restorations and whether porcelain, printed veneers, bonding or another approach is more appropriate."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients with stable oral health who want carefully planned changes to front-tooth shape, proportions, colour or surface texture.",
+              "People whose enamel, bite and gum health support a bonded restoration after assessment.",
+              "Patients who understand the maintenance commitment, possible preparation and limitations of veneer treatment."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with active decay, gum disease, unstable bite problems or untreated wear until these are managed.",
+              "People with heavy clenching, grinding or nail-biting habits unless protection or alternative treatment is planned.",
+              "Patients seeking major position changes that orthodontics may handle more conservatively.",
+              "Anyone who does not want the possibility of irreversible enamel preparation."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can change tooth shape, proportions, surface texture and colour in suitable cases.",
+              "Porcelain can be more stain-resistant than composite when maintained well.",
+              "Digital planning and previews can help compare conservative and more involved options before treatment.",
+              "May be sequenced with whitening, hygiene or aligners to reduce unnecessary tooth preparation."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Some veneer plans require enamel preparation that cannot be reversed.",
+              "Veneers can chip, crack, debond, stain at margins or need replacement over time.",
+              "Bite forces, clenching, grinding and habits can reduce predictability and may require a night guard.",
+              "Colour, translucency and symmetry depend on tooth structure, gum levels, material limits and assessment; a perfect result should not be promised."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Whitening may be the first option when colour is the main concern and natural teeth are suitable.",
+              "Composite bonding can be a more conservative repair or shape-refinement option in selected cases.",
+              "Clear aligners or orthodontics may be preferable when tooth position or bite is the main concern.",
+              "Crowns or onlays may be more appropriate for weakened, heavily restored or cracked teeth."
+            ],
+            "links": [
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Clear aligners",
+                "href": "/treatments/clear-aligners",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental crowns",
+                "href": "/treatments/dental-crowns",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Assess oral health, enamel, existing restorations, bite, gum levels, habits and cosmetic goals.",
+              "Discuss alternative pathways such as whitening, bonding, aligners, crowns or onlays before committing to veneers.",
+              "Use photographs, scans and preview planning where helpful to agree shape and shade direction.",
+              "Prepare teeth only where clinically required, place provisional restorations if needed, and fit veneers after lab or digital fabrication checks."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Timeline depends on the number of teeth, oral health stabilisation, whitening or alignment first, preview stages, laboratory work and review appointments. A personalised sequence is confirmed after assessment rather than assumed from the requested cosmetic change."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Maintain brushing, interdental cleaning and hygiene reviews to protect gums and veneer margins.",
+              "Avoid using veneers to bite hard objects or habits that increase chipping or debonding risk.",
+              "Wear a night guard if recommended for clenching, grinding or protective maintenance.",
+              "Attend reviews promptly if a veneer feels loose, rough, chipped or uncomfortable."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on the number of veneers, planning records, preview stages, laboratory or digital workflow, provisional restorations, bite protection and whether whitening, hygiene, bonding, crowns or orthodontics are needed first. Written fees follow assessment and treatment planning."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Veneer assessment and cosmetic planning are coordinated from the Shoreham-by-Sea practice, allowing reviews, hygiene maintenance and bite-protection advice to remain connected to the same clinical plan."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses enamel preservation, bite forces, gum health, shade, smile proportions and long-term maintenance before recommending porcelain veneers or a more conservative alternative."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Clinical photography and digital scans to support smile planning and communication.",
+              "Digital smile design or mock-up stages where helpful for comparing proposed changes.",
+              "Laboratory-made porcelain restorations, bonding protocols and protective guards selected according to the case."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Are porcelain veneers reversible?",
+                "answer": "Not always. Some veneer plans require enamel preparation that is irreversible, so this must be discussed before treatment."
+              },
+              {
+                "question": "Can veneers chip or come off?",
+                "answer": "Yes. Chipping, cracking or debonding can happen, especially with heavy bite forces or habits, and maintenance or replacement may be needed."
+              },
+              {
+                "question": "Should I whiten before veneers?",
+                "answer": "Sometimes. Whitening may be planned first so natural teeth reach a stable shade before veneer shade selection."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "3D printed veneers",
+                "href": "/treatments/3d-printed-veneers",
+                "relationship": "related"
+              },
+              {
+                "label": "Digital smile design",
+                "href": "/treatments/digital-smile-design",
+                "relationship": "related"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "St Mary’s House Dental Care clinical team",
+              "nextReviewDue": "2027-05-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA",
+            "body": "Book a veneer assessment to compare porcelain veneers with conservative alternatives and understand preparation, maintenance and fee implications before deciding.",
+            "ctas": [
+              {
+                "label": "Plan a veneer assessment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "clear_aligners": {
       "id": "clear_aligners",
@@ -6809,7 +7017,208 @@
           }
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "Teeth whitening at St Mary’s House Dental Care is a dentist-led cosmetic treatment for suitable adults who want to lighten natural tooth enamel. Suitability and likely response depend on oral health, restorations, sensitivity, staining type and clinical assessment; no specific shade change can be guaranteed."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Teeth whitening uses professional whitening gel in a controlled plan, usually with custom trays, to lighten natural tooth structure. Crowns, veneers, fillings and composite bonding do not whiten like natural teeth, so shade planning may include timing any restoration replacement after whitening has settled."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Adults with healthy teeth and gums who want a measured improvement in the shade of natural teeth.",
+              "Patients planning bonding, aligners or veneers who may benefit from setting a stable tooth shade first.",
+              "People who understand whitening depends on staining type, existing restorations, sensitivity and assessment rather than a promised result."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with untreated decay, gum disease, exposed roots or dental pain until these are assessed and managed.",
+              "People with significant sensitivity or enamel concerns where whitening may be uncomfortable or unpredictable.",
+              "Patients expecting crowns, veneers, fillings or bonding to whiten in the same way as natural enamel."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can lighten natural teeth in a gradual, dentist-supervised way.",
+              "Can support cosmetic sequencing before bonding, veneers or aligner finishing where appropriate.",
+              "Custom trays help control gel placement and reduce unnecessary contact with gums.",
+              "Shade records and reviews help keep expectations realistic and clinically monitored."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Sensitivity or gum irritation can occur and may require changes to gel use or timing.",
+              "Whitening response varies by enamel, staining type, diet, oral health and previous dental work.",
+              "Crowns, veneers, fillings and composite do not whiten like natural teeth, so visible restorations may need separate planning.",
+              "No exact shade outcome, speed of change or long-term colour stability should be guaranteed."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Hygiene therapy and stain removal may be suitable when surface staining is the main concern.",
+              "Composite bonding or veneers may be considered when shape, surface texture or restoration mismatch is the main issue.",
+              "Orthodontics or aligners may be more appropriate when tooth position is the main concern."
+            ],
+            "links": [
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Clear aligners",
+                "href": "/treatments/clear-aligners",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Assess oral health, sensitivity risk, restorations and the type of staining present.",
+              "Record the starting shade and discuss realistic expectations before prescribing whitening.",
+              "Take digital scans or impressions for custom trays where home whitening is suitable.",
+              "Provide gel-use instructions, review progress and adjust the plan if sensitivity or uneven response occurs."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Timing varies according to oral health, tray manufacture, sensitivity and how the teeth respond. Some patients need hygiene, stabilisation or restorative planning first, and any final restoration shade matching is usually planned after the whitening result has settled."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Follow the prescribed gel schedule and pause or contact the practice if sensitivity becomes difficult.",
+              "Keep trays clean and bring them to review appointments if fit or comfort changes.",
+              "Maintain brushing, interdental cleaning and hygiene visits to reduce surface staining.",
+              "Discuss top-up whitening only after assessment rather than self-adjusting gel use."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on assessment needs, tray production, the whitening system prescribed, reviews and whether restorative or hygiene care is needed before or after whitening. Precise pricing should be confirmed in a written plan after assessment rather than assumed from generic shade goals."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Whitening assessment, tray planning and reviews are provided through the Shoreham-by-Sea practice so shade planning can be coordinated with hygiene, bonding or wider cosmetic care in one local clinical record."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses oral health, sensitivity, restorations, shade aims and cosmetic sequencing before prescribing whitening, and will advise when whitening is not the safest or most useful first step."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Digital scans or impressions for custom tray fit where appropriate.",
+              "Shade recording and clinical photography to support planning and review.",
+              "Dentist-prescribed whitening gels selected according to assessment and UK clinical requirements."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Will whitening give me a guaranteed shade?",
+                "answer": "No. Whitening response varies and depends on assessment, oral health, sensitivity, restorations and staining type."
+              },
+              {
+                "question": "Do crowns, veneers or fillings whiten?",
+                "answer": "No. Restorations do not whiten like natural teeth, so visible crowns, veneers, fillings or bonding may need separate shade planning."
+              },
+              {
+                "question": "Is whitening suitable if I have sensitive teeth?",
+                "answer": "It depends. Sensitivity risk is assessed first, and the plan may need adjustment or alternatives if whitening is likely to be uncomfortable."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Home teeth whitening",
+                "href": "/treatments/home-teeth-whitening",
+                "relationship": "related"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "related"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "related"
+              },
+              {
+                "label": "Dental hygiene",
+                "href": "/treatments/dental-hygiene",
+                "relationship": "prerequisite"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "St Mary’s House Dental Care clinical team",
+              "nextReviewDue": "2027-05-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA",
+            "body": "Book an assessment before starting whitening so suitability, restorations, sensitivity risk and shade planning can be checked safely.",
+            "ctas": [
+              {
+                "label": "Plan a whitening assessment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "home_teeth_whitening": {
       "id": "home_teeth_whitening",
@@ -7444,7 +7853,214 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "A smile makeover is not one fixed treatment. It is an assessment-led plan that may combine options such as whitening, bonding, veneers, aligners, hygiene, crowns or onlays depending on oral health, bite, goals and clinical suitability."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Smile makeover planning looks at the smile as a whole: tooth colour, shape, position, gum health, wear, bite, restorations and maintenance. The outcome is a staged plan with appropriate options rather than a promise of transformation or a standard package."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients with more than one cosmetic or functional concern who want an organised plan rather than isolated treatment decisions.",
+              "People considering combinations such as whitening with bonding, aligners before veneers, or restorative work for worn or weakened teeth.",
+              "Patients who are comfortable with assessment, sequencing and realistic discussion of limitations before committing to treatment."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with active decay, gum disease, dental pain or unstable bite issues until these are diagnosed and stabilised.",
+              "People seeking a guaranteed transformation, fixed package or treatment without clinical assessment.",
+              "Patients whose goals may be met more safely with a single conservative option, hygiene care or no cosmetic treatment."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Creates a sequence so health, function and cosmetic choices are considered together.",
+              "Can identify conservative steps before irreversible options are considered.",
+              "Helps coordinate shade, tooth position, restorations and maintenance over time.",
+              "Provides a clearer basis for discussing risks, fees and alternatives before treatment starts."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "The final plan depends on assessment and may be simpler, longer or different from the treatment first imagined.",
+              "Some options may involve irreversible tooth preparation, surgery, orthodontic movement or long-term maintenance.",
+              "Cosmetic materials can stain, chip, wear, debond or need replacement over time.",
+              "No clinician should guarantee a perfect smile, exact transformation or permanent result."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "A single treatment such as whitening, bonding or hygiene care may be enough for some goals.",
+              "Clear aligners or orthodontics may be the most conservative route when tooth position drives the concern.",
+              "Crowns, onlays or restorative care may be needed where teeth are weakened, worn or heavily restored.",
+              "Choosing no cosmetic treatment may be appropriate if risks outweigh benefits."
+            ],
+            "links": [
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Clear aligners",
+                "href": "/treatments/clear-aligners",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Discuss goals, concerns, medical history and previous dental work.",
+              "Assess teeth, gums, bite, jaw comfort, wear, shade, restorations and oral hygiene.",
+              "Use photographs, scans, shade records or mock-ups where they help compare options.",
+              "Agree a staged plan that may include hygiene, whitening, bonding, veneers, aligners, crowns or onlays only where clinically appropriate."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Timeline varies widely because a smile makeover may involve one conservative step or a staged plan over months. Whitening, aligners, gum stabilisation, laboratory work, reviews or bite protection can all affect sequencing, so timing is confirmed after assessment."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Follow the maintenance advice for each treatment included in the plan.",
+              "Attend hygiene visits and reviews so gums, restorations, bite and wear can be monitored.",
+              "Use retainers, whitening trays or night guards if prescribed as part of long-term maintenance.",
+              "Report chips, roughness, sensitivity, looseness or bite changes promptly."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on the treatments included, the number of teeth, records and mock-ups, laboratory stages, orthodontic or restorative work, review appointments and maintenance items. A written plan is needed after assessment because there is no single smile makeover price that applies safely to every patient."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Smile makeover planning is coordinated from the Shoreham-by-Sea practice so cosmetic aims, oral health, hygiene, reviews and maintenance are kept together in a practical local pathway."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses oral health, bite, enamel, restorations, shade, facial context and maintenance risk before recommending any combination of cosmetic or restorative treatments."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Clinical photography, shade records and digital scans to document starting points and plan sequencing.",
+              "Digital smile design, mock-ups or previews where useful for comparing options.",
+              "Laboratory, aligner, whitening, bonding and restorative workflows selected according to the final assessed plan."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Is a smile makeover one treatment?",
+                "answer": "No. It is a plan that may combine different treatments, or sometimes recommend a simpler option, depending on assessment."
+              },
+              {
+                "question": "Can you guarantee the final result?",
+                "answer": "No. The plan can be designed carefully, but oral health, materials, biology, bite and maintenance all affect outcomes."
+              },
+              {
+                "question": "What treatments might be included?",
+                "answer": "Depending on assessment, options may include whitening, bonding, veneers, aligners, hygiene, crowns, onlays or protective appliances."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "related"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "related"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "related"
+              },
+              {
+                "label": "Digital smile design",
+                "href": "/treatments/digital-smile-design",
+                "relationship": "related"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "St Mary’s House Dental Care clinical team",
+              "nextReviewDue": "2027-05-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA",
+            "body": "Book a smile makeover assessment to understand which options are suitable, which alternatives are safer, and what sequence and fees apply before treatment decisions are made.",
+            "ctas": [
+              {
+                "label": "Plan a smile makeover assessment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "technology_digital_dentistry": {
       "id": "technology_digital_dentistry",
