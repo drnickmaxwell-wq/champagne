@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-29T13:45:44.821Z",
+  "generatedAt": "2026-05-29T14:28:01.074Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -6572,31 +6572,17 @@
       "sectionCount": 11,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -6613,31 +6599,17 @@
       "sectionCount": 11,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -6736,31 +6708,17 @@
       "sectionCount": 11,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -9535,8 +9493,8 @@
       "cta"
     ],
     "treatmentRouteCount": 78,
-    "frameworkPresentCount": 1,
-    "completeCount": 1,
+    "frameworkPresentCount": 4,
+    "completeCount": 4,
     "exampleSeedRoutes": [
       "/treatments/implants"
     ],
@@ -9546,11 +9504,8 @@
       "/treatments/clear-aligners-spark",
       "/treatments/fixed-braces",
       "/treatments/dental-checkups-oral-cancer-screening",
-      "/treatments/implants-single-tooth",
-      "/treatments/implants-multiple-teeth",
       "/treatments/implants-full-arch",
       "/treatments/implant-retained-dentures",
-      "/treatments/implant-consultation",
       "/treatments/implants-bone-grafting",
       "/treatments/sinus-lift",
       "/treatments/teeth-in-a-day",
@@ -9861,12 +9816,11 @@
         "pageId": "implants_single_tooth",
         "label": "Single-tooth dental implants in Shoreham-by-Sea",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -9886,11 +9840,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -9899,12 +9860,11 @@
         "pageId": "implants_multiple_teeth",
         "label": "Multiple teeth implant options",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -9924,11 +9884,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -10013,12 +9980,11 @@
         "pageId": "implants_consultation",
         "label": "Implant consultation & planning in Shoreham-by-Sea",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10038,11 +10004,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -12601,7 +12574,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 764,
+    "count": 787,
     "links": [
       {
         "from": "/",
@@ -15814,6 +15787,54 @@
         "pointer": "/sections/10/ctas/2/href"
       },
       {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/emergency-dental-appointments",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/implants-single-tooth",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/implants-multiple-teeth",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/treatments/cbct-3d-scanning",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/implant-consultation",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/implant-retained-dentures",
         "to": "/treatments/implant-retained-dentures",
         "source": "machine_manifest_page",
@@ -16144,6 +16165,54 @@
         "pointer": "/sections/10/ctas/2/href"
       },
       {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/implant-retained-dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/implant-consultation",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/implants-full-arch",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/implant-retained-dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/treatments/cbct-3d-scanning",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/implants-multiple-teeth",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/implants-single-tooth",
         "to": "/treatments/implants-single-tooth",
         "source": "machine_manifest_page",
@@ -16166,6 +16235,48 @@
         "to": "/treatments/sedation-for-implants",
         "source": "machine_manifest_page",
         "pointer": "/sections/10/ctas/2/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/treatments/implant-consultation",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/treatments/cbct-3d-scanning",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/treatments/implant-aftercare",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/implants-single-tooth",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
       },
       {
         "from": "/treatments/injection-moulded-composite",

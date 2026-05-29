@@ -4218,7 +4218,200 @@
         }
       ],
       "surface": "champagne/surface/treatment",
-      "heroFamily": "treatments.implants"
+      "heroFamily": "treatments.implants",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "A single-tooth dental implant may replace one missing tooth with an implant-supported crown when assessment shows the gum health, bone volume, bite, space and medical history are suitable. It is planned as a staged clinical treatment rather than an online diagnosis or guaranteed outcome."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "A titanium implant fixture is placed in the jaw to support an abutment and crown. The aim is to replace the missing tooth without preparing neighbouring teeth, where this is clinically appropriate."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Adults with one missing tooth or a tooth that cannot predictably be restored.",
+              "Patients who can attend assessment, planning, treatment, healing reviews and maintenance appointments.",
+              "People whose oral health, bone levels, bite and general health are suitable after clinical assessment."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with active gum disease, uncontrolled infection or inadequate oral hygiene until these are stabilised.",
+              "People whose medical history, medicines, smoking status, bone levels or bite make implant surgery higher risk.",
+              "Anyone needing a same-day certainty before examination, imaging and treatment planning have been completed."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can provide a fixed replacement for one missing tooth when maintained well.",
+              "May avoid preparation of adjacent teeth compared with some bridge designs.",
+              "Can help restore chewing comfort and confidence in the gap area once restored."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Implant treatment involves surgery, healing time and long-term maintenance.",
+              "Integration, gum stability and restoration lifespan cannot be guaranteed.",
+              "Risks such as infection, swelling, discomfort, gum recession, peri-implant inflammation, screw or crown complications, and nerve or sinus proximity are discussed during consent where relevant."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "A dental bridge may be suitable depending on the neighbouring teeth and bite.",
+              "A removable denture may be appropriate where a fixed option is not suitable or not preferred.",
+              "In selected cases, leaving the space may be discussed alongside likely bite and tooth-movement consequences."
+            ],
+            "links": [
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dentures",
+                "href": "/treatments/dentures",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Consultation, medical history, dental history and discussion of goals.",
+              "Clinical examination, photographs, scans and CBCT imaging where indicated.",
+              "Written options, risks, staged timing and fee estimate before treatment decisions.",
+              "Implant placement, healing review, crown restoration and maintenance planning if proceeding."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "A single-tooth implant pathway is usually staged. Timing depends on extraction status, healing, bone levels, whether grafting is needed and how the implant integrates; the personalised sequence is confirmed after diagnostics."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Follow the written post-operative instructions after placement.",
+              "Clean carefully around the implant crown and gumline every day.",
+              "Attend hygiene maintenance and review appointments, and report looseness, swelling, bleeding or discomfort promptly."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on diagnostics, whether extraction or grafting is needed, implant components, crown design, laboratory work and review requirements. A written estimate is provided after assessment rather than assuming a fixed online price."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Single-tooth implant assessment and follow-up are planned through St Mary’s House Dental Care in Shoreham-by-Sea so reviews, maintenance and any staged appointments remain practical for local patients."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "Care is clinician-led, with implant suitability, restorative design, bite assessment, consent and maintenance planning considered together before treatment proceeds."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used where relevant",
+            "items": [
+              "CBCT imaging for three-dimensional bone and anatomy assessment where indicated.",
+              "Digital scanning and photography for restorative planning and communication.",
+              "Guided surgery planning may be considered where it improves case planning and suitability is confirmed."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Can I be told online if a single implant is suitable?",
+                "answer": "No. Suitability requires clinical assessment, medical history review and appropriate diagnostics."
+              },
+              {
+                "question": "Will I leave with a final tooth on the day?",
+                "answer": "Not routinely. Temporary options and timing depend on the tooth, bone, bite and treatment plan."
+              },
+              {
+                "question": "How long does it last?",
+                "answer": "Longevity varies with health, planning, habits, bite forces and maintenance. No outcome can be guaranteed."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Implant consultation",
+                "href": "/treatments/implant-consultation",
+                "relationship": "next_step"
+              },
+              {
+                "label": "CBCT 3D scanning",
+                "href": "/treatments/cbct-3d-scanning",
+                "relationship": "prerequisite"
+              },
+              {
+                "label": "Implant aftercare",
+                "href": "/treatments/implant-aftercare",
+                "relationship": "maintenance"
+              },
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review metadata",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before publication",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA metadata",
+            "body": "Use the existing treatment CTA surfaces for appointment requests. Suitability and options are confirmed only after assessment.",
+            "ctas": [
+              {
+                "label": "Request a single-tooth implant assessment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "implants_multiple_teeth": {
       "id": "implants_multiple_teeth",
@@ -4289,7 +4482,205 @@
         }
       ],
       "surface": "champagne/surface/treatment",
-      "heroFamily": "treatments.implants"
+      "heroFamily": "treatments.implants",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "Multiple dental implants may replace several missing teeth with individual crowns or an implant-supported bridge when assessment confirms suitable health, bone, space, bite and maintenance capacity. The number and position of implants are planned after diagnostics, not promised online."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Multiple-tooth implant treatment uses one or more implant fixtures to support fixed replacement teeth. Planning considers the whole gap, the opposing bite, gum condition and whether a bridge, denture or staged approach is safer."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Adults missing several teeth who want to understand fixed and removable replacement options.",
+              "Patients able to maintain careful daily cleaning around implants and replacement teeth.",
+              "People whose oral health, bone levels, bite and medical history support implant treatment after assessment."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with active periodontal disease, untreated infection or unstable oral hygiene until these are managed.",
+              "People whose medical risks, smoking status, bone anatomy or bite forces make treatment less predictable.",
+              "Anyone expecting guaranteed fixed teeth before imaging, planning and consent have taken place."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can provide fixed replacement teeth for suitable gaps.",
+              "May improve chewing stability compared with some removable options.",
+              "Can be planned to distribute biting forces when implant positions and restoration design are appropriate."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Treatment may require more than one surgical and restorative stage.",
+              "Bone grafting, sinus assessment or provisional teeth may be needed in some cases.",
+              "Risks include infection, discomfort, implant non-integration, peri-implant inflammation, restoration fracture or loosening, gum changes, and anatomy-related complications that are reviewed during consent."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Conventional bridges may be suitable for some spaces if supporting teeth are appropriate.",
+              "Partial dentures can replace multiple teeth without implant surgery.",
+              "Implant-retained dentures or full-arch options may be discussed where the gap pattern is broader."
+            ],
+            "links": [
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dentures",
+                "href": "/treatments/dentures",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Implant-retained dentures",
+                "href": "/treatments/implant-retained-dentures",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Consultation to understand missing teeth, symptoms, expectations and medical history.",
+              "Examination, periodontal assessment, photographs, digital scans and CBCT imaging where indicated.",
+              "Discussion of fixed and removable options, staged sequencing, risks and written estimate.",
+              "Implant placement, healing reviews, prototype or provisional stages if required, final restoration and maintenance plan."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Multiple-tooth implant timelines vary more than single-tooth cases because healing, grafting needs, provisional teeth, implant numbers and laboratory stages differ. The sequence is confirmed after diagnostics and treatment planning."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Maintain daily cleaning under and around implant-supported teeth as instructed.",
+              "Attend hygiene appointments and implant reviews so inflammation or component issues can be identified early.",
+              "Avoid using implant restorations as tools and report changes in bite, looseness, swelling or bleeding promptly."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on the number of implants, diagnostic imaging, grafting or sinus needs, temporary teeth, component choices, bridge or crown design, laboratory stages and maintenance. A personalised written estimate follows assessment."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Planning, reviews and maintenance are coordinated through St Mary’s House Dental Care in Shoreham-by-Sea, which is important for multi-stage treatment that may need several visits."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses implant positions, restorative design, bite forces, gum health, medical history and maintenance needs before recommending a multiple-tooth implant plan."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used where relevant",
+            "items": [
+              "CBCT imaging to assess bone volume and nearby anatomy where indicated.",
+              "Digital scans and photographs to support restoration design and communication.",
+              "Guided planning may be used for selected cases where it supports safer positioning."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Do I need one implant for every missing tooth?",
+                "answer": "Not always. The plan depends on the gap, bone, bite and whether crowns, a bridge or another option is suitable."
+              },
+              {
+                "question": "Are fixed teeth always possible?",
+                "answer": "No. Fixed options require assessment of health, bone, anatomy, bite and maintenance factors."
+              },
+              {
+                "question": "Can a fee be confirmed before consultation?",
+                "answer": "Only general fee logic can be discussed before assessment; a written estimate follows diagnostics and planning."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Implant consultation",
+                "href": "/treatments/implant-consultation",
+                "relationship": "next_step"
+              },
+              {
+                "label": "Full-arch implants",
+                "href": "/treatments/implants-full-arch",
+                "relationship": "related"
+              },
+              {
+                "label": "Implant-retained dentures",
+                "href": "/treatments/implant-retained-dentures",
+                "relationship": "alternative"
+              },
+              {
+                "label": "CBCT 3D scanning",
+                "href": "/treatments/cbct-3d-scanning",
+                "relationship": "prerequisite"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review metadata",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before publication",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA metadata",
+            "body": "Use the existing treatment CTA surfaces for appointment requests. Suitability and options are confirmed only after assessment.",
+            "ctas": [
+              {
+                "label": "Request a multiple-tooth implant assessment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "implants_full_arch": {
       "id": "implants_full_arch",
@@ -4502,7 +4893,205 @@
         }
       ],
       "surface": "champagne/surface/treatment",
-      "heroFamily": "treatments.implants"
+      "heroFamily": "treatments.implants",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "An implant consultation is the assessment and planning appointment used to decide whether implant treatment may be suitable. It reviews dental health, medical history, goals, risks, alternatives, diagnostics and next steps before any treatment commitment."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "The consultation is not implant surgery. It is a structured clinical review that helps the clinician and patient decide whether implants, a bridge, dentures, no treatment or further stabilisation should be considered."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "People with one or more missing teeth who want to understand replacement options.",
+              "Patients who have been told a tooth may not be restorable and want to plan ahead.",
+              "Anyone considering implants who needs assessment-led advice before choosing treatment."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients seeking an online diagnosis or guaranteed treatment plan without examination.",
+              "People with urgent pain, swelling or trauma who may need an emergency dental appointment first.",
+              "Patients whose immediate priority is stabilising gum disease, decay or infection before implant planning."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Clarifies whether implant treatment should be investigated further.",
+              "Compares implants with non-implant alternatives before decisions are made.",
+              "Identifies likely diagnostics, risks, staged appointments and fee drivers early."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "A consultation may show implants are not suitable or that other dental care is needed first.",
+              "Further imaging or specialist planning may be required before a definitive plan can be issued.",
+              "Any later implant treatment still carries surgical, healing, maintenance and restoration risks that must be consented separately."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "A restorative consultation for bridges, crowns or dentures may be more appropriate for some goals.",
+              "Emergency or stabilisation care may be needed first for pain, infection or gum disease.",
+              "Some patients may choose no replacement after understanding the likely consequences."
+            ],
+            "links": [
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dentures",
+                "href": "/treatments/dentures",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Emergency dental appointments",
+                "href": "/treatments/emergency-dental-appointments",
+                "relationship": "related"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Discuss concerns, goals, dental history and medical history.",
+              "Examine teeth, gums, bite, missing-tooth spaces and oral health stability.",
+              "Review photographs, scans or CBCT imaging where clinically indicated.",
+              "Explain options, limitations, likely stages, maintenance needs and whether a written plan can be prepared."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "The consultation is an early planning step. If implant treatment is suitable, the overall timeline depends on diagnostics, stabilisation needs, extractions, healing, grafting, implant placement, restoration stages and review appointments."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Follow any stabilisation, hygiene or diagnostic recommendations given after the consultation.",
+              "Ask for clarification before proceeding if risks, alternatives or fees are unclear.",
+              "Keep review appointments if monitoring, periodontal care or treatment planning stages are advised."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Consultation and diagnostic fees are separate from any later implant treatment. Any implant estimate depends on assessment findings, imaging, number of implants, grafting needs, restorations and maintenance requirements."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Implant consultations are arranged through St Mary’s House Dental Care in Shoreham-by-Sea, with local follow-up useful for diagnostics, treatment planning and long-term maintenance discussions."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The consultation is clinician-led and considers restorative planning, gum health, medical history, imaging needs, consent, alternatives and maintenance rather than treating implants as a one-size-fits-all product."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used where relevant",
+            "items": [
+              "Digital photographs and scans may support assessment and communication.",
+              "CBCT imaging may be recommended when three-dimensional anatomy needs to be assessed.",
+              "Planning software and guided workflows may be discussed only if they are relevant to the case."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Will I get a final implant plan at the first consultation?",
+                "answer": "Sometimes more diagnostics or stabilisation are needed first, so a definitive plan may follow a later review."
+              },
+              {
+                "question": "Does a consultation mean I have to proceed?",
+                "answer": "No. The purpose is to understand suitability, options, risks and fees before deciding."
+              },
+              {
+                "question": "Can implants be guaranteed after assessment?",
+                "answer": "No. Assessment improves planning but cannot guarantee healing, integration or long-term outcomes."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Single-tooth dental implants",
+                "href": "/treatments/implants-single-tooth",
+                "relationship": "related"
+              },
+              {
+                "label": "Multiple teeth implant options",
+                "href": "/treatments/implants-multiple-teeth",
+                "relationship": "related"
+              },
+              {
+                "label": "Dental implants",
+                "href": "/treatments/implants",
+                "relationship": "related"
+              },
+              {
+                "label": "CBCT 3D scanning",
+                "href": "/treatments/cbct-3d-scanning",
+                "relationship": "prerequisite"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review metadata",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before publication",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA metadata",
+            "body": "Use the existing treatment CTA surfaces for appointment requests. Suitability and options are confirmed only after assessment.",
+            "ctas": [
+              {
+                "label": "Request an implant consultation",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "implants_bone_grafting": {
       "id": "implants_bone_grafting",
