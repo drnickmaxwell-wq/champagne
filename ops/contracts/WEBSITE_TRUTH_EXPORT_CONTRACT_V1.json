@@ -1,6 +1,6 @@
 {
   "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1",
-  "generatedAt": "2026-05-28T19:10:45.734Z",
+  "generatedAt": "2026-05-29T13:45:44.821Z",
   "purpose": "Champagne-side static website truth export contract for the frontier dominance agent repo.",
   "producer": {
     "repo": "drnickmaxwell-wq/champagne",
@@ -17,6 +17,7 @@
     "sitemap status",
     "robots status",
     "treatment manifest inventory",
+    "treatment answer-surface coverage and validation",
     "page text/page truth inventory",
     "internal link inventory if discoverable",
     "FAQ block inventory if discoverable",
@@ -63,6 +64,7 @@
     "sitemapStatus": "object",
     "robotsStatus": "object",
     "treatmentManifestInventory": "array",
+    "answerSurfaceCoverage": "object",
     "pageTextInventory": "object",
     "launchBlockersDetected": "array",
     "readyForLaunch": "boolean; expected false unless a separate launch audit proves otherwise",

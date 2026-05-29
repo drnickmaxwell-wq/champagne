@@ -14,6 +14,7 @@ import type {
   ChampagneStylesManifest,
   ChampagneHeroBinding,
 } from "./core";
+import type { TreatmentAnswerSurface } from "./answerSurface";
 import {
   champagneMachineManifest,
   champagneMediaDeckManifests,
@@ -169,6 +170,10 @@ function collectTreatmentEntries(): ChampagneTreatmentPage[] {
 
 export function getTreatmentPages(): ChampagneTreatmentPage[] {
   return collectTreatmentEntries();
+}
+
+export function getTreatmentAnswerSurface(slugOrPath: string): TreatmentAnswerSurface | undefined {
+  return getTreatmentManifest(slugOrPath)?.answerSurface;
 }
 
 export function getTreatmentManifest(slugOrPath: string): ChampagneTreatmentPage | undefined {

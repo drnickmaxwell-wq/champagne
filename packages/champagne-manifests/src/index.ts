@@ -63,6 +63,7 @@ export {
   getMediaDecks,
   getMediaDeck,
   getTreatmentManifest,
+  getTreatmentAnswerSurface,
   resolveTreatmentPathAlias,
   getTreatmentPages,
   getCTAIntentConfigForRoute,
@@ -75,5 +76,16 @@ export {
   type ChampagneTreatmentPage,
   type ChampagneCTAIntentConfig,
 } from "./helpers";
+export {
+  TREATMENT_ANSWER_SURFACE_REQUIRED_SECTION_IDS,
+  validateTreatmentAnswerSurface,
+  type TreatmentAnswerSurface,
+  type TreatmentAnswerSurfaceFaq,
+  type TreatmentAnswerSurfaceLink,
+  type TreatmentAnswerSurfaceSection,
+  type TreatmentAnswerSurfaceSectionId,
+  type TreatmentAnswerSurfaceStatus,
+  type TreatmentAnswerSurfaceValidationResult,
+} from "./answerSurface";
 export { useValidatedManifest } from "./useValidatedManifest";
 export type { ChampagneManifest, ChampagneSectionEntry } from "./types";
