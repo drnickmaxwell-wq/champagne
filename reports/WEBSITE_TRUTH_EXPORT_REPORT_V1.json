@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-29T15:27:08.594Z",
+  "generatedAt": "2026-05-29T16:09:19.789Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -6394,31 +6394,17 @@
       "sectionCount": 12,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -7144,31 +7130,17 @@
       "sectionCount": 12,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -7185,31 +7157,17 @@
       "sectionCount": 7,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -9423,13 +9381,12 @@
       "cta"
     ],
     "treatmentRouteCount": 78,
-    "frameworkPresentCount": 9,
-    "completeCount": 9,
+    "frameworkPresentCount": 12,
+    "completeCount": 12,
     "exampleSeedRoutes": [
       "/treatments/implants"
     ],
     "routesMissingAnswerSurface": [
-      "/treatments/clear-aligners",
       "/treatments/clear-aligners-spark",
       "/treatments/fixed-braces",
       "/treatments/dental-checkups-oral-cancer-screening",
@@ -9444,8 +9401,6 @@
       "/treatments/3d-implant-restorations",
       "/treatments/3d-printed-veneers",
       "/treatments/injection-moulded-composite",
-      "/treatments/dental-bridges",
-      "/treatments/dental-crowns",
       "/treatments/home-teeth-whitening",
       "/treatments/whitening-top-ups",
       "/treatments/whitening-sensitive-teeth",
@@ -9595,12 +9550,11 @@
         "pageId": "clear_aligners",
         "label": "Clear Aligners in Shoreham-by-Sea",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -9620,11 +9574,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -10385,12 +10346,11 @@
         "pageId": "dental_bridges",
         "label": "Dental bridges",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10410,11 +10370,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -10423,12 +10390,11 @@
         "pageId": "dental_crowns",
         "label": "Dental crowns",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10448,11 +10414,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -12529,7 +12502,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 831,
+    "count": 863,
     "links": [
       {
         "from": "/",
@@ -14806,6 +14779,72 @@
         "pointer": "/sections/11/ctas/3/href"
       },
       {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/clear-aligners-spark",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/fixed-braces",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/dental-retainers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/3/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/4/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/clear-aligners-spark",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/dental-retainers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/composite-bonding",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/treatments/digital-smile-design",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/4/href"
+      },
+      {
+        "from": "/treatments/clear-aligners",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/clear-aligners-spark",
         "to": "/treatments/clear-aligners-spark",
         "source": "machine_manifest_page",
@@ -15004,6 +15043,66 @@
         "pointer": "/sections/11/ctas/2/href"
       },
       {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/dental-crowns",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/inlays-onlays",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/3/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/dental-crowns",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/dental-fillings",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/treatments/periodontal-gum-care",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/4/href"
+      },
+      {
+        "from": "/treatments/dental-bridges",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/dental-checkups-oral-cancer-screening",
         "to": "/treatments/dental-checkups-oral-cancer-screening",
         "source": "machine_manifest_page",
@@ -15176,6 +15275,72 @@
         "to": "/treatments/peek-partial-dentures",
         "source": "machine_manifest_page",
         "pointer": "/sections/6/definition/items/8/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/inlays-onlays",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/dental-fillings",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/3/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/4/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/inlays-onlays",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/dental-fillings",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/endodontics-root-canal",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/treatments/tooth-wear-broken-teeth",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/4/href"
+      },
+      {
+        "from": "/treatments/dental-crowns",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
       },
       {
         "from": "/treatments/dental-fillings",
