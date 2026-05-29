@@ -2604,7 +2604,224 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "Clear aligners use a planned series of removable trays to move teeth gradually. Suitability depends on gum health, crowding or spacing complexity, bite, compliance with wear time, and clinical assessment; tooth movement and final outcome cannot be guaranteed."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Clear aligner treatment is an orthodontic option for selected patients. Digital scans and assessment help plan tooth movement, possible attachments, refinements and retention, but the plan must be checked against oral health, bite and realistic biological limits."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients with mild to moderate crowding, spacing or bite concerns where removable aligners are clinically suitable.",
+              "People with stable gum health who can wear aligners as instructed and attend reviews.",
+              "Patients planning cosmetic steps such as whitening or bonding who first need tooth position and bite assessed."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with active gum disease, untreated decay or unstable oral health until these are managed.",
+              "Complex bite, crowding, spacing or jaw relationship cases that may need fixed braces, specialist orthodontics or a different sequence.",
+              "People unlikely to wear aligners consistently, maintain cleaning, or use retainers after treatment."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Removable trays can make eating, brushing and interdental cleaning easier than fixed appliances for suitable patients.",
+              "Digital planning helps explain the intended sequence before treatment starts.",
+              "Can be coordinated with whitening, bonding, veneers or restorative planning when alignment first would be more conservative.",
+              "Retention planning is built into the pathway so results are supported after active movement."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Tooth movement is biological and depends on case complexity, gum and bone health, bite forces, attachments, refinements and compliance.",
+              "Aligners may cause temporary tenderness, speech changes, rubbing, tracking issues or the need for extra visits or refinements.",
+              "Some movements cannot be achieved predictably with aligners alone and may need alternatives.",
+              "Teeth can move again after treatment if retainers are not worn as advised."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Fixed braces or specialist orthodontics may be more appropriate for complex movement or bite correction.",
+              "Retainers may be suitable when the aim is to hold current tooth position rather than move teeth.",
+              "Composite bonding, whitening or veneers may help selected cosmetic concerns, but they do not replace orthodontic assessment.",
+              "No treatment may be reasonable where the concern is minor and risks or commitment outweigh benefits."
+            ],
+            "links": [
+              {
+                "label": "Spark Clear Aligners",
+                "href": "/treatments/clear-aligners-spark",
+                "relationship": "related"
+              },
+              {
+                "label": "Fixed braces",
+                "href": "/treatments/fixed-braces",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental retainers",
+                "href": "/treatments/dental-retainers",
+                "relationship": "maintenance"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Assess teeth, gums, bite, crowding, spacing, wear patterns, jaw comfort and expectations.",
+              "Take digital scans and clinical records where suitable to model possible tooth movement.",
+              "Discuss attachments, interproximal reduction if clinically appropriate, review intervals and possible refinements.",
+              "Provide aligners with fit checks, progress reviews and a retention plan once active treatment is complete."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Timeline varies with the amount and complexity of movement, oral health stabilisation, aligner wear, refinements and review findings. A realistic estimate is confirmed after assessment and digital planning rather than promised in advance."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Clean teeth and aligners carefully to reduce decay, staining and gum inflammation risk.",
+              "Wear aligners for the instructed time and contact the practice if trays stop fitting well.",
+              "Attend planned reviews so tracking, bite and gum health can be checked.",
+              "Wear retainers after treatment as advised because retention is essential to reduce relapse risk."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on assessment records, treatment complexity, aligner system, number of stages, review schedule, attachments, refinements and retainers. Written fees should be confirmed after clinical assessment and planning."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Clear aligner assessment, reviews, retention checks and related hygiene or cosmetic sequencing are coordinated from the Shoreham-by-Sea practice so the plan stays connected to ongoing care."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses gum health, bite, tooth wear, crowding, spacing, restorative needs and retention risk before recommending aligners or a safer alternative."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Digital scans to record tooth position and support aligner planning.",
+              "Clinical photography and bite assessment to communicate goals and limitations.",
+              "Aligner planning software, attachments and retainers selected according to the assessed case."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Are clear aligners suitable for everyone?",
+                "answer": "No. Suitability depends on gum health, bite, movement complexity, oral hygiene, compliance and clinical assessment."
+              },
+              {
+                "question": "Will aligners guarantee straight teeth?",
+                "answer": "No. Movement depends on biology, planning, fit, wear time and refinements; outcomes cannot be guaranteed."
+              },
+              {
+                "question": "Do I need retainers after clear aligners?",
+                "answer": "Yes. Retention is normally needed after active movement because teeth can drift without retainers."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Spark Clear Aligners",
+                "href": "/treatments/clear-aligners-spark",
+                "relationship": "related"
+              },
+              {
+                "label": "Dental retainers",
+                "href": "/treatments/dental-retainers",
+                "relationship": "maintenance"
+              },
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "related"
+              },
+              {
+                "label": "Composite bonding",
+                "href": "/treatments/composite-bonding",
+                "relationship": "related"
+              },
+              {
+                "label": "Digital Smile Design",
+                "href": "/treatments/digital-smile-design",
+                "relationship": "related"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before launch",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA",
+            "body": "Request a clear aligner assessment to confirm suitability, alternatives, likely sequence, retention and fees before deciding.",
+            "ctas": [
+              {
+                "label": "Start your aligner consultation",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "clear_aligners_spark": {
       "id": "clear_aligners_spark",
@@ -6731,7 +6948,219 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "A dental bridge is a fixed replacement for one or more missing teeth that uses support teeth or other retainers to hold the replacement in place. Suitability depends on support teeth, bite, gum health, span length, hygiene access and assessment; lifespan cannot be guaranteed."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Bridge treatment replaces missing teeth with a fixed restoration. Designs vary, including conventional bridges supported by crowned teeth and adhesive bridges bonded to selected teeth, so assessment is needed to balance function, appearance, cleaning and long-term risk."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients with missing teeth where neighbouring support teeth, gums and bite are suitable for a fixed bridge.",
+              "People who prefer a fixed option but are not suitable for, or do not choose, an implant after assessment.",
+              "Patients able to clean under and around a bridge and attend maintenance reviews."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with weak support teeth, active decay, gum disease or poor hygiene access until these are addressed.",
+              "Long spans, heavy bite forces or clenching cases where the load on support teeth may be too high.",
+              "Situations where an implant, denture, adhesive bridge or no replacement may carry a better risk balance."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can provide a fixed tooth replacement without removable denture plates in suitable cases.",
+              "Can restore appearance, speech and chewing support where missing teeth affect function.",
+              "May be planned alongside crowns if neighbouring teeth already need protection.",
+              "Adhesive designs can be more conservative in selected cases where support and bite allow."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Support teeth carry extra load and can develop decay, gum problems, sensitivity or nerve issues.",
+              "Cleaning access under a bridge is essential; poor hygiene increases decay and gum risk around support teeth.",
+              "Bridges can debond, fracture, chip, loosen or require repair or replacement over time.",
+              "Long spans, bite forces and support-tooth condition can limit predictability."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Dental implants may replace missing teeth without using neighbouring teeth where suitable.",
+              "Dentures can replace one or more missing teeth and may be preferable when support teeth or span length make a fixed bridge less suitable.",
+              "Adhesive bridges may be an option for selected spaces with favourable bite and enamel.",
+              "No replacement may be reasonable in some cases if risks of treatment outweigh expected benefit."
+            ],
+            "links": [
+              {
+                "label": "Dental implants",
+                "href": "/treatments/implants",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dentures",
+                "href": "/treatments/dentures",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental crowns",
+                "href": "/treatments/dental-crowns",
+                "relationship": "related"
+              },
+              {
+                "label": "Inlays & onlays",
+                "href": "/treatments/inlays-onlays",
+                "relationship": "related"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Assess the missing-tooth space, support teeth, gums, bite, X-rays where appropriate and cleaning access.",
+              "Compare bridge designs with implants, dentures, adhesive bridges and no replacement where clinically relevant.",
+              "Prepare support teeth only when required, record scans or impressions, and provide provisional protection if needed.",
+              "Fit the bridge after checking bite, contacts, margins, appearance and instructions for cleaning underneath."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Timeline depends on support-tooth health, gum stabilisation, whether crowns or root treatment are needed, laboratory stages and review findings. A sequence is confirmed after assessment and treatment planning."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Clean under the bridge daily using the recommended floss, interdental brushes or aids.",
+              "Keep hygiene and dental reviews so support teeth, gums, margins and bite can be monitored.",
+              "Avoid biting hard objects and use bite protection if recommended for clenching or grinding.",
+              "Arrange review if the bridge feels loose, high, sensitive, chipped or difficult to clean."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on bridge design, number of missing teeth, support-tooth condition, materials, laboratory workflow, provisional stages and any related treatment such as crowns, fillings or root canal treatment. Written fees follow assessment."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Bridge assessment, planning, fitting and maintenance are coordinated from the Shoreham-by-Sea practice, with hygiene support and reviews built around the same restorative plan."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses support teeth, span length, gum health, bite forces, cleaning access and replacement options before recommending a bridge design or an alternative."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Digital scans or impressions to plan bridge shape, contacts and bite.",
+              "X-rays where appropriate to assess support teeth, roots, decay and bone levels.",
+              "Laboratory-made restorations, adhesive protocols and hygiene aids selected according to the case."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "How long does a dental bridge last?",
+                "answer": "No lifespan can be guaranteed. Longevity depends on support teeth, gum health, bite, hygiene, material, habits and maintenance."
+              },
+              {
+                "question": "Can a bridge damage support teeth?",
+                "answer": "Support teeth carry extra load and can be at risk of decay, gum problems or nerve issues, which is why assessment and cleaning access matter."
+              },
+              {
+                "question": "Is a bridge better than an implant?",
+                "answer": "Not always. The right option depends on bone, support teeth, gum health, bite, span length, medical history, preferences and assessment."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Dental crowns",
+                "href": "/treatments/dental-crowns",
+                "relationship": "related"
+              },
+              {
+                "label": "Dental implants",
+                "href": "/treatments/implants",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dentures",
+                "href": "/treatments/dentures",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental fillings",
+                "href": "/treatments/dental-fillings",
+                "relationship": "related"
+              },
+              {
+                "label": "Periodontal gum care",
+                "href": "/treatments/periodontal-gum-care",
+                "relationship": "prerequisite"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before launch",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA",
+            "body": "Book a bridge assessment to compare fixed and removable replacement options, support-tooth risks, likely sequence and written fees before deciding.",
+            "ctas": [
+              {
+                "label": "Book a bridge consultation",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "dental_crowns": {
       "id": "dental_crowns",
@@ -6879,7 +7308,224 @@
           }
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "A dental crown is a protective restoration that covers a weakened or heavily restored tooth. Suitability depends on remaining tooth structure, bite, nerve health, cracks, decay, gum health and clinical assessment; lifespan cannot be guaranteed."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Crowns restore strength, shape and function by covering the visible part of a tooth. They may be considered after large fillings, cracks, tooth wear or root canal treatment, but more conservative options are considered first where clinically appropriate."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients with weakened, cracked, heavily filled or worn teeth that need fuller coverage after assessment.",
+              "Teeth that have had root canal treatment and require protection because of remaining tooth structure and bite forces.",
+              "Patients who can maintain margins and gum health with daily cleaning and reviews."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Teeth with insufficient remaining structure, uncontrolled decay or poor gum health until stabilised or reassessed.",
+              "Teeth with uncertain nerve health, deep cracks or infection where root canal treatment, extraction or staged care may be needed.",
+              "Patients whose bite, grinding or habits make a crown less predictable unless protection is planned."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can protect weakened tooth structure and restore chewing function in suitable cases.",
+              "Can improve shape, contour and appearance while respecting bite and gum health.",
+              "Digital scans can help plan contacts, margins and opposing bite before fitting.",
+              "May be part of a broader restorative plan with root canal treatment, onlays, bridges or implants where appropriate."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Sensitivity can occur after preparation or fitting, and some teeth may later need root canal treatment.",
+              "Crowns can chip, fracture, debond, loosen, decay at margins or need repair or replacement over time.",
+              "Deep cracks, limited tooth structure, gum problems or heavy bite forces can reduce predictability.",
+              "No restoration lasts forever, so ongoing hygiene, reviews and bite protection may be needed."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Onlays or inlays may preserve more tooth structure where fuller coverage is not needed.",
+              "Fillings may be suitable for smaller defects if enough tooth remains.",
+              "Veneers may be considered for selected cosmetic front-tooth concerns where strength is not the main issue.",
+              "Extraction with implant, bridge or denture options may be discussed if the tooth cannot be predictably restored."
+            ],
+            "links": [
+              {
+                "label": "Inlays & onlays",
+                "href": "/treatments/inlays-onlays",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental fillings",
+                "href": "/treatments/dental-fillings",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental implants",
+                "href": "/treatments/implants",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Assess decay, cracks, existing restorations, gum health, bite, nerve health and X-rays where appropriate.",
+              "Discuss whether a filling, onlay, crown, root canal treatment or extraction route is safer.",
+              "Prepare the tooth only as required, record the shape digitally or with impressions, and protect the tooth while the crown is made if needed.",
+              "Fit the crown after checking margins, contacts, bite, comfort and cleaning access."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "body": "Timeline depends on diagnosis, whether decay or nerve treatment is needed, laboratory workflow, provisional stages and review findings. The sequence is confirmed after assessment rather than assumed from the requested restoration."
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Brush and clean interdentally around crown margins every day.",
+              "Attend hygiene and dental reviews to monitor gums, bite, margins and underlying tooth health.",
+              "Avoid using crowns to bite hard objects and use a night guard if recommended for clenching or grinding.",
+              "Seek review if the crown feels high, loose, sensitive, chipped or uncomfortable."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on assessment, tooth complexity, material, laboratory workflow, provisional restoration, whether root canal or core build-up is required, and any bite protection. Written fees should follow diagnosis and treatment planning."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham-by-Sea context",
+            "body": "Crown assessment, digital scans, fitting and maintenance are coordinated from the Shoreham-by-Sea practice so repair planning, hygiene care and review appointments remain connected."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses remaining tooth structure, cracks, nerve status, gum condition, bite forces and cleaning access before recommending a crown or a more conservative or replacement option."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Digital scans and clinical photography to support crown planning and communication.",
+              "X-rays where appropriate to assess decay, roots, margins and nerve health.",
+              "Material selection, laboratory workflows and bite protection chosen according to the clinical case."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "How long will a crown last?",
+                "answer": "No lifespan can be guaranteed. Longevity depends on tooth structure, bite, hygiene, gum health, material, habits and maintenance."
+              },
+              {
+                "question": "Can a crowned tooth need root canal treatment?",
+                "answer": "Yes. Some teeth become sensitive or develop nerve problems before or after crown treatment, so root canal treatment may be needed."
+              },
+              {
+                "question": "Is a crown always better than an onlay or filling?",
+                "answer": "No. The most appropriate option depends on remaining tooth structure, cracks, decay, bite and assessment."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "related"
+              },
+              {
+                "label": "Inlays & onlays",
+                "href": "/treatments/inlays-onlays",
+                "relationship": "related"
+              },
+              {
+                "label": "Dental fillings",
+                "href": "/treatments/dental-fillings",
+                "relationship": "related"
+              },
+              {
+                "label": "Endodontics / root canal",
+                "href": "/treatments/endodontics-root-canal",
+                "relationship": "prerequisite"
+              },
+              {
+                "label": "Tooth wear and broken teeth",
+                "href": "/treatments/tooth-wear-broken-teeth",
+                "relationship": "related"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before launch",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA",
+            "body": "Book an assessment to confirm whether a crown, onlay, filling or replacement option is appropriate and to receive written fees after diagnosis.",
+            "ctas": [
+              {
+                "label": "Book a crown appointment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "whitening_hub": {
       "id": "whitening_hub",
