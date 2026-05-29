@@ -5516,7 +5516,216 @@
         }
       ],
       "surface": "champagne/surface/treatment",
-      "heroFamily": "treatments.implants"
+      "heroFamily": "treatments.implants",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "Implant aftercare is the planned support and maintenance that follows implant placement or restoration. It helps patients understand normal healing, review appointments, hygiene steps and risk factors, but it cannot diagnose individual problems remotely or guarantee that an implant will last for life."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "This is follow-up care for dental implants and implant-supported teeth. It may include healing reviews, hygiene advice, bite checks, maintenance planning, and assessment if an implant, gum tissue or restoration feels uncomfortable or changes over time."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients who have recently had implant surgery and need clear recovery guidance.",
+              "Patients with implant crowns, bridges or implant-retained dentures who need routine maintenance.",
+              "People with implant-related concerns who need a clinical review rather than online diagnosis."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with severe swelling, spreading infection, uncontrolled bleeding, trauma or acute pain may need urgent dental or medical advice first.",
+              "People seeking a remote diagnosis or a guaranteed reassurance without examination and appropriate tests.",
+              "Patients whose implants were placed elsewhere may still be reviewed, but records, imaging and a full assessment may be needed before advice is specific."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Helps patients understand what is expected during healing and what should be checked.",
+              "Supports plaque control and gum health around implant surfaces.",
+              "Allows risk factors such as smoking, medical history, bite forces and maintenance access to be reviewed in general clinical context.",
+              "Can identify restorative issues such as loosening, wear or discomfort that need assessment."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Implants need ongoing maintenance; no implant treatment can be promised to last for life.",
+              "Inflammation, infection, bone loss, loosening, fracture, bite overload or gum changes can occur and need clinical assessment.",
+              "Smoking, some medical factors, oral hygiene challenges and missed maintenance may increase risk in general terms.",
+              "Written guidance is not a substitute for diagnosis when symptoms are changing, severe or persistent."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "For a painful or failing implant, options depend on assessment and may include monitoring, hygiene therapy, restorative repair, removal, replacement planning or non-implant alternatives.",
+              "For missing teeth, bridges, removable dentures or leaving a space may be discussed where appropriate.",
+              "For urgent symptoms, an emergency dental appointment may be the safer first step."
+            ],
+            "links": [
+              {
+                "label": "Failed implant replacement",
+                "href": "/treatments/failed-implant-replacement",
+                "relationship": "related"
+              },
+              {
+                "label": "Dental bridges",
+                "href": "/treatments/dental-bridges",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dentures",
+                "href": "/treatments/dentures",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Review symptoms, healing stage, medical history and any instructions already given.",
+              "Examine the implant area, gum tissues, bite and restoration where clinically indicated.",
+              "Use radiographs, scans or hygiene measurements only where needed for assessment.",
+              "Agree maintenance, hygiene support, review timing or further treatment steps based on findings."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "items": [
+              "Early recovery is usually reviewed according to the treatment plan and healing response.",
+              "Restoration timing varies depending on implant stability, bone/gum healing, grafting and the type of tooth replacement.",
+              "Long-term maintenance is ongoing and usually includes regular dental and hygiene reviews at intervals set after assessment."
+            ]
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Follow the written instructions given for cleaning, diet, medication and activity after surgery.",
+              "Keep the implant area clean using the tools and technique recommended by the clinical team.",
+              "Attend planned reviews even if the area feels comfortable.",
+              "Seek assessment if swelling, bleeding, pain, looseness, bite changes or discharge are concerning or not settling."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on the type of review, diagnostics, hygiene support, restoration repair, replacement components and whether further treatment is needed. Precise costs should only be confirmed after assessment and an agreed plan."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham context",
+            "body": "Implant aftercare is provided from the Shoreham-by-Sea practice for local patients who need review, maintenance planning or reassurance after implant treatment. Patients from nearby areas can use the same assessment-led pathway without changing the clinical decision process."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "Implant aftercare is handled by the dental team with assessment of gum health, bite, restorations, hygiene access and relevant risk factors. Advice is kept specific to the findings recorded at the appointment rather than offered as remote diagnosis."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Clinical examination and periodontal or implant maintenance measurements where appropriate.",
+              "Dental radiographs or CBCT referral/use only when indicated for implant assessment.",
+              "Digital records, photographs or scans may be used to monitor restorations, bite and soft-tissue changes."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Do dental implants last for life?",
+                "answer": "No lifelong guarantee should be assumed. Implants can last for many years for some patients, but they need maintenance and can develop biological or mechanical complications."
+              },
+              {
+                "question": "Can you tell me online if my implant is failing?",
+                "answer": "No. Symptoms such as pain, swelling, looseness or bleeding need clinical assessment before a diagnosis or treatment plan can be given."
+              },
+              {
+                "question": "How often should implants be checked?",
+                "answer": "Review intervals depend on your risk factors, oral hygiene, gum health, restoration design and clinical findings. The dental team will advise after assessment."
+              },
+              {
+                "question": "Does smoking or medical history matter?",
+                "answer": "These factors can affect healing and long-term risk in general terms, so they should be discussed honestly during implant reviews."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Dental implants",
+                "href": "/treatments/implants",
+                "relationship": "related"
+              },
+              {
+                "label": "Implant consultation",
+                "href": "/treatments/implant-consultation",
+                "relationship": "next_step"
+              },
+              {
+                "label": "Failed implant replacement",
+                "href": "/treatments/failed-implant-replacement",
+                "relationship": "related"
+              },
+              {
+                "label": "Periodontal gum care",
+                "href": "/treatments/periodontal-gum-care",
+                "relationship": "maintenance"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review metadata",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before publication",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA metadata",
+            "body": "Use the existing treatment CTA surfaces for appointment requests. Patients with urgent or worsening symptoms should request an appropriate clinical assessment rather than relying on general aftercare information.",
+            "ctas": [
+              {
+                "label": "Request an implant aftercare review",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "surgically_guided_implants": {
       "id": "surgically_guided_implants",
@@ -5906,7 +6115,228 @@
           ]
         }
       ],
-      "surface": "champagne/surface/treatment"
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "version": "TREATMENT_ANSWER_SURFACE_V1",
+        "status": "ready_for_clinical_review",
+        "primaryGeography": "Shoreham-by-Sea",
+        "secondaryGeographies": [
+          "Brighton",
+          "Worthing",
+          "Lancing",
+          "Southwick"
+        ],
+        "sections": [
+          {
+            "id": "direct_answer",
+            "heading": "Direct answer",
+            "body": "Composite bonding is a conservative cosmetic dental treatment that adds tooth-coloured resin to improve shape, edges, small gaps or minor chips. Suitability depends on assessment of bite, enamel, gum health, habits and expectations; it is not suitable for everyone and does not guarantee a perfect smile."
+          },
+          {
+            "id": "what_this_treatment_is",
+            "heading": "What this treatment is",
+            "body": "Bonding uses layered composite resin placed directly onto teeth and polished to blend with the surrounding smile. It often involves little or no drilling, but the result depends on tooth condition, shade, bite forces and maintenance."
+          },
+          {
+            "id": "who_it_is_for",
+            "heading": "Who it is for",
+            "items": [
+              "Patients wanting measured refinement of tooth shape, small spaces, worn edges or minor chips.",
+              "People with stable gum health and enough suitable enamel for bonding after assessment.",
+              "Patients who understand that composite can stain, chip or wear and may need polishing, repair or replacement over time."
+            ]
+          },
+          {
+            "id": "who_it_may_not_be_suitable_for",
+            "heading": "Who it may not be suitable for",
+            "items": [
+              "Patients with active gum disease, untreated decay or unstable oral health until these are managed.",
+              "People with heavy bite forces, clenching, grinding, edge-to-edge bites or habits that make bonding less predictable unless protection or alternatives are planned.",
+              "Patients seeking major colour, position or shape changes that may be better served by whitening, orthodontics, veneers, crowns or onlays."
+            ]
+          },
+          {
+            "id": "benefits",
+            "heading": "Benefits",
+            "items": [
+              "Can refine shape and repair small defects with a tooth-preserving approach.",
+              "May be completed more quickly than laboratory-made restorations in suitable cases.",
+              "Can be repaired or polished when small chips, staining or surface roughness occur.",
+              "Can be combined with whitening or aligner planning when that creates a safer, more conservative result."
+            ]
+          },
+          {
+            "id": "risks_and_limitations",
+            "heading": "Risks and limitations",
+            "items": [
+              "Composite is not as stain-resistant or wear-resistant as porcelain and may need maintenance.",
+              "Chipping, debonding, staining, roughness or marginal changes can occur, especially with high bite forces or habits.",
+              "Bonding cannot reliably correct every crowding, bite, colour or tooth-structure problem.",
+              "Final shade and shape depend on assessment, material limits and realistic expectations rather than a guaranteed perfect result."
+            ]
+          },
+          {
+            "id": "alternatives",
+            "heading": "Alternatives",
+            "items": [
+              "Whitening may be recommended first when colour is the main concern.",
+              "Clear aligners or orthodontics may be safer when tooth position or bite is the main issue.",
+              "Porcelain veneers or 3D printed veneers may be considered for larger aesthetic changes where appropriate.",
+              "Crowns or onlays may be needed for weakened, heavily restored or fractured teeth rather than additive bonding alone."
+            ],
+            "links": [
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Clear aligners",
+                "href": "/treatments/clear-aligners",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Dental crowns",
+                "href": "/treatments/dental-crowns",
+                "relationship": "alternative"
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "heading": "Process",
+            "items": [
+              "Assess teeth, gums, bite, enamel, shade, habits and the changes requested.",
+              "Discuss whether whitening, orthodontics or stabilisation should happen before bonding.",
+              "Use photographs, scans, mock-ups or shade planning where helpful.",
+              "Place, shape and polish composite in controlled layers, then review maintenance advice."
+            ]
+          },
+          {
+            "id": "timeline",
+            "heading": "Timeline",
+            "items": [
+              "Assessment and planning happen before treatment is agreed.",
+              "Whitening, gum care or aligner treatment may add time if recommended first.",
+              "Simple bonding may be completed in one appointment or staged across appointments depending on tooth number and complexity.",
+              "Review, polishing or repair intervals depend on wear, staining and clinical findings."
+            ]
+          },
+          {
+            "id": "aftercare",
+            "heading": "Aftercare",
+            "items": [
+              "Maintain careful brushing, interdental cleaning and regular hygiene visits.",
+              "Limit habits that can chip or stain composite, such as biting hard objects or frequent staining drinks without cleaning routines.",
+              "Use a night guard if recommended for clenching or grinding.",
+              "Return for polishing or assessment if edges feel rough, stained, loose or chipped."
+            ]
+          },
+          {
+            "id": "cost_fee_logic",
+            "heading": "Cost and fee logic",
+            "body": "Fees depend on the number of teeth, complexity, planning records, mock-ups, whether whitening or aligners are needed first, and the level of finishing or review required. Precise pricing should be confirmed only after assessment and a written plan."
+          },
+          {
+            "id": "local_shoreham_context",
+            "heading": "Local Shoreham context",
+            "body": "Composite bonding is planned at the Shoreham-by-Sea practice with assessment-led advice for local patients considering conservative cosmetic dentistry. Nearby patients may also attend, but the primary pathway remains clinical suitability rather than location-based promotion."
+          },
+          {
+            "id": "clinician_expertise",
+            "heading": "Clinician expertise",
+            "body": "The clinical team assesses enamel, bite, gum health, shade, smile goals and maintenance risk before recommending bonding. Where another option is safer or more predictable, that should be explained before treatment is chosen."
+          },
+          {
+            "id": "technology_used",
+            "heading": "Technology used",
+            "items": [
+              "Clinical photographs and shade assessment to plan blending and finishing.",
+              "Digital scans or mock-ups where they help preview proposed changes.",
+              "Layered composite materials, curing lights and polishing systems selected according to the case."
+            ]
+          },
+          {
+            "id": "faq",
+            "heading": "FAQ",
+            "faqs": [
+              {
+                "question": "Is composite bonding suitable for everyone?",
+                "answer": "No. Suitability depends on bite, enamel, gum health, habits, tooth condition and expectations, all of which require assessment."
+              },
+              {
+                "question": "Will bonding give me a perfect smile?",
+                "answer": "No treatment should be promised as perfect. Bonding can improve selected concerns, but material limits, tooth position, bite and maintenance affect the result."
+              },
+              {
+                "question": "Should I whiten before composite bonding?",
+                "answer": "Sometimes. If you want a lighter shade, whitening may be recommended before bonding because composite does not whiten like natural enamel."
+              },
+              {
+                "question": "How long does composite bonding last?",
+                "answer": "Longevity varies. Composite can stain, chip or wear and may need polishing, repair or replacement depending on habits, bite and maintenance."
+              }
+            ]
+          },
+          {
+            "id": "related_treatments_internal_links",
+            "heading": "Related treatments and internal links",
+            "links": [
+              {
+                "label": "Injection moulded composite",
+                "href": "/treatments/injection-moulded-composite",
+                "relationship": "related"
+              },
+              {
+                "label": "Teeth whitening",
+                "href": "/treatments/teeth-whitening",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Clear aligners",
+                "href": "/treatments/clear-aligners",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Veneers",
+                "href": "/treatments/veneers",
+                "relationship": "alternative"
+              },
+              {
+                "label": "Tooth wear and broken teeth",
+                "href": "/treatments/tooth-wear-broken-teeth",
+                "relationship": "related"
+              }
+            ]
+          },
+          {
+            "id": "last_reviewed_clinical_review",
+            "heading": "Last reviewed and clinical review metadata",
+            "review": {
+              "lastReviewed": "2026-05-29",
+              "clinicalReviewer": "Clinical review required before publication",
+              "nextReviewDue": "2026-11-29"
+            }
+          },
+          {
+            "id": "cta",
+            "heading": "CTA metadata",
+            "body": "Use the existing treatment CTA surfaces for appointment requests. Treatment suitability, alternatives and fees should be confirmed after assessment before bonding is planned.",
+            "ctas": [
+              {
+                "label": "Request a composite bonding assessment",
+                "href": "/contact",
+                "relationship": "next_step"
+              }
+            ]
+          }
+        ]
+      }
     },
     "injection_moulded_composite": {
       "id": "injection_moulded_composite",

@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-29T14:28:01.074Z",
+  "generatedAt": "2026-05-29T15:00:58.134Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -6940,31 +6940,17 @@
       "sectionCount": 11,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -7104,31 +7090,17 @@
       "sectionCount": 12,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "ready_for_clinical_review",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -9493,8 +9465,8 @@
       "cta"
     ],
     "treatmentRouteCount": 78,
-    "frameworkPresentCount": 4,
-    "completeCount": 4,
+    "frameworkPresentCount": 6,
+    "completeCount": 6,
     "exampleSeedRoutes": [
       "/treatments/implants"
     ],
@@ -9511,11 +9483,9 @@
       "/treatments/teeth-in-a-day",
       "/treatments/sedation-for-implants",
       "/treatments/failed-implant-replacement",
-      "/treatments/implant-aftercare",
       "/treatments/surgically-guided-implants",
       "/treatments/3d-implant-restorations",
       "/treatments/3d-printed-veneers",
-      "/treatments/composite-bonding",
       "/treatments/injection-moulded-composite",
       "/treatments/dental-bridges",
       "/treatments/dental-crowns",
@@ -10214,12 +10184,11 @@
         "pageId": "implants_aftercare",
         "label": "Implant aftercare & recovery in Shoreham-by-Sea",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10239,11 +10208,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -10366,12 +10342,11 @@
         "pageId": "composite_bonding",
         "label": "Composite bonding",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "ready_for_clinical_review",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -10391,11 +10366,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -12574,7 +12556,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 787,
+    "count": 805,
     "links": [
       {
         "from": "/",
@@ -14923,6 +14905,66 @@
         "pointer": "/sections/11/ctas/3/href"
       },
       {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/clear-aligners",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/dental-crowns",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/3/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/injection-moulded-composite",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/teeth-whitening",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/clear-aligners",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/veneers",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/treatments/tooth-wear-broken-teeth",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/4/href"
+      },
+      {
+        "from": "/treatments/composite-bonding",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
         "from": "/treatments/cosmetic-dentistry",
         "to": "/treatments/cosmetic-dentistry",
         "source": "machine_manifest_page",
@@ -15761,6 +15803,54 @@
         "to": "/treatments/implant-retained-dentures",
         "source": "machine_manifest_page",
         "pointer": "/sections/10/ctas/2/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/failed-implant-replacement",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/0/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/dental-bridges",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/1/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/6/links/2/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/implant-consultation",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/failed-implant-replacement",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/treatments/periodontal-gum-care",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/implant-aftercare",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
       },
       {
         "from": "/treatments/implant-consultation",
