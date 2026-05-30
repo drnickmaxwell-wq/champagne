@@ -1,0 +1,49 @@
+{
+  "version": "CHAMPAGNE_MANIFEST_IMPLEMENTATION_BRIDGE_V1",
+  "generatedAt": "2026-05-30T05:40:38.037Z",
+  "purpose": "Audit/planning bridge between governed content briefs and Champagne's manifest/page-builder/section architecture. This file does not authorize route creation, launch, deploy, or content rewrites.",
+  "requiredReports": [
+    "reports/CHAMPAGNE_MANIFEST_IMPLEMENTATION_BRIDGE_REPORT_V1.json",
+    "reports/PAGE_BRIEF_TO_MANIFEST_MAPPING_V1.json",
+    "reports/SECTION_KIND_COMPATIBILITY_MATRIX_V1.json",
+    "reports/NEW_PAGE_IMPLEMENTATION_READINESS_REPORT_V1.json"
+  ],
+  "safety": {
+    "noNewPublicPagesCreated": true,
+    "noLaunchReadinessClaim": true,
+    "noMutationDeployMergeAuthority": true,
+    "noDuplicateRouteFamilies": true,
+    "noDoorwayLocalSpam": true,
+    "preserveManifestDrivenArchitecture": true,
+    "preserveSectionDrivenArchitecture": true,
+    "heroBehaviorChanged": false,
+    "visualDesignChanged": false,
+    "phiPmsPatientWorkflowsTouched": false
+  },
+  "requiredFieldsPerGeneratedBriefRoute": [
+    "canImplementWithCurrentManifest",
+    "canonicalRoute",
+    "requiredManifestFamily",
+    "requiredSectionKinds",
+    "missingSectionKinds",
+    "requiredSchemaTypes",
+    "requiredTruthExportFields",
+    "requiredGuards",
+    "implementationRisk",
+    "recommendation"
+  ],
+  "allowedRecommendations": [
+    "implement_now",
+    "needs_framework",
+    "needs_guard",
+    "do_not_create"
+  ],
+  "launchSafetyRules": {
+    "neverClaimLaunchCertification": true,
+    "noPublicRoutesInBridgeMission": true,
+    "preserveManifestDrivenArchitecture": true,
+    "preserveSectionDrivenArchitecture": true,
+    "noDoorwayLocalSpam": true,
+    "noDuplicateRouteFamilies": true
+  }
+}

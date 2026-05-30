@@ -1,0 +1,185 @@
+{
+  "version": "SECTION_KIND_COMPATIBILITY_MATRIX_V1",
+  "generatedAt": "2026-05-30T05:40:38.037Z",
+  "purpose": "Audit existing section-kind compatibility for governed high-ROI page briefs without creating routes or content.",
+  "evidence": {
+    "sectionRegistry": "packages/champagne-sections/src/SectionRegistry.ts",
+    "sectionRenderer": "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+    "detectedKinds": [
+      "text",
+      "media",
+      "features",
+      "routing_cards",
+      "treatment_overview_rich",
+      "treatment_media_feature",
+      "treatment_tools_trio",
+      "clinician_insight",
+      "patient_stories_rail",
+      "people_grid",
+      "treatment_mid_cta",
+      "treatment_faq_block",
+      "treatment_closing_cta",
+      "reviews",
+      "treatment_answer_surface"
+    ],
+    "rendererHasTypeMap": true
+  },
+  "requirements": [
+    {
+      "requirement": "direct answer",
+      "currentSupport": "partial",
+      "compatibleSectionKinds": [
+        "treatment_answer_surface",
+        "text",
+        "treatment_overview_rich"
+      ],
+      "currentLimitations": [
+        "treatment_answer_surface is named, ordered, validated, and guarded as treatment-only",
+        "No generalized page-answer surface renderer exists for concerns/compare/costs/guides"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface"
+      ]
+    },
+    {
+      "requirement": "clinical reassurance",
+      "currentSupport": "true",
+      "compatibleSectionKinds": [
+        "clinician_insight",
+        "features",
+        "treatment_overview_rich",
+        "text"
+      ],
+      "currentLimitations": [
+        "Treatment naming is embedded in some section kinds but content can be manifest-driven"
+      ],
+      "missingSectionKinds": []
+    },
+    {
+      "requirement": "comparison table",
+      "currentSupport": "partial",
+      "compatibleSectionKinds": [
+        "features",
+        "routing_cards",
+        "text"
+      ],
+      "currentLimitations": [
+        "No explicit comparison/table schema or table renderer is registered",
+        "Feature lists can approximate cards but not governed comparison tables"
+      ],
+      "missingSectionKinds": [
+        "comparison_table"
+      ]
+    },
+    {
+      "requirement": "cost/fee logic",
+      "currentSupport": "partial",
+      "compatibleSectionKinds": [
+        "treatment_answer_surface",
+        "features",
+        "text"
+      ],
+      "currentLimitations": [
+        "answerSurface has cost_fee_logic but it is treatment-only",
+        "No governed fee-grid/cost-explainer kind for non-treatment cost pages"
+      ],
+      "missingSectionKinds": [
+        "cost_fee_logic",
+        "fee_grid"
+      ]
+    },
+    {
+      "requirement": "FAQ",
+      "currentSupport": "true",
+      "compatibleSectionKinds": [
+        "treatment_faq_block",
+        "text"
+      ],
+      "currentLimitations": [
+        "Registered FAQ renderer is treatment-named but can render manifest FAQ arrays"
+      ],
+      "missingSectionKinds": []
+    },
+    {
+      "requirement": "related treatments",
+      "currentSupport": "true",
+      "compatibleSectionKinds": [
+        "routing_cards",
+        "treatment_mid_cta",
+        "treatment_closing_cta"
+      ],
+      "currentLimitations": [
+        "CTA relation/canonical checks are treatment-oriented and may need generalized route relation rules for non-treatment destinations"
+      ],
+      "missingSectionKinds": []
+    },
+    {
+      "requirement": "CTA",
+      "currentSupport": "true",
+      "compatibleSectionKinds": [
+        "treatment_mid_cta",
+        "treatment_closing_cta"
+      ],
+      "currentLimitations": [
+        "Names are treatment-specific; reusable CTA behavior exists but new page families need guard coverage to avoid duplicate terminal CTAs"
+      ],
+      "missingSectionKinds": []
+    },
+    {
+      "requirement": "clinician expertise",
+      "currentSupport": "true",
+      "compatibleSectionKinds": [
+        "clinician_insight",
+        "people_grid",
+        "text"
+      ],
+      "currentLimitations": [
+        "Clinician pages already exist under /team; new clinician-family pages must avoid duplicate /team intent"
+      ],
+      "missingSectionKinds": []
+    },
+    {
+      "requirement": "local Shoreham context",
+      "currentSupport": "partial",
+      "compatibleSectionKinds": [
+        "treatment_answer_surface",
+        "text",
+        "features"
+      ],
+      "currentLimitations": [
+        "answerSurface validates primaryGeography for treatment pages only",
+        "No anti-doorway guard for /local or location variants beyond answer-surface stuffing checks"
+      ],
+      "missingSectionKinds": [
+        "local_context",
+        "local_page_safety"
+      ]
+    },
+    {
+      "requirement": "evidence/review metadata",
+      "currentSupport": "partial",
+      "compatibleSectionKinds": [
+        "reviews",
+        "patient_stories_rail",
+        "treatment_answer_surface"
+      ],
+      "currentLimitations": [
+        "Review/freshness metadata is present inside treatment answerSurface review sections but not generalized as page-level evidence metadata",
+        "No Review/FAQ schema export contract for new families"
+      ],
+      "missingSectionKinds": [
+        "evidence_review_metadata"
+      ]
+    }
+  ],
+  "missingSectionKinds": [
+    "comparison_table",
+    "cost_fee_logic",
+    "evidence_review_metadata",
+    "fee_grid",
+    "local_context",
+    "local_page_safety",
+    "page_answer_surface"
+  ],
+  "conclusion": "Existing sections can partially assemble new brief pages, but direct answers, comparison tables, cost logic, local safety, and evidence metadata need generalized, guarded section/page-surface contracts before public implementation."
+}

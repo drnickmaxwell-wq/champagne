@@ -1,0 +1,250 @@
+{
+  "version": "CHAMPAGNE_MANIFEST_IMPLEMENTATION_BRIDGE_V1",
+  "generatedAt": "2026-05-30T05:40:38.037Z",
+  "purpose": "Audit/planning bridge between governed content briefs and Champagne's manifest/page-builder/section architecture. This file does not authorize route creation, launch, deploy, or content rewrites.",
+  "safety": {
+    "noNewPublicPagesCreated": true,
+    "noLaunchReadinessClaim": true,
+    "noMutationDeployMergeAuthority": true,
+    "noDuplicateRouteFamilies": true,
+    "noDoorwayLocalSpam": true,
+    "preserveManifestDrivenArchitecture": true,
+    "preserveSectionDrivenArchitecture": true,
+    "heroBehaviorChanged": false,
+    "visualDesignChanged": false,
+    "phiPmsPatientWorkflowsTouched": false
+  },
+  "evidenceFiles": {
+    "packageJson": "package.json",
+    "appRoutes": "apps/web/app/**/page.tsx",
+    "pageBuilder": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+    "treatmentRoute": "apps/web/app/treatments/[slug]/page.tsx",
+    "manifests": "packages/champagne-manifests/**",
+    "sections": "packages/champagne-sections/**",
+    "websiteTruthExportScript": "scripts/export-website-truth.mjs",
+    "websiteTruthExportReport": "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json",
+    "sitemap": "apps/web/app/sitemap.ts",
+    "robots": "apps/web/app/robots.ts",
+    "answerSurface": "packages/champagne-manifests/src/answerSurface.ts",
+    "treatmentAnswerSurfaceGuard": "scripts/guard-treatment-answer-surface.mjs",
+    "seoLaunchSafetyGuard": "scripts/seo-launch-safety-check.mjs"
+  },
+  "sourceFingerprint": "d4c416b4b4390717",
+  "existingArchitecture": {
+    "appRoutePatterns": {
+      "manifestLookup": {
+        "file": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "evidence": [
+          "getPageManifestBySlug(slug)",
+          "champagneMachineManifest.pages?.[slug]",
+          "champagneMachineManifest.treatments?.[slug]"
+        ],
+        "supportsArbitraryManifestPaths": true
+      },
+      "treatmentDynamicRoute": {
+        "file": "apps/web/app/treatments/[slug]/page.tsx",
+        "pattern": "/treatments/[slug]",
+        "usesManifest": true,
+        "emitsJsonLd": true,
+        "canonicalizesAliases": true
+      },
+      "routeCanonObservation": "Non-treatment dynamic families do not currently have route files; manifest entries alone are not reachable unless a route exists or an existing safe fixture pattern is extended."
+    },
+    "existingPublicRouteFamilies": {
+      "treatment": 78,
+      "treatmentHub": 1,
+      "team": [
+        "/team",
+        "/team/nick-maxwell",
+        "/team/sara-burden",
+        "/team/sylvia-krafft"
+      ],
+      "technology": [
+        "/technology"
+      ],
+      "support": [
+        "/about",
+        "/contact",
+        "/fees",
+        "/smile-gallery"
+      ]
+    },
+    "currentSectionKinds": [
+      "text",
+      "media",
+      "features",
+      "routing_cards",
+      "treatment_overview_rich",
+      "treatment_media_feature",
+      "treatment_tools_trio",
+      "clinician_insight",
+      "patient_stories_rail",
+      "people_grid",
+      "treatment_mid_cta",
+      "treatment_faq_block",
+      "treatment_closing_cta",
+      "reviews",
+      "treatment_answer_surface"
+    ],
+    "manifestPageCount": 102,
+    "treatmentPageCount": 78,
+    "websiteTruthRouteCount": 117
+  },
+  "familySupport": {
+    "concerns": {
+      "canImplementWithCurrentManifest": "false",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [],
+      "routeNeeded": "/concerns/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "compare": {
+      "canImplementWithCurrentManifest": "false",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [],
+      "routeNeeded": "/compare/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "costs": {
+      "canImplementWithCurrentManifest": "false",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [],
+      "routeNeeded": "/costs/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "guides": {
+      "canImplementWithCurrentManifest": "false",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [],
+      "routeNeeded": "/guides/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "local": {
+      "canImplementWithCurrentManifest": "partial",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [],
+      "routeNeeded": "/local/[slug] only after doorway-safety guard exists",
+      "status": "needs_guard"
+    },
+    "trust/review": {
+      "canImplementWithCurrentManifest": "false",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [],
+      "routeNeeded": "/trust/[slug] or explicit non-duplicative support routes",
+      "status": "needs_framework"
+    },
+    "clinician": {
+      "canImplementWithCurrentManifest": "partial",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [
+        "/team",
+        "/team/nick-maxwell",
+        "/team/sara-burden",
+        "/team/sylvia-krafft"
+      ],
+      "routeNeeded": "prefer existing /team canonical unless a non-duplicate route-canon decision is approved",
+      "status": "partial"
+    },
+    "technology": {
+      "canImplementWithCurrentManifest": "partial",
+      "owner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "manifestCollection": "pages",
+      "existingRoutes": [
+        "/technology"
+      ],
+      "routeNeeded": "child technology routes need explicit route canon; hub exists",
+      "status": "partial"
+    }
+  },
+  "sectionCompatibilityReport": "reports/SECTION_KIND_COMPATIBILITY_MATRIX_V1.json",
+  "pageBriefMappingReport": "reports/PAGE_BRIEF_TO_MANIFEST_MAPPING_V1.json",
+  "answerSurfaceAudit": {
+    "files": [
+      "packages/champagne-manifests/src/answerSurface.ts",
+      "packages/champagne-sections/src/Section_TreatmentAnswerSurface.tsx",
+      "scripts/guard-treatment-answer-surface.mjs"
+    ],
+    "currentModel": "TreatmentAnswerSurface",
+    "versionRequired": "TREATMENT_ANSWER_SURFACE_V1",
+    "requiredSectionIdsTreatmentOnly": true,
+    "rendererTreatmentOnly": true,
+    "guardTreatmentOnly": true,
+    "supportsNonTreatmentPagesNow": false,
+    "needsGeneralizedPageSurface": true,
+    "recommendedGeneralization": "Add PAGE_ANSWER_SURFACE_V1 or PAGE_SURFACE_V1 as a separate manifest contract with family-specific required sections and a new guard before any non-treatment brief route is created."
+  },
+  "entryPipeline": {
+    "sitemap": {
+      "file": "apps/web/app/sitemap.ts",
+      "currentObservation": "manifest-derived sitemap evidence present",
+      "requiredChangeBeforePages": "New public families must be manifest-derived and explicitly excluded from private/debug route filters."
+    },
+    "robotsSafety": {
+      "file": "apps/web/app/robots.ts",
+      "currentObservation": "private/debug disallows present",
+      "requiredChangeBeforePages": "New route families must not weaken production allow/disallow behavior and must be covered by guard:seo-launch-safety."
+    },
+    "pageTruthExport": {
+      "files": [
+        "scripts/export-page-truth.mjs",
+        "scripts/export-website-truth.mjs"
+      ],
+      "currentObservation": "website truth export expects page-truth files per route",
+      "requiredChangeBeforePages": "New route families need deterministic page-truth generation and missing-truth reporting."
+    },
+    "websiteTruthExport": {
+      "file": "scripts/export-website-truth.mjs",
+      "currentObservation": "route inventory is built from app routes, manifest routes, and live pages",
+      "requiredChangeBeforePages": "Classify new families, schema, metadata, internal links, and launch blockers without asserting launch readiness."
+    },
+    "schemaExport": {
+      "files": [
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "scripts/export-website-truth.mjs"
+      ],
+      "currentObservation": "treatment route emits WebPage/Service/BreadcrumbList JSON-LD",
+      "requiredChangeBeforePages": "Add schema contracts per family before routes: WebPage plus FAQPage/Article/MedicalWebPage-like service-safe equivalents only where appropriate; no unsupported claims."
+    },
+    "internalLinks": {
+      "file": "scripts/export-website-truth.mjs",
+      "currentObservation": "manifest internal links are exported from manifest values",
+      "requiredChangeBeforePages": "New family links need relation rules to avoid cannibalisation and duplicate route families."
+    },
+    "routeCanon": {
+      "files": [
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx"
+      ],
+      "currentObservation": "treatment aliases canonicalize; non-treatment families have no equivalent",
+      "requiredChangeBeforePages": "Define canonical family ownership, aliases, and duplicate-intent guard before creating routes."
+    },
+    "contentReadinessReports": {
+      "files": [
+        "scripts/export-website-truth.mjs",
+        "reports/content_readiness_report.json"
+      ],
+      "currentObservation": "website truth export consumes content readiness summary",
+      "requiredChangeBeforePages": "Add new page families to readiness report inputs before public routes enter sitemap."
+    }
+  },
+  "requiredGuardsBeforeImplementation": [
+    "guard:hero",
+    "guard:canon",
+    "verify",
+    "guard:seo-launch-safety",
+    "guard:treatment-answer-surface (or generalized guard:page-answer-surface before non-treatment direct answers)",
+    "new guard:page-family-route-canon",
+    "new guard:page-brief-manifest-contract",
+    "new guard:section-kind-compatibility",
+    "new guard:local-doorway-safety before /local pages",
+    "new guard:schema-family-safety before JSON-LD for new families"
+  ],
+  "conclusion": "Do not create the generated brief routes yet. The manifest system is strong for treatment pages and partially reusable, but new page families need route-canon, generalized page-surface, section-kind, schema, truth-export, and family safety guards before implementation."
+}
