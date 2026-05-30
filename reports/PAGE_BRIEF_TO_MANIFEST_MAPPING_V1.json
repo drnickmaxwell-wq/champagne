@@ -1,0 +1,308 @@
+{
+  "version": "PAGE_BRIEF_TO_MANIFEST_MAPPING_V1",
+  "generatedAt": "2026-05-30T05:40:38.037Z",
+  "purpose": "Map generated CONTENT_BRIEF_GENERATION_ENGINE_V1 routes to existing Champagne manifest architecture without creating pages.",
+  "noNewPublicPagesCreated": true,
+  "manifestArchitecture": {
+    "primaryManifest": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "currentCollections": [
+      "pages",
+      "treatments",
+      "treatmentGroups"
+    ],
+    "existingTreatmentOwnership": "packages/champagne-manifests/data/champagne_machine_manifest_full.json pages entries plus treatment section layout JSON under packages/champagne-manifests/data/sections/smh/treatments.<slug>.json",
+    "builderEvidence": {
+      "file": "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+      "evidence": [
+        "getPageManifestBySlug(slug)",
+        "champagneMachineManifest.pages?.[slug]",
+        "champagneMachineManifest.treatments?.[slug]"
+      ],
+      "supportsArbitraryManifestPaths": true
+    }
+  },
+  "familyOwnership": {
+    "concerns": {
+      "currentlyOwnedBy": "none",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/concerns.<slug>.json",
+      "routeNeeded": "/concerns/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "compare": {
+      "currentlyOwnedBy": "none",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/compare.<slug>.json",
+      "routeNeeded": "/compare/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "costs": {
+      "currentlyOwnedBy": "none; /fees exists as support page",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/costs.<slug>.json",
+      "routeNeeded": "/costs/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "guides": {
+      "currentlyOwnedBy": "none; /blog exists as support/editorial page",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/guides.<slug>.json",
+      "routeNeeded": "/guides/[slug] or a manifest-safe generalized dynamic route",
+      "status": "needs_framework"
+    },
+    "local": {
+      "currentlyOwnedBy": "none",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/local.<slug>.json",
+      "routeNeeded": "/local/[slug] only after doorway-safety guard exists",
+      "status": "needs_guard"
+    },
+    "trust/review": {
+      "currentlyOwnedBy": "partial via reviews/patient stories sections; no /trust or /reviews route family",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/trust.<slug>.json",
+      "routeNeeded": "/trust/[slug] or explicit non-duplicative support routes",
+      "status": "needs_framework"
+    },
+    "clinician": {
+      "currentlyOwnedBy": "existing /team and /team/[slug] app routes plus pages manifest team entries",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/clinician.<slug>.json only if not duplicating /team",
+      "routeNeeded": "prefer existing /team canonical unless a non-duplicate route-canon decision is approved",
+      "status": "partial"
+    },
+    "technology": {
+      "currentlyOwnedBy": "existing /technology manifest entry and app route coverage via /(site)/[page] if matched",
+      "proposedOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "proposedManifestCollection": "pages",
+      "proposedSectionLayoutFamily": "packages/champagne-manifests/data/sections/smh/technology.<slug>.json for child pages only after route canon is approved",
+      "routeNeeded": "child technology routes need explicit route canon; hub exists",
+      "status": "partial"
+    }
+  },
+  "generatedBriefRoutes": [
+    {
+      "canonicalRoute": "/concerns/broken-tooth",
+      "family": "concerns",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + concerns section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "clinical_reassurance",
+        "treatment_faq_block",
+        "routing_cards",
+        "treatment_closing_cta",
+        "local_context",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "local_context",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "medium",
+      "recommendation": "needs_framework"
+    },
+    {
+      "canonicalRoute": "/compare/dental-implants-vs-bridges",
+      "family": "compare",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + compare section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "clinical_reassurance",
+        "routing_cards",
+        "treatment_faq_block",
+        "treatment_closing_cta",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:section-kind-compatibility",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "high",
+      "recommendation": "needs_framework"
+    },
+    {
+      "canonicalRoute": "/costs/dental-implant-cost",
+      "family": "costs",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + costs section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "cost_fee_logic",
+        "fee_grid",
+        "clinical_reassurance",
+        "treatment_faq_block",
+        "treatment_closing_cta",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "cost_fee_logic",
+        "fee_grid",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "faqBlockInventory",
+        "ctaMap",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:fee-claim-safety",
+        "guard:page-answer-surface",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "high",
+      "recommendation": "needs_guard"
+    },
+    {
+      "canonicalRoute": "/guides/how-dental-implants-work",
+      "family": "guides",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + guides section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "features",
+        "treatment_media_feature",
+        "clinician_insight",
+        "treatment_faq_block",
+        "routing_cards",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "Article",
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:schema-family-safety",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "medium",
+      "recommendation": "needs_framework"
+    },
+    {
+      "canonicalRoute": "/compare/private-dentist-vs-nhs-dentist",
+      "family": "compare",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + compare section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "clinical_reassurance",
+        "local_context",
+        "treatment_faq_block",
+        "treatment_closing_cta",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "local_context",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:comparison-neutrality",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "high",
+      "recommendation": "needs_framework"
+    }
+  ]
+}

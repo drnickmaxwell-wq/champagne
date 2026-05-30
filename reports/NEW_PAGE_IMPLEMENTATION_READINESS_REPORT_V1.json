@@ -1,0 +1,268 @@
+{
+  "version": "NEW_PAGE_IMPLEMENTATION_READINESS_REPORT_V1",
+  "generatedAt": "2026-05-30T05:40:38.037Z",
+  "purpose": "Readiness assessment for future high-ROI page-family implementation without route creation or launch certification.",
+  "readyForLaunch": false,
+  "readyForPrReview": true,
+  "noNewPublicPagesCreated": true,
+  "implementableNowSummary": {
+    "concerns": "partial",
+    "compare": "partial",
+    "costs": "partial",
+    "guides": "partial",
+    "local": "partial-with-guard-blocker",
+    "trust/review": "partial",
+    "clinician": "partial-existing-team-canon-first",
+    "technology": "partial-existing-hub-canon-first"
+  },
+  "blockingFrameworkPieces": [
+    "Generalized PAGE_ANSWER_SURFACE_V1/PAGE_SURFACE_V1 contract and renderer for non-treatment pages",
+    "Manifest family ownership conventions for concerns/compare/costs/guides/local/trust pages",
+    "Dynamic route canon pattern for non-treatment manifest pages without bypassing ChampagnePageBuilder",
+    "Comparison table section kind and guard",
+    "Cost/fee logic section kind and fee-claim safety guard",
+    "Local context section kind plus anti-doorway/local-spam guard",
+    "Evidence/review metadata contract and schema mapping",
+    "Truth export updates for new route families, schema, page-truth, internal links, and content readiness",
+    "Sitemap/robots guard coverage for new public families"
+  ],
+  "requiredGuardsBeforePageCreation": [
+    "guard:hero",
+    "guard:canon",
+    "verify",
+    "guard:seo-launch-safety",
+    "guard:treatment-answer-surface (or generalized guard:page-answer-surface before non-treatment direct answers)",
+    "new guard:page-family-route-canon",
+    "new guard:page-brief-manifest-contract",
+    "new guard:section-kind-compatibility",
+    "new guard:local-doorway-safety before /local pages",
+    "new guard:schema-family-safety before JSON-LD for new families"
+  ],
+  "generatedBriefRouteAssessments": [
+    {
+      "canonicalRoute": "/concerns/broken-tooth",
+      "family": "concerns",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + concerns section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "clinical_reassurance",
+        "treatment_faq_block",
+        "routing_cards",
+        "treatment_closing_cta",
+        "local_context",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "local_context",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "medium",
+      "recommendation": "needs_framework"
+    },
+    {
+      "canonicalRoute": "/compare/dental-implants-vs-bridges",
+      "family": "compare",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + compare section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "clinical_reassurance",
+        "routing_cards",
+        "treatment_faq_block",
+        "treatment_closing_cta",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:section-kind-compatibility",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "high",
+      "recommendation": "needs_framework"
+    },
+    {
+      "canonicalRoute": "/costs/dental-implant-cost",
+      "family": "costs",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + costs section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "cost_fee_logic",
+        "fee_grid",
+        "clinical_reassurance",
+        "treatment_faq_block",
+        "treatment_closing_cta",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "cost_fee_logic",
+        "fee_grid",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "faqBlockInventory",
+        "ctaMap",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:fee-claim-safety",
+        "guard:page-answer-surface",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "high",
+      "recommendation": "needs_guard"
+    },
+    {
+      "canonicalRoute": "/guides/how-dental-implants-work",
+      "family": "guides",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + guides section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "features",
+        "treatment_media_feature",
+        "clinician_insight",
+        "treatment_faq_block",
+        "routing_cards",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "Article",
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:schema-family-safety",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "medium",
+      "recommendation": "needs_framework"
+    },
+    {
+      "canonicalRoute": "/compare/private-dentist-vs-nhs-dentist",
+      "family": "compare",
+      "canImplementWithCurrentManifest": "partial",
+      "requiredManifestFamily": "pages + compare section layout family (not currently wired)",
+      "requiredSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "clinical_reassurance",
+        "local_context",
+        "treatment_faq_block",
+        "treatment_closing_cta",
+        "evidence_review_metadata"
+      ],
+      "missingSectionKinds": [
+        "page_answer_surface",
+        "comparison_table",
+        "local_context",
+        "evidence_review_metadata"
+      ],
+      "requiredSchemaTypes": [
+        "WebPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "requiredTruthExportFields": [
+        "routeInventory",
+        "metadata",
+        "schema",
+        "pageTruth",
+        "internalLinkInventory",
+        "faqBlockInventory",
+        "contentFreshnessReviewMetadata"
+      ],
+      "requiredGuards": [
+        "guard:page-brief-manifest-contract",
+        "guard:page-answer-surface",
+        "guard:comparison-neutrality",
+        "guard:seo-launch-safety",
+        "guard:canon"
+      ],
+      "implementationRisk": "high",
+      "recommendation": "needs_framework"
+    }
+  ],
+  "recommendedNextMission": {
+    "name": "PAGE_SURFACE_AND_ROUTE_CANON_FRAMEWORK_V1",
+    "scope": [
+      "Create contracts/guards only for PAGE_ANSWER_SURFACE_V1 and page-family route canon",
+      "Extend truth-export classification for concerns/compare/costs/guides/local/trust without creating live routes",
+      "Add section-kind guard coverage for comparison/cost/local/evidence requirements",
+      "Keep hero, visuals, public routes, and content unchanged"
+    ]
+  }
+}
