@@ -1,0 +1,48 @@
+{
+  "version": "EVIDENCE_REVIEW_METADATA_CONTRACT_V1",
+  "generatedAt": "2026-05-30T05:54:15.877Z",
+  "purpose": "Evidence/review metadata seed for PAGE_SURFACE_V1 pages. This contract blocks fabricated reviews, unsupported evidence, and unreviewed clinical claims.",
+  "appliesToPageFamilies": [
+    "treatment",
+    "concern",
+    "comparison",
+    "cost",
+    "guide",
+    "local",
+    "trust_review",
+    "clinician",
+    "technology"
+  ],
+  "requiredFields": [
+    "sourceType",
+    "sourceCitation",
+    "evidenceSummary",
+    "lastReviewed",
+    "reviewedBy",
+    "nextReviewDue",
+    "unsupportedEvidenceForbidden",
+    "fabricatedReviewsForbidden"
+  ],
+  "allowedSourceTypes": [
+    "clinical_guideline",
+    "practice_policy",
+    "clinician_review",
+    "first_party_review_platform",
+    "regulatory_source",
+    "manufacturer_documentation",
+    "none_framework_only"
+  ],
+  "reviewSafetyRules": {
+    "fabricatedReviewsForbidden": true,
+    "unsupportedEvidenceForbidden": true,
+    "noPatientIdentifiersWithoutGovernedConsent": true,
+    "noReviewTextWithoutSourceAttribution": true,
+    "noAggregateRatingWithoutSourceAndDate": true,
+    "noClinicalClaimWithoutReviewerOrEvidence": true
+  },
+  "frameworkOnlyDefault": {
+    "sourceType": "none_framework_only",
+    "launchAllowed": false,
+    "launchBlocker": "EVIDENCE_REVIEW_METADATA_REQUIRED"
+  }
+}

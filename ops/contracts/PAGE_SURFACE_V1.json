@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "PAGE_SURFACE_V1",
+  "generatedAt": "2026-05-30T05:54:15.877Z",
+  "purpose": "Generalized manifest/page-builder answer-surface framework for treatment and future ROI page families. This contract is framework infrastructure only and does not create public routes or certify launch readiness.",
+  "launchPosture": "framework_ready_not_launch_ready",
+  "supportedPageFamilies": [
+    "treatment",
+    "concern",
+    "comparison",
+    "cost",
+    "guide",
+    "local",
+    "trust_review",
+    "clinician",
+    "technology"
+  ],
+  "requiredFields": [
+    "schemaVersion",
+    "pageFamily",
+    "canonicalRoute",
+    "routeOwner",
+    "primaryEntity",
+    "secondaryEntities",
+    "targetQueries",
+    "targetIntent",
+    "localMarket",
+    "directAnswer",
+    "sections",
+    "faqs",
+    "schemaRequirements",
+    "internalLinks",
+    "cta",
+    "clinicianExpertise",
+    "evidenceReviewMetadata",
+    "clinicalReviewStatus",
+    "forbiddenClaims",
+    "launchBlockers"
+  ],
+  "fieldShape": {
+    "schemaVersion": {
+      "required": true
+    },
+    "pageFamily": {
+      "required": true
+    },
+    "canonicalRoute": {
+      "required": true
+    },
+    "routeOwner": {
+      "required": true
+    },
+    "primaryEntity": {
+      "required": true
+    },
+    "secondaryEntities": {
+      "required": true
+    },
+    "targetQueries": {
+      "required": true
+    },
+    "targetIntent": {
+      "required": true
+    },
+    "localMarket": {
+      "required": true
+    },
+    "directAnswer": {
+      "required": true
+    },
+    "sections": {
+      "required": true
+    },
+    "faqs": {
+      "required": true
+    },
+    "schemaRequirements": {
+      "required": true
+    },
+    "internalLinks": {
+      "required": true
+    },
+    "cta": {
+      "required": true
+    },
+    "clinicianExpertise": {
+      "required": true
+    },
+    "evidenceReviewMetadata": {
+      "required": true
+    },
+    "clinicalReviewStatus": {
+      "required": true
+    },
+    "forbiddenClaims": {
+      "required": true
+    },
+    "launchBlockers": {
+      "required": true
+    }
+  },
+  "supportedSectionKinds": [
+    "direct_answer",
+    "clinical_reassurance",
+    "comparison_table",
+    "cost_fee_logic",
+    "fee_grid",
+    "faq",
+    "related_treatments",
+    "cta",
+    "clinician_expertise",
+    "local_shoreham_context",
+    "evidence_review_metadata",
+    "safety_limitations",
+    "alternatives",
+    "process",
+    "aftercare",
+    "review_status"
+  ],
+  "requiredSectionSupport": [
+    "direct_answer",
+    "clinical_reassurance",
+    "comparison_table",
+    "cost_fee_logic",
+    "fee_grid",
+    "faq",
+    "related_treatments",
+    "cta",
+    "clinician_expertise",
+    "local_shoreham_context",
+    "evidence_review_metadata",
+    "safety_limitations",
+    "alternatives",
+    "process",
+    "aftercare",
+    "review_status"
+  ],
+  "sectionKindCompatibility": {
+    "treatment": [
+      "direct_answer",
+      "clinical_reassurance",
+      "cost_fee_logic",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "local_shoreham_context",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "alternatives",
+      "process",
+      "aftercare",
+      "review_status"
+    ],
+    "concern": [
+      "direct_answer",
+      "clinical_reassurance",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "local_shoreham_context",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "alternatives",
+      "process",
+      "review_status"
+    ],
+    "comparison": [
+      "direct_answer",
+      "clinical_reassurance",
+      "comparison_table",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "alternatives",
+      "review_status"
+    ],
+    "cost": [
+      "direct_answer",
+      "clinical_reassurance",
+      "cost_fee_logic",
+      "fee_grid",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "local_shoreham_context",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "review_status"
+    ],
+    "guide": [
+      "direct_answer",
+      "clinical_reassurance",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "alternatives",
+      "process",
+      "aftercare",
+      "review_status"
+    ],
+    "local": [
+      "direct_answer",
+      "clinical_reassurance",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "local_shoreham_context",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "review_status"
+    ],
+    "trust_review": [
+      "direct_answer",
+      "clinical_reassurance",
+      "faq",
+      "cta",
+      "clinician_expertise",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "review_status"
+    ],
+    "clinician": [
+      "direct_answer",
+      "clinical_reassurance",
+      "faq",
+      "cta",
+      "clinician_expertise",
+      "evidence_review_metadata",
+      "review_status"
+    ],
+    "technology": [
+      "direct_answer",
+      "clinical_reassurance",
+      "faq",
+      "related_treatments",
+      "cta",
+      "clinician_expertise",
+      "evidence_review_metadata",
+      "safety_limitations",
+      "process",
+      "review_status"
+    ]
+  },
+  "requiredGuardBehavior": [
+    "Local pages must be blocked unless Shoreham-primary or evidence-backed.",
+    "Secondary town doorway pages must be blocked.",
+    "Comparison pages must require balanced, non-misleading comparison sections.",
+    "Cost pages must require no fake price specificity and clear assessment/fee caveats.",
+    "Evidence/review metadata must not allow fabricated reviews or unsupported evidence.",
+    "New page families are framework-ready only, not launch-ready.",
+    "No new public route may be created by this framework mission."
+  ],
+  "forbiddenClaims": [
+    "Guaranteed outcomes",
+    "Same-day suitability promises without assessment",
+    "Fake review counts or fabricated review text",
+    "Unsupported superiority claims",
+    "Precise prices presented without assessment caveats",
+    "Secondary-town doorway relevance without evidence"
+  ],
+  "implementationStatus": {
+    "existingTreatmentAnswerSurface": "present_treatment_only",
+    "generalizedPageSurface": "contract_seeded",
+    "nonTreatmentPublicPagesCreated": false
+  }
+}

@@ -225,6 +225,19 @@ const treatmentAnswerSurfaceRequiredSectionIds = [
 ];
 
 const defaultSecondaryGeographies = ["Brighton", "Worthing", "Lancing", "Southwick"];
+const pageSurfaceFrameworkFiles = {
+  pageSurface: "ops/contracts/PAGE_SURFACE_V1.json",
+  routeCanon: "ops/contracts/PAGE_FAMILY_ROUTE_CANON_V1.json",
+  evidenceReviewMetadata: "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json",
+  frameworkReport: "reports/PAGE_SURFACE_AND_ROUTE_CANON_FRAMEWORK_REPORT_V1.json",
+  sectionKindGuardReport: "reports/SECTION_KIND_COMPATIBILITY_GUARD_REPORT_V1.json",
+  localAntiDoorwayGuardReport: "reports/LOCAL_ANTI_DOORWAY_GUARD_REPORT_V1.json",
+  comparisonCostGuardReport: "reports/COMPARISON_COST_PAGE_GUARD_REPORT_V1.json",
+};
+
+const nonTreatmentRouteFamilyPrefixes = ["/concerns/", "/compare/", "/costs/", "/guides/", "/local/", "/technology/"];
+const nonTreatmentRouteFamilyExactRoutes = ["/reviews", "/trust"];
+
 
 const flattenText = (value) => {
   if (typeof value === "string") return value;
@@ -495,6 +508,86 @@ const main = async () => {
     entries: answerSurfaceEntries,
   };
 
+  const pageSurfaceContract = await readJsonOptional(pageSurfaceFrameworkFiles.pageSurface, null);
+  const routeCanonContract = await readJsonOptional(pageSurfaceFrameworkFiles.routeCanon, null);
+  const evidenceReviewContract = await readJsonOptional(pageSurfaceFrameworkFiles.evidenceReviewMetadata, null);
+  const pageSurfaceFrameworkReport = await readJsonOptional(pageSurfaceFrameworkFiles.frameworkReport, null);
+  const sectionKindGuardReport = await readJsonOptional(pageSurfaceFrameworkFiles.sectionKindGuardReport, null);
+  const localAntiDoorwayGuardReport = await readJsonOptional(pageSurfaceFrameworkFiles.localAntiDoorwayGuardReport, null);
+  const comparisonCostGuardReport = await readJsonOptional(pageSurfaceFrameworkFiles.comparisonCostGuardReport, null);
+  const pageSurfaceFrameworkPresent = Boolean(
+    pageSurfaceContract?.schemaVersion === "PAGE_SURFACE_V1"
+      && routeCanonContract?.version === "PAGE_FAMILY_ROUTE_CANON_V1"
+      && evidenceReviewContract?.version === "EVIDENCE_REVIEW_METADATA_CONTRACT_V1",
+  );
+  const supportedPageFamilies = Array.isArray(pageSurfaceContract?.supportedPageFamilies)
+    ? pageSurfaceContract.supportedPageFamilies
+    : [];
+  const routeCanonFamilies = Array.isArray(routeCanonContract?.routeFamilies) ? routeCanonContract.routeFamilies : [];
+  const knownRouteFamilyPatterns = routeCanonFamilies.map((entry) => ({
+    pageFamily: entry.pageFamily,
+    canonicalPattern: entry.canonicalPattern,
+    launchState: entry.launchState,
+    appRouteAlreadyExists: Boolean(entry.appRouteAlreadyExists),
+    futurePublicRouteAllowed: Boolean(entry.futurePublicRouteAllowed),
+  }));
+  const newlyBlockedPublicRoutes = routeInventory
+    .filter((entry) => (
+      nonTreatmentRouteFamilyPrefixes.some((prefix) => entry.route.startsWith(prefix))
+        || nonTreatmentRouteFamilyExactRoutes.includes(entry.route)
+    ))
+    .map((entry) => entry.route);
+  const noNewPublicRoutesCreated = newlyBlockedPublicRoutes.length === 0 && pageSurfaceFrameworkReport?.noNewPublicRoutesCreated !== false;
+  const pageSurfaceCoverageEntries = routeInventory.map((entry) => {
+    const pageFamily = entry.classification.routeFamily === "treatment_detail"
+      ? "treatment"
+      : entry.classification.routeFamily === "team_detail"
+        ? "clinician"
+        : null;
+    const treatmentSurface = pageFamily === "treatment"
+      ? answerSurfaceEntries.find((answerEntry) => answerEntry.route === entry.route)?.validation ?? null
+      : null;
+    return {
+      route: entry.route,
+      pageFamily,
+      framework: treatmentSurface ? "TREATMENT_ANSWER_SURFACE_V1" : null,
+      generalizedPageSurfacePresent: false,
+      treatmentAnswerSurfacePresent: Boolean(treatmentSurface?.frameworkPresent),
+      valid: Boolean(treatmentSurface?.valid),
+      launchState: entry.classification.launchState,
+    };
+  });
+  const missingPageSurfaceRoutes = pageSurfaceCoverageEntries
+    .filter((entry) => ["treatment", "clinician"].includes(entry.pageFamily) && !entry.treatmentAnswerSurfacePresent && !entry.generalizedPageSurfacePresent)
+    .map((entry) => entry.route);
+  const blockedPageFamilies = routeCanonFamilies
+    .filter((entry) => entry.launchState?.includes("blocked") || entry.launchState === "framework_ready_not_launch_ready")
+    .map((entry) => ({
+      pageFamily: entry.pageFamily,
+      canonicalPattern: entry.canonicalPattern,
+      launchState: entry.launchState,
+      notes: entry.notes ?? null,
+    }));
+  const guardCoverage = {
+    "guard:seo-launch-safety": Boolean(packageJson?.scripts?.["guard:seo-launch-safety"]),
+    "guard:canon": Boolean(packageJson?.scripts?.["guard:canon"]),
+    "guard:treatment-answer-surface": Boolean(packageJson?.scripts?.["guard:treatment-answer-surface"]),
+    "SECTION_KIND_COMPATIBILITY_GUARD_V1": Boolean(sectionKindGuardReport?.pass),
+    "LOCAL_ANTI_DOORWAY_GUARD_V1": Boolean(localAntiDoorwayGuardReport?.pass),
+    "COMPARISON_PAGE_GUARD_V1": Boolean(comparisonCostGuardReport?.comparisonGuard),
+    "COST_FEE_PAGE_GUARD_V1": Boolean(comparisonCostGuardReport?.costFeeGuard),
+    "EVIDENCE_REVIEW_METADATA_CONTRACT_V1": Boolean(evidenceReviewContract?.reviewSafetyRules),
+  };
+  const pageSurfaceCoverage = {
+    framework: "PAGE_SURFACE_V1",
+    frameworkPresent: pageSurfaceFrameworkPresent,
+    coverageMode: "framework_contract_only_for_non_treatment_families",
+    routeCount: pageSurfaceCoverageEntries.length,
+    treatmentRoutesWithTreatmentAnswerSurface: pageSurfaceCoverageEntries.filter((entry) => entry.pageFamily === "treatment" && entry.treatmentAnswerSurfacePresent).length,
+    generalizedPageSurfaceRouteCount: pageSurfaceCoverageEntries.filter((entry) => entry.generalizedPageSurfacePresent).length,
+    entries: pageSurfaceCoverageEntries,
+  };
+
   const treatmentManifestInventory = manifestRoutes
     .filter(({ route }) => route === "/treatments" || route.startsWith("/treatments/"))
     .map(({ pageId, page, route }) => {
@@ -540,6 +633,8 @@ const main = async () => {
       verify: Boolean(packageJson?.scripts?.verify),
       "export:page-truth": Boolean(packageJson?.scripts?.["export:page-truth"]),
       "export:website-truth": Boolean(packageJson?.scripts?.["export:website-truth"]),
+      "guard:treatment-answer-surface": Boolean(packageJson?.scripts?.["guard:treatment-answer-surface"]),
+      "guard:seo-launch-safety": Boolean(packageJson?.scripts?.["guard:seo-launch-safety"]),
     },
     availableReports: [],
   };
@@ -556,6 +651,8 @@ const main = async () => {
   const blockers = [];
   const addBlocker = (code, severity, message, evidence) => blockers.push({ code, severity, message, evidence });
   addBlocker("NO_CLEAN_LAUNCH_ASSERTION", "info", "This export is an evidence layer only and does not certify clean launch readiness.", null);
+  if (!pageSurfaceFrameworkPresent) addBlocker("PAGE_SURFACE_FRAMEWORK_MISSING", "critical", "PAGE_SURFACE_V1, route canon, or evidence metadata contract is missing.", pageSurfaceFrameworkFiles);
+  if (!noNewPublicRoutesCreated) addBlocker("NEW_ROI_PUBLIC_ROUTES_CREATED", "critical", "Framework mission created blocked future ROI routes.", newlyBlockedPublicRoutes);
   if (!sitemapExists) addBlocker("SITEMAP_MISSING", "critical", "Sitemap file was not discovered.", "apps/web/app/sitemap.ts");
   else if (!sitemapStatus.enriched) addBlocker("SITEMAP_WEAK_METADATA", "warning", sitemapStatus.weakness, sitemapStatus.sourceFile);
   if (!robotsExists) addBlocker("ROBOTS_MISSING", "critical", "Robots file was not discovered.", "apps/web/app/robots.ts");
@@ -604,6 +701,14 @@ const main = async () => {
     robotsStatus,
     treatmentManifestInventory,
     answerSurfaceCoverage,
+    pageSurfaceFrameworkPresent,
+    supportedPageFamilies,
+    knownRouteFamilyPatterns,
+    pageSurfaceCoverage,
+    missingPageSurfaceRoutes,
+    blockedPageFamilies,
+    guardCoverage,
+    noNewPublicRoutesCreated,
     pageTextInventory,
     internalLinkInventory: {
       count: internalLinks.length,
@@ -653,6 +758,13 @@ const main = async () => {
       "robots status",
       "treatment manifest inventory",
       "treatment answer-surface coverage and validation",
+      "PAGE_SURFACE_V1 framework presence",
+      "supported page families",
+      "page surface coverage",
+      "missing page surface routes",
+      "blocked page families",
+      "guard coverage",
+      "no new public ROI routes created",
       "page text/page truth inventory",
       "internal link inventory if discoverable",
       "FAQ block inventory if discoverable",
@@ -685,6 +797,13 @@ const main = async () => {
       robotsStatus: "object",
       treatmentManifestInventory: "array",
       answerSurfaceCoverage: "object",
+      pageSurfaceFrameworkPresent: "boolean",
+      supportedPageFamilies: "array",
+      pageSurfaceCoverage: "object",
+      missingPageSurfaceRoutes: "array",
+      blockedPageFamilies: "array",
+      guardCoverage: "object",
+      noNewPublicRoutesCreated: "boolean",
       pageTextInventory: "object",
       launchBlockersDetected: "array",
       readyForLaunch: "boolean; expected false unless a separate launch audit proves otherwise",
