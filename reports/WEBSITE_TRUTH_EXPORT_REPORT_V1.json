@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-29T16:09:19.789Z",
+  "generatedAt": "2026-05-30T05:54:16.999Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -12495,6 +12495,1274 @@
       }
     ]
   },
+  "pageSurfaceFrameworkPresent": true,
+  "supportedPageFamilies": [
+    "treatment",
+    "concern",
+    "comparison",
+    "cost",
+    "guide",
+    "local",
+    "trust_review",
+    "clinician",
+    "technology"
+  ],
+  "knownRouteFamilyPatterns": [
+    {
+      "pageFamily": "treatment",
+      "canonicalPattern": "/treatments/[slug]",
+      "launchState": "existing_treatment_review_required",
+      "appRouteAlreadyExists": true,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "concern",
+      "canonicalPattern": "/concerns/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "comparison",
+      "canonicalPattern": "/compare/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "cost",
+      "canonicalPattern": "/costs/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "guide",
+      "canonicalPattern": "/guides/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "local",
+      "canonicalPattern": "/local/[slug]",
+      "launchState": "blocked_until_shoreham_primary_or_evidence_backed",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": false
+    },
+    {
+      "pageFamily": "trust_review",
+      "canonicalPattern": "/reviews",
+      "launchState": "framework_ready_not_launch_ready",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "clinician",
+      "canonicalPattern": "/team/[slug]",
+      "launchState": "existing_route_requires_profile_review",
+      "appRouteAlreadyExists": true,
+      "futurePublicRouteAllowed": true
+    },
+    {
+      "pageFamily": "technology",
+      "canonicalPattern": "/technology/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true
+    }
+  ],
+  "pageSurfaceCoverage": {
+    "framework": "PAGE_SURFACE_V1",
+    "frameworkPresent": true,
+    "coverageMode": "framework_contract_only_for_non_treatment_families",
+    "routeCount": 117,
+    "treatmentRoutesWithTreatmentAnswerSurface": 12,
+    "generalizedPageSurfaceRouteCount": 0,
+    "entries": [
+      {
+        "route": "/",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/[page]",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/about",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/api/converse",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_api"
+      },
+      {
+        "route": "/api/handoff/booking",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_api"
+      },
+      {
+        "route": "/api/handoff/emergency-callback",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_api"
+      },
+      {
+        "route": "/api/handoff/new-patient",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_api"
+      },
+      {
+        "route": "/api/health",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_api"
+      },
+      {
+        "route": "/blog",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/champagne/hero-asset-lab",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_debug_internal"
+      },
+      {
+        "route": "/champagne/hero-debug",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_debug_internal"
+      },
+      {
+        "route": "/champagne/hero-lab",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_debug_internal"
+      },
+      {
+        "route": "/champagne/hero-lab/concierge",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_debug_internal"
+      },
+      {
+        "route": "/champagne/hero-preview",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_debug_internal"
+      },
+      {
+        "route": "/champagne/sections-debug",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_debug_internal"
+      },
+      {
+        "route": "/contact",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_support_review_required"
+      },
+      {
+        "route": "/dental-checkups-oral-cancer-screening",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/downloads",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_support_review_required"
+      },
+      {
+        "route": "/fees",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_support_review_required"
+      },
+      {
+        "route": "/finance",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_support_review_required"
+      },
+      {
+        "route": "/legal/[slug]",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_legal_review_required"
+      },
+      {
+        "route": "/legal/accessibility",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_legal_review_required"
+      },
+      {
+        "route": "/legal/complaints",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_legal_review_required"
+      },
+      {
+        "route": "/legal/cookies",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_legal_review_required"
+      },
+      {
+        "route": "/legal/privacy",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_legal_review_required"
+      },
+      {
+        "route": "/legal/terms",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_legal_review_required"
+      },
+      {
+        "route": "/newsletter",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/patient-portal",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_excluded_private_patient_portal"
+      },
+      {
+        "route": "/practice-plan",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_support_review_required"
+      },
+      {
+        "route": "/smile-gallery",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/team",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/team/[slug]",
+        "pageFamily": "clinician",
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/team/nick-maxwell",
+        "pageFamily": "clinician",
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/team/sara-burden",
+        "pageFamily": "clinician",
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/team/sylvia-krafft",
+        "pageFamily": "clinician",
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/technology",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "public_launch_candidate"
+      },
+      {
+        "route": "/treatments",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/[slug]",
+        "pageFamily": "treatment",
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/3d-dentistry-and-technology",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/3d-digital-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/3d-implant-restorations",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/3d-printed-dentures",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/3d-printed-veneers",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/3d-printing-lab",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/acrylic-dentures",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/anti-wrinkle-treatments",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/broken-chipped-cracked-teeth",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/bruxism-and-jaw-clenching",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/cbct-3d-scanning",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/childrens-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/chrome-dentures",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/clear-aligners",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/clear-aligners-spark",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/composite-bonding",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/cosmetic-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-abscess-infection",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-bridges",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-checkups-oral-cancer-screening",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-crowns",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-fillings",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-retainers",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dental-trauma-accidents",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dentures",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/dermal-fillers",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/digital-smile-design",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/emergency-dental-appointments",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/emergency-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/endodontics-root-canal",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/extractions-and-oral-surgery",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/facial-aesthetics",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/facial-pain-and-headache",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/facial-therapeutics",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/failed-implant-replacement",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/fixed-braces",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/full-smile-makeover",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/home-teeth-whitening",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implant-aftercare",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implant-consultation",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implant-retained-dentures",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implants",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implants-bone-grafting",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implants-full-arch",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implants-multiple-teeth",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/implants-single-tooth",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/injection-moulded-composite",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/inlays-onlays",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/knocked-out-tooth",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/lost-crowns-veneers-fillings",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/mouthguards-and-retainers",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/nervous-patients",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/night-guards-occlusal-splints",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/orthodontics",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/painless-numbing-the-wand",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/peek-partial-dentures",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/periodontal-gum-care",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/polynucleotides",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/preventative-and-general-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/preventive-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/sedation-dentistry",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/sedation-for-implants",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/senior-mature-smile-care",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/severe-toothache-dental-pain",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/sinus-lift",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/skin-boosters",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/sports-mouthguards",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/surgically-guided-implants",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/teeth-in-a-day",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/teeth-whitening",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/teeth-whitening-faqs",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/therapeutic-facial-injectables",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/tmj-disorder-treatment",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/tmj-jaw-comfort",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/tooth-wear-broken-teeth",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/veneers",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/whitening-sensitive-teeth",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/treatments/whitening-top-ups",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
+        "route": "/video-consultation",
+        "pageFamily": null,
+        "framework": null,
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_support_review_required"
+      }
+    ]
+  },
+  "missingPageSurfaceRoutes": [
+    "/team/[slug]",
+    "/team/nick-maxwell",
+    "/team/sara-burden",
+    "/team/sylvia-krafft",
+    "/treatments/[slug]",
+    "/treatments/3d-dentistry-and-technology",
+    "/treatments/3d-digital-dentistry",
+    "/treatments/3d-implant-restorations",
+    "/treatments/3d-printed-dentures",
+    "/treatments/3d-printed-veneers",
+    "/treatments/3d-printing-lab",
+    "/treatments/acrylic-dentures",
+    "/treatments/anti-wrinkle-treatments",
+    "/treatments/broken-chipped-cracked-teeth",
+    "/treatments/bruxism-and-jaw-clenching",
+    "/treatments/cbct-3d-scanning",
+    "/treatments/childrens-dentistry",
+    "/treatments/chrome-dentures",
+    "/treatments/clear-aligners-spark",
+    "/treatments/cosmetic-dentistry",
+    "/treatments/dental-abscess-infection",
+    "/treatments/dental-checkups-oral-cancer-screening",
+    "/treatments/dental-fillings",
+    "/treatments/dental-retainers",
+    "/treatments/dental-trauma-accidents",
+    "/treatments/dentures",
+    "/treatments/dermal-fillers",
+    "/treatments/digital-smile-design",
+    "/treatments/emergency-dental-appointments",
+    "/treatments/emergency-dentistry",
+    "/treatments/endodontics-root-canal",
+    "/treatments/extractions-and-oral-surgery",
+    "/treatments/facial-aesthetics",
+    "/treatments/facial-pain-and-headache",
+    "/treatments/facial-therapeutics",
+    "/treatments/failed-implant-replacement",
+    "/treatments/fixed-braces",
+    "/treatments/home-teeth-whitening",
+    "/treatments/implant-retained-dentures",
+    "/treatments/implants-bone-grafting",
+    "/treatments/implants-full-arch",
+    "/treatments/injection-moulded-composite",
+    "/treatments/inlays-onlays",
+    "/treatments/knocked-out-tooth",
+    "/treatments/lost-crowns-veneers-fillings",
+    "/treatments/mouthguards-and-retainers",
+    "/treatments/nervous-patients",
+    "/treatments/night-guards-occlusal-splints",
+    "/treatments/orthodontics",
+    "/treatments/painless-numbing-the-wand",
+    "/treatments/peek-partial-dentures",
+    "/treatments/periodontal-gum-care",
+    "/treatments/polynucleotides",
+    "/treatments/preventative-and-general-dentistry",
+    "/treatments/preventive-dentistry",
+    "/treatments/sedation-dentistry",
+    "/treatments/sedation-for-implants",
+    "/treatments/senior-mature-smile-care",
+    "/treatments/severe-toothache-dental-pain",
+    "/treatments/sinus-lift",
+    "/treatments/skin-boosters",
+    "/treatments/sports-mouthguards",
+    "/treatments/surgically-guided-implants",
+    "/treatments/teeth-in-a-day",
+    "/treatments/teeth-whitening-faqs",
+    "/treatments/therapeutic-facial-injectables",
+    "/treatments/tmj-disorder-treatment",
+    "/treatments/tmj-jaw-comfort",
+    "/treatments/tooth-wear-broken-teeth",
+    "/treatments/whitening-sensitive-teeth",
+    "/treatments/whitening-top-ups"
+  ],
+  "blockedPageFamilies": [
+    {
+      "pageFamily": "concern",
+      "canonicalPattern": "/concerns/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Reserved for future manifest-driven concern pages only; this mission must not create the route."
+    },
+    {
+      "pageFamily": "comparison",
+      "canonicalPattern": "/compare/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Requires balanced comparison table, alternatives, safety limitations, and evidence metadata."
+    },
+    {
+      "pageFamily": "cost",
+      "canonicalPattern": "/costs/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Requires assessment caveats and must not invent precise prices or fee promises."
+    },
+    {
+      "pageFamily": "guide",
+      "canonicalPattern": "/guides/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Reserved for evidence-reviewed guide pages; route creation remains blocked."
+    },
+    {
+      "pageFamily": "local",
+      "canonicalPattern": "/local/[slug]",
+      "launchState": "blocked_until_shoreham_primary_or_evidence_backed",
+      "notes": "Pattern is documented as reserved but not allowed for secondary-town doorway pages. Any future local page must be Shoreham-primary or backed by real local evidence."
+    },
+    {
+      "pageFamily": "trust_review",
+      "canonicalPattern": "/reviews",
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Review metadata must prove source, consent/safety posture, and must not fabricate reviews."
+    },
+    {
+      "pageFamily": "technology",
+      "canonicalPattern": "/technology/[slug]",
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Reserved for technology pages with evidence and clinical review metadata; route creation remains blocked."
+    }
+  ],
+  "guardCoverage": {
+    "guard:seo-launch-safety": true,
+    "guard:canon": true,
+    "guard:treatment-answer-surface": true,
+    "SECTION_KIND_COMPATIBILITY_GUARD_V1": true,
+    "LOCAL_ANTI_DOORWAY_GUARD_V1": true,
+    "COMPARISON_PAGE_GUARD_V1": true,
+    "COST_FEE_PAGE_GUARD_V1": true,
+    "EVIDENCE_REVIEW_METADATA_CONTRACT_V1": true
+  },
+  "noNewPublicRoutesCreated": true,
   "pageTextInventory": {
     "pageTruthFiles": 99,
     "pageContentTruthEntries": 5862,
@@ -20140,7 +21408,9 @@
       "guard:canon": true,
       "verify": true,
       "export:page-truth": true,
-      "export:website-truth": true
+      "export:website-truth": true,
+      "guard:treatment-answer-surface": true,
+      "guard:seo-launch-safety": true
     },
     "availableReports": [
       "reports/content_readiness_report.json",

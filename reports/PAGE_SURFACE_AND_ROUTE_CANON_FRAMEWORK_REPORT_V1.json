@@ -1,0 +1,226 @@
+{
+  "version": "PAGE_SURFACE_AND_ROUTE_CANON_FRAMEWORK_REPORT_V1",
+  "generatedAt": "2026-05-30T05:54:15.877Z",
+  "noNewPublicRoutesCreated": true,
+  "forbiddenRouteFiles": [],
+  "supportedPageFamilies": [
+    "treatment",
+    "concern",
+    "comparison",
+    "cost",
+    "guide",
+    "local",
+    "trust_review",
+    "clinician",
+    "technology"
+  ],
+  "supportedSectionKinds": [
+    "direct_answer",
+    "clinical_reassurance",
+    "comparison_table",
+    "cost_fee_logic",
+    "fee_grid",
+    "faq",
+    "related_treatments",
+    "cta",
+    "clinician_expertise",
+    "local_shoreham_context",
+    "evidence_review_metadata",
+    "safety_limitations",
+    "alternatives",
+    "process",
+    "aftercare",
+    "review_status"
+  ],
+  "launchPosture": "framework_ready_not_launch_ready",
+  "contracts": [
+    "ops/contracts/PAGE_SURFACE_V1.json",
+    "ops/contracts/PAGE_FAMILY_ROUTE_CANON_V1.json",
+    "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json"
+  ],
+  "routeCanon": [
+    {
+      "pageFamily": "treatment",
+      "canonicalPattern": "/treatments/[slug]",
+      "routeOwner": "existing treatment route",
+      "appRouteAlreadyExists": true,
+      "futurePublicRouteAllowed": true,
+      "launchState": "existing_treatment_review_required",
+      "notes": "Existing treatment pages remain the only live answer-surface implementation family today."
+    },
+    {
+      "pageFamily": "concern",
+      "canonicalPattern": "/concerns/[slug]",
+      "routeOwner": "future manifest/page-builder concern family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true,
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Reserved for future manifest-driven concern pages only; this mission must not create the route."
+    },
+    {
+      "pageFamily": "comparison",
+      "canonicalPattern": "/compare/[slug]",
+      "routeOwner": "future manifest/page-builder comparison family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true,
+      "launchState": "framework_ready_not_launch_ready",
+      "requiredGuards": [
+        "COMPARISON_PAGE_GUARD_V1"
+      ],
+      "notes": "Requires balanced comparison table, alternatives, safety limitations, and evidence metadata."
+    },
+    {
+      "pageFamily": "cost",
+      "canonicalPattern": "/costs/[slug]",
+      "routeOwner": "future manifest/page-builder cost family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true,
+      "launchState": "framework_ready_not_launch_ready",
+      "requiredGuards": [
+        "COST_FEE_PAGE_GUARD_V1"
+      ],
+      "notes": "Requires assessment caveats and must not invent precise prices or fee promises."
+    },
+    {
+      "pageFamily": "guide",
+      "canonicalPattern": "/guides/[slug]",
+      "routeOwner": "future manifest/page-builder guide family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true,
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Reserved for evidence-reviewed guide pages; route creation remains blocked."
+    },
+    {
+      "pageFamily": "local",
+      "canonicalPattern": "/local/[slug]",
+      "routeOwner": "future manifest/page-builder local family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": false,
+      "launchState": "blocked_until_shoreham_primary_or_evidence_backed",
+      "requiredGuards": [
+        "LOCAL_ANTI_DOORWAY_GUARD_V1"
+      ],
+      "notes": "Pattern is documented as reserved but not allowed for secondary-town doorway pages. Any future local page must be Shoreham-primary or backed by real local evidence."
+    },
+    {
+      "pageFamily": "trust_review",
+      "canonicalPattern": "/reviews",
+      "alternatePattern": "/trust",
+      "routeOwner": "future manifest/page-builder trust/review family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true,
+      "launchState": "framework_ready_not_launch_ready",
+      "requiredGuards": [
+        "EVIDENCE_REVIEW_METADATA_CONTRACT_V1"
+      ],
+      "notes": "Review metadata must prove source, consent/safety posture, and must not fabricate reviews."
+    },
+    {
+      "pageFamily": "clinician",
+      "canonicalPattern": "/team/[slug]",
+      "routeOwner": "existing clinician route pattern",
+      "appRouteAlreadyExists": true,
+      "futurePublicRouteAllowed": true,
+      "launchState": "existing_route_requires_profile_review",
+      "notes": "Existing clinician pattern may adopt PAGE_SURFACE_V1 later without adding a new route family."
+    },
+    {
+      "pageFamily": "technology",
+      "canonicalPattern": "/technology/[slug]",
+      "routeOwner": "future manifest/page-builder technology family",
+      "appRouteAlreadyExists": false,
+      "futurePublicRouteAllowed": true,
+      "launchState": "framework_ready_not_launch_ready",
+      "notes": "Reserved for technology pages with evidence and clinical review metadata; route creation remains blocked."
+    }
+  ],
+  "requiredFieldsPresentInContract": [
+    "schemaVersion",
+    "pageFamily",
+    "canonicalRoute",
+    "routeOwner",
+    "primaryEntity",
+    "secondaryEntities",
+    "targetQueries",
+    "targetIntent",
+    "localMarket",
+    "directAnswer",
+    "sections",
+    "faqs",
+    "schemaRequirements",
+    "internalLinks",
+    "cta",
+    "clinicianExpertise",
+    "evidenceReviewMetadata",
+    "clinicalReviewStatus",
+    "forbiddenClaims",
+    "launchBlockers"
+  ],
+  "missingRouteCanonFamilies": [],
+  "frameworkReadyPageFamilies": [
+    "concern",
+    "comparison",
+    "cost",
+    "guide",
+    "local",
+    "trust_review",
+    "clinician",
+    "technology"
+  ],
+  "launchReadyPageFamilies": [],
+  "existingPublicRouteFamilies": [
+    "treatment",
+    "clinician"
+  ],
+  "guardCoverage": {
+    "SECTION_KIND_COMPATIBILITY_GUARD_V1": {
+      "seeded": true,
+      "report": "reports/SECTION_KIND_COMPATIBILITY_GUARD_REPORT_V1.json",
+      "checks": [
+        "every supported page family has allowed section kinds",
+        "every referenced section kind exists in PAGE_SURFACE_V1"
+      ]
+    },
+    "LOCAL_ANTI_DOORWAY_GUARD_V1": {
+      "seeded": true,
+      "report": "reports/LOCAL_ANTI_DOORWAY_GUARD_REPORT_V1.json",
+      "checks": [
+        "/local/[slug] reserved but blocked until Shoreham-primary or evidence-backed",
+        "secondary-town doorway pages blocked"
+      ]
+    },
+    "COMPARISON_PAGE_GUARD_V1": {
+      "seeded": true,
+      "report": "reports/COMPARISON_COST_PAGE_GUARD_REPORT_V1.json",
+      "checks": [
+        "comparison_table required",
+        "balanced and non-misleading sections required",
+        "evidence metadata required"
+      ]
+    },
+    "COST_FEE_PAGE_GUARD_V1": {
+      "seeded": true,
+      "report": "reports/COMPARISON_COST_PAGE_GUARD_REPORT_V1.json",
+      "checks": [
+        "cost_fee_logic and fee_grid required",
+        "fake price specificity blocked",
+        "assessment and fee caveats required"
+      ]
+    },
+    "EVIDENCE_REVIEW_METADATA_CONTRACT_V1": {
+      "seeded": true,
+      "contract": "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json",
+      "checks": [
+        "fabricated reviews forbidden",
+        "unsupported evidence forbidden",
+        "framework-only pages not launch-ready"
+      ]
+    }
+  },
+  "remainingBlockers": [
+    "No non-treatment PAGE_SURFACE_V1 manifests exist yet.",
+    "Future public route files remain blocked until dedicated implementation missions.",
+    "Comparison, cost, local, evidence/review guards are seeded as contracts/reports, not wired as package scripts.",
+    "Clinical and evidence review metadata must be populated before launch review."
+  ]
+}

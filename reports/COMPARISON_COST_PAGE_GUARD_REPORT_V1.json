@@ -1,0 +1,66 @@
+{
+  "version": "COMPARISON_COST_PAGE_GUARD_V1",
+  "generatedAt": "2026-05-30T05:54:15.877Z",
+  "noNewPublicRoutesCreated": true,
+  "forbiddenRouteFiles": [],
+  "supportedPageFamilies": [
+    "treatment",
+    "concern",
+    "comparison",
+    "cost",
+    "guide",
+    "local",
+    "trust_review",
+    "clinician",
+    "technology"
+  ],
+  "supportedSectionKinds": [
+    "direct_answer",
+    "clinical_reassurance",
+    "comparison_table",
+    "cost_fee_logic",
+    "fee_grid",
+    "faq",
+    "related_treatments",
+    "cta",
+    "clinician_expertise",
+    "local_shoreham_context",
+    "evidence_review_metadata",
+    "safety_limitations",
+    "alternatives",
+    "process",
+    "aftercare",
+    "review_status"
+  ],
+  "launchPosture": "framework_ready_not_launch_ready",
+  "comparisonGuard": {
+    "requiresSectionKinds": [
+      "direct_answer",
+      "comparison_table",
+      "clinical_reassurance",
+      "alternatives",
+      "safety_limitations",
+      "evidence_review_metadata",
+      "review_status"
+    ],
+    "balancedNonMisleadingRequired": true,
+    "unsupportedSuperiorityClaimsBlocked": true,
+    "launchState": "framework_ready_not_launch_ready"
+  },
+  "costFeeGuard": {
+    "requiresSectionKinds": [
+      "direct_answer",
+      "cost_fee_logic",
+      "fee_grid",
+      "clinical_reassurance",
+      "safety_limitations",
+      "evidence_review_metadata",
+      "review_status"
+    ],
+    "fakePriceSpecificityBlocked": true,
+    "assessmentCaveatsRequired": true,
+    "feeCaveatsRequired": true,
+    "launchState": "framework_ready_not_launch_ready"
+  },
+  "pass": true
+}

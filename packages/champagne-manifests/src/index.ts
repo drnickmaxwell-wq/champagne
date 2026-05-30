@@ -89,3 +89,23 @@ export {
 } from "./answerSurface";
 export { useValidatedManifest } from "./useValidatedManifest";
 export type { ChampagneManifest, ChampagneSectionEntry } from "./types";
+export {
+  PAGE_SURFACE_SCHEMA_VERSION,
+  PAGE_SURFACE_SUPPORTED_PAGE_FAMILIES,
+  PAGE_SURFACE_SUPPORTED_SECTION_KINDS,
+  type PageSurfaceV1,
+  type PageSurfaceFamily,
+  type PageSurfaceSectionKind,
+  type PageSurfaceSchemaVersion,
+  type PageSurfaceClinicalReviewStatus,
+  type PageSurfaceEntity,
+  type PageSurfaceDirectAnswer,
+  type PageSurfaceSection,
+  type PageSurfaceFaq,
+  type PageSurfaceSchemaRequirement,
+  type PageSurfaceInternalLink,
+  type PageSurfaceCta,
+  type PageSurfaceClinicianExpertise,
+  type PageSurfaceEvidenceReviewMetadata,
+  type PageSurfaceLaunchBlocker,
+} from "./pageSurface";
