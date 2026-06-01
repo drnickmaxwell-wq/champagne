@@ -202,7 +202,7 @@ jobs:
 
       - name: Download hero fit artifacts
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: hero-fit-report
           path: reports/hero-fit
