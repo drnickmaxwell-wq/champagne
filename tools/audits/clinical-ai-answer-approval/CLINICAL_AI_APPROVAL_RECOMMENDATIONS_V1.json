@@ -1,0 +1,223 @@
+{
+  "version": "CLINICAL_AI_APPROVAL_RECOMMENDATIONS_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "0dde49184f29b20cb13454702423f8978b96c097",
+  "recommendation": "NEXT_MISSION_REQUIRED",
+  "singleHighestRoiNextMission": "NAMED_CLINICAL_REVIEW_AND_APPROVAL_FLAG_DECISION_V1",
+  "approvalFlagMutationPerformed": false,
+  "recommendations": [
+    {
+      "service": "emergency-dentist",
+      "answerRegistryId": "smh-answer-priority-emergency-dentist-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "dental-implants",
+      "answerRegistryId": "smh-answer-priority-dental-implants-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "private-dentist",
+      "answerRegistryId": "smh-answer-priority-private-dentist-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "examinations",
+      "answerRegistryId": "smh-answer-priority-examinations-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "spark-aligners",
+      "answerRegistryId": "smh-answer-priority-spark-aligners-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "orthodontics",
+      "answerRegistryId": "smh-answer-priority-orthodontics-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "3d-dentistry",
+      "answerRegistryId": "smh-answer-priority-3d-dentistry-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "same-day-crowns-veneers",
+      "answerRegistryId": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "veneers",
+      "answerRegistryId": "smh-answer-priority-veneers-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "sedation-anxiety-dentistry",
+      "answerRegistryId": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    },
+    {
+      "service": "hygiene-recall",
+      "answerRegistryId": "smh-answer-priority-hygiene-recall-packet-v1",
+      "recommendedClinicalAction": "formal_clinical_review_required",
+      "recommendedGovernanceAction": {
+        "ai": "keep_disabled",
+        "voice": "keep_disabled",
+        "chatbot": "keep_disabled",
+        "schemaAnswer": "keep_disabled"
+      },
+      "minorEditCandidates": [
+        "expanded_answer_over_120_words"
+      ],
+      "approvalFlagMutationPerformed": false
+    }
+  ],
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; emitted existing Browserslist/Tailwind notices during SSR smoke test."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA passed with 5 verified team members and 11 priority services."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Passed with existing registry warnings for overlong priority answers and one veneers fact outside approved priorityServices."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "Passed; 12 packets / 12 services covered."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "Passed; 11/11 visible answer surfaces."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Passed; existing workspace dependency warnings, SEO launch-safety warnings, Browserslist/Tailwind notices, and Next lint plugin notice."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors."
+    }
+  ]
+}

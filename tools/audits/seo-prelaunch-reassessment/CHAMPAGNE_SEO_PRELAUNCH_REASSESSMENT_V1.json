@@ -1,0 +1,531 @@
+{
+  "version": "CHAMPAGNE_SEO_PRELAUNCH_REASSESSMENT_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "cce716135536134b26ea4f5fe44fd40e51e14416",
+  "mission": "CHAMPAGNE_SEO_PRELAUNCH_REASSESSMENT_V1",
+  "auditOnly": true,
+  "overallRecommendation": "NEXT_MISSION_REQUIRED",
+  "decision": "STILL_HAS_MATERIAL_SEO_BLOCKERS",
+  "singleHighestRoiNextMission": "CLINICAL_AI_ANSWER_APPROVAL_AND_FINAL_QA_HARDENING_V1",
+  "singleHighestRoiReason": "Visible answer rendering is now complete, but the same priority packets remain clinician_review_required and unapproved for AI/voice/chatbot/schema. This is the highest-impact blocker because it affects YMYL safety, AI extraction governance, E-E-A-T, chatbot alignment and schema readiness simultaneously.",
+  "routeMetrics": {
+    "public_manifest_routes": 101,
+    "treatment_routes": 78,
+    "category_counts": {
+      "None": 3,
+      "editorial": 2,
+      "hub": 7,
+      "legal": 5,
+      "profile": 3,
+      "site": 2,
+      "technology": 1,
+      "treatment": 74,
+      "utility": 8
+    },
+    "section_layout_files": 89,
+    "section_layouts_with_faq_kind": 84
+  },
+  "metadataEvidence": {
+    "apps/web/app/layout.tsx": {
+      "metadataBase": true,
+      "robots": true,
+      "alternates": false,
+      "canonical": false,
+      "openGraph": true,
+      "twitter": true,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": true,
+      "getAllPages": false,
+      "sitemap": false
+    },
+    "apps/web/app/sitemap.ts": {
+      "metadataBase": false,
+      "robots": false,
+      "alternates": false,
+      "canonical": false,
+      "openGraph": false,
+      "twitter": false,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": true,
+      "sitemap": true
+    },
+    "apps/web/app/robots.ts": {
+      "metadataBase": false,
+      "robots": true,
+      "alternates": false,
+      "canonical": false,
+      "openGraph": false,
+      "twitter": false,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": false,
+      "sitemap": true
+    },
+    "apps/web/app/treatments/[slug]/page.tsx": {
+      "metadataBase": false,
+      "robots": false,
+      "alternates": true,
+      "canonical": true,
+      "openGraph": true,
+      "twitter": true,
+      "buildTreatmentSchemaGraph": true,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": false,
+      "sitemap": false
+    },
+    "apps/web/app/(site)/[page]/page.tsx": {
+      "metadataBase": false,
+      "robots": false,
+      "alternates": true,
+      "canonical": true,
+      "openGraph": true,
+      "twitter": true,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": false,
+      "sitemap": false
+    },
+    "apps/web/app/team/[slug]/page.tsx": {
+      "metadataBase": false,
+      "robots": false,
+      "alternates": true,
+      "canonical": true,
+      "openGraph": true,
+      "twitter": true,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": false,
+      "sitemap": false
+    },
+    "apps/web/app/contact/page.tsx": {
+      "metadataBase": false,
+      "robots": false,
+      "alternates": true,
+      "canonical": true,
+      "openGraph": true,
+      "twitter": true,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": false,
+      "sitemap": false
+    },
+    "apps/web/app/fees/page.tsx": {
+      "metadataBase": false,
+      "robots": false,
+      "alternates": true,
+      "canonical": true,
+      "openGraph": true,
+      "twitter": true,
+      "buildTreatmentSchemaGraph": false,
+      "buildSiteSchemaGraph": false,
+      "getAllPages": false,
+      "sitemap": false
+    }
+  },
+  "capabilities": [
+    {
+      "area": "Route architecture",
+      "status": "STRONG",
+      "evidence": "101 public manifest routes, 78 treatment routes, 89 SMH section layout files.",
+      "files": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh"
+      ]
+    },
+    {
+      "area": "Metadata/canonicals/OpenGraph",
+      "status": "PARTIAL",
+      "evidence": "Root metadataBase, production-aware robots, OpenGraph and Twitter defaults exist; route metadata supplies canonical/OpenGraph/Twitter fields on treatment/site/team routes. Gaps remain for title templates, route-specific OG image policy, and metadata snapshot QA.",
+      "files": [
+        "apps/web/app/layout.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "apps/web/app/team/[slug]/page.tsx"
+      ]
+    },
+    {
+      "area": "Robots and sitemap",
+      "status": "STRONG",
+      "evidence": "robots.ts and sitemap.ts exist; guard:seo-launch-safety previously reports robots/sitemap production posture safe and sitemap excludes private paths.",
+      "files": [
+        "apps/web/app/robots.ts",
+        "apps/web/app/sitemap.ts",
+        "scripts/seo-launch-safety-check.mjs"
+      ]
+    },
+    {
+      "area": "Schema graph",
+      "status": "STRONG",
+      "evidence": "Schema QA status pass with 5 verified team members and 11 priority services; site graph emits Organization, Dentist/LocalBusiness, Website, WebPage, Person and Service nodes.",
+      "files": [
+        "packages/champagne-manifests/src/seo.ts",
+        "tools/audits/seo-local-identity-team-schema-foundation/SEO_SCHEMA_GRAPH_QA_RESULTS_V1.json"
+      ]
+    },
+    {
+      "area": "Local SEO",
+      "status": "STRONG",
+      "evidence": "Local identity includes NAP, hours, closed days, primary market Shoreham-by-Sea, support markets ['Brighton', 'Hove', 'Lancing', 'Worthing', 'Steyning'], and 11 local priority services.",
+      "files": [
+        "packages/champagne-manifests/data/seo/local-identity.smh.json"
+      ]
+    },
+    {
+      "area": "Team E-E-A-T",
+      "status": "STRONG",
+      "evidence": "Team registry has 5 members, 5 schema-verified members and 5 GDC numbers.",
+      "files": [
+        "packages/champagne-manifests/data/seo/team-registry.smh.json",
+        "apps/web/app/team/[slug]/page.tsx"
+      ]
+    },
+    {
+      "area": "Treatment E-E-A-T",
+      "status": "PARTIAL",
+      "evidence": "Treatment routes and answer-surface contracts exist, but priority packet entries still have clinician_review_required true and approved_for_ai/schema/chatbot/voice false, so final clinical approval evidence is incomplete.",
+      "files": [
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+        "packages/champagne-manifests/src/answerSurface.ts"
+      ]
+    },
+    {
+      "area": "AI answer architecture",
+      "status": "PARTIAL",
+      "evidence": "AI registry has 18 entries and 12 priority packets; question inventory has 55/55 mapped questions. However all 12 priority packet entries are unapproved for AI/voice/chatbot/schema flags.",
+      "files": [
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json"
+      ]
+    },
+    {
+      "area": "Visible answer rendering",
+      "status": "RESOLVED",
+      "evidence": "Visible answer coverage report shows 11/11 rendered and 100% coverage; zero-click rendering QA status is pass.",
+      "files": [
+        "tools/audits/seo-visible-answer-surface-rendering/SEO_VISIBLE_ANSWER_SURFACE_COVERAGE_V1.json",
+        "tools/audits/seo-visible-answer-surface-rendering/SEO_ZERO_CLICK_RENDERING_QA_V1.json"
+      ]
+    },
+    {
+      "area": "FAQ coverage",
+      "status": "PARTIAL",
+      "evidence": "84 section layout files include FAQ-like sections, but no route-level FAQPage JSON-LD emitter evidence was found in treatment page code.",
+      "files": [
+        "packages/champagne-manifests/data/sections/smh",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-sections/src/Section_FAQ.tsx"
+      ]
+    },
+    {
+      "area": "Internal linking",
+      "status": "PARTIAL",
+      "evidence": "Routing cards, CTA relationships, treatment hub groups and layout guards exist; high-risk cannibalisation clusters are still reported by seo-launch-safety for implants/cosmetic/orthodontics/emergency.",
+      "files": [
+        "packages/champagne-manifests/data/ia/treatment-hub.groups.smh.json",
+        "scripts/seo-launch-safety-check.mjs"
+      ]
+    },
+    {
+      "area": "Content maturity",
+      "status": "PARTIAL",
+      "evidence": "Priority service packets and visible answers exist; however answer foundation QA has registry warnings for overlong priority answers and priority packets remain marked for clinical review.",
+      "files": [
+        "tools/audits/seo-ai-answer-foundation/AI_SEARCH_READINESS_AUDIT_V1.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json"
+      ]
+    },
+    {
+      "area": "Voice search readiness",
+      "status": "PARTIAL",
+      "evidence": "Voice search registry has 7 foundation patterns with status foundation_patterns_only; priority packets are not approved_for_voice.",
+      "files": [
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/voice-search-pattern-registry.v1.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json"
+      ]
+    },
+    {
+      "area": "Chatbot alignment",
+      "status": "PARTIAL",
+      "evidence": "Chatbot alignment registry has 17 mappings and runtimeMutation=False; priority packets are not approved_for_chatbot and runtime was not changed.",
+      "files": [
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json"
+      ]
+    },
+    {
+      "area": "Lighthouse/accessibility/mobile",
+      "status": "PARTIAL",
+      "evidence": "Build and lint/typecheck pass via verify, legal accessibility page exists, hero visual mobile test fixture exists; no current Lighthouse/CWV or axe report evidence was found in committed audit artifacts.",
+      "files": [
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "tests/hero-visual.spec.ts",
+        "tools/audits/seo-implementation-gap/CHAMPAGNE_SEO_IMPLEMENTATION_GAP_AUDIT_V1.json"
+      ]
+    },
+    {
+      "area": "Bing/IndexNow",
+      "status": "UNRESOLVED",
+      "evidence": "No IndexNow key file, endpoint route or submission script was found; Bing readiness is sitemap/robots dependent only.",
+      "files": [
+        "apps/web/app/sitemap.ts",
+        "apps/web/app/robots.ts"
+      ]
+    }
+  ],
+  "blockerSummary": {
+    "resolved": 4,
+    "partial": 8,
+    "unresolved": 2
+  },
+  "readinessScores": [
+    {
+      "area": "Google Organic Readiness",
+      "score": 82,
+      "rationale": "Route inventory, sitemap, robots, metadata and section architecture are strong; title-template/OG-image hardening and intent-cannibalisation review remain."
+    },
+    {
+      "area": "Google Local Pack Readiness",
+      "score": 86,
+      "rationale": "NAP, hours, support markets, Dentist/LocalBusiness schema and team registry are present; geo/hasMap/sameAs/GBP identifiers remain absent."
+    },
+    {
+      "area": "Google AI Overview Readiness",
+      "score": 76,
+      "rationale": "Priority packets and visible answer surfaces exist; priority packets remain clinician_review_required and not approved_for_ai/schema."
+    },
+    {
+      "area": "Google AI Mode Readiness",
+      "score": 74,
+      "rationale": "Question inventory and answer rendering support conversational extraction; governance approval flags are still false for priority packets."
+    },
+    {
+      "area": "Zero-Click Readiness",
+      "score": 82,
+      "rationale": "Visible answer rendering QA passes 11/11 with indexable HTML; overlong answer warnings and unapproved AI flags reduce readiness."
+    },
+    {
+      "area": "Voice Search Readiness",
+      "score": 72,
+      "rationale": "Voice pattern registry exists with 7 foundation patterns; priority packets are not approved_for_voice."
+    },
+    {
+      "area": "Bing Readiness",
+      "score": 70,
+      "rationale": "Robots and sitemap foundation are present; IndexNow implementation is absent."
+    },
+    {
+      "area": "IndexNow Readiness",
+      "score": 20,
+      "rationale": "No IndexNow key file, endpoint or submission script was found."
+    },
+    {
+      "area": "Schema Readiness",
+      "score": 84,
+      "rationale": "Organization/Dentist/LocalBusiness/WebSite/WebPage/Person/Service/Breadcrumb graph exists and schema QA passes; FAQPage and media/offer schemas are absent."
+    },
+    {
+      "area": "E-E-A-T Readiness",
+      "score": 76,
+      "rationale": "Team registry includes verified members and GDC numbers; visible answer packets still require clinical approval/reviewer linkage."
+    },
+    {
+      "area": "Chatbot Alignment Readiness",
+      "score": 72,
+      "rationale": "Alignment registry exists and runtimeMutation is false; priority packets are not approved_for_chatbot and runtime sync is not implemented."
+    },
+    {
+      "area": "Launch Readiness",
+      "score": 74,
+      "rationale": "Core SEO architecture is substantially complete, but clinical/AI approval flags, final Lighthouse/accessibility/mobile QA and IndexNow/metadata hardening remain before launch certification."
+    }
+  ],
+  "localDominance": {
+    "version": "CHAMPAGNE_LOCAL_DOMINANCE_READINESS_V1",
+    "generatedAt": "2026-06-02T00:00:00.000Z",
+    "repoCommit": "cce716135536134b26ea4f5fe44fd40e51e14416",
+    "status": "PARTIAL_READY_FOR_FINAL_HARDENING",
+    "primaryMarket": {
+      "name": "Shoreham-by-Sea",
+      "readiness": 88,
+      "evidence": [
+        "NAP/hours/schema present",
+        "Priority services mapped",
+        "Visible answer surfaces rendered on 11 target routes"
+      ],
+      "remainingGaps": [
+        "Geo/hasMap/sameAs/GBP IDs not evidenced",
+        "Final clinical approval flags absent for priority packets"
+      ]
+    },
+    "supportMarkets": [
+      {
+        "name": "Brighton",
+        "readiness": 68,
+        "evidence": [
+          "Support market present in local identity and areaServed schema list"
+        ],
+        "remainingGaps": [
+          "No dedicated support-market landing route evidence",
+          "No market-specific proof/content depth evidence"
+        ]
+      },
+      {
+        "name": "Hove",
+        "readiness": 68,
+        "evidence": [
+          "Support market present in local identity and areaServed schema list"
+        ],
+        "remainingGaps": [
+          "No dedicated support-market landing route evidence",
+          "No market-specific proof/content depth evidence"
+        ]
+      },
+      {
+        "name": "Lancing",
+        "readiness": 68,
+        "evidence": [
+          "Support market present in local identity and areaServed schema list"
+        ],
+        "remainingGaps": [
+          "No dedicated support-market landing route evidence",
+          "No market-specific proof/content depth evidence"
+        ]
+      },
+      {
+        "name": "Worthing",
+        "readiness": 68,
+        "evidence": [
+          "Support market present in local identity and areaServed schema list"
+        ],
+        "remainingGaps": [
+          "No dedicated support-market landing route evidence",
+          "No market-specific proof/content depth evidence"
+        ]
+      },
+      {
+        "name": "Steyning",
+        "readiness": 68,
+        "evidence": [
+          "Support market present in local identity and areaServed schema list"
+        ],
+        "remainingGaps": [
+          "No dedicated support-market landing route evidence",
+          "No market-specific proof/content depth evidence"
+        ]
+      }
+    ],
+    "treatmentCoverage": {
+      "priorityServices": 11,
+      "visibleAnswerTargetRoutes": 11,
+      "visibleAnswerRendered": 11,
+      "questionTargetServices": 12,
+      "mappedQuestions": 55
+    },
+    "localEntityConsistency": {
+      "status": "strong",
+      "evidence": "Canonical origin, practice name, legal entity, address, telephone, email and opening hours are centralized in local identity/schema sources."
+    },
+    "localSeoCompleteness": {
+      "status": "partial",
+      "missingEvidence": [
+        "geo coordinates",
+        "hasMap/Google Maps URL",
+        "sameAs/GBP profile identifiers",
+        "support-market landing page strategy"
+      ]
+    }
+  },
+  "contentEngineImpact": {
+    "version": "CHAMPAGNE_CONTENT_ENGINE_IMPACT_ASSESSMENT_V1",
+    "generatedAt": "2026-06-02T00:00:00.000Z",
+    "repoCommit": "cce716135536134b26ea4f5fe44fd40e51e14416",
+    "contentRewriteEngineEvidence": "No committed file named as a Website OS Content Rewrite Engine was found in the scoped repo search. Existing manifest/page-truth/content-source-map architecture can support future rewrite loops, but this audit cannot treat a non-evidenced engine as risk mitigation.",
+    "riskMitigation": "LOW_TO_MODERATE_FROM_ARCHITECTURE_ONLY",
+    "issueClassification": [
+      {
+        "issue": "Priority answer packets require clinical/AI/schema/chatbot approval flags",
+        "classification": "Launch blocker",
+        "reason": "Dental/YMYL visible answer content is rendered, but registry flags remain false and clinician_review_required true."
+      },
+      {
+        "issue": "No Lighthouse/Core Web Vitals/axe evidence for current build",
+        "classification": "Launch blocker for final hardening",
+        "reason": "Performance/accessibility/mobile readiness was requested and no current score artifact exists."
+      },
+      {
+        "issue": "FAQPage schema absent despite FAQ UI/data",
+        "classification": "Post-launch optimisation or final hardening",
+        "reason": "FAQ content is visible, but structured FAQ output is not evidenced."
+      },
+      {
+        "issue": "IndexNow absent",
+        "classification": "Post-launch optimisation",
+        "reason": "Bing can still discover sitemap; IndexNow is a submission acceleration feature."
+      },
+      {
+        "issue": "Support-market-specific local content depth absent",
+        "classification": "Continuous improvement",
+        "reason": "Support markets are entity-covered but not proven by dedicated local content."
+      }
+    ]
+  },
+  "competitorReadiness": {
+    "status": "READY_FOR_FUTURE_LOOPS_NOT_IMPLEMENTED",
+    "evidence": [
+      "Route inventory, page truth exports, content source map reports, treatment hub groups and audit scripts exist.",
+      "No Search Console or Semrush ingestion connector was found."
+    ],
+    "assessment": "Architecture can support future competitor/Search Console/Semrush learning loops, but those loops are not implemented and are not required for this prelaunch decision."
+  },
+  "nonNegotiables": {
+    "implementedFixes": false,
+    "redesign": false,
+    "deployment": false,
+    "phiSystemsTouched": false,
+    "pmsDentallyTouched": false,
+    "chatbotRuntimeChanged": false,
+    "launchCertificationClaimed": false
+  },
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; emitted existing Browserslist/Tailwind notices during SSR smoke test."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA status pass; 5 verified team members and 11 priority services."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Passed with existing registry warnings for overlong priority answers and one veneers fact outside approved priorityServices."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "12 packets / 12 services covered."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "11/11 visible answer surfaces, 100%."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Passed; includes existing workspace dependency warnings, SEO launch-safety warnings for treatment layout review/cannibalisation clusters, Browserslist/Tailwind notices, and Next lint plugin notice."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors."
+    }
+  ]
+}

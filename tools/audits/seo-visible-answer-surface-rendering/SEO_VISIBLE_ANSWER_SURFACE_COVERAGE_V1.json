@@ -1,0 +1,21 @@
+{
+  "version": "SEO_VISIBLE_ANSWER_SURFACE_COVERAGE_V1",
+  "generatedAt": "2026-06-02T04:57:18.495Z",
+  "targetServiceCount": 11,
+  "renderedCount": 11,
+  "coveragePercentage": 100,
+  "renderedRoutes": [
+    "/treatments/emergency-dentistry",
+    "/treatments/implants",
+    "/contact",
+    "/treatments/dental-checkups-oral-cancer-screening",
+    "/treatments/clear-aligners-spark",
+    "/treatments/orthodontics",
+    "/treatments/3d-dentistry-and-technology",
+    "/treatments/3d-digital-dentistry",
+    "/treatments/veneers",
+    "/treatments/sedation-dentistry",
+    "/treatments/preventative-and-general-dentistry"
+  ],
+  "missingRoutes": []
+}

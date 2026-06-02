@@ -2,6 +2,7 @@ import type { ChampagneCTARelationship } from "@champagne/cta";
 import type { ChampagnePageSection } from "@champagne/manifests/src/core";
 import { getSectionStackForPage } from "@champagne/manifests/src/core";
 import { getSectionStyle } from "@champagne/manifests/src/helpers";
+import { getVisibleAnswerPacketForRoute, type VisibleAnswerSurfacePacket } from "@champagne/manifests/src/aiAnswerFoundation";
 
 export interface SectionRegistryEntry {
   id: string;
@@ -46,6 +47,7 @@ export interface SectionRegistryEntry {
   reviews?: { quote: string; name?: string; rating?: number; source?: string }[];
   rating?: number;
   reviewCount?: string;
+  answerPacket?: VisibleAnswerSurfacePacket;
   definition?: ChampagnePageSection | string;
 }
 
@@ -246,8 +248,40 @@ function normalizeDefinition(section: ChampagnePageSection | string, pageSlug: s
   } satisfies SectionRegistryEntry;
 }
 
+function buildVisibleAnswerSurfaceSection(pageSlug: string): SectionRegistryEntry | undefined {
+  const answerPacket = getVisibleAnswerPacketForRoute(pageSlug);
+  if (!answerPacket) return undefined;
+
+  return {
+    id: `${answerPacket.service}-visible-answer-surface`,
+    type: "treatment_answer_surface",
+    kind: "treatment_answer_surface",
+    title: answerPacket.answer.question,
+    eyebrow: "Quick answer",
+    body: answerPacket.answer.short_answer,
+    answerPacket,
+    definition: {
+      id: `${answerPacket.service}-visible-answer-surface`,
+      type: "treatment_answer_surface",
+      title: answerPacket.answer.question,
+      label: "Quick answer",
+      copy: answerPacket.answer.short_answer,
+      answerPacket,
+    } as ChampagnePageSection,
+  };
+}
+
+function insertVisibleAnswerSurface(sections: SectionRegistryEntry[], pageSlug: string): SectionRegistryEntry[] {
+  const answerSection = buildVisibleAnswerSurfaceSection(pageSlug);
+  if (!answerSection) return sections;
+  if (sections.some((section) => section.kind === "treatment_answer_surface" || section.id === answerSection.id)) return sections;
+
+  const insertIndex = Math.min(1, sections.length);
+  return [...sections.slice(0, insertIndex), answerSection, ...sections.slice(insertIndex)];
+}
+
 export function getSectionStack(pageSlug: string): SectionRegistryEntry[] {
   const rawSections = getSectionStackForPage(pageSlug) ?? [];
 
-  return rawSections.map((section, index) => normalizeDefinition(section, pageSlug, index));
+  return insertVisibleAnswerSurface(rawSections.map((section, index) => normalizeDefinition(section, pageSlug, index)), pageSlug);
 }

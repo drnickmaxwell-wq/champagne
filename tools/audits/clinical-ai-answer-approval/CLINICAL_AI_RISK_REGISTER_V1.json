@@ -1,0 +1,202 @@
+{
+  "version": "CLINICAL_AI_RISK_REGISTER_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "0dde49184f29b20cb13454702423f8978b96c097",
+  "openRiskCount": 12,
+  "risks": [
+    {
+      "id": "clinical-ai-risk-emergency-dentist",
+      "service": "emergency-dentist",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-dental-implants",
+      "service": "dental-implants",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-private-dentist",
+      "service": "private-dentist",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-examinations",
+      "service": "examinations",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-spark-aligners",
+      "service": "spark-aligners",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-orthodontics",
+      "service": "orthodontics",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-3d-dentistry",
+      "service": "3d-dentistry",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-same-day-crowns-veneers",
+      "service": "same-day-crowns-veneers",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-veneers",
+      "service": "veneers",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-sedation-anxiety-dentistry",
+      "service": "sedation-anxiety-dentistry",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-hygiene-recall",
+      "service": "hygiene-recall",
+      "severity": "medium",
+      "status": "open",
+      "risk": "Visible answer packet is not evidenced as clinically/governance approved for AI, voice, chatbot or schema consumption.",
+      "evidence": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "mitigation": "Named clinical/governance reviewer must approve or request edits before flags are enabled."
+    },
+    {
+      "id": "clinical-ai-risk-cosmetic-dentistry-out-of-scope",
+      "service": "cosmetic-dentistry",
+      "severity": "low",
+      "status": "open",
+      "risk": "Additional priority packet exists outside the 11-service visible rendering target list and is not part of this approval matrix.",
+      "evidence": [
+        "packet_exists",
+        "not_in_requested_service_list"
+      ],
+      "mitigation": "Review in separate cosmetic-dentistry approval scope if route is included in launch plan."
+    }
+  ]
+}

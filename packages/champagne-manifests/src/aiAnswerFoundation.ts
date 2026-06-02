@@ -150,3 +150,62 @@ export function getQuestionsForService(service: string) {
 export function getChatbotAlignmentForAnswer(answerId: string) {
   return chatbotAnswerAlignment.mappings.filter((mapping) => mapping.answer_registry_ids.includes(answerId));
 }
+
+export type VisibleAnswerSurfacePacket = {
+  service: string;
+  serviceName: string;
+  routePath: string;
+  answer: AiAnswerRegistryEntry;
+  treatmentFacts: TreatmentFactRegistryEntry[];
+};
+
+const PRIORITY_VISIBLE_ANSWER_SERVICE_IDS = [
+  "emergency-dentist",
+  "dental-implants",
+  "private-dentist",
+  "examinations",
+  "spark-aligners",
+  "orthodontics",
+  "3d-dentistry",
+  "same-day-crowns-veneers",
+  "veneers",
+  "sedation-anxiety-dentistry",
+  "hygiene-recall",
+] as const;
+
+export const priorityVisibleAnswerServiceIds = [...PRIORITY_VISIBLE_ANSWER_SERVICE_IDS];
+
+function normalizeAnswerRoutePath(routePath: string) {
+  const cleaned = routePath.split("#")[0]?.split("?")[0]?.trim() ?? "";
+  if (!cleaned) return "/";
+  const withSlash = cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+  return withSlash.length > 1 && withSlash.endsWith("/") ? withSlash.slice(0, -1).toLowerCase() : withSlash.toLowerCase();
+}
+
+export function getPriorityVisibleAnswerPackets(): VisibleAnswerSurfacePacket[] {
+  const packets: VisibleAnswerSurfacePacket[] = [];
+
+  for (const service of PRIORITY_VISIBLE_ANSWER_SERVICE_IDS) {
+    const answer = getAiAnswersForService(service).find((entry) => entry.id.includes("priority"));
+    const treatmentFacts = getTreatmentFactsForService(service);
+    const routePath = treatmentFacts.find((fact) => fact.route_path)?.route_path;
+    const serviceName = treatmentFacts.find((fact) => fact.service_name)?.service_name ?? service;
+
+    if (!answer || !routePath) continue;
+
+    packets.push({
+      service,
+      serviceName,
+      routePath,
+      answer,
+      treatmentFacts,
+    });
+  }
+
+  return packets;
+}
+
+export function getVisibleAnswerPacketForRoute(routePath: string): VisibleAnswerSurfacePacket | undefined {
+  const normalizedRoutePath = normalizeAnswerRoutePath(routePath);
+  return getPriorityVisibleAnswerPackets().find((packet) => normalizeAnswerRoutePath(packet.routePath) === normalizedRoutePath);
+}

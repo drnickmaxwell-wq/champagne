@@ -1,0 +1,110 @@
+{
+  "version": "CHAMPAGNE_SEO_READINESS_SCORECARD_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "cce716135536134b26ea4f5fe44fd40e51e14416",
+  "recommendation": "NEXT_MISSION_REQUIRED",
+  "scores": [
+    {
+      "area": "Google Organic Readiness",
+      "score": 82,
+      "rationale": "Route inventory, sitemap, robots, metadata and section architecture are strong; title-template/OG-image hardening and intent-cannibalisation review remain."
+    },
+    {
+      "area": "Google Local Pack Readiness",
+      "score": 86,
+      "rationale": "NAP, hours, support markets, Dentist/LocalBusiness schema and team registry are present; geo/hasMap/sameAs/GBP identifiers remain absent."
+    },
+    {
+      "area": "Google AI Overview Readiness",
+      "score": 76,
+      "rationale": "Priority packets and visible answer surfaces exist; priority packets remain clinician_review_required and not approved_for_ai/schema."
+    },
+    {
+      "area": "Google AI Mode Readiness",
+      "score": 74,
+      "rationale": "Question inventory and answer rendering support conversational extraction; governance approval flags are still false for priority packets."
+    },
+    {
+      "area": "Zero-Click Readiness",
+      "score": 82,
+      "rationale": "Visible answer rendering QA passes 11/11 with indexable HTML; overlong answer warnings and unapproved AI flags reduce readiness."
+    },
+    {
+      "area": "Voice Search Readiness",
+      "score": 72,
+      "rationale": "Voice pattern registry exists with 7 foundation patterns; priority packets are not approved_for_voice."
+    },
+    {
+      "area": "Bing Readiness",
+      "score": 70,
+      "rationale": "Robots and sitemap foundation are present; IndexNow implementation is absent."
+    },
+    {
+      "area": "IndexNow Readiness",
+      "score": 20,
+      "rationale": "No IndexNow key file, endpoint or submission script was found."
+    },
+    {
+      "area": "Schema Readiness",
+      "score": 84,
+      "rationale": "Organization/Dentist/LocalBusiness/WebSite/WebPage/Person/Service/Breadcrumb graph exists and schema QA passes; FAQPage and media/offer schemas are absent."
+    },
+    {
+      "area": "E-E-A-T Readiness",
+      "score": 76,
+      "rationale": "Team registry includes verified members and GDC numbers; visible answer packets still require clinical approval/reviewer linkage."
+    },
+    {
+      "area": "Chatbot Alignment Readiness",
+      "score": 72,
+      "rationale": "Alignment registry exists and runtimeMutation is false; priority packets are not approved_for_chatbot and runtime sync is not implemented."
+    },
+    {
+      "area": "Launch Readiness",
+      "score": 74,
+      "rationale": "Core SEO architecture is substantially complete, but clinical/AI approval flags, final Lighthouse/accessibility/mobile QA and IndexNow/metadata hardening remain before launch certification."
+    }
+  ],
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; emitted existing Browserslist/Tailwind notices during SSR smoke test."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA status pass; 5 verified team members and 11 priority services."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Passed with existing registry warnings for overlong priority answers and one veneers fact outside approved priorityServices."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "12 packets / 12 services covered."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "11/11 visible answer surfaces, 100%."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Passed; includes existing workspace dependency warnings, SEO launch-safety warnings for treatment layout review/cannibalisation clusters, Browserslist/Tailwind notices, and Next lint plugin notice."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors."
+    }
+  ]
+}

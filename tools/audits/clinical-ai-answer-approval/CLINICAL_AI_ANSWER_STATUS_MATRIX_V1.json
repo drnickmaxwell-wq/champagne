@@ -1,0 +1,485 @@
+{
+  "version": "CLINICAL_AI_ANSWER_STATUS_MATRIX_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "0dde49184f29b20cb13454702423f8978b96c097",
+  "summary": {
+    "packetsReviewed": 11,
+    "packetsApproved": 0,
+    "packetsApprovedWithMinorEdits": 0,
+    "packetsRequiringReview": 11,
+    "packetsUnsafe": 0
+  },
+  "packets": [
+    {
+      "service": "emergency-dentist",
+      "label": "Emergency dentist",
+      "answerRegistryId": "smh-answer-priority-emergency-dentist-packet-v1",
+      "routePath": "/treatments/emergency-dentistry",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 53,
+        "expandedAnswer": 131
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "depends",
+          "medical history",
+          "urgent"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "dental-implants",
+      "label": "Dental implants",
+      "answerRegistryId": "smh-answer-priority-dental-implants-packet-v1",
+      "routePath": "/treatments/implants",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 47,
+        "expandedAnswer": 126
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "suitability",
+          "confirmed",
+          "review",
+          "medical history"
+        ],
+        "evidenceSourceCount": 4
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "private-dentist",
+      "label": "Private dentist",
+      "answerRegistryId": "smh-answer-priority-private-dentist-packet-v1",
+      "routePath": "/contact",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 46,
+        "expandedAnswer": 125
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "clinician",
+          "confirmed",
+          "medical history",
+          "urgent"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "examinations",
+      "label": "Examination",
+      "answerRegistryId": "smh-answer-priority-examinations-packet-v1",
+      "routePath": "/treatments/dental-checkups-oral-cancer-screening",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 41,
+        "expandedAnswer": 123
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "review"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "spark-aligners",
+      "label": "Spark Aligners",
+      "answerRegistryId": "smh-answer-priority-spark-aligners-packet-v1",
+      "routePath": "/treatments/clear-aligners-spark",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 45,
+        "expandedAnswer": 121
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "clinician",
+          "depends",
+          "suitability",
+          "confirmed",
+          "review"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "orthodontics",
+      "label": "Orthodontics",
+      "answerRegistryId": "smh-answer-priority-orthodontics-packet-v1",
+      "routePath": "/treatments/orthodontics",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 46,
+        "expandedAnswer": 136
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "clinician",
+          "depends",
+          "suitability",
+          "confirmed",
+          "review"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "3d-dentistry",
+      "label": "3D dentistry",
+      "answerRegistryId": "smh-answer-priority-3d-dentistry-packet-v1",
+      "routePath": "/treatments/3d-dentistry-and-technology",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 45,
+        "expandedAnswer": 125
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "clinician",
+          "depends",
+          "confirmed"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "same-day-crowns-veneers",
+      "label": "Same-day crowns",
+      "answerRegistryId": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "routePath": "/treatments/3d-digital-dentistry",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 46,
+        "expandedAnswer": 140
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "depends",
+          "suitability",
+          "confirmed"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "veneers",
+      "label": "Veneers",
+      "answerRegistryId": "smh-answer-priority-veneers-packet-v1",
+      "routePath": "/treatments/veneers",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 45,
+        "expandedAnswer": 122
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "assessment",
+          "confirmed"
+        ],
+        "evidenceSourceCount": 3
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "sedation-anxiety-dentistry",
+      "label": "Sedation/anxiety dentistry",
+      "answerRegistryId": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "routePath": "/treatments/sedation-dentistry",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 46,
+        "expandedAnswer": 125
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "clinician",
+          "not right for everyone",
+          "suitability",
+          "confirmed",
+          "review",
+          "medical history"
+        ],
+        "evidenceSourceCount": 4
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "short_answer_over_45_words",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    },
+    {
+      "service": "hygiene-recall",
+      "label": "Hygiene/recall",
+      "answerRegistryId": "smh-answer-priority-hygiene-recall-packet-v1",
+      "routePath": "/treatments/preventative-and-general-dentistry",
+      "visibleRenderingStatus": "rendered",
+      "clinicalSafetyClassification": "REQUIRES_REVIEW",
+      "governanceReadyForAi": false,
+      "governanceReadyForVoice": false,
+      "governanceReadyForChatbot": false,
+      "governanceReadyForSchemaAnswer": false,
+      "registryFlags": {
+        "clinician_review_required": true,
+        "approved_for_ai": false,
+        "approved_for_voice": false,
+        "approved_for_chatbot": false,
+        "approved_for_schema": false
+      },
+      "wordCounts": {
+        "shortAnswer": 44,
+        "expandedAnswer": 138
+      },
+      "clinicalSafetyEvidence": {
+        "unsafeTermsDetected": [],
+        "caveatSignalsDetected": [
+          "clinician",
+          "suitability",
+          "confirmed",
+          "review"
+        ],
+        "evidenceSourceCount": 4
+      },
+      "issues": [
+        "registry_clinician_review_required_true",
+        "approved_for_ai_false",
+        "approved_for_voice_false",
+        "approved_for_chatbot_false",
+        "approved_for_schema_false",
+        "expanded_answer_over_120_words"
+      ],
+      "recommendation": "Do not enable consumption flags until named clinical reviewer approval is recorded; content appears cautious but registry evidence still requires review."
+    }
+  ]
+}
