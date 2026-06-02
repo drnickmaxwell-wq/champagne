@@ -1,0 +1,247 @@
+{
+  "audit_id": "CHAMPAGNE_SEO_IMPLEMENTATION_GAP_AUDIT_V1",
+  "role": "CHAMPAGNE_WEBSITE_SEO_IMPLEMENTATION_GAP_AUDITOR_V1",
+  "audit_type": "audit_only",
+  "audited_at": "2026-06-02T00:00:00.000Z",
+  "repo_branch": "work",
+  "repo_commit": "a9f1f71a002f250b3866247b546668a46b0e03c8",
+  "working_tree_note": "Pre-existing uncommitted pnpm-lock.yaml modification was observed before audit output files were created; it was not inspected as an audit output and was not modified by this audit.",
+  "north_star": "Pre-launch SEO readiness for Google organic, Google Maps/local pack, AI Overviews, AI Mode/conversational search, zero-click answers, voice search, Bing, IndexNow, image search, video search, chatbot content sync, and future AI-agent-readable search.",
+  "primary_local_target": "Shoreham-by-Sea",
+  "secondary_support_locations": ["Brighton", "Hove", "Lancing", "Worthing", "Steyning"],
+  "primary_commercial_treatments": [
+    "private dentist",
+    "emergency dentist",
+    "dental implants",
+    "3D dentistry",
+    "same-day crowns/veneers",
+    "Spark Aligners",
+    "orthodontics",
+    "sedation/anxiety dentistry",
+    "cosmetic dentistry",
+    "hygiene/recall",
+    "examinations"
+  ],
+  "capabilities": [
+    {
+      "capability_id": "ROUTE_ARCH_APP_ROUTER",
+      "expected_state": "Modern Next.js App Router route tree with all public, private, debug, API, treatment, location, blog, and support routes clearly classified.",
+      "evidence_found": "App Router is present under apps/web/app with static public pages, treatment dynamic route, team dynamic route, legal dynamic route, API route handlers, and internal /champagne debug/lab routes. A catch-all-like single segment /[page] exists for manifest-backed public pages.",
+      "evidence_files": ["apps/web/app/layout.tsx", "apps/web/app/treatments/[slug]/page.tsx", "apps/web/app/(site)/[page]/page.tsx", "apps/web/app/api/converse/route.ts", "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Keep route truth export current and reconcile dynamic /[page] behavior with manifest route inventory before launch QA.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "ROUTE_ARCH_LOCATION_PAGES",
+      "expected_state": "Shoreham-first local architecture with support-town pages only where evidence-backed and anti-doorway guarded.",
+      "evidence_found": "No live /local/[slug], Brighton, Hove, Lancing, Worthing, or Steyning location page family was found. The page-surface route canon reserves /local/[slug] and explicitly blocks secondary-town doorway pages until Shoreham-primary or evidence-backed.",
+      "evidence_files": ["apps/web/app", "ops/contracts/PAGE_FAMILY_ROUTE_CANON_V1.json", "scripts/guard-page-surface-framework.mjs", "reports/LOCAL_ANTI_DOORWAY_GUARD_REPORT_V1.json"],
+      "status": "MISSING",
+      "severity": "HIGH",
+      "recommended_next_action": "Build one Shoreham local landing surface first, then add support-town evidence modules only if real local evidence exists; do not create thin secondary-town doorway pages.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "ROUTE_ARCH_BLOG_NEWS",
+      "expected_state": "Blog/news hub plus article detail routes with Article/BlogPosting metadata, dates, authors, and sitemap coverage.",
+      "evidence_found": "A /blog hub exists and emits WebPage JSON-LD, but no /blog/[slug], /news/[slug], article manifest family, Article/BlogPosting route, author/date/update schema, or editorial sitemap family was found.",
+      "evidence_files": ["apps/web/app/blog/page.tsx", "apps/web/app", "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"],
+      "status": "PARTIAL",
+      "severity": "MEDIUM",
+      "recommended_next_action": "Create an editorial manifest and article route only after author/reviewer/date/schema contracts are defined.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_PAGE_REGISTRY",
+      "expected_state": "Canonical page registry drives routes, sitemap, metadata, sections, CTA slots, and internal link truth.",
+      "evidence_found": "champagne_machine_manifest_full.json contains 102 page entries and 4 treatment collection entries, while helpers combine pages and treatments and expose getAllPages/getPageManifest/getTreatmentPages.",
+      "evidence_files": ["packages/champagne-manifests/data/champagne_machine_manifest_full.json", "packages/champagne-manifests/src/helpers.ts", "packages/champagne-manifests/src/index.ts"],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Deduplicate overlapping treatment paths and continue using manifest helpers as the only route/content source of truth.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_TREATMENT_COVERAGE",
+      "expected_state": "Commercial treatment routes exist for all priority dental services and are manifest-driven with section stacks.",
+      "evidence_found": "The manifest includes extensive treatment routes including implants, emergency dentistry, Spark/clear aligners, orthodontics, sedation, cosmetic dentistry, 3D/digital dentistry, checkups, hygiene/preventive care, crowns, veneers, whitening, and related spokes. Existing truth report lists 79 treatment inventory entries including hub and aliases/extras.",
+      "evidence_files": ["packages/champagne-manifests/data/champagne_machine_manifest_full.json", "packages/champagne-manifests/data/sections/smh", "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Run a one-intent-per-page cannibalisation review for implant, cosmetic, orthodontic, and emergency clusters before indexation.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_LOCATION_METADATA",
+      "expected_state": "Location manifests contain verified NAP, hours, map/place identifiers, service-area wording, and GBP-ready fields.",
+      "evidence_found": "Local copy exists, but NAP is intentionally approximate: address area is 'Central Shoreham-by-Sea near the River Adur' and phone directs users to the contact page. No verified postal address, phone, openingHours, geo coordinates, sameAs, or Google Maps/GBP identifiers were found in schema payloads.",
+      "evidence_files": ["packages/champagne-manifests/data/champagne_machine_manifest_full.json", "apps/web/app/layout.tsx", "apps/web/app/contact/page.tsx"],
+      "status": "PARTIAL",
+      "severity": "BLOCKER",
+      "recommended_next_action": "Populate a verified practice identity/NAP manifest and bind it to visible contact content, LocalBusiness/Dentist JSON-LD, footer, contact page, and GBP readiness checklist.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "TECH_METADATA_BASELINE",
+      "expected_state": "Global and route metadata include stable metadataBase, title templates, high-quality descriptions, canonical URLs, OpenGraph, Twitter cards, viewport/mobile, icons, and noindex policy.",
+      "evidence_found": "Root metadata has metadataBase, title, description, production-only robots policy, OpenGraph siteName/type, and Twitter summary_large_image. Route pages generally set title, description, canonical, OpenGraph URL, and Twitter card. No title template, explicit icon/app-icon manifest metadata, or rich OG image mapping was found.",
+      "evidence_files": ["apps/web/app/layout.tsx", "apps/web/app/treatments/[slug]/page.tsx", "apps/web/app/(site)/[page]/page.tsx", "apps/web/app/team/[slug]/page.tsx"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Add title templates, verified favicon/app-icon metadata, route-specific OG image policy, and metadata QA snapshot tests.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "TECH_ROBOTS_SITEMAP",
+      "expected_state": "robots.txt and sitemap.xml are production-safe, manifest-derived, exclude private/debug/API routes, and include lastmod/changefreq/priority.",
+      "evidence_found": "robots.ts disallows all in non-production and disallows /champagne/, /api/, and /patient-portal in production. sitemap.ts is manifest-derived through getAllPages(), excludes the same internal/private paths, and adds lastModified/changeFrequency/priority.",
+      "evidence_files": ["apps/web/app/robots.ts", "apps/web/app/sitemap.ts", "scripts/seo-launch-safety-check.mjs"],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Add a sitemap render snapshot/count check after final route set and ensure no manifest-only non-routable paths leak into sitemap.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "TECH_REDIRECTS_404_ERRORS",
+      "expected_state": "Canonical redirects, alias handling, custom 404, and 500/global error handling are present and tested.",
+      "evidence_found": "Treatment aliases canonicalize through resolveTreatmentPathAlias and permanentRedirect. not-found.tsx exists. No app/global-error.tsx, error.tsx, or explicit redirects config was found.",
+      "evidence_files": ["apps/web/app/treatments/[slug]/page.tsx", "packages/champagne-manifests/src/helpers.ts", "apps/web/app/not-found.tsx", "apps/web/next.config.mjs"],
+      "status": "PARTIAL",
+      "severity": "MEDIUM",
+      "recommended_next_action": "Add route alias tests, explicit redirect inventory, and a branded error/global-error route before launch.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "STRUCTURED_DENTIST_LOCALBUSINESS",
+      "expected_state": "Dentist/LocalBusiness schema includes verified name, URL, address, telephone, geo, openingHours, areaServed, sameAs, image/logo, priceRange where appropriate, and @id graph links.",
+      "evidence_found": "Root layout emits Dentist + LocalBusiness JSON-LD with @id, name, URL, and areaServed only. Required local-pack identity fields are absent.",
+      "evidence_files": ["apps/web/app/layout.tsx"],
+      "status": "PARTIAL",
+      "severity": "BLOCKER",
+      "recommended_next_action": "Implement a verified practice identity schema graph from a single NAP manifest; include address, telephone, geo, openingHours, images/logo, sameAs, and hasMap after verification.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "STRUCTURED_SERVICE_BREADCRUMB",
+      "expected_state": "Treatment detail pages emit WebPage/Service/BreadcrumbList and connect Service providers to the canonical Dentist node.",
+      "evidence_found": "Treatment detail route emits WebPage, Service, and BreadcrumbList JSON-LD, and canonicalizes aliases. The Service provider is an inline Dentist object rather than an @id reference to the root dentist node.",
+      "evidence_files": ["apps/web/app/treatments/[slug]/page.tsx"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Change schema graph ownership in a later implementation mission so all Service nodes reference the canonical Dentist @id and include serviceArea/audience where safe.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "STRUCTURED_FAQ_ARTICLE_VIDEO_IMAGE_OFFER",
+      "expected_state": "FAQPage, Article/BlogPosting, VideoObject, ImageObject, Offer, and PriceSpecification schema are emitted only where governed source data exists.",
+      "evidence_found": "FAQ UI and FAQ manifest data exist, but no route-level FAQPage JSON-LD emitter was found. Article/BlogPosting, VideoObject, ImageObject, Offer, and PriceSpecification emissions were not found.",
+      "evidence_files": ["packages/champagne-sections/src/Section_FAQ.tsx", "packages/champagne-sections/src/Section_TreatmentAnswerSurface.tsx", "apps/web/app/blog/page.tsx", "apps/web/app/treatments/[slug]/page.tsx"],
+      "status": "MISSING",
+      "severity": "HIGH",
+      "recommended_next_action": "Add schema extraction contracts for FAQ and media/price data before emitting these types; avoid Offer/PriceSpecification until fee data is verified and caveated.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "LOCAL_SEO_SHOREHAM_FIRST",
+      "expected_state": "Visible content, headings, schema, internal links, and sitemap consistently prioritize Shoreham-by-Sea without stuffing secondary locations.",
+      "evidence_found": "Header, footer, home locality blocks, treatment answer surfaces, and schema all foreground Shoreham-by-Sea. Secondary towns appear in footer/home map/areas served copy but not as doorway pages.",
+      "evidence_files": ["apps/web/app/components/layout/Header.tsx", "apps/web/app/components/layout/Footer.tsx", "packages/champagne-manifests/data/champagne_machine_manifest_full.json", "packages/champagne-manifests/src/answerSurface.ts"],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Keep Shoreham as the sole primary local entity and add verified NAP/map details before expanding support-location signals.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "AI_ZERO_CLICK_ANSWER_SURFACES",
+      "expected_state": "Pages expose short answer blocks, conversational headings, FAQs, summary facts, cost/duration/risks/alternatives, and AI-readable service facts.",
+      "evidence_found": "Treatment answer surface framework includes required sections for direct answer, risks/limitations, alternatives, process, timeline, aftercare, cost/fee logic, local context, clinician expertise, technology, FAQ, internal links, review metadata, and CTA. Rendering component outputs these sections. Existing report shows only a subset of treatment routes have complete answer surfaces and many are example_seed/framework-only.",
+      "evidence_files": ["packages/champagne-manifests/src/answerSurface.ts", "packages/champagne-sections/src/Section_TreatmentAnswerSurface.tsx", "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Graduate priority treatment answer surfaces from example_seed to clinically reviewed content and expose a machine-readable facts export for chatbot/search reuse.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "DENTAL_EEAT_CLINICIAN_BIOS",
+      "expected_state": "Clinician pages include credentials, GDC references, role, clinical expertise, review/author structure, and Person/ProfilePage schema.",
+      "evidence_found": "Team dynamic route emits ProfilePage/Person schema and Dr Nick Maxwell manifest copy includes role, experience, qualifications, implant/digital training, and conservative philosophy. No GDC registration numbers, explicit clinical reviewer/author fields, or sameAs credentials were found.",
+      "evidence_files": ["apps/web/app/team/[slug]/page.tsx", "packages/champagne-manifests/data/champagne_machine_manifest_full.json"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Add verified GDC registration data and clinician profile schema fields, then connect treatment review metadata to specific clinicians where approved.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "DENTAL_EEAT_CLAIMS_SAFETY",
+      "expected_state": "Clinical content avoids exaggerated claims, includes risks/alternatives/assessment caveats, finance wording is safe, and content has review dates.",
+      "evidence_found": "Treatment answer surface contract requires risks, alternatives, cost logic, local context, and last-reviewed clinical review. Example content is cautious about suitability and guarantees. Evidence metadata contract forbids fabricated reviews and unsupported evidence. However, many pages are not yet clinically reviewed and reviewer identity is often a generic clinical team.",
+      "evidence_files": ["packages/champagne-manifests/src/answerSurface.ts", "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json", "packages/champagne-manifests/data/champagne_machine_manifest_full.json"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Run a clinical/legal content review workflow on all launch-critical treatment pages and replace generic reviewer placeholders with approved reviewer metadata.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "CONTENT_DEPTH_PRIORITY_PAGES",
+      "expected_state": "Treatment hub and detail pages deeply cover emergency, implants, Spark/orthodontics, 3D dentistry, sedation/anxiety, fees/finance, patient info, hygiene/recall, and examinations.",
+      "evidence_found": "Manifest routes and section files exist for the listed priority treatment/service areas. Fees, finance, practice plan, downloads, video consultation, contact, and patient portal support pages exist in the manifest. Depth varies because some answer surfaces are example seeds and some support pages are informational but not schema-rich.",
+      "evidence_files": ["packages/champagne-manifests/data/champagne_machine_manifest_full.json", "packages/champagne-manifests/data/sections/smh", "apps/web/app/fees/page.tsx", "apps/web/app/(site)/[page]/page.tsx"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Prioritize content QA for emergency, implants, Spark/orthodontics, 3D dentistry, sedation/anxiety, fees/finance, hygiene/checkups, and examinations before opening indexation.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "INTERNAL_LINKING_HUB_SPOKE",
+      "expected_state": "Hub/spoke links, breadcrumbs, related treatments, footer links, local/service links, and CTA destinations are consistent and crawlable.",
+      "evidence_found": "Header/footer nav are manifest-driven, treatment detail pages render breadcrumbs, CTA slots are manifest-driven, treatment answer surface includes related_treatments_internal_links, and routing cards/CTA sections exist. Breadcrumb UI appears treatment-only and non-treatment page families lack generalized breadcrumbs.",
+      "evidence_files": ["apps/web/app/components/layout/Header.tsx", "apps/web/app/components/layout/Footer.tsx", "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx", "apps/web/app/treatments/[slug]/page.tsx", "packages/champagne-sections/src/ChampagneSectionRenderer.tsx"],
+      "status": "PARTIAL",
+      "severity": "MEDIUM",
+      "recommended_next_action": "Add generalized breadcrumb/internal-link manifest QA and ensure related treatments are rendered consistently on every priority treatment page.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "PERFORMANCE_IMAGES_VIDEO_3D",
+      "expected_state": "Images use Next Image or equivalent optimization, dimensions/lazy loading/alt are governed, video and 3D are lazy/reduced-motion safe, and font/CWV risks are known.",
+      "evidence_found": "Reduced-motion detection exists in the sacred hero runtime and some section components are dynamically importable. PeopleGrid uses raw img without loading/decoding/dimensions. Motion/video assets exist in public assets. No Next font usage or image optimization policy was found during static inspection.",
+      "evidence_files": ["packages/champagne-hero/src/hero-engine/HeroRuntime.ts", "packages/champagne-sections/src/sections/Section_PeopleGrid.tsx", "packages/champagne-sections/src/registry.ts", "public/assets/champagne/motion"],
+      "status": "PARTIAL",
+      "severity": "MEDIUM",
+      "recommended_next_action": "Run Lighthouse/Web Vitals after build, add image/video loading policy, and ensure heavy 3D/motion is opt-in/lazy with reduced-motion fallbacks.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "CHATBOT_ZONE_A_SYNC",
+      "expected_state": "Chatbot consumes approved website facts/FAQ/service facts, avoids PHI leakage/diagnosis risk, and hands off to booking/contact safely.",
+      "evidence_found": "Concierge passes pageContext pathname to /api/converse, proxies to an external engine URL without secrets in client, and has handoff modals/routes with rate limiting. The @champagne/ai package is a placeholder. No approved website facts export, FAQ/service facts sync, or diagnosis safety contract was found in runtime code.",
+      "evidence_files": ["apps/web/app/components/concierge/ConciergeLayer.tsx", "apps/web/app/api/converse/route.ts", "apps/web/app/api/handoff/_shared.ts", "packages/champagne-ai/src/index.ts", "reports/CHATBOT_PAGE_CONTEXT_WIRING_REPORT_V1.json"],
+      "status": "PARTIAL",
+      "severity": "HIGH",
+      "recommended_next_action": "Create an approved facts/FAQ/service-facts export from manifests and enforce chatbot source-attribution, no-diagnosis, no-PHI, and handoff policies before launch.",
+      "launch_blocker": true
+    },
+    {
+      "capability_id": "INDEXNOW_BING",
+      "expected_state": "Bing/IndexNow readiness includes key file/endpoint strategy, sitemap submission plan, and no live external API dependency for build.",
+      "evidence_found": "No IndexNow key file, endpoint route, submission script, or Bing-specific launch workflow was found.",
+      "evidence_files": ["apps/web/app", "scripts", "public"],
+      "status": "MISSING",
+      "severity": "MEDIUM",
+      "recommended_next_action": "Add a post-launch IndexNow submission plan and key-file governance after canonical sitemap is final.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "GUARDS_SEO_VISIBILITY",
+      "expected_state": "SEO-relevant guards and canonical Champagne guards are wired into package scripts and visible in CI.",
+      "evidence_found": "Root package scripts include guard:hero, guard:canon, guard:seo-launch-safety, guard:treatment-answer-surface, and verify. Existing framework reports note several page-family guards are seeded as contracts/reports rather than package scripts.",
+      "evidence_files": ["package.json", "scripts/seo-launch-safety-check.mjs", "scripts/guard-page-surface-framework.mjs", "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"],
+      "status": "PARTIAL",
+      "severity": "MEDIUM",
+      "recommended_next_action": "Wire page-surface, FAQ/schema, local anti-doorway, evidence metadata, and route-family guards as named CI steps before adding new page families.",
+      "launch_blocker": false
+    }
+  ]
+}

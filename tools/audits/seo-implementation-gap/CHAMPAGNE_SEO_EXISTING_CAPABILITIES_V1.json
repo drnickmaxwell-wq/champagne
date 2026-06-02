@@ -1,0 +1,157 @@
+{
+  "audit_id": "CHAMPAGNE_SEO_IMPLEMENTATION_GAP_AUDIT_V1",
+  "repo_branch": "work",
+  "repo_commit": "a9f1f71a002f250b3866247b546668a46b0e03c8",
+  "present_count": 5,
+  "partial_count": 14,
+  "strengths": [
+    {
+      "capability_id": "ROUTE_ARCH_APP_ROUTER",
+      "expected_state": "Modern Next.js App Router route tree with all public, private, debug, API, treatment, location, blog, and support routes clearly classified.",
+      "evidence_found": "App Router is present under apps/web/app with static public pages, treatment dynamic route, team dynamic route, legal dynamic route, API route handlers, and internal /champagne debug/lab routes. A catch-all-like single segment /[page] exists for manifest-backed public pages.",
+      "evidence_files": [
+        "apps/web/app/layout.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "apps/web/app/api/converse/route.ts",
+        "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Keep route truth export current and reconcile dynamic /[page] behavior with manifest route inventory before launch QA.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_PAGE_REGISTRY",
+      "expected_state": "Canonical page registry drives routes, sitemap, metadata, sections, CTA slots, and internal link truth.",
+      "evidence_found": "champagne_machine_manifest_full.json contains 102 page entries and 4 treatment collection entries, while helpers combine pages and treatments and expose getAllPages/getPageManifest/getTreatmentPages.",
+      "evidence_files": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/src/helpers.ts",
+        "packages/champagne-manifests/src/index.ts"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Deduplicate overlapping treatment paths and continue using manifest helpers as the only route/content source of truth.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_TREATMENT_COVERAGE",
+      "expected_state": "Commercial treatment routes exist for all priority dental services and are manifest-driven with section stacks.",
+      "evidence_found": "The manifest includes extensive treatment routes including implants, emergency dentistry, Spark/clear aligners, orthodontics, sedation, cosmetic dentistry, 3D/digital dentistry, checkups, hygiene/preventive care, crowns, veneers, whitening, and related spokes. Existing truth report lists 79 treatment inventory entries including hub and aliases/extras.",
+      "evidence_files": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh",
+        "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Run a one-intent-per-page cannibalisation review for implant, cosmetic, orthodontic, and emergency clusters before indexation.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "TECH_ROBOTS_SITEMAP",
+      "expected_state": "robots.txt and sitemap.xml are production-safe, manifest-derived, exclude private/debug/API routes, and include lastmod/changefreq/priority.",
+      "evidence_found": "robots.ts disallows all in non-production and disallows /champagne/, /api/, and /patient-portal in production. sitemap.ts is manifest-derived through getAllPages(), excludes the same internal/private paths, and adds lastModified/changeFrequency/priority.",
+      "evidence_files": [
+        "apps/web/app/robots.ts",
+        "apps/web/app/sitemap.ts",
+        "scripts/seo-launch-safety-check.mjs"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Add a sitemap render snapshot/count check after final route set and ensure no manifest-only non-routable paths leak into sitemap.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "LOCAL_SEO_SHOREHAM_FIRST",
+      "expected_state": "Visible content, headings, schema, internal links, and sitemap consistently prioritize Shoreham-by-Sea without stuffing secondary locations.",
+      "evidence_found": "Header, footer, home locality blocks, treatment answer surfaces, and schema all foreground Shoreham-by-Sea. Secondary towns appear in footer/home map/areas served copy but not as doorway pages.",
+      "evidence_files": [
+        "apps/web/app/components/layout/Header.tsx",
+        "apps/web/app/components/layout/Footer.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/src/answerSurface.ts"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Keep Shoreham as the sole primary local entity and add verified NAP/map details before expanding support-location signals.",
+      "launch_blocker": false
+    }
+  ],
+  "top_10_strengths": [
+    {
+      "capability_id": "ROUTE_ARCH_APP_ROUTER",
+      "expected_state": "Modern Next.js App Router route tree with all public, private, debug, API, treatment, location, blog, and support routes clearly classified.",
+      "evidence_found": "App Router is present under apps/web/app with static public pages, treatment dynamic route, team dynamic route, legal dynamic route, API route handlers, and internal /champagne debug/lab routes. A catch-all-like single segment /[page] exists for manifest-backed public pages.",
+      "evidence_files": [
+        "apps/web/app/layout.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "apps/web/app/api/converse/route.ts",
+        "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Keep route truth export current and reconcile dynamic /[page] behavior with manifest route inventory before launch QA.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_PAGE_REGISTRY",
+      "expected_state": "Canonical page registry drives routes, sitemap, metadata, sections, CTA slots, and internal link truth.",
+      "evidence_found": "champagne_machine_manifest_full.json contains 102 page entries and 4 treatment collection entries, while helpers combine pages and treatments and expose getAllPages/getPageManifest/getTreatmentPages.",
+      "evidence_files": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/src/helpers.ts",
+        "packages/champagne-manifests/src/index.ts"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Deduplicate overlapping treatment paths and continue using manifest helpers as the only route/content source of truth.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "MANIFEST_TREATMENT_COVERAGE",
+      "expected_state": "Commercial treatment routes exist for all priority dental services and are manifest-driven with section stacks.",
+      "evidence_found": "The manifest includes extensive treatment routes including implants, emergency dentistry, Spark/clear aligners, orthodontics, sedation, cosmetic dentistry, 3D/digital dentistry, checkups, hygiene/preventive care, crowns, veneers, whitening, and related spokes. Existing truth report lists 79 treatment inventory entries including hub and aliases/extras.",
+      "evidence_files": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh",
+        "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Run a one-intent-per-page cannibalisation review for implant, cosmetic, orthodontic, and emergency clusters before indexation.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "TECH_ROBOTS_SITEMAP",
+      "expected_state": "robots.txt and sitemap.xml are production-safe, manifest-derived, exclude private/debug/API routes, and include lastmod/changefreq/priority.",
+      "evidence_found": "robots.ts disallows all in non-production and disallows /champagne/, /api/, and /patient-portal in production. sitemap.ts is manifest-derived through getAllPages(), excludes the same internal/private paths, and adds lastModified/changeFrequency/priority.",
+      "evidence_files": [
+        "apps/web/app/robots.ts",
+        "apps/web/app/sitemap.ts",
+        "scripts/seo-launch-safety-check.mjs"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Add a sitemap render snapshot/count check after final route set and ensure no manifest-only non-routable paths leak into sitemap.",
+      "launch_blocker": false
+    },
+    {
+      "capability_id": "LOCAL_SEO_SHOREHAM_FIRST",
+      "expected_state": "Visible content, headings, schema, internal links, and sitemap consistently prioritize Shoreham-by-Sea without stuffing secondary locations.",
+      "evidence_found": "Header, footer, home locality blocks, treatment answer surfaces, and schema all foreground Shoreham-by-Sea. Secondary towns appear in footer/home map/areas served copy but not as doorway pages.",
+      "evidence_files": [
+        "apps/web/app/components/layout/Header.tsx",
+        "apps/web/app/components/layout/Footer.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/src/answerSurface.ts"
+      ],
+      "status": "PRESENT",
+      "severity": "LOW",
+      "recommended_next_action": "Keep Shoreham as the sole primary local entity and add verified NAP/map details before expanding support-location signals.",
+      "launch_blocker": false
+    }
+  ]
+}
