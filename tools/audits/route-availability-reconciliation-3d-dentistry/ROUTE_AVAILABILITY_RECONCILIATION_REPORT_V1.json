@@ -1,0 +1,386 @@
+{
+  "generatedAt": "2026-06-02T13:17:26.544Z",
+  "status": "pass",
+  "recommendation": "LIGHTHOUSE_EVIDENCE_CAN_BE_RERUN",
+  "canonicalDecision": {
+    "generatedAt": "2026-06-02T13:17:26.544Z",
+    "decision": "A_REAL_CANONICAL_ROUTE",
+    "requestedRoute": "/treatments/3d-dentistry-and-technology",
+    "relatedRoute": "/treatments/3d-digital-dentistry",
+    "canonicalRoute": "/treatments/3d-dentistry-and-technology",
+    "redirectRequired": false,
+    "rationale": [
+      "The machine manifest already contains /treatments/3d-dentistry-and-technology as a page with a treatment path and 3D dentistry label.",
+      "SEO local identity, AI answer registry, treatment fact registry, and answer rendering QA reference /treatments/3d-dentistry-and-technology for the distinct 3d-dentistry service.",
+      "The related /treatments/3d-digital-dentistry route is separately referenced for same-day crowns/veneers, so redirecting the 3D dentistry route to it would collapse two service mappings."
+    ]
+  },
+  "filesInspected": [
+    "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+    "packages/champagne-manifests/src/helpers.ts",
+    "apps/web/app/sitemap.ts",
+    "apps/web/app/treatments/[slug]/page.tsx",
+    "scripts/seo-visible-answer-surface-rendering-qa.mjs"
+  ],
+  "changedFiles": [
+    "packages/champagne-manifests/src/helpers.ts"
+  ],
+  "referenceAudit": {
+    "generatedAt": "2026-06-02T13:17:26.544Z",
+    "routes": {
+      "/treatments/3d-dentistry-and-technology": [
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 984,
+          "excerpt": "\"href\": \"/treatments/3d-dentistry-and-technology\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 1362,
+          "excerpt": "\"href\": \"/treatments/3d-dentistry-and-technology\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 4136,
+          "excerpt": "\"href\": \"/treatments/3d-dentistry-and-technology\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 9881,
+          "excerpt": "\"path\": \"/treatments/3d-dentistry-and-technology\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/manus_import_unified_manifest_20251104.json",
+          "line": 997,
+          "excerpt": "\"slug\": \"/treatments/3d-dentistry-and-technology\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/manus_import_unified_manifest_20251104.json",
+          "line": 1167,
+          "excerpt": "{ \"label\": \"See how it works\", \"href\": \"/treatments/3d-dentistry-and-technology\", \"preset\": \"secondary\" }"
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-dentistry-and-technology.json",
+          "line": 194,
+          "excerpt": "\"href\": \"/treatments/3d-dentistry-and-technology\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-printing-lab.json",
+          "line": 176,
+          "excerpt": "\"Often follows Digital smile design (/treatments/digital-smile-design); 3D dentistry and technology (/treatments/3d-dentistry-and-technology).\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-printing-lab.json",
+          "line": 212,
+          "excerpt": "\"href\": \"/treatments/3d-dentistry-and-technology\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+          "line": 93,
+          "excerpt": "{ \"id\": \"3d-dentistry\", \"name\": \"3D dentistry\", \"routePath\": \"/treatments/3d-dentistry-and-technology\", \"sources\": [{ \"type\": \"user_prompt\", \"url\": \"mission_prompt\" }] },"
+        },
+        {
+          "file": "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+          "line": 274,
+          "excerpt": "\"route_path\": \"/treatments/3d-dentistry-and-technology\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+          "line": 248,
+          "excerpt": "\"route_path\": \"/treatments/3d-dentistry-and-technology\","
+        },
+        {
+          "file": "scripts/qa-3d-dentistry-route-availability.mjs",
+          "line": 11,
+          "excerpt": "const requestedRoute = \"/treatments/3d-dentistry-and-technology\";"
+        },
+        {
+          "file": "scripts/qa-3d-dentistry-route-availability.mjs",
+          "line": 155,
+          "excerpt": "\"The machine manifest already contains /treatments/3d-dentistry-and-technology as a page with a treatment path and 3D dentistry label.\","
+        },
+        {
+          "file": "scripts/qa-3d-dentistry-route-availability.mjs",
+          "line": 156,
+          "excerpt": "\"SEO local identity, AI answer registry, treatment fact registry, and answer rendering QA reference /treatments/3d-dentistry-and-technology for the distinct 3d-dentistry service.\","
+        },
+        {
+          "file": "scripts/seo-ai-answer-priority-service-packet-qa.mjs",
+          "line": 68,
+          "excerpt": "{ id: \"3d-dentistry\", routePath: \"/treatments/3d-dentistry-and-technology\", packetGroup: \"3D dentistry / same-day crowns\" },"
+        }
+      ],
+      "/treatments/3d-digital-dentistry": [
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 132,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 443,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 497,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 545,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 809,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 1192,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 1512,
+          "excerpt": "\"hub\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 1514,
+          "excerpt": "\"viewAllHref\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 1742,
+          "excerpt": "\"hub\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 1765,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 4141,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 8714,
+          "excerpt": "\"path\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 8786,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 8817,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 13725,
+          "excerpt": "\"hub\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+          "line": 13751,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/manifest.public.brand.json",
+          "line": 34,
+          "excerpt": "{ \"slug\": \"/treatments/3d-digital-dentistry\", \"hero\": \"treatment_tech_focus_hero_v1\", \"category\": \"treatment\" },"
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatment_journeys.json",
+          "line": 2668,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-digital-dentistry.json",
+          "line": 187,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-implant-restorations.json",
+          "line": 251,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-printing-lab.json",
+          "line": 177,
+          "excerpt": "\"Alternatives we balance: Digital implant planning (/treatments/3d-digital-dentistry); Implant consultation (/treatments/implants-consultation).\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.3d-printing-lab.json",
+          "line": 232,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.cbct-3d-scanning.json",
+          "line": 226,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.digital-smile-design.json",
+          "line": 177,
+          "excerpt": "\"Alternatives we balance: Digital dentistry and scanning (/treatments/3d-digital-dentistry); Teeth whitening (/treatments/teeth-whitening).\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.digital-smile-design.json",
+          "line": 232,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+          "line": 254,
+          "excerpt": "\"href\": \"/treatments/3d-digital-dentistry\""
+        },
+        {
+          "file": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+          "line": 94,
+          "excerpt": "{ \"id\": \"same-day-crowns-veneers\", \"name\": \"Same-day crowns/veneers\", \"routePath\": \"/treatments/3d-digital-dentistry\", \"sources\": [{ \"type\": \"user_prompt\", \"url\": \"mission_prompt\" }] },"
+        },
+        {
+          "file": "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+          "line": 297,
+          "excerpt": "\"route_path\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+          "line": 277,
+          "excerpt": "\"route_path\": \"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "packages/champagne-sections/src/treatmentMidCtaPlan.ts",
+          "line": 329,
+          "excerpt": "\"/treatments/3d-digital-dentistry\","
+        },
+        {
+          "file": "scripts/qa-3d-dentistry-route-availability.mjs",
+          "line": 12,
+          "excerpt": "const relatedRoute = \"/treatments/3d-digital-dentistry\";"
+        },
+        {
+          "file": "scripts/qa-3d-dentistry-route-availability.mjs",
+          "line": 157,
+          "excerpt": "\"The related /treatments/3d-digital-dentistry route is separately referenced for same-day crowns/veneers, so redirecting the 3D dentistry route to it would collapse two service mappings.\","
+        },
+        {
+          "file": "scripts/seo-ai-answer-priority-service-packet-qa.mjs",
+          "line": 69,
+          "excerpt": "{ id: \"same-day-crowns-veneers\", routePath: \"/treatments/3d-digital-dentistry\", packetGroup: \"3D dentistry / same-day crowns\" },"
+        }
+      ]
+    },
+    "summary": {
+      "requestedRouteReferenceCount": 16,
+      "relatedRouteReferenceCount": 33
+    }
+  },
+  "qaResults": {
+    "generatedAt": "2026-06-02T13:17:26.544Z",
+    "mode": "runtime_and_static",
+    "baseUrl": "http://localhost:3000",
+    "routes": [
+      {
+        "route": "/treatments/3d-dentistry-and-technology",
+        "routeId": "treatments.3d-dentistry-and-technology",
+        "machineManifestEntry": {
+          "collection": "pages",
+          "id": "3d_dentistry_and_technology",
+          "path": "/treatments/3d-dentistry-and-technology",
+          "label": "3D dentistry & technology",
+          "category": "technology",
+          "hasHeroBinding": true
+        },
+        "listedInMachineManifest": true,
+        "includedByTreatmentPathResolver": true,
+        "sitemapSourceUsesAllPages": true,
+        "appRouteUsesTreatmentManifestResolver": true,
+        "priorityServiceId": "3d-dentistry",
+        "answerRegistryId": "smh-answer-priority-3d-dentistry-packet-v1",
+        "treatmentFactId": "smh-treatment-fact-3d-dentistry-v1",
+        "answerRenderingQaServiceCovered": true
+      },
+      {
+        "route": "/treatments/3d-digital-dentistry",
+        "routeId": "treatments.3d-digital-dentistry",
+        "machineManifestEntry": {
+          "collection": "pages",
+          "id": "technology_digital_dentistry",
+          "path": "/treatments/3d-digital-dentistry",
+          "label": "3D & digital dentistry",
+          "category": "treatment",
+          "hasHeroBinding": true
+        },
+        "listedInMachineManifest": true,
+        "includedByTreatmentPathResolver": true,
+        "sitemapSourceUsesAllPages": true,
+        "appRouteUsesTreatmentManifestResolver": true,
+        "priorityServiceId": "same-day-crowns-veneers",
+        "answerRegistryId": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+        "treatmentFactId": "smh-treatment-fact-same-day-crowns-veneers-v1",
+        "answerRenderingQaServiceCovered": true
+      }
+    ],
+    "runtime": [
+      {
+        "route": "/treatments/3d-dentistry-and-technology",
+        "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+        "status": "run",
+        "httpStatus": 200,
+        "location": null,
+        "contentLength": 137679,
+        "hasHtml": true,
+        "hasTreatmentAnswerText": true,
+        "hasNotFoundMarker": false
+      },
+      {
+        "route": "/treatments/3d-digital-dentistry",
+        "url": "http://localhost:3000/treatments/3d-digital-dentistry",
+        "status": "run",
+        "httpStatus": 200,
+        "location": null,
+        "contentLength": 133285,
+        "hasHtml": true,
+        "hasTreatmentAnswerText": true,
+        "hasNotFoundMarker": false
+      }
+    ],
+    "checks": [
+      {
+        "id": "requested_route_has_machine_manifest_entry",
+        "pass": true
+      },
+      {
+        "id": "related_route_remains_manifested",
+        "pass": true
+      },
+      {
+        "id": "requested_route_has_distinct_seo_answer_mapping",
+        "pass": true
+      },
+      {
+        "id": "related_route_has_distinct_mapping",
+        "pass": true
+      },
+      {
+        "id": "treatment_path_resolver_accepts_treatment_paths_without_category_gate",
+        "pass": true
+      },
+      {
+        "id": "runtime_routes_return_non_404_when_enabled",
+        "pass": true
+      }
+    ]
+  }
+}

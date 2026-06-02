@@ -115,9 +115,8 @@ function normalizeTreatmentPath(value: string) {
 function normalizeTreatmentPage(manifest: ChampagnePageManifest): ChampagneTreatmentPage | undefined {
   const path = manifest.path;
   const isTreatmentPath = path && TREATMENT_PATH_PREFIXES.some((prefix) => path.startsWith(prefix));
-  const isTreatmentCategory = (manifest.category as string | undefined)?.toLowerCase() === "treatment";
 
-  if (!path || !isTreatmentPath || !isTreatmentCategory) return undefined;
+  if (!path || !isTreatmentPath) return undefined;
 
   const slug = path
     .split("/")
