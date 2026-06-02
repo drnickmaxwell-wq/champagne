@@ -1,0 +1,96 @@
+{
+  "version": "CHAMPAGNE_LOCAL_DOMINANCE_READINESS_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "cce716135536134b26ea4f5fe44fd40e51e14416",
+  "status": "PARTIAL_READY_FOR_FINAL_HARDENING",
+  "primaryMarket": {
+    "name": "Shoreham-by-Sea",
+    "readiness": 88,
+    "evidence": [
+      "NAP/hours/schema present",
+      "Priority services mapped",
+      "Visible answer surfaces rendered on 11 target routes"
+    ],
+    "remainingGaps": [
+      "Geo/hasMap/sameAs/GBP IDs not evidenced",
+      "Final clinical approval flags absent for priority packets"
+    ]
+  },
+  "supportMarkets": [
+    {
+      "name": "Brighton",
+      "readiness": 68,
+      "evidence": [
+        "Support market present in local identity and areaServed schema list"
+      ],
+      "remainingGaps": [
+        "No dedicated support-market landing route evidence",
+        "No market-specific proof/content depth evidence"
+      ]
+    },
+    {
+      "name": "Hove",
+      "readiness": 68,
+      "evidence": [
+        "Support market present in local identity and areaServed schema list"
+      ],
+      "remainingGaps": [
+        "No dedicated support-market landing route evidence",
+        "No market-specific proof/content depth evidence"
+      ]
+    },
+    {
+      "name": "Lancing",
+      "readiness": 68,
+      "evidence": [
+        "Support market present in local identity and areaServed schema list"
+      ],
+      "remainingGaps": [
+        "No dedicated support-market landing route evidence",
+        "No market-specific proof/content depth evidence"
+      ]
+    },
+    {
+      "name": "Worthing",
+      "readiness": 68,
+      "evidence": [
+        "Support market present in local identity and areaServed schema list"
+      ],
+      "remainingGaps": [
+        "No dedicated support-market landing route evidence",
+        "No market-specific proof/content depth evidence"
+      ]
+    },
+    {
+      "name": "Steyning",
+      "readiness": 68,
+      "evidence": [
+        "Support market present in local identity and areaServed schema list"
+      ],
+      "remainingGaps": [
+        "No dedicated support-market landing route evidence",
+        "No market-specific proof/content depth evidence"
+      ]
+    }
+  ],
+  "treatmentCoverage": {
+    "priorityServices": 11,
+    "visibleAnswerTargetRoutes": 11,
+    "visibleAnswerRendered": 11,
+    "questionTargetServices": 12,
+    "mappedQuestions": 55
+  },
+  "localEntityConsistency": {
+    "status": "strong",
+    "evidence": "Canonical origin, practice name, legal entity, address, telephone, email and opening hours are centralized in local identity/schema sources."
+  },
+  "localSeoCompleteness": {
+    "status": "partial",
+    "missingEvidence": [
+      "geo coordinates",
+      "hasMap/Google Maps URL",
+      "sameAs/GBP profile identifiers",
+      "support-market landing page strategy"
+    ]
+  }
+}

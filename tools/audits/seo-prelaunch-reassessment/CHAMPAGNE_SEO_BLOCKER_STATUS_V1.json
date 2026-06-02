@@ -1,0 +1,167 @@
+{
+  "version": "CHAMPAGNE_SEO_BLOCKER_STATUS_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "cce716135536134b26ea4f5fe44fd40e51e14416",
+  "recommendation": "NEXT_MISSION_REQUIRED",
+  "blockers": [
+    {
+      "capability_id": "MANIFEST_LOCATION_METADATA",
+      "classification": "RESOLVED",
+      "severity": "none",
+      "evidence": "Verified local identity manifest now includes public brand, legal entity, street address, telephone, email, opening hours and closed days; Dentist/LocalBusiness node binds address, telephone, email and openingHoursSpecification.",
+      "files": [
+        "packages/champagne-manifests/data/seo/local-identity.smh.json",
+        "packages/champagne-manifests/src/seo.ts"
+      ]
+    },
+    {
+      "capability_id": "TECH_METADATA_BASELINE",
+      "classification": "PARTIAL",
+      "severity": "final_hardening",
+      "evidence": "metadataBase, production noindex policy, canonical alternates, OpenGraph and Twitter are present. Missing evidence remains for title templates, explicit icon/app-icon metadata and route-specific OG image policy.",
+      "files": [
+        "apps/web/app/layout.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ]
+    },
+    {
+      "capability_id": "STRUCTURED_DENTIST_LOCALBUSINESS",
+      "classification": "PARTIAL",
+      "severity": "final_hardening",
+      "evidence": "Dentist/LocalBusiness schema now includes NAP, opening hours, areaServed and employee @id references. Missing evidence remains for geo coordinates, sameAs, image/logo, priceRange and hasMap/GBP identifiers.",
+      "files": [
+        "packages/champagne-manifests/src/seo.ts",
+        "packages/champagne-manifests/data/seo/local-identity.smh.json"
+      ]
+    },
+    {
+      "capability_id": "STRUCTURED_SERVICE_BREADCRUMB",
+      "classification": "RESOLVED",
+      "severity": "none",
+      "evidence": "Treatment route emits buildTreatmentSchemaGraph with WebPage, Service and BreadcrumbList; Service provider references canonical dentist @id.",
+      "files": [
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/src/seo.ts"
+      ]
+    },
+    {
+      "capability_id": "STRUCTURED_FAQ_ARTICLE_VIDEO_IMAGE_OFFER",
+      "classification": "PARTIAL",
+      "severity": "post_launch_or_final_hardening",
+      "evidence": "FAQ UI/data exists across section layouts, but no FAQPage schema emitter exists. Article/Video/Image/Offer schema remains intentionally absent unless governed source data exists.",
+      "files": [
+        "packages/champagne-sections/src/Section_FAQ.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ]
+    },
+    {
+      "capability_id": "AI_ZERO_CLICK_ANSWER_SURFACES",
+      "classification": "RESOLVED_FOR_VISIBLE_RENDERING_PARTIAL_FOR_APPROVAL",
+      "severity": "material_governance_risk",
+      "evidence": "Visible rendering is resolved at 100% for 11 target routes, but priority packets still have approved_for_ai/voice/chatbot/schema false and clinician_review_required true.",
+      "files": [
+        "tools/audits/seo-visible-answer-surface-rendering/SEO_VISIBLE_ANSWER_SURFACE_COVERAGE_V1.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json"
+      ]
+    },
+    {
+      "capability_id": "DENTAL_EEAT_CLINICIAN_BIOS",
+      "classification": "RESOLVED_CORE_PARTIAL_LINKAGE",
+      "severity": "final_hardening",
+      "evidence": "Team registry now has 5 GDC numbers and 5 verified schema members. Remaining gap: explicit reviewer linkage from every launch-critical treatment answer to named clinicians.",
+      "files": [
+        "packages/champagne-manifests/data/seo/team-registry.smh.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json"
+      ]
+    },
+    {
+      "capability_id": "DENTAL_EEAT_CLAIMS_SAFETY",
+      "classification": "PARTIAL",
+      "severity": "material_governance_risk",
+      "evidence": "Answer surfaces use cautious clinical-boundary language, but priority packets remain clinician_review_required true and not approved for AI/schema/chatbot/voice.",
+      "files": [
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json"
+      ]
+    },
+    {
+      "capability_id": "CONTENT_DEPTH_PRIORITY_PAGES",
+      "classification": "PARTIAL",
+      "severity": "final_hardening",
+      "evidence": "Priority treatment routes, packets, questions and visible answers exist. Content maturity still has QA warnings for overlong answers and cannibalisation clusters requiring final editorial/intent review.",
+      "files": [
+        "tools/audits/seo-ai-answer-priority-service-packet/SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1.json",
+        "scripts/seo-launch-safety-check.mjs"
+      ]
+    },
+    {
+      "capability_id": "CHATBOT_ZONE_A_SYNC",
+      "classification": "PARTIAL",
+      "severity": "post_launch_or_final_hardening",
+      "evidence": "Chatbot alignment registry exists with runtimeMutation=false. Runtime sync was intentionally not changed; priority packets remain not approved_for_chatbot.",
+      "files": [
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json"
+      ]
+    },
+    {
+      "capability_id": "BING_INDEXNOW",
+      "classification": "UNRESOLVED",
+      "severity": "post_launch_optimisation",
+      "evidence": "No IndexNow key file, endpoint route or submission script evidence found.",
+      "files": [
+        "apps/web/app/sitemap.ts",
+        "apps/web/app/robots.ts"
+      ]
+    },
+    {
+      "capability_id": "LIGHTHOUSE_ACCESSIBILITY_MOBILE_QA",
+      "classification": "UNRESOLVED",
+      "severity": "final_hardening",
+      "evidence": "No committed Lighthouse, Core Web Vitals or axe/accessibility audit output found for the current build. Build/verify evidence exists but not performance/accessibility scoring.",
+      "files": [
+        "tools/audits/seo-implementation-gap/CHAMPAGNE_SEO_IMPLEMENTATION_GAP_AUDIT_V1.json"
+      ]
+    }
+  ],
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; emitted existing Browserslist/Tailwind notices during SSR smoke test."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA status pass; 5 verified team members and 11 priority services."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Passed with existing registry warnings for overlong priority answers and one veneers fact outside approved priorityServices."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "12 packets / 12 services covered."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "11/11 visible answer surfaces, 100%."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Passed; includes existing workspace dependency warnings, SEO launch-safety warnings for treatment layout review/cannibalisation clusters, Browserslist/Tailwind notices, and Next lint plugin notice."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors."
+    }
+  ]
+}
