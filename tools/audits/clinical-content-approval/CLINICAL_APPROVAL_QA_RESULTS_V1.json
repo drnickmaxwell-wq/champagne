@@ -1,0 +1,20 @@
+{
+  "version": "CLINICAL_APPROVAL_QA_RESULTS_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "status": "pass",
+  "checks": {
+    "expected_packet_count": 11,
+    "reviewed_packet_count": 11,
+    "ledger_packet_count": 11,
+    "decision_packet_count": 11,
+    "every_packet_reviewed": true,
+    "every_packet_has_reviewer": true,
+    "every_packet_has_status": true,
+    "approval_ledger_complete": true,
+    "no_orphan_review_records": true,
+    "no_orphan_ledger_records": true,
+    "approval_decisions_consistent": true,
+    "runtime_flag_mutation_performed": false
+  },
+  "errors": []
+}

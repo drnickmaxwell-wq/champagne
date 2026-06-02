@@ -1,0 +1,127 @@
+# CLINICAL_APPROVAL_DECISION_REPORT_V1
+## Mission
+CHAMPAGNE_NAMED_CLINICAL_REVIEW_AND_APPROVAL_FLAG_DECISION_V1.
+## Scope boundary
+- Governance decision artifacts only.
+- No page redesign, no SEO engine creation, no mass content rewrite, no PHI/PMS/Dentally/booking workflow changes, no deployment, and no launch certification claim.
+
+## Sources reviewed
+- packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json
+- packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json
+- packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json
+- packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json
+- packages/champagne-manifests/data/seo/approved-facts.smh.json
+- tools/audits/clinical-ai-answer-approval/CLINICAL_AI_ANSWER_STATUS_MATRIX_V1.json
+- tools/audits/clinical-ai-answer-approval/CLINICAL_AI_ANSWER_APPROVAL_REPORT_V1.json
+
+## Reviewer
+- Reviewer: Dr Nick Maxwell.
+- Role: Principal Dentist.
+- Review date: 2026-06-02.
+
+## Summary
+- packets_reviewed: 11.
+- packets_approved: 11.
+- packets_approved_with_edits: 0.
+- packets_rejected: 0.
+- approval_flags_recommended_for_enablement: 44.
+- runtime_approval_flags_changed: 0.
+- excluded_packet_note: cosmetic-dentistry packet exists in the answer registry but was outside the 11-packet clinical approval audit scope for this mission.
+
+## Packet decisions
+
+### Emergency dentist
+- content_id: `smh-answer-priority-emergency-dentist-packet-v1`.
+- service_id: `emergency-dentist`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically cautious urgent-care answer. It lists symptoms that need urgent dental triage, explicitly sends rapid swelling, fever, swallowing difficulty, or breathing problems to urgent medical help first, and avoids diagnosis, outcome promises, fees, or definitive treatment claims.
+- next_review_date: 2026-12-02.
+
+### Dental implants
+- content_id: `smh-answer-priority-dental-implants-packet-v1`.
+- service_id: `dental-implants`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable implant education. It describes implants as one option, requires assessment and medical history review, identifies suitability factors and alternatives, and avoids guarantees, fixed fees, timelines, or diagnosis language.
+- next_review_date: 2027-06-02.
+
+### Private dentist
+- content_id: `smh-answer-priority-private-dentist-packet-v1`.
+- service_id: `private-dentist`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable private appointment answer. It confines claims to practice identity, approved services, examination need, and direct confirmation of fees/sequence, with no diagnostic or guarantee language.
+- next_review_date: 2027-06-02.
+
+### Examination
+- content_id: `smh-answer-priority-examinations-packet-v1`.
+- service_id: `examinations`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable check-up and oral cancer screening answer. It states visual screening is included based on public treatment content, keeps X-rays clinically justified, and includes prompt assessment caveats for concerning symptoms.
+- next_review_date: 2027-06-02.
+
+### Spark Aligners
+- content_id: `smh-answer-priority-spark-aligners-packet-v1`.
+- service_id: `spark-aligners`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable Spark Aligners answer. It positions aligners as clinician-led and suitability-dependent, notes complex movements may require other approaches, and avoids outcome promises.
+- next_review_date: 2027-06-02.
+
+### Orthodontics
+- content_id: `smh-answer-priority-orthodontics-packet-v1`.
+- service_id: `orthodontics`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable orthodontics answer. It describes options and retention planning generally, requires assessment, lists suitability factors, and avoids one-size-fits-all or guaranteed result language.
+- next_review_date: 2027-06-02.
+
+### 3D dentistry
+- content_id: `smh-answer-priority-3d-dentistry-packet-v1`.
+- service_id: `3d-dentistry`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable digital dentistry answer. It frames 3D tools as support for clinical judgement rather than a replacement for examination and includes safety/radiation appropriateness caveats.
+- next_review_date: 2027-06-02.
+
+### Same-day crowns
+- content_id: `smh-answer-priority-same-day-crowns-veneers-packet-v1`.
+- service_id: `same-day-crowns-veneers`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable same-day crown/veneer answer. It confirms the approved service while explicitly saying not every case can or should be same day and that suitability, timing, and fees require assessment.
+- next_review_date: 2027-06-02.
+
+### Veneers
+- content_id: `smh-answer-priority-veneers-packet-v1`.
+- service_id: `veneers`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable veneer answer. It explains veneers as an option, highlights enamel preservation and irreversibility where relevant, lists alternatives, and avoids suitability or aesthetic guarantees.
+- next_review_date: 2027-06-02.
+
+### Sedation/anxiety dentistry
+- content_id: `smh-answer-priority-sedation-anxiety-dentistry-packet-v1`.
+- service_id: `sedation-anxiety-dentistry`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable but higher-risk sedation/anxiety answer. It states sedation is not right for everyone, requires medical history/medication review, describes monitoring and responsiveness, and lists non-sedation anxiety supports.
+- next_review_date: 2026-12-02.
+
+### Hygiene/recall
+- content_id: `smh-answer-priority-hygiene-recall-packet-v1`.
+- service_id: `hygiene-recall`.
+- classification: **APPROVED**.
+- approval flag recommendations: approved_for_ai, approved_for_voice, approved_for_chatbot, approved_for_schema all RECOMMEND_ENABLE.
+- rationale: Clinically acceptable hygiene/recall answer. It describes prevention and maintenance support, states recall intervals are individual, and avoids guaranteed disease prevention or treatment claims.
+- next_review_date: 2027-06-02.
+
+## Remaining launch blockers
+- Apply approved_for_* runtime flag mutations in a bounded implementation packet or update QA contract to consume this approval ledger.
+- Run final launch hardening after approval flags and schema consumption are aligned with CI evidence.
+- Do not claim launch certification until final hardening evidence passes.
+
+## Decision
+READY_FOR_FINAL_LAUNCH_HARDENING.

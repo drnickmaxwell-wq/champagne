@@ -1,0 +1,107 @@
+{
+  "version": "CLINICAL_REVIEW_INTERVALS_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "default_interval_months": 12,
+  "higher_risk_interval_months": 6,
+  "records": [
+    {
+      "content_id": "smh-answer-priority-emergency-dentist-packet-v1",
+      "service_id": "emergency-dentist",
+      "service_label": "Emergency dentist",
+      "review_date": "2026-06-02",
+      "next_review_date": "2026-12-02",
+      "interval_months": 6,
+      "interval_rationale": "Higher-risk urgent/sedation clinical content receives six-month review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-dental-implants-packet-v1",
+      "service_id": "dental-implants",
+      "service_label": "Dental implants",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-private-dentist-packet-v1",
+      "service_id": "private-dentist",
+      "service_label": "Private dentist",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-examinations-packet-v1",
+      "service_id": "examinations",
+      "service_label": "Examination",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-spark-aligners-packet-v1",
+      "service_id": "spark-aligners",
+      "service_label": "Spark Aligners",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-orthodontics-packet-v1",
+      "service_id": "orthodontics",
+      "service_label": "Orthodontics",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-3d-dentistry-packet-v1",
+      "service_id": "3d-dentistry",
+      "service_label": "3D dentistry",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "service_id": "same-day-crowns-veneers",
+      "service_label": "Same-day crowns",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-veneers-packet-v1",
+      "service_id": "veneers",
+      "service_label": "Veneers",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "service_id": "sedation-anxiety-dentistry",
+      "service_label": "Sedation/anxiety dentistry",
+      "review_date": "2026-06-02",
+      "next_review_date": "2026-12-02",
+      "interval_months": 6,
+      "interval_rationale": "Higher-risk urgent/sedation clinical content receives six-month review cadence."
+    },
+    {
+      "content_id": "smh-answer-priority-hygiene-recall-packet-v1",
+      "service_id": "hygiene-recall",
+      "service_label": "Hygiene/recall",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "interval_months": 12,
+      "interval_rationale": "Standard clinically approved public answer packet receives annual review cadence."
+    }
+  ]
+}
