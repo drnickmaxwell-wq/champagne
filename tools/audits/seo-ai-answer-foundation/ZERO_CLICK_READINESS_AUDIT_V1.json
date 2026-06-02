@@ -1,0 +1,100 @@
+{
+  "version": "ZERO_CLICK_READINESS_AUDIT_V1",
+  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "status": "recommendations_only",
+  "checks": {
+    "missingAnswerBlocks": [
+      {
+        "service": "3d-dentistry",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      },
+      {
+        "service": "same-day-crowns-veneers",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      },
+      {
+        "service": "orthodontics",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      },
+      {
+        "service": "sedation-anxiety-dentistry",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      },
+      {
+        "service": "cosmetic-dentistry",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      },
+      {
+        "service": "hygiene-recall",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      },
+      {
+        "service": "examinations",
+        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
+      }
+    ],
+    "missingFaqs": [
+      {
+        "service": "emergency-dentist",
+        "routePath": "/treatments/emergency-dentistry",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "3d-dentistry",
+        "routePath": "/treatments/3d-dentistry-and-technology",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "same-day-crowns-veneers",
+        "routePath": "/treatments/3d-digital-dentistry",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "spark-aligners",
+        "routePath": "/treatments/clear-aligners-spark",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "orthodontics",
+        "routePath": "/treatments/orthodontics",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "sedation-anxiety-dentistry",
+        "routePath": "/treatments/sedation-dentistry",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "cosmetic-dentistry",
+        "routePath": "/treatments/cosmetic-dentistry",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "hygiene-recall",
+        "routePath": "/treatments/preventative-and-general-dentistry",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      },
+      {
+        "service": "examinations",
+        "routePath": "/treatments/dental-checkups-oral-cancer-screening",
+        "recommendation": "Add or validate answer-surface FAQ coverage in a future content packet; do not rewrite during foundation mission."
+      }
+    ],
+    "weakAnswers": [],
+    "duplicatedAnswers": [],
+    "overlyLongAnswers": [],
+    "jargonHeavyAnswers": []
+  },
+  "summary": {
+    "answerRegistryEntries": 6,
+    "priorityServiceCount": 11,
+    "priorityServicesWithAnswers": 4,
+    "answerSurfaceTreatmentPages": 12,
+    "answerSurfaceFaqCount": 37
+  },
+  "recommendations": [
+    "Prioritise one short direct answer plus one FAQ set for each approved priority service.",
+    "Keep clinical suitability, risks, alternatives, fees, duration and recovery claims behind clinician review until approved sources exist.",
+    "Map future FAQPage schema only to answers approved_for_schema."
+  ]
+}
