@@ -1,0 +1,465 @@
+{
+  "version": "CHAMPAGNE_FINAL_LAUNCH_CERTIFICATION_AUDIT_V1",
+  "generatedAt": "2026-06-02T12:07:27Z",
+  "certification": "NOT_CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+  "missionBoundary": [
+    "Evidence-only audit.",
+    "No deployment.",
+    "No registry/schema/manifest/content/approval flag mutation by this certification artifact."
+  ],
+  "repoTruth": {
+    "version": "CHAMPAGNE_REPO_TRUTH_EVIDENCE_V1",
+    "generatedAt": "2026-06-02T12:07:27Z",
+    "routeArchitecture": {
+      "manifestPageCount": 102,
+      "manifestTreatmentPageCount": 78,
+      "manifestAnswerSurfacePageCount": 12,
+      "nextBuildStaticPages": "31 generated static pages; dynamic treatment route present in build output",
+      "robotsAndSitemap": "guard:seo-launch-safety passed robots.ts and sitemap.ts checks"
+    },
+    "metadataSchema": {
+      "schemaQaStatus": "pass",
+      "checkedFiles": [
+        "packages/champagne-manifests/data/seo/local-identity.smh.json",
+        "packages/champagne-manifests/data/seo/team-registry.smh.json",
+        "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+        "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+        "tools/audits/clinical-content-approval/CLINICAL_APPROVAL_LEDGER_V1.json",
+        "tools/audits/clinical-content-approval/CLINICAL_REVIEW_INTERVALS_V1.json"
+      ],
+      "approvedSchemaAnswerCount": 16,
+      "verifiedTeamMemberCount": 5,
+      "priorityServiceCount": 11
+    },
+    "aiAnswerSystem": {
+      "answerRegistryEntries": 18,
+      "priorityPackets": 12,
+      "approvedPriorityPackets": 11,
+      "treatmentFactEntries": 12,
+      "questionInventoryEntries": 55,
+      "answerFoundationStatus": "pass",
+      "answerFoundationWarnings": "existing over-length and veneers outside-priority warning from seo:answer-foundation-qa"
+    },
+    "localIdentity": {
+      "brand": "St Mary's House Dental Care",
+      "legalEntity": "Maxwell-Deen Dentistry Ltd",
+      "primaryMarket": "Shoreham-by-Sea",
+      "supportMarkets": [
+        "Brighton",
+        "Hove",
+        "Lancing",
+        "Worthing",
+        "Steyning"
+      ],
+      "priorityServices": 11
+    },
+    "teamCoverage": {
+      "teamMembers": 5,
+      "schemaVerifiedMembers": 5
+    },
+    "chatbotAlignment": {
+      "version": "CHATBOT_ANSWER_ALIGNMENT_V1",
+      "runtimeMutation": false,
+      "mappingCount": 17
+    },
+    "treatmentCoverage": {
+      "manifestTreatmentPages": 78,
+      "guardSmhTreatmentLayouts": "passed; 78 treatment pages checked",
+      "seoLaunchSafetyTreatmentInventory": "73 treatment routes exposed for SEO coverage review"
+    }
+  },
+  "seoScorecard": [
+    {
+      "area": "Google Organic Readiness",
+      "score": 86,
+      "status": "PARTIAL",
+      "evidence": [
+        "102 manifest pages and 78 treatment pages present",
+        "robots/sitemap and build pass",
+        "metadata exists on core route families"
+      ],
+      "risk": "Current Lighthouse/mobile/accessibility evidence is not available; treatment layout warning clusters require pre-launch review."
+    },
+    {
+      "area": "Google Local Pack Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "Primary market Shoreham-by-Sea is recorded",
+        "Support markets Brighton, Hove, Lancing, Worthing and Steyning are recorded",
+        "NAP/hours and Dentist/LocalBusiness QA pass"
+      ],
+      "risk": "GBP identifiers, geo/hasMap/sameAs remain future hardening."
+    },
+    {
+      "area": "Google AI Overview Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "11 approved priority packets with AI/schema flags enabled",
+        "Visible rendering QA passes 11/11",
+        "Answer packet QA passes"
+      ],
+      "risk": "Answer-length warnings remain non-blocking refinement."
+    },
+    {
+      "area": "Google AI Mode Readiness",
+      "score": 87,
+      "status": "PASS",
+      "evidence": [
+        "Question inventory is linked",
+        "AI answer registry and visible routes align",
+        "Approval evidence exists for active packets"
+      ],
+      "risk": "Ongoing query learning requires Search Console after launch."
+    },
+    {
+      "area": "Zero-Click Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "Visible answer rendering QA passes",
+        "No duplicate target-service routes",
+        "No orphan target packets"
+      ],
+      "risk": "FAQPage schema expansion not implemented."
+    },
+    {
+      "area": "Voice Search Readiness",
+      "score": 86,
+      "status": "PASS",
+      "evidence": [
+        "11 approved packets have approved_for_voice true",
+        "Voice pattern registry exists via AI foundation QA"
+      ],
+      "risk": "No live voice SERP testing evidence."
+    },
+    {
+      "area": "Bing Readiness",
+      "score": 72,
+      "status": "PARTIAL",
+      "evidence": [
+        "robots and sitemap pass",
+        "canonical origin checks pass"
+      ],
+      "risk": "IndexNow is not implemented and Bing-specific validation is absent."
+    },
+    {
+      "area": "IndexNow Readiness",
+      "score": 20,
+      "status": "FAIL",
+      "evidence": [
+        "No IndexNow implementation evidence found in prior and current launch-safety outputs"
+      ],
+      "risk": "Not launch-blocking for Google/local readiness, but limits Bing rapid discovery."
+    },
+    {
+      "area": "Schema Readiness",
+      "score": 89,
+      "status": "PASS",
+      "evidence": [
+        "schema QA passes",
+        "16 approved schema answers checked",
+        "5 verified team members and 11 priority services in schema QA"
+      ],
+      "risk": "FAQPage/media/offer schema expansions remain future work."
+    },
+    {
+      "area": "E-E-A-T Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "5 schema-verified team members",
+        "Clinical approval ledger and review intervals exist",
+        "Activated packets include named reviewer evidence"
+      ],
+      "risk": "Ongoing clinical review cadence must be maintained."
+    },
+    {
+      "area": "Chatbot Alignment Readiness",
+      "score": 84,
+      "status": "PASS",
+      "evidence": [
+        "17 chatbot alignment mappings",
+        "runtimeMutation remains false",
+        "chatbot copy guard passes in verify"
+      ],
+      "risk": "Runtime chatbot synchronization is intentionally not implemented."
+    },
+    {
+      "area": "Launch Readiness",
+      "score": 78,
+      "status": "PARTIAL",
+      "evidence": [
+        "All required repository guards and QA commands pass",
+        "Production build completes",
+        "No deployment performed"
+      ],
+      "risk": "Not certified because current Lighthouse/Core Web Vitals/mobile/accessibility lab evidence is missing."
+    }
+  ],
+  "technicalCertification": [
+    {
+      "item": "metadata",
+      "status": "PASS",
+      "evidence": "Root, page, contact/team/treatment route families expose metadata/generateMetadata patterns."
+    },
+    {
+      "item": "title coverage",
+      "status": "PARTIAL",
+      "evidence": "Metadata generation exists, but no independent rendered title inventory artifact was found."
+    },
+    {
+      "item": "descriptions",
+      "status": "PARTIAL",
+      "evidence": "Manifest/page descriptions exist; no exhaustive rendered meta-description audit artifact was found."
+    },
+    {
+      "item": "canonicals",
+      "status": "PASS",
+      "evidence": "Canonical handling exists and seo-launch-safety passed canonical origin checks."
+    },
+    {
+      "item": "robots.txt",
+      "status": "PASS",
+      "evidence": "seo-launch-safety passed production/non-production robots posture and private-path disallows."
+    },
+    {
+      "item": "sitemap.xml",
+      "status": "PASS",
+      "evidence": "seo-launch-safety passed manifest source, canonical origin, enrichment fields and private-path exclusions."
+    },
+    {
+      "item": "OpenGraph",
+      "status": "PARTIAL",
+      "evidence": "OpenGraph metadata exists on core routes; OG image hardening is still a future task."
+    },
+    {
+      "item": "schema graph",
+      "status": "PASS",
+      "evidence": "schema QA passed with approved answer hardening."
+    },
+    {
+      "item": "answer rendering",
+      "status": "PASS",
+      "evidence": "seo:answer-rendering-qa passed 11/11."
+    },
+    {
+      "item": "FAQ rendering",
+      "status": "PARTIAL",
+      "evidence": "Visible answer surfaces and section FAQ components exist; FAQPage schema expansion is not evidenced."
+    },
+    {
+      "item": "internal linking signals",
+      "status": "PARTIAL",
+      "evidence": "CTA contract guards pass; cannibalisation clusters remain listed for audit."
+    },
+    {
+      "item": "route coverage",
+      "status": "PASS",
+      "evidence": "SMH treatment layout guard passed 78 pages; launch safety exposes 73 treatment routes for SEO coverage review."
+    }
+  ],
+  "performanceEvidence": [
+    {
+      "area": "Lighthouse",
+      "classification": "NOT_EVIDENCED",
+      "evidence": "No current Lighthouse report artifact or command output was found/generated in this mission."
+    },
+    {
+      "area": "Core Web Vitals",
+      "classification": "NOT_EVIDENCED",
+      "evidence": "No CrUX, Web Vitals, or lab CWV artifact was found."
+    },
+    {
+      "area": "mobile readiness",
+      "classification": "PARTIAL",
+      "evidence": "Responsive Next build and route rendering exist, but no mobile lab report/screenshot evidence was found."
+    },
+    {
+      "area": "accessibility",
+      "classification": "PARTIAL",
+      "evidence": "Lint/build pass and visible answer rendering has aria contract checks; no axe/Lighthouse accessibility artifact found."
+    },
+    {
+      "area": "image optimisation",
+      "classification": "PARTIAL",
+      "evidence": "WebP/image assets exist and Next build passes; no image audit report found."
+    },
+    {
+      "area": "video optimisation",
+      "classification": "PARTIAL",
+      "evidence": "Hero/video assets exist; no video loading performance audit found."
+    },
+    {
+      "area": "3D loading strategy",
+      "classification": "PARTIAL",
+      "evidence": "3D package/lint/build pass; no 3D runtime loading performance report found."
+    }
+  ],
+  "blockerMatrix": [
+    {
+      "id": "current_lighthouse_cwv_mobile_accessibility_evidence",
+      "classification": "HIGH",
+      "preLaunchRequired": true,
+      "justification": "Final certification cannot be granted without current Lighthouse/Core Web Vitals/mobile/accessibility evidence; no measurements are present to certify performance readiness."
+    },
+    {
+      "id": "seo_launch_safety_treatment_layout_warnings",
+      "classification": "MEDIUM",
+      "preLaunchRequired": true,
+      "justification": "seo-launch-safety warns on treatment routes missing section layouts; SMH layout guard passes, so this is a review item rather than a hard failure."
+    },
+    {
+      "id": "intent_cannibalisation_clusters",
+      "classification": "MEDIUM",
+      "preLaunchRequired": false,
+      "justification": "Launch-safety lists high-risk clusters for audit; not a deployment blocker, but should feed post-launch Search Console/Semrush learning."
+    },
+    {
+      "id": "indexnow_absent",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "IndexNow absence affects Bing discovery speed but not core launch safety."
+    },
+    {
+      "id": "og_image_and_metadata_hardening",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "OpenGraph metadata exists; image/title-template refinements can be improved after launch."
+    },
+    {
+      "id": "answer_length_warnings",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "Answer foundation warns on lengths but packet QA passes and clinical caveats are preserved."
+    },
+    {
+      "id": "cosmetic_dentistry_packet_unapproved",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "Contained because the out-of-scope packet remains unapproved; only relevant if activation is requested."
+    },
+    {
+      "id": "chatbot_runtime_sync_absent",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "Runtime mutation is intentionally false and alignment registry is sufficient for launch preparation."
+    }
+  ],
+  "localDominance": {
+    "version": "CHAMPAGNE_LOCAL_DOMINANCE_CERTIFICATION_V1",
+    "generatedAt": "2026-06-02T12:07:27Z",
+    "status": "PASS_WITH_POST_LAUNCH_GROWTH_ITEMS",
+    "primaryMarket": "Shoreham-by-Sea",
+    "supportMarkets": [
+      "Brighton",
+      "Hove",
+      "Lancing",
+      "Worthing",
+      "Steyning"
+    ],
+    "findings": [
+      {
+        "area": "location coverage",
+        "status": "PASS",
+        "evidence": "Primary and support markets are represented in local identity registry."
+      },
+      {
+        "area": "treatment coverage",
+        "status": "PASS",
+        "evidence": "11 priority services in local identity and 78 manifest treatment pages."
+      },
+      {
+        "area": "local entity consistency",
+        "status": "PASS",
+        "evidence": "Schema QA confirms public brand, legal entity separation, address, phone and hours."
+      },
+      {
+        "area": "local SEO readiness",
+        "status": "PARTIAL",
+        "evidence": "Ready for launch preparation; GBP/geo/hasMap/sameAs and local ranking validation remain post-launch."
+      }
+    ]
+  },
+  "competitiveReadiness": {
+    "version": "CHAMPAGNE_COMPETITIVE_READINESS_V1",
+    "generatedAt": "2026-06-02T12:07:27Z",
+    "status": "CAPABLE_WITH_ANALYTICS_DEPENDENCY",
+    "capabilities": [
+      {
+        "area": "Search Console learning",
+        "status": "CAPABLE_AFTER_LAUNCH",
+        "evidence": "Sitemap/robots/routes exist; live GSC data requires deployment and property validation."
+      },
+      {
+        "area": "Semrush learning",
+        "status": "CAPABLE_AFTER_LAUNCH",
+        "evidence": "Route/topic architecture supports tracking; Semrush data is external and not present."
+      },
+      {
+        "area": "content rewrite engine",
+        "status": "CAPABLE_WITH_GOVERNANCE",
+        "evidence": "Manifest and answer registries provide structured source of truth; rewrites must preserve clinical governance."
+      },
+      {
+        "area": "AI answer optimisation",
+        "status": "CAPABLE",
+        "evidence": "Approved AI answer packets, visible rendering, QA and schema hardening exist."
+      },
+      {
+        "area": "competitor gap analysis",
+        "status": "CAPABLE_AFTER_LAUNCH",
+        "evidence": "Priority service taxonomy and treatment routes support gap mapping; competitor data not present in repo."
+      },
+      {
+        "area": "local SEO growth",
+        "status": "CAPABLE",
+        "evidence": "Local identity, support markets and priority services are structured."
+      }
+    ]
+  },
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; existing Browserslist/Tailwind notices."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA passed."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Existing answer length and veneers priority-service warnings."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "Packet QA passed."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "11/11 visible answer surfaces."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Build and full verification passed with existing warnings."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors after certification outputs were written."
+    }
+  ],
+  "singleHighestRoiMission": "LIGHTHOUSE_CWV_MOBILE_ACCESSIBILITY_EVIDENCE_PACKET_V1"
+}

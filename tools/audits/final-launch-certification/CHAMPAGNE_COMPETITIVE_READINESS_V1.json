@@ -1,0 +1,37 @@
+{
+  "version": "CHAMPAGNE_COMPETITIVE_READINESS_V1",
+  "generatedAt": "2026-06-02T12:07:27Z",
+  "status": "CAPABLE_WITH_ANALYTICS_DEPENDENCY",
+  "capabilities": [
+    {
+      "area": "Search Console learning",
+      "status": "CAPABLE_AFTER_LAUNCH",
+      "evidence": "Sitemap/robots/routes exist; live GSC data requires deployment and property validation."
+    },
+    {
+      "area": "Semrush learning",
+      "status": "CAPABLE_AFTER_LAUNCH",
+      "evidence": "Route/topic architecture supports tracking; Semrush data is external and not present."
+    },
+    {
+      "area": "content rewrite engine",
+      "status": "CAPABLE_WITH_GOVERNANCE",
+      "evidence": "Manifest and answer registries provide structured source of truth; rewrites must preserve clinical governance."
+    },
+    {
+      "area": "AI answer optimisation",
+      "status": "CAPABLE",
+      "evidence": "Approved AI answer packets, visible rendering, QA and schema hardening exist."
+    },
+    {
+      "area": "competitor gap analysis",
+      "status": "CAPABLE_AFTER_LAUNCH",
+      "evidence": "Priority service taxonomy and treatment routes support gap mapping; competitor data not present in repo."
+    },
+    {
+      "area": "local SEO growth",
+      "status": "CAPABLE",
+      "evidence": "Local identity, support markets and priority services are structured."
+    }
+  ]
+}
