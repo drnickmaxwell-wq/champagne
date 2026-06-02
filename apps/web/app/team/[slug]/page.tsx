@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPageManifestBySlug } from "@champagne/manifests";
+import {
+  buildTeamMemberProfileSchema,
+  getPageManifestBySlug,
+} from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
-
-const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 
 type PageParams = Promise<{ slug: string }>;
 
@@ -56,30 +57,13 @@ export default async function TeamMemberPage({ params }: { params: PageParams })
   }
 
   const name = manifest.label ?? manifest.title ?? "Team member";
-  const pageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    name,
-    url: `${PRODUCTION_CANONICAL_ORIGIN}${manifest.path}`,
-    isPartOf: {
-      "@id": `${PRODUCTION_CANONICAL_ORIGIN}/#website`,
-    },
-    mainEntity: {
-      "@type": "Person",
-      name,
-      url: `${PRODUCTION_CANONICAL_ORIGIN}${manifest.path}`,
-      worksFor: {
-        "@type": "Dentist",
-        name: "St Mary's House Dental Care",
-      },
-    },
-  };
+  const profileSchemaGraph = buildTeamMemberProfileSchema(manifest.path, name);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchemaGraph) }}
       />
       <ChampagnePageBuilder slug={manifestPath} />
     </>

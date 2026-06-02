@@ -1,0 +1,12 @@
+{
+  "version": "SEO_REMAINING_FACTS_TODO_V1",
+  "todos": [
+    { "id": "TODO_REQUIRED_FACT_LEGAL_ENTITY_PUBLIC_PAGE", "fact": "Visible public/legal page confirmation of Maxwell-Deen Dentistry Ltd", "reason": "Legal entity is user-provided and used appropriately, but not found on inspected live pages." },
+    { "id": "TODO_REQUIRED_FACT_GOOGLE_BUSINESS_PROFILE", "fact": "Approved Google Business Profile URL/place ID and coordinates", "reason": "Map/location text was visible, but exact production-safe place ID/coordinates were not verified." },
+    { "id": "TODO_REQUIRED_FACT_OFFICIAL_SOCIAL_URLS", "fact": "Approved social/profile URLs", "reason": "No production social profile URLs were verified from primary sources during this mission." },
+    { "id": "TODO_REQUIRED_FACT_TEAM_PROFILE_ROUTES", "fact": "Current repo profile routes for Kitty Ingarfield and Evgenia Georgieva (Jenny), if desired", "reason": "Live site verifies both clinicians, but current Champagne repo only has profile truth pages for Nick Maxwell, Sylvia Krafft and Sara Burden." },
+    { "id": "TODO_REQUIRED_FACT_SYLVIA_SURNAME_SPELLING", "fact": "Confirm public canonical spelling for Dr Sylvia Krafft/Kraftt", "reason": "User prompt and repo use Krafft; live page heading appeared as Kraftt." },
+    { "id": "TODO_REQUIRED_FACT_BOOKING_URL_POLICY", "fact": "Approved production booking portal URL policy", "reason": "Live site exposes a dental portal link, but this mission did not wire booking schema or runtime behaviour." }
+  ],
+  "productionSchemaContainsTodoRequiredFact": false
+}

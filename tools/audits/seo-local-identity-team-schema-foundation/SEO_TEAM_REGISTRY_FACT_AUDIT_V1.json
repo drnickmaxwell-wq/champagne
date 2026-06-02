@@ -1,0 +1,22 @@
+{
+  "version": "SEO_TEAM_REGISTRY_FACT_AUDIT_V1",
+  "status": "verified_bounded_foundation",
+  "verifiedForProductionSchema": [
+    { "name": "Dr Nick Maxwell", "role": "Principal Dentist", "gdcNumber": "74877", "sources": ["mission_prompt", "https://www.smhdental.co.uk/team/", "page-truth/team-nick-maxwell.txt"] },
+    { "name": "Dr Sylvia Krafft", "role": "Associate Dentist", "gdcNumber": "174528", "sources": ["mission_prompt", "https://www.smhdental.co.uk/team/", "page-truth/team-sylvia-krafft.txt"], "note": "Live site heading appears as Dr Sylvia Kraftt; canonical registry follows user prompt and repo spelling Krafft while recording alternate live spelling." },
+    { "name": "Kitty Ingarfield", "role": "Associate Dentist", "gdcNumber": "302160", "sources": ["https://www.smhdental.co.uk/team/"] },
+    { "name": "Sara Burden", "role": "Dental Hygienist", "gdcNumber": "3966", "sources": ["https://www.smhdental.co.uk/team/", "page-truth/team-sara-burden.txt"] },
+    { "name": "Evgenia Georgieva (Jenny)", "role": "Dental Hygienist", "gdcNumber": "275874", "sources": ["https://www.smhdental.co.uk/team/"] }
+  ],
+  "excludedFromProductionSchema": [
+    { "name": "Joanna Dobson", "reason": "Non-clinical support role; not needed for bounded clinician schema foundation." },
+    { "name": "Gillian Bentley", "reason": "Support/nursing staff outside requested dentist/hygienist production schema foundation." },
+    { "name": "Sophia Ball", "reason": "Support/nursing staff outside requested dentist/hygienist production schema foundation." },
+    { "name": "Caitlin Brown", "reason": "Support/nursing staff outside requested dentist/hygienist production schema foundation." },
+    { "name": "Marianne Fawbert", "reason": "Reception role outside requested dentist/hygienist production schema foundation." }
+  ],
+  "conflictsOrDrift": [
+    "Current repo page-truth/team.txt labels Sara Burden as Associate dentist in one routing-card block, while live site and profile page-truth/team-sara-burden.txt verify Sara Burden as Dental Hygienist. Registry uses Dental Hygienist and records the drift for future content cleanup.",
+    "Live site search cache showed older team names not present in the current opened team page. Registry uses current opened live page facts plus repo/user prompt facts only."
+  ]
+}

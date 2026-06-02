@@ -7,12 +7,25 @@ import { Header } from "./components/layout/Header";
 import { HeroMount } from "./_components/HeroMount";
 import { isBrandHeroEnabled } from "./featureFlags";
 import { ConciergeLayer } from "./components/concierge/ConciergeLayer";
-import { getPageManifest } from "@champagne/manifests";
+import {
+  buildSiteSchemaGraph,
+  getDefaultSeoDescription,
+  getPageManifest,
+  getPracticeName,
+} from "@champagne/manifests";
 import type { HeroMode } from "@champagne/hero";
 
+type PageSeoManifest = {
+  label?: string;
+  title?: string;
+  description?: string;
+  intro?: string;
+  category?: string;
+};
+
 const PRODUCTION_CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
-const PRACTICE_NAME = "St Mary's House Dental Care";
-const DEFAULT_DESCRIPTION = "Private dental care in Shoreham-by-Sea, with calm planning and clear patient guidance.";
+const PRACTICE_NAME = getPracticeName();
+const DEFAULT_DESCRIPTION = getDefaultSeoDescription();
 
 function isProductionIndexable() {
   return process.env.VERCEL_ENV === "production";
@@ -53,26 +66,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const isPublicPage = !requestUrl.startsWith("/champagne/");
   const isHeroEnabled = isBrandHeroEnabled();
   const pathname = (requestUrl.split("?")[0] || "/") || "/";
-  const manifest = getPageManifest(pathname);
-  const siteUrl = PRODUCTION_CANONICAL_ORIGIN;
-
-  const dentistJsonLd = {
-    "@context": "https://schema.org",
-    "@type": ["Dentist", "LocalBusiness"],
-    "@id": `${siteUrl}/#dentist`,
-    name: PRACTICE_NAME,
-    url: siteUrl,
-    areaServed: "Shoreham-by-Sea",
-  };
-
-  const websiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${siteUrl}/#website`,
-    name: PRACTICE_NAME,
-    url: siteUrl,
-    description: DEFAULT_DESCRIPTION,
-  };
+  const manifest = getPageManifest(pathname) as PageSeoManifest | undefined;
+  const pageTitle = manifest?.label ?? manifest?.title ?? PRACTICE_NAME;
+  const pageDescription = manifest?.description ?? manifest?.intro ?? DEFAULT_DESCRIPTION;
+  const siteSchemaGraph = buildSiteSchemaGraph(pathname, pageTitle, pageDescription);
 
   let pageCategory: string | undefined;
   let mode: HeroMode | undefined;
@@ -101,7 +98,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   } else if (pathname === "/") {
     pageCategory = "home";
   } else {
-    pageCategory = (manifest as { category?: string })?.category;
+    pageCategory = manifest?.category;
   }
 
   return (
@@ -109,11 +106,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="min-h-screen antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchemaGraph) }}
         />
         <div className="flex min-h-screen flex-col">
           <div className="sticky top-0 z-50">

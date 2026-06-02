@@ -1,0 +1,93 @@
+{
+  "version": "SEO_TEAM_REGISTRY_V1",
+  "tenantId": "smh",
+  "members": [
+    {
+      "id": "nick-maxwell",
+      "name": "Dr Nick Maxwell",
+      "role": "Principal Dentist",
+      "schemaRole": "Dentist",
+      "profilePath": "/team/nick-maxwell",
+      "gdcNumber": "74877",
+      "qualifications": [
+        "BDS King's College London 1998",
+        "MSc Restorative & Aesthetic Dentistry",
+        "PGDip Orthodontics & Facial Orthopaedics"
+      ],
+      "treatmentInterests": ["Restorative dentistry", "Aesthetic dentistry", "3D dentistry", "Orthodontics", "General dentistry"],
+      "verifiedForSchema": true,
+      "sources": [
+        { "type": "user_prompt", "url": "mission_prompt", "evidence": "Principal dentist Dr Nick Maxwell, GDC 74877, BDS King's College London 1998, MSc Restorative & Aesthetic Dentistry, PGDip Orthodontics & Facial Orthopaedics." },
+        { "type": "live_site", "url": "https://www.smhdental.co.uk/team/", "evidence": "Team page lists Dr Nick Maxwell as Principal Dentist, GDC 74877, qualifications and clinical interests." },
+        { "type": "repo", "url": "page-truth/team-nick-maxwell.txt", "evidence": "Existing page truth includes profile intro and credentials." }
+      ]
+    },
+    {
+      "id": "sylvia-krafft",
+      "name": "Dr Sylvia Krafft",
+      "alternateLiveSiteName": "Dr Sylvia Kraftt",
+      "role": "Associate Dentist",
+      "schemaRole": "Dentist",
+      "profilePath": "/team/sylvia-krafft",
+      "gdcNumber": "174528",
+      "qualifications": ["Zahnarzt (Dental Surgeon), University of Cologne"],
+      "treatmentInterests": ["General dentistry", "Preventative dentistry", "Minimally invasive dentistry", "Aesthetic dentistry"],
+      "verifiedForSchema": true,
+      "sources": [
+        { "type": "user_prompt", "url": "mission_prompt", "evidence": "Known associate: Dr Sylvia Krafft, dentist." },
+        { "type": "live_site", "url": "https://www.smhdental.co.uk/team/", "evidence": "Team page lists Dr Sylvia Kraftt as Dentist, GDC 174528, with preventative/minimally invasive focus." },
+        { "type": "repo", "url": "page-truth/team-sylvia-krafft.txt", "evidence": "Existing page truth lists Dr Sylvia Krafft as Associate Dentist and includes credentials/interests." }
+      ]
+    },
+    {
+      "id": "kitty-ingarfield",
+      "name": "Kitty Ingarfield",
+      "role": "Associate Dentist",
+      "schemaRole": "Dentist",
+      "gdcNumber": "302160",
+      "qualifications": ["University of Plymouth 2022"],
+      "treatmentInterests": ["Oral surgery", "Endodontics", "Paediatric dentistry", "Clear aligners", "Composite bonding", "Facial aesthetics"],
+      "verifiedForSchema": true,
+      "sources": [
+        { "type": "live_site", "url": "https://www.smhdental.co.uk/team/", "evidence": "Team page lists Kitty Ingarfield as Dentist, GDC 302160, University of Plymouth 2022, and clinical interests." }
+      ]
+    },
+    {
+      "id": "sara-burden",
+      "name": "Sara Burden",
+      "role": "Dental Hygienist",
+      "schemaRole": "Person",
+      "profilePath": "/team/sara-burden",
+      "gdcNumber": "3966",
+      "qualifications": ["Birmingham Dental School 1990"],
+      "treatmentInterests": ["Dental hygiene", "Periodontal care", "Gum health", "Preventative care"],
+      "verifiedForSchema": true,
+      "sources": [
+        { "type": "live_site", "url": "https://www.smhdental.co.uk/team/", "evidence": "Team page lists Sara Burden as Dental Hygienist, GDC 3966, qualified from Birmingham Dental School in 1990." },
+        { "type": "repo", "url": "page-truth/team-sara-burden.txt", "evidence": "Existing page truth lists Sara Burden as Dental Hygienist with credentials and care philosophy." }
+      ]
+    },
+    {
+      "id": "evgenia-georgieva-jenny",
+      "name": "Evgenia Georgieva (Jenny)",
+      "role": "Dental Hygienist",
+      "schemaRole": "Person",
+      "gdcNumber": "275874",
+      "qualifications": ["University of Portsmouth 2024"],
+      "treatmentInterests": ["Prevention", "Periodontal health", "Non-surgical periodontal therapy", "Personalised treatment planning"],
+      "verifiedForSchema": true,
+      "sources": [
+        { "type": "live_site", "url": "https://www.smhdental.co.uk/team/", "evidence": "Team page lists Evgenia Georgieva (Jenny) as Dental Hygienist, GDC 275874, University of Portsmouth 2024." }
+      ]
+    }
+  ],
+  "teamStructure": {
+    "principalDentists": 1,
+    "associateDentists": 2,
+    "hygienists": 2,
+    "sources": [
+      { "type": "user_prompt", "url": "mission_prompt", "evidence": "The practice has 1 principal dentist, 2 associate dentists and 2 hygienists." },
+      { "type": "live_site", "url": "https://www.smhdental.co.uk/team/", "evidence": "Current live team page verifies named clinicians in those groups." }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "SEO_LOCAL_IDENTITY_TEAM_SCHEMA_FOUNDATION_REPORT_V1",
+  "status": "bounded_foundation_implemented_not_launch_certified",
+  "filesChangedCategories": [
+    "canonical local identity manifest",
+    "canonical team registry manifest",
+    "public approved-facts manifest",
+    "schema graph generation helpers",
+    "Next.js JSON-LD emission updates",
+    "schema graph QA script",
+    "audit outputs"
+  ],
+  "schemaNodesImplemented": [
+    "Dentist/LocalBusiness",
+    "Organization",
+    "WebSite",
+    "WebPage",
+    "ProfilePage",
+    "Person/Dentist for Dr Nick Maxwell",
+    "Person/Dentist for verified associates",
+    "Person for verified hygienists",
+    "BreadcrumbList for treatments",
+    "Service for priority services with route data"
+  ],
+  "launchCertificationClaimed": false,
+  "phiTouched": false,
+  "pmsOrBookingBackendTouched": false,
+  "deploymentSettingsTouched": false
+}

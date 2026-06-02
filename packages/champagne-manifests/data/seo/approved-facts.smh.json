@@ -1,0 +1,48 @@
+{
+  "version": "SEO_PUBLIC_APPROVED_FACTS_V1",
+  "tenantId": "smh",
+  "scope": "public_non_phi_facts_only",
+  "practice": {
+    "publicBrand": "St Mary's House Dental Care",
+    "legalEntity": "Maxwell-Deen Dentistry Ltd",
+    "address": "St Mary's Road, Shoreham-by-Sea, West Sussex, BN43 5ZA",
+    "telephone": "01273 453109",
+    "email": "info@smhdental.co.uk",
+    "primaryMarket": "Shoreham-by-Sea",
+    "supportMarkets": ["Brighton", "Hove", "Lancing", "Worthing", "Steyning"]
+  },
+  "hours": {
+    "Monday": "08:30-17:00",
+    "Tuesday": "08:30-17:00",
+    "Wednesday": "08:30-17:00",
+    "Thursday": "08:30-17:00",
+    "Friday": "08:30-16:00",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "team": [
+    { "name": "Dr Nick Maxwell", "role": "Principal Dentist", "gdcNumber": "74877" },
+    { "name": "Dr Sylvia Krafft", "role": "Associate Dentist", "gdcNumber": "174528" },
+    { "name": "Kitty Ingarfield", "role": "Associate Dentist", "gdcNumber": "302160" },
+    { "name": "Sara Burden", "role": "Dental Hygienist", "gdcNumber": "3966" },
+    { "name": "Evgenia Georgieva (Jenny)", "role": "Dental Hygienist", "gdcNumber": "275874" }
+  ],
+  "priorityServices": [
+    "Private dentist",
+    "Emergency dentist",
+    "Dental implants",
+    "3D dentistry",
+    "Same-day crowns/veneers",
+    "Spark Aligners",
+    "Orthodontics",
+    "Sedation/anxiety dentistry",
+    "Cosmetic dentistry",
+    "Hygiene/recall",
+    "Examinations"
+  ],
+  "safetyNotes": [
+    "No diagnosis is provided from approved facts.",
+    "No PHI or patient-specific information is included.",
+    "Treatment advice requires a clinical assessment."
+  ]
+}
