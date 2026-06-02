@@ -34,7 +34,8 @@
     "guard:treatment-answer-surface": "node scripts/guard-treatment-answer-surface.mjs",
     "seo:schema-qa": "node scripts/seo-schema-graph-qa.mjs",
     "seo:answer-foundation-qa": "node scripts/seo-ai-answer-foundation-qa.mjs",
-    "seo:answer-packet-qa": "node scripts/seo-ai-answer-priority-service-packet-qa.mjs"
+    "seo:answer-packet-qa": "node scripts/seo-ai-answer-priority-service-packet-qa.mjs",
+    "seo:answer-rendering-qa": "node scripts/seo-visible-answer-surface-rendering-qa.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
