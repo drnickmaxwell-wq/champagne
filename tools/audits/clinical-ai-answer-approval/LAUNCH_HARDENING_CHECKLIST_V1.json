@@ -1,0 +1,112 @@
+{
+  "version": "LAUNCH_HARDENING_CHECKLIST_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "repoCommit": "0dde49184f29b20cb13454702423f8978b96c097",
+  "status": "NOT_READY_FOR_FINAL_LAUNCH_HARDENING",
+  "items": [
+    {
+      "id": "clinical_review_complete",
+      "complete": false,
+      "evidence": "All reviewed packets remain REQUIRES_REVIEW because registry clinician_review_required is true."
+    },
+    {
+      "id": "governance_review_complete",
+      "complete": true,
+      "evidence": "Governance recommendation completed; do not enable flags yet."
+    },
+    {
+      "id": "schema_qa_complete",
+      "complete": true,
+      "evidence": "seo:schema-qa passed."
+    },
+    {
+      "id": "answer_foundation_qa_complete",
+      "complete": true,
+      "evidence": "seo:answer-foundation-qa passed with existing warnings."
+    },
+    {
+      "id": "answer_packet_qa_complete",
+      "complete": true,
+      "evidence": "seo:answer-packet-qa passed."
+    },
+    {
+      "id": "rendering_qa_complete",
+      "complete": true,
+      "evidence": "seo:answer-rendering-qa passed 11/11."
+    },
+    {
+      "id": "local_identity_complete",
+      "complete": true,
+      "evidence": "Local identity registry exists with NAP/hours."
+    },
+    {
+      "id": "team_registry_complete",
+      "complete": true,
+      "evidence": "Team registry has 5 schema-verified members with GDC numbers."
+    },
+    {
+      "id": "approved_facts_complete",
+      "complete": true,
+      "evidence": "Approved facts registry exists and schema QA references it."
+    },
+    {
+      "id": "ai_readiness_reviewed",
+      "complete": true,
+      "evidence": "AI readiness reviewed; readiness blocked by approval flags."
+    },
+    {
+      "id": "chatbot_readiness_reviewed",
+      "complete": true,
+      "evidence": "Chatbot mappings reviewed; runtimeMutation remains false and flags stay disabled."
+    },
+    {
+      "id": "lighthouse_accessibility_mobile_current_report",
+      "complete": false,
+      "evidence": "No current Lighthouse/CWV/axe artifact evidenced in repo."
+    }
+  ],
+  "completeCount": 10,
+  "totalCount": 12,
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; emitted existing Browserslist/Tailwind notices during SSR smoke test."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA passed with 5 verified team members and 11 priority services."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Passed with existing registry warnings for overlong priority answers and one veneers fact outside approved priorityServices."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "Passed; 12 packets / 12 services covered."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "Passed; 11/11 visible answer surfaces."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Passed; existing workspace dependency warnings, SEO launch-safety warnings, Browserslist/Tailwind notices, and Next lint plugin notice."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors."
+    }
+  ]
+}
