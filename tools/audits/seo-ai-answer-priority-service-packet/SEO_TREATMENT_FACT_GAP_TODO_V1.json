@@ -1,0 +1,186 @@
+{
+  "version": "SEO_TREATMENT_FACT_GAP_TODO_V1",
+  "generatedAt": "2026-06-02T04:39:20.844Z",
+  "status": "clinician_review_required",
+  "nullOrUnknownFacts": [
+    {
+      "service_id": "emergency-dentist",
+      "treatment_fact_id": "smh-treatment-fact-emergency-dentist-v1",
+      "route_path": "/treatments/emergency-dentistry",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "dental-implants",
+      "treatment_fact_id": "smh-treatment-fact-dental-implants-v1",
+      "route_path": "/treatments/implants",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "spark-aligners",
+      "treatment_fact_id": "smh-treatment-fact-spark-aligners-v1",
+      "route_path": "/treatments/clear-aligners-spark",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "orthodontics",
+      "treatment_fact_id": "smh-treatment-fact-orthodontics-v1",
+      "route_path": "/treatments/orthodontics",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "cosmetic-dentistry",
+      "treatment_fact_id": "smh-treatment-fact-cosmetic-dentistry-v1",
+      "route_path": "/treatments/cosmetic-dentistry",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "hygiene-recall",
+      "treatment_fact_id": "smh-treatment-fact-hygiene-recall-v1",
+      "route_path": "/treatments/preventative-and-general-dentistry",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "private-dentist",
+      "treatment_fact_id": "smh-treatment-fact-private-dentist-v1",
+      "route_path": "/contact",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "examinations",
+      "treatment_fact_id": "smh-treatment-fact-examinations-v1",
+      "route_path": "/treatments/dental-checkups-oral-cancer-screening",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "3d-dentistry",
+      "treatment_fact_id": "smh-treatment-fact-3d-dentistry-v1",
+      "route_path": "/treatments/3d-dentistry-and-technology",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "same-day-crowns-veneers",
+      "treatment_fact_id": "smh-treatment-fact-same-day-crowns-veneers-v1",
+      "route_path": "/treatments/3d-digital-dentistry",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "veneers",
+      "treatment_fact_id": "smh-treatment-fact-veneers-v1",
+      "route_path": "/treatments/veneers",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    },
+    {
+      "service_id": "sedation-anxiety-dentistry",
+      "treatment_fact_id": "smh-treatment-fact-sedation-anxiety-dentistry-v1",
+      "route_path": "/treatments/sedation-dentistry",
+      "source_status": "unknown",
+      "null_fields": [
+        "typical_duration",
+        "recovery_category",
+        "alternatives_available",
+        "finance_availability",
+        "consultation_availability",
+        "clinician_types"
+      ],
+      "recommendation": "Leave null until approved public source or clinician-reviewed content provides this fact."
+    }
+  ]
+}

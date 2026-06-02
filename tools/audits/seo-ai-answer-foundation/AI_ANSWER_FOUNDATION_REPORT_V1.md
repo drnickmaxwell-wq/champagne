@@ -29,23 +29,23 @@ Foundation only. No mass content generation, page redesign, chatbot runtime muta
 
 ## Registry status
 
-- Answer registry entries: 6.
-- Treatment fact entries: 6.
-- Question inventory entries: 12.
+- Answer registry entries: 18.
+- Treatment fact entries: 12.
+- Question inventory entries: 55.
 - Voice patterns: 7.
-- Chatbot alignment mappings: 5.
+- Chatbot alignment mappings: 17.
 
 ## Scores
 
-- AI readiness score: 45.
-- Zero-click readiness score: 51.
+- AI readiness score: 83.
+- Zero-click readiness score: 71.
 
 ## Major gaps discovered
 
-- 7 approved priority services do not yet have AI answer registry entries.
-- 5 approved priority services do not yet have treatment fact registry entries.
+- 0 approved priority services do not yet have AI answer registry entries.
+- 0 approved priority services do not yet have treatment fact registry entries.
 - 9 priority treatment routes do not yet expose treatment answer-surface blocks in the manifest audit.
-- 9 seeded questions are not yet mapped to approved answers.
+- 0 seeded questions are not yet mapped to approved answers.
 - Treatment facts for duration, recovery, alternatives and finance are mostly null because approved sources do not yet contain those facts.
 
 ## Recommended next mission

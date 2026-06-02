@@ -2,7 +2,7 @@
   "version": "CHATBOT_ANSWER_ALIGNMENT_V1",
   "tenantId": "smh",
   "scope": "registry_alignment_only_no_chatbot_runtime_changes",
-  "status": "foundation_mapping",
+  "status": "priority_service_packet_alignment_only_no_runtime_changes",
   "runtimeMutation": false,
   "mappings": [
     {
@@ -68,6 +68,206 @@
       ],
       "treatment_fact_ids": [],
       "drift_detection": "all_clinical_or_urgent_answers_must_preserve_no_diagnosis_and_assessment_boundary"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-emergency-dentist-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.emergency-dentist",
+        "page-truth/treatments-emergency-dentistry.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-emergency-dentist-availability-v1",
+        "smh-answer-priority-emergency-dentist-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-emergency-dentist-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-dental-implants-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.dental-implants",
+        "page-truth/treatments-implants.txt",
+        "champagne_machine_manifest_full.json:pages.implants.answerSurface"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-implants-service-v1",
+        "smh-answer-priority-dental-implants-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-dental-implants-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-private-dentist-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:practice",
+        "local-identity.smh.json:priorityServices.private-dentist",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-practice-location-v1",
+        "smh-answer-opening-hours-v1",
+        "smh-answer-priority-private-dentist-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-private-dentist-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-examinations-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.examinations",
+        "page-truth/treatments-dental-checkups-oral-cancer-screening.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-examinations-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-examinations-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-spark-aligners-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.spark-aligners",
+        "page-truth/treatments-clear-aligners-spark.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-spark-aligners-service-v1",
+        "smh-answer-priority-spark-aligners-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-spark-aligners-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-orthodontics-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.orthodontics",
+        "page-truth/treatments-orthodontics.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-orthodontics-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-orthodontics-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-3d-dentistry-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.3d-dentistry",
+        "page-truth/treatments-3d-dentistry-and-technology.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-3d-dentistry-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-3d-dentistry-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-same-day-crowns-veneers-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.same-day-crowns-veneers",
+        "page-truth/treatments-3d-digital-dentistry.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-same-day-crowns-veneers-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-same-day-crowns-veneers-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-veneers-packet-v1",
+      "approved_fact_refs": [
+        "question-inventory.v1.smh.json:targetServices.veneers",
+        "page-truth/treatments-veneers.txt",
+        "champagne_machine_manifest_full.json:pages.veneers.answerSurface"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-veneers-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-veneers-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-cosmetic-dentistry-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.cosmetic-dentistry",
+        "page-truth/treatments-cosmetic-dentistry.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-cosmetic-dentistry-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-cosmetic-dentistry-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-sedation-anxiety-dentistry-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.sedation-anxiety-dentistry",
+        "page-truth/treatments-sedation-dentistry.txt",
+        "page-truth/treatments-nervous-patients.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-sedation-anxiety-dentistry-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-sedation-anxiety-dentistry-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
+    },
+    {
+      "id": "smh-chatbot-alignment-priority-hygiene-recall-packet-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.hygiene-recall",
+        "team-registry.smh.json:teamStructure.hygienists",
+        "page-truth/treatments-preventative-and-general-dentistry.txt"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-priority-hygiene-recall-packet-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-hygiene-recall-v1"
+      ],
+      "runtime_mutation": false,
+      "drift_detection": "priority_service_packet_answers_must_match_approved_public_facts_and_keep_clinician_review_flags_until_approved"
     }
   ]
 }

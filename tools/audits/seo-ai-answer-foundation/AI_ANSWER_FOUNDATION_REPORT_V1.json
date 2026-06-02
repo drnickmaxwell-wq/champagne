@@ -1,6 +1,6 @@
 {
   "version": "AI_ANSWER_FOUNDATION_REPORT_V1",
-  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "generatedAt": "2026-06-02T04:39:19.989Z",
   "mission": "SEO_AI_ANSWER_AND_ZERO_CLICK_FOUNDATION_V1",
   "scopeBoundaries": [
     "Foundation only",
@@ -91,21 +91,21 @@
     "qaScript": "scripts/seo-ai-answer-foundation-qa.mjs"
   },
   "registryStatus": {
-    "answerRegistryEntries": 6,
-    "treatmentFactEntries": 6,
-    "questionInventoryEntries": 12,
+    "answerRegistryEntries": 18,
+    "treatmentFactEntries": 12,
+    "questionInventoryEntries": 55,
     "voicePatterns": 7,
-    "chatbotAlignmentMappings": 5
+    "chatbotAlignmentMappings": 17
   },
   "scores": {
-    "aiReadinessScore": 45,
-    "zeroClickReadinessScore": 51
+    "aiReadinessScore": 83,
+    "zeroClickReadinessScore": 71
   },
   "majorGapsDiscovered": [
-    "7 approved priority services do not yet have AI answer registry entries.",
-    "5 approved priority services do not yet have treatment fact registry entries.",
+    "0 approved priority services do not yet have AI answer registry entries.",
+    "0 approved priority services do not yet have treatment fact registry entries.",
     "9 priority treatment routes do not yet expose treatment answer-surface blocks in the manifest audit.",
-    "9 seeded questions are not yet mapped to approved answers.",
+    "0 seeded questions are not yet mapped to approved answers.",
     "Treatment facts for duration, recovery, alternatives and finance are mostly null because approved sources do not yet contain those facts."
   ],
   "recommendations": [

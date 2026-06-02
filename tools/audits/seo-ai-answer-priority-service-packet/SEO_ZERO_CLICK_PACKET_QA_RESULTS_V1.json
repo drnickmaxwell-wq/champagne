@@ -1,0 +1,46 @@
+{
+  "version": "SEO_ZERO_CLICK_PACKET_QA_RESULTS_V1",
+  "generatedAt": "2026-06-02T04:39:20.844Z",
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "checks": {
+    "answerPacketCount": 12,
+    "shortAnswerWordRange": "40-80",
+    "expandedAnswerWordRange": "120-220",
+    "priorityServicesCovered": [
+      "emergency-dentist",
+      "dental-implants",
+      "private-dentist",
+      "examinations",
+      "spark-aligners",
+      "orthodontics",
+      "3d-dentistry",
+      "same-day-crowns-veneers",
+      "veneers",
+      "cosmetic-dentistry",
+      "sedation-anxiety-dentistry",
+      "hygiene-recall"
+    ],
+    "servicesWithVisibleRenderingTodo": [
+      "emergency-dentist",
+      "examinations",
+      "spark-aligners",
+      "orthodontics",
+      "3d-dentistry",
+      "same-day-crowns-veneers",
+      "cosmetic-dentistry",
+      "sedation-anxiety-dentistry",
+      "hygiene-recall"
+    ],
+    "linkedQuestionCount": 14,
+    "unmappedSeedQuestions": [],
+    "approvedPacketFlagsKeptFalse": true
+  },
+  "scores": {
+    "previousAiReadinessScore": 83,
+    "previousZeroClickReadinessScore": 71,
+    "aiReadinessScore": 88,
+    "zeroClickReadinessScore": 70
+  }
+}
