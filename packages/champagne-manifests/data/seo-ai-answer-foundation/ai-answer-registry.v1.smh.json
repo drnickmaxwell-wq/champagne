@@ -1,0 +1,131 @@
+{
+  "version": "AI_ANSWER_REGISTRY_V1",
+  "tenantId": "smh",
+  "scope": "public_non_phi_ai_answer_foundation_only",
+  "status": "foundation_examples_only",
+  "governance": {
+    "singleSourceOfTruth": true,
+    "massContentGeneration": false,
+    "clinicalAdviceBoundary": "Treatment advice requires a clinical assessment.",
+    "approvedFactSources": [
+      "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "packages/champagne-manifests/data/seo/team-registry.smh.json",
+      "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    ]
+  },
+  "entries": [
+    {
+      "id": "smh-answer-practice-location-v1",
+      "service": "private-dentist",
+      "location_scope": "Shoreham-by-Sea",
+      "intent_type": "local",
+      "question": "Where is St Mary's House Dental Care located?",
+      "short_answer": "St Mary's House Dental Care is on St Mary's Road in Shoreham-by-Sea, West Sussex, BN43 5ZA.",
+      "expanded_answer": "St Mary's House Dental Care is a private dental practice on St Mary's Road in Shoreham-by-Sea, West Sussex, BN43 5ZA. The approved local identity registry lists Shoreham-by-Sea as the primary market, with Brighton, Hove, Lancing, Worthing and Steyning as support markets.",
+      "evidence_source": [
+        "approved-facts.smh.json:practice.address",
+        "local-identity.smh.json:address",
+        "local-identity.smh.json:primaryMarket",
+        "local-identity.smh.json:supportMarkets"
+      ],
+      "clinician_review_required": false,
+      "approved_for_ai": true,
+      "approved_for_voice": true,
+      "approved_for_chatbot": true,
+      "approved_for_schema": true
+    },
+    {
+      "id": "smh-answer-opening-hours-v1",
+      "service": "private-dentist",
+      "location_scope": "Shoreham-by-Sea",
+      "intent_type": "local",
+      "question": "What are the opening hours for St Mary's House Dental Care?",
+      "short_answer": "St Mary's House Dental Care is open Monday to Thursday from 08:30 to 17:00 and Friday from 08:30 to 16:00. It is closed Saturday and Sunday.",
+      "expanded_answer": "The approved hours registry lists St Mary's House Dental Care as open Monday, Tuesday, Wednesday and Thursday from 08:30 to 17:00, and Friday from 08:30 to 16:00. Saturday and Sunday are listed as closed.",
+      "evidence_source": [
+        "approved-facts.smh.json:hours",
+        "local-identity.smh.json:openingHours",
+        "local-identity.smh.json:closedDays"
+      ],
+      "clinician_review_required": false,
+      "approved_for_ai": true,
+      "approved_for_voice": true,
+      "approved_for_chatbot": true,
+      "approved_for_schema": true
+    },
+    {
+      "id": "smh-answer-emergency-dentist-availability-v1",
+      "service": "emergency-dentist",
+      "location_scope": "Shoreham-by-Sea",
+      "intent_type": "urgent",
+      "question": "Do you provide emergency dentistry in Shoreham-by-Sea?",
+      "short_answer": "Emergency dentist is an approved priority service for St Mary's House Dental Care in Shoreham-by-Sea.",
+      "expanded_answer": "The approved local identity registry lists Emergency dentist as a priority service and maps it to the emergency dentistry treatment route. This answer confirms service coverage only; urgent symptoms and individual treatment needs require direct clinical assessment.",
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.emergency-dentist"
+      ],
+      "clinician_review_required": true,
+      "approved_for_ai": true,
+      "approved_for_voice": true,
+      "approved_for_chatbot": true,
+      "approved_for_schema": true
+    },
+    {
+      "id": "smh-answer-implants-service-v1",
+      "service": "dental-implants",
+      "location_scope": "Shoreham-by-Sea",
+      "intent_type": "commercial",
+      "question": "Does St Mary's House Dental Care offer dental implants?",
+      "short_answer": "Dental implants are an approved priority service for St Mary's House Dental Care in Shoreham-by-Sea.",
+      "expanded_answer": "The approved public facts registry lists Dental implants as a priority service, and the local identity registry maps Dental implants to the implants treatment route. This answer confirms service availability only; suitability, risks, alternatives and planning require a clinical assessment.",
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.dental-implants",
+        "champagne_machine_manifest_full.json:pages.implants"
+      ],
+      "clinician_review_required": true,
+      "approved_for_ai": true,
+      "approved_for_voice": true,
+      "approved_for_chatbot": true,
+      "approved_for_schema": true
+    },
+    {
+      "id": "smh-answer-spark-aligners-service-v1",
+      "service": "spark-aligners",
+      "location_scope": "Shoreham-by-Sea",
+      "intent_type": "commercial",
+      "question": "Does St Mary's House Dental Care offer Spark Aligners?",
+      "short_answer": "Spark Aligners are an approved priority service for St Mary's House Dental Care.",
+      "expanded_answer": "The approved public facts registry lists Spark Aligners as a priority service, and the local identity registry maps Spark Aligners to the clear aligners Spark treatment route. This confirms service coverage only; suitability and treatment planning require a clinical assessment.",
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.spark-aligners",
+        "champagne_machine_manifest_full.json:pages.clear_aligners_spark"
+      ],
+      "clinician_review_required": true,
+      "approved_for_ai": true,
+      "approved_for_voice": true,
+      "approved_for_chatbot": true,
+      "approved_for_schema": true
+    },
+    {
+      "id": "smh-answer-clinical-assessment-boundary-v1",
+      "service": "all-services",
+      "location_scope": "public",
+      "intent_type": "informational",
+      "question": "Can the website diagnose my dental problem?",
+      "short_answer": "No. Approved public facts do not provide a diagnosis, and treatment advice requires a clinical assessment.",
+      "expanded_answer": "The approved public facts registry states that no diagnosis is provided from approved facts, no patient-specific information is included, and treatment advice requires a clinical assessment. AI answers, voice answers and chatbot responses should preserve this boundary.",
+      "evidence_source": [
+        "approved-facts.smh.json:safetyNotes"
+      ],
+      "clinician_review_required": false,
+      "approved_for_ai": true,
+      "approved_for_voice": true,
+      "approved_for_chatbot": true,
+      "approved_for_schema": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "version": "QUESTION_INVENTORY_AUDIT_V1",
+  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "status": "partial_foundation",
+  "targetServices": [
+    "dental-implants",
+    "emergency-dentist",
+    "spark-aligners",
+    "orthodontics",
+    "veneers",
+    "same-day-crowns-veneers",
+    "sedation-anxiety-dentistry",
+    "hygiene-recall",
+    "examinations",
+    "cosmetic-dentistry"
+  ],
+  "supportedIntentTypes": [
+    "informational",
+    "commercial",
+    "urgent",
+    "local",
+    "comparison",
+    "cost",
+    "anxiety"
+  ],
+  "totalQuestions": 12,
+  "linkedQuestionCount": 3,
+  "questionsByService": {
+    "dental-implants": 2,
+    "emergency-dentist": 2,
+    "spark-aligners": 1,
+    "orthodontics": 1,
+    "veneers": 1,
+    "same-day-crowns-veneers": 1,
+    "sedation-anxiety-dentistry": 1,
+    "hygiene-recall": 1,
+    "examinations": 1,
+    "cosmetic-dentistry": 1
+  },
+  "questionsByIntent": {
+    "informational": 3,
+    "commercial": 3,
+    "urgent": 2,
+    "local": 3,
+    "comparison": 0,
+    "cost": 0,
+    "anxiety": 1
+  },
+  "targetServicesMissingQuestions": [],
+  "unmappedQuestions": [
+    "smh-question-implants-informational-v1",
+    "smh-question-emergency-what-happens-v1",
+    "smh-question-orthodontics-commercial-v1",
+    "smh-question-veneers-informational-v1",
+    "smh-question-crowns-commercial-v1",
+    "smh-question-sedation-anxiety-v1",
+    "smh-question-hygiene-local-v1",
+    "smh-question-examinations-informational-v1",
+    "smh-question-cosmetic-commercial-v1"
+  ],
+  "recommendations": [
+    "Expand to at least one reviewed question per service and intent cluster before mass answer drafting.",
+    "Keep question inventory separate from generated page copy to avoid accidental mass rewrites."
+  ]
+}

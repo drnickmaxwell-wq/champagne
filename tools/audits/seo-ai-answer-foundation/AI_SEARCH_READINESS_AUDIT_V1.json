@@ -1,0 +1,132 @@
+{
+  "version": "AI_SEARCH_READINESS_AUDIT_V1",
+  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "status": "foundation_ready_with_gaps",
+  "scores": {
+    "aiReadinessScore": 45,
+    "zeroClickReadinessScore": 51
+  },
+  "coverage": {
+    "answerCoverage": {
+      "priorityServiceCount": 11,
+      "priorityServicesWithAnswers": 4,
+      "priorityServicesMissingAnswers": [
+        "3d-dentistry",
+        "same-day-crowns-veneers",
+        "orthodontics",
+        "sedation-anxiety-dentistry",
+        "cosmetic-dentistry",
+        "hygiene-recall",
+        "examinations"
+      ],
+      "answersByService": {
+        "private-dentist": 2,
+        "emergency-dentist": 1,
+        "dental-implants": 1,
+        "3d-dentistry": 0,
+        "same-day-crowns-veneers": 0,
+        "spark-aligners": 1,
+        "orthodontics": 0,
+        "sedation-anxiety-dentistry": 0,
+        "cosmetic-dentistry": 0,
+        "hygiene-recall": 0,
+        "examinations": 0
+      }
+    },
+    "factCoverage": {
+      "treatmentFactEntries": 6,
+      "priorityServicesWithTreatmentFacts": 6,
+      "priorityServicesMissingTreatmentFacts": [
+        "private-dentist",
+        "3d-dentistry",
+        "same-day-crowns-veneers",
+        "sedation-anxiety-dentistry",
+        "examinations"
+      ],
+      "treatmentFactsByService": {
+        "private-dentist": 0,
+        "emergency-dentist": 1,
+        "dental-implants": 1,
+        "3d-dentistry": 0,
+        "same-day-crowns-veneers": 0,
+        "spark-aligners": 1,
+        "orthodontics": 1,
+        "sedation-anxiety-dentistry": 0,
+        "cosmetic-dentistry": 1,
+        "hygiene-recall": 1,
+        "examinations": 0
+      }
+    },
+    "faqCoverage": {
+      "treatmentPageCount": 78,
+      "answerSurfaceTreatmentPageCount": 12,
+      "answerSurfaceFaqCount": 37,
+      "priorityTreatmentPagesMissingAnswerSurface": [
+        {
+          "service": "emergency-dentist",
+          "routePath": "/treatments/emergency-dentistry"
+        },
+        {
+          "service": "3d-dentistry",
+          "routePath": "/treatments/3d-dentistry-and-technology"
+        },
+        {
+          "service": "same-day-crowns-veneers",
+          "routePath": "/treatments/3d-digital-dentistry"
+        },
+        {
+          "service": "spark-aligners",
+          "routePath": "/treatments/clear-aligners-spark"
+        },
+        {
+          "service": "orthodontics",
+          "routePath": "/treatments/orthodontics"
+        },
+        {
+          "service": "sedation-anxiety-dentistry",
+          "routePath": "/treatments/sedation-dentistry"
+        },
+        {
+          "service": "cosmetic-dentistry",
+          "routePath": "/treatments/cosmetic-dentistry"
+        },
+        {
+          "service": "hygiene-recall",
+          "routePath": "/treatments/preventative-and-general-dentistry"
+        },
+        {
+          "service": "examinations",
+          "routePath": "/treatments/dental-checkups-oral-cancer-screening"
+        }
+      ]
+    },
+    "snippetReadiness": {
+      "answerEntries": 6,
+      "weakAnswerCount": 0,
+      "overlyLongAnswerCount": 0,
+      "duplicateShortAnswerCount": 0
+    },
+    "voiceReadiness": {
+      "patternCount": 7,
+      "answersApprovedForVoice": 6
+    },
+    "chatbotReadiness": {
+      "alignmentMappings": 5,
+      "runtimeMutation": false,
+      "unmappedAnswerRegistryIds": [
+        "smh-answer-spark-aligners-service-v1"
+      ],
+      "unmappedTreatmentFactIds": [
+        "smh-treatment-fact-spark-aligners-v1",
+        "smh-treatment-fact-orthodontics-v1",
+        "smh-treatment-fact-cosmetic-dentistry-v1",
+        "smh-treatment-fact-hygiene-recall-v1"
+      ]
+    }
+  },
+  "registryValidation": {
+    "status": "pass",
+    "errors": [],
+    "warnings": []
+  }
+}

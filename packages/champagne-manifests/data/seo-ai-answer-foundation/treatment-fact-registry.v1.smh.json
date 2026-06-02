@@ -1,0 +1,132 @@
+{
+  "version": "TREATMENT_FACT_REGISTRY_V1",
+  "tenantId": "smh",
+  "scope": "machine_readable_public_treatment_facts_only",
+  "status": "foundation_partial_population_from_approved_sources",
+  "unknownValuePolicy": "Use null when an approved source does not contain the fact. Do not infer clinical, finance, duration or recovery claims.",
+  "entries": [
+    {
+      "id": "smh-treatment-fact-emergency-dentist-v1",
+      "service": "emergency-dentist",
+      "service_name": "Emergency dentist",
+      "route_path": "/treatments/emergency-dentistry",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.emergency-dentist",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "clinical_review_required": true
+    },
+    {
+      "id": "smh-treatment-fact-dental-implants-v1",
+      "service": "dental-implants",
+      "service_name": "Dental implants",
+      "route_path": "/treatments/implants",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.dental-implants",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "clinical_review_required": true
+    },
+    {
+      "id": "smh-treatment-fact-spark-aligners-v1",
+      "service": "spark-aligners",
+      "service_name": "Spark Aligners",
+      "route_path": "/treatments/clear-aligners-spark",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.spark-aligners",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "clinical_review_required": true
+    },
+    {
+      "id": "smh-treatment-fact-orthodontics-v1",
+      "service": "orthodontics",
+      "service_name": "Orthodontics",
+      "route_path": "/treatments/orthodontics",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.orthodontics",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "clinical_review_required": true
+    },
+    {
+      "id": "smh-treatment-fact-cosmetic-dentistry-v1",
+      "service": "cosmetic-dentistry",
+      "service_name": "Cosmetic dentistry",
+      "route_path": "/treatments/cosmetic-dentistry",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.cosmetic-dentistry",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "clinical_review_required": true
+    },
+    {
+      "id": "smh-treatment-fact-hygiene-recall-v1",
+      "service": "hygiene-recall",
+      "service_name": "Hygiene/recall",
+      "route_path": "/treatments/preventative-and-general-dentistry",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": [
+        "Dental Hygienist"
+      ],
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.hygiene-recall",
+        "team-registry.smh.json:teamStructure.hygienists",
+        "local-identity.smh.json:primaryMarket"
+      ],
+      "clinical_review_required": true
+    }
+  ]
+}

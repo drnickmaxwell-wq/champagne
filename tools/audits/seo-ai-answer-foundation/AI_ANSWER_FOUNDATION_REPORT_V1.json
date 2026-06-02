@@ -1,0 +1,116 @@
+{
+  "version": "AI_ANSWER_FOUNDATION_REPORT_V1",
+  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "mission": "SEO_AI_ANSWER_AND_ZERO_CLICK_FOUNDATION_V1",
+  "scopeBoundaries": [
+    "Foundation only",
+    "No mass content generation",
+    "No visual design changes",
+    "No chatbot runtime behaviour changes",
+    "No PHI, PMS or Dentally integration changes",
+    "No launch certification claim"
+  ],
+  "auditedSources": {
+    "treatmentManifests": {
+      "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "treatmentPageCount": 78,
+      "answerSurfaceTreatmentPageCount": 12,
+      "treatmentAnswerSurfaceFaqCount": 37
+    },
+    "contentManifests": {
+      "pageCount": 102,
+      "metadataSurfaceCount": 102,
+      "reusableSectionTypeCount": 37,
+      "reusableSectionTypes": [
+        "accordion",
+        "clinician_insight",
+        "copy-block",
+        "cta",
+        "faq",
+        "feature-grid",
+        "feature-list",
+        "features",
+        "google_reviews",
+        "map",
+        "media",
+        "patient_stories_rail",
+        "people_grid",
+        "periodontal-technology",
+        "routing_cards",
+        "steps",
+        "story",
+        "treatment.aftercareRisks",
+        "treatment.consultationOverview",
+        "treatment.cta",
+        "treatment.faq",
+        "treatment.heroIntro",
+        "treatment.pricingFinance",
+        "treatment.processTimeline",
+        "treatment.technology",
+        "treatment.trustSignals",
+        "treatment.whatAreImplants",
+        "treatment.whoIsItFor",
+        "treatment_closing_cta",
+        "treatment_faq_block",
+        "treatment_feature_list",
+        "treatment_media_feature",
+        "treatment_media_highlight",
+        "treatment_mid_cta",
+        "treatment_overview_copy",
+        "treatment_overview_rich",
+        "treatment_tools_trio"
+      ]
+    },
+    "faqStructures": {
+      "answerSurfaceFaqCount": 37,
+      "pagesWithAnswerSurfaceFaqs": 12
+    },
+    "metadataSources": [
+      "manifest page labels/descriptions/intro fields",
+      "apps/web route metadata functions",
+      "schema builder defaults"
+    ],
+    "schemaSources": [
+      "packages/champagne-manifests/src/seo.ts",
+      "apps/web/app/layout.tsx",
+      "apps/web/app/treatments/[slug]/page.tsx",
+      "scripts/seo-schema-graph-qa.mjs"
+    ],
+    "approvedFactsSources": [
+      "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "packages/champagne-manifests/data/seo/team-registry.smh.json"
+    ]
+  },
+  "architectureAdded": {
+    "aiAnswerRegistry": "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "treatmentFactRegistry": "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+    "questionInventory": "packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json",
+    "voiceSearchPatternRegistry": "packages/champagne-manifests/data/seo-ai-answer-foundation/voice-search-pattern-registry.v1.json",
+    "chatbotAnswerAlignment": "packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json",
+    "qaScript": "scripts/seo-ai-answer-foundation-qa.mjs"
+  },
+  "registryStatus": {
+    "answerRegistryEntries": 6,
+    "treatmentFactEntries": 6,
+    "questionInventoryEntries": 12,
+    "voicePatterns": 7,
+    "chatbotAlignmentMappings": 5
+  },
+  "scores": {
+    "aiReadinessScore": 45,
+    "zeroClickReadinessScore": 51
+  },
+  "majorGapsDiscovered": [
+    "7 approved priority services do not yet have AI answer registry entries.",
+    "5 approved priority services do not yet have treatment fact registry entries.",
+    "9 priority treatment routes do not yet expose treatment answer-surface blocks in the manifest audit.",
+    "9 seeded questions are not yet mapped to approved answers.",
+    "Treatment facts for duration, recovery, alternatives and finance are mostly null because approved sources do not yet contain those facts."
+  ],
+  "recommendations": [
+    "Run a clinician-reviewed priority-service answer packet next, adding one direct answer and a compact FAQ set per approved priority service.",
+    "Populate missing treatment facts only from approved public sources or clinician-reviewed fact registry additions.",
+    "Extend schema QA to consume approved_for_schema answers before any FAQPage or Speakable schema expansion."
+  ]
+}

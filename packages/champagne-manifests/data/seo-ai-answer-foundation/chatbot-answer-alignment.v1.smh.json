@@ -1,0 +1,73 @@
+{
+  "version": "CHATBOT_ANSWER_ALIGNMENT_V1",
+  "tenantId": "smh",
+  "scope": "registry_alignment_only_no_chatbot_runtime_changes",
+  "status": "foundation_mapping",
+  "runtimeMutation": false,
+  "mappings": [
+    {
+      "id": "smh-chatbot-alignment-location-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:practice.address",
+        "local-identity.smh.json:address"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-practice-location-v1"
+      ],
+      "treatment_fact_ids": [],
+      "drift_detection": "answer_evidence_must_continue_to_match_local_identity_address"
+    },
+    {
+      "id": "smh-chatbot-alignment-hours-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:hours",
+        "local-identity.smh.json:openingHours",
+        "local-identity.smh.json:closedDays"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-opening-hours-v1"
+      ],
+      "treatment_fact_ids": [],
+      "drift_detection": "answer_evidence_must_continue_to_match_approved_hours"
+    },
+    {
+      "id": "smh-chatbot-alignment-emergency-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.emergency-dentist"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-emergency-dentist-availability-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-emergency-dentist-v1"
+      ],
+      "drift_detection": "service_availability_answer_must_match_priority_service_and_route_mapping"
+    },
+    {
+      "id": "smh-chatbot-alignment-implants-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.dental-implants"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-implants-service-v1"
+      ],
+      "treatment_fact_ids": [
+        "smh-treatment-fact-dental-implants-v1"
+      ],
+      "drift_detection": "service_availability_answer_must_match_priority_service_and_route_mapping"
+    },
+    {
+      "id": "smh-chatbot-alignment-safety-boundary-v1",
+      "approved_fact_refs": [
+        "approved-facts.smh.json:safetyNotes"
+      ],
+      "answer_registry_ids": [
+        "smh-answer-clinical-assessment-boundary-v1"
+      ],
+      "treatment_fact_ids": [],
+      "drift_detection": "all_clinical_or_urgent_answers_must_preserve_no_diagnosis_and_assessment_boundary"
+    }
+  ]
+}

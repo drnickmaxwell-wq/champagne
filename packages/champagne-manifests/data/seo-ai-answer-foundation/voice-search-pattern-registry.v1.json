@@ -1,0 +1,49 @@
+{
+  "version": "VOICE_SEARCH_PATTERN_REGISTRY_V1",
+  "scope": "voice_query_pattern_foundation",
+  "status": "foundation_patterns_only",
+  "patterns": [
+    {
+      "id": "voice-pattern-what-is-v1",
+      "pattern": "What is...",
+      "intent_type": "informational",
+      "answer_target": "short_definition_then_clinical_boundary"
+    },
+    {
+      "id": "voice-pattern-how-much-v1",
+      "pattern": "How much...",
+      "intent_type": "cost",
+      "answer_target": "price_or_fee_answer_only_when_approved_source_exists"
+    },
+    {
+      "id": "voice-pattern-how-long-v1",
+      "pattern": "How long...",
+      "intent_type": "informational",
+      "answer_target": "duration_answer_only_when_approved_source_exists"
+    },
+    {
+      "id": "voice-pattern-can-i-v1",
+      "pattern": "Can I...",
+      "intent_type": "commercial",
+      "answer_target": "availability_answer_plus_assessment_boundary"
+    },
+    {
+      "id": "voice-pattern-do-you-v1",
+      "pattern": "Do you...",
+      "intent_type": "local",
+      "answer_target": "service_availability_from_priority_service_registry"
+    },
+    {
+      "id": "voice-pattern-what-happens-if-v1",
+      "pattern": "What happens if...",
+      "intent_type": "urgent",
+      "answer_target": "urgent_guidance_without_diagnosis_or_patient_specific_advice"
+    },
+    {
+      "id": "voice-pattern-is-it-possible-to-v1",
+      "pattern": "Is it possible to...",
+      "intent_type": "commercial",
+      "answer_target": "possibility_answer_only_when_supported_by_approved_facts"
+    }
+  ]
+}
