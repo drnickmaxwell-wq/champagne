@@ -1,0 +1,86 @@
+{
+  "generatedAt": "2026-06-02T12:46:06.367Z",
+  "classification": "NEXT_MISSION_REQUIRED",
+  "risks": [
+    {
+      "route": "/",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,400 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/contact",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,110 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,240 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/implants",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,580 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,310 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "route_not_lighthouse_measured",
+      "severity": "high",
+      "evidence": "Lighthouse JSON was emitted but category scores were unavailable because the requested route failed to load reliably (HTTP 404 confirmed by Playwright/curl).",
+      "recommendedMission": "Fix or reconcile requested 3D dentistry route before certification recheck evidence is considered complete."
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "920 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,560 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "mobile_readiness_review_required",
+      "severity": "high",
+      "evidence": {
+        "routeLoads": false,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "recommendedMission": "Resolve route availability/mapping for requested audit route."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "basic_accessibility_review_required",
+      "severity": "high",
+      "evidence": [
+        "route_not_2xx"
+      ],
+      "recommendedMission": "Accessibility remediation/axe validation mission."
+    }
+  ]
+}
