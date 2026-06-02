@@ -1,0 +1,57 @@
+{
+  "version": "CHAMPAGNE_PRELAUNCH_VS_POSTLAUNCH_V1",
+  "generatedAt": "2026-06-02T12:07:27Z",
+  "preLaunchRequired": [
+    {
+      "id": "current_lighthouse_cwv_mobile_accessibility_evidence",
+      "classification": "HIGH",
+      "preLaunchRequired": true,
+      "justification": "Final certification cannot be granted without current Lighthouse/Core Web Vitals/mobile/accessibility evidence; no measurements are present to certify performance readiness."
+    },
+    {
+      "id": "seo_launch_safety_treatment_layout_warnings",
+      "classification": "MEDIUM",
+      "preLaunchRequired": true,
+      "justification": "seo-launch-safety warns on treatment routes missing section layouts; SMH layout guard passes, so this is a review item rather than a hard failure."
+    }
+  ],
+  "postLaunchOrOptional": [
+    {
+      "id": "intent_cannibalisation_clusters",
+      "classification": "MEDIUM",
+      "preLaunchRequired": false,
+      "justification": "Launch-safety lists high-risk clusters for audit; not a deployment blocker, but should feed post-launch Search Console/Semrush learning."
+    },
+    {
+      "id": "indexnow_absent",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "IndexNow absence affects Bing discovery speed but not core launch safety."
+    },
+    {
+      "id": "og_image_and_metadata_hardening",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "OpenGraph metadata exists; image/title-template refinements can be improved after launch."
+    },
+    {
+      "id": "answer_length_warnings",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "Answer foundation warns on lengths but packet QA passes and clinical caveats are preserved."
+    },
+    {
+      "id": "cosmetic_dentistry_packet_unapproved",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "Contained because the out-of-scope packet remains unapproved; only relevant if activation is requested."
+    },
+    {
+      "id": "chatbot_runtime_sync_absent",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "Runtime mutation is intentionally false and alignment registry is sufficient for launch preparation."
+    }
+  ],
+  "singleHighestRoiMission": "LIGHTHOUSE_CWV_MOBILE_ACCESSIBILITY_EVIDENCE_PACKET_V1"
+}

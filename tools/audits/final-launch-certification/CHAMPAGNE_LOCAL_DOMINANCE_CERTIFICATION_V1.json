@@ -1,0 +1,35 @@
+{
+  "version": "CHAMPAGNE_LOCAL_DOMINANCE_CERTIFICATION_V1",
+  "generatedAt": "2026-06-02T12:07:27Z",
+  "status": "PASS_WITH_POST_LAUNCH_GROWTH_ITEMS",
+  "primaryMarket": "Shoreham-by-Sea",
+  "supportMarkets": [
+    "Brighton",
+    "Hove",
+    "Lancing",
+    "Worthing",
+    "Steyning"
+  ],
+  "findings": [
+    {
+      "area": "location coverage",
+      "status": "PASS",
+      "evidence": "Primary and support markets are represented in local identity registry."
+    },
+    {
+      "area": "treatment coverage",
+      "status": "PASS",
+      "evidence": "11 priority services in local identity and 78 manifest treatment pages."
+    },
+    {
+      "area": "local entity consistency",
+      "status": "PASS",
+      "evidence": "Schema QA confirms public brand, legal entity separation, address, phone and hours."
+    },
+    {
+      "area": "local SEO readiness",
+      "status": "PARTIAL",
+      "evidence": "Ready for launch preparation; GBP/geo/hasMap/sameAs and local ranking validation remain post-launch."
+    }
+  ]
+}

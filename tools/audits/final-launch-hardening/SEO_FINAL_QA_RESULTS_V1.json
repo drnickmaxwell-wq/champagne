@@ -1,0 +1,136 @@
+{
+  "version": "SEO_FINAL_QA_RESULTS_V1",
+  "generatedAt": "2026-06-02T06:45:52Z",
+  "status": "pass_with_known_warnings",
+  "checks": {
+    "schemaQa": {
+      "status": "pass",
+      "approvedSchemaAnswerCount": 16,
+      "errors": [],
+      "warnings": []
+    },
+    "answerFoundationQa": {
+      "status": "pass",
+      "aiReadinessScore": 83,
+      "zeroClickReadinessScore": 71,
+      "warnings": []
+    },
+    "answerPacketQa": {
+      "status": "pass",
+      "approvedPacketCount": 11,
+      "approvedPacketFlagsAcceptedWithEvidence": true,
+      "unapprovedPacketIds": [
+        "smh-answer-priority-cosmetic-dentistry-packet-v1"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "renderingQa": {
+      "status": "pass",
+      "checks": [
+        {
+          "id": "answer_packets_render",
+          "pass": true,
+          "detail": "11/11 target answer packets have visible rendering coverage."
+        },
+        {
+          "id": "no_broken_routes",
+          "pass": true,
+          "detail": "Every target route resolves to a page manifest entry."
+        },
+        {
+          "id": "no_duplicate_answer_blocks",
+          "pass": true,
+          "detail": "No duplicate target-service routes detected."
+        },
+        {
+          "id": "no_orphan_target_packets",
+          "pass": true,
+          "detail": "Every target packet maps to a visible route."
+        },
+        {
+          "id": "no_schema_breakage",
+          "pass": true,
+          "detail": "Rendering uses visible HTML only; treatment JSON-LD path remains present and unchanged by this QA."
+        },
+        {
+          "id": "accessibility_contract",
+          "pass": true,
+          "detail": "Visible answer section uses aria-labelledby, server component rendering, and non-collapsed HTML."
+        },
+        {
+          "id": "contact_route_builder",
+          "pass": true,
+          "detail": "Private dentist contact route uses the shared page builder and receives the injected visible answer section."
+        }
+      ]
+    },
+    "routeCoverageChecks": {
+      "status": "pass",
+      "detail": "Visible answer rendering QA reports every target route resolves to a page manifest entry."
+    },
+    "orphanChecks": {
+      "status": "pass",
+      "detail": "Visible answer rendering QA reports no orphan target packets."
+    },
+    "duplicateAnswerChecks": {
+      "status": "pass",
+      "detail": "Visible answer rendering QA reports no duplicate target-service routes; schema QA reports no duplicate approved schema answer ids/questions."
+    },
+    "chatbotAlignmentChecks": {
+      "status": "alignment_foundation_only",
+      "runtimeMutation": false,
+      "mappingCount": 17,
+      "unmappedAnswerRegistryIds": [],
+      "unmappedTreatmentFactIds": []
+    },
+    "localIdentityChecks": {
+      "status": "pass",
+      "publicBrand": "St Mary's House Dental Care",
+      "verifiedTeamMemberCount": 5,
+      "priorityServiceCount": 11
+    }
+  },
+  "validationRun": [
+    {
+      "command": "pnpm run guard:canon",
+      "status": "pass",
+      "notes": "Passed; emitted existing Browserslist/Tailwind notices during SSR smoke test."
+    },
+    {
+      "command": "pnpm run guard:hero",
+      "status": "pass",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "pnpm run seo:schema-qa",
+      "status": "pass",
+      "notes": "Schema QA passed with approved-schema answer hardening."
+    },
+    {
+      "command": "pnpm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "notes": "Passed with existing answer-length and veneers priority-service warnings."
+    },
+    {
+      "command": "pnpm run seo:answer-packet-qa",
+      "status": "pass",
+      "notes": "Packet QA passed; 11 approved packets accepted with evidence and cosmetic-dentistry remains unapproved."
+    },
+    {
+      "command": "pnpm run seo:answer-rendering-qa",
+      "status": "pass",
+      "notes": "Visible answer rendering QA passed 11/11."
+    },
+    {
+      "command": "pnpm run verify",
+      "status": "pass_with_warnings",
+      "notes": "Passed; emitted existing workspace dependency, SEO launch-safety, Browserslist/Tailwind, chatbot copy, and Next lint/plugin notices."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors."
+    }
+  ]
+}

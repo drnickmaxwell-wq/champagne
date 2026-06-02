@@ -10,5 +10,5 @@ The priority service packet registries now contain clinician-reviewable answer p
 
 - Add reviewed, visible answer-surface blocks only where routes already support the pattern or after a bounded rendering enablement.
 - Keep all clinical answers clinician-review-required until approval.
-- Do not enable FAQPage schema, AI approval, voice approval, or chatbot runtime consumption until clinical sign-off.
+- Keep enabled AI, voice, chatbot, and schema flags limited to packets with explicit approval ledger evidence.
 - Preserve the no-redesign and no-mass-rewrite boundary.

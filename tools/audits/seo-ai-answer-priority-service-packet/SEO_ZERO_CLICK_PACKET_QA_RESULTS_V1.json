@@ -1,6 +1,6 @@
 {
   "version": "SEO_ZERO_CLICK_PACKET_QA_RESULTS_V1",
-  "generatedAt": "2026-06-02T04:39:20.844Z",
+  "generatedAt": "2026-06-02T06:42:41.611Z",
   "status": "pass",
   "errors": [],
   "warnings": [],
@@ -35,12 +35,16 @@
     ],
     "linkedQuestionCount": 14,
     "unmappedSeedQuestions": [],
-    "approvedPacketFlagsKeptFalse": true
+    "approvedPacketFlagsAcceptedWithEvidence": true,
+    "approvedPacketCount": 11,
+    "unapprovedPacketIds": [
+      "smh-answer-priority-cosmetic-dentistry-packet-v1"
+    ]
   },
   "scores": {
     "previousAiReadinessScore": 83,
     "previousZeroClickReadinessScore": 71,
     "aiReadinessScore": 88,
-    "zeroClickReadinessScore": 70
+    "zeroClickReadinessScore": 79
   }
 }

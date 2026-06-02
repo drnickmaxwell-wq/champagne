@@ -1,11 +1,14 @@
 {
   "version": "SEO_SCHEMA_GRAPH_QA_RESULTS_V1",
-  "generatedAt": "2026-06-02T03:53:41.747Z",
+  "generatedAt": "2026-06-02T06:42:39.177Z",
   "status": "pass",
   "checkedFiles": [
     "packages/champagne-manifests/data/seo/local-identity.smh.json",
     "packages/champagne-manifests/data/seo/team-registry.smh.json",
-    "packages/champagne-manifests/data/seo/approved-facts.smh.json"
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "tools/audits/clinical-content-approval/CLINICAL_APPROVAL_LEDGER_V1.json",
+    "tools/audits/clinical-content-approval/CLINICAL_REVIEW_INTERVALS_V1.json"
   ],
   "graphNodes": {
     "dentist": "https://www.smhdental.co.uk/#dentist",
@@ -15,6 +18,15 @@
   },
   "verifiedTeamMemberCount": 5,
   "priorityServiceCount": 11,
+  "approvedSchemaAnswerCount": 16,
+  "schemaConsumptionHardening": {
+    "duplicateApprovedSchemaAnswerIds": false,
+    "duplicateApprovedSchemaAnswerQuestions": false,
+    "unsafeClinicalClaimsDetected": false,
+    "unsupportedFactsDetected": false,
+    "inventedPricingDetected": false,
+    "inventedOutcomesDetected": false
+  },
   "errors": [],
   "warnings": []
 }

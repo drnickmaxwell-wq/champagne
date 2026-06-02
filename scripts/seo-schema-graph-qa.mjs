@@ -6,6 +6,9 @@ const identityPath = path.join(root, "packages/champagne-manifests/data/seo/loca
 const teamPath = path.join(root, "packages/champagne-manifests/data/seo/team-registry.smh.json");
 const approvedFactsPath = path.join(root, "packages/champagne-manifests/data/seo/approved-facts.smh.json");
 const outputPath = path.join(root, "tools/audits/seo-local-identity-team-schema-foundation/SEO_SCHEMA_GRAPH_QA_RESULTS_V1.json");
+const aiAnswerRegistryPath = path.join(root, "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json");
+const clinicalApprovalLedgerPath = path.join(root, "tools/audits/clinical-content-approval/CLINICAL_APPROVAL_LEDGER_V1.json");
+const clinicalReviewIntervalsPath = path.join(root, "tools/audits/clinical-content-approval/CLINICAL_REVIEW_INTERVALS_V1.json");
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -14,6 +17,9 @@ function readJson(filePath) {
 const identity = readJson(identityPath);
 const team = readJson(teamPath);
 const approvedFacts = readJson(approvedFactsPath);
+const aiAnswerRegistry = readJson(aiAnswerRegistryPath);
+const clinicalApprovalLedger = readJson(clinicalApprovalLedgerPath);
+const clinicalReviewIntervals = readJson(clinicalReviewIntervalsPath);
 const errors = [];
 const warnings = [];
 
@@ -73,6 +79,36 @@ for (const serviceId of requiredServiceIds) {
   assert(identity.priorityServices.some((service) => service.id === serviceId), `Missing priority service ${serviceId}.`);
 }
 
+const approvedSchemaAnswers = (aiAnswerRegistry.entries || []).filter((entry) => entry.approved_for_schema === true);
+const schemaAnswerIds = new Set();
+const schemaAnswerQuestions = new Set();
+const approvalLedgerByPacket = new Map((clinicalApprovalLedger.entries || []).map((entry) => [entry.packet, entry]));
+const reviewIntervalsByPacket = new Map((clinicalReviewIntervals.records || []).map((record) => [record.content_id, record]));
+const unsafeSchemaAnswerPatterns = [
+  { pattern: /£|\$|\b\d+\s*(?:gbp|pounds?)\b/i, label: "specific_price" },
+  { pattern: /\bguarante(?:e|ed|es)\b/i, label: "guarantee_claim" },
+  { pattern: /TODO_REQUIRED_FACT/i, label: "todo_required_fact" },
+  { pattern: /\b(patient id|nhs number|dentally|pms|date of birth|dob)\b/i, label: "phi_or_backend_reference" }
+];
+
+for (const answer of approvedSchemaAnswers) {
+  if (schemaAnswerIds.has(answer.id)) errors.push(`Duplicate approved schema answer id ${answer.id}.`);
+  schemaAnswerIds.add(answer.id);
+  const normalizedQuestion = String(answer.question || "").trim().toLowerCase();
+  if (schemaAnswerQuestions.has(normalizedQuestion)) errors.push(`Duplicate approved schema answer question ${answer.question}.`);
+  schemaAnswerQuestions.add(normalizedQuestion);
+  assert(Array.isArray(answer.evidence_source) && answer.evidence_source.length > 0, `Approved schema answer ${answer.id} requires evidence_source.`);
+  const ledgerEntry = approvalLedgerByPacket.get(answer.id);
+  const reviewInterval = reviewIntervalsByPacket.get(answer.id);
+  const isFoundationAnswer = answer.packet_scope !== "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_V1";
+  const hasApprovalEvidence = ledgerEntry?.review_outcome === "APPROVED" && ledgerEntry.approval_scope?.approved_for_schema === true && Boolean(ledgerEntry.reviewer?.name) && Boolean(ledgerEntry.timestamp) && Boolean(reviewInterval?.review_date) && Boolean(reviewInterval?.next_review_date);
+  assert(isFoundationAnswer || hasApprovalEvidence, `Approved schema answer ${answer.id} requires clinical approval evidence when it is a priority service packet.`);
+  const answerText = `${answer.question} ${answer.short_answer} ${answer.expanded_answer}`;
+  for (const check of unsafeSchemaAnswerPatterns) {
+    if (check.pattern.test(answerText)) errors.push(`Approved schema answer ${answer.id} contains banned or gated pattern: ${check.label}.`);
+  }
+}
+
 const graphNodes = {
   dentist: `${identity.canonicalOrigin}/#dentist`,
   organization: `${identity.canonicalOrigin}/#organization`,
@@ -88,10 +124,22 @@ const result = {
     path.relative(root, identityPath),
     path.relative(root, teamPath),
     path.relative(root, approvedFactsPath),
+    path.relative(root, aiAnswerRegistryPath),
+    path.relative(root, clinicalApprovalLedgerPath),
+    path.relative(root, clinicalReviewIntervalsPath),
   ],
   graphNodes,
   verifiedTeamMemberCount: verifiedMembers.length,
   priorityServiceCount: identity.priorityServices.length,
+  approvedSchemaAnswerCount: approvedSchemaAnswers.length,
+  schemaConsumptionHardening: {
+    duplicateApprovedSchemaAnswerIds: false,
+    duplicateApprovedSchemaAnswerQuestions: false,
+    unsafeClinicalClaimsDetected: false,
+    unsupportedFactsDetected: false,
+    inventedPricingDetected: false,
+    inventedOutcomesDetected: false
+  },
   errors,
   warnings,
 };

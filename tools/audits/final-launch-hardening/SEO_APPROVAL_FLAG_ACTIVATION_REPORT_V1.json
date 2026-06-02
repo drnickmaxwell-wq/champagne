@@ -1,0 +1,323 @@
+{
+  "version": "SEO_APPROVAL_FLAG_ACTIVATION_REPORT_V1",
+  "generatedAt": "2026-06-02T06:45:52Z",
+  "mission": "CHAMPAGNE_SEO_APPROVAL_FLAG_ACTIVATION_AND_FINAL_LAUNCH_HARDENING_V1",
+  "status": "pass",
+  "approvedPacketCount": 11,
+  "activatedFlagCount": 44,
+  "flagsActivated": {
+    "approved_for_ai": 11,
+    "approved_for_voice": 11,
+    "approved_for_chatbot": 11,
+    "approved_for_schema": 11
+  },
+  "sourceConfirmation": {
+    "ledgerApproved": 11,
+    "decisionReportApproved": 11,
+    "approvedWithEdits": 0,
+    "rejected": 0
+  },
+  "activatedPackets": [
+    {
+      "packet": "smh-answer-priority-emergency-dentist-packet-v1",
+      "service_id": "emergency-dentist",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2026-12-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.emergency-dentist",
+        "page-truth/treatments-emergency-dentistry.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-dental-implants-packet-v1",
+      "service_id": "dental-implants",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.dental-implants",
+        "page-truth/treatments-implants.txt",
+        "champagne_machine_manifest_full.json:pages.implants.answerSurface"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-private-dentist-packet-v1",
+      "service_id": "private-dentist",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:practice",
+        "local-identity.smh.json:priorityServices.private-dentist",
+        "local-identity.smh.json:primaryMarket"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-examinations-packet-v1",
+      "service_id": "examinations",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.examinations",
+        "page-truth/treatments-dental-checkups-oral-cancer-screening.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-spark-aligners-packet-v1",
+      "service_id": "spark-aligners",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.spark-aligners",
+        "page-truth/treatments-clear-aligners-spark.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-orthodontics-packet-v1",
+      "service_id": "orthodontics",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.orthodontics",
+        "page-truth/treatments-orthodontics.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-3d-dentistry-packet-v1",
+      "service_id": "3d-dentistry",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.3d-dentistry",
+        "page-truth/treatments-3d-dentistry-and-technology.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "service_id": "same-day-crowns-veneers",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.same-day-crowns-veneers",
+        "page-truth/treatments-3d-digital-dentistry.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-veneers-packet-v1",
+      "service_id": "veneers",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "question-inventory.v1.smh.json:targetServices.veneers",
+        "page-truth/treatments-veneers.txt",
+        "champagne_machine_manifest_full.json:pages.veneers.answerSurface"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "service_id": "sedation-anxiety-dentistry",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2026-12-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.sedation-anxiety-dentistry",
+        "page-truth/treatments-sedation-dentistry.txt",
+        "page-truth/treatments-nervous-patients.txt"
+      ]
+    },
+    {
+      "packet": "smh-answer-priority-hygiene-recall-packet-v1",
+      "service_id": "hygiene-recall",
+      "review_outcome": "APPROVED",
+      "reviewer": "Dr Nick Maxwell",
+      "review_timestamp": "2026-06-02T00:00:00.000Z",
+      "review_date": "2026-06-02",
+      "next_review_date": "2027-06-02",
+      "flags": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "ledger_recommendation": {
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true
+      },
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.hygiene-recall",
+        "team-registry.smh.json:teamStructure.hygienists",
+        "page-truth/treatments-preventative-and-general-dentistry.txt"
+      ]
+    }
+  ],
+  "notActivated": [
+    {
+      "packet": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+      "reason": "Outside 11-packet clinical approval ledger scope; flags remain false."
+    }
+  ],
+  "boundaries": [
+    "No deployment performed.",
+    "No chatbot runtime behaviour changed.",
+    "No booking/PHI/PMS/Dentally systems modified.",
+    "No page redesign or mass content rewrite performed."
+  ]
+}

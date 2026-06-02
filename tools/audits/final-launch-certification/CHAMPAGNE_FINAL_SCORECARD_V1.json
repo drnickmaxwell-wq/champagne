@@ -1,0 +1,135 @@
+{
+  "version": "CHAMPAGNE_FINAL_SCORECARD_V1",
+  "generatedAt": "2026-06-02T12:07:27Z",
+  "certificationStatus": "NOT_CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+  "scores": [
+    {
+      "area": "Google Organic Readiness",
+      "score": 86,
+      "status": "PARTIAL",
+      "evidence": [
+        "102 manifest pages and 78 treatment pages present",
+        "robots/sitemap and build pass",
+        "metadata exists on core route families"
+      ],
+      "risk": "Current Lighthouse/mobile/accessibility evidence is not available; treatment layout warning clusters require pre-launch review."
+    },
+    {
+      "area": "Google Local Pack Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "Primary market Shoreham-by-Sea is recorded",
+        "Support markets Brighton, Hove, Lancing, Worthing and Steyning are recorded",
+        "NAP/hours and Dentist/LocalBusiness QA pass"
+      ],
+      "risk": "GBP identifiers, geo/hasMap/sameAs remain future hardening."
+    },
+    {
+      "area": "Google AI Overview Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "11 approved priority packets with AI/schema flags enabled",
+        "Visible rendering QA passes 11/11",
+        "Answer packet QA passes"
+      ],
+      "risk": "Answer-length warnings remain non-blocking refinement."
+    },
+    {
+      "area": "Google AI Mode Readiness",
+      "score": 87,
+      "status": "PASS",
+      "evidence": [
+        "Question inventory is linked",
+        "AI answer registry and visible routes align",
+        "Approval evidence exists for active packets"
+      ],
+      "risk": "Ongoing query learning requires Search Console after launch."
+    },
+    {
+      "area": "Zero-Click Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "Visible answer rendering QA passes",
+        "No duplicate target-service routes",
+        "No orphan target packets"
+      ],
+      "risk": "FAQPage schema expansion not implemented."
+    },
+    {
+      "area": "Voice Search Readiness",
+      "score": 86,
+      "status": "PASS",
+      "evidence": [
+        "11 approved packets have approved_for_voice true",
+        "Voice pattern registry exists via AI foundation QA"
+      ],
+      "risk": "No live voice SERP testing evidence."
+    },
+    {
+      "area": "Bing Readiness",
+      "score": 72,
+      "status": "PARTIAL",
+      "evidence": [
+        "robots and sitemap pass",
+        "canonical origin checks pass"
+      ],
+      "risk": "IndexNow is not implemented and Bing-specific validation is absent."
+    },
+    {
+      "area": "IndexNow Readiness",
+      "score": 20,
+      "status": "FAIL",
+      "evidence": [
+        "No IndexNow implementation evidence found in prior and current launch-safety outputs"
+      ],
+      "risk": "Not launch-blocking for Google/local readiness, but limits Bing rapid discovery."
+    },
+    {
+      "area": "Schema Readiness",
+      "score": 89,
+      "status": "PASS",
+      "evidence": [
+        "schema QA passes",
+        "16 approved schema answers checked",
+        "5 verified team members and 11 priority services in schema QA"
+      ],
+      "risk": "FAQPage/media/offer schema expansions remain future work."
+    },
+    {
+      "area": "E-E-A-T Readiness",
+      "score": 88,
+      "status": "PASS",
+      "evidence": [
+        "5 schema-verified team members",
+        "Clinical approval ledger and review intervals exist",
+        "Activated packets include named reviewer evidence"
+      ],
+      "risk": "Ongoing clinical review cadence must be maintained."
+    },
+    {
+      "area": "Chatbot Alignment Readiness",
+      "score": 84,
+      "status": "PASS",
+      "evidence": [
+        "17 chatbot alignment mappings",
+        "runtimeMutation remains false",
+        "chatbot copy guard passes in verify"
+      ],
+      "risk": "Runtime chatbot synchronization is intentionally not implemented."
+    },
+    {
+      "area": "Launch Readiness",
+      "score": 78,
+      "status": "PARTIAL",
+      "evidence": [
+        "All required repository guards and QA commands pass",
+        "Production build completes",
+        "No deployment performed"
+      ],
+      "risk": "Not certified because current Lighthouse/Core Web Vitals/mobile/accessibility lab evidence is missing."
+    }
+  ]
+}

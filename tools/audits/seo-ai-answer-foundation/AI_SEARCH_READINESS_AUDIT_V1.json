@@ -1,6 +1,6 @@
 {
   "version": "AI_SEARCH_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-02T04:39:19.989Z",
+  "generatedAt": "2026-06-02T06:42:40.420Z",
   "status": "foundation_ready_with_gaps",
   "scores": {
     "aiReadinessScore": 83,
@@ -94,7 +94,7 @@
     },
     "voiceReadiness": {
       "patternCount": 7,
-      "answersApprovedForVoice": 6
+      "answersApprovedForVoice": 17
     },
     "chatbotReadiness": {
       "alignmentMappings": 17,

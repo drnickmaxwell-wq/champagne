@@ -1,6 +1,6 @@
 {
   "version": "ZERO_CLICK_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-02T04:39:19.989Z",
+  "generatedAt": "2026-06-02T06:42:40.420Z",
   "status": "recommendations_only",
   "checks": {
     "missingAnswerBlocks": [],
