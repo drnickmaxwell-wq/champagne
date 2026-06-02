@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-06-02T13:17:26.544Z",
+  "decision": "A_REAL_CANONICAL_ROUTE",
+  "requestedRoute": "/treatments/3d-dentistry-and-technology",
+  "relatedRoute": "/treatments/3d-digital-dentistry",
+  "canonicalRoute": "/treatments/3d-dentistry-and-technology",
+  "redirectRequired": false,
+  "rationale": [
+    "The machine manifest already contains /treatments/3d-dentistry-and-technology as a page with a treatment path and 3D dentistry label.",
+    "SEO local identity, AI answer registry, treatment fact registry, and answer rendering QA reference /treatments/3d-dentistry-and-technology for the distinct 3d-dentistry service.",
+    "The related /treatments/3d-digital-dentistry route is separately referenced for same-day crowns/veneers, so redirecting the 3D dentistry route to it would collapse two service mappings."
+  ]
+}

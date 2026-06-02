@@ -1,0 +1,2396 @@
+{
+  "generatedAt": "2026-06-02T12:46:06.367Z",
+  "role": "CHAMPAGNE_LIGHTHOUSE_CWV_MOBILE_ACCESSIBILITY_EVIDENCE_PACKET_V1",
+  "classification": "NEXT_MISSION_REQUIRED",
+  "highestRoiMission": "ROUTE_AVAILABILITY_RECONCILIATION_FOR_3D_DENTISTRY_AND_TECHNOLOGY: reconcile the requested /treatments/3d-dentistry-and-technology route with the production app router so Lighthouse/mobile/accessibility evidence can cover the full required route set.",
+  "baseUrl": "http://localhost:3000",
+  "routes": [
+    "/",
+    "/contact",
+    "/treatments/emergency-dentistry",
+    "/treatments/implants",
+    "/treatments/clear-aligners-spark",
+    "/treatments/3d-dentistry-and-technology",
+    "/treatments/sedation-dentistry",
+    "/treatments/preventative-and-general-dentistry"
+  ],
+  "tooling": {
+    "buildCommand": "pnpm run build:web",
+    "productionServeCommand": "cd apps/web && pnpm exec next start -p 3000",
+    "lighthouseCommandPattern": "CHROME_PATH=$(node -e \"const{chromium}=require('playwright');process.stdout.write(chromium.executablePath())\") pnpm dlx lighthouse <url> --output=json --output-path=/tmp/champagne-lh/<route>.json --chrome-flags='--headless=new --no-sandbox --disable-gpu' --quiet",
+    "mobileAccessibilityEvidence": "Playwright Chromium mobile viewport 390x844 DOM/readiness/a11y heuristic checks",
+    "axeStatus": "axe-core not present; no dependency added. Lighthouse accessibility plus Playwright heuristics captured instead."
+  },
+  "summary": {
+    "lighthouseMeasuredRoutes": 7,
+    "lighthouseRequestedRoutes": 8,
+    "mobilePassRoutes": 7,
+    "accessibilityBasicPassRoutes": 7,
+    "performanceScores": {
+      "/": 71,
+      "/contact": 75,
+      "/treatments/emergency-dentistry": 72,
+      "/treatments/implants": 70,
+      "/treatments/clear-aligners-spark": 72,
+      "/treatments/3d-dentistry-and-technology": null,
+      "/treatments/sedation-dentistry": 76,
+      "/treatments/preventative-and-general-dentistry": 70
+    },
+    "accessibilityScores": {
+      "/": 96,
+      "/contact": 96,
+      "/treatments/emergency-dentistry": 96,
+      "/treatments/implants": 100,
+      "/treatments/clear-aligners-spark": 100,
+      "/treatments/3d-dentistry-and-technology": null,
+      "/treatments/sedation-dentistry": 100,
+      "/treatments/preventative-and-general-dentistry": 100
+    }
+  },
+  "lighthouseResults": [
+    {
+      "route": "/",
+      "url": "http://localhost:3000/",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:40:53.737Z",
+      "requestedUrl": "http://localhost:3000/",
+      "finalDisplayedUrl": "http://localhost:3000/",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 71,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1465.674,
+        "fcpDisplay": "1.5 s",
+        "lcpMs": 2704.348,
+        "lcpDisplay": "2.7 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1396.326,
+        "tbtDisplay": "1,400 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 2195.711197999155,
+        "speedIndexDisplay": "2.2 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 472701,
+        "totalByteWeightDisplay": "Total size was 462 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 472701,
+        "mainDocumentTransferSize": 39780
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.96,
+          "displayValue": "1.5 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.85,
+          "displayValue": "2.7 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.99,
+          "displayValue": "2.2 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.16,
+          "displayValue": "1,400 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.03,
+          "displayValue": "630 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.83,
+          "displayValue": "4.4 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/contact",
+      "url": "http://localhost:3000/contact",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:41:14.940Z",
+      "requestedUrl": "http://localhost:3000/contact",
+      "finalDisplayedUrl": "http://localhost:3000/contact",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 75,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1359.3725,
+        "fcpDisplay": "1.4 s",
+        "lcpMs": 2294.745,
+        "lcpDisplay": "2.3 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1105,
+        "tbtDisplay": "1,110 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1591.9283760892122,
+        "speedIndexDisplay": "1.6 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 455115,
+        "totalByteWeightDisplay": "Total size was 444 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 455115,
+        "mainDocumentTransferSize": 22194
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.93,
+          "displayValue": "2.3 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.23,
+          "displayValue": "1,110 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.05,
+          "displayValue": "550 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.84,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.2 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        }
+      ]
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "url": "http://localhost:3000/treatments/emergency-dentistry",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:41:33.734Z",
+      "requestedUrl": "http://localhost:3000/treatments/emergency-dentistry",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/emergency-dentistry",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 72,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1211.0181499999999,
+        "fcpDisplay": "1.2 s",
+        "lcpMs": 2674.0362999999998,
+        "lcpDisplay": "2.7 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1241.98185,
+        "tbtDisplay": "1,240 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1653.9403119959106,
+        "speedIndexDisplay": "1.7 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 462237,
+        "totalByteWeightDisplay": "Total size was 451 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 462237,
+        "mainDocumentTransferSize": 29316
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.86,
+          "displayValue": "2.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.19,
+          "displayValue": "1,240 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.04,
+          "displayValue": "600 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.1 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/implants",
+      "url": "http://localhost:3000/treatments/implants",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:41:52.398Z",
+      "requestedUrl": "http://localhost:3000/treatments/implants",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/implants",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 70,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 944.1359,
+        "fcpDisplay": "0.9 s",
+        "lcpMs": 2744.1359,
+        "lcpDisplay": "2.7 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1583.9320500000001,
+        "tbtDisplay": "1,580 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1376.970452286148,
+        "speedIndexDisplay": "1.4 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 468507,
+        "totalByteWeightDisplay": "Total size was 458 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 468507,
+        "mainDocumentTransferSize": 35586
+      },
+      "topActionableAudits": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.84,
+          "displayValue": "2.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.12,
+          "displayValue": "1,580 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.02,
+          "displayValue": "690 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.83,
+          "displayValue": "4.4 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.3 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "url": "http://localhost:3000/treatments/clear-aligners-spark",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:42:11.973Z",
+      "requestedUrl": "http://localhost:3000/treatments/clear-aligners-spark",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/clear-aligners-spark",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 72,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1098.6711,
+        "fcpDisplay": "1.1 s",
+        "lcpMs": 2591.6711,
+        "lcpDisplay": "2.6 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1306.996675,
+        "tbtDisplay": "1,310 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1613.8020194684818,
+        "speedIndexDisplay": "1.6 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 470071,
+        "totalByteWeightDisplay": "Total size was 459 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 470071,
+        "mainDocumentTransferSize": 37150
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.88,
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.18,
+          "displayValue": "1,310 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.05,
+          "displayValue": "550 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.87,
+          "displayValue": "4.1 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.4 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        }
+      ]
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": "failed_load",
+      "reason": "Lighthouse JSON was emitted but category scores were unavailable because the requested route failed to load reliably (HTTP 404 confirmed by Playwright/curl).",
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:42:32.072Z",
+      "requestedUrl": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": null,
+        "accessibility": null,
+        "bestPractices": null,
+        "seo": null
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": null,
+        "fcpDisplay": null,
+        "lcpMs": null,
+        "lcpDisplay": null,
+        "cls": null,
+        "clsDisplay": null,
+        "tbtMs": null,
+        "tbtDisplay": null,
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": null,
+        "speedIndexDisplay": null
+      },
+      "networkAndWeight": {
+        "totalByteWeight": null,
+        "totalByteWeightDisplay": null,
+        "numRequests": null,
+        "totalByteWeightDiagnostic": null,
+        "mainDocumentTransferSize": null
+      },
+      "topActionableAudits": []
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "url": "http://localhost:3000/treatments/sedation-dentistry",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:42:52.073Z",
+      "requestedUrl": "http://localhost:3000/treatments/sedation-dentistry",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/sedation-dentistry",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 76,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1330.4029,
+        "fcpDisplay": "1.3 s",
+        "lcpMs": 2514.8058,
+        "lcpDisplay": "2.5 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 922,
+        "tbtDisplay": "920 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1485.6658543367016,
+        "speedIndexDisplay": "1.5 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 462780,
+        "totalByteWeightDisplay": "Total size was 452 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 462780,
+        "mainDocumentTransferSize": 29859
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.89,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.3,
+          "displayValue": "920 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.03,
+          "displayValue": "610 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "url": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T12:43:10.779Z",
+      "requestedUrl": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 70,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1107.0148,
+        "fcpDisplay": "1.1 s",
+        "lcpMs": 2664.0148,
+        "lcpDisplay": "2.7 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1556.0000000000002,
+        "tbtDisplay": "1,560 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1912.9561096095601,
+        "speedIndexDisplay": "1.9 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 465248,
+        "totalByteWeightDisplay": "Total size was 454 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 465248,
+        "mainDocumentTransferSize": 32327
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.86,
+          "displayValue": "2.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.13,
+          "displayValue": "1,560 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.03,
+          "displayValue": "620 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        }
+      ]
+    }
+  ],
+  "mobileResults": [
+    {
+      "route": "/",
+      "url": "http://localhost:3000/",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 1086,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Private Dental Care in Shoreham-by-Sea | St Mary's House Dental Care",
+        "h1": null,
+        "headingCount": 22,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Dentistry planned carefully, delivered properly"
+          },
+          {
+            "tag": "H2",
+            "text": "Dentistry designed for clarity, comfort, and long-term confidence"
+          },
+          {
+            "tag": "H3",
+            "text": "Clinical depth with steady hands"
+          },
+          {
+            "tag": "H2",
+            "text": "Care that values planning as much as precision"
+          },
+          {
+            "tag": "H3",
+            "text": "Priority treatments at a glance"
+          },
+          {
+            "tag": "H3",
+            "text": "How care works here"
+          },
+          {
+            "tag": "H2",
+            "text": "Structured care for complex situations"
+          },
+          {
+            "tag": "H3",
+            "text": "Pick a treatment to explore"
+          },
+          {
+            "tag": "H3",
+            "text": "Need urgent or remote support?"
+          },
+          {
+            "tag": "H3",
+            "text": "Technology that keeps planning clear"
+          },
+          {
+            "tag": "H3",
+            "text": "Patient journeys"
+          },
+          {
+            "tag": "H2",
+            "text": "Google reviews"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [
+          "presentation"
+        ],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9169,
+        "interactiveCount": 48,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/contact",
+      "url": "http://localhost:3000/contact",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 940,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Contact",
+        "h1": null,
+        "headingCount": 8,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Contact St Mary’s House Dental Care"
+          },
+          {
+            "tag": "H2",
+            "text": "What does a private dentist appointment include at St Mary’s House Dental Care?"
+          },
+          {
+            "tag": "H3",
+            "text": "Practice details"
+          },
+          {
+            "tag": "H3",
+            "text": "Contact methods"
+          },
+          {
+            "tag": "H3",
+            "text": "Need urgent help?"
+          },
+          {
+            "tag": "H2",
+            "text": "How to contact us"
+          },
+          {
+            "tag": "H3",
+            "text": "Finding the practice"
+          },
+          {
+            "tag": "H3",
+            "text": "Plan a visit"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerWhat does a private dentist appointment include at St Mary’s House Dental Care?A private dentist appointment at St Mary’s House Dental Care in Shoreham-by-Sea is a clinician-led visit to understand your oral health, concerns, an",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 4748,
+        "interactiveCount": 35,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "url": "http://localhost:3000/treatments/emergency-dentistry",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 1014,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Emergency dentistry",
+        "h1": null,
+        "headingCount": 10,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Emergency dentistry"
+          },
+          {
+            "tag": "H2",
+            "text": "What should I do if I need an emergency dentist in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H2",
+            "text": "How we handle dental emergencies"
+          },
+          {
+            "tag": "H3",
+            "text": "Common reasons people contact us urgently"
+          },
+          {
+            "tag": "H3",
+            "text": "What to do right now"
+          },
+          {
+            "tag": "H3",
+            "text": "Urgent care and follow-up"
+          },
+          {
+            "tag": "H3",
+            "text": "What you can expect at an emergency visit"
+          },
+          {
+            "tag": "H3",
+            "text": "When urgent care may not be necessary"
+          },
+          {
+            "tag": "H3",
+            "text": "Call for emergency dental care"
+          },
+          {
+            "tag": "H3",
+            "text": "Emergency Dentistry — full treatment list"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [
+          "presentation"
+        ],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerWhat should I do if I need an emergency dentist in Shoreham-by-Sea?If you have tooth pain, swelling, trauma, bleeding that does not settle, or signs of infection, contact St Mary’s House Dental Care in Shoreham-by-Sea for urgent",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 6020,
+        "interactiveCount": 47,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/implants",
+      "url": "http://localhost:3000/treatments/implants",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 928,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Dental Implants in Shoreham-by-Sea",
+        "h1": null,
+        "headingCount": 15,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Planning first, surgery second"
+          },
+          {
+            "tag": "H3",
+            "text": "Implants Mid Cta"
+          },
+          {
+            "tag": "H2",
+            "text": "What are dental implants and who may they help?"
+          },
+          {
+            "tag": "H3",
+            "text": "Why patients trust us"
+          },
+          {
+            "tag": "H2",
+            "text": "A step-by-step approach"
+          },
+          {
+            "tag": "H3",
+            "text": "What is a dental implant?"
+          },
+          {
+            "tag": "H3",
+            "text": "Suitability and case selection"
+          },
+          {
+            "tag": "H3",
+            "text": "Implant treatment, step by step"
+          },
+          {
+            "tag": "H3",
+            "text": "CBCT + digital scanning"
+          },
+          {
+            "tag": "H3",
+            "text": "Important risks we discuss"
+          },
+          {
+            "tag": "H3",
+            "text": "Long-term success depends on care"
+          },
+          {
+            "tag": "H3",
+            "text": "Common questions about implants"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerWhat are dental implants and who may they help?Dental implants replace missing teeth with a small titanium post that supports a crown, bridge, or implant-retained denture. At St Mary’s House Dental Care in Shoreham-by-Sea, impla",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9091,
+        "interactiveCount": 39,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "url": "http://localhost:3000/treatments/clear-aligners-spark",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 904,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Spark clear aligners in Shoreham-by-Sea",
+        "h1": null,
+        "headingCount": 17,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Spark clear aligners in Shoreham-by-Sea"
+          },
+          {
+            "tag": "H2",
+            "text": "Can I get Spark Aligners in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H3",
+            "text": "Transparent, clinician-led aligner care"
+          },
+          {
+            "tag": "H2",
+            "text": "Discreet trays planned for comfort and predictability"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear Aligners Spark Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Digital Spark planning with bite checks and stability in mind"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear guidance on suitability"
+          },
+          {
+            "tag": "H3",
+            "text": "Steady steps with ongoing support"
+          },
+          {
+            "tag": "H3",
+            "text": "Set review intervals with options if teeth don’t track"
+          },
+          {
+            "tag": "H3",
+            "text": "Digital scans meet Spark clarity"
+          },
+          {
+            "tag": "H3",
+            "text": "Comfort-focused guidance with clear expectations"
+          },
+          {
+            "tag": "H3",
+            "text": "Fixed and removable retainers with long-term guidance"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerCan I get Spark Aligners in Shoreham-by-Sea?Spark Aligners are listed as a priority service at St Mary’s House Dental Care in Shoreham-by-Sea. The Spark page describes clinician-led planning with digital scans, clear staged tray",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9302,
+        "interactiveCount": 40,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": "review_required",
+      "httpStatus": 404,
+      "loadMs": 1151,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "checks": {
+        "routeLoads": false,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Treatment not found",
+        "h1": "Page not found",
+        "headingCount": 1,
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Page not found"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 1158,
+        "interactiveCount": 35,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "url": "http://localhost:3000/treatments/sedation-dentistry",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 879,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Sedation dentistry",
+        "h1": null,
+        "headingCount": 11,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Sedation support for calmer dental visits"
+          },
+          {
+            "tag": "H2",
+            "text": "Can sedation help if I feel anxious about dental treatment?"
+          },
+          {
+            "tag": "H3",
+            "text": "Clinician-led, safety-first sedation"
+          },
+          {
+            "tag": "H2",
+            "text": "Consultation, suitability, then a tailored plan"
+          },
+          {
+            "tag": "H3",
+            "text": "Sedation Dentistry Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Suitable for specific needs"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear steps from consult to recovery"
+          },
+          {
+            "tag": "H3",
+            "text": "Recover with clear guidance"
+          },
+          {
+            "tag": "H3",
+            "text": "Common questions answered"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          },
+          {
+            "tag": "H3",
+            "text": "Talk through sedation calmly first"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerCan sedation help if I feel anxious about dental treatment?Sedation may help some nervous patients, but it is not right for everyone. St Mary’s House Dental Care describes sedation as clinician-led, safety-first support for sele",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 7129,
+        "interactiveCount": 38,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "url": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 954,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Preventative & general dentistry",
+        "h1": null,
+        "headingCount": 13,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Prevention-first dentistry that keeps teeth for life"
+          },
+          {
+            "tag": "H2",
+            "text": "Do you offer dental hygiene and recall appointments in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H3",
+            "text": "Protect teeth before problems arise"
+          },
+          {
+            "tag": "H2",
+            "text": "Every check-up is detailed and documented"
+          },
+          {
+            "tag": "H3",
+            "text": "Professional hygiene that supports home care"
+          },
+          {
+            "tag": "H2",
+            "text": "Simple, science-led guidance you can follow"
+          },
+          {
+            "tag": "H3",
+            "text": "Preventative And General Dentistry Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Early detection keeps treatment simpler"
+          },
+          {
+            "tag": "H3",
+            "text": "Care tailored to every stage"
+          },
+          {
+            "tag": "H3",
+            "text": "What patients ask most"
+          },
+          {
+            "tag": "H3",
+            "text": "Keep your routine care on track"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerDo you offer dental hygiene and recall appointments in Shoreham-by-Sea?Dental hygiene and recall care is listed as a priority service at St Mary’s House Dental Care in Shoreham-by-Sea. Public preventative dentistry content descr",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 7878,
+        "interactiveCount": 39,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    }
+  ],
+  "accessibilityResults": [
+    {
+      "route": "/",
+      "url": "http://localhost:3000/",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Private Dental Care in Shoreham-by-Sea | St Mary's House Dental Care",
+        "h1": null,
+        "headingCount": 22,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Dentistry planned carefully, delivered properly"
+          },
+          {
+            "tag": "H2",
+            "text": "Dentistry designed for clarity, comfort, and long-term confidence"
+          },
+          {
+            "tag": "H3",
+            "text": "Clinical depth with steady hands"
+          },
+          {
+            "tag": "H2",
+            "text": "Care that values planning as much as precision"
+          },
+          {
+            "tag": "H3",
+            "text": "Priority treatments at a glance"
+          },
+          {
+            "tag": "H3",
+            "text": "How care works here"
+          },
+          {
+            "tag": "H2",
+            "text": "Structured care for complex situations"
+          },
+          {
+            "tag": "H3",
+            "text": "Pick a treatment to explore"
+          },
+          {
+            "tag": "H3",
+            "text": "Need urgent or remote support?"
+          },
+          {
+            "tag": "H3",
+            "text": "Technology that keeps planning clear"
+          },
+          {
+            "tag": "H3",
+            "text": "Patient journeys"
+          },
+          {
+            "tag": "H2",
+            "text": "Google reviews"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [
+          "presentation"
+        ],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9169,
+        "interactiveCount": 48,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/contact",
+      "url": "http://localhost:3000/contact",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Contact",
+        "h1": null,
+        "headingCount": 8,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Contact St Mary’s House Dental Care"
+          },
+          {
+            "tag": "H2",
+            "text": "What does a private dentist appointment include at St Mary’s House Dental Care?"
+          },
+          {
+            "tag": "H3",
+            "text": "Practice details"
+          },
+          {
+            "tag": "H3",
+            "text": "Contact methods"
+          },
+          {
+            "tag": "H3",
+            "text": "Need urgent help?"
+          },
+          {
+            "tag": "H2",
+            "text": "How to contact us"
+          },
+          {
+            "tag": "H3",
+            "text": "Finding the practice"
+          },
+          {
+            "tag": "H3",
+            "text": "Plan a visit"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerWhat does a private dentist appointment include at St Mary’s House Dental Care?A private dentist appointment at St Mary’s House Dental Care in Shoreham-by-Sea is a clinician-led visit to understand your oral health, concerns, an",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 4748,
+        "interactiveCount": 35,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "url": "http://localhost:3000/treatments/emergency-dentistry",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Emergency dentistry",
+        "h1": null,
+        "headingCount": 10,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Emergency dentistry"
+          },
+          {
+            "tag": "H2",
+            "text": "What should I do if I need an emergency dentist in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H2",
+            "text": "How we handle dental emergencies"
+          },
+          {
+            "tag": "H3",
+            "text": "Common reasons people contact us urgently"
+          },
+          {
+            "tag": "H3",
+            "text": "What to do right now"
+          },
+          {
+            "tag": "H3",
+            "text": "Urgent care and follow-up"
+          },
+          {
+            "tag": "H3",
+            "text": "What you can expect at an emergency visit"
+          },
+          {
+            "tag": "H3",
+            "text": "When urgent care may not be necessary"
+          },
+          {
+            "tag": "H3",
+            "text": "Call for emergency dental care"
+          },
+          {
+            "tag": "H3",
+            "text": "Emergency Dentistry — full treatment list"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [
+          "presentation"
+        ],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerWhat should I do if I need an emergency dentist in Shoreham-by-Sea?If you have tooth pain, swelling, trauma, bleeding that does not settle, or signs of infection, contact St Mary’s House Dental Care in Shoreham-by-Sea for urgent",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 6020,
+        "interactiveCount": 47,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/implants",
+      "url": "http://localhost:3000/treatments/implants",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Dental Implants in Shoreham-by-Sea",
+        "h1": null,
+        "headingCount": 15,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Planning first, surgery second"
+          },
+          {
+            "tag": "H3",
+            "text": "Implants Mid Cta"
+          },
+          {
+            "tag": "H2",
+            "text": "What are dental implants and who may they help?"
+          },
+          {
+            "tag": "H3",
+            "text": "Why patients trust us"
+          },
+          {
+            "tag": "H2",
+            "text": "A step-by-step approach"
+          },
+          {
+            "tag": "H3",
+            "text": "What is a dental implant?"
+          },
+          {
+            "tag": "H3",
+            "text": "Suitability and case selection"
+          },
+          {
+            "tag": "H3",
+            "text": "Implant treatment, step by step"
+          },
+          {
+            "tag": "H3",
+            "text": "CBCT + digital scanning"
+          },
+          {
+            "tag": "H3",
+            "text": "Important risks we discuss"
+          },
+          {
+            "tag": "H3",
+            "text": "Long-term success depends on care"
+          },
+          {
+            "tag": "H3",
+            "text": "Common questions about implants"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerWhat are dental implants and who may they help?Dental implants replace missing teeth with a small titanium post that supports a crown, bridge, or implant-retained denture. At St Mary’s House Dental Care in Shoreham-by-Sea, impla",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9091,
+        "interactiveCount": 39,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "url": "http://localhost:3000/treatments/clear-aligners-spark",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Spark clear aligners in Shoreham-by-Sea",
+        "h1": null,
+        "headingCount": 17,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Spark clear aligners in Shoreham-by-Sea"
+          },
+          {
+            "tag": "H2",
+            "text": "Can I get Spark Aligners in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H3",
+            "text": "Transparent, clinician-led aligner care"
+          },
+          {
+            "tag": "H2",
+            "text": "Discreet trays planned for comfort and predictability"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear Aligners Spark Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Digital Spark planning with bite checks and stability in mind"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear guidance on suitability"
+          },
+          {
+            "tag": "H3",
+            "text": "Steady steps with ongoing support"
+          },
+          {
+            "tag": "H3",
+            "text": "Set review intervals with options if teeth don’t track"
+          },
+          {
+            "tag": "H3",
+            "text": "Digital scans meet Spark clarity"
+          },
+          {
+            "tag": "H3",
+            "text": "Comfort-focused guidance with clear expectations"
+          },
+          {
+            "tag": "H3",
+            "text": "Fixed and removable retainers with long-term guidance"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerCan I get Spark Aligners in Shoreham-by-Sea?Spark Aligners are listed as a priority service at St Mary’s House Dental Care in Shoreham-by-Sea. The Spark page describes clinician-led planning with digital scans, clear staged tray",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9302,
+        "interactiveCount": 40,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": "review_required",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 404,
+      "criticalIssues": [
+        "route_not_2xx"
+      ],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": false,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Treatment not found",
+        "h1": "Page not found",
+        "headingCount": 1,
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Page not found"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 1158,
+        "interactiveCount": 35,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "url": "http://localhost:3000/treatments/sedation-dentistry",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Sedation dentistry",
+        "h1": null,
+        "headingCount": 11,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Sedation support for calmer dental visits"
+          },
+          {
+            "tag": "H2",
+            "text": "Can sedation help if I feel anxious about dental treatment?"
+          },
+          {
+            "tag": "H3",
+            "text": "Clinician-led, safety-first sedation"
+          },
+          {
+            "tag": "H2",
+            "text": "Consultation, suitability, then a tailored plan"
+          },
+          {
+            "tag": "H3",
+            "text": "Sedation Dentistry Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Suitable for specific needs"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear steps from consult to recovery"
+          },
+          {
+            "tag": "H3",
+            "text": "Recover with clear guidance"
+          },
+          {
+            "tag": "H3",
+            "text": "Common questions answered"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          },
+          {
+            "tag": "H3",
+            "text": "Talk through sedation calmly first"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerCan sedation help if I feel anxious about dental treatment?Sedation may help some nervous patients, but it is not right for everyone. St Mary’s House Dental Care describes sedation as clinician-led, safety-first support for sele",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 7129,
+        "interactiveCount": 38,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "url": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "status": "pass_basic_automated_checks",
+      "limitation": "axe-core is not installed in the repository; this run uses Playwright DOM/accessibility heuristics plus Lighthouse accessibility scores where available.",
+      "httpStatus": 200,
+      "criticalIssues": [],
+      "checks": {
+        "htmlLangPresent": true,
+        "hasHeadings": true,
+        "hasMainLandmark": true,
+        "hasReadablePrimaryContent": true,
+        "answerSurfacesReadableHtml": true,
+        "linksButtonsNamedHeuristic": true,
+        "imagesAltHeuristic": true
+      },
+      "pageEvidence": {
+        "title": "Preventative & general dentistry",
+        "h1": null,
+        "headingCount": 13,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Prevention-first dentistry that keeps teeth for life"
+          },
+          {
+            "tag": "H2",
+            "text": "Do you offer dental hygiene and recall appointments in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H3",
+            "text": "Protect teeth before problems arise"
+          },
+          {
+            "tag": "H2",
+            "text": "Every check-up is detailed and documented"
+          },
+          {
+            "tag": "H3",
+            "text": "Professional hygiene that supports home care"
+          },
+          {
+            "tag": "H2",
+            "text": "Simple, science-led guidance you can follow"
+          },
+          {
+            "tag": "H3",
+            "text": "Preventative And General Dentistry Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Early detection keeps treatment simpler"
+          },
+          {
+            "tag": "H3",
+            "text": "Care tailored to every stage"
+          },
+          {
+            "tag": "H3",
+            "text": "What patients ask most"
+          },
+          {
+            "tag": "H3",
+            "text": "Keep your routine care on track"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 1,
+        "answerSurfaceVisible": true,
+        "answerSurfaceTextSample": "Quick answerDo you offer dental hygiene and recall appointments in Shoreham-by-Sea?Dental hygiene and recall care is listed as a priority service at St Mary’s House Dental Care in Shoreham-by-Sea. Public preventative dentistry content descr",
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 7878,
+        "interactiveCount": 39,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    }
+  ],
+  "performanceRisks": [
+    {
+      "route": "/",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,400 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/contact",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,110 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,240 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/implants",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,580 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,310 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "route_not_lighthouse_measured",
+      "severity": "high",
+      "evidence": "Lighthouse JSON was emitted but category scores were unavailable because the requested route failed to load reliably (HTTP 404 confirmed by Playwright/curl).",
+      "recommendedMission": "Fix or reconcile requested 3D dentistry route before certification recheck evidence is considered complete."
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "920 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,560 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "mobile_readiness_review_required",
+      "severity": "high",
+      "evidence": {
+        "routeLoads": false,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "recommendedMission": "Resolve route availability/mapping for requested audit route."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "basic_accessibility_review_required",
+      "severity": "high",
+      "evidence": [
+        "route_not_2xx"
+      ],
+      "recommendedMission": "Accessibility remediation/axe validation mission."
+    }
+  ]
+}

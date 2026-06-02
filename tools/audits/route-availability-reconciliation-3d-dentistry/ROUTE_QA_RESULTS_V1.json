@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-06-02T13:17:26.544Z",
+  "mode": "runtime_and_static",
+  "baseUrl": "http://localhost:3000",
+  "routes": [
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "routeId": "treatments.3d-dentistry-and-technology",
+      "machineManifestEntry": {
+        "collection": "pages",
+        "id": "3d_dentistry_and_technology",
+        "path": "/treatments/3d-dentistry-and-technology",
+        "label": "3D dentistry & technology",
+        "category": "technology",
+        "hasHeroBinding": true
+      },
+      "listedInMachineManifest": true,
+      "includedByTreatmentPathResolver": true,
+      "sitemapSourceUsesAllPages": true,
+      "appRouteUsesTreatmentManifestResolver": true,
+      "priorityServiceId": "3d-dentistry",
+      "answerRegistryId": "smh-answer-priority-3d-dentistry-packet-v1",
+      "treatmentFactId": "smh-treatment-fact-3d-dentistry-v1",
+      "answerRenderingQaServiceCovered": true
+    },
+    {
+      "route": "/treatments/3d-digital-dentistry",
+      "routeId": "treatments.3d-digital-dentistry",
+      "machineManifestEntry": {
+        "collection": "pages",
+        "id": "technology_digital_dentistry",
+        "path": "/treatments/3d-digital-dentistry",
+        "label": "3D & digital dentistry",
+        "category": "treatment",
+        "hasHeroBinding": true
+      },
+      "listedInMachineManifest": true,
+      "includedByTreatmentPathResolver": true,
+      "sitemapSourceUsesAllPages": true,
+      "appRouteUsesTreatmentManifestResolver": true,
+      "priorityServiceId": "same-day-crowns-veneers",
+      "answerRegistryId": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "treatmentFactId": "smh-treatment-fact-same-day-crowns-veneers-v1",
+      "answerRenderingQaServiceCovered": true
+    }
+  ],
+  "runtime": [
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": "run",
+      "httpStatus": 200,
+      "location": null,
+      "contentLength": 137679,
+      "hasHtml": true,
+      "hasTreatmentAnswerText": true,
+      "hasNotFoundMarker": false
+    },
+    {
+      "route": "/treatments/3d-digital-dentistry",
+      "url": "http://localhost:3000/treatments/3d-digital-dentistry",
+      "status": "run",
+      "httpStatus": 200,
+      "location": null,
+      "contentLength": 133285,
+      "hasHtml": true,
+      "hasTreatmentAnswerText": true,
+      "hasNotFoundMarker": false
+    }
+  ],
+  "checks": [
+    {
+      "id": "requested_route_has_machine_manifest_entry",
+      "pass": true
+    },
+    {
+      "id": "related_route_remains_manifested",
+      "pass": true
+    },
+    {
+      "id": "requested_route_has_distinct_seo_answer_mapping",
+      "pass": true
+    },
+    {
+      "id": "related_route_has_distinct_mapping",
+      "pass": true
+    },
+    {
+      "id": "treatment_path_resolver_accepts_treatment_paths_without_category_gate",
+      "pass": true
+    },
+    {
+      "id": "runtime_routes_return_non_404_when_enabled",
+      "pass": true
+    }
+  ]
+}
