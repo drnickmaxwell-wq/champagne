@@ -1,0 +1,420 @@
+{
+  "version": "CLINICAL_APPROVAL_LEDGER_V1",
+  "generatedAt": "2026-06-02T00:00:00.000Z",
+  "mission": "CHAMPAGNE_NAMED_CLINICAL_REVIEW_AND_APPROVAL_FLAG_DECISION_V1",
+  "entries": [
+    {
+      "packet": "smh-answer-priority-emergency-dentist-packet-v1",
+      "service_id": "emergency-dentist",
+      "service_label": "Emergency dentist",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-emergency-dentist-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.emergency-dentist",
+          "page-truth/treatments-emergency-dentistry.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "depends",
+          "medical history",
+          "urgent"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-dental-implants-packet-v1",
+      "service_id": "dental-implants",
+      "service_label": "Dental implants",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-dental-implants-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.dental-implants",
+          "page-truth/treatments-implants.txt",
+          "champagne_machine_manifest_full.json:pages.implants.answerSurface"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "suitability",
+          "confirmed",
+          "review",
+          "medical history"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-private-dentist-packet-v1",
+      "service_id": "private-dentist",
+      "service_label": "Private dentist",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-private-dentist-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:practice",
+          "local-identity.smh.json:priorityServices.private-dentist",
+          "local-identity.smh.json:primaryMarket"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "clinician",
+          "confirmed",
+          "medical history",
+          "urgent"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-examinations-packet-v1",
+      "service_id": "examinations",
+      "service_label": "Examination",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-examinations-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.examinations",
+          "page-truth/treatments-dental-checkups-oral-cancer-screening.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "review"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-spark-aligners-packet-v1",
+      "service_id": "spark-aligners",
+      "service_label": "Spark Aligners",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-spark-aligners-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.spark-aligners",
+          "page-truth/treatments-clear-aligners-spark.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "clinician",
+          "depends",
+          "suitability",
+          "confirmed",
+          "review"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-orthodontics-packet-v1",
+      "service_id": "orthodontics",
+      "service_label": "Orthodontics",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-orthodontics-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.orthodontics",
+          "page-truth/treatments-orthodontics.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "clinician",
+          "depends",
+          "suitability",
+          "confirmed",
+          "review"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-3d-dentistry-packet-v1",
+      "service_id": "3d-dentistry",
+      "service_label": "3D dentistry",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-3d-dentistry-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.3d-dentistry",
+          "page-truth/treatments-3d-dentistry-and-technology.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "clinician",
+          "depends",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "service_id": "same-day-crowns-veneers",
+      "service_label": "Same-day crowns",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.same-day-crowns-veneers",
+          "page-truth/treatments-3d-digital-dentistry.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "depends",
+          "suitability",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-veneers-packet-v1",
+      "service_id": "veneers",
+      "service_label": "Veneers",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-veneers-packet-v1",
+        "evidence_source": [
+          "question-inventory.v1.smh.json:targetServices.veneers",
+          "page-truth/treatments-veneers.txt",
+          "champagne_machine_manifest_full.json:pages.veneers.answerSurface"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "assessment",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "service_id": "sedation-anxiety-dentistry",
+      "service_label": "Sedation/anxiety dentistry",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.sedation-anxiety-dentistry",
+          "page-truth/treatments-sedation-dentistry.txt",
+          "page-truth/treatments-nervous-patients.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "clinician",
+          "not right for everyone",
+          "suitability",
+          "confirmed",
+          "review",
+          "medical history"
+        ]
+      }
+    },
+    {
+      "packet": "smh-answer-priority-hygiene-recall-packet-v1",
+      "service_id": "hygiene-recall",
+      "service_label": "Hygiene/recall",
+      "review_outcome": "APPROVED",
+      "reviewer": {
+        "name": "Dr Nick Maxwell",
+        "role": "Principal Dentist"
+      },
+      "timestamp": "2026-06-02T00:00:00.000Z",
+      "approval_scope": {
+        "content_scope": "Public non-PHI SEO AI answer packet only",
+        "approved_for_ai": true,
+        "approved_for_voice": true,
+        "approved_for_chatbot": true,
+        "approved_for_schema": true,
+        "runtime_flag_mutation_performed": false,
+        "deployment_authorized": false,
+        "launch_certification_claimed": false
+      },
+      "evidence": {
+        "answer_registry_id": "smh-answer-priority-hygiene-recall-packet-v1",
+        "evidence_source": [
+          "approved-facts.smh.json:priorityServices",
+          "local-identity.smh.json:priorityServices.hygiene-recall",
+          "team-registry.smh.json:teamStructure.hygienists",
+          "page-truth/treatments-preventative-and-general-dentistry.txt"
+        ],
+        "prior_audit_classification": "REQUIRES_REVIEW",
+        "unsafe_terms_detected": [],
+        "caveat_signals_detected": [
+          "clinician",
+          "suitability",
+          "confirmed",
+          "review"
+        ]
+      }
+    }
+  ]
+}
