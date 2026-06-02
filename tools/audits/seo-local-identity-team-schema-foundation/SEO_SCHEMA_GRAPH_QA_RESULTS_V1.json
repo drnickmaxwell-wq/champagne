@@ -1,0 +1,20 @@
+{
+  "version": "SEO_SCHEMA_GRAPH_QA_RESULTS_V1",
+  "generatedAt": "2026-06-02T03:53:41.747Z",
+  "status": "pass",
+  "checkedFiles": [
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "packages/champagne-manifests/data/seo/team-registry.smh.json",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json"
+  ],
+  "graphNodes": {
+    "dentist": "https://www.smhdental.co.uk/#dentist",
+    "organization": "https://www.smhdental.co.uk/#organization",
+    "website": "https://www.smhdental.co.uk/#website",
+    "principalPerson": "https://www.smhdental.co.uk/#person-nick-maxwell"
+  },
+  "verifiedTeamMemberCount": 5,
+  "priorityServiceCount": 11,
+  "errors": [],
+  "warnings": []
+}

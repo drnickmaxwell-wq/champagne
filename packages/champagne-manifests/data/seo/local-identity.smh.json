@@ -1,0 +1,102 @@
+{
+  "version": "SEO_LOCAL_IDENTITY_V1",
+  "tenantId": "smh",
+  "canonicalOrigin": "https://www.smhdental.co.uk",
+  "publicBrand": {
+    "name": "St Mary's House Dental Care",
+    "alternateName": "SMH Dental Care",
+    "sources": [
+      {
+        "type": "user_prompt",
+        "url": "mission_prompt",
+        "evidence": "PUBLIC BRAND: St Mary’s House Dental Care."
+      },
+      {
+        "type": "live_site",
+        "url": "https://www.smhdental.co.uk/",
+        "evidence": "Homepage identifies the practice as St Mary’s House Dental Care."
+      }
+    ]
+  },
+  "legalEntity": {
+    "name": "Maxwell-Deen Dentistry Ltd",
+    "sources": [
+      {
+        "type": "user_prompt",
+        "url": "mission_prompt",
+        "evidence": "LEGAL ENTITY: Maxwell-Deen Dentistry Ltd."
+      }
+    ]
+  },
+  "address": {
+    "streetAddress": "St Mary's Road",
+    "addressLocality": "Shoreham-by-Sea",
+    "addressRegion": "West Sussex",
+    "postalCode": "BN43 5ZA",
+    "addressCountry": "GB",
+    "sources": [
+      {
+        "type": "live_site",
+        "url": "https://www.smhdental.co.uk/contact-us/",
+        "evidence": "Contact page lists St Mary's Road, Shoreham-by-Sea, West Sussex, BN43 5ZA."
+      }
+    ]
+  },
+  "contact": {
+    "telephone": "01273 453109",
+    "email": "info@smhdental.co.uk",
+    "contactUrl": "https://www.smhdental.co.uk/contact-us/",
+    "sources": [
+      {
+        "type": "live_site",
+        "url": "https://www.smhdental.co.uk/contact-us/",
+        "evidence": "Contact page lists info@smhdental.co.uk and 01273 453109."
+      }
+    ]
+  },
+  "openingHours": [
+    { "dayOfWeek": "Monday", "opens": "08:30", "closes": "17:00" },
+    { "dayOfWeek": "Tuesday", "opens": "08:30", "closes": "17:00" },
+    { "dayOfWeek": "Wednesday", "opens": "08:30", "closes": "17:00" },
+    { "dayOfWeek": "Thursday", "opens": "08:30", "closes": "17:00" },
+    { "dayOfWeek": "Friday", "opens": "08:30", "closes": "16:00" }
+  ],
+  "closedDays": ["Saturday", "Sunday"],
+  "openingHoursSources": [
+    {
+      "type": "live_site",
+      "url": "https://www.smhdental.co.uk/contact-us/",
+      "evidence": "Opening hours: Monday-Thursday 8:30am to 5:00pm, Friday 8:30am to 4:00pm, Saturday and Sunday closed."
+    }
+  ],
+  "primaryMarket": {
+    "name": "Shoreham-by-Sea",
+    "sources": [
+      {
+        "type": "user_prompt",
+        "url": "mission_prompt",
+        "evidence": "PRIMARY MARKET: Shoreham-by-Sea."
+      }
+    ]
+  },
+  "supportMarkets": [
+    { "name": "Brighton", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "name": "Hove", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "name": "Lancing", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "name": "Worthing", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "name": "Steyning", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] }
+  ],
+  "priorityServices": [
+    { "id": "private-dentist", "name": "Private dentist", "routePath": "/contact", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "id": "emergency-dentist", "name": "Emergency dentist", "routePath": "/treatments/emergency-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/contact-us/" }] },
+    { "id": "dental-implants", "name": "Dental implants", "routePath": "/treatments/implants", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/" }] },
+    { "id": "3d-dentistry", "name": "3D dentistry", "routePath": "/treatments/3d-dentistry-and-technology", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "id": "same-day-crowns-veneers", "name": "Same-day crowns/veneers", "routePath": "/treatments/3d-digital-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "id": "spark-aligners", "name": "Spark Aligners", "routePath": "/treatments/clear-aligners-spark", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "id": "orthodontics", "name": "Orthodontics", "routePath": "/treatments/orthodontics", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "id": "sedation-anxiety-dentistry", "name": "Sedation/anxiety dentistry", "routePath": "/treatments/sedation-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
+    { "id": "cosmetic-dentistry", "name": "Cosmetic dentistry", "routePath": "/treatments/cosmetic-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/" }] },
+    { "id": "hygiene-recall", "name": "Hygiene/recall", "routePath": "/treatments/preventative-and-general-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/dental-hygienist/" }] },
+    { "id": "examinations", "name": "Examinations", "routePath": "/treatments/dental-checkups-oral-cancer-screening", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/examination/" }] }
+  ]
+}

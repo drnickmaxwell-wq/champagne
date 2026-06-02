@@ -1,0 +1,35 @@
+{
+  "version": "SEO_LIVE_SITE_FACT_EXTRACTION_V1",
+  "inspectedAt": "2026-06-02",
+  "urlsInspected": [
+    "https://www.smhdental.co.uk/",
+    "https://www.smhdental.co.uk/contact-us/",
+    "https://www.smhdental.co.uk/team/",
+    "https://www.smhdental.co.uk/about-us/",
+    "https://www.smhdental.co.uk/fees/",
+    "https://www.smhdental.co.uk/general-dentistry/",
+    "https://www.smhdental.co.uk/general-dentistry-west-sussex/",
+    "https://www.smhdental.co.uk/dental-hygienist/",
+    "https://www.smhdental.co.uk/examination/"
+  ],
+  "facts": [
+    { "field": "practice.name", "value": "St Mary's House Dental Care", "sourceUrl": "https://www.smhdental.co.uk/", "productionUse": true },
+    { "field": "practice.address", "value": "St Mary's Road, Shoreham-by-Sea, West Sussex, BN43 5ZA", "sourceUrl": "https://www.smhdental.co.uk/contact-us/", "productionUse": true },
+    { "field": "practice.telephone", "value": "01273 453109", "sourceUrl": "https://www.smhdental.co.uk/contact-us/", "productionUse": true },
+    { "field": "practice.email", "value": "info@smhdental.co.uk", "sourceUrl": "https://www.smhdental.co.uk/contact-us/", "productionUse": true },
+    { "field": "practice.openingHours", "value": "Monday-Thursday 8:30am-5:00pm; Friday 8:30am-4:00pm; Saturday-Sunday closed", "sourceUrl": "https://www.smhdental.co.uk/contact-us/", "productionUse": true },
+    { "field": "team.nickMaxwell", "value": "Dr Nick Maxwell; Principal Dentist; GDC 74877; MSc Master in Restorative and Aesthetic Dentistry; PG Dip (Merit) Diploma in Facial Orthopaedics & Orthodontics; BDS London", "sourceUrl": "https://www.smhdental.co.uk/team/", "productionUse": true },
+    { "field": "team.sylviaKrafft", "value": "Dr Sylvia Kraftt on live site; Dentist; GDC 174528; minimally invasive and preventative dentistry focus", "sourceUrl": "https://www.smhdental.co.uk/team/", "productionUse": true, "note": "Repo and user prompt spell surname Krafft; live page heading appears to spell Kraftt." },
+    { "field": "team.kittyIngarfield", "value": "Kitty Ingarfield; Dentist; GDC 302160; University of Plymouth 2022; interests include oral surgery, endodontics, paediatric dentistry, clear aligners, composite bonding and facial aesthetics", "sourceUrl": "https://www.smhdental.co.uk/team/", "productionUse": true },
+    { "field": "team.saraBurden", "value": "Sara Burden; Dental Hygienist; GDC 3966; Birmingham Dental School 1990; periodontal/gum health focus", "sourceUrl": "https://www.smhdental.co.uk/team/", "productionUse": true },
+    { "field": "team.evgeniaGeorgievaJenny", "value": "Evgenia Georgieva (Jenny); Dental Hygienist; GDC 275874; University of Portsmouth 2024; prevention and periodontal health focus", "sourceUrl": "https://www.smhdental.co.uk/team/", "productionUse": true },
+    { "field": "services.homepageTreatments", "value": "Dental implants, Invisalign braces, smile makeover, teeth whitening, straighter teeth, composite restoration, dental crown, dental bridges, dentures, dental veneers", "sourceUrl": "https://www.smhdental.co.uk/", "productionUse": "partial" },
+    { "field": "services.generalDentistry", "value": "Examination, emergency dentist, dental extraction, root canal treatment, inlays, bridges, dental crowns, dentures, fillings, dental hygienist, sealants, dental veneers, composite restoration, teeth whitening, Cfast, SmileTru, Inman Aligner", "sourceUrl": "https://www.smhdental.co.uk/general-dentistry/", "productionUse": "partial" },
+    { "field": "fees.sample", "value": "New patient consultation from £99, routine check-up from £75, hygiene from £85.50", "sourceUrl": "https://www.smhdental.co.uk/fees/", "productionUse": false, "note": "Prices intentionally not added to schema." }
+  ],
+  "notUsedInProductionSchema": [
+    "Testimonials/reviews from homepage and reviews page were not added because the mission forbids invented or unsupported ratings/review schema.",
+    "Fees were not added to schema because prices vary by case and production Service price schema was out of scope.",
+    "Map link/place details were not added because exact place ID/coordinates were not independently verified for production schema."
+  ]
+}

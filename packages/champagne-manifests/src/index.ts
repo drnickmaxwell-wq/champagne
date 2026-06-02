@@ -109,3 +109,26 @@ export {
   type PageSurfaceEvidenceReviewMetadata,
   type PageSurfaceLaunchBlocker,
 } from "./pageSurface";
+
+export {
+  approvedPublicFacts,
+  buildBreadcrumbNode,
+  buildDentistNode,
+  buildOrganizationNode,
+  buildPersonNode,
+  buildPriorityServiceNodes,
+  buildServiceNode,
+  buildSiteSchemaGraph,
+  buildTeamMemberProfileSchema,
+  buildTreatmentSchemaGraph,
+  buildWebPageNode,
+  buildWebsiteNode,
+  getCanonicalOrigin,
+  getDefaultSeoDescription,
+  getPracticeName,
+  getTeamMemberByPath,
+  getVerifiedTeamMembers,
+  localIdentity,
+  teamRegistry,
+  type SchemaNode,
+} from "./seo";

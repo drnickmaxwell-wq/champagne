@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
-import { getTreatmentManifest, resolveTreatmentPathAlias } from "@champagne/manifests";
+import {
+  buildTreatmentSchemaGraph,
+  getTreatmentManifest,
+  resolveTreatmentPathAlias,
+} from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
 
 export const dynamic = "force-dynamic";
 
 type PageParams = { slug: string };
-
-const siteUrl = "https://www.smhdental.co.uk";
 
 async function resolveTreatment(params: Promise<PageParams>) {
   const resolved = await params;
@@ -74,63 +76,13 @@ export default async function TreatmentPage({
     (manifest as { description?: string; intro?: string }).description ??
     (manifest as { description?: string; intro?: string }).intro ??
     "Explore this treatment option.";
-  const canonicalUrl = `${siteUrl}${pageSlug}`;
-
-  const pageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: treatmentTitle,
-    url: canonicalUrl,
-    isPartOf: {
-      "@id": `${siteUrl}/#website`,
-    },
-  };
-
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: treatmentTitle,
-    description: treatmentDescription,
-    url: canonicalUrl,
-    provider: {
-      "@type": "Dentist",
-      name: "St Mary's House Dental Care",
-      url: siteUrl,
-    },
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Treatments",
-        item: `${siteUrl}/treatments`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: treatmentTitle,
-        item: canonicalUrl,
-      },
-    ],
-  };
+  const treatmentSchemaGraph = buildTreatmentSchemaGraph(pageSlug, treatmentTitle, treatmentDescription);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(treatmentSchemaGraph) }}
       />
       <ChampagnePageBuilder slug={pageSlug} />
     </>

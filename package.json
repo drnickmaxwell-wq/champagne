@@ -31,7 +31,8 @@
     "guard:stock-proxy-no-phi": "node scripts/guard-stock-proxy-no-phi.mjs",
     "guard:concierge-contract": "node scripts/guard-concierge-engine-contract.mjs",
     "export:website-truth": "node scripts/export-website-truth.mjs",
-    "guard:treatment-answer-surface": "node scripts/guard-treatment-answer-surface.mjs"
+    "guard:treatment-answer-surface": "node scripts/guard-treatment-answer-surface.mjs",
+    "seo:schema-qa": "node scripts/seo-schema-graph-qa.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
