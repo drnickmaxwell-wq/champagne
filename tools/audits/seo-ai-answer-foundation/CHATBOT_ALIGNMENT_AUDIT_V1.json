@@ -1,20 +1,13 @@
 {
   "version": "CHATBOT_ALIGNMENT_AUDIT_V1",
-  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "generatedAt": "2026-06-02T04:39:19.989Z",
   "status": "alignment_foundation_only",
   "runtimeMutation": false,
-  "mappingCount": 5,
-  "answerRegistryIdsMapped": 5,
-  "treatmentFactIdsMapped": 2,
-  "unmappedAnswerRegistryIds": [
-    "smh-answer-spark-aligners-service-v1"
-  ],
-  "unmappedTreatmentFactIds": [
-    "smh-treatment-fact-spark-aligners-v1",
-    "smh-treatment-fact-orthodontics-v1",
-    "smh-treatment-fact-cosmetic-dentistry-v1",
-    "smh-treatment-fact-hygiene-recall-v1"
-  ],
+  "mappingCount": 17,
+  "answerRegistryIdsMapped": 18,
+  "treatmentFactIdsMapped": 12,
+  "unmappedAnswerRegistryIds": [],
+  "unmappedTreatmentFactIds": [],
   "driftRisks": [],
   "recommendations": [
     "Use this mapping as the future chatbot drift detector input; do not connect it to runtime behaviour until separately authorised.",

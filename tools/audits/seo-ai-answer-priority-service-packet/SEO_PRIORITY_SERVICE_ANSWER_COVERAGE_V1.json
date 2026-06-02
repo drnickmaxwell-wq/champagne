@@ -1,0 +1,206 @@
+{
+  "version": "SEO_PRIORITY_SERVICE_ANSWER_COVERAGE_V1",
+  "generatedAt": "2026-06-02T04:39:20.844Z",
+  "priorityServices": [
+    {
+      "id": "emergency-dentist",
+      "routePath": "/treatments/emergency-dentistry",
+      "packetGroup": "emergency dentist",
+      "answerPacketIds": [
+        "smh-answer-priority-emergency-dentist-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-emergency-dentist-v1"
+      ],
+      "mappedQuestionCount": 6,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-emergency-dentist-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "dental-implants",
+      "routePath": "/treatments/implants",
+      "packetGroup": "dental implants",
+      "answerPacketIds": [
+        "smh-answer-priority-dental-implants-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-dental-implants-v1"
+      ],
+      "mappedQuestionCount": 4,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-dental-implants-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": true
+    },
+    {
+      "id": "private-dentist",
+      "routePath": "/contact",
+      "packetGroup": "private dentist / new patient examination",
+      "answerPacketIds": [
+        "smh-answer-priority-private-dentist-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-private-dentist-v1"
+      ],
+      "mappedQuestionCount": 4,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-private-dentist-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "examinations",
+      "routePath": "/treatments/dental-checkups-oral-cancer-screening",
+      "packetGroup": "private dentist / new patient examination",
+      "answerPacketIds": [
+        "smh-answer-priority-examinations-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-examinations-v1"
+      ],
+      "mappedQuestionCount": 5,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-examinations-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "spark-aligners",
+      "routePath": "/treatments/clear-aligners-spark",
+      "packetGroup": "Spark Aligners / orthodontics",
+      "answerPacketIds": [
+        "smh-answer-priority-spark-aligners-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-spark-aligners-v1"
+      ],
+      "mappedQuestionCount": 5,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-spark-aligners-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "orthodontics",
+      "routePath": "/treatments/orthodontics",
+      "packetGroup": "Spark Aligners / orthodontics",
+      "answerPacketIds": [
+        "smh-answer-priority-orthodontics-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-orthodontics-v1"
+      ],
+      "mappedQuestionCount": 5,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-orthodontics-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "3d-dentistry",
+      "routePath": "/treatments/3d-dentistry-and-technology",
+      "packetGroup": "3D dentistry / same-day crowns",
+      "answerPacketIds": [
+        "smh-answer-priority-3d-dentistry-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-3d-dentistry-v1"
+      ],
+      "mappedQuestionCount": 4,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-3d-dentistry-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "same-day-crowns-veneers",
+      "routePath": "/treatments/3d-digital-dentistry",
+      "packetGroup": "3D dentistry / same-day crowns",
+      "answerPacketIds": [
+        "smh-answer-priority-same-day-crowns-veneers-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-same-day-crowns-veneers-v1"
+      ],
+      "mappedQuestionCount": 4,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-same-day-crowns-veneers-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "veneers",
+      "routePath": "/treatments/veneers",
+      "packetGroup": "veneers / cosmetic dentistry",
+      "answerPacketIds": [
+        "smh-answer-priority-veneers-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-veneers-v1"
+      ],
+      "mappedQuestionCount": 4,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-veneers-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": true
+    },
+    {
+      "id": "cosmetic-dentistry",
+      "routePath": "/treatments/cosmetic-dentistry",
+      "packetGroup": "veneers / cosmetic dentistry",
+      "answerPacketIds": [
+        "smh-answer-priority-cosmetic-dentistry-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-cosmetic-dentistry-v1"
+      ],
+      "mappedQuestionCount": 5,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-cosmetic-dentistry-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "sedation-anxiety-dentistry",
+      "routePath": "/treatments/sedation-dentistry",
+      "packetGroup": "sedation / anxiety dentistry",
+      "answerPacketIds": [
+        "smh-answer-priority-sedation-anxiety-dentistry-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-sedation-anxiety-dentistry-v1"
+      ],
+      "mappedQuestionCount": 4,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-sedation-anxiety-dentistry-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    },
+    {
+      "id": "hygiene-recall",
+      "routePath": "/treatments/preventative-and-general-dentistry",
+      "packetGroup": "hygiene / recall",
+      "answerPacketIds": [
+        "smh-answer-priority-hygiene-recall-packet-v1"
+      ],
+      "treatmentFactIds": [
+        "smh-treatment-fact-hygiene-recall-v1"
+      ],
+      "mappedQuestionCount": 5,
+      "chatbotAlignmentIds": [
+        "smh-chatbot-alignment-priority-hygiene-recall-packet-v1"
+      ],
+      "hasVisibleAnswerSurface": false
+    }
+  ],
+  "summary": {
+    "priorityServiceCount": 12,
+    "servicesWithPackets": 12,
+    "servicesWithFacts": 12,
+    "servicesWithThreeOrMoreQuestions": 12,
+    "servicesWithChatbotAlignment": 12,
+    "priorityRoutesWithVisibleAnswerSurface": 2
+  }
+}

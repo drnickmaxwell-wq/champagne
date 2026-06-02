@@ -2,7 +2,7 @@
   "version": "QUESTION_INVENTORY_V1",
   "tenantId": "smh",
   "scope": "priority_question_inventory_for_future_answer_mapping",
-  "status": "foundation_partial_population",
+  "status": "priority_service_packet_question_mapping",
   "supportedIntentTypes": [
     "informational",
     "commercial",
@@ -22,7 +22,9 @@
     "sedation-anxiety-dentistry",
     "hygiene-recall",
     "examinations",
-    "cosmetic-dentistry"
+    "cosmetic-dentistry",
+    "private-dentist",
+    "3d-dentistry"
   ],
   "questions": [
     {
@@ -30,16 +32,16 @@
       "service": "dental-implants",
       "intent_type": "local",
       "question": "Do you offer dental implants in Shoreham-by-Sea?",
-      "answer_registry_id": "smh-answer-implants-service-v1",
-      "priority": "foundation_seed"
+      "answer_registry_id": "smh-answer-priority-dental-implants-packet-v1",
+      "priority": "priority_service_packet_v1"
     },
     {
       "id": "smh-question-implants-informational-v1",
       "service": "dental-implants",
       "intent_type": "informational",
       "question": "What are dental implants?",
-      "answer_registry_id": null,
-      "priority": "future_build"
+      "answer_registry_id": "smh-answer-priority-dental-implants-packet-v1",
+      "priority": "priority_service_packet_v1"
     },
     {
       "id": "smh-question-emergency-urgent-v1",
@@ -54,7 +56,7 @@
       "service": "emergency-dentist",
       "intent_type": "urgent",
       "question": "What happens if I have tooth pain and need urgent dental help?",
-      "answer_registry_id": null,
+      "answer_registry_id": "smh-answer-priority-emergency-dentist-packet-v1",
       "priority": "future_build"
     },
     {
@@ -70,7 +72,7 @@
       "service": "orthodontics",
       "intent_type": "commercial",
       "question": "Do you offer orthodontics in Shoreham-by-Sea?",
-      "answer_registry_id": null,
+      "answer_registry_id": "smh-answer-priority-orthodontics-packet-v1",
       "priority": "future_build"
     },
     {
@@ -78,31 +80,31 @@
       "service": "veneers",
       "intent_type": "informational",
       "question": "What are dental veneers?",
-      "answer_registry_id": null,
-      "priority": "future_build"
+      "answer_registry_id": "smh-answer-priority-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
     },
     {
       "id": "smh-question-crowns-commercial-v1",
       "service": "same-day-crowns-veneers",
       "intent_type": "commercial",
       "question": "Do you offer same-day crowns or veneers?",
-      "answer_registry_id": null,
-      "priority": "future_build"
+      "answer_registry_id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
     },
     {
       "id": "smh-question-sedation-anxiety-v1",
       "service": "sedation-anxiety-dentistry",
       "intent_type": "anxiety",
       "question": "Can sedation help if I feel anxious about dental treatment?",
-      "answer_registry_id": null,
-      "priority": "future_build"
+      "answer_registry_id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
     },
     {
       "id": "smh-question-hygiene-local-v1",
       "service": "hygiene-recall",
       "intent_type": "local",
       "question": "Do you offer dental hygiene appointments in Shoreham-by-Sea?",
-      "answer_registry_id": null,
+      "answer_registry_id": "smh-answer-priority-hygiene-recall-packet-v1",
       "priority": "future_build"
     },
     {
@@ -110,7 +112,7 @@
       "service": "examinations",
       "intent_type": "informational",
       "question": "Do dental checkups include oral cancer screening?",
-      "answer_registry_id": null,
+      "answer_registry_id": "smh-answer-priority-examinations-packet-v1",
       "priority": "future_build"
     },
     {
@@ -118,8 +120,352 @@
       "service": "cosmetic-dentistry",
       "intent_type": "commercial",
       "question": "Do you offer cosmetic dentistry in Shoreham-by-Sea?",
-      "answer_registry_id": null,
+      "answer_registry_id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
       "priority": "future_build"
+    },
+    {
+      "id": "smh-question-emergency-dentist-urgent-what-should-i-do-if-i-need-an-emergency-de-v1",
+      "service": "emergency-dentist",
+      "intent_type": "urgent",
+      "question": "What should I do if I need an emergency dentist in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-emergency-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-emergency-dentist-informational-what-happens-at-an-emergency-dental-appoin-v1",
+      "service": "emergency-dentist",
+      "intent_type": "informational",
+      "question": "What happens at an emergency dental appointment?",
+      "answer_registry_id": "smh-answer-priority-emergency-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-emergency-dentist-cost-how-much-does-emergency-dental-treatment-c-v1",
+      "service": "emergency-dentist",
+      "intent_type": "cost",
+      "question": "How much does emergency dental treatment cost?",
+      "answer_registry_id": "smh-answer-priority-emergency-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-emergency-dentist-anxiety-can-you-help-if-i-am-anxious-during-an-eme-v1",
+      "service": "emergency-dentist",
+      "intent_type": "anxiety",
+      "question": "Can you help if I am anxious during an emergency visit?",
+      "answer_registry_id": "smh-answer-priority-emergency-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-dental-implants-cost-how-much-do-dental-implants-cost-v1",
+      "service": "dental-implants",
+      "intent_type": "cost",
+      "question": "How much do dental implants cost?",
+      "answer_registry_id": "smh-answer-priority-dental-implants-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-dental-implants-comparison-what-are-the-alternatives-to-dental-implan-v1",
+      "service": "dental-implants",
+      "intent_type": "comparison",
+      "question": "What are the alternatives to dental implants?",
+      "answer_registry_id": "smh-answer-priority-dental-implants-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-private-dentist-commercial-what-does-a-private-dentist-appointment-in-v1",
+      "service": "private-dentist",
+      "intent_type": "commercial",
+      "question": "What does a private dentist appointment include at St Mary’s House Dental Care?",
+      "answer_registry_id": "smh-answer-priority-private-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-private-dentist-local-where-can-i-see-a-private-dentist-in-shore-v1",
+      "service": "private-dentist",
+      "intent_type": "local",
+      "question": "Where can I see a private dentist in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-private-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-private-dentist-cost-how-are-private-dental-fees-confirmed-v1",
+      "service": "private-dentist",
+      "intent_type": "cost",
+      "question": "How are private dental fees confirmed?",
+      "answer_registry_id": "smh-answer-priority-private-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-private-dentist-anxiety-can-i-ask-for-a-slower-private-dental-appo-v1",
+      "service": "private-dentist",
+      "intent_type": "anxiety",
+      "question": "Can I ask for a slower private dental appointment if I am nervous?",
+      "answer_registry_id": "smh-answer-priority-private-dentist-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-examinations-informational-do-dental-check-ups-include-oral-cancer-sc-v1",
+      "service": "examinations",
+      "intent_type": "informational",
+      "question": "Do dental check-ups include oral cancer screening?",
+      "answer_registry_id": "smh-answer-priority-examinations-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-examinations-local-can-i-book-a-new-patient-examination-in-sh-v1",
+      "service": "examinations",
+      "intent_type": "local",
+      "question": "Can I book a new patient examination in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-examinations-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-examinations-cost-how-much-does-a-dental-examination-cost-v1",
+      "service": "examinations",
+      "intent_type": "cost",
+      "question": "How much does a dental examination cost?",
+      "answer_registry_id": "smh-answer-priority-examinations-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-examinations-anxiety-can-a-check-up-be-paced-slowly-if-i-am-ner-v1",
+      "service": "examinations",
+      "intent_type": "anxiety",
+      "question": "Can a check-up be paced slowly if I am nervous?",
+      "answer_registry_id": "smh-answer-priority-examinations-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-spark-aligners-local-can-i-get-spark-aligners-in-shoreham-by-se-v1",
+      "service": "spark-aligners",
+      "intent_type": "local",
+      "question": "Can I get Spark Aligners in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-spark-aligners-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-spark-aligners-informational-how-do-spark-aligners-work-v1",
+      "service": "spark-aligners",
+      "intent_type": "informational",
+      "question": "How do Spark Aligners work?",
+      "answer_registry_id": "smh-answer-priority-spark-aligners-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-spark-aligners-cost-how-much-do-spark-aligners-cost-v1",
+      "service": "spark-aligners",
+      "intent_type": "cost",
+      "question": "How much do Spark Aligners cost?",
+      "answer_registry_id": "smh-answer-priority-spark-aligners-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-spark-aligners-comparison-are-spark-aligners-suitable-for-complex-or-v1",
+      "service": "spark-aligners",
+      "intent_type": "comparison",
+      "question": "Are Spark Aligners suitable for complex orthodontic cases?",
+      "answer_registry_id": "smh-answer-priority-spark-aligners-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-orthodontics-commercial-what-orthodontic-options-are-available-in--v1",
+      "service": "orthodontics",
+      "intent_type": "commercial",
+      "question": "What orthodontic options are available in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-orthodontics-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-orthodontics-informational-what-is-orthodontic-treatment-v1",
+      "service": "orthodontics",
+      "intent_type": "informational",
+      "question": "What is orthodontic treatment?",
+      "answer_registry_id": "smh-answer-priority-orthodontics-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-orthodontics-cost-how-much-does-orthodontic-treatment-cost-v1",
+      "service": "orthodontics",
+      "intent_type": "cost",
+      "question": "How much does orthodontic treatment cost?",
+      "answer_registry_id": "smh-answer-priority-orthodontics-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-orthodontics-comparison-are-clear-aligners-or-fixed-braces-better--v1",
+      "service": "orthodontics",
+      "intent_type": "comparison",
+      "question": "Are clear aligners or fixed braces better for me?",
+      "answer_registry_id": "smh-answer-priority-orthodontics-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-3d-dentistry-informational-what-is-3d-dentistry-at-st-mary-s-house-de-v1",
+      "service": "3d-dentistry",
+      "intent_type": "informational",
+      "question": "What is 3D dentistry at St Mary’s House Dental Care?",
+      "answer_registry_id": "smh-answer-priority-3d-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-3d-dentistry-local-do-you-use-cbct-or-3d-scanning-in-shoreham-v1",
+      "service": "3d-dentistry",
+      "intent_type": "local",
+      "question": "Do you use CBCT or 3D scanning in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-3d-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-3d-dentistry-commercial-can-digital-dentistry-help-with-treatment--v1",
+      "service": "3d-dentistry",
+      "intent_type": "commercial",
+      "question": "Can digital dentistry help with treatment planning?",
+      "answer_registry_id": "smh-answer-priority-3d-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-3d-dentistry-cost-do-3d-dental-scans-affect-treatment-fees-v1",
+      "service": "3d-dentistry",
+      "intent_type": "cost",
+      "question": "Do 3D dental scans affect treatment fees?",
+      "answer_registry_id": "smh-answer-priority-3d-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-same-day-crowns-veneers-informational-what-is-a-same-day-crown-or-veneer-workflo-v1",
+      "service": "same-day-crowns-veneers",
+      "intent_type": "informational",
+      "question": "What is a same-day crown or veneer workflow?",
+      "answer_registry_id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-same-day-crowns-veneers-cost-how-much-do-same-day-crowns-or-veneers-cos-v1",
+      "service": "same-day-crowns-veneers",
+      "intent_type": "cost",
+      "question": "How much do same-day crowns or veneers cost?",
+      "answer_registry_id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-same-day-crowns-veneers-comparison-what-are-alternatives-to-same-day-crowns-o-v1",
+      "service": "same-day-crowns-veneers",
+      "intent_type": "comparison",
+      "question": "What are alternatives to same-day crowns or veneers?",
+      "answer_registry_id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-veneers-commercial-can-veneers-improve-tooth-shape-or-shade-v1",
+      "service": "veneers",
+      "intent_type": "commercial",
+      "question": "Can veneers improve tooth shape or shade?",
+      "answer_registry_id": "smh-answer-priority-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-veneers-cost-how-much-do-veneers-cost-v1",
+      "service": "veneers",
+      "intent_type": "cost",
+      "question": "How much do veneers cost?",
+      "answer_registry_id": "smh-answer-priority-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-veneers-comparison-what-are-alternatives-to-veneers-v1",
+      "service": "veneers",
+      "intent_type": "comparison",
+      "question": "What are alternatives to veneers?",
+      "answer_registry_id": "smh-answer-priority-veneers-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-cosmetic-dentistry-commercial-what-cosmetic-dentistry-is-available-in-sh-v1",
+      "service": "cosmetic-dentistry",
+      "intent_type": "commercial",
+      "question": "What cosmetic dentistry is available in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-cosmetic-dentistry-informational-how-do-i-choose-between-whitening-bonding--v1",
+      "service": "cosmetic-dentistry",
+      "intent_type": "informational",
+      "question": "How do I choose between whitening, bonding, aligners, and veneers?",
+      "answer_registry_id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-cosmetic-dentistry-cost-how-much-does-cosmetic-dentistry-cost-v1",
+      "service": "cosmetic-dentistry",
+      "intent_type": "cost",
+      "question": "How much does cosmetic dentistry cost?",
+      "answer_registry_id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-cosmetic-dentistry-anxiety-can-cosmetic-dentistry-be-planned-gently-i-v1",
+      "service": "cosmetic-dentistry",
+      "intent_type": "anxiety",
+      "question": "Can cosmetic dentistry be planned gently if I am nervous?",
+      "answer_registry_id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-sedation-anxiety-dentistry-informational-what-is-iv-sedation-in-dentistry-v1",
+      "service": "sedation-anxiety-dentistry",
+      "intent_type": "informational",
+      "question": "What is IV sedation in dentistry?",
+      "answer_registry_id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-sedation-anxiety-dentistry-cost-how-much-does-sedation-dentistry-cost-v1",
+      "service": "sedation-anxiety-dentistry",
+      "intent_type": "cost",
+      "question": "How much does sedation dentistry cost?",
+      "answer_registry_id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-sedation-anxiety-dentistry-comparison-what-are-alternatives-to-sedation-for-nerv-v1",
+      "service": "sedation-anxiety-dentistry",
+      "intent_type": "comparison",
+      "question": "What are alternatives to sedation for nervous dental patients?",
+      "answer_registry_id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-hygiene-recall-local-do-you-offer-dental-hygiene-and-recall-app-v1",
+      "service": "hygiene-recall",
+      "intent_type": "local",
+      "question": "Do you offer dental hygiene and recall appointments in Shoreham-by-Sea?",
+      "answer_registry_id": "smh-answer-priority-hygiene-recall-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-hygiene-recall-informational-why-are-dental-hygiene-appointments-import-v1",
+      "service": "hygiene-recall",
+      "intent_type": "informational",
+      "question": "Why are dental hygiene appointments important?",
+      "answer_registry_id": "smh-answer-priority-hygiene-recall-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-hygiene-recall-cost-how-much-does-a-dental-hygiene-appointment-v1",
+      "service": "hygiene-recall",
+      "intent_type": "cost",
+      "question": "How much does a dental hygiene appointment cost?",
+      "answer_registry_id": "smh-answer-priority-hygiene-recall-packet-v1",
+      "priority": "priority_service_packet_v1"
+    },
+    {
+      "id": "smh-question-hygiene-recall-anxiety-can-hygiene-appointments-be-paced-gently-i-v1",
+      "service": "hygiene-recall",
+      "intent_type": "anxiety",
+      "question": "Can hygiene appointments be paced gently if I am nervous?",
+      "answer_registry_id": "smh-answer-priority-hygiene-recall-packet-v1",
+      "priority": "priority_service_packet_v1"
     }
   ]
 }

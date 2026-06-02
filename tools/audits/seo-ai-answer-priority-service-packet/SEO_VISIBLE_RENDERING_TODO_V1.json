@@ -1,0 +1,53 @@
+{
+  "version": "SEO_VISIBLE_RENDERING_TODO_V1",
+  "generatedAt": "2026-06-02T04:39:20.844Z",
+  "status": "future_rendering_mission_required",
+  "items": [
+    {
+      "service_id": "emergency-dentist",
+      "route_path": "/treatments/emergency-dentistry",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "examinations",
+      "route_path": "/treatments/dental-checkups-oral-cancer-screening",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "spark-aligners",
+      "route_path": "/treatments/clear-aligners-spark",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "orthodontics",
+      "route_path": "/treatments/orthodontics",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "3d-dentistry",
+      "route_path": "/treatments/3d-dentistry-and-technology",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "same-day-crowns-veneers",
+      "route_path": "/treatments/3d-digital-dentistry",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "cosmetic-dentistry",
+      "route_path": "/treatments/cosmetic-dentistry",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "sedation-anxiety-dentistry",
+      "route_path": "/treatments/sedation-dentistry",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    },
+    {
+      "service_id": "hygiene-recall",
+      "route_path": "/treatments/preventative-and-general-dentistry",
+      "recommendation": "Future visible rendering mission: add reviewed answer-surface blocks without redesign or full page rewrite."
+    }
+  ],
+  "boundary": "No visual rendering changes were made in SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_V1."
+}

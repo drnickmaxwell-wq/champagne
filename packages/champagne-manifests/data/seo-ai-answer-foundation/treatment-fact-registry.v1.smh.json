@@ -2,7 +2,7 @@
   "version": "TREATMENT_FACT_REGISTRY_V1",
   "tenantId": "smh",
   "scope": "machine_readable_public_treatment_facts_only",
-  "status": "foundation_partial_population_from_approved_sources",
+  "status": "priority_service_fact_population_with_unknown_claims_left_null",
   "unknownValuePolicy": "Use null when an approved source does not contain the fact. Do not infer clinical, finance, duration or recovery claims.",
   "entries": [
     {
@@ -21,9 +21,18 @@
       "evidence_source": [
         "approved-facts.smh.json:priorityServices",
         "local-identity.smh.json:priorityServices.emergency-dentist",
-        "local-identity.smh.json:primaryMarket"
+        "page-truth/treatments-emergency-dentistry.txt"
       ],
-      "clinical_review_required": true
+      "clinical_review_required": true,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
     },
     {
       "id": "smh-treatment-fact-dental-implants-v1",
@@ -41,9 +50,19 @@
       "evidence_source": [
         "approved-facts.smh.json:priorityServices",
         "local-identity.smh.json:priorityServices.dental-implants",
-        "local-identity.smh.json:primaryMarket"
+        "page-truth/treatments-implants.txt",
+        "champagne_machine_manifest_full.json:pages.implants.answerSurface"
       ],
-      "clinical_review_required": true
+      "clinical_review_required": true,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
     },
     {
       "id": "smh-treatment-fact-spark-aligners-v1",
@@ -61,9 +80,18 @@
       "evidence_source": [
         "approved-facts.smh.json:priorityServices",
         "local-identity.smh.json:priorityServices.spark-aligners",
-        "local-identity.smh.json:primaryMarket"
+        "page-truth/treatments-clear-aligners-spark.txt"
       ],
-      "clinical_review_required": true
+      "clinical_review_required": true,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
     },
     {
       "id": "smh-treatment-fact-orthodontics-v1",
@@ -81,9 +109,18 @@
       "evidence_source": [
         "approved-facts.smh.json:priorityServices",
         "local-identity.smh.json:priorityServices.orthodontics",
-        "local-identity.smh.json:primaryMarket"
+        "page-truth/treatments-orthodontics.txt"
       ],
-      "clinical_review_required": true
+      "clinical_review_required": true,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
     },
     {
       "id": "smh-treatment-fact-cosmetic-dentistry-v1",
@@ -101,14 +138,23 @@
       "evidence_source": [
         "approved-facts.smh.json:priorityServices",
         "local-identity.smh.json:priorityServices.cosmetic-dentistry",
-        "local-identity.smh.json:primaryMarket"
+        "page-truth/treatments-cosmetic-dentistry.txt"
       ],
-      "clinical_review_required": true
+      "clinical_review_required": true,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
     },
     {
       "id": "smh-treatment-fact-hygiene-recall-v1",
       "service": "hygiene-recall",
-      "service_name": "Hygiene/recall",
+      "service_name": "Hygiene and recall",
       "route_path": "/treatments/preventative-and-general-dentistry",
       "consultation_availability": null,
       "treatment_category": "priority_service",
@@ -124,9 +170,193 @@
         "approved-facts.smh.json:priorityServices",
         "local-identity.smh.json:priorityServices.hygiene-recall",
         "team-registry.smh.json:teamStructure.hygienists",
+        "page-truth/treatments-preventative-and-general-dentistry.txt"
+      ],
+      "clinical_review_required": true,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+    },
+    {
+      "id": "smh-treatment-fact-private-dentist-v1",
+      "service": "private-dentist",
+      "service_name": "Private dentist",
+      "route_path": "/contact",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "evidence_source": [
+        "approved-facts.smh.json:practice",
+        "local-identity.smh.json:priorityServices.private-dentist",
         "local-identity.smh.json:primaryMarket"
       ],
-      "clinical_review_required": true
+      "clinical_review_required": true,
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+    },
+    {
+      "id": "smh-treatment-fact-examinations-v1",
+      "service": "examinations",
+      "service_name": "New patient examination",
+      "route_path": "/treatments/dental-checkups-oral-cancer-screening",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.examinations",
+        "page-truth/treatments-dental-checkups-oral-cancer-screening.txt"
+      ],
+      "clinical_review_required": true,
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+    },
+    {
+      "id": "smh-treatment-fact-3d-dentistry-v1",
+      "service": "3d-dentistry",
+      "service_name": "3D dentistry",
+      "route_path": "/treatments/3d-dentistry-and-technology",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.3d-dentistry",
+        "page-truth/treatments-3d-dentistry-and-technology.txt"
+      ],
+      "clinical_review_required": true,
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+    },
+    {
+      "id": "smh-treatment-fact-same-day-crowns-veneers-v1",
+      "service": "same-day-crowns-veneers",
+      "service_name": "Same-day crowns and veneers",
+      "route_path": "/treatments/3d-digital-dentistry",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.same-day-crowns-veneers",
+        "page-truth/treatments-3d-digital-dentistry.txt"
+      ],
+      "clinical_review_required": true,
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+    },
+    {
+      "id": "smh-treatment-fact-veneers-v1",
+      "service": "veneers",
+      "service_name": "Veneers",
+      "route_path": "/treatments/veneers",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "evidence_source": [
+        "question-inventory.v1.smh.json:targetServices.veneers",
+        "page-truth/treatments-veneers.txt",
+        "champagne_machine_manifest_full.json:pages.veneers.answerSurface"
+      ],
+      "clinical_review_required": true,
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+    },
+    {
+      "id": "smh-treatment-fact-sedation-anxiety-dentistry-v1",
+      "service": "sedation-anxiety-dentistry",
+      "service_name": "Sedation and anxiety dentistry",
+      "route_path": "/treatments/sedation-dentistry",
+      "consultation_availability": null,
+      "treatment_category": "priority_service",
+      "treatment_location": "Shoreham-by-Sea",
+      "clinician_types": null,
+      "typical_duration": null,
+      "recovery_category": null,
+      "alternatives_available": null,
+      "finance_availability": null,
+      "source_status": "unknown",
+      "unknown_fact_fields": [
+        "typical_duration",
+        "recovery_category",
+        "finance_availability",
+        "personal_suitability",
+        "outcome_promises"
+      ],
+      "evidence_source": [
+        "approved-facts.smh.json:priorityServices",
+        "local-identity.smh.json:priorityServices.sedation-anxiety-dentistry",
+        "page-truth/treatments-sedation-dentistry.txt",
+        "page-truth/treatments-nervous-patients.txt"
+      ],
+      "clinical_review_required": true,
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
     }
   ]
 }

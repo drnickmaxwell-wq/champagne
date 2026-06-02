@@ -1,38 +1,9 @@
 {
   "version": "ZERO_CLICK_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "generatedAt": "2026-06-02T04:39:19.989Z",
   "status": "recommendations_only",
   "checks": {
-    "missingAnswerBlocks": [
-      {
-        "service": "3d-dentistry",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      },
-      {
-        "service": "same-day-crowns-veneers",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      },
-      {
-        "service": "orthodontics",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      },
-      {
-        "service": "sedation-anxiety-dentistry",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      },
-      {
-        "service": "cosmetic-dentistry",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      },
-      {
-        "service": "hygiene-recall",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      },
-      {
-        "service": "examinations",
-        "recommendation": "Create a reviewed AI_ANSWER_REGISTRY_V1 entry before enabling AI, voice, chatbot or schema output for this service."
-      }
-    ],
+    "missingAnswerBlocks": [],
     "missingFaqs": [
       {
         "service": "emergency-dentist",
@@ -82,13 +53,74 @@
     ],
     "weakAnswers": [],
     "duplicatedAnswers": [],
-    "overlyLongAnswers": [],
+    "overlyLongAnswers": [
+      {
+        "id": "smh-answer-priority-emergency-dentist-packet-v1",
+        "shortAnswerWords": 53,
+        "expandedAnswerWords": 131
+      },
+      {
+        "id": "smh-answer-priority-dental-implants-packet-v1",
+        "shortAnswerWords": 47,
+        "expandedAnswerWords": 126
+      },
+      {
+        "id": "smh-answer-priority-private-dentist-packet-v1",
+        "shortAnswerWords": 46,
+        "expandedAnswerWords": 125
+      },
+      {
+        "id": "smh-answer-priority-examinations-packet-v1",
+        "shortAnswerWords": 41,
+        "expandedAnswerWords": 123
+      },
+      {
+        "id": "smh-answer-priority-spark-aligners-packet-v1",
+        "shortAnswerWords": 45,
+        "expandedAnswerWords": 121
+      },
+      {
+        "id": "smh-answer-priority-orthodontics-packet-v1",
+        "shortAnswerWords": 46,
+        "expandedAnswerWords": 136
+      },
+      {
+        "id": "smh-answer-priority-3d-dentistry-packet-v1",
+        "shortAnswerWords": 45,
+        "expandedAnswerWords": 125
+      },
+      {
+        "id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+        "shortAnswerWords": 46,
+        "expandedAnswerWords": 140
+      },
+      {
+        "id": "smh-answer-priority-veneers-packet-v1",
+        "shortAnswerWords": 45,
+        "expandedAnswerWords": 122
+      },
+      {
+        "id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+        "shortAnswerWords": 44,
+        "expandedAnswerWords": 135
+      },
+      {
+        "id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+        "shortAnswerWords": 46,
+        "expandedAnswerWords": 125
+      },
+      {
+        "id": "smh-answer-priority-hygiene-recall-packet-v1",
+        "shortAnswerWords": 44,
+        "expandedAnswerWords": 138
+      }
+    ],
     "jargonHeavyAnswers": []
   },
   "summary": {
-    "answerRegistryEntries": 6,
+    "answerRegistryEntries": 18,
     "priorityServiceCount": 11,
-    "priorityServicesWithAnswers": 4,
+    "priorityServicesWithAnswers": 11,
     "answerSurfaceTreatmentPages": 12,
     "answerSurfaceFaqCount": 37
   },

@@ -1,6 +1,6 @@
 {
   "version": "QUESTION_INVENTORY_AUDIT_V1",
-  "generatedAt": "2026-06-02T04:17:26.842Z",
+  "generatedAt": "2026-06-02T04:39:19.989Z",
   "status": "partial_foundation",
   "targetServices": [
     "dental-implants",
@@ -12,7 +12,9 @@
     "sedation-anxiety-dentistry",
     "hygiene-recall",
     "examinations",
-    "cosmetic-dentistry"
+    "cosmetic-dentistry",
+    "private-dentist",
+    "3d-dentistry"
   ],
   "supportedIntentTypes": [
     "informational",
@@ -23,41 +25,33 @@
     "cost",
     "anxiety"
   ],
-  "totalQuestions": 12,
-  "linkedQuestionCount": 3,
+  "totalQuestions": 55,
+  "linkedQuestionCount": 55,
   "questionsByService": {
-    "dental-implants": 2,
-    "emergency-dentist": 2,
-    "spark-aligners": 1,
-    "orthodontics": 1,
-    "veneers": 1,
-    "same-day-crowns-veneers": 1,
-    "sedation-anxiety-dentistry": 1,
-    "hygiene-recall": 1,
-    "examinations": 1,
-    "cosmetic-dentistry": 1
+    "dental-implants": 4,
+    "emergency-dentist": 6,
+    "spark-aligners": 5,
+    "orthodontics": 5,
+    "veneers": 4,
+    "same-day-crowns-veneers": 4,
+    "sedation-anxiety-dentistry": 4,
+    "hygiene-recall": 5,
+    "examinations": 5,
+    "cosmetic-dentistry": 5,
+    "private-dentist": 4,
+    "3d-dentistry": 4
   },
   "questionsByIntent": {
-    "informational": 3,
-    "commercial": 3,
-    "urgent": 2,
-    "local": 3,
-    "comparison": 0,
-    "cost": 0,
-    "anxiety": 1
+    "informational": 12,
+    "commercial": 8,
+    "urgent": 3,
+    "local": 8,
+    "comparison": 6,
+    "cost": 12,
+    "anxiety": 6
   },
   "targetServicesMissingQuestions": [],
-  "unmappedQuestions": [
-    "smh-question-implants-informational-v1",
-    "smh-question-emergency-what-happens-v1",
-    "smh-question-orthodontics-commercial-v1",
-    "smh-question-veneers-informational-v1",
-    "smh-question-crowns-commercial-v1",
-    "smh-question-sedation-anxiety-v1",
-    "smh-question-hygiene-local-v1",
-    "smh-question-examinations-informational-v1",
-    "smh-question-cosmetic-commercial-v1"
-  ],
+  "unmappedQuestions": [],
   "recommendations": [
     "Expand to at least one reviewed question per service and intent cluster before mass answer drafting.",
     "Keep question inventory separate from generated page copy to avoid accidental mass rewrites."
