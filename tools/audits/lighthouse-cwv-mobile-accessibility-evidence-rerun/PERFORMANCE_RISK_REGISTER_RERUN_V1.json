@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-06-02T17:19:58.990Z",
+  "classification": "READY_FOR_FINAL_CERTIFICATION_RECHECK",
+  "risks": [
+    {
+      "route": "/",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,120 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/",
+      "risk": "lighthouse_accessibility_below_100",
+      "severity": "low",
+      "evidence": "96",
+      "recommendedMission": "Accessibility audit remediation mission."
+    },
+    {
+      "route": "/contact",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,070 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/contact",
+      "risk": "lighthouse_accessibility_below_100",
+      "severity": "low",
+      "evidence": "96",
+      "recommendedMission": "Accessibility audit remediation mission."
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,030 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "risk": "lcp_above_good_lab_threshold",
+      "severity": "medium",
+      "evidence": "2.5 s",
+      "recommendedMission": "Hero/media and above-the-fold delivery review mission."
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "risk": "lighthouse_accessibility_below_100",
+      "severity": "low",
+      "evidence": "96",
+      "recommendedMission": "Accessibility audit remediation mission."
+    },
+    {
+      "route": "/treatments/implants",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,100 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/implants",
+      "risk": "lcp_above_good_lab_threshold",
+      "severity": "medium",
+      "evidence": "2.5 s",
+      "recommendedMission": "Hero/media and above-the-fold delivery review mission."
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,530 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "risk": "lcp_above_good_lab_threshold",
+      "severity": "medium",
+      "evidence": "2.7 s",
+      "recommendedMission": "Hero/media and above-the-fold delivery review mission."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "930 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "risk": "lcp_above_good_lab_threshold",
+      "severity": "medium",
+      "evidence": "2.6 s",
+      "recommendedMission": "Hero/media and above-the-fold delivery review mission."
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "880 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "risk": "high_total_blocking_time_inp_proxy",
+      "severity": "medium",
+      "evidence": "1,020 ms",
+      "recommendedMission": "Main-thread/JavaScript cost reduction mission."
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "risk": "lcp_above_good_lab_threshold",
+      "severity": "medium",
+      "evidence": "2.6 s",
+      "recommendedMission": "Hero/media and above-the-fold delivery review mission."
+    }
+  ]
+}

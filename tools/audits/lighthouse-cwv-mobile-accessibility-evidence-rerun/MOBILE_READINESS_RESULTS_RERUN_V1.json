@@ -1,0 +1,803 @@
+{
+  "generatedAt": "2026-06-02T17:19:58.990Z",
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "isMobile": true,
+    "deviceScaleFactor": 3
+  },
+  "routes": [
+    {
+      "route": "/",
+      "url": "http://localhost:3000/",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 916,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": true,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Private Dental Care in Shoreham-by-Sea | St Mary's House Dental Care",
+        "h1": null,
+        "headingCount": 22,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Dentistry planned carefully, delivered properly"
+          },
+          {
+            "tag": "H2",
+            "text": "Dentistry designed for clarity, comfort, and long-term confidence"
+          },
+          {
+            "tag": "H3",
+            "text": "Clinical depth with steady hands"
+          },
+          {
+            "tag": "H2",
+            "text": "Care that values planning as much as precision"
+          },
+          {
+            "tag": "H3",
+            "text": "Priority treatments at a glance"
+          },
+          {
+            "tag": "H3",
+            "text": "How care works here"
+          },
+          {
+            "tag": "H2",
+            "text": "Structured care for complex situations"
+          },
+          {
+            "tag": "H3",
+            "text": "Pick a treatment to explore"
+          },
+          {
+            "tag": "H3",
+            "text": "Need urgent or remote support?"
+          },
+          {
+            "tag": "H3",
+            "text": "Technology that keeps planning clear"
+          },
+          {
+            "tag": "H3",
+            "text": "Patient journeys"
+          },
+          {
+            "tag": "H2",
+            "text": "Google reviews"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation"
+        ],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9169,
+        "interactiveCount": 48,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/contact",
+      "url": "http://localhost:3000/contact",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 996,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Contact",
+        "h1": null,
+        "headingCount": 8,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Contact St Mary’s House Dental Care"
+          },
+          {
+            "tag": "H2",
+            "text": "What does a private dentist appointment include at St Mary’s House Dental Care?"
+          },
+          {
+            "tag": "H3",
+            "text": "Practice details"
+          },
+          {
+            "tag": "H3",
+            "text": "Contact methods"
+          },
+          {
+            "tag": "H3",
+            "text": "Need urgent help?"
+          },
+          {
+            "tag": "H2",
+            "text": "How to contact us"
+          },
+          {
+            "tag": "H3",
+            "text": "Finding the practice"
+          },
+          {
+            "tag": "H3",
+            "text": "Plan a visit"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 4748,
+        "interactiveCount": 35,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "url": "http://localhost:3000/treatments/emergency-dentistry",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 968,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Emergency dentistry",
+        "h1": null,
+        "headingCount": 10,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Emergency dentistry"
+          },
+          {
+            "tag": "H2",
+            "text": "What should I do if I need an emergency dentist in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H2",
+            "text": "How we handle dental emergencies"
+          },
+          {
+            "tag": "H3",
+            "text": "Common reasons people contact us urgently"
+          },
+          {
+            "tag": "H3",
+            "text": "What to do right now"
+          },
+          {
+            "tag": "H3",
+            "text": "Urgent care and follow-up"
+          },
+          {
+            "tag": "H3",
+            "text": "What you can expect at an emergency visit"
+          },
+          {
+            "tag": "H3",
+            "text": "When urgent care may not be necessary"
+          },
+          {
+            "tag": "H3",
+            "text": "Call for emergency dental care"
+          },
+          {
+            "tag": "H3",
+            "text": "Emergency Dentistry — full treatment list"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation",
+          "presentation"
+        ],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 6020,
+        "interactiveCount": 47,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/implants",
+      "url": "http://localhost:3000/treatments/implants",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 867,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Dental Implants in Shoreham-by-Sea",
+        "h1": null,
+        "headingCount": 15,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Planning first, surgery second"
+          },
+          {
+            "tag": "H3",
+            "text": "Implants Mid Cta"
+          },
+          {
+            "tag": "H2",
+            "text": "What are dental implants and who may they help?"
+          },
+          {
+            "tag": "H3",
+            "text": "Why patients trust us"
+          },
+          {
+            "tag": "H2",
+            "text": "A step-by-step approach"
+          },
+          {
+            "tag": "H3",
+            "text": "What is a dental implant?"
+          },
+          {
+            "tag": "H3",
+            "text": "Suitability and case selection"
+          },
+          {
+            "tag": "H3",
+            "text": "Implant treatment, step by step"
+          },
+          {
+            "tag": "H3",
+            "text": "CBCT + digital scanning"
+          },
+          {
+            "tag": "H3",
+            "text": "Important risks we discuss"
+          },
+          {
+            "tag": "H3",
+            "text": "Long-term success depends on care"
+          },
+          {
+            "tag": "H3",
+            "text": "Common questions about implants"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9091,
+        "interactiveCount": 39,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "url": "http://localhost:3000/treatments/clear-aligners-spark",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 880,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Spark clear aligners in Shoreham-by-Sea",
+        "h1": null,
+        "headingCount": 17,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Spark clear aligners in Shoreham-by-Sea"
+          },
+          {
+            "tag": "H2",
+            "text": "Can I get Spark Aligners in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H3",
+            "text": "Transparent, clinician-led aligner care"
+          },
+          {
+            "tag": "H2",
+            "text": "Discreet trays planned for comfort and predictability"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear Aligners Spark Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Digital Spark planning with bite checks and stability in mind"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear guidance on suitability"
+          },
+          {
+            "tag": "H3",
+            "text": "Steady steps with ongoing support"
+          },
+          {
+            "tag": "H3",
+            "text": "Set review intervals with options if teeth don’t track"
+          },
+          {
+            "tag": "H3",
+            "text": "Digital scans meet Spark clarity"
+          },
+          {
+            "tag": "H3",
+            "text": "Comfort-focused guidance with clear expectations"
+          },
+          {
+            "tag": "H3",
+            "text": "Fixed and removable retainers with long-term guidance"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 9302,
+        "interactiveCount": 40,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 982,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "3D dentistry & technology",
+        "h1": null,
+        "headingCount": 12,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "3D dentistry & technology in Shoreham-by-Sea"
+          },
+          {
+            "tag": "H2",
+            "text": "What is 3D dentistry at St Mary’s House Dental Care?"
+          },
+          {
+            "tag": "H3",
+            "text": "Calm, clinician-led control"
+          },
+          {
+            "tag": "H2",
+            "text": "Scan → Design → Print/Mill → Fit"
+          },
+          {
+            "tag": "H3",
+            "text": "Patients who want predictable, visual planning"
+          },
+          {
+            "tag": "H3",
+            "text": "3d Dentistry And Technology Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear checkpoints from scan to maintenance"
+          },
+          {
+            "tag": "H3",
+            "text": "Precision outputs, clinician-reviewed"
+          },
+          {
+            "tag": "H3",
+            "text": "Long-term fit backed by maintenance"
+          },
+          {
+            "tag": "H3",
+            "text": "Answers before you choose"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          },
+          {
+            "tag": "H3",
+            "text": "See your options digitally before you commit"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 6801,
+        "interactiveCount": 38,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "url": "http://localhost:3000/treatments/sedation-dentistry",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 933,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Sedation dentistry",
+        "h1": null,
+        "headingCount": 11,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Sedation support for calmer dental visits"
+          },
+          {
+            "tag": "H2",
+            "text": "Can sedation help if I feel anxious about dental treatment?"
+          },
+          {
+            "tag": "H3",
+            "text": "Clinician-led, safety-first sedation"
+          },
+          {
+            "tag": "H2",
+            "text": "Consultation, suitability, then a tailored plan"
+          },
+          {
+            "tag": "H3",
+            "text": "Sedation Dentistry Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Suitable for specific needs"
+          },
+          {
+            "tag": "H3",
+            "text": "Clear steps from consult to recovery"
+          },
+          {
+            "tag": "H3",
+            "text": "Recover with clear guidance"
+          },
+          {
+            "tag": "H3",
+            "text": "Common questions answered"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          },
+          {
+            "tag": "H3",
+            "text": "Talk through sedation calmly first"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 7129,
+        "interactiveCount": 38,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "url": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "status": "pass",
+      "httpStatus": 200,
+      "loadMs": 985,
+      "gotoError": null,
+      "fatalConsoleErrors": [],
+      "consoleWarningsAndErrors": [],
+      "checks": {
+        "routeLoads": true,
+        "noFatalConsoleErrors": true,
+        "primaryContentVisible": true,
+        "answerSurfacesVisible": false,
+        "navigationUsableEnoughForEvidence": true,
+        "noHorizontalOverflow": true,
+        "noSsrHydrationCrash": true
+      },
+      "pageEvidence": {
+        "title": "Preventative & general dentistry",
+        "h1": null,
+        "headingCount": 13,
+        "headings": [
+          {
+            "tag": "H2",
+            "text": "Prevention-first dentistry that keeps teeth for life"
+          },
+          {
+            "tag": "H2",
+            "text": "Do you offer dental hygiene and recall appointments in Shoreham-by-Sea?"
+          },
+          {
+            "tag": "H3",
+            "text": "Protect teeth before problems arise"
+          },
+          {
+            "tag": "H2",
+            "text": "Every check-up is detailed and documented"
+          },
+          {
+            "tag": "H3",
+            "text": "Professional hygiene that supports home care"
+          },
+          {
+            "tag": "H2",
+            "text": "Simple, science-led guidance you can follow"
+          },
+          {
+            "tag": "H3",
+            "text": "Preventative And General Dentistry Mid Cta"
+          },
+          {
+            "tag": "H3",
+            "text": "Early detection keeps treatment simpler"
+          },
+          {
+            "tag": "H3",
+            "text": "Care tailored to every stage"
+          },
+          {
+            "tag": "H3",
+            "text": "What patients ask most"
+          },
+          {
+            "tag": "H3",
+            "text": "Keep your routine care on track"
+          },
+          {
+            "tag": "H2",
+            "text": "When this fits and what else to consider"
+          }
+        ],
+        "landmarks": {
+          "main": 1,
+          "nav": 2,
+          "header": 1,
+          "footer": 1,
+          "aside": 0
+        },
+        "roleLandmarks": [],
+        "mainPresent": true,
+        "mainVisible": true,
+        "primaryContentVisible": true,
+        "navPresent": true,
+        "navUsableEvidence": true,
+        "answerSurfaceCount": 0,
+        "answerSurfaceVisible": false,
+        "answerSurfaceTextSample": null,
+        "horizontalOverflow": false,
+        "viewportWidth": 836,
+        "scrollWidth": 836,
+        "bodyScrollWidth": 836,
+        "visibleTextLength": 7878,
+        "interactiveCount": 39,
+        "inaccessibleInteractiveCount": 0,
+        "inaccessibleInteractive": [],
+        "imagesMissingAlt": 0,
+        "lang": "en"
+      }
+    }
+  ]
+}
