@@ -10,6 +10,8 @@ const questionInventoryPath = path.join(registryDir, "question-inventory.v1.smh.
 const chatbotAlignmentPath = path.join(registryDir, "chatbot-answer-alignment.v1.smh.json");
 const manifestPath = path.join(root, "packages/champagne-manifests/data/champagne_machine_manifest_full.json");
 const foundationAuditPath = path.join(root, "tools/audits/seo-ai-answer-foundation/AI_SEARCH_READINESS_AUDIT_V1.json");
+const clinicalApprovalLedgerPath = path.join(root, "tools/audits/clinical-content-approval/CLINICAL_APPROVAL_LEDGER_V1.json");
+const clinicalReviewIntervalsPath = path.join(root, "tools/audits/clinical-content-approval/CLINICAL_REVIEW_INTERVALS_V1.json");
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -53,6 +55,8 @@ const questionInventory = readJson(questionInventoryPath);
 const chatbotAlignment = readJson(chatbotAlignmentPath);
 const manifest = readJson(manifestPath);
 const previousFoundationAudit = fs.existsSync(foundationAuditPath) ? readJson(foundationAuditPath) : null;
+const clinicalApprovalLedger = readJson(clinicalApprovalLedgerPath);
+const clinicalReviewIntervals = readJson(clinicalReviewIntervalsPath);
 
 const priorityServices = [
   { id: "emergency-dentist", routePath: "/treatments/emergency-dentistry", packetGroup: "emergency dentist" },
@@ -74,6 +78,9 @@ const answersByService = Object.fromEntries(priorityServices.map((service) => [s
 const factsByService = Object.fromEntries(priorityServices.map((service) => [service.id, treatmentFactRegistry.entries.filter((entry) => entry.service === service.id)]));
 const questionsByService = Object.fromEntries(priorityServices.map((service) => [service.id, questionInventory.questions.filter((entry) => entry.service === service.id)]));
 const chatbotMappingsByService = Object.fromEntries(priorityServices.map((service) => [service.id, chatbotAlignment.mappings.filter((mapping) => (mapping.answer_registry_ids || []).some((id) => answersByService[service.id].some((answer) => answer.id === id)))]));
+const approvalFlags = ["approved_for_ai", "approved_for_voice", "approved_for_chatbot", "approved_for_schema"];
+const approvalLedgerByPacket = new Map((clinicalApprovalLedger.entries || []).map((entry) => [entry.packet, entry]));
+const reviewIntervalsByPacket = new Map((clinicalReviewIntervals.records || []).map((record) => [record.content_id, record]));
 
 const errors = [];
 const warnings = [];
@@ -100,9 +107,19 @@ for (const entry of packetEntries) {
   for (const required of ["service_id", "route_slug", "question", "intent_type", "location_scope", "evidence_source"]) {
     if (!entry[required] || (Array.isArray(entry[required]) && !entry[required].length)) errors.push(`${entry.id} missing ${required}.`);
   }
-  if (entry.clinician_review_required !== true) errors.push(`${entry.id} must keep clinician_review_required true.`);
-  for (const approvalFlag of ["approved_for_ai", "approved_for_voice", "approved_for_chatbot", "approved_for_schema"]) {
-    if (entry[approvalFlag] !== false) errors.push(`${entry.id} must keep ${approvalFlag} false until clinician approval.`);
+  if (entry.clinician_review_required !== true) errors.push(`${entry.id} must keep clinician_review_required true as the clinical safety boundary even after governance approval.`);
+  const ledgerEntry = approvalLedgerByPacket.get(entry.id);
+  const reviewInterval = reviewIntervalsByPacket.get(entry.id);
+  const hasApprovalEvidence = ledgerEntry?.review_outcome === "APPROVED" && Boolean(ledgerEntry.reviewer?.name) && Boolean(ledgerEntry.timestamp) && Boolean(reviewInterval?.review_date) && Boolean(reviewInterval?.next_review_date);
+  for (const approvalFlag of approvalFlags) {
+    if (entry[approvalFlag] === true) {
+      if (!hasApprovalEvidence) errors.push(`${entry.id} sets ${approvalFlag} true without approval evidence, reviewer, review date, and next review date.`);
+      if (ledgerEntry?.approval_scope?.[approvalFlag] !== true) errors.push(`${entry.id} sets ${approvalFlag} true without ledger recommendation.`);
+    }
+    if (hasApprovalEvidence && ledgerEntry.approval_scope?.[approvalFlag] === true && entry[approvalFlag] !== true) {
+      errors.push(`${entry.id} must enable ${approvalFlag} because the approval ledger recommends enablement.`);
+    }
+    if (!hasApprovalEvidence && entry[approvalFlag] !== false) errors.push(`${entry.id} must keep ${approvalFlag} false until approval evidence exists.`);
   }
   const text = `${entry.question} ${entry.short_answer} ${entry.expanded_answer}`;
   for (const check of bannedClaimPatterns) {
@@ -189,7 +206,9 @@ const qaResults = {
     servicesWithVisibleRenderingTodo: visibleRenderingTodo.map((item) => item.service_id),
     linkedQuestionCount: linkedQuestionIds.size,
     unmappedSeedQuestions: questionInventory.questions.filter((question) => !question.answer_registry_id).map((question) => question.id),
-    approvedPacketFlagsKeptFalse: packetEntries.every((entry) => !entry.approved_for_ai && !entry.approved_for_voice && !entry.approved_for_chatbot && !entry.approved_for_schema)
+    approvedPacketFlagsAcceptedWithEvidence: packetEntries.every((entry) => approvalFlags.every((approvalFlag) => entry[approvalFlag] !== true || (approvalLedgerByPacket.get(entry.id)?.review_outcome === "APPROVED" && approvalLedgerByPacket.get(entry.id)?.approval_scope?.[approvalFlag] === true && Boolean(approvalLedgerByPacket.get(entry.id)?.reviewer?.name) && Boolean(approvalLedgerByPacket.get(entry.id)?.timestamp) && Boolean(reviewIntervalsByPacket.get(entry.id)?.review_date) && Boolean(reviewIntervalsByPacket.get(entry.id)?.next_review_date)))),
+    approvedPacketCount: packetEntries.filter((entry) => approvalFlags.every((approvalFlag) => entry[approvalFlag] === true)).length,
+    unapprovedPacketIds: packetEntries.filter((entry) => approvalFlags.every((approvalFlag) => entry[approvalFlag] === false)).map((entry) => entry.id)
   },
   scores: {
     previousAiReadinessScore: previousFoundationAudit?.scores?.aiReadinessScore ?? null,
@@ -226,7 +245,7 @@ const renderingTodo = {
 const report = {
   version: "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1",
   generatedAt,
-  status: errors.length ? "fail" : "pass_pending_clinician_review",
+  status: errors.length ? "fail" : "pass_activation_supported",
   mission: "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_V1",
   scopeBoundary: [
     "Bounded answer-packet registry population only.",
@@ -237,7 +256,9 @@ const report = {
     path.relative(root, treatmentFactRegistryPath),
     path.relative(root, questionInventoryPath),
     path.relative(root, chatbotAlignmentPath),
-    path.relative(root, manifestPath)
+    path.relative(root, manifestPath),
+    path.relative(root, clinicalApprovalLedgerPath),
+    path.relative(root, clinicalReviewIntervalsPath)
   ],
   answerPacketsAdded: packetEntries.length,
   servicesCovered: servicesWithPackets,
@@ -251,7 +272,7 @@ const report = {
 
 const reportMd = `# SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1\n\n## Mission\n\nSEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_V1.\n\n## Scope boundary\n\nBounded answer-packet population only. No page redesign, no mass treatment rewrite, no chatbot runtime mutation, no PHI, no PMS/Dentally, no deployment, and no launch certification claim.\n\n## Coverage\n\n- Priority answer packets added: ${packetEntries.length}.\n- Priority services covered: ${servicesWithPackets.length}/${priorityServices.length}.\n- Services still missing answer packets: ${report.servicesStillMissing.length ? report.servicesStillMissing.join(", ") : "none"}.\n- Services with at least three mapped questions: ${servicesWithThreeQuestions.length}/${priorityServices.length}.\n- Chatbot alignment mappings present: ${servicesWithChatbotMap.length}/${priorityServices.length}.\n- Priority routes already carrying visible answer surfaces: ${priorityRoutesWithAnswerSurface.length}/${priorityTreatmentRoutes.length}.\n\n## Scores\n\n- Previous AI readiness score: ${qaResults.scores.previousAiReadinessScore ?? "not available"}.\n- Previous zero-click readiness score: ${qaResults.scores.previousZeroClickReadinessScore ?? "not available"}.\n- Packet AI readiness score: ${aiReadinessScore}.\n- Packet zero-click readiness score: ${zeroClickReadinessScore}.\n\n## Facts left null\n\nDuration, recovery, finance, personal suitability, and unapproved alternatives remain null or unknown unless approved public source evidence exists. See SEO_TREATMENT_FACT_GAP_TODO_V1.json.\n\n## Visible rendering TODO\n\n${visibleRenderingTodo.length ? visibleRenderingTodo.map((item) => `- ${item.service_id}: ${item.route_path}`).join("\n") : "- None."}\n\n## QA status\n\nStatus: ${qaResults.status}.\n\n${errors.length ? `Errors:\n${errors.map((error) => `- ${error}`).join("\n")}` : "No packet QA errors detected."}\n`;
 
-const nextBuildRecommendation = `# SEO_NEXT_BUILD_RECOMMENDATION_V1\n\nRecommended next mission: SEO_VISIBLE_ANSWER_SURFACE_RENDERING_V1.\n\n## Why\n\nThe priority service packet registries now contain clinician-reviewable answer packets and question mappings, but most priority treatment routes still do not render visible answer-surface sections in the machine manifest.\n\n## Scope recommendation\n\n- Add reviewed, visible answer-surface blocks only where routes already support the pattern or after a bounded rendering enablement.\n- Keep all clinical answers clinician-review-required until approval.\n- Do not enable FAQPage schema, AI approval, voice approval, or chatbot runtime consumption until clinical sign-off.\n- Preserve the no-redesign and no-mass-rewrite boundary.\n`;
+const nextBuildRecommendation = `# SEO_NEXT_BUILD_RECOMMENDATION_V1\n\nRecommended next mission: SEO_VISIBLE_ANSWER_SURFACE_RENDERING_V1.\n\n## Why\n\nThe priority service packet registries now contain clinician-reviewable answer packets and question mappings, but most priority treatment routes still do not render visible answer-surface sections in the machine manifest.\n\n## Scope recommendation\n\n- Add reviewed, visible answer-surface blocks only where routes already support the pattern or after a bounded rendering enablement.\n- Keep all clinical answers clinician-review-required until approval.\n- Keep enabled AI, voice, chatbot, and schema flags limited to packets with explicit approval ledger evidence.\n- Preserve the no-redesign and no-mass-rewrite boundary.\n`;
 
 writeJson("SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1.json", report);
 writeText("SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1.md", reportMd);

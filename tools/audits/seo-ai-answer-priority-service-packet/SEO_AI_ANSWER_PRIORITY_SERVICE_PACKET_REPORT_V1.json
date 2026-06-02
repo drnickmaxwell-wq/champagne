@@ -1,7 +1,7 @@
 {
   "version": "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1",
-  "generatedAt": "2026-06-02T04:39:20.844Z",
-  "status": "pass_pending_clinician_review",
+  "generatedAt": "2026-06-02T06:42:41.611Z",
+  "status": "pass_activation_supported",
   "mission": "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_V1",
   "scopeBoundary": [
     "Bounded answer-packet registry population only.",
@@ -12,7 +12,9 @@
     "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
     "packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json",
     "packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json",
-    "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+    "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "tools/audits/clinical-content-approval/CLINICAL_APPROVAL_LEDGER_V1.json",
+    "tools/audits/clinical-content-approval/CLINICAL_REVIEW_INTERVALS_V1.json"
   ],
   "answerPacketsAdded": 12,
   "servicesCovered": [
@@ -215,7 +217,7 @@
     "previousAiReadinessScore": 83,
     "previousZeroClickReadinessScore": 71,
     "aiReadinessScore": 88,
-    "zeroClickReadinessScore": 70
+    "zeroClickReadinessScore": 79
   },
   "visibleRenderingTodoCount": 9,
   "errors": [],
