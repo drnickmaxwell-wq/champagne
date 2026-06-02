@@ -1,0 +1,1072 @@
+{
+  "generatedAt": "2026-06-02T17:19:58.990Z",
+  "baseUrl": "http://localhost:3000",
+  "routes": [
+    {
+      "route": "/",
+      "url": "http://localhost:3000/",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/contact",
+      "url": "http://localhost:3000/contact",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "url": "http://localhost:3000/treatments/emergency-dentistry",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/treatments/implants",
+      "url": "http://localhost:3000/treatments/implants",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "url": "http://localhost:3000/treatments/clear-aligners-spark",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "url": "http://localhost:3000/treatments/sedation-dentistry",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "url": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "status": 200,
+      "ok": true,
+      "checkedBy": "curl and Playwright production server verification"
+    }
+  ],
+  "lighthouseResults": [
+    {
+      "route": "/",
+      "url": "http://localhost:3000/",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:15:30.148Z",
+      "requestedUrl": "http://localhost:3000/",
+      "finalDisplayedUrl": "http://localhost:3000/",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 75,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1336.9295,
+        "fcpDisplay": "1.3 s",
+        "lcpMs": 2333.8589999999995,
+        "lcpDisplay": "2.3 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1119.9999999999995,
+        "tbtDisplay": "1,120 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1473.0147065946535,
+        "speedIndexDisplay": "1.5 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 473019,
+        "totalByteWeightDisplay": "Total size was 462 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 473019,
+        "mainDocumentTransferSize": 39947
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.93,
+          "displayValue": "2.3 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.5 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.23,
+          "displayValue": "1,120 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.03,
+          "displayValue": "650 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.5 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/contact",
+      "url": "http://localhost:3000/contact",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:15:49.138Z",
+      "requestedUrl": "http://localhost:3000/contact",
+      "finalDisplayedUrl": "http://localhost:3000/contact",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 75,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1268.5819999999999,
+        "fcpDisplay": "1.3 s",
+        "lcpMs": 2469.164,
+        "lcpDisplay": "2.5 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1068,
+        "tbtDisplay": "1,070 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1338.662251997444,
+        "speedIndexDisplay": "1.3 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 455473,
+        "totalByteWeightDisplay": "Total size was 445 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 455473,
+        "mainDocumentTransferSize": 22401
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.9,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.25,
+          "displayValue": "1,070 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.02,
+          "displayValue": "670 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.87,
+          "displayValue": "4.1 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "JavaScript execution time",
+          "score": 1,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "url": "http://localhost:3000/treatments/emergency-dentistry",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:16:06.632Z",
+      "requestedUrl": "http://localhost:3000/treatments/emergency-dentistry",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/emergency-dentistry",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 75,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1215.6437,
+        "fcpDisplay": "1.2 s",
+        "lcpMs": 2517.2874,
+        "lcpDisplay": "2.5 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1032.9999999999995,
+        "tbtDisplay": "1,030 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1460.4925300053615,
+        "speedIndexDisplay": "1.5 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 462564,
+        "totalByteWeightDisplay": "Total size was 452 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 462564,
+        "mainDocumentTransferSize": 29492
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.89,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.5 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.26,
+          "displayValue": "1,030 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.04,
+          "displayValue": "590 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.86,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "JavaScript execution time",
+          "score": 1,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/implants",
+      "url": "http://localhost:3000/treatments/implants",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:16:24.209Z",
+      "requestedUrl": "http://localhost:3000/treatments/implants",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/implants",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 74,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1205.3182000000002,
+        "fcpDisplay": "1.2 s",
+        "lcpMs": 2529.6364000000003,
+        "lcpDisplay": "2.5 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1104,
+        "tbtDisplay": "1,100 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1510.3246139970413,
+        "speedIndexDisplay": "1.5 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 468834,
+        "totalByteWeightDisplay": "Total size was 458 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 468834,
+        "mainDocumentTransferSize": 35762
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.89,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.5 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.23,
+          "displayValue": "1,100 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.04,
+          "displayValue": "610 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors have a sufficient contrast ratio",
+          "score": 1,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "url": "http://localhost:3000/treatments/clear-aligners-spark",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:16:41.907Z",
+      "requestedUrl": "http://localhost:3000/treatments/clear-aligners-spark",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/clear-aligners-spark",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 70,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1238.067,
+        "fcpDisplay": "1.2 s",
+        "lcpMs": 2738.134,
+        "lcpDisplay": "2.7 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1526,
+        "tbtDisplay": "1,530 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1747.9014979561498,
+        "speedIndexDisplay": "1.7 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 470392,
+        "totalByteWeightDisplay": "Total size was 459 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 470392,
+        "mainDocumentTransferSize": 37320
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.84,
+          "displayValue": "2.7 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.13,
+          "displayValue": "1,530 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.03,
+          "displayValue": "640 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.84,
+          "displayValue": "4.4 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.5 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.5 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors have a sufficient contrast ratio",
+          "score": 1,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "url": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:17:00.661Z",
+      "requestedUrl": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/3d-dentistry-and-technology",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 76,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1304.0844,
+        "fcpDisplay": "1.3 s",
+        "lcpMs": 2579.1687999999995,
+        "lcpDisplay": "2.6 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 931.9577999999995,
+        "tbtDisplay": "930 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1396.1644800042309,
+        "speedIndexDisplay": "1.4 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 463786,
+        "totalByteWeightDisplay": "Total size was 453 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 463786,
+        "mainDocumentTransferSize": 30714
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.88,
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.3,
+          "displayValue": "930 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.04,
+          "displayValue": "600 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.86,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "JavaScript execution time",
+          "score": 1,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors have a sufficient contrast ratio",
+          "score": 1,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "url": "http://localhost:3000/treatments/sedation-dentistry",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:17:18.494Z",
+      "requestedUrl": "http://localhost:3000/treatments/sedation-dentistry",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/sedation-dentistry",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 77,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1328.1695499999998,
+        "fcpDisplay": "1.3 s",
+        "lcpMs": 2495.3390999999997,
+        "lcpDisplay": "2.5 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 875.9999999999998,
+        "tbtDisplay": "880 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1414.036400004886,
+        "speedIndexDisplay": "1.4 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 463107,
+        "totalByteWeightDisplay": "Total size was 452 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 463107,
+        "mainDocumentTransferSize": 30035
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.9,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.32,
+          "displayValue": "880 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.04,
+          "displayValue": "600 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "JavaScript execution time",
+          "score": 1,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors have a sufficient contrast ratio",
+          "score": 1,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "url": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "status": "measured",
+      "reason": null,
+      "lighthouseVersion": "13.3.0",
+      "fetchTime": "2026-06-02T17:17:36.291Z",
+      "requestedUrl": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "finalDisplayedUrl": "http://localhost:3000/treatments/preventative-and-general-dentistry",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 75,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 54
+      },
+      "coreWebVitalsLab": {
+        "fcpMs": 1300.9270999999999,
+        "fcpDisplay": "1.3 s",
+        "lcpMs": 2566.3542,
+        "lcpDisplay": "2.6 s",
+        "cls": 0,
+        "clsDisplay": "0",
+        "tbtMs": 1016.9999999999998,
+        "tbtDisplay": "1,020 ms",
+        "inpProxy": "TBT captured as lab proxy; INP is a field metric and was not available in this local lab run.",
+        "speedIndexMs": 1441.7798499932696,
+        "speedIndexDisplay": "1.4 s"
+      },
+      "networkAndWeight": {
+        "totalByteWeight": 465575,
+        "totalByteWeightDisplay": "Total size was 455 KiB",
+        "numRequests": 14,
+        "totalByteWeightDiagnostic": 465575,
+        "mainDocumentTransferSize": 32503
+      },
+      "topActionableAudits": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.98,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.88,
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 1,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.26,
+          "displayValue": "1,020 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.04,
+          "displayValue": "610 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.85,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "valid-source-maps",
+          "title": "Missing source maps for large first-party JavaScript",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors have a sufficient contrast ratio",
+          "score": 1,
+          "displayValue": null
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names.",
+          "score": 0,
+          "displayValue": null
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "score": 0,
+          "displayValue": null
+        }
+      ]
+    }
+  ]
+}
