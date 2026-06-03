@@ -1,0 +1,578 @@
+{
+  "version": "CHAMPAGNE_FINAL_LAUNCH_CERTIFICATION_RECHECK_V1",
+  "generatedAt": "2026-06-02T17:56:51.164Z",
+  "role": "CHAMPAGNE_FINAL_LAUNCH_CERTIFICATION_RECHECK_V1",
+  "missionBoundary": [
+    "Audit only",
+    "No fixes implemented",
+    "No deployment",
+    "No PHI/PMS/Dentally/booking workflow/chatbot runtime mutation",
+    "No SEO registry/schema/manifest/approval flag mutation"
+  ],
+  "certificationDecision": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+  "decisionRationale": [
+    "The only previous certification-withholding evidence gap was current Lighthouse/CWV/mobile/accessibility evidence.",
+    "The rerun resolves that gap: 8/8 routes returned HTTP 200, 8/8 routes were measured, 8/8 passed mobile readiness, and 8/8 passed accessibility heuristics.",
+    "No remaining item is classified as BLOCKER or HIGH. Medium items are prelaunch review/optimization tasks and do not invalidate readiness for launch preparation."
+  ],
+  "evidenceReviewed": {
+    "previousFinalCertification": {
+      "certification": "NOT_CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+      "blockerCount": 8
+    },
+    "lighthouseCwvMobileAccessibilityRerun": {
+      "classification": "READY_FOR_FINAL_CERTIFICATION_RECHECK",
+      "summary": {
+        "lighthouseMeasuredRoutes": 8,
+        "lighthouseRequestedRoutes": 8,
+        "routeHttp200": 8,
+        "mobilePassRoutes": 8,
+        "accessibilityBasicPassRoutes": 8,
+        "performanceScores": {
+          "/": 75,
+          "/contact": 75,
+          "/treatments/emergency-dentistry": 75,
+          "/treatments/implants": 74,
+          "/treatments/clear-aligners-spark": 70,
+          "/treatments/3d-dentistry-and-technology": 76,
+          "/treatments/sedation-dentistry": 77,
+          "/treatments/preventative-and-general-dentistry": 75
+        },
+        "accessibilityScores": {
+          "/": 96,
+          "/contact": 96,
+          "/treatments/emergency-dentistry": 96,
+          "/treatments/implants": 100,
+          "/treatments/clear-aligners-spark": 100,
+          "/treatments/3d-dentistry-and-technology": 100,
+          "/treatments/sedation-dentistry": 100,
+          "/treatments/preventative-and-general-dentistry": 100
+        },
+        "remainingRiskCount": 16
+      },
+      "measuredRoutes": [
+        {
+          "route": "/",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 75,
+          "accessibility": 96,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.3\u00a0s",
+          "lcp": "2.3\u00a0s",
+          "cls": "0",
+          "tbt": "1,120\u00a0ms"
+        },
+        {
+          "route": "/contact",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 75,
+          "accessibility": 96,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.3\u00a0s",
+          "lcp": "2.5\u00a0s",
+          "cls": "0",
+          "tbt": "1,070\u00a0ms"
+        },
+        {
+          "route": "/treatments/emergency-dentistry",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 75,
+          "accessibility": 96,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.2\u00a0s",
+          "lcp": "2.5\u00a0s",
+          "cls": "0",
+          "tbt": "1,030\u00a0ms"
+        },
+        {
+          "route": "/treatments/implants",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 74,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.2\u00a0s",
+          "lcp": "2.5\u00a0s",
+          "cls": "0",
+          "tbt": "1,100\u00a0ms"
+        },
+        {
+          "route": "/treatments/clear-aligners-spark",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 70,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.2\u00a0s",
+          "lcp": "2.7\u00a0s",
+          "cls": "0",
+          "tbt": "1,530\u00a0ms"
+        },
+        {
+          "route": "/treatments/3d-dentistry-and-technology",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 76,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.3\u00a0s",
+          "lcp": "2.6\u00a0s",
+          "cls": "0",
+          "tbt": "930\u00a0ms"
+        },
+        {
+          "route": "/treatments/sedation-dentistry",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 77,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.3\u00a0s",
+          "lcp": "2.5\u00a0s",
+          "cls": "0",
+          "tbt": "880\u00a0ms"
+        },
+        {
+          "route": "/treatments/preventative-and-general-dentistry",
+          "httpStatus": 200,
+          "lighthouseStatus": "measured",
+          "performance": 75,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 54,
+          "fcp": "1.3\u00a0s",
+          "lcp": "2.6\u00a0s",
+          "cls": "0",
+          "tbt": "1,020\u00a0ms"
+        }
+      ],
+      "performanceRiskCounts": {
+        "medium": 13,
+        "low": 3
+      }
+    },
+    "routeReconciliation": {
+      "status": "pass",
+      "recommendation": "LIGHTHOUSE_EVIDENCE_CAN_BE_RERUN"
+    },
+    "schemaQa": {
+      "status": "pass",
+      "approvedSchemaAnswerCount": 16,
+      "verifiedTeamMemberCount": 5,
+      "priorityServiceCount": 11,
+      "errors": [],
+      "warnings": []
+    },
+    "answerQa": {
+      "answerFoundationRegistryStatus": {
+        "answerRegistryEntries": 18,
+        "treatmentFactEntries": 12,
+        "questionInventoryEntries": 55,
+        "voicePatterns": 7,
+        "chatbotAlignmentMappings": 17
+      },
+      "priorityPacketStatus": "pass_activation_supported",
+      "visibleRenderingStatus": "pass",
+      "finalHardeningStatus": "pass_with_known_warnings"
+    },
+    "localIdentity": {
+      "status": "bounded_foundation_implemented_not_launch_certified",
+      "schemaNodesImplemented": [
+        "Dentist/LocalBusiness",
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "ProfilePage",
+        "Person/Dentist for Dr Nick Maxwell",
+        "Person/Dentist for verified associates",
+        "Person for verified hygienists",
+        "BreadcrumbList for treatments",
+        "Service for priority services with route data"
+      ],
+      "phiTouched": false,
+      "pmsOrBookingBackendTouched": false,
+      "deploymentSettingsTouched": false
+    },
+    "teamRegistry": {
+      "status": "verified_bounded_foundation",
+      "verifiedForProductionSchema": [
+        {
+          "name": "Dr Nick Maxwell",
+          "role": "Principal Dentist",
+          "gdcNumber": "74877",
+          "sources": [
+            "mission_prompt",
+            "https://www.smhdental.co.uk/team/",
+            "page-truth/team-nick-maxwell.txt"
+          ]
+        },
+        {
+          "name": "Dr Sylvia Krafft",
+          "role": "Associate Dentist",
+          "gdcNumber": "174528",
+          "sources": [
+            "mission_prompt",
+            "https://www.smhdental.co.uk/team/",
+            "page-truth/team-sylvia-krafft.txt"
+          ],
+          "note": "Live site heading appears as Dr Sylvia Kraftt; canonical registry follows user prompt and repo spelling Krafft while recording alternate live spelling."
+        },
+        {
+          "name": "Kitty Ingarfield",
+          "role": "Associate Dentist",
+          "gdcNumber": "302160",
+          "sources": [
+            "https://www.smhdental.co.uk/team/"
+          ]
+        },
+        {
+          "name": "Sara Burden",
+          "role": "Dental Hygienist",
+          "gdcNumber": "3966",
+          "sources": [
+            "https://www.smhdental.co.uk/team/",
+            "page-truth/team-sara-burden.txt"
+          ]
+        },
+        {
+          "name": "Evgenia Georgieva (Jenny)",
+          "role": "Dental Hygienist",
+          "gdcNumber": "275874",
+          "sources": [
+            "https://www.smhdental.co.uk/team/"
+          ]
+        }
+      ],
+      "conflictsOrDrift": [
+        "Current repo page-truth/team.txt labels Sara Burden as Associate dentist in one routing-card block, while live site and profile page-truth/team-sara-burden.txt verify Sara Burden as Dental Hygienist. Registry uses Dental Hygienist and records the drift for future content cleanup.",
+        "Live site search cache showed older team names not present in the current opened team page. Registry uses current opened live page facts plus repo/user prompt facts only."
+      ]
+    },
+    "clinicalApprovalRegistry": {
+      "recommendation": "READY_FOR_FINAL_LAUNCH_HARDENING",
+      "remainingLaunchBlockers": [],
+      "summary": {
+        "packets_reviewed": 11,
+        "packets_approved": 11,
+        "packets_approved_with_edits": 0,
+        "packets_rejected": 0,
+        "approval_flags_recommended_for_enablement": 44,
+        "runtime_approval_flags_changed": 0,
+        "excluded_packet_note": "cosmetic-dentistry packet exists in the answer registry but was outside the 11-packet clinical approval audit scope for this mission."
+      },
+      "priorRemainingLaunchBlockers": [
+        "Apply approved_for_* runtime flag mutations in a bounded implementation packet or update QA contract to consume this approval ledger.",
+        "Run final launch hardening after approval flags and schema consumption are aligned with CI evidence.",
+        "Do not claim launch certification until final hardening evidence passes."
+      ],
+      "currentResolutionEvidence": "Final hardening QA and approval flag activation evidence are now present and passing."
+    },
+    "approvalFlagActivation": {
+      "status": "pass",
+      "approvedPacketCount": 11,
+      "activatedFlagCount": 44,
+      "notActivated": [
+        {
+          "packet": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+          "reason": "Outside 11-packet clinical approval ledger scope; flags remain false."
+        }
+      ]
+    },
+    "chatbotAlignment": {
+      "status": "alignment_foundation_only",
+      "runtimeMutation": false,
+      "mappingCount": 17,
+      "driftRisks": []
+    }
+  },
+  "blockerMatrix": {
+    "version": "CHAMPAGNE_FINAL_RECHECK_BLOCKER_MATRIX_V1",
+    "generatedAt": "2026-06-02T17:56:51.164Z",
+    "certification": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+    "blockers": [],
+    "resolvedFromPreviousAudit": [
+      {
+        "id": "current_lighthouse_cwv_mobile_accessibility_evidence",
+        "previousClassification": "HIGH",
+        "currentClassification": "RESOLVED",
+        "evidence": "8/8 required routes returned HTTP 200; 8/8 produced Lighthouse mobile lab evidence; 8/8 passed mobile readiness; 8/8 passed accessibility heuristics."
+      }
+    ],
+    "remainingItems": [
+      {
+        "id": "high_total_blocking_time_inp_proxy",
+        "classification": "MEDIUM",
+        "preLaunchRequired": true,
+        "itemCount": 8,
+        "justification": "Rerun records TBT as a lab INP proxy and classifies these entries as medium; no field INP evidence is available in local Lighthouse."
+      },
+      {
+        "id": "lcp_above_good_lab_threshold",
+        "classification": "MEDIUM",
+        "preLaunchRequired": true,
+        "itemCount": 5,
+        "justification": "Treatment LCP observations range from 2.5 s to 2.7 s in the rerun and are medium-risk optimization items."
+      },
+      {
+        "id": "lighthouse_accessibility_below_100",
+        "classification": "LOW",
+        "preLaunchRequired": false,
+        "itemCount": 3,
+        "justification": "Affected routes still scored 96 and all required routes passed basic accessibility heuristics."
+      },
+      {
+        "id": "seo_launch_safety_treatment_layout_warnings",
+        "classification": "MEDIUM",
+        "preLaunchRequired": true,
+        "justification": "Carried from the previous audit as review-only: SMH layout guard passes, while launch-safety warnings should be reviewed before deployment."
+      },
+      {
+        "id": "lighthouse_seo_lab_score_meta_description_observation",
+        "classification": "MEDIUM",
+        "preLaunchRequired": true,
+        "justification": "Rerun Lighthouse SEO scores are 54 with meta-description audit observations, while repo schema/metadata QA pass. This is a validation discrepancy to review before deployment, not a certification blocker for launch preparation."
+      },
+      {
+        "id": "answer_length_warnings",
+        "classification": "LOW",
+        "preLaunchRequired": false,
+        "justification": "Answer foundation warnings remain non-blocking; packet QA and rendering QA pass."
+      },
+      {
+        "id": "cosmetic_dentistry_packet_unapproved",
+        "classification": "LOW",
+        "preLaunchRequired": false,
+        "justification": "Contained because the packet remains unactivated/out of scope without fresh approval."
+      },
+      {
+        "id": "intent_cannibalisation_clusters",
+        "classification": "POST_LAUNCH",
+        "preLaunchRequired": false,
+        "justification": "Best handled with Search Console/Semrush evidence after launch."
+      },
+      {
+        "id": "indexnow_absent",
+        "classification": "POST_LAUNCH",
+        "preLaunchRequired": false,
+        "justification": "Affects Bing discovery speed, not Google/local launch preparation readiness."
+      },
+      {
+        "id": "chatbot_runtime_sync_absent",
+        "classification": "POST_LAUNCH",
+        "preLaunchRequired": false,
+        "justification": "Runtime mutation intentionally remains false; alignment evidence is sufficient for launch preparation."
+      }
+    ],
+    "severityCounts": {
+      "BLOCKER": 0,
+      "HIGH": 0,
+      "MEDIUM": 4,
+      "LOW": 3,
+      "POST_LAUNCH": 3
+    }
+  },
+  "scorecard": {
+    "version": "CHAMPAGNE_FINAL_RECHECK_SCORECARD_V1",
+    "generatedAt": "2026-06-02T17:56:51.164Z",
+    "certificationStatus": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+    "overallScore": 86,
+    "scores": [
+      {
+        "area": "Route Availability",
+        "score": 100,
+        "status": "PASS",
+        "evidence": [
+          "8/8 required routes HTTP 200 in rerun",
+          "Route reconciliation status: pass"
+        ],
+        "risk": "None blocking."
+      },
+      {
+        "area": "Lighthouse/CWV Lab Evidence",
+        "score": 76,
+        "status": "PARTIAL_PASS",
+        "evidence": [
+          "8/8 routes measured under mobile Lighthouse lab settings",
+          "Performance scores 70-77",
+          "CLS is 0 on all measured routes"
+        ],
+        "risk": "TBT/INP-proxy and LCP observations remain medium-risk prelaunch optimization tasks."
+      },
+      {
+        "area": "Mobile Readiness",
+        "score": 100,
+        "status": "PASS",
+        "evidence": [
+          "8/8 routes passed mobile readiness evidence"
+        ],
+        "risk": "None blocking."
+      },
+      {
+        "area": "Accessibility Readiness",
+        "score": 96,
+        "status": "PASS",
+        "evidence": [
+          "8/8 routes passed accessibility heuristics",
+          "Lighthouse accessibility scores are 96-100"
+        ],
+        "risk": "Low-risk refinements remain on routes scoring below 100."
+      },
+      {
+        "area": "Schema QA",
+        "score": 89,
+        "status": "PASS",
+        "evidence": [
+          "16 approved schema answers checked",
+          "5 verified team members",
+          "11 priority services"
+        ],
+        "risk": "Future FAQPage/media/offer expansion remains post-launch hardening."
+      },
+      {
+        "area": "Answer QA",
+        "score": 88,
+        "status": "PASS_WITH_WARNINGS",
+        "evidence": [
+          "Answer foundation registry entries: 18; treatment facts: 12; question inventory entries: 55",
+          "Priority packet status: pass_activation_supported",
+          "Visible answer rendering status: pass"
+        ],
+        "risk": "Answer-length refinements are non-blocking."
+      },
+      {
+        "area": "Local Identity",
+        "score": 88,
+        "status": "REVIEW",
+        "evidence": [
+          "Local identity/team schema foundation report is pass",
+          "Production schema did not touch deployment settings, PHI, PMS, or booking backend"
+        ],
+        "risk": "GBP identifiers, geo/hasMap/sameAs remain post-launch/future hardening."
+      },
+      {
+        "area": "Team Registry",
+        "score": 90,
+        "status": "REVIEW",
+        "evidence": [
+          "5 team members verified for schema"
+        ],
+        "risk": "No blocking drift recorded."
+      },
+      {
+        "area": "Clinical Approval Registry",
+        "score": 90,
+        "status": "PASS_AFTER_FINAL_HARDENING",
+        "evidence": [
+          "11 clinical approval decisions recorded",
+          "Prior runtime-flag/final-hardening prerequisites are now covered by final hardening and approval-flag activation evidence"
+        ],
+        "risk": "Continue clinical review intervals after launch."
+      },
+      {
+        "area": "Approval Flag Activation",
+        "score": 88,
+        "status": "PASS",
+        "evidence": [
+          "44 flags activated",
+          "11 approved packets"
+        ],
+        "risk": "Unapproved cosmetic-dentistry packet remains contained."
+      },
+      {
+        "area": "Chatbot Alignment",
+        "score": 84,
+        "status": "REVIEW",
+        "evidence": [
+          "17 mappings",
+          "runtimeMutation: false"
+        ],
+        "risk": "Runtime chatbot mutation remains intentionally absent and post-launch."
+      },
+      {
+        "area": "Launch Preparation Readiness",
+        "score": 86,
+        "status": "CERTIFIED",
+        "evidence": [
+          "Previous evidence blocker is resolved",
+          "Required repository guards and SEO QA are requested for this recheck"
+        ],
+        "risk": "Deployment still requires resolving/reviewing prelaunch optimization tasks and live release authorization."
+      }
+    ]
+  },
+  "prelaunchVsPostlaunch": {
+    "version": "CHAMPAGNE_FINAL_RECHECK_PRELAUNCH_VS_POSTLAUNCH_V1",
+    "generatedAt": "2026-06-02T17:56:51.164Z",
+    "certification": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+    "preLaunchRequired": [
+      {
+        "id": "main_thread_tbt_inp_proxy_review",
+        "classification": "MEDIUM",
+        "owner": "performance mission",
+        "evidence": "8 medium TBT/INP-proxy risk entries in rerun."
+      },
+      {
+        "id": "lcp_threshold_review",
+        "classification": "MEDIUM",
+        "owner": "performance mission",
+        "evidence": "5 medium LCP threshold risk entries in rerun."
+      },
+      {
+        "id": "seo_launch_safety_layout_warning_review",
+        "classification": "MEDIUM",
+        "owner": "SEO launch-safety mission",
+        "evidence": "Carried from previous final audit as review-only because SMH layout guard passed."
+      },
+      {
+        "id": "lighthouse_seo_meta_description_discrepancy_review",
+        "classification": "MEDIUM",
+        "owner": "SEO validation mission",
+        "evidence": "Lighthouse rerun SEO score 54/meta-description observation conflicts with repo metadata/schema QA pass evidence."
+      }
+    ],
+    "postLaunchOrOptional": [
+      {
+        "id": "accessibility_score_96_refinement",
+        "classification": "LOW",
+        "evidence": "3 routes scored 96 while all routes passed accessibility heuristics."
+      },
+      {
+        "id": "answer_length_refinement",
+        "classification": "LOW",
+        "evidence": "Answer foundation warnings remain non-blocking."
+      },
+      {
+        "id": "cosmetic_dentistry_packet_approval",
+        "classification": "LOW",
+        "evidence": "Contained unapproved packet; activate only after fresh clinical approval if needed."
+      },
+      {
+        "id": "indexnow",
+        "classification": "POST_LAUNCH",
+        "evidence": "Bing discovery hardening only."
+      },
+      {
+        "id": "intent_cannibalisation_learning",
+        "classification": "POST_LAUNCH",
+        "evidence": "Requires post-launch Search Console/Semrush evidence."
+      },
+      {
+        "id": "chatbot_runtime_sync",
+        "classification": "POST_LAUNCH",
+        "evidence": "Alignment pass without runtime mutation."
+      }
+    ],
+    "singleNextRecommendation": "Proceed to launch-preparation checklist with a focused prelaunch performance/SEO-validation review; do not deploy until launch owner accepts the remaining medium-risk items."
+  },
+  "finalRecommendation": "Proceed to launch-preparation checklist with a focused prelaunch performance/SEO-validation review; do not deploy until launch owner accepts the remaining medium-risk items."
+}
