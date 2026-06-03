@@ -1,0 +1,391 @@
+{
+  "version": "CHAMPAGNE_LAUNCH_PREPARATION_ACCEPTANCE_V1",
+  "generatedAt": "2026-06-03T01:53:18.708Z",
+  "role": "CHAMPAGNE_LAUNCH_PREPARATION_ACCEPTANCE_CHECKLIST_V1",
+  "boundary": [
+    "Governance and launch-planning only.",
+    "No deployment.",
+    "No merge.",
+    "No production infrastructure mutation.",
+    "No redesign or content rewrite.",
+    "No PHI/PMS/Dentally work.",
+    "No chatbot runtime mutation."
+  ],
+  "finalStatus": "READY_FOR_DEPLOYMENT_PLANNING",
+  "deploymentReadiness": "CONDITIONAL_READY",
+  "consolidatedTruthView": {
+    "certification": {
+      "currentStatus": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+      "readinessScore": 86,
+      "blockerCount": 0,
+      "highRiskCount": 0,
+      "mediumRiskCount": 4
+    },
+    "routeEvidence": {
+      "routeReconciliationStatus": "pass",
+      "routeQaMode": "runtime_and_static",
+      "requiredRoutesHttp200": "8/8"
+    },
+    "lighthouseEvidence": {
+      "classification": "READY_FOR_FINAL_CERTIFICATION_RECHECK",
+      "measuredRoutes": "8/8",
+      "performanceScores": {
+        "/": 75,
+        "/contact": 75,
+        "/treatments/emergency-dentistry": 75,
+        "/treatments/implants": 74,
+        "/treatments/clear-aligners-spark": 70,
+        "/treatments/3d-dentistry-and-technology": 76,
+        "/treatments/sedation-dentistry": 77,
+        "/treatments/preventative-and-general-dentistry": 75
+      },
+      "remainingRiskCount": 16
+    },
+    "mobileEvidence": {
+      "passedRoutes": "8/8"
+    },
+    "accessibilityEvidence": {
+      "passedRoutes": "8/8",
+      "scores": {
+        "/": 96,
+        "/contact": 96,
+        "/treatments/emergency-dentistry": 96,
+        "/treatments/implants": 100,
+        "/treatments/clear-aligners-spark": 100,
+        "/treatments/3d-dentistry-and-technology": 100,
+        "/treatments/sedation-dentistry": 100,
+        "/treatments/preventative-and-general-dentistry": 100
+      }
+    },
+    "seoEvidence": {
+      "finalHardeningQaStatus": "pass_with_known_warnings",
+      "localIdentityStatus": "bounded_foundation_implemented_not_launch_certified",
+      "teamRegistryStatus": "verified_bounded_foundation"
+    },
+    "schemaEvidence": {
+      "status": "pass",
+      "approvedSchemaAnswerCount": 16,
+      "verifiedTeamMemberCount": 5,
+      "priorityServiceCount": 11,
+      "errors": [],
+      "warnings": []
+    },
+    "answerEvidence": {
+      "foundationScores": {
+        "aiReadinessScore": 83,
+        "zeroClickReadinessScore": 71
+      },
+      "packetStatus": "pass_activation_supported",
+      "visibleRenderingStatus": "pass"
+    },
+    "clinicalAndApprovalEvidence": {
+      "clinicalRecommendation": "READY_FOR_FINAL_LAUNCH_HARDENING",
+      "approvedPackets": 11,
+      "approvalFlagStatus": "pass",
+      "activatedFlagCount": 44
+    },
+    "chatbotEvidence": {
+      "status": "alignment_foundation_only",
+      "mappingCount": 17,
+      "runtimeMutation": false
+    }
+  },
+  "prelaunchChecklist": {
+    "version": "CHAMPAGNE_PRELAUNCH_CHECKLIST_V1",
+    "generatedAt": "2026-06-03T01:53:18.708Z",
+    "status": "READY_FOR_DEPLOYMENT_PLANNING_WITH_OWNER_ACCEPTANCE_REQUIRED",
+    "requiredBeforeDeploy": [
+      {
+        "id": "launch_owner_acceptance_of_certification_recheck",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "evidence": "Final recheck is CERTIFIED_READY_FOR_LAUNCH_PREPARATION with 0 blockers and 0 high-risk items.",
+        "acceptanceCriterion": "Launch owner records acceptance of the certification decision and remaining medium-risk items."
+      },
+      {
+        "id": "main_thread_tbt_inp_proxy_review",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "riskLevel": "MEDIUM",
+        "owner": "performance mission",
+        "evidence": "8 medium TBT/INP-proxy risk entries in rerun.",
+        "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+      },
+      {
+        "id": "lcp_threshold_review",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "riskLevel": "MEDIUM",
+        "owner": "performance mission",
+        "evidence": "5 medium LCP threshold risk entries in rerun.",
+        "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+      },
+      {
+        "id": "seo_launch_safety_layout_warning_review",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "riskLevel": "MEDIUM",
+        "owner": "SEO launch-safety mission",
+        "evidence": "Carried from previous final audit as review-only because SMH layout guard passed.",
+        "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+      },
+      {
+        "id": "lighthouse_seo_meta_description_discrepancy_review",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "riskLevel": "MEDIUM",
+        "owner": "SEO validation mission",
+        "evidence": "Lighthouse rerun SEO score 54/meta-description observation conflicts with repo metadata/schema QA pass evidence.",
+        "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+      },
+      {
+        "id": "fresh_production_build_verification_before_deploy_window",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "evidence": "pnpm run verify passed during the acceptance packet run; repeat immediately before deploy window if code changes land after this packet.",
+        "acceptanceCriterion": "Production build verification passes on the deploy candidate commit."
+      },
+      {
+        "id": "no_deployment_or_runtime_mutation_in_this_packet",
+        "classification": "REQUIRED BEFORE DEPLOY",
+        "evidence": "This packet is governance/planning only and does not deploy, merge, alter production infrastructure, touch PHI/PMS/Dentally, or mutate chatbot runtime.",
+        "acceptanceCriterion": "Launch owner confirms deployment remains a separately approved event."
+      }
+    ],
+    "optionalBeforeDeploy": [
+      {
+        "id": "accessibility_score_96_refinement",
+        "classification": "OPTIONAL BEFORE DEPLOY",
+        "riskLevel": "LOW",
+        "evidence": "Three Lighthouse accessibility scores are 96 while all eight required routes passed accessibility heuristics.",
+        "acceptanceCriterion": "Optional refinement may be deferred because readiness evidence passes."
+      },
+      {
+        "id": "answer_length_refinement",
+        "classification": "OPTIONAL BEFORE DEPLOY",
+        "riskLevel": "LOW",
+        "evidence": "Answer foundation QA passes with over-length warnings only.",
+        "acceptanceCriterion": "Optional copy-length refinement may be scheduled without blocking deploy planning."
+      },
+      {
+        "id": "cosmetic_dentistry_packet_approval",
+        "classification": "OPTIONAL BEFORE DEPLOY",
+        "riskLevel": "LOW",
+        "evidence": "Cosmetic dentistry packet remains contained/unactivated without fresh approval.",
+        "acceptanceCriterion": "Do not activate unless a fresh clinical approval packet is completed."
+      }
+    ]
+  },
+  "postlaunchBacklog": {
+    "version": "CHAMPAGNE_POSTLAUNCH_BACKLOG_V1",
+    "generatedAt": "2026-06-03T01:53:18.708Z",
+    "status": "POST_LAUNCH_BACKLOG_DEFINED_NOT_BLOCKING_DEPLOYMENT_PLANNING",
+    "items": [
+      {
+        "id": "indexnow",
+        "classification": "POST_LAUNCH",
+        "priority": "LOW",
+        "evidence": "IndexNow absence affects Bing rapid discovery only and is not a Google/local launch blocker.",
+        "recommendedTiming": "After launch stabilization."
+      },
+      {
+        "id": "chatbot_runtime_sync",
+        "classification": "POST_LAUNCH",
+        "priority": "LOW",
+        "evidence": "Chatbot alignment passes with 17 mappings; runtimeMutation remains false.",
+        "recommendedTiming": "After launch, under a dedicated chatbot runtime authorization."
+      },
+      {
+        "id": "answer_refinement",
+        "classification": "POST_LAUNCH",
+        "priority": "LOW",
+        "evidence": "Answer QA passes; length warnings are refinement-only.",
+        "recommendedTiming": "After Search Console/query evidence is available."
+      },
+      {
+        "id": "intent_cannibalisation_monitoring",
+        "classification": "POST_LAUNCH",
+        "priority": "MEDIUM",
+        "evidence": "Launch-safety reports high-risk topic clusters for audit; no hard route/schema failure is present.",
+        "recommendedTiming": "After Search Console and Semrush learning starts."
+      },
+      {
+        "id": "search_console_learning",
+        "classification": "POST_LAUNCH",
+        "priority": "MEDIUM",
+        "evidence": "AI Mode, zero-click, and local dominance tuning require live query data.",
+        "recommendedTiming": "Begin immediately after deployment and indexing submission."
+      },
+      {
+        "id": "semrush_learning",
+        "classification": "POST_LAUNCH",
+        "priority": "MEDIUM",
+        "evidence": "Competitor and cannibalisation monitoring require live market data.",
+        "recommendedTiming": "After first indexing and ranking signals."
+      },
+      {
+        "id": "competitor_analysis",
+        "classification": "POST_LAUNCH",
+        "priority": "LOW",
+        "evidence": "Competitive readiness is adequate for launch preparation; market response should guide refinements.",
+        "recommendedTiming": "Post-launch month 1."
+      },
+      {
+        "id": "cosmetic_dentistry_packet_approval",
+        "classification": "POST_LAUNCH",
+        "priority": "LOW",
+        "evidence": "Cosmetic dentistry answer packet is unapproved and contained.",
+        "recommendedTiming": "Only if activation becomes a product/SEO priority."
+      }
+    ]
+  },
+  "riskAcceptanceMatrix": {
+    "version": "CHAMPAGNE_RISK_ACCEPTANCE_MATRIX_V1",
+    "generatedAt": "2026-06-03T01:53:18.708Z",
+    "summary": {
+      "LOW": 5,
+      "MEDIUM": 5,
+      "HIGH": 0,
+      "BLOCKER": 0,
+      "POST_LAUNCH_TRACKED": 3
+    },
+    "risks": [
+      {
+        "level": "MEDIUM",
+        "id": "high_total_blocking_time_inp_proxy",
+        "risk": "Rerun records TBT as a lab INP proxy and classifies these entries as medium; no field INP evidence is available in local Lighthouse.",
+        "impact": "Potential interaction latency / INP-proxy concern in lab evidence.",
+        "mitigation": "Review during launch-owner acceptance; remediate if owner requires, otherwise explicitly accept and monitor after launch.",
+        "launchRecommendation": "Do not block deployment planning; require owner acceptance before actual deploy approval."
+      },
+      {
+        "level": "MEDIUM",
+        "id": "lcp_above_good_lab_threshold",
+        "risk": "Treatment LCP observations range from 2.5 s to 2.7 s in the rerun and are medium-risk optimization items.",
+        "impact": "Potential above-the-fold loading delay on measured treatment routes.",
+        "mitigation": "Review during launch-owner acceptance; remediate if owner requires, otherwise explicitly accept and monitor after launch.",
+        "launchRecommendation": "Do not block deployment planning; require owner acceptance before actual deploy approval."
+      },
+      {
+        "level": "MEDIUM",
+        "id": "seo_launch_safety_treatment_layout_warnings",
+        "risk": "Carried from the previous audit as review-only: SMH layout guard passes, while launch-safety warnings should be reviewed before deployment.",
+        "impact": "Pre-deploy SEO review item from launch-safety evidence.",
+        "mitigation": "Review during launch-owner acceptance; remediate if owner requires, otherwise explicitly accept and monitor after launch.",
+        "launchRecommendation": "Do not block deployment planning; require owner acceptance before actual deploy approval."
+      },
+      {
+        "level": "MEDIUM",
+        "id": "lighthouse_seo_lab_score_meta_description_observation",
+        "risk": "Rerun Lighthouse SEO scores are 54 with meta-description audit observations, while repo schema/metadata QA pass. This is a validation discrepancy to review before deployment, not a certification blocker for launch preparation.",
+        "impact": "Validation discrepancy between Lighthouse SEO lab observations and repo metadata/schema QA.",
+        "mitigation": "Review during launch-owner acceptance; remediate if owner requires, otherwise explicitly accept and monitor after launch.",
+        "launchRecommendation": "Do not block deployment planning; require owner acceptance before actual deploy approval."
+      },
+      {
+        "level": "LOW",
+        "id": "lighthouse_accessibility_below_100",
+        "risk": "Affected routes still scored 96 and all required routes passed basic accessibility heuristics.",
+        "impact": "Refinement opportunity only; current QA evidence remains passing or contained.",
+        "mitigation": "Schedule as optional pre-deploy or post-launch backlog work.",
+        "launchRecommendation": "Do not block deployment planning or deploy approval unless scope is expanded."
+      },
+      {
+        "level": "LOW",
+        "id": "answer_length_warnings",
+        "risk": "Answer foundation warnings remain non-blocking; packet QA and rendering QA pass.",
+        "impact": "Refinement opportunity only; current QA evidence remains passing or contained.",
+        "mitigation": "Schedule as optional pre-deploy or post-launch backlog work.",
+        "launchRecommendation": "Do not block deployment planning or deploy approval unless scope is expanded."
+      },
+      {
+        "level": "LOW",
+        "id": "cosmetic_dentistry_packet_unapproved",
+        "risk": "Contained because the packet remains unactivated/out of scope without fresh approval.",
+        "impact": "Refinement opportunity only; current QA evidence remains passing or contained.",
+        "mitigation": "Schedule as optional pre-deploy or post-launch backlog work.",
+        "launchRecommendation": "Do not block deployment planning or deploy approval unless scope is expanded."
+      },
+      {
+        "level": "LOW",
+        "id": "indexnow_absent",
+        "risk": "IndexNow absence affects Bing discovery speed but not Google/local launch preparation readiness.",
+        "impact": "Slower Bing discovery only.",
+        "mitigation": "Schedule IndexNow after launch stabilization if Bing rapid discovery becomes a priority.",
+        "launchRecommendation": "Do not block deployment planning or deploy approval."
+      },
+      {
+        "level": "MEDIUM",
+        "id": "intent_cannibalisation_clusters",
+        "risk": "High-risk intent clusters need live Search Console/Semrush learning after launch.",
+        "impact": "Possible ranking dilution if live query data shows competing page intent.",
+        "mitigation": "Monitor Search Console and Semrush after launch; adjust only with evidence.",
+        "launchRecommendation": "Do not block deployment planning; include in post-launch monitoring."
+      },
+      {
+        "level": "LOW",
+        "id": "chatbot_runtime_sync_absent",
+        "risk": "Chatbot runtime mutation remains intentionally absent while alignment evidence passes.",
+        "impact": "Runtime chatbot may not consume all newly aligned packet flags until a separately authorized sync mission.",
+        "mitigation": "Keep runtime unchanged for launch; schedule a bounded chatbot sync mission after launch if needed.",
+        "launchRecommendation": "Do not block deployment planning or deploy approval."
+      },
+      {
+        "level": "HIGH",
+        "id": "none_remaining",
+        "risk": "No high-risk items remain in the certification recheck blocker matrix.",
+        "impact": "No high-risk launch-preparation blocker identified from current evidence.",
+        "mitigation": "Keep guards and final deploy-candidate verification in place.",
+        "launchRecommendation": "Proceed to deployment planning."
+      }
+    ]
+  },
+  "deploymentReadinessAssessment": {
+    "version": "CHAMPAGNE_DEPLOYMENT_READINESS_V1",
+    "generatedAt": "2026-06-03T01:53:18.708Z",
+    "deploymentReadiness": "CONDITIONAL_READY",
+    "planningStatus": "READY_FOR_DEPLOYMENT_PLANNING",
+    "conditions": [
+      "Launch owner must accept or remediate the remaining medium-risk items before deploy approval.",
+      "Run final production build/guard verification on the exact deploy candidate commit.",
+      "Deployment, merge, and production mutation remain outside this packet."
+    ],
+    "assessments": [
+      {
+        "area": "Build status",
+        "status": "READY",
+        "evidence": "pnpm run verify passed during this acceptance packet run."
+      },
+      {
+        "area": "Route status",
+        "status": "READY",
+        "evidence": "8/8 required routes returned HTTP 200; route reconciliation status pass."
+      },
+      {
+        "area": "Schema status",
+        "status": "READY",
+        "evidence": "Schema QA status pass; 16 approved schema answers, 5 verified team members, 11 priority services."
+      },
+      {
+        "area": "SEO status",
+        "status": "CONDITIONAL_READY",
+        "evidence": "Final hardening QA pass_with_known_warnings; final recheck certified readiness; medium SEO review items remain for owner acceptance."
+      },
+      {
+        "area": "Mobile status",
+        "status": "READY",
+        "evidence": "8/8 routes passed mobile readiness."
+      },
+      {
+        "area": "Accessibility status",
+        "status": "READY",
+        "evidence": "8/8 routes passed accessibility heuristics; scores 96-100."
+      }
+    ]
+  },
+  "deploymentPlan": [
+    "Final owner review of this acceptance package.",
+    "Explicit acceptance or remediation of remaining medium-risk items.",
+    "Production build verification on the deploy candidate commit.",
+    "Merge approval by authorized owner only.",
+    "Schedule deploy window; no deployment is performed by this packet.",
+    "Deploy-window smoke test plan covering route, schema, mobile, accessibility, SEO, and contact/portal safety checks.",
+    "Search Console/sitemap submission after deployment.",
+    "Monitoring and post-launch learning backlog activation."
+  ],
+  "finalRecommendation": "Proceed to deployment planning, not deployment. Deployment approval remains conditional on launch-owner acceptance of medium-risk items and fresh deploy-candidate verification."
+}

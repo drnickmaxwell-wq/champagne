@@ -1,0 +1,63 @@
+{
+  "version": "CHAMPAGNE_POSTLAUNCH_BACKLOG_V1",
+  "generatedAt": "2026-06-03T01:53:18.708Z",
+  "status": "POST_LAUNCH_BACKLOG_DEFINED_NOT_BLOCKING_DEPLOYMENT_PLANNING",
+  "items": [
+    {
+      "id": "indexnow",
+      "classification": "POST_LAUNCH",
+      "priority": "LOW",
+      "evidence": "IndexNow absence affects Bing rapid discovery only and is not a Google/local launch blocker.",
+      "recommendedTiming": "After launch stabilization."
+    },
+    {
+      "id": "chatbot_runtime_sync",
+      "classification": "POST_LAUNCH",
+      "priority": "LOW",
+      "evidence": "Chatbot alignment passes with 17 mappings; runtimeMutation remains false.",
+      "recommendedTiming": "After launch, under a dedicated chatbot runtime authorization."
+    },
+    {
+      "id": "answer_refinement",
+      "classification": "POST_LAUNCH",
+      "priority": "LOW",
+      "evidence": "Answer QA passes; length warnings are refinement-only.",
+      "recommendedTiming": "After Search Console/query evidence is available."
+    },
+    {
+      "id": "intent_cannibalisation_monitoring",
+      "classification": "POST_LAUNCH",
+      "priority": "MEDIUM",
+      "evidence": "Launch-safety reports high-risk topic clusters for audit; no hard route/schema failure is present.",
+      "recommendedTiming": "After Search Console and Semrush learning starts."
+    },
+    {
+      "id": "search_console_learning",
+      "classification": "POST_LAUNCH",
+      "priority": "MEDIUM",
+      "evidence": "AI Mode, zero-click, and local dominance tuning require live query data.",
+      "recommendedTiming": "Begin immediately after deployment and indexing submission."
+    },
+    {
+      "id": "semrush_learning",
+      "classification": "POST_LAUNCH",
+      "priority": "MEDIUM",
+      "evidence": "Competitor and cannibalisation monitoring require live market data.",
+      "recommendedTiming": "After first indexing and ranking signals."
+    },
+    {
+      "id": "competitor_analysis",
+      "classification": "POST_LAUNCH",
+      "priority": "LOW",
+      "evidence": "Competitive readiness is adequate for launch preparation; market response should guide refinements.",
+      "recommendedTiming": "Post-launch month 1."
+    },
+    {
+      "id": "cosmetic_dentistry_packet_approval",
+      "classification": "POST_LAUNCH",
+      "priority": "LOW",
+      "evidence": "Cosmetic dentistry answer packet is unapproved and contained.",
+      "recommendedTiming": "Only if activation becomes a product/SEO priority."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "version": "CHAMPAGNE_PRELAUNCH_CHECKLIST_V1",
+  "generatedAt": "2026-06-03T01:53:18.708Z",
+  "status": "READY_FOR_DEPLOYMENT_PLANNING_WITH_OWNER_ACCEPTANCE_REQUIRED",
+  "requiredBeforeDeploy": [
+    {
+      "id": "launch_owner_acceptance_of_certification_recheck",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "evidence": "Final recheck is CERTIFIED_READY_FOR_LAUNCH_PREPARATION with 0 blockers and 0 high-risk items.",
+      "acceptanceCriterion": "Launch owner records acceptance of the certification decision and remaining medium-risk items."
+    },
+    {
+      "id": "main_thread_tbt_inp_proxy_review",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "riskLevel": "MEDIUM",
+      "owner": "performance mission",
+      "evidence": "8 medium TBT/INP-proxy risk entries in rerun.",
+      "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+    },
+    {
+      "id": "lcp_threshold_review",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "riskLevel": "MEDIUM",
+      "owner": "performance mission",
+      "evidence": "5 medium LCP threshold risk entries in rerun.",
+      "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+    },
+    {
+      "id": "seo_launch_safety_layout_warning_review",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "riskLevel": "MEDIUM",
+      "owner": "SEO launch-safety mission",
+      "evidence": "Carried from previous final audit as review-only because SMH layout guard passed.",
+      "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+    },
+    {
+      "id": "lighthouse_seo_meta_description_discrepancy_review",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "riskLevel": "MEDIUM",
+      "owner": "SEO validation mission",
+      "evidence": "Lighthouse rerun SEO score 54/meta-description observation conflicts with repo metadata/schema QA pass evidence.",
+      "acceptanceCriterion": "Review and either remediate or explicitly accept before deployment approval."
+    },
+    {
+      "id": "fresh_production_build_verification_before_deploy_window",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "evidence": "pnpm run verify passed during the acceptance packet run; repeat immediately before deploy window if code changes land after this packet.",
+      "acceptanceCriterion": "Production build verification passes on the deploy candidate commit."
+    },
+    {
+      "id": "no_deployment_or_runtime_mutation_in_this_packet",
+      "classification": "REQUIRED BEFORE DEPLOY",
+      "evidence": "This packet is governance/planning only and does not deploy, merge, alter production infrastructure, touch PHI/PMS/Dentally, or mutate chatbot runtime.",
+      "acceptanceCriterion": "Launch owner confirms deployment remains a separately approved event."
+    }
+  ],
+  "optionalBeforeDeploy": [
+    {
+      "id": "accessibility_score_96_refinement",
+      "classification": "OPTIONAL BEFORE DEPLOY",
+      "riskLevel": "LOW",
+      "evidence": "Three Lighthouse accessibility scores are 96 while all eight required routes passed accessibility heuristics.",
+      "acceptanceCriterion": "Optional refinement may be deferred because readiness evidence passes."
+    },
+    {
+      "id": "answer_length_refinement",
+      "classification": "OPTIONAL BEFORE DEPLOY",
+      "riskLevel": "LOW",
+      "evidence": "Answer foundation QA passes with over-length warnings only.",
+      "acceptanceCriterion": "Optional copy-length refinement may be scheduled without blocking deploy planning."
+    },
+    {
+      "id": "cosmetic_dentistry_packet_approval",
+      "classification": "OPTIONAL BEFORE DEPLOY",
+      "riskLevel": "LOW",
+      "evidence": "Cosmetic dentistry packet remains contained/unactivated without fresh approval.",
+      "acceptanceCriterion": "Do not activate unless a fresh clinical approval packet is completed."
+    }
+  ]
+}
