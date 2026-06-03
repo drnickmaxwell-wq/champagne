@@ -1,0 +1,86 @@
+{
+  "version": "CHAMPAGNE_FINAL_RECHECK_BLOCKER_MATRIX_V1",
+  "generatedAt": "2026-06-02T17:56:51.164Z",
+  "certification": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+  "blockers": [],
+  "resolvedFromPreviousAudit": [
+    {
+      "id": "current_lighthouse_cwv_mobile_accessibility_evidence",
+      "previousClassification": "HIGH",
+      "currentClassification": "RESOLVED",
+      "evidence": "8/8 required routes returned HTTP 200; 8/8 produced Lighthouse mobile lab evidence; 8/8 passed mobile readiness; 8/8 passed accessibility heuristics."
+    }
+  ],
+  "remainingItems": [
+    {
+      "id": "high_total_blocking_time_inp_proxy",
+      "classification": "MEDIUM",
+      "preLaunchRequired": true,
+      "itemCount": 8,
+      "justification": "Rerun records TBT as a lab INP proxy and classifies these entries as medium; no field INP evidence is available in local Lighthouse."
+    },
+    {
+      "id": "lcp_above_good_lab_threshold",
+      "classification": "MEDIUM",
+      "preLaunchRequired": true,
+      "itemCount": 5,
+      "justification": "Treatment LCP observations range from 2.5 s to 2.7 s in the rerun and are medium-risk optimization items."
+    },
+    {
+      "id": "lighthouse_accessibility_below_100",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "itemCount": 3,
+      "justification": "Affected routes still scored 96 and all required routes passed basic accessibility heuristics."
+    },
+    {
+      "id": "seo_launch_safety_treatment_layout_warnings",
+      "classification": "MEDIUM",
+      "preLaunchRequired": true,
+      "justification": "Carried from the previous audit as review-only: SMH layout guard passes, while launch-safety warnings should be reviewed before deployment."
+    },
+    {
+      "id": "lighthouse_seo_lab_score_meta_description_observation",
+      "classification": "MEDIUM",
+      "preLaunchRequired": true,
+      "justification": "Rerun Lighthouse SEO scores are 54 with meta-description audit observations, while repo schema/metadata QA pass. This is a validation discrepancy to review before deployment, not a certification blocker for launch preparation."
+    },
+    {
+      "id": "answer_length_warnings",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "Answer foundation warnings remain non-blocking; packet QA and rendering QA pass."
+    },
+    {
+      "id": "cosmetic_dentistry_packet_unapproved",
+      "classification": "LOW",
+      "preLaunchRequired": false,
+      "justification": "Contained because the packet remains unactivated/out of scope without fresh approval."
+    },
+    {
+      "id": "intent_cannibalisation_clusters",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "Best handled with Search Console/Semrush evidence after launch."
+    },
+    {
+      "id": "indexnow_absent",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "Affects Bing discovery speed, not Google/local launch preparation readiness."
+    },
+    {
+      "id": "chatbot_runtime_sync_absent",
+      "classification": "POST_LAUNCH",
+      "preLaunchRequired": false,
+      "justification": "Runtime mutation intentionally remains false; alignment evidence is sufficient for launch preparation."
+    }
+  ],
+  "severityCounts": {
+    "BLOCKER": 0,
+    "HIGH": 0,
+    "MEDIUM": 4,
+    "LOW": 3,
+    "POST_LAUNCH": 3
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "version": "CHAMPAGNE_FINAL_RECHECK_PRELAUNCH_VS_POSTLAUNCH_V1",
+  "generatedAt": "2026-06-02T17:56:51.164Z",
+  "certification": "CERTIFIED_READY_FOR_LAUNCH_PREPARATION",
+  "preLaunchRequired": [
+    {
+      "id": "main_thread_tbt_inp_proxy_review",
+      "classification": "MEDIUM",
+      "owner": "performance mission",
+      "evidence": "8 medium TBT/INP-proxy risk entries in rerun."
+    },
+    {
+      "id": "lcp_threshold_review",
+      "classification": "MEDIUM",
+      "owner": "performance mission",
+      "evidence": "5 medium LCP threshold risk entries in rerun."
+    },
+    {
+      "id": "seo_launch_safety_layout_warning_review",
+      "classification": "MEDIUM",
+      "owner": "SEO launch-safety mission",
+      "evidence": "Carried from previous final audit as review-only because SMH layout guard passed."
+    },
+    {
+      "id": "lighthouse_seo_meta_description_discrepancy_review",
+      "classification": "MEDIUM",
+      "owner": "SEO validation mission",
+      "evidence": "Lighthouse rerun SEO score 54/meta-description observation conflicts with repo metadata/schema QA pass evidence."
+    }
+  ],
+  "postLaunchOrOptional": [
+    {
+      "id": "accessibility_score_96_refinement",
+      "classification": "LOW",
+      "evidence": "3 routes scored 96 while all routes passed accessibility heuristics."
+    },
+    {
+      "id": "answer_length_refinement",
+      "classification": "LOW",
+      "evidence": "Answer foundation warnings remain non-blocking."
+    },
+    {
+      "id": "cosmetic_dentistry_packet_approval",
+      "classification": "LOW",
+      "evidence": "Contained unapproved packet; activate only after fresh clinical approval if needed."
+    },
+    {
+      "id": "indexnow",
+      "classification": "POST_LAUNCH",
+      "evidence": "Bing discovery hardening only."
+    },
+    {
+      "id": "intent_cannibalisation_learning",
+      "classification": "POST_LAUNCH",
+      "evidence": "Requires post-launch Search Console/Semrush evidence."
+    },
+    {
+      "id": "chatbot_runtime_sync",
+      "classification": "POST_LAUNCH",
+      "evidence": "Alignment pass without runtime mutation."
+    }
+  ],
+  "singleNextRecommendation": "Proceed to launch-preparation checklist with a focused prelaunch performance/SEO-validation review; do not deploy until launch owner accepts the remaining medium-risk items."
+}
