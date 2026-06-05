@@ -32,7 +32,15 @@
         "personal_suitability",
         "outcome_promises"
       ],
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved emergency dentistry treatment fact",
+      "local_entity_summary": "Emergency dentistry is a priority service at St Mary's House Dental Care in Shoreham-by-Sea.",
+      "authority_summary": "Route evidence supports triage, pain/swelling/trauma/infection assessment, stabilisation, and safety boundaries.",
+      "target_queries_supported": [
+        "emergency dentist Shoreham-by-Sea",
+        "urgent dentist Shoreham-by-Sea",
+        "emergency dentist West Sussex"
+      ]
     },
     {
       "id": "smh-treatment-fact-dental-implants-v1",
@@ -62,7 +70,15 @@
         "personal_suitability",
         "outcome_promises"
       ],
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved dental implants treatment fact",
+      "local_entity_summary": "Dental implants are a priority service at St Mary's House Dental Care in Shoreham-by-Sea.",
+      "authority_summary": "Route evidence supports planning-led implant care, medical history review, CBCT imaging, digital scans, bone/nerve/bite planning, alternatives, aftercare, and maintenance.",
+      "target_queries_supported": [
+        "dental implants Shoreham-by-Sea",
+        "dental implants West Sussex",
+        "implant dentist Sussex"
+      ]
     },
     {
       "id": "smh-treatment-fact-spark-aligners-v1",
@@ -91,7 +107,15 @@
         "personal_suitability",
         "outcome_promises"
       ],
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved Spark Aligners treatment fact",
+      "local_entity_summary": "Spark Aligners are a priority service at St Mary's House Dental Care in Shoreham-by-Sea.",
+      "authority_summary": "Route evidence supports clinician-led planning, digital scans, staged aligner trays, progress checks, retention planning, and suitability boundaries.",
+      "target_queries_supported": [
+        "Spark Aligners Shoreham-by-Sea",
+        "clear aligners Shoreham-by-Sea",
+        "Spark Aligners West Sussex"
+      ]
     },
     {
       "id": "smh-treatment-fact-orthodontics-v1",
@@ -120,7 +144,15 @@
         "personal_suitability",
         "outcome_promises"
       ],
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved orthodontics treatment fact",
+      "local_entity_summary": "Orthodontics is a priority service at St Mary's House Dental Care in Shoreham-by-Sea.",
+      "authority_summary": "Route evidence supports Spark clear aligners, fixed braces, retainers, digital scans, bite checks, stability planning, and retention needs.",
+      "target_queries_supported": [
+        "orthodontics Shoreham-by-Sea",
+        "orthodontist Shoreham-by-Sea",
+        "clear aligners or braces Shoreham-by-Sea"
+      ]
     },
     {
       "id": "smh-treatment-fact-cosmetic-dentistry-v1",
@@ -181,7 +213,15 @@
         "personal_suitability",
         "outcome_promises"
       ],
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved preventative and general dentistry treatment fact",
+      "local_entity_summary": "Preventative and general dentistry is anchored to the existing Shoreham-by-Sea treatment route.",
+      "authority_summary": "Route evidence supports check-ups, gum and hygiene support, oral cancer screening, prevention advice, and risk-led review intervals.",
+      "target_queries_supported": [
+        "general dentistry Shoreham-by-Sea",
+        "private dental check-up Shoreham-by-Sea",
+        "dental hygiene Shoreham-by-Sea"
+      ]
     },
     {
       "id": "smh-treatment-fact-private-dentist-v1",
@@ -210,7 +250,15 @@
         "local-identity.smh.json:primaryMarket"
       ],
       "clinical_review_required": true,
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved private dentistry treatment fact",
+      "local_entity_summary": "Private dentist intent is anchored to the St Mary's House Dental Care approved NAP and Shoreham-by-Sea practice identity.",
+      "authority_summary": "Authority is limited to approved practice identity, contact, opening-hours, and priority-service facts; clinical recommendations require examination.",
+      "target_queries_supported": [
+        "private dentist Shoreham-by-Sea",
+        "private dentist West Sussex",
+        "general dentistry Shoreham-by-Sea"
+      ]
     },
     {
       "id": "smh-treatment-fact-examinations-v1",
@@ -268,7 +316,16 @@
         "page-truth/treatments-3d-dentistry-and-technology.txt"
       ],
       "clinical_review_required": true,
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved 3D dentistry treatment fact",
+      "local_entity_summary": "3D dentistry is anchored to the Shoreham-by-Sea practice entity and /treatments/3d-dentistry-and-technology.",
+      "authority_summary": "Route evidence supports CBCT, 3D scanning, guided planning, digital scans, and 3D printing where appropriate.",
+      "target_queries_supported": [
+        "3D dentistry Shoreham-by-Sea",
+        "3D dental scans Shoreham-by-Sea",
+        "digital dentistry Shoreham-by-Sea"
+      ],
+      "canonical_intent": "Primary route for 3D dentistry capability."
     },
     {
       "id": "smh-treatment-fact-same-day-crowns-veneers-v1",
@@ -297,7 +354,16 @@
         "page-truth/treatments-3d-digital-dentistry.txt"
       ],
       "clinical_review_required": true,
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved same-day crowns and veneers treatment fact",
+      "local_entity_summary": "Same-day crowns and veneers are anchored to /treatments/3d-digital-dentistry for workflow intent.",
+      "authority_summary": "Route evidence supports scanning, guided planning, and digital workflows while preserving suitability assessment boundaries.",
+      "target_queries_supported": [
+        "same-day veneers Shoreham-by-Sea",
+        "same-day crowns Shoreham-by-Sea",
+        "digital veneers Shoreham-by-Sea"
+      ],
+      "canonical_intent": "Primary route for same-day crown and veneer workflow."
     },
     {
       "id": "smh-treatment-fact-veneers-v1",
@@ -326,7 +392,15 @@
         "champagne_machine_manifest_full.json:pages.veneers.answerSurface"
       ],
       "clinical_review_required": true,
-      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present."
+      "source_note": "Duration, recovery, finance, personal suitability, alternatives, and outcome promises remain null unless approved evidence is present.",
+      "source_label": "Approved broader veneers treatment fact",
+      "local_entity_summary": "The veneers route remains supporting evidence for broad veneer treatment intent in Shoreham-by-Sea.",
+      "authority_summary": "Route evidence supports veneer suitability, planning, materials, aftercare, limitations, and alternatives without owning same-day workflow intent.",
+      "target_queries_supported": [
+        "veneers Shoreham-by-Sea",
+        "porcelain veneers Shoreham-by-Sea"
+      ],
+      "canonical_intent": "Supporting route for broader veneers treatment intent, not the same-day workflow primary."
     },
     {
       "id": "smh-treatment-fact-sedation-anxiety-dentistry-v1",
