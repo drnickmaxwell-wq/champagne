@@ -552,7 +552,12 @@ export function HeroV2Frame({
       className="hero-renderer hero-renderer-v2 hero-optical-isolation"
       data-hero-renderer="v2"
       data-hero-root="true"
-      style={rootStyle}
+      style={{
+        ["--hero-gradient" as string]: gradient,
+        background: "var(--hero-gradient)",
+        backgroundSize: "cover",
+        ...rootStyle,
+      }}
       {...dataAttributes}
     >
       <BaseChampagneSurface
@@ -563,8 +568,7 @@ export function HeroV2Frame({
           display: "grid",
           alignItems: layout.contentAlign === "center" ? "center" : "stretch",
           overflow: "hidden",
-          backgroundImage: "none",
-          backgroundColor: "transparent",
+          background: "var(--hero-gradient)",
           boxShadow: "none",
           borderRadius: 0,
           ["--hero-gradient" as string]: gradient,
@@ -918,7 +922,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
   const resolvedRootStyle = { ...rootStyle, ...activeModel.surfaceStack.surfaceVars };
   const gatedRootStyle = isHeroVisuallyReady
     ? resolvedRootStyle
-    : { ...resolvedRootStyle, opacity: 0, visibility: "hidden" as const };
+    : { ...resolvedRootStyle, background: "var(--hero-gradient)", backgroundSize: "cover" };
   const motionCount = activeModel.surfaceStack.motionLayers.length;
   const overlayData = {
     pathname: pathnameKey,
