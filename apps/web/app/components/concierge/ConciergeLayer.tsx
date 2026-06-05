@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getPageManifest } from "@champagne/manifests";
 import { ConciergeShell, type ConciergeMessage } from "./ConciergeShell";
+import { normalizeConverseDisplayMessage, type ConverseResponse } from "./_helpers/converseDisplay";
 import { HandoffModal } from "./_handoff/HandoffModal";
 import { resolveHandoffKind, type HandoffKind } from "./_handoff/postbackRouter";
 import {
@@ -13,22 +14,6 @@ import {
   setIntentStage,
   updateVisitedPath,
 } from "./_helpers/sessionMemory";
-
-type ConverseCard = {
-  title?: string;
-  description?: string;
-  body?: string;
-  actions?: Array<{ type?: string; label?: string; href?: string; payload?: unknown }>;
-};
-
-type ConverseResponse = {
-  conversationId?: string;
-  content?: string;
-  ui?: {
-    kind?: string;
-    cards?: ConverseCard[];
-  };
-};
 
 function resolveConciergeEnabled(pathname: string): boolean {
   const manifest = getPageManifest(pathname) as { conciergeEnabled?: boolean } | undefined;
@@ -128,44 +113,14 @@ export function ConciergeLayer() {
         setSessionState(setConversationId(nextConversationId));
       }
 
-      const cards = payload.ui?.kind === "cards" && Array.isArray(payload.ui.cards)
-        ? payload.ui.cards.map((card, cardIndex) => ({
-            id: `${idSeed}-card-${cardIndex}`,
-            title: card.title,
-            description: card.description ?? card.body ?? "",
-            actions: card.actions
-              ?.map((action) => {
-                if (action.type === "link" && action.href && action.label) {
-                  return { type: "link" as const, href: action.href, label: action.label };
-                }
-
-                if (
-                  action.type === "postback" &&
-                  (typeof action.payload === "string" || (action.payload && typeof action.payload === "object")) &&
-                  action.label
-                ) {
-                  return { type: "postback" as const, payload: action.payload, label: action.label };
-                }
-
-                return null;
-              })
-              .filter(
-                (
-                  action,
-                ): action is
-                  | { type: "link"; href: string; label: string }
-                  | { type: "postback"; payload: string | Record<string, unknown>; label: string } => Boolean(action),
-              ),
-          }))
-        : undefined;
+      const displayMessage = normalizeConverseDisplayMessage(payload, idSeed);
 
       setMessages((previous) => [
         ...previous,
         {
           id: `${idSeed}-assistant`,
           role: "assistant",
-          content: payload.content ?? "I can help with another question whenever you are ready.",
-          cards,
+          ...displayMessage,
         },
       ]);
     } catch {

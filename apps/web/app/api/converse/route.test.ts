@@ -31,6 +31,7 @@ describe("POST /api/converse", () => {
 
     const request = new Request("http://localhost/api/converse", {
       method: "POST",
+      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "x-debug-chat": "1",
@@ -42,6 +43,7 @@ describe("POST /api/converse", () => {
 
     expect(fetchMock).toHaveBeenCalledWith("https://engine.test/v1/converse", {
       method: "POST",
+      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "x-debug-chat": "1",
@@ -64,6 +66,7 @@ describe("POST /api/converse", () => {
 
     const request = new Request("http://localhost/api/converse", {
       method: "POST",
+      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "x-debug-chat": "0",
@@ -75,6 +78,7 @@ describe("POST /api/converse", () => {
 
     expect(fetchMock).toHaveBeenCalledWith("https://engine.test/v1/converse", {
       method: "POST",
+      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
       },
