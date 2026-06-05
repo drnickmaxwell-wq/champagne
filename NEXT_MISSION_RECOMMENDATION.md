@@ -1,64 +1,59 @@
 # NEXT_MISSION_RECOMMENDATION
 
-Mode: recommendation after deeper read-only diagnostic capture  
+Mode: recommendation after production-build proof-gate capture
 Evidence date: 2026-06-05
 
 ## Recommendation
 
-Recommended next mission: **production-build first-frame + hydration/path validation capture**.
+Recommended next mission: **A. bounded safe fix mission**.
 
-This is still not a visual fix mission.
+The next mission should be a narrow Hero V2 first-paint/base-surface stabilization mission. It must not be a nav redesign, global background retokening, Persian Midnight implementation, typography pass, route-identity repair, or hero-variant implementation.
 
-## Why not a fix mission yet?
+## Why a bounded fix is now safe
 
-The deeper browser capture strengthened the mixed-surface hypothesis, but it also exposed two confounding issues that must be separated before a safe patch:
+Production proof-gate capture showed:
 
-1. React hydration mismatch warnings appeared on treatment routes.
-2. Local dev `HERO_BINDING_PROOF` logs reported `pathname: '/'` even for treatment URLs, so route-specific hero identity was not proven during this capture.
+- fresh direct-load earliest frames expose root/body ink through the hero area;
+- hydrated frames settle to the Hero V2 gradient/asset composite;
+- `html`/`body` are stable ink;
+- `main`, Hero V2 mount, Hero V2 renderer/root, and `hero.contentFrame` are transparent;
+- `gradient.base` exists with opacity `1`, but the Hero V2 root/frame lacks its own first-paint visual base;
+- no production hydration warning was captured;
+- route path validation passed for `/`, `/treatments/composite-bonding`, and `/treatments/teeth-whitening`.
 
-The computed styles were stable after `domcontentloaded`, but the reported issue is a flash. A safe later fix needs true first visual frame evidence and production-like route identity.
+This makes the dominant direct-load flash cause sufficiently proven for a one-contract Hero V2 base-surface fix.
 
-## Required next diagnostic capture
+## Boundary for the next mission
 
-Run a production-build server with Hero V2/debug enabled and capture:
+The next mission may only stabilize the Hero V2 first paint/base surface using token-only styling and preserving current Hero V2 structure. The likely file is:
 
-- `/`
-- `/treatments/composite-bonding`
-- `/treatments/teeth-whitening`
+- `apps/web/app/components/hero/v2/HeroRendererV2.tsx`
 
-For each route, capture:
+Do not touch:
 
-1. retained screenshot or pixel sample at the earliest possible visual frame;
-2. screenshot or pixel sample after 1500ms;
-3. computed styles for `html`, `body`, app wrapper, `main`, sticky wrapper, `header`, `nav`, Hero V2 mount/root/base, every `[data-surface-id]`, Hero content, and the outer page-builder surface around `[data-surface="porcelain"]`;
-4. console warnings/errors;
-5. `HERO_BINDING_PROOF`, `[HeroDebug]`, and hero truth logs;
-6. network waterfall timing for app CSS and hero assets;
-7. reduced-motion comparison;
-8. true client-side Link-click transition if measurement can be made stable.
+- sacred hero manifests;
+- sacred hero engine core;
+- `apps/web/app/components/hero/HeroRenderer.tsx` unless separately authorized;
+- `apps/web/app/layout.tsx`;
+- `apps/web/app/globals.css`;
+- header/nav files;
+- token files;
+- typography files;
+- page copy/content;
+- hero variant/model routing.
 
-## Decision gate after next capture
+## Required proof after the bounded fix
 
-Proceed to a bounded implementation mission only if one dominant cause is proven:
-
-- root/main background visibly shows during first paint or route swap;
-- header translucent material is the visible mismatch;
-- Hero V2 frame/base transparency exposes the wrong base before layers paint;
-- route identity is wrong and causes a home/treatment hero mismatch;
-- hydration mismatch causes observable visual replacement.
-
-If more than one remains plausible, do not patch visuals. Produce a narrower diagnostic packet.
-
-## Safest likely future fix if proof confirms current ranking
-
-If first-frame proof confirms Hero V2 base/root contract as dominant, authorize a one-file, token-only Hero V2 base-surface stabilization mission. Do not change global tokens, nav, typography, manifests, hero variants, or Persian Midnight.
-
-## Guard requirement for any future implementation
-
-Any future implementation mission must run:
+The next mission must run:
 
 - `npm run guard:hero`
 - `npm run guard:canon`
 - `npm run verify`
 
-Green build without those guards is not acceptable.
+It must also recapture production first-frame and post-hydration evidence for:
+
+- `/`
+- `/treatments/composite-bonding`
+- `/treatments/teeth-whitening`
+
+Acceptance criterion: earliest observable hero-area pixels no longer expose root/body ink, hydrated hero visuals remain stable, paths remain correct, no hydration warnings appear, and guards pass.
