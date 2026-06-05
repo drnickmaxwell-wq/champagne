@@ -5,6 +5,34 @@ const { resolveTreatmentMidCTAPlan } = require("../../champagne-sections/src/tre
 const { resolveTreatmentClosingCTAPlan } = require("../../champagne-sections/src/treatmentClosingCtaPlan");
 const { getTreatmentPages } = require("../../champagne-manifests/src/helpers");
 
+const fs = require("node:fs");
+const path = require("node:path");
+
+const repoRoot = path.resolve(__dirname, "..", "..", "..");
+const reportsDir = path.join(repoRoot, "REPORTS");
+const updateReports = process.argv.includes("--update-reports") || process.env.CHAMPAGNE_UPDATE_GUARD_REPORTS === "1";
+
+const compareOrUpdateReport = (fileName, content) => {
+  const reportPath = path.join(reportsDir, fileName);
+  if (updateReports) {
+    if (!fs.existsSync(reportsDir)) fs.mkdirSync(reportsDir, { recursive: true });
+    fs.writeFileSync(reportPath, content);
+    return;
+  }
+
+  if (!fs.existsSync(reportPath)) {
+    throw new Error(`CTA contract guard report baseline missing: ${path.relative(repoRoot, reportPath)}`);
+  }
+
+  const baseline = fs.readFileSync(reportPath, "utf-8");
+  if (baseline !== content) {
+    throw new Error(
+      `CTA contract guard report baseline differs: ${path.relative(repoRoot, reportPath)}\n` +
+        `Run with --update-reports or CHAMPAGNE_UPDATE_GUARD_REPORTS=1 to refresh tracked guard reports intentionally.`,
+    );
+  }
+};
+
 const pages = getTreatmentPages();
 
 const contractSummary = {
@@ -99,12 +127,6 @@ pages.forEach((page) => {
   }
 });
 
-const fs = require("node:fs");
-const path = require("node:path");
-const repoRoot = path.resolve(__dirname, "..", "..", "..");
-const reportsDir = path.join(repoRoot, "REPORTS");
-if (!fs.existsSync(reportsDir)) fs.mkdirSync(reportsDir);
-
 const reportLines = [
   `# CTA Contract Audit`,
   ``,
@@ -117,15 +139,15 @@ const reportLines = [
   `- Pages missing closing CTA: ${missingClosing.length}`,
   `- Pages with duplicate closing CTA: ${duplicateClosing.length}`,
 ];
-fs.writeFileSync(path.join(reportsDir, "CTA_CONTRACT_AUDIT.md"), reportLines.join("\n"));
+compareOrUpdateReport("CTA_CONTRACT_AUDIT.md", reportLines.join("\n"));
 
-fs.writeFileSync(
-  path.join(reportsDir, "CTA_SELF_LINKS.md"),
+compareOrUpdateReport(
+  "CTA_SELF_LINKS.md",
   selfLinkIssues.length ? selfLinkIssues.map((line) => `- ${line}`).join("\n") : "All clear.",
 );
 
-fs.writeFileSync(
-  path.join(reportsDir, "CTA_SEMANTICS_AUDIT.md"),
+compareOrUpdateReport(
+  "CTA_SEMANTICS_AUDIT.md",
   semanticIssues.length ? semanticIssues.map((line) => `- ${line}`).join("\n") : "All semantic templates aligned.",
 );
 
@@ -141,16 +163,7 @@ const surfaceLines = [
     } | ${midLabels} | ${closingLabels} |`;
   }),
 ];
-fs.writeFileSync(path.join(reportsDir, "TREATMENT_CTA_SURFACE_MAP.md"), surfaceLines.join("\n"));
-
-const fillingsReport = [
-  `# FILLINGS_PAGE_ADDED`,
-  `- slug: /treatments/dental-fillings`,
-  `- routeId: treatments.dental-fillings`,
-  `- manifest: packages/champagne-manifests/data/sections/smh/treatments.dental-fillings.json`,
-  `- machine manifest entry: packages/champagne-manifests/data/champagne_machine_manifest_full.json`,
-];
-fs.writeFileSync(path.join(reportsDir, "FILLINGS_PAGE_ADDED.md"), fillingsReport.join("\n"));
+compareOrUpdateReport("TREATMENT_CTA_SURFACE_MAP.md", surfaceLines.join("\n"));
 
 const errors = [];
 if (contractSummary.selfLinks > 0) errors.push(`Self-links detected (${contractSummary.selfLinks})`);
