@@ -1,0 +1,149 @@
+{
+  "version": "CHAMPAGNE_SEO_SECTION_LAYOUT_CANNIBALISATION_REVIEW_V1",
+  "role": "CHAMPAGNE_SEO_SECTION_LAYOUT_AND_CANNIBALISATION_REVIEW_V1",
+  "repo": "drnickmaxwell-wq/champagne",
+  "reviewDate": "2026-06-05",
+  "authorityStatus": "INSPECTION_ONLY_NO_IMPLEMENTATION",
+  "scopeBoundary": [
+    "Inspection-only review.",
+    "No route files edited.",
+    "No content rewritten.",
+    "No hero/design/layout/header/footer/API/concierge/portal/stock/ops/PHI/PMS/deploy changes."
+  ],
+  "filesInspected": [
+    "tools/audits/seo-answer-packet-compression/CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1.md",
+    "tools/audits/seo-answer-packet-compression/CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1.json",
+    "tools/audits/seo-post-patch-validation/CHAMPAGNE_SEO_POST_PATCH_VALIDATION_V1.md",
+    "tools/audits/seo-post-patch-validation/CHAMPAGNE_SEO_POST_PATCH_VALIDATION_V1.json",
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+    "apps/web/app/treatments/[slug]/page.tsx",
+    "packages/champagne-manifests/src/core.ts",
+    "packages/champagne-manifests/src/helpers.ts",
+    "scripts/seo-launch-safety-check.mjs",
+    "REPORTS/TREATMENT_INVENTORY.md",
+    "packages/champagne-manifests/data/sections/smh/treatments.composite-bonding.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.injection-moulded-composite.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.full-smile-makeover.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.emergency-dental-appointments.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.severe-toothache-dental-pain.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.dental-abscess-infection.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.broken-chipped-cracked-teeth.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.knocked-out-tooth.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.lost-crowns-veneers-fillings.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.dental-trauma-accidents.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.tooth-wear-broken-teeth.json"
+  ],
+  "sectionLayoutOwnership": {
+    "runtimeRouteEntry": "apps/web/app/treatments/[slug]/page.tsx resolves treatment metadata/schema and renders ChampagnePageBuilder only; it does not own per-treatment section stacks.",
+    "pageBuilderInput": "ChampagnePageBuilder receives pageSlug and resolves sections through @champagne/manifests.",
+    "sectionLayoutRegistry": "packages/champagne-manifests/src/core.ts imports packages/champagne-manifests/data/sections/smh/treatments.*.json files and registers them in champagneSectionLayouts.",
+    "sectionResolution": "getSectionStackForPage normalizes a route to a routeId, looks up champagneSectionLayouts first, then falls back to manifest sections and page-type defaults.",
+    "guardWarningSource": "scripts/seo-launch-safety-check.mjs reads stale text from REPORTS/TREATMENT_INVENTORY.md rather than live-resolving champagneSectionLayouts."
+  },
+  "missingSectionLayoutFindings": [
+    { "route": "/treatments/composite-bonding", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.composite-bonding.json", "routeId": "treatments.composite-bonding", "registeredInCore": true, "sectionCount": 12, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/injection-moulded-composite", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.injection-moulded-composite.json", "routeId": "treatments.injection-moulded-composite", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/full-smile-makeover", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.full-smile-makeover.json", "routeId": "treatments.full-smile-makeover", "registeredInCore": true, "sectionCount": 8, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/emergency-dentistry", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json", "routeId": "treatments.emergency-dentistry", "registeredInCore": true, "sectionCount": 11, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/emergency-dental-appointments", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dental-appointments.json", "routeId": "treatments.emergency-dental-appointments", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/severe-toothache-dental-pain", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.severe-toothache-dental-pain.json", "routeId": "treatments.severe-toothache-dental-pain", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/dental-abscess-infection", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.dental-abscess-infection.json", "routeId": "treatments.dental-abscess-infection", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/broken-chipped-cracked-teeth", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.broken-chipped-cracked-teeth.json", "routeId": "treatments.broken-chipped-cracked-teeth", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/knocked-out-tooth", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.knocked-out-tooth.json", "routeId": "treatments.knocked-out-tooth", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/lost-crowns-veneers-fillings", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.lost-crowns-veneers-fillings.json", "routeId": "treatments.lost-crowns-veneers-fillings", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/dental-trauma-accidents", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.dental-trauma-accidents.json", "routeId": "treatments.dental-trauma-accidents", "registeredInCore": true, "sectionCount": 9, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" },
+    { "route": "/treatments/tooth-wear-broken-teeth", "guardSourceStatus": "reported_missing", "actualLayoutFile": "packages/champagne-manifests/data/sections/smh/treatments.tooth-wear-broken-teeth.json", "routeId": "treatments.tooth-wear-broken-teeth", "registeredInCore": true, "sectionCount": 10, "finding": "false_positive_stale_inventory_report", "futureFixType": "A_manifest_data_only", "risk": "low" }
+  ],
+  "cannibalisationClusters": [
+    {
+      "cluster": "implants",
+      "routes": ["/treatments/3d-implant-restorations", "/treatments/failed-implant-replacement", "/treatments/implant-aftercare", "/treatments/implant-consultation", "/treatments/implant-retained-dentures", "/treatments/implants", "/treatments/implants-bone-grafting", "/treatments/implants-full-arch", "/treatments/implants-multiple-teeth", "/treatments/implants-single-tooth", "/treatments/sedation-for-implants", "/treatments/sinus-lift", "/treatments/teeth-in-a-day"],
+      "canonicalOwnerRecommendation": "/treatments/implants",
+      "supportingRouteRecommendation": "Keep sub-routes as specific supporting intents: single/multiple/full arch, consultation, aftercare, bone grafting, sinus lift, retained dentures, failed replacement, sedation, teeth-in-a-day, and 3D implant restorations.",
+      "futureFixType": "D_defer_needs_human_decision_then_A_or_B_data_only",
+      "risk": "medium",
+      "notes": "Do not collapse routes. Add owner/supporting intent annotations only after human SEO sign-off."
+    },
+    {
+      "cluster": "cosmetic",
+      "routes": ["/treatments/3d-printed-veneers", "/treatments/composite-bonding", "/treatments/digital-smile-design", "/treatments/full-smile-makeover", "/treatments/home-teeth-whitening", "/treatments/lost-crowns-veneers-fillings", "/treatments/senior-mature-smile-care", "/treatments/teeth-whitening", "/treatments/teeth-whitening-faqs", "/treatments/veneers", "/treatments/whitening-sensitive-teeth", "/treatments/whitening-top-ups"],
+      "canonicalOwnerRecommendation": "/treatments/cosmetic-dentistry",
+      "supportingRouteRecommendation": "Keep veneers as broader supporting veneer intent, /treatments/3d-digital-dentistry as same-day veneers workflow primary, and whitening/bonding/smile-design routes as specific supporting intents.",
+      "futureFixType": "D_defer_needs_human_decision_then_A_or_B_data_only",
+      "risk": "high",
+      "notes": "Cosmetic cluster includes emergency lost-crowns route and several distinct commercial intents; do not demote veneers below its supporting-priority role or promote it above implants/emergency/Spark/orthodontics/private/general."
+    },
+    {
+      "cluster": "orthodontics",
+      "routes": ["/treatments/clear-aligners", "/treatments/clear-aligners-spark", "/treatments/dental-retainers", "/treatments/fixed-braces", "/treatments/mouthguards-and-retainers", "/treatments/orthodontics"],
+      "canonicalOwnerRecommendation": "/treatments/orthodontics",
+      "supportingRouteRecommendation": "Keep Spark Aligners as Spark-brand priority owner for Spark Aligners queries; keep clear aligners, fixed braces, dental retainers, and mouthguards/retainers as specific supporting routes.",
+      "futureFixType": "D_defer_needs_human_decision_then_A_or_B_data_only",
+      "risk": "medium",
+      "notes": "Spark Aligners / orthodontics priority must continue outranking veneers."
+    },
+    {
+      "cluster": "emergency",
+      "routes": ["/treatments/broken-chipped-cracked-teeth", "/treatments/dental-abscess-infection", "/treatments/dental-trauma-accidents", "/treatments/emergency-dental-appointments", "/treatments/emergency-dentistry", "/treatments/knocked-out-tooth", "/treatments/lost-crowns-veneers-fillings", "/treatments/severe-toothache-dental-pain", "/treatments/tooth-wear-broken-teeth"],
+      "canonicalOwnerRecommendation": "/treatments/emergency-dentistry",
+      "supportingRouteRecommendation": "Keep symptom and incident pages as supporting routes for toothache, abscess, trauma, knocked-out tooth, broken/chipped/cracked teeth, lost restorations, emergency appointments, and tooth wear/broken teeth.",
+      "futureFixType": "D_defer_needs_human_decision_then_A_or_B_data_only",
+      "risk": "high",
+      "notes": "Emergency intent is safety-sensitive; avoid route patch or content rewrite without clinical/SEO review."
+    }
+  ],
+  "canonicalIntentDecisionsPreserved": [
+    { "intent": "3D dentistry Shoreham", "primary": "/treatments/3d-dentistry-and-technology", "supporting": "/treatments/3d-digital-dentistry", "status": "preserve" },
+    { "intent": "same-day veneers Shoreham", "primary": "/treatments/3d-digital-dentistry", "supporting": "/treatments/veneers", "status": "preserve" },
+    { "intent": "veneers priority", "decision": "Veneers remains supporting priority and must not outrank implants, emergency, Spark Aligners/orthodontics, or private/general dentistry.", "status": "preserve" }
+  ],
+  "safeFuturePatchFiles": [
+    "REPORTS/TREATMENT_INVENTORY.md (or its future generator, if introduced) to remove stale false-positive missing-layout rows.",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json for canonical intent map annotations only.",
+    "packages/champagne-manifests/data/seo/local-identity.smh.json for local priority governance annotations only.",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json for route owner/supporting metadata only.",
+    "packages/champagne-manifests/data/sections/smh/treatments.*.json only for metadata-only owner/supporting tags if approved; no copy rewrite."
+  ],
+  "filesNotToTouch": [
+    "apps/web/app/treatments/[slug]/page.tsx unless a future mission explicitly authorizes route source work.",
+    "apps/web/app/layout.tsx",
+    "apps/web/app/globals.css",
+    "apps/web/app/components/hero/HeroRenderer.tsx",
+    "packages/champagne-hero/src/HeroAssetRegistry.ts",
+    "packages/champagne-hero/src/hero-engine/HeroConfig.ts",
+    "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts",
+    "packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+    "packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts",
+    "packages/champagne-manifests/data/hero/sacred_*",
+    "visual design/layout/header/footer/API/concierge/portal/stock/ops/PHI/PMS files"
+  ],
+  "recommendedImplementationOrder": [
+    "1. Low-risk: refresh or regenerate REPORTS/TREATMENT_INVENTORY.md so its missing-layout rows match the already-registered section layout JSON files.",
+    "2. Low-risk: optionally harden scripts/seo-launch-safety-check.mjs in a future approved guard mission to live-resolve section layouts instead of trusting stale Markdown text.",
+    "3. Medium/high-risk: obtain human SEO/clinical decision on canonical owner/supporting route intent for each cluster.",
+    "4. Data-only: add canonicalOwner/supportingIntent metadata to approved facts/local identity/treatment facts or section layout JSON, preserving existing routes and copy.",
+    "5. Re-run validation; do not patch route source unless a future explicit authority says data-only evidence is insufficient."
+  ],
+  "validationCommandsForLaterPatch": [
+    "npm run guard:seo-launch-safety",
+    "npm run seo:answer-foundation-qa",
+    "npm run seo:answer-packet-qa",
+    "npm run guard:hero",
+    "npm run guard:canon",
+    "npm run verify",
+    "npm run lint",
+    "npm run build",
+    "git diff --check"
+  ],
+  "validationRunThisMission": [
+    { "command": "npm run guard:seo-launch-safety", "status": "pass_with_existing_warnings" },
+    { "command": "npm run seo:answer-foundation-qa", "status": "pass" },
+    { "command": "npm run seo:answer-packet-qa", "status": "pass" },
+    { "command": "git diff --check", "status": "pass" }
+  ],
+  "overallResult": "INSPECTION_ONLY_PASS_WITH_EXISTING_LAUNCH_READINESS_WARNINGS"
+}
