@@ -346,6 +346,25 @@
           "url": "https://www.smhdental.co.uk/examination/"
         }
       ]
+    },
+    {
+      "id": "veneers",
+      "name": "Veneers",
+      "routePath": "/treatments/veneers",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ],
+      "canonicalIntent": "Broader veneer treatment information and suitability support",
+      "targetQueries": [
+        "veneers Shoreham-by-Sea",
+        "porcelain veneers Shoreham-by-Sea"
+      ],
+      "aiCitationSummary": "Veneers are treated as a supporting cosmetic-dentistry service mapped to /treatments/veneers; same-day veneers workflow intent remains primary to /treatments/3d-digital-dentistry.",
+      "priorityGovernance": "supporting_priority_after_private_emergency_implants_spark_orthodontics_and_general_dentistry",
+      "canonicalMappingNote": "/treatments/veneers supports broader veneer suitability, planning, materials, and alternatives; it must not outrank /treatments/3d-digital-dentistry for same-day veneers workflow intent."
     }
   ],
   "localEntityProof": {

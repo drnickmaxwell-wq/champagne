@@ -70,7 +70,8 @@
     "Sedation/anxiety dentistry",
     "Cosmetic dentistry",
     "Hygiene/recall",
-    "Examinations"
+    "Examinations",
+    "Veneers"
   ],
   "safetyNotes": [
     "No diagnosis is provided from approved facts.",
@@ -87,6 +88,11 @@
       "primaryRoute": "/treatments/3d-digital-dentistry",
       "supportingRoute": "/treatments/veneers",
       "decision": "Use the 3D digital dentistry route for same-day workflow intent; keep the veneers route for broader veneer suitability, planning, materials, and alternatives."
+    },
+    "veneers-shoreham": {
+      "primaryRoute": "/treatments/veneers",
+      "supportingRoute": "/treatments/cosmetic-dentistry",
+      "decision": "Use the veneers route for broader veneer suitability, planning, materials, maintenance, and alternatives. Do not use it as the primary same-day veneers workflow route."
     }
   }
 }
