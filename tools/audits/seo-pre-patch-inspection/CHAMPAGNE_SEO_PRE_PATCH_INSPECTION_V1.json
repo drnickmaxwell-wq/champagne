@@ -1,0 +1,222 @@
+{
+  "schema": "CHAMPAGNE_SEO_PRE_PATCH_INSPECTION_V1",
+  "role": "CHAMPAGNE_SEO_PRE_PATCH_INSPECTOR_V1",
+  "repo": "drnickmaxwell-wq/champagne",
+  "inspectionDate": "2026-06-05",
+  "authority": {
+    "mode": "read_only_pre_patch_inspection",
+    "siteContentFilesModified": false,
+    "sourceFilesModified": false,
+    "reportFilesCreated": [
+      "tools/audits/seo-pre-patch-inspection/CHAMPAGNE_SEO_PRE_PATCH_INSPECTION_V1.md",
+      "tools/audits/seo-pre-patch-inspection/CHAMPAGNE_SEO_PRE_PATCH_INSPECTION_V1.json"
+    ],
+    "liveNetworkCalls": false,
+    "scraping": false,
+    "browserAutomation": false,
+    "apiIntegrations": false,
+    "deploy": false,
+    "commitDuringInspectionRequestedByMission": false
+  },
+  "framework": {
+    "workspace": "pnpm",
+    "webApp": "apps/web",
+    "nextVersion": "15.5.7",
+    "reactVersion": "19.2.1",
+    "routingModel": "Next.js App Router filesystem routes with manifest-driven ChampagnePageBuilder content rendering"
+  },
+  "futureValidationCommands": [
+    "npm run lint",
+    "npm run build",
+    "npm run guard:hero",
+    "npm run guard:canon",
+    "npm run verify",
+    "npm run seo:schema-qa",
+    "npm run seo:answer-foundation-qa",
+    "npm run seo:answer-packet-qa",
+    "npm run seo:answer-rendering-qa",
+    "git diff --check"
+  ],
+  "routeMap": [
+    {
+      "intent": "homepage/local entry",
+      "route": "/",
+      "routeFile": "apps/web/app/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.home",
+      "notes": ["locality NAP, map, areas served, access, FAQ sections present"]
+    },
+    {
+      "intent": "contact/location",
+      "route": "/contact",
+      "routeFile": "apps/web/app/contact/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.contact",
+      "notes": ["practice details, contact methods, map/finding practice, emergency CTA present"]
+    },
+    {
+      "intent": "about/practice proof",
+      "route": "/about",
+      "routeFile": "apps/web/app/(champagne)/about/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.about"
+    },
+    {
+      "intent": "team/clinician proof",
+      "route": "/team",
+      "routeFile": "apps/web/app/team/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.team",
+      "supportingData": ["packages/champagne-manifests/data/seo/team-registry.smh.json"]
+    },
+    {
+      "intent": "private dentist/general dentistry",
+      "route": "/treatments/preventative-and-general-dentistry",
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/sections/smh/treatments.preventative-and-general-dentistry.json"
+    },
+    {
+      "intent": "dental implants",
+      "route": "/treatments/implants",
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+      "aliases": ["/treatments/dental-implants"],
+      "risk": "duplicate page/treatment manifest entries require caution"
+    },
+    {
+      "intent": "emergency dentist",
+      "route": "/treatments/emergency-dentistry",
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json"
+    },
+    {
+      "intent": "Spark Aligners",
+      "route": "/treatments/clear-aligners-spark",
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners-spark.json"
+    },
+    {
+      "intent": "orthodontics",
+      "route": "/treatments/orthodontics",
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/sections/smh/treatments.orthodontics.json"
+    },
+    {
+      "intent": "3D dentistry",
+      "routeCandidates": ["/treatments/3d-dentistry-and-technology", "/treatments/3d-digital-dentistry"],
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwners": [
+        "packages/champagne-manifests/data/sections/smh/treatments.3d-dentistry-and-technology.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.3d-digital-dentistry.json"
+      ],
+      "risk": "canonical route decision required before patching"
+    },
+    {
+      "intent": "same-day veneers",
+      "routeCandidates": ["/treatments/3d-digital-dentistry", "/treatments/veneers"],
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwners": [
+        "packages/champagne-manifests/data/sections/smh/treatments.3d-digital-dentistry.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.veneers.json"
+      ],
+      "risk": "same-day intent should not create route sprawl"
+    },
+    {
+      "intent": "sedation/nervous dentist",
+      "route": "/treatments/sedation-dentistry",
+      "routeFile": "apps/web/app/treatments/[slug]/page.tsx",
+      "manifestOwner": "packages/champagne-manifests/data/sections/smh/treatments.sedation-dentistry.json"
+    }
+  ],
+  "owners": {
+    "localEntityProof": ["packages/champagne-manifests/data/seo/local-identity.smh.json", "packages/champagne-manifests/data/seo/approved-facts.smh.json", "packages/champagne-manifests/data/champagne_machine_manifest_full.json"],
+    "nap": ["packages/champagne-manifests/data/seo/local-identity.smh.json", "packages/champagne-manifests/data/seo/approved-facts.smh.json", "apps/web/app/contact/page.tsx"],
+    "footer": ["apps/web/app/components/layout/Footer.tsx", "apps/web/app/components/layout/FooterLuxe.module.css"],
+    "schema": ["apps/web/app/layout.tsx", "apps/web/app/treatments/[slug]/page.tsx", "packages/champagne-manifests/src/seo.ts"],
+    "faqAnswerBlocks": ["packages/champagne-sections/src/Section_FAQ.tsx", "packages/champagne-sections/src/Section_TreatmentAnswerSurface.tsx", "packages/champagne-manifests/data/seo-ai-answer-foundation"],
+    "clinicianEvidenceProof": ["packages/champagne-manifests/data/seo/team-registry.smh.json", "packages/champagne-sections/src/Section_ClinicianInsight.tsx", "packages/champagne-sections/src/sections/Section_PeopleGrid.tsx"],
+    "internalLinks": ["packages/champagne-manifests/data/manifest.nav.main.json", "apps/web/app/components/layout/Footer.tsx", "packages/champagne-manifests/data/champagne_machine_manifest_full.json"],
+    "treatmentTemplates": ["apps/web/app/treatments/[slug]/page.tsx", "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx", "packages/champagne-sections/src/ChampagneSectionRenderer.tsx"]
+  },
+  "actionGroupFindings": {
+    "LOCAL_ENTITY_PROOF_BUILD": {
+      "status": "existing_foundation_present",
+      "findings": ["structured local identity exists", "approved public facts exist", "homepage/contact local proof sections exist"],
+      "risks": ["NAP inconsistency if visible repetitions diverge", "footer does not currently expose full NAP"]
+    },
+    "AI_CITATION_READINESS": {
+      "status": "foundation_present",
+      "findings": ["AI answer registry present", "question inventory present", "treatment fact registry present", "chatbot alignment registry present without runtime mutation"],
+      "risks": ["live_site evidence sources were not reverified during this no-network inspection", "unreviewed answers must not be promoted to schema"]
+    },
+    "TREATMENT_AUTHORITY_PAGE_BUILD": {
+      "status": "existing_routes_sufficient",
+      "findings": ["target service families map to existing routes", "manifest-driven templates support bounded content/schema work", "route sprawl not required"],
+      "risks": ["3D/same-day canonical ambiguity", "duplicate implants/veneers entries across pages and treatments collections"]
+    }
+  },
+  "safeFuturePatchFiles": [
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners-spark.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.orthodontics.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.3d-dentistry-and-technology.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.3d-digital-dentistry.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.veneers.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.sedation-dentistry.json",
+    "packages/champagne-manifests/data/sections/smh/treatments.preventative-and-general-dentistry.json",
+    "apps/web/app/layout.tsx (SEO_JSONLD_V1 override only)",
+    "apps/web/app/treatments/[slug]/page.tsx (SEO_JSONLD_V1 override only)"
+  ],
+  "filesNotToTouch": [
+    "packages/champagne-hero/src/HeroAssetRegistry.ts",
+    "packages/champagne-hero/src/hero-engine/HeroConfig.ts",
+    "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts",
+    "packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+    "packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts",
+    "packages/champagne-manifests/data/hero/sacred_*",
+    "apps/web/app/components/hero/HeroRenderer.tsx",
+    "apps/web/app/globals.css",
+    "apps/web/app/components/layout/Header.tsx",
+    "apps/web/app/components/layout/Footer.tsx",
+    "apps/web/app/components/layout/FooterLuxe.module.css",
+    "apps/web/app/api/**",
+    "apps/web/app/components/concierge/**"
+  ],
+  "risks": [
+    "unsupported clinical claims",
+    "YMYL medical/dental advice risk",
+    "NAP inconsistency",
+    "schema overreach from unapproved FAQ/review/medical content",
+    "internal-link spam or loops",
+    "route sprawl",
+    "canon/sacred zone violation"
+  ],
+  "stopConditions": [
+    "required guards missing or failing for new reasons",
+    "sacred hero files would be touched",
+    "claim cannot be traced to approved facts or clinician-reviewed source",
+    "NAP conflicts discovered",
+    "new route/redesign becomes necessary",
+    "schema would use unapproved content"
+  ],
+  "validationResults": [
+    {
+      "command": "npm run lint",
+      "status": "pass",
+      "notes": "Exited 0; Next lint deprecation/plugin warnings observed."
+    },
+    {
+      "command": "npm run build",
+      "status": "pass",
+      "notes": "Exited 0; warnings for stale Browserslist data, Tailwind content pattern, Next ESLint plugin."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "notes": "No whitespace errors after report file creation."
+    }
+  ],
+  "nextRecommendedMission": "Director-authorized bounded SEO implementation patch using existing routes/components only: choose canonical 3D/same-day route mapping, then update approved SEO data/JSON-LD or treatment authority content within listed safe files, with no hero/layout redesign and full guard/SEO QA validation."
+}
