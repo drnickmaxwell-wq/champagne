@@ -6,6 +6,8 @@ const CANONICAL_ORIGIN = "https://www.smhdental.co.uk";
 const ROBOTS_PATH = path.join(ROOT, "apps/web/app/robots.ts");
 const SITEMAP_PATH = path.join(ROOT, "apps/web/app/sitemap.ts");
 const TREATMENT_INVENTORY_PATH = path.join(ROOT, "REPORTS/TREATMENT_INVENTORY.md");
+const MACHINE_MANIFEST_PATH = path.join(ROOT, "packages/champagne-manifests/data/champagne_machine_manifest_full.json");
+const MANIFEST_CORE_PATH = path.join(ROOT, "packages/champagne-manifests/src/core.ts");
 
 const fail = (message, details = undefined) => {
   console.error(`SEO_LAUNCH_SAFETY_FAIL: ${message}`);
@@ -18,6 +20,74 @@ const pass = (message) => console.log(`SEO_LAUNCH_SAFETY_PASS: ${message}`);
 const read = (filePath) => {
   if (!fs.existsSync(filePath)) fail(`Missing required file: ${path.relative(ROOT, filePath)}`);
   return fs.readFileSync(filePath, "utf8");
+};
+
+const readJson = (filePath) => {
+  try {
+    return JSON.parse(read(filePath));
+  } catch (error) {
+    fail(`Could not parse JSON file: ${path.relative(ROOT, filePath)}`, {
+      message: error instanceof Error ? error.message : String(error),
+    });
+  }
+};
+
+const normalizeSlug = (slug) => {
+  if (!slug) return "/";
+  return slug.startsWith("/") ? slug : `/${slug}`;
+};
+
+const getRouteIdFromSlug = (slug) => {
+  const normalized = normalizeSlug(slug).replace(/^\//, "").replace(/\/$/, "");
+  if (!normalized) return "home";
+  return normalized.replace(/\//g, ".");
+};
+
+const getTreatmentRoutesFromMachineManifest = () => {
+  const machineManifest = readJson(MACHINE_MANIFEST_PATH);
+  const byRoute = new Map();
+
+  for (const collection of [machineManifest.pages ?? {}, machineManifest.treatments ?? {}]) {
+    for (const entry of Object.values(collection)) {
+      if (!entry?.path?.startsWith("/treatments/")) continue;
+      if (!byRoute.has(entry.path)) byRoute.set(entry.path, entry);
+    }
+  }
+
+  return [...byRoute.keys()].sort((a, b) => a.localeCompare(b));
+};
+
+const getRegisteredTreatmentSectionLayouts = () => {
+  const manifestCoreSource = read(MANIFEST_CORE_PATH);
+  const importByVariable = new Map();
+  const importRegex = /import\s+(sectionLayout\w+)\s+from\s+"(\.\.\/data\/sections\/smh\/treatments\.[^"]+\.json)";/g;
+  let importMatch;
+
+  while ((importMatch = importRegex.exec(manifestCoreSource)) !== null) {
+    const [, variableName, importPath] = importMatch;
+    importByVariable.set(variableName, path.join(ROOT, "packages/champagne-manifests", importPath.replace(/^\.\.\//, "")));
+  }
+
+  const layoutArrayMatch = manifestCoreSource.match(/export const champagneSectionLayouts:[\s\S]*?= \[([\s\S]*?)\];/);
+  if (!layoutArrayMatch) fail("Could not locate champagneSectionLayouts registry in packages/champagne-manifests/src/core.ts");
+
+  const layouts = new Map();
+  const registeredVariableRegex = /(sectionLayout\w+)\s+as ChampagneSectionLayout/g;
+  let registeredMatch;
+  while ((registeredMatch = registeredVariableRegex.exec(layoutArrayMatch[1])) !== null) {
+    const variableName = registeredMatch[1];
+    const layoutPath = importByVariable.get(variableName);
+    if (!layoutPath) continue;
+
+    const layout = readJson(layoutPath);
+    if (!layout?.routeId?.startsWith("treatments.")) continue;
+    layouts.set(layout.routeId, {
+      file: path.relative(ROOT, layoutPath),
+      sectionCount: Array.isArray(layout.sections) ? layout.sections.length : 0,
+    });
+  }
+
+  return layouts;
 };
 
 const robots = read(ROBOTS_PATH);
@@ -57,27 +127,19 @@ for (const relativePath of legalRouteFiles) {
 }
 pass("legal routes expose metadata, canonical, and JSON-LD schema evidence");
 
-const routeRegex = /\|\s*[^|]+\s*\|\s*[^|]+\s*\|\s*(\/treatments\/[a-z0-9-]+)\s*\|/g;
-const treatmentRoutes = new Set();
-let match;
-while ((match = routeRegex.exec(inventory)) !== null) {
-  treatmentRoutes.add(match[1]);
-}
+const treatmentRoutes = new Set(getTreatmentRoutesFromMachineManifest());
 if (treatmentRoutes.size < 50) {
-  fail("Treatment inventory route extraction found unexpectedly few treatment routes", { count: treatmentRoutes.size });
+  fail("Treatment manifest route extraction found unexpectedly few treatment routes", { count: treatmentRoutes.size });
 }
-pass(`treatment inventory exposes ${treatmentRoutes.size} treatment routes for SEO coverage review`);
+pass(`machine manifest exposes ${treatmentRoutes.size} treatment routes for SEO coverage review`);
 
-const missingLayoutLine = inventory.match(/Treatments missing section layout: (.+)/);
-if (missingLayoutLine) {
-  const missingRoutes = missingLayoutLine[1]
-    .split(",")
-    .map((value) => value.trim())
-    .filter(Boolean);
-  if (missingRoutes.length > 0) {
-    console.log("SEO_LAUNCH_SAFETY_WARN: Treatment routes missing section layouts; review before launch:");
-    for (const route of missingRoutes) console.log(`- ${route}`);
-  }
+const registeredTreatmentLayouts = getRegisteredTreatmentSectionLayouts();
+const missingLayoutRoutes = [...treatmentRoutes].filter((route) => !registeredTreatmentLayouts.has(getRouteIdFromSlug(route)));
+if (missingLayoutRoutes.length > 0) {
+  console.log("SEO_LAUNCH_SAFETY_WARN: Treatment routes missing registered section layouts; review before launch:");
+  for (const route of missingLayoutRoutes) console.log(`- ${route}`);
+} else {
+  pass(`all ${treatmentRoutes.size} treatment routes have registered section layouts`);
 }
 
 const cannibalisationClusters = [
@@ -105,8 +167,12 @@ for (const cluster of cannibalisationClusters) {
   for (const route of cluster.routes.slice(0, 20)) console.log(`  - ${route}`);
 }
 
-if (!inventory.includes("Total treatments: 73")) {
-  console.log("SEO_LAUNCH_SAFETY_WARN: Treatment inventory total has changed from the last audited value of 73. Re-run SEO truth audit.");
+const inventoryTotalMatch = inventory.match(/Total treatments:\s*(\d+)/);
+const inventoryTotal = inventoryTotalMatch ? Number(inventoryTotalMatch[1]) : undefined;
+if (inventoryTotal !== treatmentRoutes.size) {
+  console.log("SEO_LAUNCH_SAFETY_WARN: Treatment inventory total does not match live machine manifest. Refresh REPORTS/TREATMENT_INVENTORY.md.");
+  console.log(`- inventory: ${inventoryTotal ?? "unknown"}`);
+  console.log(`- machine manifest: ${treatmentRoutes.size}`);
 }
 
 console.log("SEO_LAUNCH_SAFETY_COMPLETE");
