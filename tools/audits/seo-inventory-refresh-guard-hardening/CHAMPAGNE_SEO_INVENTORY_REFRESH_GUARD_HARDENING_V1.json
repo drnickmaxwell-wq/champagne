@@ -1,0 +1,86 @@
+{
+  "id": "CHAMPAGNE_SEO_INVENTORY_REFRESH_GUARD_HARDENING_V1",
+  "role": "CHAMPAGNE_SEO_INVENTORY_REFRESH_AND_GUARD_TRUTH_HARDENER_V1",
+  "repo": "drnickmaxwell-wq/champagne",
+  "review_date": "2026-06-05",
+  "authority_status": "DIRECTOR_AUTHORIZED_SEO_INVENTORY_REFRESH_AND_GUARD_TRUTH_HARDENING",
+  "scope_boundary": {
+    "changed": [
+      "treatment inventory report truth",
+      "seo launch safety guard missing-section-layout data source",
+      "audit report outputs"
+    ],
+    "not_changed": [
+      "patient-facing treatment copy",
+      "routes",
+      "canonical metadata",
+      "noindex behaviour",
+      "hero",
+      "design",
+      "visual layout",
+      "header/footer",
+      "deployment"
+    ]
+  },
+  "files_changed": [
+    {
+      "path": "REPORTS/TREATMENT_INVENTORY.md",
+      "reason": "Regenerated stale inventory from live machine-manifest treatment routes and registered champagneSectionLayouts data."
+    },
+    {
+      "path": "scripts/seo-launch-safety-check.mjs",
+      "reason": "Resolved missing-section-layout checks from live manifest and registered layout data rather than stale Markdown warning text."
+    },
+    {
+      "path": "tools/audits/seo-inventory-refresh-guard-hardening/CHAMPAGNE_SEO_INVENTORY_REFRESH_GUARD_HARDENING_V1.md",
+      "reason": "Human-readable audit output."
+    },
+    {
+      "path": "tools/audits/seo-inventory-refresh-guard-hardening/CHAMPAGNE_SEO_INVENTORY_REFRESH_GUARD_HARDENING_V1.json",
+      "reason": "Machine-readable audit output."
+    }
+  ],
+  "missing_section_layout_warning_confirmed_stale": true,
+  "inventory_refresh": {
+    "source_routes": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "source_registered_layouts": "packages/champagne-manifests/src/core.ts champagneSectionLayouts",
+    "total_treatment_routes": 78,
+    "total_missing_registered_layouts": 0,
+    "total_orphan_registered_layouts": 1,
+    "orphan_registered_layouts": [
+      "packages/champagne-manifests/data/sections/smh/treatments.aligners.json"
+    ]
+  },
+  "previously_warned_routes_verified": [
+    { "route": "/treatments/composite-bonding", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.composite-bonding.json", "registered_sections": 12, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/injection-moulded-composite", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.injection-moulded-composite.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/full-smile-makeover", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.full-smile-makeover.json", "registered_sections": 8, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/emergency-dentistry", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json", "registered_sections": 11, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/emergency-dental-appointments", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dental-appointments.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/severe-toothache-dental-pain", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.severe-toothache-dental-pain.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/dental-abscess-infection", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.dental-abscess-infection.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/broken-chipped-cracked-teeth", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.broken-chipped-cracked-teeth.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/knocked-out-tooth", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.knocked-out-tooth.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/lost-crowns-veneers-fillings", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.lost-crowns-veneers-fillings.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/dental-trauma-accidents", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.dental-trauma-accidents.json", "registered_sections": 9, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" },
+    { "route": "/treatments/tooth-wear-broken-teeth", "layout_file": "packages/champagne-manifests/data/sections/smh/treatments.tooth-wear-broken-teeth.json", "registered_sections": 10, "finding": "CONFIRMED_REGISTERED_STALE_WARNING" }
+  ],
+  "guard_behaviour": {
+    "before": "Read stale REPORTS/TREATMENT_INVENTORY.md warning text, exposed 73 routes, and printed 12 false missing-section-layout warnings.",
+    "after": "Reads 78 live treatment routes from machine manifest, verifies all 78 against registered section layouts, and emits no missing-section-layout warning."
+  },
+  "cannibalisation_warnings": {
+    "status": "DEFERRED",
+    "reason": "Requires separate human editorial/SEO one-intent-per-page decision mission."
+  },
+  "validation_results": [
+    { "command": "npm run guard:seo-launch-safety", "result": "PASS" },
+    { "command": "npm run seo:answer-foundation-qa", "result": "PASS" },
+    { "command": "npm run seo:answer-packet-qa", "result": "PASS" },
+    { "command": "npm run lint", "result": "PASS" },
+    { "command": "npm run build", "result": "PASS" },
+    { "command": "git diff --check", "result": "PASS" }
+  ],
+  "rollback_notes": "Revert this commit to restore the prior Markdown-derived warning behaviour and previous inventory report contents.",
+  "next_recommended_mission": "CHAMPAGNE_SEO_CANNIBALISATION_CLUSTER_HUMAN_DECISION_V1"
+}
