@@ -1,59 +1,35 @@
 # NEXT_MISSION_RECOMMENDATION
 
-Mode: recommendation after production-build proof-gate capture
+Role: `HERO_V2_FIRST_PAINT_BASE_SURFACE_STABILIZATION_IMPLEMENTER`
 Evidence date: 2026-06-05
 
 ## Recommendation
 
-Recommended next mission: **A. bounded safe fix mission**.
+Proceed with a read-only Hero V2 route identity and variant-binding diagnostic mission only after this stabilization is reviewed.
 
-The next mission should be a narrow Hero V2 first-paint/base-surface stabilization mission. It must not be a nav redesign, global background retokening, Persian Midnight implementation, typography pass, route-identity repair, or hero-variant implementation.
+## Why
 
-## Why a bounded fix is now safe
+This mission stabilized the first-paint/base-surface pathway without touching global surfaces or hero variants. Recapture still showed unset/null debug identity attributes on the Hero V2 root for the sampled routes. The proof gate already classified route-specific Hero V2 identity/content as a separate concern.
 
-Production proof-gate capture showed:
+## Suggested next mission scope
 
-- fresh direct-load earliest frames expose root/body ink through the hero area;
-- hydrated frames settle to the Hero V2 gradient/asset composite;
-- `html`/`body` are stable ink;
-- `main`, Hero V2 mount, Hero V2 renderer/root, and `hero.contentFrame` are transparent;
-- `gradient.base` exists with opacity `1`, but the Hero V2 root/frame lacks its own first-paint visual base;
-- no production hydration warning was captured;
-- route path validation passed for `/`, `/treatments/composite-bonding`, and `/treatments/teeth-whitening`.
+Read-only diagnostics for:
 
-This makes the dominant direct-load flash cause sufficiently proven for a one-contract Hero V2 base-surface fix.
+1. `data-hero-engine` and Hero V2 mount identity on representative routes.
+2. `getHeroBindingForPathnameKey()` output for `/`, `/treatments/composite-bonding`, and `/treatments/teeth-whitening`.
+3. selected runtime `heroId` / `variantId` / `effectiveVariantId`.
+4. manifest source selected for each route.
+5. whether treatment routes are intended to share the general hero copy at this stage.
 
-## Boundary for the next mission
+## Explicit no-go boundaries for next mission
 
-The next mission may only stabilize the Hero V2 first paint/base surface using token-only styling and preserving current Hero V2 structure. The likely file is:
+Do not combine identity diagnostics with:
 
-- `apps/web/app/components/hero/v2/HeroRendererV2.tsx`
-
-Do not touch:
-
-- sacred hero manifests;
-- sacred hero engine core;
-- `apps/web/app/components/hero/HeroRenderer.tsx` unless separately authorized;
-- `apps/web/app/layout.tsx`;
-- `apps/web/app/globals.css`;
-- header/nav files;
-- token files;
-- typography files;
-- page copy/content;
-- hero variant/model routing.
-
-## Required proof after the bounded fix
-
-The next mission must run:
-
-- `npm run guard:hero`
-- `npm run guard:canon`
-- `npm run verify`
-
-It must also recapture production first-frame and post-hydration evidence for:
-
-- `/`
-- `/treatments/composite-bonding`
-- `/treatments/teeth-whitening`
-
-Acceptance criterion: earliest observable hero-area pixels no longer expose root/body ink, hydrated hero visuals remain stable, paths remain correct, no hydration warnings appear, and guards pass.
+- Persian Midnight implementation;
+- token or global background changes;
+- nav/header changes;
+- typography changes;
+- hero visual redesign;
+- hero variant rollout;
+- sacred manifest edits;
+- sacred hero engine surgery unless separately authorized.
