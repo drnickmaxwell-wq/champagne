@@ -20,7 +20,7 @@ export type ConverseResponse = {
 const SAFE_PUBLIC_LINK_HREFS = new Set(["/contact"]);
 
 const FORBIDDEN_USER_FACING_METADATA_PATTERN =
-  /certification|personality|codex|agent\s+(?:execution|runtime|bridge)|dev\s+(?:execution|bridge|console)|dentally|pms|receptionist|recall|treatment coordinator/i;
+  /certification|readiness|personality|codex|agent\s+(?:execution|runtime|bridge)|dev\s+(?:execution|bridge|console)|dentally|pms|receptionist|recall|treatment coordinator|model\s+(?:call|activation)|memory|personalisation|personalization|phi|personal health information/i;
 
 function isSafeUserFacingText(value: string | undefined): value is string {
   return typeof value === "string" && !FORBIDDEN_USER_FACING_METADATA_PATTERN.test(value);
