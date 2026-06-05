@@ -9,7 +9,19 @@
     "telephone": "01273 453109",
     "email": "info@smhdental.co.uk",
     "primaryMarket": "Shoreham-by-Sea",
-    "supportMarkets": ["Brighton", "Hove", "Lancing", "Worthing", "Steyning"]
+    "supportMarkets": [
+      "Brighton",
+      "Hove",
+      "Lancing",
+      "Worthing",
+      "Steyning"
+    ],
+    "localEntitySummary": "St Mary's House Dental Care is the approved public brand for a private dental practice in Shoreham-by-Sea, West Sussex, with support market relevance across Brighton, Hove, Lancing, Worthing, and Steyning.",
+    "countyRelevance": [
+      "West Sussex",
+      "Sussex"
+    ],
+    "napSourceLabel": "Approved public NAP fact set"
   },
   "hours": {
     "Monday": "08:30-17:00",
@@ -21,11 +33,31 @@
     "Sunday": "Closed"
   },
   "team": [
-    { "name": "Dr Nick Maxwell", "role": "Principal Dentist", "gdcNumber": "74877" },
-    { "name": "Dr Sylvia Krafft", "role": "Associate Dentist", "gdcNumber": "174528" },
-    { "name": "Kitty Ingarfield", "role": "Associate Dentist", "gdcNumber": "302160" },
-    { "name": "Sara Burden", "role": "Dental Hygienist", "gdcNumber": "3966" },
-    { "name": "Evgenia Georgieva (Jenny)", "role": "Dental Hygienist", "gdcNumber": "275874" }
+    {
+      "name": "Dr Nick Maxwell",
+      "role": "Principal Dentist",
+      "gdcNumber": "74877"
+    },
+    {
+      "name": "Dr Sylvia Krafft",
+      "role": "Associate Dentist",
+      "gdcNumber": "174528"
+    },
+    {
+      "name": "Kitty Ingarfield",
+      "role": "Associate Dentist",
+      "gdcNumber": "302160"
+    },
+    {
+      "name": "Sara Burden",
+      "role": "Dental Hygienist",
+      "gdcNumber": "3966"
+    },
+    {
+      "name": "Evgenia Georgieva (Jenny)",
+      "role": "Dental Hygienist",
+      "gdcNumber": "275874"
+    }
   ],
   "priorityServices": [
     "Private dentist",
@@ -44,5 +76,17 @@
     "No diagnosis is provided from approved facts.",
     "No PHI or patient-specific information is included.",
     "Treatment advice requires a clinical assessment."
-  ]
+  ],
+  "canonicalIntentMap": {
+    "3d-dentistry-shoreham": {
+      "primaryRoute": "/treatments/3d-dentistry-and-technology",
+      "supportingRoute": "/treatments/3d-digital-dentistry",
+      "decision": "Use the 3D dentistry and technology route for technology-capability intent such as CBCT, 3D scanning, guided planning, and digital dentistry capability."
+    },
+    "same-day-veneers-shoreham": {
+      "primaryRoute": "/treatments/3d-digital-dentistry",
+      "supportingRoute": "/treatments/veneers",
+      "decision": "Use the 3D digital dentistry route for same-day workflow intent; keep the veneers route for broader veneer suitability, planning, materials, and alternatives."
+    }
+  }
 }

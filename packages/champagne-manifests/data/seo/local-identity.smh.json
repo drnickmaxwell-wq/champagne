@@ -55,13 +55,36 @@
     ]
   },
   "openingHours": [
-    { "dayOfWeek": "Monday", "opens": "08:30", "closes": "17:00" },
-    { "dayOfWeek": "Tuesday", "opens": "08:30", "closes": "17:00" },
-    { "dayOfWeek": "Wednesday", "opens": "08:30", "closes": "17:00" },
-    { "dayOfWeek": "Thursday", "opens": "08:30", "closes": "17:00" },
-    { "dayOfWeek": "Friday", "opens": "08:30", "closes": "16:00" }
+    {
+      "dayOfWeek": "Monday",
+      "opens": "08:30",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Tuesday",
+      "opens": "08:30",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Wednesday",
+      "opens": "08:30",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Thursday",
+      "opens": "08:30",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Friday",
+      "opens": "08:30",
+      "closes": "16:00"
+    }
   ],
-  "closedDays": ["Saturday", "Sunday"],
+  "closedDays": [
+    "Saturday",
+    "Sunday"
+  ],
   "openingHoursSources": [
     {
       "type": "live_site",
@@ -80,23 +103,297 @@
     ]
   },
   "supportMarkets": [
-    { "name": "Brighton", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "name": "Hove", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "name": "Lancing", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "name": "Worthing", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "name": "Steyning", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] }
+    {
+      "name": "Brighton",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ]
+    },
+    {
+      "name": "Hove",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ]
+    },
+    {
+      "name": "Lancing",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ]
+    },
+    {
+      "name": "Worthing",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ]
+    },
+    {
+      "name": "Steyning",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ]
+    }
   ],
   "priorityServices": [
-    { "id": "private-dentist", "name": "Private dentist", "routePath": "/contact", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "id": "emergency-dentist", "name": "Emergency dentist", "routePath": "/treatments/emergency-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/contact-us/" }] },
-    { "id": "dental-implants", "name": "Dental implants", "routePath": "/treatments/implants", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/" }] },
-    { "id": "3d-dentistry", "name": "3D dentistry", "routePath": "/treatments/3d-dentistry-and-technology", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "id": "same-day-crowns-veneers", "name": "Same-day crowns/veneers", "routePath": "/treatments/3d-digital-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "id": "spark-aligners", "name": "Spark Aligners", "routePath": "/treatments/clear-aligners-spark", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "id": "orthodontics", "name": "Orthodontics", "routePath": "/treatments/orthodontics", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "id": "sedation-anxiety-dentistry", "name": "Sedation/anxiety dentistry", "routePath": "/treatments/sedation-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }] },
-    { "id": "cosmetic-dentistry", "name": "Cosmetic dentistry", "routePath": "/treatments/cosmetic-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/" }] },
-    { "id": "hygiene-recall", "name": "Hygiene/recall", "routePath": "/treatments/preventative-and-general-dentistry", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/dental-hygienist/" }] },
-    { "id": "examinations", "name": "Examinations", "routePath": "/treatments/dental-checkups-oral-cancer-screening", "sources": [{ "type": "user_prompt", "url": "mission_prompt" }, { "type": "live_site", "url": "https://www.smhdental.co.uk/examination/" }] }
-  ]
+    {
+      "id": "private-dentist",
+      "name": "Private dentist",
+      "routePath": "/contact",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ],
+      "canonicalIntent": "Private dentistry and general practice identity",
+      "targetQueries": [
+        "private dentist Shoreham-by-Sea",
+        "private dentist West Sussex",
+        "general dentistry Shoreham-by-Sea"
+      ],
+      "aiCitationSummary": "St Mary's House Dental Care is the approved private dental practice entity for Shoreham-by-Sea, with contact and NAP facts held in the local identity registry."
+    },
+    {
+      "id": "emergency-dentist",
+      "name": "Emergency dentist",
+      "routePath": "/treatments/emergency-dentistry",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        },
+        {
+          "type": "live_site",
+          "url": "https://www.smhdental.co.uk/contact-us/"
+        }
+      ],
+      "canonicalIntent": "Emergency dentistry",
+      "targetQueries": [
+        "emergency dentist Shoreham-by-Sea",
+        "urgent dentist Shoreham-by-Sea",
+        "emergency dentist West Sussex"
+      ],
+      "aiCitationSummary": "Emergency dentistry is an approved priority service mapped to the existing /treatments/emergency-dentistry route."
+    },
+    {
+      "id": "dental-implants",
+      "name": "Dental implants",
+      "routePath": "/treatments/implants",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        },
+        {
+          "type": "live_site",
+          "url": "https://www.smhdental.co.uk/"
+        }
+      ],
+      "canonicalIntent": "Dental implants",
+      "targetQueries": [
+        "dental implants Shoreham-by-Sea",
+        "dental implants West Sussex",
+        "implant dentist Sussex"
+      ],
+      "aiCitationSummary": "Dental implants are an approved priority service mapped to the existing /treatments/implants authority route."
+    },
+    {
+      "id": "3d-dentistry",
+      "name": "3D dentistry",
+      "routePath": "/treatments/3d-dentistry-and-technology",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ],
+      "canonicalIntent": "3D dentistry technology capability",
+      "targetQueries": [
+        "3D dentistry Shoreham-by-Sea",
+        "3D dental scans Shoreham-by-Sea",
+        "digital dentistry Shoreham-by-Sea"
+      ],
+      "canonicalMappingNote": "/treatments/3d-dentistry-and-technology is the primary route for 3D dentistry capability and should not absorb same-day veneers intent."
+    },
+    {
+      "id": "same-day-crowns-veneers",
+      "name": "Same-day crowns/veneers",
+      "routePath": "/treatments/3d-digital-dentistry",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ],
+      "canonicalIntent": "Same-day crown and veneer digital workflow",
+      "targetQueries": [
+        "same-day veneers Shoreham-by-Sea",
+        "same-day crowns Shoreham-by-Sea",
+        "digital veneers Shoreham-by-Sea"
+      ],
+      "canonicalMappingNote": "/treatments/3d-digital-dentistry is the primary route for same-day crowns and veneers workflow; /treatments/veneers remains the broader veneers treatment route."
+    },
+    {
+      "id": "spark-aligners",
+      "name": "Spark Aligners",
+      "routePath": "/treatments/clear-aligners-spark",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ],
+      "canonicalIntent": "Spark Aligners",
+      "targetQueries": [
+        "Spark Aligners Shoreham-by-Sea",
+        "clear aligners Shoreham-by-Sea",
+        "Spark Aligners West Sussex"
+      ],
+      "aiCitationSummary": "Spark Aligners are an approved priority service mapped to the existing /treatments/clear-aligners-spark route."
+    },
+    {
+      "id": "orthodontics",
+      "name": "Orthodontics",
+      "routePath": "/treatments/orthodontics",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ],
+      "canonicalIntent": "Orthodontics",
+      "targetQueries": [
+        "orthodontics Shoreham-by-Sea",
+        "orthodontist Shoreham-by-Sea",
+        "clear aligners or braces Shoreham-by-Sea"
+      ],
+      "aiCitationSummary": "Orthodontics is an approved priority service mapped to the existing /treatments/orthodontics route."
+    },
+    {
+      "id": "sedation-anxiety-dentistry",
+      "name": "Sedation/anxiety dentistry",
+      "routePath": "/treatments/sedation-dentistry",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        }
+      ]
+    },
+    {
+      "id": "cosmetic-dentistry",
+      "name": "Cosmetic dentistry",
+      "routePath": "/treatments/cosmetic-dentistry",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        },
+        {
+          "type": "live_site",
+          "url": "https://www.smhdental.co.uk/"
+        }
+      ]
+    },
+    {
+      "id": "hygiene-recall",
+      "name": "Hygiene/recall",
+      "routePath": "/treatments/preventative-and-general-dentistry",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        },
+        {
+          "type": "live_site",
+          "url": "https://www.smhdental.co.uk/dental-hygienist/"
+        }
+      ],
+      "canonicalIntent": "Preventative and general dentistry",
+      "targetQueries": [
+        "general dentistry Shoreham-by-Sea",
+        "dental hygiene Shoreham-by-Sea",
+        "private dental check-up Shoreham-by-Sea"
+      ],
+      "aiCitationSummary": "Preventative and general dentistry is supported by the existing /treatments/preventative-and-general-dentistry route."
+    },
+    {
+      "id": "examinations",
+      "name": "Examinations",
+      "routePath": "/treatments/dental-checkups-oral-cancer-screening",
+      "sources": [
+        {
+          "type": "user_prompt",
+          "url": "mission_prompt"
+        },
+        {
+          "type": "live_site",
+          "url": "https://www.smhdental.co.uk/examination/"
+        }
+      ]
+    }
+  ],
+  "localEntityProof": {
+    "sourceLabel": "Approved local identity fact set",
+    "summary": "St Mary's House Dental Care is a private dental practice on St Mary's Road in Shoreham-by-Sea, West Sussex, BN43 5ZA. The approved public NAP is 01273 453109 and info@smhdental.co.uk.",
+    "primaryLocality": "Shoreham-by-Sea",
+    "countyRelevance": [
+      "West Sussex",
+      "Sussex"
+    ],
+    "approvedNap": {
+      "name": "St Mary's House Dental Care",
+      "address": "St Mary's Road, Shoreham-by-Sea, West Sussex, BN43 5ZA",
+      "telephone": "01273 453109",
+      "email": "info@smhdental.co.uk"
+    },
+    "serviceEntityLinks": [
+      {
+        "serviceId": "private-dentist",
+        "routePath": "/contact",
+        "localIntent": "private dentist Shoreham-by-Sea"
+      },
+      {
+        "serviceId": "dental-implants",
+        "routePath": "/treatments/implants",
+        "localIntent": "dental implants Shoreham-by-Sea"
+      },
+      {
+        "serviceId": "emergency-dentist",
+        "routePath": "/treatments/emergency-dentistry",
+        "localIntent": "emergency dentist Shoreham-by-Sea"
+      },
+      {
+        "serviceId": "spark-aligners",
+        "routePath": "/treatments/clear-aligners-spark",
+        "localIntent": "Spark Aligners Shoreham-by-Sea"
+      },
+      {
+        "serviceId": "orthodontics",
+        "routePath": "/treatments/orthodontics",
+        "localIntent": "orthodontics Shoreham-by-Sea"
+      }
+    ],
+    "sourceRefs": [
+      "local-identity.smh.json:publicBrand",
+      "local-identity.smh.json:address",
+      "local-identity.smh.json:contact",
+      "local-identity.smh.json:priorityServices"
+    ]
+  }
 }
