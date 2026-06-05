@@ -1,7 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const repoRoot = path.resolve(process.cwd(), "../..");
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(scriptDir, "../../..");
 const conversationsDir = path.join(repoRoot, "config/conversations");
 const qaReportPath = path.join(
   repoRoot,
@@ -19,6 +21,9 @@ const outputReportPath = path.join(
   repoRoot,
   "reports/CHATBOT_ENGINE_GUARD_REPORT_V1.json",
 );
+const updateReports =
+  process.argv.includes("--update-reports") ||
+  process.env.CHAMPAGNE_UPDATE_GUARD_REPORTS === "1";
 
 const baseAbsolutePhrases = [
   "best",
@@ -32,6 +37,95 @@ const baseAbsolutePhrases = [
 ];
 
 const lower = (value) => value.toLowerCase();
+
+const compareStrings = (left, right) => left.localeCompare(right);
+
+const repoRelativePosixPath = (filePath) => {
+  if (typeof filePath !== "string") {
+    return filePath;
+  }
+
+  const normalized = filePath.replaceAll("\\", "/");
+  const normalizedRepoRoot = repoRoot.replaceAll("\\", "/");
+  if (normalized === normalizedRepoRoot) {
+    return ".";
+  }
+  if (normalized.startsWith(`${normalizedRepoRoot}/`)) {
+    return normalized.slice(normalizedRepoRoot.length + 1);
+  }
+  return normalized;
+};
+
+const sortStrings = (values) => [...values].sort(compareStrings);
+
+const sortEntries = (entries) =>
+  [...entries].sort((left, right) => {
+    const fields = ["file", "topic", "pointer", "phrase", "message", "content"];
+    for (const field of fields) {
+      const result = compareStrings(String(left[field] ?? ""), String(right[field] ?? ""));
+      if (result !== 0) {
+        return result;
+      }
+    }
+    return 0;
+  });
+
+const canonicalizeReport = (report) => ({
+  report: report.report,
+  rules: {
+    absolutePhraseBlocklist: sortStrings(report.rules?.absolutePhraseBlocklist ?? []),
+    qaReportLoaded: Boolean(report.rules?.qaReportLoaded),
+    qaReportPath: repoRelativePosixPath(report.rules?.qaReportPath),
+    contentReadinessReportLoaded: Boolean(report.rules?.contentReadinessReportLoaded),
+    contentReadinessReportPath: repoRelativePosixPath(report.rules?.contentReadinessReportPath),
+    excerptReportLoaded: Boolean(report.rules?.excerptReportLoaded),
+    excerptReportPath: repoRelativePosixPath(report.rules?.excerptReportPath),
+    warnOnExcerptMismatch: Boolean(report.rules?.warnOnExcerptMismatch),
+    requiredResponseField: report.rules?.requiredResponseField,
+  },
+  filesScanned: sortStrings((report.filesScanned ?? []).map(repoRelativePosixPath)),
+  responsesScanned: report.responsesScanned ?? 0,
+  failureCount: report.failureCount ?? 0,
+  warningCount: report.warningCount ?? 0,
+  failures: sortEntries(report.failures ?? []).map((entry) => ({
+    ...entry,
+    file: repoRelativePosixPath(entry.file),
+  })),
+  warnings: sortEntries(report.warnings ?? []).map((entry) => ({
+    ...entry,
+    file: repoRelativePosixPath(entry.file),
+  })),
+});
+
+const stringifyReport = (report) => `${JSON.stringify(canonicalizeReport(report), null, 2)}\n`;
+
+const compareOrUpdateReport = async (report) => {
+  const generated = stringifyReport(report);
+  if (updateReports) {
+    await fs.mkdir(path.dirname(outputReportPath), { recursive: true });
+    await fs.writeFile(outputReportPath, generated);
+    return;
+  }
+
+  let baseline;
+  try {
+    baseline = await fs.readFile(outputReportPath, "utf-8");
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      throw new Error(
+        `Chatbot engine copy guard report baseline missing: ${repoRelativePosixPath(outputReportPath)}`,
+      );
+    }
+    throw error;
+  }
+
+  if (baseline !== generated) {
+    throw new Error(
+      `Chatbot engine copy guard report baseline differs: ${repoRelativePosixPath(outputReportPath)}\n` +
+        `Run with --update-reports or CHAMPAGNE_UPDATE_GUARD_REPORTS=1 to refresh tracked guard reports intentionally.`,
+    );
+  }
+};
 
 const createPhraseRegex = (phrase) => {
   const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -150,8 +244,8 @@ const main = async () => {
   const readinessPhrases = contentReadinessReport
     ? extractHardBannedPhrases(contentReadinessReport)
     : [];
-  const absolutePhrases = Array.from(
-    new Set([...baseAbsolutePhrases, ...qaPhrases, ...readinessPhrases]),
+  const absolutePhrases = sortStrings(
+    Array.from(new Set([...baseAbsolutePhrases, ...qaPhrases, ...readinessPhrases])),
   );
   const absolutePhraseRegexes = absolutePhrases.map((phrase) => ({
     phrase,
@@ -173,7 +267,8 @@ const main = async () => {
     const entries = await fs.readdir(conversationsDir, { withFileTypes: true });
     conversationFiles = entries
       .filter((entry) => entry.isFile() && entry.name.endsWith(".core.json"))
-      .map((entry) => path.join(conversationsDir, entry.name));
+      .map((entry) => path.join(conversationsDir, entry.name))
+      .sort(compareStrings);
   } catch (error) {
     if (error.code !== "ENOENT") {
       throw error;
@@ -199,7 +294,7 @@ const main = async () => {
       for (const { phrase, regex } of absolutePhraseRegexes) {
         if (regex.test(content)) {
           failures.push({
-            file: filePath,
+            file: repoRelativePosixPath(filePath),
             topic,
             pointer: entry.pointer,
             phrase,
@@ -212,7 +307,7 @@ const main = async () => {
         const normalized = lower(content.trim());
         if (normalized && !excerptLower.includes(normalized)) {
           warnings.push({
-            file: filePath,
+            file: repoRelativePosixPath(filePath),
             topic,
             pointer: entry.pointer,
             message: "Response content not found in excerpt text.",
@@ -225,19 +320,18 @@ const main = async () => {
 
   const report = {
     report: "CHATBOT_ENGINE_GUARD_REPORT_V1",
-    generatedAt: new Date().toISOString(),
     rules: {
       absolutePhraseBlocklist: absolutePhrases,
       qaReportLoaded: Boolean(qaReport),
-      qaReportPath: qaReportPath,
+      qaReportPath: repoRelativePosixPath(qaReportPath),
       contentReadinessReportLoaded: Boolean(contentReadinessReport),
-      contentReadinessReportPath: contentReadinessReportPath,
+      contentReadinessReportPath: repoRelativePosixPath(contentReadinessReportPath),
       excerptReportLoaded: Array.isArray(excerptsReport),
-      excerptReportPath: excerptsReportPath,
+      excerptReportPath: repoRelativePosixPath(excerptsReportPath),
       warnOnExcerptMismatch: true,
       requiredResponseField: "response.content",
     },
-    filesScanned: conversationFiles,
+    filesScanned: conversationFiles.map(repoRelativePosixPath),
     responsesScanned,
     failureCount: failures.length,
     warningCount: warnings.length,
@@ -245,27 +339,26 @@ const main = async () => {
     warnings,
   };
 
-  await fs.mkdir(path.dirname(outputReportPath), { recursive: true });
-  await fs.writeFile(outputReportPath, `${JSON.stringify(report, null, 2)}\n`);
+  await compareOrUpdateReport(report);
 
   if (!qaReport) {
     console.warn(
-      `⚠️ QA report missing at ${qaReportPath}; using base phrase list plus any canon phrases.`,
+      `⚠️ QA report missing at ${repoRelativePosixPath(qaReportPath)}; using base phrase list plus any canon phrases.`,
     );
   }
   if (!contentReadinessReport) {
     console.warn(
-      `⚠️ Content readiness report missing at ${contentReadinessReportPath}; hard-banned phrase expansion skipped.`,
+      `⚠️ Content readiness report missing at ${repoRelativePosixPath(contentReadinessReportPath)}; hard-banned phrase expansion skipped.`,
     );
   }
   if (!Array.isArray(excerptsReport)) {
     console.warn(
-      `⚠️ Excerpt report missing at ${excerptsReportPath}; excerpt warnings skipped.`,
+      `⚠️ Excerpt report missing at ${repoRelativePosixPath(excerptsReportPath)}; excerpt warnings skipped.`,
     );
   }
   if (conversationFiles.length === 0) {
     console.warn(
-      `⚠️ No conversation files found in ${conversationsDir}; nothing to scan.`,
+      `⚠️ No conversation files found in ${repoRelativePosixPath(conversationsDir)}; nothing to scan.`,
     );
   }
 
