@@ -1,0 +1,267 @@
+{
+  "version": "CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1",
+  "role": "CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_AND_VENEERS_PRIORITY_REVIEW_V1",
+  "repo": "drnickmaxwell-wq/champagne",
+  "validationDate": "2026-06-05",
+  "authorityStatus": "VALIDATED_PASS_WITH_REMAINING_LAUNCH_READINESS_WARNINGS",
+  "scopeBoundary": [
+    "Registry/data patch only.",
+    "No route files edited.",
+    "No visual design, hero, layout, header/footer, API, concierge, portal, stock/ops, PHI/PMS, deployment, scraping, browser automation, analytics, GBP, or external publishing actions performed."
+  ],
+  "filesChanged": [
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+    "tools/audits/seo-answer-packet-compression/CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1.md",
+    "tools/audits/seo-answer-packet-compression/CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1.json"
+  ],
+  "answerPacketsCompressed": [
+    {
+      "id": "smh-answer-priority-emergency-dentist-packet-v1",
+      "beforeWords": {
+        "short": 53,
+        "expanded": 131
+      },
+      "afterWords": {
+        "short": 40,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-dental-implants-packet-v1",
+      "beforeWords": {
+        "short": 47,
+        "expanded": 126
+      },
+      "afterWords": {
+        "short": 41,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-private-dentist-packet-v1",
+      "beforeWords": {
+        "short": 46,
+        "expanded": 125
+      },
+      "afterWords": {
+        "short": 40,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-examinations-packet-v1",
+      "beforeWords": {
+        "short": 41,
+        "expanded": 123
+      },
+      "afterWords": {
+        "short": 41,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-spark-aligners-packet-v1",
+      "beforeWords": {
+        "short": 45,
+        "expanded": 121
+      },
+      "afterWords": {
+        "short": 45,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-orthodontics-packet-v1",
+      "beforeWords": {
+        "short": 46,
+        "expanded": 136
+      },
+      "afterWords": {
+        "short": 43,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-3d-dentistry-packet-v1",
+      "beforeWords": {
+        "short": 45,
+        "expanded": 125
+      },
+      "afterWords": {
+        "short": 45,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
+      "beforeWords": {
+        "short": 46,
+        "expanded": 140
+      },
+      "afterWords": {
+        "short": 40,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-veneers-packet-v1",
+      "beforeWords": {
+        "short": 45,
+        "expanded": 122
+      },
+      "afterWords": {
+        "short": 45,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
+      "beforeWords": {
+        "short": 44,
+        "expanded": 135
+      },
+      "afterWords": {
+        "short": 44,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
+      "beforeWords": {
+        "short": 46,
+        "expanded": 125
+      },
+      "afterWords": {
+        "short": 41,
+        "expanded": 120
+      }
+    },
+    {
+      "id": "smh-answer-priority-hygiene-recall-packet-v1",
+      "beforeWords": {
+        "short": 44,
+        "expanded": 138
+      },
+      "afterWords": {
+        "short": 44,
+        "expanded": 120
+      }
+    }
+  ],
+  "beforeAfterWarningStatus": {
+    "before": {
+      "seo:answer-foundation-qa": "pass_with_19_registry_warnings: 18 answer length warnings and 1 veneers priority-service mapping warning",
+      "seo:answer-packet-qa": "pass",
+      "guard:seo-launch-safety": "pass_with_section_layout_warnings_and_cannibalisation_info"
+    },
+    "after": {
+      "seo:answer-foundation-qa": "pass_no_registry_warnings",
+      "seo:answer-packet-qa": "pass_no_errors_no_warnings",
+      "guard:seo-launch-safety": "pass_with_remaining_section_layout_warnings_and_cannibalisation_info"
+    }
+  },
+  "veneersPriorityDecision": {
+    "decision": "Veneers retained as a governed supporting priority entry, not promoted above private/general dentistry, emergency dentistry, dental implants, Spark Aligners, orthodontics, 3D dentistry, same-day crowns/veneers, hygiene/recall, or examinations.",
+    "implementation": [
+      "Added veneers to local priority service governance after examinations.",
+      "Added veneers to approved priority service facts after existing services.",
+      "Preserved /treatments/veneers as broader veneer suitability, planning, materials, maintenance, and alternatives support.",
+      "Preserved same-day veneers workflow primary ownership on /treatments/3d-digital-dentistry."
+    ]
+  },
+  "canonicalMappingPreserved": [
+    {
+      "intent": "3D dentistry Shoreham",
+      "primaryRoute": "/treatments/3d-dentistry-and-technology",
+      "supportingRoute": "/treatments/3d-digital-dentistry",
+      "status": "preserved"
+    },
+    {
+      "intent": "same-day veneers Shoreham",
+      "primaryRoute": "/treatments/3d-digital-dentistry",
+      "supportingRoute": "/treatments/veneers",
+      "status": "preserved"
+    }
+  ],
+  "filesNotTouched": [
+    "Sacred hero engine files",
+    "Sacred hero manifests",
+    "apps/web/app/components/hero/HeroRenderer.tsx",
+    "apps/web/app/layout.tsx",
+    "apps/web/app/globals.css",
+    "route files",
+    "visual design/layout/header/footer files",
+    "API/concierge/portal/stock/ops/PHI/PMS areas"
+  ],
+  "validationResults": [
+    {
+      "command": "npm run seo:answer-foundation-qa",
+      "status": "pass",
+      "note": "No registry errors or warnings."
+    },
+    {
+      "command": "npm run seo:answer-packet-qa",
+      "status": "pass",
+      "note": "No errors or warnings."
+    },
+    {
+      "command": "npm run guard:seo-launch-safety",
+      "status": "pass_with_warnings",
+      "note": "Existing section-layout warnings and cannibalisation cluster info remain; no route/design changes made."
+    },
+    {
+      "command": "npm run lint",
+      "status": "pass",
+      "note": "Completed with existing Next lint deprecation/plugin notices."
+    },
+    {
+      "command": "npm run build",
+      "status": "pass",
+      "note": "Completed with existing Browserslist, Tailwind content glob, and Next ESLint plugin warnings."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "note": "No whitespace or conflict-marker errors."
+    },
+    {
+      "command": "npm run guard:hero",
+      "status": "pass",
+      "note": "Hero guard and sacred hero lock passed; no hero files touched."
+    },
+    {
+      "command": "npm run guard:canon",
+      "status": "pass",
+      "note": "Canon guard passed with existing Browserslist/Tailwind notices during SSR probe."
+    },
+    {
+      "command": "npm run verify",
+      "status": "pass_with_warnings",
+      "note": "Full verification passed with existing workspace dependency, SEO launch-readiness, chatbot QA-report/conversation absence, Browserslist, Tailwind content glob, and Next ESLint plugin warnings."
+    }
+  ],
+  "remainingWarnings": [
+    "guard:seo-launch-safety still reports treatment routes missing section layouts; fixing requires route/content-layout work outside this mission scope.",
+    "guard:seo-launch-safety still prints high-risk cannibalisation clusters for review; this is informational and not fixable through bounded registry data alone without route/design/content architecture changes.",
+    "Environment/tooling warnings remain: npm unknown env config http-proxy, Next lint deprecation, missing Next ESLint plugin notice, stale Browserslist data, and Tailwind content glob performance warning."
+  ],
+  "rollbackNotes": {
+    "files": [
+      "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+      "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "tools/audits/seo-answer-packet-compression/CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1.md",
+      "tools/audits/seo-answer-packet-compression/CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_V1.json"
+    ],
+    "postRollbackValidation": [
+      "npm run seo:answer-foundation-qa",
+      "npm run seo:answer-packet-qa",
+      "npm run guard:seo-launch-safety",
+      "git diff --check"
+    ]
+  },
+  "nextRecommendedMission": "SEO launch-readiness section-layout and cannibalisation architecture review, with fresh route/content authority before editing route files.",
+  "overallResult": "PASS_WITH_REMAINING_LAUNCH_READINESS_WARNINGS"
+}
