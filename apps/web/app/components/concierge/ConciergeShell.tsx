@@ -46,6 +46,15 @@ type ConciergeShellProps = {
 
 const LEAD_SENTENCE_MIN_LENGTH = 80;
 
+export const CONCIERGE_BOUNDARY_COPY = [
+  "Captain is our public concierge, not a clinician.",
+  "Captain cannot diagnose, triage, or provide treatment-specific clinical advice.",
+  "Please do not enter personal health information or sensitive details.",
+  "For urgent dental problems, contact the practice directly or follow emergency guidance.",
+  "Captain can help with general navigation, service information, and safe signposting.",
+  "Contact or booking handoffs send a request to the team; they do not confirm an appointment.",
+] as const;
+
 function splitLeadSentence(content: string) {
   if (content.length < LEAD_SENTENCE_MIN_LENGTH) {
     return null;
@@ -241,6 +250,17 @@ export function ConciergeShell({
               </button>
             </header>
 
+            <section className={styles.boundaryNotice} aria-labelledby="concierge-boundary-title">
+              <p id="concierge-boundary-title" className={styles.boundaryTitle}>
+                Before you chat with Captain
+              </p>
+              <ul className={styles.boundaryList}>
+                {CONCIERGE_BOUNDARY_COPY.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
             <div className={styles.messages} aria-live="polite">
               {messages.map((message) => (
                 <article key={message.id} className={styles.message}>
@@ -306,7 +326,7 @@ export function ConciergeShell({
                 rows={1}
                 value={inputValue}
                 onChange={(event) => onInputChange(event.target.value)}
-                placeholder="Ask about treatment options, appointments, or what to do next"
+                placeholder="Ask general navigation or service-information questions"
                 disabled={isLoading}
               />
               <button type="submit" className={styles.sendButton} disabled={isLoading || inputValue.trim().length === 0}>
