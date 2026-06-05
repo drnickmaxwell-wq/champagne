@@ -1,0 +1,200 @@
+{
+  "version": "CHAMPAGNE_SEO_POST_PATCH_VALIDATION_V1",
+  "role": "CHAMPAGNE_SEO_PATCH_VALIDATOR_V1",
+  "repo": "drnickmaxwell-wq/champagne",
+  "validation_date": "2026-06-05",
+  "validated_patch": {
+    "commit": "75d90c7",
+    "subject": "Strengthen bounded SEO entity registries (#830)",
+    "range": "HEAD~1..HEAD"
+  },
+  "authority_status": "VALIDATED_PASS_WITH_WARNINGS",
+  "files_inspected": [
+    "tools/audits/seo-bounded-implementation/CHAMPAGNE_SEO_BOUNDED_IMPLEMENTATION_V1.md",
+    "tools/audits/seo-bounded-implementation/CHAMPAGNE_SEO_BOUNDED_IMPLEMENTATION_V1.json",
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+    "package.json",
+    "AGENTS.md"
+  ],
+  "changed_files_validated": [
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+    "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+    "packages/champagne-manifests/data/seo/local-identity.smh.json",
+    "tools/audits/seo-bounded-implementation/CHAMPAGNE_SEO_BOUNDED_IMPLEMENTATION_V1.json",
+    "tools/audits/seo-bounded-implementation/CHAMPAGNE_SEO_BOUNDED_IMPLEMENTATION_V1.md"
+  ],
+  "files_created": [
+    "tools/audits/seo-post-patch-validation/CHAMPAGNE_SEO_POST_PATCH_VALIDATION_V1.md",
+    "tools/audits/seo-post-patch-validation/CHAMPAGNE_SEO_POST_PATCH_VALIDATION_V1.json"
+  ],
+  "json_validity": {
+    "status": "pass",
+    "files": [
+      "tools/audits/seo-bounded-implementation/CHAMPAGNE_SEO_BOUNDED_IMPLEMENTATION_V1.json",
+      "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+      "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json"
+    ]
+  },
+  "claim_safety": {
+    "status": "pass",
+    "unsupported_clinical_claims_introduced": false,
+    "invented_credentials_reviews_awards_ratings_or_external_citations_introduced": false,
+    "notes": [
+      "Clinical content remains assessment-gated and bounded to approved facts, local identity, and page-truth references.",
+      "No invented pricing, outcomes, ratings, awards, reviews, credentials, or external citations were identified."
+    ]
+  },
+  "local_identity_nap_consistency": {
+    "status": "pass",
+    "public_brand": "St Mary's House Dental Care",
+    "address": "St Mary's Road, Shoreham-by-Sea, West Sussex, BN43 5ZA",
+    "telephone": "01273 453109",
+    "email": "info@smhdental.co.uk",
+    "primary_locality": "Shoreham-by-Sea",
+    "county_relevance": [
+      "West Sussex",
+      "Sussex"
+    ]
+  },
+  "canonical_mapping_validation": {
+    "status": "pass",
+    "mappings": [
+      {
+        "intent": "3D dentistry Shoreham",
+        "primary_route": "/treatments/3d-dentistry-and-technology",
+        "supporting_route": "/treatments/3d-digital-dentistry",
+        "status": "pass"
+      },
+      {
+        "intent": "same-day veneers Shoreham",
+        "primary_route": "/treatments/3d-digital-dentistry",
+        "supporting_route": "/treatments/veneers",
+        "status": "pass"
+      }
+    ]
+  },
+  "ai_citation_readiness_validation": {
+    "status": "pass_with_existing_warnings",
+    "source_labelled_and_bounded": true,
+    "evidence_sources_preserved": true,
+    "warnings": [
+      "seo:answer-foundation-qa reports answer packet length warnings.",
+      "seo:answer-foundation-qa reports smh-treatment-fact-veneers-v1 maps to a service outside approved priorityServices."
+    ]
+  },
+  "treatment_authority_validation": {
+    "status": "pass_with_existing_warnings",
+    "source_labelled_and_bounded": true,
+    "clinical_review_required_preserved": true,
+    "unknown_fact_boundaries_preserved": true,
+    "canonical_split_preserved": true
+  },
+  "forbidden_file_check": {
+    "status": "pass",
+    "forbidden_files_touched": false,
+    "violations": []
+  },
+  "route_design_deploy_exclusion_check": {
+    "status": "pass",
+    "route_creation": false,
+    "route_deletion": false,
+    "redesign": false,
+    "deployment": false,
+    "gbp": false,
+    "analytics": false,
+    "chatbot_or_portal": false,
+    "api": false,
+    "phi_or_pms": false,
+    "scraping": false,
+    "browser_automation": false,
+    "live_verification": false
+  },
+  "validation_commands": [
+    {
+      "command": "node -e \"...JSON.parse...\"",
+      "status": "pass",
+      "note": "Parsed all changed JSON registry/report files."
+    },
+    {
+      "command": "git diff --name-only HEAD~1..HEAD",
+      "status": "pass",
+      "note": "Confirmed bounded changed-file set."
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "note": "No whitespace/conflict marker errors."
+    },
+    {
+      "command": "npm run lint",
+      "status": "pass",
+      "note": "Completed with existing Next lint deprecation/plugin notices; no ESLint errors."
+    },
+    {
+      "command": "npm run build",
+      "status": "pass",
+      "note": "Completed production build with existing Browserslist/Tailwind/Next plugin warnings."
+    },
+    {
+      "command": "npm run seo:schema-qa",
+      "status": "pass",
+      "note": "No unsafe/unsupported/invented schema findings."
+    },
+    {
+      "command": "npm run seo:answer-foundation-qa",
+      "status": "pass_with_warnings",
+      "note": "Passed with answer length warnings and one veneers priority-service mapping warning."
+    },
+    {
+      "command": "npm run seo:answer-packet-qa",
+      "status": "pass",
+      "note": "Priority-service packet QA passed."
+    },
+    {
+      "command": "npm run guard:seo-launch-safety",
+      "status": "pass_with_warnings",
+      "note": "Passed with launch-readiness warnings about missing section layouts and cannibalisation clusters."
+    },
+    {
+      "command": "npm run guard:hero",
+      "status": "pass",
+      "note": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "npm run guard:canon",
+      "status": "pass",
+      "note": "Canon guard passed."
+    },
+    {
+      "command": "npm run verify",
+      "status": "pass_with_warnings",
+      "note": "Full verification passed with existing warning output."
+    }
+  ],
+  "remaining_risks": [
+    "seo:answer-foundation-qa answer packet length warnings remain.",
+    "smh-treatment-fact-veneers-v1 is outside approvedFacts.priorityServices and should receive governance review.",
+    "guard:seo-launch-safety reports existing treatment section-layout and cannibalisation-cluster launch-readiness warnings.",
+    "Existing tooling warnings remain: Next lint deprecation, missing Next ESLint plugin, stale Browserslist data, and Tailwind content glob performance warning.",
+    "No live verification, scraping, browser automation, GBP, deployment, analytics, or external citation verification was performed by design."
+  ],
+  "rollback_notes": {
+    "command": "git revert 75d90c7",
+    "post_rollback_validation": [
+      "git diff --check",
+      "npm run lint",
+      "npm run build",
+      "npm run seo:schema-qa",
+      "npm run seo:answer-foundation-qa",
+      "npm run seo:answer-packet-qa"
+    ]
+  },
+  "next_recommended_mission": "CHAMPAGNE_SEO_ANSWER_PACKET_COMPRESSION_AND_VENEERS_PRIORITY_REVIEW_V1",
+  "overall_result": "PASS_WITH_WARNINGS"
+}
