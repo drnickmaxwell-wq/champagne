@@ -41,6 +41,37 @@
   font-size: 0.8125rem;
 }
 
+.safetyNotice {
+  margin-top: 0.9rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.875rem;
+  background: var(--surface-0);
+  color: var(--text-medium);
+  padding: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.safetyNotice p {
+  margin: 0;
+}
+
+.safetyNotice p + p {
+  margin-top: 0.35rem;
+}
+
+.contactLink {
+  display: inline-flex;
+  margin-top: 0.55rem;
+  color: var(--text-high);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.contactLink:focus-visible {
+  outline: 2px solid var(--text-high);
+  outline-offset: 2px;
+}
+
 .closeButton {
   border: 1px solid var(--border-subtle);
   border-radius: 999px;

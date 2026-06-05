@@ -1,5 +1,7 @@
 export type HandoffKind = "BOOKING" | "EMERGENCY_CALLBACK" | "NEW_PATIENT";
 
+export const SAFE_HANDOFF_FALLBACK_HREF = "/contact";
+
 const HANDOFF_ENDPOINTS: Record<HandoffKind, "/api/handoff/booking" | "/api/handoff/emergency-callback" | "/api/handoff/new-patient"> = {
   BOOKING: "/api/handoff/booking",
   EMERGENCY_CALLBACK: "/api/handoff/emergency-callback",

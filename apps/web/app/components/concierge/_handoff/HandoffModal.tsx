@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./HandoffModal.module.css";
-import { resolveHandoffEndpoint, type HandoffKind } from "./postbackRouter";
+import { resolveHandoffEndpoint, SAFE_HANDOFF_FALLBACK_HREF, type HandoffKind } from "./postbackRouter";
 
 type HandoffModalProps = {
   kind: HandoffKind;
@@ -36,6 +36,13 @@ type FormState = BaseFields & {
   enquiry: string;
 };
 
+export const HANDOFF_FALLBACK_COPY = [
+  "Captain can guide you to contact or booking options, but Captain does not confirm appointments.",
+  "This form sends a request/handoff to the practice team only, unless a separate governed confirmed-booking flow tells you otherwise.",
+  "Please do not include personal health information or sensitive details.",
+  "For urgent dental issues, contact the practice directly.",
+] as const;
+
 const initialState = (): FormState => ({
   name: "",
   phone: "",
@@ -55,23 +62,23 @@ function getModalMeta(kind: HandoffKind) {
   if (kind === "BOOKING") {
     return {
       title: "Booking / call-back request",
-      description: "Share details and a preferred time window for a concierge call-back.",
-      successMessage: "Thanks — your booking request was sent.",
+      description: "Share contact details and a preferred time window for a practice team call-back.",
+      successMessage: "Thanks — your booking request was sent to the practice team. It is not a confirmed appointment.",
     };
   }
 
   if (kind === "EMERGENCY_CALLBACK") {
     return {
       title: "Emergency call-back",
-      description: "Share your details so the team can call you back quickly.",
-      successMessage: "Thanks — your emergency callback request was sent.",
+      description: "Share contact details so the team can call you back quickly; contact the practice directly for urgent dental issues.",
+      successMessage: "Thanks — your emergency callback request was sent to the practice team.",
     };
   }
 
   return {
     title: "New patient enquiry",
-    description: "Share your details and what you are looking for.",
-    successMessage: "Thanks — your new patient enquiry was sent.",
+    description: "Share contact details and what you are looking for without sensitive details.",
+    successMessage: "Thanks — your new patient enquiry was sent to the practice team.",
   };
 }
 
@@ -180,6 +187,15 @@ export function HandoffModal({ kind, onClose }: HandoffModalProps) {
           </button>
         </header>
 
+        <aside className={styles.safetyNotice} aria-label="Booking and contact handoff safety">
+          {HANDOFF_FALLBACK_COPY.map((copy) => (
+            <p key={copy}>{copy}</p>
+          ))}
+          <a className={styles.contactLink} href={SAFE_HANDOFF_FALLBACK_HREF}>
+            Contact the practice directly
+          </a>
+        </aside>
+
         {submission.status === "success" ? (
           <p className={styles.message}>{submission.message}</p>
         ) : (
@@ -247,7 +263,7 @@ export function HandoffModal({ kind, onClose }: HandoffModalProps) {
                   />
                 </label>
                 <label className={styles.label}>
-                  Reason
+                  Reason (no personal health information or sensitive details)
                   <textarea
                     className={styles.textarea}
                     rows={3}
@@ -271,7 +287,7 @@ export function HandoffModal({ kind, onClose }: HandoffModalProps) {
                   />
                 </label>
                 <label className={styles.label}>
-                  Brief issue summary
+                  Brief issue summary (no personal health information or sensitive details)
                   <textarea
                     className={styles.textarea}
                     rows={3}
@@ -284,7 +300,7 @@ export function HandoffModal({ kind, onClose }: HandoffModalProps) {
 
             {kind === "NEW_PATIENT" ? (
               <label className={styles.label}>
-                What are you looking for?
+                What are you looking for? (no sensitive details)
                 <textarea
                   className={styles.textarea}
                   rows={3}
