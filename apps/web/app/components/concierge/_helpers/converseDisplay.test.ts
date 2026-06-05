@@ -72,4 +72,29 @@ describe("normalizeConverseDisplayMessage", () => {
     ]);
     expect(visibleMessageText(message)).not.toMatch(/dev bridge|dentally|recall|receptionist/i);
   });
+
+  it("falls back before rendering memory, model, PHI, readiness, or internal metadata claims", () => {
+    const message = normalizeConverseDisplayMessage(
+      {
+        content: "Captain memory and model activation readiness metadata should not render PHI claims.",
+        ui: {
+          kind: "cards",
+          cards: [
+            {
+              title: "Model call activation",
+              description: "Personalisation memory readiness and PHI routing",
+              actions: [{ type: "link", label: "Contact", href: "/contact" }],
+            },
+          ],
+        },
+      },
+      "forbidden-runtime-claims",
+    );
+
+    const visibleText = visibleMessageText(message);
+
+    expect(visibleText).toContain("I can guide you to safe contact options");
+    expect(visibleText).toContain("Contact");
+    expect(visibleText).not.toMatch(/memory|model activation|PHI|readiness|personalisation/i);
+  });
 });
