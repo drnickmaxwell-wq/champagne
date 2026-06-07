@@ -1,0 +1,43 @@
+wordpress_url,nextjs_route,redirect_type,redirect_status,tested_locally,tested_staging,seo_impact_assessed,human_approved,notes
+https://www.smhdental.co.uk/,/,301,NEEDS_REVIEW,false,false,false,false,Home page URL unchanged on same domain — no redirect needed in practice; validator will flag as loop; include for coverage record only
+https://www.smhdental.co.uk/emergency/,/treatments/emergency-dentistry,301,NEEDS_REVIEW,false,false,false,false,WP hub page mapped to primary emergency treatment; confirm this is the intended single-target for the hub
+https://www.smhdental.co.uk/implants/,/treatments/implants,301,DRAFT,false,false,false,false,WP hub maps directly to Champagne implants treatment index
+https://www.smhdental.co.uk/general-dentistry/,/treatments/preventative-and-general-dentistry,301,NEEDS_REVIEW,false,false,false,false,WP hub mapped to closest Champagne treatment slug; verify this is the right parent
+https://www.smhdental.co.uk/teeth-replacement/,/treatments/dentures,301,NEEDS_REVIEW,false,false,false,false,WP hub covered multiple replacement options; dentures proposed as primary target — consider /treatments instead if no single best match
+https://www.smhdental.co.uk/cosmetic-dentistry/,/treatments/full-smile-makeover,301,NEEDS_REVIEW,false,false,false,false,WP hub mapped to closest cosmetic parent; consider /treatments/veneers or /treatments if a cosmetic hub page is planned
+https://www.smhdental.co.uk/about-us/,/about,301,DRAFT,false,false,false,false,Slug change only — same page content
+https://www.smhdental.co.uk/team/,/team,301,DRAFT,false,false,false,false,Exact path match
+https://www.smhdental.co.uk/contact-us/,/contact,301,DRAFT,false,false,false,false,Slug change only — same page content
+https://www.smhdental.co.uk/fees/,/fees,301,DRAFT,false,false,false,false,Exact path match
+https://www.smhdental.co.uk/reviews/,/smile-gallery,301,NEEDS_REVIEW,false,false,false,false,No /reviews route in Champagne; smile-gallery is nearest social-proof equivalent — confirm acceptable
+https://www.smhdental.co.uk/offer/,/treatments,301,NEEDS_REVIEW,false,false,false,false,No /offer page in Champagne; treatments hub proposed as fallback — consider a dedicated offers/promotions page if content exists
+https://www.smhdental.co.uk/examination/,/treatments/dental-checkups-oral-cancer-screening,301,DRAFT,false,false,false,false,WP examination page maps to Champagne checkup and oral cancer screening treatment
+https://www.smhdental.co.uk/emergency-dentist/,/treatments/emergency-dentistry,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/dental-extraction/,/treatments/extractions-and-oral-surgery,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/root-canal-treatment/,/treatments/endodontics-root-canal,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/dental-implant/,/treatments/implants-single-tooth,301,NEEDS_REVIEW,false,false,false,false,Ambiguous WP slug — could mean single-tooth or generic implants; verify intent before approving
+https://www.smhdental.co.uk/single-tooth-implant/,/treatments/implants-single-tooth,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/replacing-multiple-teeth/,/treatments/implants-multiple-teeth,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/implant-over-denture/,/treatments/implant-retained-dentures,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/dental-implants-teeth-in-a-day/,/treatments/teeth-in-a-day,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/dental-hygienist/,/treatments/periodontal-gum-care,301,NEEDS_REVIEW,false,false,false,false,No dedicated hygienist page in Champagne; periodontal-gum-care is closest — confirm no hygiene-specific page is planned
+https://www.smhdental.co.uk/fissure-sealants/,/treatments/preventative-and-general-dentistry,301,NEEDS_REVIEW,false,false,false,false,No fissure-sealants page in Champagne; general dentistry proposed as best fallback — confirm acceptable
+https://www.smhdental.co.uk/dental-veneers/,/treatments/veneers,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/composite-restoration/,/treatments/composite-bonding,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/teeth-whitening/,/treatments/teeth-whitening,301,DRAFT,false,false,false,false,Exact treatment match
+https://www.smhdental.co.uk/cfast/,/treatments/fixed-braces,301,NEEDS_REVIEW,false,false,false,false,Cfast is a fixed-brace brand; fixed-braces is best available match — confirm brand is still active and this is the right page
+https://www.smhdental.co.uk/smiletru/,/treatments/clear-aligners,301,NEEDS_REVIEW,false,false,false,false,SmileTru is an aligner brand; clear-aligners is best available match — confirm brand is still active
+https://www.smhdental.co.uk/inman-aligner/,/treatments/orthodontics,301,NEEDS_REVIEW,false,false,false,false,Inman Aligner is a brand; orthodontics is best fallback — confirm brand is still active or if clear-aligners is better
+https://www.smhdental.co.uk/iv-sedation/,/treatments/sedation-dentistry,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/dental-crown/,/treatments/dental-crowns,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/dental-bridges/,/treatments/dental-bridges,301,DRAFT,false,false,false,false,Exact treatment match
+https://www.smhdental.co.uk/dentures/,/treatments/dentures,301,DRAFT,false,false,false,false,Exact treatment match
+https://www.smhdental.co.uk/crowns/,/treatments/dental-crowns,301,DRAFT,false,false,false,false,Near-exact treatment match — note: WP had two separate slugs for crowns; both map to same Champagne target
+https://www.smhdental.co.uk/fillings/,/treatments/dental-fillings,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/inlays/,/treatments/inlays-onlays,301,DRAFT,false,false,false,false,Near-exact treatment match
+https://www.smhdental.co.uk/general-dentistry-west-sussex/,/treatments/preventative-and-general-dentistry,301,DRAFT,false,false,false,false,WP geo-variant slug mapped to Champagne general dentistry treatment
+https://www.smhdental.co.uk/confidentiality-policy/,/legal/terms,301,NEEDS_REVIEW,false,false,false,false,No confidentiality-policy page in Champagne; /legal/terms is proposed — consider /legal/privacy if confidentiality is data-handling focused
+https://www.smhdental.co.uk/privacy-policy/,/legal/privacy,301,DRAFT,false,false,false,false,Near-exact legal match
+https://www.smhdental.co.uk/cookie-policy/,/legal/cookies,301,DRAFT,false,false,false,false,Near-exact legal match
+https://www.smhdental.co.uk/invisalign-teeth-straightening/,/treatments/clear-aligners,301,HUMAN_REVIEW_REQUIRED,false,false,false,false,SOURCE IS 404 IN WP — clear-aligners proposed as closest existing Champagne target; must be human verified before use
+https://www.smhdental.co.uk/elementskit-content/dynamic-content-megamenu-menuitem1768/,/,301,HUMAN_REVIEW_REQUIRED,false,false,false,false,Legacy ElementsKit builder URL — not a real page; home page proposed as fallback; consider returning 410 Gone instead of a 301
