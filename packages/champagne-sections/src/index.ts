@@ -16,3 +16,4 @@ export { Section_FAQ } from "./Section_FAQ";
 export { Section_TreatmentClosingCTA } from "./Section_TreatmentClosingCTA";
 export { Section_GoogleReviews } from "./Section_GoogleReviews";
 export { Section_TreatmentAnswerSurface } from "./Section_TreatmentAnswerSurface";
+export { Section_ImplantCrown3dViewer } from "./Section_ImplantCrown3dViewer";

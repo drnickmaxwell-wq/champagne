@@ -1,7 +1,7 @@
 # Treatment CTA Surface Map
 | Treatment | Mid index | Closing indices | Mid CTAs | Closing CTAs |
 | --- | --- | --- | --- | --- |
-| /treatments/implants | 1 | 14 | Implant consultation & planning in Shoreham-by-Sea (/treatments/implant-consultation)<br />Single-tooth dental implants in Shoreham-by-Sea (/treatments/implants-single-tooth) | Book a consultation (/contact)<br />CBCT / 3D scanning (/treatments/cbct-3d-scanning) |
+| /treatments/implants | 1 | 15 | Implant consultation & planning in Shoreham-by-Sea (/treatments/implant-consultation)<br />Single-tooth dental implants in Shoreham-by-Sea (/treatments/implants-single-tooth) | Book a consultation (/contact)<br />CBCT / 3D scanning (/treatments/cbct-3d-scanning) |
 | /treatments/veneers | 4 | 15 | 3D printed veneers (/treatments/3d-printed-veneers)<br />Digital smile design (/treatments/digital-smile-design) | Book a consultation (/contact)<br />Full smile makeover (/treatments/full-smile-makeover) |
 | /treatments/clear-aligners | 2 | 11 | Retainers (/treatments/dental-retainers)<br />Night guards (occlusal splints) (/treatments/night-guards-occlusal-splints) | Book a consultation (/contact)<br />Spark clear aligners in Shoreham-by-Sea (/treatments/clear-aligners-spark)<br />Teeth whitening (/treatments/teeth-whitening) |
 | /treatments/clear-aligners-spark | 4 | 17 | Teeth whitening (/treatments/teeth-whitening)<br />Dental veneers in Shoreham-by-Sea (/treatments/veneers) | Book a consultation (/contact)<br />Clear Aligners in Shoreham-by-Sea (/treatments/clear-aligners)<br />Digital smile design (/treatments/digital-smile-design) |
