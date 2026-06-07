@@ -71,7 +71,6 @@ export function Section_ImplantCrown3dViewer({ section }: SectionImplantCrown3dV
           <p style={{ fontSize: "1rem", lineHeight: 1.65, color: "var(--text-medium)" }}>{body}</p>
         </div>
         <div style={imageWrapperStyle}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={FALLBACK_IMAGE}
             alt="Implant crown — titanium post, abutment, and ceramic crown shown as a 3D hero render"
