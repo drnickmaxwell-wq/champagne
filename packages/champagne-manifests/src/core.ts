@@ -97,6 +97,7 @@ import sectionLayoutKnockedOutTooth from "../data/sections/smh/treatments.knocke
 import sectionLayoutLostCrownsVeneersFillings from "../data/sections/smh/treatments.lost-crowns-veneers-fillings.json";
 import sectionLayoutDentalTraumaAccidents from "../data/sections/smh/treatments.dental-trauma-accidents.json";
 import sectionLayoutToothWearBrokenTeeth from "../data/sections/smh/treatments.tooth-wear-broken-teeth.json";
+import sectionLayoutTeethReplacement from "../data/sections/smh/treatments.teeth-replacement.json";
 
 export type ChampagneManifestStatus = "unavailable" | "stub" | "ready";
 
@@ -424,6 +425,7 @@ export const champagneSectionLayouts: ChampagneSectionLayout[] = [
   sectionLayoutLostCrownsVeneersFillings as ChampagneSectionLayout,
   sectionLayoutDentalTraumaAccidents as ChampagneSectionLayout,
   sectionLayoutToothWearBrokenTeeth as ChampagneSectionLayout,
+  sectionLayoutTeethReplacement as ChampagneSectionLayout,
 ];
 export const champagnePageTypeDefaults: ChampagnePageTypeDefaults = sectionPageDefaults;
 export const champagneSectionFxDefaults: ChampagneSectionFxDefaultsManifest = sectionFxDefaults;

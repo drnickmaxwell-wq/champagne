@@ -1,0 +1,265 @@
+{
+  "tenantId": "smh-dental",
+  "routeId": "treatments.teeth-replacement",
+  "pageType": "hub",
+  "version": "1.0.0",
+  "sections": [
+    {
+      "instanceId": "teeth-replacement-hero",
+      "componentId": "treatment.heroIntro",
+      "variantId": "smh_teeth_replacement_hero",
+      "order": 10,
+      "seoRole": "hero",
+      "eyebrow": "Teeth replacement",
+      "title": "Replacing missing teeth: understanding your options",
+      "body": "When a tooth is lost — through decay, gum disease, trauma, or wear — there are usually several ways to restore function and appearance. The right approach depends on your oral health, bone levels, remaining teeth, and what matters most to you in daily life.\n\nAt St Mary's House Dental Care we take a planning-first approach. Before recommending any option we assess your mouth carefully and explain what each route involves, what it can realistically achieve, and where its limits lie.\n\nOptions we discuss include dental implants, bridges, conventional dentures, and implant-retained dentures. Some patients are suitable for more than one; others have a clear best path. We help you understand the difference before any decision is made.",
+      "bullets": [
+        "Planning before promises — assessment-led from the first appointment",
+        "All main replacement options considered, not just one approach",
+        "Fixed and removable solutions explained side by side",
+        "Local care in Shoreham-by-Sea, near Brighton and Worthing"
+      ],
+      "ctas": [
+        {
+          "label": "Book a teeth replacement consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Learn about dental implants",
+          "href": "/treatments/implants",
+          "preset": "secondary"
+        }
+      ]
+    },
+    {
+      "instanceId": "teeth-replacement-trust",
+      "componentId": "treatment.trustSignals",
+      "variantId": "smh_teeth_replacement_trust",
+      "order": 20,
+      "seoRole": "supporting",
+      "eyebrow": "Why assessment comes first",
+      "title": "We explain every option before recommending one",
+      "items": [
+        "We review bone levels, gum health, and bite before suggesting a treatment path",
+        "Fixed options such as implants and bridges are discussed alongside removable solutions",
+        "Where an option is not suitable for your situation, we explain clearly why",
+        "Cost, timescales, and maintenance expectations are all covered at consultation",
+        "We consider your general health, habits, and long-term oral health goals"
+      ]
+    },
+    {
+      "instanceId": "teeth-replacement-overview",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_teeth_replacement_overview",
+      "order": 30,
+      "seoRole": "primaryContent",
+      "eyebrow": "The main approaches",
+      "title": "What teeth replacement involves",
+      "body": "Replacing a missing tooth — or several — requires understanding what is there to work with.\n\nWe assess the gap itself, the teeth on either side, gum health, bone volume, bite forces, and what you want from the result. Some options are more straightforward; others involve staged treatment or careful preparation.\n\nThe goal is always a replacement that is comfortable, maintainable, and sensible for the long term — not simply the most technically advanced or expensive option available.",
+      "bullets": [
+        "Assessment of bone, gum, and bite before any plan is formed",
+        "Options ranked by suitability, not by cost",
+        "Staged treatment explained where needed — for example if bone grafting may apply",
+        "Ongoing maintenance needs discussed for every option"
+      ],
+      "mediaHint": "Missing tooth assessment and planning discussion"
+    },
+    {
+      "instanceId": "teeth-replacement-options",
+      "componentId": "treatment.whoIsItFor",
+      "variantId": "smh_teeth_replacement_options",
+      "order": 40,
+      "seoRole": "primaryContent",
+      "eyebrow": "Your options explained",
+      "title": "Four main routes to replacing missing teeth",
+      "items": [
+        "Dental implants — A titanium post replaces the root, supporting a crown, bridge, or denture. Implants can provide a fixed result that is cleaned like a natural tooth, but require adequate bone and a planning-first consultation. See /treatments/implants.",
+        "Dental bridges — A fixed tooth supported by the neighbouring teeth or by implants. Bridges do not require surgery but do involve preparing or crowning the supporting teeth in most designs. See /treatments/dental-bridges.",
+        "Dentures — Removable appliances that replace some or all missing teeth. Acrylic, chrome cobalt, and PEEK partial dentures each have different characteristics. Full dentures replace an entire arch. See /treatments/dentures.",
+        "Implant-retained dentures — Dentures that clip onto implants for improved stability. A useful middle ground between conventional dentures and fully fixed implant teeth, especially where multiple teeth are missing. See /treatments/implant-retained-dentures."
+      ]
+    },
+    {
+      "instanceId": "teeth-replacement-process",
+      "componentId": "treatment.processTimeline",
+      "variantId": "smh_teeth_replacement_process",
+      "order": 50,
+      "seoRole": "primaryContent",
+      "eyebrow": "How we help you decide",
+      "title": "A measured path to the right solution",
+      "items": [
+        "1) Initial assessment — We examine the area, review your medical history, and discuss your goals and priorities.",
+        "2) Imaging where needed — CBCT scanning confirms bone volume and position, particularly where implants are being considered.",
+        "3) Options explained — We walk through which approaches are suitable, with costs, timescales, and maintenance requirements for each.",
+        "4) Treatment planning — Once you have decided, we outline each stage in the right sequence, including any preparatory work.",
+        "5) Ongoing review — Whichever option you choose, we plan regular reviews to maintain the result and the health of surrounding tissues."
+      ],
+      "strapline": "We set realistic expectations before starting — not after."
+    },
+    {
+      "instanceId": "teeth-replacement-assessment",
+      "componentId": "treatment.technology",
+      "variantId": "smh_teeth_replacement_assessment",
+      "order": 60,
+      "seoRole": "supporting",
+      "eyebrow": "Assessment and planning",
+      "title": "What assessment involves",
+      "body": "Choosing the right replacement option depends on what the mouth can support.\n\nFor implants, CBCT imaging confirms bone volume, nerve position, and the relationship to adjacent structures. For bridges, we assess the health and strength of the supporting teeth. For dentures, we consider gum contour, bite, and how the face has changed following tooth loss.\n\nIn some cases, preparatory treatment — such as gum care or bone assessment — is needed before a final plan is agreed. We explain this clearly so there are no unexpected stages.",
+      "mediaHint": "Assessment imaging and treatment planning discussion"
+    },
+    {
+      "instanceId": "teeth-replacement-aftercare",
+      "componentId": "treatment.aftercareRisks",
+      "variantId": "smh_teeth_replacement_aftercare",
+      "order": 70,
+      "seoRole": "supporting",
+      "eyebrow": "Maintenance and long-term care",
+      "title": "Every replacement option needs ongoing care",
+      "items": [
+        "Implants require daily cleaning around the margins and regular hygiene reviews — peri-implantitis is a real risk without maintenance.",
+        "Bridges need careful flossing beneath the pontic and regular checks on the supporting teeth and gums.",
+        "Dentures should be cleaned daily, removed at night, and reviewed regularly as the gum and jaw change over time.",
+        "Implant-retained dentures need both the implant sites and the denture surface cleaned carefully at each removal.",
+        "We explain the maintenance commitment for each option before you commit — not after."
+      ]
+    },
+    {
+      "instanceId": "teeth-replacement-mid-cta",
+      "componentId": "treatment_mid_cta",
+      "order": 79,
+      "seoRole": "supporting"
+    },
+    {
+      "instanceId": "teeth-replacement-faq",
+      "componentId": "treatment.faq",
+      "variantId": "smh_teeth_replacement_faq",
+      "order": 80,
+      "seoRole": "faq",
+      "eyebrow": "Teeth replacement questions",
+      "title": "Common questions about replacing missing teeth",
+      "faqs": [
+        {
+          "question": "Which option is best for replacing a single missing tooth?",
+          "answer": "It depends on the neighbouring teeth, bone levels, and your preferences. An implant avoids preparing healthy adjacent teeth and is often preferred where bone supports it. A bridge is a faster fixed option if the adjacent teeth already need crowning. A denture can be a temporary or longer-term removable solution. We'll outline which options apply to your situation."
+        },
+        {
+          "question": "Do I need a bone graft for implants?",
+          "answer": "Not always. Whether bone grafting is needed depends on the volume and quality of bone in the area. A CBCT scan lets us assess this accurately. Where grafting is needed, we explain the timing and what it involves before you commit."
+        },
+        {
+          "question": "Are dentures uncomfortable?",
+          "answer": "There is usually an adjustment period with any new denture. Speech, eating, and confidence can take time to settle. We provide guidance and follow-up appointments to address comfort and fit, and we'll be honest about what to expect in the early weeks."
+        },
+        {
+          "question": "Can implant-retained dentures replace all my missing teeth?",
+          "answer": "Implant-retained dentures can replace a full arch supported by a small number of implants. They offer better stability than conventional dentures without the full commitment of fixed implant teeth. Suitability depends on bone levels and general health."
+        },
+        {
+          "question": "What happens if I leave a gap after a tooth is removed?",
+          "answer": "Leaving a gap can allow the surrounding teeth to drift and the opposing tooth to over-erupt over time. Bone can also reduce in volume once a root is no longer present. We can advise on the timescale for replacement and what is most appropriate for your situation."
+        },
+        {
+          "question": "How long does teeth replacement take?",
+          "answer": "Timescales vary widely. A bridge may take a few weeks. An implant with normal healing typically takes several months from placement to final crown. Dentures can often be fitted sooner. We give realistic timescales after assessing your specific case."
+        }
+      ]
+    },
+    {
+      "instanceId": "teeth-replacement-decision-clarity",
+      "componentId": "treatment.consultationOverview",
+      "variantId": "smh_teeth_replacement_decision_clarity",
+      "order": 89,
+      "seoRole": "supporting",
+      "eyebrow": "Decision clarity",
+      "title": "Helping you choose the right path",
+      "body": "If you are unsure which option is right for you, that is entirely normal — most patients are not sure until they have had a proper assessment.\n\nAt consultation we work through your situation clearly: what is there to work with, what each option would involve, and what would happen if you decided to wait. There is no pressure and no single preferred answer — the right choice is the one that suits your mouth, your life, and your long-term health.",
+      "bullets": [
+        "We compare fixed and removable options side by side in plain language",
+        "Costs and timescales are outlined before any treatment is agreed",
+        "We explain what happens if you delay — and when waiting is fine",
+        "You decide; we support"
+      ]
+    },
+    {
+      "instanceId": "teeth-replacement-cta",
+      "componentId": "treatment.cta",
+      "variantId": "smh_teeth_replacement_cta",
+      "order": 90,
+      "seoRole": "cta",
+      "eyebrow": "Ready to discuss your options?",
+      "title": "Book a teeth replacement consultation",
+      "body": "Contact us to arrange an assessment. We'll review your situation, explain which options apply, and help you decide on a plan that makes sense.",
+      "ctas": [
+        {
+          "label": "Book a consultation",
+          "href": "/contact",
+          "preset": "primary"
+        },
+        {
+          "label": "Learn about dental implants",
+          "href": "/treatments/implants",
+          "preset": "secondary"
+        }
+      ]
+    }
+  ],
+  "journeys": {
+    "upstream_referrers": [
+      {
+        "label": "Extractions and oral surgery",
+        "href": "/treatments/extractions-and-oral-surgery"
+      },
+      {
+        "label": "Routine check-ups",
+        "href": "/treatments/preventative-and-general-dentistry"
+      },
+      {
+        "label": "Gum health management",
+        "href": "/treatments/periodontal-gum-care"
+      }
+    ],
+    "downstream_next_steps": [
+      {
+        "label": "Dental implants",
+        "href": "/treatments/implants"
+      },
+      {
+        "label": "Dental bridges",
+        "href": "/treatments/dental-bridges"
+      },
+      {
+        "label": "Dentures",
+        "href": "/treatments/dentures"
+      }
+    ],
+    "supportive_links": [
+      {
+        "label": "Implant-retained dentures",
+        "href": "/treatments/implant-retained-dentures"
+      },
+      {
+        "label": "Support for nervous patients",
+        "href": "/treatments/nervous-patients"
+      },
+      {
+        "label": "Sedation options",
+        "href": "/treatments/sedation-dentistry"
+      }
+    ]
+  },
+  "cta_intents": {
+    "primary_intent": {
+      "label": "Book a teeth replacement consultation",
+      "href": "/contact"
+    },
+    "secondary_intent": {
+      "label": "Learn about dental implants",
+      "href": "/treatments/implants"
+    },
+    "reassurance_intent": {
+      "label": "Explore denture options",
+      "href": "/treatments/dentures"
+    }
+  }
+}
