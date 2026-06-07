@@ -12,14 +12,17 @@
     "@champagne/hero": "workspace:0.0.1",
     "@champagne/manifests": "workspace:0.0.1",
     "@champagne/sections": "workspace:0.0.1",
+    "@react-three/fiber": "^9.3.0",
     "clsx": "^2.1.1",
     "next": "15.5.7",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
+    "@types/three": "^0.180.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",

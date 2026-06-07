@@ -119,6 +119,44 @@
       "tenantId": "smh",
       "assets": [
         {
+          "id": "implant_crown_hero_optimised_v1",
+          "type": "3d-model",
+          "family": "implants",
+          "file": "/tenants/smh/3d/implants/IMPLANT_CROWN__HERO__OPTIMISED__v1.glb",
+          "fallback": "/tenants/smh/3d/implants/IMPLANT_CROWN__HERO__FALLBACK__WEB__v1.jpg",
+          "lod": "high",
+          "viewerModes": [
+            "mode_turntable",
+            "mode_focus_tooth"
+          ],
+          "exportTargets": [
+            "web-glb",
+            "video-source",
+            "ar-preview"
+          ],
+          "materialTokens": [
+            "material.implant.titanium.surface",
+            "material.dental.ceramic.zirconia.crown"
+          ],
+          "lightingPreset": "light.beauty_front_soft",
+          "cameraPreset": "camera.implant_site_close",
+          "tags": [
+            "implants",
+            "crown",
+            "hero",
+            "luxury",
+            "patient-facing"
+          ],
+          "metadata": {
+            "workflowStage": "final-restoration",
+            "modality": "3d-sculpt",
+            "anonymisationLevel": "high",
+            "demoOnly": true,
+            "exportPriority": "hero",
+            "campaignSource": "campaign-15"
+          }
+        },
+        {
           "id": "implant_single_crown_exploded_v1",
           "type": "3d-scene",
           "family": "implants",
