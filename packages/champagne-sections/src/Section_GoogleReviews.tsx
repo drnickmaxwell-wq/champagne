@@ -102,22 +102,18 @@ const sourceStyle: CSSProperties = {
 
 export function Section_GoogleReviews({ section }: { section?: SectionRegistryEntry }) {
   const definition = (section?.definition as Record<string, unknown> | undefined) ?? {};
-  const title = section?.title ?? (definition.title as string | undefined) ?? "Google reviews from Champagne patients";
+  const title = section?.title ?? (definition.title as string | undefined) ?? "Patient feedback";
   const eyebrow =
-    section?.eyebrow ?? (definition.label as string | undefined) ?? (definition.eyebrow as string | undefined) ?? "Google Reviews";
+    section?.eyebrow ?? (definition.label as string | undefined) ?? (definition.eyebrow as string | undefined) ?? "Patient feedback";
   const strapline =
-    section?.strapline ?? (definition.strapline as string | undefined) ?? "4.9-star feedback from patients who valued calm care.";
-  const rating = section?.rating ?? (definition.rating as number | undefined) ?? 4.9;
+    section?.strapline ?? (definition.strapline as string | undefined) ?? "We welcome patient feedback and plan to connect a verified reviews display here.";
+  const rating = section?.rating ?? (definition.rating as number | undefined);
   const reviewCount =
-    section?.reviewCount ?? (definition.reviewCount as string | undefined) ?? "120+ reviews from Shoreham-by-Sea";
+    section?.reviewCount ?? (definition.reviewCount as string | undefined);
   const reviews =
     section?.reviews
       ?? (definition.reviews as SectionRegistryEntry["reviews"] | undefined)
-      ?? [
-        { quote: "Gentle, reassuring, and clear about every step.", name: "Google reviewer" },
-        { quote: "Calm atmosphere with kind clinicians.", name: "Google reviewer" },
-        { quote: "Explained options and pacing so I felt in control.", name: "Google reviewer" },
-      ];
+      ?? [];
 
   return (
     <section style={containerStyle}>
@@ -127,33 +123,37 @@ export function Section_GoogleReviews({ section }: { section?: SectionRegistryEn
           {eyebrow && <span style={eyebrowStyle}>{eyebrow}</span>}
           <h2 style={titleStyle}>{title}</h2>
           {strapline && <p style={straplineStyle}>{strapline}</p>}
-          <div style={statsRow}>
-            <span style={ratingBadge}>
-              <span aria-hidden>★</span>
-              <span>
-                {rating.toFixed(1)} rating
-                {reviewCount ? ` · ${reviewCount}` : ""}
+          {(rating !== undefined || reviewCount) && (
+            <div style={statsRow}>
+              <span style={ratingBadge}>
+                {rating !== undefined && <span aria-hidden>★</span>}
+                <span>
+                  {rating !== undefined ? `${rating.toFixed(1)} rating` : ""}
+                  {rating !== undefined && reviewCount ? ` · ${reviewCount}` : (reviewCount ?? "")}
+                </span>
               </span>
-            </span>
+            </div>
+          )}
+        </div>
+        {reviews && reviews.length > 0 && (
+          <div style={reviewsGrid}>
+            {reviews.map((review, index) => (
+              <article key={review.name ?? review.quote ?? index} style={cardStyle}>
+                <p style={quoteStyle}>{review.quote}</p>
+                <div>
+                  {review.name && <div style={nameStyle}>{review.name}</div>}
+                  {(review.source || review.rating) && (
+                    <div style={sourceStyle}>
+                      {review.rating ? `${review.rating.toFixed(1)} ★` : ""}
+                      {review.rating && review.source ? " · " : ""}
+                      {review.source}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
-        </div>
-        <div style={reviewsGrid}>
-          {reviews?.map((review, index) => (
-            <article key={review.name ?? review.quote ?? index} style={cardStyle}>
-              <p style={quoteStyle}>{review.quote}</p>
-              <div>
-                {review.name && <div style={nameStyle}>{review.name}</div>}
-                {(review.source || review.rating) && (
-                  <div style={sourceStyle}>
-                    {review.rating ? `${review.rating.toFixed(1)} ★` : ""}
-                    {review.rating && review.source ? " · " : ""}
-                    {review.source}
-                  </div>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
+        )}
       </div>
     </section>
   );

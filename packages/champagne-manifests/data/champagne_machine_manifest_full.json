@@ -198,31 +198,10 @@
         {
           "id": "home_google_reviews",
           "type": "google_reviews",
-          "label": "Google Reviews",
-          "title": "Google reviews",
-          "strapline": "Live Google reviews shown as they appear on Google — open, current, and unfiltered.",
-          "rating": 4.9,
-          "reviewCount": "120+ Google reviews",
-          "reviews": [
-            {
-              "quote": "Calm, reassuring, and clear about every step.",
-              "name": "Google reviewer",
-              "rating": 5,
-              "source": "Google"
-            },
-            {
-              "quote": "The team explained options patiently and kept the visit comfortable.",
-              "name": "Google reviewer",
-              "rating": 5,
-              "source": "Google"
-            },
-            {
-              "quote": "Felt listened to and not often rushed—highly recommend.",
-              "name": "Google reviewer",
-              "rating": 5,
-              "source": "Google"
-            }
-          ]
+          "label": "Patient feedback",
+          "title": "Patient feedback",
+          "strapline": "We welcome patient feedback and plan to connect a verified reviews display here.",
+          "reviews": []
         },
         {
           "id": "home_finance_options",
@@ -598,25 +577,10 @@
         {
           "id": "treatments_hub_reviews",
           "type": "google_reviews",
-          "label": "Reviews",
-          "title": "What patients say",
-          "strapline": "Read patient feedback from the home reviews section to see how measured pacing and clear explanations feel in practice.",
-          "rating": 4.9,
-          "reviewCount": "120+ Google reviews",
-          "reviews": [
-            {
-              "quote": "Gentle, reassuring, and clear about every step.",
-              "name": "Google reviewer"
-            },
-            {
-              "quote": "Calm atmosphere with kind clinicians and organised follow-up.",
-              "name": "Google reviewer"
-            },
-            {
-              "quote": "Explained options and pacing so I felt in control.",
-              "name": "Google reviewer"
-            }
-          ]
+          "label": "Patient feedback",
+          "title": "Patient feedback",
+          "strapline": "We welcome patient feedback and plan to connect a verified reviews display here.",
+          "reviews": []
         },
         {
           "id": "treatments_hub_faq",
