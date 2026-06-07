@@ -53,6 +53,17 @@
       "mediaHint": "CBCT with 3D implant planning overlay"
     },
     {
+      "instanceId": "implants-crown-3d-viewer",
+      "componentId": "implant_crown_3d_viewer",
+      "variantId": "smh_implant_crown_hero_c15",
+      "order": 28,
+      "seoRole": "supporting",
+      "type": "implant_crown_3d_viewer",
+      "eyebrow": "3D implant crown",
+      "title": "See every component in 3D.",
+      "body": "The implant, abutment, and ceramic crown work together as a system. Planning in three dimensions lets us confirm bone volume, nerve clearance, and final tooth position before surgery begins."
+    },
+    {
       "instanceId": "implants-what-are",
       "componentId": "treatment.whatAreImplants",
       "variantId": "shoreham_implants_explainer",

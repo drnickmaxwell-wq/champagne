@@ -22,7 +22,8 @@ export interface SectionRegistryEntry {
     | "treatment_faq_block"
     | "treatment_closing_cta"
     | "reviews"
-    | "treatment_answer_surface";
+    | "treatment_answer_surface"
+    | "implant_crown_3d_viewer";
   title?: string;
   body?: string;
   eyebrow?: string;
@@ -91,6 +92,7 @@ const specializedKinds: Record<string, SectionRegistryEntry["kind"]> = {
   cta: "treatment_closing_cta",
   google_reviews: "reviews",
   routing_cards: "routing_cards",
+  implant_crown_3d_viewer: "implant_crown_3d_viewer",
 };
 
 function deriveKind(type?: string): SectionRegistryEntry["kind"] {

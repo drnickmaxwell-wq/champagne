@@ -19,6 +19,7 @@ import { getSectionStack } from "./SectionRegistry";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 import { Section_GoogleReviews } from "./Section_GoogleReviews";
 import { Section_TreatmentAnswerSurface } from "./Section_TreatmentAnswerSurface";
+import { Section_ImplantCrown3dViewer } from "./Section_ImplantCrown3dViewer";
 import { arbitrateCtaSurfaces } from "./ctaSurfaceArbitrator";
 import { normalizeSectionsForMidCTA } from "./ctaPlacement";
 
@@ -56,6 +57,7 @@ const typeMap: Record<string, SectionComponent> = {
   treatment_closing_cta: (props) => <Section_TreatmentClosingCTA {...props} />,
   reviews: (props) => <Section_GoogleReviews {...props} />,
   treatment_answer_surface: (props) => <Section_TreatmentAnswerSurface {...props} />,
+  implant_crown_3d_viewer: (props) => <Section_ImplantCrown3dViewer {...props} />,
 };
 
 function enforceSingleClosingCTA(sections: SectionRegistryEntry[]) {
