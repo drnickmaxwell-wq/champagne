@@ -3,7 +3,7 @@ https://www.smhdental.co.uk/,/,301,NEEDS_REVIEW,false,false,false,false,Home pag
 https://www.smhdental.co.uk/emergency/,/treatments/emergency-dentistry,301,NEEDS_REVIEW,false,false,false,false,WP hub page mapped to primary emergency treatment; confirm this is the intended single-target for the hub
 https://www.smhdental.co.uk/implants/,/treatments/implants,301,DRAFT,false,false,false,false,WP hub maps directly to Champagne implants treatment index
 https://www.smhdental.co.uk/general-dentistry/,/treatments/preventative-and-general-dentistry,301,NEEDS_REVIEW,false,false,false,false,WP hub mapped to closest Champagne treatment slug; verify this is the right parent
-https://www.smhdental.co.uk/teeth-replacement/,/treatments/dentures,301,NEEDS_REVIEW,false,false,false,false,WP hub covered multiple replacement options; dentures proposed as primary target — consider /treatments instead if no single best match
+https://www.smhdental.co.uk/teeth-replacement/,/treatments/teeth-replacement,301,NEEDS_REVIEW,false,false,false,false,TARGET CORRECTED: /treatments/teeth-replacement hub now implemented and committed; dentures was wrong fallback; human approval still required
 https://www.smhdental.co.uk/cosmetic-dentistry/,/treatments/cosmetic-dentistry,301,NEEDS_REVIEW,false,false,false,false,TARGET CORRECTED (audit NR-04): /treatments/cosmetic-dentistry exists as a populated hub (category=hub 10 sections); full-smile-makeover was wrong fallback; human approval still required
 https://www.smhdental.co.uk/about-us/,/about,301,DRAFT,false,false,false,false,Slug change only — same page content
 https://www.smhdental.co.uk/team/,/team,301,DRAFT,false,false,false,false,Exact path match
