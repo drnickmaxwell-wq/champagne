@@ -1,0 +1,7 @@
+EXAMPLE_ONLY — DO NOT USE AS PRODUCTION DATA — Replace with real agreed redirect targets
+wordpress_url,nextjs_route,redirect_type,redirect_status,tested_locally,tested_staging,seo_impact_assessed,human_approved,notes
+https://www.smhdental.co.uk/services/composite-bonding/,/treatments/composite-bonding,301,PENDING,false,false,false,false,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/services/teeth-whitening/,/treatments/teeth-whitening,301,PENDING,false,false,false,false,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/blog/,/blog,301,PENDING,false,false,false,false,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/contact/,/contact,301,PENDING,false,false,false,false,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/old-slug/,/new-slug,301,PENDING,false,false,false,false,"EXAMPLE_ONLY"

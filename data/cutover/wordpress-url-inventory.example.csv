@@ -1,0 +1,7 @@
+EXAMPLE_ONLY — DO NOT USE AS PRODUCTION DATA — Replace with real WordPress audit data
+url,page_type,title,last_modified,http_status,has_canonical,canonical_url,meta_description_present,og_title_present,og_image_present,schema_markup_types,internal_links_count,external_links_count,images_count,word_count,redirects_to,redirect_type,notes
+https://www.smhdental.co.uk/,home,EXAMPLE Home Page,2024-01-01,200,true,https://www.smhdental.co.uk/,true,true,true,LocalBusiness,12,3,4,450,,,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/services/,hub,EXAMPLE Services Hub,2024-01-01,200,true,https://www.smhdental.co.uk/services/,true,true,false,LocalBusiness,8,1,2,320,,,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/about/,standard,EXAMPLE About Page,2024-01-01,200,true,https://www.smhdental.co.uk/about/,true,false,false,,5,0,3,600,,,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/contact/,standard,EXAMPLE Contact Page,2024-01-01,200,true,https://www.smhdental.co.uk/contact/,true,false,false,,4,0,1,200,,,"EXAMPLE_ONLY"
+https://www.smhdental.co.uk/old-page/,legacy,EXAMPLE Old Page,2022-06-01,301,false,,false,false,false,,0,0,0,0,https://www.smhdental.co.uk/new-page/,301,"EXAMPLE_ONLY — already redirecting"

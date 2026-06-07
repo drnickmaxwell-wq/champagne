@@ -35,7 +35,9 @@
     "seo:schema-qa": "node scripts/seo-schema-graph-qa.mjs",
     "seo:answer-foundation-qa": "node scripts/seo-ai-answer-foundation-qa.mjs",
     "seo:answer-packet-qa": "node scripts/seo-ai-answer-priority-service-packet-qa.mjs",
-    "seo:answer-rendering-qa": "node scripts/seo-visible-answer-surface-rendering-qa.mjs"
+    "seo:answer-rendering-qa": "node scripts/seo-visible-answer-surface-rendering-qa.mjs",
+    "cutover:validate": "node scripts/validate-cutover-inventory.mjs data/cutover/wordpress-url-inventory.csv && node scripts/validate-redirect-map.mjs data/cutover/redirect-map.csv",
+    "cutover:test": "node --test tests/cutover/redirect-map.coverage.test.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
