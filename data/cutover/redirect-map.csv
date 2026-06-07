@@ -25,9 +25,9 @@ https://www.smhdental.co.uk/fissure-sealants/,/treatments/preventative-and-gener
 https://www.smhdental.co.uk/dental-veneers/,/treatments/veneers,301,DRAFT,false,false,false,false,Near-exact treatment match
 https://www.smhdental.co.uk/composite-restoration/,/treatments/composite-bonding,301,DRAFT,false,false,false,false,Near-exact treatment match
 https://www.smhdental.co.uk/teeth-whitening/,/treatments/teeth-whitening,301,DRAFT,false,false,false,false,Exact treatment match
-https://www.smhdental.co.uk/cfast/,/treatments/fixed-braces,301,NEEDS_REVIEW,false,false,false,false,Cfast is a fixed-brace brand; fixed-braces is best available match — confirm brand is still active and this is the right page
-https://www.smhdental.co.uk/smiletru/,/treatments/clear-aligners,301,NEEDS_REVIEW,false,false,false,false,SmileTru is an aligner brand; clear-aligners is best available match — confirm brand is still active
-https://www.smhdental.co.uk/inman-aligner/,/treatments/orthodontics,301,NEEDS_REVIEW,false,false,false,false,Inman Aligner is a brand; orthodontics is best fallback — confirm brand is still active or if clear-aligners is better
+https://www.smhdental.co.uk/cfast/,/treatments/fixed-braces,301,NEEDS_REVIEW,false,false,false,false,Cfast brand not promoted (Nicko decision 2026-06-07); fixed-braces preserves orthodontic intent — human approval still required
+https://www.smhdental.co.uk/smiletru/,/treatments/clear-aligners,301,NEEDS_REVIEW,false,false,false,false,SmileTru brand not promoted (Nicko decision 2026-06-07); clear-aligners preserves aligner intent — human approval still required
+https://www.smhdental.co.uk/inman-aligner/,/treatments/orthodontics,301,NEEDS_REVIEW,false,false,false,false,Inman Aligner no longer offered (Nicko decision 2026-06-07); orthodontics hub preserves broad intent — human approval still required
 https://www.smhdental.co.uk/iv-sedation/,/treatments/sedation-dentistry,301,DRAFT,false,false,false,false,Near-exact treatment match
 https://www.smhdental.co.uk/dental-crown/,/treatments/dental-crowns,301,DRAFT,false,false,false,false,Near-exact treatment match
 https://www.smhdental.co.uk/dental-bridges/,/treatments/dental-bridges,301,DRAFT,false,false,false,false,Exact treatment match
