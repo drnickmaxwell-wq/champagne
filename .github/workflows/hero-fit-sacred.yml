@@ -120,7 +120,7 @@ jobs:
 
       - name: Upload hero fit artifacts
         if: ${{ github.event_name == 'workflow_dispatch' && always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: hero-fit-report
           path: reports/hero-fit/**
