@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_STATUS_V1",
+  "exportCreated": true,
+  "repoMutatedExistingFiles": false,
+  "websiteBehaviourChanged": false,
+  "contentRewritten": false,
+  "routesChanged": false,
+  "metadataChanged": false,
+  "mediaChanged": false,
+  "deploymentRun": false,
+  "phiTouched": false,
+  "networkCallsMade": false,
+  "pagesFound": 103,
+  "extractionStatusSummary": {
+    "EXTRACTED_DECLARED": 46,
+    "PARTIAL": 57
+  },
+  "recommendedImportTarget": "agent Creative Connector Phase 13 Champagne Inventory Import",
+  "launchReadyClaim": false
+}
