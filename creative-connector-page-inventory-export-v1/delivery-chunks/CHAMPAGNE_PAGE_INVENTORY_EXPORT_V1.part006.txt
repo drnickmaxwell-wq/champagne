@@ -1,0 +1,3222 @@
+NCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/0"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/1"
+        },
+        {
+          "blockId": "treatment.whatAreImplants",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/2"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/3"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/4"
+        },
+        {
+          "blockId": "treatment.technology",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/5"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 6,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/6"
+        },
+        {
+          "blockId": "implants_single_tooth_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Replacing one missing tooth",
+          "summary": "Compare single-tooth implant planning with bridge alternatives before the next appointment.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/7"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/8"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 9,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/9"
+        },
+        {
+          "blockId": "implants_single_tooth_closing_cta",
+          "order": 10,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Ready for a single tooth implant?",
+          "summary": "Replace a missing tooth and plan long-term maintenance from day one.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/10"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "implants_single_tooth_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Arrange a single tooth implant review",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/10/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "implants_single_tooth_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Plan implant aftercare",
+          "href": "/treatments/implant-aftercare",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/10/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "implants_single_tooth_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Consider sedation for implants",
+          "href": "/treatments/sedation-for-implants",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/sections/10/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Single-tooth dental implants in Shoreham-by-Sea",
+          "mediaHint": "hero.treatment.implants",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.group.09_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/implants-single-tooth/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.aftercareRisks",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.processTimeline",
+        "section-ref:treatment.technology",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whatAreImplants",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Single-tooth dental implants in Shoreham-by-Sea",
+        "description": null,
+        "canonicalPath": "/treatments/implants-single-tooth",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.implants-single-tooth.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.implants_single_tooth",
+        "_truth_output/page_index_truth.json#route=/treatments/implants-single-tooth",
+        "_truth_output/page_content_truth.json#route=/treatments/implants-single-tooth",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_injection_moulded_composite",
+      "sourceRepo": "champagne",
+      "route": "/treatments/injection-moulded-composite",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Injection-moulded composite",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/injection-moulded-composite",
+      "contentBlocks": [
+        {
+          "blockId": "injection_intro",
+          "order": 0,
+          "type": "treatment_overview_rich",
+          "label": null,
+          "title": "Injection-moulded composite for guided precision",
+          "summary": "Injection moulded composite is a digitally planned approach to cosmetic bonding. We design the smile change first, create a custom guide, and deliver the composite through it so widths, edges, and symmetry follow the plan without unnecessary drilling.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/0"
+        },
+        {
+          "blockId": "injection_use_cases",
+          "order": 1,
+          "type": "features",
+          "label": null,
+          "title": "Where injection-moulded composite is useful",
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/1"
+        },
+        {
+          "blockId": "injection_digital_planning",
+          "order": 2,
+          "type": "treatment_media_feature",
+          "label": "Digital design",
+          "title": "Digitally planned, guide-delivered composite",
+          "summary": "We start with scans and photographs, map proposed changes with digital smile design, and share previews where helpful. A guide is produced from this plan so the composite is placed and finished against a defined blueprint, keeping the process controlled and repeatable while stil…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/2"
+        },
+        {
+          "blockId": "injection_vs_freehand",
+          "order": 3,
+          "type": "features",
+          "label": null,
+          "title": "Injection moulding and freehand composite",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/3"
+        },
+        {
+          "blockId": "injection_reversibility",
+          "order": 4,
+          "type": "features",
+          "label": null,
+          "title": "Reversibility, repairs, and maintenance",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/4"
+        },
+        {
+          "blockId": "injection_vs_veneers",
+          "order": 5,
+          "type": "features",
+          "label": null,
+          "title": "Injection-moulded composite and veneers",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/5"
+        },
+        {
+          "blockId": "injection_candidates",
+          "order": 6,
+          "type": "features",
+          "label": null,
+          "title": "Who benefits from guided composite bonding",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/6"
+        },
+        {
+          "blockId": "injection_moulded_composite_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Ways to sequence your smile plan",
+          "summary": "Compare whitening, alignment, and bonding steps before you book the next stage.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/7"
+        },
+        {
+          "blockId": "injection_next_steps",
+          "order": 8,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Plan an injection-moulded composite consultation",
+          "summary": "We review your teeth, discuss how composite bonding, veneers, whitening, or alignment fit together, and build a guided plan that matches your goals.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/8"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "injection_next_steps_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a consultation",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/8/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "injection_next_steps_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Full smile makeover",
+          "href": "/treatments/full-smile-makeover",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/8/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Injection-moulded composite",
+          "mediaHint": "treatment_neutral_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        },
+        {
+          "slotId": "injection_digital_planning",
+          "type": "treatment_media_feature",
+          "title": "Digitally planned, guide-delivered composite",
+          "mediaHint": "Digital smile design, guide fabrication, and preview mock-ups",
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/injection-moulded-composite/sections/2",
+          "confidence": "HIGH"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:features",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_media_feature",
+        "section-type:treatment_mid_cta",
+        "section-type:treatment_overview_rich"
+      ],
+      "seoFields": {
+        "title": "Injection-moulded composite",
+        "description": null,
+        "canonicalPath": "/treatments/injection-moulded-composite",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 2
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.injection_moulded_composite",
+        "_truth_output/page_index_truth.json#route=/treatments/injection-moulded-composite",
+        "_truth_output/page_content_truth.json#route=/treatments/injection-moulded-composite",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_inlays_onlays",
+      "sourceRepo": "champagne",
+      "route": "/treatments/inlays-onlays",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Inlays & onlays",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/inlays-onlays",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/0"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/1"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/2"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/3"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/4"
+        },
+        {
+          "blockId": "treatment.technology",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/5"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 6,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/6"
+        },
+        {
+          "blockId": "inlays_onlays_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "When a filling needs extra support",
+          "summary": "If the tooth is heavily broken down or the nerve is affected, we guide you through the next restorative steps.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/7"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/8"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 9,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/9"
+        },
+        {
+          "blockId": "inlays_onlays_closing_cta",
+          "order": 10,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Protect teeth with inlays or onlays",
+          "summary": "Choose durable restorations when fillings are not enough.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/10"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "inlays_onlays_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book an inlay/onlay visit",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/10/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "inlays_onlays_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Dental crowns",
+          "href": "/treatments/dental-crowns",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/10/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "inlays_onlays_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Dental bridges",
+          "href": "/treatments/dental-bridges",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/sections/10/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Inlays & onlays",
+          "mediaHint": "treatment_neutral_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/inlays-onlays/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.aftercareRisks",
+        "section-ref:treatment.consultationOverview",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.processTimeline",
+        "section-ref:treatment.technology",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Inlays & onlays",
+        "description": null,
+        "canonicalPath": "/treatments/inlays-onlays",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.inlays-onlays.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.inlays_onlays",
+        "_truth_output/page_index_truth.json#route=/treatments/inlays-onlays",
+        "_truth_output/page_content_truth.json#route=/treatments/inlays-onlays",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_knocked_out_tooth",
+      "sourceRepo": "champagne",
+      "route": "/treatments/knocked-out-tooth",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Knocked-out (avulsed) tooth",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/knocked-out-tooth",
+      "contentBlocks": [
+        {
+          "blockId": "emergency_avulsion_overview",
+          "order": 0,
+          "type": "treatment_overview_rich",
+          "label": null,
+          "title": "Knocked-out tooth",
+          "summary": "A knocked-out adult tooth can sometimes be saved, but timing and handling matter. If you can get advice immediately, bring the tooth with you and avoid touching the root. If it’s safe to do so, gentle first aid can improve the chances of a good outcome — but it isn’t always poss…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/0"
+        },
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 1,
+          "type": "copy-block",
+          "label": null,
+          "title": null,
+          "summary": "Having a tooth knocked out is frightening — and it often happens alongside a fall, collision, or sports injury. If the tooth is an adult tooth, there may be a chance of replantation depending on timing and what’s happened to the tooth and socket. If you’re unsure whether it’s a …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/1"
+        },
+        {
+          "blockId": "emergency_avulsion_symptoms",
+          "order": 2,
+          "type": "features",
+          "label": null,
+          "title": "Common signs",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/2"
+        },
+        {
+          "blockId": "emergency_avulsion_steps",
+          "order": 3,
+          "type": "steps",
+          "label": null,
+          "title": "What to do now",
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/3"
+        },
+        {
+          "blockId": "emergency_avulsion_importance",
+          "order": 4,
+          "type": "copy-block",
+          "label": "Act quickly",
+          "title": "Why speed matters",
+          "summary": "The tissues that help an adult tooth reattach can be damaged quickly if the tooth dries out or is handled roughly. Even with prompt care, replantation isn’t always possible or successful — but early assessment usually gives the best chance of stabilising the situation and planni…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/4"
+        },
+        {
+          "blockId": "emergency_avulsion_options",
+          "order": 5,
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Possible treatments",
+          "summary": "Treatment depends on whether the tooth is an adult tooth, how long it has been out, how it has been stored, and the condition of the socket and surrounding bone. Options may include careful replantation and stabilisation (splinting) where appropriate, monitoring healing, and fol…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/5"
+        },
+        {
+          "blockId": "emergency_knocked_out_tooth_mid_cta",
+          "order": 6,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Repair and replacement pathways",
+          "summary": "See which review, repair, or replacement steps are usually considered after something has come loose.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/6"
+        },
+        {
+          "blockId": "emergency_avulsion_faq",
+          "order": 7,
+          "type": "treatment_faq_block",
+          "label": null,
+          "title": "Knocked-out tooth FAQs",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/7"
+        },
+        {
+          "blockId": "emergency_avulsion_cta",
+          "order": 8,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Call immediately about a knocked-out tooth",
+          "summary": "We will guide you on safe handling and prepare to see you right away.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/8"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "emergency_avulsion_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Call now",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/8/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "emergency_avulsion_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/8/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Knocked-out (avulsed) tooth",
+          "mediaHint": "emergency_support_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        },
+        {
+          "slotId": "emergency_avulsion_options",
+          "type": "treatment_media_feature",
+          "title": "Possible treatments",
+          "mediaHint": "Stabilisation and healing",
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/knocked-out-tooth/sections/5",
+          "confidence": "HIGH"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:features",
+        "section-type:steps",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_faq_block",
+        "section-type:treatment_media_feature",
+        "section-type:treatment_mid_cta",
+        "section-type:treatment_overview_rich"
+      ],
+      "seoFields": {
+        "title": "Knocked-out (avulsed) tooth",
+        "description": null,
+        "canonicalPath": "/treatments/knocked-out-tooth",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 2
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.emergency_knocked_out_tooth",
+        "_truth_output/page_index_truth.json#route=/treatments/knocked-out-tooth",
+        "_truth_output/page_content_truth.json#route=/treatments/knocked-out-tooth",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_lost_crowns_veneers_fillings",
+      "sourceRepo": "champagne",
+      "route": "/treatments/lost-crowns-veneers-fillings",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Lost crowns, veneers & fillings",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/lost-crowns-veneers-fillings",
+      "contentBlocks": [
+        {
+          "blockId": "emergency_crown_overview",
+          "order": 0,
+          "type": "treatment_overview_rich",
+          "label": null,
+          "title": "Lost crowns, veneers or fillings",
+          "summary": "If a crown, veneer or filling has come out, it can feel urgent — especially if the tooth is sensitive or looks unfinished. In many cases the tooth can be protected and repaired conservatively, but timing matters. A lost restoration can leave sharp edges, exposed dentine, or a to…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/0"
+        },
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 1,
+          "type": "copy-block",
+          "label": null,
+          "title": null,
+          "summary": "Restorations can come loose for lots of reasons — wear over time, biting something hard, decay underneath, or the tooth changing shape. Sometimes it’s a straightforward re-cement. Sometimes it’s a sign the tooth needs a different kind of protection. If you still have the crown o…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/1"
+        },
+        {
+          "blockId": "emergency_crown_symptoms",
+          "order": 2,
+          "type": "features",
+          "label": null,
+          "title": "Common signs",
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/2"
+        },
+        {
+          "blockId": "emergency_crown_steps",
+          "order": 3,
+          "type": "steps",
+          "label": null,
+          "title": "What to do now",
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/3"
+        },
+        {
+          "blockId": "emergency_crown_importance",
+          "order": 4,
+          "type": "copy-block",
+          "label": "Protect exposed teeth",
+          "title": "Why it’s worth seeing us promptly",
+          "summary": "When a restoration comes out, the underlying tooth is often more vulnerable than it looks. Exposed dentine can be very sensitive, and the tooth can fracture more easily — especially if it’s already heavily filled. If there is decay or a crack underneath, delaying can reduce the …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/4"
+        },
+        {
+          "blockId": "emergency_crown_options",
+          "order": 5,
+          "type": "treatment_media_feature",
+          "label": "What we can do",
+          "title": "Possible treatments",
+          "summary": "The right solution depends on why the restoration came out and what the tooth looks like underneath. Options may include re-cementing the existing crown or veneer (if it’s intact and the fit is still appropriate), replacing a filling, or making a new restoration if the tooth nee…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/5"
+        },
+        {
+          "blockId": "emergency_lost_crowns_mid_cta",
+          "order": 6,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "After dental trauma",
+          "summary": "Review urgent stabilisation, repair options, and what may need follow-up after the first visit.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/6"
+        },
+        {
+          "blockId": "emergency_crown_faq",
+          "order": 7,
+          "type": "treatment_faq_block",
+          "label": null,
+          "title": "Restoration FAQs",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/7"
+        },
+        {
+          "blockId": "emergency_crown_cta",
+          "order": 8,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Book help for a lost restoration",
+          "summary": "We will protect the tooth, discuss repair options, and get you back to comfort.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/8"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "emergency_crown_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Arrange an emergency visit",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/8/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "emergency_crown_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/8/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Lost crowns, veneers & fillings",
+          "mediaHint": "emergency_support_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        },
+        {
+          "slotId": "emergency_crown_options",
+          "type": "treatment_media_feature",
+          "title": "Possible treatments",
+          "mediaHint": "Restoration check",
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/lost-crowns-veneers-fillings/sections/5",
+          "confidence": "HIGH"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:features",
+        "section-type:steps",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_faq_block",
+        "section-type:treatment_media_feature",
+        "section-type:treatment_mid_cta",
+        "section-type:treatment_overview_rich"
+      ],
+      "seoFields": {
+        "title": "Lost crowns, veneers & fillings",
+        "description": null,
+        "canonicalPath": "/treatments/lost-crowns-veneers-fillings",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 2
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.emergency_lost_crowns",
+        "_truth_output/page_index_truth.json#route=/treatments/lost-crowns-veneers-fillings",
+        "_truth_output/page_content_truth.json#route=/treatments/lost-crowns-veneers-fillings",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_mouthguards_and_retainers",
+      "sourceRepo": "champagne",
+      "route": "/treatments/mouthguards-and-retainers",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Mouthguards and retainers",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/mouthguards-and-retainers",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/0"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/1"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/2"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/3"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/4"
+        },
+        {
+          "blockId": "mouthguards_and_retainers_mid_cta",
+          "order": 5,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Protection options to compare",
+          "summary": "Retainers, sports guards, and night guards do different jobs — we’ll help you choose what’s appropriate.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/5"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 6,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/6"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 7,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/7"
+        },
+        {
+          "blockId": "mouthguards_and_retainers_closing_cta",
+          "order": 8,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Protect teeth, restorations, and orthodontic results",
+          "summary": "Mouthguards and retainers can protect teeth during sport, help maintain orthodontic results, and reduce wear from clenching in the right situations. We’ll assess your bite and risks, then recommend the simplest option that genuinely helps — without over-treating.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/8"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "mouthguards_and_retainers_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a mouthguard / retainer review",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/8/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "mouthguards_and_retainers_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Dental retainers",
+          "href": "/treatments/dental-retainers",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/8/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "mouthguards_and_retainers_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Night guards (occlusal splints)",
+          "href": "/treatments/night-guards-occlusal-splints",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/sections/8/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Mouthguards and retainers",
+          "mediaHint": "treatment_neutral_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/mouthguards-and-retainers/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.consultationOverview",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Mouthguards and retainers",
+        "description": null,
+        "canonicalPath": "/treatments/mouthguards-and-retainers",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.mouthguards-and-retainers.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.mouthguards_and_retainers",
+        "_truth_output/page_index_truth.json#route=/treatments/mouthguards-and-retainers",
+        "_truth_output/page_content_truth.json#route=/treatments/mouthguards-and-retainers",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_nervous_patients",
+      "sourceRepo": "champagne",
+      "route": "/treatments/nervous-patients",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Nervous patients",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/nervous-patients",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "copy-block",
+          "label": null,
+          "title": "Nervous patients",
+          "summary": "If you feel anxious about dentistry, you’re not alone — and you don’t need to ‘push through it’ to get help. We take a calm, practical approach: clear explanations, gentle pacing, and treatment planned in stages when that makes things easier. Sometimes the best first appointment…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/0"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 1,
+          "type": "features",
+          "label": null,
+          "title": "Who this is for",
+          "summary": "Real anxiety. Real life. A plan that respects both.",
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/1"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 2,
+          "type": "features",
+          "label": null,
+          "title": "What people often tell us",
+          "summary": "These are normal concerns — and we plan around them.",
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/2"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 3,
+          "type": "treatment_overview_rich",
+          "label": null,
+          "title": "What to expect",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/3"
+        },
+        {
+          "blockId": "nervous_patients_mid_cta",
+          "order": 4,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Support for nervous patients",
+          "summary": "Compare gentle appointments, numbing support, and staged treatment planning before the next step.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/4"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/5"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 6,
+          "type": "features",
+          "label": null,
+          "title": "A practical way to move forward",
+          "summary": "Small steps count. Stability first. Confidence follows.",
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/6"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 7,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/7"
+        },
+        {
+          "blockId": "nervous_patients_closing_cta",
+          "order": 8,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Support for nervous patients",
+          "summary": "Choose gentle pacing, communication, and sedation options for your visits.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/8"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "nervous_patients_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Arrange a calm introduction",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/8/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "nervous_patients_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Learn about sedation dentistry",
+          "href": "/treatments/sedation-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/8/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "nervous_patients_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Comfort dentistry",
+          "href": "/treatments/painless-numbing-the-wand",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/sections/8/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Nervous patients",
+          "mediaHint": "treatment_neutral_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/nervous-patients/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.cta",
+        "section-type:copy-block",
+        "section-type:features",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta",
+        "section-type:treatment_overview_rich"
+      ],
+      "seoFields": {
+        "title": "Nervous patients",
+        "description": null,
+        "canonicalPath": "/treatments/nervous-patients",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.nervous-patients.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.nervous_patients",
+        "_truth_output/page_index_truth.json#route=/treatments/nervous-patients",
+        "_truth_output/page_content_truth.json#route=/treatments/nervous-patients",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_night_guards_occlusal_splints",
+      "sourceRepo": "champagne",
+      "route": "/treatments/night-guards-occlusal-splints",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Night guards (occlusal splints)",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/night-guards-occlusal-splints",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/0"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/1"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/2"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/3"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/4"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/5"
+        },
+        {
+          "blockId": "night_guards_occlusal_splints_mid_cta",
+          "order": 6,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Protection options to compare",
+          "summary": "Compare connected options for clenching, jaw joint symptoms, and tooth wear — and choose the calm next step.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/6"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 7,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/7"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/8"
+        },
+        {
+          "blockId": "night_guards_occlusal_splints_closing_cta",
+          "order": 9,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Night guards for grinding and jaw tension",
+          "summary": "A custom occlusal splint can reduce wear, ease muscle strain, and protect heavily filled or worn teeth — without over-treating.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/9"
+        },
+        {
+          "blockId": "night_guards_full_inventory",
+          "order": 10,
+          "type": "routing_cards",
+          "label": "Explore the full list",
+          "title": "Night guards & occlusal therapy — related treatments",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/10"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "night_guards_occlusal_splints_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a night guard assessment",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/9/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "night_guards_occlusal_splints_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "TMJ disorder treatment",
+          "href": "/treatments/tmj-disorder-treatment",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/9/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "night_guards_occlusal_splints_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Dental retainers",
+          "href": "/treatments/dental-retainers",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/sections/9/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Night guards (occlusal splints)",
+          "mediaHint": "treatment_neutral_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.group.06_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/night-guards-occlusal-splints/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.aftercareRisks",
+        "section-ref:treatment.consultationOverview",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:routing_cards",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Night guards (occlusal splints)",
+        "description": null,
+        "canonicalPath": "/treatments/night-guards-occlusal-splints",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.night-guards-occlusal-splints.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.night_guards_occlusal_splints",
+        "_truth_output/page_index_truth.json#route=/treatments/night-guards-occlusal-splints",
+        "_truth_output/page_content_truth.json#route=/treatments/night-guards-occlusal-splints",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_orthodontics",
+      "sourceRepo": "champagne",
+      "route": "/treatments/orthodontics",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Orthodontics",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/orthodontics",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/0"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/1"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/2"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/3"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/4"
+        },
+        {
+          "blockId": "treatment.technology",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/5"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 6,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/6"
+        },
+        {
+          "blockId": "orthodontics_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Orthodontic routes to compare",
+          "summary": "Compare aligners, Spark, fixed braces, and retention planning before the next assessment.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/7"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/8"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 9,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/9"
+        },
+        {
+          "blockId": "orthodontics_closing_cta",
+          "order": 10,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Plan your orthodontic pathway",
+          "summary": "Choose between aligners or braces and plan retention and finishing.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/10"
+        },
+        {
+          "blockId": "orthodontics_full_inventory",
+          "order": 11,
+          "type": "routing_cards",
+          "label": "Full list",
+          "title": "Orthodontics & Retainers — full treatment list",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/11"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "orthodontics_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Arrange an orthodontic assessment",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/10/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "orthodontics_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Clear Aligners",
+          "href": "/treatments/clear-aligners",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/10/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "orthodontics_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Retainers",
+          "href": "/treatments/dental-retainers",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/sections/10/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Orthodontics",
+          "mediaHint": "orthodontics_balanced_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.group.04_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/orthodontics/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.aftercareRisks",
+        "section-ref:treatment.consultationOverview",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.processTimeline",
+        "section-ref:treatment.technology",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:routing_cards",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Orthodontics",
+        "description": null,
+        "canonicalPath": "/treatments/orthodontics",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.orthodontics.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.orthodontics",
+        "_truth_output/page_index_truth.json#route=/treatments/orthodontics",
+        "_truth_output/page_content_truth.json#route=/treatments/orthodontics",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_painless_numbing_the_wand",
+      "sourceRepo": "champagne",
+      "route": "/treatments/painless-numbing-the-wand",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "The Wand numbing system",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/painless-numbing-the-wand",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/0"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/1"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/2"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/3"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/4"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/5"
+        },
+        {
+          "blockId": "painless_numbing_the_wand_mid_cta",
+          "order": 6,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Comfort options to compare",
+          "summary": "Compare gentle numbing, pacing, and supportive treatment planning before the next visit.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/6"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 7,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/7"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/8"
+        },
+        {
+          "blockId": "painless_numbing_the_wand_closing_cta",
+          "order": 9,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Experience gentle anaesthesia",
+          "summary": "See how The Wand provides precise, comfortable numbing.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/9"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "painless_numbing_the_wand_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a gentle appointment",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/9/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "painless_numbing_the_wand_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Sedation dentistry",
+          "href": "/treatments/sedation-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/9/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "painless_numbing_the_wand_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Nervous patients",
+          "href": "/treatments/nervous-patients",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/sections/9/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "The Wand numbing system",
+          "mediaHint": "painless_wand_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/painless-numbing-the-wand/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.aftercareRisks",
+        "section-ref:treatment.consultationOverview",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.processTimeline",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "The Wand numbing system",
+        "description": null,
+        "canonicalPath": "/treatments/painless-numbing-the-wand",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.painless-numbing-the-wand.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.painless_numbing_the_wand",
+        "_truth_output/page_index_truth.json#route=/treatments/painless-numbing-the-wand",
+        "_truth_output/page_content_truth.json#route=/treatments/painless-numbing-the-wand",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_peek_partial_dentures",
+      "sourceRepo": "champagne",
+      "route": "/treatments/peek-partial-dentures",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "PEEK partial dentures",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/peek-partial-dentures",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/0"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/1"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/2"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/3"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/4"
+        },
+        {
+          "blockId": "treatment.technology",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/5"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 6,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/6"
+        },
+        {
+          "blockId": "peek_partial_dentures_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Printed denture pathways",
+          "summary": "Compare printed, acrylic, chrome, and implant-retained options before the next appointment.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/7"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/8"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 9,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/9"
+        },
+        {
+          "blockId": "peek_partial_dentures_closing_cta",
+          "order": 10,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Discuss PEEK partial dentures",
+          "summary": "Review flexible, metal-free partials and how they integrate with implants.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/10"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "peek_partial_dentures_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a PEEK denture review",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/10/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "peek_partial_dentures_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Chrome dentures",
+          "href": "/treatments/chrome-dentures",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/10/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "peek_partial_dentures_closing_cta_cta_2",
+          "slot": "treatment_closing_cta",
+          "text": "Implant-retained dentures",
+          "href": "/treatments/implant-retained-dentures",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/sections/10/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "PEEK partial dentures",
+          "mediaHint": "treatment_neutral_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/peek-partial-dentures/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:treatment.aftercareRisks",
+        "section-ref:treatment.consultationOverview",
+        "section-ref:treatment.cta",
+        "section-ref:treatment.faq",
+        "section-ref:treatment.heroIntro",
+        "section-ref:treatment.processTimeline",
+        "section-ref:treatment.technology",
+        "section-ref:treatment.trustSignals",
+        "section-ref:treatment.whoIsItFor",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "PEEK partial dentures",
+        "description": null,
+        "canonicalPath": "/treatments/peek-partial-dentures",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.peek-partial-dentures.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.peek_partial_dentures",
+        "_truth_output/page_index_truth.json#route=/treatments/peek-partial-dentures",
+        "_truth_output/page_content_truth.json#route=/treatments/peek-partial-dentures",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_periodontal_gum_care",
+      "sourceRepo": "champagne",
+      "route": "/treatments/periodontal-gum-care",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Gum disease",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/periodontal-gum-care",
+      "contentBlocks": [
+        {
+          "blockId": "periodontal-hero",
+          "order": 0,
+          "type": "treatment_overview_rich",
+          "label": null,
+          "title": "Gum disease",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/0"
+        },
+        {
+          "blockId": "periodontal-importance",
+          "order": 1,
+          "type": "features",
+          "label": null,
+          "title": "Why gum health matters",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/1"
+        },
+        {
+          "blockId": "periodontal-disease-explainer",
+          "order": 2,
+          "type": "treatment_overview_rich",
+          "label": null,
+          "title": "What gum disease is",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/2"
+        },
+        {
+          "blockId": "periodontal-signs-risks",
+          "order": 3,
+          "type": "features",
+          "label": null,
+          "title": "Common signs and symptoms",
+          "summary": null,
+          "itemCount": 2,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/3"
+        },
+        {
+          "blockId": "periodontal-pathway",
+          "order": 4,
+          "type": "features",
+          "label": null,
+          "title": "Assessment and diagnosis",
+          "summary": "Findings are discussed clearly so you understand what they mean for you.",
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/4"
+        },
+        {
+          "blockId": "periodontal-technology",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": "Management and treatment",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/5"
+        },
+        {
+          "blockId": "periodontal-maintenance",
+          "order": 6,
+          "type": "features",
+          "label": null,
+          "title": "Maintenance and review",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/6"
+        },
+        {
+          "blockId": "periodontal_gum_care_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Gum care pathways to compare",
+          "summary": "Compare hygiene support, periodontal reviews, and longer-term maintenance before the next visit.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/7"
+        },
+        {
+          "blockId": "periodontal-faq",
+          "order": 8,
+          "type": "treatment_faq_block",
+          "label": null,
+          "title": "Answers to common gum care questions",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/8"
+        },
+        {
+          "blockId": "periodontal-cta",
+          "order": 9,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Book a periodontal assessment",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/9"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "periodontal-hero_cta_0",
+          "slot": "treatment_overview_rich",
+          "text": "Book a periodontal assessment",
+          "href": "/contact?topic=periodontal",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/0/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "periodontal-hero_cta_1",
+          "slot": "treatment_overview_rich",
+          "text": "Ask about gum care",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/0/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "periodontal-cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Schedule a gum review",
+          "href": "/contact?topic=periodontal",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/9/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "periodontal-cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Speak with the team",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/9/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Gum disease",
+          "mediaHint": "periodontal_health_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.treatment_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        },
+        {
+          "slotId": "periodontal-technology",
+          "type": "media",
+          "title": "Management and treatment",
+          "mediaHint": "Gentle deep cleaning",
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/periodontal-gum-care/sections/5",
+          "confidence": "HIGH"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-ref:periodontal-technology",
+        "section-type:features",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_faq_block",
+        "section-type:treatment_mid_cta",
+        "section-type:treatment_overview_rich"
+      ],
+      "seoFields": {
+        "title": "Gum disease",
+        "description": null,
+        "canonicalPath": "/treatments/periodontal-gum-care",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "Treatment schema graph via buildTreatmentSchemaGraph(pageSlug, title, description)"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+        "packages/champagne-manifests/data/sections/smh/treatments.periodontal-gum-care.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED",
+        "PARTIAL_EXTRACTION_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 2
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "PARTIAL",
+      "extractionBlockers": [
+        "SECTION_REFERENCE_WITHOUT_INLINE_CONTENT"
+      ],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.periodontal_gum_care",
+        "_truth_output/page_index_truth.json#route=/treatments/periodontal-gum-care",
+        "_truth_output/page_content_truth.json#route=/treatments/periodontal-gum-care",
+        "apps/web/app/treatments/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_treatments_polynucleotides",
+      "sourceRepo": "champagne",
+      "route": "/treatments/polynucleotides",
+      "pageType": "treatment_detail",
+      "routeGroup": "treatments",
+      "title": "Polynucleotides (skin quality support)",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/treatments/polynucleotides",
+      "contentBlocks": [
+        {
+          "blockId": "treatment.heroIntro",
+          "order": 0,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/0"
+        },
+        {
+          "blockId": "treatment.trustSignals",
+          "order": 1,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/1"
+        },
+        {
+          "blockId": "treatment.consultationOverview",
+          "order": 2,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/2"
+        },
+        {
+          "blockId": "treatment.whoIsItFor",
+          "order": 3,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/3"
+        },
+        {
+          "blockId": "treatment.processTimeline",
+          "order": 4,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/4"
+        },
+        {
+          "blockId": "treatment.technology",
+          "order": 5,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/5"
+        },
+        {
+          "blockId": "treatment.aftercareRisks",
+          "order": 6,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/6"
+        },
+        {
+          "blockId": "polynucleotides_mid_cta",
+          "order": 7,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Related facial therapeutics",
+          "summary": "Compare options that support hydration, texture, and natural-looking skin quality — with clear advice on suitability.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/7"
+        },
+        {
+          "blockId": "treatment.faq",
+          "order": 8,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/8"
+        },
+        {
+          "blockId": "treatment.cta",
+          "order": 9,
+          "type": "manifest-section-ref",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "PARTIAL_REFERENCE_ONLY",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/9"
+        },
+        {
+          "blockId": "polynucleotides_closing_cta",
+          "order": 10,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Polynucleotides consultation",
+          "summary": "Polynucleotides are used to support skin quality over time — often focusing on texture, hydration, and a healthier-looking finish rather than dramatic ‘instant’ change. We’ll talk through your goals, assess what’s realistic, and recommend a plan only if it’s appropriate, subtle,…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/10"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "polynucleotides_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a polynucleotides consultation",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/10/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "polynucleotides_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Skin boosters",
+          "href": "/treatments/skin-boosters",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/treatments/polynucleotides/sections/10/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "polynucleotides_closing_ct

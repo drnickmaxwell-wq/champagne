@@ -1,0 +1,3307 @@
+{
+  "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+  "sourceRepo": "champagne",
+  "createdAt": "2026-06-11T18:28:08.334Z",
+  "generationMode": "STATIC_SOURCE_INSPECTION_ONLY",
+  "networkCallsMade": false,
+  "websiteBehaviourChanged": false,
+  "routeSourcePatterns": [
+    {
+      "pattern": "/champagne/hero-lab/concierge",
+      "sourceFile": "apps/web/app/champagne/hero-lab/concierge/page.tsx"
+    },
+    {
+      "pattern": "/legal/[slug]",
+      "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx"
+    },
+    {
+      "pattern": "/legal/privacy",
+      "sourceFile": "apps/web/app/(champagne)/legal/privacy/page.tsx"
+    },
+    {
+      "pattern": "/champagne/hero-asset-lab",
+      "sourceFile": "apps/web/app/champagne/hero-asset-lab/page.tsx"
+    },
+    {
+      "pattern": "/champagne/hero-debug",
+      "sourceFile": "apps/web/app/champagne/hero-debug/page.tsx"
+    },
+    {
+      "pattern": "/champagne/hero-lab",
+      "sourceFile": "apps/web/app/champagne/hero-lab/page.tsx"
+    },
+    {
+      "pattern": "/champagne/hero-preview",
+      "sourceFile": "apps/web/app/champagne/hero-preview/page.tsx"
+    },
+    {
+      "pattern": "/champagne/sections-debug",
+      "sourceFile": "apps/web/app/champagne/sections-debug/page.tsx"
+    },
+    {
+      "pattern": "/team/[slug]",
+      "sourceFile": "apps/web/app/team/[slug]/page.tsx"
+    },
+    {
+      "pattern": "/treatments/[slug]",
+      "sourceFile": "apps/web/app/treatments/[slug]/page.tsx"
+    },
+    {
+      "pattern": "/about",
+      "sourceFile": "apps/web/app/(champagne)/about/page.tsx"
+    },
+    {
+      "pattern": "/smile-gallery",
+      "sourceFile": "apps/web/app/(champagne)/smile-gallery/page.tsx"
+    },
+    {
+      "pattern": "/[page]",
+      "sourceFile": "apps/web/app/(site)/[page]/page.tsx"
+    },
+    {
+      "pattern": "/blog",
+      "sourceFile": "apps/web/app/blog/page.tsx"
+    },
+    {
+      "pattern": "/contact",
+      "sourceFile": "apps/web/app/contact/page.tsx"
+    },
+    {
+      "pattern": "/fees",
+      "sourceFile": "apps/web/app/fees/page.tsx"
+    },
+    {
+      "pattern": "/",
+      "sourceFile": "apps/web/app/page.tsx"
+    },
+    {
+      "pattern": "/patient-portal",
+      "sourceFile": "apps/web/app/patient-portal/page.tsx"
+    },
+    {
+      "pattern": "/team",
+      "sourceFile": "apps/web/app/team/page.tsx"
+    },
+    {
+      "pattern": "/treatments",
+      "sourceFile": "apps/web/app/treatments/page.tsx"
+    }
+  ],
+  "nonPageRouteHandlersObserved": [
+    "apps/web/app/api/converse/route.ts",
+    "apps/web/app/api/handoff/booking/route.ts",
+    "apps/web/app/api/handoff/emergency-callback/route.ts",
+    "apps/web/app/api/handoff/new-patient/route.ts",
+    "apps/web/app/api/health/route.ts",
+    "apps/web/app/dental-checkups-oral-cancer-screening/route.ts"
+  ],
+  "sourceFilesRead": [
+    "AGENTS.md",
+    "README.md",
+    "package.json",
+    "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+    "_truth_output/page_index_truth.json",
+    "_truth_output/page_content_truth.json",
+    "apps/web/app/**/page.tsx",
+    "apps/web/app/sitemap.ts",
+    "apps/web/app/robots.ts",
+    "packages/champagne-manifests/data/seo/**"
+  ],
+  "recommendedImportTarget": "agent Creative Connector Phase 13 Champagne Inventory Import",
+  "pages": [
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_home",
+      "sourceRepo": "champagne",
+      "route": "/",
+      "pageType": "home",
+      "routeGroup": "root",
+      "title": "Home",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/",
+      "contentBlocks": [
+        {
+          "blockId": "home_intro_positioning",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Dentistry planned carefully, delivered properly",
+          "summary": "St Mary’s House Dental Care is a long-established private practice in Shoreham-by-Sea. We focus on careful planning, calm delivery, and dentistry that makes sense for the long term. We look after everyday oral health and also support complex cases involving tooth wear, missing t…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/0"
+        },
+        {
+          "blockId": "home_who_we_are",
+          "order": 1,
+          "type": "copy-block",
+          "label": "Who we are",
+          "title": "Dentistry designed for clarity, comfort, and long-term confidence",
+          "summary": "Care at St Mary’s House is built around time, explanation, and respect for every patient’s circumstances. We provide general, restorative, implant, orthodontic, and aesthetic dentistry, but we don’t rush decisions or push treatment. Appointments are unhurried, explanations are c…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/1"
+        },
+        {
+          "blockId": "home_authority",
+          "order": 2,
+          "type": "feature-grid",
+          "label": "Trusted practice detail",
+          "title": "Clinical depth with steady hands",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/2"
+        },
+        {
+          "blockId": "home_clinical_philosophy",
+          "order": 3,
+          "type": "copy-block",
+          "label": "Clinical philosophy",
+          "title": "Care that values planning as much as precision",
+          "summary": "Good dentistry isn’t just about a single procedure. It’s about understanding bite, function, health, aesthetics, and long-term stability — and planning accordingly. We take a conservative, evidence-led approach. When care becomes complex or irreversible — implants, extractions, …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/3"
+        },
+        {
+          "blockId": "home_treatment_hub",
+          "order": 4,
+          "type": "feature-list",
+          "label": "Treatment hub",
+          "title": "Priority treatments at a glance",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/4"
+        },
+        {
+          "blockId": "home_care_pathway",
+          "order": 5,
+          "type": "steps",
+          "label": "Care pathway",
+          "title": "How care works here",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/5"
+        },
+        {
+          "blockId": "home_complex_care",
+          "order": 6,
+          "type": "copy-block",
+          "label": "Complex & multidisciplinary care",
+          "title": "Structured care for complex situations",
+          "summary": "Many patients come to us after years of piecemeal dentistry, unresolved problems, or uncertainty about what should happen next. These cases need structure, not speed. Our approach brings disciplines together — restorative, orthodontic, implant, and digital planning — so treatmen…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/6"
+        },
+        {
+          "blockId": "home_treatment_routing",
+          "order": 7,
+          "type": "routing_cards",
+          "label": "Explore treatments",
+          "title": "Pick a treatment to explore",
+          "summary": null,
+          "itemCount": 8,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/7"
+        },
+        {
+          "blockId": "home_special_pathways",
+          "order": 8,
+          "type": "routing_cards",
+          "label": "Special pathways",
+          "title": "Need urgent or remote support?",
+          "summary": null,
+          "itemCount": 2,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/8"
+        },
+        {
+          "blockId": "home_technology_showcase",
+          "order": 9,
+          "type": "media",
+          "label": "Tech & tools",
+          "title": "Technology that keeps planning clear",
+          "summary": "Diagnostics, digital planning, and 3D workflows help you see the steps before they happen — particularly for implants and complex restorative work — so decisions feel clearer and more predictable.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/9"
+        },
+        {
+          "blockId": "home_patient_stories",
+          "order": 10,
+          "type": "patient_stories_rail",
+          "label": "Patient stories",
+          "title": "Patient journeys",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/10"
+        },
+        {
+          "blockId": "home_google_reviews",
+          "order": 11,
+          "type": "google_reviews",
+          "label": "Patient feedback",
+          "title": "Patient feedback",
+          "summary": "We welcome patient feedback and plan to connect a verified reviews display here.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/11"
+        },
+        {
+          "blockId": "home_finance_options",
+          "order": 12,
+          "type": "feature-list",
+          "label": "Finance",
+          "title": "Finance and access options",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/12"
+        },
+        {
+          "blockId": "home_local_trust_continuity",
+          "order": 13,
+          "type": "copy-block",
+          "label": "Local trust & continuity",
+          "title": "Established care for Shoreham-by-Sea and surrounding communities",
+          "summary": "We’ve cared for patients from Shoreham-by-Sea and surrounding towns for many years. Many stay with us long-term — not because they need ongoing treatment, but because they value consistency and knowing who is looking after them. Dentistry works best when your dentist understands…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/13"
+        },
+        {
+          "blockId": "home_locality_nap",
+          "order": 14,
+          "type": "copy-block",
+          "label": "Locality",
+          "title": "Private dental care in Shoreham-by-Sea",
+          "summary": "A long-established Shoreham-by-Sea dental practice for patients who value experience, continuity, and well-planned care.",
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/14"
+        },
+        {
+          "blockId": "home_map_location",
+          "order": 15,
+          "type": "map",
+          "label": "Map",
+          "title": "Where to find the practice",
+          "summary": "St Mary's House Dental Care is located in Shoreham-by-Sea and is easy to reach from Lancing, Southwick, Worthing, and Brighton. Clear directions and parking information are available, and you can open our location directly in Google Maps if you're planning your visit. If you nee…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/15"
+        },
+        {
+          "blockId": "home_areas_served",
+          "order": 16,
+          "type": "feature-list",
+          "label": "Local reach",
+          "title": "Areas we serve around Shoreham-by-Sea",
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/16"
+        },
+        {
+          "blockId": "home_access_parking",
+          "order": 17,
+          "type": "feature-grid",
+          "label": "Access",
+          "title": "Access, parking, and transport",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/17"
+        },
+        {
+          "blockId": "home_faq",
+          "order": 18,
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Questions about the practice",
+          "summary": null,
+          "itemCount": 6,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/18"
+        },
+        {
+          "blockId": "home_faq_expanded",
+          "order": 19,
+          "type": "treatment_faq_block",
+          "label": "More FAQ",
+          "title": "Local visit and access questions",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/19"
+        },
+        {
+          "blockId": "home_patient_journey",
+          "order": 20,
+          "type": "copy-block",
+          "label": "Patient journey",
+          "title": "A clear, supportive first step",
+          "summary": "Your first visit is about listening, understanding your concerns, and gathering the information needed to guide you properly. You don’t need to know where to start. We’ll take things step by step. Where treatment is required, options are explained clearly, including benefits, li…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/20"
+        },
+        {
+          "blockId": "home_closing_cta",
+          "order": 21,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Plan your visit",
+          "summary": "Book a calm consultation or explore treatment pathways.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/21"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "book-consultation",
+          "slot": "heroCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/heroCTAs/0",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "view-treatments",
+          "slot": "heroCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/heroCTAs/1",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "heroCTAs_2",
+          "slot": "heroCTAs",
+          "text": "Nervous about dentistry?",
+          "href": "/treatments/nervous-patients",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/heroCTAs/2",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "video-consultation-portal",
+          "slot": "midPageCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/midPageCTAs/0",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "practice-plan",
+          "slot": "midPageCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/midPageCTAs/1",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "portal-login",
+          "slot": "midPageCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/midPageCTAs/2",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "footerCTAs_0",
+          "slot": "footerCTAs",
+          "text": "Book a consultation",
+          "href": "/contact",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//ctas/footerCTAs/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "home_locality_nap_cta_0",
+          "slot": "copy-block",
+          "text": "Call or message the team",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/14/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "home_closing_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Book a consultation",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/21/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "home_closing_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Explore treatments",
+          "href": "/treatments",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/21/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Home",
+          "mediaHint": "sacred_home_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "default"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        },
+        {
+          "slotId": "home_technology_showcase",
+          "type": "media",
+          "title": "Technology that keeps planning clear",
+          "mediaHint": null,
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/9",
+          "confidence": "STRUCTURAL_SLOT_ONLY"
+        },
+        {
+          "slotId": "home_map_location",
+          "type": "map",
+          "title": "Where to find the practice",
+          "mediaHint": "Shoreham-by-Sea map placeholder",
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#//sections/15",
+          "confidence": "HIGH"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:feature-grid",
+        "section-type:feature-list",
+        "section-type:google_reviews",
+        "section-type:map",
+        "section-type:media",
+        "section-type:patient_stories_rail",
+        "section-type:routing_cards",
+        "section-type:steps",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_faq_block"
+      ],
+      "seoFields": {
+        "title": "Home",
+        "description": null,
+        "canonicalPath": "/",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 3
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.home",
+        "_truth_output/page_index_truth.json#route=/",
+        "_truth_output/page_content_truth.json#route=/",
+        "apps/web/app/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_about",
+      "sourceRepo": "champagne",
+      "route": "/about",
+      "pageType": "hub",
+      "routeGroup": "about",
+      "title": "About",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/about",
+      "contentBlocks": [
+        {
+          "blockId": "practice_overview_authority_frame",
+          "order": 0,
+          "type": "story",
+          "label": null,
+          "title": "About St Mary’s House Dental Care",
+          "summary": "St Mary’s House Dental Care is a long-established private dental practice in Shoreham-by-Sea. We work in a calm, clinician-led way: careful assessment, clear explanation, and treatment planned for long-term stability rather than quick fixes. If you’re nervous about dentistry, or…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/about/sections/0"
+        },
+        {
+          "blockId": "philosophy_and_standards",
+          "order": 1,
+          "type": "story",
+          "label": null,
+          "title": "An independent practice by choice",
+          "summary": "How we work is simple, even if the dentistry isn’t. We start with understanding the problem properly before talking about solutions. We explain options in plain English, including limits and trade-offs. Where it helps outcomes and costs, we plan treatment in stages. And we focus…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/about/sections/1"
+        },
+        {
+          "blockId": "history_and_evolution",
+          "order": 2,
+          "type": "story",
+          "label": null,
+          "title": "A practice built on relationships",
+          "summary": "The practice has been part of the Shoreham area for many years, and the building itself reflects that history. Dentistry has changed a lot over time, but the principles haven’t: careful diagnosis, sensible planning, and work you can live with comfortably. We continue to improve …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/about/sections/2"
+        },
+        {
+          "blockId": "commitment_to_patients_and_community",
+          "order": 3,
+          "type": "story",
+          "label": null,
+          "title": "Part of Shoreham, not just located in it",
+          "summary": "Good dentistry should feel understandable and unrushed. Whether you need a simple check-up or more involved restorative work, our job is to help you make clear decisions you’ll still feel comfortable with in five and ten years’ time.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/about/sections/3"
+        },
+        {
+          "blockId": "cta_gold_bar",
+          "order": 4,
+          "type": "cta",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/about/sections/4"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "About",
+          "mediaHint": "about_story_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.marketing_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/about/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/about/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:cta",
+        "section-type:story"
+      ],
+      "seoFields": {
+        "title": "About",
+        "description": null,
+        "canonicalPath": "/about",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/about/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/about/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.about",
+        "_truth_output/page_index_truth.json#route=/about",
+        "_truth_output/page_content_truth.json#route=/about",
+        "apps/web/app/(champagne)/about/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_blog",
+      "sourceRepo": "champagne",
+      "route": "/blog",
+      "pageType": "editorial",
+      "routeGroup": "blog",
+      "title": "Blog",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/blog",
+      "contentBlocks": [
+        {
+          "blockId": "blog_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Insights",
+          "title": "Practice insights",
+          "summary": "This is where we share practical notes and clinical insights from the practice. Most posts are written to help you make sense of common dental concerns, what tends to cause them, and what sensible next steps usually look like. From time to time we’ll also explain how planning, s…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/blog/sections/0"
+        },
+        {
+          "blockId": "blog_placeholder_features",
+          "order": 1,
+          "type": "feature-list",
+          "label": "Topics",
+          "title": "What we write about",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/blog/sections/1"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Blog",
+          "mediaHint": "blog_intro_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.editorial_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/blog/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:feature-list"
+      ],
+      "seoFields": {
+        "title": "Blog",
+        "description": null,
+        "canonicalPath": "/blog",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.blog",
+        "_truth_output/page_index_truth.json#route=/blog",
+        "_truth_output/page_content_truth.json#route=/blog",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_contact",
+      "sourceRepo": "champagne",
+      "route": "/contact",
+      "pageType": "utility",
+      "routeGroup": "contact",
+      "title": "Contact",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/contact",
+      "contentBlocks": [
+        {
+          "blockId": "contact_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Contact",
+          "title": "Contact St Mary’s House Dental Care",
+          "summary": "Getting in touch should feel straightforward. Whether you’d like to arrange an appointment, ask a question, or talk something through before deciding what to do next, our team will help guide you calmly and clearly. There’s no obligation to proceed with treatment simply by conta…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/0"
+        },
+        {
+          "blockId": "contact_details_simple",
+          "order": 1,
+          "type": "feature-list",
+          "label": "Details",
+          "title": "Practice details",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/1"
+        },
+        {
+          "blockId": "contact_methods",
+          "order": 2,
+          "type": "feature-grid",
+          "label": "Contact methods",
+          "title": "Contact methods",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/2"
+        },
+        {
+          "blockId": "contact_form_placeholder",
+          "order": 3,
+          "type": "copy-block",
+          "label": "Contact form",
+          "title": "How to contact us",
+          "summary": "You’re welcome to contact the practice by phone or by using the enquiry form on this page. If your question is straightforward, our reception team can usually help directly. If it’s more clinical, we’ll make sure it’s passed to the right person. Messages are read during normal o…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/3"
+        },
+        {
+          "blockId": "contact_map_location",
+          "order": 4,
+          "type": "map",
+          "label": "Map",
+          "title": "Finding the practice",
+          "summary": "St Mary’s House Dental Care is located in Shoreham-by-Sea, West Sussex. Clear directions, accessibility information, and parking details are provided below to help your visit go smoothly.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/4"
+        },
+        {
+          "blockId": "contact_emergency_cta",
+          "order": 5,
+          "type": "treatment_mid_cta",
+          "label": "Emergency",
+          "title": "Need urgent help?",
+          "summary": "For pain, swelling, trauma, or accidents, follow the emergency pathway or contact the team for next steps.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/5"
+        },
+        {
+          "blockId": "contact_followup_cta",
+          "order": 6,
+          "type": "treatment_closing_cta",
+          "label": "Next steps",
+          "title": "Plan a visit",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/6"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "contact_emergency_cta_cta_0",
+          "slot": "treatment_mid_cta",
+          "text": "Emergency dentistry",
+          "href": "/treatments/emergency-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/5/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "contact_emergency_cta_cta_1",
+          "slot": "treatment_mid_cta",
+          "text": "Contact the practice",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/5/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "contact_followup_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Request a call back",
+          "href": "/patient-portal",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/6/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "contact_followup_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Message the team",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/6/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Contact",
+          "mediaHint": "contact_calm_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        },
+        {
+          "slotId": "contact_map_location",
+          "type": "map",
+          "title": "Finding the practice",
+          "mediaHint": "Contact page map placeholder",
+          "source": "manifest.sections",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/contact/sections/4",
+          "confidence": "HIGH"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:feature-grid",
+        "section-type:feature-list",
+        "section-type:map",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Contact",
+        "description": null,
+        "canonicalPath": "/contact",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 2
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.contact",
+        "_truth_output/page_index_truth.json#route=/contact",
+        "_truth_output/page_content_truth.json#route=/contact",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_dental_checkups_oral_cancer_screening",
+      "sourceRepo": "champagne",
+      "route": "/dental-checkups-oral-cancer-screening",
+      "pageType": "site",
+      "routeGroup": "site",
+      "title": "Dental Check-Ups & Oral Cancer Screening",
+      "h1": "UNKNOWN",
+      "metaDescription": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening.",
+      "canonicalPath": "/dental-checkups-oral-cancer-screening",
+      "contentBlocks": [
+        {
+          "blockId": "dental_checkups_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Gentle check-ups with attentive screening",
+          "summary": "We keep routine exams unhurried, explaining what we see and what it means for your mouth. We include a visual oral cancer screening at every routine exam.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/0"
+        },
+        {
+          "blockId": "dental_checkups_what_to_expect",
+          "order": 1,
+          "type": "feature-list",
+          "label": "Check-up steps",
+          "title": "What happens at a check-up",
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/1"
+        },
+        {
+          "blockId": "dental_checkups_digital_imaging",
+          "order": 2,
+          "type": "feature-list",
+          "label": "Imaging",
+          "title": "Digital x-rays and imaging",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/2"
+        },
+        {
+          "blockId": "dental_checkups_who_benefits",
+          "order": 3,
+          "type": "feature-list",
+          "label": "Who it's for",
+          "title": "Who benefits from regular exams",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/3"
+        },
+        {
+          "blockId": "dental_checkups_frequency",
+          "order": 4,
+          "type": "copy-block",
+          "label": "Frequency",
+          "title": "How often to book",
+          "summary": "Most people stay on track with 6-monthly visits. If you have higher decay or gum risk, recent treatment, or are in active orthodontic care, we may agree a shorter cadence. We explain any recommendations so you know why timing matters.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/4"
+        },
+        {
+          "blockId": "dental_checkups_worried",
+          "order": 5,
+          "type": "copy-block",
+          "label": "Support",
+          "title": "If something is worrying you",
+          "summary": "If you notice ulcers that do not settle, new lumps, persistent soreness, or changes to your mouth or throat, contact us promptly. We will arrange a calm assessment, share what we can see, and signpost to further investigation if needed.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/5"
+        },
+        {
+          "blockId": "dental_checkups_oral_cancer_screening_mid_cta",
+          "order": 6,
+          "type": "treatment_mid_cta",
+          "label": null,
+          "title": "Stay on track between check-ups",
+          "summary": "Keep hygiene, preventative care, and family visits on a steady rhythm.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/6"
+        },
+        {
+          "blockId": "dental_checkups_faq",
+          "order": 7,
+          "type": "treatment_faq_block",
+          "label": "FAQ",
+          "title": "Questions about check-ups",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/7"
+        },
+        {
+          "blockId": "dental_checkups_cta",
+          "order": 8,
+          "type": "treatment_closing_cta",
+          "label": null,
+          "title": "Arrange your routine dental check-up",
+          "summary": "Book a calm examination with oral cancer screening included. Tell us if you would like a slower pace or extra reassurance.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/8"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "dental_checkups_oral_cancer_screening_mid_cta_cta_0",
+          "slot": "treatment_mid_cta",
+          "text": "Hygiene and gum care",
+          "href": "/treatments/periodontal-gum-care",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/6/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "dental_checkups_oral_cancer_screening_mid_cta_cta_1",
+          "slot": "treatment_mid_cta",
+          "text": "Preventative & general dentistry",
+          "href": "/treatments/preventative-and-general-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/6/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "dental_checkups_oral_cancer_screening_mid_cta_cta_2",
+          "slot": "treatment_mid_cta",
+          "text": "Children’s dental care",
+          "href": "/treatments/childrens-dentistry",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/6/ctas/2",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "dental_checkups_oral_cancer_screening_mid_cta_cta_3",
+          "slot": "treatment_mid_cta",
+          "text": "Senior smile care",
+          "href": "/treatments/senior-mature-smile-care",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/6/ctas/3",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "dental_checkups_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Arrange a routine check-up",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/8/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "dental_checkups_cta_cta_1",
+          "slot": "treatment_closing_cta",
+          "text": "Support for anxious visitors",
+          "href": "/treatments/nervous-patients",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/sections/8/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Dental Check-Ups & Oral Cancer Screening",
+          "mediaHint": "contact_calm_hero_v1",
+          "heroBinding": null,
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/dental-checkups-oral-cancer-screening/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:feature-list",
+        "section-type:treatment_closing_cta",
+        "section-type:treatment_faq_block",
+        "section-type:treatment_mid_cta"
+      ],
+      "seoFields": {
+        "title": "Dental Check-Ups & Oral Cancer Screening",
+        "description": "Routine dental exams with calm monitoring, preventative advice, and reassuring screening.",
+        "canonicalPath": "/dental-checkups-oral-cancer-screening",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "CLINICAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.dental_checkups_oral_cancer_screening",
+        "_truth_output/page_index_truth.json#route=/dental-checkups-oral-cancer-screening",
+        "_truth_output/page_content_truth.json#route=/dental-checkups-oral-cancer-screening",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_downloads",
+      "sourceRepo": "champagne",
+      "route": "/downloads",
+      "pageType": "utility",
+      "routeGroup": "site",
+      "title": "Downloads",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/downloads",
+      "contentBlocks": [
+        {
+          "blockId": "downloads_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Care downloads",
+          "summary": "The documents on this page are provided to support your care with us. They may include aftercare guidance, treatment information, and practical notes that are useful before or after an appointment. Not every document will apply to everyone, and some information is only relevant …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/downloads/sections/0"
+        },
+        {
+          "blockId": "downloads_contact_cta",
+          "order": 1,
+          "type": "treatment_closing_cta",
+          "label": "Support",
+          "title": "Questions about your aftercare?",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/downloads/sections/1"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "downloads_contact_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Contact the practice",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/downloads/sections/1/ctas/0",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Downloads",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/downloads/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:treatment_closing_cta"
+      ],
+      "seoFields": {
+        "title": "Downloads",
+        "description": null,
+        "canonicalPath": "/downloads",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.downloads",
+        "_truth_output/page_index_truth.json#route=/downloads",
+        "_truth_output/page_content_truth.json#route=/downloads",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_fees",
+      "sourceRepo": "champagne",
+      "route": "/fees",
+      "pageType": "utility",
+      "routeGroup": "fees",
+      "title": "Fees",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/fees",
+      "contentBlocks": [
+        {
+          "blockId": "fees_overview",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Fees and planning",
+          "summary": "Dental fees vary because treatment depends on the condition of the teeth and gums, the complexity of care, and the time and materials required. Two people having what sounds like the same treatment may need very different levels of care. Because of this, we avoid giving fixed pr…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/0"
+        },
+        {
+          "blockId": "fees_how_we_approach_fees",
+          "order": 1,
+          "type": "copy-block",
+          "label": "How we approach fees",
+          "title": "How we approach fees",
+          "summary": "Before any treatment is started, we take time to understand what you actually need. This usually involves an examination, appropriate X-rays or scans, and a discussion about your priorities. Where treatment is straightforward, fees can often be estimated quite accurately. For mo…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/1"
+        },
+        {
+          "blockId": "fees_why_dentistry_costs_vary",
+          "order": 2,
+          "type": "copy-block",
+          "label": "Why dentistry costs vary",
+          "title": "Why dentistry costs vary",
+          "summary": "If you are unsure whether a particular treatment is appropriate, or simply want to understand likely costs before booking, please get in touch. Initial conversations are about understanding your situation, not committing you to treatment.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/2"
+        },
+        {
+          "blockId": "fees_what_fees_include",
+          "order": 3,
+          "type": "copy-block",
+          "label": "What our fees include",
+          "title": "What our fees include",
+          "summary": "Our fees are not just for the treatment you receive on the day. They reflect the full clinical process, which may include: • detailed assessment and diagnosis • digital imaging and planning where appropriate • high-quality materials and laboratory work • time for careful, unhurr…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/3"
+        },
+        {
+          "blockId": "fees_staged_treatment_and_planning",
+          "order": 4,
+          "type": "copy-block",
+          "label": "Staged treatment and flexible planning",
+          "title": "Staged treatment and flexible planning",
+          "summary": "Not all dental treatment needs to be done at once. In many cases, care can be planned in stages, allowing you to prioritise what matters most and spread treatment over time. This approach often leads to better long-term outcomes and more manageable costs. We are happy to talk th…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/4"
+        },
+        {
+          "blockId": "fees_finance_and_affordability",
+          "order": 5,
+          "type": "copy-block",
+          "label": "Finance and affordability",
+          "title": "Finance and affordability",
+          "summary": "Payment is usually taken at the time of treatment. For larger treatment plans, finance options may be available to help spread the cost. If finance is something you would like to consider, we can explain how it works and whether it may be suitable for your situation. We’ll alway…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/5"
+        },
+        {
+          "blockId": "fees_support_routing",
+          "order": 6,
+          "type": "routing_cards",
+          "label": null,
+          "title": "Support & finance options",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/sections/6"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Fees",
+          "mediaHint": "contact_calm_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/fees/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:routing_cards"
+      ],
+      "seoFields": {
+        "title": "Fees",
+        "description": null,
+        "canonicalPath": "/fees",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.fees",
+        "_truth_output/page_index_truth.json#route=/fees",
+        "_truth_output/page_content_truth.json#route=/fees",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_finance",
+      "sourceRepo": "champagne",
+      "route": "/finance",
+      "pageType": "utility",
+      "routeGroup": "site",
+      "title": "Finance",
+      "h1": "UNKNOWN",
+      "metaDescription": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
+      "canonicalPath": "/finance",
+      "contentBlocks": [
+        {
+          "blockId": "finance_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Finance support without pressure",
+          "summary": "Some patients prefer to spread the cost of dental treatment over time rather than paying for everything at once. Finance can be a practical option for larger treatment plans, but it isn’t right for everyone and isn’t a requirement for treatment.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/0"
+        },
+        {
+          "blockId": "finance_options",
+          "order": 1,
+          "type": "feature-list",
+          "label": "Options",
+          "title": "Suitability",
+          "summary": null,
+          "itemCount": 2,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/1"
+        },
+        {
+          "blockId": "finance_navigation_cards",
+          "order": 2,
+          "type": "routing_cards",
+          "label": "Next steps",
+          "title": "Explore your options",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/2"
+        },
+        {
+          "blockId": "finance_discussion_flow",
+          "order": 3,
+          "type": "steps",
+          "label": "Process",
+          "title": "How finance works",
+          "summary": null,
+          "itemCount": 2,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/3"
+        },
+        {
+          "blockId": "finance_expectations",
+          "order": 4,
+          "type": "feature-list",
+          "label": "Expectations",
+          "title": "Clarity and reassurance",
+          "summary": null,
+          "itemCount": 2,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/4"
+        },
+        {
+          "blockId": "finance_cta",
+          "order": 5,
+          "type": "cta",
+          "label": "CTA",
+          "title": "Discuss finance with the team",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/5"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "portal-finance",
+          "slot": "heroCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/ctas/heroCTAs/0",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "heroCTAs_1",
+          "slot": "heroCTAs",
+          "text": "Implant treatment information",
+          "href": "/treatments/implants",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/ctas/heroCTAs/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "portal-finance",
+          "slot": "footerCTAs",
+          "text": null,
+          "href": null,
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/ctas/footerCTAs/0",
+          "extractionConfidence": "PARTIAL_ID_ONLY"
+        },
+        {
+          "ctaId": "footerCTAs_1",
+          "slot": "footerCTAs",
+          "text": "Implant treatment information",
+          "href": "/treatments/implants",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/ctas/footerCTAs/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "finance_cta_cta_0",
+          "slot": "cta",
+          "text": null,
+          "href": null,
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/5/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "finance_cta_cta_1",
+          "slot": "cta",
+          "text": "See fees and pricing guidance",
+          "href": "/fees",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/sections/5/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Finance",
+          "mediaHint": "contact_calm_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/finance/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:cta",
+        "section-type:feature-list",
+        "section-type:routing_cards",
+        "section-type:steps"
+      ],
+      "seoFields": {
+        "title": "Finance",
+        "description": "Finance pathways with Tabeo as the finance partner, covering how costs are discussed and eligibility is confirmed later.",
+        "canonicalPath": "/finance",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.finance",
+        "_truth_output/page_index_truth.json#route=/finance",
+        "_truth_output/page_content_truth.json#route=/finance",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_legal_accessibility",
+      "sourceRepo": "champagne",
+      "route": "/legal/accessibility",
+      "pageType": "legal",
+      "routeGroup": "legal",
+      "title": "Accessibility",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/legal/accessibility",
+      "contentBlocks": [
+        {
+          "blockId": "legal_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Accessibility on our website",
+          "summary": "We want our website to be usable for as many people as possible. Accessibility is an ongoing process, and we aim to improve readability, navigation, and compatibility with assistive technologies over time. If you find any part of the site difficult to use — for example, problems…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/accessibility/sections/0"
+        },
+        {
+          "blockId": "legal_terms",
+          "order": 1,
+          "type": "accordion",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/accessibility/sections/1"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Accessibility",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/accessibility/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:accordion",
+        "section-type:copy-block"
+      ],
+      "seoFields": {
+        "title": "Accessibility",
+        "description": null,
+        "canonicalPath": "/legal/accessibility",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "LEGAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.accessibility",
+        "_truth_output/page_index_truth.json#route=/legal/accessibility",
+        "_truth_output/page_content_truth.json#route=/legal/accessibility",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_legal_complaints",
+      "sourceRepo": "champagne",
+      "route": "/legal/complaints",
+      "pageType": "legal",
+      "routeGroup": "legal",
+      "title": "Complaints",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/legal/complaints",
+      "contentBlocks": [
+        {
+          "blockId": "legal_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Raising concerns",
+          "summary": "If something hasn’t felt right, we want to know. We take complaints seriously and we aim to resolve concerns fairly, calmly, and as quickly as possible. If you feel able, please raise the issue with us directly first. Most concerns can be resolved promptly once we understand wha…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/complaints/sections/0"
+        },
+        {
+          "blockId": "legal_terms",
+          "order": 1,
+          "type": "accordion",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/complaints/sections/1"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Complaints",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/complaints/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:accordion",
+        "section-type:copy-block"
+      ],
+      "seoFields": {
+        "title": "Complaints",
+        "description": null,
+        "canonicalPath": "/legal/complaints",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "LEGAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.complaints",
+        "_truth_output/page_index_truth.json#route=/legal/complaints",
+        "_truth_output/page_content_truth.json#route=/legal/complaints",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_legal_cookies",
+      "sourceRepo": "champagne",
+      "route": "/legal/cookies",
+      "pageType": "legal",
+      "routeGroup": "legal",
+      "title": "Cookies",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/legal/cookies",
+      "contentBlocks": [
+        {
+          "blockId": "legal_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Cookies and website tools",
+          "summary": "This page explains how cookies and similar technologies may be used on our website. Cookies are small files stored on your device that help a site work properly, remember preferences, and (where enabled) provide usage insights. Some cookies are essential for core site functions …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/cookies/sections/0"
+        },
+        {
+          "blockId": "legal_terms",
+          "order": 1,
+          "type": "accordion",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/cookies/sections/1"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Cookies",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/cookies/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:accordion",
+        "section-type:copy-block"
+      ],
+      "seoFields": {
+        "title": "Cookies",
+        "description": null,
+        "canonicalPath": "/legal/cookies",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "LEGAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.cookies",
+        "_truth_output/page_index_truth.json#route=/legal/cookies",
+        "_truth_output/page_content_truth.json#route=/legal/cookies",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_legal_privacy",
+      "sourceRepo": "champagne",
+      "route": "/legal/privacy",
+      "pageType": "legal",
+      "routeGroup": "legal",
+      "title": "Privacy Policy",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/legal/privacy",
+      "contentBlocks": [
+        {
+          "blockId": "legal_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Privacy and your information",
+          "summary": "This privacy notice explains how St Mary’s House Dental Care uses and protects personal information. We are committed to handling personal data responsibly and in line with UK data protection law. We may collect personal information when you contact the practice, book an appoint…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/privacy/sections/0"
+        },
+        {
+          "blockId": "legal_terms",
+          "order": 1,
+          "type": "accordion",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/privacy/sections/1"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Privacy Policy",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/privacy/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:accordion",
+        "section-type:copy-block"
+      ],
+      "seoFields": {
+        "title": "Privacy Policy",
+        "description": null,
+        "canonicalPath": "/legal/privacy",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "LEGAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.privacy",
+        "_truth_output/page_index_truth.json#route=/legal/privacy",
+        "_truth_output/page_content_truth.json#route=/legal/privacy",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_legal_terms",
+      "sourceRepo": "champagne",
+      "route": "/legal/terms",
+      "pageType": "legal",
+      "routeGroup": "legal",
+      "title": "Website terms",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/legal/terms",
+      "contentBlocks": [
+        {
+          "blockId": "legal_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Using this website",
+          "summary": "These website terms explain how you may use this site and what the information here is (and isn’t) intended for. The content on this website is provided for general information only. It is not a substitute for a dental examination, diagnosis, or personalised advice. If you have …",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/terms/sections/0"
+        },
+        {
+          "blockId": "legal_terms",
+          "order": 1,
+          "type": "accordion",
+          "label": null,
+          "title": null,
+          "summary": null,
+          "itemCount": 5,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/terms/sections/1"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Website terms",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/legal/terms/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:accordion",
+        "section-type:copy-block"
+      ],
+      "seoFields": {
+        "title": "Website terms",
+        "description": null,
+        "canonicalPath": "/legal/terms",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "LEGAL_CONTENT_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.terms",
+        "_truth_output/page_index_truth.json#route=/legal/terms",
+        "_truth_output/page_content_truth.json#route=/legal/terms",
+        "apps/web/app/(champagne)/legal/[slug]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_newsletter",
+      "sourceRepo": "champagne",
+      "route": "/newsletter",
+      "pageType": "utility",
+      "routeGroup": "site",
+      "title": "Newsletter",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/newsletter",
+      "contentBlocks": [
+        {
+          "blockId": "newsletter_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Newsletter updates",
+          "summary": "Updates from the practice are shared through calm briefings focused on service availability and site changes. This website does not offer a newsletter sign-up at present. To adjust communication preferences or ask questions, contact the team directly.",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/newsletter/sections/0"
+        },
+        {
+          "blockId": "newsletter_contact_cta",
+          "order": 1,
+          "type": "treatment_closing_cta",
+          "label": "Next steps",
+          "title": "Contact the practice",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/newsletter/sections/1"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "newsletter_contact_cta_cta_0",
+          "slot": "treatment_closing_cta",
+          "text": "Contact the practice",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/newsletter/sections/1/ctas/0",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Newsletter",
+          "mediaHint": "legal_simple_banner",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/newsletter/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:treatment_closing_cta"
+      ],
+      "seoFields": {
+        "title": "Newsletter",
+        "description": null,
+        "canonicalPath": "/newsletter",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.newsletter",
+        "_truth_output/page_index_truth.json#route=/newsletter",
+        "_truth_output/page_content_truth.json#route=/newsletter",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_patient_portal",
+      "sourceRepo": "champagne",
+      "route": "/patient-portal",
+      "pageType": "utility",
+      "routeGroup": "patient-portal",
+      "title": "Patient portal",
+      "h1": "UNKNOWN",
+      "metaDescription": "Secure portal guidance for patients who have been directed to use online access.",
+      "canonicalPath": "/patient-portal",
+      "contentBlocks": [
+        {
+          "blockId": "patient_portal_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Portal",
+          "title": "Secure access for patients",
+          "summary": "If the practice has asked you to use the patient portal, this is the place to continue securely. Depending on your route, you may be able to review appointment details, forms, messages, treatment information, or aftercare guidance. If you are unsure whether the portal is the rig…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/sections/0"
+        },
+        {
+          "blockId": "patient_portal_features",
+          "order": 1,
+          "type": "feature-list",
+          "label": "Features",
+          "title": "What to expect",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/sections/1"
+        },
+        {
+          "blockId": "patient_portal_cta_band",
+          "order": 2,
+          "type": "cta",
+          "label": "CTA",
+          "title": "Continue with the route you were given",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/sections/2"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "patient_portal_cta_band_cta_0",
+          "slot": "cta",
+          "text": null,
+          "href": null,
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/sections/2/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "patient_portal_cta_band_cta_1",
+          "slot": "cta",
+          "text": null,
+          "href": null,
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/sections/2/ctas/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "patient_portal_cta_band_cta_2",
+          "slot": "cta",
+          "text": "Contact the team",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/sections/2/ctas/2",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Patient portal",
+          "mediaHint": "patient_portal_placeholder_hero",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/patient-portal/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:cta",
+        "section-type:feature-list"
+      ],
+      "seoFields": {
+        "title": "Patient portal",
+        "description": "Secure portal guidance for patients who have been directed to use online access.",
+        "canonicalPath": "/patient-portal",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [
+        "PRIVATE_PATIENT_PORTAL_REVIEW_REQUIRED"
+      ],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.patient_portal",
+        "_truth_output/page_index_truth.json#route=/patient-portal",
+        "_truth_output/page_content_truth.json#route=/patient-portal",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_practice_plan",
+      "sourceRepo": "champagne",
+      "route": "/practice-plan",
+      "pageType": "utility",
+      "routeGroup": "site",
+      "title": "Practice Plan",
+      "h1": "UNKNOWN",
+      "metaDescription": "Membership overview covering what is included, how to join, and how it supports routine care.",
+      "canonicalPath": "/practice-plan",
+      "contentBlocks": [
+        {
+          "blockId": "practice_plan_intro",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Membership that keeps care consistent",
+          "summary": "A dental practice plan is designed to help patients look after their oral health on an ongoing basis, rather than focusing only on treatment when problems arise. It spreads the cost of routine dental care and encourages regular review, prevention, and early intervention where ne…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/0"
+        },
+        {
+          "blockId": "practice_plan_included",
+          "order": 1,
+          "type": "feature-list",
+          "label": "Inclusions",
+          "title": "What membership typically includes",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/1"
+        },
+        {
+          "blockId": "practice_plan_joining",
+          "order": 2,
+          "type": "steps",
+          "label": "Process",
+          "title": "How joining works",
+          "summary": null,
+          "itemCount": 4,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/2"
+        },
+        {
+          "blockId": "practice_plan_fit",
+          "order": 3,
+          "type": "feature-list",
+          "label": "Benefits",
+          "title": "Why members choose it",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/3"
+        },
+        {
+          "blockId": "practice_plan_cta",
+          "order": 4,
+          "type": "cta",
+          "label": "CTA",
+          "title": "Ask about joining",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/4"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "heroCTAs_0",
+          "slot": "heroCTAs",
+          "text": "Ask about Practice Plan",
+          "href": "/contact?topic=practice-plan",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/ctas/heroCTAs/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "heroCTAs_1",
+          "slot": "heroCTAs",
+          "text": "What’s included in a check-up?",
+          "href": "/dental-checkups-oral-cancer-screening",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/ctas/heroCTAs/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "footerCTAs_0",
+          "slot": "footerCTAs",
+          "text": "Ask about Practice Plan",
+          "href": "/contact?topic=practice-plan",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/ctas/footerCTAs/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "footerCTAs_1",
+          "slot": "footerCTAs",
+          "text": "What’s included in a check-up?",
+          "href": "/dental-checkups-oral-cancer-screening",
+          "source": "manifest.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/ctas/footerCTAs/1",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "practice_plan_cta_cta_0",
+          "slot": "cta",
+          "text": "Ask about Practice Plan",
+          "href": "/contact?topic=practice-plan",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/4/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "practice_plan_cta_cta_1",
+          "slot": "cta",
+          "text": "What’s included in a check-up?",
+          "href": "/dental-checkups-oral-cancer-screening",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/sections/4/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Practice Plan",
+          "mediaHint": "contact_calm_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.utility_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/practice-plan/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:cta",
+        "section-type:feature-list",
+        "section-type:steps"
+      ],
+      "seoFields": {
+        "title": "Practice Plan",
+        "description": "Membership overview covering what is included, how to join, and how it supports routine care.",
+        "canonicalPath": "/practice-plan",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(site)/[page]/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.practice_plan",
+        "_truth_output/page_index_truth.json#route=/practice-plan",
+        "_truth_output/page_content_truth.json#route=/practice-plan",
+        "apps/web/app/(site)/[page]/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_smile_gallery",
+      "sourceRepo": "champagne",
+      "route": "/smile-gallery",
+      "pageType": "editorial",
+      "routeGroup": "smile-gallery",
+      "title": "Smile gallery",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/smile-gallery",
+      "contentBlocks": [
+        {
+          "blockId": "smile_gallery_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Overview",
+          "title": "Smile transformations, simplified",
+          "summary": "Our smile gallery shares examples of treatments carried out at St Mary’s House Dental Care, with the aim of helping you understand what different options can look like in real life. Every smile is unique and results vary, so these cases are here to support informed conversations…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/smile-gallery/sections/0"
+        },
+        {
+          "blockId": "smile_gallery_cases_overview",
+          "order": 1,
+          "type": "copy-block",
+          "label": "Cases",
+          "title": "Cases overview",
+          "summary": "Each case includes a brief summary of the starting point, the type of treatment provided, and the kind of planning involved. Where before-and-after images are shown, they are there to help you understand what may be possible — not to suggest you will get an identical result. Pho…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/smile-gallery/sections/1"
+        },
+        {
+          "blockId": "smile_gallery_case_categories",
+          "order": 2,
+          "type": "feature-list",
+          "label": "Categories",
+          "title": "Case categories",
+          "summary": null,
+          "itemCount": 6,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/smile-gallery/sections/2"
+        }
+      ],
+      "ctaBlocks": [],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Smile gallery",
+          "mediaHint": "smile_gallery_placeholder_hero",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.editorial_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/smile-gallery/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(champagne)/smile-gallery/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:feature-list"
+      ],
+      "seoFields": {
+        "title": "Smile gallery",
+        "description": null,
+        "canonicalPath": "/smile-gallery",
+        "openGraphPattern": "Route source metadata mirrors title/description/url where implemented.",
+        "twitterPattern": "Route source metadata sets summary_large_image where implemented.",
+        "sourceConfidence": "MANIFEST_PLUS_ROUTE_SOURCE"
+      },
+      "structuredDataFields": {
+        "fields": [
+          "WebPage JSON-LD pattern where route source emits application/ld+json"
+        ],
+        "sourceFile": "apps/web/app/(champagne)/smile-gallery/page.tsx",
+        "extractionConfidence": "ROUTE_SOURCE_PATTERN_IDENTIFIED"
+      },
+      "sourceFileRefs": [
+        "_truth_output/page_content_truth.json",
+        "_truth_output/page_index_truth.json",
+        "apps/web/app/(champagne)/smile-gallery/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "riskFlags": [],
+      "rewriteEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Creative Connector import must not rewrite Champagne content."
+      },
+      "mediaPlacementEligibility": {
+        "eligible": false,
+        "reason": "Inventory/export only. Media placement changes require separate authorization and must not occur during import.",
+        "slotCount": 1
+      },
+      "bundleEligibility": {
+        "eligible": true,
+        "reason": "Read-only page read-model import candidate; not a publish/apply/deploy bundle."
+      },
+      "unknownFields": [
+        {
+          "field": "h1",
+          "reason": "No explicit H1 was extracted; manifest labels and section titles were not treated as H1 without renderer execution."
+        },
+        {
+          "field": "metaDescription",
+          "reason": "Manifest does not expose description or intro for this route."
+        }
+      ],
+      "extractionStatus": "EXTRACTED_DECLARED",
+      "extractionBlockers": [],
+      "evidenceRefs": [
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json#pages.smile_gallery",
+        "_truth_output/page_index_truth.json#route=/smile-gallery",
+        "_truth_output/page_content_truth.json#route=/smile-gallery",
+        "apps/web/app/(champagne)/smile-gallery/page.tsx"
+      ],
+      "authorityPosture": {
+        "canMutateChampagne": false,
+        "canApplyRewrite": false,
+        "canPublish": false,
+        "canDeploy": false,
+        "canTouchPhi": false,
+        "networkCallsAllowed": false,
+        "providerCallsAllowed": false,
+        "launchReadyClaimAllowed": false
+      },
+      "notes": [
+        "Generated by static source inspection from existing manifests, route files, and existing page-truth exports.",
+        "Route is present in existing page-truth index."
+      ]
+    },
+    {
+      "schemaVersion": "CHAMPAGNE_PAGE_INVENTORY_EXPORT_V1",
+      "pageId": "champagne_page_team",
+      "sourceRepo": "champagne",
+      "route": "/team",
+      "pageType": "team_hub",
+      "routeGroup": "team",
+      "title": "Team",
+      "h1": "UNKNOWN",
+      "metaDescription": null,
+      "canonicalPath": "/team",
+      "contentBlocks": [
+        {
+          "blockId": "team_intro_copy",
+          "order": 0,
+          "type": "copy-block",
+          "label": "Team",
+          "title": "Our team",
+          "summary": "Dentistry works best when it’s delivered by people who know each other well. At St Mary’s House Dental Care, we’re a small, experienced team who work together every day — not a rotating cast. That continuity matters. It affects communication, planning, and how calmly care is del…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/0"
+        },
+        {
+          "blockId": "why_patients_trust_this_team",
+          "order": 1,
+          "type": "copy-block",
+          "label": "Trust and continuity",
+          "title": "How we work together",
+          "summary": "Good outcomes in dentistry depend on more than individual skill. They rely on clear communication between clinicians and nurses, shared standards of care, and consistency in how patients are looked after. Our team works closely across examinations, hygiene, restorative care, and…",
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/1"
+        },
+        {
+          "blockId": "team_clinical_cards",
+          "order": 2,
+          "type": "routing_cards",
+          "label": null,
+          "title": "Clinicians you can trust",
+          "summary": null,
+          "itemCount": 3,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/2"
+        },
+        {
+          "blockId": "team_wider_practice_team",
+          "order": 3,
+          "type": "people_grid",
+          "label": null,
+          "title": "Nursing and support staff",
+          "summary": "Dental nurses and support staff play a central role in patient care. They are often the first point of contact, the calm presence during treatment, and the continuity between visits. Many of our nurses have worked here for years and know patients well. Their role includes suppor…",
+          "itemCount": 6,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/3"
+        },
+        {
+          "blockId": "team_connection_cta",
+          "order": 4,
+          "type": "cta",
+          "label": "Connection",
+          "title": "Connect with the team",
+          "summary": null,
+          "itemCount": null,
+          "extractionConfidence": "HIGH",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/4"
+        }
+      ],
+      "ctaBlocks": [
+        {
+          "ctaId": "team_connection_cta_cta_0",
+          "slot": "cta",
+          "text": "Plan a visit",
+          "href": "/contact",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/4/ctas/0",
+          "extractionConfidence": "HIGH"
+        },
+        {
+          "ctaId": "team_connection_cta_cta_1",
+          "slot": "cta",
+          "text": "Patient portal",
+          "href": "/patient-portal",
+          "source": "manifest.sections.ctas",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/sections/4/ctas/1",
+          "extractionConfidence": "HIGH"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "slotId": "hero",
+          "type": "hero",
+          "title": "Team",
+          "mediaHint": "team_preview_hero_v1",
+          "heroBinding": {
+            "heroId": "sacred-home-hero",
+            "variantId": "hero.variant.marketing_v1"
+          },
+          "source": "manifest.hero",
+          "evidenceRef": "packages/champagne-manifests/data/champagne_machine_manifest_full.json#/team/hero",
+          "confidence": "HIGH_BINDING_PRESENT"
+        }
+      ],
+      "componentRefs": [
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/(site)/[page]/page.tsx",
+        "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+        "packages/champagne-sections/src/ChampagneSectionRenderer.tsx",
+        "section-type:copy-block",
+        "section-type:cta",
+        "section-type:people_grid",
+        "section-type:routing_cards"
+     
