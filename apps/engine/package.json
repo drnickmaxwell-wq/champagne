@@ -8,7 +8,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "fastify": "^5.6.2"
+    "fastify": "^5.8.5"
   },
   "devDependencies": {
     "typescript": "^5.6.0",
