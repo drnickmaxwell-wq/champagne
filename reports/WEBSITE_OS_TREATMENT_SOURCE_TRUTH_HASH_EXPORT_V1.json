@@ -1,0 +1,155 @@
+{
+  "version": "WEBSITE_OS_TREATMENT_SOURCE_TRUTH_HASH_EXPORT_V1",
+  "repository": "drnickmaxwell-wq/champagne",
+  "exportTimestamp": "2026-06-19T09:08:49.613Z",
+  "mission": "Source-truth and current-text hash export only; no treatment content mutation or rewrite authority granted.",
+  "hashAlgorithm": "sha256 over UTF-8 text with CRLF converted to LF only",
+  "inputs": {
+    "pageIndexTruth": "_truth_output/page_index_truth.json",
+    "pageContentTruth": "_truth_output/page_content_truth.json",
+    "pageTruthDirectory": "page-truth/",
+    "websiteTruthReport": "reports/WEBSITE_TRUTH_EXPORT_REPORT_V1.json",
+    "schemaQaReportAvailable": false,
+    "answerFoundationQaReportAvailable": false,
+    "answerPacketQaReportAvailable": false
+  },
+  "pages": [
+    {
+      "route": "/treatments/composite-bonding",
+      "canonicalRoute": "/treatments/composite-bonding",
+      "treatmentFamily": "treatment",
+      "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.composite-bonding.json",
+      "sourceTextAvailable": true,
+      "currentSourceTextHash": "c399770917c9d284f6599e2f09c0c138520b669234f0ac7cee53aca2401ee536",
+      "currentRenderedTextHash": "d8aa711118340b859f232ecd0444ab9529bf71a96dab6e4d2cbf72a2af9fc3d3",
+      "answerSurfaceStatus": "PASS",
+      "schemaStatus": "PASS_INFERRED_OR_EMITTED",
+      "canonicalStatus": "PASS",
+      "localSeoStatus": "PARTIAL",
+      "conversionStatus": "PASS_SOURCE_CTA_TEXT_PRESENT",
+      "sourceExcerptOrTextLocation": {
+        "textExport": "page-truth/treatment-source-hashes/treatments-composite-bonding.txt",
+        "sourceEntryCount": 59,
+        "firstJsonPointer": "/sections/0/body"
+      },
+      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "blockerReasons": [],
+      "implementationReadiness": "READY_FOR_AGENT_STAGING"
+    },
+    {
+      "route": "/treatments/dental-crowns",
+      "canonicalRoute": "/treatments/dental-crowns",
+      "treatmentFamily": "treatment",
+      "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.dental-crowns.json",
+      "sourceTextAvailable": true,
+      "currentSourceTextHash": "be2eec7d847718e8a98906f47bb2567da02fbbbf76dd4937a1104b6be3b0d9ff",
+      "currentRenderedTextHash": "b6ab98b42a501cb25e65ba28b04ecb44b45e35242f0b58a85eeaed4727964cf2",
+      "answerSurfaceStatus": "PASS",
+      "schemaStatus": "PASS_INFERRED_OR_EMITTED",
+      "canonicalStatus": "PASS",
+      "localSeoStatus": "PASS",
+      "conversionStatus": "PASS_SOURCE_CTA_TEXT_PRESENT",
+      "sourceExcerptOrTextLocation": {
+        "textExport": "page-truth/treatment-source-hashes/treatments-dental-crowns.txt",
+        "sourceEntryCount": 90,
+        "firstJsonPointer": "/sections/0/body"
+      },
+      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "blockerReasons": [],
+      "implementationReadiness": "READY_FOR_AGENT_STAGING"
+    },
+    {
+      "route": "/treatments/clear-aligners",
+      "canonicalRoute": "/treatments/clear-aligners",
+      "treatmentFamily": "treatment",
+      "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners.json",
+      "sourceTextAvailable": true,
+      "currentSourceTextHash": "a6a3ef1fd049926735f33aa761a095fa3cddfb65b67b7c06505fd33f3b3357ad",
+      "currentRenderedTextHash": "0297df927c2f976f2df650ffab095a6408532f51790b924b720849a66d305306",
+      "answerSurfaceStatus": "PASS",
+      "schemaStatus": "PASS_INFERRED_OR_EMITTED",
+      "canonicalStatus": "PASS",
+      "localSeoStatus": "PARTIAL",
+      "conversionStatus": "PASS_SOURCE_CTA_TEXT_PRESENT",
+      "sourceExcerptOrTextLocation": {
+        "textExport": "page-truth/treatment-source-hashes/treatments-clear-aligners.txt",
+        "sourceEntryCount": 96,
+        "firstJsonPointer": "/sections/0/body"
+      },
+      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "blockerReasons": [],
+      "implementationReadiness": "READY_FOR_AGENT_STAGING"
+    },
+    {
+      "route": "/treatments/full-arch-dental-implants",
+      "canonicalRoute": "/treatments/implants-full-arch",
+      "treatmentFamily": "treatment",
+      "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.implants-full-arch.json",
+      "sourceTextAvailable": true,
+      "currentSourceTextHash": "b4d9f87855a002f643f7d99d53410e00b723f673c12bfa1a87d2b0ca3cce9df4",
+      "currentRenderedTextHash": "1d2355796b8b4eb80b8fb8ca32b973aebe7c770ed4e7852fb679b2de5227474b",
+      "answerSurfaceStatus": "MISSING",
+      "schemaStatus": "PASS_INFERRED_OR_EMITTED",
+      "canonicalStatus": "PASS",
+      "localSeoStatus": "PARTIAL",
+      "conversionStatus": "PASS_SOURCE_CTA_TEXT_PRESENT",
+      "sourceExcerptOrTextLocation": {
+        "textExport": "page-truth/treatment-source-hashes/treatments-full-arch-dental-implants.txt",
+        "sourceEntryCount": 79,
+        "firstJsonPointer": "/sections/0/body"
+      },
+      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "blockerReasons": [
+        "Answer surface incomplete: answerSurface is missing"
+      ],
+      "implementationReadiness": "PARTIAL"
+    },
+    {
+      "route": "/treatments/implant-aftercare",
+      "canonicalRoute": "/treatments/implant-aftercare",
+      "treatmentFamily": "treatment",
+      "sourceFilePath": "packages/champagne-manifests/data/sections/smh/treatments.implants-aftercare.json",
+      "sourceTextAvailable": true,
+      "currentSourceTextHash": "ff08c0cda0606625b730273f9ee3d150072f6880024ca9255f9b9d12ae9400a5",
+      "currentRenderedTextHash": "6691c11dff7ef149fc261115ec6b3d0ee95999aaca38ac7067b580107a8edc10",
+      "answerSurfaceStatus": "PASS",
+      "schemaStatus": "PASS_INFERRED_OR_EMITTED",
+      "canonicalStatus": "PASS",
+      "localSeoStatus": "PARTIAL",
+      "conversionStatus": "PASS_SOURCE_CTA_TEXT_PRESENT",
+      "sourceExcerptOrTextLocation": {
+        "textExport": "page-truth/treatment-source-hashes/treatments-implant-aftercare.txt",
+        "sourceEntryCount": 84,
+        "firstJsonPointer": "/sections/0/body"
+      },
+      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "blockerReasons": [],
+      "implementationReadiness": "READY_FOR_AGENT_STAGING"
+    }
+  ],
+  "summary": {
+    "targetCount": 5,
+    "readyForAgentStaging": [
+      "/treatments/composite-bonding",
+      "/treatments/dental-crowns",
+      "/treatments/clear-aligners",
+      "/treatments/implant-aftercare"
+    ],
+    "partial": [
+      {
+        "route": "/treatments/full-arch-dental-implants",
+        "blockerReasons": [
+          "Answer surface incomplete: answerSurface is missing"
+        ]
+      }
+    ],
+    "blocked": []
+  },
+  "nonAuthority": {
+    "contentRewritten": false,
+    "publicPublicationAuthorityGranted": false,
+    "clinicalReviewBypassed": false,
+    "humanApprovalBypassed": false,
+    "phiOrPmsFieldsAdded": false
+  }
+}
