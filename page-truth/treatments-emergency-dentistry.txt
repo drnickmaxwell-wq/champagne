@@ -53,8 +53,8 @@ You’ll have time to consider options once the immediate situation has settled.
 Book a check-up
 
 === SECTION: treatment_mid_cta ===
-Related care to explore
-Compare connected steps and plan the next visit.
+Urgent care and follow-up
+We will explain the immediate next step and any follow-up care that may need planning after the first visit.
 
 === SECTION: treatment_faq_block ===
 When urgent care may not be necessary
@@ -139,8 +139,9 @@ You’ll have time to consider options once the immediate situation has settled.
 Book a check-up
 
 === SECTION: treatment_mid_cta ===
-Related care to explore
-Contact the practice so we can advise on urgency and next steps.
+Urgent care and follow-up
+Contact the Shoreham practice if you need help deciding what feels urgent, whether you should travel, or what to do first.
+We will explain the immediate next step and any follow-up care that may need planning after the first visit.
 
 === SECTION: treatment_faq_block ===
 When urgent care may not be necessary

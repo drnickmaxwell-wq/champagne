@@ -1,0 +1,2885 @@
+{
+  "version": "CHAMPAGNE_PAGE_INVENTORY_V1",
+  "generatedAt": "2026-06-19T08:33:22.535Z",
+  "pages": [
+    {
+      "route": "/",
+      "routeFamily": "hub",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/",
+      "canonicalUrl": "https://www.smhdental.co.uk/",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/[page]",
+      "routeFamily": "public_page",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": null,
+      "canonicalUrl": null,
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Canonical URL missing from route metadata inference",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/about",
+      "routeFamily": "hub",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/about",
+      "canonicalUrl": "https://www.smhdental.co.uk/about",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/api/converse",
+      "routeFamily": "api",
+      "publicness": "internal",
+      "launchState": "launch_excluded_api",
+      "canonicalRoute": "/api/converse",
+      "canonicalUrl": "https://www.smhdental.co.uk/api/converse",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/api/handoff/booking",
+      "routeFamily": "api",
+      "publicness": "internal",
+      "launchState": "launch_excluded_api",
+      "canonicalRoute": "/api/handoff/booking",
+      "canonicalUrl": "https://www.smhdental.co.uk/api/handoff/booking",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/api/handoff/emergency-callback",
+      "routeFamily": "api",
+      "publicness": "internal",
+      "launchState": "launch_excluded_api",
+      "canonicalRoute": "/api/handoff/emergency-callback",
+      "canonicalUrl": "https://www.smhdental.co.uk/api/handoff/emergency-callback",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/api/handoff/new-patient",
+      "routeFamily": "api",
+      "publicness": "internal",
+      "launchState": "launch_excluded_api",
+      "canonicalRoute": "/api/handoff/new-patient",
+      "canonicalUrl": "https://www.smhdental.co.uk/api/handoff/new-patient",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/api/health",
+      "routeFamily": "api",
+      "publicness": "internal",
+      "launchState": "launch_excluded_api",
+      "canonicalRoute": "/api/health",
+      "canonicalUrl": "https://www.smhdental.co.uk/api/health",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/blog",
+      "routeFamily": "editorial",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/blog",
+      "canonicalUrl": "https://www.smhdental.co.uk/blog",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/champagne/hero-asset-lab",
+      "routeFamily": "hero_lab_debug_preview",
+      "publicness": "internal",
+      "launchState": "launch_excluded_debug_internal",
+      "canonicalRoute": "/champagne/hero-asset-lab",
+      "canonicalUrl": "https://www.smhdental.co.uk/champagne/hero-asset-lab",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/champagne/hero-debug",
+      "routeFamily": "hero_lab_debug_preview",
+      "publicness": "internal",
+      "launchState": "launch_excluded_debug_internal",
+      "canonicalRoute": "/champagne/hero-debug",
+      "canonicalUrl": "https://www.smhdental.co.uk/champagne/hero-debug",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/champagne/hero-lab",
+      "routeFamily": "hero_lab_debug_preview",
+      "publicness": "internal",
+      "launchState": "launch_excluded_debug_internal",
+      "canonicalRoute": "/champagne/hero-lab",
+      "canonicalUrl": "https://www.smhdental.co.uk/champagne/hero-lab",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/champagne/hero-lab/concierge",
+      "routeFamily": "hero_lab_debug_preview",
+      "publicness": "internal",
+      "launchState": "launch_excluded_debug_internal",
+      "canonicalRoute": "/champagne/hero-lab/concierge",
+      "canonicalUrl": "https://www.smhdental.co.uk/champagne/hero-lab/concierge",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/champagne/hero-preview",
+      "routeFamily": "hero_lab_debug_preview",
+      "publicness": "internal",
+      "launchState": "launch_excluded_debug_internal",
+      "canonicalRoute": "/champagne/hero-preview",
+      "canonicalUrl": "https://www.smhdental.co.uk/champagne/hero-preview",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/champagne/sections-debug",
+      "routeFamily": "champagne_debug_internal",
+      "publicness": "internal",
+      "launchState": "launch_excluded_debug_internal",
+      "canonicalRoute": "/champagne/sections-debug",
+      "canonicalUrl": "https://www.smhdental.co.uk/champagne/sections-debug",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/contact",
+      "routeFamily": "support",
+      "publicness": "public",
+      "launchState": "launch_candidate_support_review_required",
+      "canonicalRoute": "/contact",
+      "canonicalUrl": "https://www.smhdental.co.uk/contact",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "ContactPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/dental-checkups-oral-cancer-screening",
+      "routeFamily": "route_handler",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/dental-checkups-oral-cancer-screening",
+      "canonicalUrl": "https://www.smhdental.co.uk/dental-checkups-oral-cancer-screening",
+      "aliasOf": "/treatments/dental-checkups-oral-cancer-screening",
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/downloads",
+      "routeFamily": "support",
+      "publicness": "public",
+      "launchState": "launch_candidate_support_review_required",
+      "canonicalRoute": "/downloads",
+      "canonicalUrl": "https://www.smhdental.co.uk/downloads",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/fees",
+      "routeFamily": "support",
+      "publicness": "public",
+      "launchState": "launch_candidate_support_review_required",
+      "canonicalRoute": "/fees",
+      "canonicalUrl": "https://www.smhdental.co.uk/fees",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/finance",
+      "routeFamily": "support",
+      "publicness": "public",
+      "launchState": "launch_candidate_support_review_required",
+      "canonicalRoute": "/finance",
+      "canonicalUrl": "https://www.smhdental.co.uk/finance",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/legal/[slug]",
+      "routeFamily": "legal",
+      "publicness": "public",
+      "launchState": "launch_candidate_legal_review_required",
+      "canonicalRoute": null,
+      "canonicalUrl": null,
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Canonical URL missing from route metadata inference",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/legal/accessibility",
+      "routeFamily": "legal",
+      "publicness": "public",
+      "launchState": "launch_candidate_legal_review_required",
+      "canonicalRoute": "/legal/accessibility",
+      "canonicalUrl": "https://www.smhdental.co.uk/legal/accessibility",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/legal/complaints",
+      "routeFamily": "legal",
+      "publicness": "public",
+      "launchState": "launch_candidate_legal_review_required",
+      "canonicalRoute": "/legal/complaints",
+      "canonicalUrl": "https://www.smhdental.co.uk/legal/complaints",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/legal/cookies",
+      "routeFamily": "legal",
+      "publicness": "public",
+      "launchState": "launch_candidate_legal_review_required",
+      "canonicalRoute": "/legal/cookies",
+      "canonicalUrl": "https://www.smhdental.co.uk/legal/cookies",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/legal/privacy",
+      "routeFamily": "legal",
+      "publicness": "public",
+      "launchState": "launch_candidate_legal_review_required",
+      "canonicalRoute": "/legal/privacy",
+      "canonicalUrl": "https://www.smhdental.co.uk/legal/privacy",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/legal/terms",
+      "routeFamily": "legal",
+      "publicness": "public",
+      "launchState": "launch_candidate_legal_review_required",
+      "canonicalRoute": "/legal/terms",
+      "canonicalUrl": "https://www.smhdental.co.uk/legal/terms",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/newsletter",
+      "routeFamily": "utility",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/newsletter",
+      "canonicalUrl": "https://www.smhdental.co.uk/newsletter",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/patient-portal",
+      "routeFamily": "patient_portal",
+      "publicness": "private",
+      "launchState": "launch_excluded_private_patient_portal",
+      "canonicalRoute": "/patient-portal",
+      "canonicalUrl": "https://www.smhdental.co.uk/patient-portal",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/practice-plan",
+      "routeFamily": "support",
+      "publicness": "public",
+      "launchState": "launch_candidate_support_review_required",
+      "canonicalRoute": "/practice-plan",
+      "canonicalUrl": "https://www.smhdental.co.uk/practice-plan",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/smile-gallery",
+      "routeFamily": "editorial",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/smile-gallery",
+      "canonicalUrl": "https://www.smhdental.co.uk/smile-gallery",
+      "aliasOf": null,
+      "schemaStatus": "PARTIAL",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/team",
+      "routeFamily": "team_hub",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/team",
+      "canonicalUrl": "https://www.smhdental.co.uk/team",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/team/[slug]",
+      "routeFamily": "team_detail",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": null,
+      "canonicalUrl": null,
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "ProfilePage",
+        "Person"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Canonical URL missing from route metadata inference",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/team/nick-maxwell",
+      "routeFamily": "team_detail",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/team/nick-maxwell",
+      "canonicalUrl": "https://www.smhdental.co.uk/team/nick-maxwell",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "ProfilePage",
+        "Person"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/team/sara-burden",
+      "routeFamily": "team_detail",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/team/sara-burden",
+      "canonicalUrl": "https://www.smhdental.co.uk/team/sara-burden",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "ProfilePage",
+        "Person"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/team/sylvia-krafft",
+      "routeFamily": "team_detail",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/team/sylvia-krafft",
+      "canonicalUrl": "https://www.smhdental.co.uk/team/sylvia-krafft",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "ProfilePage",
+        "Person"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/technology",
+      "routeFamily": "utility",
+      "publicness": "public",
+      "launchState": "public_launch_candidate",
+      "canonicalRoute": "/technology",
+      "canonicalUrl": "https://www.smhdental.co.uk/technology",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments",
+      "routeFamily": "treatment_hub",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/[slug]",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": null,
+      "canonicalUrl": null,
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Canonical URL missing from route metadata inference",
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/3d-dentistry-and-technology",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/3d-dentistry-and-technology",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-digital-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/3d-digital-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/3d-digital-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-implant-restorations",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/3d-implant-restorations",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/3d-implant-restorations",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-printed-dentures",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/3d-printed-dentures",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/3d-printed-dentures",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-printed-veneers",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/3d-printed-veneers",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/3d-printed-veneers",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-printing-lab",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/3d-printing-lab",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/3d-printing-lab",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/acrylic-dentures",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/acrylic-dentures",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/acrylic-dentures",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/anti-wrinkle-treatments",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/anti-wrinkle-treatments",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/anti-wrinkle-treatments",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/broken-chipped-cracked-teeth",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/broken-chipped-cracked-teeth",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/broken-chipped-cracked-teeth",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/bruxism-and-jaw-clenching",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/bruxism-and-jaw-clenching",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/bruxism-and-jaw-clenching",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/cbct-3d-scanning",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/cbct-3d-scanning",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/cbct-3d-scanning",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/childrens-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/childrens-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/childrens-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/chrome-dentures",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/chrome-dentures",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/chrome-dentures",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/clear-aligners",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/clear-aligners",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/clear-aligners",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/clear-aligners-spark",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/clear-aligners-spark",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/composite-bonding",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/composite-bonding",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/composite-bonding",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/cosmetic-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/cosmetic-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/cosmetic-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-abscess-infection",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-abscess-infection",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-abscess-infection",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-bridges",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-bridges",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-bridges",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/dental-checkups-oral-cancer-screening",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-checkups-oral-cancer-screening",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-checkups-oral-cancer-screening",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-crowns",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-crowns",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-crowns",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/dental-fillings",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-fillings",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-fillings",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-retainers",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-retainers",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-retainers",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-trauma-accidents",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dental-trauma-accidents",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dental-trauma-accidents",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dentures",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dentures",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dentures",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dermal-fillers",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/dermal-fillers",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/dermal-fillers",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/digital-smile-design",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/digital-smile-design",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/digital-smile-design",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/emergency-dental-appointments",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/emergency-dental-appointments",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/emergency-dental-appointments",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/emergency-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/emergency-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/endodontics-root-canal",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/endodontics-root-canal",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/endodontics-root-canal",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/extractions-and-oral-surgery",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/extractions-and-oral-surgery",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/extractions-and-oral-surgery",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/facial-aesthetics",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/facial-aesthetics",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/facial-aesthetics",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/facial-pain-and-headache",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/facial-pain-and-headache",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/facial-pain-and-headache",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/facial-therapeutics",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/facial-therapeutics",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/facial-therapeutics",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/failed-implant-replacement",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/failed-implant-replacement",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/failed-implant-replacement",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/fixed-braces",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/fixed-braces",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/fixed-braces",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/full-smile-makeover",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/full-smile-makeover",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/full-smile-makeover",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/home-teeth-whitening",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/home-teeth-whitening",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/home-teeth-whitening",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implant-aftercare",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implant-aftercare",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implant-aftercare",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implant-consultation",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implant-consultation",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implant-consultation",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implant-retained-dentures",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implant-retained-dentures",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implant-retained-dentures",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implants",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implants",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implants",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implants-bone-grafting",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implants-bone-grafting",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implants-bone-grafting",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implants-full-arch",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implants-full-arch",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implants-full-arch",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implants-multiple-teeth",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implants-multiple-teeth",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implants-multiple-teeth",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implants-single-tooth",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/implants-single-tooth",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/implants-single-tooth",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/injection-moulded-composite",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/injection-moulded-composite",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/injection-moulded-composite",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/inlays-onlays",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/inlays-onlays",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/inlays-onlays",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/knocked-out-tooth",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/knocked-out-tooth",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/knocked-out-tooth",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/lost-crowns-veneers-fillings",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/lost-crowns-veneers-fillings",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/lost-crowns-veneers-fillings",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/mouthguards-and-retainers",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/mouthguards-and-retainers",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/mouthguards-and-retainers",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/nervous-patients",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/nervous-patients",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/nervous-patients",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/night-guards-occlusal-splints",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/night-guards-occlusal-splints",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/night-guards-occlusal-splints",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/orthodontics",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/orthodontics",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/orthodontics",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/painless-numbing-the-wand",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/painless-numbing-the-wand",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/painless-numbing-the-wand",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/peek-partial-dentures",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/peek-partial-dentures",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/peek-partial-dentures",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/periodontal-gum-care",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/periodontal-gum-care",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/periodontal-gum-care",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/polynucleotides",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/polynucleotides",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/polynucleotides",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/preventative-and-general-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/preventative-and-general-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/preventive-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/preventive-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/preventive-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/sedation-dentistry",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/sedation-dentistry",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/sedation-for-implants",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/sedation-for-implants",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/sedation-for-implants",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/senior-mature-smile-care",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/senior-mature-smile-care",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/senior-mature-smile-care",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/severe-toothache-dental-pain",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/severe-toothache-dental-pain",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/severe-toothache-dental-pain",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/sinus-lift",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/sinus-lift",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/sinus-lift",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/skin-boosters",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/skin-boosters",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/skin-boosters",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/sports-mouthguards",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/sports-mouthguards",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/sports-mouthguards",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/surgically-guided-implants",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/surgically-guided-implants",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/surgically-guided-implants",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-in-a-day",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/teeth-in-a-day",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/teeth-in-a-day",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-replacement",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/teeth-replacement",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/teeth-replacement",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-whitening",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/teeth-whitening",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/teeth-whitening",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-whitening-faqs",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/teeth-whitening-faqs",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/teeth-whitening-faqs",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/therapeutic-facial-injectables",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/therapeutic-facial-injectables",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/therapeutic-facial-injectables",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/tmj-disorder-treatment",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/tmj-disorder-treatment",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/tmj-disorder-treatment",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/tmj-jaw-comfort",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/tmj-jaw-comfort",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/tmj-jaw-comfort",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/tooth-wear-broken-teeth",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/tooth-wear-broken-teeth",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/tooth-wear-broken-teeth",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/veneers",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/veneers",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/veneers",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "READY",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/whitening-sensitive-teeth",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/whitening-sensitive-teeth",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/whitening-sensitive-teeth",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/whitening-top-ups",
+      "routeFamily": "treatment_detail",
+      "publicness": "public",
+      "launchState": "launch_candidate_treatment_review_required",
+      "canonicalRoute": "/treatments/whitening-top-ups",
+      "canonicalUrl": "https://www.smhdental.co.uk/treatments/whitening-top-ups",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage",
+        "Service",
+        "BreadcrumbList"
+      ],
+      "answerSurfaceStatus": "BLOCKED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/video-consultation",
+      "routeFamily": "support",
+      "publicness": "public",
+      "launchState": "launch_candidate_support_review_required",
+      "canonicalRoute": "/video-consultation",
+      "canonicalUrl": "https://www.smhdental.co.uk/video-consultation",
+      "aliasOf": null,
+      "schemaStatus": "READY",
+      "schemaTypes": [
+        "Dentist",
+        "LocalBusiness",
+        "WebSite",
+        "WebPage"
+      ],
+      "answerSurfaceStatus": "NOT_REQUIRED",
+      "conversionComponentStatus": "BLOCKED",
+      "runtimeTruthStatus": "PARTIAL",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    }
+  ]
+}

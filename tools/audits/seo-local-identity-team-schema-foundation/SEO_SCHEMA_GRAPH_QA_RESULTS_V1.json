@@ -1,6 +1,6 @@
 {
   "version": "SEO_SCHEMA_GRAPH_QA_RESULTS_V1",
-  "generatedAt": "2026-06-02T06:42:39.177Z",
+  "generatedAt": "2026-06-19T08:29:37.118Z",
   "status": "pass",
   "checkedFiles": [
     "packages/champagne-manifests/data/seo/local-identity.smh.json",
@@ -17,7 +17,7 @@
     "principalPerson": "https://www.smhdental.co.uk/#person-nick-maxwell"
   },
   "verifiedTeamMemberCount": 5,
-  "priorityServiceCount": 11,
+  "priorityServiceCount": 12,
   "approvedSchemaAnswerCount": 16,
   "schemaConsumptionHardening": {
     "duplicateApprovedSchemaAnswerIds": false,

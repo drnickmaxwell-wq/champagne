@@ -1,6 +1,6 @@
 === SECTION: treatment_mid_cta ===
-Related care to explore
-Compare connected steps and plan the next visit.
+Planning full-arch implant care
+Review assessment, temporary teeth, and longer-term maintenance before you commit to the next step.
 
 === SECTION: treatment_closing_cta ===
 Discuss full-arch implant solutions
@@ -21,12 +21,12 @@ Consider alternatives like CBCT 3D scanning
 
 === SECTION: treatment.trustSignals ===
 Why patients trust us
-Calm, staged care for fixed full-arch bridges
+Measured, staged care for fixed full-arch bridges
 
 === SECTION: treatment.whatAreImplants ===
 What is a full-arch implant bridge?
 Fixed teeth supported by carefully placed implants
-A full-arch solution secures a custom bridge to a small number of implants (often four to six), giving a fixed alternative to loose dentures. It restores bite stability, supports clearer speech, and feels more comfortable when cleaned and maintained correctly over the long term.
+A full-arch solution secures a custom bridge to a small number of implants (often four to six), providing a fixed alternative to loose dentures. It restores bite stability, supports clearer speech, and is intended for comfort and stability when maintained properly long term.
 
 === SECTION: treatment.whoIsItFor ===
 Who it helps

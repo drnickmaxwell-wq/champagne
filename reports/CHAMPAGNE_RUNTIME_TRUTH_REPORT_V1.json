@@ -1,0 +1,485 @@
+{
+  "version": "CHAMPAGNE_RUNTIME_TRUTH_REPORT_V1",
+  "generatedAt": "2026-06-19T08:33:22.535Z",
+  "executiveVerdict": "PARTIAL: runtime route and SEO safety coverage exists, but most treatment pages are not rewrite-ready because answer-surface coverage is incomplete.",
+  "truthCoveragePercent": 100,
+  "counts": {
+    "routes": 118,
+    "treatmentPages": 79,
+    "treatmentFamilies": 9,
+    "locationPages": 0,
+    "canonicalRoutes": 117,
+    "aliasRoutes": 7,
+    "answerSurfaceComplete": 12,
+    "answerSurfaceTreatmentRoutes": 79
+  },
+  "guardCoverage": {
+    "guard:seo-launch-safety": true,
+    "guard:canon": true,
+    "guard:treatment-answer-surface": true,
+    "SECTION_KIND_COMPATIBILITY_GUARD_V1": true,
+    "LOCAL_ANTI_DOORWAY_GUARD_V1": true,
+    "COMPARISON_PAGE_GUARD_V1": true,
+    "COST_FEE_PAGE_GUARD_V1": true,
+    "EVIDENCE_REVIEW_METADATA_CONTRACT_V1": true
+  },
+  "sitemapStatus": {
+    "exists": true,
+    "sourceFile": "apps/web/app/sitemap.ts",
+    "productionOrigin": "https://www.smhdental.co.uk",
+    "excludesPrefixes": [
+      "/champagne/",
+      "/api/"
+    ],
+    "excludesPaths": [
+      "/patient-portal"
+    ],
+    "inferredPublicRouteCount": 102,
+    "hasLastModified": true,
+    "hasChangeFrequency": true,
+    "hasPriority": true,
+    "enriched": true,
+    "weakness": null
+  },
+  "robotsStatus": {
+    "exists": true,
+    "sourceFile": "apps/web/app/robots.ts",
+    "productionAllowsRoot": true,
+    "productionExplicitDisallows": [
+      "/champagne/",
+      "/api/",
+      "/patient-portal"
+    ],
+    "nonProductionDisallowsAll": true,
+    "sitemapAdvertised": "https://www.smhdental.co.uk/sitemap.xml",
+    "hardened": true,
+    "weakness": null
+  },
+  "treatmentFamilies": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "cosmetic_dentistry",
+    "facial_aesthetics",
+    "preventive_dentistry",
+    "teeth_replacement",
+    "unassigned"
+  ],
+  "canonicalRoutes": [
+    "/",
+    "/[page]",
+    "/about",
+    "/api/converse",
+    "/api/handoff/booking",
+    "/api/handoff/emergency-callback",
+    "/api/handoff/new-patient",
+    "/api/health",
+    "/blog",
+    "/champagne/hero-asset-lab",
+    "/champagne/hero-debug",
+    "/champagne/hero-lab",
+    "/champagne/hero-lab/concierge",
+    "/champagne/hero-preview",
+    "/champagne/sections-debug",
+    "/contact",
+    "/downloads",
+    "/fees",
+    "/finance",
+    "/legal/[slug]",
+    "/legal/accessibility",
+    "/legal/complaints",
+    "/legal/cookies",
+    "/legal/privacy",
+    "/legal/terms",
+    "/newsletter",
+    "/patient-portal",
+    "/practice-plan",
+    "/smile-gallery",
+    "/team",
+    "/team/[slug]",
+    "/team/nick-maxwell",
+    "/team/sara-burden",
+    "/team/sylvia-krafft",
+    "/technology",
+    "/treatments",
+    "/treatments/[slug]",
+    "/treatments/3d-dentistry-and-technology",
+    "/treatments/3d-digital-dentistry",
+    "/treatments/3d-implant-restorations",
+    "/treatments/3d-printed-dentures",
+    "/treatments/3d-printed-veneers",
+    "/treatments/3d-printing-lab",
+    "/treatments/acrylic-dentures",
+    "/treatments/anti-wrinkle-treatments",
+    "/treatments/broken-chipped-cracked-teeth",
+    "/treatments/bruxism-and-jaw-clenching",
+    "/treatments/cbct-3d-scanning",
+    "/treatments/childrens-dentistry",
+    "/treatments/chrome-dentures",
+    "/treatments/clear-aligners",
+    "/treatments/clear-aligners-spark",
+    "/treatments/composite-bonding",
+    "/treatments/cosmetic-dentistry",
+    "/treatments/dental-abscess-infection",
+    "/treatments/dental-bridges",
+    "/treatments/dental-checkups-oral-cancer-screening",
+    "/treatments/dental-crowns",
+    "/treatments/dental-fillings",
+    "/treatments/dental-retainers",
+    "/treatments/dental-trauma-accidents",
+    "/treatments/dentures",
+    "/treatments/dermal-fillers",
+    "/treatments/digital-smile-design",
+    "/treatments/emergency-dental-appointments",
+    "/treatments/emergency-dentistry",
+    "/treatments/endodontics-root-canal",
+    "/treatments/extractions-and-oral-surgery",
+    "/treatments/facial-aesthetics",
+    "/treatments/facial-pain-and-headache",
+    "/treatments/facial-therapeutics",
+    "/treatments/failed-implant-replacement",
+    "/treatments/fixed-braces",
+    "/treatments/full-smile-makeover",
+    "/treatments/home-teeth-whitening",
+    "/treatments/implant-aftercare",
+    "/treatments/implant-consultation",
+    "/treatments/implant-retained-dentures",
+    "/treatments/implants",
+    "/treatments/implants-bone-grafting",
+    "/treatments/implants-full-arch",
+    "/treatments/implants-multiple-teeth",
+    "/treatments/implants-single-tooth",
+    "/treatments/injection-moulded-composite",
+    "/treatments/inlays-onlays",
+    "/treatments/knocked-out-tooth",
+    "/treatments/lost-crowns-veneers-fillings",
+    "/treatments/mouthguards-and-retainers",
+    "/treatments/nervous-patients",
+    "/treatments/night-guards-occlusal-splints",
+    "/treatments/orthodontics",
+    "/treatments/painless-numbing-the-wand",
+    "/treatments/peek-partial-dentures",
+    "/treatments/periodontal-gum-care",
+    "/treatments/polynucleotides",
+    "/treatments/preventative-and-general-dentistry",
+    "/treatments/preventive-dentistry",
+    "/treatments/sedation-dentistry",
+    "/treatments/sedation-for-implants",
+    "/treatments/senior-mature-smile-care",
+    "/treatments/severe-toothache-dental-pain",
+    "/treatments/sinus-lift",
+    "/treatments/skin-boosters",
+    "/treatments/sports-mouthguards",
+    "/treatments/surgically-guided-implants",
+    "/treatments/teeth-in-a-day",
+    "/treatments/teeth-replacement",
+    "/treatments/teeth-whitening",
+    "/treatments/teeth-whitening-faqs",
+    "/treatments/therapeutic-facial-injectables",
+    "/treatments/tmj-disorder-treatment",
+    "/treatments/tmj-jaw-comfort",
+    "/treatments/tooth-wear-broken-teeth",
+    "/treatments/veneers",
+    "/treatments/whitening-sensitive-teeth",
+    "/treatments/whitening-top-ups",
+    "/video-consultation"
+  ],
+  "aliasRoutes": [
+    {
+      "route": "/treatments/retainers",
+      "target": "/treatments/dental-retainers"
+    },
+    {
+      "route": "/treatments/dental-implants",
+      "target": "/treatments/implants"
+    },
+    {
+      "route": "/treatments/hygiene",
+      "target": "/treatments/preventative-and-general-dentistry"
+    },
+    {
+      "route": "/treatments/3d-printed-implant-restorations",
+      "target": "/treatments/3d-implant-restorations"
+    },
+    {
+      "route": "/treatments/fillings",
+      "target": "/treatments/dental-fillings"
+    },
+    {
+      "route": "/treatments/restorative-fillings",
+      "target": "/treatments/dental-fillings"
+    },
+    {
+      "route": "/dental-checkups-oral-cancer-screening",
+      "target": "/treatments/dental-checkups-oral-cancer-screening"
+    }
+  ],
+  "blockers": [
+    {
+      "code": "NO_CLEAN_LAUNCH_ASSERTION",
+      "severity": "info",
+      "message": "This export is an evidence layer only and does not certify clean launch readiness.",
+      "evidence": null
+    },
+    {
+      "code": "LAUNCH_EXCLUDED_ROUTES_PRESENT",
+      "severity": "info",
+      "message": "Debug/internal/API/private routes are present and must stay launch-excluded.",
+      "evidence": [
+        {
+          "route": "/api/converse",
+          "state": "launch_excluded_api"
+        },
+        {
+          "route": "/api/handoff/booking",
+          "state": "launch_excluded_api"
+        },
+        {
+          "route": "/api/handoff/emergency-callback",
+          "state": "launch_excluded_api"
+        },
+        {
+          "route": "/api/handoff/new-patient",
+          "state": "launch_excluded_api"
+        },
+        {
+          "route": "/api/health",
+          "state": "launch_excluded_api"
+        },
+        {
+          "route": "/champagne/hero-asset-lab",
+          "state": "launch_excluded_debug_internal"
+        },
+        {
+          "route": "/champagne/hero-debug",
+          "state": "launch_excluded_debug_internal"
+        },
+        {
+          "route": "/champagne/hero-lab",
+          "state": "launch_excluded_debug_internal"
+        },
+        {
+          "route": "/champagne/hero-lab/concierge",
+          "state": "launch_excluded_debug_internal"
+        },
+        {
+          "route": "/champagne/hero-preview",
+          "state": "launch_excluded_debug_internal"
+        },
+        {
+          "route": "/champagne/sections-debug",
+          "state": "launch_excluded_debug_internal"
+        },
+        {
+          "route": "/patient-portal",
+          "state": "launch_excluded_private_patient_portal"
+        }
+      ]
+    },
+    {
+      "code": "CONTENT_READINESS_NOT_GREEN",
+      "severity": "warning",
+      "message": "Content readiness report contains POLISH/REWRITE routes.",
+      "evidence": {
+        "FREEZE": 5,
+        "POLISH": 39,
+        "REWRITE": 55
+      }
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implants",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/veneers",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/clear-aligners",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/clear-aligners-spark",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/fixed-braces",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/dental-checkups-oral-cancer-screening",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implants-single-tooth",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implants-multiple-teeth",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implants-full-arch",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implant-retained-dentures",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implant-consultation",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implants-bone-grafting",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/sinus-lift",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/teeth-in-a-day",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/sedation-for-implants",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/failed-implant-replacement",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/implant-aftercare",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/surgically-guided-implants",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/3d-implant-restorations",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/3d-printed-veneers",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/composite-bonding",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/injection-moulded-composite",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/dental-bridges",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/dental-crowns",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/teeth-whitening",
+      "message": "Conversion/CTA evidence not discovered in export"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/home-teeth-whitening",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/whitening-top-ups",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/whitening-sensitive-teeth",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/teeth-whitening-faqs",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export; Local SEO wording not detected in extracted page text"
+    },
+    {
+      "code": "TREATMENT_PAGE_NOT_READY",
+      "severity": "warning",
+      "route": "/treatments/orthodontics",
+      "message": "Treatment answer-surface incomplete or absent; Conversion/CTA evidence not discovered in export"
+    }
+  ],
+  "recommendedFirstRewriteBatch": [
+    "/treatments/clear-aligners-spark",
+    "/treatments/implants-full-arch",
+    "/treatments/implants-bone-grafting",
+    "/treatments/sedation-for-implants",
+    "/treatments/surgically-guided-implants",
+    "/treatments/3d-printed-veneers",
+    "/treatments/home-teeth-whitening",
+    "/treatments/whitening-top-ups",
+    "/treatments/whitening-sensitive-teeth",
+    "/treatments/teeth-whitening-faqs",
+    "/treatments/orthodontics",
+    "/treatments/emergency-dentistry"
+  ]
+}

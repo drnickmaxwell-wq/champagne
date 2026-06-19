@@ -1,6 +1,6 @@
 === SECTION: treatment_mid_cta ===
-Related care to explore
-Compare connected steps and plan the next visit.
+Options before implant treatment
+Compare planning, grafting, and replacement pathways before you decide on the next appointment.
 
 === SECTION: treatment_closing_cta ===
 Book implant consultation & planning
@@ -21,16 +21,16 @@ Plan a clinician-led implant consultation review
 Consider alternatives like CBCT and 3D planning
 
 === SECTION: treatment.trustSignals ===
-Planning-led implant care, built around you
+Planning-led implant care, guided by assessment
 
 === SECTION: treatment.consultationOverview ===
 THE CONSULTATION
 What happens at an implant consultation?
-We assess your mouth, dental history, and medical factors, carry out imaging or CBCT scans if indicated, and map options such as single implants, implant-retained dentures, or full-arch approaches — including staged versus same-day routes where suitable. The focus is understanding and planning, not rushing into treatment.
-Scan-led planning to understand your starting point
+We assess your mouth, dental history, and relevant medical factors. Imaging or CBCT scans are arranged when clinically indicated. We then outline options such as single implants, implant-retained dentures, or full-arch approaches — This may include staged or same-day routes where appropriate. The emphasis is on understanding and planning rather than rushing into treatment.
+Scan-led planning to clarify your starting point
 Suitability checks for single, multiple, or full-arch implants
-Options explained clearly with pros/cons
-Personalised plan and costed estimate after assessment
+Options explained with benefits and limitations
+Written plan and costed estimate after assessment
 
 === SECTION: treatment.whoIsItFor ===
 Who is this appointment for?
@@ -40,10 +40,10 @@ Your pathway: consultation to treatment plan
 
 === SECTION: treatment.technology ===
 Digital planning that reduces surprises
-Scan-led planning helps reduce uncertainties by mapping bone, bite, and restorative needs before treatment begins.
+Scan-led planning reduces uncertainty by mapping bone, bite, and restorative considerations before treatment begins.
 
 === SECTION: treatment.pricingFinance ===
-Fees, timelines, and choices — explained after assessment
+Fees, timelines, and choices — discussed after assessment
 
 === SECTION: treatment.faq ===
 Common questions about implant consultations
@@ -56,13 +56,13 @@ Timelines depend on healing, bone quality, and the type of restoration. We outli
 Can I have sedation if I’m nervous?
 Sedation options can be discussed and assessed for suitability. We prioritise calm, no-pressure planning.
 What are the alternatives to implants?
-If implants aren’t high standards fit, we talk through alternatives such as bridges or dentures so you can choose confidently.
+If implants are not clinically appropriate, we discuss alternatives such as bridges or dentures so you can make an informed decision.
 Can I have temporary teeth while healing?
 Interim solutions may be possible depending on your plan. We cover options during consultation and planning.
 How long do implants last?
-Implants are intended as long-term solutions, but longevity depends on bone health, home care, and attending reviews.
+Implants are designed as long-term solutions. Longevity depends on bone health, home care, and regular reviews.
 How much does an implant consultation cost?
-Fees are confirmed after we understand your needs and any scans required, with transparent estimates provided in writing.
+Fees are confirmed after assessment and any required scans. Estimates are provided clearly in writing.
 Will I get a written plan?
 Yes. After assessment you receive a personalised plan with options, timelines, and costs to review at your own pace.
 What happens after the consultation?
@@ -71,11 +71,11 @@ You have time to consider the plan. If you proceed, we schedule treatment and gu
 === SECTION: treatment.consultationOverview ===
 Decision clarity
 When this fits and what else to consider
-In our clinic we usually stage this after general and hygiene review (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.
+This appointment is often arranged after a general and hygiene review (/treatments/preventative-and-general-dentistry) so the plan stays safe and measured.
 Appropriate when you want to confirm implant suitability and map the plan.
-Often follows General and hygiene review (/treatments/preventative-and-general-dentistry); Gum stabilisation (/treatments/periodontal-gum-care); After extractions (/treatments/extractions-and-oral-surgery).
-Alternatives we balance: Sedation options (/treatments/sedation-dentistry); Comfort-focused implant care (/treatments/implants-sedation).
-Next steps we plan for: CBCT and 3D planning (/treatments/cbct-3d-scanning); Single tooth implants (/treatments/implants-single-tooth); Multiple tooth implants (/treatments/implants-multiple-teeth).
+It may follow a general and hygiene review (/treatments/preventative-and-general-dentistry); Gum stabilisation (/treatments/periodontal-gum-care); After extractions (/treatments/extractions-and-oral-surgery).
+Alternatives considered may include sedation options (/treatments/sedation-dentistry); Comfort-focused implant care (/treatments/implants-sedation).
+Next steps may include CBCT imaging and 3D planning (/treatments/cbct-3d-scanning); Single tooth implants (/treatments/implants-single-tooth); Multiple tooth implants (/treatments/implants-multiple-teeth).
 
 === SECTION: treatment.cta ===
 Ready to explore implants with clarity?

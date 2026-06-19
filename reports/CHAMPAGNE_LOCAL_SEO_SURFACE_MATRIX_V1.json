@@ -1,0 +1,872 @@
+{
+  "version": "CHAMPAGNE_LOCAL_SEO_SURFACE_MATRIX_V1",
+  "generatedAt": "2026-06-19T08:33:22.535Z",
+  "locations": [
+    "Shoreham",
+    "Shoreham-by-Sea",
+    "West Sussex",
+    "Brighton",
+    "Worthing",
+    "Lancing",
+    "Southwick"
+  ],
+  "entries": [
+    {
+      "route": "/contact",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/contact",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/[slug]",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": null,
+      "reasons": [
+        "Canonical URL missing from route metadata inference",
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-dentistry-and-technology",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/3d-dentistry-and-technology",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-digital-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/3d-digital-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-implant-restorations",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/3d-implant-restorations",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-printed-dentures",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/3d-printed-dentures",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-printed-veneers",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/3d-printed-veneers",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/3d-printing-lab",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/3d-printing-lab",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/acrylic-dentures",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/acrylic-dentures",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/anti-wrinkle-treatments",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/anti-wrinkle-treatments",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/broken-chipped-cracked-teeth",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/broken-chipped-cracked-teeth",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/bruxism-and-jaw-clenching",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/bruxism-and-jaw-clenching",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/cbct-3d-scanning",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/cbct-3d-scanning",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/childrens-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/childrens-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/chrome-dentures",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/chrome-dentures",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/clear-aligners",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/clear-aligners",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/clear-aligners-spark",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/clear-aligners-spark",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/composite-bonding",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/composite-bonding",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/cosmetic-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/cosmetic-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-abscess-infection",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-abscess-infection",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-bridges",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-bridges",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/dental-checkups-oral-cancer-screening",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-checkups-oral-cancer-screening",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-crowns",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-crowns",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/dental-fillings",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-fillings",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-retainers",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-retainers",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dental-trauma-accidents",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dental-trauma-accidents",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dentures",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dentures",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/dermal-fillers",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/dermal-fillers",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/digital-smile-design",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/digital-smile-design",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/emergency-dental-appointments",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/emergency-dental-appointments",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/emergency-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/emergency-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/endodontics-root-canal",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/endodontics-root-canal",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/extractions-and-oral-surgery",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/extractions-and-oral-surgery",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/facial-aesthetics",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/facial-aesthetics",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/facial-pain-and-headache",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/facial-pain-and-headache",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/facial-therapeutics",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/facial-therapeutics",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/failed-implant-replacement",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/failed-implant-replacement",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/fixed-braces",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/fixed-braces",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/full-smile-makeover",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/full-smile-makeover",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/home-teeth-whitening",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/home-teeth-whitening",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implant-aftercare",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implant-aftercare",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implant-consultation",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implant-consultation",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implant-retained-dentures",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implant-retained-dentures",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implants",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implants",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implants-bone-grafting",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implants-bone-grafting",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implants-full-arch",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implants-full-arch",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/implants-multiple-teeth",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implants-multiple-teeth",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/implants-single-tooth",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/implants-single-tooth",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/injection-moulded-composite",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/injection-moulded-composite",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/inlays-onlays",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/inlays-onlays",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/knocked-out-tooth",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/knocked-out-tooth",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/lost-crowns-veneers-fillings",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/lost-crowns-veneers-fillings",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/mouthguards-and-retainers",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/mouthguards-and-retainers",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/nervous-patients",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/nervous-patients",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/night-guards-occlusal-splints",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/night-guards-occlusal-splints",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/orthodontics",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/orthodontics",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/painless-numbing-the-wand",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/painless-numbing-the-wand",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/peek-partial-dentures",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/peek-partial-dentures",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/periodontal-gum-care",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/periodontal-gum-care",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/polynucleotides",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/polynucleotides",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/preventative-and-general-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/preventative-and-general-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/preventive-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/preventive-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/sedation-dentistry",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/sedation-dentistry",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/sedation-for-implants",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/sedation-for-implants",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/senior-mature-smile-care",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/senior-mature-smile-care",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/severe-toothache-dental-pain",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/severe-toothache-dental-pain",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/sinus-lift",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/sinus-lift",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/skin-boosters",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/skin-boosters",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/sports-mouthguards",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/sports-mouthguards",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/surgically-guided-implants",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/surgically-guided-implants",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-in-a-day",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/teeth-in-a-day",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-replacement",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/teeth-replacement",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-whitening",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/teeth-whitening",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/teeth-whitening-faqs",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/teeth-whitening-faqs",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/therapeutic-facial-injectables",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/therapeutic-facial-injectables",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/tmj-disorder-treatment",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/tmj-disorder-treatment",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/tmj-jaw-comfort",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/tmj-jaw-comfort",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/tooth-wear-broken-teeth",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/tooth-wear-broken-teeth",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/veneers",
+      "localSeoStatus": "PARTIAL",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/veneers",
+      "reasons": [
+        "Conversion/CTA evidence not discovered in export"
+      ]
+    },
+    {
+      "route": "/treatments/whitening-sensitive-teeth",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/whitening-sensitive-teeth",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    },
+    {
+      "route": "/treatments/whitening-top-ups",
+      "localSeoStatus": "BLOCKED",
+      "schemaStatus": "READY",
+      "canonicalRoute": "/treatments/whitening-top-ups",
+      "reasons": [
+        "Treatment answer-surface incomplete or absent",
+        "Conversion/CTA evidence not discovered in export",
+        "Local SEO wording not detected in extracted page text"
+      ]
+    }
+  ]
+}

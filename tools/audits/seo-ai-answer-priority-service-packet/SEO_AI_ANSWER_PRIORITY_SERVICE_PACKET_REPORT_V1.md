@@ -20,7 +20,7 @@ Bounded answer-packet population only. No page redesign, no mass treatment rewri
 ## Scores
 
 - Previous AI readiness score: 83.
-- Previous zero-click readiness score: 71.
+- Previous zero-click readiness score: 79.
 - Packet AI readiness score: 88.
 - Packet zero-click readiness score: 79.
 
