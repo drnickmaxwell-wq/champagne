@@ -3,14 +3,22 @@ import { notFound, permanentRedirect } from "next/navigation";
 import {
   buildTreatmentSchemaGraph,
   getTreatmentManifest,
+  getTreatmentPages,
   resolveTreatmentPathAlias,
 } from "@champagne/manifests";
 
 import ChampagnePageBuilder from "../../(champagne)/_builder/ChampagnePageBuilder";
 
-export const dynamic = "force-dynamic";
+export const dynamicParams = false;
 
 type PageParams = { slug: string };
+
+export function generateStaticParams(): PageParams[] {
+  return getTreatmentPages()
+    .map((page) => page.slug)
+    .filter((slug): slug is string => Boolean(slug))
+    .map((slug) => ({ slug }));
+}
 
 async function resolveTreatment(params: Promise<PageParams>) {
   const resolved = await params;
