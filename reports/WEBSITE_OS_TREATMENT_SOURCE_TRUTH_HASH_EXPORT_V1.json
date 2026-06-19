@@ -1,7 +1,7 @@
 {
   "version": "WEBSITE_OS_TREATMENT_SOURCE_TRUTH_HASH_EXPORT_V1",
   "repository": "drnickmaxwell-wq/champagne",
-  "exportTimestamp": "2026-06-19T09:08:49.613Z",
+  "exportTimestamp": "2026-06-19T09:17:39.948Z",
   "mission": "Source-truth and current-text hash export only; no treatment content mutation or rewrite authority granted.",
   "hashAlgorithm": "sha256 over UTF-8 text with CRLF converted to LF only",
   "inputs": {
@@ -32,7 +32,7 @@
         "sourceEntryCount": 59,
         "firstJsonPointer": "/sections/0/body"
       },
-      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "exportTimestamp": "2026-06-19T09:17:39.948Z",
       "blockerReasons": [],
       "implementationReadiness": "READY_FOR_AGENT_STAGING"
     },
@@ -54,7 +54,7 @@
         "sourceEntryCount": 90,
         "firstJsonPointer": "/sections/0/body"
       },
-      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "exportTimestamp": "2026-06-19T09:17:39.948Z",
       "blockerReasons": [],
       "implementationReadiness": "READY_FOR_AGENT_STAGING"
     },
@@ -76,7 +76,7 @@
         "sourceEntryCount": 96,
         "firstJsonPointer": "/sections/0/body"
       },
-      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "exportTimestamp": "2026-06-19T09:17:39.948Z",
       "blockerReasons": [],
       "implementationReadiness": "READY_FOR_AGENT_STAGING"
     },
@@ -88,7 +88,7 @@
       "sourceTextAvailable": true,
       "currentSourceTextHash": "b4d9f87855a002f643f7d99d53410e00b723f673c12bfa1a87d2b0ca3cce9df4",
       "currentRenderedTextHash": "1d2355796b8b4eb80b8fb8ca32b973aebe7c770ed4e7852fb679b2de5227474b",
-      "answerSurfaceStatus": "MISSING",
+      "answerSurfaceStatus": "PASS",
       "schemaStatus": "PASS_INFERRED_OR_EMITTED",
       "canonicalStatus": "PASS",
       "localSeoStatus": "PARTIAL",
@@ -98,11 +98,9 @@
         "sourceEntryCount": 79,
         "firstJsonPointer": "/sections/0/body"
       },
-      "exportTimestamp": "2026-06-19T09:08:49.613Z",
-      "blockerReasons": [
-        "Answer surface incomplete: answerSurface is missing"
-      ],
-      "implementationReadiness": "PARTIAL"
+      "exportTimestamp": "2026-06-19T09:17:39.948Z",
+      "blockerReasons": [],
+      "implementationReadiness": "READY_FOR_AGENT_STAGING"
     },
     {
       "route": "/treatments/implant-aftercare",
@@ -122,7 +120,7 @@
         "sourceEntryCount": 84,
         "firstJsonPointer": "/sections/0/body"
       },
-      "exportTimestamp": "2026-06-19T09:08:49.613Z",
+      "exportTimestamp": "2026-06-19T09:17:39.948Z",
       "blockerReasons": [],
       "implementationReadiness": "READY_FOR_AGENT_STAGING"
     }
@@ -133,16 +131,10 @@
       "/treatments/composite-bonding",
       "/treatments/dental-crowns",
       "/treatments/clear-aligners",
+      "/treatments/full-arch-dental-implants",
       "/treatments/implant-aftercare"
     ],
-    "partial": [
-      {
-        "route": "/treatments/full-arch-dental-implants",
-        "blockerReasons": [
-          "Answer surface incomplete: answerSurface is missing"
-        ]
-      }
-    ],
+    "partial": [],
     "blocked": []
   },
   "nonAuthority": {

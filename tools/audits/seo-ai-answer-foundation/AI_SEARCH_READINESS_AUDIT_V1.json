@@ -1,10 +1,10 @@
 {
   "version": "AI_SEARCH_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-19T08:33:29.597Z",
+  "generatedAt": "2026-06-19T09:17:33.439Z",
   "status": "foundation_ready_with_gaps",
   "scores": {
     "aiReadinessScore": 83,
-    "zeroClickReadinessScore": 79
+    "zeroClickReadinessScore": 81
   },
   "coverage": {
     "answerCoverage": {
@@ -47,8 +47,8 @@
     },
     "faqCoverage": {
       "treatmentPageCount": 79,
-      "answerSurfaceTreatmentPageCount": 12,
-      "answerSurfaceFaqCount": 37,
+      "answerSurfaceTreatmentPageCount": 13,
+      "answerSurfaceFaqCount": 41,
       "priorityTreatmentPagesMissingAnswerSurface": [
         {
           "service": "emergency-dentist",

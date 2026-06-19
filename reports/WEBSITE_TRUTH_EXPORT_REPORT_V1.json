@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-06-19T08:29:38.332Z",
+  "generatedAt": "2026-06-19T09:17:37.764Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -6646,31 +6646,17 @@
       "sectionCount": 11,
       "surface": "champagne/surface/treatment",
       "answerSurface": {
-        "frameworkPresent": false,
-        "valid": false,
-        "status": null,
-        "presentSectionCount": 0,
-        "missingSectionIds": [
-          "direct_answer",
-          "what_this_treatment_is",
-          "who_it_is_for",
-          "who_it_may_not_be_suitable_for",
-          "benefits",
-          "risks_and_limitations",
-          "alternatives",
-          "process",
-          "timeline",
-          "aftercare",
-          "cost_fee_logic",
-          "local_shoreham_context",
-          "clinician_expertise",
-          "technology_used",
-          "faq",
-          "related_treatments_internal_links",
-          "last_reviewed_clinical_review",
-          "cta"
-        ],
-        "secondaryGeographyMentions": {},
+        "frameworkPresent": true,
+        "valid": true,
+        "status": "answer_surface_complete",
+        "presentSectionCount": 18,
+        "missingSectionIds": [],
+        "secondaryGeographyMentions": {
+          "Brighton": 0,
+          "Worthing": 0,
+          "Lancing": 0,
+          "Southwick": 0
+        },
         "secondaryGeographyStuffing": false
       }
     },
@@ -9470,8 +9456,8 @@
       "cta"
     ],
     "treatmentRouteCount": 79,
-    "frameworkPresentCount": 12,
-    "completeCount": 12,
+    "frameworkPresentCount": 13,
+    "completeCount": 13,
     "exampleSeedRoutes": [
       "/treatments/implants"
     ],
@@ -9479,7 +9465,6 @@
       "/treatments/clear-aligners-spark",
       "/treatments/fixed-braces",
       "/treatments/dental-checkups-oral-cancer-screening",
-      "/treatments/implants-full-arch",
       "/treatments/implant-retained-dentures",
       "/treatments/implants-bone-grafting",
       "/treatments/sinus-lift",
@@ -9886,12 +9871,11 @@
         "pageId": "implants_full_arch",
         "label": "Full arch implant rehabilitation",
         "validation": {
-          "frameworkPresent": false,
-          "valid": false,
-          "status": null,
+          "frameworkPresent": true,
+          "valid": true,
+          "status": "answer_surface_complete",
           "exampleSeed": false,
-          "presentSectionIds": [],
-          "missingSectionIds": [
+          "presentSectionIds": [
             "direct_answer",
             "what_this_treatment_is",
             "who_it_is_for",
@@ -9911,11 +9895,18 @@
             "last_reviewed_clinical_review",
             "cta"
           ],
-          "secondaryGeographyMentions": {},
+          "missingSectionIds": [],
+          "duplicateSectionIds": [],
+          "unknownSectionIds": [],
+          "emptySectionIds": [],
+          "secondaryGeographyMentions": {
+            "Brighton": 0,
+            "Worthing": 0,
+            "Lancing": 0,
+            "Southwick": 0
+          },
           "secondaryGeographyStuffing": false,
-          "errors": [
-            "answerSurface is missing"
-          ],
+          "errors": [],
           "warnings": []
         }
       },
@@ -12705,7 +12696,7 @@
     "frameworkPresent": true,
     "coverageMode": "framework_contract_only_for_non_treatment_families",
     "routeCount": 118,
-    "treatmentRoutesWithTreatmentAnswerSurface": 12,
+    "treatmentRoutesWithTreatmentAnswerSurface": 13,
     "generalizedPageSurfaceRouteCount": 0,
     "entries": [
       {
@@ -13442,8 +13433,8 @@
         "pageFamily": "treatment",
         "framework": "TREATMENT_ANSWER_SURFACE_V1",
         "generalizedPageSurfacePresent": false,
-        "treatmentAnswerSurfacePresent": false,
-        "valid": false,
+        "treatmentAnswerSurfacePresent": true,
+        "valid": true,
         "launchState": "launch_candidate_treatment_review_required"
       },
       {
@@ -13813,7 +13804,6 @@
     "/treatments/home-teeth-whitening",
     "/treatments/implant-retained-dentures",
     "/treatments/implants-bone-grafting",
-    "/treatments/implants-full-arch",
     "/treatments/injection-moulded-composite",
     "/treatments/inlays-onlays",
     "/treatments/knocked-out-tooth",
@@ -13908,7 +13898,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 867,
+    "count": 874,
     "links": [
       {
         "from": "/",
@@ -17827,6 +17817,48 @@
         "to": "/treatments/implant-retained-dentures",
         "source": "machine_manifest_page",
         "pointer": "/sections/10/ctas/2/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/0/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/treatments/cbct-3d-scanning",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/1/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/treatments/implants-retained-dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/2/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/treatments/implants-aftercare",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/3/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/treatments/teeth-in-a-day",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/15/links/4/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/0/href"
+      },
+      {
+        "from": "/treatments/implants-full-arch",
+        "to": "/treatments/cbct-3d-scanning",
+        "source": "machine_manifest_page",
+        "pointer": "/answerSurface/sections/17/ctas/1/href"
       },
       {
         "from": "/treatments/implants-multiple-teeth",

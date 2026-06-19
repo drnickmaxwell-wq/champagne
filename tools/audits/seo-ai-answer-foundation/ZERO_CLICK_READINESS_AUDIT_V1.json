@@ -1,6 +1,6 @@
 {
   "version": "ZERO_CLICK_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-19T08:33:29.597Z",
+  "generatedAt": "2026-06-19T09:17:33.439Z",
   "status": "recommendations_only",
   "checks": {
     "missingAnswerBlocks": [],
@@ -60,8 +60,8 @@
     "answerRegistryEntries": 18,
     "priorityServiceCount": 12,
     "priorityServicesWithAnswers": 12,
-    "answerSurfaceTreatmentPages": 12,
-    "answerSurfaceFaqCount": 37
+    "answerSurfaceTreatmentPages": 13,
+    "answerSurfaceFaqCount": 41
   },
   "recommendations": [
     "Prioritise one short direct answer plus one FAQ set for each approved priority service.",

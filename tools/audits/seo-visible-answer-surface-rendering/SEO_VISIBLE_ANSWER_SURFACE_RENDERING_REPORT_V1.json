@@ -1,6 +1,6 @@
 {
   "version": "SEO_VISIBLE_ANSWER_SURFACE_RENDERING_REPORT_V1",
-  "generatedAt": "2026-06-19T08:33:32.092Z",
+  "generatedAt": "2026-06-19T09:17:36.330Z",
   "status": "pass",
   "mission": "SEO_VISIBLE_ANSWER_SURFACE_RENDERING_V1",
   "architecture": {
@@ -12,7 +12,7 @@
   },
   "coverage": {
     "version": "SEO_VISIBLE_ANSWER_SURFACE_COVERAGE_V1",
-    "generatedAt": "2026-06-19T08:33:32.092Z",
+    "generatedAt": "2026-06-19T09:17:36.330Z",
     "targetServiceCount": 11,
     "renderedCount": 11,
     "coveragePercentage": 100,
@@ -288,7 +288,7 @@
   ],
   "qa": {
     "version": "SEO_ZERO_CLICK_RENDERING_QA_V1",
-    "generatedAt": "2026-06-19T08:33:32.092Z",
+    "generatedAt": "2026-06-19T09:17:36.330Z",
     "status": "pass",
     "checks": [
       {
