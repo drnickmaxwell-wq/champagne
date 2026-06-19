@@ -1,6 +1,6 @@
 {
   "version": "ZERO_CLICK_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-02T06:42:40.420Z",
+  "generatedAt": "2026-06-19T08:33:29.597Z",
   "status": "recommendations_only",
   "checks": {
     "missingAnswerBlocks": [],
@@ -53,74 +53,13 @@
     ],
     "weakAnswers": [],
     "duplicatedAnswers": [],
-    "overlyLongAnswers": [
-      {
-        "id": "smh-answer-priority-emergency-dentist-packet-v1",
-        "shortAnswerWords": 53,
-        "expandedAnswerWords": 131
-      },
-      {
-        "id": "smh-answer-priority-dental-implants-packet-v1",
-        "shortAnswerWords": 47,
-        "expandedAnswerWords": 126
-      },
-      {
-        "id": "smh-answer-priority-private-dentist-packet-v1",
-        "shortAnswerWords": 46,
-        "expandedAnswerWords": 125
-      },
-      {
-        "id": "smh-answer-priority-examinations-packet-v1",
-        "shortAnswerWords": 41,
-        "expandedAnswerWords": 123
-      },
-      {
-        "id": "smh-answer-priority-spark-aligners-packet-v1",
-        "shortAnswerWords": 45,
-        "expandedAnswerWords": 121
-      },
-      {
-        "id": "smh-answer-priority-orthodontics-packet-v1",
-        "shortAnswerWords": 46,
-        "expandedAnswerWords": 136
-      },
-      {
-        "id": "smh-answer-priority-3d-dentistry-packet-v1",
-        "shortAnswerWords": 45,
-        "expandedAnswerWords": 125
-      },
-      {
-        "id": "smh-answer-priority-same-day-crowns-veneers-packet-v1",
-        "shortAnswerWords": 46,
-        "expandedAnswerWords": 140
-      },
-      {
-        "id": "smh-answer-priority-veneers-packet-v1",
-        "shortAnswerWords": 45,
-        "expandedAnswerWords": 122
-      },
-      {
-        "id": "smh-answer-priority-cosmetic-dentistry-packet-v1",
-        "shortAnswerWords": 44,
-        "expandedAnswerWords": 135
-      },
-      {
-        "id": "smh-answer-priority-sedation-anxiety-dentistry-packet-v1",
-        "shortAnswerWords": 46,
-        "expandedAnswerWords": 125
-      },
-      {
-        "id": "smh-answer-priority-hygiene-recall-packet-v1",
-        "shortAnswerWords": 44,
-        "expandedAnswerWords": 138
-      }
-    ],
+    "overlyLongAnswers": [],
     "jargonHeavyAnswers": []
   },
   "summary": {
     "answerRegistryEntries": 18,
-    "priorityServiceCount": 11,
-    "priorityServicesWithAnswers": 11,
+    "priorityServiceCount": 12,
+    "priorityServicesWithAnswers": 12,
     "answerSurfaceTreatmentPages": 12,
     "answerSurfaceFaqCount": 37
   },

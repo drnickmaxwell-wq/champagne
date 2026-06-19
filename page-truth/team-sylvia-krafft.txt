@@ -1,7 +1,7 @@
 === SECTION: media ===
-Profile video placeholder
+Clinician introduction video
 Video spotlight
-Reserved for the clinician intro video beneath the hero.
+A short introduction to the clinician and their approach to care.
 
 === SECTION: copy-block ===
 Profile intro

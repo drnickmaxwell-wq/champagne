@@ -1,15 +1,15 @@
 {
   "version": "AI_SEARCH_READINESS_AUDIT_V1",
-  "generatedAt": "2026-06-02T06:42:40.420Z",
+  "generatedAt": "2026-06-19T08:33:29.597Z",
   "status": "foundation_ready_with_gaps",
   "scores": {
     "aiReadinessScore": 83,
-    "zeroClickReadinessScore": 71
+    "zeroClickReadinessScore": 79
   },
   "coverage": {
     "answerCoverage": {
-      "priorityServiceCount": 11,
-      "priorityServicesWithAnswers": 11,
+      "priorityServiceCount": 12,
+      "priorityServicesWithAnswers": 12,
       "priorityServicesMissingAnswers": [],
       "answersByService": {
         "private-dentist": 3,
@@ -22,12 +22,13 @@
         "sedation-anxiety-dentistry": 1,
         "cosmetic-dentistry": 1,
         "hygiene-recall": 1,
-        "examinations": 1
+        "examinations": 1,
+        "veneers": 1
       }
     },
     "factCoverage": {
       "treatmentFactEntries": 12,
-      "priorityServicesWithTreatmentFacts": 11,
+      "priorityServicesWithTreatmentFacts": 12,
       "priorityServicesMissingTreatmentFacts": [],
       "treatmentFactsByService": {
         "private-dentist": 1,
@@ -40,11 +41,12 @@
         "sedation-anxiety-dentistry": 1,
         "cosmetic-dentistry": 1,
         "hygiene-recall": 1,
-        "examinations": 1
+        "examinations": 1,
+        "veneers": 1
       }
     },
     "faqCoverage": {
-      "treatmentPageCount": 78,
+      "treatmentPageCount": 79,
       "answerSurfaceTreatmentPageCount": 12,
       "answerSurfaceFaqCount": 37,
       "priorityTreatmentPagesMissingAnswerSurface": [
@@ -89,7 +91,7 @@
     "snippetReadiness": {
       "answerEntries": 18,
       "weakAnswerCount": 0,
-      "overlyLongAnswerCount": 12,
+      "overlyLongAnswerCount": 0,
       "duplicateShortAnswerCount": 0
     },
     "voiceReadiness": {
@@ -106,26 +108,6 @@
   "registryValidation": {
     "status": "pass",
     "errors": [],
-    "warnings": [
-      "AI answer smh-answer-priority-emergency-dentist-packet-v1 short_answer is over 45 words.",
-      "AI answer smh-answer-priority-emergency-dentist-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-dental-implants-packet-v1 short_answer is over 45 words.",
-      "AI answer smh-answer-priority-dental-implants-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-private-dentist-packet-v1 short_answer is over 45 words.",
-      "AI answer smh-answer-priority-private-dentist-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-examinations-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-spark-aligners-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-orthodontics-packet-v1 short_answer is over 45 words.",
-      "AI answer smh-answer-priority-orthodontics-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-3d-dentistry-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-same-day-crowns-veneers-packet-v1 short_answer is over 45 words.",
-      "AI answer smh-answer-priority-same-day-crowns-veneers-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-veneers-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-cosmetic-dentistry-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-sedation-anxiety-dentistry-packet-v1 short_answer is over 45 words.",
-      "AI answer smh-answer-priority-sedation-anxiety-dentistry-packet-v1 expanded_answer is over 120 words.",
-      "AI answer smh-answer-priority-hygiene-recall-packet-v1 expanded_answer is over 120 words.",
-      "Treatment fact smh-treatment-fact-veneers-v1 maps to a service outside approved priorityServices."
-    ]
+    "warnings": []
   }
 }

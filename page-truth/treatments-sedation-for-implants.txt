@@ -1,6 +1,6 @@
 === SECTION: treatment_mid_cta ===
-Related care to explore
-Compare connected steps and plan the next visit.
+Planning implant care with sedation
+Review how sedation can fit with assessment, surgery, and follow-up visits.
 
 === SECTION: treatment_closing_cta ===
 Plan sedation for implant care
@@ -10,8 +10,8 @@ Implant Consultation
 Nervous patients
 
 === SECTION: treatment_mid_cta ===
-Related care to explore
-Compare connected steps and plan the next visit.
+Planning implant care with sedation
+Review how sedation can fit with assessment, surgery, and follow-up visits.
 
 === SECTION: treatment_closing_cta ===
 Plan sedation for implant care

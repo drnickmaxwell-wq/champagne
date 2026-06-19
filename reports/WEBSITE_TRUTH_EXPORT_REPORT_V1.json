@@ -1,6 +1,6 @@
 {
   "version": "WEBSITE_TRUTH_EXPORT_REPORT_V1",
-  "generatedAt": "2026-05-30T05:54:16.999Z",
+  "generatedAt": "2026-06-19T08:29:38.332Z",
   "contract": {
     "file": "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
     "version": "CHAMPAGNE_WEBSITE_TRUTH_EXPORT_CONTRACT_V1"
@@ -129,7 +129,7 @@
         "canonicalUrl": "https://www.smhdental.co.uk/about",
         "source": "app_metadata_or_manifest_inference",
         "sourceFile": "apps/web/app/(champagne)/about/page.tsx",
-        "hasRouteMetadataHook": false,
+        "hasRouteMetadataHook": true,
         "hasRootFallbackMetadata": true
       },
       "schema": {
@@ -141,8 +141,8 @@
           "WebPage"
         ],
         "sourceFile": "apps/web/app/(champagne)/about/page.tsx",
-        "hasRouteJsonLdScript": false,
-        "evidence": "Inferred from layout.tsx global JSON-LD plus route page JSON-LD patterns; payloads are not rendered by this static export."
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
       },
       "pageTruth": {
         "file": "page-truth/about.txt",
@@ -5719,6 +5719,54 @@
       }
     },
     {
+      "route": "/treatments/teeth-replacement",
+      "appRoutePattern": "/treatments/[slug]",
+      "sourceFiles": [
+        "apps/web/app/treatments/[slug]/page.tsx",
+        "packages/champagne-manifests/data/champagne_machine_manifest_full.json"
+      ],
+      "routeKind": "page",
+      "dynamic": true,
+      "inLivePages": false,
+      "inMachineManifest": true,
+      "pageId": "teeth_replacement",
+      "classification": {
+        "publicness": "public",
+        "routeFamily": "treatment_detail",
+        "launchState": "launch_candidate_treatment_review_required",
+        "excludedFromLaunchIndex": false
+      },
+      "metadata": {
+        "title": "Teeth replacement",
+        "description": "Understand the main options for replacing missing teeth — implants, bridges, dentures, and implant-retained dentures — and find the right path for your situation.",
+        "canonicalUrl": "https://www.smhdental.co.uk/treatments/teeth-replacement",
+        "source": "app_metadata_or_manifest_inference",
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteMetadataHook": true,
+        "hasRootFallbackMetadata": true
+      },
+      "schema": {
+        "discoverable": true,
+        "schemaTypes": [
+          "Dentist",
+          "LocalBusiness",
+          "WebSite",
+          "WebPage",
+          "Service",
+          "BreadcrumbList"
+        ],
+        "sourceFile": "apps/web/app/treatments/[slug]/page.tsx",
+        "hasRouteJsonLdScript": true,
+        "evidence": "Route source contains an application/ld+json script; payload is not rendered by this static export."
+      },
+      "pageTruth": {
+        "file": "page-truth/treatments-teeth-replacement.txt",
+        "exists": false,
+        "pageContentTruthEntries": 0
+      },
+      "contentReadiness": null
+    },
+    {
       "route": "/treatments/teeth-whitening",
       "appRoutePattern": "/treatments/[slug]",
       "sourceFiles": [
@@ -6278,7 +6326,7 @@
     "launch_candidate_support_review_required": 6,
     "launch_candidate_legal_review_required": 6,
     "launch_excluded_private_patient_portal": 1,
-    "launch_candidate_treatment_review_required": 80
+    "launch_candidate_treatment_review_required": 81
   },
   "sitemapStatus": {
     "exists": true,
@@ -6291,7 +6339,7 @@
     "excludesPaths": [
       "/patient-portal"
     ],
-    "inferredPublicRouteCount": 101,
+    "inferredPublicRouteCount": 102,
     "hasLastModified": true,
     "hasChangeFrequency": true,
     "hasPriority": true,
@@ -9071,6 +9119,47 @@
       }
     },
     {
+      "route": "/treatments/teeth-replacement",
+      "pageId": "teeth_replacement",
+      "label": "Teeth replacement",
+      "category": "hub",
+      "hero": "treatment_neutral_hero_v1",
+      "heroBinding": {
+        "heroId": "sacred-home-hero",
+        "variantId": "hero.variant.treatment_v1"
+      },
+      "sectionCount": 11,
+      "surface": "champagne/surface/treatment",
+      "answerSurface": {
+        "frameworkPresent": false,
+        "valid": false,
+        "status": null,
+        "presentSectionCount": 0,
+        "missingSectionIds": [
+          "direct_answer",
+          "what_this_treatment_is",
+          "who_it_is_for",
+          "who_it_may_not_be_suitable_for",
+          "benefits",
+          "risks_and_limitations",
+          "alternatives",
+          "process",
+          "timeline",
+          "aftercare",
+          "cost_fee_logic",
+          "local_shoreham_context",
+          "clinician_expertise",
+          "technology_used",
+          "faq",
+          "related_treatments_internal_links",
+          "last_reviewed_clinical_review",
+          "cta"
+        ],
+        "secondaryGeographyMentions": {},
+        "secondaryGeographyStuffing": false
+      }
+    },
+    {
       "route": "/treatments/cosmetic-dentistry",
       "pageId": "cosmetic_dentistry",
       "label": "Cosmetic dentistry",
@@ -9380,7 +9469,7 @@
       "last_reviewed_clinical_review",
       "cta"
     ],
-    "treatmentRouteCount": 78,
+    "treatmentRouteCount": 79,
     "frameworkPresentCount": 12,
     "completeCount": 12,
     "exampleSeedRoutes": [
@@ -9446,6 +9535,7 @@
       "/treatments/tmj-disorder-treatment",
       "/treatments/therapeutic-facial-injectables",
       "/treatments/facial-aesthetics",
+      "/treatments/teeth-replacement",
       "/treatments/cosmetic-dentistry",
       "/treatments/preventive-dentistry",
       "/treatments/anti-wrinkle-treatments",
@@ -12228,6 +12318,44 @@
         }
       },
       {
+        "route": "/treatments/teeth-replacement",
+        "pageId": "teeth_replacement",
+        "label": "Teeth replacement",
+        "validation": {
+          "frameworkPresent": false,
+          "valid": false,
+          "status": null,
+          "exampleSeed": false,
+          "presentSectionIds": [],
+          "missingSectionIds": [
+            "direct_answer",
+            "what_this_treatment_is",
+            "who_it_is_for",
+            "who_it_may_not_be_suitable_for",
+            "benefits",
+            "risks_and_limitations",
+            "alternatives",
+            "process",
+            "timeline",
+            "aftercare",
+            "cost_fee_logic",
+            "local_shoreham_context",
+            "clinician_expertise",
+            "technology_used",
+            "faq",
+            "related_treatments_internal_links",
+            "last_reviewed_clinical_review",
+            "cta"
+          ],
+          "secondaryGeographyMentions": {},
+          "secondaryGeographyStuffing": false,
+          "errors": [
+            "answerSurface is missing"
+          ],
+          "warnings": []
+        }
+      },
+      {
         "route": "/treatments/cosmetic-dentistry",
         "pageId": "cosmetic_dentistry",
         "label": "Cosmetic dentistry",
@@ -12576,7 +12704,7 @@
     "framework": "PAGE_SURFACE_V1",
     "frameworkPresent": true,
     "coverageMode": "framework_contract_only_for_non_treatment_families",
-    "routeCount": 117,
+    "routeCount": 118,
     "treatmentRoutesWithTreatmentAnswerSurface": 12,
     "generalizedPageSurfaceRouteCount": 0,
     "entries": [
@@ -13544,6 +13672,15 @@
         "launchState": "launch_candidate_treatment_review_required"
       },
       {
+        "route": "/treatments/teeth-replacement",
+        "pageFamily": "treatment",
+        "framework": "TREATMENT_ANSWER_SURFACE_V1",
+        "generalizedPageSurfacePresent": false,
+        "treatmentAnswerSurfacePresent": false,
+        "valid": false,
+        "launchState": "launch_candidate_treatment_review_required"
+      },
+      {
         "route": "/treatments/teeth-whitening",
         "pageFamily": "treatment",
         "framework": "TREATMENT_ANSWER_SURFACE_V1",
@@ -13700,6 +13837,7 @@
     "/treatments/sports-mouthguards",
     "/treatments/surgically-guided-implants",
     "/treatments/teeth-in-a-day",
+    "/treatments/teeth-replacement",
     "/treatments/teeth-whitening-faqs",
     "/treatments/therapeutic-facial-injectables",
     "/treatments/tmj-disorder-treatment",
@@ -13770,7 +13908,7 @@
     "missingPageTruthRoutes": []
   },
   "internalLinkInventory": {
-    "count": 863,
+    "count": 867,
     "links": [
       {
         "from": "/",
@@ -18555,6 +18693,30 @@
         "pointer": "/sections/10/ctas/2/href"
       },
       {
+        "from": "/treatments/teeth-replacement",
+        "to": "/treatments/teeth-replacement",
+        "source": "machine_manifest_page",
+        "pointer": "/path"
+      },
+      {
+        "from": "/treatments/teeth-replacement",
+        "to": "/contact",
+        "source": "machine_manifest_page",
+        "pointer": "/sections/10/ctas/0/href"
+      },
+      {
+        "from": "/treatments/teeth-replacement",
+        "to": "/treatments/implants",
+        "source": "machine_manifest_page",
+        "pointer": "/sections/10/ctas/1/href"
+      },
+      {
+        "from": "/treatments/teeth-replacement",
+        "to": "/treatments/dentures",
+        "source": "machine_manifest_page",
+        "pointer": "/sections/10/ctas/2/href"
+      },
+      {
         "from": "/treatments/teeth-whitening",
         "to": "/treatments/teeth-whitening",
         "source": "machine_manifest_page",
@@ -19140,7 +19302,7 @@
     ]
   },
   "ctaMap": {
-    "manifestEntries": 109,
+    "manifestEntries": 110,
     "ctaTextTruthEntries": 1070,
     "entries": [
       {
@@ -21024,6 +21186,27 @@
           {
             "label": "Full arch implants",
             "href": "/treatments/implants-full-arch",
+            "preset": "secondary"
+          }
+        ]
+      },
+      {
+        "route": "/treatments/teeth-replacement",
+        "source": "section:teeth_replacement_closing_cta",
+        "ctas": [
+          {
+            "label": "Book a consultation",
+            "href": "/contact",
+            "preset": "primary"
+          },
+          {
+            "label": "Dental implants",
+            "href": "/treatments/implants",
+            "preset": "secondary"
+          },
+          {
+            "label": "Dentures",
+            "href": "/treatments/dentures",
             "preset": "secondary"
           }
         ]

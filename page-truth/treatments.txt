@@ -1,7 +1,7 @@
 === SECTION: copy-block ===
 Overview
-Find treatments by locked groups
-Start with brief guidance, then open the eight director-defined groups. Each card shows up to five featured pathways and keeps the rest hidden until you choose View all.
+Find treatments by treatment groups
+Start with brief guidance, then open the eight treatment groups. Each card shows up to five featured pathways and keeps the rest hidden until you choose View all.
 
 === SECTION: feature-list ===
 How to use this hub
@@ -13,7 +13,7 @@ Popular and clinically important routes
 Check-ups, hygiene, and gum care
 Routine care that steadies your oral health before you browse deeper options.
 Emergency dentistry and urgent relief
-Same-day advice for pain, swelling, or trauma with calm next steps.
+Same-day advice for pain, swelling, or trauma with clear next steps.
 Crowns and bridges (non-implant)
 Stabilise cracked or missing teeth with crowns, bridges, and onlays.
 Dental implants and grafting
@@ -27,7 +27,7 @@ See the digital tools that support planning and comfort.
 
 === SECTION: copy-block ===
 Browse by group
-Browse treatments by locked groups
+Browse treatments by treatment groups
 Use the eight grouped containers below to scan featured pathways. Each stays collapsed to featured items until you tap "View all treatments in this group."
 
 === SECTION: routing_cards ===
@@ -64,9 +64,8 @@ Authority, technology, and experience
 Authority
 
 === SECTION: google_reviews ===
-Reviews
-What patients say about Champagne care
-Read patient feedback from the home reviews section to see how calm pacing and clear explanations feel in practice.
+Patient feedback
+We welcome patient feedback and plan to connect a verified reviews display here.
 
 === SECTION: treatment_faq_block ===
 FAQ
@@ -139,6 +138,7 @@ Teeth-in-a-Day implants in Shoreham-by-Sea
 Sedation for dental implant treatment in Shoreham-by-Sea
 Failed implant replacement in Shoreham-by-Sea
 Implant aftercare & recovery in Shoreham-by-Sea
+Surgically guided implants
 Teeth whitening
 Home teeth whitening
 Whitening top-ups & maintenance
