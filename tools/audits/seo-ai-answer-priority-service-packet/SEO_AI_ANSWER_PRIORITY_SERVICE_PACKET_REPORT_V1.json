@@ -1,6 +1,6 @@
 {
   "version": "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_REPORT_V1",
-  "generatedAt": "2026-06-19T08:33:30.850Z",
+  "generatedAt": "2026-06-19T09:17:34.839Z",
   "status": "pass_activation_supported",
   "mission": "SEO_AI_ANSWER_PRIORITY_SERVICE_PACKET_V1",
   "scopeBoundary": [
@@ -215,7 +215,7 @@
   ],
   "scores": {
     "previousAiReadinessScore": 83,
-    "previousZeroClickReadinessScore": 79,
+    "previousZeroClickReadinessScore": 81,
     "aiReadinessScore": 88,
     "zeroClickReadinessScore": 79
   },

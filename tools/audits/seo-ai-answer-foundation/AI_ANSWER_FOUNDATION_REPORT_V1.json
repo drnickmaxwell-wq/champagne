@@ -1,6 +1,6 @@
 {
   "version": "AI_ANSWER_FOUNDATION_REPORT_V1",
-  "generatedAt": "2026-06-19T08:33:29.597Z",
+  "generatedAt": "2026-06-19T09:17:33.439Z",
   "mission": "SEO_AI_ANSWER_AND_ZERO_CLICK_FOUNDATION_V1",
   "scopeBoundaries": [
     "Foundation only",
@@ -14,8 +14,8 @@
     "treatmentManifests": {
       "source": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
       "treatmentPageCount": 79,
-      "answerSurfaceTreatmentPageCount": 12,
-      "treatmentAnswerSurfaceFaqCount": 37
+      "answerSurfaceTreatmentPageCount": 13,
+      "treatmentAnswerSurfaceFaqCount": 41
     },
     "contentManifests": {
       "pageCount": 103,
@@ -62,8 +62,8 @@
       ]
     },
     "faqStructures": {
-      "answerSurfaceFaqCount": 37,
-      "pagesWithAnswerSurfaceFaqs": 12
+      "answerSurfaceFaqCount": 41,
+      "pagesWithAnswerSurfaceFaqs": 13
     },
     "metadataSources": [
       "manifest page labels/descriptions/intro fields",
@@ -99,7 +99,7 @@
   },
   "scores": {
     "aiReadinessScore": 83,
-    "zeroClickReadinessScore": 79
+    "zeroClickReadinessScore": 81
   },
   "majorGapsDiscovered": [
     "0 approved priority services do not yet have AI answer registry entries.",

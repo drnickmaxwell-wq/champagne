@@ -1,6 +1,6 @@
 {
   "version": "SEO_ZERO_CLICK_PACKET_QA_RESULTS_V1",
-  "generatedAt": "2026-06-19T08:33:30.850Z",
+  "generatedAt": "2026-06-19T09:17:34.839Z",
   "status": "pass",
   "errors": [],
   "warnings": [],
@@ -43,7 +43,7 @@
   },
   "scores": {
     "previousAiReadinessScore": 83,
-    "previousZeroClickReadinessScore": 79,
+    "previousZeroClickReadinessScore": 81,
     "aiReadinessScore": 88,
     "zeroClickReadinessScore": 79
   }

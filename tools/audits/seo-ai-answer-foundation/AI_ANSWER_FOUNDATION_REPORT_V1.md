@@ -11,8 +11,8 @@ Foundation only. No mass content generation, page redesign, chatbot runtime muta
 ## Audit findings
 
 - Treatment manifests audited: 79 treatment pages from the machine manifest.
-- Treatment answer surfaces found: 12.
-- Existing answer-surface FAQ items found: 37.
+- Treatment answer surfaces found: 13.
+- Existing answer-surface FAQ items found: 41.
 - Page/content manifests audited: 103 pages with 37 reusable section types detected.
 - Metadata surfaces detected: 103.
 - Approved fact sources audited: approved facts, local identity, and team registry.
@@ -38,7 +38,7 @@ Foundation only. No mass content generation, page redesign, chatbot runtime muta
 ## Scores
 
 - AI readiness score: 83.
-- Zero-click readiness score: 79.
+- Zero-click readiness score: 81.
 
 ## Major gaps discovered
 
