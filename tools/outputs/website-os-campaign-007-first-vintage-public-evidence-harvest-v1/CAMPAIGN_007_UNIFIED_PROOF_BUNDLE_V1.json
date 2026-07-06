@@ -1,0 +1,1560 @@
+{
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "internal_work_packages_executed": [
+    "A Route and Page Inventory",
+    "B Public Content Inventory",
+    "C Treatment Page Evidence",
+    "D Location / Service Page Evidence",
+    "E Team / Founder / Authority Evidence",
+    "F Brand Voice and Tone Evidence",
+    "G Design Token / Hero / Motion Evidence",
+    "H SEO Metadata Evidence",
+    "I Schema / Structured Data Evidence",
+    "J Internal Linking and Navigation Evidence",
+    "K Public Chatbot UI Evidence",
+    "L Public Patient Portal Link Evidence",
+    "M Media / Asset Evidence",
+    "N Weak AI-Sounding Copy Candidate Detection",
+    "O Local SEO Signal Evidence",
+    "P Technical SEO Readiness Evidence",
+    "Q Launch Gap Evidence",
+    "R Evidence Confidence and Risk Classification",
+    "S Agent Repo Import Packet Generation",
+    "T Unified Proof Bundle and Founder Summary"
+  ],
+  "files_scanned": [
+    {
+      "path": "page-truth/treatments-teeth-in-a-day.txt",
+      "sha256": "abe47c06a39c0d3676ba1f498dd29779786ba24b597eea060c877d45ad86f590"
+    },
+    {
+      "path": "page-truth/treatments-sedation-for-implants.txt",
+      "sha256": "3c618cffd8f92aa9c8585b15d24a6f2e6a39bcd98aa6204fa6f92735c8e24696"
+    },
+    {
+      "path": "page-truth/treatments-inlays-onlays.txt",
+      "sha256": "6c7006623b8bdad0feb141391a53e7e6998cd54d85ecb3d76efaab753de5aae9"
+    },
+    {
+      "path": "page-truth/treatments-3d-implant-restorations.txt",
+      "sha256": "78a2a3f752491f474af03a4783b41e131b8c34b113060695e95e9dd92c6fcda7"
+    },
+    {
+      "path": "page-truth/treatments-bruxism-and-jaw-clenching.txt",
+      "sha256": "0556e01adbc1929f6fa3961b527f4331c2327401708c599c70741819fba50630"
+    },
+    {
+      "path": "page-truth/treatments-facial-therapeutics.txt",
+      "sha256": "b1b1a753c608741bbf46e726f4aa242d13c32de153ff4247305692b8fb641a52"
+    },
+    {
+      "path": "page-truth/treatments-teeth-whitening.txt",
+      "sha256": "14475e0bec5bffdcd04fc6964c8c3bbf6a7d7e1ba9def6ce9a2ef5acd18a10b2"
+    },
+    {
+      "path": "page-truth/treatments-dental-checkups-oral-cancer-screening.txt",
+      "sha256": "849bdfaab7f221a51625a8d6993cb7e0964e7f8ea50c03a5f5f03462e2acf506"
+    },
+    {
+      "path": "page-truth/treatments-acrylic-dentures.txt",
+      "sha256": "aedd1ba12b5419cb2b8d9ab7e07cbe62e654348316061347740e57c259e672c9"
+    },
+    {
+      "path": "page-truth/treatments-dental-crowns.txt",
+      "sha256": "b6ab98b42a501cb25e65ba28b04ecb44b45e35242f0b58a85eeaed4727964cf2"
+    },
+    {
+      "path": "page-truth/treatments-nervous-patients.txt",
+      "sha256": "44cc4bb0a69b11e4ba58e7492049d7b3f6db0a0d95e790a8b924c1ba1c3fcd1a"
+    },
+    {
+      "path": "page-truth/treatments-painless-numbing-the-wand.txt",
+      "sha256": "fa7e8f458493e0c350bf9160d67cbb6b47ec06f70ec696474d26fad00aba340d"
+    },
+    {
+      "path": "page-truth/treatments-clear-aligners-spark.txt",
+      "sha256": "6c7ff6e53d61358e1649389082d2b5316627eab3406c2eb78be31584d6a56a75"
+    },
+    {
+      "path": "page-truth/home.txt",
+      "sha256": "4a8d535dce61f769e42dd6f17442619ed7454f6d7942e5b2d7b7e666f8b37c36"
+    },
+    {
+      "path": "page-truth/treatments-emergency-dental-appointments.txt",
+      "sha256": "261b5570e6ec341017dcf3c9824d3e1f28c4847dc5ead84125ea27a99b9a54fe"
+    },
+    {
+      "path": "page-truth/treatments-full-smile-makeover.txt",
+      "sha256": "c23e6e7ca92d91c7d49b4fd88ab64a165d214488886627d8667ae402e36b0b92"
+    },
+    {
+      "path": "page-truth/treatments-skin-boosters.txt",
+      "sha256": "e0441eb722097277c60ed8abdc0f9e289fe088d4883fba17461e35f05bebac6c"
+    },
+    {
+      "path": "page-truth/team-nick-maxwell.txt",
+      "sha256": "477d99fc864c6d2e081b0b7cf4292af45915d5a93fce38409f08bce0725abe21"
+    },
+    {
+      "path": "page-truth/treatments-clear-aligners.txt",
+      "sha256": "0297df927c2f976f2df650ffab095a6408532f51790b924b720849a66d305306"
+    },
+    {
+      "path": "page-truth/treatments-3d-dentistry-and-technology.txt",
+      "sha256": "b1397e52180ac2d42711f82fbac80117a295ed7c7853125dd0550218fa0e0872"
+    },
+    {
+      "path": "page-truth/treatments-injection-moulded-composite.txt",
+      "sha256": "f374cbdfdb735ec3ccc34e2ebde1cd477032877218177e8d7e1b20c7a6eff857"
+    },
+    {
+      "path": "page-truth/treatments-tooth-wear-broken-teeth.txt",
+      "sha256": "83f008b696b09c584528ed678ecac36403056ce09d5eef7854bec322b1b7a1d1"
+    },
+    {
+      "path": "page-truth/downloads.txt",
+      "sha256": "552408c6cfa0ec891e4f1aa89478abe551e2cfb28c44175adb4907f38b10b3c1"
+    },
+    {
+      "path": "page-truth/treatments-facial-aesthetics.txt",
+      "sha256": "8189a8199899440e7e4a81ede1a684bc568a1a777c6568444fb1703b6576a664"
+    },
+    {
+      "path": "page-truth/treatments-implants-multiple-teeth.txt",
+      "sha256": "254d9bff1a4c7a32c0011f9bfadaca18369557ce104c3187971c9fb5d00ba39e"
+    },
+    {
+      "path": "page-truth/treatments-implants-bone-grafting.txt",
+      "sha256": "5a3ef04f89bad819877f7fc1fdc9e48be96237907e35ac4de37121198652e987"
+    },
+    {
+      "path": "page-truth/treatments-emergency-dentistry.txt",
+      "sha256": "edc91cb3dc8bdae84443bf5c9344114e2cb97d96e9b1846789653ee93e5617c8"
+    },
+    {
+      "path": "page-truth/treatments-dermal-fillers.txt",
+      "sha256": "044539d82798cd0f4166827938291f9884d4f7cd17e158ece3747d1acd398200"
+    },
+    {
+      "path": "page-truth/newsletter.txt",
+      "sha256": "f34a4f6719e7ba32e0b10bb86ac03374d784696482f11b16ec182d4de1e6b894"
+    },
+    {
+      "path": "page-truth/treatments-periodontal-gum-care.txt",
+      "sha256": "89faba2d83704637eed01596b978f54a7cb3e63caf577f859c64f77df04d5902"
+    },
+    {
+      "path": "page-truth/legal-cookies.txt",
+      "sha256": "19dc55a4829c9e4267f983a5d2b89d53d9f57b5997ec958085c68aaf673c0658"
+    },
+    {
+      "path": "page-truth/about.txt",
+      "sha256": "b7faca45d0fa068cd69e4cd99ebd61f35f5c87ecd7f8988428d10c57c40ed957"
+    },
+    {
+      "path": "page-truth/treatments-sports-mouthguards.txt",
+      "sha256": "5f62711fb32dfa2c68fce28179da1af1d3dd968c84ba74a16e27af59680e5a4c"
+    },
+    {
+      "path": "page-truth/team-sara-burden.txt",
+      "sha256": "c21c1584bf591a88bc81648a0d28f23ac5d13371045844ecbe795c934132766c"
+    },
+    {
+      "path": "page-truth/treatments-whitening-sensitive-teeth.txt",
+      "sha256": "62209d02a303a2d07bcf86205ab9a3218218af8db6d8e9a7c2b69b87e541c757"
+    },
+    {
+      "path": "page-truth/blog.txt",
+      "sha256": "807f0e1244c420f7615b0058dbddb91ac43899e5c8603abcf54cf793287669e1"
+    },
+    {
+      "path": "page-truth/practice-plan.txt",
+      "sha256": "7b1ae18194a70b7b7ed4adbef9ac9ae976f9ed5093d0a1979d933d8d691c5270"
+    },
+    {
+      "path": "page-truth/fees.txt",
+      "sha256": "ac8e340bbee44785df216b9c8d84cc37a25e61592d68922f0600a86dddf2346c"
+    },
+    {
+      "path": "page-truth/treatments-dental-fillings.txt",
+      "sha256": "8c3cfdafc9f76e2aa1a2ee60906b19edc6e691a33b347ea3a6e45a1a07bd0914"
+    },
+    {
+      "path": "page-truth/treatments-fixed-braces.txt",
+      "sha256": "c29c2f812f8a03f770a30899d9fd793b8f70d9c2e44898549ba17b5ba3d04560"
+    },
+    {
+      "path": "page-truth/treatments-polynucleotides.txt",
+      "sha256": "93a85f17d89c0cf5c2201a21a49fd1d93f2663edf9b1dfa0704528d1c8220f0a"
+    },
+    {
+      "path": "page-truth/treatments-veneers.txt",
+      "sha256": "4a49a9814822b4315f30243d931113048f3ef7b2512b65084386a92fa057d61d"
+    },
+    {
+      "path": "page-truth/treatments-peek-partial-dentures.txt",
+      "sha256": "fc1ea51ae8c3efe778c3dfcba6729daf0a257edff91b7b24ad0a676dc545cf2f"
+    },
+    {
+      "path": "page-truth/treatments-failed-implant-replacement.txt",
+      "sha256": "1da04422e259765c85de375348b67fb95e8453ee48a02355c27bd8dbbed14088"
+    },
+    {
+      "path": "page-truth/treatments-mouthguards-and-retainers.txt",
+      "sha256": "2ff18e308824bd3ac813cca501613836dd88f0529c2b4db602a630e75ded0ee3"
+    },
+    {
+      "path": "page-truth/treatments-lost-crowns-veneers-fillings.txt",
+      "sha256": "aa95ad776477701795e6845e6aafafc74d3337e56d42bb104a71e4b4ee6699be"
+    },
+    {
+      "path": "page-truth/legal-accessibility.txt",
+      "sha256": "57f12ea3b9f83432ba00552de3bc4164e0861546c8b5659d8134ee8f666ce844"
+    },
+    {
+      "path": "page-truth/treatments-implant-retained-dentures.txt",
+      "sha256": "187a7cdac00f88f59081637e819ca8a7a0254ea896ccafabdd385596865da833"
+    },
+    {
+      "path": "page-truth/treatments.txt",
+      "sha256": "054d27d8fce7c2d14d6e41fb3229f4154f83c7f0beb2f3de6ac3dd1f535717e8"
+    },
+    {
+      "path": "page-truth/treatments-3d-digital-dentistry.txt",
+      "sha256": "462b2cd122526798540eb27ab6316fd21125a463fd5bb790640b3016cb88c08a"
+    },
+    {
+      "path": "page-truth/treatments-childrens-dentistry.txt",
+      "sha256": "99a4abdfe04d4ca7b8851a8d5f6c012988e10859296a2f68c17f0bd1eea9416f"
+    },
+    {
+      "path": "page-truth/treatments-sedation-dentistry.txt",
+      "sha256": "4df0270d7750784a4fef2f2f6c196ef0621b154ad7224605ee9276b0f65c9d17"
+    },
+    {
+      "path": "page-truth/treatments-3d-printing-lab.txt",
+      "sha256": "7d5b3f3f65f05760c076c18fcd9de3e980cdd2bfc876312242600b11bbdaeccd"
+    },
+    {
+      "path": "page-truth/treatments-dental-abscess-infection.txt",
+      "sha256": "0e194e2ecd5e5aaec20a4b4b928fbf8cacd432f965ac14eea7bbfeeedbf149be"
+    },
+    {
+      "path": "page-truth/treatments-knocked-out-tooth.txt",
+      "sha256": "e5c59ed2ed87a7634f24e2ab1aba895d421d6981ec5fa4192cfc2fca84937bf0"
+    },
+    {
+      "path": "page-truth/treatments-implant-aftercare.txt",
+      "sha256": "6691c11dff7ef149fc261115ec6b3d0ee95999aaca38ac7067b580107a8edc10"
+    },
+    {
+      "path": "page-truth/contact.txt",
+      "sha256": "a82efcd8c84b1e7d900c0a3c7473a8f3eb9225efd66dbf9dbd092a8159d8f70c"
+    },
+    {
+      "path": "page-truth/technology.txt",
+      "sha256": "5b96f380bab994562f8a1530f9537a00b20816bba8b80b6830efa9c0322c737b"
+    },
+    {
+      "path": "page-truth/treatments-orthodontics.txt",
+      "sha256": "1bf3aa4a3942e9ae429984163d278b24b17d20ce729c79448d2319b6f1f1307e"
+    },
+    {
+      "path": "page-truth/treatments-broken-chipped-cracked-teeth.txt",
+      "sha256": "412dee4f749c3f4423b6dee232ede895a42b6fbcb6bce1fe94ffad746578398c"
+    },
+    {
+      "path": "page-truth/treatments-cbct-3d-scanning.txt",
+      "sha256": "eef7c3bcc67c0287b750faf93e21d77334955d8c0ba64b14d578bb16cd1cea48"
+    },
+    {
+      "path": "page-truth/treatments-night-guards-occlusal-splints.txt",
+      "sha256": "9557ce6d17fd05b84642d11d453788f215b9927e315d993f4bef443ba3a484c7"
+    },
+    {
+      "path": "page-truth/treatments-extractions-and-oral-surgery.txt",
+      "sha256": "35ef75390c12c82e7e760447e0b9a485f60dc2e32445cf9d9ce5fe6df6506be5"
+    },
+    {
+      "path": "page-truth/treatments-home-teeth-whitening.txt",
+      "sha256": "178640d6506d4a16725c1521087cc6689f3dbfd92630f0b48a77748fea25b66c"
+    },
+    {
+      "path": "page-truth/treatments-dental-retainers.txt",
+      "sha256": "9bb5d895d5e5c50965c38324203e923089620aad9fb82a6aedab22e95a869159"
+    },
+    {
+      "path": "page-truth/treatments-implants-full-arch.txt",
+      "sha256": "1d2355796b8b4eb80b8fb8ca32b973aebe7c770ed4e7852fb679b2de5227474b"
+    },
+    {
+      "path": "page-truth/treatments-anti-wrinkle-treatments.txt",
+      "sha256": "c2994e7f2d537437ac391b2e237e45d83dc48400880a86b299165c7418dcf34f"
+    },
+    {
+      "path": "page-truth/treatments-3d-printed-veneers.txt",
+      "sha256": "a48cf348cfdf43151e0143ddc45f79cb64749f3629f0b510fcfef7f862d365d9"
+    },
+    {
+      "path": "page-truth/treatments-implants-single-tooth.txt",
+      "sha256": "130d1a3a4fcd637f106fcefc4168273c06b221d08d4164080cec73920ad31dfa"
+    },
+    {
+      "path": "page-truth/treatments-digital-smile-design.txt",
+      "sha256": "113fd8a34c59082ce2353cf2221a0fb1ad5a56aaddaa099e2fc2bb3365e2e1cb"
+    },
+    {
+      "path": "page-truth/treatments-dentures.txt",
+      "sha256": "287a8a81f1c7db0e06e4c591e3c39ebac1e290f743a10653d546dd7f1d624f1b"
+    },
+    {
+      "path": "page-truth/treatments-severe-toothache-dental-pain.txt",
+      "sha256": "c225cd4cf4f6396748f2aed056a8770e867e5fab4f56dd376687f7f01f0c1b9f"
+    },
+    {
+      "path": "page-truth/treatments-senior-mature-smile-care.txt",
+      "sha256": "3daadc4f2949772695b10067553b426edf76d1103fe48c9645d922e4fbe0f696"
+    },
+    {
+      "path": "page-truth/treatments-composite-bonding.txt",
+      "sha256": "d8aa711118340b859f232ecd0444ab9529bf71a96dab6e4d2cbf72a2af9fc3d3"
+    },
+    {
+      "path": "page-truth/team.txt",
+      "sha256": "813c080618ab66451cf2f8ce03670c2b06dc0da779169945141d400b22972d4b"
+    },
+    {
+      "path": "page-truth/video-consultation.txt",
+      "sha256": "2b30759436da19bb1083ca154628efa4d1e28a4414e429943c65871c72c372bb"
+    },
+    {
+      "path": "page-truth/dental-checkups-oral-cancer-screening.txt",
+      "sha256": "50d005e557d158ae4d3e1b3afb6981a2603dbd86c51f98af6dc633efb1ff17be"
+    },
+    {
+      "path": "page-truth/treatments-implants.txt",
+      "sha256": "e8e8b5544f588456be088aaac58dff7c698cbab40df993db559c20961380115a"
+    },
+    {
+      "path": "page-truth/treatments-endodontics-root-canal.txt",
+      "sha256": "4ddc6e2260791c14419aa2900e84c7c16ade62a64b80cc41d8cfe85b0d82863a"
+    },
+    {
+      "path": "page-truth/legal-complaints.txt",
+      "sha256": "4822bab1d3e626e205cda357b1ba3760dd9718891267402afafa45af304ed7e3"
+    },
+    {
+      "path": "page-truth/treatments-implant-consultation.txt",
+      "sha256": "4452eb49d9956488a5751c063b9900d4cb26c72c06c1ebb15d0c054aaf9bb2c2"
+    },
+    {
+      "path": "page-truth/treatments-whitening-top-ups.txt",
+      "sha256": "d54de553516260aab17bec603b1f26d6f9aeea0dc9b6a86a2142d5fa8cea8fd0"
+    },
+    {
+      "path": "page-truth/legal-privacy.txt",
+      "sha256": "6d675755dd50bc4e510eb93b956a5e009db3af3ebfe403613d6609d978e0b58f"
+    },
+    {
+      "path": "page-truth/treatments-dental-trauma-accidents.txt",
+      "sha256": "48cda5f626de0c98a2a88eba7f05234d5d9929b729914f689022dd7275dd5bd2"
+    },
+    {
+      "path": "page-truth/treatments-dental-bridges.txt",
+      "sha256": "8e6df5d47ce9b84008478b49d0f5f1074f57836adf73f1992426b814e697d0a1"
+    },
+    {
+      "path": "page-truth/treatments-tmj-disorder-treatment.txt",
+      "sha256": "ed85054786baf3877c694918d279aeb2b47812567bdb83dc86ee27e57c7fcd75"
+    },
+    {
+      "path": "page-truth/treatments-therapeutic-facial-injectables.txt",
+      "sha256": "508dde4bf772d592a584b713c3fcd6b8d71be74d989b547305452e66957f553e"
+    },
+    {
+      "path": "page-truth/treatments-chrome-dentures.txt",
+      "sha256": "8b11516633ff6e96ea3322deaa4ce03f978fdfa95bdc08c78affc1576ad106ca"
+    },
+    {
+      "path": "page-truth/legal-terms.txt",
+      "sha256": "6329785c1f9e5fa86bd7ef7faa4ad5f3bccafa2cdcec066a13690ba856b45f03"
+    },
+    {
+      "path": "page-truth/finance.txt",
+      "sha256": "c78b09a0bed41f7060162e9318bbcf6bf050c429fb97924326690e42e3fec01b"
+    },
+    {
+      "path": "page-truth/treatments-sinus-lift.txt",
+      "sha256": "297e76f71e28e14f1f7bfa21de640a9449db8dfbecc62fecb342d486399ae654"
+    },
+    {
+      "path": "page-truth/treatments-facial-pain-and-headache.txt",
+      "sha256": "31338ba38ffbb8bc53390cfa6a11130104b59abd401b8d8a4318e4e202383b4e"
+    },
+    {
+      "path": "page-truth/patient-portal.txt",
+      "sha256": "063d885f3def7bf58ab243529ef2950d112e463871cd1b42faa7522aef6c1e72"
+    },
+    {
+      "path": "page-truth/treatments-tmj-jaw-comfort.txt",
+      "sha256": "d33c39836a6dc8f3c26a30678daeadf23aef8ed128b8d2d8095ed10579d6cfa1"
+    },
+    {
+      "path": "page-truth/treatments-preventative-and-general-dentistry.txt",
+      "sha256": "729482636786d2072caa9c79974ab2014033e45468a5bea8fa920afe0a306095"
+    },
+    {
+      "path": "page-truth/team-sylvia-krafft.txt",
+      "sha256": "a1672f835aede5aa2dfda64cebc30cd5bc9470cc1e7bd9b89e5efd51f4ddad9e"
+    },
+    {
+      "path": "page-truth/treatments-teeth-whitening-faqs.txt",
+      "sha256": "6ee0437fc66f9b6d6654e8bdf3caf81ce8c1d25cf7333f374161ca53676cc81d"
+    },
+    {
+      "path": "page-truth/smile-gallery.txt",
+      "sha256": "2d2137c6331453a156f40fe727c3520863ee5ccc33aa405b2c045c06df8ffddb"
+    },
+    {
+      "path": "page-truth/treatments-3d-printed-dentures.txt",
+      "sha256": "0c08aeb118fc070b4f26ff906a5d0b6580e9b4353afb769adec2c4819b3c5810"
+    },
+    {
+      "path": "apps/web/app/api/handoff/emergency-callback/route.ts",
+      "sha256": "af27f87bdcc648625e76ea0ebe457d91e661b6d1dbe71443182b16da80ba12fb"
+    },
+    {
+      "path": "apps/web/app/api/handoff/booking/route.ts",
+      "sha256": "f1bf691c14ca359682998acd10af2f85a5cead225fa56e543057a2acc182af34"
+    },
+    {
+      "path": "apps/web/app/api/handoff/new-patient/route.ts",
+      "sha256": "2f1391f4766bf9c621c48b51bd08742f14646dd7c4958e387686825fe0bd4658"
+    },
+    {
+      "path": "apps/web/app/api/converse/route.ts",
+      "sha256": "904d83c524500cd394ee2275b0aeac1104aae479d472820a5577d3d43f685970"
+    },
+    {
+      "path": "apps/web/app/api/health/route.ts",
+      "sha256": "41212dd51ae2eebfdeb2f0a1b1303bea43fcde619239c2edb284dd002882c58b"
+    },
+    {
+      "path": "apps/web/app/dental-checkups-oral-cancer-screening/route.ts",
+      "sha256": "ffb62edb8fcd6c561e61f51caa31f5bd99bf4a5a28deac71cc93bb6b5e28c08f"
+    },
+    {
+      "path": "apps/web/app/components/concierge/ConciergeRoute.runtime-proof.test.ts",
+      "sha256": "8df443767ff093ca88c75eb35ee56d69990b167b5f613202e6b99cc449d3fc38"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_helpers/sessionMemory.test.ts",
+      "sha256": "7c2e7523e208733d87c12ba770ff827a44d6a4364dec4261448617f4079ad76b"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_helpers/sessionMemory.ts",
+      "sha256": "4b8f0bac811a8532845135cb03a9a0276b8a290f346f8c722d64ca42ae91befa"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_helpers/converseDisplay.ts",
+      "sha256": "a176914407fa9664e312de643105090f30b779773574756b34174e9b763419a0"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_helpers/converseDisplay.test.ts",
+      "sha256": "3728741a759c53d2a67e0cdde56c44228ae116bbee7ecfc9ef193bd043849d92"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_handoff/postbackRouter.test.ts",
+      "sha256": "aa4824b467ee92e6fd3aa33ffae5cfa6cad686349ee8939cb8f9ffda4acf210e"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_handoff/postbackRouter.ts",
+      "sha256": "1575e7eda65ed8c5be370f8e37be886bd10a2bdccdbcc1ec10ae41b4abd57459"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_handoff/HandoffModal.module.css",
+      "sha256": "34a8d02169ac9d99cc9939a7b29a7ba9be903cdeba1095a8e10e0c7d77fc8e5c"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_handoff/HandoffModal.fallback-copy.test.ts",
+      "sha256": "d20b0578c8488828fdff9f460ba55223ba6d550a4559e43ac26bcaa1e3484bb4"
+    },
+    {
+      "path": "apps/web/app/components/concierge/_handoff/HandoffModal.tsx",
+      "sha256": "50db1eb7a528aab96d69db4e2ba76af598ad669f0cad45e6c132304044e9525c"
+    },
+    {
+      "path": "apps/web/app/components/concierge/ConciergeShell.boundary-copy.test.ts",
+      "sha256": "113c7e4a820800f272c53698dcf8bdc2438cfd3079430e390641eff7e7b46d9e"
+    },
+    {
+      "path": "apps/web/app/components/concierge/ConciergeShell.tsx",
+      "sha256": "be7d01d047855fd2fc5f28168f1f0b925b1e1e87645844ddec3df3e48f0a0219"
+    },
+    {
+      "path": "apps/web/app/components/concierge/ConciergeLayer.tsx",
+      "sha256": "1c5395c6d7398101be9b89264bb4cf9c0e37b0a42019c9261bb10c5a362d8807"
+    },
+    {
+      "path": "apps/web/app/components/concierge/concierge.module.css",
+      "sha256": "04e03215f080c45713bb7e26ae8180186a9538a475ffd8de04d32fd2e69969cf"
+    },
+    {
+      "path": "apps/web/app/components/layout/Header.tsx",
+      "sha256": "78b4a4793ab6a7e393ec4fea9b3f56725878b70896738c5ea69ef799a13b1304"
+    },
+    {
+      "path": "apps/web/app/components/layout/Footer.tsx",
+      "sha256": "d1587a612732056877423a4955b530342e7b029fbf95bf28c891a6d0e775da1e"
+    },
+    {
+      "path": "apps/web/app/components/layout/FooterLuxe.module.css",
+      "sha256": "1c8001aa6ab933236a231dd7262aca80b96a0e4a9a4437dcb7fb110def53fe88"
+    },
+    {
+      "path": "apps/web/app/sitemap.ts",
+      "sha256": "0c75e00bcf8611d5a03e8fe26258dcc199afb7d434fcbc754c83b1a3244e6f62"
+    },
+    {
+      "path": "apps/web/app/patient-portal/page.tsx",
+      "sha256": "723ba69822087976ee77d16db312a640a5e2d8ffd3998525a0e47f2f756bbe59"
+    },
+    {
+      "path": "apps/web/app/(champagne)/legal/privacy/page.tsx",
+      "sha256": "fb5e839fb9088b5c89957d1d56a70e7948ff743c729afb9ee84432df866dee10"
+    },
+    {
+      "path": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+      "sha256": "98206b5faa2cce2be7196f83577c4e0029b43e02afd28960ac4d1d0a968e85de"
+    },
+    {
+      "path": "apps/web/app/(champagne)/smile-gallery/page.tsx",
+      "sha256": "f0888a2feceb75dc5db2b7aa112f4845acec40ebe8a65492d61b18656f7de270"
+    },
+    {
+      "path": "apps/web/app/(champagne)/about/page.tsx",
+      "sha256": "a3898eeec3233aff6357a0aa2b0662a91c8ab8cad65246021d0c19ae2ba24b61"
+    },
+    {
+      "path": "apps/web/app/team/[slug]/page.tsx",
+      "sha256": "8afb355bcfe0a3c67d1f8b77182f57aaaf2dfb736aeae5180390c4ebd152d578"
+    },
+    {
+      "path": "apps/web/app/team/page.tsx",
+      "sha256": "b8b34a0085ace7439139f27f16742f65e02c9742e9f28bc8856116773a17646c"
+    },
+    {
+      "path": "apps/web/app/fees/page.tsx",
+      "sha256": "7a658898da1fec50bb264a576e6cdeaad1c5d9bc44e69495799714b215ee2a04"
+    },
+    {
+      "path": "apps/web/app/champagne/sections-debug/page.tsx",
+      "sha256": "80dee54bd72e2f5cdf81967ad5278e199db1e394bf90ae563755d6e375bb24b4"
+    },
+    {
+      "path": "apps/web/app/champagne/hero-debug/page.tsx",
+      "sha256": "1e3081bd1cce882a23d67d5fb4e509098474e18dd67a21b7999ca9343fa0ab2a"
+    },
+    {
+      "path": "apps/web/app/champagne/hero-preview/page.tsx",
+      "sha256": "a87322fdbb88c05c52e0e52d1090321f993d883223a6c444900701f67d9ade36"
+    },
+    {
+      "path": "apps/web/app/champagne/hero-lab/concierge/page.tsx",
+      "sha256": "26bcfb586b9ff58620b7276953f9192184610ca6a58c276884977bb9594be86b"
+    },
+    {
+      "path": "apps/web/app/champagne/hero-lab/page.tsx",
+      "sha256": "8c9065e033dd430499c46f5652b8a282a9919613b7a88ba3a674c693edbefda8"
+    },
+    {
+      "path": "apps/web/app/champagne/hero-asset-lab/page.tsx",
+      "sha256": "b915bb71513a68569c270b9ac7848d8d6d0ccf19099eb69cb210227ac83b01d9"
+    },
+    {
+      "path": "apps/web/app/blog/page.tsx",
+      "sha256": "2a91f6693ee1e0eafd84bd26783850d8d6656d7e0ff8001636d505025de16c5b"
+    },
+    {
+      "path": "apps/web/app/robots.ts",
+      "sha256": "b3a7e2c5991c6b0af5b85937a213169801ab2badc2bd849bbb95db8161e4fef0"
+    },
+    {
+      "path": "apps/web/app/(site)/[page]/page.tsx",
+      "sha256": "1d388463aaa7a2dc0d3a75430353e943da6e82508b010a6fc3e2b2e51359df46"
+    },
+    {
+      "path": "apps/web/app/treatments/[slug]/page.tsx",
+      "sha256": "f9b2a685221c41d735937ff32c8baa934f72a25f4527ed617aa11a5ac89a7050"
+    },
+    {
+      "path": "apps/web/app/treatments/page.tsx",
+      "sha256": "bee800288b3ab0cef748465852bf9d471c26ab304ba58199d36360661ccb1b1f"
+    },
+    {
+      "path": "apps/web/app/contact/page.tsx",
+      "sha256": "684b22bef07ebdcbd8da333acc531529775fc0af8028d5c638c8e4ab53920bd0"
+    },
+    {
+      "path": "apps/web/app/page.tsx",
+      "sha256": "fa9a1c7758e4dea80b316049c685e7ac0a4267f7bdbbe7c17532c555319815c9"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implant-consultation.json",
+      "sha256": "d961e54df455be00fb88a9ac8c9bdb17f6e50c9655c4f50685822e7a3aa4447a"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-bridges.json",
+      "sha256": "3fd5fe63a40fa6af53d58b7edcd792e892c6faf85616c3484e561af051d0ecaf"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.tmj-disorder-treatment.json",
+      "sha256": "7718ef4f3841c76d0b5ef88e44aea46ef1cbd5acbdab14a2e25ac2065ae2318a"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.3d-digital-dentistry.json",
+      "sha256": "ea5350d9ca418de13b53419f2cac01137511d41368d5886bde1ac00913079d7e"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-sinus-lift.json",
+      "sha256": "acbd1d2ed5448dbcfa64c38de5c54103279c85674ad455cd2158f763b5b72aad"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.fixed-braces.json",
+      "sha256": "b3d6ca32f2d6e7a177943691b4586a2b22592816711b370224f91f15123758e3"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/cta_intents.json",
+      "sha256": "0fb812eef495a86b9ff5ef889785fea9594af58a4de3b07c8b6256f9ec3f4338"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.sedation-for-implants.json",
+      "sha256": "e4eaa95eaff2cfffddd83a851449d31a919ddedb9a6799dea5cc529a140a212f"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-bone-grafting.json",
+      "sha256": "bb00515b5d61e9788b9f8faea2427b0f793dc8f46727f729619ea245808c7a55"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-multiple-teeth.json",
+      "sha256": "729e601ea918b573ef0f8004d4490090aa63152d891495c0064f3ace3e225a5e"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.endodontics-root-canal.json",
+      "sha256": "cfa1e7d8147565e1e0d0ca19de655bfd02ae5b1367cde5ebaf95f8f730d42460"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.sedation-dentistry.json",
+      "sha256": "61c530dd8d559e0550100338b9be313756acb70506bff4eba9f6dc39e06b59c8"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.home-teeth-whitening.json",
+      "sha256": "4b71ecc9d9208d9d06a69d71d3d343e2c72f335cdd162d4896595c7a773b7878"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.3d-implant-restorations.json",
+      "sha256": "32ab70e80f77148a70960456ec35e28d0b19d7c128b7873da69dddc5261b66b0"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.aligners.json",
+      "sha256": "2a849578f974cb8be0168319668ccd7bb710df6888f77d2663d58a20957026f3"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.extractions-and-oral-surgery.json",
+      "sha256": "80dcf1ac0e787c8fda15ae408b7662e1b774979b5f5a1f489e4b27f32f143d96"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.nervous-patients.json",
+      "sha256": "a007ad463858884dc04a486bacc0ff80a8e51a1b345329a88acdeb4a566fd854"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.senior-mature-smile-care.json",
+      "sha256": "ab3a41ab86f10b86a25f77fa4d006c18bc8477d95af72a81a8d092cfd09fbd55"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.facial-therapeutics.json",
+      "sha256": "41562302d5f38d792ba1addc210d947ebc1c3ed7c9d5e362180084f39e16f44f"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.whitening-sensitive-teeth.json",
+      "sha256": "7afa1a0fd90cb61f06434087cdb0d6fd28ed06b4d137a7e7de12d44143ac0ed2"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.preventive-dentistry.json",
+      "sha256": "8febb54b22fb6a6bbb33f91c9d426e804d78064e2b374585f77f3fabd45273c4"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.whitening-top-ups.json",
+      "sha256": "13f3f9ee54f1aff8914bdc4c672ea17f599f23ab9ba204f39478075ef1191ad4"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.peek-partial-dentures.json",
+      "sha256": "eccbc84f94878df3ddf60aa6edb1e8b6872195a7a05d81731f2d255ca38b7bc4"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.polynucleotides.json",
+      "sha256": "10ba7660f69a121cd62e0b66e7f3de7c1602c84e91e4c6eddc150d9ba04ffd16"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.digital-smile-design.json",
+      "sha256": "acc6ef22493973b05f8dd2f2568c20cb176ecb64cd91bb54fc6460cb608ca9f7"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.cbct-3d-scanning.json",
+      "sha256": "0729a7da442ca0c5db03949cd0ee5a9525a9bcccef8eab88decda540a7fe8738"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants.json",
+      "sha256": "983a78fae96bbe66742e08eea08e574b1c14272b3211bd3d91891e4747a0c9f2"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-trauma-accidents.json",
+      "sha256": "517660117acf7a53a3524cf7b739c73e1a1d2339b1384e3b0cb58adac45e7f55"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.lost-crowns-veneers-fillings.json",
+      "sha256": "c88c235a444bed8836ae742e49af496ceb2eb92b81af2807b43a03148791204e"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.3d-printed-veneers.json",
+      "sha256": "2860cd182ff275ccc9c94c384cb1ee373ddca189b1093b87fe09f4fb007af989"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.teeth-whitening.json",
+      "sha256": "708e4a7eeb67c926d29bc92b0de5a214ea399d2fd53d6fbc855efbc188f7f35b"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.surgically-guided-implants.json",
+      "sha256": "b06d9aa31a11da8dbdace68bf1c4fbf23c377aaf0e01ce5c8eb21c10d610800b"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.chrome-dentures.json",
+      "sha256": "fd51f773a7fa9d292fdd78333769567c03e93c4365e28d470d6865c680ef16aa"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.cosmetic-dentistry.json",
+      "sha256": "575ca604f81fb238c01720e5cce450f8f1768614af44d44aadf4c21aa7c4b882"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.tmj-jaw-comfort.json",
+      "sha256": "fcd056dafe1a7ea1589e199809119e85432ff1915ed1697aff7c5d55609cf1ca"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.periodontal-gum-care.json",
+      "sha256": "c9305c11336375745cf955454e5fb4c4179804a9b6118d9b45aacbb41b79af96"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-crowns.json",
+      "sha256": "c2207ac9ff72b471096a3acc8ba69a463c96019466abe0c0a1834c35c2577d43"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners-spark.json",
+      "sha256": "259e742729ab07cef56f8073c6454767e5b1856d69df28b21b564c9fe2d51f92"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.orthodontics.json",
+      "sha256": "558bae5ae99755045f709fa8749641f25f37fcff453b8a8dc52568afc77e0aa0"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.facial-aesthetics.json",
+      "sha256": "3d55066a729d7339231ce30debec431effad7eeeadf4e38d9014592cca3cb120"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.preventative-and-general-dentistry.json",
+      "sha256": "f8ebf0dfde94c0989baf960cfe2e64cbf82c5cb58ffeb7589da4a201a6c8e7ac"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.injection-moulded-composite.json",
+      "sha256": "5f8d71b099ed16fc30510d51fd612bf653f17daf33662edf32bc4e75e8fc5458"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.clear-aligners.json",
+      "sha256": "3071607d87c43463c9d0f48874c30f9b5a20497871e700771923964d78bbc837"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.acrylic-dentures.json",
+      "sha256": "30ba505718df934f9f4bf186862ec7b409d1e43ef582edfc7aa09312058b13d0"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-abscess-infection.json",
+      "sha256": "a2e0a9a4fd31e80c6061ce9fa6d966b3f79e86097b99a53b7ea1b5b29395b766"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-fillings.json",
+      "sha256": "b3d16cb86fee27461bbce8773230be4e92c6ea068c1518eb7c538b3c190d497d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.composite-bonding.json",
+      "sha256": "c9c9845973ec063a5847bff0ebd5326d83205fce36b2bb99f3ad75532d9ac7d1"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-consultation.json",
+      "sha256": "b596b7cd2f3e7adedac8ee388479a9e069e387de2c89edd2b561ae8cc86f5c4e"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-retainers.json",
+      "sha256": "5082d1d839fee249a2d2cbeb684328743899f15b0bf19c0671078d987dab9638"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-retained-dentures.json",
+      "sha256": "a33c538316e5b2a5e88a66f754f6bd1f68409ac0e139c84f076df57cdaa93134"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-full-arch.json",
+      "sha256": "95aab3ce00991944d4562bbee65e67eda2a2a2012f8212bb3c69a949fabd27ad"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-teeth-in-a-day.json",
+      "sha256": "419a720e456d90fe4b27f11b435960c7be14dff030d7751a11456b9642430f3e"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.therapeutic-facial-injectables.json",
+      "sha256": "474b4438277084a9c1741a6a9495c19c8a3d788a840950e416a29e3315d26c92"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dermal-fillers.json",
+      "sha256": "2669dedd09d61745517df82036eabc59400690696d4d0d8c2438bf27346b550d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.mouthguards-and-retainers.json",
+      "sha256": "30e3e0103e5bc5aea540072ab540c9e299639e226e80776987613b16bd3093d5"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.skin-boosters.json",
+      "sha256": "a8a8f87a322348aea509387a3f516f8895c3890ee89ad5d99e586509c4f6b236"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.night-guards-occlusal-splints.json",
+      "sha256": "08cd31ddb35a22ab8b64b473933fa9e9cf752fd8b3e5ee9ee527ba34fb29dd15"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.sinus-lift.json",
+      "sha256": "4c8c41e73168fccc1b03f36df909d560924269d4a297cb6febb03f884d4945db"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.painless-numbing-the-wand.json",
+      "sha256": "2dd396d3fa57bbb260d762fc4e0ebaf4fbf35a6dadb4bb951bd2f6b748f1a24f"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implant-retained-dentures.json",
+      "sha256": "857427dcceaa28553d88ed8d4b7330194da06a2b4bb6a01e9cc6782ca716317f"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.severe-toothache-dental-pain.json",
+      "sha256": "164a0b68549e37293513f26e2c69aa625ad551a436b4fde25c10f885c2f3b910"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.3d-printed-dentures.json",
+      "sha256": "eb2377bbba188ed56d3b23d47b59bcf16b211c3157f4839b74ad97e82ed8f482"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.teeth-whitening-faqs.json",
+      "sha256": "64ff275b6fb395b60a091ce5c87d976e3823f0765471acc34bcfc897b66a3dbe"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.3d-dentistry-and-technology.json",
+      "sha256": "7a5653ee5943affd3fd5a4c74d963f6c6cc375961967cf5e73b7b912299c1942"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.3d-printing-lab.json",
+      "sha256": "261418ca763f0540b79ed9bb5d5afb2cc05b33888593dc6da3503c521df5803f"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dental-appointments.json",
+      "sha256": "7e07b31d24ad4bb3887ab4e2f06bcd60cca34a9ec77af4baee6be212c17e516d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.veneers.json",
+      "sha256": "2a193f3027400c1aa5a93c4d7072bd3bbe95863c518aa8cf8ba8a1acf8c02413"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implant-aftercare.json",
+      "sha256": "4de1e1f57679c5b2f17c191f0a1d89deda403e5b717d69a01e2a43393a752ff3"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.inlays-onlays.json",
+      "sha256": "701e010d93751f8a3a80ba1ffc8bd0232530c662777bdb5a54802a044eac61f4"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-single-tooth.json",
+      "sha256": "833bd57f0d18b4456cc086ebffdd23a45ef05141926fd8a10d66c4ffae3738d7"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.tooth-wear-broken-teeth.json",
+      "sha256": "61a6937dd71245dba0b6bc895f2a93167a24ca893ae53dcec2b006342c592b59"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-aftercare.json",
+      "sha256": "41443f767ad8cc0498230ff9190db72ae00428bffec1a1557a99cc7ca9603a53"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dentures.json",
+      "sha256": "a004f8f0b65740d2a2ef00652c1b888ed2fa15138aa9097bb11022567fde8beb"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-sedation.json",
+      "sha256": "2a0add568bc0a3f49937cdcd734ec184dffd1fe478c3dcf35b70333c52a43960"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.facial-pain-and-headache.json",
+      "sha256": "6f9dd35e9caa942b1abafeff9626a08832749f4b66088b4626c4937aa8d9dd76"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.teeth-in-a-day.json",
+      "sha256": "6460a4740fc534bdd3b6f021d1b81488930c179a36dd4f6f8bfb7458f8748ffb"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.full-smile-makeover.json",
+      "sha256": "c41da43890f7c0700805e3721820a2986a05cadbf88e3757751f59bcc453f04d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.bruxism-and-jaw-clenching.json",
+      "sha256": "bad4271c824d2f12ce2a65367e6bed3e6558d8e97afd69e1fc393fb7d0f85683"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.anti-wrinkle-treatments.json",
+      "sha256": "886bbd11f2fd95ac6a28a2b8155bc372ea339ed7cf88e06034217e6175b72817"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.dental-checkups-oral-cancer-screening.json",
+      "sha256": "572fc385e28c8b737f75c6168bc467d32a5a6f17ec030dc8c74228d6d03e16d1"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.knocked-out-tooth.json",
+      "sha256": "412e9975be7c465838397a7af7fd1f878211f013d1e194b93870b77127117244"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.sports-mouthguards.json",
+      "sha256": "f3f63031d6702d1bd1f9b3d9b76672f0ccd4032aa64deb5d21dac56647d657c9"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.emergency-dentistry.json",
+      "sha256": "371ec3cf12480f2bc1cb79a0cf22f8211af4a15f86be40e0f3110ed6ffd67d86"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.childrens-dentistry.json",
+      "sha256": "20af7e4bea7605fc9868abb2cb9ccf1b162d14643eaa939f19143afbdc89a390"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.failed-implant-replacement.json",
+      "sha256": "b254774052b0ae5f1b086592defdbec7c1917ddfb047cf5b59e143223dd71d55"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.broken-chipped-cracked-teeth.json",
+      "sha256": "bff1dcb0da0b9e309a364b621df18d693c16694817a4c9a2cc906f3bbc34334d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.teeth-replacement.json",
+      "sha256": "c67830d7091d32cb9a786fb99389b7ac4e70f26880c4dbbe1718dc64a08402d6"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatment_journeys.json",
+      "sha256": "cf5f68c0ef7e9977eb331280e1d82acf6d103716dd6f8c7aff69e771d323da42"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.hub-directory.json",
+      "sha256": "52caee04e20df97b44125e6ebe77ab0a330a34aef646c46b698aa398eb3044ad"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/smh/treatments.implants-failed-replacement.json",
+      "sha256": "e089e976825de6a4dab0c3c7e858af63f451678a04ec181711105e949806ad2e"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/section-fx.defaults.json",
+      "sha256": "67d8b7cee8f9bdde343720e98ad4844fafa1d4c163cc794d2cb54fc6c60c05ca"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/section-library.json",
+      "sha256": "33507d7af5f7b8d34329e4ecdefb8453670afe441560352a9e58fe75e36c7158"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/section-prm.defaults.json",
+      "sha256": "009e8decf418cefcc8d39fc15f1a41726ddf82b777dea3e234f249bafbee7775"
+    },
+    {
+      "path": "packages/champagne-manifests/data/sections/page-type.defaults.json",
+      "sha256": "acab6e0a85e2e9d20e844fc3b6ad57fa532295577c4ac2a5ccccf5e9a9fec21a"
+    },
+    {
+      "path": "packages/champagne-manifests/data/manifest.nav.main.json",
+      "sha256": "76392dd6ea1dec59e74f5c38ae763d78451fa8a64f970520ed930410fd33cc2d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/manifest.public.brand.json",
+      "sha256": "3f07d4d612791403a2751cde14d2077f2106dbf6d131bcbf498d24371b32f515"
+    },
+    {
+      "path": "packages/champagne-manifests/data/journey.smile-makeover.json",
+      "sha256": "bd7f89ca6b20cbc99c4d623d76d404fdc6374d560a6275bc59664ccf7e3eba4a"
+    },
+    {
+      "path": "packages/champagne-manifests/data/manus_import_unified_manifest_20251104.json",
+      "sha256": "df29b93443e064c0cbe4b74ab417c017ed75d95eddd110e5909e73fb72277103"
+    },
+    {
+      "path": "packages/champagne-manifests/data/manifest.styles.champagne.json",
+      "sha256": "1ff2ccf5c2b04dba52fdb01cdd49fcfd7b40d521026a746ce6b4192b081be8eb"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo/team-registry.smh.json",
+      "sha256": "67abf812c62deb290cc260d42e936e67febccfe3c48cda7d602294292b154152"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "sha256": "7f6fbb52d1100811c52eceb4d6989d9c1786e15a13369adbec3ae91d34738b44"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "sha256": "253065016312ab190e400099cce6a7ca36c2edb9a0927f425ba4328a2f798421"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "sha256": "ab4316bb1015dab25c85bcda0d93235ce1185ddad933bc5752a853c0cd6a639d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/hero.variant.marketing_v1.json",
+      "sha256": "e9ea78e424fa62109b1bf3329ae405bb22c4fa136862b1d56c6eef6bc0e242b6"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+      "sha256": "2242d1cbc9281488cd77ec929538a1fb82692489951ba0a4de6594086177785d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_weather.json",
+      "sha256": "3edca6b910d04b0fa5c0b23b039918753a4a3e4bf51101db079deb1de0892851"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      "sha256": "ab4fff1174affe0c859a6cef6064386710995f4c57d47d611069c1c80fe53621"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/hero.variant.editorial_v1.json",
+      "sha256": "08ebe4bacd28793e139fb584c48d49dc778b0f6a82b0d862414a58d801bf013a"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+      "sha256": "1582fe80389889369087b905afa258f6b833d76c59915aeb022a87069f8d4b77"
+    },
+    {
+      "path": "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json",
+      "sha256": "b4904fc8cb8bc414d21e0813734d4d5879aa6a304891edd63f30aebbb8aacd5d"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+      "sha256": "a718a5db1c60a442bf19361f6699fac6fb123c4b5c7c7dd3e45c689662bf2e8a"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json",
+      "sha256": "6c09c802519bec7e505a892fb99d2221a860b693f77a05fd794b1adb36f20060"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json",
+      "sha256": "221232ab6328f76ee2e3ed5616b78aed30d9a0081563abdcb197eaf81a4ad9bb"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+      "sha256": "3480485baa590bc76a5f5039d57fbc77ee839f349072add9af554f95bb5ec911"
+    },
+    {
+      "path": "packages/champagne-manifests/data/seo-ai-answer-foundation/voice-search-pattern-registry.v1.json",
+      "sha256": "2d375b9e7536ee35a55386fca4b88b5e628e323aab2176850f66cc52b7102f86"
+    },
+    {
+      "path": "packages/champagne-manifests/data/champagne_machine_manifest_full.json",
+      "sha256": "92a3c9a5528530312dec7df1bc940fb2a47fcc77d9ffba4ccdd979b25846b1cb"
+    },
+    {
+      "path": "packages/champagne-manifests/data/ia/treatment-hub.groups.smh.json",
+      "sha256": "3c08418d70da9addefdd9bb3451f5e2e9a92617add115aeaaab93f3de72a366f"
+    },
+    {
+      "path": "packages/champagne-manifests/data/media-decks/media-deck.implants.json",
+      "sha256": "bc76cff8123d5225cde815e0a704b886e43698f5002f9a652eaca8b4b5c0169a"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-480.jpg",
+      "sha256": "72556f6a9536286bf0dc361e6caf704d5309cc9171f248c6f3f5950277fe7c18"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1600.jpg",
+      "sha256": "1a15775b67f1c836305894e8c718194891a660b0673807688678a2a10b4deb0b"
+    },
+    {
+      "path": "public/assets/champagne/waves/wave-mask-mobile.webp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "public/assets/champagne/waves/wave-mask-desktop.webp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1280.webp",
+      "sha256": "69db4a90235a8c879c2449fe318ce45c81256462fe703815c9cc1b8ac8ac0baf"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-480.webp",
+      "sha256": "680958b2e16b9aa0e613b0fe45ed37fe55880bbb60addfce9cf0d866de602046"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1024.jpg",
+      "sha256": "c50a8bc08ba098dcc4f71caf191eab006639ed5586b60474f9d8a23c8869da61"
+    },
+    {
+      "path": "public/assets/champagne/waves/smh-wave-mask.svg",
+      "sha256": "dfdf60f11ab47657a343d096ee876d1be6e9e41ad41e9d691482dd59a051d063"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1024.webp",
+      "sha256": "5cddbd9866d7088b63769b5df6da57ea5de8f5ea58c336d5d4a96c6cff4889a3"
+    },
+    {
+      "path": "public/assets/champagne/waves/header-wave-mask.svg",
+      "sha256": "69feb30a37749d26ecdb679e52ab5808f5dd79e19d369f8ee619e7f29b43cb1a"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-320.webp",
+      "sha256": "eaae9df0114239c26479679fc52c5ecd58e1ebfd74580f03b829213f303923a9"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-320.jpg",
+      "sha256": "51e72183ebe0b205ed5e9dd008a36a976749657200f1d0b87b9260c8e3cee726"
+    },
+    {
+      "path": "public/assets/champagne/waves/wave-field.svg",
+      "sha256": "9c668f45659c3bb3b4cad3e5d0d8a464cf6bf249e377971b91945762a322c7c1"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1600.webp",
+      "sha256": "d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1280.jpg",
+      "sha256": "02243c1949d96c08a38c75c8cf9cdd8760cb25d1e3b46b08f52fbe8bcbbdaf0d"
+    },
+    {
+      "path": "public/assets/champagne/waves/wave-dots.svg",
+      "sha256": "de8c1929658d7de811b5dad608bf4134137997089d9c9017757af015c7f33eb2"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-2560.jpg",
+      "sha256": "1a15775b67f1c836305894e8c718194891a660b0673807688678a2a10b4deb0b"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1920.webp",
+      "sha256": "d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-1920.jpg",
+      "sha256": "1a15775b67f1c836305894e8c718194891a660b0673807688678a2a10b4deb0b"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-2560.webp",
+      "sha256": "d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-768.webp",
+      "sha256": "349930964ae9e17917c19ac81e7e0b272de61e59ab60952c4ea6b9888a0550ab"
+    },
+    {
+      "path": "public/assets/champagne/waves/waves-bg-768.jpg",
+      "sha256": "7892deec74aff5b50c90110a80f837ca9cc8f6273104e17e0ee8eaba078090a9"
+    },
+    {
+      "path": "public/assets/champagne/textures/wave-light-overlay.webp",
+      "sha256": "3f23e0bee4686a1fcfab25f00c76a547e762fc4be495f142c68a40e2cfeb5e97"
+    },
+    {
+      "path": "public/assets/champagne/textures/sparkle.svg",
+      "sha256": "a9b414d46821c181a6dafcbc1858eb5d1c6cef77f7f3c5ec1a89805ab220485f"
+    },
+    {
+      "path": "public/assets/champagne/textures/glass-reflect.svg",
+      "sha256": "27bfd639fff41c398405fac6187d1fed41445a031973fabde6027095e43bfeef"
+    },
+    {
+      "path": "public/assets/champagne/textures/wave-gold-dust.png",
+      "sha256": "b05135b8b73b153f6b0b1f95922bfe429434c25d842ffe3262fda4140ab867e9"
+    },
+    {
+      "path": "public/assets/champagne/icons/sparkle.svg",
+      "sha256": "a9b414d46821c181a6dafcbc1858eb5d1c6cef77f7f3c5ec1a89805ab220485f"
+    },
+    {
+      "path": "public/assets/champagne/icons/scan.svg",
+      "sha256": "da269b033cbb544bcab8efabb9d3a8bd5f0f425755288989279d1416afbde9a5"
+    },
+    {
+      "path": "public/assets/champagne/icons/smile-curve.svg",
+      "sha256": "325ca4aba92ef237dce788586562a873d5d9730eb7a5c5695b39500a64a64882"
+    },
+    {
+      "path": "public/assets/champagne/icons/implant.svg",
+      "sha256": "e6b2d90060c3a88c1f415feccb62004400ff3c9c8ded3f65de0b4d8f36fa0e28"
+    },
+    {
+      "path": "public/assets/champagne/particles/particles-gold.webp",
+      "sha256": "1dc7317ae6bb7f15ca818197c032849cf2c631ee464c3c06bc0cc829aebc815a"
+    },
+    {
+      "path": "public/assets/champagne/particles/particles-magenta.webp",
+      "sha256": "c4473991e59134ea41bf616a1eef94e5298eba500c823d5ae682bb192d691459"
+    },
+    {
+      "path": "public/assets/champagne/particles/particles-teal.webp",
+      "sha256": "2276b25075b50a7783ef274829b19818fb2bb361244c529c3ff4dc5980f2c3d4"
+    },
+    {
+      "path": "public/assets/champagne/particles/home-hero-particles.webp",
+      "sha256": "76346f1deebed171b950adb9fe9341293a7cad9af377d52aad27f3964da06447"
+    },
+    {
+      "path": "public/assets/champagne/film-grain/film-grain-desktop.webp",
+      "sha256": "ea5f8f66536a7a02b3280b16098092b5be8d4834d386395d2f071e5c5dc68687"
+    },
+    {
+      "path": "public/assets/champagne/film-grain/film-grain-mobile.webp",
+      "sha256": "d17a5d5e0097bdce56d3864799f2b739b14564ee8d853de8913f74cf8d090687"
+    },
+    {
+      "path": "public/assets/champagne/motion/dental-hero-4k.mp4",
+      "sha256": "a6d328f3fef78e18cc563df72656f8f402fb50ba70ea1e91e33bfee1c7651a86"
+    },
+    {
+      "path": "public/assets/champagne/motion/glass-shimmer.webm",
+      "sha256": "fe9ce17cc9fcc7d1183e27c42396093ff7ae653ebd6d7c556b75165c018ca2eb"
+    },
+    {
+      "path": "public/assets/champagne/motion/gold-dust-drift.webm",
+      "sha256": "112c3194f85cb131d53c1e1fdbe9b39cdbbbd9cc85324abdf60167a03caa5f9b"
+    },
+    {
+      "path": "public/assets/champagne/motion/particles-drift.webm",
+      "sha256": "cfb0307f9245ed0ad0dd88ca4355e139db412aee24fee98ed717166d56ba7aa1"
+    },
+    {
+      "path": "public/assets/champagne/motion/wave-caustics.webm",
+      "sha256": "0593b391db915ed435d3d94974449854e92d05c45c74c5c76ed7668076395146"
+    },
+    {
+      "path": "public/brand/waves/header-wave-mask.svg",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "public/brand/textures/film-grain-2560x1440.webp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+      "sha256": "9280e7c7828312ac979440bdef8822a772b09d672224a3f412fd4ad953ccce01"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/gradients.css",
+      "sha256": "348b2453e04f3739a428967a78ca4bc6fe07dd5f460a8d89ed3a33beb25026fb"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/time-of-day.css",
+      "sha256": "30f057c691bbcd5d610cdef552d49eb9efc3a6be64eceac536f635324d0d9789"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/spacing.css",
+      "sha256": "d4fcb16610a132b275bbce5085afdcfbae05bd8634d3157cafff3b27797d08d8"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/tokens.css",
+      "sha256": "93ee50f7df5812e87a179c6c132a2f45dc80877cf4d32514ed8efba0a473e774"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/glass.css",
+      "sha256": "bbbbde1cb68c4e267963713b2845390128a2920acdc7339ec49b7d5ccc7c7ca0"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/typography.css",
+      "sha256": "0cd093a843c66dd0b01b8cf69c216d8c47a28c7bb22102789ada115f9e408af6"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/layers.css",
+      "sha256": "57612f12474833568a7aaa97a5fc359dc78fe5878062f6ef4441e34c976ac56c"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/theme.css",
+      "sha256": "c0fd2bbfae686a2bd32b0f1e522694ff0d3aaa6f2dcc00fd291c5d526485b073"
+    },
+    {
+      "path": "packages/champagne-tokens/styles/champagne/surface.css",
+      "sha256": "104979a6539404c91dd30a9cac39ac5448a04d7e004592518337dbcab4c2f284"
+    },
+    {
+      "path": "packages/champagne-tokens/hero-surfaces.css",
+      "sha256": "425e5ce647102e92c3725917149d6ab581ecf8d3a12b45fda05365d74a601d31"
+    },
+    {
+      "path": "packages/champagne-tokens/package.json",
+      "sha256": "20022e19b58ec8aa06a2931ce749b01a4c54cee601eeb763176b97d52964ead8"
+    },
+    {
+      "path": "packages/champagne-tokens/tsconfig.json",
+      "sha256": "3fe94e483918941a4e026a05d6694709a36a0e967fe86fc76c6bb4bf4aaa0f0b"
+    },
+    {
+      "path": "packages/champagne-tokens/src/styles.d.ts",
+      "sha256": "35d26ea66c86da9701e4f4b467913481ffeae910761cea34c775c5dacb7f8eaa"
+    },
+    {
+      "path": "packages/champagne-tokens/src/index.ts",
+      "sha256": "bac5a99ebf915b7846095c7ce8d0277d12e1df3ac0feba3d04136359202dd60f"
+    },
+    {
+      "path": "apps/web/app/components/hero/v2/heroGlue.manifest.json",
+      "sha256": "4d3531123dd69d912f9489e038af777549b507a44ef62d25796023267033d4b3"
+    },
+    {
+      "path": "apps/web/app/components/hero/v2/HeroRendererV2.tsx",
+      "sha256": "486e3059ea97fb572be25f838ff20874c409570993ecee9a291c9ddf119abfe4"
+    },
+    {
+      "path": "apps/web/app/components/hero/v2/HeroV2Client.tsx",
+      "sha256": "9ae86811965a5eccdad2e42250a8ccbc3319ae0b9e4df593c70b11619f40b168"
+    },
+    {
+      "path": "apps/web/app/components/hero/v2/buildHeroV2Model.ts",
+      "sha256": "349805a2af909d85d2a27bf992e19e42e362f2f22d411752788e3da3aa6be57b"
+    },
+    {
+      "path": "apps/web/app/components/hero/v2/BloomDriver.tsx",
+      "sha256": "e3e691dd813de109e802249e3ce3679345e0741b469850533f9ee61e8738fb81"
+    },
+    {
+      "path": "apps/web/app/components/hero/HeroRenderer.tsx",
+      "sha256": "f2d5830cd610946164a91d34cec7bf7f2ce10ee9c30fd4a61ba47009cd38b274"
+    },
+    {
+      "path": "packages/champagne-guards/components/hero/4k-hero-video.tsx",
+      "sha256": "8fed23b2cb8f0144a79da6ffa2ed81291a95d025e12c706b0630af45e8c91fab"
+    },
+    {
+      "path": "packages/champagne-hero/package.json",
+      "sha256": "e228e7b47d5670cb9d903c47c81b30431ba106e894513b6065db66ddcfbfb74d"
+    },
+    {
+      "path": "packages/champagne-hero/tsconfig.json",
+      "sha256": "493d866824b1f30f9cb3841a41f22246d147a1118d82bd08b5f9d5336f6ef0e6"
+    },
+    {
+      "path": "packages/champagne-hero/src/BaseChampagneSurface.tsx",
+      "sha256": "2373e24814ef9efcdff0a14794c0523f2a6e1e733c9023a05e5e87d286194ecb"
+    },
+    {
+      "path": "packages/champagne-hero/src/HeroRegistry.ts",
+      "sha256": "7cba313c471971bf023cde373e7c3d38addf63eb8268a858a699a290430d0a37"
+    },
+    {
+      "path": "packages/champagne-hero/src/HeroPreviewDebug.tsx",
+      "sha256": "75205cedf6218ecf83797ea81ad0f6e9a60edf8fd8ca5114cd05f2b8566eda70"
+    },
+    {
+      "path": "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+      "sha256": "e5d360cc462bd6456c8d31166cf8a30e407c067872eecb1e95cbd7431763b2b9"
+    },
+    {
+      "path": "packages/champagne-hero/src/hero-engine/HeroConfig.ts",
+      "sha256": "4860453f6e19dd519fc9a42ac10cd66b76653a17f7f2e7cf21c4ffc4dc7555a2"
+    },
+    {
+      "path": "packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+      "sha256": "5c3c82bbcd45d7317010f33b34441002b404a28cc228622c645497590ce850ff"
+    },
+    {
+      "path": "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts",
+      "sha256": "38a592962533901c77af7721c4686c99179e84bd3d39c6715be04064e2567d13"
+    },
+    {
+      "path": "packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts",
+      "sha256": "1d8eeddca5351e02b083a2d8dd39da9435d379bede0fc781dde7865be793b94d"
+    },
+    {
+      "path": "packages/champagne-hero/src/hero-engine/index.ts",
+      "sha256": "a4f9e513f620d85494a537e741687f306869f3043510b882e5c9f58440e0e831"
+    },
+    {
+      "path": "packages/champagne-hero/src/index.ts",
+      "sha256": "71b31371d528cc6e0cdb21e71353845f74b9cfc0289ff17286e56bfd4e476587"
+    },
+    {
+      "path": "packages/champagne-hero/src/HeroAssetRegistry.ts",
+      "sha256": "36f2ae5be87633fa099ecded20b2d8b02da38f330f0b1cd2a13de06a787309e2"
+    },
+    {
+      "path": "reports/hero/phase1-disable-waveBackdrop.md",
+      "sha256": "2b91dbeb365e2e983f1457a19dfff0a8db037f00cdb1a6ffabb4b42ea5f6baad"
+    },
+    {
+      "path": "reports/hero/phase1-mask-only-implementation.md",
+      "sha256": "499fc18442b7629cee3d6a9826acd08fa43ea6fecdd18599996e5be19a26057c"
+    },
+    {
+      "path": "reports/hero/phase1-mask-only-proof.md",
+      "sha256": "c1efcebe3c4fbeee5b2e2f14b78a9bafeb7da019a9ef408ee3afe1b354755665"
+    },
+    {
+      "path": "reports/hero/hero-v2-truth-report.md",
+      "sha256": "49367ee18e679784ac4b818b26c61be35cbf97fe5a249cb78144a4164fff14aa"
+    },
+    {
+      "path": "reports/hero/v2-motion-zindex-fix-report.md",
+      "sha256": "8c7c05a3b98655f9a1d8841fb9a5c3ffd24a1e6ef2f3a64761a2272035f01185"
+    },
+    {
+      "path": "reports/hero/v2-surface-truth-pack.md",
+      "sha256": "43ceea5a0f2ed73a983f01edfda5429f8f73a7ae2dda57a6bc82783a122baa7a"
+    },
+    {
+      "path": "reports/hero/phase1-hero-v2-truth-table-upgrade.md",
+      "sha256": "187a9f991b47844f6bace06209edf284f7f5023c7a081e7aa5e0d28df7d0ff2a"
+    },
+    {
+      "path": "reports/hero/phase1-waveBackdrop-evidence.md",
+      "sha256": "7b50dcf7a7007911a96922b84759db13a898b3c149cdeb7c2125aa92ca292a84"
+    },
+    {
+      "path": "reports/hero/sacred-stability-report.md",
+      "sha256": "a6cd1ebbcc64751ab1fc34c09501522e84b5f3ddcedf2fa642c140a2c7a4adaf"
+    },
+    {
+      "path": "reports/hero/v2-sacred-manifest-runtime-id-alignment.md",
+      "sha256": "84f49ca601dba8742d5bd50aff2a1cc0871337e09e1a7ed81df31030b0182ab0"
+    },
+    {
+      "path": "scripts/hero/hero_routing_contract_v1.mjs",
+      "sha256": "02ab18b2a6884143288badf9097193f80237bc69baa62523e57e5fd5083cee8f"
+    },
+    {
+      "path": "_imports/code/hero-engine/app/champagne/hero/page.tsx",
+      "sha256": "b464e077e5286e86591a06038f3abfbf6b357f4bed865863c00a71074f373acb"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-engine/app/champagne/hero/page.tsx",
+      "sha256": "b464e077e5286e86591a06038f3abfbf6b357f4bed865863c00a71074f373acb"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/hero/ChampagneHero.tsx",
+      "sha256": "263d3ecd0845009709716c738de3bd02e7df2e8852d209354e28ae9ae35f7210"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/hero/4k-hero-video.tsx",
+      "sha256": "4ac6d24e6af0da0a944ab236b12f8b773f9354ff811921e68a881c6fcb2f35d1"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/hero/original-hero-section.tsx",
+      "sha256": "fa9fc1e7d27bd49860416a435aafc160c39a195490879c7728f6d4078b58d9dd"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/hero/cinematic-hero-video.tsx",
+      "sha256": "2dad00b2359748207dbe6c1211f66e8b26b393d38064b2f579177a4db85e2c63"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroEngine.tsx",
+      "sha256": "01bad1feae7cb8f707911ed6e408f0445b2ba75ad462f5459f2332a54a83b658"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroWaveStack.tsx",
+      "sha256": "332980de01bcadcd3c7d08d04ae5cfdf3c8c5e6d5a97998e69d6f6b20bbf8b2e"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroShimmer.tsx",
+      "sha256": "a91decc143dd963954c81782fc685f8f130e4f34fa344ca2f7f74c2e2810e4d9"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroCTABar.tsx",
+      "sha256": "0d800e289ba15e8a3e43b48d6e7adc7b4dd2e75dbc716f2b2dd9bd2e4204149d"
+    },
+    {
+      "path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroFrame.tsx",
+      "sha256": "a713b09b0fddb7abad33b1a2d0942d01d2e7d1bf81ba87e428c1f6a8d9d58399"
+    },
+    {
+      "path": "package.json",
+      "sha256": "99c762e2c4a30a259ae684467fd13a757df3765dcf8a66ef1f5f1c774ba782c7"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "91b3a91e38833df765d7fbff9341483eecb980279844e672f98d202efe62726b"
+    }
+  ],
+  "forbidden_files_avoided": [
+    ".env*",
+    "secret/credential files",
+    "PHI/PMS data",
+    "Railway backend data",
+    "patient portal backend internals"
+  ],
+  "tests_run": [
+    {
+      "command": "for f in tools/outputs/website-os-campaign-007-first-vintage-public-evidence-harvest-v1/*.json; do node -e \"JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'))\" \"$f\"; done",
+      "status": "PASS",
+      "notes": "All generated JSON artifacts parsed successfully before proof-bundle test update."
+    },
+    {
+      "command": "npm run guard:hero",
+      "status": "PASS",
+      "notes": "Hero guard and sacred hero lock passed."
+    },
+    {
+      "command": "npm run guard:canon",
+      "status": "PASS",
+      "notes": "Canon guard passed; patient portal SSR smoke test passed; non-blocking Browserslist/Tailwind warnings observed."
+    },
+    {
+      "command": "npm run verify",
+      "status": "PASS_WITH_WARNINGS",
+      "notes": "Verify completed successfully, including token purity, workspace deps, SEO launch safety, guard:all, lint, typecheck, and build:web. Non-blocking warnings: legacy workspace dependency warnings, SEO inventory total mismatch warning, missing optional chatbot QA report/config conversation warnings, Browserslist age/Tailwind content pattern/Next ESLint plugin warnings."
+    }
+  ],
+  "authority_statement": "Public non-PHI repository evidence harvest only; output files generated under tools/outputs; no production mutation, deploy, backend/provider, PHI/PMS, or secrets access.",
+  "confidence": "HIGH for repository inventory; MEDIUM for launch/deployed freshness without live crawl.",
+  "risks": [
+    {
+      "source_path": "AGENTS.md",
+      "evidence_summary": "Sacred zones and guards constrain all future mutation; this campaign produced read-only evidence outputs only.",
+      "evidence_type": "authority_boundary",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "evidence_summary": "Local identity facts include NAP and markets but should be checked against live/public business listings before launch.",
+      "evidence_type": "local_seo_risk",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "page-truth/",
+      "evidence_summary": "Page-truth files are repository snapshots and may differ from deployed site unless refreshed with export:page-truth.",
+      "evidence_type": "freshness_risk",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "stop_conditions": {
+    "phi_pms_appeared": false,
+    "secrets_required": false,
+    "production_mutation_required": false,
+    "deploy_provider_backend_required": false,
+    "repo_cannot_be_safely_read": false,
+    "blocking_test_failure": false
+  },
+  "proof_hashes": {
+    "files_scanned_count": 364
+  }
+}

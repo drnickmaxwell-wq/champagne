@@ -1,0 +1,18 @@
+{
+  "version": "CHAMPAGNE_AGENT_REPO_IMPORT_PACKET_V1",
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "source_repo": "champagne",
+  "import_mode": "safe_public_non_phi_evidence",
+  "primary_packet": "CHAMPAGNE_PUBLIC_EVIDENCE_PACKET_V1.json",
+  "section_files": [
+    "CHAMPAGNE_ROUTE_AND_PAGE_INVENTORY_V1.json",
+    "CHAMPAGNE_CONTENT_INVENTORY_V1.json",
+    "CHAMPAGNE_SEO_METADATA_SCHEMA_EVIDENCE_V1.json",
+    "CHAMPAGNE_DESIGN_HERO_TOKEN_EVIDENCE_V1.json",
+    "CHAMPAGNE_PUBLIC_CHATBOT_AND_PORTAL_LINK_EVIDENCE_V1.json",
+    "CHAMPAGNE_WEAK_COPY_AND_CONTENT_RISK_REGISTER_V1.json",
+    "CHAMPAGNE_LAUNCH_GAP_EVIDENCE_V1.json"
+  ],
+  "clinical_review_required": true,
+  "founder_review_required": true
+}

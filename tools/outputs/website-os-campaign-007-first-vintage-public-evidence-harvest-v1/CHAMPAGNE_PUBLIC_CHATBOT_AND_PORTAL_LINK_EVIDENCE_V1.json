@@ -1,0 +1,194 @@
+{
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "chatbot_ui_public_evidence": [
+    {
+      "source_path": "apps/web/app/api/converse/route.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/api/converse/route.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/ConciergeRoute.runtime-proof.test.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/ConciergeRoute.runtime-proof.test.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_helpers/sessionMemory.test.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_helpers/sessionMemory.test.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_helpers/sessionMemory.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_helpers/sessionMemory.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_helpers/converseDisplay.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_helpers/converseDisplay.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_helpers/converseDisplay.test.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_helpers/converseDisplay.test.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_handoff/postbackRouter.test.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_handoff/postbackRouter.test.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_handoff/postbackRouter.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_handoff/postbackRouter.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_handoff/HandoffModal.module.css",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_handoff/HandoffModal.module.css",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_handoff/HandoffModal.fallback-copy.test.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_handoff/HandoffModal.fallback-copy.test.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/_handoff/HandoffModal.tsx",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/_handoff/HandoffModal.tsx",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/ConciergeShell.boundary-copy.test.ts",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/ConciergeShell.boundary-copy.test.ts",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/ConciergeShell.tsx",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/ConciergeShell.tsx",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/ConciergeLayer.tsx",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/ConciergeLayer.tsx",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/concierge/concierge.module.css",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/components/concierge/concierge.module.css",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/hero-lab/concierge/page.tsx",
+      "evidence_summary": "Public chatbot/concierge UI or API boundary source scanned: apps/web/app/champagne/hero-lab/concierge/page.tsx",
+      "evidence_type": "chatbot_ui_public_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "patient_portal_public_link_evidence": [
+    {
+      "source_path": "apps/web/app/patient-portal/page.tsx",
+      "evidence_summary": "Public patient portal page/link evidence scanned only; backend not accessed: apps/web/app/patient-portal/page.tsx",
+      "evidence_type": "patient_portal_public_link_evidence",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ]
+}

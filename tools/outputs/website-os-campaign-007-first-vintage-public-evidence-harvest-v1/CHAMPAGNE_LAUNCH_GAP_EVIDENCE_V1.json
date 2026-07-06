@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "launch_gap_evidence": [
+    {
+      "source_path": "apps/web/app/blog/page.tsx",
+      "evidence_summary": "Navigation marks Blog as stub; review launch readiness and content plan.",
+      "evidence_type": "launch_gap",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "page-truth/patient-portal.txt",
+      "evidence_summary": "Patient portal public link/page exists; backend/PMS was intentionally not accessed. Verify destination and copy before launch.",
+      "evidence_type": "launch_gap",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "evidence_summary": "Local SEO facts exist in repo; reconcile with Google Business Profile and live citations before launch.",
+      "evidence_type": "launch_gap",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "unknowns": [
+    {
+      "source_path": "deployed_site",
+      "evidence_summary": "Live deployed output was not fetched; evidence is repository-local.",
+      "evidence_type": "unknown",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "external_business_profiles",
+      "evidence_summary": "Google Business Profile and external citations were not accessed.",
+      "evidence_type": "unknown",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ]
+}

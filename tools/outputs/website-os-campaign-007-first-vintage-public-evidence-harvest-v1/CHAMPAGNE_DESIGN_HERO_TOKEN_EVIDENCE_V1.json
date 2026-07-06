@@ -1,0 +1,1023 @@
+{
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "design_token_hero_motion_evidence": [
+    {
+      "source_path": "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/gradients.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/gradients.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/time-of-day.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/time-of-day.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/spacing.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/spacing.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/tokens.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/tokens.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/glass.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/glass.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/typography.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/typography.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/layers.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/layers.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/theme.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/theme.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/styles/champagne/surface.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/styles/champagne/surface.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/hero-surfaces.css",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/hero-surfaces.css",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/package.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/package.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/tsconfig.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/tsconfig.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/src/styles.d.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/src/styles.d.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-tokens/src/index.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-tokens/src/index.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/sacred_hero_base.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/hero.variant.marketing_v1.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/hero.variant.marketing_v1.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/hero.variant.utility_v1.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/sacred_hero_weather.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/sacred_hero_weather.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/sacred_hero_variants.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/hero.variant.editorial_v1.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/hero.variant.editorial_v1.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/hero.variant.treatment_v1.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/hero/sacred_hero_surfaces.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-manifests/data/hero/sacred_hero_surfaces.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/hero/v2/heroGlue.manifest.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: apps/web/app/components/hero/v2/heroGlue.manifest.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/hero/v2/HeroRendererV2.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: apps/web/app/components/hero/v2/HeroRendererV2.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/hero/v2/HeroV2Client.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: apps/web/app/components/hero/v2/HeroV2Client.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/hero/v2/buildHeroV2Model.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: apps/web/app/components/hero/v2/buildHeroV2Model.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/hero/v2/BloomDriver.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: apps/web/app/components/hero/v2/BloomDriver.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/components/hero/HeroRenderer.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: apps/web/app/components/hero/HeroRenderer.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-guards/components/hero/4k-hero-video.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-guards/components/hero/4k-hero-video.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/package.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/package.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/tsconfig.json",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/tsconfig.json",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/BaseChampagneSurface.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/BaseChampagneSurface.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/HeroRegistry.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/HeroRegistry.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/HeroPreviewDebug.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/HeroPreviewDebug.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/ChampagneHeroFrame.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/hero-engine/HeroConfig.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/hero-engine/HeroConfig.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/hero-engine/HeroRuntime.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/hero-engine/HeroManifestAdapter.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/hero-engine/HeroSurfaceMap.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/hero-engine/index.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/hero-engine/index.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/index.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/index.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-hero/src/HeroAssetRegistry.ts",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: packages/champagne-hero/src/HeroAssetRegistry.ts",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/phase1-disable-waveBackdrop.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/phase1-disable-waveBackdrop.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/phase1-mask-only-implementation.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/phase1-mask-only-implementation.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/phase1-mask-only-proof.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/phase1-mask-only-proof.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/hero-v2-truth-report.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/hero-v2-truth-report.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/v2-motion-zindex-fix-report.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/v2-motion-zindex-fix-report.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/v2-surface-truth-pack.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/v2-surface-truth-pack.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/phase1-hero-v2-truth-table-upgrade.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/phase1-hero-v2-truth-table-upgrade.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/phase1-waveBackdrop-evidence.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/phase1-waveBackdrop-evidence.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/sacred-stability-report.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/sacred-stability-report.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "reports/hero/v2-sacred-manifest-runtime-id-alignment.md",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: reports/hero/v2-sacred-manifest-runtime-id-alignment.md",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "scripts/hero/hero_routing_contract_v1.mjs",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: scripts/hero/hero_routing_contract_v1.mjs",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/code/hero-engine/app/champagne/hero/page.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/code/hero-engine/app/champagne/hero/page.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-engine/app/champagne/hero/page.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-engine/app/champagne/hero/page.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/hero/ChampagneHero.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/hero/ChampagneHero.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/hero/4k-hero-video.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/hero/4k-hero-video.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/hero/original-hero-section.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/hero/original-hero-section.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/hero/cinematic-hero-video.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/hero/cinematic-hero-video.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroEngine.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/champagne/hero/HeroEngine.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroWaveStack.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/champagne/hero/HeroWaveStack.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroShimmer.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/champagne/hero/HeroShimmer.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroCTABar.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/champagne/hero/HeroCTABar.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "_imports/champagne-hero/code/hero-components/components/champagne/hero/HeroFrame.tsx",
+      "evidence_summary": "Design/hero/token public repo evidence scanned: _imports/champagne-hero/code/hero-components/components/champagne/hero/HeroFrame.tsx",
+      "evidence_type": "design_token_hero_motion",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "media_inventory": [
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-480.jpg",
+      "kind": "jpg",
+      "sha256": "72556f6a9536286bf0dc361e6caf704d5309cc9171f248c6f3f5950277fe7c18",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1600.jpg",
+      "kind": "jpg",
+      "sha256": "1a15775b67f1c836305894e8c718194891a660b0673807688678a2a10b4deb0b",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/wave-mask-mobile.webp",
+      "kind": "webp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/wave-mask-desktop.webp",
+      "kind": "webp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1280.webp",
+      "kind": "webp",
+      "sha256": "69db4a90235a8c879c2449fe318ce45c81256462fe703815c9cc1b8ac8ac0baf",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-480.webp",
+      "kind": "webp",
+      "sha256": "680958b2e16b9aa0e613b0fe45ed37fe55880bbb60addfce9cf0d866de602046",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1024.jpg",
+      "kind": "jpg",
+      "sha256": "c50a8bc08ba098dcc4f71caf191eab006639ed5586b60474f9d8a23c8869da61",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/smh-wave-mask.svg",
+      "kind": "svg",
+      "sha256": "dfdf60f11ab47657a343d096ee876d1be6e9e41ad41e9d691482dd59a051d063",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1024.webp",
+      "kind": "webp",
+      "sha256": "5cddbd9866d7088b63769b5df6da57ea5de8f5ea58c336d5d4a96c6cff4889a3",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/header-wave-mask.svg",
+      "kind": "svg",
+      "sha256": "69feb30a37749d26ecdb679e52ab5808f5dd79e19d369f8ee619e7f29b43cb1a",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-320.webp",
+      "kind": "webp",
+      "sha256": "eaae9df0114239c26479679fc52c5ecd58e1ebfd74580f03b829213f303923a9",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-320.jpg",
+      "kind": "jpg",
+      "sha256": "51e72183ebe0b205ed5e9dd008a36a976749657200f1d0b87b9260c8e3cee726",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/wave-field.svg",
+      "kind": "svg",
+      "sha256": "9c668f45659c3bb3b4cad3e5d0d8a464cf6bf249e377971b91945762a322c7c1",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1600.webp",
+      "kind": "webp",
+      "sha256": "d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1280.jpg",
+      "kind": "jpg",
+      "sha256": "02243c1949d96c08a38c75c8cf9cdd8760cb25d1e3b46b08f52fbe8bcbbdaf0d",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/wave-dots.svg",
+      "kind": "svg",
+      "sha256": "de8c1929658d7de811b5dad608bf4134137997089d9c9017757af015c7f33eb2",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-2560.jpg",
+      "kind": "jpg",
+      "sha256": "1a15775b67f1c836305894e8c718194891a660b0673807688678a2a10b4deb0b",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1920.webp",
+      "kind": "webp",
+      "sha256": "d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-1920.jpg",
+      "kind": "jpg",
+      "sha256": "1a15775b67f1c836305894e8c718194891a660b0673807688678a2a10b4deb0b",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-2560.webp",
+      "kind": "webp",
+      "sha256": "d9805f39799577d1fb3d3405ba4537b0f7d7144c075a3e7b8b24eb285003b930",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-768.webp",
+      "kind": "webp",
+      "sha256": "349930964ae9e17917c19ac81e7e0b272de61e59ab60952c4ea6b9888a0550ab",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/waves/waves-bg-768.jpg",
+      "kind": "jpg",
+      "sha256": "7892deec74aff5b50c90110a80f837ca9cc8f6273104e17e0ee8eaba078090a9",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/textures/wave-light-overlay.webp",
+      "kind": "webp",
+      "sha256": "3f23e0bee4686a1fcfab25f00c76a547e762fc4be495f142c68a40e2cfeb5e97",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/textures/sparkle.svg",
+      "kind": "svg",
+      "sha256": "a9b414d46821c181a6dafcbc1858eb5d1c6cef77f7f3c5ec1a89805ab220485f",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/textures/glass-reflect.svg",
+      "kind": "svg",
+      "sha256": "27bfd639fff41c398405fac6187d1fed41445a031973fabde6027095e43bfeef",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/textures/wave-gold-dust.png",
+      "kind": "png",
+      "sha256": "b05135b8b73b153f6b0b1f95922bfe429434c25d842ffe3262fda4140ab867e9",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/icons/sparkle.svg",
+      "kind": "svg",
+      "sha256": "a9b414d46821c181a6dafcbc1858eb5d1c6cef77f7f3c5ec1a89805ab220485f",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/icons/scan.svg",
+      "kind": "svg",
+      "sha256": "da269b033cbb544bcab8efabb9d3a8bd5f0f425755288989279d1416afbde9a5",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/icons/smile-curve.svg",
+      "kind": "svg",
+      "sha256": "325ca4aba92ef237dce788586562a873d5d9730eb7a5c5695b39500a64a64882",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/icons/implant.svg",
+      "kind": "svg",
+      "sha256": "e6b2d90060c3a88c1f415feccb62004400ff3c9c8ded3f65de0b4d8f36fa0e28",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/particles/particles-gold.webp",
+      "kind": "webp",
+      "sha256": "1dc7317ae6bb7f15ca818197c032849cf2c631ee464c3c06bc0cc829aebc815a",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/particles/particles-magenta.webp",
+      "kind": "webp",
+      "sha256": "c4473991e59134ea41bf616a1eef94e5298eba500c823d5ae682bb192d691459",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/particles/particles-teal.webp",
+      "kind": "webp",
+      "sha256": "2276b25075b50a7783ef274829b19818fb2bb361244c529c3ff4dc5980f2c3d4",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/particles/home-hero-particles.webp",
+      "kind": "webp",
+      "sha256": "76346f1deebed171b950adb9fe9341293a7cad9af377d52aad27f3964da06447",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/film-grain/film-grain-desktop.webp",
+      "kind": "webp",
+      "sha256": "ea5f8f66536a7a02b3280b16098092b5be8d4834d386395d2f071e5c5dc68687",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/film-grain/film-grain-mobile.webp",
+      "kind": "webp",
+      "sha256": "d17a5d5e0097bdce56d3864799f2b739b14564ee8d853de8913f74cf8d090687",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/motion/dental-hero-4k.mp4",
+      "kind": "mp4",
+      "sha256": "a6d328f3fef78e18cc563df72656f8f402fb50ba70ea1e91e33bfee1c7651a86",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/motion/glass-shimmer.webm",
+      "kind": "webm",
+      "sha256": "fe9ce17cc9fcc7d1183e27c42396093ff7ae653ebd6d7c556b75165c018ca2eb",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/motion/gold-dust-drift.webm",
+      "kind": "webm",
+      "sha256": "112c3194f85cb131d53c1e1fdbe9b39cdbbbd9cc85324abdf60167a03caa5f9b",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/motion/particles-drift.webm",
+      "kind": "webm",
+      "sha256": "cfb0307f9245ed0ad0dd88ca4355e139db412aee24fee98ed717166d56ba7aa1",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/assets/champagne/motion/wave-caustics.webm",
+      "kind": "webm",
+      "sha256": "0593b391db915ed435d3d94974449854e92d05c45c74c5c76ed7668076395146",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/brand/waves/header-wave-mask.svg",
+      "kind": "svg",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "source_path": "public/brand/textures/film-grain-2560x1440.webp",
+      "kind": "webp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "confidence": "HIGH",
+      "risk": "LOW"
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "metadata_evidence": [
+    {
+      "source_path": "apps/web/app/sitemap.ts",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/sitemap.ts",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/patient-portal/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/patient-portal/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/(champagne)/legal/privacy/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/(champagne)/legal/privacy/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/(champagne)/legal/[slug]/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/(champagne)/legal/[slug]/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/(champagne)/smile-gallery/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/(champagne)/smile-gallery/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/(champagne)/about/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/(champagne)/about/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/team/[slug]/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/team/[slug]/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "apps/web/app/team/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/team/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "apps/web/app/fees/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/fees/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/sections-debug/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/champagne/sections-debug/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/hero-debug/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/champagne/hero-debug/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/hero-preview/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/champagne/hero-preview/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/hero-lab/concierge/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/champagne/hero-lab/concierge/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/hero-lab/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/champagne/hero-lab/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/champagne/hero-asset-lab/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/champagne/hero-asset-lab/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/blog/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/blog/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/robots.ts",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/robots.ts",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/(site)/[page]/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/(site)/[page]/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/treatments/[slug]/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/treatments/[slug]/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "apps/web/app/treatments/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/treatments/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "apps/web/app/contact/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/contact/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/page.tsx",
+      "evidence_summary": "SEO/route source scanned for metadata or public route output: apps/web/app/page.tsx",
+      "evidence_type": "metadata_route_source",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "schema_evidence": [
+    {
+      "source_path": "packages/champagne-manifests/data/seo/team-registry.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo/team-registry.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo/approved-facts.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo-ai-answer-foundation/ai-answer-registry.v1.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo-ai-answer-foundation/question-inventory.v1.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo-ai-answer-foundation/chatbot-answer-alignment.v1.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo-ai-answer-foundation/treatment-fact-registry.v1.smh.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo-ai-answer-foundation/voice-search-pattern-registry.v1.json",
+      "evidence_summary": "Structured data/SEO manifest scanned: packages/champagne-manifests/data/seo-ai-answer-foundation/voice-search-pattern-registry.v1.json",
+      "evidence_type": "schema_or_seo_manifest",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "local_seo_signals": [
+    {
+      "source_path": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "evidence_summary": "Practice NAP: St Mary's House Dental Care; St Mary's Road, Shoreham-by-Sea, West Sussex, BN43 5ZA; 01273 453109",
+      "evidence_type": "local_seo_signal",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "YES"
+    }
+  ],
+  "technical_seo_readiness": [
+    {
+      "source_path": "apps/web/app/sitemap.ts",
+      "evidence_summary": "Sitemap route source exists.",
+      "evidence_type": "technical_seo",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "apps/web/app/robots.ts",
+      "evidence_summary": "Robots route source exists.",
+      "evidence_type": "technical_seo",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ]
+}
