@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-07-06T19:56:40.186Z",
+  "weak_ai_copy_candidates": [
+    {
+      "source_path": "page-truth/treatments-clear-aligners-spark.txt",
+      "candidate_phrase": "journey",
+      "evidence_summary": "Potential generic/AI-sounding phrase found: journey",
+      "confidence": "MEDIUM",
+      "risk": "MEDIUM",
+      "review_requirement": "editorial review; do not auto-rewrite",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "page-truth/home.txt",
+      "candidate_phrase": "journey",
+      "evidence_summary": "Potential generic/AI-sounding phrase found: journey",
+      "confidence": "MEDIUM",
+      "risk": "MEDIUM",
+      "review_requirement": "editorial review; do not auto-rewrite",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "page-truth/treatments-full-smile-makeover.txt",
+      "candidate_phrase": "journey",
+      "evidence_summary": "Potential generic/AI-sounding phrase found: journey",
+      "confidence": "MEDIUM",
+      "risk": "MEDIUM",
+      "review_requirement": "editorial review; do not auto-rewrite",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "page-truth/treatments-fixed-braces.txt",
+      "candidate_phrase": "journey",
+      "evidence_summary": "Potential generic/AI-sounding phrase found: journey",
+      "confidence": "MEDIUM",
+      "risk": "MEDIUM",
+      "review_requirement": "editorial review; do not auto-rewrite",
+      "founder_approval_needed": "YES",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "risks": [
+    {
+      "source_path": "AGENTS.md",
+      "evidence_summary": "Sacred zones and guards constrain all future mutation; this campaign produced read-only evidence outputs only.",
+      "evidence_type": "authority_boundary",
+      "confidence": "HIGH",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "LOW",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "packages/champagne-manifests/data/seo/local-identity.smh.json",
+      "evidence_summary": "Local identity facts include NAP and markets but should be checked against live/public business listings before launch.",
+      "evidence_type": "local_seo_risk",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    },
+    {
+      "source_path": "page-truth/",
+      "evidence_summary": "Page-truth files are repository snapshots and may differ from deployed site unless refreshed with export:page-truth.",
+      "evidence_type": "freshness_risk",
+      "confidence": "MEDIUM",
+      "freshness": "repo_snapshot_2026-07-06T19:56:40.186Z",
+      "risk": "MEDIUM",
+      "review_requirement": "human review recommended before import/use",
+      "founder_approval_needed": "NO",
+      "clinical_approval_needed": "NO"
+    }
+  ],
+  "review_policy": "Candidates are not facts of poor quality; they require human editorial review."
+}
