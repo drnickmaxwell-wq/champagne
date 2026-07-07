@@ -1,0 +1,113 @@
+{
+  "version": "CHAMPAGNE_RUNTIME_WIRING_MAP_V1",
+  "generatedAt": "2026-07-07T00:00:00.000Z",
+  "launchReadinessClaim": false,
+  "runtimeMutationPerformed": false,
+  "wiringPoints": [
+    {
+      "id": "website_os_import_packet_intake",
+      "futurePurpose": "Accept Website OS import envelopes as non-runtime files, validate them, and produce review evidence before any app consumption.",
+      "currentEvidenceFiles": [
+        "contracts/champagne-os/contract-validator.mjs",
+        "contracts/champagne-os/schemas/website-os-import-envelope.schema.json",
+        "contracts/champagne-os/fixtures/valid-website-os-import-packet.json",
+        "scripts/validate-champagne-contract-packet.mjs",
+        "scripts/guard-champagne-contracts.mjs"
+      ],
+      "futureTouchFilesOrModules": [
+        "contracts/champagne-os/imports/**",
+        "scripts/validate-champagne-contract-packet.mjs",
+        "scripts/guard-champagne-contracts.mjs",
+        ".github/workflows/**"
+      ],
+      "classification": ["safe_non_runtime_helper", "ci_only_validator"],
+      "appRuntimeBoundary": false,
+      "sacredZoneRisk": "low unless packet operations target sacred hero paths",
+      "founderClinicalReviewRequired": "required before content/runtime consumption"
+    },
+    {
+      "id": "website_os_safe_patch_proposal_review",
+      "futurePurpose": "Review safe patch proposals as proposals only, classify operation paths, and block sacred/runtime/prohibited authority before implementation.",
+      "currentEvidenceFiles": [
+        "contracts/champagne-os/schemas/website-os-safe-patch.schema.json",
+        "contracts/champagne-os/fixtures/valid-website-os-patch-proposal.json",
+        "contracts/champagne-os/fixtures/invalid-sacred-zone-mutation-packet.json"
+      ],
+      "futureTouchFilesOrModules": [
+        "contracts/champagne-os/proposals/**",
+        "scripts/validate-champagne-contract-packet.mjs",
+        "scripts/guard-champagne-contracts.mjs",
+        "reports/**"
+      ],
+      "classification": ["safe_non_runtime_helper", "ci_only_validator", "founder_clinical_review_required"],
+      "appRuntimeBoundary": false,
+      "sacredZoneRisk": "medium because proposals may name app/runtime or sacred files; validator must fail closed",
+      "founderClinicalReviewRequired": "always for clinical, evidence, review, public copy, SEO, or visible UI claims"
+    },
+    {
+      "id": "live_canvas_safe_edit_preview",
+      "futurePurpose": "Render or summarize safe edits in a preview-only boundary without mutating live app runtime or production data.",
+      "currentEvidenceFiles": [
+        "contracts/champagne-os/schemas/live-canvas-safe-edit.schema.json",
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx",
+        "apps/web/app/champagne/hero-preview/page.tsx",
+        "apps/web/app/champagne/hero-debug/page.tsx"
+      ],
+      "futureTouchFilesOrModules": [
+        "contracts/champagne-os/previews/**",
+        "apps/web/app/champagne/**",
+        "apps/web/app/(champagne)/_builder/ChampagnePageBuilder.tsx"
+      ],
+      "classification": ["app_runtime_boundary", "founder_clinical_review_required"],
+      "appRuntimeBoundary": true,
+      "sacredZoneRisk": "high if preview attempts to alter hero renderer, hero runtime, or sacred manifests",
+      "founderClinicalReviewRequired": "required before rendering public/clinical/review content"
+    },
+    {
+      "id": "evidence_review_packet",
+      "futurePurpose": "Record source/reviewer evidence metadata and block unsupported claims, fabricated reviews, or patient-identifiable content.",
+      "currentEvidenceFiles": [
+        "contracts/champagne-os/schemas/evidence-review.schema.json",
+        "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json",
+        "ops/contracts/PAGE_SURFACE_V1.json"
+      ],
+      "futureTouchFilesOrModules": [
+        "contracts/champagne-os/evidence/**",
+        "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json",
+        "reports/**",
+        "packages/champagne-manifests/**"
+      ],
+      "classification": ["safe_non_runtime_helper", "ci_only_validator", "founder_clinical_review_required"],
+      "appRuntimeBoundary": false,
+      "sacredZoneRisk": "low unless evidence packet proposes hero/manifests or runtime renderer operations",
+      "founderClinicalReviewRequired": "required for all clinical evidence and review content"
+    },
+    {
+      "id": "rollback_packet",
+      "futurePurpose": "Validate rollback proposals and rehearse non-runtime rollback evidence before any authorized mutation.",
+      "currentEvidenceFiles": [
+        "contracts/champagne-os/schemas/rollback-packet.schema.json",
+        "contracts/champagne-os/fixtures/invalid-deploy-provider-packet.json"
+      ],
+      "futureTouchFilesOrModules": [
+        "contracts/champagne-os/rollback/**",
+        "scripts/validate-champagne-contract-packet.mjs",
+        "reports/**"
+      ],
+      "classification": ["safe_non_runtime_helper", "ci_only_validator"],
+      "appRuntimeBoundary": false,
+      "sacredZoneRisk": "medium if rollback paths include hero, manifests, or app runtime files",
+      "founderClinicalReviewRequired": "required when rollback affects visible content, clinical content, or evidence records"
+    }
+  ],
+  "stopConditions": [
+    "required_guard_missing_or_failing",
+    "packet_requests_runtime_mutation_or_deployment_or_provider_or_pms_access",
+    "packet_contains_phi_pms_secrets_or_production_mutation",
+    "packet_touches_sacred_zone_without_explicit_authority",
+    "review_gate_missing_or_unreviewed_for_sensitive_content",
+    "live_canvas_preview_would_render_unapproved_clinical_or_review_content",
+    "rollback_not_rehearsed_and_audited",
+    "runtime_change_would_claim_launch_readiness"
+  ]
+}
