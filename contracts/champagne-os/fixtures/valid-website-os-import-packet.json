@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "CHAMPAGNE_CONTRACT_PACKET_V1",
+  "packetType": "website-os-import-envelope",
+  "authority": { "role": "CONTRACT_SCHEMA_VALIDATOR", "runtimeMutation": false, "deployment": false, "providerCalls": false, "pmsAccess": false },
+  "reviewGate": { "required": true, "status": "pending", "reviewers": ["Champagne Director"] },
+  "operations": [
+    { "op": "add", "path": "contracts/champagne-os/imports/example-page.json", "intent": "Import design-only Website OS page contract fixture." }
+  ],
+  "safety": { "containsPhi": false, "containsPmsData": false, "mutatesProduction": false, "touchesSacredZone": false, "usesSecrets": false },
+  "evidence": ["Design-only import fixture; no runtime wiring."]
+}

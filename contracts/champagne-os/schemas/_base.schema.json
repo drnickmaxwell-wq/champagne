@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://champagne-os.local/contracts/_base.schema.json",
+  "title": "Champagne OS Contract Base Rules",
+  "type": "object",
+  "required": ["schemaVersion", "packetType", "authority", "reviewGate", "operations", "safety"],
+  "properties": {
+    "schemaVersion": { "const": "CHAMPAGNE_CONTRACT_PACKET_V1" },
+    "packetType": { "type": "string" },
+    "authority": {
+      "type": "object",
+      "required": ["role", "runtimeMutation", "deployment", "providerCalls", "pmsAccess"],
+      "properties": {
+        "role": { "type": "string" },
+        "runtimeMutation": { "const": false },
+        "deployment": { "const": false },
+        "providerCalls": { "const": false },
+        "pmsAccess": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "reviewGate": {
+      "type": "object",
+      "required": ["required", "status", "reviewers"],
+      "properties": {
+        "required": { "const": true },
+        "status": { "enum": ["pending", "approved"] },
+        "reviewers": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      },
+      "additionalProperties": false
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["op", "path", "intent"],
+        "properties": {
+          "op": { "enum": ["add", "replace", "remove", "test", "review", "rollback"] },
+          "path": { "type": "string", "minLength": 1 },
+          "intent": { "type": "string", "minLength": 1 },
+          "value": {}
+        },
+        "additionalProperties": false
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": ["containsPhi", "containsPmsData", "mutatesProduction", "touchesSacredZone", "usesSecrets"],
+      "properties": {
+        "containsPhi": { "const": false },
+        "containsPmsData": { "const": false },
+        "mutatesProduction": { "const": false },
+        "touchesSacredZone": { "const": false },
+        "usesSecrets": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "rollback": { "type": "object" }
+  },
+  "additionalProperties": false
+}

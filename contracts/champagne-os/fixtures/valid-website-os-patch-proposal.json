@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "CHAMPAGNE_CONTRACT_PACKET_V1",
+  "packetType": "website-os-safe-patch",
+  "authority": { "role": "CONTRACT_SCHEMA_VALIDATOR", "runtimeMutation": false, "deployment": false, "providerCalls": false, "pmsAccess": false },
+  "reviewGate": { "required": true, "status": "pending", "reviewers": ["Champagne Director", "Clinical Reviewer"] },
+  "operations": [
+    { "op": "replace", "path": "contracts/champagne-os/proposals/page-title.json", "intent": "Propose reviewed content-contract field replacement only.", "value": { "title": "Reviewed example title" } }
+  ],
+  "safety": { "containsPhi": false, "containsPmsData": false, "mutatesProduction": false, "touchesSacredZone": false, "usesSecrets": false },
+  "evidence": ["Requires review gate before any future runtime consumption."]
+}

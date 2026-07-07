@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://champagne-os.local/contracts/evidence-review.schema.json",
+  "title": "evidence-review",
+  "allOf": [
+    { "$ref": "./_base.schema.json" },
+    { "type": "object", "properties": { "packetType": { "const": "evidence-review" } } }
+  ]
+}

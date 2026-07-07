@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://champagne-os.local/contracts/rollback-packet.schema.json",
+  "title": "rollback-packet",
+  "allOf": [
+    { "$ref": "./_base.schema.json" },
+    { "type": "object", "properties": { "packetType": { "const": "rollback-packet" } } }
+  ]
+}
