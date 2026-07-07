@@ -1,0 +1,136 @@
+{
+  "contractVersion": "CHAMPAGNE_WEBSITE_OS_CONTRACT_DESIGN_V1",
+  "status": "DESIGN_ONLY_FAIL_CLOSED",
+  "scope": {
+    "repository": "champagne",
+    "runtimeMutationAllowed": false,
+    "deploymentAllowed": false,
+    "providerCallsAllowed": false,
+    "phiAllowed": false,
+    "secretsAllowed": false,
+    "launchReadinessClaimsAllowed": false
+  },
+  "evidenceInputs": {
+    "pr850Reports": [
+      "HERO_ENGINE_V2_MASTER_TRUTH_AUDIT.md",
+      "ATMOSPHERIC_SYSTEM_MASTER_TRUTH_AUDIT.md",
+      "SURFACE_TOKEN_MASTER_TRUTH_AUDIT.md",
+      "ROGUE_HEX_AND_TOKEN_DRIFT_AUDIT.md",
+      "TYPOGRAPHY_MASTER_TRUTH_AUDIT.md",
+      "STRUCTURE_AUDIT_REPORT.md"
+    ],
+    "campaign007": [
+      "CHAMPAGNE_CAMPAIGN007_REALITY_AUDIT_V1.md"
+    ],
+    "existingContracts": [
+      "ops/contracts/WEBSITE_TRUTH_EXPORT_CONTRACT_V1.json",
+      "ops/contracts/EVIDENCE_REVIEW_METADATA_CONTRACT_V1.json",
+      "ops/contracts/PAGE_SURFACE_V1.json",
+      "ops/contracts/PAGE_FAMILY_ROUTE_CANON_V1.json"
+    ]
+  },
+  "importContract": {
+    "requiredEnvelopeFields": [
+      "contractVersion",
+      "repo",
+      "branch",
+      "commitSha",
+      "generatedAt",
+      "sourceReports",
+      "sourceHashes",
+      "guardStatus",
+      "scopeDeclaration",
+      "dataClassDeclaration",
+      "launchReadinessDeclaration"
+    ],
+    "allowedFamilies": [
+      "routePageInventory",
+      "treatmentSourceTruth",
+      "sectionRegistry",
+      "seoMetadataTruth",
+      "tokenSurfaceCapability",
+      "heroBindingTruthReadOnly",
+      "evidenceReviewMetadata"
+    ],
+    "forbiddenFamilies": [
+      "phi",
+      "pmsData",
+      "appointmentData",
+      "clinicalRecords",
+      "providerCredentials",
+      "secrets",
+      "cookies",
+      "sessionData",
+      "productionLogs",
+      "runtimePatchesDisguisedAsImports"
+    ]
+  },
+  "exportContract": {
+    "types": [
+      "truth_export",
+      "patch_packet",
+      "review_packet",
+      "tenant_blueprint_candidate"
+    ],
+    "rules": [
+      "source_hashes_required",
+      "sacred_zones_preserved",
+      "launch_readiness_false_by_default",
+      "deterministic_json_required"
+    ]
+  },
+  "patchPacketSchema": {
+    "requiredTopLevelFields": [
+      "packetId",
+      "contractVersion",
+      "createdAt",
+      "createdBy",
+      "repo",
+      "baseCommitSha",
+      "objective",
+      "changeClass",
+      "allowedFiles",
+      "forbiddenFiles",
+      "sourcePreconditions",
+      "proposedOperations",
+      "tokenPolicy",
+      "heroPolicy",
+      "seoPolicy",
+      "evidenceReview",
+      "validationPlan",
+      "rollbackPlan",
+      "failureMode"
+    ],
+    "allowedOperationTypes": [
+      "content.replaceField",
+      "seo.updateMetadata",
+      "seo.addJsonLd",
+      "design.bindToken",
+      "section.reorderAllowed",
+      "section.toggleAllowed",
+      "route.addDraftPage"
+    ],
+    "forbiddenOperationTypes": [
+      "sacredHeroEdit",
+      "providerCall",
+      "pmsMutation",
+      "deployment",
+      "rawColorStyle",
+      "inlineGradient",
+      "guardWeakening",
+      "unsupportedLaunchClaim"
+    ]
+  },
+  "validationGates": [
+    "source_hash_match",
+    "exact_allowed_files",
+    "sacred_zones_excluded",
+    "token_only_policy",
+    "required_reviews_complete",
+    "rollback_plan_present",
+    "guard_hero_present_and_planned",
+    "guard_canon_present_and_planned",
+    "verify_present_and_planned"
+  ],
+  "failureMode": "reject_packet_fail_closed"
+}
