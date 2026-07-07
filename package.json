@@ -24,7 +24,7 @@
     "guard:seo-launch-safety": "node scripts/seo-launch-safety-check.mjs",
     "hero:fit:sacred": "node scripts/hero_fit_sacred.mjs",
     "hero:match:sacred": "pnpm exec playwright install --with-deps chromium && node scripts/hero_match_sacred.mjs",
-    "verify": "node scripts/verify-token-purity.cjs && pnpm run guard:workspace-deps && pnpm run guard:seo-launch-safety && pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web",
+    "verify": "node scripts/verify-token-purity.cjs && pnpm run guard:workspace-deps && pnpm run guard:seo-launch-safety && pnpm run guard:champagne-contracts && pnpm run guard:all && pnpm run lint && pnpm run typecheck && CI=1 pnpm run build:web",
     "export:page-truth": "node scripts/export-page-truth.mjs",
     "guard:stock-canon": "node scripts/guard-stock-canon.mjs",
     "guard:no-phi-logs-stock": "node scripts/guard-no-phi-logs-stock.mjs",
@@ -37,7 +37,9 @@
     "seo:answer-packet-qa": "node scripts/seo-ai-answer-priority-service-packet-qa.mjs",
     "seo:answer-rendering-qa": "node scripts/seo-visible-answer-surface-rendering-qa.mjs",
     "cutover:validate": "node scripts/validate-cutover-inventory.mjs data/cutover/wordpress-url-inventory.csv && node scripts/validate-redirect-map.mjs data/cutover/redirect-map.csv",
-    "cutover:test": "node --test tests/cutover/redirect-map.coverage.test.mjs"
+    "cutover:test": "node --test tests/cutover/redirect-map.coverage.test.mjs",
+    "contract:validate": "node scripts/validate-champagne-contract-packet.mjs",
+    "guard:champagne-contracts": "node scripts/guard-champagne-contracts.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
