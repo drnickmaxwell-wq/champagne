@@ -1,32 +1,31 @@
-# NEXT_CODEX_PROMPT_V1
+# Next Codex Prompt V1
 
-ROLE: CHAMPAGNE_CONTRACT_RUNTIME_READINESS_DIAGNOSTIC_V1
+ROLE: CHAMPAGNE_CONTRACT_PACKET_INTAKE_HARDENING_V1
 
 MISSION:
-Perform a read-only readiness review for future Website OS / Live Canvas runtime wiring. Do not implement runtime code.
+Implement only non-runtime Champagne OS contract packet intake hardening. Do not wire packets into app runtime. Do not mutate UI, hero runtime, manifests, providers, PMS, secrets, or production.
 
 SCOPE:
-- Read-only diagnostics only.
-- No runtime app code changes.
-- No UI changes.
-- No deploy.
-- No provider calls.
-- No PHI/PMS/secrets access.
-- No production mutation.
+- Champagne repo only.
+- Allowed target area should be limited to `contracts/champagne-os/**`, contract validation scripts/tests, reports, and CI guard wiring if needed.
+- No app runtime wiring.
+- No launch readiness claims.
 
 OBJECTIVES:
-1. Confirm `contract:validate` and `guard:champagne-contracts` are still wired and passing.
-2. Identify the exact files that would require fresh Director authorization before runtime wiring.
-3. Propose a disabled-by-default dry-run adapter design that cannot mutate production.
-4. Propose additional failure tests needed before any runtime adapter is implemented.
-5. Produce a readiness report only.
+1. Add safe fixtures for `live-canvas-safe-edit`, `evidence-review`, and `rollback-packet`.
+2. Add/extend tests proving all approved packet types validate when safe and fail closed for runtime mutation, sacred-zone paths, PHI/PMS, provider/deploy authority, and missing review gates.
+3. Add a CI-only/report-only packet classification helper that labels operations as safe non-runtime helper, CI-only validator, app runtime boundary, sacred-zone risk, and founder/clinical review required.
+4. Keep packet intake non-runtime: no imports from app runtime into validators, no preview rendering, no deployment, no provider/PMS access.
+5. Run required guards: `pnpm run guard:champagne-contracts`, `node --test tests/contracts/champagne-contract-validator.test.mjs`, `pnpm run guard:hero`, `pnpm run guard:canon`, `pnpm run verify`.
 
-REQUIRED COMMANDS:
-- `pnpm run guard:champagne-contracts`
-- `node --test tests/contracts/champagne-contract-validator.test.mjs`
-- `pnpm run guard:hero`
-- `pnpm run guard:canon`
-- `pnpm run verify`
+STOP CONDITIONS:
+- Any required guard is missing or fails.
+- Any change would touch sacred hero files or manifests.
+- Any change would render Live Canvas output in app runtime.
+- Any packet requires runtime mutation, deployment, provider calls, PMS access, secrets, PHI, or production mutation.
+- Any clinical/evidence/review content lacks founder/clinical review gating.
 
-DELIVERABLE:
-- `CHAMPAGNE_CONTRACT_RUNTIME_READINESS_REPORT_V1.md`
+DELIVERABLES:
+- Updated contract fixtures/tests/validator docs as needed.
+- A short report summarizing packet classification behavior.
+- No launch readiness claim.
