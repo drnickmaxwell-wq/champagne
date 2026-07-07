@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "CHAMPAGNE_CONTRACT_PACKET_V1",
+  "packetType": "rollback-packet",
+  "authority": { "role": "CONTRACT_SCHEMA_VALIDATOR", "runtimeMutation": false, "deployment": true, "providerCalls": true, "pmsAccess": false },
+  "reviewGate": { "required": true, "status": "pending", "reviewers": ["Champagne Director"] },
+  "operations": [
+    { "op": "deploy", "path": "production", "intent": "Trigger deployment and provider call." }
+  ],
+  "safety": { "containsPhi": false, "containsPmsData": false, "mutatesProduction": true, "touchesSacredZone": false, "usesSecrets": false },
+  "evidence": []
+}

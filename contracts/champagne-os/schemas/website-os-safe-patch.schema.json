@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://champagne-os.local/contracts/website-os-safe-patch.schema.json",
+  "title": "website-os-safe-patch",
+  "allOf": [
+    { "$ref": "./_base.schema.json" },
+    { "type": "object", "properties": { "packetType": { "const": "website-os-safe-patch" } } }
+  ]
+}

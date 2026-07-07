@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "CHAMPAGNE_CONTRACT_PACKET_V1",
+  "packetType": "website-os-safe-patch",
+  "authority": { "role": "CONTRACT_SCHEMA_VALIDATOR", "runtimeMutation": false, "deployment": false, "providerCalls": false, "pmsAccess": false },
+  "reviewGate": { "required": true, "status": "pending", "reviewers": ["Champagne Director"] },
+  "operations": [
+    { "op": "replace", "path": "apps/web/app/components/hero/HeroRenderer.tsx", "intent": "Forbidden sacred renderer mutation." }
+  ],
+  "safety": { "containsPhi": false, "containsPmsData": false, "mutatesProduction": false, "touchesSacredZone": true, "usesSecrets": false },
+  "evidence": []
+}

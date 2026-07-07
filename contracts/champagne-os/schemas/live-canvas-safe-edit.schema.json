@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://champagne-os.local/contracts/live-canvas-safe-edit.schema.json",
+  "title": "live-canvas-safe-edit",
+  "allOf": [
+    { "$ref": "./_base.schema.json" },
+    { "type": "object", "properties": { "packetType": { "const": "live-canvas-safe-edit" } } }
+  ]
+}

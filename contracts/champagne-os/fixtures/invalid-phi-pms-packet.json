@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "CHAMPAGNE_CONTRACT_PACKET_V1",
+  "packetType": "live-canvas-safe-edit",
+  "authority": { "role": "CONTRACT_SCHEMA_VALIDATOR", "runtimeMutation": false, "deployment": false, "providerCalls": false, "pmsAccess": true },
+  "reviewGate": { "required": true, "status": "pending", "reviewers": ["Champagne Director"] },
+  "operations": [
+    { "op": "add", "path": "contracts/champagne-os/proposals/contact.json", "intent": "Contains patient name and PMS data from Dentally." }
+  ],
+  "safety": { "containsPhi": true, "containsPmsData": true, "mutatesProduction": false, "touchesSacredZone": false, "usesSecrets": false },
+  "evidence": []
+}

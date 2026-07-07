@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://champagne-os.local/contracts/website-os-import-envelope.schema.json",
+  "title": "website-os-import-envelope",
+  "allOf": [
+    { "$ref": "./_base.schema.json" },
+    { "type": "object", "properties": { "packetType": { "const": "website-os-import-envelope" } } }
+  ]
+}
