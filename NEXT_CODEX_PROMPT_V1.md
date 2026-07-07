@@ -1,25 +1,32 @@
 # NEXT_CODEX_PROMPT_V1
 
-ROLE: CHAMPAGNE_CONTRACT_SCHEMA_VALIDATOR_PROGRAMME_V1_FOLLOWUP
+ROLE: CHAMPAGNE_CONTRACT_RUNTIME_READINESS_DIAGNOSTIC_V1
 
 MISSION:
-Review the non-runtime Champagne OS contract schemas and validators added under `contracts/champagne-os/` and decide whether to add CI-only validation wiring. Do not wire schemas into runtime app code.
+Perform a read-only readiness review for future Website OS / Live Canvas runtime wiring. Do not implement runtime code.
 
 SCOPE:
-- Champagne repo only.
-- No runtime app code.
+- Read-only diagnostics only.
+- No runtime app code changes.
 - No UI changes.
-- No deployment.
+- No deploy.
 - No provider calls.
-- No secrets, PHI, PMS, or production mutation.
-- Preserve sacred-zone boundaries.
+- No PHI/PMS/secrets access.
+- No production mutation.
 
-REQUIRED CHECKS:
-- Run targeted contract tests.
-- Run `npm run guard:hero`.
-- Run `npm run guard:canon`.
-- Run `npm run verify`.
+OBJECTIVES:
+1. Confirm `contract:validate` and `guard:champagne-contracts` are still wired and passing.
+2. Identify the exact files that would require fresh Director authorization before runtime wiring.
+3. Propose a disabled-by-default dry-run adapter design that cannot mutate production.
+4. Propose additional failure tests needed before any runtime adapter is implemented.
+5. Produce a readiness report only.
 
-OUTPUT:
-- Report whether CI-only wiring is recommended.
-- If implemented, keep it non-runtime and fail-closed.
+REQUIRED COMMANDS:
+- `pnpm run guard:champagne-contracts`
+- `node --test tests/contracts/champagne-contract-validator.test.mjs`
+- `pnpm run guard:hero`
+- `pnpm run guard:canon`
+- `pnpm run verify`
+
+DELIVERABLE:
+- `CHAMPAGNE_CONTRACT_RUNTIME_READINESS_REPORT_V1.md`
