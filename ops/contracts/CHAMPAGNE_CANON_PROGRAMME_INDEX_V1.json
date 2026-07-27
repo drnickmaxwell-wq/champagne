@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "CHAMPAGNE_CANON_PROGRAMME_INDEX_V1",
+  "status": "DOCUMENTATION_ONLY_INDEX",
+  "programmeId": "CHAMPAGNE_GOLDEN_TENANT_TRANSFORMATION",
+  "readOrder": [
+    "docs/canon/programmes/CHAMPAGNE_CANON_PROGRAMME_INDEX_V1.md",
+    "ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json",
+    "docs/canon/programmes/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.md",
+    "ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json",
+    "docs/canon/programmes/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.md",
+    "ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json",
+    "ops/contracts/CHAMPAGNE_STAGE_1_DOCUMENTATION_ACCEPTANCE_V1.json"
+  ],
+  "precedence": [
+    {
+      "rank": 1,
+      "source": "explicit founder authority issued for the current stage",
+      "rule": "Highest authority; must be exact and stage-specific."
+    },
+    {
+      "rank": 2,
+      "source": "CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json",
+      "rule": "Canonical supplied programme truth and freeze record."
+    },
+    {
+      "rank": 3,
+      "source": "CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json",
+      "rule": "Additive requirements only; cannot silently override V2."
+    },
+    {
+      "rank": 4,
+      "source": "stage-specific acceptance and receipt artifacts",
+      "rule": "Prove work inside explicitly authorised scope."
+    }
+  ],
+  "conflictRule": "Stop and request founder resolution. Do not choose a lower-precedence interpretation.",
+  "noAuthorityInheritance": true
+}

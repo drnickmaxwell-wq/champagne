@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "CHAMPAGNE_STAGE_1_DOCUMENTATION_ACCEPTANCE_V1",
+  "stage": "0_CANONICAL_DOCUMENTATION",
+  "status": "PROPOSED_ACCEPTANCE_CONTRACT",
+  "requiredAuthorityPhrase": "CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1",
+  "scope": [
+    "canonical plan preservation",
+    "human-readable companion",
+    "additive amendment",
+    "programme index and precedence",
+    "authority and freeze contract",
+    "agent read-first proposal",
+    "documentation-only validation and receipt"
+  ],
+  "acceptanceCriteria": [
+    "The supplied V2 JSON is preserved semantically unchanged.",
+    "The Markdown companion states that the JSON remains canonical.",
+    "The amendment is stored separately and explicitly additive.",
+    "Programme precedence and conflict rules are machine-readable.",
+    "Freeze SHAs match the supplied V2 plan.",
+    "No Stage B authority is granted.",
+    "No product, Router, WEOS or chatbot-engine source is changed.",
+    "No branch, commit, pull request, merge or deploy is claimed without separate authority.",
+    "Every future agent is directed to the programme index before work.",
+    "A documentation receipt lists inputs, decisions, changed files, tests, approvals and rollback."
+  ],
+  "requiredReceiptFields": [
+    "inputs",
+    "sources",
+    "decisions",
+    "changed_fields",
+    "tests",
+    "human_approvals",
+    "rollback"
+  ],
+  "failureConditions": [
+    "visual_baseline_loss",
+    "brand_chroma_change",
+    "invented_facts",
+    "generic_fallback_copy",
+    "page_family_flattening",
+    "duplicate_intent",
+    "accessibility_regression",
+    "hero_flash_or_remount_regression",
+    "stale_chatbot_answers",
+    "booking_or_privacy_semantic_change",
+    "supplied_v2_plan_rewritten_in_place",
+    "amendment_presented_as_already_approved",
+    "authority_inherited_from_documentation_stage",
+    "freeze_sha_changed_without_founder_resolution"
+  ],
+  "rollback": "Remove the documentation-only files or revert the documentation commit. Product runtime must remain unchanged."
+}

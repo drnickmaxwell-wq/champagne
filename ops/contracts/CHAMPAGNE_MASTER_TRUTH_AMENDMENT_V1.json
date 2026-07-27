@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1",
+  "status": "PROPOSED_ADDITIVE_CANON_NO_RUNTIME_AUTHORITY",
+  "date": "2026-07-27",
+  "appliesTo": "CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2",
+  "precedenceRule": "This amendment is additive only. It does not silently replace, reinterpret or grant authority beyond the V2 plan.",
+  "additions": [
+    {
+      "id": "AMEND-001",
+      "title": "Semantic capability evidence levels",
+      "requirement": "Every WEOS, SEO, website and chatbot capability must state whether it is concept, canon-only, schema-only, fixture-proven, manual-import proven, live-read proven, approval-gated write, bounded autonomous low-risk or production-reliable."
+    },
+    {
+      "id": "AMEND-002",
+      "title": "Golden-tenant isolation",
+      "requirement": "Champagne acceptance must prove trusted tenant identity, domain-to-tenant resolution, no cross-tenant fallback, tenant-specific truth, provider separation, auditability and safe offboarding."
+    },
+    {
+      "id": "AMEND-003",
+      "title": "Privacy-safe chatbot learning",
+      "requirement": "Chatbot analytics must cover intents, unanswered questions, page-context accuracy, handoff completion, failure states and question-to-content opportunities without retaining raw sensitive conversation data."
+    },
+    {
+      "id": "AMEND-004",
+      "title": "Information Gain publication gate",
+      "requirement": "Indexable pages must add first-hand clinician, patient-decision, local, evidential or original-media value. Word count and keyword coverage alone cannot satisfy publication readiness."
+    },
+    {
+      "id": "AMEND-005",
+      "title": "External SEO research intake",
+      "requirement": "Official search-platform, local-platform and regulatory research must enter as dated, immutable, source-labelled advisory packets that can create bounded mission seeds but cannot mutate production."
+    },
+    {
+      "id": "AMEND-006",
+      "title": "Search algorithm and incident control",
+      "requirement": "During confirmed or suspected search updates or visibility incidents, freeze mass edits, verify tracking and technical health, segment the impact, preserve evidence and require a bounded diagnosis before changes."
+    },
+    {
+      "id": "AMEND-007",
+      "title": "Commercial outcome learning",
+      "requirement": "Post-launch SEO and conversion learning must connect visibility to qualified enquiries, bookings, attended assessments, accepted treatment and treatment starts using privacy-minimised data."
+    },
+    {
+      "id": "AMEND-008",
+      "title": "Foundry School outputs",
+      "requirement": "Material findings should produce role-specific educational outputs for founder, clinician and tenant operator, without calling content CPD unless separately governed and approved."
+    },
+    {
+      "id": "AMEND-009",
+      "title": "Stage J separation",
+      "requirement": "When separately authorised, split Stage J into J1 technical launch certification, J2 search and local activation, and J3 post-launch observation. No substage inherits authority from another."
+    }
+  ],
+  "authority": {
+    "productSourceMutation": false,
+    "routerMutation": false,
+    "weosMutation": false,
+    "chatbotEngineMutation": false,
+    "branch": false,
+    "commit": false,
+    "pullRequest": false,
+    "merge": false,
+    "deploy": false,
+    "publication": false
+  }
+}
