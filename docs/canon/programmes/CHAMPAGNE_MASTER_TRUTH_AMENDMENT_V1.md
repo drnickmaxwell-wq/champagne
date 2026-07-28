@@ -1,26 +1,51 @@
 # Champagne Master Truth Amendment V1
 
-**Status:** Proposed additive canon  
+**Status:** `FOUNDER_AND_MAIN_DIRECTORATE_ACCEPTED_ADDITIVE_PRODUCT_LOCAL_ACCEPTANCE_OVERLAY_NO_RUNTIME_AUTHORITY`
+
+**Scope:** `PRODUCT_LOCAL_ACCEPTANCE_OVERLAY_AND_FUTURE_CROSS_LANE_RECONCILIATION_INPUT`
 **Runtime authority:** None  
 **Applies to:** `CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2`
 
-This amendment preserves the supplied V2 plan. It does not rewrite its decisions, change its freeze points or grant implementation authority.
+The Founder and Main Directorate accept this amendment as an additive,
+product-local acceptance overlay. It preserves the V2 plan as non-mutating draft
+source direction and grants no implementation or runtime authority.
+
+## Ownership boundary
+
+The Champagne repository owns:
+
+- Champagne product canon;
+- Champagne golden-tenant acceptance obligations;
+- Champagne-local design, content, media, SEO launch and chatbot integration
+  requirements.
+
+The Champagne repository does not own:
+
+- permanent WEOS canon;
+- permanent SEO canon;
+- Marketing OS canon;
+- tenant platform canon;
+- Foundry School canon;
+- Router authority.
+
+Those areas are external dependencies and future cross-lane reconciliation
+requirements.
 
 ## Additions
 
 ### 1. Semantic capability evidence levels
 
-Every WEOS, SEO, website and chatbot capability must state its actual evidence level:
+Every WEOS, SEO, website and chatbot capability must use one exact evidence level:
 
-- Concept
-- Canon-only
-- Schema-only
-- Fixture-proven
-- Manual-import proven
-- Live-read proven
-- Approval-gated write
-- Bounded autonomous low-risk
-- Production-reliable
+- `CONCEPT`
+- `CANON_ONLY`
+- `SCHEMA_ONLY`
+- `FIXTURE_PROVEN`
+- `MANUAL_IMPORT_PROVEN`
+- `LIVE_READ_PROVEN`
+- `LIVE_WRITE_APPROVAL_GATED`
+- `BOUNDED_AUTONOMOUS_LOW_RISK`
+- `PRODUCTION_RELIABLE`
 
 File existence alone does not prove production capability.
 
@@ -97,8 +122,8 @@ Do not describe material as CPD unless separately governed and approved.
 
 When separately authorised:
 
-- **J1:** Technical launch certification
-- **J2:** Search and local activation
-- **J3:** Post-launch observation
+- `J1_TECHNICAL_LAUNCH_CERTIFICATION`
+- `J2_SEARCH_AND_LOCAL_ACTIVATION`
+- `J3_POST_LAUNCH_OBSERVATION`
 
 No substage inherits authority from another.

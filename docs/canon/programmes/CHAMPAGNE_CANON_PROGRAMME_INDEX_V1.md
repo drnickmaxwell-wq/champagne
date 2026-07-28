@@ -14,19 +14,40 @@ It prevents drift by declaring:
 
 ## Required read order
 
-1. `ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json`
-2. `docs/canon/programmes/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.md`
-3. `ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json`
-4. `docs/canon/programmes/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.md`
-5. `ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json`
-6. `ops/contracts/CHAMPAGNE_STAGE_1_DOCUMENTATION_ACCEPTANCE_V1.json`
+1. `ops/contracts/CHAMPAGNE_STAGE_1_DOCUMENTATION_ACCEPTANCE_V1.json`
+2. `ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json`
+3. `docs/canon/programmes/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.md`
+4. `ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json`
+5. `docs/canon/programmes/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.md`
+6. `ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json`
 
 ## Precedence
 
 1. Exact founder authority for the current stage
-2. Supplied V2 machine plan
-3. Additive Master Truth Amendment
-4. Stage-specific receipts and acceptance evidence
+2. Main Directorate and Founder acceptance wrapper
+3. V2 draft source direction
+4. Accepted additive product-local Master Truth Amendment
+5. Receipts as evidence only
+
+The accepted wrapper controls current programme acceptance. The V2 plan remains
+`FOUNDER_REVIEW_DRAFT_NON_MUTATING` source direction. The Master Truth Amendment
+is accepted and additive. Receipts record evidence and do not override canon.
+
+## Product-local boundary
+
+This index has product-local precedence for the Champagne repository only. It
+cannot become controlling company-wide platform canon.
+
+The Champagne repository owns:
+
+- Champagne product canon;
+- Champagne golden-tenant acceptance obligations;
+- Champagne-local design, content, media, SEO launch and chatbot integration
+  requirements.
+
+Permanent WEOS, SEO, Marketing OS, tenant-platform, Foundry School and Router
+canon or authority remain external dependencies requiring future cross-lane
+reconciliation.
 
 ## Conflict rule
 
@@ -43,15 +64,16 @@ When two sources conflict:
 
 Authority granted for one stage does not apply to another stage.
 
-Documentation authority does not permit:
+Exact Stage 0 documentation transaction authority may permit a documentation
+branch, documentation/canon commits and a draft pull request only when those
+actions are explicitly granted.
 
-- product code changes;
-- Router changes;
-- WEOS changes;
-- chatbot-engine changes;
-- branch creation;
-- commits;
-- pull requests;
-- merges;
-- deployments;
-- publication.
+Installed canon grants no future:
+
+- product/runtime mutation;
+- merge authority;
+- production deployment authority;
+- Stage B authority;
+- Router authority;
+- WEOS authority;
+- chatbot-engine authority.

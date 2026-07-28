@@ -17,11 +17,15 @@ accessibility, performance or chatbot integration, read:
 Rules:
 
 - Require exact stage-specific authority.
+- Exact Stage 0 authority may permit a documentation branch, documentation/canon
+  commits and a draft pull request only when explicitly granted.
+- Installed canon grants no future product/runtime mutation, merge, production
+  deployment, Stage B, Router, WEOS or chatbot-engine authority.
 - No stage inherits authority from another stage.
-- Preserve supplied freeze evidence.
+- Preserve historical supplied freeze evidence; verified Git object identity
+  controls operational freeze comparison.
 - Stop on canon conflict, scope expansion or semantic uncertainty.
-- Documentation authority does not permit product, Router, WEOS, chatbot-engine,
-  branch, commit, pull-request, merge, deploy or publication actions.
-- The V2 JSON plan is canonical. The amendment is additive unless separately
-  accepted by founder authority.
+- The V2 plan remains non-mutating draft source direction. The accepted Stage 1
+  wrapper controls programme acceptance and the Master Truth Amendment is
+  accepted and additive.
 ```

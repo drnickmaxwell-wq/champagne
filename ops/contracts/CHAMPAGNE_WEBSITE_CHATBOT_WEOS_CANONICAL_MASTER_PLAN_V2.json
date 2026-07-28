@@ -22,7 +22,10 @@
   "freeze_points": {
     "champagne": {
       "sha": "7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9",
-      "tree": "b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9"
+      "tree": "b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca",
+      "historicalSuppliedTree": "b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9",
+      "historicalDisposition": "SUPERSEDED_ERRONEOUS_RECORDED_TREE_VALUE",
+      "verificationCommand": "git rev-parse 7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9^{tree}"
     },
     "chatbot_engine": {
       "sha": "875604639b6c01495b0c41b9fe843be8c8e4eda6"

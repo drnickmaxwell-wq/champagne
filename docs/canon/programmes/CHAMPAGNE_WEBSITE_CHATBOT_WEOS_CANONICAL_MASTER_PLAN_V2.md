@@ -20,7 +20,14 @@ Make Champagne the golden tenant for WEOS by stabilizing the flagship experience
 ### Champagne
 
 - SHA: `7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9`
-- Tree: `b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9`
+- Authoritative Git tree: `b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca`
+- Verification command:
+  `git rev-parse 7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9^{tree}`
+
+Historical-error note: the supplied source recorded
+`b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9`. That value is preserved only as
+historical evidence and is superseded for operational comparison. Git object
+identity controls operational freeze comparison.
 
 ### Chatbot engine
 

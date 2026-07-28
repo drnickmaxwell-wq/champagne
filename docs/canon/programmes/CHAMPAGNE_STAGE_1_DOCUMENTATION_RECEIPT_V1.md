@@ -4,16 +4,23 @@
 **Stage:** `0_CANONICAL_DOCUMENTATION`
 **Date:** 2026-07-28
 **Branch:** `docs/champagne-stage-1-canon-v1-20260728`
-**Status:** Stage 1 documentation prepared and validated; no merge or deployment authority
+**Status:** Stage 1 canon corrected under Founder and Main Directorate A01–A06 authority; no merge or deployment authority
 
 ## Inputs
 
 - Founder authority: `CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1`
+- Corrective Main Directorate authority:
+  `MAIN_DIRECTORATE_APPROVES_CHAMPAGNE_PR857_AMENDMENTS_CHAMP_S1_A01_TO_A06_V1`
+- Corrective Founder authority:
+  `FOUNDER_AUTHORISATION_CHAMPAGNE_PR857_AMENDMENTS_CHAMP_S1_A01_TO_A06_V1`
 - Founder instruction to complete Stage 1 in the Champagne repository.
 - The exact Markdown and JSON payloads supplied for the Stage 1 programme canon.
 - The bounded `AGENTS.md` section supplied for one-time insertion.
 - Recorded Champagne freeze commit: `7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9`
-- Recorded Champagne freeze tree: `b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9`
+- Source-recorded erroneous Champagne freeze tree:
+  `b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9`
+- Authoritative verified Champagne freeze tree:
+  `b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca`
 - Recorded chatbot-engine freeze commit: `875604639b6c01495b0c41b9fe843be8c8e4eda6`
 
 ## Source documents
@@ -52,9 +59,15 @@
 - The recorded Champagne freeze commit exists.
 - The recorded Champagne freeze commit is the current pre-commit HEAD, so it is in history and there are no commits after the freeze to reconcile.
 - Relevant approved canon created after the freeze: none.
-- Git reports the actual tree for commit `7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9` as `b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca`.
-- The supplied V2 source records the tree as `b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9`.
-- Decision: preserve the supplied V2 source exactly and report the tree mismatch rather than silently changing founder-supplied canon.
+- Verification command:
+  `git rev-parse 7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9^{tree}`
+- Authoritative verified result:
+  `b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca`.
+- Historical erroneous supplied result:
+  `b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9`.
+- Main Directorate and Founder resolution: preserve the erroneous value only as
+  historical evidence. The verified Git tree controls operational freeze
+  comparison because Git object identity is authoritative.
 
 ## Collisions found
 
@@ -74,21 +87,45 @@
   mainline canon.
 - Per founder instruction, the safe non-conflicting branch variant
   `docs/champagne-stage-1-canon-v1-20260728` was created from `main`.
+- Duplicate pull request `#856` was later closed unmerged with
+  `SUPERSEDED_DUPLICATE_BY_PR_857`; its branch and head were preserved.
+- Pull request `#857` remained the canonical open draft.
 - No genuine contradiction with newer approved Champagne canon was found because HEAD equals the freeze commit.
 - The existing active material and operational canon is additive and does not contradict the supplied Stage 1 programme documents.
 
 ## Decisions
 
-- Preserved the supplied V2 JSON plan as the canonical machine source.
+- Preserved the V2 plan as `FOUNDER_REVIEW_DRAFT_NON_MUTATING` source direction.
 - Reapplied the materially matching, unmerged Stage 1 documentation patch to the
   safe branch variant, then updated this receipt to describe the current run.
-- Kept the Master Truth Amendment separate, additive, proposed and without runtime authority.
-- Added the programme index and explicit precedence/conflict rules.
-- Preserved all supplied freeze values while separately recording the tree-hash evidence mismatch.
+- Kept the Master Truth Amendment separate and additive, accepted it as a
+  product-local overlay and granted it no runtime authority.
+- Made the Stage 1 acceptance contract the controlling acceptance wrapper.
+- Resolved the freeze-tree mismatch using verified Git object identity while
+  retaining the supplied erroneous value as historical evidence.
 - Added the founder-supplied bounded `AGENTS.md` section once without removing or rewriting unrelated instructions.
 - Granted no Stage B authority and made no automatic stage advancement.
-- Treated the founder's exact current-stage instruction as authority for the required docs-only branch, commit and draft pull request under the index precedence rule.
+- Distinguished explicitly granted documentation transaction authority from
+  installed-canon and future runtime authority.
 - Made no product, Router, WEOS, chatbot-engine, runtime, clinical, booking, privacy, merge, deployment or publication change.
+
+## Authority timeline and procedural record
+
+- Founder documentation authority existed for the original Stage 1
+  documentation work.
+- Branch, commit and draft pull request preparation occurred before Main
+  Directorate execution approval. Main Directorate approval did not exist at
+  that time and is not claimed retrospectively.
+- No merge occurred, no product code changed and no production runtime change
+  occurred.
+- Opening the draft pull requests triggered automated non-production Vercel
+  preview deployments. No manual preview deployment and no production
+  deployment occurred.
+- The work entered retrospective Founder and Main Directorate review.
+- Duplicate pull request `#856` was closed unmerged and superseded by `#857`.
+  Pull request `#857` remained the canonical draft.
+- The A01–A06 corrective amendments were later authorised by both the Main
+  Directorate and Founder for the existing `#857` branch only.
 
 ## Exact files changed
 
@@ -110,7 +147,10 @@
 - Added the ten founder-supplied programme canon files.
 - Added this Stage 1 receipt.
 - Appended one `## Champagne golden-tenant canon` section to `AGENTS.md`.
-- No existing canon or contract file was rewritten.
+- Corrected the same 12 existing Stage 1 paths under A01–A06 authority; no new
+  file was added.
+- Normalised freeze evidence, authority classes, product-local ownership,
+  amendment acceptance and wrapper-controlled precedence.
 - No product or runtime field changed.
 
 ## Tests and results
@@ -128,6 +168,13 @@
 | Bounded `AGENTS.md` section count | PASS — exactly one |
 | Changed-file scope allowlist | PASS — documentation/contracts and `AGENTS.md` only |
 | Authority-boundary assertions | PASS — Stage B false; chatbot implementation false; amendment mutation authorities false |
+| A01–A06 corrective path allowlist | PASS — exactly the 12 authorised existing Stage 1 paths; no new files |
+| Corrective JSON, read-order and precedence checks | PASS — five JSON files parsed; machine and Markdown orders agree; 23 IDs are unique; wrapper precedence and authority denials verified |
+| Corrective diff whitespace check | PASS |
+| Corrective `npm run guard:hero` | PASS — Hero Guard and sacred Hero lock |
+| Corrective `npm run guard:canon` | PASS — retired booking routes, patient portal SSR and canon integrity |
+| Corrective `npm run verify` | PASS — exact amended state in an identical temporary no-space worktree |
+| Corrective security and independent exact-head review | POST-COMMIT EXACT-HEAD CHECK — report against the pushed amended SHA |
 | Staged whitespace check | EXPECTED WARNINGS — founder-supplied Markdown contains intentional two-space hard breaks and was preserved exactly |
 | `npm run guard:hero` | PASS |
 | `npm run guard:canon` | PASS |
@@ -153,29 +200,43 @@ Validation setup notes:
 - Product tooling was not changed under documentation-only authority. The full
   `npm run verify` suite passed from a temporary no-space Git worktree at the
   identical freeze commit, and that temporary worktree was removed afterward.
+- The corrective run copied the exact amended 12-file state into a new temporary
+  no-space worktree at the required starting head. `npm run verify` passed there,
+  and the temporary worktree was removed afterward.
 - Non-failing repository warnings observed: stale Browserslist data, a broad Tailwind content pattern, treatment inventory `78` versus machine manifest `79`, skipped manifest sync because manifests were reported missing by that guard, and missing optional chatbot QA/conversation inputs. No warning was caused by the Stage 1 documentation files.
 
 ## Human authority
 
 - Founder authority phrase: `CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1`
 - Founder explicitly required the docs-only branch, documentation commit and draft pull request for this Stage 1 execution.
+- Main Directorate corrective authority:
+  `MAIN_DIRECTORATE_APPROVES_CHAMPAGNE_PR857_AMENDMENTS_CHAMP_S1_A01_TO_A06_V1`
+- Founder corrective authority:
+  `FOUNDER_AUTHORISATION_CHAMPAGNE_PR857_AMENDMENTS_CHAMP_S1_A01_TO_A06_V1`
 - Founder remains visual, product and final acceptance authority.
-- No clinical, regulatory, booking, privacy, publication, Stage B, merge or deployment approval was inferred.
+- The corrective authority permits only A01–A06 amendments and commit/push on
+  the existing `#857` branch.
+- No clinical, regulatory, booking, privacy, publication, Stage B, merge,
+  production deployment, environment or secret-change authority was inferred.
 
 ## Unresolved conflicts
 
-- The only unresolved evidence conflict is the supplied Champagne freeze tree `b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9` versus Git's actual tree `b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca` for the same freeze commit.
-- Founder resolution is required before any future document corrects or reinterprets that tree value.
-- Draft pull request `#856` already proposes the same Stage 1 programme canon
-  from the original branch. Founder review should select one Stage 1 draft and
-  close the duplicate before any authorised merge.
-- The proposed V2 plan and additive amendment still require founder acceptance or amendment as described in their own statuses.
+- The freeze-tree mismatch is resolved: verified Git tree
+  `b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca` controls operational comparison.
+- Duplicate pull request `#856` is closed unmerged; `#857` is the canonical draft.
+- Permanent WEOS, SEO, Marketing OS, tenant-platform, Foundry School and Router
+  canon remain external and require future cross-lane reconciliation where
+  applicable.
+- Wave 13 remains an external review dependency before later merge review if a
+  new Agent entry freeze is established.
 - Stage B remains ungranted and requires the separate exact phrase `CHAMPAGNE_STAGE_B_HYDRATION_AND_LIFECYCLE_STABILIZATION`.
 
 ## Rollback
 
-- Before merge: close the new draft pull request and delete
-  `docs/champagne-stage-1-canon-v1-20260728`.
+- Corrective rollback point:
+  `5241d0ef491d7d4a42463e46c562623effd47458`.
+- Before merge: reset the existing draft branch to the corrective rollback point
+  only under separate rollback authority.
 - After an authorised merge: revert the single Stage 1 documentation commit.
 - Rollback removes only the ten supplied canon files, this receipt and the bounded `AGENTS.md` addition.
 - No product/runtime rollback, deployment rollback or data migration is required because Stage 1 changes no product behaviour.

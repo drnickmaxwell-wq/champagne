@@ -1,14 +1,45 @@
 {
   "schemaVersion": "CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1",
-  "status": "PROPOSED_ADDITIVE_CANON_NO_RUNTIME_AUTHORITY",
+  "status": "FOUNDER_AND_MAIN_DIRECTORATE_ACCEPTED_ADDITIVE_PRODUCT_LOCAL_ACCEPTANCE_OVERLAY_NO_RUNTIME_AUTHORITY",
   "date": "2026-07-27",
   "appliesTo": "CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2",
-  "precedenceRule": "This amendment is additive only. It does not silently replace, reinterpret or grant authority beyond the V2 plan.",
+  "scope": "PRODUCT_LOCAL_ACCEPTANCE_OVERLAY_AND_FUTURE_CROSS_LANE_RECONCILIATION_INPUT",
+  "champagneRepositoryOwns": [
+    "Champagne product canon",
+    "Champagne golden-tenant acceptance obligations",
+    "Champagne-local design, content, media, SEO launch and chatbot integration requirements"
+  ],
+  "champagneRepositoryDoesNotOwn": [
+    "permanent WEOS canon",
+    "permanent SEO canon",
+    "Marketing OS canon",
+    "tenant platform canon",
+    "Foundry School canon",
+    "Router authority"
+  ],
+  "externalBoundaryRule": "Non-owned areas are external dependencies and future cross-lane reconciliation requirements.",
+  "precedenceRule": "This accepted product-local amendment is additive only. It does not replace V2 draft source direction, override the controlling acceptance wrapper or grant runtime authority.",
+  "evidenceLevelEnum": [
+    "CONCEPT",
+    "CANON_ONLY",
+    "SCHEMA_ONLY",
+    "FIXTURE_PROVEN",
+    "MANUAL_IMPORT_PROVEN",
+    "LIVE_READ_PROVEN",
+    "LIVE_WRITE_APPROVAL_GATED",
+    "BOUNDED_AUTONOMOUS_LOW_RISK",
+    "PRODUCTION_RELIABLE"
+  ],
+  "stageJSplit": [
+    "J1_TECHNICAL_LAUNCH_CERTIFICATION",
+    "J2_SEARCH_AND_LOCAL_ACTIVATION",
+    "J3_POST_LAUNCH_OBSERVATION"
+  ],
   "additions": [
     {
       "id": "AMEND-001",
       "title": "Semantic capability evidence levels",
-      "requirement": "Every WEOS, SEO, website and chatbot capability must state whether it is concept, canon-only, schema-only, fixture-proven, manual-import proven, live-read proven, approval-gated write, bounded autonomous low-risk or production-reliable."
+      "requirement": "Every WEOS, SEO, website and chatbot capability must use exactly one value from evidenceLevelEnum."
     },
     {
       "id": "AMEND-002",
@@ -48,7 +79,7 @@
     {
       "id": "AMEND-009",
       "title": "Stage J separation",
-      "requirement": "When separately authorised, split Stage J into J1 technical launch certification, J2 search and local activation, and J3 post-launch observation. No substage inherits authority from another."
+      "requirement": "When separately authorised, split Stage J exactly as declared in stageJSplit. No substage inherits authority from another."
     }
   ],
   "authority": {

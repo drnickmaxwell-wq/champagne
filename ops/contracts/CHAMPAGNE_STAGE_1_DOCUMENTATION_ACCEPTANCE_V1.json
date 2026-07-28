@@ -1,8 +1,39 @@
 {
   "schemaVersion": "CHAMPAGNE_STAGE_1_DOCUMENTATION_ACCEPTANCE_V1",
   "stage": "0_CANONICAL_DOCUMENTATION",
-  "status": "PROPOSED_ACCEPTANCE_CONTRACT",
+  "status": "FOUNDER_AND_MAIN_DIRECTORATE_ACCEPTED_CONTROLLING_WRAPPER_NO_RUNTIME_AUTHORITY",
   "requiredAuthorityPhrase": "CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1",
+  "controllingResolution": "ACCEPTANCE_WRAPPER_CONTROLS_WHILE_V2_REMAINS_DRAFT",
+  "v2Disposition": {
+    "status": "FOUNDER_REVIEW_DRAFT_NON_MUTATING",
+    "role": "SOURCE_DIRECTION"
+  },
+  "programmeDirection": {
+    "acceptedOnlyThroughThisWrapper": true,
+    "subjectToAmendments": [
+      "CHAMP-S1-A01",
+      "CHAMP-S1-A02",
+      "CHAMP-S1-A03",
+      "CHAMP-S1-A04",
+      "CHAMP-S1-A05",
+      "CHAMP-S1-A06"
+    ]
+  },
+  "authority": {
+    "documentationTransactionAuthority": {
+      "requiresExactStageAuthority": true,
+      "branch": true,
+      "commit": true,
+      "draftPullRequest": true
+    },
+    "futureRuntimeAuthority": false,
+    "mergeAuthority": false,
+    "productionDeploymentAuthority": false,
+    "stageBAuthority": false,
+    "routerAuthority": false,
+    "weosAuthority": false,
+    "chatbotEngineAuthority": false
+  },
   "scope": [
     "canonical plan preservation",
     "human-readable companion",
@@ -13,14 +44,16 @@
     "documentation-only validation and receipt"
   ],
   "acceptanceCriteria": [
-    "The supplied V2 JSON is preserved semantically unchanged.",
-    "The Markdown companion states that the JSON remains canonical.",
-    "The amendment is stored separately and explicitly additive.",
+    "The V2 document remains FOUNDER_REVIEW_DRAFT_NON_MUTATING source direction.",
+    "Programme direction is accepted only through this controlling wrapper.",
+    "Acceptance is subject to CHAMP-S1-A01 through CHAMP-S1-A06.",
+    "The Master Truth Amendment is accepted, separate, additive and product-local.",
     "Programme precedence and conflict rules are machine-readable.",
-    "Freeze SHAs match the supplied V2 plan.",
+    "The freeze SHA and verified Git tree are authoritative while the erroneous supplied tree is preserved historically.",
     "No Stage B authority is granted.",
     "No product, Router, WEOS or chatbot-engine source is changed.",
-    "No branch, commit, pull request, merge or deploy is claimed without separate authority.",
+    "Documentation branch, commit and draft-PR transactions require exact Stage 0 authority.",
+    "No runtime, merge or production deployment authority is granted.",
     "Every future agent is directed to the programme index before work.",
     "A documentation receipt lists inputs, decisions, changed files, tests, approvals and rollback."
   ],
@@ -44,10 +77,11 @@
     "hero_flash_or_remount_regression",
     "stale_chatbot_answers",
     "booking_or_privacy_semantic_change",
-    "supplied_v2_plan_rewritten_in_place",
-    "amendment_presented_as_already_approved",
+    "v2_draft_presented_as_independently_accepted_controlling_canon",
+    "accepted_product_local_amendment_presented_as_company_wide_platform_canon",
     "authority_inherited_from_documentation_stage",
-    "freeze_sha_changed_without_founder_resolution"
+    "receipt_presented_as_overriding_canon",
+    "verified_freeze_tree_replaced_without_exact_authority"
   ],
   "rollback": "Remove the documentation-only files or revert the documentation commit. Product runtime must remain unchanged."
 }
