@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "ROUTER_REPOSITORY_POLICY_V1",
+  "policyId": "CHAMPAGNE_WEBSITE_ROUTER_REPOSITORY_POLICY_V1",
+  "repository": "drnickmaxwell-wq/champagne",
+  "repositoryRole": "CHAMPAGNE_GOLDEN_TENANT_PUBLIC_WEBSITE_MONOREPO",
+  "canonicalInstructionFile": "AGENTS.md",
+  "providerAdapters": {
+    "claudeCode": "CLAUDE.md",
+    "geminiCli": "GEMINI.md"
+  },
+  "nestedInstructionFiles": [
+    "apps/web/AGENTS.md",
+    "packages/champagne-hero/AGENTS.md",
+    "packages/champagne-manifests/AGENTS.md",
+    "packages/champagne-guards/AGENTS.md"
+  ],
+  "mandatoryCanonReadOrder": [
+    "docs/canon/programmes/CHAMPAGNE_CANON_PROGRAMME_INDEX_V1.md",
+    "ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json",
+    "ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json",
+    "ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json"
+  ],
+  "resolutionOrder": [
+    "PLATFORM_AND_SECURITY_POLICY",
+    "ROOT_AGENTS_MD",
+    "MANDATORY_CHAMPAGNE_CANON",
+    "NEAREST_SCOPED_AGENTS_MD",
+    "THIS_MACHINE_POLICY",
+    "EXACT_STAGE_SPECIFIC_FOUNDER_AUTHORITY_AND_BUILD_PACKET"
+  ],
+  "controllerRequirements": {
+    "loadInstructionsBeforeProviderCall": true,
+    "recordInstructionPaths": true,
+    "recordInstructionSha256": true,
+    "recordCanonPaths": true,
+    "recordCanonSha256": true,
+    "recordEffectiveBundleSha256": true,
+    "detectConflicts": true,
+    "detectTruncation": true,
+    "detectStageAuthorityMismatch": true,
+    "failClosedOnMissingCanonicalInstructions": true,
+    "failClosedOnMissingMandatoryCanon": true,
+    "failClosedOnConflict": true,
+    "failClosedOnTruncation": true,
+    "failClosedOnStageAuthorityMismatch": true,
+    "revalidateBeforePatchApply": true
+  },
+  "authority": {
+    "read": true,
+    "audit": true,
+    "plan": true,
+    "mutation": "EXACT_STAGE_AND_PATH_AUTHORITY_REQUIRED",
+    "stageAuthorityInheritance": false,
+    "crossRepositoryMutation": false,
+    "routerMutation": false,
+    "weosMutation": false,
+    "chatbotEngineMutation": false,
+    "zoneBMutation": false,
+    "merge": false,
+    "deploy": false,
+    "publish": false,
+    "productionConfiguration": false,
+    "credentialAccess": false,
+    "phi": false,
+    "autonomousClinicalDecision": false
+  },
+  "protectedSurfaces": [
+    "packages/champagne-hero/**",
+    "packages/champagne-manifests/data/hero/sacred_*",
+    "apps/web/app/components/hero/HeroRenderer.tsx",
+    "apps/web/app/layout.tsx",
+    "apps/web/app/globals.css",
+    "apps/web/app/components/layout/**",
+    "apps/web/app/**/route.*",
+    "packages/champagne-guards/**",
+    "packages/champagne-tokens/**",
+    "ops/contracts/**",
+    "docs/canon/**",
+    ".github/workflows/**",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "requiredChecks": [
+    "pnpm run guard:hero",
+    "pnpm run guard:canon",
+    "pnpm run guard:champagne-contracts",
+    "pnpm run lint",
+    "pnpm run typecheck",
+    "pnpm run build:web",
+    "pnpm run verify"
+  ],
+  "hardStops": [
+    "MISSING_OR_CONFLICTING_CHAMPAGNE_CANON",
+    "STAGE_AUTHORITY_MISSING_MISMATCHED_OR_INHERITED",
+    "SACRED_HERO_SCOPE_WITHOUT_EXACT_HERO_AUTHORITY",
+    "GUARD_BYPASS_WEAKENING_OR_BROAD_EXEMPTION",
+    "RAW_STYLE_TOKEN_OR_SEMANTIC_SURFACE_DRIFT",
+    "PHI_CLINICAL_PATIENT_SERVICE_OR_UNAUTHORISED_BOOKING_EXPANSION",
+    "ROUTER_WEOS_CHATBOT_ENGINE_ZONE_B_OR_OTHER_REPOSITORY_MUTATION",
+    "MERGE_DEPLOY_PUBLICATION_OR_PRODUCTION_AUTHORITY_MISSING",
+    "INSTRUCTION_CONTEXT_MISSING_CONFLICTING_STALE_OR_TRUNCATED"
+  ],
+  "notes": [
+    "No stage inherits authority from another stage.",
+    "The V2 JSON plan is canonical and the Master Truth amendment is additive unless separately accepted by Founder authority.",
+    "This policy constrains work; it does not grant execution authority.",
+    "Raw API workers receive this policy only when the Router explicitly loads and injects it."
+  ]
+}
