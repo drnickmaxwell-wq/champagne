@@ -115,7 +115,7 @@
   documentation work.
 - Branch, commit and draft pull request preparation occurred before Main
   Directorate execution approval. Main Directorate approval did not exist at
-  that time and is not claimed retrospectively.
+  that time. Its later approval was retrospective and is not backdated.
 - No merge occurred, no product code changed and no production runtime change
   occurred.
 - Opening the draft pull requests triggered automated non-production Vercel
