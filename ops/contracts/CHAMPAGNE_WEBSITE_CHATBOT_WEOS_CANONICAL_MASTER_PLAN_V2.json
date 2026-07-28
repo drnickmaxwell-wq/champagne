@@ -1,0 +1,433 @@
+{
+  "document": {
+    "id": "CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2",
+    "version": "2.0.0",
+    "date": "2026-07-27",
+    "status": "FOUNDER_REVIEW_DRAFT_NON_MUTATING",
+    "audience": [
+      "Founder",
+      "Main Directorate",
+      "Marketing",
+      "Design",
+      "Engineering",
+      "WEOS"
+    ],
+    "markdown_companion": "CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.md"
+  },
+  "decision": {
+    "hero_v2": "PRESERVE_AND_STABILIZE",
+    "replace_hero": false,
+    "programme_thesis": "Make Champagne the golden tenant for WEOS by stabilizing the flagship experience, defining governed page families, rewriting truthfully, integrating a safe premium concierge, and encoding accepted outcomes as machine-verifiable contracts."
+  },
+  "freeze_points": {
+    "champagne": {
+      "sha": "7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9",
+      "tree": "b5ca7f10f5fb8e05cccd37676a58194ac6ee28ca",
+      "historicalSuppliedTree": "b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9",
+      "historicalDisposition": "SUPERSEDED_ERRONEOUS_RECORDED_TREE_VALUE",
+      "verificationCommand": "git rev-parse 7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9^{tree}"
+    },
+    "chatbot_engine": {
+      "sha": "875604639b6c01495b0c41b9fe843be8c8e4eda6"
+    }
+  },
+  "authority": {
+    "current": [
+      "Stage A read-only",
+      "Stage F read-only design collaboration",
+      "Chatbot-engine read-only audit and integration planning"
+    ],
+    "not_authorized": [
+      "product source mutation",
+      "branch creation",
+      "commit",
+      "pull request",
+      "merge",
+      "deployment",
+      "production change",
+      "Agent Router mutation",
+      "WEOS mutation",
+      "chatbot-engine mutation"
+    ],
+    "stage_b_exact_phrase": "CHAMPAGNE_STAGE_B_HYDRATION_AND_LIFECYCLE_STABILIZATION",
+    "proposed_docs_only_phrase": "CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1",
+    "rule": "No stage inherits mutation authority from another stage."
+  },
+  "audit_coverage": [
+    {
+      "area": "repository_identity_and_freeze",
+      "status": "complete"
+    },
+    {
+      "area": "hero_v2_activation_and_chromium_runtime",
+      "status": "complete_for_captured_run"
+    },
+    {
+      "area": "hero_lifecycle_and_background_cascade",
+      "status": "bounded"
+    },
+    {
+      "area": "webkit_safari_equivalence",
+      "status": "outstanding"
+    },
+    {
+      "area": "production_environment_parity",
+      "status": "outstanding"
+    },
+    {
+      "area": "design_authority_and_manus_classification",
+      "status": "complete_at_authority_level"
+    },
+    {
+      "area": "homepage_manifest_and_section_engine",
+      "status": "complete_at_architecture_level"
+    },
+    {
+      "area": "content",
+      "status": "inventory_complete_page_review_outstanding"
+    },
+    {
+      "area": "media",
+      "status": "inventory_complete_genuine_practice_media_absent"
+    },
+    {
+      "area": "seo",
+      "status": "foundation_only"
+    },
+    {
+      "area": "accessibility_and_performance",
+      "status": "partial"
+    },
+    {
+      "area": "chatbot_ui",
+      "status": "architecture_complete_interaction_qa_outstanding"
+    },
+    {
+      "area": "chatbot_engine",
+      "status": "read_only_audit_complete"
+    },
+    {
+      "area": "weos",
+      "status": "acceptance_and_gap_plan_only"
+    }
+  ],
+  "known_evidence": {
+    "hero_v2_active": true,
+    "stack_identity_continuity_across_navigation": false,
+    "video_current_time_continuity": false,
+    "content_fade_lifecycle_churn_observed": true,
+    "explicit_hydration_exception_observed": false,
+    "reduced_motion_evidence_captured": true,
+    "webkit_evidence_captured": false,
+    "environment_parity_proven": false,
+    "root_body_canvas_exposes_charcoal_through_transparent_surfaces": true,
+    "genuine_practice_media_present": false,
+    "runtime_fallback_copy_present": true,
+    "active_homepage_section_count": 11
+  },
+  "design_programme": {
+    "hero_families": [
+      "flagship",
+      "treatment_hub",
+      "treatment_child",
+      "reassurance",
+      "urgent",
+      "people_story",
+      "utility"
+    ],
+    "golden_pages": [
+      "homepage",
+      "treatments_hub",
+      "dental_implants_hub",
+      "implant_child",
+      "cosmetic_dentistry_hub",
+      "composite_bonding",
+      "nervous_patients",
+      "emergency_dentistry",
+      "team_about",
+      "fees_finance_contact"
+    ],
+    "section_roles": [
+      "orientation",
+      "decision_support",
+      "process",
+      "evidence",
+      "reassurance",
+      "action"
+    ],
+    "cta_intents": [
+      "book_consultation",
+      "request_callback",
+      "call_practice",
+      "explore_treatments",
+      "compare_options",
+      "read_patient_story",
+      "ask_concierge",
+      "open_directions",
+      "download_or_prepare"
+    ],
+    "first_design_pair": [
+      "homepage",
+      "composite_bonding"
+    ]
+  },
+  "persian_midnight": {
+    "method": "isolated_token_laboratory",
+    "immutable_brand_chroma": [
+      "magenta",
+      "turquoise_teal",
+      "gold"
+    ],
+    "candidate_materials": [
+      "Ink Persian",
+      "Velvet Persian",
+      "Luminous Persian"
+    ],
+    "test_dimensions": [
+      "contrast",
+      "first_frame_delta",
+      "transparent_holes",
+      "compositing_layers",
+      "video_poster_match",
+      "wide_gamut_behavior",
+      "desktop_mobile",
+      "reduced_motion"
+    ],
+    "forbidden": "Changing the production root token inside Stage B"
+  },
+  "content": {
+    "codex_can_lead_rewrite": true,
+    "publication_model": "Founder_clinical_regulatory_review_required",
+    "sequence": [
+      "page_truth_sheet",
+      "intent_map",
+      "remove_ai_cadence_and_unsupported_claims",
+      "rewrite_ten_golden_pages",
+      "add_limits_alternatives_uncertainty",
+      "reconcile_chatbot_and_schema",
+      "quality_and_duplication_checks",
+      "human_signoff",
+      "weos_scale"
+    ],
+    "launch_blockers": [
+      "generic_fallback_copy",
+      "placeholder_people_or_media",
+      "unsupported_outcomes_or_guarantees",
+      "invented_practice_facts",
+      "conflicting_fees_availability_or_booking",
+      "duplicate_search_intent",
+      "stale_chatbot_page_truth"
+    ]
+  },
+  "media": {
+    "stock_assets_are_practice_truth": false,
+    "priority_brief": [
+      "exterior_entrance_reception_accessibility",
+      "founder_clinician_environmental_portraits",
+      "team_portraits",
+      "treatment_rooms_and_real_technology",
+      "patient_journey_details",
+      "consented_patient_stories_and_before_after",
+      "hero_motion_plates",
+      "location_parking_transport",
+      "material_texture_details"
+    ],
+    "required_ledger_fields": [
+      "owner",
+      "consent_or_license",
+      "captured_date",
+      "subject",
+      "treatment",
+      "crop_safe_zones",
+      "alt_text_purpose",
+      "color_profile",
+      "source_hash",
+      "derivatives",
+      "expiry_or_review_rule"
+    ]
+  },
+  "chatbot_ui_ux": {
+    "current_strengths": [
+      "global_launcher",
+      "page_context",
+      "structured_cards",
+      "calm_error_copy",
+      "handoff_modal",
+      "escape_key",
+      "explicit_non_clinical_boundary"
+    ],
+    "principal_issue": "Safety disclosure is comprehensive but front-loaded as six bullets before conversation.",
+    "target_components": [
+      "restrained_launcher",
+      "desktop_side_sheet",
+      "mobile_full_height_sheet",
+      "page_aware_quick_actions",
+      "accessible_message_stream",
+      "structured_navigation_cards",
+      "truth_grounded_comparison_cards",
+      "practice_and_booking_handoffs",
+      "resume_and_clear_session",
+      "privacy_and_limitations_disclosure",
+      "offline_timeout_rate_limit_and_handoff_failure_states"
+    ],
+    "safety_boundaries": [
+      "no_diagnosis",
+      "no_triage",
+      "no_treatment_specific_advice",
+      "no_phi_collection_in_general_chat",
+      "approved_emergency_signposting",
+      "booking_is_a_request_until_confirmed",
+      "minimal_page_context",
+      "documented_session_lifetime",
+      "no_raw_sensitive_analytics",
+      "minimized_consented_handoff_payload"
+    ],
+    "implementation_authorized": false
+  },
+  "weos_acceptance": {
+    "required_contracts": [
+      "authority_and_freeze",
+      "page_truth_and_provenance",
+      "patient_intent",
+      "page_family",
+      "semantic_sections",
+      "cta_intent_and_handoff",
+      "claim_review",
+      "media_rights",
+      "tokens_and_surface_themes",
+      "responsive_and_motion",
+      "accessibility",
+      "internal_links_and_schema",
+      "chatbot_freshness",
+      "environment_parity",
+      "browser_visual_regression",
+      "release_refreeze"
+    ],
+    "required_receipt_fields": [
+      "inputs",
+      "sources",
+      "decisions",
+      "changed_fields",
+      "tests",
+      "human_approvals",
+      "rollback"
+    ],
+    "failure_conditions": [
+      "visual_baseline_loss",
+      "brand_chroma_change",
+      "invented_facts",
+      "generic_fallback_copy",
+      "page_family_flattening",
+      "duplicate_intent",
+      "accessibility_regression",
+      "hero_flash_or_remount_regression",
+      "stale_chatbot_answers",
+      "booking_or_privacy_semantic_change"
+    ]
+  },
+  "ordered_stages": [
+    {
+      "id": "0",
+      "name": "canonical_documentation",
+      "authority": "CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1"
+    },
+    {
+      "id": "A-close",
+      "name": "webkit_and_environment_evidence",
+      "authority": "read_only"
+    },
+    {
+      "id": "B",
+      "name": "hero_hydration_and_lifecycle",
+      "authority": "CHAMPAGNE_STAGE_B_HYDRATION_AND_LIFECYCLE_STABILIZATION"
+    },
+    {
+      "id": "C",
+      "name": "persian_midnight_laboratory",
+      "authority": "separate_required"
+    },
+    {
+      "id": "D",
+      "name": "page_family_section_cta_design_system",
+      "authority": "separate_required"
+    },
+    {
+      "id": "E",
+      "name": "golden_page_implementation",
+      "authority": "separate_required_per_batch"
+    },
+    {
+      "id": "F",
+      "name": "content_truth_and_rewrite",
+      "authority": "separate_required"
+    },
+    {
+      "id": "G",
+      "name": "genuine_media",
+      "authority": "separate_required"
+    },
+    {
+      "id": "H",
+      "name": "chatbot_ui_ux",
+      "authority": "separate_required"
+    },
+    {
+      "id": "I",
+      "name": "chatbot_engine_integration",
+      "authority": "separate_required"
+    },
+    {
+      "id": "J",
+      "name": "seo_accessibility_performance_launch",
+      "authority": "separate_required"
+    },
+    {
+      "id": "K",
+      "name": "weos_encoding_and_regeneration",
+      "authority": "separate_agent_weos_authority"
+    },
+    {
+      "id": "L",
+      "name": "refreeze",
+      "authority": "programme_acceptance"
+    }
+  ],
+  "proposed_repo_paths": {
+    "champagne": [
+      "docs/canon/programmes/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.md",
+      "ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json",
+      "docs/canon/programmes/CHAMPAGNE_PAGE_FAMILY_DESIGN_DECISIONS_V1.md",
+      "docs/canon/programmes/CHAMPAGNE_CHATBOT_UI_UX_DECISIONS_V1.md",
+      "docs/canon/programmes/CHAMPAGNE_WEOS_GOLDEN_TENANT_ACCEPTANCE_V1.md",
+      "AGENTS.md"
+    ],
+    "chatbot_engine": [
+      "docs/product/CHAMPAGNE_CHATBOT_ENGINE_INTEGRATION_MASTER_PLAN_V1.md",
+      "docs/product/CHAMPAGNE_CHATBOT_ENGINE_MUTATION_CONTRACT_V1.json"
+    ]
+  },
+  "execution_recommendation": {
+    "documentation": "small_github_docs_only_pr_after_exact_authority",
+    "stage_b": "codex_desktop_gpt_5_6_sol_high_or_xhigh_bounded_session",
+    "independent_checker": "connector_bot_review_only_after_each_pr_if_installation_and_authority_are_verified",
+    "founder_role": "visual_product_and_final_acceptance_authority"
+  },
+  "stop_conditions": [
+    "hero_v2_not_active",
+    "flash_not_reproducible_or_bounded",
+    "material_environment_difference",
+    "sacred_manifest_change_required",
+    "overlapping_human_feature_writer",
+    "scope_expansion",
+    "unapproved_clinical_or_booking_semantic_change"
+  ],
+  "next_decisions": [
+    "approve_or_amend_programme",
+    "approve_docs_only_phrase_and_paths",
+    "decide_whether_to_close_webkit_and_environment_gaps_before_stage_b",
+    "separately_issue_stage_b_exact_phrase_when_ready",
+    "confirm_homepage_and_composite_bonding_as_first_design_pair",
+    "supply_external_reports_not_already_in_repo",
+    "name_clinical_approver_and_practice_truth_source"
+  ]
+}
