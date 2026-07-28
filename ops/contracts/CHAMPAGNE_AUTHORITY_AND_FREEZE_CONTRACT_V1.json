@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1",
+  "status": "DOCUMENTATION_ONLY_NO_MUTATION",
+  "documentationPhrase": "CHAMPAGNE_CANONICAL_TRANSFORMATION_PLAN_DOCUMENTATION_V1",
+  "freezePoints": {
+    "champagne": {
+      "sha": "7be05b21a36e2fbc899c41ced4f7ce7c6cdeaad9",
+      "tree": "b5ca7b5f6ac3f988e6ec9a9ced586ad34dd411b9"
+    },
+    "chatbot_engine": {
+      "sha": "875604639b6c01495b0c41b9fe843be8c8e4eda6"
+    }
+  },
+  "currentAllowed": [
+    "install or propose documentation and machine-readable canon only after exact founder authority",
+    "validate JSON",
+    "compare hashes",
+    "report conflicts",
+    "produce a documentation-only receipt"
+  ],
+  "notAllowed": [
+    "product source mutation",
+    "branch creation",
+    "commit",
+    "pull request",
+    "merge",
+    "deployment",
+    "production change",
+    "Agent Router mutation",
+    "WEOS mutation",
+    "chatbot-engine mutation",
+    "automatic stage advancement",
+    "authority inheritance",
+    "silent reinterpretation of supplied V2 plan",
+    "automatic application of amendment requirements"
+  ],
+  "stageBExactPhrase": "CHAMPAGNE_STAGE_B_HYDRATION_AND_LIFECYCLE_STABILIZATION",
+  "stageBGranted": false,
+  "rule": "No stage inherits mutation authority from another stage.",
+  "stopConditions": [
+    "hero_v2_not_active",
+    "flash_not_reproducible_or_bounded",
+    "material_environment_difference",
+    "sacred_manifest_change_required",
+    "overlapping_human_feature_writer",
+    "scope_expansion",
+    "unapproved_clinical_or_booking_semantic_change"
+  ]
+}
