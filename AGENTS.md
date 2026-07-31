@@ -530,6 +530,7 @@ no reusable authority to any later PR, branch, stage, or agent.
 Agents MAY modify exactly these cumulative PR paths:
 - .github/workflows/verify.yml
 - AGENTS.md
+- apps/web/app/components/layout/Footer.tsx
 - packages/champagne-guards/package.json
 - packages/champagne-guards/scripts/guard-surface-semantics.mjs
 - packages/champagne-tokens/src/index.ts
@@ -541,6 +542,7 @@ Agents MAY modify exactly these cumulative PR paths:
 Scope:
 - Semantic surface ownership and export consistency.
 - Deterministic surface guards and browser evidence.
+- Footer semantic-painter binding through --surface-footer-emotion.
 - Dawn, dusk, and night canvas continuity through --surface-canvas.
 
 Hard prohibitions remain in force:

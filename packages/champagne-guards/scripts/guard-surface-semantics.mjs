@@ -14,6 +14,7 @@ const paths = {
   theme: "packages/champagne-tokens/styles/champagne/theme.css",
   timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
   exports: "packages/champagne-tokens/src/index.ts",
+  footer: "apps/web/app/components/layout/Footer.tsx",
   guardPackage: "packages/champagne-guards/package.json",
   workflow: ".github/workflows/verify.yml",
 };
@@ -42,6 +43,7 @@ const c1Paths = [
   paths.theme,
   paths.timeOfDay,
   paths.exports,
+  paths.footer,
   "packages/champagne-guards/scripts/guard-surface-semantics.mjs",
   paths.guardPackage,
   "tests/champagne-surface-semantics.spec.ts",
@@ -103,6 +105,7 @@ const tokens = read(paths.tokens);
 const theme = read(paths.theme);
 const timeOfDay = read(paths.timeOfDay);
 const exportsSource = read(paths.exports);
+const footerSource = read(paths.footer);
 const packageSource = read(paths.guardPackage);
 const workflow = read(paths.workflow);
 
@@ -123,6 +126,21 @@ for (const [token, expectedValue] of requiredRoles) {
 const bgInkValues = definitionValues(tokens, "--bg-ink");
 if (bgInkValues.length !== 1 || bgInkValues[0] !== "var(--surface-canvas)") {
   errors.push("--bg-ink must remain one compatibility alias to var(--surface-canvas)");
+}
+
+const footerBackgroundBindings = [
+  ...footerSource.matchAll(/"--smh-footer-bg"\s*:\s*"([^"]+)"\s*,/g),
+].map((match) => match[1]);
+if (
+  footerBackgroundBindings.length !== 1 ||
+  footerBackgroundBindings[0] !== "var(--surface-footer-emotion)"
+) {
+  errors.push(
+    "--smh-footer-bg must be assigned exactly once to var(--surface-footer-emotion) in apps/web/app/components/layout/Footer.tsx",
+  );
+}
+if (footerBackgroundBindings.includes("var(--smh-ink)")) {
+  errors.push("--smh-footer-bg must not bind directly to var(--smh-ink)");
 }
 
 for (const [themeName, expectedValue] of [

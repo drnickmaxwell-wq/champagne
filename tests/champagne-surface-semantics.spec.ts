@@ -143,6 +143,34 @@ function expectSemanticEvidence(evidence: Awaited<ReturnType<typeof readSurfaceE
   expect(evidence.nested.nestedInk).toBe(evidence.resolved.inkText);
 }
 
+async function expectFooterSemanticOwnership(page: Page) {
+  const evidence = await page.evaluate(() => {
+    const root = document.documentElement;
+    const footer = document.querySelector<HTMLElement>("footer");
+    const probe = document.createElement("div");
+    probe.style.background = "var(--surface-1)";
+    document.body.appendChild(probe);
+    const expected = getComputedStyle(probe).backgroundColor;
+    probe.remove();
+
+    const previousValue = root.style.getPropertyValue("--surface-footer-emotion");
+    const previousPriority = root.style.getPropertyPriority("--surface-footer-emotion");
+    root.style.setProperty("--surface-footer-emotion", "var(--surface-1)");
+    const actual = footer ? getComputedStyle(footer).backgroundColor : null;
+
+    if (previousValue) {
+      root.style.setProperty("--surface-footer-emotion", previousValue, previousPriority);
+    } else {
+      root.style.removeProperty("--surface-footer-emotion");
+    }
+
+    return { actual, expected };
+  });
+
+  expect(evidence.actual).not.toBeNull();
+  expect(evidence.actual).toBe(evidence.expected);
+}
+
 test("surface semantics remain deterministic on desktop direct loads and navigation", async ({
   page,
 }) => {
@@ -151,6 +179,7 @@ test("surface semantics remain deterministic on desktop direct loads and navigat
 
   await page.goto(`${BASE_URL}/`, { waitUntil: "networkidle" });
   expectSemanticEvidence(await readSurfaceEvidence(page));
+  await expectFooterSemanticOwnership(page);
 
   await page.locator('header a[href="/treatments"]').click();
   await page.waitForURL("**/treatments");
