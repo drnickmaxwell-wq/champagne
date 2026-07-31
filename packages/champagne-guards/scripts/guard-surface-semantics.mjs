@@ -12,6 +12,7 @@ const paths = {
   primitives: "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
   tokens: "packages/champagne-tokens/styles/champagne/tokens.css",
   theme: "packages/champagne-tokens/styles/champagne/theme.css",
+  timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
   exports: "packages/champagne-tokens/src/index.ts",
   guardPackage: "packages/champagne-guards/package.json",
   workflow: ".github/workflows/verify.yml",
@@ -39,6 +40,7 @@ const prohibitedCandidates = ["001126", "00142C", "071D3A", "031A39"].map(
 const c1Paths = [
   paths.tokens,
   paths.theme,
+  paths.timeOfDay,
   paths.exports,
   "packages/champagne-guards/scripts/guard-surface-semantics.mjs",
   paths.guardPackage,
@@ -57,13 +59,19 @@ function read(relativePath) {
   return readFileSync(absolutePath, "utf8");
 }
 
-function escapeRegex(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+function definitionValues(source, token) {
+  return [...source.matchAll(/(--[a-z0-9-]+)\s*:\s*([^;]+);/gi)]
+    .filter((match) => match[1] === token)
+    .map((match) => match[2].trim());
 }
 
-function definitionValues(source, token) {
-  const expression = new RegExp(`${escapeRegex(token)}\\s*:\\s*([^;]+);`, "gi");
-  return [...source.matchAll(expression)].map((match) => match[1].trim());
+function exportedTokenCount(source, token) {
+  const doubleQuoted = `"${token}",`;
+  const singleQuoted = `'${token}',`;
+  return source
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line === doubleQuoted || line === singleQuoted).length;
 }
 
 function blockFor(source, selectorFragment) {
@@ -93,6 +101,7 @@ function collectSourceFiles(rootPath) {
 const primitives = read(paths.primitives);
 const tokens = read(paths.tokens);
 const theme = read(paths.theme);
+const timeOfDay = read(paths.timeOfDay);
 const exportsSource = read(paths.exports);
 const packageSource = read(paths.guardPackage);
 const workflow = read(paths.workflow);
@@ -105,15 +114,33 @@ for (const [token, expectedValue] of requiredRoles) {
     errors.push(`${token} must preserve current truth as ${expectedValue}; found ${values[0]}`);
   }
 
-  const exportMatches = exportsSource.match(new RegExp(`^[ \\t]*["']${escapeRegex(token)}["']`, "gm")) ?? [];
-  if (exportMatches.length !== 1) {
-    errors.push(`${token} must be exported exactly once in ${paths.exports}; found ${exportMatches.length}`);
+  const exportCount = exportedTokenCount(exportsSource, token);
+  if (exportCount !== 1) {
+    errors.push(`${token} must be exported exactly once in ${paths.exports}; found ${exportCount}`);
   }
 }
 
 const bgInkValues = definitionValues(tokens, "--bg-ink");
 if (bgInkValues.length !== 1 || bgInkValues[0] !== "var(--surface-canvas)") {
   errors.push("--bg-ink must remain one compatibility alias to var(--surface-canvas)");
+}
+
+for (const [themeName, expectedValue] of [
+  ["dawn", "color-mix(in srgb, var(--brand-teal) 15%, white)"],
+  ["dusk", "var(--ink-100)"],
+  ["night", "var(--ink-100)"],
+]) {
+  const block = blockFor(timeOfDay, `:root[data-theme='${themeName}']`);
+  const canvasValues = definitionValues(block, "--surface-canvas");
+  const legacyValues = definitionValues(block, "--bg-ink");
+  if (canvasValues.length !== 1 || canvasValues[0] !== expectedValue) {
+    errors.push(
+      `${themeName} must define --surface-canvas exactly once as ${expectedValue}; found ${canvasValues.join(", ") || "missing"}`,
+    );
+  }
+  if (legacyValues.length !== 0) {
+    errors.push(`${themeName} must not override the --bg-ink compatibility alias`);
+  }
 }
 
 for (const [token, expectedValue] of immutableChroma) {

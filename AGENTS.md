@@ -521,6 +521,34 @@ Scope:
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — Champagne Stage C1 Surface Semantics Stabilization V2 (PR #860 only)
+
+This additive exemption applies only to the accepted Stage C1 sequence on PR #860.
+It expires automatically when PR #860 is merged, closed, or abandoned and grants
+no reusable authority to any later PR, branch, stage, or agent.
+
+Agents MAY modify exactly these cumulative PR paths:
+- .github/workflows/verify.yml
+- AGENTS.md
+- packages/champagne-guards/package.json
+- packages/champagne-guards/scripts/guard-surface-semantics.mjs
+- packages/champagne-tokens/src/index.ts
+- packages/champagne-tokens/styles/champagne/theme.css
+- packages/champagne-tokens/styles/champagne/time-of-day.css
+- packages/champagne-tokens/styles/champagne/tokens.css
+- tests/champagne-surface-semantics.spec.ts
+
+Scope:
+- Semantic surface ownership and export consistency.
+- Deterministic surface guards and browser evidence.
+- Dawn, dusk, and night canvas continuity through --surface-canvas.
+
+Hard prohibitions remain in force:
+- Preserve every general modification-zone, sacred-zone, PASS T1, and PASS T2 rule.
+- No Persian selection or binding and no new material value.
+- No design, layout, content, Hero, manifest, dependency, or environment change.
+- No ready-state, merge, deployment, or production authority.
+
 DIRECTOR_SCOPE_OVERRIDE: SEO_JSONLD_V1
 
 Director-authorized one-time override for structured SEO work.

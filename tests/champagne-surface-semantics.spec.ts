@@ -83,6 +83,7 @@ async function readSurfaceEvidence(page: Page) {
       ),
       resolved: {
         canvas: resolveTokenAsColor("--surface-canvas"),
+        bgInk: resolveTokenAsColor("--bg-ink"),
         brandInk: resolveTokenAsColor("--brand-ink"),
         ink: resolveTokenAsColor("--surface-ink"),
         inkSoft: resolveTokenAsColor("--surface-ink-soft"),
@@ -110,13 +111,20 @@ async function readSurfaceEvidence(page: Page) {
   });
 }
 
+function expectCanvasContinuity(evidence: Awaited<ReturnType<typeof readSurfaceEvidence>>) {
+  expect(evidence.resolved.bgInk).toBe(evidence.resolved.canvas);
+  expect(evidence.surfaces.root).toBe(evidence.resolved.canvas);
+  expect(evidence.surfaces.body).toBe(evidence.resolved.canvas);
+  expect(TRANSPARENT.has(evidence.surfaces.root)).toBe(false);
+  expect(TRANSPARENT.has(evidence.surfaces.body)).toBe(false);
+}
+
 function expectSemanticEvidence(evidence: Awaited<ReturnType<typeof readSurfaceEvidence>>) {
   for (const value of Object.values(evidence.tokens)) expect(value).not.toBe("");
 
   expect(evidence.resolved.canvas).toBe(evidence.resolved.brandInk);
   expect(evidence.resolved.ink).toBe(evidence.resolved.brandInk);
-  expect(evidence.surfaces.root).toBe(evidence.resolved.canvas);
-  expect(evidence.surfaces.body).toBe(evidence.resolved.canvas);
+  expectCanvasContinuity(evidence);
   expect(evidence.surfaces.header).not.toBeNull();
   expect(TRANSPARENT.has(evidence.surfaces.header ?? "")).toBe(false);
   expect(evidence.surfaces.main).toBe("rgba(0, 0, 0, 0)");
@@ -157,6 +165,25 @@ test("surface semantics remain deterministic on desktop direct loads and navigat
   expect(errors.pageErrors).toEqual([]);
   expect(errors.consoleErrors).toEqual([]);
 });
+
+for (const theme of ["dawn", "dusk", "night"] as const) {
+  test(`${theme} preserves root, body and semantic canvas continuity`, async ({ page }) => {
+    const errors = collectRuntimeErrors(page);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(`${BASE_URL}/`, { waitUntil: "networkidle" });
+    await page.evaluate((selectedTheme) => {
+      document.documentElement.dataset.theme = selectedTheme;
+    }, theme);
+
+    const evidence = await readSurfaceEvidence(page);
+    expectCanvasContinuity(evidence);
+    expect(evidence.heroEngine).toBe("v2");
+    expect(evidence.stackCount).toBe(1);
+    expect(evidence.contentOpacity).toBe("1");
+    expect(errors.pageErrors).toEqual([]);
+    expect(errors.consoleErrors).toEqual([]);
+  });
+}
 
 test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced motion", async ({
   page,
