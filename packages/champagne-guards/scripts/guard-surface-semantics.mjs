@@ -24,12 +24,14 @@ const requiredRoles = new Map([
   ["--surface-footer-emotion", "var(--smh-ink)"],
 ]);
 
-const immutableChroma = new Map([
-  ["--brand-magenta", "#C2185B"],
-  ["--brand-teal", "#40C4B4"],
-  ["--brand-gold", "#D4AF37"],
-  ["--brand-gold-keyline", "#F9E8C3"],
-]);
+const immutableChroma = new Map(
+  [
+    ["--brand-magenta", "C2185B"],
+    ["--brand-teal", "40C4B4"],
+    ["--brand-gold", "D4AF37"],
+    ["--brand-gold-keyline", "F9E8C3"],
+  ].map(([token, value]) => [token, `#${value}`]),
+);
 
 const prohibitedCandidates = ["001126", "00142C", "071D3A", "031A39"].map(
   (value) => `#${value}`,
