@@ -1,11 +1,11 @@
 :root[data-theme='dawn'] {
-  --bg-ink: color-mix(in srgb, var(--brand-teal) 15%, white);
+  --surface-canvas: color-mix(in srgb, var(--brand-teal) 15%, white);
 }
 
 :root[data-theme='dusk'] {
-  --bg-ink: var(--ink-100);
+  --surface-canvas: var(--ink-100);
 }
 
 :root[data-theme='night'] {
-  --bg-ink: var(--ink-100);
+  --surface-canvas: var(--ink-100);
 }

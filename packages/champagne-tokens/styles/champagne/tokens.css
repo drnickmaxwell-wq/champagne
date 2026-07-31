@@ -29,7 +29,14 @@
   --ink-luxe-shift: color-mix(in oklab, var(--brand-teal) 55%, var(--brand-magenta) 45%);
   --ink-luxe-sheen: color-mix(in oklab, var(--ink-luxe-shift) 88%, var(--brand-gold) 12%);
 
-  --bg-ink: var(--ink-100);
+  /* Semantic dark-material ownership. C1 keeps every value on current truth. */
+  --surface-canvas: var(--brand-ink);
+  --surface-ink: var(--brand-ink);
+  --surface-ink-soft: var(--bg-ink-soft);
+  --surface-footer-emotion: var(--smh-ink);
+
+  /* Compatibility alias for existing consumers; canvas owns the value. */
+  --bg-ink: var(--surface-canvas);
   --bg-ink-soft: color-mix(in oklab, var(--brand-ink) 90%, var(--ink-luxe-sheen) 10%);
   --bg: var(--brand-white);
   --surface-0: color-mix(in oklab, var(--brand-white) 96%, var(--brand-soft-gold) 4%);

@@ -21,6 +21,7 @@
     "guard:sacred-hero-lock": "node scripts/guard-sacred-hero-lock.mjs",
     "guard:rogue-hex": "node scripts/guard-rogue-hex.mjs",
     "guard:canon": "node scripts/guard-canon.mjs",
+    "guard:surface-semantics": "node scripts/guard-surface-semantics.mjs",
     "guard:hero-freeze": "node scripts/guard-hero-freeze.mjs",
     "guard:manifest": "node scripts/guard-manifest-sync.mjs",
     "guard:manifests": "pnpm run guard:manifest",
@@ -33,7 +34,7 @@
     "guard:smh-treatment-layouts": "node scripts/guard-smh-treatment-layouts.mjs",
     "guard:route-truth": "node scripts/guard-route-truth.mjs",
     "guard:chatbot-engine-copy": "node scripts/guard-chatbot-engine-copy.mjs",
-    "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:token-binding && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:route-truth && pnpm run guard:no-_imports-runtime && pnpm run guard:brand-structure && pnpm run guard:no-book && pnpm run guard:cta-single-terminal && pnpm run guard:cta-contract && pnpm run guard:smh-treatment-layouts && pnpm run guard:chatbot-engine-copy",
+    "guard:all": "pnpm run guard:hero && pnpm run guard:rogue-hex && pnpm run guard:canon && pnpm run guard:surface-semantics && pnpm run guard:token-binding && pnpm run guard:hero-freeze && pnpm run guard:manifest && pnpm run guard:route-truth && pnpm run guard:no-_imports-runtime && pnpm run guard:brand-structure && pnpm run guard:no-book && pnpm run guard:cta-single-terminal && pnpm run guard:cta-contract && pnpm run guard:smh-treatment-layouts && pnpm run guard:chatbot-engine-copy",
     "report:content-source-map": "node scripts/report-content-source-map.mjs"
   },
   "dependencies": {

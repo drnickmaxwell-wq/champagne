@@ -215,6 +215,7 @@ jobs:
           set -euxo pipefail
           PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 \
             pnpm exec playwright test \
+              tests/champagne-surface-semantics.spec.ts \
               tests/hero-v2-navigation-continuity.spec.ts \
               --reporter=line
       - name: Upload server log on failure
