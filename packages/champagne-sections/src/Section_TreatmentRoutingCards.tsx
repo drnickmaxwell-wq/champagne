@@ -1,4 +1,5 @@
-import type { CSSProperties } from "react";
+import Link from "next/link";
+import type { CSSProperties, ReactNode } from "react";
 import "@champagne/tokens";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 
@@ -7,6 +8,35 @@ interface RoutingCard {
   description?: string;
   href: string;
   tag?: string;
+}
+
+function isInternalAppHref(href: string) {
+  return href.startsWith("/") && !href.startsWith("//");
+}
+
+function RoutingCardLink({
+  card,
+  children,
+}: {
+  card: RoutingCard;
+  children: ReactNode;
+}) {
+  const sharedProps = {
+    href: card.href,
+    style: cardStyle,
+    "aria-label": `${card.title} pathway`,
+    className: "champagne-routing-card",
+  };
+
+  if (isInternalAppHref(card.href)) {
+    return (
+      <Link {...sharedProps} prefetch={false}>
+        {children}
+      </Link>
+    );
+  }
+
+  return <a {...sharedProps}>{children}</a>;
 }
 
 const containerStyle: CSSProperties = {
@@ -173,12 +203,9 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
       </div>
       <div style={gridStyle}>
         {cards.map((card) => (
-          <a
+          <RoutingCardLink
             key={`${card.title}-${card.href}`}
-            href={card.href}
-            style={cardStyle}
-            aria-label={`${card.title} pathway`}
-            className="champagne-routing-card"
+            card={card}
           >
             {card.tag && <span style={badgeStyle}>{card.tag}</span>}
             <div style={cardTitle}>{card.title}</div>
@@ -198,7 +225,7 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
                 →
               </span>
             </span>
-          </a>
+          </RoutingCardLink>
         ))}
       </div>
     </section>
