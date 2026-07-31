@@ -13,14 +13,12 @@
    ========================================================= */
 
 :root {
-  --bg-ink: var(--brand-ink);
-
   --text-high: var(--text-ink-high);
   --text-medium: var(--text-ink-medium);
   --text-low: var(--text-ink-low);
 
   color: var(--text-high);
-  background: var(--bg-ink);
+  background: var(--surface-canvas);
 }
 
 /* =========================================================
@@ -33,6 +31,15 @@
   --text-high: var(--text-porcelain-high);
   --text-medium: var(--text-porcelain-medium);
   --text-low: var(--text-porcelain-low);
+  color: var(--text-high);
+}
+
+/* Reapply the actual inherited colour whenever a nested surface returns to ink. */
+:where([data-surface-tone='ink'], [data-surface='ink']) {
+  --text-high: var(--text-ink-high);
+  --text-medium: var(--text-ink-medium);
+  --text-low: var(--text-ink-low);
+  color: var(--text-high);
 }
 
 /* =========================================================
@@ -41,7 +48,7 @@
 
 body,
 .champagne-page {
-  background: var(--bg-ink);
+  background: var(--surface-canvas);
   color: var(--text-high);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   min-height: 100vh;
@@ -50,4 +57,3 @@ body,
 a {
   color: inherit;
 }
-
