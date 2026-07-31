@@ -24,6 +24,8 @@ const tokenSourceFiles = [
   "packages/champagne-tokens/styles/champagne/gradients.css",
   "packages/champagne-tokens/styles/champagne/surface.css",
   "packages/champagne-tokens/styles/champagne/theme.css",
+  "packages/champagne-tokens/styles/champagne/time-of-day.css",
+  "packages/champagne-tokens/styles/champagne/tokens.css",
 ].map((file) => path.resolve(repoRoot, file));
 
 const allowedExtensions = new Set([

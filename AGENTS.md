@@ -537,6 +537,7 @@ Agents MAY modify exactly these cumulative PR paths:
 - packages/champagne-tokens/styles/champagne/theme.css
 - packages/champagne-tokens/styles/champagne/time-of-day.css
 - packages/champagne-tokens/styles/champagne/tokens.css
+- scripts/verify-token-purity.cjs
 - tests/champagne-surface-semantics.spec.ts
 
 Scope:
@@ -544,6 +545,7 @@ Scope:
 - Deterministic surface guards and browser evidence.
 - Footer semantic-painter binding through --surface-footer-emotion.
 - Dawn, dusk, and night canvas continuity through --surface-canvas.
+- Token-purity residue-gate coverage for the Stage C1 tokens.css and time-of-day.css token sources.
 
 Hard prohibitions remain in force:
 - Preserve every general modification-zone, sacred-zone, PASS T1, and PASS T2 rule.
