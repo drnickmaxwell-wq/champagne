@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import type { CSSProperties, ReactNode } from "react";
+import { useRouter } from "next/navigation";
+import type { CSSProperties, MouseEvent, ReactNode } from "react";
 import "@champagne/tokens";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 
@@ -21,16 +24,36 @@ function RoutingCardLink({
   card: RoutingCard;
   children: ReactNode;
 }) {
+  const router = useRouter();
+  const internalAppHref = isInternalAppHref(card.href);
   const sharedProps = {
     href: card.href,
     style: cardStyle,
     "aria-label": `${card.title} pathway`,
     className: "champagne-routing-card",
   };
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (
+      !internalAppHref ||
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.currentTarget.hasAttribute("download") ||
+      (event.currentTarget.target && event.currentTarget.target !== "_self")
+    ) {
+      return;
+    }
 
-  if (isInternalAppHref(card.href)) {
+    event.preventDefault();
+    router.push(card.href);
+  };
+
+  if (internalAppHref) {
     return (
-      <Link {...sharedProps} prefetch={false}>
+      <Link {...sharedProps} prefetch={false} onClick={handleClick}>
         {children}
       </Link>
     );
