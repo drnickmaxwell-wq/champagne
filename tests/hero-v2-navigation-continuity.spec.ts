@@ -134,6 +134,22 @@ function expectLoopAwareContinuity(
   }
 }
 
+async function expectDocumentAndStackContinuity(
+  page: Page,
+  before: ContinuitySnapshot,
+  checkpoint: string,
+) {
+  const current = await readContinuity(page);
+  expect(
+    current.documentMarker,
+    `${checkpoint}: the document marker must survive`,
+  ).toBe(before.documentMarker);
+  expect(
+    current.stack,
+    `${checkpoint}: the Hero V2 stack instance must survive`,
+  ).toBe(before.stack);
+}
+
 test("Hero V2 survives client navigation, a treatment child, back and forward", async ({
   page,
 }) => {
@@ -164,19 +180,27 @@ test("Hero V2 survives client navigation, a treatment child, back and forward", 
   await page.waitForURL("**/treatments");
   await page.waitForLoadState("networkidle");
   await expectHealthyHero(page);
+  await expectDocumentAndStackContinuity(page, before, "home -> treatments");
 
   await page.locator('a[href="/treatments/implants"]').first().click();
   await page.waitForURL("**/treatments/implants");
   await page.waitForLoadState("networkidle");
   await expectHealthyHero(page);
+  await expectDocumentAndStackContinuity(
+    page,
+    before,
+    "treatments -> treatment child",
+  );
 
   await page.goBack({ waitUntil: "networkidle" });
   await expect(page).toHaveURL(`${BASE_URL}/treatments`);
   await expectHealthyHero(page);
+  await expectDocumentAndStackContinuity(page, before, "browser back");
 
   await page.goForward({ waitUntil: "networkidle" });
   await expect(page).toHaveURL(`${BASE_URL}/treatments/implants`);
   await expectHealthyHero(page);
+  await expectDocumentAndStackContinuity(page, before, "browser forward");
 
   const after = await readContinuity(page);
   expectLoopAwareContinuity(before, after);
