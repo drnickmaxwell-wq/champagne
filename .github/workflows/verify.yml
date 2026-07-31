@@ -168,6 +168,7 @@ jobs:
     name: stage-b-regression
     runs-on: ubuntu-latest
     env:
+      NEXT_PUBLIC_FEATURE_BRAND_HERO: "true"
       NEXT_PUBLIC_HERO_ENGINE: v2
     steps:
       - uses: actions/checkout@v4
