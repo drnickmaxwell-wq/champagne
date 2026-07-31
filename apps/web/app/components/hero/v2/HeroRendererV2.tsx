@@ -34,6 +34,8 @@ export interface HeroRendererV2Props {
     dotGridPosition: string;
     dotGridImageRendering: string;
   }>;
+  initialModel?: HeroV2Model | null;
+  initialPathname?: string;
 }
 
 export type HeroV2SurfaceLayerModel = {
@@ -115,6 +117,24 @@ const normalizeHeroPathname = (path?: string) => {
   const normalized = trimmed.split("?")[0]?.split("#")[0] ?? "/";
   if (!normalized) return "/";
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
+};
+
+const resolvePageCategoryForPathname = (pathname: string) => {
+  if (pathname === "/") return "home";
+  if (pathname.startsWith("/treatments/")) return "treatment";
+  if (pathname.startsWith("/team/")) return "profile";
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) return "editorial";
+  if (
+    pathname === "/about" ||
+    pathname === "/contact" ||
+    pathname === "/fees" ||
+    pathname === "/smile-gallery" ||
+    pathname === "/team" ||
+    pathname === "/treatments"
+  ) {
+    return "utility";
+  }
+  return undefined;
 };
 
 
@@ -746,12 +766,25 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     glueVars,
     rootStyle,
     surfaceRef,
+    initialModel,
+    initialPathname,
   } = props;
-  const [renderModel, setRenderModel] = useState<HeroV2Model | null>(() => lastResolvedHeroV2Model);
-  const renderModelRef = useRef<HeroV2Model | null>(lastResolvedHeroV2Model);
+  const normalizedInitialPathname = normalizeHeroPathname(initialPathname);
+  const seededModel = initialModel ?? lastResolvedHeroV2Model;
+  const [renderModel, setRenderModel] = useState<HeroV2Model | null>(() => seededModel);
+  const renderModelRef = useRef<HeroV2Model | null>(seededModel);
   const [isHeroVisuallyReady, setIsHeroVisuallyReady] = useState(false);
   const visualReadyRef = useRef(false);
   const debugEnabled = searchParams?.get("heroDebug") === "1";
+  const routePageCategory =
+    resolvePageCategoryForPathname(pathnameKey) ??
+    (pathnameKey === normalizedInitialPathname ? pageCategory : undefined);
+
+  useEffect(() => {
+    if (initialModel && initialPathname) {
+      heroV2ModelCache.set(normalizedInitialPathname, initialModel);
+    }
+  }, [initialModel, initialPathname, normalizedInitialPathname]);
 
   useEffect(() => {
     renderModelRef.current = renderModel;
@@ -789,7 +822,9 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
 
   useEffect(() => {
     let isActive = true;
-    const cached = heroV2ModelCache.get(pathnameKey);
+    const cached =
+      heroV2ModelCache.get(pathnameKey) ??
+      (initialModel && pathnameKey === normalizedInitialPathname ? initialModel : undefined);
     if (cached) {
       setRenderModel(cached);
     }
@@ -804,7 +839,7 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
       particles,
       filmGrain,
       diagnosticBoost,
-      pageCategory,
+      pageCategory: routePageCategory,
       glueVars,
     }).then((nextModel) => {
       if (!isActive) return;
@@ -825,7 +860,21 @@ export function HeroRendererV2(props: HeroRendererV2Props) {
     return () => {
       isActive = false;
     };
-  }, [debugEnabled, diagnosticBoost, filmGrain, glueVars, mode, pageCategory, particles, pathnameKey, prm, timeOfDay, treatmentSlug]);
+  }, [
+    debugEnabled,
+    diagnosticBoost,
+    filmGrain,
+    glueVars,
+    initialModel,
+    mode,
+    normalizedInitialPathname,
+    particles,
+    pathnameKey,
+    prm,
+    routePageCategory,
+    timeOfDay,
+    treatmentSlug,
+  ]);
 
   useEffect(() => {
     if (!debugEnabled) return;

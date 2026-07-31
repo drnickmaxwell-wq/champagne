@@ -1,4 +1,8 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import type { CSSProperties, MouseEvent, ReactNode } from "react";
 import "@champagne/tokens";
 import type { SectionRegistryEntry } from "./SectionRegistry";
 
@@ -7,6 +11,55 @@ interface RoutingCard {
   description?: string;
   href: string;
   tag?: string;
+}
+
+function isInternalAppHref(href: string) {
+  return href.startsWith("/") && !href.startsWith("//");
+}
+
+function RoutingCardLink({
+  card,
+  children,
+}: {
+  card: RoutingCard;
+  children: ReactNode;
+}) {
+  const router = useRouter();
+  const internalAppHref = isInternalAppHref(card.href);
+  const sharedProps = {
+    href: card.href,
+    style: cardStyle,
+    "aria-label": `${card.title} pathway`,
+    className: "champagne-routing-card",
+  };
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (
+      !internalAppHref ||
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.currentTarget.hasAttribute("download") ||
+      (event.currentTarget.target && event.currentTarget.target !== "_self")
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    router.push(card.href);
+  };
+
+  if (internalAppHref) {
+    return (
+      <Link {...sharedProps} prefetch={false} onClick={handleClick}>
+        {children}
+      </Link>
+    );
+  }
+
+  return <a {...sharedProps}>{children}</a>;
 }
 
 const containerStyle: CSSProperties = {
@@ -173,12 +226,9 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
       </div>
       <div style={gridStyle}>
         {cards.map((card) => (
-          <a
+          <RoutingCardLink
             key={`${card.title}-${card.href}`}
-            href={card.href}
-            style={cardStyle}
-            aria-label={`${card.title} pathway`}
-            className="champagne-routing-card"
+            card={card}
           >
             {card.tag && <span style={badgeStyle}>{card.tag}</span>}
             <div style={cardTitle}>{card.title}</div>
@@ -198,7 +248,7 @@ export function Section_TreatmentRoutingCards({ section }: { section?: SectionRe
                 →
               </span>
             </span>
-          </a>
+          </RoutingCardLink>
         ))}
       </div>
     </section>
