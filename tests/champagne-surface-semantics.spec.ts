@@ -8,6 +8,21 @@ type RuntimeErrors = {
   consoleErrors: string[];
 };
 
+type NavigationCommitCanvasEvidence = {
+  tokens: {
+    canvas: string;
+    bgInk: string;
+  };
+  resolved: {
+    canvas: string;
+    bgInk: string;
+  };
+  surfaces: {
+    root: string;
+    body: string;
+  };
+};
+
 function collectRuntimeErrors(page: Page): RuntimeErrors {
   const errors: RuntimeErrors = { pageErrors: [], consoleErrors: [] };
   page.on("pageerror", (error) => errors.pageErrors.push(error.message));
@@ -15,6 +30,44 @@ function collectRuntimeErrors(page: Page): RuntimeErrors {
     if (message.type() === "error") errors.consoleErrors.push(message.text());
   });
   return errors;
+}
+
+async function readNavigationCommitCanvasEvidence(
+  page: Page,
+): Promise<NavigationCommitCanvasEvidence> {
+  return page.evaluate(() => {
+    const root = document.documentElement;
+    const body = document.body;
+    if (!body) throw new Error("document.body is unavailable at navigation commit");
+
+    const rootStyle = getComputedStyle(root);
+    const bodyStyle = getComputedStyle(body);
+    const resolveTokenAsColor = (token: string) => {
+      const probe = document.createElement("span");
+      probe.style.color = `var(${token})`;
+      probe.style.position = "fixed";
+      probe.style.visibility = "hidden";
+      body.appendChild(probe);
+      const color = getComputedStyle(probe).color;
+      probe.remove();
+      return color;
+    };
+
+    return {
+      tokens: {
+        canvas: rootStyle.getPropertyValue("--surface-canvas").trim(),
+        bgInk: rootStyle.getPropertyValue("--bg-ink").trim(),
+      },
+      resolved: {
+        canvas: resolveTokenAsColor("--surface-canvas"),
+        bgInk: resolveTokenAsColor("--bg-ink"),
+      },
+      surfaces: {
+        root: rootStyle.backgroundColor,
+        body: bodyStyle.backgroundColor,
+      },
+    };
+  });
 }
 
 async function readSurfaceEvidence(page: Page) {
@@ -112,6 +165,16 @@ async function readSurfaceEvidence(page: Page) {
 }
 
 function expectCanvasContinuity(evidence: Awaited<ReturnType<typeof readSurfaceEvidence>>) {
+  expect(evidence.resolved.bgInk).toBe(evidence.resolved.canvas);
+  expect(evidence.surfaces.root).toBe(evidence.resolved.canvas);
+  expect(evidence.surfaces.body).toBe(evidence.resolved.canvas);
+  expect(TRANSPARENT.has(evidence.surfaces.root)).toBe(false);
+  expect(TRANSPARENT.has(evidence.surfaces.body)).toBe(false);
+}
+
+function expectNavigationCommitCanvas(evidence: NavigationCommitCanvasEvidence) {
+  expect(evidence.tokens.canvas).not.toBe("");
+  expect(evidence.tokens.bgInk).not.toBe("");
   expect(evidence.resolved.bgInk).toBe(evidence.resolved.canvas);
   expect(evidence.surfaces.root).toBe(evidence.resolved.canvas);
   expect(evidence.surfaces.body).toBe(evidence.resolved.canvas);
@@ -221,19 +284,28 @@ test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
 
-  await page.goto(`${BASE_URL}/`, { waitUntil: "domcontentloaded" });
-  const firstCommitted = await readSurfaceEvidence(page);
+  await page.goto(`${BASE_URL}/`, { waitUntil: "commit" });
+  await page.waitForFunction(() => document.body !== null, undefined, { polling: 1 });
+  const navigationCommit = await readNavigationCommitCanvasEvidence(page);
+  expectNavigationCommitCanvas(navigationCommit);
+
+  await page.waitForLoadState("domcontentloaded");
+  const atDomContentLoaded = await readSurfaceEvidence(page);
   await page.waitForTimeout(120);
   const at120ms = await readSurfaceEvidence(page);
   await page.waitForTimeout(1380);
   const at1500ms = await readSurfaceEvidence(page);
 
   await testInfo.attach("surface-filmstrip.json", {
-    body: JSON.stringify({ firstCommitted, at120ms, at1500ms }, null, 2),
+    body: JSON.stringify(
+      { navigationCommit, atDomContentLoaded, at120ms, at1500ms },
+      null,
+      2,
+    ),
     contentType: "application/json",
   });
 
-  for (const evidence of [firstCommitted, at120ms, at1500ms]) {
+  for (const evidence of [atDomContentLoaded, at120ms, at1500ms]) {
     expectSemanticEvidence(evidence);
     expect(TRANSPARENT.has(evidence.surfaces.root)).toBe(false);
     expect(TRANSPARENT.has(evidence.surfaces.body)).toBe(false);

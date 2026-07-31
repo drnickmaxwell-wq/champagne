@@ -16,6 +16,7 @@ const paths = {
   exports: "packages/champagne-tokens/src/index.ts",
   footer: "apps/web/app/components/layout/Footer.tsx",
   guardPackage: "packages/champagne-guards/package.json",
+  surfaceTest: "tests/champagne-surface-semantics.spec.ts",
   workflow: ".github/workflows/verify.yml",
 };
 
@@ -46,7 +47,7 @@ const c1Paths = [
   paths.footer,
   "packages/champagne-guards/scripts/guard-surface-semantics.mjs",
   paths.guardPackage,
-  "tests/champagne-surface-semantics.spec.ts",
+  paths.surfaceTest,
   paths.workflow,
 ];
 
@@ -107,6 +108,7 @@ const timeOfDay = read(paths.timeOfDay);
 const exportsSource = read(paths.exports);
 const footerSource = read(paths.footer);
 const packageSource = read(paths.guardPackage);
+const surfaceTestSource = read(paths.surfaceTest);
 const workflow = read(paths.workflow);
 
 for (const [token, expectedValue] of requiredRoles) {
@@ -222,10 +224,61 @@ if (!packageJson?.scripts?.["guard:all"]?.includes("guard:surface-semantics")) {
 }
 
 for (const testPath of [
-  "tests/champagne-surface-semantics.spec.ts",
+  paths.surfaceTest,
   "tests/hero-v2-navigation-continuity.spec.ts",
 ]) {
   if (!workflow.includes(testPath)) errors.push(`${paths.workflow} does not execute ${testPath}`);
+}
+
+const mobileFilmstripMarker =
+  'test("canvas is painted through first, 120ms and 1500ms frames on mobile reduced motion"';
+const mobileFilmstripIndex = surfaceTestSource.indexOf(mobileFilmstripMarker);
+const mobileFilmstripSource =
+  mobileFilmstripIndex >= 0 ? surfaceTestSource.slice(mobileFilmstripIndex) : "";
+const commitNavigationIndex = mobileFilmstripSource.indexOf('waitUntil: "commit"');
+const bodyAttachmentIndex = mobileFilmstripSource.indexOf("document.body !== null");
+const commitCaptureIndex = mobileFilmstripSource.indexOf(
+  "const navigationCommit = await readNavigationCommitCanvasEvidence(page);",
+);
+const commitAssertionIndex = mobileFilmstripSource.indexOf(
+  "expectNavigationCommitCanvas(navigationCommit);",
+);
+const domContentLoadedIndex = mobileFilmstripSource.indexOf(
+  'waitForLoadState("domcontentloaded")',
+);
+const beforeCommitCapture =
+  commitCaptureIndex >= 0 ? mobileFilmstripSource.slice(0, commitCaptureIndex) : "";
+
+if (mobileFilmstripIndex < 0) {
+  errors.push(`${paths.surfaceTest} is missing the mobile reduced-motion filmstrip test`);
+} else if (
+  commitNavigationIndex < 0 ||
+  bodyAttachmentIndex <= commitNavigationIndex ||
+  commitCaptureIndex <= bodyAttachmentIndex ||
+  commitAssertionIndex <= commitCaptureIndex ||
+  domContentLoadedIndex <= commitAssertionIndex
+) {
+  errors.push(
+    `${paths.surfaceTest} must capture and assert the canvas after navigation commit and body attachment, before DOMContentLoaded`,
+  );
+}
+if (mobileFilmstripSource.includes('waitUntil: "domcontentloaded"')) {
+  errors.push(`${paths.surfaceTest} must not defer the initial canvas capture to DOMContentLoaded`);
+}
+for (const forbiddenBeforeCapture of [
+  'waitForLoadState("domcontentloaded")',
+  'waitForLoadState("load")',
+  'waitForLoadState("networkidle")',
+  "readSurfaceEvidence(page)",
+]) {
+  if (beforeCommitCapture.includes(forbiddenBeforeCapture)) {
+    errors.push(
+      `${paths.surfaceTest} must not use ${forbiddenBeforeCapture} before navigation-commit canvas capture`,
+    );
+  }
+}
+if (!mobileFilmstripSource.includes("{ polling: 1 }")) {
+  errors.push(`${paths.surfaceTest} must use a non-animation-frame body-attachment polling gate`);
 }
 
 if (errors.length > 0) {
