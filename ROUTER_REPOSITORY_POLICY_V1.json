@@ -50,9 +50,9 @@
   "resolutionOrder": [
     "PLATFORM_AND_SECURITY_POLICY",
     "EXACT_STAGE_SPECIFIC_FOUNDER_AUTHORITY_AND_BUILD_PACKET",
+    "NEAREST_SCOPED_AGENTS_MD",
     "ROOT_AGENTS_MD",
     "MANDATORY_CHAMPAGNE_CANON",
-    "NEAREST_SCOPED_AGENTS_MD",
     "THIS_MACHINE_POLICY"
   ],
   "controllerRequirements": {
@@ -130,7 +130,7 @@
     "INSTRUCTION_CONTEXT_MISSING_CONFLICTING_STALE_OR_TRUNCATED"
   ],
   "notes": [
-    "Resolution order is highest-to-lowest: platform and security policy remains supreme; exact stage-specific Founder authority is next and cannot override platform or security policy.",
+    "Resolution order is highest-to-lowest: platform and security policy remains supreme; exact stage-specific Founder authority is next and cannot override platform or security policy; the nearest scoped instructions govern their subtree ahead of root instructions.",
     "No stage inherits authority from another stage.",
     "The Stage 1 acceptance wrapper controls programme acceptance.",
     "The V2 plan remains FOUNDER_REVIEW_DRAFT_NON_MUTATING source direction.",
