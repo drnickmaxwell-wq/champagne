@@ -521,6 +521,38 @@ Scope:
 
 Hard prohibitions remain unchanged.
 
+EXEMPTION — Champagne Stage C1 Surface Semantics Stabilization V2 (PR #860 only)
+
+This additive exemption applies only to the accepted Stage C1 sequence on PR #860.
+It expires automatically when PR #860 is merged, closed, or abandoned and grants
+no reusable authority to any later PR, branch, stage, or agent.
+
+Agents MAY modify exactly these cumulative PR paths:
+- .github/workflows/verify.yml
+- AGENTS.md
+- apps/web/app/components/layout/Footer.tsx
+- packages/champagne-guards/package.json
+- packages/champagne-guards/scripts/guard-surface-semantics.mjs
+- packages/champagne-tokens/src/index.ts
+- packages/champagne-tokens/styles/champagne/theme.css
+- packages/champagne-tokens/styles/champagne/time-of-day.css
+- packages/champagne-tokens/styles/champagne/tokens.css
+- scripts/verify-token-purity.cjs
+- tests/champagne-surface-semantics.spec.ts
+
+Scope:
+- Semantic surface ownership and export consistency.
+- Deterministic surface guards and browser evidence.
+- Footer semantic-painter binding through --surface-footer-emotion.
+- Dawn, dusk, and night canvas continuity through --surface-canvas.
+- Token-purity residue-gate coverage for the Stage C1 tokens.css and time-of-day.css token sources.
+
+Hard prohibitions remain in force:
+- Preserve every general modification-zone, sacred-zone, PASS T1, and PASS T2 rule.
+- No Persian selection or binding and no new material value.
+- No design, layout, content, Hero, manifest, dependency, or environment change.
+- No ready-state, merge, deployment, or production authority.
+
 DIRECTOR_SCOPE_OVERRIDE: SEO_JSONLD_V1
 
 Director-authorized one-time override for structured SEO work.
@@ -663,21 +695,26 @@ Before planning or changing Champagne website, content, design, media, SEO,
 accessibility, performance or chatbot integration, read:
 
 1. `docs/canon/programmes/CHAMPAGNE_CANON_PROGRAMME_INDEX_V1.md`
-2. `ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json`
-3. `ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json`
-4. `ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json`
+2. `ops/contracts/CHAMPAGNE_STAGE_1_DOCUMENTATION_ACCEPTANCE_V1.json`
+3. `ops/contracts/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.json`
+4. `docs/canon/programmes/CHAMPAGNE_WEBSITE_CHATBOT_WEOS_CANONICAL_MASTER_PLAN_V2.md`
+5. `ops/contracts/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.json`
+6. `docs/canon/programmes/CHAMPAGNE_MASTER_TRUTH_AMENDMENT_V1.md`
+7. `ops/contracts/CHAMPAGNE_AUTHORITY_AND_FREEZE_CONTRACT_V1.json`
 
 Rules:
 
-- Require exact stage-specific authority.
-- Exact Stage 0 authority may permit a documentation branch, documentation/canon
-  commits and a draft pull request only when explicitly granted.
-- Installed canon grants no future product/runtime mutation, merge, production
-  deployment, Stage B, Router, WEOS or chatbot-engine authority.
+- Require exact stage-specific Founder authority for mutation.
+- The Stage 1 acceptance wrapper controls programme acceptance.
+- The V2 plan remains `FOUNDER_REVIEW_DRAFT_NON_MUTATING` source direction.
+- The Master Truth Amendment is accepted as an additive product-local overlay.
+- Installed or merged canon grants no continuing branch, commit, pull-request,
+  merge, deployment, production, Stage B, Router, WEOS or chatbot-engine authority.
 - No stage inherits authority from another stage.
 - Preserve historical supplied freeze evidence; verified Git object identity
   controls operational freeze comparison.
 - Stop on canon conflict, scope expansion or semantic uncertainty.
-- The V2 plan remains non-mutating draft source direction. The accepted Stage 1
-  wrapper controls programme acceptance and the Master Truth Amendment is
-  accepted and additive.
+- Repository-local instructions remain
+  `REPOSITORY_LOCAL_INSTRUCTION_CANDIDATE_NOT_ROUTER_DELIVERY_PROVEN`.
+- Repository files do not prove Router discovery, delivery, injection, provider
+  dispatch, cross-provider consistency or patch-time revalidation.
