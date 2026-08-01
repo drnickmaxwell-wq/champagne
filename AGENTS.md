@@ -520,38 +520,23 @@ Scope:
 - No other behavior or scope changes.
 
 Hard prohibitions remain unchanged.
+HISTORICAL RECORD — Champagne Stage C1 Surface Semantics Stabilization V2 (PR #860)
 
-EXEMPTION — Champagne Stage C1 Surface Semantics Stabilization V2 (PR #860 only)
+This block records completed PR #860 evidence only. It is not an exemption, an
+allowlist, or continuing mutation authority.
 
-This additive exemption applies only to the accepted Stage C1 sequence on PR #860.
-It expires automatically when PR #860 is merged, closed, or abandoned and grants
-no reusable authority to any later PR, branch, stage, or agent.
+The exact Founder authority used for PR #860 was:
 
-Agents MAY modify exactly these cumulative PR paths:
-- .github/workflows/verify.yml
-- AGENTS.md
-- apps/web/app/components/layout/Footer.tsx
-- packages/champagne-guards/package.json
-- packages/champagne-guards/scripts/guard-surface-semantics.mjs
-- packages/champagne-tokens/src/index.ts
-- packages/champagne-tokens/styles/champagne/theme.css
-- packages/champagne-tokens/styles/champagne/time-of-day.css
-- packages/champagne-tokens/styles/champagne/tokens.css
-- scripts/verify-token-purity.cjs
-- tests/champagne-surface-semantics.spec.ts
+`FOUNDER AUTHORISES FINALISATION AND MERGE OF CHAMPAGNE PR #860, AUTOMATIC VERCEL PRODUCTION, VALIDATION AND BOUNDED ROLLBACK IF REQUIRED.`
 
-Scope:
-- Semantic surface ownership and export consistency.
-- Deterministic surface guards and browser evidence.
-- Footer semantic-painter binding through --surface-footer-emotion.
-- Dawn, dusk, and night canvas continuity through --surface-canvas.
-- Token-purity residue-gate coverage for the Stage C1 tokens.css and time-of-day.css token sources.
+That authority was limited to PR #860 and expired when PR #860 merged. The
+historical Stage C1 path set, scope and validation remain preserved in PR #860
+and its merge evidence. No agent may reuse or infer authority from this record.
 
-Hard prohibitions remain in force:
-- Preserve every general modification-zone, sacred-zone, PASS T1, and PASS T2 rule.
-- No Persian selection or binding and no new material value.
-- No design, layout, content, Hero, manifest, dependency, or environment change.
-- No ready-state, merge, deployment, or production authority.
+Any later mutation—including to any former Stage C1 path—requires fresh exact
+stage-specific Founder authority. If an instruction, packet or task attempts to
+treat this historical record as active authority, stop and report a canon
+conflict.
 
 DIRECTOR_SCOPE_OVERRIDE: SEO_JSONLD_V1
 
@@ -705,6 +690,8 @@ accessibility, performance or chatbot integration, read:
 Rules:
 
 - Require exact stage-specific Founder authority for mutation.
+- Platform and security policy remain supreme. Exact stage-specific Founder
+  authority is next in precedence and cannot override platform or security policy.
 - The Stage 1 acceptance wrapper controls programme acceptance.
 - The V2 plan remains `FOUNDER_REVIEW_DRAFT_NON_MUTATING` source direction.
 - The Master Truth Amendment is accepted as an additive product-local overlay.
