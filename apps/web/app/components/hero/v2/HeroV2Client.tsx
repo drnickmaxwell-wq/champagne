@@ -599,8 +599,10 @@ export function HeroContentFade({ children }: HeroContentFadeProps) {
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-    if (!HERO_CONTENT_FADE_ENABLED) return;
+    if (prefersReducedMotion || !HERO_CONTENT_FADE_ENABLED) {
+      setIsVisible(true);
+      return;
+    }
     setIsVisible(false);
     const id = requestAnimationFrame(() => setIsVisible(true));
     return () => cancelAnimationFrame(id);

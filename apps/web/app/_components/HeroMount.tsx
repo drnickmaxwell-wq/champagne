@@ -2,7 +2,6 @@ import { headers } from "next/headers";
 
 import type { HeroRendererProps } from "../components/hero/HeroRenderer";
 import { buildHeroV2Model } from "../components/hero/v2/buildHeroV2Model";
-import { HeroContentFade, HeroSurfaceStackV2 } from "../components/hero/v2/HeroV2Client";
 import type { HeroRendererV2Props } from "../components/hero/v2/HeroRendererV2";
 
 const normalizeHeroPathname = (path?: string) => {
@@ -45,7 +44,7 @@ export async function HeroMount(props: HeroRendererProps) {
       }
     }
 
-    const { HeroContentV2, HeroRendererV2, HeroV2Frame } = await import("../components/hero/v2/HeroRendererV2");
+    const { HeroRendererV2 } = await import("../components/hero/v2/HeroRendererV2");
     const v2Props = props as HeroRendererV2Props;
     const v2PropsWithPath = { ...v2Props, pageSlugOrPath: pathname };
     const v2Model = await buildHeroV2Model(v2PropsWithPath);
@@ -70,30 +69,11 @@ export async function HeroMount(props: HeroRendererProps) {
         style={{ minHeight: "72vh" }}
         {...heroDebugAttributes}
       >
-        {v2Model ? (
-          <HeroV2Frame
-            layout={v2Model.layout}
-            gradient={v2Model.gradient}
-            rootStyle={{ ...v2PropsWithPath.rootStyle, ...v2Model.surfaceStack.surfaceVars }}
-            heroId={v2Model.surfaceStack.heroId}
-            variantId={v2Model.surfaceStack.variantId}
-            particlesPath={v2Model.surfaceStack.particlesPath}
-            particlesOpacity={v2Model.surfaceStack.particlesOpacity}
-            motionCount={v2Model.surfaceStack.motionLayers.length}
-            prm={v2Model.surfaceStack.prmEnabled}
-            debug={v2PropsWithPath.debug}
-          >
-            <HeroSurfaceStackV2
-              surfaceRef={v2PropsWithPath.surfaceRef}
-              {...v2Model.surfaceStack}
-            />
-            <HeroContentFade>
-              <HeroContentV2 content={v2Model.content} layout={v2Model.layout} />
-            </HeroContentFade>
-          </HeroV2Frame>
-        ) : (
-          <HeroRendererV2 {...v2PropsWithPath} />
-        )}
+        <HeroRendererV2
+          {...v2PropsWithPath}
+          initialModel={v2Model}
+          initialPathname={pathnameKey}
+        />
       </div>
     );
   }

@@ -6,7 +6,7 @@ import styles from "./FooterLuxe.module.css";
 
 const footerStyle = {
   "--smh-footer-bg":
-    "var(--smh-ink)",
+    "var(--surface-footer-emotion)",
   "--smh-footer-particles": "url('/assets/champagne/particles/particles-gold.webp')",
   "--smh-footer-rim": "var(--smh-accent-gold, var(--brand-gold))",
   "--smh-footer-button-shadow":
