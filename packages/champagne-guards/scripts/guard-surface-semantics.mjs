@@ -79,6 +79,36 @@ function exactlyOneDefinition(source, token, sourcePath) {
   return values[0];
 }
 
+function normalizeCssExpression(value) {
+  return value
+    .replace(/\s+/g, " ")
+    .replace(/\(\s+/g, "(")
+    .replace(/\s+\)/g, ")")
+    .replace(/\s*,\s*/g, ", ")
+    .trim();
+}
+
+function resolveTokenExpression(token, sources, stack = []) {
+  if (stack.includes(token)) {
+    errors.push(`critical paint token cycle: ${[...stack, token].join(" -> ")}`);
+    return "";
+  }
+
+  const matches = sources.flatMap(({ source, sourcePath }) =>
+    definitionValues(source, token).map((value) => ({ value, sourcePath })),
+  );
+  if (matches.length !== 1) {
+    errors.push(
+      `${token} must resolve from exactly one canonical source; found ${matches.length}`,
+    );
+    return "";
+  }
+
+  return matches[0].value.replace(/var\((--[a-z0-9-]+)\)/gi, (_match, dependency) =>
+    resolveTokenExpression(dependency, sources, [...stack, token]),
+  );
+}
+
 function exportedTokenCount(source, token) {
   const doubleQuoted = `"${token}",`;
   const singleQuoted = `'${token}',`;
@@ -151,53 +181,40 @@ try {
 
 if (criticalPaint) {
   const canonical = criticalPaint.canonicalSource;
-  if (canonical?.path !== paths.primitives) {
-    errors.push(`${paths.criticalPaint} canonicalSource.path must be ${paths.primitives}`);
-  }
-  if (canonical?.semanticPath !== paths.tokens || canonical?.semanticToken !== "--smh-ink-navy") {
-    errors.push(`${paths.criticalPaint} must identify ${paths.tokens} --smh-ink-navy as its semantic source`);
-  }
-
-  const sourceTokens = canonical?.tokens ?? {};
-  const expectedSourceTokens = {
-    primitiveInk: "--ink",
-    brandTeal: "--brand-teal",
-    brandMagenta: "--brand-magenta",
-  };
-  for (const [role, token] of Object.entries(expectedSourceTokens)) {
-    if (sourceTokens[role] !== token) {
-      errors.push(`${paths.criticalPaint} canonicalSource.tokens.${role} must be ${token}`);
-    }
-  }
-
-  const ink = exactlyOneDefinition(primitives, expectedSourceTokens.primitiveInk, paths.primitives);
-  const teal = exactlyOneDefinition(primitives, expectedSourceTokens.brandTeal, paths.primitives);
-  const magenta = exactlyOneDefinition(primitives, expectedSourceTokens.brandMagenta, paths.primitives);
-  const derivation = criticalPaint.derivation;
-  const inner = derivation?.inner;
-  const outer = derivation?.outer;
-
   if (
-    inner?.space !== "oklab" ||
-    inner?.leftToken !== "primitiveInk" ||
-    inner?.leftWeight !== 88 ||
-    inner?.rightToken !== "brandTeal" ||
-    inner?.rightWeight !== 12 ||
-    outer?.space !== "oklab" ||
-    outer?.leftWeight !== 92 ||
-    outer?.rightToken !== "brandMagenta" ||
-    outer?.rightWeight !== 8
+    canonical?.semanticPath !== paths.tokens ||
+    canonical?.semanticToken !== "--smh-ink-navy" ||
+    canonical?.primitivePath !== paths.primitives
   ) {
-    errors.push(`${paths.criticalPaint} derivation recipe must preserve the current --smh-ink-navy formula`);
+    errors.push(
+      `${paths.criticalPaint} must identify ${paths.tokens} --smh-ink-navy and ${paths.primitives} as canonical sources`,
+    );
   }
 
-  if (ink && teal && magenta) {
-    const expectedExpression = `color-mix(in oklab, color-mix(in oklab, ${ink} 88%, ${teal} 12%) 92%, ${magenta} 8%)`;
-    if (criticalPaint.canvasExpression !== expectedExpression) {
-      errors.push(
-        `${paths.criticalPaint} canvasExpression drift: expected canonical derivation ${expectedExpression}; found ${criticalPaint.canvasExpression ?? "missing"}`,
-      );
-    }
+  const semanticDefinition = exactlyOneDefinition(
+    tokens,
+    canonical?.semanticToken ?? "--smh-ink-navy",
+    paths.tokens,
+  );
+  const resolvedSemanticExpression = resolveTokenExpression(
+    canonical?.semanticToken ?? "--smh-ink-navy",
+    [
+      { source: tokens, sourcePath: paths.tokens },
+      { source: primitives, sourcePath: paths.primitives },
+    ],
+  );
+
+  if (!semanticDefinition) {
+    errors.push(`${paths.criticalPaint} semantic source definition is missing`);
+  }
+  if (
+    resolvedSemanticExpression &&
+    normalizeCssExpression(criticalPaint.canvasExpression ?? "") !==
+      normalizeCssExpression(resolvedSemanticExpression)
+  ) {
+    errors.push(
+      `${paths.criticalPaint} canvasExpression must equal the recursively resolved ${canonical?.semanticToken}; expected ${normalizeCssExpression(resolvedSemanticExpression)}, found ${normalizeCssExpression(criticalPaint.canvasExpression ?? "missing")}`,
+    );
   }
 
   if (criticalPaint.finalPersianMidnightSelection !== false) {
@@ -368,4 +385,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✅ Surface semantics guard passed: canvas, critical paint derivation, ink, footer and nested text contexts are deterministic.");
+console.log("✅ Surface semantics guard passed: canvas, semantic-token-derived critical paint, ink, footer and nested text contexts are deterministic.");
