@@ -177,7 +177,7 @@ export function DesignChamber({
 
   return <main ref={labRef} className={styles.lab} style={labStyle} data-champagne-design-lab="true" data-production-binding="false" data-reduced-motion={reducedMotion ? "true" : "false"}>
     <header className={styles.labHeader}>
-      <div><p className={styles.eyebrow}>Internal laboratory · production isolated</p><h1>Champagne Design Laboratory V3</h1><p>Individual choices will live in the working rooms. Untouched mock-up boards now remain separately available as archive evidence.</p></div>
+      <div><p className={styles.eyebrow}>Internal laboratory · production isolated</p><h1>Champagne Design Laboratory V4</h1><p>Individual choices will live in the working rooms. Untouched mock-up boards now remain separately available as archive evidence.</p></div>
       <div className={styles.status}><span>Founder choices: pending</span><span>Production binding: off</span><span>Archive import: awaiting extraction inventory</span><span>PR: draft and unmerged</span></div>
     </header>
 

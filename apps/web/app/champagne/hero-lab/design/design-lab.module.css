@@ -3,6 +3,7 @@
 :global(body):has(.lab, .compositionShell) > :global(div) > :global(footer),
 :global(body):has(.lab, .compositionShell) > :global(button),
 :global(body):has(.lab, .compositionShell) > :global(div) > :global(main) > :global([data-hero-engine]) { display: none !important; }
+:global(body):has(.lab, .compositionShell) :global(div:has(> button[aria-label='Open Practice Concierge'])) { display: none !important; }
 :global(body):has(.lab, .compositionShell) > :global(div) > :global(main) { padding: 0 !important; }
 .lab[data-reduced-motion='true'], .lab[data-reduced-motion='true'] *, .compositionShell[data-reduced-motion='true'], .compositionShell[data-reduced-motion='true'] * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 .lab[data-reduced-motion='true'] .heroFrame :global(.hero-surface--motion), .lab[data-reduced-motion='true'] .heroFrame :global(video), .compositionShell[data-reduced-motion='true'] :global(.hero-surface--motion), .compositionShell[data-reduced-motion='true'] :global(video) { display: none !important; opacity: 0 !important; }

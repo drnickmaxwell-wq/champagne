@@ -4,7 +4,7 @@ import { HeroRendererV2 } from "../../../components/hero/v2/HeroRendererV2";
 import { DesignChamber } from "./DesignChamber";
 
 export const metadata: Metadata = {
-  title: "Champagne Design Laboratory — Persian Token Chamber",
+  title: "Champagne Design Laboratory — Material Chamber",
   robots: { index: false, follow: false },
 };
 
