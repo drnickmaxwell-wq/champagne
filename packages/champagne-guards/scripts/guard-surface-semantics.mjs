@@ -12,8 +12,15 @@ const relative = (...parts) => path.join(repoRoot, ...parts);
 const paths = {
   primitives: "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
   tokens: "packages/champagne-tokens/styles/champagne/tokens.css",
+  gradients: "packages/champagne-tokens/styles/champagne/gradients.css",
+  layers: "packages/champagne-tokens/styles/champagne/layers.css",
+  glass: "packages/champagne-tokens/styles/champagne/glass.css",
+  typography: "packages/champagne-tokens/styles/champagne/typography.css",
+  spacing: "packages/champagne-tokens/styles/champagne/spacing.css",
   theme: "packages/champagne-tokens/styles/champagne/theme.css",
   timeOfDay: "packages/champagne-tokens/styles/champagne/time-of-day.css",
+  surface: "packages/champagne-tokens/styles/champagne/surface.css",
+  globals: "apps/web/app/globals.css",
   criticalPaint: "packages/champagne-tokens/src/critical-paint.v1.json",
   exports: "packages/champagne-tokens/src/index.ts",
   footer: "apps/web/app/components/layout/Footer.tsx",
@@ -67,10 +74,74 @@ function read(relativePath) {
 
 function validateStylesheetSyntax(source, sourcePath) {
   try {
-    postcss.parse(source, { from: relative(sourcePath) });
+    return postcss.parse(source, { from: relative(sourcePath) });
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
-    errors.push(`${sourcePath} must be valid CSS: ${reason}`);
+    errors.push(`[CANVAS_CSS_INVALID] ${sourcePath} must be valid CSS: ${reason}`);
+    return null;
+  }
+}
+
+function assertImportList(root, sourcePath, expectedImports) {
+  if (!root) return;
+  const actualImports = root.nodes
+    .filter((node) => node.type === "atrule" && node.name.toLowerCase() === "import")
+    .map((node) => node.params.trim());
+  if (JSON.stringify(actualImports) !== JSON.stringify(expectedImports)) {
+    errors.push(
+      `[CANVAS_IMPORT_GRAPH] ${sourcePath} imports must preserve loaded order ${expectedImports.join(", ")}; found ${actualImports.join(", ") || "none"}`,
+    );
+  }
+}
+
+function validateLoadedCanvasOwnership(parsedStylesheets, loadedOrder) {
+  const separator = "\u0000";
+  const ownershipLedger = new Map([
+    [[paths.tokens, ":root", "--surface-canvas"].join(separator), "var(--brand-ink)"],
+    [[paths.tokens, ":root", "--bg-ink"].join(separator), "var(--surface-canvas)"],
+    [
+      [paths.timeOfDay, ":root[data-theme='dawn']", "--surface-canvas"].join(separator),
+      "color-mix(in srgb, var(--brand-teal) 15%, white)",
+    ],
+    [
+      [paths.timeOfDay, ":root[data-theme='dusk']", "--surface-canvas"].join(separator),
+      "var(--ink-100)",
+    ],
+    [
+      [paths.timeOfDay, ":root[data-theme='night']", "--surface-canvas"].join(separator),
+      "var(--ink-100)",
+    ],
+  ]);
+  const seen = new Map();
+
+  for (const sourcePath of loadedOrder) {
+    const root = parsedStylesheets.get(sourcePath);
+    if (!root) continue;
+    root.walkDecls((declaration) => {
+      if (declaration.prop !== "--surface-canvas" && declaration.prop !== "--bg-ink") return;
+      const selector = declaration.parent?.type === "rule" ? declaration.parent.selector.trim() : "";
+      const key = [sourcePath, selector, declaration.prop].join(separator);
+      const expectedValue = ownershipLedger.get(key);
+      if (!expectedValue) {
+        errors.push(
+          `[CANVAS_OWNER_UNAPPROVED] ${sourcePath} ${selector || "<non-rule>"} must not define ${declaration.prop}; loaded canvas ownership is closed`,
+        );
+        return;
+      }
+      const values = seen.get(key) ?? [];
+      values.push(declaration.value.trim());
+      seen.set(key, values);
+    });
+  }
+
+  for (const [key, expectedValue] of ownershipLedger) {
+    const [sourcePath, selector, property] = key.split(separator);
+    const values = seen.get(key) ?? [];
+    if (values.length !== 1 || values[0] !== expectedValue) {
+      errors.push(
+        `[CANVAS_OWNER_INVALID] ${sourcePath} ${selector} must define ${property} exactly once as ${expectedValue}; found ${values.join(", ") || "none"}`,
+      );
+    }
   }
 }
 
@@ -223,8 +294,15 @@ function collectSourceFiles(rootPath) {
 
 const primitives = read(paths.primitives);
 const tokens = read(paths.tokens);
+const gradients = read(paths.gradients);
+const layers = read(paths.layers);
+const glass = read(paths.glass);
+const typography = read(paths.typography);
+const spacing = read(paths.spacing);
 const theme = read(paths.theme);
 const timeOfDay = read(paths.timeOfDay);
+const surface = read(paths.surface);
+const globals = read(paths.globals);
 const criticalPaintSource = read(paths.criticalPaint);
 const exportsSource = read(paths.exports);
 const footerSource = read(paths.footer);
@@ -232,14 +310,55 @@ const packageSource = read(paths.guardPackage);
 const surfaceTestSource = read(paths.surfaceTest);
 const workflow = read(paths.workflow);
 
-for (const [sourcePath, source] of [
+const loadedCascadeOrder = [
+  paths.primitives,
+  paths.tokens,
+  paths.gradients,
+  paths.layers,
+  paths.glass,
+  paths.typography,
+  paths.spacing,
+  paths.timeOfDay,
+  paths.surface,
+  paths.theme,
+  paths.globals,
+];
+const loadedCascadeSources = new Map([
   [paths.primitives, primitives],
   [paths.tokens, tokens],
+  [paths.gradients, gradients],
+  [paths.layers, layers],
+  [paths.glass, glass],
+  [paths.typography, typography],
+  [paths.spacing, spacing],
   [paths.theme, theme],
   [paths.timeOfDay, timeOfDay],
-]) {
-  validateStylesheetSyntax(source, sourcePath);
+  [paths.surface, surface],
+  [paths.globals, globals],
+]);
+const parsedLoadedStylesheets = new Map();
+for (const sourcePath of loadedCascadeOrder) {
+  const root = validateStylesheetSyntax(loadedCascadeSources.get(sourcePath) ?? "", sourcePath);
+  if (root) parsedLoadedStylesheets.set(sourcePath, root);
 }
+
+assertImportList(parsedLoadedStylesheets.get(paths.tokens), paths.tokens, [
+  "'../tokens/smh-champagne-tokens.css'",
+]);
+assertImportList(parsedLoadedStylesheets.get(paths.theme), paths.theme, [
+  "'./tokens.css'",
+  "'./gradients.css'",
+  "'./layers.css'",
+  "'./glass.css'",
+  "'./typography.css'",
+  "'./spacing.css'",
+  "'./time-of-day.css'",
+  "'./surface.css'",
+]);
+assertImportList(parsedLoadedStylesheets.get(paths.globals), paths.globals, [
+  '"../../../packages/champagne-tokens/styles/champagne/theme.css"',
+]);
+validateLoadedCanvasOwnership(parsedLoadedStylesheets, loadedCascadeOrder);
 
 for (const [token, expectedValue] of requiredRoles) {
   const values = definitionValues(tokens, token);
