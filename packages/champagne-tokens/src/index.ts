@@ -1,4 +1,5 @@
 import "../styles/champagne/theme.css";
+import criticalPaintContract from "./critical-paint.v1.json";
 
 export const champagneTokensVersion = "v1";
 
@@ -6,6 +7,14 @@ export const champagneTokensVersion = "v1";
  * Public CSS entry point for consumers who prefer direct stylesheet imports.
  */
 export const champagneThemeStylesheet = "@champagne/tokens/styles/champagne/theme.css";
+
+/**
+ * Low-specificity first-paint seed. This mirrors the current implementation
+ * canvas only; it does not select or calibrate the final Persian Midnight material.
+ * Normal theme CSS overrides these :where() declarations after it loads.
+ */
+export const champagneCriticalPaintContract = criticalPaintContract;
+export const champagneCriticalPaintCss = `:where(:root){--surface-canvas:${criticalPaintContract.canvasExpression};--bg-ink:var(--surface-canvas)}:where(html),:where(body){background:var(--surface-canvas)}`;
 
 export const champagneTokenNames = [
   "--brand-magenta",
