@@ -107,12 +107,14 @@ function replaceBalancedVarFunctions(value, replacer) {
   let cursor = 0;
 
   while (cursor < value.length) {
-    const start = value.indexOf("var(", cursor);
-    if (start < 0) return output + value.slice(cursor);
+    const match = /var\s*\(/gi.exec(value.slice(cursor));
+    if (!match) return output + value.slice(cursor);
+    const start = cursor + match.index;
+    const open = start + match[0].length;
 
     output += value.slice(cursor, start);
     let depth = 1;
-    let end = start + 4;
+    let end = open;
     for (; end < value.length && depth > 0; end += 1) {
       if (value[end] === "(") depth += 1;
       else if (value[end] === ")") depth -= 1;
@@ -123,7 +125,7 @@ function replaceBalancedVarFunctions(value, replacer) {
       return output + value.slice(start);
     }
 
-    const body = value.slice(start + 4, end - 1);
+    const body = value.slice(open, end - 1);
     output += replacer(body);
     cursor = end;
   }
@@ -165,20 +167,14 @@ function resolveCssExpression(value, sources, stack = []) {
       errors.push(`invalid CSS custom property reference: ${token || "missing"}`);
       return "";
     }
-
-    const matches = sources.flatMap(({ source, sourcePath }) =>
-      definitionValues(source, token).map((definition) => ({ definition, sourcePath })),
-    );
-
-    if (matches.length === 1) return resolveTokenExpression(token, sources, stack);
-    if (matches.length > 1) {
-      errors.push(`${token} must resolve from exactly one canonical source; found ${matches.length}`);
+    if (fallback !== null) {
+      errors.push(
+        `${token} uses a fallback-bearing var(), which is prohibited in the deterministic critical canvas chain`,
+      );
       return "";
     }
-    if (fallback !== null && fallback !== "") return resolveCssExpression(fallback, sources, stack);
 
-    errors.push(`${token} is undefined and var() supplies no fallback`);
-    return "";
+    return resolveTokenExpression(token, sources, stack);
   });
 }
 
@@ -448,4 +444,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✅ Surface semantics guard passed: canvas-root-derived critical paint, CSS var fallbacks, ink, footer and nested text contexts are deterministic.");
+console.log("✅ Surface semantics guard passed: canvas-root-derived critical paint, fallback-free canonical resolution, ink, footer and nested text contexts are deterministic.");
