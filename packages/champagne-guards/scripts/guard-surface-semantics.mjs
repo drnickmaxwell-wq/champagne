@@ -98,6 +98,8 @@ const contextDependentColorIdentifiers = new Set(
   ].map((value) => value.toLowerCase()),
 );
 const contextDependentColorFunctions = new Set(["env", "light-dark", "var"]);
+const opaqueCanvasFunctions = new Set(["color-mix"]);
+const criticalCanvasDependencies = new Set();
 const c1Paths = [
   paths.tokens,
   paths.theme,
@@ -135,8 +137,17 @@ function validateStylesheetSyntax(source, sourcePath) {
 function assertImportList(root, sourcePath, expectedImports) {
   if (!root) return;
   const actualImports = root.nodes
-    .filter((node) => node.type === "atrule" && node.name.toLowerCase() === "import")
-    .map((node) => node.params.trim());
+    .filter(
+      (node) => node.type === "atrule" && ident.decode(node.name).toLowerCase() === "import",
+    )
+    .map((node) => {
+      if (node.name.toLowerCase() !== "import") {
+        errors.push(
+          `[CANVAS_IMPORT_GRAPH] ${sourcePath} must spell @import literally; found @${node.name}`,
+        );
+      }
+      return node.params.trim();
+    });
   if (JSON.stringify(actualImports) !== JSON.stringify(expectedImports)) {
     errors.push(
       `[CANVAS_IMPORT_GRAPH] ${sourcePath} imports must preserve loaded order ${expectedImports.join(", ")}; found ${actualImports.join(", ") || "none"}`,
@@ -208,10 +219,53 @@ function validateLoadedCanvasOwnership(parsedStylesheets, loadedOrder) {
   }
 }
 
+function validateLoadedCanvasDependencyOwnership(parsedStylesheets, loadedOrder, dependencies) {
+  for (const property of dependencies) {
+    if (property === "--surface-canvas") continue;
+    let approvedDefinitions = 0;
+    for (const sourcePath of loadedOrder) {
+      const root = parsedStylesheets.get(sourcePath);
+      if (!root) continue;
+      root.walkDecls((declaration) => {
+        const decodedProperty = ident.decode(declaration.prop);
+        if (decodedProperty !== property) return;
+        const selector = declaration.parent?.type === "rule" ? declaration.parent.selector.trim() : "";
+        const conditional = [];
+        for (let ancestor = declaration.parent?.parent; ancestor; ancestor = ancestor.parent) {
+          if (ancestor.type === "atrule") conditional.push(`@${ancestor.name} ${ancestor.params}`);
+        }
+        const canonicalOwner =
+          (sourcePath === paths.tokens || sourcePath === paths.primitives) &&
+          selector === ":root" &&
+          conditional.length === 0 &&
+          declaration.prop === decodedProperty;
+        if (canonicalOwner) {
+          approvedDefinitions += 1;
+          return;
+        }
+        errors.push(
+          `[CANVAS_DEPENDENCY_OWNER_UNAPPROVED] ${sourcePath} ${selector || "<non-rule>"} must not define canvas dependency ${property}${conditional.length > 0 ? ` under ${conditional.join(", ")}` : ""}`,
+        );
+      });
+    }
+    if (approvedDefinitions !== 1) {
+      errors.push(
+        `[CANVAS_DEPENDENCY_OWNER_INVALID] ${property} must have exactly one unconditional canonical :root owner; found ${approvedDefinitions}`,
+      );
+    }
+  }
+}
+
 function definitionValues(source, token) {
-  return [...source.matchAll(/(--[a-z0-9-]+)\s*:\s*([^;]+);/gi)]
-    .filter((match) => match[1] === token)
-    .map((match) => match[2].trim());
+  try {
+    const values = [];
+    postcss.parse(source).walkDecls((declaration) => {
+      if (ident.decode(declaration.prop) === token) values.push(declaration.value.trim());
+    });
+    return values;
+  } catch {
+    return [];
+  }
 }
 
 function exactlyOneDefinition(source, token, sourcePath) {
@@ -257,6 +311,19 @@ function validateResolvedCanvasColor(value) {
     ) {
       errors.push(
         `[CANVAS_COLOR_CONTEXT_DEPENDENT] resolved --surface-canvas must not depend on ${node.name}()`,
+      );
+    }
+    if (node.type === "Function") {
+      const functionName = ident.decode(node.name).toLowerCase();
+      if (!contextDependentColorFunctions.has(functionName) && !opaqueCanvasFunctions.has(functionName)) {
+        errors.push(
+          `[CANVAS_COLOR_ALPHA] resolved --surface-canvas permits only opaque literals and color-mix(); found ${node.name}()`,
+        );
+      }
+    }
+    if (node.type === "HexColor" && node.value.length !== 3 && node.value.length !== 6) {
+      errors.push(
+        `[CANVAS_COLOR_ALPHA] resolved --surface-canvas hex terminals must omit alpha channels; found #${node.value}`,
       );
     }
   });
@@ -328,7 +395,7 @@ function replaceBalancedVarFunctions(value, replacer) {
   return output;
 }
 
-function resolveTokenExpression(token, sources, stack = []) {
+function resolveTokenExpression(token, sources, stack = [], dependencies = criticalCanvasDependencies) {
   if (!/^--[a-z0-9-]+$/i.test(token)) {
     errors.push(`invalid CSS custom property reference: ${token}`);
     return "";
@@ -337,6 +404,7 @@ function resolveTokenExpression(token, sources, stack = []) {
     errors.push(`critical paint token cycle: ${[...stack, token].join(" -> ")}`);
     return "";
   }
+  dependencies.add(token);
 
   const matches = sources.flatMap(({ source, sourcePath }) =>
     definitionValues(source, token).map((value) => ({ value, sourcePath })),
@@ -346,10 +414,10 @@ function resolveTokenExpression(token, sources, stack = []) {
     return "";
   }
 
-  return resolveCssExpression(matches[0].value, sources, [...stack, token]);
+  return resolveCssExpression(matches[0].value, sources, [...stack, token], dependencies);
 }
 
-function resolveCssExpression(value, sources, stack = []) {
+function resolveCssExpression(value, sources, stack = [], dependencies = criticalCanvasDependencies) {
   rejectEscapedVarFunctions(value);
   return replaceBalancedVarFunctions(value, (body) => {
     const parts = splitTopLevelComma(body);
@@ -370,7 +438,7 @@ function resolveCssExpression(value, sources, stack = []) {
       return "";
     }
 
-    return resolveTokenExpression(token, sources, stack);
+    return resolveTokenExpression(token, sources, stack, dependencies);
   });
 }
 
@@ -473,6 +541,18 @@ assertImportList(parsedLoadedStylesheets.get(paths.theme), paths.theme, [
 assertImportList(parsedLoadedStylesheets.get(paths.globals), paths.globals, [
   '"../../../packages/champagne-tokens/styles/champagne/theme.css"',
 ]);
+for (const sourcePath of [
+  paths.primitives,
+  paths.gradients,
+  paths.layers,
+  paths.glass,
+  paths.typography,
+  paths.spacing,
+  paths.timeOfDay,
+  paths.surface,
+]) {
+  assertImportList(parsedLoadedStylesheets.get(sourcePath), sourcePath, []);
+}
 validateLoadedCanvasOwnership(parsedLoadedStylesheets, loadedCascadeOrder);
 
 for (const [token, expectedValue] of requiredRoles) {
@@ -524,6 +604,11 @@ if (criticalPaint) {
       { source: tokens, sourcePath: paths.tokens },
       { source: primitives, sourcePath: paths.primitives },
     ],
+  );
+  validateLoadedCanvasDependencyOwnership(
+    parsedLoadedStylesheets,
+    loadedCascadeOrder,
+    criticalCanvasDependencies,
   );
   validateResolvedCanvasColor(resolvedCanvasExpression);
 
