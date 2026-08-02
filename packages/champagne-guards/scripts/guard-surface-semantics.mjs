@@ -3,7 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { lexer } from "css-tree";
+import { ident, lexer, parse as parseCssValue, walk } from "css-tree";
 import postcss from "postcss";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -119,13 +119,19 @@ function validateLoadedCanvasOwnership(parsedStylesheets, loadedOrder) {
     const root = parsedStylesheets.get(sourcePath);
     if (!root) continue;
     root.walkDecls((declaration) => {
-      if (declaration.prop !== "--surface-canvas" && declaration.prop !== "--bg-ink") return;
+      const decodedProperty = ident.decode(declaration.prop);
+      if (decodedProperty !== "--surface-canvas" && decodedProperty !== "--bg-ink") return;
+      if (declaration.prop !== decodedProperty) {
+        errors.push(
+          `[CANVAS_IDENTIFIER_ESCAPED] ${sourcePath} must spell protected property ${decodedProperty} literally; found ${declaration.prop}`,
+        );
+      }
       const selector = declaration.parent?.type === "rule" ? declaration.parent.selector.trim() : "";
-      const key = [sourcePath, selector, declaration.prop].join(separator);
+      const key = [sourcePath, selector, decodedProperty].join(separator);
       const expectedValue = ownershipLedger.get(key);
       if (!expectedValue) {
         errors.push(
-          `[CANVAS_OWNER_UNAPPROVED] ${sourcePath} ${selector || "<non-rule>"} must not define ${declaration.prop}; loaded canvas ownership is closed`,
+          `[CANVAS_OWNER_UNAPPROVED] ${sourcePath} ${selector || "<non-rule>"} must not define ${decodedProperty}; loaded canvas ownership is closed`,
         );
         return;
       }
@@ -177,6 +183,27 @@ function validateResolvedCanvasColor(value) {
     errors.push(
       `[CANVAS_COLOR_INVALID] resolved --surface-canvas must match the standards CSS <color> grammar: ${result.error.message}`,
     );
+  }
+}
+
+function rejectEscapedVarFunctions(value) {
+  if (!value) return;
+  try {
+    const ast = parseCssValue(value, { context: "value" });
+    walk(ast, (node) => {
+      if (
+        node.type === "Function" &&
+        ident.decode(node.name).toLowerCase() === "var" &&
+        node.name.toLowerCase() !== "var"
+      ) {
+        errors.push(
+          `[CANVAS_VAR_ESCAPED] critical canvas dependencies must spell var() literally; found ${node.name}()`,
+        );
+      }
+    });
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    errors.push(`[CANVAS_VALUE_INVALID] critical canvas value must parse as CSS: ${reason}`);
   }
 }
 
@@ -247,6 +274,7 @@ function resolveTokenExpression(token, sources, stack = []) {
 }
 
 function resolveCssExpression(value, sources, stack = []) {
+  rejectEscapedVarFunctions(value);
   return replaceBalancedVarFunctions(value, (body) => {
     const parts = splitTopLevelComma(body);
     if (!parts) {
@@ -436,6 +464,7 @@ if (criticalPaint) {
   if (/var\s*\(/i.test(criticalPaint.canvasExpression ?? "")) {
     errors.push(`${paths.criticalPaint} canvasExpression must be fully resolved and contain no var()`);
   }
+  rejectEscapedVarFunctions(criticalPaint.canvasExpression ?? "");
 
   if (criticalPaint.finalPersianMidnightSelection !== false) {
     errors.push(`${paths.criticalPaint} must not claim a final Persian Midnight selection`);
