@@ -53,7 +53,8 @@ Starting changed paths:
 
 | Reviewed head | Finding | Severity | Classification | Evidence | Corrective head | Replacement review |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0c90ac066dc801e3f3fe516a3fbb34267bbdd143` | `packages/champagne-guards/scripts/guard-surface-semantics.mjs:110-111` accepts malformed outer CSS | P2 | current and valid | Removing the opening brace from the canonical `:root` rule left malformed CSS, but `guard:surface-semantics` exited zero because declaration regexes ignored stylesheet structure. | pending | pending |
+| `0c90ac066dc801e3f3fe516a3fbb34267bbdd143` | `packages/champagne-guards/scripts/guard-surface-semantics.mjs:110-111` accepts malformed outer CSS | P2 | current and valid | Removing the opening brace from the canonical `:root` rule left malformed CSS, but `guard:surface-semantics` exited zero because declaration regexes ignored stylesheet structure. | `c6cc6df5d8fc592bc83e27c178c0ecc9873d502b` | review at `c6cc6df5d8fc592bc83e27c178c0ecc9873d502b` confirmed syntax remediation but found the separate loaded-cascade gap |
+| `c6cc6df5d8fc592bc83e27c178c0ecc9873d502b` | guard does not validate the complete loaded canvas cascade | P2 | current and valid | A later `--surface-canvas` owner in imported theme CSS wins in the browser while the guard consults only `tokens.css` and primitive definitions; the Phase 0 disposable mutation reproduced this false pass. | `b7af7924a378b6c81d0ac214b563257399e5d6a6` | pending |
 
 Five older unresolved Codex threads are technically outdated at the starting head. Their requested behaviours were implemented by later commits, but the replacement architecture will independently remove the handwritten snapshot and bespoke resolver rather than rely on those historical fixes.
 
@@ -95,7 +96,7 @@ Phase 0 establishes these final failure expectations:
 
 | Phase | Head | Summary | Tests | Codex review | Findings/remediation |
 | --- | --- | --- | --- | --- | --- |
-| 0 | pending | Baseline, initial HTML and disposable weakness reproduction; remediate live malformed-CSS P2 with full-stylesheet PostCSS parsing. | normal guard pass; malformed outer CSS mutation fails; restored guard pass; full `verify` pass; unchanged baseline Stage B `8 passed` | pending | starting P2 valid; corrective head pending |
+| 0 | `c6cc6df5d8fc592bc83e27c178c0ecc9873d502b` (superseded); corrected phase head pending push | Baseline, initial HTML and disposable weakness reproduction; PostCSS validates every loaded stylesheet, the import graph is closed, and all loaded `--surface-canvas`/`--bg-ink` owners are explicitly governed in source order. | normal guard pass; malformed outer CSS mutation fails; later loaded-cascade override mutation fails with `CANVAS_OWNER_UNAPPROVED`; mutations restored with no production-source diff; full `verify` pass; unchanged baseline Stage B `8 passed`; `c6cc6d` exact-head CI and Vercel green | corrected exact-head review pending | malformed-CSS finding corrected at `c6cc6d`; complete-loaded-cascade finding corrected at `b7af7924a378b6c81d0ac214b563257399e5d6a6` |
 | 1 | pending | pending | pending | pending | pending |
 | 2 | pending | pending | pending | pending | pending |
 | 3 | pending | pending | pending | pending | pending |
