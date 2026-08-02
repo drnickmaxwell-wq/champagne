@@ -1,0 +1,2397 @@
+{
+  "schemaVersion": 1,
+  "catalogueId": "CHAMPAGNE_DESIGN_LAB_CARD_IMPORT_V1",
+  "targetRepository": "drnickmaxwell-wq/champagne",
+  "targetBranchObserved": "agent/champagne-design-lab-v1",
+  "targetRoom": "cards",
+  "productionBinding": false,
+  "founderDecisionApplied": false,
+  "itemCount": 53,
+  "items": [
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B009-E02A",
+      "archiveElementId": "CVA-CARD-B009-E02A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Responsible evidence card — Consented patient story",
+      "family": "Cards",
+      "purpose": "Explain the consent standard for patient-story evidence",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B009-E02A.png",
+        "width": 320,
+        "height": 170,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry: Clear Guidance, Trusted Next Steps.png",
+        "parentBoard": "B009",
+        "parentBoardElement": "CVA-TRUST-B009-E02",
+        "crop": {
+          "x": 490,
+          "y": 402,
+          "width": 320,
+          "height": 170
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B009-E02B",
+      "archiveElementId": "CVA-CARD-B009-E02B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Responsible evidence card — Approved treatment imagery",
+      "family": "Cards",
+      "purpose": "Explain the approval standard for treatment photography",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B009-E02B.png",
+        "width": 320,
+        "height": 170,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry: Clear Guidance, Trusted Next Steps.png",
+        "parentBoard": "B009",
+        "parentBoardElement": "CVA-TRUST-B009-E02",
+        "crop": {
+          "x": 814,
+          "y": 402,
+          "width": 320,
+          "height": 170
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B009-E02C",
+      "archiveElementId": "CVA-CARD-B009-E02C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Responsible evidence card — Verified patient feedback",
+      "family": "Cards",
+      "purpose": "Explain the verification standard for patient feedback",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B009-E02C.png",
+        "width": 320,
+        "height": 170,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry: Clear Guidance, Trusted Next Steps.png",
+        "parentBoard": "B009",
+        "parentBoardElement": "CVA-TRUST-B009-E02",
+        "crop": {
+          "x": 1139,
+          "y": 402,
+          "width": 320,
+          "height": 170
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E01A",
+      "archiveElementId": "CVA-CARD-B025-E01A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Clinician insight — portrait and credential proof card",
+      "family": "Cards",
+      "purpose": "Pair an approved clinician portrait with verified qualification, registration and focus evidence",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E01A.png",
+        "width": 426,
+        "height": 334,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-CLINICIAN-B025-E01",
+        "crop": {
+          "x": 438,
+          "y": 0,
+          "width": 426,
+          "height": 334
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E02A",
+      "archiveElementId": "CVA-CARD-B025-E02A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain people card — Clinician",
+      "family": "Cards",
+      "purpose": "Introduce a clinician using an approved portrait and verified registration",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E02A.png",
+        "width": 155,
+        "height": 255,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-PEOPLE-B025-E02",
+        "crop": {
+          "x": 410,
+          "y": 370,
+          "width": 155,
+          "height": 255
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E02B",
+      "archiveElementId": "CVA-CARD-B025-E02B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain people card — Specialist",
+      "family": "Cards",
+      "purpose": "Introduce a specialist using an approved portrait and verified registration",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E02B.png",
+        "width": 155,
+        "height": 255,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-PEOPLE-B025-E02",
+        "crop": {
+          "x": 560,
+          "y": 370,
+          "width": 155,
+          "height": 255
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E02C",
+      "archiveElementId": "CVA-CARD-B025-E02C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain people card — Hygienist",
+      "family": "Cards",
+      "purpose": "Introduce a hygienist using an approved portrait and verified registration",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E02C.png",
+        "width": 155,
+        "height": 255,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-PEOPLE-B025-E02",
+        "crop": {
+          "x": 708,
+          "y": 370,
+          "width": 155,
+          "height": 255
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E03A",
+      "archiveElementId": "CVA-CARD-B025-E03A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Persian patient-story card — Variant one",
+      "family": "Cards",
+      "purpose": "Present an approved patient story with consent and treatment-context assurance",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E03A.png",
+        "width": 195,
+        "height": 180,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-STORY-B025-E03",
+        "crop": {
+          "x": 215,
+          "y": 718,
+          "width": 195,
+          "height": 180
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E03B",
+      "archiveElementId": "CVA-CARD-B025-E03B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Persian patient-story card — Variant two",
+      "family": "Cards",
+      "purpose": "Present an approved patient story with consent and treatment-context assurance",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E03B.png",
+        "width": 195,
+        "height": 180,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-STORY-B025-E03",
+        "crop": {
+          "x": 414,
+          "y": 718,
+          "width": 195,
+          "height": 180
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E03C",
+      "archiveElementId": "CVA-CARD-B025-E03C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Persian patient-story card — Variant three",
+      "family": "Cards",
+      "purpose": "Present an approved patient story with consent and treatment-context assurance",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E03C.png",
+        "width": 195,
+        "height": 180,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-STORY-B025-E03",
+        "crop": {
+          "x": 614,
+          "y": 718,
+          "width": 195,
+          "height": 180
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E04A",
+      "archiveElementId": "CVA-CARD-B025-E04A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Independent review evidence row — One",
+      "family": "Cards",
+      "purpose": "Show a verified independent review with source and date fields",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E04A.png",
+        "width": 380,
+        "height": 62,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-TRUST-B025-E04",
+        "crop": {
+          "x": 435,
+          "y": 965,
+          "width": 380,
+          "height": 62
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E04B",
+      "archiveElementId": "CVA-CARD-B025-E04B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Independent review evidence row — Two",
+      "family": "Cards",
+      "purpose": "Show a verified independent review with source and date fields",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E04B.png",
+        "width": 380,
+        "height": 62,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-TRUST-B025-E04",
+        "crop": {
+          "x": 435,
+          "y": 1030,
+          "width": 380,
+          "height": 62
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E04C",
+      "archiveElementId": "CVA-CARD-B025-E04C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Independent review evidence row — Three",
+      "family": "Cards",
+      "purpose": "Show a verified independent review with source and date fields",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E04C.png",
+        "width": 380,
+        "height": 62,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-TRUST-B025-E04",
+        "crop": {
+          "x": 435,
+          "y": 1095,
+          "width": 380,
+          "height": 62
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E06A",
+      "archiveElementId": "CVA-CARD-B025-E06A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Technology evidence panel — Intraoral scanning",
+      "family": "Cards",
+      "purpose": "Explain an approved clinical technology and its patient benefit",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E06A.png",
+        "width": 200,
+        "height": 205,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-FEATURE-B025-E06",
+        "crop": {
+          "x": 195,
+          "y": 1595,
+          "width": 200,
+          "height": 205
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E06B",
+      "archiveElementId": "CVA-CARD-B025-E06B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Technology evidence panel — Micro-precision optics",
+      "family": "Cards",
+      "purpose": "Explain an approved clinical technology and its diagnostic benefit",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E06B.png",
+        "width": 200,
+        "height": 205,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-FEATURE-B025-E06",
+        "crop": {
+          "x": 390,
+          "y": 1595,
+          "width": 200,
+          "height": 205
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B025-E06C",
+      "archiveElementId": "CVA-CARD-B025-E06C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Technology evidence panel — Digital design and milling",
+      "family": "Cards",
+      "purpose": "Explain an approved clinical technology and its restoration benefit",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B025-E06C.png",
+        "width": 220,
+        "height": 205,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/People, proof and stories catalogue.png",
+        "parentBoard": "B025",
+        "parentBoardElement": "CVA-FEATURE-B025-E06",
+        "crop": {
+          "x": 585,
+          "y": 1595,
+          "width": 220,
+          "height": 205
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B029-E04A",
+      "archiveElementId": "CVA-CARD-B029-E04A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Persian clinician-authority panel",
+      "family": "Cards",
+      "purpose": "Combine an approved clinician portrait, care statement and evidence-led authority points",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B029-E04A.png",
+        "width": 480,
+        "height": 235,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-CLINICIAN-B029-E04",
+        "crop": {
+          "x": 360,
+          "y": 1045,
+          "width": 480,
+          "height": 235
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B029-E06A",
+      "archiveElementId": "CVA-CARD-B029-E06A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Aftercare reassurance panel — With you for the long run",
+      "family": "Cards",
+      "purpose": "Reassure patients about continuing care and regular review",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B029-E06A.png",
+        "width": 340,
+        "height": 105,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-TRUST-B029-E06",
+        "crop": {
+          "x": 220,
+          "y": 1690,
+          "width": 340,
+          "height": 105
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B029-E06B",
+      "archiveElementId": "CVA-CARD-B029-E06B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Aftercare reassurance panel — Questions about aftercare",
+      "family": "Cards",
+      "purpose": "Invite questions about implant aftercare and support",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B029-E06B.png",
+        "width": 290,
+        "height": 105,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-TRUST-B029-E06",
+        "crop": {
+          "x": 548,
+          "y": 1690,
+          "width": 290,
+          "height": 105
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E03B",
+      "archiveElementId": "CVA-CARD-B031-E03B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain evidence-status panel",
+      "family": "Cards",
+      "purpose": "Show evidence status, review date and last-updated date",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E03B.png",
+        "width": 270,
+        "height": 125,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-ANSWER-B031-E03",
+        "crop": {
+          "x": 565,
+          "y": 865,
+          "width": 270,
+          "height": 125
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E03C",
+      "archiveElementId": "CVA-CARD-B031-E03C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain deeper-reading panel",
+      "family": "Cards",
+      "purpose": "Route patients to detailed guides and related reading",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E03C.png",
+        "width": 310,
+        "height": 85,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-ANSWER-B031-E03",
+        "crop": {
+          "x": 258,
+          "y": 995,
+          "width": 310,
+          "height": 85
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E05A",
+      "archiveElementId": "CVA-CARD-B031-E05A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Urgent-care card — Call now",
+      "family": "Cards",
+      "purpose": "Provide the confirmed urgent contact route",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E05A.png",
+        "width": 150,
+        "height": 175,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-TRUST-B031-E05",
+        "crop": {
+          "x": 295,
+          "y": 1355,
+          "width": 150,
+          "height": 175
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E05B",
+      "archiveElementId": "CVA-CARD-B031-E05B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Urgent-care card — What to do while waiting",
+      "family": "Cards",
+      "purpose": "Provide confirmed guidance while awaiting care",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E05B.png",
+        "width": 175,
+        "height": 175,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-TRUST-B031-E05",
+        "crop": {
+          "x": 445,
+          "y": 1355,
+          "width": 175,
+          "height": 175
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E05C",
+      "archiveElementId": "CVA-CARD-B031-E05C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Urgent-care card — When emergency services may be needed",
+      "family": "Cards",
+      "purpose": "Explain signs requiring emergency services",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E05C.png",
+        "width": 200,
+        "height": 175,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-TRUST-B031-E05",
+        "crop": {
+          "x": 620,
+          "y": 1355,
+          "width": 200,
+          "height": 175
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E06A",
+      "archiveElementId": "CVA-CARD-B031-E06A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "First-visit orientation card — What to expect",
+      "family": "Cards",
+      "purpose": "Explain the welcome and tour at a first visit",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E06A.png",
+        "width": 115,
+        "height": 98,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-INTRO-B031-E06",
+        "crop": {
+          "x": 245,
+          "y": 1600,
+          "width": 115,
+          "height": 98
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E06B",
+      "archiveElementId": "CVA-CARD-B031-E06B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "First-visit orientation card — What to bring",
+      "family": "Cards",
+      "purpose": "Explain what can help the patient prepare",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E06B.png",
+        "width": 115,
+        "height": 98,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-INTRO-B031-E06",
+        "crop": {
+          "x": 360,
+          "y": 1600,
+          "width": 115,
+          "height": 98
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E06C",
+      "archiveElementId": "CVA-CARD-B031-E06C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "First-visit orientation card — Nervous patients",
+      "family": "Cards",
+      "purpose": "Reassure nervous patients that care can proceed at their pace",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E06C.png",
+        "width": 115,
+        "height": 98,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-INTRO-B031-E06",
+        "crop": {
+          "x": 475,
+          "y": 1600,
+          "width": 115,
+          "height": 98
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B031-E06D",
+      "archiveElementId": "CVA-CARD-B031-E06D",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "First-visit orientation card — Accessibility",
+      "family": "Cards",
+      "purpose": "Explain accessibility support",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B031-E06D.png",
+        "width": 115,
+        "height": 98,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-INTRO-B031-E06",
+        "crop": {
+          "x": 590,
+          "y": 1600,
+          "width": 115,
+          "height": 98
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E01A",
+      "archiveElementId": "CVA-CARD-B034-E01A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain pathway card — Enhance",
+      "family": "Cards",
+      "purpose": "Route patients toward aesthetic refinement",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E01A.png",
+        "width": 205,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-INTRO-B034-E01",
+        "crop": {
+          "x": 215,
+          "y": 170,
+          "width": 205,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E01B",
+      "archiveElementId": "CVA-CARD-B034-E01B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain pathway card — Restore",
+      "family": "Cards",
+      "purpose": "Route patients toward functional restoration",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E01B.png",
+        "width": 225,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-INTRO-B034-E01",
+        "crop": {
+          "x": 420,
+          "y": 170,
+          "width": 225,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E01C",
+      "archiveElementId": "CVA-CARD-B034-E01C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Porcelain pathway card — Transform",
+      "family": "Cards",
+      "purpose": "Route patients toward comprehensive smile planning",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E01C.png",
+        "width": 205,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-INTRO-B034-E01",
+        "crop": {
+          "x": 645,
+          "y": 170,
+          "width": 205,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E03A",
+      "archiveElementId": "CVA-CARD-B034-E03A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Credential evidence card — Digital precision",
+      "family": "Cards",
+      "purpose": "Show approved evidence for accurate diagnosis and planning",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E03A.png",
+        "width": 145,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E03",
+        "crop": {
+          "x": 215,
+          "y": 775,
+          "width": 145,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E03B",
+      "archiveElementId": "CVA-CARD-B034-E03B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Credential evidence card — Smile design",
+      "family": "Cards",
+      "purpose": "Show approved evidence for tailored smile design",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E03B.png",
+        "width": 155,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E03",
+        "crop": {
+          "x": 355,
+          "y": 775,
+          "width": 155,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E03C",
+      "archiveElementId": "CVA-CARD-B034-E03C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Credential evidence card — Minimally invasive technique",
+      "family": "Cards",
+      "purpose": "Show approved evidence for conservative technique",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E03C.png",
+        "width": 155,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E03",
+        "crop": {
+          "x": 505,
+          "y": 775,
+          "width": 155,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E03D",
+      "archiveElementId": "CVA-CARD-B034-E03D",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Credential evidence card — Premium materials",
+      "family": "Cards",
+      "purpose": "Show approved evidence for material quality and longevity",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E03D.png",
+        "width": 155,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E03",
+        "crop": {
+          "x": 655,
+          "y": 775,
+          "width": 155,
+          "height": 150
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E05A",
+      "archiveElementId": "CVA-CARD-B034-E05A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Proof mosaic panel — Qualified and dedicated",
+      "family": "Cards",
+      "purpose": "Present qualification and continuing-education proof",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E05A.png",
+        "width": 250,
+        "height": 300,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E05",
+        "crop": {
+          "x": 184,
+          "y": 1238,
+          "width": 250,
+          "height": 300
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E05B",
+      "archiveElementId": "CVA-CARD-B034-E05B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Proof mosaic panel — Our process",
+      "family": "Cards",
+      "purpose": "Present approved process evidence with a media placeholder",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E05B.png",
+        "width": 431,
+        "height": 162,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E05",
+        "crop": {
+          "x": 433,
+          "y": 1238,
+          "width": 431,
+          "height": 162
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E05C",
+      "archiveElementId": "CVA-CARD-B034-E05C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Proof mosaic panel — Advanced technology",
+      "family": "Cards",
+      "purpose": "Present approved technology evidence",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E05C.png",
+        "width": 195,
+        "height": 140,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E05",
+        "crop": {
+          "x": 433,
+          "y": 1398,
+          "width": 195,
+          "height": 140
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E05D",
+      "archiveElementId": "CVA-CARD-B034-E05D",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Proof mosaic panel — Real results",
+      "family": "Cards",
+      "purpose": "Route patients toward approved case examples and treatment journeys",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E05D.png",
+        "width": 239,
+        "height": 140,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-TRUST-B034-E05",
+        "crop": {
+          "x": 625,
+          "y": 1398,
+          "width": 239,
+          "height": 140
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E06A",
+      "archiveElementId": "CVA-CARD-B034-E06A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Related option card — Porcelain veneers",
+      "family": "Cards",
+      "purpose": "Present porcelain veneers as a related option",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E06A.png",
+        "width": 150,
+        "height": 140,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-DECISION-B034-E06",
+        "crop": {
+          "x": 215,
+          "y": 1650,
+          "width": 150,
+          "height": 140
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E06B",
+      "archiveElementId": "CVA-CARD-B034-E06B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Related option card — Composite bonding",
+      "family": "Cards",
+      "purpose": "Present composite bonding as a related option",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E06B.png",
+        "width": 155,
+        "height": 140,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-DECISION-B034-E06",
+        "crop": {
+          "x": 365,
+          "y": 1650,
+          "width": 155,
+          "height": 140
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CARD-B034-E06C",
+      "archiveElementId": "CVA-CARD-B034-E06C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-CARD-*",
+      "title": "Related option card — Invisalign",
+      "family": "Cards",
+      "purpose": "Present Invisalign as a related option",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-CARD-B034-E06C.png",
+        "width": 165,
+        "height": 140,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-DECISION-B034-E06",
+        "crop": {
+          "x": 518,
+          "y": 1650,
+          "width": 165,
+          "height": 140
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B029-E05A",
+      "archiveElementId": "CVA-DECISION-B029-E05A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Implant decision panel — Benefits",
+      "family": "Decision-support panels",
+      "purpose": "Summarise potential implant-treatment benefits",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B029-E05A.png",
+        "width": 140,
+        "height": 155,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-DECISION-B029-E05",
+        "crop": {
+          "x": 28,
+          "y": 1380,
+          "width": 140,
+          "height": 155
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B029-E05B",
+      "archiveElementId": "CVA-DECISION-B029-E05B",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Implant decision panel — Limitations",
+      "family": "Decision-support panels",
+      "purpose": "Summarise important implant-treatment limitations",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B029-E05B.png",
+        "width": 170,
+        "height": 155,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-DECISION-B029-E05",
+        "crop": {
+          "x": 165,
+          "y": 1380,
+          "width": 170,
+          "height": 155
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B029-E05C",
+      "archiveElementId": "CVA-DECISION-B029-E05C",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Implant decision panel — Alternatives",
+      "family": "Decision-support panels",
+      "purpose": "Summarise alternatives to implant treatment",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B029-E05C.png",
+        "width": 170,
+        "height": 155,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-DECISION-B029-E05",
+        "crop": {
+          "x": 330,
+          "y": 1380,
+          "width": 170,
+          "height": 155
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B029-E05D",
+      "archiveElementId": "CVA-DECISION-B029-E05D",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Implant decision panel — Questions to ask",
+      "family": "Decision-support panels",
+      "purpose": "Prompt the patient to ask practical treatment questions",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B029-E05D.png",
+        "width": 160,
+        "height": 155,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-DECISION-B029-E05",
+        "crop": {
+          "x": 495,
+          "y": 1380,
+          "width": 160,
+          "height": 155
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B029-E05E",
+      "archiveElementId": "CVA-DECISION-B029-E05E",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Implant decision panel — In summary",
+      "family": "Decision-support panels",
+      "purpose": "Close the comparison with a calm summary and consultation action",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B029-E05E.png",
+        "width": 190,
+        "height": 170,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029",
+        "parentBoardElement": "CVA-DECISION-B029-E05",
+        "crop": {
+          "x": 645,
+          "y": 1370,
+          "width": 190,
+          "height": 170
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B031-E02A",
+      "archiveElementId": "CVA-DECISION-B031-E02A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Comparison matrix — Unsure which is right",
+      "family": "Decision-support panels",
+      "purpose": "Offer question-first support alongside a treatment comparison",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B031-E02A.png",
+        "width": 205,
+        "height": 82,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-DECISION-B031-E02",
+        "crop": {
+          "x": 625,
+          "y": 402,
+          "width": 205,
+          "height": 82
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B031-E03A",
+      "archiveElementId": "CVA-DECISION-B031-E03A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Porcelain answer panel — Direct answer",
+      "family": "Decision-support panels",
+      "purpose": "Provide a concise answer to a common patient question",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B031-E03A.png",
+        "width": 305,
+        "height": 125,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-ANSWER-B031-E03",
+        "crop": {
+          "x": 258,
+          "y": 865,
+          "width": 305,
+          "height": 125
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B031-E03D",
+      "archiveElementId": "CVA-DECISION-B031-E03D",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Porcelain answer panel — Still have a question",
+      "family": "Decision-support panels",
+      "purpose": "Invite a patient to ask for a clear, honest answer",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B031-E03D.png",
+        "width": 275,
+        "height": 85,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-ANSWER-B031-E03",
+        "crop": {
+          "x": 560,
+          "y": 995,
+          "width": 275,
+          "height": 85
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B031-E06E",
+      "archiveElementId": "CVA-DECISION-B031-E06E",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "First-visit question card — Ask before your visit",
+      "family": "Decision-support panels",
+      "purpose": "Invite questions before the first appointment",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B031-E06E.png",
+        "width": 135,
+        "height": 180,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Practical, local, informed section catalogue.png",
+        "parentBoard": "B031",
+        "parentBoardElement": "CVA-INTRO-B031-E06",
+        "crop": {
+          "x": 700,
+          "y": 1595,
+          "width": 135,
+          "height": 180
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B034-E02A",
+      "archiveElementId": "CVA-DECISION-B034-E02A",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Suitability summary — Persian decision panel",
+      "family": "Decision-support panels",
+      "purpose": "Summarise suitability and invite a personal consultation",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B034-E02A.png",
+        "width": 374,
+        "height": 335,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-DECISION-B034-E02",
+        "crop": {
+          "x": 490,
+          "y": 327,
+          "width": 374,
+          "height": 335
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-DECISION-B034-E06D",
+      "archiveElementId": "CVA-DECISION-B034-E06D",
+      "labRoom": "cards",
+      "labRoomAcceptedPrefix": "CVA-DECISION-*",
+      "title": "Related option card — Not sure yet",
+      "family": "Decision-support panels",
+      "purpose": "Invite a consultation when the patient remains unsure",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cards/previews/CVA-DECISION-B034-E06D.png",
+        "width": 170,
+        "height": 140,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Six refined dental section concepts.png",
+        "parentBoard": "B034",
+        "parentBoardElement": "CVA-DECISION-B034-E06",
+        "crop": {
+          "x": 680,
+          "y": 1650,
+          "width": 170,
+          "height": 140
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-sections/src/Section_TreatmentRoutingCards.tsx",
+        "evidenceNote": "Related card code has a different routing purpose and does not reproduce this evidence-card design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    }
+  ]
+}

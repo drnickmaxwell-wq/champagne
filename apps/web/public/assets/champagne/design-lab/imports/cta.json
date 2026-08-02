@@ -1,0 +1,5573 @@
+{
+  "schemaVersion": 1,
+  "catalogueId": "CHAMPAGNE_DESIGN_LAB_CTA_IMPORT_V1",
+  "targetRepository": "drnickmaxwell-wq/champagne",
+  "targetBranchObserved": "agent/champagne-design-lab-v1",
+  "targetRoom": "cta",
+  "productionBinding": false,
+  "founderDecisionApplied": false,
+  "itemCount": 106,
+  "items": [
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E01",
+      "archiveElementId": "CVA-CTA-B004-E01",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Architectural frame",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E01.png",
+        "width": 578,
+        "height": 182,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 20,
+          "y": 176,
+          "width": 578,
+          "height": 182
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E02",
+      "archiveElementId": "CVA-CTA-B004-E02",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Editorial arrow link",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E02.png",
+        "width": 492,
+        "height": 182,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 598,
+          "y": 176,
+          "width": 492,
+          "height": 182
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E03",
+      "archiveElementId": "CVA-CTA-B004-E03",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Bracketed invitation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E03.png",
+        "width": 562,
+        "height": 182,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 1090,
+          "y": 176,
+          "width": 562,
+          "height": 182
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E04",
+      "archiveElementId": "CVA-CTA-B004-E04",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Split doorway",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E04.png",
+        "width": 578,
+        "height": 220,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 20,
+          "y": 357,
+          "width": 578,
+          "height": 220
+        }
+      },
+      "statesRetained": [
+        "normal_primary",
+        "normal_alternative",
+        "hover_primary",
+        "keyboard_focus_primary",
+        "mobile_cues"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E05",
+      "archiveElementId": "CVA-CTA-B004-E05",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Vertical decision rail",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E05.png",
+        "width": 492,
+        "height": 220,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 598,
+          "y": 357,
+          "width": 492,
+          "height": 220
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E06",
+      "archiveElementId": "CVA-CTA-B004-E06",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Glass plaque",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E06.png",
+        "width": 562,
+        "height": 220,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 1090,
+          "y": 357,
+          "width": 562,
+          "height": 220
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E07",
+      "archiveElementId": "CVA-CTA-B004-E07",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Numbered next step",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E07.png",
+        "width": 578,
+        "height": 183,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 20,
+          "y": 577,
+          "width": 578,
+          "height": 183
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E08",
+      "archiveElementId": "CVA-CTA-B004-E08",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Tab/index action",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E08.png",
+        "width": 492,
+        "height": 183,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 598,
+          "y": 577,
+          "width": 492,
+          "height": 183
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B004-E09",
+      "archiveElementId": "CVA-CTA-B004-E09",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Icon portal tile",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B004-E09.png",
+        "width": 562,
+        "height": 183,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/CTA family 02: frame, line, gesture.png",
+        "parentBoard": "B004",
+        "parentBoardElement": null,
+        "crop": {
+          "x": 1090,
+          "y": 577,
+          "width": 562,
+          "height": 183
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover",
+        "keyboard_focus",
+        "mobile_cue"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E01A",
+      "archiveElementId": "CVA-CTA-B005-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass header — Book a consultation outline",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E01A.png",
+        "width": 260,
+        "height": 62,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-HEADER-B005-E01",
+        "crop": {
+          "x": 1245,
+          "y": 18,
+          "width": 260,
+          "height": 62
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E02A",
+      "archiveElementId": "CVA-CTA-B005-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass hero — Book a consultation gold fill",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E02A.png",
+        "width": 300,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-INTRO-B005-E02",
+        "crop": {
+          "x": 82,
+          "y": 642,
+          "width": 300,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E02B",
+      "archiveElementId": "CVA-CTA-B005-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass hero — Explore treatments dark outline",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E02B.png",
+        "width": 300,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-INTRO-B005-E02",
+        "crop": {
+          "x": 82,
+          "y": 704,
+          "width": 300,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E03A",
+      "archiveElementId": "CVA-CTA-B005-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass treatment route — Cosmetic dentistry",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E03A.png",
+        "width": 145,
+        "height": 45,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-SECTION-B005-E03",
+        "crop": {
+          "x": 170,
+          "y": 950,
+          "width": 145,
+          "height": 45
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E03B",
+      "archiveElementId": "CVA-CTA-B005-E03B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass treatment route — Dental implants",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E03B.png",
+        "width": 165,
+        "height": 45,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-SECTION-B005-E03",
+        "crop": {
+          "x": 530,
+          "y": 950,
+          "width": 165,
+          "height": 45
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E03C",
+      "archiveElementId": "CVA-CTA-B005-E03C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass treatment route — Invisalign",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E03C.png",
+        "width": 165,
+        "height": 45,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-SECTION-B005-E03",
+        "crop": {
+          "x": 885,
+          "y": 950,
+          "width": 165,
+          "height": 45
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B005-E03D",
+      "archiveElementId": "CVA-CTA-B005-E03D",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Celestial Compass treatment route — Same day smile",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B005-E03D.png",
+        "width": 170,
+        "height": 45,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Celestial Compass Dental Care.png",
+        "parentBoard": "B005",
+        "parentBoardElement": "CVA-SECTION-B005-E03",
+        "crop": {
+          "x": 1220,
+          "y": 950,
+          "width": 170,
+          "height": 45
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B006-E01A",
+      "archiveElementId": "CVA-CTA-B006-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Calm wave header — Book a consultation outline",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B006-E01A.png",
+        "width": 225,
+        "height": 65,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B006",
+        "parentBoardElement": "CVA-HEADER-B006-E01",
+        "crop": {
+          "x": 1270,
+          "y": 20,
+          "width": 225,
+          "height": 65
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B006-E02A",
+      "archiveElementId": "CVA-CTA-B006-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Calm wave hero — Book a consultation magenta fill",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B006-E02A.png",
+        "width": 225,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B006",
+        "parentBoardElement": "CVA-INTRO-B006-E02",
+        "crop": {
+          "x": 76,
+          "y": 480,
+          "width": 225,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B006-E02B",
+      "archiveElementId": "CVA-CTA-B006-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Calm wave hero — Explore treatments gold outline",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B006-E02B.png",
+        "width": 225,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B006",
+        "parentBoardElement": "CVA-INTRO-B006-E02",
+        "crop": {
+          "x": 310,
+          "y": 480,
+          "width": 225,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B006-E03A",
+      "archiveElementId": "CVA-CTA-B006-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Calm wave decision route — Known treatment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B006-E03A.png",
+        "width": 315,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B006",
+        "parentBoardElement": "CVA-DECISION-B006-E03",
+        "crop": {
+          "x": 225,
+          "y": 925,
+          "width": 315,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B006-E03B",
+      "archiveElementId": "CVA-CTA-B006-E03B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Calm wave decision route — Explore options",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B006-E03B.png",
+        "width": 315,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B006",
+        "parentBoardElement": "CVA-DECISION-B006-E03",
+        "crop": {
+          "x": 595,
+          "y": 925,
+          "width": 315,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B006-E03C",
+      "archiveElementId": "CVA-CTA-B006-E03C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Calm wave decision route — Nervous patient",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B006-E03C.png",
+        "width": 350,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B006",
+        "parentBoardElement": "CVA-DECISION-B006-E03",
+        "crop": {
+          "x": 960,
+          "y": 925,
+          "width": 350,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E01A",
+      "archiveElementId": "CVA-CTA-B010-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue header — Arrange a consultation capsule",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E01A.png",
+        "width": 225,
+        "height": 60,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-HEADER-B010-E01",
+        "crop": {
+          "x": 1155,
+          "y": 65,
+          "width": 225,
+          "height": 60
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E02A",
+      "archiveElementId": "CVA-CTA-B010-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue hero — Book a consultation translucent outline",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E02A.png",
+        "width": 220,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-INTRO-B010-E02",
+        "crop": {
+          "x": 150,
+          "y": 375,
+          "width": 220,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E02B",
+      "archiveElementId": "CVA-CTA-B010-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue hero — Explore treatments translucent outline",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E02B.png",
+        "width": 220,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-INTRO-B010-E02",
+        "crop": {
+          "x": 365,
+          "y": 375,
+          "width": 220,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E02C",
+      "archiveElementId": "CVA-CTA-B010-E02C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue hero — Concierge dark capsule",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E02C.png",
+        "width": 155,
+        "height": 60,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-INTRO-B010-E02",
+        "crop": {
+          "x": 150,
+          "y": 595,
+          "width": 155,
+          "height": 60
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E03A",
+      "archiveElementId": "CVA-CTA-B010-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue decision route — Known treatment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E03A.png",
+        "width": 315,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-DECISION-B010-E03",
+        "crop": {
+          "x": 280,
+          "y": 890,
+          "width": 315,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E03B",
+      "archiveElementId": "CVA-CTA-B010-E03B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue decision route — Explore options",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E03B.png",
+        "width": 315,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-DECISION-B010-E03",
+        "crop": {
+          "x": 640,
+          "y": 890,
+          "width": 315,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B010-E03C",
+      "archiveElementId": "CVA-CTA-B010-E03C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Midnight-blue decision route — Nervous patient",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B010-E03C.png",
+        "width": 335,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010",
+        "parentBoardElement": "CVA-DECISION-B010-E03",
+        "crop": {
+          "x": 995,
+          "y": 890,
+          "width": 335,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E02A",
+      "archiveElementId": "CVA-CTA-B014-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Mixed question-first — Send a question",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E02A.png",
+        "width": 130,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-DECISION-B014-E02",
+        "crop": {
+          "x": 389,
+          "y": 720,
+          "width": 130,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E02B",
+      "archiveElementId": "CVA-CTA-B014-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Mixed question-first — Request an assessment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E02B.png",
+        "width": 140,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-DECISION-B014-E02",
+        "crop": {
+          "x": 535,
+          "y": 720,
+          "width": 140,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E02C",
+      "archiveElementId": "CVA-CTA-B014-E02C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Mixed question-first — Request a call",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E02C.png",
+        "width": 135,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-DECISION-B014-E02",
+        "crop": {
+          "x": 680,
+          "y": 720,
+          "width": 135,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E03A",
+      "archiveElementId": "CVA-CTA-B014-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian decision band — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E03A.png",
+        "width": 195,
+        "height": 60,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-BAND-B014-E03",
+        "crop": {
+          "x": 335,
+          "y": 935,
+          "width": 195,
+          "height": 60
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E03B",
+      "archiveElementId": "CVA-CTA-B014-E03B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian decision band — Explore treatment options",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E03B.png",
+        "width": 160,
+        "height": 50,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-BAND-B014-E03",
+        "crop": {
+          "x": 355,
+          "y": 990,
+          "width": 160,
+          "height": 50
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E04A",
+      "archiveElementId": "CVA-CTA-B014-E04A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Hero-spectrum closing bloom — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E04A.png",
+        "width": 195,
+        "height": 60,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-CLOSE-B014-E04",
+        "crop": {
+          "x": 335,
+          "y": 1185,
+          "width": 195,
+          "height": 60
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E05A",
+      "archiveElementId": "CVA-CTA-B014-E05A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain contact choice — Send a question",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E05A.png",
+        "width": 115,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-CONSULT-B014-E05",
+        "crop": {
+          "x": 125,
+          "y": 1410,
+          "width": 115,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E05B",
+      "archiveElementId": "CVA-CTA-B014-E05B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain contact choice — Request an assessment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E05B.png",
+        "width": 145,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-CONSULT-B014-E05",
+        "crop": {
+          "x": 395,
+          "y": 1410,
+          "width": 145,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E05C",
+      "archiveElementId": "CVA-CTA-B014-E05C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain contact choice — Request a call",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E05C.png",
+        "width": 125,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "CVA-CONSULT-B014-E05",
+        "crop": {
+          "x": 655,
+          "y": 1410,
+          "width": 125,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06A",
+      "archiveElementId": "CVA-CTA-B014-E06A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Primary consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06A.png",
+        "width": 125,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 87,
+          "y": 1607,
+          "width": 125,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06B",
+      "archiveElementId": "CVA-CTA-B014-E06B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Assessment request",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06B.png",
+        "width": 124,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 212,
+          "y": 1607,
+          "width": 124,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06C",
+      "archiveElementId": "CVA-CTA-B014-E06C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Ask a question first",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06C.png",
+        "width": 116,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 336,
+          "y": 1607,
+          "width": 116,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06D",
+      "archiveElementId": "CVA-CTA-B014-E06D",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Explore treatment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06D.png",
+        "width": 112,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 452,
+          "y": 1607,
+          "width": 112,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06E",
+      "archiveElementId": "CVA-CTA-B014-E06E",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Quiet text link",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06E.png",
+        "width": 91,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 564,
+          "y": 1607,
+          "width": 91,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06F",
+      "archiveElementId": "CVA-CTA-B014-E06F",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Emergency action",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06F.png",
+        "width": 93,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 655,
+          "y": 1607,
+          "width": 93,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B014-E06G",
+      "archiveElementId": "CVA-CTA-B014-E06G",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Patient portal",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B014-E06G.png",
+        "width": 102,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Editorial CTA family: Answer, decide, act.png",
+        "parentBoard": "B014",
+        "parentBoardElement": "E06",
+        "crop": {
+          "x": 748,
+          "y": 1607,
+          "width": 102,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "normal",
+        "hover_or_focus",
+        "keyboard_focus",
+        "mobile_stacked"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E01A",
+      "archiveElementId": "CVA-CTA-B017-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Luminous implant header — Arrange a consultation capsule",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E01A.png",
+        "width": 225,
+        "height": 58,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-HEADER-B017-E01",
+        "crop": {
+          "x": 1155,
+          "y": 58,
+          "width": 225,
+          "height": 58
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E02A",
+      "archiveElementId": "CVA-CTA-B017-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Luminous implant hero — Book implant consult",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E02A.png",
+        "width": 270,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-INTRO-B017-E02",
+        "crop": {
+          "x": 170,
+          "y": 425,
+          "width": 270,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E02B",
+      "archiveElementId": "CVA-CTA-B017-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Luminous implant hero — See pricing",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E02B.png",
+        "width": 205,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-INTRO-B017-E02",
+        "crop": {
+          "x": 445,
+          "y": 425,
+          "width": 205,
+          "height": 75
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E03A",
+      "archiveElementId": "CVA-CTA-B017-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant planning route — Assess suitability",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E03A.png",
+        "width": 285,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-PATH-B017-E03",
+        "crop": {
+          "x": 215,
+          "y": 875,
+          "width": 285,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E03B",
+      "archiveElementId": "CVA-CTA-B017-E03B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant planning route — Map anatomy",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E03B.png",
+        "width": 285,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-PATH-B017-E03",
+        "crop": {
+          "x": 510,
+          "y": 875,
+          "width": 285,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E03C",
+      "archiveElementId": "CVA-CTA-B017-E03C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant planning route — Explain stages",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E03C.png",
+        "width": 300,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-PATH-B017-E03",
+        "crop": {
+          "x": 800,
+          "y": 875,
+          "width": 300,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B017-E03D",
+      "archiveElementId": "CVA-CTA-B017-E03D",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant planning route — Discuss alternatives",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B017-E03D.png",
+        "width": 305,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous Implant Planning Hero.png",
+        "parentBoard": "B017",
+        "parentBoardElement": "CVA-PATH-B017-E03",
+        "crop": {
+          "x": 1100,
+          "y": 875,
+          "width": 305,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E01A",
+      "archiveElementId": "CVA-CTA-B018-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Full implant page header — Arrange a consultation capsule",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E01A.png",
+        "width": 125,
+        "height": 40,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-HEADER-B018-E01",
+        "crop": {
+          "x": 780,
+          "y": 10,
+          "width": 125,
+          "height": 40
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E02A",
+      "archiveElementId": "CVA-CTA-B018-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Full implant page hero — Book implant consult",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E02A.png",
+        "width": 215,
+        "height": 65,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-INTRO-B018-E02",
+        "crop": {
+          "x": 65,
+          "y": 490,
+          "width": 215,
+          "height": 65
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E02B",
+      "archiveElementId": "CVA-CTA-B018-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Full implant page hero — See pricing",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E02B.png",
+        "width": 130,
+        "height": 65,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-INTRO-B018-E02",
+        "crop": {
+          "x": 283,
+          "y": 490,
+          "width": 130,
+          "height": 65
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E07A",
+      "archiveElementId": "CVA-CTA-B018-E07A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant next-step band — Request an appointment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E07A.png",
+        "width": 175,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-CONSULT-B018-E07",
+        "crop": {
+          "x": 410,
+          "y": 1452,
+          "width": 175,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E07B",
+      "archiveElementId": "CVA-CTA-B018-E07B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant next-step band — Ask a question first",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E07B.png",
+        "width": 180,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-CONSULT-B018-E07",
+        "crop": {
+          "x": 582,
+          "y": 1452,
+          "width": 180,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E07C",
+      "archiveElementId": "CVA-CTA-B018-E07C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Implant next-step band — Explore implant alternatives",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E07C.png",
+        "width": 147,
+        "height": 78,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-CONSULT-B018-E07",
+        "crop": {
+          "x": 765,
+          "y": 1452,
+          "width": 147,
+          "height": 78
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B018-E08A",
+      "archiveElementId": "CVA-CTA-B018-E08A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Full implant page footer — Arrange a consultation capsule",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B018-E08A.png",
+        "width": 135,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luminous dental implants hero page.png",
+        "parentBoard": "B018",
+        "parentBoardElement": "CVA-FOOT-B018-E08",
+        "crop": {
+          "x": 758,
+          "y": 1590,
+          "width": 135,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B019-E01A",
+      "archiveElementId": "CVA-CTA-B019-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Layered-footer consultation band — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B019-E01A.png",
+        "width": 450,
+        "height": 100,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury consultation band above layered footer.png",
+        "parentBoard": "B019",
+        "parentBoardElement": "CVA-CLOSE-B019-E01",
+        "crop": {
+          "x": 610,
+          "y": 175,
+          "width": 450,
+          "height": 100
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B019-E01B",
+      "archiveElementId": "CVA-CTA-B019-E01B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Layered-footer consultation band — Explore options",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B019-E01B.png",
+        "width": 220,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury consultation band above layered footer.png",
+        "parentBoard": "B019",
+        "parentBoardElement": "CVA-CLOSE-B019-E01",
+        "crop": {
+          "x": 725,
+          "y": 285,
+          "width": 220,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B019-E02A",
+      "archiveElementId": "CVA-CTA-B019-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Layered footer — Contact the practice",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B019-E02A.png",
+        "width": 235,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury consultation band above layered footer.png",
+        "parentBoard": "B019",
+        "parentBoardElement": "CVA-FOOT-B019-E02",
+        "crop": {
+          "x": 1175,
+          "y": 585,
+          "width": 235,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B019-E02B",
+      "archiveElementId": "CVA-CTA-B019-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Layered footer — Explore treatments",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B019-E02B.png",
+        "width": 235,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury consultation band above layered footer.png",
+        "parentBoard": "B019",
+        "parentBoardElement": "CVA-FOOT-B019-E02",
+        "crop": {
+          "x": 1175,
+          "y": 640,
+          "width": 235,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B019-E02C",
+      "archiveElementId": "CVA-CTA-B019-E02C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Layered footer — Patient portal",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B019-E02C.png",
+        "width": 210,
+        "height": 70,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury consultation band above layered footer.png",
+        "parentBoard": "B019",
+        "parentBoardElement": "CVA-FOOT-B019-E02",
+        "crop": {
+          "x": 1440,
+          "y": 825,
+          "width": 210,
+          "height": 70
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E01A",
+      "archiveElementId": "CVA-CTA-B020-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian consultation — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E01A.png",
+        "width": 205,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E01",
+        "crop": {
+          "x": 330,
+          "y": 220,
+          "width": 205,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E01B",
+      "archiveElementId": "CVA-CTA-B020-E01B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian consultation — Explore options",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E01B.png",
+        "width": 150,
+        "height": 40,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E01",
+        "crop": {
+          "x": 355,
+          "y": 270,
+          "width": 150,
+          "height": 40
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E02A",
+      "archiveElementId": "CVA-CTA-B020-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Question-first split — Send a question",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E02A.png",
+        "width": 205,
+        "height": 205,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E02",
+        "crop": {
+          "x": 425,
+          "y": 345,
+          "width": 205,
+          "height": 205
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E02B",
+      "archiveElementId": "CVA-CTA-B020-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Question-first split — Request an assessment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E02B.png",
+        "width": 220,
+        "height": 205,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E02",
+        "crop": {
+          "x": 630,
+          "y": 345,
+          "width": 220,
+          "height": 205
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E03A",
+      "archiveElementId": "CVA-CTA-B020-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Hero-spectrum signature — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E03A.png",
+        "width": 260,
+        "height": 105,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E03",
+        "crop": {
+          "x": 300,
+          "y": 665,
+          "width": 260,
+          "height": 105
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E04A",
+      "archiveElementId": "CVA-CTA-B020-E04A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain quiet decision — Ask a question",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E04A.png",
+        "width": 235,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E04",
+        "crop": {
+          "x": 545,
+          "y": 865,
+          "width": 235,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E04B",
+      "archiveElementId": "CVA-CTA-B020-E04B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain quiet decision — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E04B.png",
+        "width": 235,
+        "height": 55,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E04",
+        "crop": {
+          "x": 545,
+          "y": 920,
+          "width": 235,
+          "height": 55
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E05A",
+      "archiveElementId": "CVA-CTA-B020-E05A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Clinician handover — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E05A.png",
+        "width": 330,
+        "height": 130,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E05",
+        "crop": {
+          "x": 330,
+          "y": 1090,
+          "width": 330,
+          "height": 130
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E06A",
+      "archiveElementId": "CVA-CTA-B020-E06A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Treatment alternatives — Explore alternatives",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E06A.png",
+        "width": 270,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E06",
+        "crop": {
+          "x": 20,
+          "y": 1285,
+          "width": 270,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E06B",
+      "archiveElementId": "CVA-CTA-B020-E06B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Treatment alternatives — Compare approaches",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E06B.png",
+        "width": 275,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E06",
+        "crop": {
+          "x": 295,
+          "y": 1285,
+          "width": 275,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E06C",
+      "archiveElementId": "CVA-CTA-B020-E06C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Treatment alternatives — Ask what may suit you",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E06C.png",
+        "width": 280,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E06",
+        "crop": {
+          "x": 570,
+          "y": 1285,
+          "width": 280,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E07A",
+      "archiveElementId": "CVA-CTA-B020-E07A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — Our process",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E07A.png",
+        "width": 137,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E07",
+        "crop": {
+          "x": 285,
+          "y": 1455,
+          "width": 137,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E07B",
+      "archiveElementId": "CVA-CTA-B020-E07B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — Risks and considerations",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E07B.png",
+        "width": 137,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E07",
+        "crop": {
+          "x": 422,
+          "y": 1455,
+          "width": 137,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E07C",
+      "archiveElementId": "CVA-CTA-B020-E07C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — Aftercare",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E07C.png",
+        "width": 137,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E07",
+        "crop": {
+          "x": 559,
+          "y": 1455,
+          "width": 137,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E07D",
+      "archiveElementId": "CVA-CTA-B020-E07D",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — FAQs",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E07D.png",
+        "width": 145,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E07",
+        "crop": {
+          "x": 696,
+          "y": 1455,
+          "width": 145,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E08A",
+      "archiveElementId": "CVA-CTA-B020-E08A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Urgent or routine router — Get urgent help",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E08A.png",
+        "width": 390,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E08",
+        "crop": {
+          "x": 20,
+          "y": 1630,
+          "width": 390,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B020-E08B",
+      "archiveElementId": "CVA-CTA-B020-E08B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Urgent or routine router — Plan a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B020-E08B.png",
+        "width": 385,
+        "height": 165,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "CVA-CONSULT-B020-E08",
+        "crop": {
+          "x": 465,
+          "y": 1630,
+          "width": 385,
+          "height": 165
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E01A",
+      "archiveElementId": "CVA-CTA-B024-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian consultation — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E01A.png",
+        "width": 220,
+        "height": 60,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E01",
+        "crop": {
+          "x": 325,
+          "y": 180,
+          "width": 220,
+          "height": 60
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E01B",
+      "archiveElementId": "CVA-CTA-B024-E01B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian consultation — Explore options",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E01B.png",
+        "width": 160,
+        "height": 45,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E01",
+        "crop": {
+          "x": 355,
+          "y": 235,
+          "width": 160,
+          "height": 45
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E02A",
+      "archiveElementId": "CVA-CTA-B024-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Question-first split — Send a question",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E02A.png",
+        "width": 210,
+        "height": 185,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E02",
+        "crop": {
+          "x": 1225,
+          "y": 105,
+          "width": 210,
+          "height": 185
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E02B",
+      "archiveElementId": "CVA-CTA-B024-E02B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Question-first split — Request an assessment",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E02B.png",
+        "width": 205,
+        "height": 185,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E02",
+        "crop": {
+          "x": 1435,
+          "y": 105,
+          "width": 205,
+          "height": 185
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E03A",
+      "archiveElementId": "CVA-CTA-B024-E03A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Hero-spectrum signature — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E03A.png",
+        "width": 300,
+        "height": 120,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E03",
+        "crop": {
+          "x": 270,
+          "y": 370,
+          "width": 300,
+          "height": 120
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E04A",
+      "archiveElementId": "CVA-CTA-B024-E04A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain quiet decision — Ask a question",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E04A.png",
+        "width": 230,
+        "height": 50,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E04",
+        "crop": {
+          "x": 1325,
+          "y": 365,
+          "width": 230,
+          "height": 50
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E04B",
+      "archiveElementId": "CVA-CTA-B024-E04B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain quiet decision — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E04B.png",
+        "width": 230,
+        "height": 50,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E04",
+        "crop": {
+          "x": 1325,
+          "y": 415,
+          "width": 230,
+          "height": 50
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E05A",
+      "archiveElementId": "CVA-CTA-B024-E05A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Clinician handover — Arrange a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E05A.png",
+        "width": 360,
+        "height": 155,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E05",
+        "crop": {
+          "x": 335,
+          "y": 535,
+          "width": 360,
+          "height": 155
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E06A",
+      "archiveElementId": "CVA-CTA-B024-E06A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Treatment alternatives — Explore alternatives",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E06A.png",
+        "width": 265,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E06",
+        "crop": {
+          "x": 850,
+          "y": 550,
+          "width": 265,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E06B",
+      "archiveElementId": "CVA-CTA-B024-E06B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Treatment alternatives — Compare approaches",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E06B.png",
+        "width": 265,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E06",
+        "crop": {
+          "x": 1110,
+          "y": 550,
+          "width": 265,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E06C",
+      "archiveElementId": "CVA-CTA-B024-E06C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Treatment alternatives — Ask what may suit you",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E06C.png",
+        "width": 265,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E06",
+        "crop": {
+          "x": 1375,
+          "y": 550,
+          "width": 265,
+          "height": 145
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E07A",
+      "archiveElementId": "CVA-CTA-B024-E07A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — Our process",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E07A.png",
+        "width": 136,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E07",
+        "crop": {
+          "x": 258,
+          "y": 740,
+          "width": 136,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E07B",
+      "archiveElementId": "CVA-CTA-B024-E07B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — Risks and considerations",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E07B.png",
+        "width": 137,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E07",
+        "crop": {
+          "x": 394,
+          "y": 740,
+          "width": 137,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E07C",
+      "archiveElementId": "CVA-CTA-B024-E07C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — Aftercare",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E07C.png",
+        "width": 137,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E07",
+        "crop": {
+          "x": 531,
+          "y": 740,
+          "width": 137,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E07D",
+      "archiveElementId": "CVA-CTA-B024-E07D",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Continue reading — FAQs",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E07D.png",
+        "width": 156,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E07",
+        "crop": {
+          "x": 668,
+          "y": 740,
+          "width": 156,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E08A",
+      "archiveElementId": "CVA-CTA-B024-E08A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Urgent or routine router — Get urgent help",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E08A.png",
+        "width": 350,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E08",
+        "crop": {
+          "x": 850,
+          "y": 740,
+          "width": 350,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B024-E08B",
+      "archiveElementId": "CVA-CTA-B024-E08B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Urgent or routine router — Plan a consultation",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B024-E08B.png",
+        "width": 385,
+        "height": 150,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "CVA-CONSULT-B024-E08",
+        "crop": {
+          "x": 1255,
+          "y": 740,
+          "width": 385,
+          "height": 150
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B028-E01A",
+      "archiveElementId": "CVA-CTA-B028-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain gateway — Arrange a consultation architectural portal",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B028-E01A.png",
+        "width": 220,
+        "height": 240,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Persian architectural footer with consultation gateway.png",
+        "parentBoard": "B028",
+        "parentBoardElement": "CVA-CLOSE-B028-E01",
+        "crop": {
+          "x": 900,
+          "y": 90,
+          "width": 220,
+          "height": 240
+        }
+      },
+      "statesRetained": [
+        "focus_label_visible"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B028-E01B",
+      "archiveElementId": "CVA-CTA-B028-E01B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain gateway — Ask a question first",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B028-E01B.png",
+        "width": 220,
+        "height": 170,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Persian architectural footer with consultation gateway.png",
+        "parentBoard": "B028",
+        "parentBoardElement": "CVA-CLOSE-B028-E01",
+        "crop": {
+          "x": 1115,
+          "y": 110,
+          "width": 220,
+          "height": 170
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B028-E01C",
+      "archiveElementId": "CVA-CTA-B028-E01C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Porcelain gateway — Explore treatments bracket",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B028-E01C.png",
+        "width": 220,
+        "height": 170,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Persian architectural footer with consultation gateway.png",
+        "parentBoard": "B028",
+        "parentBoardElement": "CVA-CLOSE-B028-E01",
+        "crop": {
+          "x": 1340,
+          "y": 110,
+          "width": 220,
+          "height": 170
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B028-E02A",
+      "archiveElementId": "CVA-CTA-B028-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "Persian architectural footer — Arrange a consultation portal",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B028-E02A.png",
+        "width": 265,
+        "height": 310,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Persian architectural footer with consultation gateway.png",
+        "parentBoard": "B028",
+        "parentBoardElement": "CVA-FOOT-B028-E02",
+        "crop": {
+          "x": 1320,
+          "y": 430,
+          "width": 265,
+          "height": 310
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B041-E01A",
+      "archiveElementId": "CVA-CTA-B041-E01A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "St Mary’s House gateway — Arrange a consultation doorway",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B041-E01A.png",
+        "width": 245,
+        "height": 280,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/St Mary’s House: A Considered Next Step.png",
+        "parentBoard": "B041",
+        "parentBoardElement": "CVA-CLOSE-B041-E01",
+        "crop": {
+          "x": 835,
+          "y": 145,
+          "width": 245,
+          "height": 280
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B041-E01B",
+      "archiveElementId": "CVA-CTA-B041-E01B",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "St Mary’s House gateway — Ask a question first",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B041-E01B.png",
+        "width": 210,
+        "height": 240,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/St Mary’s House: A Considered Next Step.png",
+        "parentBoard": "B041",
+        "parentBoardElement": "CVA-CLOSE-B041-E01",
+        "crop": {
+          "x": 1090,
+          "y": 170,
+          "width": 210,
+          "height": 240
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B041-E01C",
+      "archiveElementId": "CVA-CTA-B041-E01C",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "St Mary’s House gateway — Explore treatments bracket",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B041-E01C.png",
+        "width": 220,
+        "height": 240,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/St Mary’s House: A Considered Next Step.png",
+        "parentBoard": "B041",
+        "parentBoardElement": "CVA-CLOSE-B041-E01",
+        "crop": {
+          "x": 1315,
+          "y": 170,
+          "width": 220,
+          "height": 240
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-CTA-B041-E02A",
+      "archiveElementId": "CVA-CTA-B041-E02A",
+      "labRoom": "cta",
+      "labRoomAcceptedPrefix": "CVA-CTA-*",
+      "title": "St Mary’s House footer — Arrange a consultation portal",
+      "family": "CTAs and buttons",
+      "decision": "unselected",
+      "technicalStatus": "PARTIAL",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "cta/previews/CVA-CTA-B041-E02A.png",
+        "width": 230,
+        "height": 300,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/St Mary’s House: A Considered Next Step.png",
+        "parentBoard": "B041",
+        "parentBoardElement": "CVA-FOOT-B041-E02",
+        "crop": {
+          "x": 1390,
+          "y": 500,
+          "width": 230,
+          "height": 300
+        }
+      },
+      "statesRetained": [
+        "default_visual_state_only"
+      ],
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedComponent": "packages/champagne-cta/src/ChampagneCTAButton.tsx",
+        "relatedComponentCapabilities": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "evidenceNote": "The generic repository CTA does not reproduce this archived visual candidate."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    }
+  ]
+}

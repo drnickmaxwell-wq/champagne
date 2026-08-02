@@ -20,6 +20,7 @@ export default async function ChampagneDesignLabPage({
   const viewport = params.viewport === "tablet" || params.viewport === "mobile" ? params.viewport : "desktop";
   const candidate = typeof params.candidate === "string" ? params.candidate : undefined;
   const porcelain = typeof params.porcelain === "string" ? params.porcelain : undefined;
+  const choices = typeof params.choices === "string" ? params.choices.split(",").filter(Boolean) : [];
   const heroProps = {
     mode: "home" as const,
     pageCategory: "home",
@@ -38,6 +39,7 @@ export default async function ChampagneDesignLabPage({
       initialViewport={viewport}
       initialCandidateId={candidate}
       initialPorcelainId={porcelain}
+      initialChoiceIds={choices}
       hero={
         <div data-hero-engine="v2" data-lab-engine-override="true" style={{ minHeight: "72vh" }}>
           <HeroRendererV2

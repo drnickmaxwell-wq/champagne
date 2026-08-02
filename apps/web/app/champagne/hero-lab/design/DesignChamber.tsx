@@ -15,12 +15,40 @@ type LabStyle = CSSProperties & Record<`--${string}`, string>;
 type RouteEntry = (typeof routes)[number];
 type Viewport = "desktop" | "tablet" | "mobile";
 type Board = { id: string; title: string; sourceFile: string; categories: string[]; provenance: string; decision: string; thumbnail: string };
+type ComponentItem = { id: string; archiveElementId: string; labRoom: string; title: string; family: string; purpose?: string; technicalStatus: string; displayMode: string; implementationAvailable: boolean; selectableInDesignLab: boolean; usableInPageComposition: boolean; preview: { asset: string; width: number; height: number; faithfulCrop: boolean }; provenance: { archiveIdentifier: string; archivePath: string; parentBoard: string }; reconstruction: { required: boolean; allowAutomaticSubstitution: boolean }; productionBinding: boolean };
+type ComponentCatalogue = { itemCount: number; items: ComponentItem[]; productionBinding: boolean };
+type ComponentSelections = Record<string, ComponentItem>;
 
 const CATALOGUE_URLS = ["band", "cta", "footer", "heritage", "hero", "other", "page", "section"].map(
   (name) => `/assets/champagne/design-lab/catalogues/${name}.json`,
 );
 let archivePromise: Promise<Board[]> | null = null;
+const COMPONENT_CATALOGUE_URLS: Record<string, string> = {
+  cta: "/assets/champagne/design-lab/imports/cta.json",
+  cards: "/assets/champagne/design-lab/imports/cards.json",
+  sections: "/assets/champagne/design-lab/imports/sections.json",
+  bands: "/assets/champagne/design-lab/imports/bands.json",
+  headers: "/assets/champagne/design-lab/imports/headers.json",
+};
+const componentCataloguePromises = new Map<string, Promise<ComponentCatalogue>>();
 const FALLBACK_PICKER_COLOUR = candidates.find((candidate) => candidate.id === "archive-velvet-persian-blue")?.canvas ?? candidates[0].canvas;
+
+function componentPreviewUrl(item: ComponentItem): string {
+  return `/assets/champagne/design-lab/components/${item.preview.asset}`;
+}
+function loadComponentCatalogue(roomId: string): Promise<ComponentCatalogue> {
+  const url = COMPONENT_CATALOGUE_URLS[roomId];
+  if (!url) return Promise.resolve({ itemCount: 0, items: [], productionBinding: false });
+  let request = componentCataloguePromises.get(roomId);
+  if (!request) {
+    request = fetch(url).then((response) => {
+      if (!response.ok) throw new Error(`Unable to load ${url}`);
+      return response.json() as Promise<ComponentCatalogue>;
+    });
+    componentCataloguePromises.set(roomId, request);
+  }
+  return request;
+}
 
 function loadArchive(): Promise<Board[]> {
   archivePromise ??= Promise.all(CATALOGUE_URLS.map(async (url) => {
@@ -63,6 +91,7 @@ export function DesignChamber({
   initialViewport = "desktop",
   initialCandidateId,
   initialPorcelainId,
+  initialChoiceIds = [],
 }: {
   hero: ReactNode;
   initialReducedMotion: boolean;
@@ -71,6 +100,7 @@ export function DesignChamber({
   initialViewport?: Viewport;
   initialCandidateId?: string;
   initialPorcelainId?: string;
+  initialChoiceIds?: string[];
 }) {
   const router = useRouter();
   const [customCandidates, setCustomCandidates] = useState<Candidate[]>([]);
@@ -87,6 +117,8 @@ export function DesignChamber({
   const [viewport, setViewport] = useState<Viewport>(initialViewport);
   const [heroState, setHeroState] = useState({ active: false, engine: "not detected", instance: "not exposed", roots: 0, stacks: 0, motionLayers: 0 });
   const labRef = useRef<HTMLDivElement>(null);
+  const [componentChoices, setComponentChoices] = useState<ComponentSelections>({});
+  const initialChoicesKey = initialChoiceIds.join(",");
 
   const selected = allCandidates.find((candidate) => candidate.id === selectedId) ?? allCandidates[0];
   const selectedPorcelain = (porcelainCandidates as PorcelainCandidate[]).find((candidate) => candidate.id === selectedPorcelainId) ?? porcelainCandidates[0];
@@ -137,6 +169,16 @@ export function DesignChamber({
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!compositionOnly || !initialChoicesKey) return;
+    const wanted = new Set(initialChoicesKey.split(",").filter(Boolean));
+    void Promise.all(Object.keys(COMPONENT_CATALOGUE_URLS).map(loadComponentCatalogue)).then((catalogues) => {
+      const restored: ComponentSelections = {};
+      for (const item of catalogues.flatMap((catalogue) => catalogue.items)) if (wanted.has(item.id)) restored[item.labRoom] = item;
+      setComponentChoices(restored);
+    });
+  }, [compositionOnly, initialChoicesKey]);
+
   function setMotion(next: boolean) {
     setReducedMotion(next);
     const params = new URLSearchParams(window.location.search);
@@ -164,13 +206,14 @@ export function DesignChamber({
     setDecision("No colour selected");
   }
 
-  const compositionHref = `/champagne/hero-lab/design?labView=composition&route=${encodeURIComponent(route.route)}&viewport=${viewport}&candidate=${encodeURIComponent(selected.id)}&porcelain=${encodeURIComponent(selectedPorcelain.id)}${reducedMotion ? "&labMotion=reduce" : ""}`;
+  const choiceIds = Object.values(componentChoices).map((item) => item.id).join(",");
+  const compositionHref = `/champagne/hero-lab/design?labView=composition&route=${encodeURIComponent(route.route)}&viewport=${viewport}&candidate=${encodeURIComponent(selected.id)}&porcelain=${encodeURIComponent(selectedPorcelain.id)}${choiceIds ? `&choices=${encodeURIComponent(choiceIds)}` : ""}${reducedMotion ? "&labMotion=reduce" : ""}`;
 
   if (compositionOnly) {
     return <main ref={labRef} className={styles.compositionShell} style={labStyle} data-champagne-design-lab="true" data-reduced-motion={reducedMotion ? "true" : "false"}>
       <div className={styles.compositionToolbar}><a href="/champagne/hero-lab/design">Return to Design Lab</a><span>{route.label}</span><span>{viewport} composition</span></div>
       <div className={styles.compositionViewport} data-viewport={viewport}>
-        <CompositionPreview route={route} hero={hero} />
+        <CompositionPreview route={route} hero={hero} choices={componentChoices} />
       </div>
     </main>;
   }
@@ -178,7 +221,7 @@ export function DesignChamber({
   return <main ref={labRef} className={styles.lab} style={labStyle} data-champagne-design-lab="true" data-production-binding="false" data-reduced-motion={reducedMotion ? "true" : "false"}>
     <header className={styles.labHeader}>
       <div><p className={styles.eyebrow}>Internal laboratory · production isolated</p><h1>Champagne Design Laboratory V4</h1><p>Individual choices will live in the working rooms. Untouched mock-up boards now remain separately available as archive evidence.</p></div>
-      <div className={styles.status}><span>Founder choices: pending</span><span>Production binding: off</span><span>Archive import: awaiting extraction inventory</span><span>PR: draft and unmerged</span></div>
+      <div className={styles.status}><span>Founder choices: pending</span><span>Production binding: off</span><span>Archive import: Batch 1 · 201 individual choices</span><span>PR: draft and unmerged</span></div>
     </header>
 
     <nav className={styles.roomNav} aria-label="Design laboratory rooms"><a href="#tokens">01 · Tokens</a>{ROOMS.map((room) => <a key={room.id} href={`#${room.id}`}>{room.number} · {room.title}</a>)}<a href="#assembler">11 · Page builder</a><a href="#archive">Archive</a></nav>
@@ -197,7 +240,7 @@ export function DesignChamber({
 
     <section className={styles.heroRoom}><div className={styles.roomHeading}><div><p className={styles.roomNumber}>Sacred preview</p><h2>Genuine Hero V2</h2></div><dl className={styles.diagnostics}><div><dt>Status</dt><dd>{heroState.active ? "Hero V2 active" : "Hero V2 not detected"}</dd></div><div><dt>Engine</dt><dd>{heroState.engine}</dd></div><div><dt>Instance</dt><dd>{heroState.instance}</dd></div><div><dt>Roots / stacks</dt><dd>{heroState.roots} / {heroState.stacks}</dd></div><div><dt>Motion</dt><dd>{reducedMotion ? "PRM requested" : `${heroState.motionLayers} layers available`}</dd></div></dl></div><div className={styles.heroFrame}>{hero}</div></section>
 
-    {ROOMS.map((room) => <ComponentRoom key={room.id} {...room} />)}
+    {ROOMS.map((room) => <ComponentRoom key={room.id} {...room} selectedChoice={componentChoices[room.id]} onSelect={(item) => setComponentChoices((current) => ({ ...current, [room.id]: item }))} />)}
 
     <section className={styles.room} id="assembler"><RoomHeading number="11" title="Experimental full-page builder" /><p className={styles.roomIntro}>This renders a laboratory composition, not the current website. Manifest order is preserved and remains locked until the page-by-page SEO and AI-search audit.</p>
       <div className={styles.assemblerToolbar}><label><span>Find a page</span><input value={routeQuery} onChange={(event) => setRouteQuery(event.target.value)} placeholder="Homepage, implants, team…" /></label><label><span>Manifest foundation</span><select value={selectedRoute} onChange={(event) => setSelectedRoute(event.target.value)}>{routeOptions.map((entry) => <option key={entry.route} value={entry.route}>{entry.label} · {entry.route}</option>)}</select></label><div className={styles.viewportButtons}>{(["desktop", "tablet", "mobile"] as const).map((size) => <button type="button" key={size} aria-pressed={viewport === size} onClick={() => setViewport(size)}>{size}</button>)}</div></div>
@@ -209,23 +252,37 @@ export function DesignChamber({
   </main>;
 }
 
-function ComponentRoom({ number, id, title, description }: (typeof ROOMS)[number]) {
+function ComponentRoom({ number, id, title, description, selectedChoice, onSelect }: (typeof ROOMS)[number] & { selectedChoice?: ComponentItem; onSelect: (item: ComponentItem) => void }) {
   const room = registry.rooms.find((entry) => entry.id === id);
-  const footerRoom = id === "footers";
-  return <section className={styles.room} id={id}><RoomHeading number={number} title={title} /><p className={styles.roomIntro}>{description}</p>
-    <div className={styles.awaitingPanel}><div><strong>{room?.components.length ?? 0} individual choices loaded</strong><p>{id === "captain" ? "No genuine Captain interface designs have yet been evidenced." : "This shelf is ready for stable CVA element IDs from the extraction inventory."}</p></div><code>{room?.accepts.join(" · ")}</code></div>
-    {footerRoom ? <div className={styles.footerTarget}><strong>Manus layered luxury footer · source recovery required</strong><p>{registry.footerTarget.warning}</p><dl className={styles.footerEvidence}><div><dt>Intended component</dt><dd>{registry.footerTarget.intendedComponent}</dd></div><div><dt>Intended stylesheet</dt><dd>{registry.footerTarget.intendedStylesheet}</dd></div><div><dt>Surviving evidence</dt><dd>{registry.footerTarget.survivingPreviewWrapper}<br />{registry.footerTarget.survivingLayerStyles}</dd></div></dl><p>Preferred next action: recover the original package before attempting a clearly labelled reconstruction.</p><ul>{registry.footerTarget.likelySourcePackages.map((source) => <li key={source}>{source}</li>)}</ul></div> : null}
+  const catalogueAvailable = Boolean(COMPONENT_CATALOGUE_URLS[id]);
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState<ComponentItem[]>([]);
+  const [query, setQuery] = useState("");
+  const [inspectedId, setInspectedId] = useState(selectedChoice?.id ?? "");
+  const [error, setError] = useState("");
+  const matches = useMemo(() => { const q = query.trim().toLowerCase(); return q ? items.filter((item) => `${item.id} ${item.title} ${item.family} ${item.purpose ?? ""}`.toLowerCase().includes(q)) : items; }, [items, query]);
+  const inspected = items.find((item) => item.id === inspectedId) ?? selectedChoice ?? matches[0];
+  function toggleLibrary() {
+    const next = !open; setOpen(next);
+    if (next && catalogueAvailable && items.length === 0) void loadComponentCatalogue(id).then((catalogue) => { setItems(catalogue.items); setInspectedId(selectedChoice?.id ?? catalogue.items[0]?.id ?? ""); }).catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Unable to load component library"));
+  }
+  return <section className={styles.room} id={id}><RoomHeading number={number} title={title} selected={selectedChoice?.title} /><p className={styles.roomIntro}>{description}</p>
+    <div className={styles.awaitingPanel}><div><strong>{room?.components.length ?? 0} individual choices loaded</strong><p>{id === "captain" ? "No genuine Captain interface designs have yet been evidenced." : catalogueAvailable ? "Faithful individual archive crops are available to inspect and select. Functioning reconstruction comes later." : "This room remains ready for its own evidence-led extraction batch."}</p></div><code>{room?.accepts.join(" · ")}</code></div>
+    {catalogueAvailable ? <div className={styles.componentLibrary}><button type="button" className={styles.libraryToggle} aria-expanded={open} onClick={toggleLibrary}>{open ? "Close individual choice library" : `Open ${room?.components.length ?? 0} individual choices`}</button>
+      {selectedChoice ? <div className={styles.currentChoice}><span>Current laboratory choice</span><strong>{selectedChoice.title}</strong><code>{selectedChoice.id}</code></div> : null}
+      {open ? <div className={styles.libraryWorkspace}><aside><label>Find by name, family or ID<input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Architectural, consultation, B034…" /></label><p>{matches.length} of {items.length} choices</p><div className={styles.choiceList}>{matches.map((item) => <button type="button" key={item.id} aria-pressed={inspected?.id === item.id} onClick={() => setInspectedId(item.id)}><img src={componentPreviewUrl(item)} alt="" /><span><strong>{item.title}</strong><small>{item.id}</small></span></button>)}</div></aside>
+        {error ? <p>{error}</p> : inspected ? <article className={styles.choiceInspector}><div><p className={styles.roomNumber}>{inspected.family}</p><h3>{inspected.title}</h3><p>{inspected.purpose}</p></div><div className={styles.choiceCanvas}><img src={componentPreviewUrl(inspected)} alt={`Individual design reference: ${inspected.title}`} /></div><dl><div><dt>Status</dt><dd>{inspected.technicalStatus} · {inspected.displayMode}</dd></div><div><dt>Source board</dt><dd>{inspected.provenance.parentBoard}</dd></div><div><dt>Implementation</dt><dd>Faithful visual reference only · reconstruction required · no silent substitution</dd></div></dl><button type="button" className={styles.selectChoice} aria-pressed={selectedChoice?.id === inspected.id} onClick={() => onSelect(inspected)}>{selectedChoice?.id === inspected.id ? "Selected for laboratory composition" : "Use this design in laboratory"}</button></article> : <p>Loading individual choices…</p>}</div> : null}</div> : null}
+    {id === "footers" ? <div className={styles.footerTarget}><strong>Manus layered luxury footer · source recovery required</strong><p>{registry.footerTarget.warning}</p><dl className={styles.footerEvidence}><div><dt>Intended component</dt><dd>{registry.footerTarget.intendedComponent}</dd></div><div><dt>Intended stylesheet</dt><dd>{registry.footerTarget.intendedStylesheet}</dd></div><div><dt>Surviving evidence</dt><dd>{registry.footerTarget.survivingPreviewWrapper}<br />{registry.footerTarget.survivingLayerStyles}</dd></div></dl><p>Preferred next action: recover the original package before attempting a clearly labelled reconstruction.</p><ul>{registry.footerTarget.likelySourcePackages.map((source) => <li key={source}>{source}</li>)}</ul></div> : null}
   </section>;
 }
 
-function CompositionPreview({ route, hero }: { route: RouteEntry; hero: ReactNode }) {
-  return <article className={styles.composition} aria-label={`Experimental composition for ${route.label}`}>
-    <div className={styles.emptyChoice}><strong>Header choice awaiting individual component inventory</strong><span>Production header is not silently substituted</span></div>
-    <div className={styles.compositionHero}>{hero}</div>
-    <div className={styles.chapterSequence}>{route.sections.length ? route.sections.map((section) => <section key={section.instanceId} className={styles.chapterPlaceholder}><span>{String(section.order).padStart(2, "0")}</span><div><h3>{section.title ?? section.componentId}</h3><p>{section.componentId}</p><small>Manifest chapter retained · design choice awaiting individual library</small></div></section>) : <div className={styles.emptyChoice}>Section adapter pending for this page</div>}</div>
-    <div className={styles.emptyChoice}><strong>Closing and pre-footer choices awaiting inventory</strong><span>No generic band is substituted</span></div>
-    <div className={styles.footerTarget}><strong>Layered luxury footer target</strong><p>Discovery in progress. The currently rendered footer is explicitly excluded.</p></div>
-  </article>;
+function CompositionReference({ item, placement }: { item?: ComponentItem; placement: string }) {
+  if (!item) return <div className={styles.emptyChoice}><strong>{placement} choice awaiting founder selection</strong><span>No production component is silently substituted</span></div>;
+  return <section className={styles.compositionReference}><div><span>Selected visual reference · reconstruction required</span><strong>{item.title}</strong><code>{item.id}</code></div><img src={componentPreviewUrl(item)} alt={`Selected ${placement}: ${item.title}`} /></section>;
+}
+function CompositionPreview({ route, hero, choices }: { route: RouteEntry; hero: ReactNode; choices: ComponentSelections }) {
+  const supporting = [choices.cta, choices.cards].filter((item): item is ComponentItem => Boolean(item));
+  return <article className={styles.composition} aria-label={`Experimental composition for ${route.label}`}><CompositionReference item={choices.headers} placement="Header" /><div className={styles.compositionHero}>{hero}</div>{choices.sections ? <CompositionReference item={choices.sections} placement="Page section" /> : null}<div className={styles.chapterSequence}>{route.sections.length ? route.sections.map((section) => <section key={section.instanceId} className={styles.chapterPlaceholder}><span>{String(section.order).padStart(2, "0")}</span><div><h3>{section.title ?? section.componentId}</h3><p>{section.componentId}</p><small>Manifest chapter retained · design choice remains experimental</small></div></section>) : <div className={styles.emptyChoice}>Section adapter pending for this page</div>}</div>{supporting.length ? <div className={styles.supportingChoices}>{supporting.map((item) => <CompositionReference key={item.id} item={item} placement={item.labRoom === "cta" ? "CTA" : "Card or decision panel"} />)}</div> : null}<CompositionReference item={choices.bands} placement="Closing or pre-footer band" /><div className={styles.footerTarget}><strong>Layered luxury footer target</strong><p>Original source recovery remains in progress. The currently rendered footer is explicitly excluded.</p></div></article>;
 }
 
 function ArchiveDrawer() {
@@ -244,8 +301,8 @@ function ArchiveDrawer() {
   return <section className={styles.room} id="archive"><RoomHeading number="Archive" title="Original mock-up board archive" /><p className={styles.roomIntro}>All boards remain preserved here as evidence. They are not presented as individual component choices.</p><button type="button" className={styles.archiveToggle} aria-expanded={open} onClick={toggle}>{open ? "Close archive drawer" : "Open archive drawer"}</button>{open ? <div className={styles.archiveWorkspace}><aside><label>Search all boards<input value={query} onChange={(event) => setQuery(event.target.value)} /></label>{matches.map((board) => <button type="button" key={board.id} aria-pressed={selected?.id === board.id} onClick={() => setSelectedId(board.id)}><img src={board.thumbnail} alt="" /><span>{board.title}</span></button>)}</aside>{error ? <p>{error}</p> : selected ? <article><h3>{selected.title}</h3><p>{selected.provenance} · {selected.sourceFile}</p><img src={selected.thumbnail} alt={`Archived design board: ${selected.title}`} /></article> : <p>Loading archive…</p>}</div> : null}</section>;
 }
 
-function RoomHeading({ number, title }: { number: string; title: string }) {
-  return <div className={styles.roomHeading}><div><p className={styles.roomNumber}>{number === "Archive" ? "Preserved evidence" : `Room ${number} · founder choice pending`}</p><h2>{title}</h2></div><span className={styles.unselected}>Unselected</span></div>;
+function RoomHeading({ number, title, selected }: { number: string; title: string; selected?: string }) {
+  return <div className={styles.roomHeading}><div><p className={styles.roomNumber}>{number === "Archive" ? "Preserved evidence" : `Room ${number} · founder choice pending`}</p><h2>{title}</h2></div><span className={styles.unselected}>{selected ? `Laboratory choice · ${selected}` : "Unselected"}</span></div>;
 }
 
 function MaterialSubheading({ title, detail }: { title: string; detail: string }) {
