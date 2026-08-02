@@ -1,0 +1,20 @@
+[
+  {
+    "id": "current-porcelain",
+    "label": "Current repository porcelain",
+    "base": "color-mix(in oklab, var(--brand-white) 96%, var(--brand-soft-gold) 4%)",
+    "elevated": "color-mix(in oklab, var(--brand-white) 92%, var(--brand-soft-gold) 8%)",
+    "highest": "color-mix(in oklab, var(--brand-white) 86%, var(--brand-soft-gold) 14%)",
+    "kind": "control",
+    "source": "Current semantic porcelain ladder in packages/champagne-tokens"
+  },
+  {
+    "id": "archive-porcelain-consultation",
+    "label": "Archive consultation porcelain",
+    "base": "#FCFAF6",
+    "elevated": "color-mix(in oklab, #FCFAF6 94%, var(--brand-gold-keyline) 6%)",
+    "highest": "color-mix(in oklab, #FCFAF6 88%, var(--brand-gold-keyline) 12%)",
+    "kind": "archive",
+    "source": "Dominant light field measured from Porcelain-led dental consultation page.png"
+  }
+]

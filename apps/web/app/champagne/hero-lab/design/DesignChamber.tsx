@@ -4,11 +4,13 @@ import type { CSSProperties, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import candidates from "./persian-materials.json";
+import porcelainCandidates from "./porcelain-materials.json";
 import registry from "./component-registry.json";
 import routes from "./route-catalog.json";
 import styles from "./design-lab.module.css";
 
 type Candidate = (typeof candidates)[number] & { provenance?: string };
+type PorcelainCandidate = (typeof porcelainCandidates)[number];
 type LabStyle = CSSProperties & Record<`--${string}`, string>;
 type RouteEntry = (typeof routes)[number];
 type Viewport = "desktop" | "tablet" | "mobile";
@@ -60,6 +62,7 @@ export function DesignChamber({
   initialRoute = "/",
   initialViewport = "desktop",
   initialCandidateId,
+  initialPorcelainId,
 }: {
   hero: ReactNode;
   initialReducedMotion: boolean;
@@ -67,12 +70,15 @@ export function DesignChamber({
   initialRoute?: string;
   initialViewport?: Viewport;
   initialCandidateId?: string;
+  initialPorcelainId?: string;
 }) {
   const router = useRouter();
   const [customCandidates, setCustomCandidates] = useState<Candidate[]>([]);
   const allCandidates = useMemo<Candidate[]>(() => [...candidates, ...customCandidates], [customCandidates]);
   const firstCandidate = allCandidates.find((candidate) => candidate.id === initialCandidateId) ?? allCandidates[0];
   const [selectedId, setSelectedId] = useState(firstCandidate.id);
+  const firstPorcelain = porcelainCandidates.find((candidate) => candidate.id === initialPorcelainId) ?? porcelainCandidates[0];
+  const [selectedPorcelainId, setSelectedPorcelainId] = useState(firstPorcelain.id);
   const [customHex, setCustomHex] = useState(FALLBACK_PICKER_COLOUR);
   const [reducedMotion, setReducedMotion] = useState(initialReducedMotion);
   const [decision, setDecision] = useState("No colour selected");
@@ -83,6 +89,7 @@ export function DesignChamber({
   const labRef = useRef<HTMLDivElement>(null);
 
   const selected = allCandidates.find((candidate) => candidate.id === selectedId) ?? allCandidates[0];
+  const selectedPorcelain = (porcelainCandidates as PorcelainCandidate[]).find((candidate) => candidate.id === selectedPorcelainId) ?? porcelainCandidates[0];
   const route = (routes as RouteEntry[]).find((entry) => entry.route === selectedRoute) ?? routes[0];
   const routeOptions = useMemo(() => {
     const query = routeQuery.trim().toLowerCase();
@@ -91,6 +98,10 @@ export function DesignChamber({
   const labStyle: LabStyle = {
     "--lab-canvas": selected.canvas,
     "--lab-elevated": selected.elevated,
+    "--lab-highest": selected.highest,
+    "--lab-porcelain-base": selectedPorcelain.base,
+    "--lab-porcelain-elevated": selectedPorcelain.elevated,
+    "--lab-porcelain-highest": selectedPorcelain.highest,
     "--brand-ink": selected.canvas,
     "--surface-canvas": selected.canvas,
     "--surface-ink": selected.canvas,
@@ -98,6 +109,9 @@ export function DesignChamber({
     "--surface-footer-emotion": selected.canvas,
     "--bg-ink": selected.canvas,
     "--bg-ink-soft": selected.elevated,
+    "--surface-0": selectedPorcelain.base,
+    "--surface-1": selectedPorcelain.elevated,
+    "--surface-2": selectedPorcelain.highest,
   };
 
   useEffect(() => {
@@ -140,6 +154,7 @@ export function DesignChamber({
         label: `Founder custom ${canvas}`,
         canvas,
         elevated: `color-mix(in oklab, ${canvas} 86%, var(--brand-teal) 14%)`,
+        highest: `color-mix(in oklab, ${canvas} 76%, var(--brand-teal) 24%)`,
         kind: "candidate",
         provenance: "Founder-entered laboratory candidate",
         source: "Laboratory colour control",
@@ -149,7 +164,7 @@ export function DesignChamber({
     setDecision("No colour selected");
   }
 
-  const compositionHref = `/champagne/hero-lab/design?labView=composition&route=${encodeURIComponent(route.route)}&viewport=${viewport}&candidate=${encodeURIComponent(selected.id)}${reducedMotion ? "&labMotion=reduce" : ""}`;
+  const compositionHref = `/champagne/hero-lab/design?labView=composition&route=${encodeURIComponent(route.route)}&viewport=${viewport}&candidate=${encodeURIComponent(selected.id)}&porcelain=${encodeURIComponent(selectedPorcelain.id)}${reducedMotion ? "&labMotion=reduce" : ""}`;
 
   if (compositionOnly) {
     return <main ref={labRef} className={styles.compositionShell} style={labStyle} data-champagne-design-lab="true" data-reduced-motion={reducedMotion ? "true" : "false"}>
@@ -168,10 +183,15 @@ export function DesignChamber({
 
     <nav className={styles.roomNav} aria-label="Design laboratory rooms"><a href="#tokens">01 · Tokens</a>{ROOMS.map((room) => <a key={room.id} href={`#${room.id}`}>{room.number} · {room.title}</a>)}<a href="#assembler">11 · Page builder</a><a href="#archive">Archive</a></nav>
 
-    <section className={styles.room} id="tokens"><RoomHeading number="01" title="Persian Midnight Token Chamber" /><p className={styles.roomIntro}>The Velvet Persian Blue is measured from the previous-directorate mock-up and remains visibly labelled. Exact colour entry and the visual picker remain available.</p>
-      <fieldset className={styles.candidateGrid}><legend className={styles.srOnly}>Persian Midnight candidates</legend>{allCandidates.map((candidate) => <button type="button" key={candidate.id} className={styles.candidate} aria-pressed={selected.id === candidate.id} onClick={() => { setSelectedId(candidate.id); setDecision("No colour selected"); }}><span className={styles.swatch} style={{ background: candidate.canvas }} /><span><strong>{candidate.label}</strong><small>{candidate.canvas.startsWith("var") ? "Current semantic value" : candidate.canvas.toUpperCase()}</small><small>{candidate.provenance ?? candidateProvenance(candidate)}</small></span></button>)}</fieldset>
+    <section className={styles.room} id="tokens"><RoomHeading number="01" title="Persian Midnight and Porcelain Material Chamber" /><p className={styles.roomIntro}>Choose coordinated material ladders rather than one flat colour. Every compatible extracted component will consume these laboratory surface roles plus the immutable magenta, turquoise and gold brand tokens.</p>
+      <MaterialSubheading title="Persian Midnight dark-material ladder" detail="Canvas · elevated · highest architectural surface" />
+      <fieldset className={styles.candidateGrid}><legend className={styles.srOnly}>Persian Midnight candidates</legend>{allCandidates.map((candidate) => <button type="button" key={candidate.id} className={styles.candidate} aria-pressed={selected.id === candidate.id} onClick={() => { setSelectedId(candidate.id); setDecision("No colour selected"); }}><MaterialSwatches values={[candidate.canvas, candidate.elevated, candidate.highest]} /><span><strong>{candidate.label}</strong><small>{candidate.canvas.startsWith("var") ? "Current semantic value" : candidate.canvas.toUpperCase()}</small><small>{candidate.provenance ?? candidateProvenance(candidate)}</small></span></button>)}</fieldset>
       <div className={styles.customColour}><label><span>Try any exact colour</span><input value={customHex} onChange={(event) => setCustomHex(event.target.value)} aria-invalid={!validHex(customHex)} /></label><input type="color" value={validHex(customHex) ? customHex : FALLBACK_PICKER_COLOUR} onChange={(event) => setCustomHex(event.target.value.toUpperCase())} aria-label="Choose a custom colour visually" /><button type="button" onClick={addCustomCandidate} disabled={!validHex(customHex)}>Add to laboratory</button><button type="button" className={styles.quietButton} onClick={() => setDecision("All current colours rejected")}>Reject all current colours</button></div>
       <div className={styles.decisionStrip}><span>Decision record: {decision}</span><button type="button" onClick={() => setDecision(`Shortlisted ${selected.label}`)}>Shortlist current colour</button></div>
+      <MaterialSubheading title="Porcelain light-material ladder" detail="Base · elevated · highest surface" />
+      <p className={styles.roomIntro}>The archive option is measured from the previous-directorate porcelain consultation mock-up. The current repository option is the existing semantic control; neither is founder-approved yet.</p>
+      <fieldset className={styles.candidateGrid}><legend className={styles.srOnly}>Porcelain candidates</legend>{porcelainCandidates.map((candidate) => <button type="button" key={candidate.id} className={styles.candidate} aria-pressed={selectedPorcelain.id === candidate.id} onClick={() => setSelectedPorcelainId(candidate.id)}><MaterialSwatches values={[candidate.base, candidate.elevated, candidate.highest]} /><span><strong>{candidate.label}</strong><small>{candidate.base.startsWith("var") ? "Current semantic ladder" : `${candidate.base} measured base`}</small><small>{candidate.source}</small></span></button>)}</fieldset>
+      <div className={styles.tokenLaw}><strong>Component colour law</strong><span>No arbitrary per-element colour controls. Components may use the selected Persian ladder, selected porcelain ladder, and repository magenta, turquoise and restrained gold tokens only.</span></div>
       <label className={styles.motionControl}><input type="checkbox" checked={reducedMotion} onChange={(event) => setMotion(event.target.checked)} /><span>Laboratory reduced-motion presentation</span></label>
     </section>
 
@@ -182,7 +202,7 @@ export function DesignChamber({
     <section className={styles.room} id="assembler"><RoomHeading number="11" title="Experimental full-page builder" /><p className={styles.roomIntro}>This renders a laboratory composition, not the current website. Manifest order is preserved and remains locked until the page-by-page SEO and AI-search audit.</p>
       <div className={styles.assemblerToolbar}><label><span>Find a page</span><input value={routeQuery} onChange={(event) => setRouteQuery(event.target.value)} placeholder="Homepage, implants, team…" /></label><label><span>Manifest foundation</span><select value={selectedRoute} onChange={(event) => setSelectedRoute(event.target.value)}>{routeOptions.map((entry) => <option key={entry.route} value={entry.route}>{entry.label} · {entry.route}</option>)}</select></label><div className={styles.viewportButtons}>{(["desktop", "tablet", "mobile"] as const).map((size) => <button type="button" key={size} aria-pressed={viewport === size} onClick={() => setViewport(size)}>{size}</button>)}</div></div>
       <div className={styles.assemblerGrid}><aside className={styles.manifestPanel}><h3>{route.label}</h3><p>{route.route}</p><dl><div><dt>Source</dt><dd>{route.source}</dd></div><div><dt>Order</dt><dd>Locked pending SEO/AI audit</dd></div><div><dt>Chapters</dt><dd>{route.sections.length || "Adapter pending"}</dd></div></dl><ol>{route.sections.map((section) => <li key={section.instanceId}><span>{String(section.order).padStart(2, "0")}</span><div><strong>{section.title ?? section.componentId}</strong><small>{section.componentId}</small></div></li>)}</ol></aside>
-        <div className={styles.pageStage} data-viewport={viewport}><div className={styles.pageStageBar}><span>Experimental composition · {selected.label}</span><a href={compositionHref} target="_blank" rel="noreferrer">Open experimental page</a></div><iframe key={compositionHref} src={compositionHref} title={`Experimental composition: ${route.label}`} /></div></div>
+        <div className={styles.pageStage} data-viewport={viewport}><div className={styles.pageStageBar}><span>Experimental composition · {selected.label} · {selectedPorcelain.label}</span><a href={compositionHref} target="_blank" rel="noreferrer">Open experimental page</a></div><iframe key={compositionHref} src={compositionHref} title={`Experimental composition: ${route.label}`} /></div></div>
     </section>
 
     <ArchiveDrawer />
@@ -194,7 +214,7 @@ function ComponentRoom({ number, id, title, description }: (typeof ROOMS)[number
   const footerRoom = id === "footers";
   return <section className={styles.room} id={id}><RoomHeading number={number} title={title} /><p className={styles.roomIntro}>{description}</p>
     <div className={styles.awaitingPanel}><div><strong>{room?.components.length ?? 0} individual choices loaded</strong><p>{id === "captain" ? "No genuine Captain interface designs have yet been evidenced." : "This shelf is ready for stable CVA element IDs from the extraction inventory."}</p></div><code>{room?.accepts.join(" · ")}</code></div>
-    {footerRoom ? <div className={styles.footerTarget}><strong>Luxury-footer target evidence found</strong><p>Layered, alive, Persian, architectural and consultation-gateway archive boards are recorded. The currently mounted footer is excluded and will not appear here.</p><ul>{registry.footerDiscoveryLeads.map((lead) => <li key={lead}>{lead}</li>)}</ul></div> : null}
+    {footerRoom ? <div className={styles.footerTarget}><strong>Manus layered luxury footer · source recovery required</strong><p>{registry.footerTarget.warning}</p><dl className={styles.footerEvidence}><div><dt>Intended component</dt><dd>{registry.footerTarget.intendedComponent}</dd></div><div><dt>Intended stylesheet</dt><dd>{registry.footerTarget.intendedStylesheet}</dd></div><div><dt>Surviving evidence</dt><dd>{registry.footerTarget.survivingPreviewWrapper}<br />{registry.footerTarget.survivingLayerStyles}</dd></div></dl><p>Preferred next action: recover the original package before attempting a clearly labelled reconstruction.</p><ul>{registry.footerTarget.likelySourcePackages.map((source) => <li key={source}>{source}</li>)}</ul></div> : null}
   </section>;
 }
 
@@ -226,4 +246,12 @@ function ArchiveDrawer() {
 
 function RoomHeading({ number, title }: { number: string; title: string }) {
   return <div className={styles.roomHeading}><div><p className={styles.roomNumber}>{number === "Archive" ? "Preserved evidence" : `Room ${number} · founder choice pending`}</p><h2>{title}</h2></div><span className={styles.unselected}>Unselected</span></div>;
+}
+
+function MaterialSubheading({ title, detail }: { title: string; detail: string }) {
+  return <div className={styles.materialSubheading}><h3>{title}</h3><span>{detail}</span></div>;
+}
+
+function MaterialSwatches({ values }: { values: string[] }) {
+  return <span className={styles.materialSwatches} aria-hidden="true">{values.map((value, index) => <span key={`${value}-${index}`} className={styles.swatch} style={{ background: value }} />)}</span>;
 }

@@ -4,6 +4,7 @@
     "label": "Archive Velvet Persian Blue",
     "canvas": "#081E36",
     "elevated": "#143048",
+    "highest": "color-mix(in oklab, #143048 82%, var(--brand-teal) 18%)",
     "kind": "archive",
     "source": "Measured dominant field from Luxury dental homepage in Persian blue.png"
   },
@@ -12,6 +13,7 @@
     "label": "Current derived ink",
     "canvas": "var(--smh-ink-navy)",
     "elevated": "var(--bg-ink-soft)",
+    "highest": "color-mix(in oklab, var(--bg-ink-soft) 82%, var(--brand-teal) 18%)",
     "kind": "control"
   },
   {
@@ -19,6 +21,7 @@
     "label": "P1 — deepest boundary",
     "canvas": "#001126",
     "elevated": "color-mix(in oklab, #001126 86%, var(--brand-teal) 14%)",
+    "highest": "color-mix(in oklab, #001126 76%, var(--brand-teal) 24%)",
     "kind": "candidate"
   },
   {
@@ -26,6 +29,7 @@
     "label": "P2 — deep Persian",
     "canvas": "#00142C",
     "elevated": "color-mix(in oklab, #00142C 86%, var(--brand-teal) 14%)",
+    "highest": "color-mix(in oklab, #00142C 76%, var(--brand-teal) 24%)",
     "kind": "candidate"
   },
   {
@@ -33,6 +37,7 @@
     "label": "P3 — blue boundary",
     "canvas": "#071D3A",
     "elevated": "color-mix(in oklab, #071D3A 86%, var(--brand-teal) 14%)",
+    "highest": "color-mix(in oklab, #071D3A 76%, var(--brand-teal) 24%)",
     "kind": "candidate"
   },
   {
@@ -40,6 +45,7 @@
     "label": "P4 — saturated navy",
     "canvas": "#031A39",
     "elevated": "color-mix(in oklab, #031A39 86%, var(--brand-teal) 14%)",
+    "highest": "color-mix(in oklab, #031A39 76%, var(--brand-teal) 24%)",
     "kind": "candidate"
   },
   {
@@ -47,6 +53,7 @@
     "label": "Archive Persian pair",
     "canvas": "#06172E",
     "elevated": "#08264A",
+    "highest": "color-mix(in oklab, #08264A 82%, var(--brand-teal) 18%)",
     "kind": "archive"
   }
 ]

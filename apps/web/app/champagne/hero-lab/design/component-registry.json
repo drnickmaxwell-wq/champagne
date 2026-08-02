@@ -19,10 +19,29 @@
     { "id": "media", "title": "Media layouts", "accepts": ["CVA-MEDIA-*"], "components": [] },
     { "id": "captain", "title": "Captain Companion interfaces", "accepts": ["CVA-CAPTAIN-*"], "components": [] }
   ],
-  "footerDiscoveryLeads": [
-    "CHAMPAGNE FOOTER FAMILY 03 — ROOTED · LAYERED · ALIVE.png",
-    "Persian architectural footer with consultation gateway.png",
-    "Luxury consultation band above layered footer.png",
-    "Persian architectural footer mobile states.png"
-  ]
+  "footerTarget": {
+    "id": "manus-layered-luxury-footer",
+    "status": "source-incomplete-recovery-preferred",
+    "intendedComponent": "components/imports/footer-champagne/Footer.tsx",
+    "intendedStylesheet": "styles/champagne/footer.css",
+    "intendedPreview": "/preview/footer-champagne",
+    "survivingPreviewWrapper": "_imports/champagne-hero/code/fx-system/components/preview/FooterLuxePreview.tsx",
+    "survivingLayerStyles": "_champagne-extraction/tokens-and-theme/styles/champagne/footer-preview.css",
+    "warning": "The surviving preview wrapper imports the unsuitable current FooterLuxe. It must not be presented as the missing Manus footer.",
+    "expectedLayers": [
+      "footer wave mask",
+      "wave background",
+      "film grain",
+      "soft particles motion",
+      "reduced-motion poster",
+      "manifest-driven gradient and texture"
+    ],
+    "likelySourcePackages": [
+      "footer-pack (generated)",
+      "smh-luxury-components-deliverables.zip",
+      "MANUSCOMPONENTS.zip",
+      "excellentMANUS.zip",
+      "manus-homepage-champagne-finish.zip"
+    ]
+  }
 }
