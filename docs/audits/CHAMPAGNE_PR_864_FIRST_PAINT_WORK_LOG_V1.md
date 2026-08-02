@@ -1,0 +1,104 @@
+# Champagne PR #864 First-Paint Work Log V1
+
+## Authority and boundaries
+
+- Repository: `drnickmaxwell-wq/champagne`
+- Pull request: `#864`
+- Authorised branch: `agent/champagne-critical-first-paint-repair-v1`
+- Mutation authority: Founder packet titled `Champagne PR #864 — First-Paint Architecture Rework and Proof Programme`
+- PR #863, `main`, `drnickmaxwell-wq/agent`, Sacred Hero implementation, manifests, routes, content, motion, deployment, merge and final Persian Midnight calibration remain outside scope.
+- PR #864 must remain draft until the packet's complete draft-to-ready gate is satisfied.
+
+## Loaded governance evidence
+
+The lead read the complete required canon sequence and applicable scoped instructions before mutation. Starting hashes:
+
+| Input | SHA-256 |
+| --- | --- |
+| `AGENTS.md` | `2180f5aae37c76a930a31ade51257a532a63dd4533543a7618313fdb14fdeeac` |
+| `apps/web/AGENTS.md` | `647b68d8880bafecaf292a477a9bcffbd563c237f4166ec2e98b88f7fe8af6b0` |
+| `packages/champagne-guards/AGENTS.md` | `ba16c54c2c86618dbffaee9f1ed8c30e4677e5ab7b08510eab7e15e2bfcbec97` |
+| `packages/champagne-hero/AGENTS.md` | `a838640561b1b1ee8c806dc57965a833534d3cad4c5fec4840f7778f204ca5b2` |
+| Programme index | `a0dae7c8cfe3c110eeb11920b282e5ff690b676affb3501ddab93e7e313c500e` |
+| V2 machine plan | `55556ebf39827eb8a57dfdf8d085f5023a776b20e5a5c0311702d573314e0809` |
+| V2 Markdown companion | `1e8ac38e646a0e75f7229313a3ed453edf8871894c5ee85f5916a988e7ecbefa` |
+| Master Truth Amendment JSON | `765373c38a9c1471b537afd669db4dd437621deda3f01524428208e005bbf0b4` |
+| Master Truth Amendment Markdown | `96d6d0115a63041dbea61c684573eb242f3cbd2a4a3b0ea31658e9c13b039702` |
+| Authority and freeze contract | `930cddb323a60db5dc71e7f17c50b2836b4c7bfb56ba476fea57ab71162b1d57` |
+| Stage 1 acceptance contract | `7a3003c0172175dc5364f80922d0f5bbf0b38b3b417e3cbd0e9d8c1229d025f5` |
+
+## Phase 0 — exact starting state
+
+Recorded on 2026-08-02 before implementation mutation:
+
+| Fact | Exact state |
+| --- | --- |
+| PR title | `Seed Champagne canvas before external CSS` |
+| PR state | open, draft, unmerged, merge state `CLEAN` |
+| PR head | `0c90ac066dc801e3f3fe516a3fbb34267bbdd143` |
+| Base branch | `main` |
+| Live main | `a3484e976d240aaedf88a9b13afdd6ccc8d7d267` |
+| Commit count over main | `13` |
+| PR #863 | open draft at `f29f0f10c08ab31374ba698a1d26a8a632fc13a9`, not mutated |
+| CI/Vercel | all reported checks successful; web preview ready; stock preview skipped as expected |
+
+Starting changed paths:
+
+1. `apps/web/app/layout.tsx`
+2. `packages/champagne-guards/scripts/guard-surface-semantics.mjs`
+3. `packages/champagne-tokens/src/critical-paint.v1.json`
+4. `packages/champagne-tokens/src/index.ts`
+
+## Phase 0 — review finding ledger
+
+| Reviewed head | Finding | Severity | Classification | Evidence | Corrective head | Replacement review |
+| --- | --- | --- | --- | --- | --- | --- |
+| `0c90ac066dc801e3f3fe516a3fbb34267bbdd143` | `packages/champagne-guards/scripts/guard-surface-semantics.mjs:110-111` accepts malformed outer CSS | P2 | current and valid | Removing the opening brace from the canonical `:root` rule left malformed CSS, but `guard:surface-semantics` exited zero because declaration regexes ignored stylesheet structure. | pending | pending |
+
+Five older unresolved Codex threads are technically outdated at the starting head. Their requested behaviours were implemented by later commits, but the replacement architecture will independently remove the handwritten snapshot and bespoke resolver rather than rely on those historical fixes.
+
+## Phase 0 — baseline reproduction
+
+The exact head was installed with the frozen lockfile using repository-pinned `pnpm@9.15.4`.
+
+| Command/evidence | Result |
+| --- | --- |
+| `pnpm --filter @champagne/guards guard:surface-semantics` | pass |
+| `pnpm run verify` | pass after rerun outside the filesystem sandbox so the required local SSR probe could bind |
+| Existing Stage B Playwright specs, production build, one worker | `8 passed` using installed system Chrome after the Playwright cache installer stalled before installing its separate headless shell |
+| Homepage initial HTML | 198,131 bytes; SHA-256 `e07808ba8d85b7caa6b311e9b6e06dfa375ec8666810f9fa482a9f4ee0383e69` |
+| `/treatments/implants` initial HTML | 199,682 bytes; SHA-256 `5f4f3e237227f3b799a9189c9848ad4f2a3627cb03d2bf59e3329665358c1d6c` |
+| Initial HTML critical style | one `data-champagne-critical-paint="v1"` element on each route |
+
+Warnings were recorded without treating them as success criteria: legacy workspace dependency warnings, stale Browserslist data, broad Tailwind content glob, treatment inventory 78 vs 79, skipped missing manifest-sync inputs, missing chatbot QA report/conversations, deprecated `next lint`, missing Next ESLint plugin, Node `module.register()` deprecation and `NO_COLOR`/`FORCE_COLOR` conflict.
+
+## Phase 0 — disposable weakness proofs
+
+All deliberate mutations were made in a detached disposable worktree at the audited head, were not committed or pushed, and the worktree was removed after restoration checks.
+
+| Mutation | Current detector result | Proof |
+| --- | --- | --- |
+| Malformed outer canonical CSS | false pass | Removing the opening `:root` brace left unmatched outer CSS; `guard:surface-semantics` still passed. |
+| Later loaded-cascade override | false pass | Appending a later `:root { --surface-canvas: var(--surface-0); }` to loaded theme CSS still passed the guard. |
+| Stale critical snapshot | static guard fails, current browser proof falsely passes | Changing only the critical expression weights made the static guard fail, but the existing mobile filmstrip test still passed. |
+| Early/final inequality | not asserted by current browser proof | With external CSS held, the stale build reported early `oklab(0.257887 0.00070971 -0.00326884)` and final `oklab(0.25248 0.00174809 -0.00324971)` while `document.readyState` moved from `loading` to `complete`. |
+
+Phase 0 establishes these final failure expectations:
+
+- malformed complete CSS must fail closed through a standards-compliant CSS parser;
+- unlisted later ownership or loaded-cascade divergence must fail;
+- the browser proof must hold at least one real external stylesheet and compare exact computed sRGB bytes across early and loaded phases;
+- generated drift must fail without mutating the worktree;
+- no mutation fixture may remain applied to production sources.
+
+## Phase ledger
+
+| Phase | Head | Summary | Tests | Codex review | Findings/remediation |
+| --- | --- | --- | --- | --- | --- |
+| 0 | pending | Baseline, initial HTML and disposable weakness reproduction; remediate live malformed-CSS P2 with full-stylesheet PostCSS parsing. | normal guard pass; malformed outer CSS mutation fails; restored guard pass; full `verify` pass; unchanged baseline Stage B `8 passed` | pending | starting P2 valid; corrective head pending |
+| 1 | pending | pending | pending | pending | pending |
+| 2 | pending | pending | pending | pending | pending |
+| 3 | pending | pending | pending | pending | pending |
+| 4 | pending | pending | pending | pending | pending |
+| 5 | pending | pending | pending | pending | pending |
+| 6 | pending | pending | pending | pending | pending |

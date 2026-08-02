@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import postcss from "postcss";
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
@@ -62,6 +63,15 @@ function read(relativePath) {
     return "";
   }
   return readFileSync(absolutePath, "utf8");
+}
+
+function validateStylesheetSyntax(source, sourcePath) {
+  try {
+    postcss.parse(source, { from: relative(sourcePath) });
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    errors.push(`${sourcePath} must be valid CSS: ${reason}`);
+  }
 }
 
 function definitionValues(source, token) {
@@ -221,6 +231,15 @@ const footerSource = read(paths.footer);
 const packageSource = read(paths.guardPackage);
 const surfaceTestSource = read(paths.surfaceTest);
 const workflow = read(paths.workflow);
+
+for (const [sourcePath, source] of [
+  [paths.primitives, primitives],
+  [paths.tokens, tokens],
+  [paths.theme, theme],
+  [paths.timeOfDay, timeOfDay],
+]) {
+  validateStylesheetSyntax(source, sourcePath);
+}
 
 for (const [token, expectedValue] of requiredRoles) {
   const values = definitionValues(tokens, token);
