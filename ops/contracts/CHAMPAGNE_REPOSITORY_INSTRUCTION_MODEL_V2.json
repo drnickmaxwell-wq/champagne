@@ -1,6 +1,6 @@
 {
   "schemaVersion": "CHAMPAGNE_REPOSITORY_INSTRUCTION_MODEL_V2",
-  "status": "DRAFT_PR_CANDIDATE_NOT_MERGED_NOT_AUTHORITY",
+  "status": "REPOSITORY_INSTRUCTION_MODEL_NO_AUTHORITY",
   "repository": "drnickmaxwell-wq/champagne",
   "evidenceLevel": "CANON_ONLY",
   "universalPrecedenceList": null,
