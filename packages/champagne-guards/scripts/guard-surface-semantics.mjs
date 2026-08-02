@@ -98,9 +98,7 @@ function resolveTokenExpression(token, sources, stack = []) {
     definitionValues(source, token).map((value) => ({ value, sourcePath })),
   );
   if (matches.length !== 1) {
-    errors.push(
-      `${token} must resolve from exactly one canonical source; found ${matches.length}`,
-    );
+    errors.push(`${token} must resolve from exactly one canonical source; found ${matches.length}`);
     return "";
   }
 
@@ -183,37 +181,29 @@ if (criticalPaint) {
   const canonical = criticalPaint.canonicalSource;
   if (
     canonical?.semanticPath !== paths.tokens ||
-    canonical?.semanticToken !== "--smh-ink-navy" ||
+    canonical?.rootToken !== "--surface-canvas" ||
     canonical?.primitivePath !== paths.primitives
   ) {
     errors.push(
-      `${paths.criticalPaint} must identify ${paths.tokens} --smh-ink-navy and ${paths.primitives} as canonical sources`,
+      `${paths.criticalPaint} must identify ${paths.tokens} --surface-canvas and ${paths.primitives} as canonical sources`,
     );
   }
 
-  const semanticDefinition = exactlyOneDefinition(
-    tokens,
-    canonical?.semanticToken ?? "--smh-ink-navy",
-    paths.tokens,
-  );
-  const resolvedSemanticExpression = resolveTokenExpression(
-    canonical?.semanticToken ?? "--smh-ink-navy",
+  const resolvedCanvasExpression = resolveTokenExpression(
+    canonical?.rootToken ?? "--surface-canvas",
     [
       { source: tokens, sourcePath: paths.tokens },
       { source: primitives, sourcePath: paths.primitives },
     ],
   );
 
-  if (!semanticDefinition) {
-    errors.push(`${paths.criticalPaint} semantic source definition is missing`);
-  }
   if (
-    resolvedSemanticExpression &&
+    resolvedCanvasExpression &&
     normalizeCssExpression(criticalPaint.canvasExpression ?? "") !==
-      normalizeCssExpression(resolvedSemanticExpression)
+      normalizeCssExpression(resolvedCanvasExpression)
   ) {
     errors.push(
-      `${paths.criticalPaint} canvasExpression must equal the recursively resolved ${canonical?.semanticToken}; expected ${normalizeCssExpression(resolvedSemanticExpression)}, found ${normalizeCssExpression(criticalPaint.canvasExpression ?? "missing")}`,
+      `${paths.criticalPaint} canvasExpression must equal the recursively resolved ${canonical?.rootToken}; expected ${normalizeCssExpression(resolvedCanvasExpression)}, found ${normalizeCssExpression(criticalPaint.canvasExpression ?? "missing")}`,
     );
   }
 
@@ -385,4 +375,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("✅ Surface semantics guard passed: canvas, semantic-token-derived critical paint, ink, footer and nested text contexts are deterministic.");
+console.log("✅ Surface semantics guard passed: canvas-root-derived critical paint, ink, footer and nested text contexts are deterministic.");
