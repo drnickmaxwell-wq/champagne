@@ -21,10 +21,9 @@ export default async function ChampagneDesignLabPage({
   const candidate = typeof params.candidate === "string" ? params.candidate : undefined;
   const porcelain = typeof params.porcelain === "string" ? params.porcelain : undefined;
   const choices = typeof params.choices === "string" ? params.choices.split(",").filter(Boolean) : [];
-  const heroProps = {
-    mode: "home" as const,
-    pageCategory: "home",
-    pageSlugOrPath: "/",
+  const customCanvas = typeof params.customCanvas === "string" ? params.customCanvas : undefined;
+  const pageCategory = route === "/" ? "home" : route.startsWith("/treatments/") ? "treatment" : route === "/blog" || route.startsWith("/blog/") ? "editorial" : "utility";
+  const heroProps = { pageCategory, pageSlugOrPath: route,
     prm: reducedMotion,
     particles: true,
     filmGrain: true,
@@ -40,12 +39,13 @@ export default async function ChampagneDesignLabPage({
       initialCandidateId={candidate}
       initialPorcelainId={porcelain}
       initialChoiceIds={choices}
+      initialCustomCanvas={customCanvas}
       hero={
         <div data-hero-engine="v2" data-lab-engine-override="true" style={{ minHeight: "72vh" }}>
           <HeroRendererV2
             {...heroProps}
             initialModel={heroModel}
-            initialPathname="/"
+            initialPathname={route}
           />
         </div>
       }
