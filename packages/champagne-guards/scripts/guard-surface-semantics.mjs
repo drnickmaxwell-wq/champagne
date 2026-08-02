@@ -372,6 +372,11 @@ function rejectEscapedVarFunctions(value) {
   try {
     const ast = parseCssValue(value, { context: "value" });
     walk(ast, (node) => {
+      if (node.type === "Identifier" && ident.decode(node.name).toLowerCase() === "var") {
+        errors.push(
+          "[CANVAS_VAR_TOKEN_INVALID] critical canvas dependencies must use a genuine var() function token",
+        );
+      }
       if (
         node.type === "Function" &&
         ident.decode(node.name).toLowerCase() === "var" &&
@@ -407,7 +412,7 @@ function replaceBalancedVarFunctions(value, replacer) {
   let cursor = 0;
 
   while (cursor < value.length) {
-    const match = /var\s*\(/gi.exec(value.slice(cursor));
+    const match = /var\(/gi.exec(value.slice(cursor));
     if (!match) return output + value.slice(cursor);
     const start = cursor + match.index;
     const open = start + match[0].length;
