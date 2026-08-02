@@ -1,0 +1,44 @@
+[
+  {
+    "id": "current",
+    "label": "Current derived ink",
+    "canvas": "var(--smh-ink-navy)",
+    "elevated": "var(--bg-ink-soft)",
+    "kind": "control"
+  },
+  {
+    "id": "p1",
+    "label": "P1 — deepest boundary",
+    "canvas": "#001126",
+    "elevated": "color-mix(in oklab, #001126 86%, var(--brand-teal) 14%)",
+    "kind": "candidate"
+  },
+  {
+    "id": "p2",
+    "label": "P2 — deep Persian",
+    "canvas": "#00142C",
+    "elevated": "color-mix(in oklab, #00142C 86%, var(--brand-teal) 14%)",
+    "kind": "candidate"
+  },
+  {
+    "id": "p3",
+    "label": "P3 — blue boundary",
+    "canvas": "#071D3A",
+    "elevated": "color-mix(in oklab, #071D3A 86%, var(--brand-teal) 14%)",
+    "kind": "candidate"
+  },
+  {
+    "id": "p4",
+    "label": "P4 — saturated navy",
+    "canvas": "#031A39",
+    "elevated": "color-mix(in oklab, #031A39 86%, var(--brand-teal) 14%)",
+    "kind": "candidate"
+  },
+  {
+    "id": "archive",
+    "label": "Archive Persian pair",
+    "canvas": "#06172E",
+    "elevated": "#08264A",
+    "kind": "archive"
+  }
+]
