@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "CHAMPAGNE_CRITICAL_PAINT_V1",
+  "status": "CURRENT_IMPLEMENTATION_SEED_NOT_FINAL_PERSIAN_MIDNIGHT_SELECTION",
+  "purpose": "Provide the existing default Champagne canvas before external theme CSS is available.",
+  "finalPersianMidnightSelection": false,
+  "sourceAlignment": {
+    "primitiveInk": "#0B0D0F",
+    "brandTeal": "#40C4B4",
+    "brandMagenta": "#C2185B",
+    "semanticSource": "packages/champagne-tokens/styles/champagne/tokens.css --smh-ink-navy"
+  },
+  "canvasExpression": "color-mix(in oklab, color-mix(in oklab, #0B0D0F 88%, #40C4B4 12%) 92%, #C2185B 8%)",
+  "bindings": {
+    "--surface-canvas": "canvasExpression",
+    "--bg-ink": "var(--surface-canvas)"
+  },
+  "selectors": {
+    "tokenSeed": ":where(:root)",
+    "canvasPainters": ":where(html), :where(body)"
+  },
+  "constraints": [
+    "LOW_SPECIFICITY_EXTERNAL_THEME_OVERRIDES",
+    "NO_FINAL_MATERIAL_CALIBRATION",
+    "NO_HERO_OR_MOTION_SEMANTIC_CHANGE",
+    "NO_RUNTIME_LITERAL_IN_LAYOUT"
+  ]
+}
