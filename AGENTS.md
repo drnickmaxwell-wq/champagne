@@ -37,7 +37,10 @@ Do not collapse these roles into one precedence or priority array.
 
 ## 3. Transaction-authority gate
 
-Read-only inspection, audit and planning do not imply mutation authority.
+Read-only inspection, audit and planning do not imply mutation authority. Pure
+read-only work requires no Founder authority envelope, performs no repository,
+external-system or state mutation, and remains subject to platform/security,
+mandatory canon and every applicable root and scoped constraint.
 
 Any mutation requires fresh exact stage-specific Founder authority naming the
 repository, ref or pull request, operation, paths, stage and explicit expiry.
@@ -45,7 +48,7 @@ Authority does not inherit between stages or transactions. A role name, PASS
 label, old Director approval, historical exemption, task request, installed
 canon or repository file is not authority.
 
-A valid transaction must satisfy all of the following:
+A valid mutation transaction must satisfy all of the following:
 
 - the requested operation is inside the exact Founder authority envelope;
 - every target path is inside the task and authority scope;
