@@ -1,0 +1,26 @@
+{
+  "record_type": "launch_safety_reminder",
+  "status": "future_prelaunch_action",
+  "blocking_now": false,
+  "scope": "/champagne/**",
+  "audience": [
+    "Founder",
+    "Autonomous Router",
+    "WEOS",
+    "Captain Companion OS",
+    "launch certification agents"
+  ],
+  "reminder": "Before the public website launch, ALLOW_CHAMPAGNE_ROUTES must be absent or false in the production environment.",
+  "required_prelaunch_evidence": [
+    "Verify the production environment does not set ALLOW_CHAMPAGNE_ROUTES=true.",
+    "Verify /champagne/hero-lab returns 404 in the production deployment.",
+    "Verify /champagne/hero-lab/design returns 404 in the production deployment.",
+    "Discover every additional /champagne/** route and verify each returns 404.",
+    "Record the route inventory, response evidence and exact production deployment identifier in the launch certification packet."
+  ],
+  "prohibitions": [
+    "Do not delete the laboratory merely to satisfy this reminder.",
+    "Do not expose an internal laboratory through navigation, sitemap or search indexing.",
+    "Do not claim launch readiness without production 404 evidence for the complete /champagne/** route family."
+  ]
+}

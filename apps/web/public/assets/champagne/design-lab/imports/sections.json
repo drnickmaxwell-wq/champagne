@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "catalogueId": "CHAMPAGNE_DESIGN_LAB_SECTION_IMPORT_V1",
+  "targetRepository": "drnickmaxwell-wq/champagne",
+  "targetBranchObserved": "agent/champagne-design-lab-v1",
+  "targetRoom": "sections",
+  "productionBinding": false,
+  "founderDecisionApplied": false,
+  "itemCount": 12,
+  "items": [
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B029-E01",
+      "archiveElementId": "CVA-SECTION-B029-E01",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Persian five-step treatment journey",
+      "family": "Treatment-pathway sections",
+      "purpose": "Explain the complete implant journey as five calm sequential stages.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B029-E01.png",
+        "width": 836,
+        "height": 285,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029 — Plan, treat, reassure: clinical section catalogue",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 14,
+          "y": 52,
+          "width": 836,
+          "height": 285
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "The registry has treatment process feature lists, but no exact five-stage horizontal journey composition was found."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B029-E02",
+      "archiveElementId": "CVA-SECTION-B029-E02",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Porcelain exploded implant explainer",
+      "family": "Answer-first sections",
+      "purpose": "Explain how implant components work together using an interactive 3D-style anatomy stage.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B029-E02.png",
+        "width": 836,
+        "height": 365,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029 — Plan, treat, reassure: clinical section catalogue",
+        "parentBoardElement": 2,
+        "crop": {
+          "x": 14,
+          "y": 337,
+          "width": 836,
+          "height": 365
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "A treatment media feature exists, but the exact 3D state controls, anatomy labelling and layout are not implemented."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B029-E03",
+      "archiveElementId": "CVA-SECTION-B029-E03",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Mixed clinical planning studio",
+      "family": "Media and image-led sections",
+      "purpose": "Demonstrate evidence-led implant planning through clinical imaging and planning controls.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B029-E03.png",
+        "width": 836,
+        "height": 335,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029 — Plan, treat, reassure: clinical section catalogue",
+        "parentBoardElement": 3,
+        "crop": {
+          "x": 14,
+          "y": 702,
+          "width": 836,
+          "height": 335
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "The repository can render media features but contains no exact clinical planning viewer composition."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B029-E04",
+      "archiveElementId": "CVA-SECTION-B029-E04",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Clinician authority and care section",
+      "family": "Clinician and people sections",
+      "purpose": "Connect clinical experience and patient-centred care with a clinician profile area.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B029-E04.png",
+        "width": 836,
+        "height": 253,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029 — Plan, treat, reassure: clinical section catalogue",
+        "parentBoardElement": 4,
+        "crop": {
+          "x": 14,
+          "y": 1037,
+          "width": 836,
+          "height": 253
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "No exact clinician-authority section with portrait frame and care timeline was found."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B029-E05",
+      "archiveElementId": "CVA-SECTION-B029-E05",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Benefits, limitations and alternatives decision section",
+      "family": "Decision-support panels",
+      "purpose": "Present benefits, limitations, alternatives and questions together before consultation.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B029-E05.png",
+        "width": 836,
+        "height": 257,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029 — Plan, treat, reassure: clinical section catalogue",
+        "parentBoardElement": 5,
+        "crop": {
+          "x": 14,
+          "y": 1290,
+          "width": 836,
+          "height": 257
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "Related feature lists exist, but no exact informed-choice matrix and framed summary composition was found."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B029-E06",
+      "archiveElementId": "CVA-SECTION-B029-E06",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Long-term aftercare journey",
+      "family": "Treatment-pathway sections",
+      "purpose": "Explain five long-term aftercare behaviours and provide an ongoing support route.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B029-E06.png",
+        "width": 836,
+        "height": 263,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Plan, treat, reassure: clinical section catalogue.png",
+        "parentBoard": "B029 — Plan, treat, reassure: clinical section catalogue",
+        "parentBoardElement": 6,
+        "crop": {
+          "x": 14,
+          "y": 1547,
+          "width": 836,
+          "height": 263
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "The registry has aftercare feature lists, but no exact five-stage journey plus support-panel composition was found."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B034-E01",
+      "archiveElementId": "CVA-SECTION-B034-E01",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Porcelain pathways starting-point section",
+      "family": "Introductory sections",
+      "purpose": "Orient patients through three broad cosmetic treatment pathways.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B034-E01.png",
+        "width": 679,
+        "height": 271,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Six refined dental section concepts.png",
+        "parentBoard": "B034 — Six refined dental section concepts",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 185,
+          "y": 56,
+          "width": 679,
+          "height": 271
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "The section registry can render feature-list structures, but no exact component reproduces this three-pathway composition."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B034-E02",
+      "archiveElementId": "CVA-SECTION-B034-E02",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Mixed suitability question-and-summary section",
+      "family": "Decision-support panels",
+      "purpose": "Help a patient assess broad suitability before arranging a consultation.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B034-E02.png",
+        "width": 679,
+        "height": 337,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Six refined dental section concepts.png",
+        "parentBoard": "B034 — Six refined dental section concepts",
+        "parentBoardElement": 2,
+        "crop": {
+          "x": 185,
+          "y": 327,
+          "width": 679,
+          "height": 337
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "Related feature-list and consultation components exist, but no exact split interactive composition was found."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B034-E03",
+      "archiveElementId": "CVA-SECTION-B034-E03",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Persian credential evidence rail",
+      "family": "Trust, evidence and reassurance sections",
+      "purpose": "Reassure patients using four concise clinical and material credentials.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B034-E03.png",
+        "width": 679,
+        "height": 287,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Six refined dental section concepts.png",
+        "parentBoard": "B034 — Six refined dental section concepts",
+        "parentBoardElement": 3,
+        "crop": {
+          "x": 185,
+          "y": 664,
+          "width": 679,
+          "height": 287
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "The registry includes trust-signal feature lists, but this archive’s visual system and four-column rail are not an exact implementation match."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B034-E04",
+      "archiveElementId": "CVA-SECTION-B034-E04",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Porcelain treatment explainer with media",
+      "family": "Answer-first sections",
+      "purpose": "Explain the treatment plainly with four concise principles and supporting clinical media.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B034-E04.png",
+        "width": 679,
+        "height": 289,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Six refined dental section concepts.png",
+        "parentBoard": "B034 — Six refined dental section concepts",
+        "parentBoardElement": 4,
+        "crop": {
+          "x": 185,
+          "y": 951,
+          "width": 679,
+          "height": 289
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "A treatment media feature exists in the registry, but no exact numbered explainer and framed-media arrangement was found."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B034-E05",
+      "archiveElementId": "CVA-SECTION-B034-E05",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Mixed proof mosaic section",
+      "family": "Trust, evidence and reassurance sections",
+      "purpose": "Combine qualifications, process, technology and real-result routes in one evidence area.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B034-E05.png",
+        "width": 679,
+        "height": 298,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Six refined dental section concepts.png",
+        "parentBoard": "B034 — Six refined dental section concepts",
+        "parentBoardElement": 5,
+        "crop": {
+          "x": 185,
+          "y": 1240,
+          "width": 679,
+          "height": 298
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "The repository has separate media and feature-list primitives, but not this complete proof-mosaic composition."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-SECTION-B034-E06",
+      "archiveElementId": "CVA-SECTION-B034-E06",
+      "labRoom": "sections",
+      "labRoomAcceptedPrefix": "CVA-SECTION-*",
+      "title": "Porcelain related-options comparison section",
+      "family": "Treatment-pathway sections",
+      "purpose": "Compare adjacent treatment options and provide a route for patients who remain unsure.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "sections/previews/CVA-SECTION-B034-E06.png",
+        "width": 679,
+        "height": 283,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Six refined dental section concepts.png",
+        "parentBoard": "B034 — Six refined dental section concepts",
+        "parentBoardElement": 6,
+        "crop": {
+          "x": 185,
+          "y": 1538,
+          "width": 679,
+          "height": 283
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedRegistry": "apps/web/app/sections/index.tsx",
+        "evidenceNote": "No exact related-treatment comparison section was found in the working component registry."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    }
+  ]
+}

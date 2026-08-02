@@ -1,0 +1,135 @@
+.lab, .compositionShell { min-height: 100vh; color: var(--text-ink-high); background: var(--lab-canvas); transition: background-color 180ms ease; }
+:global(body):has(.lab, .compositionShell) > :global(div) > :global(div:first-child),
+:global(body):has(.lab, .compositionShell) > :global(div) > :global(footer),
+:global(body):has(.lab, .compositionShell) > :global(button),
+:global(body):has(.lab, .compositionShell) > :global(div) > :global(main) > :global([data-hero-engine]) { display: none !important; }
+:global(body):has(.lab, .compositionShell) :global(div:has(> button[aria-label='Open Practice Concierge'])) { display: none !important; }
+:global(body):has(.lab, .compositionShell) > :global(div) > :global(main) { padding: 0 !important; }
+.lab[data-reduced-motion='true'], .lab[data-reduced-motion='true'] *, .compositionShell[data-reduced-motion='true'], .compositionShell[data-reduced-motion='true'] * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+.lab[data-reduced-motion='true'] .heroFrame :global(.hero-surface--motion), .lab[data-reduced-motion='true'] .heroFrame :global(video), .compositionShell[data-reduced-motion='true'] :global(.hero-surface--motion), .compositionShell[data-reduced-motion='true'] :global(video) { display: none !important; opacity: 0 !important; }
+.labHeader, .roomNav, .room, .heroRoom { width: min(100% - 2rem, 90rem); margin-inline: auto; }
+.labHeader { display: flex; justify-content: space-between; gap: 2rem; padding-block: clamp(2rem, 5vw, 4.5rem) 2rem; border-bottom: 1px solid var(--champagne-keyline-gold); }
+.labHeader h1, .roomHeading h2, .composition h3, .archiveWorkspace h3 { margin: 0; font-family: Playfair Display, Georgia, serif; font-weight: 500; }
+.labHeader h1 { font-size: clamp(2.1rem, 5vw, 4.8rem); line-height: 1; }
+.labHeader p, .roomIntro { max-width: 72ch; color: var(--text-ink-medium); line-height: 1.65; }
+.eyebrow, .roomNumber { margin: 0 0 .5rem; color: var(--brand-gold); letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; }
+.status { display: grid; align-content: start; gap: .45rem; min-width: 18rem; color: var(--text-ink-medium); font-size: .78rem; }
+.status span { padding-block: .45rem; border-bottom: 1px solid var(--border-subtle); }
+.roomNav { position: sticky; top: 0; z-index: 20; display: flex; gap: .4rem; overflow-x: auto; padding-block: .7rem; background: color-mix(in srgb, var(--lab-canvas) 94%, transparent); border-bottom: 1px solid var(--border-subtle); backdrop-filter: blur(16px); }
+.roomNav a { flex: 0 0 auto; padding: .45rem .65rem; color: var(--text-ink-medium); text-decoration: none; border: 1px solid transparent; font-size: .7rem; }
+.roomNav a:hover, .roomNav a:focus-visible { color: var(--text-ink-high); border-color: var(--brand-gold-keyline); }
+.room, .heroRoom { padding-block: 3.25rem; border-top: 1px solid var(--border-subtle); scroll-margin-top: 4rem; }
+.roomHeading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 1rem; }
+.roomHeading h2 { font-size: clamp(1.65rem, 3vw, 2.8rem); }
+.unselected { padding: .35rem .6rem; color: var(--brand-gold); border: 1px solid var(--brand-gold-keyline); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; }
+.candidateGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .75rem; padding: 0; margin: 1.5rem 0; border: 0; }
+.candidate { display: flex; align-items: center; gap: .75rem; min-height: 5.2rem; padding: .75rem; text-align: left; color: var(--text-ink-high); background: var(--lab-elevated); border: 1px solid var(--border-subtle); cursor: pointer; }
+.candidate[aria-pressed='true'] { border-color: var(--brand-gold); box-shadow: inset 0 0 0 1px var(--brand-gold); }
+.candidate strong, .candidate small { display: block; }
+.candidate small { margin-top: .22rem; color: var(--text-ink-medium); line-height: 1.3; }
+.swatch { width: 2.8rem; aspect-ratio: 1; flex: 0 0 auto; border: 1px solid var(--brand-gold-keyline); border-radius: 50%; }
+.materialSubheading { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-top: 2rem; padding-bottom: .65rem; border-bottom: 1px solid var(--brand-gold-keyline); }
+.materialSubheading h3 { margin: 0; font: 500 clamp(1.3rem,2.5vw,2rem) Playfair Display, Georgia, serif; }
+.materialSubheading span { color: var(--text-ink-medium); font-size: .75rem; }
+.materialSwatches { display: flex; flex: 0 0 auto; }
+.materialSwatches .swatch { width: 2rem; margin-left: -.35rem; }
+.materialSwatches .swatch:first-child { margin-left: 0; }
+.tokenLaw { display: grid; grid-template-columns: minmax(10rem,.35fr) minmax(0,1fr); gap: 1rem; margin-block: 1rem; padding: 1rem; color: var(--text-ink-medium); background: var(--lab-highest); border-left: 3px solid var(--brand-teal); }
+.tokenLaw strong { color: var(--text-ink-high); }
+.customColour { display: flex; gap: .75rem; align-items: end; flex-wrap: wrap; padding: 1rem; background: var(--lab-elevated); border: 1px solid var(--border-subtle); }
+.customColour label, .assemblerToolbar label { display: grid; gap: .35rem; color: var(--text-ink-medium); font-size: .78rem; }
+.customColour input:not([type='color']), .assemblerToolbar input, .assemblerToolbar select, .archiveWorkspace input { min-height: 2.8rem; padding: .65rem .75rem; color: var(--text-ink-high); background: var(--lab-canvas); border: 1px solid var(--border-subtle); }
+.customColour input[type='color'] { width: 3rem; height: 2.8rem; padding: .2rem; background: var(--lab-canvas); border: 1px solid var(--border-subtle); }
+.customColour button, .decisionStrip button, .viewportButtons button, .archiveToggle { min-height: 2.8rem; padding: .65rem .9rem; color: var(--text-ink-high); background: var(--brand-magenta); border: 1px solid var(--brand-gold-keyline); cursor: pointer; }
+.customColour button:disabled { opacity: .45; cursor: not-allowed; }
+.customColour .quietButton { background: transparent; border-color: var(--brand-teal); }
+.decisionStrip { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-block: 1rem; padding: .75rem 1rem; color: var(--text-ink-medium); background: var(--lab-elevated); border-left: 3px solid var(--brand-gold); }
+.motionControl { display: flex; gap: .65rem; align-items: center; width: fit-content; color: var(--text-ink-medium); }
+.heroRoom { padding-top: 1.5rem; }
+.heroFrame, .compositionHero { overflow: hidden; border: 1px solid var(--champagne-keyline-gold); box-shadow: var(--shadow-strong); }
+.diagnostics { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; color: var(--text-ink-medium); font-size: .72rem; }
+.diagnostics div { display: grid; gap: .2rem; }
+.diagnostics dt { color: var(--brand-gold); text-transform: uppercase; letter-spacing: .08em; }
+.diagnostics dd { margin: 0; max-width: 16rem; overflow-wrap: anywhere; }
+.awaitingPanel, .footerTarget, .emptyChoice { display: flex; justify-content: space-between; gap: 2rem; align-items: center; margin-top: 1.25rem; padding: 1.2rem; background: var(--lab-elevated); border: 1px solid var(--border-subtle); }
+.awaitingPanel p, .footerTarget p, .emptyChoice span { margin: .35rem 0 0; color: var(--text-ink-medium); }
+.awaitingPanel code { color: var(--brand-teal); overflow-wrap: anywhere; }
+.footerTarget { display: block; border-color: var(--brand-gold); border-left-width: .35rem; }
+.footerTarget ul { color: var(--text-ink-medium); line-height: 1.7; }
+.footerEvidence { margin-block: 1rem; }
+.footerEvidence div { display: grid; grid-template-columns: minmax(10rem,.3fr) minmax(0,1fr); gap: .75rem; padding-block: .5rem; border-top: 1px solid var(--border-subtle); }
+.footerEvidence dt { color: var(--brand-gold); }
+.footerEvidence dd { margin: 0; color: var(--text-ink-medium); overflow-wrap: anywhere; }
+.assemblerToolbar { display: grid; grid-template-columns: minmax(12rem,.7fr) minmax(18rem,1.3fr) auto; gap: 1rem; align-items: end; margin-block: 1.25rem; padding: 1rem; background: var(--lab-elevated); border: 1px solid var(--border-subtle); }
+.viewportButtons { display: flex; gap: .35rem; }
+.viewportButtons button { background: transparent; border-color: var(--border-subtle); text-transform: capitalize; }
+.viewportButtons button[aria-pressed='true'] { background: var(--brand-magenta); border-color: var(--brand-gold); }
+.assemblerGrid { display: grid; grid-template-columns: minmax(19rem,.62fr) minmax(0,1.38fr); gap: 1rem; align-items: start; }
+.manifestPanel { max-height: 78vh; overflow: auto; padding: 1rem; background: var(--lab-elevated); border: 1px solid var(--border-subtle); }
+.manifestPanel h3 { margin: .2rem 0; font: 500 1.8rem Playfair Display, Georgia, serif; }
+.manifestPanel p, .manifestPanel dd, .manifestPanel small { color: var(--text-ink-medium); overflow-wrap: anywhere; }
+.manifestPanel dl div { display: grid; grid-template-columns: 6rem 1fr; gap: .5rem; padding-top: .5rem; border-top: 1px solid var(--border-subtle); }
+.manifestPanel dd { margin: 0; }
+.manifestPanel ol { padding: 0; list-style: none; }
+.manifestPanel li { display: grid; grid-template-columns: 2.5rem 1fr; gap: .7rem; padding: .65rem 0; border-top: 1px solid var(--border-subtle); }
+.manifestPanel li > span { color: var(--brand-gold); font-variant-numeric: tabular-nums; }
+.manifestPanel li div { display: grid; gap: .2rem; }
+.pageStage { width: 100%; margin-inline: auto; background: var(--lab-elevated); border: 1px solid var(--brand-gold-keyline); }
+.pageStage[data-viewport='tablet'], .compositionViewport[data-viewport='tablet'] { width: min(100%,52rem); }
+.pageStage[data-viewport='mobile'], .compositionViewport[data-viewport='mobile'] { width: min(100%,24.4rem); }
+.pageStageBar, .compositionToolbar { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem .85rem; color: var(--text-ink-medium); font-size: .75rem; border-bottom: 1px solid var(--border-subtle); }
+.pageStageBar a, .compositionToolbar a { color: var(--brand-teal); }
+.pageStage iframe { display: block; width: 100%; height: 78vh; border: 0; background: var(--lab-canvas); }
+.composition { min-height: 70vh; background: var(--lab-canvas); }
+.compositionHero :global(.hero-renderer-v2), .compositionHero [data-hero-engine] { min-height: 34rem !important; }
+.chapterSequence { display: grid; }
+.chapterPlaceholder { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; min-height: 12rem; padding: clamp(1.25rem,4vw,3rem); background: var(--lab-porcelain-base); color: var(--text-porcelain-high); border-bottom: 1px solid var(--brand-gold-keyline); }
+.chapterPlaceholder:nth-child(4n + 3) { background: var(--lab-porcelain-elevated); }
+.chapterPlaceholder:nth-child(4n + 1) { background: var(--lab-porcelain-highest); }
+.chapterPlaceholder:nth-child(even) { background: var(--lab-elevated); color: var(--text-ink-high); }
+.chapterPlaceholder > span { color: var(--brand-gold); font: 500 1.5rem Playfair Display, Georgia, serif; }
+.chapterPlaceholder h3 { font-size: clamp(1.45rem,3vw,2.5rem); }
+.chapterPlaceholder p, .chapterPlaceholder small { color: var(--text-porcelain-medium); }
+.chapterPlaceholder:nth-child(even) p, .chapterPlaceholder:nth-child(even) small { color: var(--text-ink-medium); }
+.composition .emptyChoice, .composition .footerTarget { margin: 0; min-height: 6rem; }
+.compositionShell { padding-bottom: 3rem; }
+.compositionToolbar { position: sticky; top: 0; z-index: 30; background: var(--lab-canvas); }
+.compositionViewport { width: min(100% - 2rem,90rem); margin: 1rem auto 0; border: 1px solid var(--brand-gold-keyline); box-shadow: var(--shadow-strong); }
+.archiveToggle { width: 100%; text-align: left; background: var(--lab-elevated); border-color: var(--brand-gold); }
+.archiveWorkspace { display: grid; grid-template-columns: minmax(18rem,.65fr) minmax(0,1.35fr); gap: 1rem; margin-top: 1rem; }
+.archiveWorkspace aside, .archiveWorkspace article { padding: 1rem; background: var(--lab-elevated); border: 1px solid var(--border-subtle); }
+.archiveWorkspace aside { display: grid; align-content: start; gap: .65rem; max-height: 52rem; overflow: auto; }
+.archiveWorkspace label { display: grid; gap: .35rem; color: var(--text-ink-medium); font-size: .78rem; }
+.archiveWorkspace aside button { display: grid; grid-template-columns: 7rem 1fr; gap: .7rem; align-items: center; padding: .45rem; text-align: left; color: var(--text-ink-high); background: var(--lab-canvas); border: 1px solid var(--border-subtle); cursor: pointer; }
+.archiveWorkspace aside button[aria-pressed='true'] { border-color: var(--brand-gold); }
+.archiveWorkspace aside img { width: 7rem; aspect-ratio: 16/10; object-fit: cover; object-position: top; }
+.archiveWorkspace article > img { width: 100%; max-height: 78rem; object-fit: contain; object-position: top; border: 1px solid var(--brand-gold-keyline); }
+.archiveWorkspace article p { color: var(--text-ink-medium); }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 52rem) {
+  .labHeader, .roomHeading, .decisionStrip, .awaitingPanel, .materialSubheading { align-items: stretch; flex-direction: column; }
+  .status { min-width: 0; }
+  .diagnostics { display: grid; grid-template-columns: 1fr 1fr; }
+  .assemblerToolbar, .assemblerGrid, .archiveWorkspace { grid-template-columns: 1fr; }
+  .archiveWorkspace aside { max-height: 34rem; }
+  .pageStageBar, .compositionToolbar { flex-wrap: wrap; }
+  .chapterPlaceholder { grid-template-columns: 2.5rem 1fr; }
+  .tokenLaw, .footerEvidence div { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .lab, .lab *, .compositionShell, .compositionShell * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+.componentLibrary{margin-top:1rem}.libraryToggle{width:100%;min-height:3rem;padding:.75rem 1rem;text-align:left;color:var(--text-ink-high);background:var(--lab-highest);border:1px solid var(--brand-gold);cursor:pointer}.currentChoice{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;padding:.8rem 1rem;color:var(--text-ink-medium);background:var(--lab-elevated);border:1px solid var(--border-subtle);border-top:0}.currentChoice strong{color:var(--text-ink-high)}.currentChoice code{color:var(--brand-teal)}.libraryWorkspace{display:grid;grid-template-columns:minmax(19rem,.62fr) minmax(0,1.38fr);gap:1rem;margin-top:1rem}.libraryWorkspace>aside,.choiceInspector{min-width:0;padding:1rem;background:var(--lab-elevated);border:1px solid var(--border-subtle)}.libraryWorkspace>aside{max-height:52rem;overflow:auto}.libraryWorkspace label{display:grid;gap:.35rem;color:var(--text-ink-medium);font-size:.78rem}.libraryWorkspace input{min-height:2.8rem;padding:.65rem .75rem;color:var(--text-ink-high);background:var(--lab-canvas);border:1px solid var(--border-subtle)}.libraryWorkspace aside>p{color:var(--text-ink-medium);font-size:.76rem}.choiceList{display:grid;gap:.5rem}.choiceList button{display:grid;grid-template-columns:7.5rem 1fr;gap:.75rem;align-items:center;min-width:0;padding:.5rem;text-align:left;color:var(--text-ink-high);background:var(--lab-canvas);border:1px solid var(--border-subtle);cursor:pointer}.choiceList button[aria-pressed=true]{border-color:var(--brand-gold);box-shadow:inset 0 0 0 1px var(--brand-gold)}.choiceList img{width:7.5rem;height:5rem;object-fit:contain;background:var(--lab-porcelain-base)}.choiceList span,.choiceList strong,.choiceList small{display:block;min-width:0}.choiceList small{margin-top:.25rem;color:var(--text-ink-medium);overflow-wrap:anywhere}.choiceInspector{display:grid;align-content:start;gap:1rem}.choiceInspector h3{margin:0;font:500 clamp(1.5rem,3vw,2.5rem) Playfair Display,Georgia,serif}.choiceInspector p{color:var(--text-ink-medium)}.choiceCanvas{display:grid;place-items:center;min-height:18rem;padding:1rem;overflow:auto;background:var(--lab-porcelain-base);border:1px solid var(--brand-gold-keyline)}.choiceCanvas img{display:block;width:auto;max-width:100%;max-height:42rem;object-fit:contain}.choiceInspector dl{margin:0}.choiceInspector dl div{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.6rem 0;border-top:1px solid var(--border-subtle)}.choiceInspector dt{color:var(--brand-gold)}.choiceInspector dd{margin:0;color:var(--text-ink-medium)}.selectChoice{min-height:3rem;padding:.75rem 1rem;color:var(--text-ink-high);background:var(--brand-magenta);border:1px solid var(--brand-gold);cursor:pointer}.selectChoice[aria-pressed=true]{background:var(--brand-teal);color:var(--lab-canvas)}.compositionReference{display:grid;grid-template-columns:minmax(13rem,.38fr) minmax(0,.62fr);gap:1rem;align-items:center;padding:1rem;background:var(--lab-elevated);border-bottom:1px solid var(--brand-gold-keyline)}.compositionReference>div{display:grid;gap:.35rem}.compositionReference span{color:var(--brand-gold);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}.compositionReference strong{font:500 1.35rem Playfair Display,Georgia,serif}.compositionReference code{color:var(--brand-teal)}.compositionReference img{display:block;width:100%;max-height:22rem;object-fit:contain;background:var(--lab-porcelain-base)}.supportingChoices{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}.supportingChoices .compositionReference{grid-template-columns:1fr}@media(max-width:52rem){.libraryWorkspace,.compositionReference{grid-template-columns:1fr}.libraryWorkspace>aside{max-height:34rem}.currentChoice{grid-template-columns:1fr}.choiceInspector dl div{grid-template-columns:1fr;gap:.25rem}}
+
+/* Batch 1 display correction: clean B004 CTA faces and role-true Room 11 geometry. */
+.preciseCrop{position:relative;display:inline-block;flex:0 0 auto;width:var(--crop-width);height:var(--crop-height);max-width:100%;overflow:hidden;background:transparent}
+.preciseCrop img{position:absolute!important;left:0;top:0;width:auto!important;max-width:none!important;height:auto!important;max-height:none!important;transform:translate(calc(-1 * var(--crop-x)),calc(-1 * var(--crop-y)));object-fit:none!important}
+.choiceCanvas>.preciseCrop{margin:auto}
+.compositionReference{display:grid;place-items:center;min-height:7rem;padding:clamp(1rem,3vw,2.5rem);background:var(--lab-porcelain-base);border-bottom:1px solid var(--brand-gold-keyline)}
+.compositionReference>img{display:block;object-fit:contain}
+.compositionReference_headers,.compositionReference_sections,.compositionReference_bands{display:block;min-height:0;padding:0;background:transparent}
+.compositionReference_headers>img,.compositionReference_sections>img,.compositionReference_bands>img{display:block;width:100%;max-width:none;max-height:none;height:auto;object-fit:contain}
+.compositionReference_cta>img,.compositionReference_cards>img{width:auto;max-width:100%;height:auto;max-height:none}
+.supportingChoices .compositionReference{display:grid;place-items:center;grid-template-columns:1fr}
+
+/* Ordered laboratory selection model and portable design-brief controls. */
+.currentChoices{display:grid;gap:.65rem;padding:1rem;background:var(--lab-elevated);border:1px solid var(--border-subtle);border-top:0}.currentChoicesHeader{display:flex;justify-content:space-between;gap:1rem;align-items:center;color:var(--text-ink-medium)}.currentChoices button,.pageStageActions button{padding:.45rem .7rem;color:var(--text-ink-high);background:transparent;border:1px solid var(--brand-teal);cursor:pointer}.currentChoices button:disabled{opacity:.35;cursor:not-allowed}.currentChoices ol{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}.currentChoices li{display:grid;grid-template-columns:2rem minmax(10rem,1fr) minmax(9rem,auto) auto;gap:.75rem;align-items:center;padding:.55rem;background:var(--lab-canvas);border:1px solid var(--border-subtle)}.currentChoices li>span{color:var(--brand-gold)}.currentChoices li code{color:var(--brand-teal);overflow-wrap:anywhere}.currentChoices li>div{display:flex;gap:.35rem}.pageStageActions{display:flex;gap:.65rem;align-items:center}.pageStageActions button{border-color:var(--brand-gold)}@media(max-width:52rem){.currentChoicesHeader,.pageStageActions{align-items:stretch;flex-direction:column}.currentChoices li{grid-template-columns:2rem 1fr}.currentChoices li code,.currentChoices li>div{grid-column:2}}

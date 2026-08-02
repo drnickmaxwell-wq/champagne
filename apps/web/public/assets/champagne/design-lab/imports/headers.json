@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "catalogueId": "CHAMPAGNE_DESIGN_LAB_HEADER_IMPORT_V1",
+  "targetRepository": "drnickmaxwell-wq/champagne",
+  "targetBranchObserved": "agent/champagne-design-lab-v1",
+  "targetRoom": "headers",
+  "productionBinding": false,
+  "founderDecisionApplied": false,
+  "itemCount": 11,
+  "items": [
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B003-E01",
+      "archiveElementId": "CVA-HEADER-B003-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Celestial compass gold-line header",
+      "family": "Headers and navigation",
+      "purpose": "Provide a high-luxury desktop navigation bar over a celestial hero.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B003-E01.png",
+        "width": 1536,
+        "height": 112,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Celestial Compass Dental Care.png",
+        "parentBoard": "B003 — Celestial Compass Dental Care",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1536,
+          "height": 112
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "The live Header.tsx has related navigation content but not this monogram, typography, spacing, active underline or rectangular CTA composition."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B005-E01",
+      "archiveElementId": "CVA-HEADER-B005-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Porcelain Champagne editorial header",
+      "family": "Headers and navigation",
+      "purpose": "Provide a restrained light navigation treatment for a porcelain homepage.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B005-E01.png",
+        "width": 1536,
+        "height": 108,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Champagne Dentistry calm wave homepage.png",
+        "parentBoard": "B005 — Champagne Dentistry calm wave homepage",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1536,
+          "height": 108
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "The live header is dark and translucent; it does not reproduce this porcelain surface, Champagne wordmark or layout."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B010-E01",
+      "archiveElementId": "CVA-HEADER-B010-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Persian two-tier patient-portal header",
+      "family": "Headers and navigation",
+      "purpose": "Expose full desktop navigation, patient portal and consultation routes above a vivid hero.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B010-E01.png",
+        "width": 1586,
+        "height": 143,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Champagne dentistry in midnight blue.png",
+        "parentBoard": "B010 — Champagne dentistry in midnight blue",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1586,
+          "height": 143
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "This is structurally related to Header.tsx and its navigation manifest, but the archive’s spacing, colour, full route set and CTA treatment are not an exact implementation match."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B017-E01",
+      "archiveElementId": "CVA-HEADER-B017-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Luminous planning Persian header",
+      "family": "Headers and navigation",
+      "purpose": "Provide calm two-tier navigation above a treatment-planning hero.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B017-E01.png",
+        "width": 1536,
+        "height": 119,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Luminous Implant Planning Hero.png",
+        "parentBoard": "B017 — Luminous Implant Planning Hero",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1536,
+          "height": 119
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "Related to the live two-tier header content, but not an exact visual or responsive implementation match."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B018-E01",
+      "archiveElementId": "CVA-HEADER-B018-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Luminous implant compact header",
+      "family": "Headers and navigation",
+      "purpose": "Provide a compact desktop treatment header with direct consultation access.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B018-E01.png",
+        "width": 864,
+        "height": 91,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Luminous dental implants hero page.png",
+        "parentBoard": "B018 — Luminous dental implants hero page",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 91
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "The live component supplies related content but does not exactly match this narrow layout or transition treatment."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B021-E01",
+      "archiveElementId": "CVA-HEADER-B021-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Charcoal translucent Champagne header",
+      "family": "Headers and navigation",
+      "purpose": "Provide a darker neutral navigation surface over a colourful luxury homepage hero.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B021-E01.png",
+        "width": 864,
+        "height": 145,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Luxury dental homepage in Persian blue.png",
+        "parentBoard": "B021 — Luxury dental homepage in Persian blue",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 145
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "The live header is also translucent and ink-derived, but this archive treatment is not an exact match in material, layout, typography or CTA styling."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B030-E01",
+      "archiveElementId": "CVA-HEADER-B030-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Persian consultation-page header",
+      "family": "Headers and navigation",
+      "purpose": "Provide full patient navigation above a porcelain consultation journey.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B030-E01.png",
+        "width": 864,
+        "height": 99,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Porcelain-led dental consultation page.png",
+        "parentBoard": "B030 — Porcelain-led dental consultation page",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 99
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "Structurally related to Header.tsx but not an exact visual implementation match."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B032-E01",
+      "archiveElementId": "CVA-HEADER-B032-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Treatments-active turquoise header state",
+      "family": "Headers and navigation",
+      "purpose": "Show treatment-page navigation with a clear active route state.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B032-E01.png",
+        "width": 864,
+        "height": 132,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Precision dental implant planning in 3D.png",
+        "parentBoard": "B032 — Precision dental implant planning in 3D",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 132
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "The live component has related routes but does not implement this visible Treatments-active state or exact styling."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B035-E01",
+      "archiveElementId": "CVA-HEADER-B035-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Serif Persian treatment header",
+      "family": "Headers and navigation",
+      "purpose": "Provide a reduced luxury route set above a treatment-detail hero.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B035-E01.png",
+        "width": 864,
+        "height": 75,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "St Mary's Composite Bonding Treatment Page.png",
+        "parentBoard": "B035 — St Mary’s Composite Bonding Treatment Page",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 75
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "The live header uses a sans-serif two-tier identity and pill CTA; this is not an exact match."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B036-E01",
+      "archiveElementId": "CVA-HEADER-B036-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Serif Persian homepage header",
+      "family": "Headers and navigation",
+      "purpose": "Provide restrained brand-led navigation above the main homepage hero.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B036-E01.png",
+        "width": 864,
+        "height": 63,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "St Mary's House dental care homepage.png",
+        "parentBoard": "B036 — St Mary’s House dental care homepage",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 63
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "Related navigation purpose only; the archive wordmark, reduced routes and rectangular action are not reproduced by Header.tsx."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-HEADER-B042-E01",
+      "archiveElementId": "CVA-HEADER-B042-E01",
+      "labRoom": "headers",
+      "labRoomAcceptedPrefix": "CVA-HEADER-*",
+      "title": "Serif Persian concierge header state",
+      "family": "Headers and navigation",
+      "purpose": "Provide brand-led navigation above a consultation and concierge composition.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "headers/previews/CVA-HEADER-B042-E01.png",
+        "width": 864,
+        "height": 68,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "St. Mary’s House dental care concierge.png",
+        "parentBoard": "B042 — St. Mary’s House dental care concierge",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 864,
+          "height": 68
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "relatedImplementation": "apps/web/app/components/layout/Header.tsx",
+        "evidenceNote": "No exact live match. Potential visual duplicate of B036 requiring Founder comparison rather than silent deduplication."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    }
+  ]
+}

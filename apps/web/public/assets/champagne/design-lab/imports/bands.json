@@ -1,0 +1,848 @@
+{
+  "schemaVersion": 1,
+  "catalogueId": "CHAMPAGNE_DESIGN_LAB_BAND_IMPORT_V1",
+  "targetRepository": "drnickmaxwell-wq/champagne",
+  "targetBranchObserved": "agent/champagne-design-lab-v1",
+  "targetRoom": "bands",
+  "productionBinding": false,
+  "founderDecisionApplied": false,
+  "itemCount": 19,
+  "items": [
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B019-E01",
+      "archiveElementId": "CVA-BAND-B019-E01",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Persian-blue considered-next-step gateway",
+      "family": "Closing and pre-footer bands",
+      "purpose": "Close a page with a calm consultation invitation and two secondary routes.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B019-E01.png",
+        "width": 1672,
+        "height": 387,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Luxury consultation band above layered footer.png",
+        "parentBoard": "B019 — Luxury consultation band above layered footer",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1672,
+          "height": 387
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E01",
+      "archiveElementId": "CVA-BAND-B020-E01",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury Persian consultation band",
+      "family": "Consultation and decision bands",
+      "purpose": "Invite a considered consultation or quieter exploration of options",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E01.png",
+        "width": 820,
+        "height": 187,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "01",
+        "crop": {
+          "x": 22,
+          "y": 128,
+          "width": 820,
+          "height": 187
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E02",
+      "archiveElementId": "CVA-BAND-B020-E02",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury question-first split band",
+      "family": "Consultation and decision bands",
+      "purpose": "Offer question-first and assessment routes without booking pressure",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E02.png",
+        "width": 820,
+        "height": 207,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "02",
+        "crop": {
+          "x": 22,
+          "y": 357,
+          "width": 820,
+          "height": 207
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E03",
+      "archiveElementId": "CVA-BAND-B020-E03",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury hero-spectrum signature band",
+      "family": "Closing and pre-footer bands",
+      "purpose": "Close with confidence and a consultation action",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E03.png",
+        "width": 820,
+        "height": 188,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "03",
+        "crop": {
+          "x": 22,
+          "y": 603,
+          "width": 820,
+          "height": 188
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E04",
+      "archiveElementId": "CVA-BAND-B020-E04",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury porcelain quiet-decision band",
+      "family": "Consultation and decision bands",
+      "purpose": "Offer an unhurried choice between asking and arranging",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E04.png",
+        "width": 820,
+        "height": 175,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "04",
+        "crop": {
+          "x": 22,
+          "y": 833,
+          "width": 820,
+          "height": 175
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E05",
+      "archiveElementId": "CVA-BAND-B020-E05",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury clinician handover with portrait",
+      "family": "Trust, evidence and reassurance bands",
+      "purpose": "Reassure patients through visible clinician presence before consultation",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E05.png",
+        "width": 820,
+        "height": 195,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "05",
+        "crop": {
+          "x": 22,
+          "y": 1047,
+          "width": 820,
+          "height": 195
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E06",
+      "archiveElementId": "CVA-BAND-B020-E06",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury treatment-alternatives band",
+      "family": "Transition bands",
+      "purpose": "Route patients between alternatives, comparison and guidance",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E06.png",
+        "width": 820,
+        "height": 153,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "06",
+        "crop": {
+          "x": 22,
+          "y": 1278,
+          "width": 820,
+          "height": 153
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E07",
+      "archiveElementId": "CVA-BAND-B020-E07",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury continue-reading band",
+      "family": "Mid-page bands",
+      "purpose": "Route readers to process, risks, aftercare and FAQs",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E07.png",
+        "width": 820,
+        "height": 123,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "07",
+        "crop": {
+          "x": 22,
+          "y": 1468,
+          "width": 820,
+          "height": 123
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B020-E08",
+      "archiveElementId": "CVA-BAND-B020-E08",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Luxury urgent-or-routine router band",
+      "family": "Consultation and decision bands",
+      "purpose": "Separate urgent dental help from routine consultation planning",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B020-E08.png",
+        "width": 820,
+        "height": 156,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Luxury dental decision-band family board.png",
+        "parentBoard": "B020",
+        "parentBoardElement": "08",
+        "crop": {
+          "x": 22,
+          "y": 1628,
+          "width": 820,
+          "height": 156
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E01",
+      "archiveElementId": "CVA-BAND-B024-E01",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Persian consultation band",
+      "family": "Consultation and decision bands",
+      "purpose": "Invite a considered consultation or quieter exploration of options",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E01.png",
+        "width": 798,
+        "height": 193,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "01",
+        "crop": {
+          "x": 29,
+          "y": 101,
+          "width": 798,
+          "height": 193
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E02",
+      "archiveElementId": "CVA-BAND-B024-E02",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Question-first split band",
+      "family": "Consultation and decision bands",
+      "purpose": "Offer question-first and assessment routes without booking pressure",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E02.png",
+        "width": 797,
+        "height": 193,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "02",
+        "crop": {
+          "x": 847,
+          "y": 101,
+          "width": 797,
+          "height": 193
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E03",
+      "archiveElementId": "CVA-BAND-B024-E03",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Hero-spectrum signature band",
+      "family": "Closing and pre-footer bands",
+      "purpose": "Close with confidence and a consultation action",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E03.png",
+        "width": 795,
+        "height": 164,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "03",
+        "crop": {
+          "x": 29,
+          "y": 334,
+          "width": 795,
+          "height": 164
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E04",
+      "archiveElementId": "CVA-BAND-B024-E04",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Porcelain quiet-decision band",
+      "family": "Consultation and decision bands",
+      "purpose": "Offer an unhurried choice between asking and arranging",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E04.png",
+        "width": 797,
+        "height": 164,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "04",
+        "crop": {
+          "x": 847,
+          "y": 334,
+          "width": 797,
+          "height": 164
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E05",
+      "archiveElementId": "CVA-BAND-B024-E05",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Clinician handover band",
+      "family": "Trust, evidence and reassurance bands",
+      "purpose": "Reassure patients through clinician presence before consultation",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E05.png",
+        "width": 797,
+        "height": 160,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "05",
+        "crop": {
+          "x": 29,
+          "y": 537,
+          "width": 797,
+          "height": 160
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E06",
+      "archiveElementId": "CVA-BAND-B024-E06",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Treatment-alternatives band",
+      "family": "Transition bands",
+      "purpose": "Route patients between alternative treatments, comparisons and guidance",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E06.png",
+        "width": 797,
+        "height": 160,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "06",
+        "crop": {
+          "x": 847,
+          "y": 537,
+          "width": 797,
+          "height": 160
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E07",
+      "archiveElementId": "CVA-BAND-B024-E07",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Continue-reading band",
+      "family": "Mid-page bands",
+      "purpose": "Route readers to process, risks, aftercare and FAQs",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E07.png",
+        "width": 795,
+        "height": 157,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "07",
+        "crop": {
+          "x": 29,
+          "y": 738,
+          "width": 795,
+          "height": 157
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B024-E08",
+      "archiveElementId": "CVA-BAND-B024-E08",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Urgent-or-routine router band",
+      "family": "Consultation and decision bands",
+      "purpose": "Separate urgent dental help from routine consultation planning",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B024-E08.png",
+        "width": 797,
+        "height": 157,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "visual_archive/mockups/Pause, Decide, Continue: Eight Band Concepts.png",
+        "parentBoard": "B024",
+        "parentBoardElement": "08",
+        "crop": {
+          "x": 847,
+          "y": 738,
+          "width": 797,
+          "height": 157
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B028-E01",
+      "archiveElementId": "CVA-BAND-B028-E01",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "Persian architectural three-route consultation gateway",
+      "family": "Closing and pre-footer bands",
+      "purpose": "Offer consultation, question-first and treatment routes immediately before the footer.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B028-E01.png",
+        "width": 1672,
+        "height": 373,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "Persian architectural footer with consultation gateway.png",
+        "parentBoard": "B028 — Persian architectural footer with consultation gateway",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1672,
+          "height": 373
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    },
+    {
+      "schemaVersion": 1,
+      "id": "CVA-BAND-B041-E01",
+      "archiveElementId": "CVA-BAND-B041-E01",
+      "labRoom": "bands",
+      "labRoomAcceptedPrefix": "CVA-BAND-*",
+      "title": "St Mary’s House portal consultation gateway",
+      "family": "Closing and pre-footer bands",
+      "purpose": "Close a page with a branded, staged choice between consultation, question-first and treatment exploration.",
+      "decision": "unselected",
+      "technicalStatus": "MOCKUP_ONLY",
+      "displayMode": "archive-preview",
+      "implementationAvailable": false,
+      "selectableInDesignLab": true,
+      "usableInPageComposition": false,
+      "preview": {
+        "asset": "bands/previews/CVA-BAND-B041-E01.png",
+        "width": 1672,
+        "height": 476,
+        "faithfulCrop": true
+      },
+      "provenance": {
+        "archiveIdentifier": "CHAMPAGNE_GOLDEN_TENANT_VISUAL_ARCHIVE_V1",
+        "archivePath": "St Mary’s House: A Considered Next Step.png",
+        "parentBoard": "B041 — St Mary’s House: A Considered Next Step",
+        "parentBoardElement": 1,
+        "crop": {
+          "x": 0,
+          "y": 0,
+          "width": 1672,
+          "height": 476
+        }
+      },
+      "repositoryEvidence": {
+        "exactComponentMatch": false,
+        "evidenceNote": "The Design Lab accepts band IDs but no exact mounted implementation reproduces this archive design."
+      },
+      "reconstruction": {
+        "required": true,
+        "specificationStage": "CHECKPOINT_3",
+        "allowAutomaticSubstitution": false
+      },
+      "productionBinding": false
+    }
+  ]
+}

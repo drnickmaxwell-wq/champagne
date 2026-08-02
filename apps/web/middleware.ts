@@ -13,5 +13,5 @@ export function middleware(_request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/champagne/:path*"],
+  matcher: ["/champagne/:path*", "/assets/champagne/design-lab/:path*"],
 };
