@@ -1,13 +1,13 @@
 {
   "schemaVersion": "CHAMPAGNE_CRITICAL_PAINT_V1",
-  "status": "GENERATED_SEMANTIC_TOKEN_SNAPSHOT_NOT_FINAL_PERSIAN_MIDNIGHT_SELECTION",
+  "status": "GENERATED_SURFACE_CANVAS_SNAPSHOT_NOT_FINAL_PERSIAN_MIDNIGHT_SELECTION",
   "purpose": "Provide the current canonical Champagne canvas before external theme CSS is available.",
   "finalPersianMidnightSelection": false,
   "canonicalSource": {
     "semanticPath": "packages/champagne-tokens/styles/champagne/tokens.css",
-    "semanticToken": "--smh-ink-navy",
+    "rootToken": "--surface-canvas",
     "primitivePath": "packages/champagne-tokens/styles/tokens/smh-champagne-tokens.css",
-    "validation": "guard-surface-semantics reads the semantic token declaration, recursively resolves its canonical CSS variables, normalizes the result, and fails if canvasExpression differs"
+    "validation": "guard-surface-semantics starts at --surface-canvas, recursively resolves every canonical CSS-variable dependency through semantic and primitive token sources, normalizes the result, and fails if canvasExpression differs"
   },
   "canvasExpression": "color-mix(in oklab, color-mix(in oklab, #0B0D0F 88%, #40C4B4 12%) 92%, #C2185B 8%)",
   "bindings": {
@@ -19,7 +19,8 @@
     "canvasPainters": ":where(html), :where(body)"
   },
   "constraints": [
-    "ACTUAL_SEMANTIC_TOKEN_DEFINITION_MUST_VALIDATE",
+    "PUBLIC_SURFACE_CANVAS_ROOT_MUST_VALIDATE",
+    "FULL_CANONICAL_ALIAS_CHAIN_RESOLUTION",
     "RECURSIVE_CANONICAL_VARIABLE_RESOLUTION",
     "LOW_SPECIFICITY_EXTERNAL_THEME_OVERRIDES",
     "NO_FINAL_MATERIAL_CALIBRATION",
